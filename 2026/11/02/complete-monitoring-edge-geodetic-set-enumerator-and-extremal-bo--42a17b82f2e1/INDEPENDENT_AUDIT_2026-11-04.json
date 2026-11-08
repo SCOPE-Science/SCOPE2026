@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:40:42.991745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/complete-monitoring-edge-geodetic-set-enumerator-and-extremal-bo--42a17b82f2e1/RESULT.md",
+        "2026/11/02/complete-monitoring-edge-geodetic-set-enumerator-and-extremal-bo--42a17b82f2e1/verify.py",
+        "2026/11/02/complete-monitoring-edge-geodetic-set-enumerator-and-extremal-bo--42a17b82f2e1/SLOGAN.txt"
+      ],
+      "rationale": "The edge-deletion monitoring predicate is equivalent to no selected cyclic gap of length at least n/2, including a strict exclusion of antipodal geodesic ties. Count each long gap by initial vertex and possible remainder with a hockey-stick sum; distinct long gaps cannot coexist except the two antipodal gaps of one even two-set. This gives (1+z)^n-1-nz(1+z)^floor(n/2)+1_even*(n/2)z². Deleting a vertex merges adjacent gaps; summing all merged-gap inequalities bounds minimal sizes by three (odd) or four (even), with even 4-sets exactly unions of two antipodal pairs. Completing the unique long gap gives precisely n maximal bad contiguous blocks of size floor(n/2)+1. Independently reconstructed shortest paths before/after each deleted edge and counted every subset for C3..C10 with matching outputs. The proof, not finite n checks, covers all n>=3.",
+      "residual_risks": [
+        "Unweighted simple cycles only. No extrapolation from finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dev et al. compute MEG minima in cycles; Haslegrave proves complexity and product bounds; 2024 graph papers prove bounds and algorithms.",
+          "A published Resultary strong-edge-geodetic enumeration treats complete multipartite graphs, not MEG in cycles."
+        ],
+        "reasoning": "Bounds, scalar optimum and algorithms do not determine all k-set coefficients and maximal forbidden sets; searched stronger graph classes without a covering cycle formula.",
+        "searches": [
+          "Actual Resultary semantic search: monitoring edge-geodetic sets cycles complete enumerator all vertex subsets forbidden semicircle minimal dominating sets",
+          "https://arxiv.org/abs/2210.08955",
+          "https://arxiv.org/abs/2403.09122",
+          "https://arxiv.org/abs/2409.19067"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.03774",
+        "https://arxiv.org/abs/2210.08955",
+        "https://arxiv.org/abs/2403.09122",
+        "https://arxiv.org/abs/2409.19067",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dev et al. show the minimum cycle MEG size is three except four for C4.",
+          "The complete polynomial specializes to the known minimum and additionally derives a size threshold floor(n/2)+2, all minimal successful sets, maximal failures and independent-probe reliability."
+        ],
+        "reasoning": "Old minimum follows from new enumeration, but the converse is false: a scalar optimum leaves all higher cardinalities undetermined.",
+        "searches": [
+          "https://arxiv.org/abs/2210.03774",
+          "Actual Resultary semantic search: monitoring edge-geodetic sets cycles complete enumerator all vertex subsets forbidden semicircle minimal dominating sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic selected-gap criterion max gap < n/2 is equivalent to exclusion of a closed containing semicircle for regular polygon vertices.",
+          "The odd/even antipodal correction is necessary when a gap equals n/2."
+        ],
+        "reasoning": "Geometric language can re-express the entire theorem; existing min-MEG or edge-geodetic numbers alone do not give all enumerator coefficients. An old regular-polygon count remains a priority risk.",
+        "searches": [
+          "Actual Resultary semantic search: monitoring edge-geodetic sets cycles complete enumerator all vertex subsets forbidden semicircle minimal dominating sets",
+          "regular polygon no closed semicircle containment all subset count central point strict convex hull",
+          "https://arxiv.org/abs/2210.03774"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual Resultary results included unrelated all-set graph polynomials; no direct cycle-MEG enumerator surfaced.",
+          "No searched published MEG abstract gave a table of all k sets."
+        ],
+        "reasoning": "Failure to find an indexed polynomial cannot establish historical novelty; polygon cyclic subset tables may already yield the formula.",
+        "searches": [
+          "Actual Resultary semantic search: monitoring edge-geodetic sets cycles complete enumerator all vertex subsets forbidden semicircle minimal dominating sets",
+          "all-cardinality cyclic run length forbidden arcs exact count regular polygon strict origin convex hull",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445"
+        ]
+      },
+      "rationale": "The prior cycle MEG number (3 except C4) is credited; this result adds the full size polynomial and two inclusion-extremal classifications. The geometric closed-semicircle equivalent could be tabulated under another name; no absolute novelty certification.",
+      "residual_risks": [
+        "Unindexed closed-semicircle/regular-polygon combinatorial enumeration might imply all coefficients and minimal configurations.",
+        "Primary MEG articles not all inspected in full; no historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": "Source establishes MEG number and definition, not a full count as displayed in the material inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03774",
+          "material_read": "Primary abstract and accessible cycle theorem statement, including C4 exception",
+          "method": "Open original arXiv and published cycle-theorem excerpt",
+          "title": "Monitoring edge-geodetic sets in graphs",
+          "trigger": "Introduces exactly MEG and gives original cycle result"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "Graphs with only universal MEG-set and bounds on products are addressed; not a full cycle set polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.08955",
+          "material_read": "Original abstract and detailed publicly available product-bound summary",
+          "method": "Open arXiv text/abstract",
+          "title": "Monitoring edge-geodetic sets: hardness and graph products",
+          "trigger": "General graph bounds and cycles"
+        },
+        {
+          "assessment": "OTHER_PROPERTY",
+          "evidence": "Different geodetic notion on complete multipartite graphs; no coverage of cycles implied.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445",
+          "material_read": "Actual semantic search result with displayed theorem summary, not full source",
+          "method": "Resultary indexed result",
+          "title": "All strong edge geodetic sets of complete multipartite graphs",
+          "trigger": "Published exact enumerator with similar terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.03774",
+        "https://arxiv.org/abs/2210.08955",
+        "https://arxiv.org/abs/2403.09122",
+        "https://arxiv.org/abs/2409.19067",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445"
+      ],
+      "rationale": "The all-cardinality MEG placement spectrum is a natural reliability invariant for probe selection and quantifies both sharp guaranteed coverage and all boundary minimally sufficient placements. Counting all sets and maximal failures is materially beyond the known scalar monitoring number; this is an infinite-family combinatorial classification, not merely code or rebranding.",
+      "residual_risks": [
+        "A geometric repackaging already in the literature could reduce historical value; exact priority is not certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only unweighted simple cycles n>=3; no chords or edge weights.",
+    "Finite tests corroborate the all-n combinatorial proof."
+  ],
+  "schema_version": 1
+}

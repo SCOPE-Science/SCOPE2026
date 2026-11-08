@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every simple cycle of order at least three, all definitions and boundary cases are explicit. Each vertex subset monitors every edge exactly when all its selected cyclic gaps have length strictly below half the cycle. This is derived from the definition using deletion of an edge and uniqueness of shortest paths, including the even antipodal tie. Counting long-gap incidences and correcting the unique antipodal-pair double count gives every coefficient, without extrapolation. The merged-gap argument determines all inclusion-minimal successful sets, and maximal long-gap extension determines every maximal failure. Triple counts and independent-probe reliability follow algebraically. Independent brute-force distance-after-edge-deletion verification checks every subset for orders three through thirteen and prints VERIFY_OK. Finite verification is supporting evidence, not the proof of the infinite range.
+PASS
 
-## Originality — PASS, subject to prior-art risk
+The edge-deletion monitoring predicate is equivalent to no selected cyclic gap of length at least n/2, including a strict exclusion of antipodal geodesic ties. Count each long gap by initial vertex and possible remainder with a hockey-stick sum; distinct long gaps cannot coexist except the two antipodal gaps of one even two-set. This gives (1+z)^n-1-nz(1+z)^floor(n/2)+1_even*(n/2)z². Deleting a vertex merges adjacent gaps; summing all merged-gap inequalities bounds minimal sizes by three (odd) or four (even), with even 4-sets exactly unions of two antipodal pairs. Completing the unique long gap gives precisely n maximal bad contiguous blocks of size floor(n/2)+1. Independently reconstructed shortest paths before/after each deleted edge and counted every subset for C3..C10 with matching outputs. The proof, not finite n checks, covers all n>=3.
 
-Dev et al., arXiv:2210.03774, establish the scalar minimum MEG-set size of cycles, including the four-cycle exception. That result is not newly claimed. Haslegrave, arXiv:2210.08955, concerns product bounds and complexity, and the inspected 2024 papers arXiv:2403.09122 and arXiv:2409.19067 concern bounds and complexity; their relevant results do not establish this complete size enumerator and both extremal inclusion classifications. The regular-polygon centered-convex-hull and no-closed-semicircle formulations are mathematically equivalent and were searched as well. A combinatorial cycle-arc or polygon-subset formula may already imply the result in different language; available comparisons found no decisive earlier complete statement, so priority remains subject to independent literature review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles an all-cardinalities placement spectrum and independent-probe reliability for a foundational network monitoring invariant. It also completely identifies the maximal failures (sharp universal guarantee) and the nonuniform minimal successes, including the exceptional even-order antipodal-pair family. These are natural dual boundaries of the same monitoring property, not arbitrary small numerical instances. The previously known scalar minimum is not counted as new.
+The prior cycle MEG number (3 except C4) is credited; this result adds the full size polynomial and two inclusion-extremal classifications. The geometric closed-semicircle equivalent could be tabulated under another name; no absolute novelty certification.
 
-## Sources and limits
+## value
 
-The primary graph literature is Dev et al. (arXiv:2210.03774), Haslegrave (arXiv:2210.08955), and the 2024 bounds/algorithm papers (arXiv:2403.09122, arXiv:2409.19067). The result is for simple, unweighted cycles. Literature-priority uncertainty includes older combinatorics of vertices on a regular polygon and cyclic run enumerators. Full independent audit and independent validation are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-cardinality MEG placement spectrum is a natural reliability invariant for probe selection and quantifies both sharp guaranteed coverage and all boundary minimally sufficient placements. Counting all sets and maximal failures is materially beyond the known scalar monitoring number; this is an infinite-family combinatorial classification, not merely code or rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

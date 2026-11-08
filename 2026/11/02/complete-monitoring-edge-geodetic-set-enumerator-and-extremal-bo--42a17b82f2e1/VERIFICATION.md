@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-Run `python3 verify.py 13` in the directory containing the embedded source. This program computes cycle distances by breadth-first search, removes each edge in turn, and determines monitoring from strictly increased pair distances. It does not use the proof's gap predicate to classify a set. It exhaustively enumerates every subset for each order from three through thirteen, compares **every** polynomial coefficient with the derived formula, verifies the types and counts of all inclusion-minimal monitoring sets, confirms precisely the proposed maximal nonmonitoring blocks, and checks their maximum cardinality. The successful independent execution produced `VERIFY_OK`.
+# Independent mathematical audit
 
-This is finite, exhaustive evidence for the tested cases only. The all-order assertion is supported by the written structural and counting proof. No symbolic proof assistant or independent audit was used.
+## correctness
+
+PASS
+
+The edge-deletion monitoring predicate is equivalent to no selected cyclic gap of length at least n/2, including a strict exclusion of antipodal geodesic ties. Count each long gap by initial vertex and possible remainder with a hockey-stick sum; distinct long gaps cannot coexist except the two antipodal gaps of one even two-set. This gives (1+z)^n-1-nz(1+z)^floor(n/2)+1_even*(n/2)z². Deleting a vertex merges adjacent gaps; summing all merged-gap inequalities bounds minimal sizes by three (odd) or four (even), with even 4-sets exactly unions of two antipodal pairs. Completing the unique long gap gives precisely n maximal bad contiguous blocks of size floor(n/2)+1. Independently reconstructed shortest paths before/after each deleted edge and counted every subset for C3..C10 with matching outputs. The proof, not finite n checks, covers all n>=3.
+
+## originality
+
+PASS
+
+The prior cycle MEG number (3 except C4) is credited; this result adds the full size polynomial and two inclusion-extremal classifications. The geometric closed-semicircle equivalent could be tabulated under another name; no absolute novelty certification.
+
+## value
+
+PASS
+
+The all-cardinality MEG placement spectrum is a natural reliability invariant for probe selection and quantifies both sharp guaranteed coverage and all boundary minimally sufficient placements. Counting all sets and maximal failures is materially beyond the known scalar monitoring number; this is an infinite-family combinatorial classification, not merely code or rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
