@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:07:37.874418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For count chain on Δ_{k,m}, fixed k>=2,a,b>0,a+b<=1, coordinate reflecting one-agent birth-death generator Q has stationary geometric π_j∝(a/b)^{j-1} and simple first nonzero rate gamma=a+b-2sqrt(ab)cos(pi/k), first normalized eigenvector ψ_j∝(b/a)^((j-1)/2)[sin(jπ/k)-sqrt(b/a)sin((j-1)π/k)] with nonzero endpoints. Independent-coordinate Poissonized chain at s=log m/(2gamma)+c has one-agent density 1+m^-1/2 e^-gamma c ψ(i)ψ(j)+o(m^-1/2), and homogeneous endpoint product log-likelihood has LAN Gaussian shift amplitude |ψ(i)|e^-gamma c, yielding exact 2Φ(amplitude/2)-1 TV. The product likelihood is count-measurable so passing to occupancy states does not diminish this homogeneous TV. Universal chi-square product bound controls arbitrary initial configuration late, endpoints give early lower. Exact spectral tensor comparison of discrete (1-L/m)^t versus continuous e^-Lt/m, splitting fixed H modes, high H≤m and L>m, establishes equality of limits and O(m) cutoff window at t=m log m/(2gamma). Substituting a=(1-α-β)(1-β),b=(1-α-β)β,m=(1-α-β)n cancels α in leading n log m center. Independently computed tridiagonal eigenvalues for k=2,3,5 under symmetric/asymmetric rates, errors <1e-14; finite simulations do not replace the all-m limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Kumagai full PDF §§1–3 has product TV/Hellinger cutoff framework and continuous/discrete comparison; the IGT closed k-state spectral gap and endpoint likelihood ratio require specialization not in inspected typical two-state/cycle examples."
+        ],
+        "reasoning": "Broad theory covers part of the mathematical mechanism and may imply worst-case cutoff existence; this review excludes generic cutoff as novelty, retaining exact profile/parameters.",
+        "searches": [
+          "Cutoffs for product chains Chen Kumagai 2018 Theorem 1.1 and Proposition 2.6",
+          "Chen Fang Sheu 2012 cutoff phenomenon Ehrenfest chains Lp criterion"
+        ]
+      },
+      "checked_sources": [
+        "Game Dynamics and Equilibrium Computation in the Population Protocol Model (https://arxiv.org/abs/2307.07297)",
+        "Cutoffs for product chains (https://t-kumagai.w.waseda.jp/ProductChains_fin.pdf)",
+        "The cutoff phenomenon for Ehrenfest chains (https://doi.org/10.1016/j.spa.2012.05.003)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The originating IGT paper explicitly identifies computing exact cutoff constants as future; general product criteria do not determine first eigenfunction norm ψ(i) or α coefficient cancellation."
+        ],
+        "reasoning": "Coarse prior O(m log m) logically permits infinitely many leading constants; it does not imply the exact centered Gaussian TV theorem.",
+        "searches": [
+          "Game Dynamics and Equilibrium Computation in the Population Protocol Model 2307.07297 future work cutoff constants",
+          "Chen Kumagai product chains general cutoff theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "IGT source models same Δ_{k,m} and explicitly leaves cutoff constant/profile for future work; Chen–Kumagai main criteria and examples concern general product chains, not this reflecting birth–death k-level exact endpoint Gaussian formula."
+        ],
+        "reasoning": "Count pushforward of labeled independent coordinates supplies equivalent chain; earlier product-chain results could imply an abstract cutoff but not supplied constant/profile without a new spectral computation.",
+        "searches": [
+          "incremental generosity tuning population protocols cutoff Gaussian profile eigenvalue total variation [Resultary]",
+          "Alistarh Chatterjee Karrabi Lazarsfeld 2307.07297 cutoff constants question",
+          "Chen Kumagai 1701.06665 product chain TV cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chen/Fang/Sheu 2012 abstract gives cutoff existence criteria and possible windows, not explicit k-IGT occupancy fixed-window profile; Alistarh source gives empirical mixing orders only."
+        ],
+        "reasoning": "A known multicolor Ehrenfest exact Gaussian profile might subsume a special case, but identified nonconstant reflecting-chain and game-parameter cancellation not available as a matching table.",
+        "searches": [
+          "incremental generosity tuning occupancy exact Gaussian total variation profile 2 Phi",
+          "Ehrenfest chain multi urn cutoff fixed window Gaussian profile"
+        ]
+      },
+      "rationale": "Alistarh–Chatterjee–Karrabi–Lazarsfeld 2023/2024 introduce exact IGT count model, multinomial equilibrium, O(m log m) bound and discuss cutoff constants as future problem, not Gaussian endpoint profile. Chen–Kumagai (2017/2018) establish general product-chain cutoff criteria and continuous/discrete comparison, so generic cutoff principle is covered; the exact reflecting k-level gap, fixed-window Gaussian law for endpoint counts, and α cancellation are model-specific. Relevant Ehrenfest 2012 full text unavailable via open routes and authorized VPN.",
+      "residual_risks": [
+        "A general local asymptotic normality theorem for product chains may derive the Gaussian formula once spectral input is supplied; priority restricted to explicit IGT specialization.",
+        "Chen–Fang–Sheu 2012 primary full text inaccessible; Oxford job 589af528a7cde0af2cd52929842b5c76 blocked by disconnected VPN.",
+        "No fixed-window claim for arbitrary initial empirical mixtures; parameters k,a,b fixed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes original process and bounds; not exact leading cutoff and fixed-window profile",
+          "evidence": [
+            "Introduces k-IGT transitions and multinomial stationary measure; notes sharper constants/cutoff as prospective work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.07297",
+          "material_read": "Full primary source PDF and readable full text, especially Sections 2.2.2–2.2.3 and relevant appendix mixing arguments",
+          "method": "Read published protocol, detailed-balance and mixing-bound statements, examined exact future-work remarks",
+          "title": "Game Dynamics and Equilibrium Computation in the Population Protocol Model",
+          "trigger": "Original incremental-generosity count chain and mixing estimates"
+        },
+        {
+          "assessment": "General cutoff mechanism acknowledged; does not explicitly give IGT eigenfunction amplitude or endpoint Gaussian count profile",
+          "evidence": [
+            "Product chain formula (1.6), continuous tensor product (1.7), Proposition 2.6 comparison, §3 TV/Hellinger criteria."
+          ],
+          "identifier_or_url": "https://t-kumagai.w.waseda.jp/ProductChains_fin.pdf",
+          "material_read": "Full author PDF, Sections 1–3 including main TV/Hellinger cutoff criteria and discrete-continuous comparison and example classes",
+          "method": "Read primary paper relevant proofs, rendered opening page, compared one-agent law and claimed quantifiers",
+          "title": "Cutoffs for product chains",
+          "trigger": "Possible broad dominating theorem on products of birth-death chains"
+        },
+        {
+          "assessment": "Possible exact profile in uninspected article is residual risk; accessible abstract describes Lp cutoff criteria and windows",
+          "evidence": [
+            "Chen/Fang/Sheu abstract: Lp-cutoff criterion, specified initial states, possible window."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2012.05.003",
+          "material_read": "2012 abstract and university bibliographic metadata, full primary paper unavailable",
+          "method": "Compared model identifiers, abstract claim and published scope without claiming full text noncoverage",
+          "title": "The cutoff phenomenon for Ehrenfest chains",
+          "trigger": "Potential multicolor or urn model coverage of homogeneous endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides the sharp mixing horizon and profile for a population-protocol strategy-learning model, replacing only coarse order bounds; the leading cancellation of unconditional cooperators and endpoint profile have quantitative value. Does not claim novelty of general product-chain cutoff.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Game Dynamics and Equilibrium Computation in the Population Protocol Model (https://arxiv.org/abs/2307.07297)",
+    "Cutoffs for product chains (https://t-kumagai.w.waseda.jp/ProductChains_fin.pdf)",
+    "The cutoff phenomenon for Ehrenfest chains (https://doi.org/10.1016/j.spa.2012.05.003)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Game-time leading coefficient assumes fixed α,β, β∈(0,1), α+β<1, integer m, not growing k or changing rates"
+  ],
+  "schema_version": 1
+}
