@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is exactly quantified for all centrally symmetric genuine planar hexagons. A canonical affine three-generator normal form reduces the product to \(8SQ/((a+b)(b+c)(c+a))\). The six polar normal rays give the polar area exactly. The two sharp inequalities are equivalent to two explicit nonnegative polynomials in the ordered gaps \(x,y,z\), reproduced in the proof; their coefficients were checked exactly, and positivity is strict for unequal positive triples. Explicit limits prove both constants cannot be improved. The derivative test proves strict Schur concavity, and a separate local expansion gives the limiting \(9/8\). The accompanying checker is corroborative, not a substitute for the proof.
+PASS
 
-## Originality — PASS, with a residual historical caveat
+Verified affine three-generator gauge, zonotope area √3 Q/2 and polar area 16√3 S/(3D), hence M=8SQ/D and exact deficit W/D. Independently expanded both integer polynomial certificates L=2S²W−DN and U=2DN−S²W in ordered gaps x,y,z and checked identical nonnegative coefficient expressions using symbolic algebra; this proves sharp 1/2 V≤9−M≤2V for all positive triples. Degenerate limits produce 1/2 and 2 and equal-triple local ratio 9/8; pairwise transfer derivative proves strict Schur concavity. This is exact symbolic proof checking, not finite sampling.
 
-The 2011 Meyer–Reisner polygon theorem proves the upper bound and affine-regular equality, so neither is counted as new. The checked text of its Section 3 uses an extremal variation argument rather than a sharp global deficit-versus-generator-variance law. The 2013 Böröczky–Makai–Meyer–Reisner stability paper addresses lower bounds and closeness to lower extremizers. The closest indexed hexagon geometry findings address translative hulls and enclosing parallelograms, which do not imply the two sharp constants here. Database searches and primary-source inspections identified no equivalent or stronger quantitative upper comparison in the stated gauge. Absence from searched sources is not a proof of historical novelty; unindexed work and alternative affine moduli remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Centrally symmetric hexagons are the first nontrivial planar zonotopes beyond parallelograms. Their exact sharp extremum \(9\) has long been known, but the full affine moduli admit a motivated quantitative stability question: how large a product deficit is forced by a given departure from the affine-regular class? The result answers this globally with two best constants, no small-defect hypothesis, a complete strict order under generator balancing, and a distinct local coefficient. It is a structural sharp inequality, not a selected arithmetic example or a restatement of the known endpoint theorem.
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
 
-## Scope and uncertainty
+## value
 
-No assertion is made about polygons with other numbers of sides, noncentral hexagons, or arbitrary Euclidean side-length variance. Historical novelty remains subject to future full-text comparisons. The supplied computational checks are not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The upper Mahler extremizer of genuine centrally symmetric hexagons is classical, so sharp global two-sided quantitative stability in an intrinsic affine generator variance is a natural precise next invariant. Distinct sharp constants and global Schur ordering give substantive geometric structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

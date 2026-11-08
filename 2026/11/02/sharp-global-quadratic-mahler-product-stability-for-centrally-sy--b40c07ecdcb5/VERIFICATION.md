@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the hexagon stability law
+# Independent mathematical audit
 
-Run `python3 verification.py` from a directory containing the included program. Only the Python 3 standard library is required. The program constructs the two exact nonnegative polynomial identities \(2S^2W-DN=L\) and \(2DN-S^2W=U\), compares their coefficients with the explicit proof forms, and checks that every coefficient is nonnegative. It also evaluates \(1728\) positive-integer generator triples by exact rational arithmetic, reconstructing the associated hexagons and their polars independently through convex hull and shoelace formulas to check the Mahler product numerically. The symbolic calculations and displayed analytic positivity arguments, rather than the finite sample, establish universal validity. The sharp constants are supplied by exact limiting families in the proof.
+## correctness
 
-No independent audit has been performed. The verifier does not establish historical originality or validity outside the quantified class.
+PASS
+
+Verified affine three-generator gauge, zonotope area √3 Q/2 and polar area 16√3 S/(3D), hence M=8SQ/D and exact deficit W/D. Independently expanded both integer polynomial certificates L=2S²W−DN and U=2DN−S²W in ordered gaps x,y,z and checked identical nonnegative coefficient expressions using symbolic algebra; this proves sharp 1/2 V≤9−M≤2V for all positive triples. Degenerate limits produce 1/2 and 2 and equal-triple local ratio 9/8; pairwise transfer derivative proves strict Schur concavity. This is exact symbolic proof checking, not finite sampling.
+
+## originality
+
+PASS
+
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
+
+## value
+
+PASS
+
+The upper Mahler extremizer of genuine centrally symmetric hexagons is classical, so sharp global two-sided quantitative stability in an intrinsic affine generator variance is a natural precise next invariant. Distinct sharp constants and global Schur ordering give substantive geometric structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
