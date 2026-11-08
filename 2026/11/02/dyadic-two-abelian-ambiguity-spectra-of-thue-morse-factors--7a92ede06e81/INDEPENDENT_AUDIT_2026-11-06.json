@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:43:43.043311Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each k>=2, N=2^k, decompose the fixed Thue–Morse word into µ^k blocks P and complement Pbar. Each length-N factor is a rotation of P or a mixed cut-and-join of adjacent unlike blocks. These supply N+2(N-1)=3N-2 distinct factors because the classical factor-complexity theorem gives that exact total and the same-block rotations are distinct. Circular pair counts H_k=(N+2(-1)^k)/6 follow from substitution recurrence; mixed cuts are classified by odd/even offset, endpoint bits, and a telescoping prefix 00-minus-11 count. Summing six mixed cases plus rotations yields eight signatures: even k six classes of (N-1)/3 and two N/2; odd k four of (N-2)/6, two N/2 and two (2N-1)/3. Independent literal-factor enumeration verified exact class sizes and total 3N-2 for k=2..9. Infinite statement rests on block-count and recurrence proof, not samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary: Exact binary two-multispectrum code size and singleton classification",
+          "Greinecker arXiv:1404.3906: 2-Abelian complexity and unique extension bounds"
+        ],
+        "reasoning": "A complete all-binary two-gram code census concerns every 2^N binary word, not the restricted Thue–Morse factor set; restricting a global spectrum count cannot recover how many factors inhabit each class. Greinecker’s 2-regular count of signatures does not imply their individual cardinalities.",
+        "searches": [
+          "Resultary semantic query: Thue Morse word 2 abelian equivalence distinct factor class sizes dyadic lengths ambiguity spectra",
+          "arXiv:1404.3906",
+          "arXiv:1405.3532",
+          "arXiv:1405.2235",
+          "web: Thue Morse 2 abelian equivalence class cardinalities size distribution length 2^k",
+          "Resultary: Exact binary two-multispectrum code size and singleton classification"
+        ]
+      },
+      "checked_sources": [
+        "Git source RESULT.md/checker.py at assigned tree",
+        "arXiv:1404.3906 main PDF relevant pages and Lemma 5.4",
+        "arXiv:1405.3532 abstract/theorem synopsis",
+        "arXiv:1405.2235 bibliographic synopsis",
+        "Resultary binary 2-gram code class census",
+        "OEIS A245186"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Greinecker 2014 introduction factor count 3N-2; 2-Abelian complexity treatment",
+          "RESULT.md proof §§1-4 block cuts and parity-dependent signature table",
+          "Parreau et al. 2014 2-regular number-of-classes theorem"
+        ],
+        "reasoning": "Known 2-Abelian complexity=8 at these lengths determines only the number of groups, not a group-size multiset; the established factor count 3N-2 determines their sum but not their distribution. The source combines these with a new explicit mixed-block pair-count tally, so none of these existing numerical statements alone gives the table.",
+        "searches": [
+          "Resultary semantic query: Thue Morse word 2 abelian equivalence distinct factor class sizes dyadic lengths ambiguity spectra",
+          "arXiv:1404.3906",
+          "arXiv:1405.3532",
+          "arXiv:1405.2235",
+          "web: Thue Morse 2 abelian equivalence class cardinalities size distribution length 2^k",
+          "Resultary: Exact binary two-multispectrum code size and singleton classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greinecker arXiv:1404.3906 Definitions and dyadic complexity statements",
+          "Parreau–Rigo–Rowland–Vandomme arXiv:1405.3532 2-regular class-count theory"
+        ],
+        "reasoning": "The result is the joint distribution of endpoint symbols and overlapping 00/11 bigram Parikh vectors over the *distinct length-N Thue–Morse factor language*, rather than two-Abelian complexity (only the number of nonempty classes). Greinecker and Parreau et al. address the latter count.",
+        "searches": [
+          "Resultary semantic query: Thue Morse word 2 abelian equivalence distinct factor class sizes dyadic lengths ambiguity spectra",
+          "arXiv:1404.3906",
+          "arXiv:1405.3532",
+          "arXiv:1405.2235",
+          "web: Thue Morse 2 abelian equivalence class cardinalities size distribution length 2^k",
+          "Resultary: Exact binary two-multispectrum code size and singleton classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: Exact binary two-multispectrum code size and singleton classification",
+          "OEIS A245186 (2-Abelian Thue–Morse complexity counts)"
+        ],
+        "reasoning": "The published index returned an all-binary 2-multispectrum class census and Thue–Morse attractor counts, but no dyadic Thue–Morse per-signature class-size table. OEIS 2-Abelian complexity lists counts of classes rather than this eight-dimensional multiplicity distribution.",
+        "searches": [
+          "Resultary semantic query: Thue Morse word 2 abelian equivalence distinct factor class sizes dyadic lengths ambiguity spectra",
+          "arXiv:1404.3906",
+          "arXiv:1405.3532",
+          "arXiv:1405.2235",
+          "web: Thue Morse 2 abelian equivalence class cardinalities size distribution length 2^k",
+          "Resultary: Exact binary two-multispectrum code size and singleton classification"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.",
+      "residual_risks": [
+        "An earlier factor-frequency or two-block-coding classification could already imply the eight class cardinalities after nontrivial specialization.",
+        "This counts distinct strings, not frequencies of occurrences; only dyadic k>=2 and 2-Abelian statistics are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives number of equivalence classes and factor complexity, not inspected dyadic sizes of each class",
+          "evidence": "Introduction |F_N|=3N-2 at dyadic N, Lemma 5.4 / main 2-regular complexity results.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.3906",
+          "material_read": "Accessible full arXiv PDF, definitions, introduction, relevant main results and Lemma 5.4 passages around pages 10-13",
+          "method": "Primary PDF text and visual screenshots of relevant pages",
+          "title": "On the 2-Abelian Complexity of the Thue–Morse Word",
+          "trigger": "Exactly the same fixed word and equivalence relation; plausible dominating source"
+        },
+        {
+          "assessment": "Derives 2-regularity of class *counts*, not established to determine individual class cardinalities; full-text equivalence remains a residual risk",
+          "evidence": "Theorem statements on regularity of the number of ℓ-Abelian equivalence classes.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "material_read": "Abstract and named result summaries, not full article",
+          "method": "ArXiv bibliographic and relevant theorem synopsis",
+          "title": "A new approach to the 2-regularity of the ℓ-abelian complexity of 2-automatic sequences",
+          "trigger": "Potential general two-block coding theorem implying these Thue–Morse tables"
+        },
+        {
+          "assessment": "Factor structure alone not demonstrated to yield explicit two-Abelian multiplicity classes; source beyond inspected passages remains risk",
+          "evidence": "Substitution descendant classification of Thue–Morse subwords.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2235",
+          "material_read": "Abstract and Section 2 synopsis, not complete appendix-by-appendix full text",
+          "method": "ArXiv abstracts and cited comparison",
+          "title": "On the structure of Thue–Morse subwords, with an application to dynamical systems",
+          "trigger": "Strong possible description of all distinct Thue–Morse factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-Abelian class count alone discards reconstruction ambiguity: exact sizes measure the number of distinct factors compatible with given endpoint and overlapping-pair data. Dyadic lengths are canonical substitution scales. The complete eight-class spectrum proves a new alternating two-phase normalized distribution, a natural and independently useful word-combinatorics invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only distinct Thue–Morse factors at N=2^k,k>=2; no non-dyadic, occurrence-frequency or longer-gram distribution.",
+    "An earlier factor-frequency or two-block-coding classification could already imply the eight class cardinalities after nontrivial specialization.",
+    "This counts distinct strings, not frequencies of occurrences; only dyadic k>=2 and 2-Abelian statistics are covered."
+  ],
+  "schema_version": 1
+}

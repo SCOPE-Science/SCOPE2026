@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification of the dyadic two-Abelian spectrum
+# Independent mathematical audit
 
-The proof is in `RESULT.md`. The only external mathematical input is the established ordinary Thue–Morse factor count \(3N-2\) at lengths \(N=2^k\) (Greinecker, arXiv:1404.3906, introduction). This is needed to show that the full cut-and-join description of the factors has no hidden duplicates.
+## correctness
 
-To reproduce the independent finite corroboration, place `checker.py` and this file in the same directory and run `python checker.py 10` with Python 3. No network, third-party library, or other file is needed. The checker builds the fixed point from the substitution and computes actual overlapping \(00\) and \(11\) counts on each distinct window. Its prefix length \(8N\) is exhaustive, since its eight level-\(k\) substitution blocks contain all four adjacent block types. It independently builds the cut-and-join representation and checks coverage and disjointness.
+PASS
 
-Checked exactly at all dyadic lengths from \(N=4\) through \(N=1024\). The complete distributions of class sizes (size: number of classes) were:
+For each k>=2, N=2^k, decompose the fixed Thue–Morse word into µ^k blocks P and complement Pbar. Each length-N factor is a rotation of P or a mixed cut-and-join of adjacent unlike blocks. These supply N+2(N-1)=3N-2 distinct factors because the classical factor-complexity theorem gives that exact total and the same-block rotations are distinct. Circular pair counts H_k=(N+2(-1)^k)/6 follow from substitution recurrence; mixed cuts are classified by odd/even offset, endpoint bits, and a telescoping prefix 00-minus-11 count. Summing six mixed cases plus rotations yields eight signatures: even k six classes of (N-1)/3 and two N/2; odd k four of (N-2)/6, two N/2 and two (2N-1)/3. Independent literal-factor enumeration verified exact class sizes and total 3N-2 for k=2..9. Infinite statement rests on block-count and recurrence proof, not samples.
 
-| \(N\) | Class-size distribution |
-|---:|---|
-| 4 | 1:6, 2:2 |
-| 8 | 1:4, 4:2, 5:2 |
-| 16 | 5:6, 8:2 |
-| 32 | 5:4, 16:2, 21:2 |
-| 64 | 21:6, 32:2 |
-| 128 | 21:4, 64:2, 85:2 |
-| 256 | 85:6, 128:2 |
-| 512 | 85:4, 256:2, 341:2 |
-| 1024 | 341:6, 512:2 |
+## originality
 
-Every literal signature table, factor count, and representation check passed. The full analytic proof includes the unrestricted quantifiers; checking nine finite levels does not establish them. The asymptotic parity split follows algebraically from the exact class sizes, not from numerical fitting. There has been no independent mathematical audit.
+PASS
+
+Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.
+
+## value
+
+PASS
+
+Two-Abelian class count alone discards reconstruction ambiguity: exact sizes measure the number of distinct factors compatible with given endpoint and overlapping-pair data. Dyadic lengths are canonical substitution scales. The complete eight-class spectrum proves a new alternating two-phase normalized distribution, a natural and independently useful word-combinatorics invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
