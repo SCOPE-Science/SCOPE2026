@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Every damping is positive, giving a unique centered conditional-Gaussian stationary convolution. Its mixed fourth cumulant is the covariance of two conditional variances, whose three state-weighted moment vectors solve the displayed 2-by-2 invertible linear systems. Clearing denominators yields the exact polynomial identity checked coefficientwise with standard-library integer-polynomial arithmetic (51 coefficients), with all remaining factors positive. An independent rational method confirms 1,536 exact parameter tuples including both signs and both zero boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang et al., arXiv:1412.7952, Section 6.1, Proposition 6.1: conditional multivariate normality.",
+        "Huang et al., arXiv:1412.7952, Section 6.4: general recursion for every stationary mixed moment of several OU processes driven by a common finite-state environment."
+      ],
+      "reasoning": "The 2014 result includes the present model and in principle computes the covariance by recursion; that broad computational precedence is explicitly credited. It does not state the positivity of the resulting six-variable numerator, nor the necessary-and-sufficient negative/positive/zero sign law uniform in the switching rates. The present statement is that additional algebraic factorization and complete sign classification. This is the main remaining novelty-risk comparison.",
+      "searches": [
+        "Huang Jansen Mandjes Spreij De Turck 2014 common Markov modulated Ornstein Uhlenbeck cross squared covariance sign",
+        "arXiv:1412.7952 Sections 6.1--6.4",
+        "\"Markov-modulated Ornstein-Uhlenbeck\" \"squared\" \"covariance\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.02570v1, full HTML main article, Eqs. 2 and 12--14, 2023-12-05",
+      "arXiv:1412.7952v1, full PDF Section 6, especially Sections 6.1 and 6.4, 2014-12-26",
+      "Published-record semantic search: four exact queries recorded in original named comparisons; closest hits were unrelated dynamical and stationary covariance classifications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Biroli et al. common-variance Gaussian mixture gives nonnegative energy correlations; its identical-coefficient assumption excludes the present anticorrelated pair.",
+        "The Huang et al. formula computes arbitrary mixed moments after recursively solving matrix systems. Explicit factor positivity and exact iff-zero conditions require separate inversion and polynomial factorization."
+      ],
+      "reasoning": "The result is not a new general Markov-modulated OU technique, but a sharp special-geometry theorem of the established model. It has an exact necessary and sufficient sign conclusion, impossible to obtain by directly reading off an unevaluated arbitrary-moment recursion; 2014 is the most important publication-priority caveat. A future discovery of this factorization or a direct stronger sign theorem would negate originality.",
+      "searches": [
+        "arXiv:2312.02570 Eqs. 12--14; claim comparison of identical vs nonidentical stiffness vectors",
+        "arXiv:1412.7952 Section 6.4; check mixed moment recursion and explicit implications",
+        "Huang Jansen Mandjes Spreij De Turck 2014 common Markov modulated Ornstein Uhlenbeck cross squared covariance sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli et al., arXiv:2312.02570, Eqs. 12--14, gives a strictly positive squared-position correlator for identical common-stiffness responders.",
+        "The new signed invariant equals the mixed fourth cumulant of positions because the two conditional Gaussian means vanish."
+      ],
+      "reasoning": "The homogeneous switching-trap claim is recovered only when the particle stiffness responses have the same sign; it does not supply a negative or zero-boundary classification for heterogeneous/opposite responses. The closest established equivalent is the mixed fourth moment of a multi-component Markov-modulated OU process, for which the 2014 literature supplies a recursion but not this sign factorization.",
+      "searches": [
+        "Biroli Kulkarni Majumdar Schehr switching harmonic trap heterogeneous stiffness anticorrelated squared particle coordinates",
+        "two state switching environment independent Brownian oscillators sign factorization covariance squared positions",
+        "\"anticorrelation\" \"squared positions\" \"switching harmonic trap\"",
+        "arXiv:2312.02570 Eqs. 12--14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried public literature and published-record semantic matches did not return a table containing the exact rate-uniform signed cross-energy covariance for this two-particle switching system.",
+        "The 2014 paper supplies algorithmic recursions rather than a table or a closed signed factorization for this observable."
+      ],
+      "reasoning": "No matching precomputed numerical table or exact rational expression was identified. Search failure is not a proof of uniqueness; the full-text 2014 general framework remains a relevant possible broader source.",
+      "searches": [
+        "oppositely switching harmonic spring constants two independent Brownian particles negative covariance of their energies",
+        "two state switching environment independent Brownian oscillators sign factorization covariance squared positions",
+        "\"negative\" \"correlation\" \"diffusivities\" \"common switching\" Ornstein Uhlenbeck"
+      ]
+    },
+    "rationale": "Compared statement-level implications with the full 2023 identical-particle switching-trap solution and the full 2014 general multi-MMOU mixed-moment recursion. Both provide major ingredients/antecedents but neither states the explicit rate-invariant sign factorization and iff-zero boundary for heterogeneous counter-switching; the 2014 recursion is a substantial residual priority risk. Published record semantic searches and direct literature queries found no identical signed classification, without claiming search proves priority.",
+    "residual_risks": [
+      "A direct specialization of the already published 2014 general recursion might be regarded as covering the new classification, depending on whether unstated polynomial sign factorization is considered a distinct mathematical conclusion.",
+      "Possible unindexed or inaccessible earlier explicit negative squared-position covariance formula; public search cannot prove its absence.",
+      "The current theorem does not extend its sign law to arbitrary multistate environments or correlated Brownian noise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover a pair of particles with oppositely switching individual stiffnesses or the signed heterogeneous factorization.",
+        "evidence": [
+          "Eq. 2 uses one stiffness value for every particle during each state.",
+          "Eqs. 12--14 give a common-variance Gaussian mixture and positive squared-position covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.02570",
+        "material_read": "Complete arXiv HTML article: model, Eqs. 2--4, joint law Eqs. 12--13, first nonzero correlator Eq. 14, conclusions; supplementary material not separately inspected.",
+        "method": "Primary HTML full-text equation/assumption/claim comparison",
+        "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+        "trigger": "Source of the homogeneous positive emergent squared-position correlation and the natural counter-response question"
+      },
+      {
+        "assessment": "Strong broader method/model precursor covering arbitrary mixed moment computation; the specific complete signed energy-covariance factorization was not stated in inspected material. Residual risk that a published corollary of the recursion is judged to subsume the new classification.",
+        "evidence": [
+          "Section 6.1, Proposition 6.1 proves path-conditional independent Gaussian components.",
+          "Section 6.4 gives a recursion for every stationary mixed moment, with an explicit first-order cross moment as example, not the signed squared-position covariance classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.7952",
+        "material_read": "ArXiv full-text PDF especially Section 6 pp. 18--21: the multi-component model, conditional Gaussianity (6.1), state-dependent covariances (6.2), Fourier-Laplace equations (6.3) and stationary higher mixed moments (6.4); the mixed-moment page was visually inspected.",
+        "method": "Primary PDF text plus page screenshot at printed p. 21 (PDF page index 20) and direct scientific comparison",
+        "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+        "trigger": "Potential stronger covering result: multi-component OU diffusion under common Markov environment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "94471ec2-b67c-4d9e-af64-e0774e74b932",
+  "value": {
+    "rationale": "Biroli et al. motivate dynamically generated energy correlations from a shared switching trap, with positive sign for identical responses. The new exact sign and no-accidental-zero classification identifies a meaningful opposite-response physical regime with negative energy coupling, even though Gaussian positional covariance is identically zero, and is uniform over all positive switching and thermal parameters. This exact finite structural invariant does not require a downstream theorem to be useful.",
+    "status": "PASS"
+  }
+}
