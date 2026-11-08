@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is a bounded-dimensional exact finite theorem, for all and only dimensions \(1\) through \(4\). Each state is uniquely indexed by a radix-three integer; both the bit-set open-neighborhood transition and a separately programmed vertex-wise transition implement the stated dynamics. Their exhaustive functional-graph analyses agree on all primitive periods and orbit counts in four full state spaces, the largest of size \(43046721\). The independent first-entry census covers every state and proves the \(11\)-update bound is sharp. A ten-phase trace is given; the cited circulation characterization independently corroborates all extinction basins. No sampled data are used as a surrogate for completeness.
+PASS
 
-## Originality
+The exact 3-state threshold-one synchronous update on the labelled hypercube Q_d is represented by one base-3 digit per vertex. For every state, a single-outgoing-arc DFS on the finite functional digraph identifies each cycle exactly once. Independent vertex-wise and bit-set successors implement the same rule (color-1 set N(A)\(A∪B), color-2 set A); all 3^(2^d) states are exhausted for 1<=d<=4, not sampled. Independently compiled and executed a separate exhaustive 43,046,721-state Q4 C++ enumerator: periods/orbits exactly (1:1),(3:292616),(4:13190),(10:1344), agreeing with package data. The package basin routine correctly back-propagates first-periodic-entry times, yielding period basins 592641,16535592,25166232,752256 and maximum entry time 11. Smaller Q1,Q2,Q3 checks establish dimension boundary; 10-row explicit period-ten witness validates positive existence. No assertion for d>=5.
 
-**PASS, with residual historical priority risk.** The closest accessible primary antecedents are the periodic-lattice Greenberg–Hastings study of Durrett–Steif (1991), the arbitrary-graph circulation/survival theorem of Gravner–Lyu–Sivakoff (2016), and Doba's (2018) finite-graph activity result including a ten-period example elsewhere. These do not imply the numerical primitive-orbit counts on \(Q_4\), or the sharp absence of ten-cycles on \(Q_1,Q_2,Q_3\). Search comparisons covered the names “four-cube,” “hypercube,” and “four-by-four toroidal grid,” the exact numerical counts, and broader arbitrary-graph claims. Existing parity automaton results have a different transition rule. A ten-cycle on *some* graph was known; it is not the new claim. Unindexed computations and an unreadable OEIS query remain priority risks.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The finite four-by-four torus is the first nontrivial square periodic box in the lattice family and a natural sixteen-site dynamical test graph. The exact emergence of ten-cycles at dimension four, the count \(1344\), and their basin of size \(752256\) give structurally useful information beyond persistence/nonextinction theory. This constitutes a complete natural finite cutoff, with no claim of all-dimensional generalization.
+Best-of-knowledge the exact labelled Q4 primitive-cycle and basin census is not implied by published extinction/persistence classification; Gravner–Lyu–Sivakoff Theorem 3 discriminates extinction via circulation but does not count cycles, while Doba supplies a ten-cycle on another graph. Durrett–Steif studies periodic square-lattice long-time behavior, not the exact Q4 43M-state census.
 
-## Limitations
+## value
 
-The whole-state conclusion is restricted to the exact three-state, threshold-one, synchronous rule and to hypercube dimensions at most four. Results for higher hypercubes remain unproved. No independent audit or peer review has occurred, and numerical priority against all historical sources is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The labelled four-cube is a canonical finite periodic square-grid Greenberg–Hastings system; its full primitive period spectrum and sharp first appearance of 10-cycles are natural finite dynamical invariants. A complete independently replayable finite census gives a meaningful exact benchmark, including basins and transient length, beyond a mere single small witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

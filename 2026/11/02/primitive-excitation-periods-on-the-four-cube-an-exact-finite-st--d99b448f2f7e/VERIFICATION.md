@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite-state verification
+# Independent mathematical audit
 
-The four included standalone C++17 programs all compile without third-party dependencies. Compile and run each on dimensions \(1\) through \(4\). `census.cpp` uses bit masks and a one-outdegree graph traversal; `independent.cpp` performs direct trit-level updates and independently traverses the graph; `basins.cpp` performs a further direct-step classification of entry times and limiting periods; `circulation.cpp` does **not** simulate trajectories but checks all square-face edge circulations, an independent method for counting the extinction basin based on the published arbitrary-graph theorem. These are complete finite enumerations for each dimension, not probabilistic tests.
+## correctness
 
-The exact expected count rows, including the independent implementation, are in `data/observed_counts.txt`, with full captured executable output in `data/reproduction_output.txt`, and the complete first-entry table is in `data/entry_profile.txt`. The explicit ten-cycle trace is `data/period10_witness.txt`. Total states for the largest run are \(3^{16}=43046721\); the represented states are indexed consecutively from zero through \(43046720\). Full exploration identifies exactly one fixed point, \(292616\) period-three cycles, \(13190\) period-four cycles, and \(1344\) period-ten cycles. The sum of all Q4 basin counts equals \(43046721\). The square test finds exactly \(592641\) extinction states, which matches the trajectory-classification extinction basin.
+PASS
 
-The code and observed counts are attached for independent reproduction; no external assessor has reviewed these programs. The proof relies on complete enumeration only for \(d\le4\). No general assertion for larger \(d\) follows from the code.
+The exact 3-state threshold-one synchronous update on the labelled hypercube Q_d is represented by one base-3 digit per vertex. For every state, a single-outgoing-arc DFS on the finite functional digraph identifies each cycle exactly once. Independent vertex-wise and bit-set successors implement the same rule (color-1 set N(A)\(A∪B), color-2 set A); all 3^(2^d) states are exhausted for 1<=d<=4, not sampled. Independently compiled and executed a separate exhaustive 43,046,721-state Q4 C++ enumerator: periods/orbits exactly (1:1),(3:292616),(4:13190),(10:1344), agreeing with package data. The package basin routine correctly back-propagates first-periodic-entry times, yielding period basins 592641,16535592,25166232,752256 and maximum entry time 11. Smaller Q1,Q2,Q3 checks establish dimension boundary; 10-row explicit period-ten witness validates positive existence. No assertion for d>=5.
+
+## originality
+
+PASS
+
+Best-of-knowledge the exact labelled Q4 primitive-cycle and basin census is not implied by published extinction/persistence classification; Gravner–Lyu–Sivakoff Theorem 3 discriminates extinction via circulation but does not count cycles, while Doba supplies a ten-cycle on another graph. Durrett–Steif studies periodic square-lattice long-time behavior, not the exact Q4 43M-state census.
+
+## value
+
+PASS
+
+The labelled four-cube is a canonical finite periodic square-grid Greenberg–Hastings system; its full primitive period spectrum and sharp first appearance of 10-cycles are natural finite dynamical invariants. A complete independently replayable finite census gives a meaningful exact benchmark, including basins and transient length, beyond a mere single small witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
