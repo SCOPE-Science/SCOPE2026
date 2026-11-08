@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The exact source Algorithm 3 maps to Euclidean projection of the residual onto a Gaussian vector in the complement of a trailing orthogonal direction window. Orthogonality of the current error to that window is inductive. Conditional rotational invariance yields a beta residual ratio depending only on deterministic complement dimension, hence mutual independence. A beta moment identity proves all finite moments and their sharp negative integrability boundary; the strong law proves the digamma exponent; the one-dimensional complement gives deterministic termination. Standalone numeric tests include nonnormalized source-algorithm equivalence and thousands of distribution-moment checks; these are supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun–Han–Xie Theorem 3.3 covers a broader class of consistent systems in expectation, and Remark 3.6 contains finite termination at full memory.",
+        "Gower–Richtárik (2015) introduces general independent sketch-and-project and convergence of expected norms.",
+        "Dereziński–Rebrova (2022) provides expected sketch-and-project rate bounds and spectral projector estimates."
+      ],
+      "reasoning": "Prior general rate bounds, whether broader in the matrix or sketch class, do not imply the complete joint distribution or inverse-moment integrability without an additional conditional-invariance argument. The finite-termination boundary is prior coverage and is explicitly excluded from the originality claim.",
+      "searches": [
+        "truncated Gram Schmidt Gaussian random directions projections random orthogonal complements exact beta residual contractions 2025 Sun Han Xie",
+        "stochastic conjugate gradient Gaussian sketches exact finite time distribution Mellin moments inverse moments",
+        "arXiv:1506.03296 Randomized Iterative Methods for Linear Systems",
+        "arXiv:2208.09585 Sharp Analysis of Sketch-and-Project Methods"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2505.20602v1 (full HTML)",
+      "arXiv:2605.25034v1 (full HTML)",
+      "arXiv:2305.05482 (accessible full text)",
+      "arXiv:1506.03296 (abstract and journal overview)",
+      "arXiv:2208.09585 (abstract and journal overview)",
+      "published-finding corpus semantic search, exact queries listed above",
+      "Accessible prior mathematical claims, including beta Rayleigh–Ritz and stochastic subspace records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 source proves expected-rate bounds and full-memory finite termination; the latter is not presented as original.",
+        "The 2026 RCGLS source gives a one-step-conjugate recurrence and an expected-rate inequality, not the Gaussian stationary and transient beta product law.",
+        "The earlier stochastic heavy-ball result gives expected convergence and a two-direction equivalence.",
+        "An earlier random tangent-plane beta product result concerns a small-defect limiting Rayleigh–Ritz process, not an exact finite-error law for IS-Krylov."
+      ],
+      "reasoning": "Statement-level comparison finds a genuine extension in the full conditional distribution and resulting exact moments, inverse-moment threshold and pathwise exponent, rather than merely a renamed expected contraction. Although the independent spherical beta identity is standard, its application requires proving the error remains orthogonal to a moving, finite-memory adaptive window. No examined broader theorem directly supplies that iterated stochastic invariant.",
+      "searches": [
+        "https://arxiv.org/html/2505.20602v1 Sections 3, 4.2, 4.3, 5 and Appendix",
+        "https://arxiv.org/html/2605.25034 Sections 2 and 3",
+        "https://arxiv.org/abs/2305.05482 Sections 4 and 5",
+        "limited memory iterative sketching based Krylov Gaussian sketch identity matrix exact iid beta distribution residual norm squared finite time moments digamma almost sure rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun–Han–Xie Algorithm 3 is equivalent to a sliding-window Gram–Schmidt sketch update and explicitly specifies nonnormalized directions.",
+        "Zeng–Cai–Han–Xie Algorithm 1 is the corresponding single-history-direction least-squares construction.",
+        "Zeng–Han–Su–Xie Theorem 5.1 identifies a two-direction stochastic conjugate-gradient form."
+      ],
+      "reasoning": "The source iterations reduce to the projection process in RESULT.md when the normal matrix is a scalar identity. The published equivalent formulations specify the algorithm but, in their inspected analysis, give general convergence estimates rather than the exact independent Gaussian beta factors, Mellin product, negative-moment cutoff, and almost-sure rate. A known one-dimensional spherical beta identity alone does not state a law for the adaptive sequence.",
+      "searches": [
+        "limited memory iterative sketching based Krylov Gaussian sketch identity matrix exact iid beta distribution residual norm squared finite time moments digamma almost sure rate",
+        "RCGLS randomized conjugate gradient least squares Gaussian rank one identity quadratic exact Beta independent ratios isotropic",
+        "arXiv:2505.20602v1 Algorithm 3",
+        "arXiv:2605.25034v1 Algorithm 1",
+        "arXiv:2305.05482 Theorem 5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned related expected Haar sketch rates, Haar-spectrum CG fluctuations, and unrelated beta laws for random sections, but no matching IS-Krylov adaptive-memory contraction distribution.",
+        "An accessible collection of previously published mathematical claims was searched by mathematical claims, source identifiers, Gaussian beta terminology, memory, Krylov and conjugate-gradient aliases; related records treat different random-projection processes."
+      ],
+      "reasoning": "No inspected result is an exact tabulation of the rank-one Gaussian IS-Krylov transient and stationary beta parameter sequence. Neither a database search miss nor the slot partition is used as proof of uniqueness; the result is assessed against the scientific implications of the closest statements.",
+      "searches": [
+        "limited memory iterative sketching based Krylov Gaussian sketch identity matrix exact iid beta distribution residual norm squared finite time moments digamma almost sure rate",
+        "RCGLS randomized conjugate gradient least squares Gaussian rank one identity quadratic exact Beta independent ratios isotropic",
+        "truncated Gram Schmidt Gaussian random directions projections random orthogonal complements exact beta residual contractions 2025 Sun Han Xie",
+        "stochastic conjugate gradient Gaussian sketches exact finite time distribution Mellin moments inverse moments",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03",
+        "2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae"
+      ]
+    },
+    "rationale": "After comparing the full accessible 2025 IS-Krylov paper, 2026 RCGLS paper, 2023 SCG predecessor, broader sketch-and-project literature, published published-finding corpus claims, and accessible prior claim records, no covering theorem was found for the independent time-inhomogeneous beta factors, all moments and sharp inverse-moment cutoff, and digamma pathwise exponent. The ordinary Gaussian squared-cosine beta identity and full-memory finite termination are explicitly acknowledged prior facts. An equivalent older stochastic-process formulation could remain unindexed.",
+    "residual_risks": [
+      "Earlier general randomized projection theory might contain an equivalent sliding-window conditional-law theorem under unfamiliar terminology.",
+      "Full bodies of two general sketch-and-project papers were not inspected; their searched abstracts and scope did not indicate an immediately dominating distribution theorem.",
+      "The scaled-isometry case is narrower than the matrix scope of available expected convergence theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers original iteration and finite termination but not the claimed exact beta-product distribution or moment thresholds",
+        "evidence": [
+          "Algorithm 3, lines 480–514; Theorem 3.3, lines 289–294; Remark 3.6, lines 351–360; Gaussian-sketch definition, lines 649–650."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.20602v1",
+        "material_read": "Abstract, sections 1, 3.1–3.2, 4.2–4.4, sketch definition in section 5, appendix search for distribution, beta, moments",
+        "method": "Accessible full-text HTML; compared equations, Algorithm 3, convergence theorem and Remark 3.6",
+        "title": "Connecting randomized iterative methods with Krylov subspaces",
+        "trigger": "Same limited-memory IS-Krylov method, Gaussian sketch and rank-dependent termination"
+      },
+      {
+        "assessment": "Expected-rate theorem and algorithm do not state independent conditional contractions or exact finite-horizon Gaussian laws",
+        "evidence": [
+          "Algorithm 1, lines 163–199; Gaussian eligibility, line 226; Theorem 2.4, lines 243–250."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.25034",
+        "material_read": "Full-text HTML sections 1, 2.1–2.3, 3 and 5, including equations and search for moment and beta laws",
+        "method": "Compared Algorithm 1 projected recurrence, Theorem 2.4 and special Gaussian sampling eligibility",
+        "title": "Randomized conjugate gradient least squares",
+        "trigger": "2026 rank-one conjugate-sketch algorithm equivalent in the one-memory case"
+      },
+      {
+        "assessment": "Addresses expected convergence and method equivalence; no exact independent beta factor product identified",
+        "evidence": [
+          "Theorem 4.2 around lines 365–390; Theorem 5.1, lines 398–405; SCG connection, lines 393–405."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.05482",
+        "material_read": "Available full-text sections 3–5, especially convergence Theorem 4.2 and Theorem 5.1, plus search for Gaussian and digamma law",
+        "method": "Read full-text rendering and compared stochastic recurrence with sliding-memory limit",
+        "title": "On adaptive stochastic heavy ball momentum for solving linear systems",
+        "trigger": "Source of two-direction stochastic conjugate-gradient equivalence and possible stronger coverage"
+      },
+      {
+        "assessment": "Broad independent sketch-and-project baseline, no inspected sliding-window exact product law; priority uncertainty remains",
+        "evidence": [
+          "ArXiv abstract and journal description assert expectation convergence and mean-iterate evolution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+        "material_read": "ArXiv abstract and open journal overview; full body not available in HTML route",
+        "method": "Compared declared expected-norm and mean-iterate bounds with conditional finite-memory distribution statement",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Classical general Gaussian sketch-and-project framework might dominate special case"
+      },
+      {
+        "assessment": "No direct statement matching time-indexed independent beta factors found; residual access risk disclosed",
+        "evidence": [
+          "ArXiv abstract emphasizes expected projection matrices and spectral rate bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.09585",
+        "material_read": "ArXiv abstract and open journal overview; full body not inspected",
+        "method": "Compared objects (spectral expectation bounds versus adaptive finite-memory error distribution)",
+        "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+        "trigger": "Sharp modern spectral convergence theory might imply stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "daeeff4c-e6cd-4ecc-b96a-5145c7739708",
+  "value": {
+    "rationale": "The source papers supply expected-rate inequalities but not the exact distributional time course of a natural finite-memory solver. The moving-window independence theorem makes exact transient and stationary error laws available, showing when extra memory improves convergence, the distinction between mean and typical rates, and exactly which inverse-error moments exist. These are motivated solver-reliability questions rather than isolated arbitrary constants, and they are not implied by a finite-termination remark.",
+    "status": "PASS"
+  }
+}
