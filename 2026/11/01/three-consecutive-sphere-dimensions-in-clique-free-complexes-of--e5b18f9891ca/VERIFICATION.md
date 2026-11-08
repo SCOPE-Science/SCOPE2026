@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the packaged file `verify.py` using Python 3 and its standard library. The script constructs faces directly from the three explicit maximal-clique vertex masks, computes reduced simplicial boundary ranks over \(\mathbb F_2\) in eight configurations, and compares them with the claimed binomial formula. It separately computes signed fixed-face Lefschetz traces for every product conjugacy class in three cases, comparing against characters obtained from exterior powers of the integral augmentation lattices. The eight homology cases and \(182\) symmetry character comparisons passed.
+## correctness
 
-The spectral-sequence proof in `RESULT.md` establishes the integral and unrestricted assertions; computational agreement in finite instances is not a proof of infinite quantifiers or freedom from torsion. The final nonequivariant homotopy upgrade relies on the block-graph shellability theorem in arXiv:2602.09623v1, Corollary 3.4, and the nonpure shellability homotopy theorem of Björner–Wachs, Theorem 4.1. No external or independent audit has been performed.
+PASS
+
+The actual RESULT.md gives all four articulation subsets and exact private-capacity triples: (t−1,t−1,t−1), (t−2,t−2,t−1), (t−1,t−2,t−2), (t−2,t−3,t−2). The augmented simplex-skeleton chain complex is the exterior algebra with contraction by the coordinate-sum map, split over Z; hence its only homology is ∧^k U in degree k−1, including k=0. The filtered join chain complexes have sole graded homology in degrees d,d−1,d−1,d−2 for filtration 0,1,1,2, opposite to the direction needed for homological differentials, with a unique filtration in each degree. All differentials vanish and integral module extensions are absent. This proves the three tensor-product exterior-power lattices and Betti products for all t≥3,p,q,r≥t. The Ghosh–Selvaraja block-graph shellability theorem and the Björner–Wachs nonpure shellability wedge theorem upgrade Betti numbers to the asserted nonequivariant homotopy type. Independent direct-face enumeration at t=p=q=r=3 gives 583 augmented faces and binary Betti β3=4,β4=8,β5=1; a finite check is only corroboration of the unlimited proof.
+
+## originality
+
+PASS
+
+PASS best of knowledge: published theorems cover shellability and the general wedge consequence, but not the explicit three-block two-articulation integral homology and natural private-symmetry modules.
+
+## value
+
+PASS
+
+Natural block graphs and clique-free complexes form a well-established structural family. The first path of three clique blocks with two genuinely distinct cut vertices reveals exactly three consecutive nonzero degrees, closed arbitrary-parameter Betti numbers and exact natural integral internal-symmetry modules. These precise invariants are not supplied by the known shellability theorem, are usable as a base case for block-tree recursions and explain a nontrivial mixed-dimensional phenomenon, rather than a parameter renaming or unmotivated tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
