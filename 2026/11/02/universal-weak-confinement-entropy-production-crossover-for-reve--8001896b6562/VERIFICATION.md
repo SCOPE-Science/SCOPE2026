@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 standard-library interpreter. The script checks the two-state reversible propulsion spectrum and a three-state path-chain spectrum, evaluates the exact confinement flux, verifies the stated \(O(\kappa)\) flux error against four scaled times and three positive trap strengths, checks integrated flux profiles by quadrature, and simulates switching diffusion paths to check the one-time heat-flux normalization. Constant-velocity and zero-mean cases are also included.
+## correctness
 
-The script does **not** compute the full entropy-production functional, nor does a finite sample prove the entropy-production window limit. The latter follows from the entropy-balance identity and the two Gaussian entropy bounds proved in `RESULT.md`. All checked numerical cases must be understood as finite diagnostics, and no external independent audit has been performed.
+PASS
+
+The exact joint Fokker–Planck Shannon balance S′=Π−Φ uses edgewise zero integrated jump currents from detailed balance. Integration by parts gives DΦ=σ²+u²e^(−2κt)+κ²Var(X_t)−2κCov(v_Yt,X_t)−κD. Spectral reversibility yields nonnegative C(t)=Σc_l e^(−λ_l t), R≤W and Var≤(D+W)/κ, hence the uniform flux error κ(2W+D)/D. Independent Gaussian-convolution noise bounds conditional entropy from below while Gaussian maximal entropy and total variance bound it above; their width on [a/κ,b/κ] is (1/2)log[(D+W)/(D(1−e^(−2a)))]. Integration proves claimed error and limit. Numeric covariance/flux test confirms normalization only.
+
+## originality
+
+PASS
+
+Qualified PASS: Paoluzzi–Puglisi–Angelani explain the singular stationary free/trapped entropy-production mismatch in a two-heading model and provide related entropy balances. Their inspected main results do not give this finite scaled-window crossover or reversible multistate uniform remainder. Standard entropy/variance inequalities are ingredients but do not state this evaluated limit.
+
+## value
+
+PASS
+
+The previously observed noncommuting free/trapped stationary limit makes time O(κ^(−1)) a motivated missing regime. The theorem resolves a universal exponential drift-memory crossover with explicit error for an entire family of reversible chains, while carefully fixing the physical entropy convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

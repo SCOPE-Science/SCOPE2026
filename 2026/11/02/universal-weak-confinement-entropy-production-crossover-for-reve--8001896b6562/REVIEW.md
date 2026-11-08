@@ -1,12 +1,21 @@
-# Review: reversible Markov-propulsion weak-confinement crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The sole mathematical claim is a scaled-time-window entropy-production limit with an explicit error, not a pointwise limit. Its proof fixes the initial law, chain reversibility, joint density convention, Brownian normalization, and precise ranges \(D>0\), \(\kappa>0\), and \(0<a<b\). The integrated switch current vanishes edgewise by detailed balance; therefore the exact Shannon entropy identity has no missing jump-bath term. The flux identity follows from integration by parts with linear drift derivative \(-\kappa\). Spectral positivity bounds the position–propulsion covariance by \(W\) and the spatial variance by \((D+W)/\kappa\). Independent Gaussian noise supplies uniform upper/lower conditional-entropy bounds, giving the endpoint control that completes the inequality. The packaged `verify.py` tests finite two-state, three-state, drift-only and centered cases, but infinite-time conclusions are purely analytic. Risks: results depend on the stated even-orientation convention and stationary reversible chain; neither is hidden.
+## correctness
 
-## Originality — PASS, qualified
-The closest paper, Paoluzzi–Puglisi–Angelani (arXiv:2404.16955v1, Sections III–IV), explicitly identifies singular **stationary** zero-trap behavior; it does not supply a transient macroscopic entropy-production crossover or a uniform remainder. García-Millán–Pruessner (arXiv:2012.02900v1) derive time-dependent RTP correlations and stationary entropy production, but not this scaled-window entropy result. Bao–Hou (arXiv:2211.15973v1) treat finite-time thermodynamic uncertainty bounds on a different geometry. Published mathematical record searches using aliases for weak-confinement entropy-production singularity, time-window aging, Gaussian driven OU systems and general Markov propulsion yielded no implication covering the final theorem. Prior research on stationary anisotropic RTP trap-angle optimization addresses a different question and does not imply the transient asymptotic. A general existing entropy-balance/homogenization theorem might recover the result and remains a priority risk; database silence is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The source's explicit mismatch between free and trapped steady-state rates poses a natural, motivated dynamical question. The theorem resolves the missing relaxation scale with a universal \(e^{-2s}\) law, an explicit error bound, and a finite-state reversible family far larger than a parameter-specific calculation. In particular the drift term persists for macroscopic confinement times even though it vanishes from the trapped stationary entropy rate. This is structural understanding, not a small improvement of an existing numeric value. The result is limited to averaged windows and does not justify alternative physical entropy conventions.
+The exact joint Fokker–Planck Shannon balance S′=Π−Φ uses edgewise zero integrated jump currents from detailed balance. Integration by parts gives DΦ=σ²+u²e^(−2κt)+κ²Var(X_t)−2κCov(v_Yt,X_t)−κD. Spectral reversibility yields nonnegative C(t)=Σc_l e^(−λ_l t), R≤W and Var≤(D+W)/κ, hence the uniform flux error κ(2W+D)/D. Independent Gaussian-convolution noise bounds conditional entropy from below while Gaussian maximal entropy and total variance bound it above; their width on [a/κ,b/κ] is (1/2)log[(D+W)/(D(1−e^(−2a)))]. Integration proves claimed error and limit. Numeric covariance/flux test confirms normalization only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: Paoluzzi–Puglisi–Angelani explain the singular stationary free/trapped entropy-production mismatch in a two-heading model and provide related entropy balances. Their inspected main results do not give this finite scaled-window crossover or reversible multistate uniform remainder. Standard entropy/variance inequalities are ingredients but do not state this evaluated limit.
+
+## value
+
+PASS
+
+The previously observed noncommuting free/trapped stationary limit makes time O(κ^(−1)) a motivated missing regime. The theorem resolves a universal exponential drift-memory crossover with explicit error for an entire family of reversible chains, while carefully fixing the physical entropy convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
