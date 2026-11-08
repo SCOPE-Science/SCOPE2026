@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducing the exact arithmetic checks
+# Independent mathematical audit
 
-Execute `python3 verify_reduction.py` with Python 3 and no third-party packages. The program first builds the 28 coefficient vectors in the integer ring \(\mathbb Z[Z]/(Z^4+1)\), calculates all 3276 triple determinants and their multiplication-matrix norms using exact division in Bareiss elimination, and compares the entire 13-value norm histogram with recorded expected counts. These norms contain no odd prime factors outside \(\{3,5,17\}\), which is the necessary all-primes part of the proof.
+## correctness
 
-Next the verifier constructs the reduced line arrangement and intersects every pair in finite splitting fields, checks each intersection against every line, and compares the resulting multiplicity profile with the claimed counts: \(63\) quadruple points in characteristic three; \(240\) double, \(16\) triple, \(15\) quadruple points in characteristic five; \(288\) double and \(15\) quadruple points in characteristic seven; \(144\) double, \(48\) triple, \(15\) quadruple points in characteristic seventeen. It asserts that the new characteristic-five triples consist only of \(B\)-lines and the characteristic-seventeen triples contain exactly two \(H\)-lines and one \(B\)-line. It checks the characteristic-three fourfold-intersection category split and pair sums.
+PASS
 
-The expected completion marker is `FERMAT_28_BITANGENTS_ARITHMETIC_INCIDENCE_EXACT_OK`. The argument for all odd primes and the geometric interpretations are explained in `RESULT.md`. Exhaustive finite-field computations establish exactly the indicated finite-field cases but are not used by themselves as an infinite-prime proof. A run success marker alone is not a substitute for inspecting the code or proof. Mathematical validation beyond the self-review has not been performed.
+Twelve H-lines and sixteen B-lines are distinct in any odd characteristic; explicit restriction to the Fermat quartic verifies the contact description and its p3 hyperflex exception. The exact cyclotomic determinant norm census of 3276 line triples has nonzero rational prime support {2,3,5,17}. Excluding p=2, all but 3,5,17 retain generic concurrency. The p5 punctured affine grid gives 16 B-only triples; p17 transitivity gives 48 distinct H-H-B triples; the p3 Hermitian unital yields 63 quadruple tangent intersections. Pair counts total 378. Independent integer norm calculation reproduces all frequencies, and a separately implemented F17 projective incidence count yields the predicted 144/48/15 profile; the source finite-field verifier p3,p5,p7,p17 was semantically inspected.
+
+## originality
+
+PASS
+
+Best-of-knowledge original in the complete exceptional odd-prime list and two geometrically distinct triple mechanisms; pre-existing 28-line configuration, Hermitian p3 geometry and complex counts are credited.
+
+## value
+
+PASS
+
+An exact exceptional-prime classification of a canonical symmetric 28-line plane arrangement is a natural arithmetic invariant. The distinction between all-B triples at 5, mixed H-H-B triples at 17, and Hermitian unital p3 tangents explains genuinely different degeneration mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

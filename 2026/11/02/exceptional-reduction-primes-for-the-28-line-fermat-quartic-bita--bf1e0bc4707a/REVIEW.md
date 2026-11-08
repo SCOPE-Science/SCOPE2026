@@ -1,25 +1,21 @@
-# Scientific review: exceptional reduction primes of the Fermat-quartic bitangent arrangement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is for the *geometric incidence* of the explicitly specified 28 distinct cyclotomic lines, over every algebraically closed field of odd characteristic. The proof identifies each line and its contact with the Fermat quartic; it does not assume characteristic-zero tangency behavior persists at characteristic three. It explicitly constructs all relevant line coefficients in the integral cyclotomic ring and computes the exhaustive 3276-triple **integer determinant norm** catalogue. Because no nonzero determinant norm has an odd prime factor outside \(\{3,5,17\}\), no untested odd prime can introduce a new concurrency. The original 15 quadruple points persist in all nonexceptional characteristics. For the exceptional primes, independent finite-field constructions that contain the line coefficients exhaust all 378 pairs, and geometric arguments explain the characteristic-five affine grid, the characteristic-seventeen mixed triples, and the characteristic-three Hermitian unital. A finite-field point enumeration alone is not treated as a proof of the all-primes conclusion.
+PASS
 
-The exact standard-library verifier was executed successfully from the bundled file, with output ending `FERMAT_28_BITANGENTS_ARITHMETIC_INCIDENCE_EXACT_OK`. It validates the full integral norm histogram; checks the refinement by \(H\)-line count; constructs residue configurations at \(3,5,7,17\); verifies 28 pairwise distinct lines, pair incidence 378, the entire intersection-multiplicity vector, and triple-point types. The characteristic-7 case is a control for the generic type. The assumed base characteristic is odd; characteristic two is explicitly excluded. No independent mathematical audit has occurred.
+Twelve H-lines and sixteen B-lines are distinct in any odd characteristic; explicit restriction to the Fermat quartic verifies the contact description and its p3 hyperflex exception. The exact cyclotomic determinant norm census of 3276 line triples has nonzero rational prime support {2,3,5,17}. Excluding p=2, all but 3,5,17 retain generic concurrency. The p5 punctured affine grid gives 16 B-only triples; p17 transitivity gives 48 distinct H-H-B triples; the p3 Hermitian unital yields 63 quadruple tangent intersections. Pair counts total 378. Independent integer norm calculation reproduces all frequencies, and a separately implemented F17 projective incidence count yields the predicted 144/48/15 profile; the source finite-field verifier p3,p5,p7,p17 was semantically inspected.
 
-## Originality — PASS with historical priority risk
+## originality
 
-The nearest full primary source is Janasz–Pokora–Zieliński, arXiv:2308.16514 (first posted 2023-08-31), Section 3.2 and Proposition 3.2. It **already proves** the complex \(288\)-double/\(15\)-quadruple incidence vector. Its scope explicitly restricts to the complex numbers, and the inspected result does not classify reductions or their exceptional primes. Merta–Zieliński, arXiv:2410.13997 (2024-10-17), Lemma 2.1 determines the complex arrangement of just 12 hyperflex lines; this neither detects the \(16\) characteristic-five all-\(B\) triples nor the \(48\) characteristic-seventeen mixed triples. Bethea–Brazelton, arXiv:2410.09242 (2024-10-11), Section 4.2 determines the symmetry-orbit split of the 28 complex bitangents, not the integral determinant discriminant. Thus the exact new bad-prime criterion and exceptional geometric incidence vectors are not statements or logical consequences of these references. Targeted phrase and mathematical-record searches for arithmetic reduction, characteristic 17, and finite-field concurrence found no stronger matching result.
+PASS
 
-An accessible earlier finding counting **rational** bitangent lines for smooth Ciani quartics over \(\mathbb F_5\) potentially includes this Fermat member. That rational tangency census does not classify *geometric intersection points of pairs and triples of the full 28 specialized lines* or identify prime 17; it does not imply the present result. Another earlier finding on plane quartics over \(\mathbb F_2\) concerns the excluded characteristic. We make no novelty claim for the classical complex counts, the known Hermitian-curve basic properties, or the classical 12-plus-16 line split.
+Best-of-knowledge original in the complete exceptional odd-prime list and two geometrically distinct triple mechanisms; pre-existing 28-line configuration, Hermitian p3 geometry and complex counts are credited.
 
-Residual historical risk: there may be an earlier, unindexed computation of reductions of the explicit nineteenth-century Fermat bitangent equations, including an inaccessible older source. Absence from a search index does not certify absolute novelty. This is an original **complete arithmetic incidence stratification** relative to the inspected sources, not an independent priority certificate.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The theorem answers a natural, sharply defined specialization problem for the complete classical 28-bitangent configuration, already singled out by its high symmetry and existing incidence studies. The invariant is the full geometric multiplicity profile of its line arrangement in every odd residue characteristic, not an arbitrary finite sample. The exceptional primes are **exactly** the prime divisors of nonzero concurrence norms, establishing a complete and unexpected arithmetic boundary: characteristics five and seventeen produce categorically different triple-point mechanisms, while characteristic three collapses the arrangement to a Hermitian polarity configuration. These data can inform modular incidence geometry and characteristic-sensitive behavior of arrangement invariants. Value lies in the complete boundary and structural explanations, not in the known complex t-vector, basic tangent counts, or reproducibility alone.
+An exact exceptional-prime classification of a canonical symmetric 28-line plane arrangement is a natural arithmetic invariant. The distinction between all-B triples at 5, mixed H-H-B triples at 17, and Hermitian unital p3 tangents explains genuinely different degeneration mechanisms.
 
-## Limitations and priority comparison
-
-The assertion does not classify all characteristic-two degenerations, flat bitangent schemes, or projective equivalence of all arrangements. The literature comparison uses full text of three especially relevant primary papers in their accessible HTML forms and targeted searches, but cannot exclude every older source. All new correctness, originality, and value judgments refer to the single final arithmetic-specialization claim.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
