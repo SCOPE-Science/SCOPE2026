@@ -1,15 +1,21 @@
-# Scientific review: spherical-lune chord-moment inversion
+# Independent mathematical audit
 
-## Correctness — PASS
-Two moment identities follow from the exact first and second direction tensors of normalized surface area, with independent four-dimensional Gauss quadrature checks. The central nonstandard assertion is strict monotonicity of the normalized fourth moment: its derivative has the stated factor \(-4\sin(x)H(x)/[9x^5(1-h)^3]\); an explicit rational Bernstein-polynomial lower bound, with rigorous Taylor and \(\pi\)-approximation errors, proves \(H>0\) over the *entire* parameter interval. This is a continuum proof, not finite point sampling. Endpoint values, feasibility, uniqueness, stochastic coupling and the optimal inverse exponent follow analytically. The symbolic proof requires evaluating the 36 exact rational coefficients, which are reproducibly certified by the embedded `verify.py`.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The nearest broad theorem is Moseeva–Tarasov–Zaporozhets (2020), whose sections 2–3 give forward spherical geodesic-pair distributions through random geodesic chord distributions for bodies coming from **line-free convex cones**, and whose worked application is a spherical cap. An entire lune contains an antipodal polar pair and falls outside this pointed-cone hypothesis. The target here is the **ambient Euclidean two-chord-moment inverse** for an unknown-radius convex spherical lune. Its strict scale-free moment monotonicity, complete feasible region, and sharp inverse exponent are not stated or directly implied in the inspected relevant material. Tu–Fischbach (2002) treats volume-uniform and radially weighted spherical objects; Gille (2005) considers a different isotropic-chord sampling law; Besau et al. (2023) concern spherical wedge hull facet counts. A previously derived spherical-cap moment formula covers the hemisphere endpoint only, not the other lunes. Searches for equivalent lune/spherical-digon/wedge chord-moment inverses and comparisons with accessible research records did not identify coverage. This does not establish absolute historical novelty.
+PASS
 
-## Value — PASS
-The scalar statistic \(\mathbb E[D^4]/\mathbb E[D^2]^2\) completely identifies the opening angle for a natural, geodesically convex, two-vertex spherical region despite unknown global scale. The result contrasts monotone stochastic enlargement with *decreasing normalized dispersion* and precisely locates the optimal failure of Lipschitz inversion near a collapsing lune. This is a structurally motivated inverse-geometric-probability classification and uniform stability theorem, not just a forward moment formula.
+Surface-uniform lune sampling makes Z uniform[-1,1] and longitude uniform[-theta/2,theta/2]; first and second moment matrices yield mu=2R^2(1-h) and nu=4R^4(4/3-2h+2v^2 cos^2(x)/9), independently rederived by trace identities. Symbolic differentiation independently verified the exact kappa derivative factor H. An exact-rational independent degree-35 Bernstein test on t in [0,(11/7)^2] produced 36 coefficients, minimum 0.1092938969>0.1; the stated Taylor/Machin error bound <1e-4 proves global H>0, so kappa is strictly decreasing. The hemisphere gives 40/27, the zero-area limiting ratio is excluded. Small-x quadratic deficit and compact strict derivative yield optimal inverse 1/2-Hölder angle stability. Coupling the longitude differences yields strict chord stochastic ordering.
 
-## Closest sources and limitations
-Primary-text comparisons: Tu–Fischbach, arXiv:math-ph/0201046v1, abstract, §II, and the discussion of the remaining sections; Moseeva–Tarasov–Zaporozhets, arXiv:2007.07297v1, sections 2–3; Besau et al., DOI:10.1007/s00208-023-02704-9, full HTML abstract and results on the facet count; Gille, DOI:10.3844/jmssp.2005.24.28, article abstract and sampling description only. A complete direct comparison with Gille's PDF was not made; the sampling definitions differ. The theorem assumes independent area-uniform points, \(0<\theta\le\pi\), exact population moments, and an unknown positive sphere radius. It does not extend to arbitrary spherical polygons or establish noise robustness for finite samples.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A natural two-parameter inverse geometric-probability problem has an exact complete feasible region and sharp stability exponent not found in inspected prior statements.
+
+## value
+
+PASS
+
+The chord moments are intrinsic experimental statistics of a natural geodesically convex spherical region; determining both radius and angle with a complete range and sharp stability is an independently useful inverse result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

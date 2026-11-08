@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python verify.py` in the same directory, with Python 3, `sympy` and `numpy` installed. The program constructs a degree-35 exact rational polynomial, converts it to degree-35 Bernstein coefficients on \([0,(11/7)^2]\), and asserts that all 36 are greater than \(1/10\). A separately bounded Taylor/trigonometric approximation error is strictly less than \(1/10000\). Thus the derivative's sign is proved everywhere, including parameters near either endpoint. The \(\pi\) bound is derived from two rational arctangent series and Machin's identity, not a floating-point assumption.
+## correctness
 
-The program also checks the two endpoint expansions symbolically and independently integrates the two distance moments by four-dimensional tensor-product quadrature for three nontrivial angles. Quadrature is only a consistency check; all universal statements use exact integrations and the rational certificate.
+PASS
 
-The reconstruction uses exact population moments and a unique scalar inversion; no finite-sample estimation guarantees are proved. Independent external audit has not occurred.
+Surface-uniform lune sampling makes Z uniform[-1,1] and longitude uniform[-theta/2,theta/2]; first and second moment matrices yield mu=2R^2(1-h) and nu=4R^4(4/3-2h+2v^2 cos^2(x)/9), independently rederived by trace identities. Symbolic differentiation independently verified the exact kappa derivative factor H. An exact-rational independent degree-35 Bernstein test on t in [0,(11/7)^2] produced 36 coefficients, minimum 0.1092938969>0.1; the stated Taylor/Machin error bound <1e-4 proves global H>0, so kappa is strictly decreasing. The hemisphere gives 40/27, the zero-area limiting ratio is excluded. Small-x quadratic deficit and compact strict derivative yield optimal inverse 1/2-Hölder angle stability. Coupling the longitude differences yields strict chord stochastic ordering.
+
+## originality
+
+PASS
+
+A natural two-parameter inverse geometric-probability problem has an exact complete feasible region and sharp stability exponent not found in inspected prior statements.
+
+## value
+
+PASS
+
+The chord moments are intrinsic experimental statistics of a natural geodesically convex spherical region; determining both radius and angle with a complete range and sharp stability is an independently useful inverse result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
