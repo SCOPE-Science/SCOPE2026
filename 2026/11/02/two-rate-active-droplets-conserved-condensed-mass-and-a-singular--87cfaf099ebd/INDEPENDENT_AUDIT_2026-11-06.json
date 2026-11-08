@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:17:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicitly specified one-dimensional stationary kinetic equations, r>0, alpha_g,alpha_l>0, rho_m>4, and the symmetric one-interface low-density gas branch, write S=v sigma and R=v rho. Away from the origin S'=-r rho and R'=-(r+alpha) sigma; phasewise S^2-rR^2/(r+alpha) is constant. Gas decay forces its zero first integral and sigma_g=eta_g rho_g, selecting the small interface root y_b and giving exactly one/chi_g half-gas mass via S(b)/r. Interface R,S continuity gives rho_l(b)=rho_m, sigma_l(b)=rho_m eta_g and the two-mode liquid solution rho_l(x)=rho_m(cosh(k(b-x))+beta sinh(k(b-x))), sigma_l(x)=rho_m eta_l(sinh(k(b-x))+beta cosh(k(b-x))), k=rho_m chi_l, beta=chi_l/chi_g. Positivity follows because the polarization ratio lies between eta_l and eta_g. Total mass reduces exactly to beta*mu=sinh(u)+beta cosh(u), u=kb, mu=M chi_g/2. Strict increase in u gives unique b>0 iff mu>1; source jump S(0+)=rM/2 checks the delta reset source. Varying chi_l increases liquid mass at fixed b, implying strictly decreasing b; beta->infinity forces u->acosh(mu), with L1-rescaled sinh inner law and weak liquid delta atom of mass M-2/chi_g. Independently recomputed normalization, monotonicity for multiple rate sets, and u/b limits; inspected verify.py ODE/flux/orientation/quadrature checks. No claim outside the branch, no dynamics or microscopic convergence. Finite samples alone do not establish universal theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grange, Sec. 3.3/Eq.(38), already gives homogeneous-alpha M_liq=M-2/chi; this part is explicitly credited.",
+          "Two different positive tumble rates require a hyperbolic liquid profile; single-rate Grange and single-particle renewal resetting do not instantiate this."
+        ],
+        "reasoning": "A general inhomogeneous linear telegraph transfer theorem could in principle give matrix modes, but an exact result with the matching, width monotonicity and delta-limit was not identified. Existing generality is not automatically disjoint; residual risk retained.",
+        "searches": [
+          "arXiv:2610.26149v2 (same local-reset MIPS)",
+          "arXiv:1808.06450v2 (RTP resetting)",
+          "arXiv:1206.1805 (density-dependent MIPS)",
+          "Resultary two-phase run-tumble local-reset query"
+        ]
+      },
+      "checked_sources": [
+        "GitHub immutable RESULT.md a3fe687f160bf4e1d72e42dc32dbde340d2a5d25 and verify.py b11eecc4e1c9b09a42e88c9adb54d55e5510f6cb",
+        "Grange arXiv:2610.26149v2 full HTML sections 2-5",
+        "Evans & Majumdar 2018 arXiv:1808.06450 abstract",
+        "Cates & Tailleur 2012 arXiv:1206.1805 search/bibliographic text",
+        "Resultary semantic searches on local-reset droplet and two-rate tumbling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior beta=1 yields b=log(mu)/(rho_m chi_g), while beta!=1 solves beta mu=sinh u+beta cosh u.",
+          "Prior fixed common-rate threshold and gas-mass formula are proper subcases and credited; they do not imply strict derivative in independent alpha_l or the high-rate profile without new analysis."
+        ],
+        "reasoning": "Mathematical implication compared by substitution and new free parameter: published one-parameter formula does not determine two-rate transfer; nothing claimed regarding global steady-state uniqueness.",
+        "searches": [
+          "arXiv:2610.26149v2 Eq.(38) vs revised two-rate mass equation",
+          "arXiv:1808.06450v2 model comparison",
+          "web search piecewise rate tumbling reset"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A single homogeneous alpha makes beta=1, u=log(mu), pure exponential inner profile. Distinct alpha_l gives sinh/cosh mode superposition with beta=chi_l/chi_g.",
+          "Stationary measure limit has alpha_l->infty at fixed gas rate and mass M_liq, not the paper's finite reset-velocity limit."
+        ],
+        "reasoning": "The natural alias is a two-zone telegraph/transfer-matrix interface with different linear relaxation rates. Compared exact equations and interface data, not just titles; no examined source has the full two-rate threshold, monotone width and inner scaling.",
+        "searches": [
+          "\"run tumble motility induced phase separation local resetting Grange 2026 density dependent tumbling two rates interface droplet mass\" Resultary search",
+          "\"run-and-tumble density dependent tumbling piecewise inhomogeneous local resetting droplets\" web search",
+          "arXiv:2610.26149v2 sections 2-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grange exactly tabulates one-rate gas/liquid mass and threshold, which are NOT novel individually.",
+          "Additional beta-dependent half-width and rescaled sinh distribution are not supplied by that one-rate table."
+        ],
+        "reasoning": "No known numerical database or table was relevant to the infinite-rate singular profile; this is an analytic PDE/interface statement, so a database count would not mechanically subsume it.",
+        "searches": [
+          "Resultary local-reset MIPS two rate droplet query (no close dedicated table hit)",
+          "Grange arXiv:2610.26149v2 formula (38)"
+        ]
+      },
+      "rationale": "Grange's arXiv:2610.26149v2 solves the same local-reset MIPS model with ONE homogeneous alpha, including the gas profile, threshold and condensed mass. It does not provide a distinct liquid/gas tumbling-rate matching law or singular alpha_l->infinity conditional shape. Evans–Majumdar 2018 is one RTP, Cates–Tailleur addresses density-dependent motility, and other generic transfer methods are related but not located with this full conclusion. Originality is best-knowledge, not worldwide priority proof.",
+      "residual_risks": [
+        "General inhomogeneous RTP/transfer-matrix literature could algebraically subsume the matching law; priority not exhaustively established.",
+        "Stationary branch uses discontinuous v and flux matching, not uniqueness/stability across all nonsymmetric solutions.",
+        "Current full text of Evans--Majumdar not independently read; not labeled NOT_COVERING globally."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the common-rate beta=1 limit and mass mechanism; does not state phasewise distinct alpha_l width/inner layer",
+          "evidence": [
+            "Section 2 defines one alpha; section 3.3 Eq.(38) gives M_liq=M-2v0/sqrt(r(r+alpha)); Sec.5 varies reset return velocity, not tumble rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26149",
+          "material_read": "Accessible full HTML: Sections 2, 3.1-3.3, 4, 5 and Appendix model discussion; kinetic equations, common alpha, Eq.(38) mass and critical-rate formulas",
+          "method": "Read arXiv v2 HTML search rendering and compared displayed equations to assigned RESULT",
+          "title": "Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting",
+          "trigger": "Identical local reset MIPS and matching interface; highest priority"
+        },
+        {
+          "assessment": "Related but scope is noninteracting one particle; not used to rule out all its pages",
+          "evidence": [
+            "Statement describes one-particle Poisson resetting, stationary density independent of reset-direction randomization; no density-triggered gas/liquid interface in available material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.06450",
+          "material_read": "Accessible scholarly abstract and bibliographic description of single RTP/velocity reset protocol; full text not inspected this run",
+          "method": "Primary bibliographic and abstract comparison",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Possible stronger homogeneous random-velocity reset theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Different dense-phase reorientation is physically motivated and mathematically changes the inner transfer modes. The result separates observables fixed by dilute flux (nucleation threshold and condensed mass) from tunable width and center height, then establishes a nontrivial concentration-without-mass-loss limit and explicit conditional inner profile. This is a meaningful exact parameter-perturbation/limit theorem, not a mere renaming of the homogeneous formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub immutable RESULT.md a3fe687f160bf4e1d72e42dc32dbde340d2a5d25 and verify.py b11eecc4e1c9b09a42e88c9adb54d55e5510f6cb",
+    "Grange arXiv:2610.26149v2 full HTML sections 2-5",
+    "Evans & Majumdar 2018 arXiv:1808.06450 abstract",
+    "Cates & Tailleur 2012 arXiv:1206.1805 search/bibliographic text",
+    "Resultary semantic searches on local-reset droplet and two-rate tumbling"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Conditional exact stationary mean-field one-droplet branch, rho_m>4 and mu>1; no general PDE asymptotic stability or particle-level claim.",
+    "Gas mass and threshold already established for homogeneous rate; new result is two-rate dependence and singular layer."
+  ],
+  "schema_version": 1
+}

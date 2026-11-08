@@ -1,19 +1,21 @@
-# Scientific review of the two-tumbling-rate stationary branch
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary equations reduce phasewise to two flux equations. The positive decaying gas branch has zero first-integral constant and fixes both interface fluxes. In the liquid, interface matching fixes a hyperbolic two-mode profile, rather than a single exponential. Integrating the flux and density gives an exact strictly increasing mass equation with a positive-width solution precisely above the gas-controlled threshold. The proof checks nonnegative component populations, the origin reset source, exact total mass, strict monotonicity in liquid tumbling and the singular layer measure limit. The supplied verifier passes 594 finite checks, which corroborate algebra but are not the proof.
+PASS
 
-## Originality — PASS (best-knowledge)
+For the explicitly specified one-dimensional stationary kinetic equations, r>0, alpha_g,alpha_l>0, rho_m>4, and the symmetric one-interface low-density gas branch, write S=v sigma and R=v rho. Away from the origin S'=-r rho and R'=-(r+alpha) sigma; phasewise S^2-rR^2/(r+alpha) is constant. Gas decay forces its zero first integral and sigma_g=eta_g rho_g, selecting the small interface root y_b and giving exactly one/chi_g half-gas mass via S(b)/r. Interface R,S continuity gives rho_l(b)=rho_m, sigma_l(b)=rho_m eta_g and the two-mode liquid solution rho_l(x)=rho_m(cosh(k(b-x))+beta sinh(k(b-x))), sigma_l(x)=rho_m eta_l(sinh(k(b-x))+beta cosh(k(b-x))), k=rho_m chi_l, beta=chi_l/chi_g. Positivity follows because the polarization ratio lies between eta_l and eta_g. Total mass reduces exactly to beta*mu=sinh(u)+beta cosh(u), u=kb, mu=M chi_g/2. Strict increase in u gives unique b>0 iff mu>1; source jump S(0+)=rM/2 checks the delta reset source. Varying chi_l increases liquid mass at fixed b, implying strictly decreasing b; beta->infinity forces u->acosh(mu), with L1-rescaled sinh inner law and weak liquid delta atom of mass M-2/chi_g. Independently recomputed normalization, monotonicity for multiple rate sets, and u/b limits; inspected verify.py ODE/flux/orientation/quadrature checks. No claim outside the branch, no dynamics or microscopic convergence. Finite samples alone do not establish universal theorem.
 
-The closest source is Grange, arXiv:2610.26149 (2026), whose complete online manuscript sections 2–6 and relevant appendices were examined. It treats one common tumbling rate, derives the gas/droplet profiles and phase masses, and extends to finite return velocity; those fixed-rate results are credited. Evans–Majumdar 2018 studies resetting of a *single noninteracting* RTP at homogeneous flip rate. Cates–Tailleur 2012 treats general density-dependent motility/MIPS, not the local-reset matched interface. An accessible earlier general-flux classification with homogeneous tumbling also yields a gas-mass invariant but not the two-rate liquid transfer solution, its strict width law, or the fast-liquid-tumble singular profile. Specific semantic mathematical-database searches for alternate formulations were performed; the returned closest records did not state the paired phase-dependent tumbling theorem. The search is not a uniqueness or priority proof. Residual risk: broader piecewise-constant kinetic transfer-matrix formulae could entail some identities even if not presented in this physical formulation.
+## originality
 
-## Value — PASS
+PASS
 
-The addition of a separate dense-phase tumble rate is physically motivated because dense clusters can modify particle reorientation as well as speed. The theorem isolates which observables a dense-phase reorientation control changes (droplet width and center density) and which remain pinned to dilute transport (phase mass and nucleation threshold). It establishes the unexpected singular limit of a shrinking droplet with finite mass and an explicit inner-layer law, providing a sharp mathematical boundary for modeling very rapid dense-phase reorientation. Neither an arbitrary parameter substitution nor a new name for a known stationary expression yields this full result.
+Grange's arXiv:2610.26149v2 solves the same local-reset MIPS model with ONE homogeneous alpha, including the gas profile, threshold and condensed mass. It does not provide a distinct liquid/gas tumbling-rate matching law or singular alpha_l->infinity conditional shape. Evans–Majumdar 2018 is one RTP, Cates–Tailleur addresses density-dependent motility, and other generic transfer methods are related but not located with this full conclusion. Originality is best-knowledge, not worldwide priority proof.
 
-## Scientific limitations and closest coverage
+## value
 
-The contribution is restricted to a symmetric one-droplet steady branch of a discontinuous mean-field kinetic model with two positive constant tumbling rates. No broad dynamical stability, global stationary uniqueness, particle-level limit or independent priority certification is claimed. The closest exact source already establishes the homogeneous-tumbling limit and the gas-side mass mechanism, which are not asserted as new. An unrestricted linear-system transfer theorem remains a residual overlap risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Different dense-phase reorientation is physically motivated and mathematically changes the inner transfer modes. The result separates observables fixed by dilute flux (nucleation threshold and condensed mass) from tunable width and center height, then establishes a nontrivial concentration-without-mass-loss limit and explicit conditional inner profile. This is a meaningful exact parameter-perturbation/limit theorem, not a mere renaming of the homogeneous formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
