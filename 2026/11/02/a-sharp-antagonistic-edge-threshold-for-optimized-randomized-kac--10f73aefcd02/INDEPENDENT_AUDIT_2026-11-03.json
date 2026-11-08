@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:43:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Congruence transforms B^T diag(p)B>=gamma I to diag(p)>=gamma (BB^T)^-1. Therefore maximize gamma by minimum-trace diagonal PSD majorant of C; its standard elliptope dual has diag X=1. In the weak branch, the proposed slack quadratic form is an explicit sum of nonnegative squares and its all-ones kernel gives a matching rank-one dual. In the strong branch, slack/w=t vv^T+(1+1/t)L_complete, with v=e_1+e_n-t^-1 sum interiors; matching rank-two correlation X=aa^T+(1-r²)ff^T yields equality. Complementary slackness forces each q uniquely even allowing nonsymmetric competitors; rank of factors proves nullity and t=m/2 boundary. An implicit-function argument starting at C=I establishes feasible unit-row systems for sufficiently small w at every t. Independently checked rational PSD/dual/rank certificates in 64 cases; finite coverage does not replace the symbolic factorization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai et al. give a generic SDP/approximation, not an all-parameter closed optimizer; Wang et al. use a lifted exact-MSE recursion; inverse-positive SPD quadratic result requires entrywise nonnegative inverse."
+        ],
+        "reasoning": "A generic SDP only supplies an algorithm, not this exact t-dependent optimizer. Negative triangles in C prevent diagonal sign-switching into the entrywise positive regime, so the known coordinate-sampling formula does not imply this case.",
+        "searches": [
+          "https://arxiv.org/abs/1402.2863",
+          "https://arxiv.org/abs/1502.00190",
+          "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1402.2863",
+        "https://arxiv.org/abs/1502.00190",
+        "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SDP permits numerical evaluation for each C, but the exhibited rank-one/rank-two complementary primal-dual certificates establish a new closed-form phase law for every n,t."
+        ],
+        "reasoning": "Existing general optimality conditions do not directly give uniqueness, the threshold and the sharp contraction without the specific certificate computations.",
+        "searches": [
+          "https://arxiv.org/abs/1402.2863",
+          "https://arxiv.org/abs/1502.00190",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dai et al. rewrite optimal Kaczmarz row sampling as a minimum-trace diagonal semidefinite majorant / correlation-elliptope dual."
+        ],
+        "reasoning": "The primal and dual models are equivalent to the current objective. The new result is a closed form for a signed dense C, not a new SDP formulation.",
+        "searches": [
+          "optimized randomized Kaczmarz probabilities inverse Gram dense signed complete graph single negative edge threshold semidefinite diagonal majorant",
+          "https://arxiv.org/abs/1402.2863"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary records include a coordinate-sampling explicit parabola with nonnegative inverse and small signed-graph cases, not a single-negative-edge complete signed graph sharp t=m/2 table."
+        ],
+        "reasoning": "No matching complete clique sampling table was located. This observation alone cannot certify originality.",
+        "searches": [
+          "optimized randomized Kaczmarz probabilities inverse Gram dense signed complete graph single negative edge threshold semidefinite diagonal majorant",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "https://arxiv.org/abs/1402.2863"
+        ]
+      },
+      "rationale": "Dai–Soltanalian–Pelckmans establish the general diagonal-majorant SDP, which is prior. The claim evaluates it explicitly for a dense signed complete graph with exactly one negative edge, including unique optimizer, rational strong branch and sharp nullity transition, which were not found in inspected relevant sources. The published inverse-positive-coordinate model assumes nonnegative inverse and is not applicable to negative signed triangles. O=PASS qualified by partially inaccessible 2014 exact-MSE article and possible spin/elliptope literature.",
+      "residual_risks": [
+        "Full 2014 GlobalSIP article on optimal sampling could imply special-case formula; the available abstract does not resolve this.",
+        "General elliptope/antiferromagnetic complete signed-graph literature may have solved the equivalent correlation optimization independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial overlap: optimization formulation, not specialized explicit signed clique phase law.",
+          "evidence": "Generic probability design SDP, no inspected exact complete-single-negative-edge analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+          "material_read": "Open-access arXiv 2014 article, Theorem 2, optimization/approximation sections and conclusions.",
+          "method": "full_text_open_access",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Most relevant general sampling SDP including primal formulation."
+        },
+        {
+          "assessment": "Distinct lifted multistep mean-square-error criterion; neither equates to nor provides this one-step minimax closed law.",
+          "evidence": "Exact MSE of inconsistent systems, no direct signed dense one-step optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00190",
+          "material_read": "Available arXiv main propositions and exact-MSE setting.",
+          "method": "full_text_open_access",
+          "title": "Randomized Kaczmarz Algorithm for Inconsistent Linear Systems: An Exact MSE Analysis",
+          "trigger": "Potential stronger general convergence objective."
+        },
+        {
+          "assessment": "Priority risk; cannot infer full-paper noncoverage.",
+          "evidence": "Metadata confirms overlapping terminology but no whole-text comparison.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Abstract/bibliographic information only; complete article inaccessible in checked access routes.",
+          "method": "abstract_and_bibliography_only",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Plausible older title directly says optimal probabilities."
+        },
+        {
+          "assessment": "Requires entrywise nonnegative inverse, violating signed-triangle geometry.",
+          "evidence": "Different sign pattern excludes direct reduction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "Published finding full summary and hypotheses.",
+          "method": "published_resultary_record",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Nearby published exact optimal sampling result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A dense interaction network with one antagonistic coupling is a natural robustness model. The optimizer undergoes a genuine sign-induced structural transition and has explicit probabilities and spectral rate throughout an infinite dimension family, removing a generic semidefinite optimization for this class. The one-step objective is explicitly bounded and avoids unsupported multistep claims.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1402.2863",
+    "https://arxiv.org/abs/1502.00190",
+    "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every unit-row real invertible n-by-n system (n>=5) with inverse row-Gram off-diagonals all +w except one edge -tw, fixed-iid one-step worst-direction expected squared-error contraction has a unique exact probability vector from two explicit diagonal-majorant formulas. Its breakpoint is t=(n-2)/2, with optimal slack nullity changing from one to two.",
+  "limitations": [
+    "Fixed iid sampling and sharp one-step worst-direction conditional expectation only; not exact long-horizon MSE or adaptive methods.",
+    "Prescribed C must be compatible with positive-definite unit-row inverse Gram; small w existence is established but arbitrary w existence is not."
+  ],
+  "residual_risks": [
+    "Full 2014 GlobalSIP article on optimal sampling could imply special-case formula; the available abstract does not resolve this.",
+    "General elliptope/antiferromagnetic complete signed-graph literature may have solved the equivalent correlation optimization independently."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Direct partial overlap: optimization formulation, not specialized explicit signed clique phase law.",
+      "evidence": "Generic probability design SDP, no inspected exact complete-single-negative-edge analysis.",
+      "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+      "material_read": "Open-access arXiv 2014 article, Theorem 2, optimization/approximation sections and conclusions.",
+      "method": "full_text_open_access",
+      "title": "On the Randomized Kaczmarz Algorithm",
+      "trigger": "Most relevant general sampling SDP including primal formulation."
+    },
+    {
+      "assessment": "Distinct lifted multistep mean-square-error criterion; neither equates to nor provides this one-step minimax closed law.",
+      "evidence": "Exact MSE of inconsistent systems, no direct signed dense one-step optimizer.",
+      "identifier_or_url": "https://arxiv.org/abs/1502.00190",
+      "material_read": "Available arXiv main propositions and exact-MSE setting.",
+      "method": "full_text_open_access",
+      "title": "Randomized Kaczmarz Algorithm for Inconsistent Linear Systems: An Exact MSE Analysis",
+      "trigger": "Potential stronger general convergence objective."
+    },
+    {
+      "assessment": "Priority risk; cannot infer full-paper noncoverage.",
+      "evidence": "Metadata confirms overlapping terminology but no whole-text comparison.",
+      "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+      "material_read": "Abstract/bibliographic information only; complete article inaccessible in checked access routes.",
+      "method": "abstract_and_bibliography_only",
+      "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+      "trigger": "Plausible older title directly says optimal probabilities."
+    },
+    {
+      "assessment": "Requires entrywise nonnegative inverse, violating signed-triangle geometry.",
+      "evidence": "Different sign pattern excludes direct reduction.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "material_read": "Published finding full summary and hypotheses.",
+      "method": "published_resultary_record",
+      "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+      "trigger": "Nearby published exact optimal sampling result."
+    }
+  ]
+}
