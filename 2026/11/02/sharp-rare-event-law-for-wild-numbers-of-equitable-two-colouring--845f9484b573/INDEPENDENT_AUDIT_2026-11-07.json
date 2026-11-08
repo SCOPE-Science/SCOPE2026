@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=binom(n,2), d=n-1 and m=floor(N/2), the known component identity W=kappa(red)+kappa(blue)-2 equals isolated monochromatic vertices plus excess nontrivial components. A specified monochromatic cut of k vertices has probability at most e*2^{-k(n-k)} even under fixed balanced edge totals; summing k=2..floor(n/2) gives O(n^2*4^{-n}) excess. Pairwise isolated vertices of the same color also have probability O(n^2*4^{-n}), while opposite-color isolates are incompatible. Exact expectation p_n=n[(m)_d+(N-m)_d]/(N)_d follows by symmetry. The logarithm of each falling-factorial ratio is -d*log 2 - d(d-1)/(2N)+O(1/n), giving p_n=(4/e)n*2^{-n}(1+O(1/n)); hence the full stated P(W=0), P(W=1), P(W>=2), E W hierarchy and conditional single-isolate event. Explicitly checked odd N, n>=4 and asymptotic limitations; no finite computation substitutes for these bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical theorem approximates the dominant connected count multiplicatively.",
+          "An o(1) relative error for connectivity is too coarse to resolve the rare failure of order n2^{-n}."
+        ],
+        "reasoning": "A fully sharpened dense fixed-edge connectivity theorem with explicit first corrections could dominate some terms; no complete covering implication was established from the read statements.",
+        "searches": [
+          "Bender Canfield McKay 1990 labeled connected graphs given n and m Theorem 1 Corollary 3",
+          "Dawkins et al arXiv:2610.22142"
+        ]
+      },
+      "checked_sources": [
+        "Dawkins et al arXiv:2610.22142v1, Sections 2 and 3.2.1",
+        "Bender Canfield McKay 1990, Theorem 1 and Corollary 3",
+        "Resultary semantic search on wild-number rare-event aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: E[W]->0 and component identity.",
+          "New: E[W]=p_n+O(n²4^{-n}) and P(W>=2)=O(n²4^{-n}); p_n~4n2^{-n}/e."
+        ],
+        "reasoning": "The explicit exponentially accurate rate and two-complement-colour classification are strictly stronger than prior limit, and not implied by a coarse relative connected-count estimate.",
+        "searches": [
+          "Dawkins et al arXiv:2610.22142 Section 3.2.1",
+          "Bender Canfield McKay 1990 Theorem 1 Corollary 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W is the sum of the two monochromatic component deficits; exactly W=1 corresponds to a single deficit.",
+          "Dawkins et al prove E W tends to zero without the balanced e^{-1} prefactor."
+        ],
+        "reasoning": "The exact component-count representation is earlier; applying sharp G(n,m) isolate probabilities to the complement pair is the equivalent probabilistic formulation, not a new graph identity.",
+        "searches": [
+          "Resultary: sharp rare-event asymptotic equitable red blue edge colouring complete graph wild number isolated vertex 4/e fixed-edge connectivity",
+          "Dawkins et al arXiv:2610.22142 Sections 2 and 3.2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Similarity results concerned rainbow/majority edge coloring or disconnected graph structures, not an exact rare-event table for balanced wild numbers."
+        ],
+        "reasoning": "An exact code/database lookup is not a natural complete substitute for an all-n asymptotic theorem; no exact matching table was returned.",
+        "searches": [
+          "Resultary: sharp rare-event asymptotic equitable red blue edge colouring complete graph wild number isolated vertex 4/e fixed-edge connectivity",
+          "SCOPE published graph edge-colouring similarity hits"
+        ]
+      },
+      "rationale": "Dawkins et al. give the exact wild-number component identity and E[W_n]->0 for balanced random complete graph coloring but not an asymptotic equivalent, sharp e^{-1} balance correction or higher-wild-number error hierarchy. The older dense G(n,m) connectivity literature treats the same fixed-edge event family and may contain stronger isolated-vertex asymptotics; inspected Bender–Canfield–McKay multiplicative connected-graph estimates do not by themselves yield the exponentially small disconnection complement. PASS is a qualified statement-level judgment, not a new claim for isolated-vertex arguments generally.",
+      "residual_risks": [
+        "Uninspected high-precision dense fixed-edge connectivity asymptotics might already imply part or all of the sharp singleton expansion.",
+        "Conditional structural assertion follows from asymptotic error, not a finite-n guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING component identity and convergence only; does not provide sharp p_n expansion",
+          "evidence": "Section 3.2.1 and component formula; arXiv:2610.22142v1",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22142",
+          "material_read": "PDF Sections 2 and 3.2.1 including relevant theorem on expectation and component identity",
+          "method": "open-access arXiv PDF textual reading and rendered PDF page inspection",
+          "title": "Wild number for spanning trees in complete and complete bipartite graphs",
+          "trigger": "same exact graph parameter and equitable coloring"
+        },
+        {
+          "assessment": "MATERIAL relevant but inspected statements not sufficient for sharp tiny disconnection probability",
+          "evidence": "Bender, Canfield, McKay 1990 theorem/corollary",
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/papers/BCM_Connected1.pdf",
+          "material_read": "Theorem 1 and Corollary 3, especially multiplicative estimates rather than rare-event subtraction",
+          "method": "lawful author-posted PDF with mathematical comparison",
+          "title": "The asymptotic number of labeled connected graphs with a given number of vertices and edges",
+          "trigger": "strong dense fixed-edge G(n,m) prior coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This completes an explicitly studied random-coloring question by a sharp rare-event rate, physically significant balance-vs-independent-model constant and the typical exact repair cost of one wild edge. These are not obtained from the prior mere convergence to zero; the exponential remainder separates singleton isolation from multi-component failures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform globally equitable two named edge colors of K_n, n>=4, no proper/local-balance constraint; finite tests do not establish asymptotics."
+  ]
+}
