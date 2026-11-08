@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:54:14.209233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conductance parametrization makes centered symmetric similarity S-uu^T affine in edge flows, and its operator norm convex, even for reducible chains where extra eigenvalue 1 is retained. The stationary-measure-preserving edge-transitive group averages arbitrary feasible flows to a homogeneous alpha, proving unrestricted global reduction. Two-by-two Fourier/Bloch blocks yield nonstationary generator extreme eigenvalues G and 2(1+r); the exact scalar SLEM is max(1-alpha G, |1-2(1+r)alpha|). Intersection constrained by alpha<=1/2 yields piecewise alpha and r_m. Independently diagonalized full symmetric matrices and compared the formulas in 30 (m,r) regimes. Includes m=2 simple four-cycle and uniform r=1 periodic MH endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 fixed-π general SDP permits computing each instance; 2007 graph symmetry reduction supports argument; Jafarizadeh 2010 related graphs have uniform masses."
+        ],
+        "reasoning": "A generic SDP formulation does not explicitly imply an elementary closed form with r_m. Checked newer FMRMC clique-lift graph abstract is not this periodic π cycle formula.",
+        "searches": [
+          "Resultary semantic query: fastest mixing Markov chain even cycle alternating stationary distribution reversible Metropolis Hastings second eigenvalue modulus",
+          "web search: fastest mixing reversible Markov chain alternating probability weights cycle stationary distribution exact solution",
+          "DOI:10.1137/S0036144503423264",
+          "arXiv:1008.2588",
+          "arXiv:2501.02421"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), DOI 10.1137/S0036144503423264",
+        "Boyd–Diaconis–Parrilo–Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955",
+        "Jafarizadeh, Fastest Mixing Markov Chain on Symmetric K-Partite Network, arXiv:1008.2588",
+        "Boyd–Diaconis–Sun–Xiao, Symmetry Analysis of Reversible Markov Chains (2005)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published uniform-cycle optimum already yields r=1 branch, but not the r<1 SLEM threshold."
+        ],
+        "reasoning": "Use edge-flow group invariance under π-preserving two-step rotation/reflection, not full dihedral action exchanging unequal masses; prior uniform result does not directly cover this subgroup + prescribed π calculation.",
+        "searches": [
+          "arXiv:0709.0955 Section 3.1.1",
+          "DOI:10.1137/S0036144503423264 Section 6",
+          "Resultary semantic query: fastest mixing Markov chain even cycle alternating stationary distribution reversible Metropolis Hastings second eigenvalue modulus",
+          "web search: fastest mixing reversible Markov chain alternating probability weights cycle stationary distribution exact solution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd symmetry paper assumes P=P^T and uniform stationary law; this claim allows P asymmetric via detailed balance and alternates mass ratio r."
+        ],
+        "reasoning": "At r=1, published uniform-cycle solution is already covered. For r<1, the prescribed π and r-dependent MH optimality threshold are new in inspected comparison.",
+        "searches": [
+          "Resultary semantic query: fastest mixing Markov chain even cycle alternating stationary distribution reversible Metropolis Hastings second eigenvalue modulus",
+          "web search: fastest mixing reversible Markov chain alternating probability weights cycle stationary distribution exact solution",
+          "arXiv:0709.0955",
+          "Fastest mixing reversible chain with prescribed pi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent full matrix eigenvalue computations for m,r examples verify exact Bloch branches; global proof uses convex symmetry reduction."
+        ],
+        "reasoning": "The result is an all m and real r criterion; no finite table is asserted to settle the continuum.",
+        "searches": [
+          "Resultary semantic query: fastest mixing Markov chain even cycle alternating stationary distribution reversible Metropolis Hastings second eigenvalue modulus",
+          "web search: fastest mixing reversible Markov chain alternating probability weights cycle stationary distribution exact solution",
+          "C2m alternating distribution, optimal SLEM closed form"
+        ]
+      },
+      "rationale": "Boyd–Diaconis–Xiao 2004 gives general FMMC convex and fixed-π SDP; Boyd–Diaconis–Parrilo–Xiao 2007/2009 treats graph symmetries and homogeneous uniform-π cycles (r=1 already covered). Jafarizadeh 2010 cyclic K-partite analyses assume symmetric uniform stationary masses. Exact alternating-π threshold beyond uniform case not found in inspected sources. Stronger fixed-π cycle explicit formulas in other papers remain a priority risk.",
+      "residual_risks": [
+        "Potential earlier exact period-two stationary-measure FMMC specialization not located",
+        "SLEM only, no claim of unique asymmetric optimizer or finite-time total-variation optimum"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNIFORM_CASE_COVERED_NONUNIFORM_NOT_IDENTIFIED",
+          "evidence": "The uniform r=1 case is prior art; inspected source does not state period-two stationary masses or r_m.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Full arXiv HTML Introduction, §3.1.1 cycles and symmetry reduction; explicitly assumes symmetric stochastic P and uniform π",
+          "method": "arXiv HTML full text",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Closest edge-transitive cycle optimizer"
+        },
+        {
+          "assessment": "GENERAL_OPTIMIZATION_KNOWN",
+          "evidence": "A general solver/SDP does not supply explicit r_m formula; avoid claiming new convexity.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/fmmc.html",
+          "material_read": "Full article summary and portions of PDF on convex objective, Metropolis and fixed stationary extensions",
+          "method": "lawful author OA PDF with screenshot and article page",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational convex FMMC and fixed π case"
+        },
+        {
+          "assessment": "NOT_PRESCRIBED_NONUNIFORM_PI",
+          "evidence": "Not an immediate implication for period-two unequal stationary masses.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2588",
+          "material_read": "Abstract and graph setup for symmetric uniform-stationary K-partite networks",
+          "method": "arXiv abstract and theorem-scope excerpts",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "Potential stronger cyclic bipartite result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural actionable analytic criterion when the simplest nearest-neighbor MH proposal is globally SLEM-optimal and when additional self-holding improves mixing, uniformly over all even cycle sizes, with exact optimal spectral radius and long-cycle scaling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Boyd–Diaconis–Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), DOI 10.1137/S0036144503423264",
+    "Boyd–Diaconis–Parrilo–Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955",
+    "Jafarizadeh, Fastest Mixing Markov Chain on Symmetric K-Partite Network, arXiv:1008.2588",
+    "Boyd–Diaconis–Sun–Xiao, Symmetry Analysis of Reversible Markov Chains (2005)",
+    "Frozen package RESULT.md, AUDIT.json, METADATA.json and exact Git tree",
+    "Independent bounded verifier: independent_checks.py, output ALL_CHECKS_PASS"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Potential earlier exact period-two stationary-measure FMMC specialization not located",
+    "SLEM only, no claim of unique asymmetric optimizer or finite-time total-variation optimum"
+  ],
+  "schema_version": 1
+}
