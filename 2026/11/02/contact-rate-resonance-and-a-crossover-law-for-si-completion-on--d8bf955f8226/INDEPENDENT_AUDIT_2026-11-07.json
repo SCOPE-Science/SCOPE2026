@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:00:43.524725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed k≥2, β>0, γ≥0, the petal infection count j has rate λ_j=(k−j)(β+jγ) from independent exponential edge clocks. Successive holding times and m petal times are independent, so D is a sum of k independent Exp(λ_j) and P(T_m≤t)=P(D≤t)^m. Concavity in j confines slowest λ_j to endpoints kβ and β+(k−1)γ. Distinct fixed rates yield a simple slow pole and Cexp(−at) tail, whereas γ=β gives two equal slow poles at kβ, t e^(−at) and the interior telescoping coefficient (k−1)². In the triangular array γ_m=β(1+c/log m), the exact two-exponential survival formula e^(−at)[1+a(1−e^(−δ_m t))/δ_m], δ_m=(k−1)β c/log m, combined with uniformly faster interior stages yields the coefficient (k−1)²h((k−1)c/k)·log m. This proves the stated Gumbel centering. Independently checked the resonant k=2 survival against the exact Erlang formula at m=10³,10⁶,10¹⁰; finite numerical convergence is slow, as expected, and is not the limiting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asimit–Jones gives fixed-distribution PH asymptotics with Jordan multiplicity; its fixed-law hypothesis does not provide uniform estimates as γ_m varies."
+        ],
+        "reasoning": "A general fixed-PH theorem dominates (1) and (2) in principle with computation of constants but not crossover (3) without new uniform near-coalescence analysis. SIR peak timing and discrete-time takeover are different infection observables.",
+        "searches": [
+          "Asimit–Jones (2007) Proposition 1 and Section 3",
+          "Curran-Sebastian et al. 2023/2024 SIR first-passage",
+          "Ottino-Löffler et al. 2017 takeover networks"
+        ]
+      },
+      "checked_sources": [
+        "Asimit–Jones (2007) full OA PDF pp.2–7",
+        "Kang–Serfozo (1999) phase type extreme values",
+        "Curran-Sebastian et al. arXiv:2301.07058",
+        "Resultary SI bouquet query 2026-11-07"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed PH repeated root yields a polynomial exponential tail and log-log m centering; this part is prior mathematical theory."
+        ],
+        "reasoning": "The network-specific exact prefactors follow from its stage spectrum, while the c-dependent crossover requires evaluating two near-equal poles simultaneously; taking m→∞ before γ→β does not imply it.",
+        "searches": [
+          "Asimit–Jones Section 3 formulas (9),(10)",
+          "Kang–Serfozo fixed phase type domain of attraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The petal process is a finite-state phase-type absorption law; equality of endpoint stage rates is a double pole."
+        ],
+        "reasoning": "The same network is also called a windmill of cliques, and its bottleneck law can be studied through hypoexponential tails. These equivalent formulations were searched; the varying-rate triangular array is distinguished from fixed-generator PH theory.",
+        "searches": [
+          "Resultary: SI complete infection time windmill clique bouquet near resonance phase type Gumbel loglog",
+          "Kang–Serfozo 1999 phase-type maxima",
+          "Asimit–Jones 2007 fixed PH repeated eigenvalue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved published table for the clique-bouquet exact coefficients or H_k(c); Resultary returned general SIRS threshold crossovers instead."
+        ],
+        "reasoning": "Absence of a table is only bounded evidence; no exact listed full-network crossover factor was identified.",
+        "searches": [
+          "Resultary SI bouquet Gumbel resonance query",
+          "hypoexponential repeated pole phase type literature"
+        ]
+      },
+      "rationale": "Fixed phase-type maxima and their repeated-dominant-eigenvalue log-log corrections predate this result (Kang–Serfozo 1999; Asimit–Jones 2007). Those are explicitly acknowledged as context. The novelty-bearing statement is the specific two-mechanism SI bouquet slow-rate collision and uniform triangular-array crossover for γ_m−β of order 1/log m, with explicit H_k(c). The inspected Asimit–Jones full PDF treats i.i.d. fixed phase-type laws, not a sequence of generators coalescing with m; the 2023/24 epidemic first-passage paper concerns SIR peak/macroscopic timing. Published Resultary searches did not reveal the same SI-petal varying-rate expression. Other specialized hypoexponential extreme-value crossovers remain a residual risk.",
+      "residual_risks": [
+        "Potential specialized near-degenerate hypoexponential/extreme-value triangular-array theorem could imply the crossover; no decisive coverage located.",
+        "The near-resonance law assumes fixed real c and fixed k; no uniformity as c grows or k grows with m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies fixed-iid PH Gumbel principle and polynomial tail at Jordan multiplicities; does not cover simultaneously varying γ_m directly",
+          "evidence": "Asimit–Jones (2007) §3, eqs. (9)–(10), dominant eigenvalue and multiplicity.",
+          "identifier_or_url": "https://openaccess.city.ac.uk/id/eprint/13144/1/Asimit_Jones_2006_revised.pdf",
+          "material_read": "Original accepted-manuscript PDF introduction, Section 3 distributional assumptions, dominant-eigenvalue asymptotics equations (9),(10), screenshot of page 6",
+          "method": "lawful OA PDF full-file source, relevant technical pages and screenshot",
+          "title": "Extreme behavior of multivariate phase-type distributions",
+          "trigger": "most relevant fixed-phase-type extreme-value result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The SI completion time is a natural measurable epidemic timing invariant on connected clique bouquets. Competing hub seeding and within-clique spread rates create an exact resonance: its divergent log-log delay and continuous 1/log m crossover quantify a mechanistic phase transition. This extends fixed-distribution extreme-value theory to a motivated simultaneous population/parameter limit and has a plausible use in comparing nearly balanced transmission mechanisms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Asimit–Jones (2007) full OA PDF pp.2–7",
+    "Kang–Serfozo (1999) phase type extreme values",
+    "Curran-Sebastian et al. arXiv:2301.07058",
+    "Resultary SI bouquet query 2026-11-07"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "SI only, no recovery; identical clique size fixed; hub infected initially; β>0, γ≥0; c fixed for triangular-array limit."
+  ],
+  "residual_risks": [
+    "Potential specialized near-degenerate hypoexponential/extreme-value triangular-array theorem could imply the crossover; no decisive coverage located.",
+    "The near-resonance law assumes fixed real c and fixed k; no uniformity as c grows or k grows with m."
+  ],
+  "schema_version": 1
+}

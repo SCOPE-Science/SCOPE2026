@@ -1,11 +1,21 @@
-# Scientific review: SI completion on clique bouquets
+# Independent mathematical audit
 
-**Correctness — PASS.** Under independent exponential transmission, the exact infection-stage rate is \(\lambda_j=(k-j)(\beta+j\gamma)\). The completion duration of each clique is a sum of independent exponential stages, and clique durations are independent. The minimum stage rate occurs at the two possible endpoints; the only collision is \(\gamma=\beta\). For fixed unequal rates, exponential convolution establishes the tail prefactor; at collision the two minimum-rate stages produce an Erlang-two polynomial tail and a telescoping factor of \((k-1)^2\). For \(\gamma_m=\beta(1+c/\log m)\), the exact two-exponential survival expression and uniformly bounded interior-stage exponential moments prove the triangular-array law and the crossover factor. The full leaf-state CTMC was checked independently with exact rational moment calculations and finite-time uniformization. The proof is valid for every fixed \(k\ge2\) and permitted parameter, not extrapolated from finite enumeration.
+## correctness
 
-**Originality — PASS for the explicit near-resonant *varying-rate* SI network law, subject to priority risk.** The fundamental Gumbel limit for maxima of fixed phase-type distributions, including repeated dominant rate corrections, was already proved in Kang–Serfozo (1999) and Asimit–Jones (2007); it is not claimed as novel. The first-passage epidemic work of Curran-Sebastian et al. treats SIR epidemic timing, while Ottino-Löffler et al. consider a distinct infection update process. The exact SI contact-rate resonance and, in particular, the simultaneous \(\gamma_m-\beta=\Theta(1/\log m)\) limit with \(H_k(c)=(k-1)^2h((k-1)c/k)\) are not derived in the inspected material. These are the novelty-bearing clauses. This is a reasoned literature comparison, not a proof of global publication priority.
+PASS
 
-**Value — PASS.** Two scientifically distinct transmission mechanisms (seeding from a universally infected hub and propagation within densely connected local groups) have competing bottlenecks; balancing them changes full-network completion timing by a divergent logarithmic second-order term. The exact boundary, all-parameter finite-network law, and quantitative near-degeneracy scaling make it possible to distinguish qualitatively different SI completion regimes without simulation. The crossover coefficient is directly tied to the fixed size of local contact groups and is not an arbitrary numerical slice.
+For fixed k≥2, β>0, γ≥0, the petal infection count j has rate λ_j=(k−j)(β+jγ) from independent exponential edge clocks. Successive holding times and m petal times are independent, so D is a sum of k independent Exp(λ_j) and P(T_m≤t)=P(D≤t)^m. Concavity in j confines slowest λ_j to endpoints kβ and β+(k−1)γ. Distinct fixed rates yield a simple slow pole and Cexp(−at) tail, whereas γ=β gives two equal slow poles at kβ, t e^(−at) and the interior telescoping coefficient (k−1)². In the triangular array γ_m=β(1+c/log m), the exact two-exponential survival formula e^(−at)[1+a(1−e^(−δ_m t))/δ_m], δ_m=(k−1)β c/log m, combined with uniformly faster interior stages yields the coefficient (k−1)²h((k−1)c/k)·log m. This proves the stated Gumbel centering. Independently checked the resonant k=2 survival against the exact Erlang formula at m=10³,10⁶,10¹⁰; finite numerical convergence is slow, as expected, and is not the limiting proof.
 
-**Closest literature and limitations.** Asimit–Jones Proposition 1 and Kang–Serfozo's phase-type maximum theorem subsume the *fixed-parameter* extreme-value classification, but do not establish uniform passage through a coalescing pair of rates; the network-specific triangular-array proof supplies that step. The stochastic epidemic first-passage paper uses a different threshold and disease model. No assertion is made for a growing group size, nonexponential contacts, initially infected leaves, or recovery. Possible unlocated work on nearly coalescing phase-type rates remains a residual priority uncertainty. Independent specialist review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed phase-type maxima and their repeated-dominant-eigenvalue log-log corrections predate this result (Kang–Serfozo 1999; Asimit–Jones 2007). Those are explicitly acknowledged as context. The novelty-bearing statement is the specific two-mechanism SI bouquet slow-rate collision and uniform triangular-array crossover for γ_m−β of order 1/log m, with explicit H_k(c). The inspected Asimit–Jones full PDF treats i.i.d. fixed phase-type laws, not a sequence of generators coalescing with m; the 2023/24 epidemic first-passage paper concerns SIR peak/macroscopic timing. Published Resultary searches did not reveal the same SI-petal varying-rate expression. Other specialized hypoexponential extreme-value crossovers remain a residual risk.
+
+## value
+
+PASS
+
+The SI completion time is a natural measurable epidemic timing invariant on connected clique bouquets. Competing hub seeding and within-clique spread rates create an exact resonance: its divergent log-log delay and continuous 1/log m crossover quantify a mechanistic phase transition. This extends fixed-distribution extreme-value theory to a motivated simultaneous population/parameter limit and has a plausible use in comparing nearly balanced transmission mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
