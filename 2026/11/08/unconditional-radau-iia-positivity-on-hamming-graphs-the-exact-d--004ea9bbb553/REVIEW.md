@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The claim concerns every integer \(d\ge1\), integer \(q\ge2\), and real \(h\ge0\). The tensor spectral decomposition gives exact formulas for every entry, including all distance classes. Exact rational polynomials certify strict positivity for \((d,q)=(2,2),(2,3),(3,2)\); the single-coordinate case follows from the sharp scalar lower bound \(R(x)>-1/10\). Negative diagonal certificates cover every disallowed case in dimensions one through four by monotonicity or strictly negative Bernstein controls; the negative fifth-distance Taylor coefficient settles all larger dimensions. The standard-library verifier recomputes all ten positive-case rational identities and nine Bernstein coefficients by exact arithmetic. An independently coded direct matrix check matched representative cases. These checks corroborate the self-contained all-parameter proof rather than replacing it.
+
+## Originality — PASS on inspected evidence, with residual risk
+The inspected relevant sections of Lóczi–Ketcheson (arXiv:1303.6651v1) concern scalar absolute-monotonicity radii for rational stability functions, not Hamming graph Cartesian tensor entry kernels or an exact all-steps dimension–alphabet frontier. The author-uploaded text of Horváth–Song–Terlaky (2014), including its Section 3.2 and Theorems 3.12–3.13, gives general sufficient polyhedral-invariance step bounds but no Hamming-graph dimension–alphabet classification. In particular its absolute-monotonicity-based threshold is not a converse for the present graph-specific phenomenon. Existing generic graph-heat and simple-family results cover some isolated cases and the distance-five small-step principle, but not the simultaneous classification for all \(d,q\). Search coverage is not a proof of global publication priority; unindexed work is a residual risk.
+
+## Mathematical value — PASS
+The graph family \(K_q^{\square d}\) is a canonical two-parameter family of Cartesian-product diffusion networks, not a hand-picked finite test range. The theorem supplies the exact frontier for whether a widely used third-order implicit integrator is a stochastic positivity-preserving end-step at every step size. The distinction between \(H(2,3)\), the three-cube and their immediate dimension/alphabet neighbors is not implied by the usual scalar stability radius or the known path/cycle boundary. The explicit proof separates finite-dimensional diagonal obstructions from the general distance-five obstruction and is reusable for other spectral filters.
+
+## Closest literature and limitations
+Lóczi–Ketcheson (2013), arXiv:1303.6651v1, develops absolute monotonicity of rational methods; Horváth (2005), DOI 10.1016/j.apnum.2004.08.026, discusses positivity step thresholds; Horváth–Song–Terlaky (2014 preprint), arXiv:1406.6755v1, gives general sufficient polyhedral-invariance threshold techniques. No claim is made for anisotropic Hamming graphs, nonlinear dynamics or positivity of internal stages. The mathematical assessment is not an independent audit and does not certify absence of unindexed prior work.
+
+Self-review: passed. Independent audit: not yet performed.
