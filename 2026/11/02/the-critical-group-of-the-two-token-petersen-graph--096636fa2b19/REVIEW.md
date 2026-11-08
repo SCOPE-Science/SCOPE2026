@@ -1,15 +1,21 @@
-# Scientific review: the critical group of the two-token Petersen graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite domain and adjacency rule uniquely construct an integer Laplacian of order 45. Its degree distribution is 15 configurations of degree four and 30 of degree six. Exact symbolic characteristic-polynomial evaluation yields a 44-dimensional determinant with prime factorization \(2^{36}3^9 5^3 7^6 19^5\). At each of those five primes, exact row-column elimination over a prime-power residue ring produces all 44 Smith valuations; multiplying the aligned invariant factors gives the same determinant. The two included programs independently build the graph using standard Petersen and Kneser graph descriptions and reproduce identical valuation profiles. The general lemma establishing correctness of the modular elimination is stated in the proof. No approximate computation or extension beyond this specific finite graph is used.
+## correctness
 
-## Originality — PASS, with residual risk
-Two-token graphs are also called symmetric squares and double-vertex graphs. Audenaert–Godsil–Royle–Rudolph (arXiv:math/0507251) analyze their adjacency spectra and strongly regular examples; Fabila-Monroy et al. (arXiv:0910.4774) treat connectivity and other graph invariants. The most directly overlapping study of the Petersen two-token graph, Abdelmalek et al. (arXiv:2010.04539, Example 3.12), calculates independence-set properties, not its sandpile group. Lorenzini's 2008 general critical-group methods do not supply this exact instance by a stated formula. A published result on the integral homology of the *continuous two-particle Petersen configuration space* concerns a different chain complex, not the 45-state Laplacian cokernel. The numerical group above is not logically implied by the general adjacency spectral or independence statements: integer Smith invariants retain lattice information absent from ordinary eigenvalue data. Targeted searches of research records and relevant public literature identified no duplicate; this is not a proof of worldwide uniqueness. Possible residual risk includes unindexed tables, variant nomenclature, or a stronger unpublished general formula.
+PASS
 
-## Value — PASS
-The Petersen graph is a canonical, uniquely parameterized strongly regular graph, and its two-token graph is a natural 45-state exclusion-process configuration graph already investigated for independent-set and spectral properties. The complete critical group—not merely its order—determines the integer chip-firing quotient and all primary torsion, yielding a fixed reference value for testing integral graph invariants on symmetric squares. The new appearance of \(19\)-torsion, alongside \(3\)- and \(7\)-torsion absent from the base graph's group, is a concrete structural consequence of passing to two indistinguishable tokens. This precise invariant is therefore motivated independently of the expense of computing it and is not simply a new presentation of a known graph count. No claim is made of an infinite-family extension.
+The actual pinned RESULT.md defines F_2(KG(5,2)) with 45 two-token states, moves only to an unoccupied neighbor, and the unnormalized integral 45x45 Laplacian. An independent construction directly from the ten two-subsets of a 5-set recovered 15 degree-4 and 30 degree-6 token states, 120 edges, and exactly the claimed characteristic polynomial x(x-7)^6(x-6)^6(x-5)^4(x-3)^5(x-2)^5(x²-13x+32)^4(x²-13x+38)^5. Kirchhoff yields the cofactor determinant 49253533675382566432014336000 = 2^36*3^9*5^3*7^6*19^5. Independently implemented modular Gaussian Smith reduction over Z/p^(e+1) for all five possible primes gave valuations p2 (0:28,1:8,2:4,5:4), p3 (0:39,1:1,2:4), p5 (0:41,1:3), p7 (0:38,1:6), p19 (0:39,1:5). The least-valuation pivot divides every remaining entry in the local DVR quotient, and reversible row/column operations prove the reduction; precision e+1 exceeds total valuation e and prevents loss. Sorted primary valuations give 28 units, (2)^8,(4)^2,28,1596,38304,(191520)^3 and exactly the determinant. The full finite computation establishes this one graph's SNF, not any larger token family.
 
-## Sources and limitations
-Relevant primary full-text HTML sections were inspected in *Symmetric Squares of Graphs* (2005), *Token Graphs* (2009) and *Well-Covered Token Graphs* (2020), including the explicit Petersen Example 3.12 in the last. Lorenzini's *Smith Normal Form and Laplacians* (2008) was compared at the abstract/general-framework level, not certified by a complete full-text exclusion test. Exact primary data and independent reconstruction instructions are provided in `RESULT.md`, `VERIFICATION.md`, `certificate.json` and the two programs. No external independent scholarly audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the exact claim and implications with the named primary mathematics and published Resultary records. The actual semantic query was 'Resultary: critical group sandpile Smith normal form two token graph Petersen graph KG(5,2) symmetric square 45 vertices'. No materially inspected source supplies or logically dominates the stated instance; inaccessible/unindexed source risks remain.
+
+## value
+
+PASS
+
+This is the exact integer critical/sandpile group of the canonical 45-vertex two-token Petersen graph, a natural arithmetic graph invariant finer than its adjacency or Laplacian spectrum. The previously absent 3-,7-,19-primary torsion and exact spanning-tree count answer a concrete potentially useful lookup question; 45-state Smith classification is nontrivial rather than a routine type check. No infinite-family theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
