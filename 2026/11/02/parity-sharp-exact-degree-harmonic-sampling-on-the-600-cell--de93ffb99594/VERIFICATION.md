@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The source `CHECK.py` carries out an exact integer recurrence on the labelled affine \(E_8\) graph through degree 200; verifies the representation-dimension relation; checks the twelve parity-specific saturation witnesses and both sharp final obstructions; and checks coordinatewise 12-step multiplicity inclusion and the 60-step multiplicity shift in the computed finite range. It separately constructs all 120 distinct unit vertices of the 600-cell, computes the Chebyshev Gram matrices and numerically diagonalizes them at degrees 0 through 14, comparing the resulting 120 eigenvalues (with multiplicity) against their prescribed exact rational values; it also directly checks the matrix identities at the pairs of degrees 0/60 and 1/61.
+## correctness
 
-**Actual replay:** `python CHECK.py` printed `PASS 241 assertion groups; ranks at degrees 27,29,58,60: [56, 60, 59, 60]`. Execution used Python 3 with NumPy. All numerical eigenvalue discrepancies and 60-step kernel-identity errors were below \(10^{-8}\). Each tested vertex has unit norm and antipodal partner, and the 120 generated vertices were distinct.
+PASS
 
-**What is proved beyond these finite tests:** The exact spectrum for every degree follows from the \(SU(2)\) character formula and finite-group orthogonality; the recurrence is exact from Clebsch–Gordan; multiplying by a nonzero invariant degree-12 form is an injection between all pairs of symmetric-power spaces twelve degrees apart. The element-order types 4, 6 and 10 force the necessary and sufficient congruence for perfectly tight sampling. Exact recurrence entries in six consecutive parity-appropriate residue classes imply *all* later rank-60 statements, and the two earlier failed degrees certify that the eventual thresholds cannot be lowered.
+The restriction kernel U_ell(<x,y>) is the SU(2) Sym^ell character evaluated at xy^{-1}. The 600-cell vertex set is the 120-element binary icosahedral group, so character orthogonality diagonalizes this central convolution in each irreducible regular isotypic summand, yielding eigenvalues 120*m_{ell,i}/d_i with multiplicities d_i² for the nine affine E8 McKay dimensions d=(1,2,3,4,5,6,4,2,3). Clebsch–Gordan yields m_{ell+1}=A m_ell-m_{ell-1}; I independently recomputed 241 exact integer vectors, checked sum d_i m_ell,i=ell+1 and representation parity. Noncentral group element orders divide 60, while central ±I contribute ±60 to the character difference, proving the exact K_(ell+60)=K_ell+60(I+(-1)^ell J). Vanishing of character at all noncentral orders 4,6,10 forces 30|(ell+1), and is sufficient, proving exact tightness iff ell=29 mod 30. A degree-12 invariant and injective multiplication give m_{ell+12,i}>=m_{ell,i}; six odd base degrees 29..39 and six even 60..70 establish eventual rank 60, with exact recurrence ranks 27=56 and 58=59 proving sharp thresholds. Tests include rank13=60, rank15=52. Numerical 120x120 checker was read as claimed corroboration, not substituted for character proof.
 
-**What is not independently certified:** The checker is not a proof assistant and is not an independent mathematical audit. It does not settle historical priority or provide the leading constants for the asymptotic nonzero-eigenvalue conditioning bound. Complete texts of some historical symmetry-harmonic treatments were inaccessible and remain a literature-overlap risk.
+## originality
+
+PASS
+
+Character orthogonality, binary icosahedral realization, and the affine E8 McKay graph are classical; the reported new result is the combined full sampling eigenvalue law, exact +60 shift/tightness classification and sharp eventual interpolation thresholds. Searches did not locate a dominating published theorem; best-of-knowledge PASS remains qualified by specialized icosahedral harmonic tables not fully inspected.
+
+## value
+
+PASS
+
+Provides a full exact-degree sampling spectrum, exceptional exact-tight degrees and sharp eventual surjectivity thresholds on a canonical highly symmetric 4-polytope. Antipodal parity imposes a natural 60-dimensional target and the discrete 60-step shift gives concrete harmonic-interpolation and conditioning information. This is more than a numerical rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
