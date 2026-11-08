@@ -34,7 +34,7 @@ Only \(H=r\) remains. The inequalities above force \(r=k\) and \(H=k\), and equa
 2\delta_0+3A+C\le2k+1,
 \quad\text{so}\quad \delta_0\le k.
 \]
-Moreover \(\delta_0=k\) implies \(3A+C\le1\), hence \(A=C=0\), \(B=k\), and the heavy outer pair has exactly one pebble on its originally occupied vertex and zero on its mate.
+Moreover \(\delta_0=k\) implies \(3A+C\le1\), so \(A=0\), \(C\in\{0,1\}\) and \(B=k\). The case \(C=1\) is impossible: since there is no incoming move from the hub, the sole within-pair move must go from the originally occupied vertex to its initially empty mate; it makes both outer counts odd. All remaining outer-to-hub moves subtract two and preserve the parity of each coordinate, so both outer counts would still be positive. But the outer-mass equation with \(A=0\), \(B=k\), \(C=1\) gives zero total outer mass, a contradiction. Hence \(C=0\), and the heavy outer pair has exactly one pebble on its originally occupied vertex and zero on its mate.
 
 For any light pair, let \(A_i\), \(B_i\), \(C_i\) denote the analogous counts. Its outer mass is \(2+A_i-2B_i-C_i\ge0\), so its net hub contribution \(\delta_i=B_i-2A_i\) obeys
 \[
