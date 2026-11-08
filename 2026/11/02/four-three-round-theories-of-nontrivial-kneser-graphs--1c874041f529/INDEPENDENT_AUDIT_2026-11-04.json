@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:41:20.266131Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and both source verification programs",
+        "Independent exact Kneser adjacency/profile enumeration for seven parameter pairs",
+        "Kneser–Lovász chromatic theorem and standard 3-round EF game semantics"
+      ],
+      "rationale": "For n≥2k≥4, transitivity reduces a three-move Ehrenfeucht–Fraïssé strategy to possible adjacency profiles of a fresh third vertex over a chosen distinct pair. For two k-sets intersecting in t∈[0,k−1], a fresh common neighbor exists exactly when n−2k+t≥k, i.e. t≥3k−n. Other three fresh adjacency patterns occur for all n≥2k+1; at n=2k the graph is a disjoint matching. Exhausting t gives exactly four pair-profile spectra: matching n=2k, low 2k+1≤n≤3k−2, boundary n=3k−1 and stable n≥3k, with least representatives 6,35,10,15 vertices. An independent implementation built actual full Kneser adjacency and fresh-pair profiles for (4,2),(7,3),(5,2),(6,2),(8,3),(9,3),(10,4), including n=2k matching case; all agreed. Kneser–Lovász chromatic number n−2k+2 yields unbounded k+1 on triangle-free n=3k−1 members despite rank-three equivalence. Finite checks corroborate, while pair-extension constructions and EF argument establish all parameters.",
+      "residual_risks": [
+        "Restricted to nontrivial n≥2k≥4, standard adjacency-only FO without counting.",
+        "A three-round classification does not determine full elementary or four-round equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The logic survey introduces EF games for general graphs and distinguishability, but gives no complete Kneser n,k rank-three profile table in inspected material.",
+          "Topological Kneser chromatic theory yields χ=n−2k+2, a separate ingredient."
+        ],
+        "reasoning": "General graph logic and stronger chromatic theorems are not logical three-round classifications of this two-parameter family.",
+        "searches": [
+          "Pikhurko Verbitsky 2010 logical complexity graphs EF games survey",
+          "Matousek Ziegler 2002 topological chromatic lower bounds Kneser graphs"
+        ]
+      },
+      "checked_sources": [
+        "Kneser frozen Git tree b37bf7da0fdfa8061ec9363387920c153a55ea54",
+        "Pikhurko–Verbitsky arXiv:1003.4865",
+        "Matoušek–Ziegler arXiv:math/0208072",
+        "Resultary semantic query: Kneser graphs Ehrenfeucht Fraisse three rounds elementary equivalence 3 quantifier rank chromatic number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kneser–Lovász implies unbounded chromatic number on n=3k−1 and triangle-freeness follows n<3k.",
+          "EF three-round profile matching proves those graphs share the Petersen three-round theory."
+        ],
+        "reasoning": "Chromatic and triangle statements alone do not imply FO3-equivalence; the new three-move strategy is a separate nontrivial finite-model-theoretic claim.",
+        "searches": [
+          "Kneser Lovasz chromatic theorem vs FO3 theory",
+          "Pikhurko Verbitsky survey EF3 vs full KG classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent Hintikka-3 type profile is the spectrum of (adjacency bit, fresh third-vertex adjacency patterns), including repeated variables.",
+          "The edge/common-neighbor threshold t≥3k−n distinguishes the four spectra."
+        ],
+        "reasoning": "Translated FO rank-three equivalence into exact pair-extension combinatorics and checked likely equivalent formulations, not merely similar titles.",
+        "searches": [
+          "Kneser graphs Ehrenfeucht Fraisse three rounds elementary equivalence 3 quantifier rank chromatic number",
+          "EF 3 game Kneser graph disjoint ksets common neighbor intersection",
+          "first order 3 equivalence Kneser graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four exact formula regimes and sharp largest least representative size 35 were derived from all t values, not a finite table.",
+          "Independent direct finite graph profiles matched seven parameter pairs and all boundary types."
+        ],
+        "reasoning": "No known graph-census table shown to contain or entail the unbounded-parameter classification. The small representatives alone would not suffice without proof every n,k belongs to one regime.",
+        "searches": [
+          "Kneser graph EF type n k rank three four classes",
+          "Kneser KG 7 3 rank3 35 representative"
+        ]
+      },
+      "rationale": "The exact complete two-parameter rank-three EF equivalence classification is distinct from classical Kneser chromatic lower bounds and general logical EF game algorithms. The triangle-free high-chromatic examples are classical, but their collapse to one three-round theory is an additional precise logical statement. No Resultary direct matching theorem was located; historical priority qualified.",
+      "residual_risks": [
+        "A specialist study of 3-round EF games for Kneser/Johnson schemes under other notation may imply the table.",
+        "Third-vertex profile proof relies on homogeneity/transitivity and ordinary equality-only first-order game, not counting extensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS EF definitions and generic comparison tools, not identified as calculating Kneser 3-round parameter classes",
+          "evidence": "Pikhurko–Verbitsky 2010 arXiv:1003.4865 Sections 1,3",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "Accessible survey introduction/EF game framework and relevant descriptions of rank/quantifier-depth semantics",
+          "method": "Primary arXiv HTML/abstract and relevant EF sections",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Potential general first-order indistinguishability theorem"
+        },
+        {
+          "assessment": "COVERS chromatic input, not the rank-three EF equivalence theorem",
+          "evidence": "Matoušek–Ziegler arXiv:math/0208072",
+          "identifier_or_url": "https://arxiv.org/abs/math/0208072",
+          "material_read": "Abstract and context for Kneser–Lovász chromatic bounds and n=3k−1 high-chromatic trianglefree family",
+          "method": "Primary arXiv abstract and cited theorem context",
+          "title": "Topological lower bounds for the chromatic number: a hierarchy",
+          "trigger": "Kneser chromatic consequence might be already standard"
+        },
+        {
+          "assessment": "Source establishes 4 regimes conditional on explicit three-move EF profile lemma; independently checked exact crossing counts and boundary profiles",
+          "evidence": "Inspected frozen repository tree b37bf7da0fdfa8061ec9363387920c153a55ea54",
+          "identifier_or_url": "Git source blob 9ac0cecca183852c555cd3263371f19b0f6bc85e",
+          "material_read": "Entire RESULT.md proof, verify_kneser.py and verify_ef3.py source; independent pair profile recomputation",
+          "method": "Full Git blob source reading and independent new graph calculation",
+          "title": "Frozen Kneser theorem and two finite checkers",
+          "trigger": "Exact theorem needing audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full EF three-move pair-profile proof, exact representatives and Kneser–Lovász theorem"
+      ],
+      "rationale": "A complete natural finite-model-theoretic classification of an infinite two-parameter graph family. The logical collapse of triangle-free unbounded-chromatic graphs to Petersen at depth three illustrates a sharp expressive limitation, and the sharp 35-vertex representative is a useful exact invariant beyond isolated computations.",
+      "residual_risks": [
+        "No implication at rank four, with counting quantifiers, or for edgeless/complete singleton-set variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Excludes k=1 and n<2k; rank 3 only.",
+    "Potential older FO theory classification not fully ruled out by bounded search."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof explicitly reduces rank-three equivalence to realizable fresh-third-vertex adjacency patterns for vertex-transitive graphs. For distinct \(k\)-subsets of intersection size \(t\), the common-neighbor feasibility condition is exactly \(n-2k+t\ge k\). All other fresh patterns are constructed, and the perfect-matching boundary is treated separately. The four spectra are distinct and exhaustive for all \(n\ge2k\ge4\). Independent finite procedures test the exact local spectra and the full rank-three recursive logical type; they are not treated as substitutes for the infinite proof.
+## correctness
 
-## Originality
-PASS with residual historical risk. The inspected 2002 Kneser source concerns chromatic and topological invariants; the 2010 finite-model-theory survey gives general Ehrenfeucht methods, not the full two-parameter Kneser classification. Comparisons with narrower special-family logical statements, including fixed three-subset and odd Kneser families, did not imply the present cross-parameter four-class theorem. A failure to find another formulation is not proof of global priority, and additional unpublished or unindexed sources may exist.
+PASS
 
-## Mathematical value
-PASS. The statement completely classifies a classical two-parameter family by bounded quantifier depth and identifies exact thresholds \(2k\), \(3k-1\), and \(3k\), together with the smallest finite representatives. In particular, an explicit family of triangle-free graphs with arbitrarily large chromatic numbers is indistinguishable at rank three from the ten-vertex Petersen graph. This is a substantive bounded-depth expressiveness limitation tied to a central phenomenon in topological graph coloring, not an arbitrary numerical slice.
+For n≥2k≥4, transitivity reduces a three-move Ehrenfeucht–Fraïssé strategy to possible adjacency profiles of a fresh third vertex over a chosen distinct pair. For two k-sets intersecting in t∈[0,k−1], a fresh common neighbor exists exactly when n−2k+t≥k, i.e. t≥3k−n. Other three fresh adjacency patterns occur for all n≥2k+1; at n=2k the graph is a disjoint matching. Exhausting t gives exactly four pair-profile spectra: matching n=2k, low 2k+1≤n≤3k−2, boundary n=3k−1 and stable n≥3k, with least representatives 6,35,10,15 vertices. An independent implementation built actual full Kneser adjacency and fresh-pair profiles for (4,2),(7,3),(5,2),(6,2),(8,3),(9,3),(10,4), including n=2k matching case; all agreed. Kneser–Lovász chromatic number n−2k+2 yields unbounded k+1 on triangle-free n=3k−1 members despite rank-three equivalence. Finite checks corroborate, while pair-extension constructions and EF argument establish all parameters.
 
-## References and scope
-J. Matoušek and G. M. Ziegler, *Topological lower bounds for the chromatic number: a hierarchy*, arXiv:math/0208072 (2002). O. Pikhurko and O. Verbitsky, *Logical complexity of graphs: a survey*, arXiv:1003.4865 (2010). The statement covers pure adjacency and equality, rank at most three, and parameters \(n\ge2k\ge4\); no counting or higher-rank claim is asserted. Priority remains incompletely verified and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact complete two-parameter rank-three EF equivalence classification is distinct from classical Kneser chromatic lower bounds and general logical EF game algorithms. The triangle-free high-chromatic examples are classical, but their collapse to one three-round theory is an additional precise logical statement. No Resultary direct matching theorem was located; historical priority qualified.
+
+## value
+
+PASS
+
+A complete natural finite-model-theoretic classification of an infinite two-parameter graph family. The logical collapse of triangle-free unbounded-chromatic graphs to Petersen at depth three illustrates a sharp expressive limitation, and the sharp 35-vertex representative is a useful exact invariant beyond isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
