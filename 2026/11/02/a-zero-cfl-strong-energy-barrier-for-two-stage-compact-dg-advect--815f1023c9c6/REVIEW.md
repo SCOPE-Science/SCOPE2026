@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is limited to uncorrected degree-one compact RKDG on even periodic meshes, exact integration, constant positive-speed advection, upwind flux, and two-stage order-two explicit Runge–Kutta coefficients. The weak form supplies \(F_A=-a(A+B-A_- -B_-)/\Delta x\), \(F_B=3a(A-B-A_- -B_-)/\Delta x\), while the local projection gives \(G_A=-2aB/\Delta x\), \(G_B=0\). The order conditions make the linear end-step independent of the two-stage tableau. The alternating restriction produces the printed matrix. Multiplication gives an exact energy-decrement determinant \(-4\nu^4\); negative definiteness is not assumed. The sign of the determinant forces one negative energy-decrement direction at every positive \(\nu\). Generalized eigenvalues prove the sharp *restricted* amplification law and the \(3\nu^3\) coefficient. An independent four-degree-of-freedom weak-form assembly reproduces the restriction; the packaged symbolic verifier checks each critical algebraic identity. No finite enumeration is treated as a universal proof.
+## correctness
 
-## Originality — PASS, subject to residual priority uncertainty
-The 2023 compact-RKDG paper establishes the scheme and eigenvalue-based Fourier stability, not full physical-energy nonexpansion at all positive Courant numbers. The 2026 Sun paper proves weak cell-average inequalities and constructs an end-stage entropy correction, but does not derive the stated negative quartic decrement determinant or small-step full-polynomial amplification. The 2026 Liu–Jiang–Zhang counterexample concerns *standard noncompact three-stage RKDG*, not the two-stage compact operator or its full-state physical norm. The 2017 Sun–Shu strong-contractivity theorem uses different auxiliary derivative fluxes; its weaker-stability case does not supply this all-step determinant or sharp modal coefficient. Actual mathematical-record comparisons did not find exact equivalent coverage; incomplete access to a related 2026 filtered-RKDG analysis and unindexed older literature remain risks. A prior narrower observation of amplification beyond Courant number one third does not imply the claimed zero-frontier, all-positive-step statement or its exact cubic asymptotics.
+PASS
 
-## Value — PASS
-A fully discrete entropy scheme needs an explicit distinction between cell-average entropy and the full DG polynomial's quadratic entropy. The result shows that the *uncorrected* degree-one compact step has no universally strong-energy-safe positive CFL, notwithstanding a nonzero reported spectral-stability interval; this gives a mathematical reason to retain a terminal entropy correction rather than relying on small time steps alone. The invariant two-cell calculation yields an exact boundary (zero) and a sharp asymptotic severity measure \(3\nu^3\), rather than a single arbitrary counterexample. The result does not assess corrected trajectories or broad DG classes.
+For constant a>0 and an even periodic uniform P1 DG mesh, the exact weak-form operators are F_A=-(a/dx)(A+B-A_- -B_-), F_B=(3a/dx)(A-B-A_- -B_-), and G_A=-2aB/dx, G_B=0. Every explicit two-stage order-two tableau reduces to I+dt F+(dt^2/2)FG. On alternating cells, M_nu=[[1-2nu,-2nu+2nu^2],[6nu,1-6nu^2]]. With W=diag(1,1/3), the energy decrement Q=W-M^TWM has determinant -4nu^4 for all nu>0; it has a negative direction, proving no positive globally nonexpansive CFL for any even mesh. Independently recomputed M,Q, det and rational vector (A,B)=(3/20,1) giving negative decrement -7/5000 at nu=1/10, plus generalized-eigenvalue amplification 1+(sqrt(T^2+48nu^4)-T)/2 with leading excess 3nu^3. This does not prove eigenvalue instability or anything about corrected schemes.
 
-## Closest literature and limitations
-Relevant prior results are in arXiv:2610.18837v1, arXiv:2610.30535v1, arXiv:2307.06471v1, and DOI:10.1051/m2an/2016049. A specialized filtered-RKDG article DOI:10.1007/s10915-026-03437-y was not available in full text. Its possible implications and older analyses need independent literature review. There is no assertion of historical uniqueness or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge O PASS for the exact unconditional one-step L2 energy obstruction and sharp alternating-mode amplification, not for inventing cRKDG. Chen–Sun–Xing establish the compact-stage method and Fourier/eigenvalue stability, a different property from physical W-contraction. Sun 2026 proves weak cell-average entropy inequalities and corrected strong entropy, not the uncorrected whole-P1 energy determinant. Liu–Jiang–Zhang discuss standard RKDG entropy obstructions and compact corrections under different discretization/conditions. A specialized filtered or Lax–Wendroff DG source not fully accessible could overlap.
+
+## value
+
+PASS
+
+The sharp all-positive-CFL counterexample isolates a structural energy-stability limitation of a widely used compact RKDG construction. It distinguishes spectral-radius stability and weak cell-average entropy from norm monotonicity of the full polynomial, and supplies an exact obstruction with quantitative small-step growth. This is a motivated numerical-analysis boundary, not an arbitrary tiny negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
