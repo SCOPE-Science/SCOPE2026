@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cost normalization is exactly the sum of each agent's mean distance to all *other* coalition members; for a group of size at least two this equals twice the unordered pair-distance sum divided by group size minus one. The proof introduces positive weights matched to the two sorted candidate costs. All two-group allocations obey a normalized linear inequality: concavity at each fixed pair of group sizes reduces its verification to vertices of the three-type occupancy polytope; the explicit split-type cases are proved by endpoint concavity or nonnegative numerator differences. Singletons and the grand coalition are checked separately. The computer program independently checks 42,189 type-count allocations with rational arithmetic; it is corroboration, not the infinite proof.
+PASS
 
-## Originality
+For coalition type counts (p,q,r), direct pair counting gives half-cost [p(q+r)u+r(p+q)v]/(p+q+r-1). Positive reciprocal weights for two sorted candidates reduce the theorem to w1*X+w2*Y >= 1. On each fixed-size allocation plane the weighted sum is concave, hence minimizes at a vertex with at most one type split; checking the endpoint cases (including homogeneous singletons and the grand coalition) proves the bound for arbitrary positive a,b,c, u,v. Independently enumerated 77,004 exact-rational split/gap comparisons over 216 type-multiplicity profiles and four gap ratios, all agreeing with the analytic formula. Finite checks corroborate but do not prove arbitrary multiplicities.
 
-PASS under available evidence. The full accessible primary manuscript, *Metric Hedonic Games on the Line* (arXiv:2602.05888), posits sorted optimality for freely sized Average-Jump coalitions as Conjecture 3.11 and gives the general coefficient formula but no three-type optimum formula. This theorem proves a meaningful support-size restriction with explicit value. The manuscript's unsorted fixed-cardinality swap example is not a freely sized jump optimum and hence does not cover the finding. General min-sum clustering papers use unnormalized within-group sums, not this coalition-size normalization. Targeted mathematical research-record searches and textual literature searches returned no equivalent theorem. Unindexed or differently worded equivalent coverage remains a risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result addresses an explicit open structural conjecture in metric hedonic games, in the natural lowest support size for which optimal cost cannot always be zero, and yields a closed-form optimum and constant-time selection rule from the three multiplicities and two type gaps. It separates a case of assured sortedness from published counterexamples under fixed group sizes, clarifying the dependence on coalition-size freedom. The result neither requires nor claims a general solution to the conjecture.
+The 2026 original formulates the freely-sized two-coalition sortedness conjecture for the average-distance metric hedonic game and proves a concave coefficient decomposition, but the inspected v2 proof and appendix do not give this closed three-distinct-type exact optimum. Fixed-size unsorted counterexamples address a different feasible set. This is a bounded natural subcase with explicit cost, not a claim to settle the four-or-more-type conjecture.
 
-## Limits
+## value
 
-At least one agent belongs to each of three distinct types; positive multiplicities are unbounded. Singletons have cost zero. The three-type conclusion is not a statement for arbitrary type supports, no fixed-cardinality restriction is imposed, and unique optimality is not claimed. An independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It resolves the first genuinely heterogeneous three-distinct-type subfamily of a published two-coalition sorted-optimum conjecture, with all positive multiplicities and both arbitrary gaps; it gives an explicit optimizer and objective rather than a one-off example. Researchers testing general conjectures can use the exact boundary, but no broad-all-types theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

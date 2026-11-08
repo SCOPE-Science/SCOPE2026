@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-`check.py` contains an exact-arithmetic exhaustive verifier for multiplicities from one through seven for each of the three types. It checks 42,189 two-group type-count allocations and five gap pairs, including partitions containing singleton coalitions. It also checks the corresponding one-group inequality.
+# Independent mathematical audit
 
-Command: `python3 check.py`
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK exact_count_profiles=343 exact_two_group_partitions=42189 gap_pairs=5 singleton_allowed=True`
+For coalition type counts (p,q,r), direct pair counting gives half-cost [p(q+r)u+r(p+q)v]/(p+q+r-1). Positive reciprocal weights for two sorted candidates reduce the theorem to w1*X+w2*Y >= 1. On each fixed-size allocation plane the weighted sum is concave, hence minimizes at a vertex with at most one type split; checking the endpoint cases (including homogeneous singletons and the grand coalition) proves the bound for arbitrary positive a,b,c, u,v. Independently enumerated 77,004 exact-rational split/gap comparisons over 216 type-multiplicity profiles and four gap ratios, all agreeing with the analytic formula. Finite checks corroborate but do not prove arbitrary multiplicities.
 
-The proof of the all-size, real-gap statement uses the explicit coefficient identity, concavity for each fixed group size, and exact endpoint inequalities. Finite enumeration alone would not prove it. The main manuscript supplies the universal argument; no external formal proof or independent audit was performed.
+## originality
+
+PASS
+
+The 2026 original formulates the freely-sized two-coalition sortedness conjecture for the average-distance metric hedonic game and proves a concave coefficient decomposition, but the inspected v2 proof and appendix do not give this closed three-distinct-type exact optimum. Fixed-size unsorted counterexamples address a different feasible set. This is a bounded natural subcase with explicit cost, not a claim to settle the four-or-more-type conjecture.
+
+## value
+
+PASS
+
+It resolves the first genuinely heterogeneous three-distinct-type subfamily of a published two-coalition sorted-optimum conjecture, with all positive multiplicities and both arbitrary gaps; it gives an explicit optimizer and objective rather than a one-off example. Researchers testing general conjectures can use the exact boundary, but no broad-all-types theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

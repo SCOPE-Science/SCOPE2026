@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:50:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-sorted-optimum-for-three-valued-average-distance-coalition--e4848e951775/RESULT.md",
+        "2026/11/02/exact-sorted-optimum-for-three-valued-average-distance-coalition--e4848e951775/check.py",
+        "/mnt/data/scope_worker02_run_20261107T1838/independent_checks.py"
+      ],
+      "rationale": "For coalition type counts (p,q,r), direct pair counting gives half-cost [p(q+r)u+r(p+q)v]/(p+q+r-1). Positive reciprocal weights for two sorted candidates reduce the theorem to w1*X+w2*Y >= 1. On each fixed-size allocation plane the weighted sum is concave, hence minimizes at a vertex with at most one type split; checking the endpoint cases (including homogeneous singletons and the grand coalition) proves the bound for arbitrary positive a,b,c, u,v. Independently enumerated 77,004 exact-rational split/gap comparisons over 216 type-multiplicity profiles and four gap ratios, all agreeing with the analytic formula. Finite checks corroborate but do not prove arbitrary multiplicities.",
+      "residual_risks": [
+        "Finite tests corroborate but do not replace the analytic infinite/domain-general proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Metric Hedonic Games on the Line (https://arxiv.org/html/2602.05888v2): Conjecture 3.12 in inspected v2; Appendix C Eq. 12, mean-pair-distance objective and concavity",
+          "Approximating min-sum k-clustering in metric spaces (https://doi.org/10.1145/380752.380754): Min-sum objective has no coalition-specific divisor"
+        ],
+        "reasoning": "The exact source conjectures all-types sortedness but does not prove it; its appendix structural/concavity inequalities do not themselves state the proposed exact three-type minimum. Any eventual all-types proof would imply sortedness, but no such prior proof was identified.",
+        "searches": [
+          "Resultary query: average distance hedonic games line two freely sized coalitions sorted social optimum exactly three types normalized pairwise distances",
+          "arxiv:2602.05888v2; normalized average-distance hedonic game; normalized pairwise two-cluster optimal partition",
+          "frozen Git RESULT.md SHA 9ff4a63a1d7784e5b915f1b644333fea4a5ebacb"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.05888v2",
+        "https://doi.org/10.1145/380752.380754",
+        "Resultary semantic search: average distance hedonic games line two freely sized coalitions sorted social optimum exactly three types normalized pairwise distances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Metric Hedonic Games on the Line (https://arxiv.org/html/2602.05888v2): Conjecture 3.12 in inspected v2; Appendix C Eq. 12, mean-pair-distance objective and concavity",
+          "Approximating min-sum k-clustering in metric spaces (https://doi.org/10.1145/380752.380754): Min-sum objective has no coalition-specific divisor"
+        ],
+        "reasoning": "De la Haye et al. Appendix C supplies the concavity decomposition (a needed ingredient) but an additional vertex-by-vertex weighted inequality yields the exact minimum. Fixed-size counterexample does not imply failure of free-size theorem.",
+        "searches": [
+          "Resultary query: average distance hedonic games line two freely sized coalitions sorted social optimum exactly three types normalized pairwise distances",
+          "arxiv:2602.05888v2; normalized average-distance hedonic game; normalized pairwise two-cluster optimal partition",
+          "frozen Git RESULT.md SHA 9ff4a63a1d7784e5b915f1b644333fea4a5ebacb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Metric Hedonic Games on the Line (https://arxiv.org/html/2602.05888v2): Conjecture 3.12 in inspected v2; Appendix C Eq. 12, mean-pair-distance objective and concavity",
+          "Approximating min-sum k-clustering in metric spaces (https://doi.org/10.1145/380752.380754): Min-sum objective has no coalition-specific divisor"
+        ],
+        "reasoning": "Searched average-distance hedonic, normalized within-cluster pair costs, two freely sized coalitions and three types; unlike unnormalized 1D clustering, each coalition has its own size denominator and singleton rule.",
+        "searches": [
+          "Resultary query: average distance hedonic games line two freely sized coalitions sorted social optimum exactly three types normalized pairwise distances",
+          "arxiv:2602.05888v2; normalized average-distance hedonic game; normalized pairwise two-cluster optimal partition",
+          "frozen Git RESULT.md SHA 9ff4a63a1d7784e5b915f1b644333fea4a5ebacb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Metric Hedonic Games on the Line (https://arxiv.org/html/2602.05888v2): Conjecture 3.12 in inspected v2; Appendix C Eq. 12, mean-pair-distance objective and concavity",
+          "Approximating min-sum k-clustering in metric spaces (https://doi.org/10.1145/380752.380754): Min-sum objective has no coalition-specific divisor"
+        ],
+        "reasoning": "The result is an all-multiplicity continuous-gap formula, not a lookup table; source checker enumerates finite multiplicities only, no prior exact published table of the formula located.",
+        "searches": [
+          "Resultary query: average distance hedonic games line two freely sized coalitions sorted social optimum exactly three types normalized pairwise distances",
+          "arxiv:2602.05888v2; normalized average-distance hedonic game; normalized pairwise two-cluster optimal partition",
+          "frozen Git RESULT.md SHA 9ff4a63a1d7784e5b915f1b644333fea4a5ebacb"
+        ]
+      },
+      "rationale": "The 2026 original formulates the freely-sized two-coalition sortedness conjecture for the average-distance metric hedonic game and proves a concave coefficient decomposition, but the inspected v2 proof and appendix do not give this closed three-distinct-type exact optimum. Fixed-size unsorted counterexamples address a different feasible set. This is a bounded natural subcase with explicit cost, not a claim to settle the four-or-more-type conjecture.",
+      "residual_risks": [
+        "Published source v2 labels the conjecture 3.12, whereas package cites 3.11; bibliographic numbering should be reconciled without altering the mathematical statement.",
+        "An unindexed normalized one-dimensional clustering theorem could cover the same three-type result.",
+        "The theorem does not assert uniqueness or all four-or-more distinct type cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general model, opens all-type question and provides decomposition; does not state the exact three-type formula in inspected material",
+          "evidence": "Conjecture 3.12 in inspected v2; Appendix C Eq. 12, mean-pair-distance objective and concavity",
+          "identifier_or_url": "https://arxiv.org/html/2602.05888v2",
+          "material_read": "Full source PDF: model definition, two-coalition conjecture, Appendix C concavity and partial structural proofs; compared singleton and fixed-size conventions",
+          "method": "original manuscript full text/PDF",
+          "title": "Metric Hedonic Games on the Line",
+          "trigger": "exact same average-distance game and sortedness conjecture"
+        },
+        {
+          "assessment": "Unnormalized pairwise sum with different objective; cannot directly imply each-coalition 1/(size-1) normalized optimum",
+          "evidence": "Min-sum objective has no coalition-specific divisor",
+          "identifier_or_url": "https://doi.org/10.1145/380752.380754",
+          "material_read": "Title/abstract and objective metadata, not full proof",
+          "method": "bibliographic comparison",
+          "title": "Approximating min-sum k-clustering in metric spaces",
+          "trigger": "possible equivalent one-dimensional clustering reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Metric Hedonic Games on the Line (https://arxiv.org/html/2602.05888v2)",
+        "Approximating min-sum k-clustering in metric spaces (https://doi.org/10.1145/380752.380754)"
+      ],
+      "rationale": "It resolves the first genuinely heterogeneous three-distinct-type subfamily of a published two-coalition sorted-optimum conjecture, with all positive multiplicities and both arbitrary gaps; it gives an explicit optimizer and objective rather than a one-off example. Researchers testing general conjectures can use the exact boundary, but no broad-all-types theorem is asserted.",
+      "residual_risks": [
+        "Published source v2 labels the conjecture 3.12, whereas package cites 3.11; bibliographic numbering should be reconciled without altering the mathematical statement.",
+        "An unindexed normalized one-dimensional clustering theorem could cover the same three-type result.",
+        "The theorem does not assert uniqueness or all four-or-more distinct type cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exactly three strictly ordered real types with positive integer multiplicities and at most two freely sized coalitions, singleton costs zero: OPT=min(2ab(y-x)/(a+b-1),2bc(z-y)/(b+c-1)); a sorted optimal split exists.",
+  "limitations": [
+    "Published source v2 labels the conjecture 3.12, whereas package cites 3.11; bibliographic numbering should be reconciled without altering the mathematical statement.",
+    "An unindexed normalized one-dimensional clustering theorem could cover the same three-type result.",
+    "The theorem does not assert uniqueness or all four-or-more distinct type cases."
+  ],
+  "schema_version": 1
+}
