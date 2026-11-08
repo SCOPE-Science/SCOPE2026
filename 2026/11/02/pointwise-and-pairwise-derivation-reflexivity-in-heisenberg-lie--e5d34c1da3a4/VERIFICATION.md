@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`python3 verify.py` was run against the packaged standalone source, with the marker `HEISENBERG_LINEAR_LOCAL_2LOCAL_OK`.
+# Independent mathematical audit
 
-The script solves ordinary derivation equations directly from Lie structure constants, constructs the derivation subspace by row reduction, and checks single- and paired-vector agreement against the resulting spans. It exhausts all 512 linear endomorphisms and all vector pairs for the three-dimensional Lie algebra over the two-element field. It also checks 80 reproducibly sampled endomorphisms over the three-element field, and tests 18 random plus 10 conformally symplectic maps over the five-dimensional Lie algebra over the two-element field against all 1024 vector pairs. This is finite corroboration, not proof for arbitrary ranks or fields; the universal arguments appear in `RESULT.md`.
+## correctness
 
-The study does not determine nonlinear two-local derivations, arbitrary two-step nilpotent centers, or publication priority. No external independent audit was performed.
+PASS
+
+RESULT.md §§1–5 proves ordinary derivations have conformally symplectic quotient action with central multiplier, pointwise matching from surjective sp(V) evaluation at each nonzero vector, and pairwise matching from beta_A vanishing on omega-isotropic pairs; dependent pair interpolation uses C vanishing on a chosen vector. For all fields including characteristic two, dimensions are 4r^2+2r+1, 2r^2+3r+2, 2r^2+3r+1. Independent modular rank computations for 1≤r≤4 over F2,F3,F5 verify csp dimensions. Original verify.py provides additional finite examples but finite tests are not arbitrary-field proof.
+
+## originality
+
+PASS
+
+Earlier work provides low-dimensional local non-derivations and nonlinear two-local constructions, not the all-rank linear two-local reflexive hull including unrestricted central scalar and exact codimension-one defect. An equivalent general algebraic-reflexivity theorem remains a priority risk.
+
+## value
+
+PASS
+
+The full pointwise/pairwise/ordinary filtration of a natural derivation space is a structural linear-algebraic invariant. The all-field characteristic-two coverage and exact finite-field census go beyond merely exhibiting a non-derivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
