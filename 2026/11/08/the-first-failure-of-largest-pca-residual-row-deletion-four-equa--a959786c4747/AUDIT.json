@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The doubled-angle phasor proof establishes ranking equivalence for every equal-norm two-column matrix and handles isotropic top-singular ties. For three rows in any dimension, the exact Gram principal-minor eigenprojector identity and tied-spectrum decomposition establish the same ranking. The explicit unit-row four-by-three rational matrix has a simple top eigenvalue above 9/4, strict cofactor ordering favoring the wrong row, and a rigorously separated refit eigenvalue after another deletion. verify.py reproduced all nonstandard identities and 2,625 diagnostic random checks; finite tests are not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Szolnoky arXiv:2610.10636v1, Section 4 and Section 7, defines the broader disjoint row-storage objective and offers general a-posteriori error floors; it does not say the one-step maximum raw PCA residual is universally optimal for equal-length planar rows or for any three rows.",
+        "Bhaskara and Kumar arXiv:1804.10696 develop sampling and bicriteria approximation algorithms for general PCA with outliers, not an exact guarantee for this deterministic raw-pilot rule."
+      ],
+      "reasoning": "The general objective and certificates are strictly broader in optimization domain but do not imply greedy pilot optimality, which requires the rank-ordering identities proved here. Conversely the counterexample does not contradict guarantees of the multistage source algorithm.",
+      "searches": [
+        "D-SLR disjoint row sparse low rank phase diagram equal length rows greedy rank-one row removal",
+        "\"D-SLR\" \"residual\" \"rank\" \"outlier\" \"row\"",
+        "\"PCA\" \"largest residual\" \"leave-one-out\" \"optimal\" row",
+        "low rank approximation in the presence of outliers Bhaskara Kumar"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.10636",
+      "https://arxiv.org/abs/1804.10696",
+      "https://www.paperpeel.com/paper/2610.10636"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Szolnoky Proposition 1 proves lossless disjointness for the optimization problem and Section 7 says fixed-basis scores are upper bounds on refitted errors, with a separately recomputed basis and optional shortlist verification. Neither statement establishes equality of the greedy and exact-refit deletion ranking.",
+        "Bhaskara–Kumar approximation guarantees compare algorithmic output to the optimum with relaxed parameters; they do not order individual one-row deletions from the full-data top principal component."
+      ],
+      "reasoning": "The first source can permit strictly suboptimal fixed-basis scores without specifying whether the smallest normalized example occurs at four rows/three columns. The new theorem both proves exact pilot optimality in the two smaller regimes and exhibits its failure at their first joint complement. A generic Eckart–Young guarantee only gives the definition of each refitted loss, not their ordering.",
+      "searches": [
+        "\"D-SLR\" \"residual\" \"rank\" \"outlier\" \"row\"",
+        "low-rank approximation presence of outliers first single deletion PCA spectral",
+        "For equal Euclidean row norms, rank-one PCA outlier deletion largest residual exact optimal all planar matrices and three rows; first counterexample four rows three columns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claimed object is maximization of full-matrix squared PCA residual versus minimization of leave-one-row-out refitted rank-one Frobenius error; in two columns these rankings are equivalent via doubled-angle phasors.",
+        "The 2018 Bhaskara–Kumar formulation is rank-k PCA after removing outlier columns, equivalent by transposition to the objective but does not supply the dimension-minimal pilot-selection assertion."
+      ],
+      "reasoning": "Searched the same claim as trimmed rank-one PCA, leave-one-out top-eigenvalue optimization, unit-row worst-fit selection, and cofactor influence. No matching minimum-size theorem or exact rational four-by-three witness was identified; direct spectral equivalences are accounted for in the proof.",
+      "searches": [
+        "\"PCA\" \"largest residual\" \"remove\" \"rank one\" optimal one-row",
+        "\"unit-norm\" \"rank-1\" \"outlier\" \"largest residual\" \"optimal\" deletion PCA",
+        "leave one out rank-one PCA influence principal minor cofactor residual criterion norm equal",
+        "\"largest residual\" \"delete\" \"PCA\" \"rank one\" \"optimal\"",
+        "equal norm two dimensional PCA outlier removal rank-one one-row optimal row largest PCA residual squared double angle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant mathematical-record results included an adaptive cross approximation deflation-history example (2026/9/19/deflation-history-weighted-mass-aca) and a row-coherence example (2026/9/19/row-coherence-defect-pdnqp), both concerning different linear-algebra selection mechanisms.",
+        "No identified published table classifies uniform-norm pilot selection by both number of rows and ambient dimension."
+      ],
+      "reasoning": "No stored exact table, numerical invariant or enumerated classification found covering the two-coordinate threshold. The witness has rational coordinates but is not presented as a pre-existing tabulated optimum. Search noncoverage is not a proof of novelty.",
+      "searches": [
+        "one outlier removal PCA rank one equal norm plane optimal residual deletion 2d",
+        "For equal Euclidean row norms, rank-one PCA outlier deletion largest residual exact optimal all planar matrices and three rows; first counterexample four rows three columns",
+        "D-SLR disjoint row sparse low rank phase diagram equal length rows greedy rank-one row removal"
+      ]
+    },
+    "rationale": "The exact equal-row-norm dimensional frontier and strict four-by-three rational witness were not found in the motivating primary work, the relevant classical outlier-PCA paper, or the queried records. The proof does not present Eckart-Young or elementary cofactor formulas as novel. Unindexed equivalent calculations remain an explicit historical-priority risk; no uniqueness certificate is claimed.",
+    "residual_risks": [
+      "Equivalent one-row trimmed-PCA result in unindexed spectral-influence or computational-geometry literature.",
+      "Full texts/appendices of all historical sources are not exhaustively searchable.",
+      "This theorem does not analyze the actual multistage D-SLR algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same row-storage objective, not the same raw-pilot theorem; source algorithm has additional basis recomputation and candidate refitting, which must not be conflated with the simpler rule.",
+        "evidence": [
+          "arXiv:2610.10636v1, §§3–7, esp. §7 fixed-basis upper bound and three-SVD procedure.",
+          "arXiv:2610.10636v1, Appendix J, optional two-candidate refitting for shortlist shapes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.10636",
+        "material_read": "Full HTML main text Sections 1–9, Propositions 1/8 and Theorems 5/6, Appendix H–J portions including shortlist verification, exact algorithm Step 1/2/4.",
+        "method": "Read primary arXiv full-text rendering and accessible HTML reproduction; checked equations for E(r,K), the Section 7 surrogate, and the appendix shortlist.",
+        "title": "D-SLR: The Disjoint Row-Sparse plus Low-Rank Decomposition",
+        "trigger": "Direct motivation: fixed-basis residual sorting, exact-row storage, and refitting."
+      },
+      {
+        "assessment": "Provides general complexity and approximation algorithms, not an exact pilot-residual ordering or first-dimensional failure result in inspected material.",
+        "evidence": [
+          "arXiv:1804.10696, §1 and abstract: optimization of PCA after throwing away m outlier columns; sampling and bicriteria algorithms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.10696",
+        "material_read": "Available full-text introduction, problem definition, related-work overview, algorithmic guarantee summary; no comprehensive appendix-level noncoverage claim.",
+        "method": "Read primary arXiv accessible full-text rendering; compared the selection rule and theorem scope.",
+        "title": "Low Rank Approximation in the Presence of Outliers",
+        "trigger": "General formulation of rank-k low-rank approximation after deleting a fixed number of columns; transpose to row setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a959786c-4747-4232-9892-2340701c1867",
+  "value": {
+    "rationale": "The natural row-storage/robust-PCA objective requires selecting rows using an inexpensive fixed pilot but paying the exact residual after reoptimization. Equal row norms remove simple magnitude effects. The theorem determines the exact dimensions and sample count within which the raw pilot is provably safe, and gives the smallest equal-norm counterexample where subspace rotation changes the best stored row. This is a motivated complete boundary for the one-row, rank-one regime, not a routine scalar substitution, and it identifies a concrete limitation of a common surrogate without attributing it to a distinct multistage algorithm.",
+    "status": "PASS"
+  }
+}
