@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+Fourier decomposition on the three four-point square orbits gives an exhaustive, four-real-parameter description of the Hermitian lifting nullspace. The four principal order-three minors have an explicitly invertible coefficient matrix (determinant 6064128); their vanishing forces the real diagonal parameter to vanish, and the remaining full determinant is positive unless all parameters vanish. This excludes all rank-one and rank-two kernel matrices and therefore proves intensity injectivity up to global phase. Exact symbolic replay in the enclosed checker verifies the critical identities. The stability assertion follows from compactness of unit-Frobenius-norm rank-at-most-two differences. No finite experiment is used as an infinite proof.
+
+## Originality — PASS, provisional
+Bodmann–Hammen (arXiv:1302.5487, Theorem 2.3) provide twelve polynomial intensity samples in complex dimension four but use *two intersecting circles* and a distinct interpolation geometry. Philipp (arXiv:1403.4769, Theorem 1.1) uses point samples of both the polynomial and its *derivative*. Grohs–Liehr–Rathmair (arXiv:2308.00385) address infinite irregular sampling sets for unrestricted Fock functions. None of the inspected claims gives the stated twelve concrete points on three concentric squares or the explicit Hermitian kernel calculation. Relevant result-index searches were performed for degree-three polynomial phase retrieval, concentric-square designs, 12-sample Vandermonde frames and equivalent rank-two-kernel criteria; accessible earlier polynomial sampling entries involve lower degrees or distinct configurations. Historical priority remains provisional, particularly against less readily searchable structured frame constructions.
+
+## Mathematical value — PASS
+An explicit and fully checked phase-retrieving configuration with just twelve analytic evaluations for a four-complex-dimensional signal is a natural near-minimal constructive design, not merely an existence corollary. The three aligned/rotated four-point orbits give simple instrumentation and an unexpectedly small four-dimensional lifted kernel whose rank defect can be ruled out by four exact cubic minors. The statement supplies all-signal uniqueness and qualitative robust stability with a fixed, reproducible algebraic certificate, while not claiming a globally optimal sample count.
+
+## Closest literature and limitations
+Bodmann–Hammen's two intersecting-circle twelve-measurement construction is the closest quantitative comparator; Philipp's derivative-assisted construction and Grohs–Liehr–Rathmair's Fock uniqueness-set work are distinct in sampling geometry and scope. A specialized equivalent concentric-square construction could exist outside the inspected sources. The optimal stability constant and an explicit reconstruction procedure remain unknown for these points; statements hold only for degree at most three. Independent verification is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
