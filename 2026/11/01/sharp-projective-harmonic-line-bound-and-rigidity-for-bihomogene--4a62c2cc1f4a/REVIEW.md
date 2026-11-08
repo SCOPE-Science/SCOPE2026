@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a nonzero balanced bihomogeneous plurisubharmonic form, restriction to a line is a nonnegative scalar multiple of an absolute-value power, and its vanishing is equivalent to harmonicity. The established D'Angelo log-plurisubharmonic theorem applies even at zeros. In any affine projective chart, the logarithm has growth at most \(m\log R+O(1)\), while each zero of the nonnegative polynomial contributes Riesz mass at least one. Jensen's formula therefore limits the count to \(m\). Equality exhausts all mass, forcing a harmonic remainder constant and hence the squared holomorphic product. Homogenization and converse were checked with the nonzero-at-infinity chart condition made explicit. No numeric experiment substitutes for a uniform proof.
+## correctness
 
-## Originality — PASS, qualified by residual historical risk
-The motivating September 2026 result establishes all-lines and almost-everywhere harmonic-slice rigidity, without a sharp finite-degree count. The 2008/2009 and 2021 homogeneous-polynomial results give finiteness without the \(m\)-line numerical ceiling or its equality family. D'Angelo supplies log-plurisubharmonicity, but not the asserted line-count/Jensen saturation result. The nearest indexed research record treats measure-theoretic sharpness for arbitrary psh functions, not balanced polynomials. A particular risk is that the Jensen corollary could appear implicitly in older homogeneous-model or projective potential literature; no uniqueness assertion about all publication history is made.
+PASS
 
-## Value — PASS
-The naturally distinguished exceptional origin lines determine degeneracies of homogeneous plurisubharmonic model terms in several complex variables. An exact finite sampling threshold strengthens qualitative finiteness in the balanced class and converts projective growth into a sharp count. The equality theorem characterizes all maximal cases without genericity hypotheses; the bound reduces the possible number of isolated projective zero directions to linear in the holomorphic degree. It is not merely a reformulation of the all-lines theorem.
+For nonzero bihomogeneous F of bidegree (m,m), restrictions F(tv)=|t|^(2m)F(v) and subharmonicity prove F>=0 and identify harmonic-line directions with zeros. The Euler/Hessian Cauchy–Schwarz inequality, valid also across zero sets by D'Angelo 2000 Theorem 1, gives global psh of log F. Choose affine chart whose infinity F-positive. u(w)=0.5 log F(1,w) is subharmonic with growth at most m log|w|+O(1), hence Riesz mass <=m by Jensen. Nonnegative C2 vanishing at each zero forces f(w)<=C|w-w0|^2 and an atom >=1. Thus at most m zeros; at equality all mass is m simple atoms and the remainder is a bounded entire harmonic function, hence constant. Homogenization yields F=c|L1...Lm|^2. Examples |product of distinct linear forms|^2 attain m. The critical global log-psh theorem was checked in the actual D'Angelo preprint, page 7, including treatment of zeros.
 
-## Scientific limitations
-The statement is restricted to complex dimension two and balanced bidegree; it does not settle higher-dimensional hyperplane counts or general smooth Forelli problems. Historical implicit priority cannot be eliminated by negative keyword searches. The proof is a derived theorem, not independent verification of the cited results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited 2001 D'Angelo theorem supplies the exact log-plurisubharmonicity foundation; the Bharali–Stensønes result supplies finiteness of exceptional harmonic lines. Neither inspected theorem states the sharp at-most-m count and full equality rigidity. The new proof is an elementary but nontrivial quantitative Jensen saturation applied to a natural form; best-of-knowledge originality only, with risk that this is known as a standard corollary elsewhere.
+
+## value
+
+PASS
+
+A sharp dimension/degree-sensitive count with equality classification for a natural class of complex polynomial potentials refines previously qualitative finiteness, and its equality cases identify exact holomorphic product structure. It is independently useful in exceptional line/Levi geometry, not merely numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

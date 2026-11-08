@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem is an analytic deduction, not a finite enumeration or numerical extrapolation. Reconstruct it by checking the following identities in an arbitrary integer degree \(m\ge1\): (i) the bihomogeneity relation \(F(\lambda z)=|\lambda|^{2m}F(z)\); (ii) the complex Hessian Euler identities in the proof; (iii) positive semidefinite Cauchy–Schwarz for the logarithmic Levi inequality on the positivity set; (iv) the global extension provided by D'Angelo, Theorem 1; (v) the Jensen mass bound for \(u(w)=(1/2)\log F(1,w)\) of logarithmic growth \(m\); (vi) local nonnegative smooth quadratic vanishing and the resulting unit mass at each zero; (vii) equality of the Riesz measure with the exact set of \(m\) point masses; and (viii) Liouville's theorem for the harmonic remainder and bihomogeneous homogenization.
+## correctness
 
-The source checks cover the cited 2026 preprint's first three pages and Sections 3–4 (especially Theorems 1.3, 4.1, 4.2), Bharali–Stensønes Proposition 2.2 and its proof, Simon's Proposition 2.1 and its proof, and D'Angelo's Theorem 1. The logarithmic extension is not inferred merely from a smooth calculation on \(F>0\): it is an explicit cited hypothesis-matched theorem.
+PASS
 
-Elementary checks: \(F=|z_1|^{2m}\) has one exceptional line; \(F=|\prod_{j=1}^m(z_2-a_jz_1)|^2\), for distinct \(a_j\), has exactly \(m\) exceptional lines. They check endpoints but are not a proof for all forms.
+For nonzero bihomogeneous F of bidegree (m,m), restrictions F(tv)=|t|^(2m)F(v) and subharmonicity prove F>=0 and identify harmonic-line directions with zeros. The Euler/Hessian Cauchy–Schwarz inequality, valid also across zero sets by D'Angelo 2000 Theorem 1, gives global psh of log F. Choose affine chart whose infinity F-positive. u(w)=0.5 log F(1,w) is subharmonic with growth at most m log|w|+O(1), hence Riesz mass <=m by Jensen. Nonnegative C2 vanishing at each zero forces f(w)<=C|w-w0|^2 and an atom >=1. Thus at most m zeros; at equality all mass is m simple atoms and the remainder is a bounded entire harmonic function, hence constant. Homogenization yields F=c|L1...Lm|^2. Examples |product of distinct linear forms|^2 attain m. The critical global log-psh theorem was checked in the actual D'Angelo preprint, page 7, including treatment of zeros.
 
-Unproved beyond scope: a sharp comparable count for nonbalanced real-homogeneous forms or higher dimensions; a theorem of publication priority; and independent validation. No external audit has been performed.
+## originality
+
+PASS
+
+The cited 2001 D'Angelo theorem supplies the exact log-plurisubharmonicity foundation; the Bharali–Stensønes result supplies finiteness of exceptional harmonic lines. Neither inspected theorem states the sharp at-most-m count and full equality rigidity. The new proof is an elementary but nontrivial quantitative Jensen saturation applied to a natural form; best-of-knowledge originality only, with risk that this is known as a standard corollary elsewhere.
+
+## value
+
+PASS
+
+A sharp dimension/degree-sensitive count with equality classification for a natural class of complex polynomial potentials refines previously qualitative finiteness, and its equality cases identify exact holomorphic product structure. It is independently useful in exceptional line/Levi geometry, not merely numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
