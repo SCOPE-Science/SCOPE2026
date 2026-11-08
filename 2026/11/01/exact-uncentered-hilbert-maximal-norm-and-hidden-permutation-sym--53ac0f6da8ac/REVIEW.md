@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonlinear uncentered operator is exactly reduced, after sorting absolute values, to four explicit averaging matrices. A single irreducible Gram matrix has the stated cubic Perron eigenvalue, a positive eigenvector in the sorted cone, and strictly correct active averaging choices. Exact rational Sylvester tests exclude all three competing branches below \(377/250\). The 81 centered selections are separately and exhaustively excluded below the same cutoff. Every nonnegative equality case lies on the Perron ray, and full permutation symmetry gives exactly 24 labeled rays in three dihedral orbits. The executable certificate uses exact fractions; the infinite claim is not being inferred from sampled data.
+PASS
 
-## Originality — PASS (qualified)
+Read RESULT.md and the exact Fraction verifier. The ball set is four singletons, four complements of singletons, and all vertices, invariant under S4. Sorting positive inputs reduces each output to four row-matrix branches; exact Sylvester minors rule out all three competitors below 377/250. Winning A^T A has det(zI-A^T A)=z(81z^3-162z^2+64z-6)/81, with a unique >1 root and positive strictly active Perron eigenvector (1,a,b,c), a=b+c and all entries distinct. The eigenvalue and S4/D4 equality orbits are therefore sharp, while exhaustive exact rational tests for all 3^4 centered row selections prove squared norm <377/250. Independently computed NumPy Gram spectra: winner lambda=1.5088893112813764, other maxima 1.4718163364,1.4805061467,1.4038255242, centered maximum 1.4805061467; these numerical checks do not replace the exact finite certificate.
 
-The first verified 2014 paper supplies finite-graph maximal inequalities but no inspected uncentered four-cycle Hilbert constant. The two subsequent González-Riquelme–Madrid papers cover centered complete graphs and stars, rather than the present uncentered four-cycle. Comparable recorded work treats the centered four-cycle, uncentered five-cycle, or a four-vertex path; these do not imply the new set-system-specific spectral law or extremizer orbit count. Targeted exact-polynomial, graph-ball-family, and centered–uncentered equivalent-phrase searches did not identify an implication or matching table entry. Remaining risk is an unindexed equivalent calculation or an inaccessible broader classification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-cycle is the first noncomplete cycle. Its uncentered radius-one balls unexpectedly exhaust all vertex triples, making the nonlinear operator fully permutation-equivariant even though the graph is not. The exact cubic, strict centered–uncentered split, and three distinct graph-automorphism orbit types explain a structural symmetry enlargement and a sharp functional inequality, not merely a decimal invariant.
+Known finite-graph maximal-operator bounds and sharp centered complete/star families do not supply the exact uncentered C4 cubic, full S4 equivariance and equality classification. The graph-ball family, not just the name of the graph, was compared.
 
-## Scientific limitations
+## value
 
-Only unweighted \(C_4\), counting measure, graph-distance balls, real \(\ell^2\), and sharp operator-norm equality cases are proved. No general cycle theorem or priority guarantee is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first small cyclic graph where uncentered balls realize an S4-symmetric 3-uniform hypergraph. An exact strong ell2 norm, unique spectral extremizing pattern and strict centered-vs-uncentered separation illuminate a nonobvious nonlinear symmetry: 24 extremizer rays from only eight graph automorphisms. The finite classification is exact and structurally motivated, not an arbitrary data-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
