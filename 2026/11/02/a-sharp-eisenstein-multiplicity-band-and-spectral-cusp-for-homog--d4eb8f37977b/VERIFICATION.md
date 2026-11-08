@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The companion `checker.py` is a self-contained Python 3 program requiring only standard-library modules. Execute `python checker.py` in the same directory. During preparation it returned:
+## correctness
 
-```
-PASS 12252 exact or precision-tested assertions; all critical thresholds and density comparisons passed.
-```
+PASS
 
-The exact-arithmetic part enumerates all admissible three-component Fourier exponent triples for \(N=3M\), \(1\le M\le35\); verifies the multiplicity equals the classical Eisenstein divisor count for all \(m<m_*(M)\); and checks that the count is strictly smaller at the constructed first clipped value \(m_*(M)\). The numerical part checks the circular-segment CDF against finite-shell eigenvalue counts for \(N=300,600,1200\) at seven test points each and checks the asymptotic square-root density coefficient at three positive offsets.
+For nonnegative Fourier frequencies summing N=3M, the bijection (M+x,M+y,M-x-y) converts the Laplacian eigenvalue to 3M²+2(x²+xy+y²). Classical unique factorization of Z[omega] gives r_Q(m)=6 sum_{d|m} chi_{-3}(d). A forbidden nonnegative-frequency triple first occurs at Q=ceil(3(M+1)^2/4): any negative coordinate is <=-M-1, completed square gives lower bound, and nearest y to (M+1)/2 attains it with x=-M-1. Thus the arithmetic band is exact and first excluded value genuinely loses representations. For every N, the uniform frequency lattice on a triangle gives the circular-cap CDF for sum t_i²; bounded convex perimeter yields a uniform CDF O(1/N) discretization error; differentiation gives square-root cusp coefficient 6 sqrt(2) at 1/2. Zero center and N not divisible by three treated separately; no unrestricted divisor rule beyond the sharp cutoff is asserted.
 
-Every finite test is supplementary. The infinite-dimensional claims depend on the mathematical arguments in `RESULT.md`, specifically the prime-decomposition count, the sharp first-excluded lattice-point proof, and the uniform bounded-perimeter discretization argument. The arithmetical divisor formula is classical. Historical priority remains provisional, and no separate independent audit or external validation has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for sharp *first excluded* Eisenstein representation on a positive-frequency total-degree shell and quantitative entire-shell spectral distribution/cusp. Unrestricted Eisenstein divisor representation counts and circle–triangle geometry are classical and credited. Physical equilateral-triangle Laplacian eigenvalues and Robin/Dirichlet data are a different operator/spectral counting measure, not a direct proof of fixed-degree torus-shell clipping or full-shell probability law. An unindexed lattice-simplex truncation theorem remains possible; Pinsky 1980 is not asserted noncovering because full text could not be obtained.
+
+## value
+
+PASS
+
+A natural holomorphic homogeneous-frequency shell has precise near-minimum eigenvalue multiplicities until an exact first lattice obstruction and an all-degree normalized spectral density with a matching geometric cusp. The precise arithmetic/geometric transition and uniform O(1/N) rate are reusable structural spectral facts, beyond routine counting of Eisenstein norms alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
