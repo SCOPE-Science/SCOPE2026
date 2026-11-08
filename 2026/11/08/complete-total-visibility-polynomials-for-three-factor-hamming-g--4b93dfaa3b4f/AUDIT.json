@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For b,n>=3, the full proof first reconstructs the exact-distance-two criterion and then classifies sections by the third coordinate. With two active layers vertical pairs are impossible; equal binary coordinates force coincident singleton y-supports and opposite binary coordinates force disjoint y-supports. The five exhaustive occupancy cases yield the displayed polynomial; only the one-layer-versus-multilayer opposite-binary case reaches degree b+n-2, with coefficient 2bn. A separately coded distance-two independent-set enumeration agrees for eleven profiles, and literal shortest-path testing agrees for every subset on 8- and 12-vertex boundaries. These computations are not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.05168, Theorems 1/6/9 prove the predicate and maximum size of all three-factor Hamming products.",
+        "arXiv:2412.03066, Section 3 defines total-visibility polynomial generally; Proposition 3.5 gives a universal inclusion-exclusion principle but no explicit Hamming product polynomial.",
+        "Kuziak--Rodríguez-Velázquez, Section 5 gives bounds and scalar Hamming examples."
+      ],
+      "reasoning": "A general counting identity given maximal sets is not an explicit enumeration: none of the inspected broader theorems identifies the disjoint-support layer classes or the coefficient sequence for the (2,b,n) product. The previously covered b=2 boundary is excluded.",
+      "searches": [
+        "\"total mutual-visibility polynomial\" \"Hamming\" \"K_2\" \"K_m\"",
+        "\"visibility polynomials\" \"Hamming graphs\" total 2024",
+        "\"total mutual visibility\" polynomial \"K_2 square\" 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.05168v1",
+      "arXiv:2412.03066v1",
+      "DOI:10.1007/s40840-023-01590-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 of arXiv:2307.05168 provides the exact distance-two feasibility test, while its Theorem 9 states only maximum cardinality b+n-2 for (2,b,n).",
+        "Section 3 of arXiv:2412.03066 defines visibility polynomials and derives formulas for paths, balanced complete bipartite graphs, and the Petersen graph.",
+        "The new claim refines the complete finite set family by size and proves the maximum-set coefficient 2bn for all b,n>=3."
+      ],
+      "reasoning": "Neither predecessor by itself implies a closed all-size formula without additional combinatorial enumeration. The closest known same-object b=2 formula is a strict specialization and does not determine the b,n>=3 coefficients. The new case decomposition establishes precisely this additional data.",
+      "searches": [
+        "arXiv:2307.05168 Theorem 6 Theorem 9 cardinality total mutual visibility Hamming",
+        "arXiv:2412.03066 Section 3 total visibility polynomial examples",
+        "\"total mutual visibility\" \"polynomial\" \"Hamming graph\" product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bujtás--Klavžar--Tian, arXiv:2307.05168, Theorem 6: a total-visibility set equals an independent set of the exact-distance-two conflict graph.",
+        "The proof explicitly gives a weighted count of independent sets for the product with factor sizes (2,b,n)."
+      ],
+      "reasoning": "The distance-two independence-polynomial formulation is equivalent, not an alternative new claim. Searches for a polynomial in this language found no directly covering formula; that negative outcome alone is not a uniqueness certificate.",
+      "searches": [
+        "\"distance two\" \"Hamming graph\" \"independence polynomial\" three factors",
+        "\"distance-2 graph\" \"K_2\" \"K_m\" \"K_n\" independence polynomial",
+        "\"distance 2\" \"three coordinates\" \"independent set\" generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first two new profiles computed independently are (3,3): (1,18,81,84,18) and (3,4): (1,24,144,248,162,24).",
+        "No matching exact coefficient table was returned by these targeted searches."
+      ],
+      "reasoning": "This is a bounded search for an exact database/table record and cannot rule out uncatalogued or differently normalized counts. A source containing only the known b=2 sequence does not cover b,n>=3.",
+      "searches": [
+        "\"1,18,81,84,18\" Hamming visibility polynomial",
+        "\"1,24,144,248,162,24\" graph polynomials",
+        "\"2bn\" \"mutual visibility\" \"Hamming\" maximum sets",
+        "\"K_2\" \"K_3\" \"K_n\" \"total visibility polynomial\""
+      ]
+    },
+    "rationale": "The 2023 Hamming theorem establishes the distance-two characterization and scalar maximum, not the full cardinality polynomial. The 2024 work introduces visibility polynomials generally and supplies unrelated exact families; it does not state this product formula. The already known binary--binary-factor enumeration is explicitly excluded from the originality claim. A fresh disjoint-support enumeration is needed for independently variable b,n>=3; no equivalent full formula was identified in the inspected sources or focused searches. Publication priority remains provisional.",
+    "residual_risks": [
+      "An equivalent all-subset count may be published as an independence polynomial of a Hamming exact-distance-two graph or as a constrained code enumerator.",
+      "The already known binary--binary-factor case gives an overlapping boundary identity, explicitly not part of the new claim.",
+      "No independent audit or exhaustive literature-corpus verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the exact-distance-two criterion and maximum size b+n-2, but does not enumerate all subsets or optimizer multiplicities for independently varying b,n>=3.",
+        "evidence": [
+          "arXiv:2307.05168, Theorem 6; Theorems 1/9; Sections 2-6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.05168v2",
+        "material_read": "Full accessible HTML: definitions, Section 2 Theorem 6 and Proposition 7, Section 3 Theorems 1 and 9/10, later sections and references; PDF page 5 independently viewed.",
+        "method": "Primary full-text inspection of claims, proofs and parameter ranges.",
+        "title": "Total mutual-visibility in Hamming graphs",
+        "trigger": "Exact same Hamming graph objects and forbidden-distance equivalence."
+      },
+      {
+        "assessment": "Defines total visibility polynomials and supplies general inclusion-exclusion, but no explicit (2,b,n) Hamming enumeration.",
+        "evidence": [
+          "Definition 3.1; Proposition 3.2; Proposition 3.5; Theorem 5.2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+        "material_read": "Full accessible HTML, especially Section 3 Definitions 3.1, Proposition 3.2 and 3.5, and Section 5 Theorem 5.2, plus references.",
+        "method": "Primary open full-text inspection, including polynomial examples and the general induction characterization.",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Same counting invariant and potentially dominating general theorem."
+      },
+      {
+        "assessment": "Only scalar parameter bounds and values are established; no all-set Hamming counting polynomial for (2,b,n).",
+        "evidence": [
+          "Section 5, Corollary 5.10 and Remark 5.11; Section 6"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-023-01590-3",
+        "material_read": "Full accessible HTML; introduction, Section 5 product results, Corollary 5.10, Remark 5.11, concluding open problems and references.",
+        "method": "Primary open full-text scientific comparison of scalars and graph classes.",
+        "title": "Total Mutual-Visibility in Graphs with Emphasis on Lexicographic and Cartesian Products",
+        "trigger": "Earlier Cartesian product total-visibility work and Hamming examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b93dfaa-3b4f-4768-a646-7cf353afdae3",
+  "value": {
+    "rationale": "A published natural extremal Hamming visibility problem is refined to a complete two-parameter counting formula, with a structural partition of all feasible sets and the exact 2bn optimizer multiplicity for b,n>=3. This answers natural coefficient and maximum-set enumeration questions for graph products and forbidden-distance codes; it is not a chosen isolated parameter value or a routine restatement of the known b=2 boundary.",
+    "status": "PASS"
+  }
+}
