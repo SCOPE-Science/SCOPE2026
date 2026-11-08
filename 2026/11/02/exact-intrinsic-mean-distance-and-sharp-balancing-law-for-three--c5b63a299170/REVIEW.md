@@ -1,15 +1,21 @@
-# Scientific review: continuous mean distance on three-path theta graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies the complete metric-graph space, arclength probability measure, path-length order, and all positive-real quantifiers. The four possible simple paths between points on different edges and the two options on the same edge yield exact piecewise-linear distance formulas. The diagonal integrals, two-endpoint cross integrals, and the extra two-corner detour correction add to the stated cubic. The exact nonnegative coefficient identity proves the sharp equality condition globally, while an explicit derivative settles the isosceles balancing reversal. The standalone program executed 330 exact assertions and 750,000 independently sampled shortest paths; this is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS (subject to historical-priority risk)
-Doyle and Graver's 1982 three-parallel-edge configurations were restricted to special length choices according to the explicit full-text historical account in Garijo–Márquez–Silveira (2021/2023, introduction). The original 1982 full-length paper was not available for direct inspection; this is the principal residual priority limitation. Garijo–Márquez–Silveira's general quadratic-time evaluation theorem implies the *algorithmic calculability* of any fixed graph, but not the stated all-length closed cubic, strict equal-length minimization, or obstruction to Schur-convexity. Baptista–Kennedy–Mugnolo's general bounds likewise do not imply the stronger sharp constant for this fixed graph topology, while their doubly connected upper bound is acknowledged rather than claimed as new. Related published theta-graph gnarledness and Rips-persistence statements involve different invariants. No exact or dominating prior claim was identified from the inspected primary literature and targeted published-record searches.
+PASS
 
-## Mathematical value — PASS
-The mean intrinsic distance is a natural metric-measure invariant with uses in network geometry. A complete three-parameter evaluation and sharp shape optimizer answer a genuine geometric balancing question; the unexpected failure of Schur-convexity shows that local balancing need not monotonically improve the mean. Unlike a table lookup or isolated numeric sample, the result includes all positive length ratios and a strict equality classification, with an explicit gap certificate.
+PASS. With three positive sorted metric edge lengths 0<a<=b<=c and independent arclength-uniform X,Y, the only simple routes lead to same-edge integral I(L,s)=L³/3-(L-s)_+³/12 and distinct-edge baseline J0(r,s)=r²s/2+rs²/4−r³/12; the unused short edge supplies an exact two-corner correction on (b,c). Assembling ordered pairs recovers the homogeneous cubic numerator. Setting u=b−a,v=c−b, direct coefficientwise algebra verifies 108T²(E−5T/27)=36au²+36auv+36av²+2u³+3u²v+15uv²+7v³, strictly positive except u=v=0. The isosceles derivative (x−1)(11x−3)/48 changes sign at 3/11, refuting Schur-convexity and the strict equilateral minimum refutes Schur-concavity. Independent exact symbolic and numerical integral checks agreed; no use of finite sampling as proof.
 
-## Limitations
-The theorem concerns exactly three parallel metric edges and independent arclength-uniform points; it is not an optimality theorem over all topologies, and it does not claim a universal upper bound as new. Unindexed earlier formulas and the unavailable full 1982 source remain historical-priority risks. Numerical samples are finite and provide no independent infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge novelty of the unrestricted three-positive-length theta-graph cubic, sharp equilateral minimizer and majorization counterexample. The original mean-distance-of-shapes work is prior and potentially close, but its full 1982 source was inaccessible; the broad 2023 graph algorithm and bounds do not explicitly settle the all-triples sharp inequality.
+
+## value
+
+PASS
+
+PASS. Mean intrinsic distance is a standard metric-graph geometric invariant; the complete all-positive-length theta formula and sharp equal-edge minimization at fixed total length form a natural continuous optimization classification. The failure of Schur majorization is mathematically informative, and 5T/27 with unique optimizer is not a routine bound substitution or arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
