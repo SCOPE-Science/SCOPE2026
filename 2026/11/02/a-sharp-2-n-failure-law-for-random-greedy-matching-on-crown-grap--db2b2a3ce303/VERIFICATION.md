@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the all-size statement analytically, including the positivity of all denominators, the conditional transition law, the first-moment telescope and the factorial-moment contraction. The factor \(16\) in the uniform error follows from \(k^2/(k-1)^2\le4\) for integers \(k\ge2\).
+## correctness
 
-Run `python3 checker.py`. It executes exact rational overlap-chain recurrences for sizes \(2\)–\(10\), independent bit-mask dynamic programming for sizes \(2\)–\(6\), and direct examination of all \(720\) edge orders on the three-pair crown graph. It also tests the polynomial inequality at sizes \(2\)–\(200\) and prints float diagnostics for larger graphs. The completed run reported 5,330,825 successful deterministic assertions. These are finite cross-checks and do not certify the theorem independently.
+PASS
 
-No mathematical result outside the stated graph family, and no independent audit or exhaustive historical-priority check, is asserted.
+For n>=2 the process is uniform among currently feasible edges because independent random priorities are exchangeable conditional on the past. At k unmatched labels on each side and overlap r the feasible count is k^2-r, with transitions r->r-2,r-1,r in weights r(r-1),2r(k-r),(k-r)^2. At k>=2 there is always a feasible edge; failure iff final shared singleton. The conditional first-moment identity telescopes to the exact nonnegative defect 2/(n+1)-Q_n=4 sum_{k=2}^n E[(R_k)_2/(k(k-1)(k+1)(k^2-R_k))]. The second-factorial contraction gives E[(R_k)_2]<=k^4/n^2; hence the specified 16 H_n/n^2 bound and n Q_n->2 without extrapolation. Independent exact bit-mask DP agrees with overlap-chain probabilities through n=7; Q_2=0,Q_3=1/3,Q_4=4/21. The polynomial contraction inequality is positive at k=2 and increasing thereafter. I found no missing boundary assumption.
+
+## originality
+
+PASS
+
+The fixed deterministic crown graph rare-event constant is distinct from generic greedy-matching approximation bounds, averaged random-graph comparisons, and unrelated crown graph invariants. The actual derivation has a nontrivial conserved-moment defect and a second-moment estimate. Historical priority remains qualified by incomplete access to the 1991 general-matching paper.
+
+## value
+
+PASS
+
+A canonical dense bipartite graph minus a perfect matching has a nontrivial rare failure mechanism; a sharp coefficient 2/n, finite recurrence, and universal explicit error refine the comparison with an unrestricted random partial matching (coincidence 1/n). The result supplies exact benchmark probabilities for greedy matching rather than a routine generic approximation ratio.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

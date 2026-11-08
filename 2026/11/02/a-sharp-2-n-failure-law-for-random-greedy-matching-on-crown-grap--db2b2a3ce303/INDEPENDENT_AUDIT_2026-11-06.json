@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:13:17.086056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 the process is uniform among currently feasible edges because independent random priorities are exchangeable conditional on the past. At k unmatched labels on each side and overlap r the feasible count is k^2-r, with transitions r->r-2,r-1,r in weights r(r-1),2r(k-r),(k-r)^2. At k>=2 there is always a feasible edge; failure iff final shared singleton. The conditional first-moment identity telescopes to the exact nonnegative defect 2/(n+1)-Q_n=4 sum_{k=2}^n E[(R_k)_2/(k(k-1)(k+1)(k^2-R_k))]. The second-factorial contraction gives E[(R_k)_2]<=k^4/n^2; hence the specified 16 H_n/n^2 bound and n Q_n->2 without extrapolation. Independent exact bit-mask DP agrees with overlap-chain probabilities through n=7; Q_2=0,Q_3=1/3,Q_4=4/21. The polynomial contraction inequality is positive at k=2 and increasing thereafter. I found no missing boundary assumption.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnosti 2021 Theorem 1: random-edge vs random-vertex stochastic comparison over random bipartite input",
+          "Tang Wu Zhang arXiv:1907.05135 Theorems 1.1-1.3: approximation factors",
+          "Dyer Frieze 1991 available abstract, general bounds"
+        ],
+        "reasoning": "Theorems about expected approximation ratios and random input graphs do not yield a 2/n one-edge defect probability on a fixed crown. The 1991 full text was not read, so an equivalent special example remains possible.",
+        "searches": [
+          "random edge greedy matching crown graph complete bipartite missing perfect matching failure probability 2/n asymptotics exact",
+          "Dyer Frieze Randomized greedy matching graph regular dense asymptotic",
+          "Toward a Better Understanding of Randomized Greedy Matching 1907.05135"
+        ]
+      },
+      "checked_sources": [
+        "Arnosti 2021 DOI:10.1287/stsy.2021.0082 (full text)",
+        "Tang/Wu/Zhang arXiv:1907.05135 (full text)",
+        "Dyer/Frieze 1991 DOI:10.1002/rsa.3240020104 (abstract only)",
+        "Resultary matching-deleted complete bipartite non-CIS count (unrelated invariant)",
+        "Resultary crown edge metric basis count (unrelated invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arnosti 2021 Theorem 1 averages over random graph edges",
+          "The present proof uses exact overlap process and factorial contraction to identify leading coefficient 2"
+        ],
+        "reasoning": "A worst-case or average matching-size bound allowing O(n) defects cannot force the exact rare-event coefficient; prior formulas do not imply the current claim by a special-parameter substitution.",
+        "searches": [
+          "random edge greedy matching crown graph complete bipartite missing perfect matching failure probability 2/n asymptotics exact",
+          "Arnosti random edge stochastic domination bipartite graphs",
+          "1907.05135 randomized greedy approximation ratios"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnosti, Greedy Matching in Bipartite Random Graphs, DOI 10.1287/stsy.2021.0082, algorithm RANDOM-EDGE",
+          "Crown K_{n,n} with diagonal forbidden is also K_{n,n}-M_n"
+        ],
+        "reasoning": "Random edge priority and uniform feasible edge selection are equivalent algorithms, not a prior quantitative theorem. No located source expresses the same defective singleton probability or exact overlap recursion.",
+        "searches": [
+          "random edge greedy matching crown graph complete bipartite missing perfect matching failure probability 2/n asymptotics exact",
+          "random edge order matching crown graph leftover unmatched same label",
+          "Dyer Frieze randomized greedy matching 1991"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb counts graph clique/stable-set pairs",
+          "Resultary SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8 counts edge metric bases"
+        ],
+        "reasoning": "These database findings describe deterministic crown invariants, not probabilities of randomized greedy matching. No exact tabulation of Q_n was found; this is not proof of global novelty.",
+        "searches": [
+          "random edge greedy matching crown graph complete bipartite missing perfect matching failure probability 2/n asymptotics exact",
+          "Resultary: Exact non-CIS-pair count for matching-deleted complete bipartite graphs",
+          "Resultary: Edge metric bases of crown graphs"
+        ]
+      },
+      "rationale": "The fixed deterministic crown graph rare-event constant is distinct from generic greedy-matching approximation bounds, averaged random-graph comparisons, and unrelated crown graph invariants. The actual derivation has a nontrivial conserved-moment defect and a second-moment estimate. Historical priority remains qualified by incomplete access to the 1991 general-matching paper.",
+      "residual_risks": [
+        "Unretrieved complete 1991 Dyer-Frieze paper could contain an equivalent crown calculation.",
+        "Search evidence and the exact recurrence are not independent certification of historical originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not demonstrated covering fixed-crown deficiency law",
+          "evidence": "Theorem 1 compares stochastic performance for RANDOM-EDGE/VERTEX with random edge set; not exact K_{n,n}-M_n failure rate.",
+          "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+          "material_read": "full PDF sections introducing algorithms and Theorem 1, with comparison and assumptions",
+          "method": "read full accessible PDF and theorem text",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "same RANDOM-EDGE algorithm"
+        },
+        {
+          "assessment": "not demonstrated covering exact rare crown deficiency",
+          "evidence": "Theorems 1.1-1.3 address approximation guarantees, not a crown-specific probability.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.05135",
+          "material_read": "full available preprint introduction and theorem statements, approximation-algorithm regimes",
+          "method": "read arXiv full text",
+          "title": "Toward a Better Understanding of Randomized Greedy Matching",
+          "trigger": "classical randomized greedy matching"
+        },
+        {
+          "assessment": "unresolved historical overlap, not asserted noncovering",
+          "evidence": "1991 Dyer-Frieze generic randomized greedy matching; possible crown specialization not ruled out.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "publisher abstract only; full paper not obtained",
+          "method": "abstract reading and search",
+          "title": "Randomized greedy matching",
+          "trigger": "1991 general ancestor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical dense bipartite graph minus a perfect matching has a nontrivial rare failure mechanism; a sharp coefficient 2/n, finite recurrence, and universal explicit error refine the comparison with an unrestricted random partial matching (coincidence 1/n). The result supplies exact benchmark probabilities for greedy matching rather than a routine generic approximation ratio.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Arnosti 2021 DOI:10.1287/stsy.2021.0082 (full text)",
+    "Tang/Wu/Zhang arXiv:1907.05135 (full text)",
+    "Dyer/Frieze 1991 DOI:10.1002/rsa.3240020104 (abstract only)",
+    "Resultary matching-deleted complete bipartite non-CIS count (unrelated invariant)",
+    "Resultary crown edge metric basis count (unrelated invariant)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n integer >=2, exactly one deleted perfect matching, uniform edge-priority greedy; not vertex-order or adversarial graph.",
+    "Finite independent DP n<=7 supports the mathematical proof but is not the all-n proof."
+  ],
+  "schema_version": 1
+}
