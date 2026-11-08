@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof first forces equality in all support/score bounds for any adverse top-two approval pair, obtaining an exact duplicate/complement obstruction for even voter counts. It then derives the all-candidate probability by counting safe words over complementary half-support-mask pairs, justifying the exponential generating function \(2e^z-1+z^2\), and gives the three-candidate formula and fixed-population asymptotic. Exhaustive and rational checks from `verify.py` passed on 374,592 profiles and three non-half approval probabilities. Boundary cases include no adverse pair for odd populations or just two candidates. No numerical experiment is relied upon as an infinite proof.
+
+**Originality: PASS, qualified.** Aziz et al. (2015), Theorem 3, already establishes the two-seat tie-breaking JR existence property: this is **not** claimed as new. Their inspected paper and the other inspected closest sources do not state the exact Bernoulli adverse-tie existence probability, complementary occupancy polynomial, three-candidate formula or fixed-population asymptotic. Searches against mathematical research records and public literature did not identify an implication covering that probabilistic joint claim. This is best-knowledge originality only; unindexed or differently named occupancy facts remain a risk.
+
+**Value: PASS.** For a welfare-maximizing voting rule with a known tie-break-sensitive fairness guarantee, the probability of an *unsafe feasible optimal tie* is a directly motivated robustness quantity. The exact answer works for any number of candidates and voters and reveals a parity dichotomy, an exponentially rare three-candidate regime, and a distinct many-candidate limit. The result adds a distributional benchmark, not merely a new proof of the known deterministic two-seat existence theorem.
+
+The full Bernoulli independence assumption limits empirical applicability; the formula measures whether a bad winner exists, not the failure rate of every fixed tie-breaking scheme. Closest sources: Aziz et al. (2015), Elkind et al. (2021), Becker et al. (2026), Jin et al. (2026), Dong (2026); citations are in `RESULT.md`.
+
+Self-review: passed. Independent audit: not yet performed.
