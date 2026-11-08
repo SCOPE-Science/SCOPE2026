@@ -1,19 +1,21 @@
-# Scientific review: the cyclic zeta function of Watson–Crick four-palindrome avoidance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has an exact, completely specified domain: labeled four-base circular words, each of whose cyclic four-windows is outside the sixteen reverse-complement palindromes, for every positive length. The triple-state overlap graph is in bijection with indexed periodic words, including periods shorter than four. The full characteristic polynomial of its 64-state adjacency matrix is established by Newton identities using all 64 exact integer traces; this is a finite symbolic determinant certificate rather than an extrapolation from checked coefficients. The formal determinant/logarithm identity proves the zeta function to all orders. Möbius inversion proves the primitive-necklace formula. Exact graph reachability and the self-loop give the Perron-Frobenius hypothesis for the asymptotic capacity. Replaying `verify.py` returned `VERIFY_OK`. Limited tests of short words are independent cross-checks, not the basis for the general proof.
+PASS
 
-## Originality — PASS, qualified
+The forbidden local Watson–Crick motif ab̅b̅a on a four-letter alphabet excludes exactly 16 length-four words. Reading cyclic n-periodic words, including repeated-letter wraps n=1,2,3, as closed n-step walks in the explicitly constructed 64 triple-state de Bruijn graph is a bijection. Independent direct matrix construction recovered exact characteristic polynomial x^36(x-1)^3(x+1)^3(x²+1)^2(x³-3x²-2x-3)(x^5-x^4+x^3-4x²+2x-3)^2(x^5+x^4+x^3+4x²+2x+3), with integer symbolic determinant independent of stored proof coefficients. Exact trace computations gave C1..C7=(4,12,64,228,744,2904,10420). The inspected verifier computes all 64 traces, checks the entire 64-degree det(I-zM) via Newton identities, and separately brute-checks small circular words; that is a complete finite determinant identity, not an infinite sequence extrapolation. Formal -log det(I-zM)=sum C_n z^n/n proves the displayed rational dynamical zeta for every n, and Mobius inversion proves primitive oriented necklace counts. Strong connectivity with a loop and Perron–Frobenius, plus polynomial root isolation on (3,4), give capacity log2(3.7473465403...) ≈1.9058694. Scope is only local cyclic length-four avoidance, not global hairpin or DNA secondary-structure constraints.
 
-The known binary alternate-complement transformation and the general de Bruijn transfer construction are credited and are not claimed as discoveries. The published secondary-structure-avoidance results of Chu, Wang, and Zhang concern a strictly stronger constraint forbidding remotely separated reverse-complementary factors and do not evaluate this local circular-word determinant. Lamprea-Burgunder, Ludin, and Mäser identify the sixteen four-mer palindromes empirically rather than enumerate all admissible circular words. The closest related cyclic palindrome study by Simpson maximizes distinct palindrome complexity, not this avoidance zeta function. Comparison by statements and implications finds no inspected result stating this four-base cyclic factorization or all-period primitive-necklace formula. The standard transfer method can in principle compute the special case and an unindexed prior explicit computation remains possible; the originality claim is therefore qualified rather than absolute.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Avoidance of all sixteen Watson–Crick palindromic tetranucleotides is a canonical finite-alphabet constrained language with an empirical genomic motivation. Its exact cyclic period spectrum and complete primitive-orbit enumeration are meaningful invariants for circular DNA and symbolic coding. The non-obvious factorization of a 64-state system yields all lengths at once and an exact rate, rather than a small-table extension. The answer is deliberately restricted to local four-mer avoidance, which is not a model of all stem-loop secondary structures.
+Compared the exact claim and implications with the named primary mathematics and published Resultary records. The actual semantic query was 'Resultary: Watson Crick reverse complement palindrome length four cyclic DNA words zeta transfer matrix necklace'. No materially inspected source supplies or logically dominates the stated instance; inaccessible/unindexed source risks remain.
 
-## Closest literature and limitations
+## value
 
-See the References in `RESULT.md`. The strongest potential prior overlap is the generic transfer-matrix prescription in the April 2023 MathOverflow discussion; it does not itself give the evaluated quaternary cyclic determinant. The 2023 SSA paper's full accessible mathematical sections were compared for the same constraint and capacity, and the 2011 genome-frequency article's motif definition and counting sections were inspected. A previously unindexed equivalent evaluated factorization cannot be categorically excluded. The present review does not constitute independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-period periodic-point zeta, primitive-orbit counts and entropy of a natural four-base reverse-complement local forbidden-motif shift are useful constrained-coding invariants. Although transfer matrices are textbook methods, the evaluated nontrivial 64x64 determinant, quintic factors, short-period wraparound and capacity are a substantive exact classification, not a mere name substitution or tiny case check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
