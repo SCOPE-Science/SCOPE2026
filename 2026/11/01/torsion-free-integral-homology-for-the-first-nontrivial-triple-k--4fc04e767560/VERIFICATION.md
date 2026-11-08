@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Compile `verify_kg73.cpp` as C++17, for example `g++ -std=c++17 -O2 verify_kg73.cpp -o verify_kg73`. Run `./verify_kg73` and `./verify_kg73 --reverse`; these write the six ASCII integer boundary matrices in the current working directory. Run `python3 verify_integral.py`, with SymPy installed, to check their exact Smith normal forms and differential compositions. Compare the output with `verification_output.txt`. No network access or third-party research paper is needed to reconstruct the certificate.
+## correctness
 
-The generator enumerates all 1,278,686 faces, including empty, and all 639,283 forward or 639,293 reverse matched pairs. It checks all matched upper cells in a complete acyclicity traversal, computes the signed integer Morse boundary maps, and protects against signed 64-bit coefficient overflow. The Python checker computes Smith normal forms over the integer domain, not floating-point approximations. The six numerical boundary matrices are supplied as standalone evidence, not substituted from another example.
+PASS
 
-The calculation establishes integral homology only. It does not certify an integral homotopy decomposition or an infinite family. External independent audit has not been performed.
+The recursive family enumeration is exhaustive by choosing increasing ordered vertices and retaining only pairwise-intersecting families. Independently reconstructed exact f-vector for sizes 0..15, total 1,278,686 faces including empty. The inspected C++17 source generates a complete greedy Morse matching, checks acyclicity by traversal of every matched upper cell, and constructs signed gradient-path Morse differentials (not simply a saved log). Independently fetched and checked all six actual integer matrix certificate blobs: forward matrices 60x41,41x11,11x8 have exact unit-invariant ranks 31,10,1; reverse matrices 45x27,27x16,16x12 have unit-invariant ranks 16,11,5; in both sets every consecutive matrix composition vanishes, and independent BigInt unimodular row/column elimination leaves only zero residual blocks. Therefore both certify Htilde6=Z^29 and Htilde9=Z^7, all other homology zero, no torsion. Source generator was inspected but not rerun in this audit; certificate provenance ultimately depends on the inspected generator matching the submitted matrices.
+
+## originality
+
+PASS
+
+The free rational ranks 29 and 7 were already printed in the 2024 Feng–Wang table and are not claimed as new. The new assertion excludes all integral torsion, an explicit open issue in Feng 2026; rational and mod-two Betti counts do not alone eliminate odd torsion.
+
+## value
+
+PASS
+
+Resolving an explicitly posed integral torsion problem for the first nontrivial triple-Kneser parameter is a motivated, reusable natural exact invariant. The distinction from known Q ranks matters because odd torsion can be invisible to rational and F2 checks. No paper-sized or all-k extension is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

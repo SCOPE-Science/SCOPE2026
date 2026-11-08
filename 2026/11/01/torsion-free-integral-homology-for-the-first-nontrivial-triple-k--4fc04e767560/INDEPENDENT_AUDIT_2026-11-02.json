@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:14:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_kg73.cpp actual source",
+        "verify_integral.py actual source",
+        "all six current Git blob integer matrices",
+        "independent complete face enumeration and BigInt exact matrix checks"
+      ],
+      "rationale": "The recursive family enumeration is exhaustive by choosing increasing ordered vertices and retaining only pairwise-intersecting families. Independently reconstructed exact f-vector for sizes 0..15, total 1,278,686 faces including empty. The inspected C++17 source generates a complete greedy Morse matching, checks acyclicity by traversal of every matched upper cell, and constructs signed gradient-path Morse differentials (not simply a saved log). Independently fetched and checked all six actual integer matrix certificate blobs: forward matrices 60x41,41x11,11x8 have exact unit-invariant ranks 31,10,1; reverse matrices 45x27,27x16,16x12 have unit-invariant ranks 16,11,5; in both sets every consecutive matrix composition vanishes, and independent BigInt unimodular row/column elimination leaves only zero residual blocks. Therefore both certify Htilde6=Z^29 and Htilde9=Z^7, all other homology zero, no torsion. Source generator was inspected but not rerun in this audit; certificate provenance ultimately depends on the inspected generator matching the submitted matrices.",
+      "residual_risks": [
+        "The complete original C++ generator was not independently compiled/executed this run, so the link between its reconstructed faces/matching and stored matrices was code-reviewed rather than separately re-generated; stored matrices are checked mathematically and agree for two distinct matchings.",
+        "The exact homology does not prove a wedge-of-spheres homotopy type."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng has all-parameter rational Betti formula; the paper explicitly asks whether integral homology is torsion-free. Barmak two-subset Kneser complexes concern a different graph family."
+        ],
+        "reasoning": "All-parameter rational theorem dominates free ranks but not torsion-freeness; a mod-two calculation of an auxiliary complex cannot exclude odd primary torsion.",
+        "searches": [
+          "arxiv:2610.17394 Section 6 and 7",
+          "arxiv:2404.10566 Table 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.10566",
+        "arXiv:2610.17394",
+        "Resultary semantic query: independence Kneser KG(7,3) integral homology torsion free ranks 29 7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An explicit published question about torsion-freeness remained after the rational calculation; unit Smith factors in the actual signed finite chain complex give the extra conclusion."
+        ],
+        "reasoning": "Neither cited exact rational rank result nor homological rank formula implies absence of odd torsion; the integral certificate is logically stronger in this direction.",
+        "searches": [
+          "arxiv:2610.17394 Section 7",
+          "independence Kneser KG(7,3) integral homology torsion free ranks 29 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same independence complex is denoted Ind(KG(3,1)) under Feng parameter convention, equivalent to Ind(KG(7,3)). This is also the constant-weight binary radius-four clique/Rips model on 35 weight-three bitvectors."
+        ],
+        "reasoning": "Aliases lead to the same object, so comparisons use the integral torsion claim, not only name KG(7,3). Existing ranks alone do not determine the Z-module.",
+        "searches": [
+          "independence Kneser KG(7,3) integral homology torsion free ranks 29 7",
+          "arxiv:2404.10566",
+          "arxiv:2610.17394"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Feng–Wang 2024 tabulate 29 and 7 for k=1, so no originality is assigned to Betti numbers. Search did not locate an existing Smith table or explicit integral torsion result for the same Kneser independence complex."
+        ],
+        "reasoning": "Published exact rational table is covering for rank claims, not an exact integral homology table.",
+        "searches": [
+          "arxiv:2404.10566 Table 1",
+          "independence Kneser KG(7,3) integral homology torsion free ranks 29 7"
+        ]
+      },
+      "rationale": "The free rational ranks 29 and 7 were already printed in the 2024 Feng–Wang table and are not claimed as new. The new assertion excludes all integral torsion, an explicit open issue in Feng 2026; rational and mod-two Betti counts do not alone eliminate odd torsion.",
+      "residual_risks": [
+        "An unpublished or nonindexed complete integer Morse computation may predate this one.",
+        "Unit Smith matrices are independently verified; original generator source was read rather than independently re-executed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rational ranks but explicitly leaves torsion-free integral question open",
+          "evidence": "All-k rational formula and integrality question in Section 7.",
+          "identifier_or_url": "arXiv:2610.17394",
+          "material_read": "Full accessible HTML paper, particularly rational homology results in Sections 5–6 and discussion/question in Section 7",
+          "method": "Read full text via lawful online HTML",
+          "title": "The rational homology of independence complexes of Kneser graphs on triples",
+          "trigger": "Direct all-parameter theorem and open torsion question"
+        },
+        {
+          "assessment": "Known ranks 29 and 7; no cited integral Smith calculation",
+          "evidence": "Table 1 lists these ranks; does not establish integral homology torsion-freeness in inspected result.",
+          "identifier_or_url": "arXiv:2404.10566",
+          "material_read": "Full PDF accessed and relevant Table 1/rank context inspected; full-document priority exclusion not assumed",
+          "method": "Open arXiv full PDF and inspect rank table",
+          "title": "Exploring Homological Properties of Independent Complexes of Kneser Graphs",
+          "trigger": "Same finite complex and known rank table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Feng arXiv:2610.17394 Section 7",
+        "Feng–Wang arXiv:2404.10566 Table 1",
+        "actual integral Morse matrices and Smith factors"
+      ],
+      "rationale": "Resolving an explicitly posed integral torsion problem for the first nontrivial triple-Kneser parameter is a motivated, reusable natural exact invariant. The distinction from known Q ranks matters because odd torsion can be invisible to rational and F2 checks. No paper-sized or all-k extension is needed for value.",
+      "residual_risks": [
+        "Computational finite theorem only; does not resolve integrality for all Kneser triple parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C++ source matching and acyclicity audit is code inspection; matrix verification, compositions and face-vector independent exact tests performed separately.",
+    "Explicitly no homotopy-type claim and no assertion about larger Kneser graphs."
+  ],
+  "schema_version": 1
+}

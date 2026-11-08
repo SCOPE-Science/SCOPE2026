@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact enumeration covers every face. The forward and reverse vertex-toggle Morse matchings are both fully acyclic by exhaustive directed-gradient graph traversal, with 639,283 and 639,293 matched pairs. The three exact integer Morse differentials in each reduction compose to zero, and full Smith normal forms have only unit nonzero invariant factors, yielding reduced integral groups of ranks 29 and 7 in degrees six and nine, without torsion. The standalone numerical matrices and executable sources are included; they were executed directly from this package. The calculation does not certify homotopy types.
+## correctness
 
-## Originality
-PASS against identified literature and research-record comparisons. Feng and Wang's April 2024 Table 1 has the ranks 29 and 7, so those numbers are not new. Feng's October 2026 theorem establishes rational homology uniformly in the parameter and explicitly asks whether the integral homology is torsion-free. Field ranks cannot rule out odd torsion. Published two-subset Kneser complexes and superficially similar matching, clique, and constant-weight complexes do not imply the fixed triple-subset integral statement. Residual risk: a prior unindexed integral Smith computation may exist.
+PASS
 
-## Value
-PASS. The integer torsion question is explicitly motivated in current primary literature, and the calculation settles its first nontrivial instance, including absence of all odd- and even-primary torsion. It is a complete exact integral invariant of a canonical symmetric graph and a finite Vietoris--Rips complex, not merely a new representation of known Betti numbers. There is no asserted all-parameter or downstream theorem.
+The recursive family enumeration is exhaustive by choosing increasing ordered vertices and retaining only pairwise-intersecting families. Independently reconstructed exact f-vector for sizes 0..15, total 1,278,686 faces including empty. The inspected C++17 source generates a complete greedy Morse matching, checks acyclicity by traversal of every matched upper cell, and constructs signed gradient-path Morse differentials (not simply a saved log). Independently fetched and checked all six actual integer matrix certificate blobs: forward matrices 60x41,41x11,11x8 have exact unit-invariant ranks 31,10,1; reverse matrices 45x27,27x16,16x12 have unit-invariant ranks 16,11,5; in both sets every consecutive matrix composition vanishes, and independent BigInt unimodular row/column elimination leaves only zero residual blocks. Therefore both certify Htilde6=Z^29 and Htilde9=Z^7, all other homology zero, no torsion. Source generator was inspected but not rerun in this audit; certificate provenance ultimately depends on the inspected generator matching the submitted matrices.
 
-## Scope and independence
-The result is a finite computation with reproducible complete source and integer matrices. Further cases, homotopy decomposition, and an independent scientific audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The free rational ranks 29 and 7 were already printed in the 2024 Feng–Wang table and are not claimed as new. The new assertion excludes all integral torsion, an explicit open issue in Feng 2026; rational and mod-two Betti counts do not alone eliminate odd torsion.
+
+## value
+
+PASS
+
+Resolving an explicitly posed integral torsion problem for the first nontrivial triple-Kneser parameter is a motivated, reusable natural exact invariant. The distinction from known Q ranks matters because odd torsion can be invisible to rational and F2 checks. No paper-sized or all-k extension is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
