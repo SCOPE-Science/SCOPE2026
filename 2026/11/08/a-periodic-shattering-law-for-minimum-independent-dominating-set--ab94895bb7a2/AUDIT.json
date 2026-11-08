@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "All minimum cardinality path solutions have the unique short-gap parametrization. The two-gap case has exactly enumerated joint traces and an exhaustive nonshattering case split for triples. The one-gap case has exactly ordered threshold queries and its depth is both lower-bounded by balanced splits and upper-bounded by the number of hypotheses. Boundary n=1,2,3,4 and all n residues are treated. Independent finite enumeration and tree recursion in verify_i_path.py passed; finite checks supplement, not replace, the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The all-maximal-independent-set concept class contains nonminimum solutions, so its shattering dimension cannot directly determine that of the minimum subclass.",
+        "The 2019 and 2023 papers classify exact minimum-solution reconfiguration graphs, a different parameter; neither gives a theorem of the proposed trace dimension or support counts."
+      ],
+      "reasoning": "Inclusion-minimal dominating sets include additional non-independent concepts. Bounds for supersets do not force this smaller family's exact support polynomial or online dimension. Reconfiguration is not an implication to labeled query patterns.",
+      "searches": [
+        "\"VC dimension\" \"maximal independent sets\" \"paths\"",
+        "\"shattering\" \"minimal dominating sets\" paths",
+        "\"Littlestone dimension\" \"dominating sets\" graph"
+      ]
+    },
+    "checked_sources": [
+      "R. Samanmoo, N. Trakultraipruk, N. Ananchuen (2019), *Maejo Int. J. Sci. Technol.* 13:245–256; path theorems.",
+      "R. C. Brewster, C. M. Mynhardt, L. E. Teshima (2023), arXiv:2303.08190v1, Sections 1–2."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Samanmoo et al. Thms 1–3 classify the reconfiguration graphs as a singleton, path or stairgrid according to \\(n\\bmod3\\).",
+        "Brewster et al. Section 2 describes small-gap parametrization of minimum solutions and reconfiguration adjacency.",
+        "Neither article includes universal vertex-subset shattering criteria, a complete shattering polynomial, or online mistake-tree-depth formula."
+      ],
+      "reasoning": "Their parametrization is used as an input, and deriving the present support coefficient requires a separate joint-trace analysis, while the exact online dimension needs a separate threshold identification argument. The claim is not a direct special case of the displayed reconfiguration classifications.",
+      "searches": [
+        "Samanmoo Trakultraipruk Ananchuen γ-Independent dominating graphs paths cycles Theorem 1 Theorem 2 Theorem 3",
+        "Brewster Mynhardt Teshima The i-Graphs of Paths and Cycles Section 2 2023",
+        "\"Littlestone\" \"i-Graphs of Paths and Cycles\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minimum independent dominating sets are i(G)-sets (arXiv:2303.08190v1, Introduction).",
+        "Vertex-membership concepts of minimum independent dominating sets are also describable as traces of minimum maximal independent sets; a simple relabeling of terms does not turn reconfiguration adjacency into trace shattering."
+      ],
+      "reasoning": "Queries included both independent domination and i-set terminology. Known i-graph descriptions do not specify labels of vertices along online trees; only their reconfiguration edges.",
+      "searches": [
+        "\"VC dimension\" \"minimum independent dominating\" path",
+        "\"Littlestone\" \"independent dominating\" path",
+        "\"shattering\" \"i-sets\" path",
+        "\"VC dimension\" \"minimum maximal independent sets\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2019 publication tables and statements concern graph shapes and solution counts, not counts of shattered vertex subsets.",
+        "The 2023 source counts solutions by residue but does not present the \\(2k^2+k-2\\) shattered-pair coefficient."
+      ],
+      "reasoning": "No covering published table was identified. Finite checker counts are newly calculated from explicit concepts; this absence of retrieval is not by itself a novelty proof.",
+      "searches": [
+        "\"shattered support polynomial\" \"independent domination\" path",
+        "\"minimum independent dominating\" \"VC dimension\" enumeration",
+        "\"i-sets\" \"shattered sets\""
+      ]
+    },
+    "rationale": "The source-supported gap parameterization and path reconfiguration classifications determine solution *counts* but do not give the full incidence trace polynomial or exact online depth. Direct implication comparisons of closely related primary sources did not find covering theorems. Novelty is best-knowledge rather than absolute historical certification.",
+    "residual_risks": [
+      "Later or differently indexed publications on identification by membership queries may imply the result.",
+      "The earlier path-gap parametrization makes some polynomial consequences relatively close, although the complete support census and online separation are additional results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers residue-class solution reconfiguration structures; not the membership trace polynomial or online-depth formula.",
+        "evidence": [
+          "Published December 18, 2019; page 247 states the reconfiguration type for each residue class.",
+          "Theorem 2 gives a path of k+2 reconfiguration vertices for P_(3k+2)."
+        ],
+        "identifier_or_url": "https://mijst.mju.ac.th/Vol13/index.htm",
+        "material_read": "Full author-uploaded text transcription, introduction, path portion including Proposition 1 and Theorems 1–3; official issue listing.",
+        "method": "Read available text and inspect path theorems for support-shattering and online implications.",
+        "title": "γ-Independent dominating graphs of paths and cycles",
+        "trigger": "Exact same i-sets of paths; direct structural-priority threat."
+      },
+      {
+        "assessment": "Gap parametrization and solution counts are prior; complete shattering and exact Littlestone depth are not stated there.",
+        "evidence": [
+          "arXiv:2303.08190v1 dated March 14, 2023.",
+          "Studies reconfiguration adjacency of i(G)-sets rather than shattering of membership queries."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+        "material_read": "Preprint abstract, introduction and relevant path representation and solution-count results in Section 2 (lawful arXiv HTML).",
+        "method": "Compared exact statements and construction used to enumerate minimum solutions with query-label traces.",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Same minimum-independent-dominating-set family and explicit gap parametrization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab94895b-b7a2-4d62-a6a3-68d17e580593",
+  "value": {
+    "rationale": "A natural minimum-solution family has a complete universal shattered-support polynomial including the quadratic pair coefficient and period-three behavior. The sharp unbounded gap between online and static shattering along connected paths provides a nontrivial structural learning-theoretic distinction that does not follow from mere solution counts or reconfiguration-graph isomorphism.",
+    "status": "PASS"
+  }
+}
