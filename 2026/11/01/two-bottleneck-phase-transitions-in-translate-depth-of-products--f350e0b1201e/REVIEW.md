@@ -1,19 +1,21 @@
-# Scientific review: product-simplex translate-depth phase law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a statement about a common dilation of a Cartesian product of nondegenerate simplices, with normalized product-volume measure, and the supremum over all translates excluding a query point. The key overlap identity is proved by barycentric inequalities, including empty intersections and boundary limits. The optimization of a missing translate is an infimum of a positive-part sum; the explicit limiting threshold construction proves attainability in the supremum sense. Product factorization handles the union of exclusion events without assuming that the same translate optimizes every factor. The maximizer is reduced to the product centroid, then to a finite dimension envelope. The function \(x\log(x/(x+1))\) has strictly positive second derivative \(1/[x(x+1)^2]\), proving that only the smallest and largest factor dimensions can control the maximum. All boundary scales, including \(t=T_q\), \(t=t_*\), and \(t=1\), are included correctly. The median sets follow by saturating the same inequalities. The accompanying executable checker passed 434 exact rational assertions, including independently clipped interval and triangle volumes; finite tests support but do not replace the proof.
+PASS
 
-## Originality — PASS with residual priority risk
+For each simplex the barycentric facet-threshold description of a translate yields exact overlap (1-sum(a_j)_+)^d and the constrained excluding-translate infimum max(0,1-t,min lambda_j). Factorization across products proves the all-point formula with theta=min(t,1). At each centroid, the controlling mass is max_i theta^(N-d_i)min(theta,d_i/(d_i+1))^d_i. For t beyond max T_d, b(d)=d log(d/(d+1)) has strictly positive second derivative 1/[d(d+1)^2], so its affine-tilted dimension envelope is controlled exclusively by smallest and largest factor dimensions. The unique crossing produces the stated three active branches and plateau; factorwise inequalities give the entire median set. Independently checked the triangular-prism values T_2=2/3, t_*=8/9 and the middle term 4t/9, plus exact rational overlap identities at representative boundaries. The proof applies to all positive factor dimensions and all ambient points; finite samples alone would not.
 
-The October 19, 2026 depth paper supplies general definitions, depth-region erosions, covariogram considerations, and tangent-cone dilation limits. An existing exact result for a single simplex already provides the one-factor special case, and the present paper does not claim it. The new assertion is the exact **coupled** maximum for products with unequal factor dimensions: a strict-convexity reduction to only the extreme dimensions, the explicit internal crossing \(t_*\), and an exact classification of the median set. For a triangular prism, the unique median appears only at the isolated scale \(8/9\) between line-segment and triangular median loci. These conclusions are not stated or directly determined by the previously inspected single-simplex or general erosion results without the new product-minimax and extreme-dimension arguments. A search of the available mathematical records and literature did not identify a covering theorem, but this is not a guarantee of priority. The 1999 homothetic-simplex intersection paper was accessible via its abstract and excerpt rather than a verified full reading, creating a limited residual literature risk.
+## originality
 
-## Value — PASS
+PASS
 
-Translate-based depth is a natural convex-geometric centrality functional whose behavior for nonsmooth testing bodies differs sharply from classical halfspace depth. The entire maximum-depth and median-geometry classification of products of simplices supplies explicit benchmark examples for genuinely high-dimensional non-simplex polytopes. The phenomenon is not merely an added parameter: a single uniform triangular prism displays three exact corners in the maximum-depth curve, exchange of the dimension controlling the optimum, and a change in the topology and dimension of the median set from a segment through a singleton to a triangle. The formulas make the role of extreme factor dimensions transparent for arbitrary products.
+The general convex-body erosion identity and single-simplex depth formula do not by themselves state the coupled extreme-dimension envelope or exact median geometry of genuine products of unequal-dimensional simplices. The proof supplies nontrivial product minimax and convex-dimension reduction. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
 
-## Scope and limitations
+## value
 
-This review verifies one complete theorem with its consequences, not independent priority or an independent proof audit. The theorem is restricted to a fixed Cartesian product, uniform measure, and a single common dilation. Testing bodies with independently varied factor scales, rotations or more general distributions are outside the claim. Historical-priority uncertainty is explicitly retained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact phase law and median-set dimension transitions are a meaningful explicit benchmark for multivariate translate depth of nonsmooth products. In the simplest triangular prism the median shape changes segment -> point -> triangle at isolated scale 8/9; this is not a trivial reformulation of single-simplex centrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
