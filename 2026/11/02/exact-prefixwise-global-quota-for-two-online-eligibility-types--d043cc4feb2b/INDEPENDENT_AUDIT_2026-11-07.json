@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:05:33.841259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite known nonempty S,T and arbitrary order of unit items of exactly these two types, assume s=|S|<=t=|T| and label k common agents u_p by p=1..k in the S-order. Assign each u_p position q(p)=floor(t(1-p/s))+1 in the T-order; q values strictly decrease at least one each and 1<p/s+q/t<=1+1/t. Two independent cyclic assignment sequences then give shared load L=A+B+1_{r>=p}+1_{v>=q} for type counts a=As+r, b=Bt+v. If both indicators vanish, r/s+v/t<1; if both one, the fractional remainder exceeds 1; if exactly one, integer one lies between floor and ceiling for fractional remainder in (0,2). All nonshared agents get regular round-robin quota, others zero. Therefore both global floor/ceiling quotas hold at each prefix against adaptive arrivals, with no future knowledge. Independently checked 249900 exact residue configurations for s<=t<=14 and every feasible shared intersection. p,s=1 boundary and identical S=T included; Prop1 good/chores as stated follows for unit valuations but is weaker than quota.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 in Cembrano et al. gives general error (n-1)/2 and global quota for n<=3; input alphabets unrestricted.",
+          "Biburger et al. broad eligibility lower bounds require unrestricted eligibility arrivals; their reported approximation is weaker than two-type exact quotas."
+        ],
+        "reasoning": "General impossibility does not apply to a fixed two-vector alphabet; broad existence at n<=3 does not cover arbitrary n under this restriction.",
+        "searches": [
+          "arXiv:2510.14752v1 main Theorems 1,2 and example",
+          "arXiv:2610.08064 abstract",
+          "online dependent rounding two vectors"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Broad impossibility for all fractional vote sequences; allows exact quota for n<=3, does not supply two-fixed-vector arbitrary-n construction",
+          "identifier_or_url": "https://arxiv.org/html/2510.14752v1",
+          "title": "Online Proportional Apportionment"
+        },
+        {
+          "assessment": "General eligibility classes can exhibit large Prop1 losses; does not establish this exact restricted two-type solution in material read",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+          "title": "Online Fair Division under Eligibility Constraints"
+        },
+        {
+          "assessment": "Studies different proportional rounding question",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-first-quota-failure-of-webster-apportionment--27350e3069d3",
+          "title": "Sharp first quota failure of Webster apportionment"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General n<=3 threshold is over all fractional vectors and therefore says nothing prohibitive about just two fixed vectors for n>3.",
+          "The two-support rule requires pairing shared-agent phases via an explicit injective floor map, not supplied by the general greedy bound."
+        ],
+        "reasoning": "No positive prior result found that logically includes arbitrary n for a two-element allowed support alphabet; an exact special-case theorem is not refuted by the general negative theorem.",
+        "searches": [
+          "Cembrano et al. arXiv:2510.14752v1 full HTML sections 1–3",
+          "Biburger et al. arXiv:2610.08064v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cembrano et al. define cumulative/global quota over party fractional allocations, the exact equivalent of this claim for two uniform-support vectors.",
+          "Their impossibility example uses changing vote supports, unlike two fixed S,T."
+        ],
+        "reasoning": "Compared the same global-quota objective rather than titles; no identified theorem gives the two-vector arbitrary-agent constructive guarantee.",
+        "searches": [
+          "Resultary: online proportional apportionment global quota two eligibility sets online round robin cyclic order",
+          "web: Online Fair Division under Eligibility Constraints",
+          "web: Online Proportional Apportionment 2510.14752"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matching apportionment records address Webster/Jefferson/Hamilton and fair allocation, not the crossing-S,T cyclic phase matrix."
+        ],
+        "reasoning": "This is parameter-general constructive theorem rather than a finite database claim. A two-support phase-assignment table would be a natural equivalent artifact; none was found.",
+        "searches": [
+          "Resultary semantic search two online eligibility types global quota",
+          "arXiv:2510.14752 examples n=4"
+        ]
+      },
+      "rationale": "Cembrano–Correa–Griesbach–Verdugo (arXiv:2510.14752v1) explicitly proves no online global quota algorithm for arbitrary incoming vote vectors if n>=4. Here the input alphabet is only two fixed uniform-support vectors, so its adversarial impossibility example uses three or more distinct vectors and does not contradict or imply this construction. Biburger–Megow–Shahkarami (arXiv:2610.08064) studies unrestricted eligibility sequences and approximations for Prop1, not an exact two-support global quota formula in its abstract. The explicit antipodal cycle phase matching for overlapping supports is an additional constrained-alphabet construction. Historical equivalent two-color fair scheduling or rounding results remain a genuine risk.",
+      "residual_risks": [
+        "An older two-color balanced scheduling theorem or dependent rounding algorithm may imply the anti-phase q(p) rule.",
+        "Biburger et al. full October 2026 text was not read; possible specialized two-eligibility corollary remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad impossibility for all fractional vote sequences; allows exact quota for n<=3, does not supply two-fixed-vector arbitrary-n construction",
+          "evidence": "Theorem 1 n-party deterministic greedy and global quota n<=3; Introduction n=4 sequence with three distinct vote vectors.",
+          "identifier_or_url": "https://arxiv.org/html/2510.14752v1",
+          "material_read": "Full HTML opened, sections 1–3 model/axioms/main theorem and Appendix/section navigation checked; relevant examples and proof statements read",
+          "method": "public arXiv HTML",
+          "title": "Online Proportional Apportionment",
+          "trigger": "closest mathematically equivalent global quota definition and impossibility"
+        },
+        {
+          "assessment": "General eligibility classes can exhibit large Prop1 losses; does not establish this exact restricted two-type solution in material read",
+          "evidence": "Published Oct 6 2026 abstract: online Prop1 approximations Θ(sqrt(m)) for chores and Θ(log(m)) for goods under arbitrary eligibility.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+          "material_read": "Full public abstract only; HTML/PDF routes not accessible, not whole-document read",
+          "method": "arXiv metadata and direct full-text route attempts",
+          "title": "Online Fair Division under Eligibility Constraints",
+          "trigger": "same eligible-agents setting and unit goods/chores"
+        },
+        {
+          "assessment": "Studies different proportional rounding question",
+          "evidence": "Apportionment allocation method with small-instance failure, not two-support online phase coupling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-first-quota-failure-of-webster-apportionment--27350e3069d3",
+          "material_read": "Summary only",
+          "method": "Resultary semantic search",
+          "title": "Sharp first quota failure of Webster apportionment",
+          "trigger": "Resultary broad topic cross-check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Online two-eligibility-type allocation is a natural threshold between trivial one-type round robin and unrestricted adversarial impossibility. The algorithm gives simultaneous upper/lower quota for arbitrarily many agents and crossing sets without reassignment. This identifies a mathematically meaningful tractable input alphabet with a concise constructive invariant; it is not merely ordinary one-type round robin because shared agents require a coupled phase design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Broad impossibility for all fractional vote sequences; allows exact quota for n<=3, does not supply two-fixed-vector arbitrary-n construction",
+      "identifier_or_url": "https://arxiv.org/html/2510.14752v1",
+      "title": "Online Proportional Apportionment"
+    },
+    {
+      "assessment": "General eligibility classes can exhibit large Prop1 losses; does not establish this exact restricted two-type solution in material read",
+      "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+      "title": "Online Fair Division under Eligibility Constraints"
+    },
+    {
+      "assessment": "Studies different proportional rounding question",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-first-quota-failure-of-webster-apportionment--27350e3069d3",
+      "title": "Sharp first quota failure of Webster apportionment"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two known nonempty eligibility supports and identical unit goods/chores; no three-type or weighted guarantee."
+  ],
+  "residual_risks": [
+    "An older two-color balanced scheduling theorem or dependent rounding algorithm may imply the anti-phase q(p) rule.",
+    "Biburger et al. full October 2026 text was not read; possible specialized two-eligibility corollary remains a priority risk."
+  ],
+  "schema_version": 1
+}
