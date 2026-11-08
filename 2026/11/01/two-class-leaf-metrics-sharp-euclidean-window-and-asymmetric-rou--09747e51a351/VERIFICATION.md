@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
-The accompanying Python checker independently constructs the two-class leaf metric from arm lengths and compares its powered distance quadratic form to the exact fluctuation/radial identity using rational arithmetic. Its 480 exact examples cover class sizes \((2,2)\), \((2,3)\), \((3,4)\), \((4,5)\), three rational length profiles, five integer exponents and eight distinct zero-sum coefficient samples each. The checker also uses NumPy eigenvalue calculations and SciPy's Brent solver on 20 nondegenerate examples to inspect the exact critical Gram nullity, strictly smaller powers and strictly larger powers. Additional checks target monotonicity, the asymmetric singular asymptotic constants and Euclidean feasibility boundaries.
 
-Execute `python verify_two_class_leaf_roundness.py` with Python 3, NumPy and SciPy installed. The code does not prove the all-parameter theorem; the proof is the exact identity, convexity and limiting-root analysis in RESULT.md. Floating-point tests near equal arm lengths may be ill-conditioned and are deliberately separated from the asymptotic argument. Independent scientific audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Decomposed every zero-sum coefficient vector into within-class zero sums u_i,v_j and contrast s. Verified the identity alpha^T D_p alpha = -(2a)^p sum(u_i²)-(2b)^p sum(v_j²)+(a+b)^p [A(1+q)^p+B(1-q)^p-2]s² with q=(a-b)/(a+b). Hence scalar F_q(p)<=2 exactly governs negative type, unique root >1 for q!=0 by strict convexity and F_q(1)<2, 1-D kernel at endpoint, Gram rank N-1 below root and N-2 at endpoint. p=2 yields exact quadratic S q²+2Dq-K and Euclidean window, including unattained extreme ratios. Root implicit convexity establishes strict monotonicity on either side of equal lengths. In the q->0± limit, c=|q|p satisfies A exp(c)+B exp(-c)=2 (positive side, swapped negative), giving direction-dependent constants and log(a/b)~2q. Independent exact rational quadratic-form checks agree; numerical verification does not establish all parameters.
+
+## originality
+
+PASS
+
+Faver et al. Proposition 4.4 treats one exceptional arm (singleton class), while these two classes are both populated. General finite metric spectral/determinant tests exist but do not themselves provide the evaluated family-specific Euclidean window or asymmetric singular constants. Qualified priority because formulas could be derived via standard finite-metric methods.
+
+## value
+
+PASS
+
+A natural two-population weighted tree leaf metric has complete generalized-roundness classification, sharp isometric Euclidean realization rank, and unequal one-sided blow-up rates near the equilateral limit. The two non-singleton arm classes are a structural extension beyond a single exceptional leaf.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
