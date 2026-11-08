@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For all m>=4,a>=1 the exact block-coordinate vertex list consists of colored stable sets and, for odd m only, all-half colored vertices, reconstructed from block-simplex extremality and path total unimodularity. Every vertex has squared norm <= floor(m/2), strictly smaller for all-half vertices. Nonnegativity gives squared distance <=2floor(m/2); two disjoint alternating maximum independent-set vertices attain equality. Strict convexity forces all diametral endpoints to be vertices and the equality case requires disjoint coordinate support and maximum-independent-set cardinality. Counting all pairs requires enumerating two even-cycle maximum sets or m odd-cycle maximum sets with exactly m unordered pairs for each overlap size 0..r-1, plus same-support label differences. The exact formulas are derived symbolically, with 973988 exact squared distances and 111 independent combinatorial assertions passing in verify.py. Finite checks are corroborative, not a substitute for the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest full same-object record: 2026/10/11/SCOPE-cycle-fractional-stable-set-polytopes-have-a-parity-split-minimu--0b914e4f06d2 (full RESULT.md read).",
+        "Related record: 2026/10/11/SCOPE-weighted-euclidean-distance-extrema-survive-fractional-matching--7e2404daa627 concerns fractional matching, not fractional stable sets.",
+        "Kafer–Pashkovich–Sanità, arXiv:1709.09642, treats circuit diameter; the published object and distance differ."
+      ],
+      "reasoning": "The known convex-geometric fact that maximum independent-set vertices have maximum norm yields a natural bound, but does not classify or count all pairs reaching it. The full prior minimum-sphere theorem reports a radius and contact set in a=1, not all distances between contacts and no a>1 coloring counts. The fractional matching result does not cover a clique-blown cycle stable-set relaxation, and circuit distance is not Euclidean distance.",
+      "searches": [
+        "Euclidean diameter of stable set polytope of graph independence number 2alpha and disjoint maximum independent sets",
+        "distance diameter of fractional stable set polytopes and extremal vertices",
+        "path cyclic block polytope graph stable set polytope blocks exact minimum enclosing Euclidean sphere contacts",
+        "published-finding corpus semantic query: diametral vertex pairs for fractional stable-set polytope of a cycle: exact count and Euclidean diameter"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.22008v1 (full source manuscript)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-cycle-fractional-stable-set-polytopes-have-a-parity-split-minimu--0b914e4f06d2/RESULT.md (full public record)",
+      "arxiv:1709.09642 (abstract only; circuit distance, no full-text noncoverage claim)",
+      "published-finding corpus semantic search: exact Euclidean diameter; colored maximum independent sets; cycle fractional stable-set, all searches listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang–Yang–Zhong, Lemma 3.4 identifies half-integral cyclic vertices; the independent proof of the diameter and equality count needs norm rigidity plus a colored overlap spectrum.",
+        "Prior cycle minimum-sphere RESULT.md: all vertices contact the min sphere if m even, only max independent sets if m odd; this does not give the maximum distance between every pair or colored multiplicities.",
+        "For m=2r the new count is a^(2r)+[a(a-1)]^r; for m=2r+1 it is (2r+1)*sum_{t=0}^{r-1}a^(2r-t)(a-1)^t+(2r+1)*[a(a-1)]^r/2. The terms count distinct labels in overlap blocks and are not in the source formulas."
+      ],
+      "reasoning": "Half-integral vertex structure and a minimum-sphere radius give partial information about eligible endpoints but are not logically equivalent to the complete Euclidean farthest-pair relation, especially not for a>1. The new count depends on classifying odd-cycle maximum independent-set pair intersections and on the requirement of different colors at shared blocks; these additional steps are proved rather than borrowed. No prior statement inspected implies both parity counts.",
+      "searches": [
+        "diametral vertex pairs for fractional stable-set polytope of a cycle: exact count and Euclidean diameter",
+        "Euclidean diameter of stable set polytope of graph independence number 2alpha and disjoint maximum independent sets",
+        "colored maximum independent sets disjoint-coordinate supports count diametral pairs in cyclic block polytope",
+        "Jiang Yang Zhong Transfer Matrices Ehrhart Path Cyclic Block Polytope geometric diameter",
+        "Euclidean diameter diametral pairs fractional stable set polytope odd cycle block blowup coordinates",
+        "distance diameter of fractional stable set polytopes and extremal vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cyclic block polytope equals the clique-block refinement of the cycle fractional stable-set relaxation (Jiang–Yang–Zhong, arXiv:2607.22008v1, equation (2), Lemma 3.4).",
+        "Direct full-text inspection of the primary manuscript found no ambient Euclidean diameter or pair-enumeration theorem.",
+        "The full RESULT.md of the related cycle fractional stable-set minimum-sphere record (2026-10-11) describes only the unblocked minimum enclosing sphere and its contacts."
+      ],
+      "reasoning": "The same feasible set may be described as a graph edge-clique relaxation for a blow-up cycle; this equivalence is acknowledged, not presented as new. Neither the minimum enclosing ball, circuit diameter, nor the vertex half-integrality statement supplies the exact two-parameter count of unordered farthest pairs. The new claim requires proving all equality cases and counting distinct block-label configurations.",
+      "searches": [
+        "diametral vertex pairs for fractional stable-set polytope of a cycle: exact count and Euclidean diameter",
+        "colored maximum independent sets disjoint-coordinate supports count diametral pairs in cyclic block polytope",
+        "Jiang Yang Zhong Transfer Matrices Ehrhart Path Cyclic Block Polytope geometric diameter",
+        "published-finding corpus semantic query: Euclidean diameter diametral pairs fractional stable set polytope odd cycle block blowup coordinates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full Section 4 and the tables of arXiv:2607.22008v1 concern Ehrhart numerators, transfer matrices and parity quasipolynomials, not farthest Euclidean pairs.",
+        "Targeted mathematical-record searches returned nearby sphere, matching and graph-distance results, but no table of the stated colored diametral-pair counts."
+      ],
+      "reasoning": "No accessible table or exact database result was found containing either both parity formulas or the complete a-parameter colored metric-extremizer classification. Database absence is not mathematical proof of originality; it is one piece of the comparison.",
+      "searches": [
+        "colored maximum independent sets disjoint-coordinate supports count diametral pairs in cyclic block polytope",
+        "Jiang Yang Zhong Transfer Matrices Ehrhart Path Cyclic Block Polytope geometric diameter",
+        "Euclidean diameter diametral pairs fractional stable set polytope odd cycle block blowup coordinates",
+        "\"cyclic block polytopes\" \"diameter\" Euclidean"
+      ]
+    },
+    "rationale": "The new claim is the complete metric extremizer classification and exact two-parameter count, not the known defining inequalities, vertex half-integrality or independence-number norm bound. Targeted published-finding corpus searches, manuscript inspection and comparisons with related published mathematical claims found no equivalent or stronger covering claim. The closest full-text cycle minimum-sphere result is a=1 and evaluates a different invariant. Residual risk of unindexed independent work remains, so global priority is provisional.",
+    "residual_risks": [
+      "Historical priority is not certified; an equivalent colored-pair census may exist in unindexed graph-polytope or combinatorial enumeration literature.",
+      "The cited circuit-diameter paper was examined at abstract level only, because its stated metric is structurally distinct.",
+      "The norm upper bound and cycle-vertex descriptions are elementary or known and expressly excluded from novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same defining family and known vertex structure. No full ambient Euclidean diameter, equality-pair classification, or colored diameter-pair enumerations in the inspected text.",
+        "evidence": "arXiv:2607.22008v1, equation (2); Section 3 Lemma 3.4; Section 4 summary; arXiv v1 public 2026-07-24, primary MSC 52B20.",
+        "identifier_or_url": "arxiv:2607.22008v1; https://arxiv.org/html/2607.22008v1",
+        "material_read": "Full available HTML manuscript, in particular abstract, equation (2), Theorems 1.4–1.6, Lemma 3.4 with proof, Section 4 and references.",
+        "method": "Read the arXiv HTML full text; searched for diameter, Euclidean, metric and distance; inspected Section 3 and conclusion; checked source date and primary MSC.",
+        "title": "Transfer Matrices and Ehrhart Theory for Path and Cyclic Block Polytopes",
+        "trigger": "Exact defining family and vertex-classification prerequisite; check for metric diameter results."
+      },
+      {
+        "assessment": "Same unblocked polytope, but different metric invariant: minimum enclosing sphere, rather than complete maximum distance relation. Does not enumerate colored diametral pairs.",
+        "evidence": "Its Section Finding gives centers and outer radii for even and odd cycles, and Section Proof classifies outer contacts; no formula for two-endpoint diametral-pair counts.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-cycle-fractional-stable-set-polytopes-have-a-parity-split-minimu--0b914e4f06d2/RESULT.md",
+        "material_read": "Complete public RESULT.md, including Finding, Proof, Verification, Relationship to prior work, Limitations and References.",
+        "method": "Fetched and read raw full Markdown via public GitHub repository interface.",
+        "title": "Cycle fractional stable-set polytopes have a parity-split minimum sphere",
+        "trigger": "Closest exact unblocked cycle polytope metric theorem surfaced by semantic research records."
+      },
+      {
+        "assessment": "The identified problem is graph/circuit diameter rather than Euclidean chord diameter; abstract does not supply a covering geometric statement.",
+        "evidence": "Abstract expressly defines circuit diameter via circuit moves as contrasted with graph diameter. No proof of noncoverage is inferred from abstract alone.",
+        "identifier_or_url": "arxiv:1709.09642",
+        "material_read": "Public abstract and bibliographic record only.",
+        "method": "Search and abstract examination; not used to assert absence from the complete paper.",
+        "title": "On the Circuit Diameter of Some Combinatorial Polytopes",
+        "trigger": "Search collision with terms fractional stable-set diameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a0927d3-607b-4040-bbf1-f545f9643b6f",
+  "value": {
+    "rationale": "For a natural 2026 two-parameter family of cyclic block polytopes, the theorem gives exact full-dimensional Euclidean diameter, all extremizing endpoints, and a closed-form count of all unordered extremal pairs for all lengths and block sizes. The odd/even parity changes counting from a single uncolored diameter pair to m pairs, while colored overlaps create extra diametral pair classes; all half-integral fractional vertices are rigorously excluded. This complete rigidity/counting classification is more than a basic norm bound and supplies a geometric invariant orthogonal to the Ehrhart and transfer-matrix data.",
+    "status": "PASS"
+  }
+}

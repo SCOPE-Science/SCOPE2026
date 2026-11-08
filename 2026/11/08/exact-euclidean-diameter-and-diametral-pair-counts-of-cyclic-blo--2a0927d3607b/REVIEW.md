@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The theorem concerns all integers \(m\ge4\) and \(a\ge1\), in the standard ambient Euclidean metric. The proof independently reconstructs the vertex classification by block-simplex extremality and cycle path total unimodularity, then uses strict convexity to reduce all diametral pairs to vertices. Nonnegative coordinates and a sharp vertex norm cap give squared diameter \(2\lfloor m/2\rfloor\). The equality criterion enforces two maximum independent sets with disjoint coordinate supports. Distinct- and equal-support pairs are counted separately; the overlap spectrum of odd-cycle maximum independent sets is derived explicitly. The independent exact-arithmetic checker tests 973,988 unordered candidate vertex pairs across sixteen cases and 111 additional support-count assertions. Finite checks are corroborative, not an infinite proof.
+
+## Originality — PASS (provisional historical priority)
+The primary inspected source, Jiang–Yang–Zhong, arXiv:2607.22008v1, defines the cyclic block polytopes and proves their half-integral vertex structure, but its contributions concern transfer matrices, Ehrhart enumeration, and Gorenstein properties; no Euclidean diameter or complete diametral-pair enumeration was found in the manuscript. The most directly relevant independently inspected same-object mathematical record classifies *minimum enclosing balls* of unblocked cycle fractional stable-set polytopes; its statement does not entail all maximum Euclidean distances or any colored-block contact-pair multiplicities. Circuit-diameter results address a different metric. Searches of related equivalences, record titles and content, colored stable-set terminology, and related published claims identified no covering theorem. The general norm upper bound and earlier vertex theory are not claimed as novel; an unknown independent enumeration remains possible.
+
+## Mathematical value — PASS
+The result is a complete, two-parameter equality-case classification for a canonical polytope family recently studied through lattice-point geometry. It makes visible a parity-sensitive count, including a unique diametral pair when the block size is one and the cycle length is even, versus exactly \(m\) when it is odd, and describes how coloring introduces same-support diametral pairs. The nonintegral odd-cycle vertices are rigorously excluded. These exact counts are a natural extremal invariant, not a parameter renaming or a small numerical improvement.
+
+## Sources and limitations
+Jiang, Yang, and Zhong, *Transfer Matrices and Ehrhart Theory for Path and Cyclic Block Polytopes*, arXiv:2607.22008v1 (2026-07-24), equation (2), Lemma 3.4 and Section 4, inspected in full HTML; *Cycle fractional stable-set polytopes have a parity-split minimum sphere*, public research record (2026-10-11), full RESULT.md inspected; Kafer, Pashkovich and Sanità, arXiv:1709.09642, circuit metric discussed separately. The claimed result does not extend to unequal block capacities or general graphs. Independent mathematical and historical-priority reviews have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
