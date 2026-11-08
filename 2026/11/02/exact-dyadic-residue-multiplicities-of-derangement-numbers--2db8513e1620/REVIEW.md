@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The falling-factorial interpolation converges uniformly, and the divided-difference polynomials converge uniformly because each summand is divisible by a factorial whose 2-adic valuation diverges. The derivative is odd on odd arguments and is two modulo four on even arguments. This proves exact valuation preservation on the three parameter branches, hence bijectivity of the induced finite quotients and precise fibers at every dyadic level. All small-level boundaries were checked separately. An embedded standalone verifier independently checked the recurrence, derivative congruences, and all target multiplicities through exponent 15. Its finite tests are corroboration rather than the infinite argument.
+## correctness
 
-**Originality — PASS (historical-priority qualification).** Sun–Wu–Zhuang treat Bell/derangement polynomial congruences, Aebi–Cairns treat Wilson-type congruences, Wang–Miska–Mező treat modularity and prime-adic valuations, and O'Desky–Richman provide prime-adic interpolation. Inspected relevant statements do not identify the full three-branch isometry and exact multiplicity spectrum modulo every power of two. A previously accessible weighted-derangement theorem already gives the least period, so the period is not treated as novel. Targeted searches for equivalent fiber, value-set, and limiting-measure formulations did not find a dominating theorem, but an unlocated specialization of earlier p-adic techniques remains possible.
+PASS
 
-**Mathematical value — PASS.** Exact all-level fibers are a natural arithmetic invariant not determined by periodicity, valuation-zero sets, or continuity alone. The sharp distinction between even residues of multiplicity one and odd residues of multiplicity four determines a complete 2-adic support, natural density, and a structural isometry decomposition. This is a full classification for a classical sequence, not a finite sample or a routine evaluation at selected indices.
+Uniform convergence of H(x)=sum_j (-1)^j x^{underline j} follows from j! divisibility, while divided differences converge since deleting one of j consecutive factors retains factorial divisibility. Odd H' is 1 mod 2; even H' is 2 mod 4, giving exact 2-adic distance laws on odd inputs and even inputs within a mod-4 class. Rescaled branches F_odd, F_0, F_2 are isometric bijections of Z_2; this yields each even residue once, each 1 mod 8 four times and no other fibers. Difference valuation also proves least period 2^k and closure support has measure 5/8. Independent full-fiber recurrence checks k=1..10 passed, distinct from the global proof.
 
-**Scope and residual risk.** This does not concern odd prime powers or generalized derangements; historical priority and independent validation remain open. The proof and code are supplied for reproducibility.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact all-residue fiber multiplicities, with prior 2-adic continuity and weighted-derangement period results properly excluded from the novelty claim. O'Desky-Richman Theorem 1.2/1.5 establishes p-adic regularity for larger classes, not the derivative-induced precise 1/4 fiber law. Hidden implications of general interpolation are a residual risk.
+
+## value
+
+PASS
+
+Classifies the 2-adic value distribution and support of a classical combinatorial sequence exactly rather than only congruences, index periods, or continuity; a natural and reusable arithmetic-statistical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

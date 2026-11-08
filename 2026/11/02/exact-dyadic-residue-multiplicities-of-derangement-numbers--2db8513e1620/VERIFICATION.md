@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The claim is proved by a uniformly convergent 2-adic falling-factorial interpolation, a uniformly convergent divided-difference family, exact derivatives modulo two and four, and three local isometries. These steps cover all positive dyadic exponents without reliance on enumeration.
+## correctness
 
-Replay the embedded `verify.py` using `python3 verify.py`. It independently constructs derangements by recurrence, compares with the integer inclusion–exclusion sum through index 120, checks finite derivative congruences, and exhaustively compares all residue multiplicities for moduli from two through 32768. The observed output concludes:
+PASS
 
-```
-VERIFY_OK exhaustive_fibers=65534 levels=1..15 derivative_mod4_test_points=32 exact_formula_n=0..120
-```
+Uniform convergence of H(x)=sum_j (-1)^j x^{underline j} follows from j! divisibility, while divided differences converge since deleting one of j consecutive factors retains factorial divisibility. Odd H' is 1 mod 2; even H' is 2 mod 4, giving exact 2-adic distance laws on odd inputs and even inputs within a mod-4 class. Rescaled branches F_odd, F_0, F_2 are isometric bijections of Z_2; this yields each even residue once, each 1 mod 8 four times and no other fibers. Difference valuation also proves least period 2^k and closure support has measure 5/8. Independent full-fiber recurrence checks k=1..10 passed, distinct from the global proof.
 
-The finite tests do not prove behavior outside the tested range. The proof establishes all levels. The historical-priority assessment is based on specific published source comparisons; independent mathematical review is not performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact all-residue fiber multiplicities, with prior 2-adic continuity and weighted-derangement period results properly excluded from the novelty claim. O'Desky-Richman Theorem 1.2/1.5 establishes p-adic regularity for larger classes, not the derivative-induced precise 1/4 fiber law. Hidden implications of general interpolation are a residual risk.
+
+## value
+
+PASS
+
+Classifies the 2-adic value distribution and support of a classical combinatorial sequence exactly rather than only congruences, index periods, or continuity; a natural and reusable arithmetic-statistical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
