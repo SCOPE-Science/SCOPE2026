@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later. This self-contained standard-library program uses exact rational harmonic numbers and enumerates every allocation on a size-\(K\) simplex for \(1\le K\le6\), \(1\le m\le3\), and every choice of including zero or one voter for each nonempty approval type. It directly checks the original PAV score and all valid one-seat swaps, without invoking the three-party decomposition formula. The observed output was:
+## correctness
 
-```
-VERIFY_OK three_party_cases=10852 known_four_party_local=7/2 global=4
-```
+PASS
 
-The program separately checks the already-published four-party Example B.3 at house size two, including all feasible allocations to verify the global benchmark. Enumeration establishes only these finite cases; the unrestricted guarantee follows from the decreasing-marginal proof in RESULT.md. No independent validation has been performed.
+For three parties, partition nonempty approval ballots by singleton i, complement-of-i, and all-three. With K seats, score is cH_K+sum_i(a_i H_{k_i}+b_i H_{K-k_i}). Forward marginal delta_i(t)=a_i/(t+1)-b_i/(K-t) is nonincreasing. One-seat-exchange local optimality forces every last selected marginal >= every first unselected marginal in other party; monotonicity extends inequality to all selected vs unselected entries including same party. Thus selected K marginals are global top K; greedy prefix selection is optimal. m=1,2 similarly. The m=4 K=2 obstruction was published previously and is not claimed new.
+
+## originality
+
+PASS
+
+Best-of-knowledge original in its precise qualified statement. Gölz–Yaghoubizade show local optimality implies priceability, not PAV global optimality, and provide four-party non-global local maximizer. The theorem here supplies the universal positive exact m<=3 boundary using a separable-concavity reduction; the general separable greedy lemma is standard and not a new technique. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
+
+## value
+
+PASS
+
+This is the sharp naturally parameterized positive local-to-global regime for an established apportionment objective, giving reliable greedy exact optimization under at most three parties. The structural boundary is meaningful despite elementary discrete-concavity proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
