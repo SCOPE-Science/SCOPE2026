@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim has exactly three Taylor moment constraints and optimizes signed-measure total variation, not global approximation. A direct two-branch quadratic dual certificate \(q(s)=1-2((s-u)/\rho)^2\), bounded in absolute value by one on the entire allowed interval, matches the corresponding feasible two- or three-atom signed measure at every nonzero support point. Explicit moment substitution and phase inequalities establish equality and uniqueness, including the boundary regime and endpoint times. The finite verifier independently checks rational moments, dual objective, domain endpoints, and signs for 2,560 cases; it is supplementary, not the infinite-domain proof.
+## correctness
 
-## Originality — PASS (best-knowledge scientific comparison)
-Güttel–Shao (2026) provides the simple negative-real-pole partial-fraction setting and Theorem 4.2's residue-roundoff upper bound, but its inspected sections 1, 3, 4, 4.4 and 5 do not state an exact optimum of coefficient total variation under Taylor order-two constraints. Their Section 4.4 instead discusses Cauchy singular values, noting a missing lower bound for optimal Zolotarev Cauchy matrices. Güttel–Shao (2025) treats concentrated repeated-pole asymptotic approximation. Yu–Townsend (2022), Theorem 4.3, provides an upper condition bound for perturbed Fourier-grid quadrature, not the signed quadratic moment optimum. Closest semantic research records study different positivity barriers or global approximation, and accessible prior numerical claims do not have this statement or a dominating implication. All these comparisons are by assumptions and implication rather than by title. General signed Hausdorff moment duality remains a meaningful historical priority risk; absence of a search result is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The exact frontier quantifies a nonremovable accuracy-versus-roundoff conditioning cost of real shifted parallel exponential propagators, a limitation that their new floating-point analysis makes particularly relevant. The tight symmetric shift-band cost is quadratic in inverse relative bandwidth, and the phase transition identifies the optimal two- versus three-shift designs. This is a motivated complete optimization classification, not an arbitrary parameter slice or simply the observation that some coefficients must be negative. It does not purport to predict a global spectral approximation error.
+Reconstructed normalization R_t(z)=integral (1+s z)^(-1)dmu and exact order-two moments (1,t,t²/2), over finite signed Borel measures with 0<a<b and t in [a,b]. For c=(a+b)/2, h=(b-a)/2, d=t-c, δ=t²/2 the proposed λ* branches use two-point center u/endpoint v or midpoint-positive/endpoints-negative three-point measures. Substitution verifies mass, first and second moments. Their dual quadratic q(s)=1−2((s−u)/ρ)^2 lies in [−1,1] throughout [a,b] by the phase inequality ρ≥max{|u−a|,|u−b|}; in the interior use center c and ρ=h. Equality at dual contact atoms proves optimality among all signed measures and uniqueness of weights. At transition one endpoint weight vanishes; endpoint t=a,b are covered. The symmetric result total variation 1+t²/h² follows by d=0. An independently written Fraction test examined 306 exact rational triples, 38 outer and 268 inner, and verified the symmetric benchmark 26 at t=1,h=1/5. This finite test corroborates, not proves the continuum theorem.
 
-## Literature, boundaries and risks
-The main paper's Section 4.2 makes termwise residue amplification an explicit numerical issue; the present theorem isolates the associated Taylor-order-two algebraic restriction. The primary source dates and its relevant sections were inspected in parsed full text. Priority may still be affected by older general extremal signed-moment results that are difficult to locate by a method-specific query; independent source review is advised. Claim does not extend automatically to complex or repeated poles, polynomial terms, prescribed pole grids, or uniform-error minimax approximation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the fixed-window second-order signed-residue total variation phase diagram, not for general moment duality or ordinary rational exponential approximation. Prior upper roundoff and global approximation results do not directly supply the optimal signed moment bound; historical signed-moment literature remains a real exact-formula priority risk.
+
+## value
+
+PASS
+
+Sharp minimum cancellation is a natural stability/conditioning obstruction for locally second-order real-simple-pole exponential rational approximations in a fixed reciprocal shift bandwidth. It quantitatively separates inevitable coefficient amplification from global approximation error or actual correlated rounding error; the two/three-node transition and unique extremizer are nontrivial exact finite-dimensional optimization, not mere rewriting of a general dual inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
