@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian potential is locally integrable, its integration-by-parts ODE and Dawson solution are checked. The crossing t*w(t)=1 exists uniquely because w>0, w~1/t and every level-one crossing has positive derivative. Thus F_a(s) has one global minimum. Correct limits establish the two-root trichotomy. SLLN and LIL give exact almost-sure and boundary behavior; positive Gaussian density at the denominator pole gives all p>=1 moments infinite. Fractional moments follow from integrability and Jensen. The 824-check standalone verifier was executed; finite checks do not certify asymptotic facts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bosch uses full Jacobian/JVPs and stochastic covariance estimation, not stochastic drift coefficient inside inverse",
+        "Bochacik–Przybyłowicz 2021 Section 5 explicitly assumes exact information",
+        "Higham–Mao–Yuan 2007 Section 2 (2.3) stochastic theta method has noise in forcing numerator, fixed implicit drift denominator"
+      ],
+      "reasoning": "The closest broader numerical stability analyses do not cover the probability law a+sZ of the implicit denominator. A result for an SDE with Gaussian noise in the numerator, or a scheme with exact drifts, does not entail the two Gaussian-denominator stability roots.",
+      "searches": [
+        "random reciprocal Gaussian amplifications implicit numerical integrator noise threshold Dawson integral universal stability barrier",
+        "random coefficient backward Euler Gaussian inverse moments infinite almost surely stable positive probability exponential growth nonmonotone noise",
+        "https://arxiv.org/abs/2606.08203",
+        "https://arxiv.org/abs/2104.15071",
+        "DOI:10.1137/060658138"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.08203; original public date 2026-06-06, full-text HTML",
+      "arxiv:2104.15071, full-text HTML, Section 5",
+      "doi:10.1137/060658138, full-text primary PDF",
+      "Published mathematical findings semantic search: original queries enumerated under originality named checks",
+      "Search engine: Gaussian inverse-noise stability aliases and critical constant variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Randomized-time Euler studies with exact information yield fixed or time-dependent coefficients, not iid Gaussian coefficient perturbations",
+        "Stochastic theta SDE method has denominator 1-theta*h*alpha and Brownian term in numerator; it has different inverse-integrability and almost-sure exponent",
+        "Bosch stochastic covariance is uncertainty quantification rather than independent noise in the drift Jacobian"
+      ],
+      "reasoning": "None of the inspected theorems implies the new claim by specialization: the noise location and generated multiplier laws are distinct. The general logarithmic-product criterion would imply the sign test if supplied the new explicit Gaussian potential and global minimization; the latter specialized calculation is the asserted new step.",
+      "searches": [
+        "implicit Euler random Gaussian Jacobian scalar linear test equation reentrant almost sure stability Lyapunov exponent logarithmic denominator two critical noise thresholds",
+        "A-stability of scalar implicit Euler with Gaussian perturbation to linear decay rate y_n+1=y_n/(a+s Z_n); sharp almost-sure reentrant stability log absolute normal and divergent moments",
+        "Bochacik Przybyłowicz Section 5, Proposition 2",
+        "Higham Mao Yuan Section 2 eq (2.3), Section 4 eq (4.1)",
+        "Bosch MatfreeEK1 source Sections 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical scalar random products reduce stability to the sign of E log|a+sZ|, a prior standard reduction; Higham et al. Section 4 and Bochacik–Przybyłowicz Section 5 use other multipliers",
+        "Gaussian log-potential satisfies H''=1-tH'; the exact minimum and critical constant are not separately alleged novel as a transform identity"
+      ],
+      "reasoning": "The equivalence of small fractional-moment stability and positive logarithmic drift is a standard independent-product criterion, explicitly distinguished from the new global two-root phase classification. No searched exact formula or alias for this particular randomized implicit Euler denominator was identified.",
+      "searches": [
+        "implicit Euler random Gaussian Jacobian scalar linear test equation reentrant almost sure stability Lyapunov exponent logarithmic denominator two critical noise thresholds",
+        "A-stability of scalar implicit Euler with Gaussian perturbation to linear decay rate y_n+1=y_n/(a+s Z_n); sharp almost-sure reentrant stability log absolute normal and divergent moments",
+        "Gaussian random denominator implicit Euler stability Lyapunov exponent E log |a+bZ| Dawson integral acrit 1.2780775875",
+        "web: expected log absolute noncentral Gaussian, Dawson 1.3069297277 1.2780775875",
+        "https://arxiv.org/abs/2104.15071"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding titled Rényi integrability spectrum of Gaussian magnitudes concerns normal-magnitude dependence, not Euler multipliers",
+        "Published finding titled Sharp moment spectrum of Gaussian K-fold universal likelihood-ratio e-values concerns a distinct Gaussian likelihood-ratio family",
+        "Earlier publicly indexed numerical-stability findings concern deterministic BDF2 and Richardson methods with different multipliers"
+      ],
+      "reasoning": "Searches for the phase constant, Gaussian logarithmic potential, reciprocal normal laws and numerical stability produced no exact record covering the claim. This is a search-based assessment, not a proof of database completeness.",
+      "searches": [
+        "Gaussian random denominator implicit Euler stability Lyapunov exponent E log |a+bZ| Dawson integral acrit 1.2780775875",
+        "random coefficient backward Euler Gaussian inverse moments infinite almost surely stable positive probability exponential growth nonmonotone noise",
+        "reciprocal shifted normal distribution iid product logarithmic potential noise induced reentrant instability numerical ODE",
+        "web: exact numeric 1.2780775875 Gaussian stability",
+        "published mathematical findings index: three targeted reciprocal-Gaussian stability searches"
+      ]
+    },
+    "rationale": "Known iid log-multiplier criteria and Gaussian/Dawson transforms are acknowledged; no inspected primary source or targeted indexed published finding states or implies the unique Gaussian-noisy-implicit-Euler cutoff with two noise roots and all integer moments infinite. Source theorem and comparison concern actual distinct kernels; remaining priority risk from unindexed specializations is recorded.",
+    "residual_risks": [
+      "An unindexed older paper on products of reciprocal noncentral Gaussians might derive equivalent thresholds without mention of Euler schemes.",
+      "The theorem is intentionally restricted to a simple unbounded noisy-coefficient scalar benchmark; it does not address the actual algorithms in the motivating 2026 source.",
+      "Numerical constants are corroborated but have no external interval certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING_BUT_NOT_COVERING: stochastic covariance estimates and exact Jacobian-vector products, not Gaussian independent coefficient noise inside a scalar implicit reciprocal denominator",
+        "evidence": [
+          "arXiv initial date 2026-06-06",
+          "https://www.researchgate.net/publication/406465598_Stable_and_Scalable_Probabilistic_Numerical_Solvers_for_Stiff_and_High-Dimensional_ODEs (introduction, contributions, Sections 2–3)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.08203",
+        "material_read": "Full-text publicly available preprint HTML: abstract, introduction, stated contributions and method sections 2–3 including exact Jacobian-vector-product construction, stability rationale and iterative re-linearization",
+        "method": "Source arXiv date checked against public original 2026-06-06; full-text HTML inspected for operators and stochastic quantities",
+        "title": "Stable and Scalable Probabilistic Numerical Solvers for Stiff and High-Dimensional ODEs",
+        "trigger": "Recent eligible source explicitly studying stable probabilistic implicit ODE numerical methods"
+      },
+      {
+        "assessment": "NOT_COVERING: Section 5 explicitly sets the information error to zero and randomizes evaluation time in a nonautonomous test problem; no iid unbounded Gaussian drift denominators or their stability window",
+        "evidence": [
+          "https://arxiv.org/abs/2104.15071, Section 5, Proposition 2 and its proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.15071",
+        "material_read": "Full-text arXiv HTML: Sections 1–3 model of computation, Section 5 stability test, Proposition 2 and proof, and conclusion",
+        "method": "Read actual definitions of bounded deterministic information errors and the exact-information stability proposition",
+        "title": "On the randomized Euler schemes for ODEs under inexact information",
+        "trigger": "Same numerical method family under randomized and noisy information"
+      },
+      {
+        "assessment": "NOT_COVERING: Itô Brownian diffusion appears as an additive term in the implicit step numerator; the drift coefficient used for implicit inversion is fixed, unlike the random inverse denominator in the new theorem",
+        "evidence": [
+          "DOI:10.1137/060658138",
+          "Section 2 equation (2.3), Section 4 equation (4.1), Section 6"
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/4547/5/Higham_etal_SJMA2007_Almost_sure_moment_exponential_stability_numerical_simulation_stochastic_differential_equations.pdf",
+        "material_read": "Open full PDF and inspect abstract, Section 2 stochastic-theta update, Section 4 scalar SDE and sample Lyapunov exponent, and Section 6 backward Euler stability; inspected PDF page screenshot",
+        "method": "Primary PDF text and page image inspected directly; compared exact recurrence laws rather than the shared stability vocabulary",
+        "title": "Almost sure and moment exponential stability in the numerical simulation of stochastic differential equations",
+        "trigger": "Strongest close classical almost-sure versus moment stability comparison for implicit Euler-like methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7400818d-288d-4195-9d91-1e9b529162b7",
+  "value": {
+    "rationale": "The precise, universal scaled-drift cutoff and two noise thresholds locate a nonmonotone stability hazard for implicit time-stepping with unbounded uncertainty in the implicit operator. The rigorous separation of almost-sure contraction from every first and higher moment is an informative numerical-reliability boundary. It is not a routine renaming of a known method: the noncentral Gaussian logarithmic-potential minimization and its unique crossing are the substantive steps.",
+    "status": "PASS"
+  }
+}
