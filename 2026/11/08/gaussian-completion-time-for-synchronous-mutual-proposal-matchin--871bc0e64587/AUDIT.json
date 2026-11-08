@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "An exact ordered-disjoint-pair enumeration gives E(D_m)=m/(m-1), Var(D_m)=2m(m-2)^2/(m-1)^3 and uniform exponential moments. Paley--Zygmund gives success probability at least 1/8 at every residual size. The visited-state geometric bounds yield E(A_n^2)=O(log^2 n). The identity N_n=T_n+A_n+M_T, optional stopping and predictable variance 2T+O(A_n) give E T_n=n+O(log n) and Var T_n=2n+O(sqrt(n) log n). Uniform exponential Lindeberg and T_n/n->1 give the stopped martingale CLT and the Brownian preterminal process limit. The saved pure-stdlib checker passed 1838 finite rational assertions; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 and Theorem 2 of arXiv:2610.25507 restrict the random graph edge density to a constant multiple of log^(1+epsilon)(n)/n.",
+        "The 2026 source explicitly asks about other densities and the endgame.",
+        "Standard martingale central limit theorems require verifying state-uniform conditional variances, drift, and Lindeberg for this particular process."
+      ],
+      "reasoning": "The complete-graph p=1 process lies outside the 2026 sparse density assumptions. Generic martingale convergence criteria are tools rather than an earlier verification of the present state-dependent chain. This finding does not claim novelty for those criteria or for general random mappings.",
+      "searches": [
+        "Vishvajeet Sridhara degree stability parallel greedy random matching complete graph densest case CLT",
+        "Parallel greedy matching in Erdős Rényi random graphs degree stability 2026 proposals mutual pairs random mappings"
+      ]
+    },
+    "checked_sources": [
+      "Vishvajeet N and Shrinidhi Teganahally Sridhara, arXiv:2610.25507v1, Theorems 1 and 2, related work and appendices.",
+      "Métivier, Saheb and Zemmari, Information and Computation 184 (2003), Section 6.2 Theorem 27 and main results.",
+      "Nesrine Ouled Abdallah, 2017 thesis, public abstract and secondary citation only.",
+      "Accessible published mathematical-record results for random matching, 2-cycle, rendezvous and absorption-time aliases; no direct implication identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Métivier, Saheb and Zemmari (2003), Section 6.2, Theorem 27: one-round rendezvous count converges to Poisson(1/2) for K_n.",
+        "Vishvajeet N and Sridhara (2026), Theorem 1, Theorem 2 and Section 1.2: sparse-graph degree stability, a constant-fraction matching in polylogarithmic rounds, and stated open questions about other densities and completion."
+      ],
+      "reasoning": "The one-round Poisson result would suggest a heuristic unit removal rate and variance 2, but does not control the cumulative state-dependent increments, small residual states, the absorption time or its fluctuation limit. The 2026 theorem has incompatible density assumptions and only a partial-matching conclusion. The new statement has substantially different hypotheses and conclusions.",
+      "searches": [
+        "Metivier Saheb Zemmari rendezvous 2003 Poisson half iterated residual complete graph matching complete completion time",
+        "Vishvajeet Sridhara degree stability parallel greedy random matching complete graph densest case CLT",
+        "Absorption time of discrete pure death chain with random decrement twice number of two-cycles of random mapping; mean n variance 2n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The process reduces to a decreasing chain that removes twice the number of 2-cycles of an independent loop-free random mapping each round.",
+        "The 2003 rendezvous work identifies a Poisson(1/2) *single-round* limit on complete graphs."
+      ],
+      "reasoning": "Searched both matching-algorithm terminology and equivalent random-mapping 2-cycle/pure-death-process terminology. The known one-round limit does not alone give an absorbing-time Gaussian limit or leading variance constant. No equivalent cumulative theorem was found in the inspected sources or accessible mathematical records.",
+      "searches": [
+        "Central limit theorem number of rounds to fully match K_n via parallel greedy mutual neighbor proposal randomized handshake rendezvous algorithm",
+        "Absorption time of discrete pure death chain with random decrement twice number of two-cycles of random mapping; mean n variance 2n",
+        "Synchronous random mutual proposal matching process on complete graph K_n independent uniformly random neighbor proposals, delete 2-cycles each round, matching time n, central limit theorem variance 2n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 27 of the 2003 paper gives the complete-graph *one-round rendezvous-count* asymptotics, not an absorption-time table.",
+        "The closest retrieved records about matchings concerned static matching polytopes, independent-set algorithms or stable allocation problems, rather than this dynamic."
+      ],
+      "reasoning": "No exact tabulation of the full-completion mean and variance constants or limiting absorption-time law was identified. Absence from searches is not proof of absolute uniqueness; unresolved historical risks remain listed.",
+      "searches": [
+        "Random matching mutual choice process on complete graph Poisson(1/2) number pairs per round, absorption time sharp mean variance",
+        "Metivier Saheb Zemmari rendezvous 2003 Poisson half iterated residual complete graph matching complete completion time"
+      ]
+    },
+    "rationale": "Statement-level comparison found only the one-round complete-graph Poisson limit in Métivier--Saheb--Zemmari (2003), and the 2026 paper proves degree-stability and partial matching solely for sparse Erdős--Rényi graphs. Neither source gives the terminal-time mean/variance/CLT or the complete-graph Brownian unmatched-count trajectory; an inaccessible 2017 thesis on a related handshake variant remains a specified priority risk.",
+    "residual_risks": [
+      "The relevant full chapter of Ouled Abdallah (2017) was inaccessible; it could contain an unrecognized stronger result for a related matching process.",
+      "A more general published renewal/Markov-chain theorem may imply the asymptotic result after a nontrivial identification; complete historical priority needs independent review.",
+      "No claim is made that a finite set of database searches proves uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The proved results assume sparse Erdős--Rényi graphs and address degree stability and partial matching, not full completion on K_n.",
+        "evidence": [
+          "Theorem 1: p=c log^(1+epsilon)(n)/n, matching time alpha log^(1+epsilon)(n).",
+          "Theorem 2: constant-fraction matching in the same sparse regime.",
+          "Introduction explicitly asks about other densities and end-game."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.25507",
+        "material_read": "Open full-text HTML: process definition, introduction, statements and proofs of Theorems 1 and 2, related-work section, Appendix C description, references and open questions.",
+        "method": "Public arXiv HTML full-text page; direct check of main theorem hypotheses and Appendix C scope.",
+        "title": "Degree Stability of Parallel Greedy Matching in Random Graphs",
+        "trigger": "Same synchronous mutual-proposal deletion rule and a question about unexplored graph densities and endgame."
+      },
+      {
+        "assessment": "Theorem 27 gives the Poisson(1/2) law for the count of mutual pairs in a single round, but not the iterated deletion absorption time.",
+        "evidence": [
+          "Section 6.2 Theorem 27, complete-graph one-round rendezvous number asymptotically Poisson(1/2).",
+          "Sections 1.3 and 7 discuss probability/efficiency of one-round rendezvous."
+        ],
+        "identifier_or_url": "https://www.labri.fr/perso/zemmari/pdf/ic_2003.pdf",
+        "material_read": "Open full-text PDF text: abstract, introduction/main-results description, definitions, Section 6.2 and Theorem 27 proof, and discussion of efficiency.",
+        "method": "Public full-text PDF textual reading; graphical screenshot rendering of the PDF was attempted but timed out.",
+        "title": "Analysis of a randomized rendezvous algorithm",
+        "trigger": "Original rigorous one-round mutual-neighbor rendezvous analysis on complete graphs."
+      },
+      {
+        "assessment": "Potential historical-priority uncertainty; no decisive coverage can be inferred from the available abstract.",
+        "evidence": [
+          "2017 thesis abstract mentions randomized handshakes.",
+          "2026 source reports bounds on the expected number of rounds for a closely related variant."
+        ],
+        "identifier_or_url": "https://theses.fr/2017BORD0597",
+        "material_read": "Public bibliographic abstract and 2026 source description of Chapter 6 only; relevant full chapter unavailable.",
+        "method": "Bibliographic abstract and cross-reference inspection; no claim of a full-document exclusion.",
+        "title": "Computing models for networks of tiny objects",
+        "trigger": "Cited by the 2026 source as bounding expected rounds of a closely related rendezvous variant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "871bc0e6-4587-42ef-bd17-27d05eb40f75",
+  "value": {
+    "rationale": "Full-completion time and its Gaussian fluctuations are natural quantitative performance invariants for the precise synchronous matching rule. The motivating 2026 paper explicitly asks about other graph densities and the endgame. The complete-graph calculation supplies a rigorous exact first-order time constant and variance constant in a regime not covered by its sparse-graph theorem, and the linear matching time contrasts structurally with the polylogarithmic rounds required to match a fixed fraction in the sparse setting.",
+    "status": "PASS"
+  }
+}
