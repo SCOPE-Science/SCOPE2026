@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:58:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, a prescribed r-set of pairwise disjoint cyclic adjacent chords has probability (2n-2r-1)!!/(2n-1)!!; there are M(n,r)=2n/(2n-r)*binom(2n-r,r) such sets. Removing them leaves the full crossing statistic exactly unchanged. Ordered selection yields E[(S_n)_r f(C_n)]=r! b(n,r) E[f(C_{n-r})], hence the bivariate generating polynomial for every complex u,v including r=n with C_0=0. r=1,2 and the independently established exact C_m moments yield Corr(S,C)=-sqrt(5/(n+3)). For fixed r, the classical crossing CLT for n-r and r!b(n,r)->1 give all mixed factorial Gaussian limits. Uniform boundedness of higher S moments yields UI, tightness and PGF uniqueness imply the independent Pois(1) x N(0,1) joint law and CLT conditional on S=0. An independent direct enumeration generated all pairings n=2..6 (3,15,105,945,10395), checked every r and full mixed crossing-count distributions, all matched. The enumerations are finite; the infinite proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy crossing polynomial and Gaussian limit, Paguyo separate Poisson/Gaussian rates, and Acan intersection-graph structure concern individual/global statistics, not the complete joint transform."
+        ],
+        "reasoning": "Neither one-dimensional crossing CLT nor simple-chord Poisson approximation determines the conditional distributions or joint asymptotic independence.",
+        "searches": [
+          "https://arxiv.org/abs/2104.01134",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "https://arxiv.org/abs/1501.01489"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 59cb62219bfaa0deba8db12c5b7c0f2544632d98",
+        "https://arxiv.org/abs/2104.01134",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://arxiv.org/abs/1601.05073"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 two marginal approximations permit dependent subsequential Gaussian–Poisson couplings; exact deletion and conditional Gaussian limit require mixed conditional structure."
+        ],
+        "reasoning": "Specified mathematical implication gap: identical marginal laws do not force independence or the finite joint factorial formula.",
+        "searches": [
+          "https://arxiv.org/abs/2104.01134",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A marked variable for the number of cyclic adjacent chords could be an equivalent bivariate generating function; the published Paguyo theorem gives marginal distributions only."
+        ],
+        "reasoning": "Compared joint marked diagrams, loopless chord enumeration and mixed factorial transforms; the product limit does not follow merely from individual limits.",
+        "searches": [
+          "joint short chords crossings bivariate generating polynomial chord diagrams deletion law",
+          "https://arxiv.org/abs/2104.01134"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Krasko–Omelchenko enumerate loopless diagrams and chord restrictions; no accessed tables provide the full all-n mixed-deletion identity with general crossing mark v."
+        ],
+        "reasoning": "Checked enumerative aliases and precise coefficients, not just terminology; existing loopless counts may be specializations, not complete implications.",
+        "searches": [
+          "enumeration of chord diagrams with no simple chords and number of crossings bivariate polynomial",
+          "https://arxiv.org/abs/1601.05073"
+        ]
+      },
+      "rationale": "The simultaneous factorial-deletion identity and independent joint weak limit strengthen prior separate marginal laws; covariance alone and classical crossing moments are explicitly excluded from novelty. Relevant full material was compared by claims, not title matching; possible unindexed bivariate chord-diagram generating functions remain a risk.",
+      "residual_risks": [
+        "Unindexed equivalent bivariate refinements may precede the finding.",
+        "The general CLT relies on the established Flajolet–Noy/Paguyo crossing result; rates and growing r are not derived."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides separate normal crossing and Poisson simple-chord error bounds, not the conditional marked deletion law",
+          "evidence": [
+            "Individual marginal estimates and absence-of-simple-chords probabilities are prior results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Introduction, Theorems 1.1–1.3, and relevant sections on crossing and simple-chord approximation",
+          "method": "Accessible complete text and theorem-level comparison",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "same S_n and C_n random chord observables"
+        },
+        {
+          "assessment": "Provides original global crossing CLT and moments used as inputs",
+          "evidence": [
+            "Crossing mean n(n-1)/6 and variance n(n-1)(n+3)/45 are prior."
+          ],
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Theorem 3 statement and displayed moments as quoted in source, not independently audited all appendices",
+          "method": "Primary theorem/formula comparison",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "classical crossings moments and CLT"
+        },
+        {
+          "assessment": "Counts restricted diagrams, but does not in inspected material give all marked mixed crossing counts",
+          "evidence": [
+            "No direct implication of b_n,r T_{n-r}(v) established."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.05073",
+          "material_read": "Abstract, stated restrictions and identified loop-count enumerations",
+          "method": "Primary abstract/formula comparison",
+          "title": "Enumeration of Chord Diagrams without Loops and Parallel Chords",
+          "trigger": "possible joint refinement under loopless enumeration terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simple adjacent chords encode local combinatorial reducibility, whereas crossings count global interaction. The exact finite mixed factorial transform and conditioning on a no-simple-chord event of limiting probability exp(-1) are independently useful; separate Poisson/Gaussian marginals cannot determine joint independence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 59cb62219bfaa0deba8db12c5b7c0f2544632d98",
+    "https://arxiv.org/abs/2104.01134",
+    "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+    "https://arxiv.org/abs/1601.05073"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed equivalent bivariate refinements may precede the finding.",
+    "The general CLT relies on the established Flajolet–Noy/Paguyo crossing result; rates and growing r are not derived."
+  ],
+  "residual_risks": [
+    "Unindexed equivalent bivariate refinements may precede the finding.",
+    "The general CLT relies on the established Flajolet–Noy/Paguyo crossing result; rates and growing r are not derived."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central identity is an exhaustive factorial-moment count: cyclic matchings enumerate all admissible prescribed simple chords; their exact joint occurrence probability is a quotient of double factorials; conditioning leaves a uniform pairing on the remaining endpoints without changing the crossing number. Expanding \(u^{S_n}\) proves the finite generating polynomial. The finite correlation follows from the first two factorial moments and the established crossing first two moments. For the joint limit, the deletion identity provides all mixed factorial moments against bounded continuous crossing test functions; tightness and uniform integrability pass these identities to subsequential limits; a conditional probability-generating-function argument forces a product Poisson–Gaussian limit. Exact rational checks of 266 assertions on all pairings through 12 endpoints support the finite identities.
+PASS
 
-## Originality — PASS (with priority risk)
+For n>=2, a prescribed r-set of pairwise disjoint cyclic adjacent chords has probability (2n-2r-1)!!/(2n-1)!!; there are M(n,r)=2n/(2n-r)*binom(2n-r,r) such sets. Removing them leaves the full crossing statistic exactly unchanged. Ordered selection yields E[(S_n)_r f(C_n)]=r! b(n,r) E[f(C_{n-r})], hence the bivariate generating polynomial for every complex u,v including r=n with C_0=0. r=1,2 and the independently established exact C_m moments yield Corr(S,C)=-sqrt(5/(n+3)). For fixed r, the classical crossing CLT for n-r and r!b(n,r)->1 give all mixed factorial Gaussian limits. Uniform boundedness of higher S moments yields UI, tightness and PGF uniqueness imply the independent Pois(1) x N(0,1) joint law and CLT conditional on S=0. An independent direct enumeration generated all pairings n=2..6 (3,15,105,945,10395), checked every r and full mixed crossing-count distributions, all matched. The enumerations are finite; the infinite proof is analytic.
 
-Closest primary sources are Flajolet–Noy (2000) for the crossing distribution and CLT; Acan (2015/2017) for monolithic random chord diagrams; Paguyo (2021, Sections 1–4) for separate Poisson and Gaussian approximations; and Krasko–Omelchenko (2016/2017) for loop-count generating functions. The published marginal limits, matching-count tables, and loopless-diagram generating functions do not assert the simultaneous mixed-factorial deletion identity or jointly independent Poisson–Gaussian limit. An exact simple-chord/crossing covariance is a known conditional-counting consequence and is NOT presented as the novel core. Earlier unretrieved equivalent bivariate refinements remain a priority risk; the comparison does not prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Short chords encode local topological simplicity while the crossing count is a global quadratic statistic. Their individual limiting laws leave their dependence undetermined. The exact finite bivariate transform determines every mixed probability from classical crossing polynomials, and the product limit establishes the crossing CLT even after conditioning on absence of short chords, an event of asymptotically nonzero probability. The result is a structural conditional law, not an arbitrary isolated parameter calculation.
+The simultaneous factorial-deletion identity and independent joint weak limit strengthen prior separate marginal laws; covariance alone and classical crossing moments are explicitly excluded from novelty. Relevant full material was compared by claims, not title matching; possible unindexed bivariate chord-diagram generating functions remain a risk.
 
-## Limitations and closest literature
+## value
 
-Scope: uniform perfect matchings of labeled points in cyclic order, integer \(n\ge2\); no rates, no length classes beyond simple chords, and no nonuniform measures. The Gaussian marginal input is previously established. No independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Simple adjacent chords encode local combinatorial reducibility, whereas crossings count global interaction. The exact finite mixed factorial transform and conditioning on a no-simple-chord event of limiting probability exp(-1) are independently useful; separate Poisson/Gaussian marginals cannot determine joint independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
