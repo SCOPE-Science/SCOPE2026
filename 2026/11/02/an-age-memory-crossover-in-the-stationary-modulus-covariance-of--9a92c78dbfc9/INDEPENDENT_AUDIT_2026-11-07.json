@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the two-sided stationary Poisson renewal model, backward excursion age A~Exp(r) is independent of the event of no reset across lag t, contributing factor e^{-rt}. Conditional on no reset, (X0,Xt) is centered bivariate Gaussian with variances 2K A^beta and 2K(A+t)^beta and correlation (A/(A+t))^{beta/2}. The folded-Gaussian absolute bivariate moment gives exactly the displayed covariance as age-covariance plus a strictly positive within-excursion h(q) term. For b=beta/2 in (0,1), concavity and exponential moments justify dominated convergence: the first term scales b^2 Gamma(1+b) r^{-1-b} t^{b-1}, and the h(q) term scales Gamma(1+3b) r^{-3b} t^{-b}/2. The powers cross at beta=1, yielding the three stated strictly positive coefficients and Brownian contributions 1/4 age and 3/4 within excursion. Bounded independent quadrature at beta 0.6,1,1.4 agreed in sign and normalized asymptotics, but analytic dominated-convergence supplies infinite-t proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2025 complete-renewal two-time joint law mathematically determines all integrable joint observables by integration.",
+          "2022 Stojkoski et al. treat two-time stochastic-reset autocorrelation of the signed coordinate."
+        ],
+        "reasoning": "The general 2025 joint-density theorem contains an implicit integral representation but no inspected explicit modulus asymptotic or beta=1 mechanism switch; the evaluated leading constants are additional analysis, not independent invention of renewal two-point laws.",
+        "searches": [
+          "stationary reset scaled Brownian motion absolute value modulus covariance age memory prefactor beta transition"
+        ]
+      },
+      "checked_sources": [
+        "Taźbierski, Metzler and Magdziarz (2025) primary full OA article DOI 10.1088/1367-2630/adee40",
+        "Stojkoski et al. (2022) arXiv:2107.11686 primary PDF",
+        "Méndez and Cristín (2026) arXiv:2610.19985 abstract only, complete source unavailable",
+        "Resultary semantic search for stationary resetting modulus covariance",
+        "Actual RESULT.md, verify.py and exact frozen tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "NJP 2025 signed SBM covariance is proportional to the Poisson no-reset probability but concerns different Gaussian moment.",
+          "The beta=1 age share follows b^2 Gamma(1+b) versus Gamma(1+3b)/2, requiring the separate h(q) expansion."
+        ],
+        "reasoning": "An integration of the earlier joint law could derive this theorem, but the prior text does not directly state or algebraically imply without the new nonlinear Gaussian moment and two separate dominated limits the specific crossover and coefficient decomposition.",
+        "searches": [
+          "stationary reset scaled Brownian motion absolute value modulus covariance age memory prefactor beta transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taźbierski et al. 2025 DOI 10.1088/1367-2630/adee40 §3.1.2, §3.2.4 gives a two-time position law and signed covariance.",
+          "Exact result concerns E|X0||Xt| minus product means rather than E X0 Xt."
+        ],
+        "reasoning": "Autocovariance of folded Gaussian, absolute displacement, modulus and radial 1D coordinate are equivalent descriptions. Signed-coordinate covariance is a genuinely different observable; common renewal factor e^{-rt} alone does not recover the folded-gaussian age mechanism.",
+        "searches": [
+          "stationary reset scaled Brownian motion absolute value modulus covariance age memory prefactor beta transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No modulus-beta sign/constant phase table found in the targeted Resultary searches.",
+          "2026 Méndez–Cristín arXiv:2610.19985 accessible abstract concerns absolute area, not a stationary instantaneous-modulus lag table."
+        ],
+        "reasoning": "The claimed continuous beta crossover is not a finite database entry; none of the inspected prior tables state the three-gamma-coefficient formula. Absence from search does not prove novelty.",
+        "searches": [
+          "stationary reset scaled Brownian motion absolute value modulus covariance age memory prefactor beta transition"
+        ]
+      },
+      "rationale": "Taźbierski, Metzler and Magdziarz (2025) already treat complete/incomplete resetting with a broad two-time positional law and an explicit signed-coordinate scaled-Brownian autocovariance. That law allows the nonlinear modulus observable to be integrated but is not itself the explicit folded-Gaussian stationary covariance, its two competing algebraic powers, or the beta=1 coefficient partition. Méndez and Cristín (2026) analyze integrated absolute area, not instantaneous lag covariance, based on accessible abstract material only. Stojkoski et al. (2022) consider ordinary Brownian resetting autocorrelations. The incremental claim is the evaluated exact modulus law and asymptotic crossover; possibility of an uninspected specialty derivation remains.",
+      "residual_risks": [
+        "The recent 2026 absolute-area paper is only partially accessible; other sections or related papers might discuss the identical instantaneous modulus asymptotic.",
+        "Earlier general two-time joint law could be integrated by a later unlocated paper to obtain the exact coefficients; no historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND_FOUNDATION_NOT_EXPLICIT_MODULUS",
+          "evidence": "General joint law is cited as a starting point, and explicit signed covariance differs; no separate three-regime modulus asymptotic in inspected mathematical sections.",
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/adee40",
+          "material_read": "Full accessible article PDF; §§3.1.2–3.1.3 general joint position laws and §§3.2.4 equations for signed scaled-Brownian covariance.",
+          "method": "Read accessible PDF text and reviewed original page images including equation discussion.",
+          "title": "Taźbierski, Metzler and Magdziarz, Series representation approach to stochastic processes with complete and incomplete renewal resetting (2025)",
+          "trigger": "Exact same resetting setup, possible stronger two-time result"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Signed/ordinary Brownian autocorrelation without variable beta and folded Gaussian nonlinear lag coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+          "material_read": "Primary preprint PDF material about Brownian position autocorrelation and ergodicity.",
+          "method": "Read primary PDF text and original page image.",
+          "title": "Stojkoski, Sandev, Kocarev and Pal, Autocorrelation functions and ergodicity in diffusion with stochastic resetting (2022)",
+          "trigger": "Ordinary resetting two-time correlation literature"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RISK",
+          "evidence": "Integrated absolute area is the described quantity; cannot assert whole-document noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19985",
+          "material_read": "Accessible arXiv abstract and bibliographic description only; full arXiv PDF/HTML acquisition unavailable, no complete sections read.",
+          "method": "Abstract retrieval; inaccessible complete text explicitly noted.",
+          "title": "Méndez and Cristín, Absolute area under a scaled Brownian motion with resetting (2026)",
+          "trigger": "2026 contemporaneous paper on absolute SBM and reset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The modulus is a natural measured observable of motion: unlike signed displacement it retains age-memory under reset. The exact switch in dominant physical mechanisms at beta=1 and the split of the Brownian leading constant quantify two distinct sources of long-lag correlations, a motivated nontrivial stationary stochastic-process asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No extension to non-Poisson, incomplete clock, multidimensional or endpoint-beta resetting.",
+    "Recent relevant absolute-area full text not accessible, so assessed priority is qualified."
+  ],
+  "schema_version": 1
+}

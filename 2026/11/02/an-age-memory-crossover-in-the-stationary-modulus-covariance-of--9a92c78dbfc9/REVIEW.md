@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The stationary Poisson construction supplies an exponential backward age independent of future resets. Conditioning on whether the interval contains a reset gives an exact factorization; the zero-reset bivariate Gaussian pair has a standard and explicitly stated absolute-value moment. A two-term law-of-total-covariance decomposition yields the formula. For the age covariance, concavity bounds its rescaled difference by an integrable multiple of the exponential age; for the within-excursion term, the ratio \(h(q)/q^2\) is bounded and a third fractional age moment dominates. These give the two exact gamma coefficients and the comparison of decay exponents. The strict sign and the critical \(1/4,3/4\) split are proved, not inferred from a finite simulation. The accompanying checker independently integrates the direct folded-normal expression and the decomposed expression, then examines large lags.
+PASS
 
-## Originality: PASS (preliminary)
+In the two-sided stationary Poisson renewal model, backward excursion age A~Exp(r) is independent of the event of no reset across lag t, contributing factor e^{-rt}. Conditional on no reset, (X0,Xt) is centered bivariate Gaussian with variances 2K A^beta and 2K(A+t)^beta and correlation (A/(A+t))^{beta/2}. The folded-Gaussian absolute bivariate moment gives exactly the displayed covariance as age-covariance plus a strictly positive within-excursion h(q) term. For b=beta/2 in (0,1), concavity and exponential moments justify dominated convergence: the first term scales b^2 Gamma(1+b) r^{-1-b} t^{b-1}, and the h(q) term scales Gamma(1+3b) r^{-3b} t^{-b}/2. The powers cross at beta=1, yielding the three stated strictly positive coefficients and Brownian contributions 1/4 age and 3/4 within excursion. Bounded independent quadrature at beta 0.6,1,1.4 agreed in sign and normalized asymptotics, but analytic dominated-convergence supplies infinite-t proof.
 
-The 2026 motivating paper examines the integrated absolute-area functional and ergodicity. The most relevant earlier full text, Taźbierski–Metzler–Magdziarz (2025), supplies two-time position distributions and signed-position covariance, including the scaled Brownian specialization, but not an explicit modulus covariance or the competition between two noninteger powers of lag. The new contribution is the exact age-versus-Gaussian decomposition **and its sharp three-regime asymptotic with constants**, not a claim to invent renewal or Gaussian-moment methods. The 2021/2022 ordinary-diffusion correlation treatment is less close. An older nonlinear-observable asymptotic or a direct specialization of a broad two-time formula remains a real priority risk. The accessible prior research record was compared by claims/parameters and showed no same mathematical model claim; search nonmatches do not establish uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The model is the natural instantaneous integrand of the motivating absolute-area statistic. The result identifies which of two competing, physically distinct dependence mechanisms controls long-lag correlations on opposite sides of Brownian scaling. The exact prefactors and their transition, including a critical decomposition, supply benchmarks for covariance-based mixing estimates and future renewal-functional calculations. This is a genuinely motivated asymptotic classification rather than a parameter renaming or an arbitrary finite numerical slice.
+Taźbierski, Metzler and Magdziarz (2025) already treat complete/incomplete resetting with a broad two-time positional law and an explicit signed-coordinate scaled-Brownian autocovariance. That law allows the nonlinear modulus observable to be integrated but is not itself the explicit folded-Gaussian stationary covariance, its two competing algebraic powers, or the beta=1 coefficient partition. Méndez and Cristín (2026) analyze integrated absolute area, not instantaneous lag covariance, based on accessible abstract material only. Stojkoski et al. (2022) consider ordinary Brownian resetting autocorrelations. The incremental claim is the evaluated exact modulus law and asymptotic crossover; possibility of an uninspected specialty derivation remains.
 
-## Residual risks and scope
+## value
 
-Only stationary complete Poisson resetting with one-dimensional centered Gaussian excursions and \(0<\beta<2\) is proved; there is no general reset-time or vector extension. The broad two-time joint-distribution formula of Taźbierski–Metzler–Magdziarz is stronger as a distributional identity and can imply the exact covariance after integration; the novelty claim is confined to the additional explicit nonlinear and asymptotic analysis. Independent examination of historical priority remains necessary. Numerical quadrature is not independent validation of the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The modulus is a natural measured observable of motion: unlike signed displacement it retains age-memory under reset. The exact switch in dominant physical mechanisms at beta=1 and the split of the Brownian leading constant quantify two distinct sources of long-lag correlations, a motivated nontrivial stationary stochastic-process asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
