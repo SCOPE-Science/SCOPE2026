@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For full resetting, the stationary age has Exp(r) law and the exact unit-projection conditional variance is V(t)=2D[t+gamma*u*v*t^2+gamma^2*u^2*t^3/3]. Direct integration when gamma*u=0 gives the Laplace density and finite MGF. When gamma*u!=0, saddle t=ell*sqrt(abs(z)), with F(s)=s+1/(3s^3), unique s=1, F(1)=4/3, F''=4, yields K*abs(z)^(-1/2)*exp(-B*sqrt(abs(z))); the c2 correction gives exp(r*v/(gamma*u)). Small/large t tails are suppressed relative to the saddle. All polynomial moments exist by exponential age mixing; the finite two-sided Hamburger Krein logarithmic integral establishes indeterminacy; absence of MGF alone would not. Independent symbolic variance and constant checks passed. No joint-law determinacy or uniform gamma*u->0 statement is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra–Basu–Sabhapandit arXiv:2205.00549v1 derives square-root tails in a different stochastic-diffusivity process; Abdoli et al. 2024 covers the full-reset underlying sheared process"
+        ],
+        "reasoning": "A similar tail exponent in another stochastic process does not dominate the shear-direction prefactors or exceptional transverse Laplace law. The source shear paper supplies general process coverage but not the exact all-direction tail theorem.",
+        "searches": [
+          "Stationary shear Brownian motion Poisson full resetting projection density stretched exponential moment indeterminacy Krein directional",
+          "arXiv:2410.10333v1",
+          "arXiv:2205.00549v1",
+          "DOI:10.1186/s40488-017-0059-2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.10333v1",
+        "arXiv:2205.00549v1",
+        "Lin (2017), DOI:10.1186/s40488-017-0059-2",
+        "Lin–Stoyanov arXiv:1406.1654",
+        "Resultary semantic query: Stationary shear Brownian motion Poisson full resetting projection density stretched exponential moment indeterminacy Krein directional"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For V(t)~(2D gamma^2 u^2/3)t^3, saddle t~ell sqrt(|z|) yields prefactor and finite Krein integral; if gamma u=0 V(t)=2Dt gives Laplace"
+        ],
+        "reasoning": "The shear paper plus classical asymptotic analysis and Krein principle permit a new derivation, but do not state the completed model-specific classification. It is not enough to cite a different resetting model with sqrt tails as implication.",
+        "searches": [
+          "Stationary shear Brownian motion Poisson full resetting projection density stretched exponential moment indeterminacy Krein directional",
+          "arXiv:2410.10333v1",
+          "arXiv:2205.00549v1",
+          "DOI:10.1186/s40488-017-0059-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abdoli–Olsen–Löwen, arXiv:2410.10333v1, Gaussian propagator and stationary age mixture; Lin, 2017 DOI 10.1186/s40488-017-0059-2, Hamburger Krein criterion"
+        ],
+        "reasoning": "Projection tail and moments are equivalent to an exponential-age Gaussian variance mixture; the known representation does not itself state the saddle prefactor or its Krein determinacy consequence. A general Gaussian mixture theorem could imply these quantities after substitution, hence priority is qualified.",
+        "searches": [
+          "Stationary shear Brownian motion Poisson full resetting projection density stretched exponential moment indeterminacy Krein directional",
+          "arXiv:2410.10333v1",
+          "arXiv:2205.00549v1",
+          "DOI:10.1186/s40488-017-0059-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted Resultary semantic hits concerned stationary-flow moments, not sheared Brownian full-reset projection tails; the 2024 shear article tables concern moments, not projection-tail prefactors"
+        ],
+        "reasoning": "No matching exact tail table or determinacy axis classification was found in inspected source materials; negative search is not proof of novelty.",
+        "searches": [
+          "Stationary shear Brownian motion Poisson full resetting projection density stretched exponential moment indeterminacy Krein directional",
+          "arXiv:2410.10333v1",
+          "arXiv:2205.00549v1",
+          "DOI:10.1186/s40488-017-0059-2"
+        ]
+      },
+      "rationale": "The shear-model stationary renewal mixture, Gaussian propagator and moment identities are explicitly prior art; half-power stretched-exponential tails also occur in other stochastic-reset models. The compared original studies do not state this full-reset stationary all-direction sharp prefactor or axis-specific Hamburger moment-(in)determinacy. Applying Krein is classical, not a new theorem. Best-of-knowledge novelty rests on this precise combination, with broader mixture asymptotic coverage a residual risk.",
+      "residual_risks": [
+        "Broader Gaussian-variance mixture Laplace/Krein theorems or newer work may specialize immediately to these coefficients.",
+        "The sqrt(|z|) stretched-exponential exponent is known in other reset models; only direction-specific classification/prefactor is considered novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MIXTURE_AND_MOMENTS_PRIOR_NOT_THE_REFINED_PROJECTION_CLASSIFICATION",
+          "evidence": [
+            "2024 article model, stationarity Eq. 56, Appendix B and partial-reset distinction"
+          ],
+          "identifier_or_url": "arXiv:2410.10333v1, https://arxiv.org/html/2410.10333v1",
+          "material_read": "Full HTML model, Gaussian propagator, stationary renewal formula, moment sections and partial-reset discussion including appendices",
+          "method": "Compared stochastic dynamics, formulas for stationary moments and scope of partial resets against exact projection theorem",
+          "title": "Shear-Driven Diffusion with Stochastic Resetting",
+          "trigger": "Exact model with full coordinate resetting"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS_SQRT_EXPONENT_PRIOR",
+          "evidence": [
+            "2022 article stationary tail section 4.1; reset also affects diffusion coefficient"
+          ],
+          "identifier_or_url": "arXiv:2205.00549v1",
+          "material_read": "Accessible full HTML stationary law, section on large-displacement tail and stochastic diffusivity",
+          "method": "Compared stochastic dynamics and exponential coefficient to shear-specific Gaussian time-mixture",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "Half-power stretched exponential tail prior art"
+        },
+        {
+          "assessment": "GENERAL_CRITERION_PRIOR",
+          "evidence": [
+            "Lin 2017 Hamburger Krein condition; not model-specific"
+          ],
+          "identifier_or_url": "doi:10.1186/s40488-017-0059-2",
+          "material_read": "Accessible HTML description of positive density and Hamburger logarithmic integrability criterion",
+          "method": "Verified two-sided Krein condition and finite integral requirements",
+          "title": "Recent developments on the moment problem",
+          "trigger": "Krein sufficient criterion premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Observable stationary displacement cannot in general be reconstructed from all moments under shear, while one geometrically distinguished transverse observation remains determinate. Exact directional tail rates/prefactors quantify rare excursions beyond low-order moments and expose nonuniform small-shear tail behavior, a natural distributional boundary rather than a generic saddle exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2410.10333v1",
+    "arXiv:2205.00549v1",
+    "Lin (2017), DOI:10.1186/s40488-017-0059-2",
+    "Lin–Stoyanov arXiv:1406.1654",
+    "Resultary semantic query: Stationary shear Brownian motion Poisson full resetting projection density stretched exponential moment indeterminacy Krein directional"
+  ],
+  "disposition": "passed",
+  "final_claim": "The mathematical theorem in the assigned pinned RESULT.md survives unchanged within the scope and limitations documented above.",
+  "limitations": "Fixed D,r>0, unit directions, independent isotropic Brownian noise, linear shear and full simultaneous Poisson reset. Tail asymptotic for each fixed gamma*u!=0, no joint determinacy or uniform zero-shear statement.",
+  "residual_risks": [
+    "Broader Gaussian-variance mixture Laplace/Krein theorems or newer work may specialize immediately to these coefficients.",
+    "The sqrt(|z|) stretched-exponential exponent is known in other reset models; only direction-specific classification/prefactor is considered novel."
+  ],
+  "schema_version": 1
+}
