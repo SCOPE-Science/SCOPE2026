@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-Symmetry and exact endpoint congruences give a translated Eisenstein polynomial for every permitted prime and exponent. Its single Newton slope proves the local valuation and full ramification. The unique minimal term in the derivative proves the discriminant exponent, while its norm yields the unit class. The classical Laguerre multiplier-sequence criterion produces real-rootedness; irreducibility in characteristic zero ensures simplicity. The standalone checker validates examples with integer resultants and exact Sturm counts. Finite testing is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Guo's 2014 paper contains the same cubic binomial power polynomial but derives congruences, not its complete prime-index rational/p-adic factorization or discriminant. Straub–Zudilin treat the unweighted generalized Franel sums and Apéry-limit recurrences rather than variable-X polynomial roots. The r=2 Legendre case has stronger prior coverage and is expressly omitted. The known Pólya–Schur real-rootedness criterion is acknowledged. Searches for direct formulas, translations, general Franel aliases, discriminant parameters and stronger Legendre coverage found no implication covering the whole accepted claim. Unlocated equivalent research remains a genuine originality risk.
+PASS
 
-## Mathematical value — PASS
-The result classifies the natural cubic and higher Franel power polynomials at every prime index: complete irreducible factorization, real-root location, exact local extension degree and ramification, and sharp discriminant valuation plus its first unit residue. These invariants do not follow from published congruence identities at X=1 and are relevant to the arithmetic of the associated algebraic numbers. This value does not depend on publishing a longer general theorem.
+Prime symmetry forces X+1 factor; after translation H(Y)=Q(Y−1), H(Y)≡Y^(p−1) mod p and H(0)≡p mod p², hence Eisenstein. The Newton polygon gives every shift-root valuation 1/(p−1). Laguerre L_p(−z)=sum C(p,k)z^k/k! yields a finite Pólya–Schur multiplier sequence, which applied r−1 times to (1+X)^p makes F_{p,r} real-rooted. Irreducibility gives simplicity; positive coefficients give negative roots, and reciprocity pairs them about −1. Differentiate Eisenstein H at a root: leading derivative val=(p−2)/(p−1), other terms ≥1; norm gives discriminant p−2 and unit via m^m (H(0)/p)^(m−1), correct sign. Independent exact Bareiss/Sturm calculations corroborate p=3,5,7 and r=3,4,5.
 
-## Limits
-Odd prime indices and r>=3 only. Not a full discriminant formula, composite-index classification, or Galois group determination. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The real-rootedness method, polynomial multiplier theorem, prime-power Eisenstein technique, and classical Franel congruence theory are antecedents. Inspected Guo 2014 full-text paper treats cubic Franel supercongruences of number sequences, not full prime-index power-polynomial factorization and tame discriminant for all r>=3. No dominating prime-index Q polynomial theorem identified in searches. Best-of-knowledge PASS with historical literature risk.
+
+## value
+
+PASS
+
+The exact factorization plus local splitting and discriminant unit for an infinite natural prime-index binomial-power family resolves mathematically meaningful algebraic and arithmetic properties; the root-location theorem is a complementary structural classification rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
