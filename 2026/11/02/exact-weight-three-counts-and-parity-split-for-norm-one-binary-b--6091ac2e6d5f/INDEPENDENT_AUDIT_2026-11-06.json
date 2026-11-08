@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:53:09.154105Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A weight-three binary BCH codeword corresponds bijectively to an unordered triple of distinct norm-one elements of F_{q^3} summing to zero; no weight one/two exists. Normalize one root to 1, reduce to x and 1+x in norm-one subgroup. For non-base-field x, its cubic minimal polynomial has coefficients a,b,1 and N(1+x)=a+b, hence b=a+1. The f_a(T)=T³+aT²+(a+1)T+1 family is reducible iff it has F_q root t∉{0,1}, forcing a=φ(t)=(t³+t+1)/(t²+t). The 3-cycle t→1/(1+t) preserves φ; its two fixed cube roots arise exactly when s even and correspond to distinct parameters. Thus irreducible cubics I=(2q+2)/3 (s odd) or (2q−2)/3 (s even); the norm-one intersection K=3I+2*1_even =2q+1−(−1)^s, with 2 extra base-field cube roots when even. Therefore A3=nK/6 and each coordinate incidence K/2=q+1 if odd, q if even. Independently computed φ image sizes over GF(4), GF(8), GF(16): 2,2,6; A3=28,219,1456, agreeing with theorem. Finite tests do not establish all-s orbit count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The actual strongest same-code Wang et al. result determines existence of a minimum-weight word, not its total multiplicity. General BCH distance bounds and q-ary codes cannot give exact A3 without an enumerator theorem."
+        ],
+        "reasoning": "The actual strongest same-code Wang et al. result determines existence of a minimum-weight word, not its total multiplicity. General BCH distance bounds and q-ary codes cannot give exact A3 without an enumerator theorem.",
+        "searches": [
+          "Resultary semantic query: binary BCH norm one length q^2+q+1 weight three enumerator triples roots sum zero parity",
+          "web targeted primary: https://arxiv.org/abs/2609.00532",
+          "web targeted primary: https://arxiv.org/abs/2510.22259",
+          "web targeted primary: https://arxiv.org/abs/1902.04372"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.00532",
+        "https://arxiv.org/abs/2510.22259",
+        "https://arxiv.org/abs/1902.04372",
+        "Resultary query: binary BCH norm one length q^2+q+1 weight three enumerator triples roots sum zero parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang et al. Lemma 11 already uses exact same map φ but only its coarse cardinality <=q−2 to find one irreducible member; its proof does not logically yield the orbit-size distribution of φ or the 2q+1−(−1)^s intersection count without additional work. An older algebraic/finite-geometric weight enumerator with these parameters could nevertheless imply the result."
+        ],
+        "reasoning": "Wang et al. Lemma 11 already uses exact same map φ but only its coarse cardinality <=q−2 to find one irreducible member; its proof does not logically yield the orbit-size distribution of φ or the 2q+1−(−1)^s intersection count without additional work. An older algebraic/finite-geometric weight enumerator with these parameters could nevertheless imply the result.",
+        "searches": [
+          "Resultary semantic query: binary BCH norm one length q^2+q+1 weight three enumerator triples roots sum zero parity",
+          "web targeted primary: https://arxiv.org/abs/2609.00532",
+          "web targeted primary: https://arxiv.org/abs/2510.22259",
+          "web targeted primary: https://arxiv.org/abs/1902.04372"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Norm-one torus of F_{2^{3s}} gives a cyclic subgroup of order q²+q+1, so the zero-sum distinct triple count equals the weight-three coefficient, not the full spectrum. Finite projective Singer subgroup and cyclic line-incidence tables are possible aliases."
+        ],
+        "reasoning": "Norm-one torus of F_{2^{3s}} gives a cyclic subgroup of order q²+q+1, so the zero-sum distinct triple count equals the weight-three coefficient, not the full spectrum. Finite projective Singer subgroup and cyclic line-incidence tables are possible aliases.",
+        "searches": [
+          "Resultary semantic query: binary BCH norm one length q^2+q+1 weight three enumerator triples roots sum zero parity",
+          "web targeted primary: https://arxiv.org/abs/2609.00532",
+          "web targeted primary: https://arxiv.org/abs/2510.22259",
+          "web targeted primary: https://arxiv.org/abs/1902.04372"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searched norm-one BCH min-weight triples and published code tables; a known [21,15,3] length-21 small-code table might contain A3=28 but cannot imply all-s formula. Tested A3=28,219,1456 independently."
+        ],
+        "reasoning": "Resultary searched norm-one BCH min-weight triples and published code tables; a known [21,15,3] length-21 small-code table might contain A3=28 but cannot imply all-s formula. Tested A3=28,219,1456 independently.",
+        "searches": [
+          "Resultary semantic query: binary BCH norm one length q^2+q+1 weight three enumerator triples roots sum zero parity",
+          "web targeted primary: https://arxiv.org/abs/2609.00532",
+          "web targeted primary: https://arxiv.org/abs/2510.22259",
+          "web targeted primary: https://arxiv.org/abs/1902.04372"
+        ]
+      },
+      "rationale": "Qualified PASS: Wang et al. Theorem 12 establishes minimum distance three and uses exactly the same family f_a and φ to prove existence of irreducibility, but stops at the lower bound of at least one irreducible cubic. Exact number of irreducible f_a and total weight-three multiplicity requires the new order-three orbit argument; not identified in the original inspected relevant section. Older complete weight enumerators / Singer finite geometry might give equivalent formula.",
+      "residual_risks": [
+        "Potential historically known minimal weight enumerators for this norm-one binary cyclic/Singer code (perhaps in tables or finite geometry) are not ruled out by database searches.",
+        "Wang et al. remainder and appendices pages 17–29 not individually inspected for unrelated weight enumerators; same-code Section III-B pages 10–12 read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 12 proves d=3 by existence of one irreducible f_a. Lemma 11 counts image <=q−2 merely to show some a missing; not full parameter count or A3. No stronger theorem in inspected same-family section.",
+          "evidence": [
+            "Page 10 Lemma 11 states φ domain has q−2 elements so image at most q−2, and page 11 selects one irreducible f_a and constructs one zero-sum triple."
+          ],
+          "identifier_or_url": "arXiv:2609.00532v2 (2026-09-17)",
+          "material_read": "Primary authorized PDF full text pages 9–16 including Section III-B Lemma 11, Theorem 12 and proof pages 10–12",
+          "method": "Oxford authorized extraction after arXiv and lawful OA access routes failed; completed job, read actual extracted pages",
+          "title": "Solutions to Three Conjectures and an Open Problem on Binary BCH Codes (Wang–He–Yi–Zheng)",
+          "trigger": "Same BCH family and exactly same irreducible cubic f_a"
+        },
+        {
+          "assessment": "Bounds minimum distance 3<=d<=4; does not establish full weight-three count in that theorem",
+          "evidence": [
+            "Conjecture 5.3 concerns d=3, the weaker existence-level question."
+          ],
+          "identifier_or_url": "arXiv:2510.22259v1",
+          "material_read": "Primary open-access PDF Section 5, Theorem 5.2 and Conjecture 5.3 pages 11–13",
+          "method": "Web primary PDF opened and screenshot inspected",
+          "title": "Infinitely many families of distance-optimal binary linear codes with respect to sphere packing bound (Chen–Xie–Ding)",
+          "trigger": "Originating distance conjecture for exact same BCH family"
+        },
+        {
+          "assessment": "Different general q-ary field definition; a stronger specialization remains unverified",
+          "evidence": [
+            "Binary subfield zeros and q-ary code coefficients differ; cannot automatically transfer weight enumerators."
+          ],
+          "identifier_or_url": "arXiv:1902.04372",
+          "material_read": "Public arXiv bibliographic abstract and source reference only, no full text read",
+          "method": "Web targeted literature search",
+          "title": "A Class of Narrow-Sense BCH Codes (Zhu–Sun–Kai)",
+          "trigger": "Potential larger q-ary BCH length-family coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full exact first nonzero weight-enumerator coefficient and a parity-driven incidence design for a natural infinite family of distance-three binary BCH codes. The work meaningfully strengthens the known existence-based minimum-distance result by classifying every minimum-weight support, which matters for code-spectrum calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential historically known minimal weight enumerators for this norm-one binary cyclic/Singer code (perhaps in tables or finite geometry) are not ruled out by database searches.",
+    "Wang et al. remainder and appendices pages 17–29 not individually inspected for unrelated weight enumerators; same-code Section III-B pages 10–12 read in full."
+  ],
+  "schema_version": 1
+}
