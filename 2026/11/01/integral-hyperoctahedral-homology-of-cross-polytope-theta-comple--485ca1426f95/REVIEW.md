@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved integrally for all \(n\ge2\), \(1\le k\le n-1\). A support projection from the hypergraph independence complex to a simplex skeleton has a simplicial section and an explicit contiguity homotopy, giving an equivariant integral homology isomorphism. Augmented simplex chains compute the exterior-power augmentation kernel without torsion. Signed complementary-face duality supplies the necessary ambient orientation character, whose value is precisely the product of sign flips for block permutations. Reduction modulo primes dividing \(n\) distinguishes the dual weight lattice from the root lattice. Finite signed Lefschetz checks cover every symmetry element in seven small cases, and modular invariant-space checks cover eight dimensions, but the infinite assertion rests on the written argument.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: For n>=2 and 1<=k<=n-1, a signed subset is independent of (k+1)-face hyperedges precisely when its support meets at most k antipodal pairs. Projection to the (k-1)-simplex skeleton has a positive-vertex section, with section∘projection contiguous to identity; hence it is a B_n-equivariant homology isomorphism even though the section itself is not equivariant. The augmented simplex chain complex over Z is exterior powers of E_n with contraction by coordinate sum; its top skeleton cycles are wedge^k U_n, with no lower homology/torsion. Signed combinatorial Alexander duality on the ambient 2n-vertex set twists by the ambient vertex-permutation sign: each pair-block permutation is even, each sign flip is odd, giving eta. Integral UCT yields H_{2n-k-2}(Theta;Z)=Z_eta⊗(wedge^k U_n)^* and vanishing otherwise. The coefficient formula for traces follows from the exterior-power determinant. For k=1,n>=3, modulo any prime p|n the root lattice U_n mod p has the all-ones invariant, whereas its weight dual quotient has no invariant, proving integral nonisomorphism though rationalizations agree. Checked n=2 and endpoint k=n-1 in the universal construction; finite character/lattice verifier is only a corroborating check, not proof of the infinite theorem.
 
-Conant–Thistlethwaite, Theorem 7 (arXiv:0808.0739), already covers the **nonequivariant wedge-of-spheres homotopy type** and associated ranks. Those known conclusions are not claimed as original. Their inspected Section 5.3 proof does not determine an integral action of the full signed permutation group; their Section 6 concerns Euler-characteristic congruences under group actions. Björner–Tancer (arXiv:0710.1172, Sections 2–4) develops signed chain-level duality generically, not this cross-polytope group module or root/weight comparison. Carnero Bravo (arXiv:2307.14321, Sections 1–3) treats polyhedral joins and nonequivariant homotopy techniques, without the claimed integral character-lattice identification in material examined. Search of published published-finding corpus findings and accessible prior research records found related hyperoctahedral characters for different complexes, not the same object/module. A general equivariant specialization might be obtainable from broader machinery, and absence from unindexed literature cannot be certified.
+## originality
 
-## Value — PASS
+PASS
 
-The regular cross-polytope is a canonical signed-permutation object, and its full integral homology action is mathematical data not determined by sphere counts or rational Betti numbers. The uniform theorem computes that missing action for every face dimension and detects a concrete modular lattice distinction: the root and weight versions agree over \(\mathbb Q\) but disagree over \(\mathbb Z\) for all \(n\ge3\) at \(k=1\). This is a structural distinction relevant to integral symmetry questions and not a recomputation of Conant–Thistlethwaite's homology ranks.
+PASS on best-of-knowledge: nonequivariant theta sphere multiplicities and integral Alexander duality are credited prior ingredients; the full signed integral B_n module and root/weight obstruction are more informative and are not stated by the inspected prior theorem. An unindexed specialization of equivariant general duality remains a concrete risk.
 
-## Limitations
+## value
 
-The result concerns ordinary reduced homology with group action, not Borel equivariant homology or an equivariant homotopy type. The proof is an explicit synthesis of standard duality with a natural face-support reduction; a previously published equivalent corollary could have been missed. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The natural symmetry action on the integral homology of the full cross-polytope face-hypergraph theta family is a structural invariant not resolved by its known wedge-of-spheres topology. The weight-versus-root distinction persists integrally despite identical rational characters, so the exact B_n module supplies genuinely useful information for equivariant topology and torsion-sensitive calculations; it is not merely a parameter rename or ordinary Betti recount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
