@@ -1,11 +1,21 @@
-# Scientific review of the Catalan composition and Gaussian universality law
+# Independent mathematical audit
 
-**Correctness (PASS).** A binary greedy arch is exactly \(0^{s+1}1\) or \(1^{s+1}0\). The admissible arch-height transitions preserve all Dyck prefix inequalities; the unique closing suffix of ones gives the exact identity \(n-\iota(w)=\sum_{\mathrm{up}}s\). The arch-height recurrences have a unique formal solution; a geometric-height ansatz reduces them to a quadratic and yields the claimed Catalan composition. At the dominant analytic root, singularity transfer and the nonzero second log-derivative give Gaussian convergence. The bundled independent finite checks passed, but do not constitute the infinite proof. The analytic limit uses the classical quasi-powers theorem.
+## correctness
 
-**Originality (PASS, with residual risk).** This claim is **not** an assertion that the first fixed-defect functions are new: a prior Dyck arch-defect theorem already gave rationality separately at every fixed defect and explicitly computed defects zero through three. That result gives an algorithmic coefficient-wise description, but does not state the uniform algebraic composition, the full two-variable coefficient formula, or a central-limit law for defects growing linearly with semilength. The present theorem simultaneously evaluates all defect slices and determines typical-index asymptotics. The individual-word arch algorithms of Schnoebelen–Veron, the regular-language enumeration algorithms of Adamson and collaborators, and the automatic-sequence Dyck-factor results of Mol–Rampersad–Shallit concern different scopes; their inspected statements do not dominate this joint theorem. A general lattice-path identity or an unindexed equivalent could still cover it.
+PASS
 
-**Value (PASS).** The previously available defect-by-defect rational matrices require a new finite computation for each defect and say nothing quantitative about the typical index. The Catalan substitution is a compact, uniform, closed expression for the complete Dyck family, enabling any joint coefficient and yielding the explicit central-limit constants \(2/3\) and \(4/27\). It identifies a natural probabilistic law for a context-free language, without restricting to an arbitrary finite slice.
+Greedy binary arch-factorization index counts completed shortest mixed-letter prefixes. Each arch is 0^{s+1}1 or 1^{s+1}0, subject to Dyck nonnegativity; terminal unfinished suffix must be forced 1^h. Semilength calculation yields n−index=total positive arch increments. First-step recurrences for arch-height F_h solve a quadratic and lead to exact F0=C(z(1-z)/(1-x)); substitution z=tu, x=t yields the stated composition. Independently enumerated all Dyck words n<=10 and compared exact coefficients. Dominant square-root singularity ρ(u)=(4u+1−sqrt(8u+1))/(8u²), unique near u=1, gives mean 2/3 and variance 4/27 via quasi-powers; independent rational derivative checks passed. Normality is an infinite singularity-analysis deduction, not established by finite counts.
 
-The main limitations are that the result is specific to ordinary binary Dyck words and uniform sampling, and that novelty search does not prove absence of an unindexed equivalent. Scientific calculations are included for reproducibility; the probability limit is established analytically, not by extrapolation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schnoebelen–Veron prove general greedy arch-factorization/subword-universality theory, used as PRIOR. The previously published fixed-defect Dyck rationality framework and low-defect coefficients are acknowledged as PRIOR. A distinct published Resultary record gives binary *unrestricted* word index law (1+z)/(1-z−2uz²), not the Dyck Catalan joint composition. Neither inspected general arch algorithm nor fixed-defect rationality alone states the single uniform all-defect Catalan composition with large-index Gaussian law.
+
+## value
+
+PASS
+
+A global bivariate generating function and exact normal fluctuations for a natural Dyck statistic connects Catalan paths to subsequence-universality theory. It is not merely another fixed-defect coefficient: it simultaneously determines every defect and macroscopic scaling, a useful exact combinatorial statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

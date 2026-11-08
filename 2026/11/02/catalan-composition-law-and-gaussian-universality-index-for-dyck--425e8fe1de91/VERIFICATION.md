@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify.py` uses only the Python standard library. Run `python3 verify.py` from the directory containing the extracted files. Its output is `VERIFY_OK assertions= 390 direct_Dyck_words= 290512 transfer_cells= 171 mean_slope= 2/3 variance_slope= 4/27`.
+# Independent mathematical audit
 
-The program independently compares direct greedy subsequence-universality counts on every Dyck word through semilength 12 with coefficients of the algebraic formula. A second arch-height dynamic program checks all cells with at most 18 arches and ascent defect at most 8. It checks the two explicit top-defect coefficient formulas up to semilength 64 and computes the singularity-derivative constants using exact fractions. The infinite generating-function identity follows from the arch-height recurrence and its formal unique solution, not from these checks. The Gaussian limit uses a standard analytic quasi-powers theorem and uniform singularity transfer, not a numerical fit. No independent assessment has been performed.
+## correctness
+
+PASS
+
+Greedy binary arch-factorization index counts completed shortest mixed-letter prefixes. Each arch is 0^{s+1}1 or 1^{s+1}0, subject to Dyck nonnegativity; terminal unfinished suffix must be forced 1^h. Semilength calculation yields n−index=total positive arch increments. First-step recurrences for arch-height F_h solve a quadratic and lead to exact F0=C(z(1-z)/(1-x)); substitution z=tu, x=t yields the stated composition. Independently enumerated all Dyck words n<=10 and compared exact coefficients. Dominant square-root singularity ρ(u)=(4u+1−sqrt(8u+1))/(8u²), unique near u=1, gives mean 2/3 and variance 4/27 via quasi-powers; independent rational derivative checks passed. Normality is an infinite singularity-analysis deduction, not established by finite counts.
+
+## originality
+
+PASS
+
+Schnoebelen–Veron prove general greedy arch-factorization/subword-universality theory, used as PRIOR. The previously published fixed-defect Dyck rationality framework and low-defect coefficients are acknowledged as PRIOR. A distinct published Resultary record gives binary *unrestricted* word index law (1+z)/(1-z−2uz²), not the Dyck Catalan joint composition. Neither inspected general arch algorithm nor fixed-defect rationality alone states the single uniform all-defect Catalan composition with large-index Gaussian law.
+
+## value
+
+PASS
+
+A global bivariate generating function and exact normal fluctuations for a natural Dyck statistic connects Catalan paths to subsequence-universality theory. It is not merely another fixed-defect coefficient: it simultaneously determines every defect and macroscopic scaling, a useful exact combinatorial statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
