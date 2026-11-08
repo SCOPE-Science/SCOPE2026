@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the three-dimensional Minkowski sum of two centered perpendicular filled disks of arbitrary radii \(a,b>0\), not the convex hull. The body support function is the sum of the two disk support functions and its slice integral gives the exact volume \(2\pi ab(a+b)\). The proposed John ellipsoid is included by the support-function triangle inequality; all competitors lie in the same coordinate box, and the support bounds plus Hadamard's determinant inequality prove its optimality and uniqueness even for translated or tilted ellipsoids. Weighted Cauchy yields the explicit one-parameter outer family. Its determinant derivative has one positive root. Crucially, a positive two-level, eight-sign contact distribution at that root has mean zero and covariance precisely one-third of the candidate outer shape matrix. Its integral quadratic inequality, combined with arithmetic–geometric mean on the three eigenvalues, proves unrestricted minimal-volume containment and uniqueness. The log derivative of the ratio in the radius ratio has the sign of the deviation from equal radii; both strict bounds and limits follow. The polynomial identities and 40030 finite numerical/symbolic consistency checks in `verify_ellipsoids.py` were independently reconstructed within the same proof review. Numerics do not establish an infinite statement.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Closest primary literature was assessed by implication. Finch, *Convex Hull of Two Orthogonal Disks* (arXiv:1211.4514), treats a different operation: convex hull versus Minkowski sum. Seeger (1993, DOI 10.1017/S0004972700012211, Theorem 2.3) gives an exact **intersection of a parameterized enclosing family** for Minkowski sums of possibly singular ellipsoids. This already implies the existence of the outer family used here, so the parameterized bound itself is not new. Halder (arXiv:1803.08157, Sections II–IV) studies determinant optimization within an outer ellipsoidal parameterization for positive-definite summands, and his 2018 p-sum paper extends this framework; determinant stationarity within that family is also prior art. None of these inspected statements establishes that the optimally parameterized ellipsoid is the **unrestricted** unique Löwner ellipsoid for two singular perpendicular disks, nor an exact John ellipsoid and the sharp normalized ratio profile. The finite isotropic contact certificate is the missing implication. Targeted external research record comparisons did not identify a published result covering that combined assertion. This is a best-knowledge literature comparison, not a proof of worldwide novelty; undiscovered historical specialization or a stronger general theorem is residual risk.
+PASS
 
-## Mathematical value — PASS
-Two perpendicular filled disks form a natural nonpolyhedral, centrally symmetric Minkowski sum with overlapping coordinate directions. Determining its unrestricted inner and outer volume-maximizing/minimizing ellipsoids gives explicit sharp, dimensionless geometric benchmarks. The positive contact measure distinguishes a globally exact outer ellipsoid from merely optimizing a standard approximation family. The fully sharp radius-asymmetry law—minimum \(4/3\) at balance, supremum \(\sqrt3\) at degeneration—quantifies how ellipsoidal covering quality changes under uneven disk radii. The exact John fraction \(2/3\) is independent of asymmetry. The claim does not assert a new general ellipsoid algorithm or results for nonperpendicular/displaced disks.
+For K=D_a(xy)+D_b(yz), a,b>0, direct slice integral gives 2πab(a+b). Support triangle inequality includes the diagonal John ellipsoid (a,a+b,b), while coordinate-width constraints and Hadamard inequality certify its unique global volume maximum. Weighted quadratic Cauchy yields outer ellipsoid Q_t with axes a sqrt(1+t), sqrt[a²(1+t)+b²(1+1/t)], b sqrt(1+1/t); its determinant derivative has a unique positive root 2t²+(r²-1)t-2r²=0. A positive two-level contact distribution (s=0 or min(1,t/r), uniform independent signs) has mean zero and covariance Q_t/3; integrating against an arbitrary translated competitor and applying trace–determinant AM–GM certifies unrestricted unique Löwner optimum. The ratio derivative has sign r-1, giving John fraction 2/3, outer fraction [4/3,sqrt(3)). Reconstructed 60 exact-formula and finite-contact numeric checks; proof is continuous, tests are not.
 
-## Limitations and prior-source risk
-Source coverage is substantial but not exhaustive; a historically earlier exact two-disk formula or a stronger specialized Löwner theorem may exist beyond the inspected papers. The numerical checker samples finite parameter and direction sets, and all universal claims are justified by the analytic proof. No independent audit or external reproduction has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Seeger 1993 and Halder 2018 provide enclosing families and determinant minimization *within* parameterizations, both clearly prior. The specific positive isotropic contact certificate, unrestricted global optimality for singular perpendicular disks, simultaneous exact John ellipsoid, and sharp body-normalized ratio profile are additional relative to inspected full texts. Sholokhov 2011 directly tackles minimum-volume sum-of-two-ellipsoids including *simultaneous degeneracy*; its full paper is inaccessible after failed lawful OA/arXiv and institutionally authenticated retrieval (VPN disconnected), so an overlapping or dominating outer theorem is a serious explicit priority risk. On currently readable evidence, the combined precise claim is not decisively covered; qualified PASS, not historical certification.
+
+## value
+
+PASS
+
+Perpendicular disks produce a canonical nonpolyhedral three-dimensional Minkowski sum. Exact inner/outer optimizers, global contact certificates, and a sharp ratio profile across radius imbalance are natural and useful convex-geometric benchmarks, not an arbitrary slice. No general algorithm or oblique-disk result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

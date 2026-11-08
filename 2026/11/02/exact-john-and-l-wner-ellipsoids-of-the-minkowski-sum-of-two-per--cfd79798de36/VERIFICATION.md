@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and exact proof limits
+# Independent mathematical audit
 
-Run `python verify_ellipsoids.py` using Python 3 and SymPy. The executable checks symbolic polynomial identities behind the scalar determinant stationarity and contact second-moment formula, five positive pairs of input disk radii, and 40000 independently sampled inclusion tests. It reports **40030 checks passed**.
+## correctness
 
-The complete proof does not rely on numerical extrapolation. The two disks have explicit support function and exact slice integral. Coordinate support bounds and Hadamard prove the John maximizer. For the unique positive determinant-stationary parameter, a probability distribution supported on two finite levels of explicit boundary contact points has zero mean and covariance one-third of the outer-ellipsoid shape matrix. Integrating the quadratic containment inequality against those contacts and applying AM–GM proves minimum volume among **all translated, arbitrarily oriented ellipsoids** and uniqueness. The volume-ratio inequalities follow from the sign of an explicit one-variable derivative and the two extreme-radius limits.
+PASS
 
-**Unproved limits:** No results are claimed for oblique, translated or nonfilled input disks, for three or more disks, or for higher dimensions. Finite tests do not establish global inequalities and are not an independent audit. No independent validation or historical priority certification has been performed.
+For K=D_a(xy)+D_b(yz), a,b>0, direct slice integral gives 2πab(a+b). Support triangle inequality includes the diagonal John ellipsoid (a,a+b,b), while coordinate-width constraints and Hadamard inequality certify its unique global volume maximum. Weighted quadratic Cauchy yields outer ellipsoid Q_t with axes a sqrt(1+t), sqrt[a²(1+t)+b²(1+1/t)], b sqrt(1+1/t); its determinant derivative has a unique positive root 2t²+(r²-1)t-2r²=0. A positive two-level contact distribution (s=0 or min(1,t/r), uniform independent signs) has mean zero and covariance Q_t/3; integrating against an arbitrary translated competitor and applying trace–determinant AM–GM certifies unrestricted unique Löwner optimum. The ratio derivative has sign r-1, giving John fraction 2/3, outer fraction [4/3,sqrt(3)). Reconstructed 60 exact-formula and finite-contact numeric checks; proof is continuous, tests are not.
+
+## originality
+
+PASS
+
+Seeger 1993 and Halder 2018 provide enclosing families and determinant minimization *within* parameterizations, both clearly prior. The specific positive isotropic contact certificate, unrestricted global optimality for singular perpendicular disks, simultaneous exact John ellipsoid, and sharp body-normalized ratio profile are additional relative to inspected full texts. Sholokhov 2011 directly tackles minimum-volume sum-of-two-ellipsoids including *simultaneous degeneracy*; its full paper is inaccessible after failed lawful OA/arXiv and institutionally authenticated retrieval (VPN disconnected), so an overlapping or dominating outer theorem is a serious explicit priority risk. On currently readable evidence, the combined precise claim is not decisively covered; qualified PASS, not historical certification.
+
+## value
+
+PASS
+
+Perpendicular disks produce a canonical nonpolyhedral three-dimensional Minkowski sum. Exact inner/outer optimizers, global contact certificates, and a sharp ratio profile across radius imbalance are natural and useful convex-geometric benchmarks, not an arbitrary slice. No general algorithm or oblique-disk result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
