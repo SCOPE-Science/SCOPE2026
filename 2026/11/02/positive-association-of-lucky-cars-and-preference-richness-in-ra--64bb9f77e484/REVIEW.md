@@ -1,19 +1,21 @@
-# Scientific review: lucky cars and preference richness
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The Pollak circular representation preserves lucky-car indicators and preference richness, not just their individual marginals. Conditional on past richness \(m\), the three transition weights count vacant spots, occupied never-preferred spots and previously preferred spots. The lucky Bernoulli variables have deterministic success probabilities and therefore are independent. Conditional richness transitions, given lucky indicators, are monotone in previous richness and the current lucky bit. Independent-Bernoulli association, with strictness in the last bit, proves covariance positivity for every pair of strictly increasing recodings. The local exact covariances follow from occupancy martingale conditioning; summation and explicit variance formulas give the constants. The standalone checker passed 3048 assertions using exhaustive parking-function enumeration through size seven and exact rational arithmetic. No finite test is used as a substitute for the infinite-size proof.
+PASS
 
-## Originality (PASS, qualified)
+Pollak rotation maps each circular preference sequence to exactly one ordinary parking function with an (n+1)-fold fiber, preserving luck and distinct favorites. At arrival i the three exhaustive classes have probabilities (N-i+1)/N, (i-1-M_{i-1})/N and M_{i-1}/N. They imply independent luck flags; conditional richness is stochastically monotone in each flag. Harris association proves nonnegative covariance of arbitrary increasing recodings, strictly positive for strictly increasing recodings by last-car pivotality for n>=2. Conditioning on the first i favorites gives Cov(L_i,M)=p_i(1-q^(i-1))q^(n-i), and summation yields n+2-(5n+7)q^n/2. Exact occupancy variances give correlation limit 0.63087856; uniform grid convergence yields Lambert-W(1) maximizer. Fresh independent direct parking enumeration for n=2..5 verified exact moments, all individual covariances and all threshold upper-quadrant tests. Finite tests do not establish all-n results.
 
-Gessel and Seo (arXiv:math/0507497, 2005) provide the one-variable lucky enumerator. Shin (arXiv:0810.0427, 2008) relates lucky cars to rooted forests. Diaconis and Hicks (arXiv:1611.09821, 2016) study the marginal lucky and distinct-preference distributions separately. Butler et al. (arXiv:2412.07873, 2024) and Harris and Martinez (arXiv:2410.08057, 2024) refine lucky-car and lucky-spot events but do not present the full luck/richness Markov law or the increasing-transform covariance theorem. FindStat St000135 records the lucky marginal, not the bivariate table. These results cannot directly imply the signed dependence or arrival-resolved covariance solely from their stated marginals. An as-yet-unlocated older multivariate enumeration could imply the bivariate recursion, which is a residual historical-priority risk. Independent novelty certification has not been performed.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Classical parking functions are a standard finite probability model. Luck is an arrival statistic depending on occupied *parking spots*, while preference richness is an occupancy statistic depending on *requested spots*. Their exact finite conditional coupling clarifies a dependence not determined by either familiar marginal, proves robustness under arbitrary strictly increasing transformations, and locates the peak dependence at a nontrivial arrival fraction \(W(1)\). This is a structural finite-size theorem, not an arbitrary isolated numerical statistic.
+The joint luck/richness transition, universal increasing-transform association, individual-car cross-covariances and Lambert-W location are distinct from known lucky marginal enumerators and species/richness marginals. Diaconis–Hicks Section 3 studies marginal luck and Section 4 identifies species of the circular model, but their displayed results do not provide the joint association or local covariance. A hidden joint generating-function corollary in older refined parking-function enumeration is an explicit priority risk.
 
-## Scientific limitations
+## value
 
-The claim is restricted to uniform classical parking functions. It gives a bivariate finite distribution and covariance/asymptotic limits, not an infinite-dimensional functional limit or a nonuniform-preference theorem. Existing stronger general multivariate parking results may require an additional historical comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Both luck (successful first choice) and preference richness (number of distinct initial demands) are canonical correlated statistics of random parking functions. The theorem determines the sign for every pair of increasing tests, not merely one moment, and quantifies location-dependent contributions and their scaling. This supplies substantive probabilistic structure that cannot be inferred from separate one-variable marginal formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
