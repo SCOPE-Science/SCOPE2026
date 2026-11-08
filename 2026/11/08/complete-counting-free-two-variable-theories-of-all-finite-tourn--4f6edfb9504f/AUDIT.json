@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The unique source/sink peeling proof handles singleton/transitive exceptions; the two-variable recursive source and sink formulas are correctly scoped and select the exact deletion ranks. Every core vertex has both in- and out-neighbors inside the core, guaranteeing a permanent two-pebble response. Distinguishing formulas prove the converse. For each size n all \\(h+t\\le n-3\\) are realized, giving \\(1+\\binom{n-1}{2}\\), and the minimal representative is forced to have a three-cycle core. Two independent standard-library verification programs reproduced 1,699 finite-model refinements and 157 independent complete finite two-pebble games; finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thörnblad (arXiv:1604.04271), Section 3, proves the structural decomposition but not finite-variable equivalence or a logical spectrum.",
+        "Geniet–Thomassé (arXiv:2207.07683), abstract and Sections 1.1–1.3, treats hereditary-class FO model checking and twin-width; an unrestricted two-variable equivalence quotient of individual finite tournaments is not a stated consequence.",
+        "Pikhurko–Verbitsky (arXiv:1003.4865), Sections 1 and 3, supplies general finite-variable game methods but no tournament-specific classification."
+      ],
+      "reasoning": "General pebble-game theorems and ordered tournament decompositions are necessary background, but neither alone states nor directly gives the asserted head/tail classification and exact fixed-order counts. A currently unidentified stronger theorem could still imply the classification.",
+      "searches": [
+        "\"tournaments two pebble game two-variable first-order theory\" searched as scholarly publications",
+        "\"first order logic and twin-width in tournaments\" arXiv 2207.07683; \"decomposition of tournament limits\" arXiv 1604.04271"
+      ]
+    },
+    "checked_sources": [
+      "Pikhurko–Verbitsky 2010 arXiv:1003.4865, verified first public date and full-text game definitions",
+      "Thörnblad 2016 arXiv:1604.04271, finite tournament decomposition Theorems 3.6–3.7",
+      "Geniet–Thomassé 2022 arXiv:2207.07683, model-checking dichotomy Theorems 1.1–1.3",
+      "Earlier finite-variable result on cyclic transitive-block tournament substitutions (statement and implication checked)",
+      "Published finding index: targeted semantic searches for all finite tournaments, FO2, head/sink peeling and exact theories",
+      "Scholarly web searches for source/sink FO2 tournament equivalence, two-pebble tournaments and stronger coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An existing result states that all directed-three-cycle substitutions by three nonempty transitive tournaments share one counting-free FO2 theory; these are all source-free and sink-free, so it is precisely a subfamily of the core-only case.",
+        "A general directed-Ramsey bound for tournament Bernays–Schönfinkel spectra concerns the different prenex fragment and does not assert all-theory equivalence under unbounded FO2 quantifier alternations.",
+        "Moon-type component decomposition cited in Thörnblad records is structural and does not classify logical theories."
+      ],
+      "reasoning": "The earlier cyclic-substitution theorem is implied by the new statement, not conversely: it contains no source/sink chain distinctions or arbitrary tournament cores. The present claim covers all finite tournaments, including transitive and all mixed-head/core/tail decompositions. The implication comparison is therefore strict and not a restatement.",
+      "searches": [
+        "\"complete classification of counting-free two-variable FO2 equivalence for all finite tournaments via successive sources sinks and core\" searched in public mathematical finding records",
+        "\"cyclic lexicographic substitution\" \"FO2\" \"tournament\" earlier finite-variable result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalent model-theoretic descriptions are permanent symmetric two-pebble equivalence, counting-free two-variable Ehrenfeucht games, and color refinement by sets rather than counts of in/out-neighbor unary types (Pikhurko–Verbitsky, arXiv:1003.4865, Section 3).",
+        "The finite canonical source/sink peeling can alternatively be described as initial and terminal runs of singleton strong components in the ordered component decomposition (Thörnblad, arXiv:1604.04271, Theorems 3.6–3.7)."
+      ],
+      "reasoning": "Neither searched terminology nor the inspected primary texts supplied the complete equivalence criterion. The proof directly handles both the logical and structural formulations; terminological differences alone cannot establish originality.",
+      "searches": [
+        "\"finite tournament two-variable first-order equivalence\" searched as scholarly publications",
+        "\"complete classification of counting-free two-variable FO2 equivalence for all finite tournaments via successive sources sinks and core\" searched in public mathematical finding records"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed finding identified an exact fixed-order number \\(1+\\binom{n-1}{2}\\) or the canonical head/triangle/tail representatives.",
+        "The closest indexed tournament results concern voting-solution enumerations or directed-Ramsey spectrum bounds rather than the logical equivalence relation at two variables.",
+        "Finite independent checks find 1, 1, 2, 4, 7 and 11 classes at orders 1–6; this verifies small cases but cannot independently demonstrate historical novelty."
+      ],
+      "reasoning": "The exact parameterized theory count is a direct consequence of this new classification, not a previously identified published table. Negative database searches are not proof of priority.",
+      "searches": [
+        "\"two-variable first-order equivalence of arbitrary finite tournaments, exact number of theories 1+binomial(n-1,2)\" searched in public mathematical finding records",
+        "\"FO2 tournaments equivalence classes all finite tournaments\" scholarly search"
+      ]
+    },
+    "rationale": "Targeted semantic and scholarly queries, complete source-vs-claim implication comparisons and material reading of the most relevant accessible primary texts found no prior theorem determining FO2 equivalence for all finite tournaments by source/sink peeling. Known general pebble-game and tournament-decomposition theorems provide ingredients but not the classified quotient or exact fixed-order theory spectrum. An earlier cyclic-substitution FO2 collapse is strictly contained in the core-only case. Priority remains provisional, with explicit residual literature risks.",
+    "residual_risks": [
+      "Literature priority cannot be established by absence of a search hit; an unlocated general FO2 bisimulation/composition theorem may already imply this explicit tournament specialization.",
+      "A more direct textbook statement for tournaments may exist under unfamiliar terminology, including modal bisimulation or source/sink pruning.",
+      "Full texts of all historical tournament literature have not been exhaustively examined; the structural Moon references are considered through a later accessible primary treatment.",
+      "Formal verification in a proof assistant and independent mathematical review were not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite-variable graph definitions and pebble-game characterization only; tournament classification and head/tail theory count are not present in inspected sections.",
+        "evidence": [
+          "Original arXiv public posting 2010-03-25; author PDF pp. 129–139 explains finite-variable width and pebble games."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+        "material_read": "The full-text author offprint introduction and Sections 1 and 3, including definitions of width and the two-pebble Ehrenfeucht game; searched the PDF for tournament-specific discussion.",
+        "method": "Opened accessible author full PDF and read mathematical passages and page images.",
+        "title": "Logical complexity of graphs: a survey",
+        "trigger": "Primary finite-variable logical-width/game-methodology source and verified archival date"
+      },
+      {
+        "assessment": "Theorems 3.6–3.7 establish unique ordered strong-component decompositions; there is no fixed-two-variable equivalence classification in the inspected relevant material, and full-text searches found no discussion of first-order/pebble games.",
+        "evidence": [
+          "arXiv v1 posted 2016-04-14, Section 3, Theorems 3.6–3.7 and Corollary 3.8."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.04271",
+        "material_read": "Full-text PDF abstract, introduction, Section 3 pages 4–7 including Theorems 3.3, 3.6, 3.7, and searched for first-order and pebble terminology.",
+        "method": "Opened arXiv PDF, inspected text and structural-theorem page images.",
+        "title": "Decomposition of tournament limits",
+        "trigger": "Exact structural overlap: ordered irreducible tournament decomposition"
+      },
+      {
+        "assessment": "Its model-checking/twin-width dichotomy for hereditary tournament classes is not an equivalence classification of all finite tournaments under FO2, and no direct implication was identified.",
+        "evidence": [
+          "Original arXiv posting 2022-07-15; inspected revision provides Theorems 1.1–1.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.07683",
+        "material_read": "Full-text PDF abstract and Introduction §§1.1–1.3, with paper-wide search for two-variable terminology.",
+        "method": "Opened arXiv PDF, read main theorem statements and introduction and inspected PDF page image.",
+        "title": "First Order Logic and Twin-Width in Tournaments and Dense Oriented Graphs",
+        "trigger": "Potential broader FO theorem for all tournament classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f6edfb9-504f-4acc-ad86-852045fe6e7c",
+  "value": {
+    "rationale": "This is a complete classification of a standard unrestricted infinite class of finite relational structures rather than a parameter slice. It reveals the sharp expressivity boundary: FO2 sees arbitrarily long initial/terminal universal-win/loss chains yet loses every internal distinction in any source-free/sink-free tournament. It yields a closed n-vertex logical-spectrum formula and unique minimum representatives, addressing exact natural finite-model-theoretic invariants rather than a routine table recomputation.",
+    "status": "PASS"
+  }
+}
