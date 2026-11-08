@@ -1,0 +1,19 @@
+# Scientific review: sharp cyclotomic winding complexity
+
+## Correctness
+
+**PASS.** The domain consists of every integer \(d\ge3\) and budget \(N\ge1\) for the holomorphic differential equation \(\dot w=w^d-1\). Fiedler's residues and time-branch construction give precisely the period group \((2\pi i/d)\mathbb Z[\zeta_d]\) and the local index \(d-1\). The lower separation bound holds for **every** nonzero coefficient vector of permitted \(\ell^1\)-cost, by combining integrality of the full cyclotomic norm with the paired identity/conjugate embeddings. The upper bound uses exactly \(\varphi(d)\) rationally independent powers and a two-dimensional pigeonhole argument, producing a genuinely nonzero difference of cost at most \(N\). It handles low budgets separately. The proof distinguishes the discrete \(\varphi(d)=2\) cases and proves density from small nonzero group elements plus rotational symmetry. Explicit constants and both quantifiers are internally consistent. The checker tests finite instances only; the all-budget conclusion is analytical.
+
+## Originality
+
+**PASS within inspected literature.** Fiedler, *Scalar polynomial vector fields in real and complex time* (arXiv:2410.05043, sections 1.5, 1.6, 1.8 and Theorem 1.2), already establishes the period map, the five abstract possibilities for closures of branch-value groups, and the branching index. These are credited. The inspected original and later available text do not give a totient-dependent sharp finite-winding separation exponent, explicit all-budget bounds, or the resulting winding-budget complexity classification for the whole cyclotomic family. The arithmetic ingredients are classical and are **not** claimed as novel. Do Duc–Leung–Schmidt, *Upper Bounds for Cyclotomic Numbers* (DOI 10.5802/alco.86), uses cyclotomic norm bounds for a distinct finite-field arithmetic problem rather than this time-monodromy invariant. Targeted searches for cyclotomic period-group short elements, height/word-length bounds, dense branch values, and quantitative Diophantine approximations did not surface a covering statement. Broad general algebraic-integer estimates may imply some components, so the exact priority of the combined dynamical statement remains a risk.
+
+## Mathematical value
+
+**PASS.** The period group of a complex-time differential equation may be dense, but density alone says nothing about the minimum time displacement accessible with a finite number of windings. The defined budget is intrinsic to the meridian representation of the punctured sphere. The theorem provides a sharp power of that budget for every degree, a universal lower obstruction, constructive upper existence, and a clean conductor dichotomy between a protected separation gap and dense ramification values. This separates analytic-continuation complexity from unrestricted topological closure. The proof is short because an arithmetic norm obstruction exactly matches a geometric packing construction; the exact quantitative matching is the point of the result rather than a numerical recalculation.
+
+## Closest literature and residual limits
+
+The key starting source is Fiedler (arXiv:2410.05043, first public version 2024-10-07), which already supplies all qualitative continuation and residue facts used. The closer methodological source is classical cyclotomic norm and pigeonhole arithmetic; the cited Do Duc–Leung–Schmidt article is an example of related norm methodology, not a precedent for the asserted time-winding quantity. Unindexed or differently phrased Diophantine approximation results could cover the sharp exponent for this algebraic module. Constants in the upper bound are nonoptimal, and the theorem does not describe singular times of one fixed branch or the distribution of branch values among sheets.
+
+Self-review: passed. Independent audit: not yet performed.
