@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two conditional-expectation matrices are explicitly constructed and multiplied. The resulting four rows have absolute sums equal to twice maxima because the two conditional-probability gaps have the same sign. The fixed-odds result follows from an elementary sharp one-parameter Bernoulli-odds inequality and from a positive-table extremizing sequence. Strictness and independence are addressed separately; there is no limit-to-exactness confusion. An independent implementation of the matrices checks 4096 exact-rational tables and 15 sequences, while the unrestricted assertions are proved symbolically.
+PASS
 
-## Originality — PASS, qualified
+On a positive 2x2 table, reconstruct P=E[.|X], Q=E[.|Y] 4x4 weighted averaging matrices. Direct PQ-QP multiplication gives four rows of signed terms using u=b/(a+b),v=d/(c+d),r=c/(a+c),s=d/(b+d). Both delta_X=s-r and delta_Y=v-u have sign ad-bc, so each absolute row sum is twice max of two positive terms, yielding exact formula in RESULT.md for L∞. For fixed theta=ad/(bc), logistic odds p=t/(1+t),q=theta*t/(1+theta*t) gives |q-p|=|theta-1|t/((1+t)(1+theta*t)), maximized at t=1/sqrt(theta), equal |sqrt(theta)-1|/(sqrt(theta)+1). All conditional probs strictly between zero and one imply strict <2Y for theta!=1. Family (sqrt(theta)*T,T,1/sqrt(theta),1) has fixed odds and achieves limiting 2Y as T->infty; theta=1 commutator zero. Independently multiplied 625 positive integer tables exactly and checked sharpness family. No extrapolation beyond positive tables or L∞.
 
-The statement differs materially from the classical Yule association coefficient (a scalar descriptive statistic), from qualitative projection commutativity (no operator-norm modulus), from published mixing formulas for ordered binary expectation chains, and from a three-state \(L^4\)-numerical-radius commutator. The new claim is specifically the *exact four-cell \(L^\infty\) norm* together with the *sharp fixed-odds supremum and its strict nonattainment*. No equivalent or stronger implication was located in the literature inspected. Publication priority is not certified: the full text of a plausible conditionals-commutativity article was inaccessible, and unindexed earlier calculations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Alternating conditional reconstructions are order-sensitive exactly when the binary variables are associated, but an association measure alone normally gives no sharp operator error bound. The theorem supplies both a computable exact bound for each positive table and a margin-free, optimal modulus in a classical odds-ratio parameter, identifies why full-support extremizers do not exist, and gives a constructive approach to the bound. This is an analytic sharp stability classification, not a renaming of Yule's coefficient.
+Yule association coefficient of a 2x2 table is classical (Warrens), and commutation criteria for projections are classical. The full published Resultary binary-event projection-chain Lp theorem excludes p=∞ and treats centered products, not the commutator nor the supremum at fixed odds. Current exact 4x4 L∞ commutator and 2Y sharp unattained fixed-odds law do not follow from those quoted results alone. Uninspected Kallenberg primary full text is an explicit residual, not a fabricated NOT_COVERING verdict.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The commutator of row and column conditional expectations measures order-sensitivity of two natural binary information projections. The exact positive-table L∞ norm and sharp maximum at fixed odds ratio connect operator-theoretic order defect to Yule association, including nonattainment under full support. This is a natural complete four-atom invariant rather than a textbook equality test; no claim beyond binary full-support tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

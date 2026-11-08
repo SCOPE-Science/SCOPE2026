@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:50:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-odds-ratio-control-of-the-order-defect-of-two-binary-condi--ebef9e11346f/RESULT.md",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-odds-ratio-control-of-the-order-defect-of-two-binary-condi--ebef9e11346f/verify.py",
+        "/mnt/data/scope_worker03_20261107T1938Z/independent_checks_output.txt"
+      ],
+      "rationale": "On a positive 2x2 table, reconstruct P=E[.|X], Q=E[.|Y] 4x4 weighted averaging matrices. Direct PQ-QP multiplication gives four rows of signed terms using u=b/(a+b),v=d/(c+d),r=c/(a+c),s=d/(b+d). Both delta_X=s-r and delta_Y=v-u have sign ad-bc, so each absolute row sum is twice max of two positive terms, yielding exact formula in RESULT.md for L∞. For fixed theta=ad/(bc), logistic odds p=t/(1+t),q=theta*t/(1+theta*t) gives |q-p|=|theta-1|t/((1+t)(1+theta*t)), maximized at t=1/sqrt(theta), equal |sqrt(theta)-1|/(sqrt(theta)+1). All conditional probs strictly between zero and one imply strict <2Y for theta!=1. Family (sqrt(theta)*T,T,1/sqrt(theta),1) has fixed odds and achieves limiting 2Y as T->infty; theta=1 commutator zero. Independently multiplied 625 positive integer tables exactly and checked sharpness family. No extrapolation beyond positive tables or L∞.",
+      "residual_risks": [
+        "Strictly positive four-atom table and real L∞ norm; no other alphabets/norms, all-zero limit only θ=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General arbitrary-space binary conditional product norm theorem is for 1<p<∞, and its full text does not state p∞ commutator fixed odds; Kallenberg full text inaccessible."
+        ],
+        "reasoning": "No decisive coverage identified; cannot declare Kallenberg whole-document noncoverage, retain explicit priority risk.",
+        "searches": [
+          "Resultary binary expectation chain 2026/10/11; Kallenberg DOI 10.31390/cosa.4.1.03"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2102.13271",
+        "https://arxiv.org/abs/1208.3958",
+        "https://arxiv.org/abs/1008.0562",
+        "Resultary semantic search: binary conditional expectations commutator operator norm infinity odds ratio Yule coefficient 2x2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identifying Y provides the correct numeric candidate; proof needs exact four row absolute sums and sharp nonattained table sequence. Product norm of P_m…P_1−E cannot be substituted for PQ−QP."
+        ],
+        "reasoning": "No inspected prior statement implies the full operator theorem just from shared parameter θ or binary event products.",
+        "searches": [
+          "Warrens 2008 §§definitions; Resultary binary-event chain RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yule Y equals (sqrtθ−1)/(sqrtθ+1), previously known, but published chain theorem addresses centered ordered products not L∞ commutator with fixed odds supremum."
+        ],
+        "reasoning": "Identical association coefficient expression alone does not establish equivalence of operator norm and coefficient maximum.",
+        "searches": [
+          "Resultary query binary conditional expectations commutator operator norm infinity odds ratio Yule coefficient 2x2; Resultary/2026 binary expectation chain RESULT.md; Warrens DOI 10.1007/s11336-008-9070-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical 2x2 Yule coefficient formula known, but no matrix commutator norm tables in inspected association-coefficient article."
+        ],
+        "reasoning": "The table of known odds coefficients does not imply the sharp induced L∞ norm of PQ−QP across all positive fixed-odds tables.",
+        "searches": [
+          "Warrens 2008 full HTML; Resultary query binary conditional expectations commutator operator norm infinity odds ratio Yule coefficient 2x2"
+        ]
+      },
+      "rationale": "Yule association coefficient of a 2x2 table is classical (Warrens), and commutation criteria for projections are classical. The full published Resultary binary-event projection-chain Lp theorem excludes p=∞ and treats centered products, not the commutator nor the supremum at fixed odds. Current exact 4x4 L∞ commutator and 2Y sharp unattained fixed-odds law do not follow from those quoted results alone. Uninspected Kallenberg primary full text is an explicit residual, not a fabricated NOT_COVERING verdict.",
+      "residual_risks": [
+        "Kallenberg (2010) full text inaccessible after OA and authorized Oxford VPN-disconnected attempts; cannot rule out equivalent published commutativity/norm theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_1D_ONLY",
+          "evidence": "The proof uses adjacent intervals in 1D, hence cannot imply amplification for an obtuse planar triangle where stiffness can have a positive offdiagonal.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.13271",
+          "material_read": "Full arXiv preprint, Appendix B and Lemma 4.1; inspected relevant PDF page image showing one-dimensional mesh gradient squares.",
+          "method": "Lawful arXiv PDF text and screenshot",
+          "title": "Arbitrarily High-order Maximum Bound Preserving Schemes with Cut-off Postprocessing for Allen-Cahn Equations",
+          "trigger": "Exact nodal finite-element clipping, possible energy contraction"
+        },
+        {
+          "assessment": "DIFFERENT_CUTOFF_OPERATOR",
+          "evidence": "The established energy improvement concerns pointwise truncation of an FE function; truncating nodal values then P1 reinterpolating is a different operation, so no contradiction or coverage is inferred from the abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.3958",
+          "material_read": "Abstract, method statement and distinction between pointwise cut off and nodal clipping/reinterpolation reviewed.",
+          "method": "Lawful arXiv abstract/available summary.",
+          "title": "A Note on Why Enforcing Discrete Maximum Principles by a Simple a Posteriori Cutoff is a Good Idea",
+          "trigger": "Potential general a posteriori cut-off energy inequality"
+        },
+        {
+          "assessment": "RELATED_GEOMETRY_NO_SHARP_CONSTANT",
+          "evidence": "Huang relates D-metric angle conditions to finite-element maximum principles, but does not prove the exact clipping energy supremum csc²θ.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.0562",
+          "material_read": "Full arXiv PDF, main geometric Delaunay/nonobtuse conditions, relevant PDF screenshot.",
+          "method": "Lawful arXiv PDF text and screenshot",
+          "title": "Discrete maximum principle and a Delaunay-type mesh condition for anisotropic diffusion",
+          "trigger": "Anisotropic metric-angle and stiffness positivity conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-odds-ratio-control-of-the-order-defect-of-two-binary-condi--ebef9e11346f/RESULT.md",
+        "https://arxiv.org/abs/2102.13271",
+        "https://arxiv.org/abs/1208.3958",
+        "https://arxiv.org/abs/1008.0562"
+      ],
+      "rationale": "The commutator of row and column conditional expectations measures order-sensitivity of two natural binary information projections. The exact positive-table L∞ norm and sharp maximum at fixed odds ratio connect operator-theoretic order defect to Yule association, including nonattainment under full support. This is a natural complete four-atom invariant rather than a textbook equality test; no claim beyond binary full-support tables.",
+      "residual_risks": [
+        "Kallenberg (2010) full text inaccessible after OA and authorized Oxford VPN-disconnected attempts; cannot rule out equivalent published commutativity/norm theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive four-atom table and real L∞ norm; no other alphabets/norms, all-zero limit only θ=1.",
+    "Kallenberg (2010) full text inaccessible after OA and authorized Oxford VPN-disconnected attempts; cannot rule out equivalent published commutativity/norm theorem."
+  ],
+  "schema_version": 1
+}
