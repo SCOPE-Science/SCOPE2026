@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact primitive identity and normalizations follow by differentiation and standard Laguerre orthogonality. \\(F_n\\) solves \\(F_n''+F_n'+(n/x)F_n=0\\), whence \\(S_n'=(1-2x)(F_n')^2/n\\) globally, yielding the two-root reduction and upper bound. Published compact-uniform Laguerre asymptotics for parameters zero and one yield \\(n^{3/2}S_n(x)\\to e^{-x}\\sqrt{x}/\\pi\\); nearby oscillatory peaks give the matching lower bound. Envelope monotonicity localizes all maximizing roots. Stieltjes variation integration by parts and a single-jump extremizer show operator norm equality. Finite checker observations corroborate but do not replace this proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.08167 establishes smoothness-to-coefficient weighted sequence comparisons",
+        "arXiv:2604.17752 §4 provides fixed-singularity coefficient decay estimates",
+        "arXiv:2611.04067 §8 expressly does not derive a global ordinary-Laguerre O(n^{-3/4}) bound"
+      ],
+      "reasoning": "Neither moduli/weighted-sequence estimates nor fixed singularity rates dominate the sharp variation-ball operator norm. Classical uniformly weighted Laguerre polynomial bounds could yield nonsharp rates but not the exact coefficient without the global energy maximization.",
+      "searches": [
+        "best bounded variation Laguerre expansion coefficient constant largest cumulative signed area primitive sup_x integral_0^x e^{-t}L_n(t)dt asymptotic",
+        "sharp Laguerre coefficients bounded variation n -3/4 best constant supremum primitive",
+        "Zhang Xiang Kong 2023 Laguerre polynomial expansion piecewise smooth functions Theorem 2.4 pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08167 original full web text: theorem scope and normalization",
+      "arXiv:2604.17752v1 original full HTML: definitions and §4 coefficient results",
+      "arXiv:2611.04067v1 original full HTML: §§1--4,8--9; dated after eligibility anchor, comparison only",
+      "NIST DLMF §18.15(iv), equations 18.15.14--16: full formula and uniformity",
+      "DOI:10.1016/j.cam.2022.115053: abstracts and cited Theorem 2.4; original unavailable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026-11-02 weighted-primitives paper already proves sharp BV inequality and F_n identity, but explicitly withholds global order",
+        "2026-04-20 paper gives O(n^{-3/4}) for specified singularities not uniform optimal constant",
+        "2026-10-06 Laguerre transform results focus on smoothness and weighted ell^p bounds"
+      ],
+      "reasoning": "Older generic inequality and exact integral formula are logically included in prior statements and not new; fixed-location \\(O(n^{-3/4})\\) cannot imply uniform-in-location \\(O(n^{-3/4})\\), let alone its constant. The new Sonin identity supplies an independent global bound, two-neighbor reduction, asymptotic matching, and argmax localization.",
+      "searches": [
+        "arXiv:2611.04067 §8 original full text",
+        "arXiv:2604.17752 Theorem 4.2 and Remark 4.1",
+        "arXiv:2610.08167 Introduction and principal coefficient estimates",
+        "Ordinary Laguerre weighted primitive uniform maximum M_n=sup_{x>=0}|int_0^x e^{-t}L_n(t)dt| exact sharp asymptotic n^(3/4) M_n -> exp(-1/4)/(2^(1/4)*sqrt(pi)), largest extrema near x=1/2, bounded variation Laguerre coefficient operator norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical DLMF Laguerre 18.15.14--16 give local oscillation, not a global supremum",
+        "arXiv:2611.04067 §8 defines identical primitive but explicitly lacks global bound",
+        "No dominating equivalent in closest mathematical-database hits"
+      ],
+      "reasoning": "Searched the integral primitive, Laguerre BV coefficient norm, normalized Sonin envelope, and worst-step formulations. Fixed jump coefficients and generic supremum inequality are weaker; the new statement adds exact global limit and localization.",
+      "searches": [
+        "sharp uniform bound for Laguerre polynomial primitive F_n(x)=e^{-x} x L_{n-1}^{(1)}(x)/n max over x is asymptotic e^{-1/4}2^{-1/4}pi^{-1/2}n^{-3/4}; energy F^2+(x/n)(F')^2 increasing up to x=1/2 then decreasing",
+        "Laguerre weighted primitive sup norm peak location near x=1/2 monotonic envelope Sonin function",
+        "Laguerre Sonin envelope primitive extrema x one half integral weighted Laguerre"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLMF 18.15.14--16 list pointwise polynomial asymptotics and phases, without any global primitive norm table",
+        "arXiv:2611.04067 §9 lists ordinary Laguerre only as not O(1/n)",
+        "The searched semantic database nearest entries concerned different objects (Gegenbauer extremizers, Coulomb Turan minima, generic weighted discrete coefficient bounds)"
+      ],
+      "reasoning": "The exact evaluated quantity, especially its coefficient \\(e^{-1/4}/(2^{1/4}\\sqrt\\pi)\\), was not present in the inspected formula tables or indexed entries. Absence from search is not uniqueness proof.",
+      "searches": [
+        "Ordinary Laguerre weighted primitive uniform maximum M_n=sup_{x>=0}|int_0^x e^{-t}L_n(t)dt| exact sharp asymptotic n^(3/4) M_n -> exp(-1/4)/(2^(1/4)*sqrt(pi)), largest extrema near x=1/2, bounded variation Laguerre coefficient operator norm",
+        "Laguerre Sonin envelope primitive extrema x one half integral weighted Laguerre"
+      ]
+    },
+    "rationale": "The evaluated uniform-in-jump sharp BV Laguerre coefficient asymptotic and exact one-or-two-zero rule are not implied by the four closest inspected mathematical texts. Explicit generic BV primitive bound and Laguerre primitive identity, and the classical Laguerre Plancherel--Rotach approximations, are prior work and not represented as new. Published-claim searches and comparisons against previously stated mathematical claims found no equivalent theorem. Residual full-text priority risk for 2023 fixed-jump work and possible older Sonin methods remains.",
+    "residual_risks": [
+      "The full 2023 Zhang--Xiang--Kong paper could not be read; its known fixed-jump result does not entail the claimed sharp variable-jump maximum, but an unreported general estimate might overlap.",
+      "Equivalent global Sonin-envelope optimization may exist in older specialized Laguerre oscillation theory under different notation.",
+      "Semantic database and accessible historical claims do not certify absolute originality; no independent priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Weighted sequence/modulus inequalities do not assert the variation seminorm, supremum of the ordinary-Laguerre primitive, or its sharp global limit",
+        "evidence": [
+          "arXiv:2610.08167 §§1--2; original 2026-10-06 version",
+          "Primary MSC 42C10 on article"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08167",
+        "material_read": "Original accessible full text: abstract, §§1--2 definitions, normalization, and advertised coefficient/modulus comparison results",
+        "method": "read original web text and compare assumptions and conclusions",
+        "title": "Moduli of smoothness and growth of the Laguerre transform: two-sided estimates",
+        "trigger": "Recent primary 42C10 motivation: Laguerre coefficient inequalities"
+      },
+      {
+        "assessment": "Bounds for prescribed fixed algebraic/logarithmic singularities and fixed locations; do not supply a uniform supremum over varying jump locations or exact global constant",
+        "evidence": [
+          "arXiv:2604.17752 §§2,4, Theorem 4.2, Remark 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.17752v1",
+        "material_read": "Original full HTML §§1--2 and §4, including Theorem 4.2 and Remark 4.1; original abstract and norm conventions",
+        "method": "read full HTML relevant theorem, hypotheses, and examples",
+        "title": "Optimal asymptotic analyses on Laguerre and Hermite orthogonal approximation for functions of algebraic and logarithmic regularities",
+        "trigger": "Potential stronger pointwise coefficient asymptotics"
+      },
+      {
+        "assessment": "Covers generic sharp primitive argument and the same Laguerre primitive identity, but expressly does not derive a global \\(O(n^{-3/4})\\) upper estimate, finite two-neighbor reduction, or exact leading coefficient.",
+        "evidence": [
+          "arXiv:2611.04067 §8, paragraphs accompanying its ordinary-Laguerre primitive",
+          "arXiv:2611.04067 §9 comparison table"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.04067v1",
+        "material_read": "Original full HTML §§1--4 and especially §§8--9; read formula, limit discussion, and explicit statement that global ordinary Laguerre bound is not proved",
+        "method": "read original HTML relevant sections at claim level",
+        "title": "Bounds for Orthogonal Expansion Coefficients via Weighted Primitives",
+        "trigger": "Almost-identical primitive functional; strong coverage risk; first public 2026-11-02"
+      },
+      {
+        "assessment": "Gives the classical input for the quadrature-phase envelope, but not the derived global maximization and exact BV-operator norm",
+        "evidence": [
+          "DLMF 18.15.14, 18.15.15, 18.15.16"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.15.iv",
+        "material_read": "Original authoritative formulas 18.15.14--16 and compact-uniformity condition",
+        "method": "read equation statements, phase formulas, and uniformity wording",
+        "title": "DLMF §18.15(iv): Laguerre asymptotics",
+        "trigger": "Critical large-degree proof premise"
+      },
+      {
+        "assessment": "Known stated result concerns \\(O(n^{-3/4})\\) for a fixed piecewise singularity and does not itself imply the sharp global constant; inaccessible original material is an explicit residual risk, not deemed completely inspected.",
+        "evidence": [
+          "DOI:10.1016/j.cam.2022.115053",
+          "arXiv:2611.04067 §8 reports Theorem 2.4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2022.115053",
+        "material_read": "Journal bibliographic abstracts and exact Theorem 2.4 rate as quoted by arXiv:2611.04067 §8; original publisher full text inaccessible after unsuccessful preprint/open search and unsuccessful institutional lookup",
+        "method": "arXiv title search, open-access title/PDF search, and attempted authorized institutional retrieval",
+        "title": "On optimal convergence rates of Laguerre polynomial expansions for piecewise functions",
+        "trigger": "2023 fixed-jump Laguerre coefficient rate; plausible stronger prior result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6198ef2c-90f4-4314-b2bb-6f87a74685f0",
+  "value": {
+    "rationale": "The precise variable-jump supremum is the intrinsic sharp norm of the nth Laguerre coefficient functional on the total-variation unit ball. Published fixed-jump coefficient rates and generic primitive methods do not evaluate the uniformly worst jump or its exact coefficient. A one-or-two-nearest-roots finite formula provides a computationally meaningful simplification; the half-line envelope gives a structural localization and closed leading constant.",
+    "status": "PASS"
+  }
+}
