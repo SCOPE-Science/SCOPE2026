@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete argument covers arbitrary positive-semidefinite three-coordinate Gaussian covariance with equal positive diagonal, not just nonsingular matrices. Equal marginal variance forces zero second difference to mean perfect common noise. If the denominator is random, the conditional squared numerator at its pole cannot vanish without the same forbidden perfect correlation, and a Gaussian conditional-density argument proves equal positive one-sided \(t^{-1}\) tails. An exact moment integral gives the sharp \(p=1\) threshold and the capped-square asymptotic. The verifier reproduces 2,044 deterministic checks; the universal proof is analytic.
+## correctness
 
-## Originality — PASS, qualified
-The 2018 regularized nonlinear acceleration work establishes a stochastic noise regime and finite bounds for regularized weights, not unregularized three-observation Aitken under all equal-marginal Gaussian couplings. The 2023 restarted-Anderson paper treats deterministic affine dynamics, not Gaussian covariance designs. Related earlier Gaussian ratio tails and extrapolated quadratic-form trace estimates establish poles for distinct models but do not imply the all-covariance rigidity. The potentially overlapping general ratio literature remains a publication-priority risk. Searches were for explicit correlation conditions, aliases of Aitken and Shanks, Gaussian denominators, variance regularization, common-random-number couplings, and special cases.
+PASS
 
-## Value — PASS
-A sharp *if and only if* correlation-design theorem answers whether common random numbers can restore integrability of an unregularized extrapolation without changing any measurement's marginal precision. The essential-exponential near-perfect-correlation coefficient quantifies why finite simulations can deceptively suggest stability although infinite mean error persists. This is more than observing that one arbitrary Gaussian ratio can have a heavy tail: it exhausts every admissible equal-marginal covariance, including singular cases, and identifies a discontinuous integrability boundary.
+For centered equal-variance Gaussian eps_j, Var(eps2-2eps1+eps0)=0 forces eps1=(eps0+eps2)/2 and equal variances then all three common, with nonzero deterministic denominator. Otherwise D has smooth positive density at zero. Conditional Gaussian second moment E[X^2|D=0]=s^2+(mX-c*mD/vD)^2 cannot vanish: if it did, X=(mX/mD)D almost surely, implying eps2=(1+r)eps1-r eps0; equal variances force Cov(eps0,eps1)=sigma^2, hence common noise, contradiction. Gaussian conditional integrability yields t-tail f_D(0) E[X^2|D=0] symmetrically for X^2/D, while Gaussian Z0 is light-tailed. Exact tail integration proves the p<1 threshold and 4K capped loss; covariance calculation yields the equicorrelation coefficient. Independent 300 PSD Gaussian covariance designs gave positive K; continuous-law proof does not rely on numerical sampling.
 
-## Limits and residual risks
-The model is a one-shot three-level geometric sequence with exactly Gaussian, equally variable errors; no claims about general nonlinear iterates, regularization, unequal variances or floating-point arithmetic. Known ratio-distribution asymptotics may contain the coefficient as a special case, and specialized noisy extrapolation work might contain an equivalent all-correlation classification. The scientific assessment is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit generic ratio-tail predecessor credit: noisy ratios and near-zero denominators are known to generate inverse-linear tails, and regularized nonlinear acceleration has prior stability theory. What survives is the all-equal-marginal, even singular arbitrary-covariance necessity-and-sufficiency result for pole cancellation, exact positive coefficient and equicorrelation boundary. Broader unregularized correlated-Aitken literature remains a priority risk.
+
+## value
+
+PASS
+
+PASS: this sharp classification identifies when a widely used nonlinear extrapolator ceases to possess even a first moment, including exactly which noise covariance geometry avoids it; quantitative tail and capped-risk laws are useful for robust extrapolation design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

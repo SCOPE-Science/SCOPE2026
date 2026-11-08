@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:58:02.603095Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For centered equal-variance Gaussian eps_j, Var(eps2-2eps1+eps0)=0 forces eps1=(eps0+eps2)/2 and equal variances then all three common, with nonzero deterministic denominator. Otherwise D has smooth positive density at zero. Conditional Gaussian second moment E[X^2|D=0]=s^2+(mX-c*mD/vD)^2 cannot vanish: if it did, X=(mX/mD)D almost surely, implying eps2=(1+r)eps1-r eps0; equal variances force Cov(eps0,eps1)=sigma^2, hence common noise, contradiction. Gaussian conditional integrability yields t-tail f_D(0) E[X^2|D=0] symmetrically for X^2/D, while Gaussian Z0 is light-tailed. Exact tail integration proves the p<1 threshold and 4K capped loss; covariance calculation yields the equicorrelation coefficient. Independent 300 PSD Gaussian covariance designs gave positive K; continuous-law proof does not rely on numerical sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General ratio tail results imply inverse-linear tails whenever conditional numerator moment at a smooth denominator zero is positive.",
+          "The zero-conditional-numerator condition is here analyzed under all rank-deficient equal-marginal 3x3 Gaussian designs."
+        ],
+        "reasoning": "General pole-tail lemmas cover one technical component but do not imply equal-variance affine-cancellation rigidity or exact if-and-only-if without extra algebra.",
+        "searches": [
+          "Resultary semantic: Gaussian Aitken delta squared noisy correlated extrapolation heavy tail equal variance rigidity",
+          "Gaussian ratio distribution conditional pole theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.09639",
+        "arXiv:2312.04776",
+        "frozen RESULT.md db34a9ad4717d07ef84b12c55cb2cd8930a881eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scieur et al. uses noise-dependent regularization; Krzysik–De Sterck–Smith arXiv:2312.04776 addresses deterministic restarted Anderson acceleration of affine normal systems.",
+          "The present theorem requires nonregularized division by noisy second differences and covariance-rigidity."
+        ],
+        "reasoning": "Neither prior theorem removes regularization or enforces equal marginal Gaussian noise covariance; neither conclusion directly entails nonexistence of all p>=1 moments in all noncommon cases.",
+        "searches": [
+          "Resultary semantic: Gaussian Aitken delta squared noisy correlated extrapolation heavy tail equal variance rigidity",
+          "arXiv:1805.09639",
+          "arXiv:2312.04776"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scieur et al., arXiv:1805.09639, proves guarantees for regularized nonlinear acceleration in noisy settings, not the unregularized three-sample rational transform for arbitrary singular covariances.",
+          "Classical Gaussian ratio distributions explain reciprocal poles but do not in themselves classify their cancellation under identical marginal variances."
+        ],
+        "reasoning": "Regularization changes the denominator singularity; equality of algorithm labels does not yield a common-noise-only rigidity theorem.",
+        "searches": [
+          "Resultary semantic: Gaussian Aitken delta squared noisy correlated extrapolation heavy tail equal variance rigidity",
+          "arXiv:1805.09639"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The covariance family is continuous and includes singular PSD matrices; no finite table parametrizes the all-correlation conclusion.",
+          "The equicorrelated coefficient specializes symbolically as a function of rho in [-1/2,1)."
+        ],
+        "reasoning": "No known exact database or coefficient table encompasses all equal-marginal covariance designs; evaluated finite cases are not a prior complete classification.",
+        "searches": [
+          "Resultary semantic: Gaussian Aitken delta squared noisy correlated extrapolation heavy tail equal variance rigidity",
+          "arXiv:1805.09639"
+        ]
+      },
+      "rationale": "PASS with explicit generic ratio-tail predecessor credit: noisy ratios and near-zero denominators are known to generate inverse-linear tails, and regularized nonlinear acceleration has prior stability theory. What survives is the all-equal-marginal, even singular arbitrary-covariance necessity-and-sufficiency result for pole cancellation, exact positive coefficient and equicorrelation boundary. Broader unregularized correlated-Aitken literature remains a priority risk.",
+      "residual_risks": [
+        "Classical correlated Gaussian-ratio and unregularized nonlinear extrapolation sources could contain an equivalent conditional-pole rigidity formulation.",
+        "Pointwise rho→1 essential-exponential suppression must not be mistaken for uniform L1 convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_REGULARIZED; does not imply the nonregularized all-covariance rigidity",
+          "evidence": [
+            "arXiv:1805.09639, regularization in method and theoretical guarantees"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.09639",
+          "material_read": "Accessible primary arXiv HTML in full, including algorithm and regularized guarantees",
+          "method": "Compared estimator denominator, noise hypotheses and expected-error theorem to the unregularized Aitken formula",
+          "title": "Online Regularized Nonlinear Acceleration",
+          "trigger": "Same acceleration with stochastic noise and finite-risk claims"
+        },
+        {
+          "assessment": "BACKGROUND_DISTINCT; no exact noise-induced pole coefficient evidenced",
+          "evidence": [
+            "arXiv:2312.04776, deterministic convergence description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.04776",
+          "material_read": "Indexed abstract, model and convergence statement; complete primary text not relied on",
+          "method": "Compared deterministic affine normal model with stochastic three-sample Gaussian ratio",
+          "title": "Asymptotic convergence of restarted Anderson acceleration for certain normal linear systems",
+          "trigger": "Aitken-like acceleration and correlated residuals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: this sharp classification identifies when a widely used nonlinear extrapolator ceases to possess even a first moment, including exactly which noise covariance geometry avoids it; quantitative tail and capped-risk laws are useful for robust extrapolation design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1805.09639",
+    "arXiv:2312.04776",
+    "frozen RESULT.md db34a9ad4717d07ef84b12c55cb2cd8930a881eb"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a nonzero-amplitude geometric signal observed at three levels with any jointly Gaussian equal positive marginal variance errors, the unregularized Aitken Delta^2 extrapolate has finite absolute first moment precisely under perfectly common noise; otherwise both one-sided tails have positive equal K/t coefficients given by f_D(0) E[X^2|D=0], all absolute p-moments exist iff 0<p<1, and capped-square loss/B tends to 4K. This includes singular noncommon covariance and explicit equicorrelation asymptotics.",
+  "limitations": [
+    "One unregularized three-level geometric signal, fixed r in (0,1), nonzero a, Gaussian equal-variance noise, exact arithmetic.",
+    "Unbounded moments do not rule out useful trimmed or regularized estimators."
+  ],
+  "residual_risks": [
+    "Classical correlated Gaussian-ratio and unregularized nonlinear extrapolation sources could contain an equivalent conditional-pole rigidity formulation.",
+    "Pointwise rho→1 essential-exponential suppression must not be mistaken for uniform L1 convergence."
+  ],
+  "schema_version": 1
+}
