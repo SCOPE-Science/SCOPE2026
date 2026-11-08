@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The finding is a theorem about a published macroscopic-fluctuation-theory current-variance coefficient, not a new derivation of that coefficient from microscopic exclusion dynamics. The exact derivative polynomial is checked against differentiation of the original closed form; Descartes' rule proves one simple critical density for all squared activities up to 4, and three disjoint interval sign certificates establish uniqueness from 4 to the stability boundary 16. A resultant and an implicit-function expansion prove the single turning point and the critical prefactor. Symbolic identities and high-precision evaluations executed successfully from the standalone checker. A finite computational mesh is not the proof.
+## correctness
 
-**Originality — PASS, with priority limitations.** The closest source is Jose–Dandekar–Ramola, arXiv:2301.10680 (2023), which already obtains the forward variance coefficient and observes density asymmetry; neither is claimed here. The additional globally unique maximizer, reentrant branch, exact turning point, half-filling transition at Péclet number 2 and critical edge law were not found stated in its inspected Section 8 or related relevant articles. Agranov et al., arXiv:2208.02124, optimize rate-function profiles for a different current large-deviation observable; Kourbane-Houssene et al., arXiv:1801.08952, supply the spinodal itself. Mathematical-research searches on the source, aliases, optimum, and radical constants did not identify the theorem; no inference of novelty from a failed search alone is made. Some relevant full texts and all publication records have not been exhaustively inspected, and a known general implicit-optimization corollary remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The density giving the strongest long-time current noise is a natural observable-specific selection criterion in active excluded-volume transport. The exact subcritical global classification and nonmonotone optimizer curve sharpen qualitative density-asymmetry plots; the half-filling crossing before macroscopic instability is not evident from the pointwise variance formula without analysis. This is not an assertion about finite-system or finite-time experimental optimization.
+Under the explicitly restricted homogeneous quenched zero-magnetization MFT limit and 0<=p=Pe^2<16, the stated V(x,p)=x(1-x)[2+p(1-x)]/[sqrt(pi)*sqrt(2-p(1-x)(2x-1))] has positive denominator because (1-x)(2x-1)<=1/8. Direct symbolic differentiation gives sign N=2HA_x-AH_x. For p<=4 the t=x/(1-x) transformed quartic has exactly one sign change; for 4<p<16 positive coefficients on (0,1/2), negative on (3/4,1), and strictly negative N_x on the middle establish exactly one simple zero and a unique global maximum. The resultant Res_p(N,N_p)=-4x^2(x-1)^4(8x^2-7x+2)(16x^2+40x-23), together with N=N_p=0, gives the sole optimizer turn x=sqrt(3)-5/4, p=(64+48sqrt(3))/99. N(1/2,p)=p(p-4)/8 fixes the half-filling crossing; at (3/4,16), N_x=-72,N_p=3/2, H=(16-p)/8+2p(x-3/4)^2 and A->9/8 give the edge expansion and divergence. Independently recomputed quartic identities and resultant in exact symbolic arithmetic from the actual RESULT.md, not only verifier logs. This is the optimum of the published long-time MFT coefficient, not a microscopic or finite-size theorem.
 
-**Closest literature and scientific limits.** The principal source is arXiv:2301.10680, equations (87), (98), (100), (101) and Fig. 3. Related input theory is arXiv:1801.08952 and arXiv:2104.14650; arXiv:2208.02124 treats a distinct optimization; arXiv:2405.19984 uses different microscopic dynamics. The theorem assumes uniform, zero-magnetization quenched initial profiles in the hydrodynamic limit, and squared Péclet number strictly below 16. Near-critical asymptotics need not be uniform over finite sizes. Independent validation and exhaustive publication-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source Jose–Dandekar–Ramola already derives the active exclusion-lattice model, asymmetry and current-noise prefactor; those inputs are not original. The new statement is the complete all-density global optimizer classification, unique turn, exact Pe=2 transition and spinodal scaling, which are not asserted in the inspected primary Section 8. Related hydrodynamic and large-deviation theory concerns stability or different rate-function variational problems. Best-of-knowledge PASS, not a guarantee of priority; a misleading original source locator (Eq 101) should be corrected to the corresponding long-time coefficient equation in future publication metadata, without changing the mathematical result.
+
+## value
+
+PASS
+
+Maximizing the intensity of current fluctuations is a natural observable-specific optimization in active excluded-volume transport. A global unique optimizer with a reentrant curve and early half-filling crossover is substantive information beyond plotting the known prefactor at chosen densities; the sharp critical asymptotic specifies its degeneracy. The exact stable-regime classification is useful for further analyses of active transport, with no claim of clinical/experimental prescription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
