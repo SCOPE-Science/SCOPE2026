@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The exact standalone program `verify.py` needs only Python 3 and was run from its actual package source. Its full checks are finite-field multiplication in \(\mathbb F_4\), complete row-reduced enumeration of all \(357\) rank-two subspaces of \(\mathbb F_4^4\), exact cubic-containment testing, Frobenius orbit counts, and exhaustive projective counts over \(\mathbb F_2\) and \(\mathbb F_4\).
+# Independent mathematical audit
 
-Expected terminal lines:
-```
-GEOMETRIC_PLANES=27, F2_PLANES=15, F4_NEW_PLANES=12, FROBENIUS_PAIRS=6
-CLEBSCH_F2_POINTS=15, CLEBSCH_F4_POINTS=45
-DIRECT_SEGRE_F2_AND_F4_COUNTS_AND_CONE_TRANSLATION_OK
-SEGRE_CONE_F2_POINTS=31, F4_POINTS=181
-PICARD_FROBENIUS_EIGEN_MULTIPLICITIES=+1:6,-1:1
-ZETA_S=1/((1-T)(1-2T)(1-4T)^6(1+4T)(1-8T))
-VERIFY_OK
-```
-The script checks the enumerated finite geometry. The infinite-field geometric-line count, reducedness of the Fano scheme, and formulas for all extension degrees are justified separately by the proof in `RESULT.md`. A finite experiment is not being substituted for these geometric arguments. Independent validation has not been performed.
+## correctness
+
+PASS
+
+In characteristic two the cubic is invariant under all-one translation on sum Xi=0; quotient by the all-one vector is the smooth Clebsch cubic (five square derivatives force all coordinates equal, then sum forces zero). Any contained plane must pass through the vertex, since projection otherwise produces a plane in a smooth cubic surface; planes through the vertex correspond to cubic-surface lines. Cayley–Salmon yields 27 geometric lines. The two coprime normal derivative binary quadrics rule out infinitesimal deformations of the cone plane; consequently the finite Fano scheme is reduced and etale over perfect F2. Independent GF4 row-reduced enumeration over 357 lines found 27 contained and 15 Frobenius-fixed; the cubic Picard rank seven and Frob^2=1 on lines imply eigenvalues +1 sixfold/-1 once from 15 F2 points. The cone count is 1+q times the base count, yielding all-extension zeta. The GF4 enumeration alone does not prove 27 geometric lines or zeta for all m.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison supports new combined conclusion within the precise scope; not merely lack of search hits. For the characteristic-two fiber of sum Xi=sum Xi^3=0 in P5, S is the normal cone over smooth Clebsch cubic Y with a unique multiplicity-three vertex; its plane Fano scheme is finite etale degree 27 with 15 F2 fixed planes and six Frobenius pairs; #S(F_{2^m})=1+q+(6+(-1)^m)q^2+q^3 and the stated rational zeta function. Historical priority remains qualified.
+
+## value
+
+PASS
+
+The degeneration of the canonical six-coordinate Segre cubic from its classical 10 nodes/15 planes to one triple cone vertex and 27 reduced planes is a natural bad-reduction classification; the exact arithmetic Frobenius splitting and all-extension zeta provide a useful geometric model rather than a small finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

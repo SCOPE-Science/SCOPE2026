@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The cone identification follows from an exact six-coordinate cubic identity in characteristic two. The base is smooth by the Jacobian criterion. The 27 plane count follows from the smooth-cubic 27-line theorem and the impossibility of planes avoiding the vertex; the Fano tangent calculation excludes embedded infinitesimal plane deformations. Exact \(\mathbb F_4\) enumeration places every geometric plane in the quadratic extension and finds 15 fixed points. The smooth-cubic Picard trace argument proves the zeta formula for all extensions. The packaged verifier was independently executed against its current path, not copied from a historical log.
+## correctness
 
-**Originality: PASS, qualified.** The classical sources Kondō 2011 (Section 2) and Dolgachev 2015 prove 15 planes for the ordinary 10-nodal Segre cubic and gives the defining power sums. Their inspected sections do not identify the characteristic-two cone or its 27-point Fano scheme. The strongest related later account, Vikulova 2023/2024, gives the Galois involution with 15 fixed lines on a smooth characteristic-two cubic surface, but not the degeneration of the cubic **threefold**. Kadyrsizova et al. 2020 treat cubic surfaces and not this special threefold. Exact-claim searches in mathematical literature, published-finding corpus, and accessible prior claims found no statement implying the cone-plus-Fano-plane result. Historical unindexed coverage remains possible; search absence alone is not treated as uniqueness proof.
+PASS
 
-**Value: PASS.** This is a natural bad-reduction boundary of a celebrated 10-node, 15-plane cubic threefold: 10 isolated nodes coalesce into a single multiplicity-three cone vertex, while the finite scheme of contained planes grows from 15 to 27 yet remains reduced. The Frobenius orbit decomposition and full zeta function make the exceptional geometry arithmetically explicit. The result is therefore a geometric degeneration classification rather than a routine graph invariant or isolated small-field count.
+In characteristic two the cubic is invariant under all-one translation on sum Xi=0; quotient by the all-one vector is the smooth Clebsch cubic (five square derivatives force all coordinates equal, then sum forces zero). Any contained plane must pass through the vertex, since projection otherwise produces a plane in a smooth cubic surface; planes through the vertex correspond to cubic-surface lines. Cayley–Salmon yields 27 geometric lines. The two coprime normal derivative binary quadrics rule out infinitesimal deformations of the cone plane; consequently the finite Fano scheme is reduced and etale over perfect F2. Independent GF4 row-reduced enumeration over 357 lines found 27 contained and 15 Frobenius-fixed; the cubic Picard rank seven and Frob^2=1 on lines imply eigenvalues +1 sixfold/-1 once from 15 F2 points. The cone count is 1+q times the base count, yielding all-extension zeta. The GF4 enumeration alone does not prove 27 geometric lines or zeta for all m.
 
-**Limits.** Only the specified six-coordinate integral model and its characteristic-two fiber are treated. The base cubic's Galois involution is earlier knowledge and not asserted as original. No independent audit or historical-priority guarantee is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison supports new combined conclusion within the precise scope; not merely lack of search hits. For the characteristic-two fiber of sum Xi=sum Xi^3=0 in P5, S is the normal cone over smooth Clebsch cubic Y with a unique multiplicity-three vertex; its plane Fano scheme is finite etale degree 27 with 15 F2 fixed planes and six Frobenius pairs; #S(F_{2^m})=1+q+(6+(-1)^m)q^2+q^3 and the stated rational zeta function. Historical priority remains qualified.
+
+## value
+
+PASS
+
+The degeneration of the canonical six-coordinate Segre cubic from its classical 10 nodes/15 planes to one triple cone vertex and 27 reduced planes is a natural bad-reduction classification; the exact arithmetic Frobenius splitting and all-extension zeta provide a useful geometric model rather than a small finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
