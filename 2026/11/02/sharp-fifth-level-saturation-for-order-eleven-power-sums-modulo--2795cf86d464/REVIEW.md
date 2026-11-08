@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over every \(p\equiv1\pmod{11}\), every \(k\ge3\), and every \(q\) with exact order eleven. The upper bound eleven follows from the geometric sum and invertibility of \(q-1\). A nonzero integer resultant of magnitude at most \(10^{10}\) excludes short sums whenever \(p^k>10^{10}\). The finite remainder contains exactly 29 primes and 31 modular scans, each testing all \(\binom{21}{11}-1\) coefficient vectors of total weight 1 through 10. The standalone checker verifies the prime list, primitive-order property, every modular condition, the four/five exceptional levels and explicit nine-term witnesses. Reduction modulo lower powers of \(p\) supplies the step from finite checks to every higher exponent. No finite experiment is used as an unproved infinite extrapolation. Residual risk: the computer-assisted finite enumeration has not undergone independent implementation review, although its small deterministic source and independent short-vector cross-check are provided.
+## correctness
 
-## Originality — PASS within inspected evidence
-Jacob–Külshammer (arXiv:2204.09403, Sections 1 and 3) study the same invariant and include the exceptional prime-23 numerical sequence. Those data are acknowledged as prior. An accessible earlier mathematical record proves a generic cyclotomic norm cutoff; the present result does not claim that step as new. Another earlier record treats the three-/four-summand finite-field order-eleven spectrum. Neither prior result entails that **every** prime other than 23 has minimum eleven already modulo its cube, or that the exact uniform cutoff is five. The accessible full-text comparison with Breuer et al. (arXiv:1912.03065) and targeted mathematical-record and bibliographic searches gave no all-prime order-eleven prime-cube theorem. Residual risk: unindexed equivalent results or inaccessible records; absence from a search is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-The stabilization index of the minimum power-sum length is a natural invariant in the published prime-power question, and Jacob–Külshammer explicitly motivate bounding that index. Replacing the generic bound with a **sharp** global cutoff resolves a coherent infinite family, not an arbitrary finite table. The exceptional prime 23 demonstrates sharpness, while the resultant proof makes finite verification logically exhaustive. The result is specific to order eleven and does not settle general subgroup orders.
+Read RESULT.md and verifier source. For order-11 q, any ≤10-term vanishing sum corresponds to nonnegative degree≤10 polynomial g with total coefficient count ≤10. Since Φ11 irreducible, resultant R(Φ11,g) is nonzero integer |R|≤10^10 and p^k|R, reducing for k≥3 to p<2155, 29 primes ≡1 mod 11. Independently coded C++ sieve, Hensel root generator and complete stars-and-bars enumeration; scanned 31 full moduli ×352715 coefficient vectors=10,934,165, found only minimum 9 for p=23 at levels 3 and4, no ≤10 sum at 23^5 or all other p^3. Reduction from p^k to p^3/23^5 plus 11-term cyclotomic sum establishes every higher k, not extrapolation from finite range. The exact p23 sequence was prior; uniform all-prime assertion is assessed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Jacob–Külshammer already define m(q,e), prove general tools, and tabulate p=23 order-11 sample m=3,5,9,9,11, so this exact sample and the generic resultant bound are NOT novel. The assessed all-prime order-eleven level≥3 exclusion and sharp uniform level-five classification require 31 exact modular searches not supplied by the inspected prior table. Breuer et al. and Resultary related cyclotomic results do not by cited statements imply this uniform cutoff; undiscovered exhaustive work remains a risk.
+
+## value
+
+PASS
+
+Prime-power stabilization of shortest vanishing sums is a published arithmetic question. Proving a sharp all-prime exponent-five threshold at a fixed natural small order eleven, and identifying exactly the exceptional prime and levels, converts a generic resultant bound into a uniform sharp classification; independent exact arithmetic verifies finite remainder. It is specific to order 11 but not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
