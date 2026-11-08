@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:42:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-active-edge-allocation-on-a-five-cycle-with-one-priced-lin--ccfd8e9d0e03/RESULT.md",
+        "2026/11/02/exact-active-edge-allocation-on-a-five-cycle-with-one-priced-lin--ccfd8e9d0e03/verify.py"
+      ],
+      "rationale": "For ordinary combinatorial weighted Laplacian C5, objective lambda_2 with positive linear budget, 0<q<16 and B>0, positive homogeneity reduces optimization to minimizing cost for lambda_2>=1. Reflection-even and odd two-dimensional characteristic polynomials give b=(2a-1)/(5a-3), t=(2a-1)^2/(5a^2-6a+2) and both low eigenvalues exactly 1. The exact sixth-degree Bernstein coefficients are all negative on z=5a-3 in [0,1], proving Q(a) strictly decreasing on (sqrt(2/5),4/5) from 16 to 0. Remaining eigenvalues lie above 1. Positive dual weights alpha,beta multiply squared edge differences of normalized unit even and odd eigenvectors to equal the individual edge prices, so any independent nonnegative conductances with gap>=1 cost>=C=alpha+beta. Equality makes both eigenvectors eigenvalue-one eigenvectors; their five vertex equations force all conductances individually, proving uniqueness even without imposed symmetry. Independently checked the exact q=25/16 instance a=.7,b=.8,t=.64,C=4 and Laplacian low double eigenvalue=1. The bundled verify.py symbolic identities, Bernstein representation and 1500 random comparisons were read; random comparisons alone do not prove globality. Endpoint q=0,16 excluded.",
+      "residual_risks": [
+        "No uniqueness assertion at q=0 or q=16, no arbitrary masses or arbitrary priced cycles, not discrete-time SLEM."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2006 source gives equal-rate cycles and dual dimension bound <=2 for arbitrary cycle prices, which is a method but not a closed solution to the one-priced C5 family.",
+          "Fiedler 1993 is plausible historical minimax context but was not materially inspected, hence no whole-document noncoverage claim."
+        ],
+        "reasoning": "A solvable general convex program dominates numerical optimization but does not imply the exact formula/phase structure unless its optimality equations are explicitly solved; the proof here does so.",
+        "searches": [
+          "Sun et al SIAM Rev 2006 complete PDF Section 5.3 cycle examples",
+          "Fiedler, Some minimax problems for graphs, Discrete Mathematics 121 (1993)",
+          "Published spectral graph optimization sources via web query"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 3253d806c559377fe28c6edce42bab0f30ead167, verify.py 3f4ba892db2306e593be5f3fdbecf19ce6cea660, SLOGAN and other metadata read",
+        "Sun/Boyd/Xiao/Diaconis SIAM Review 2006 full author PDF",
+        "Boyd/Diaconis/Xiao SIAM Review 2004 SLEM",
+        "Fiedler 1993 bibliographic comparison",
+        "Resultary spectral-gap priced cycle semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A two-dimensional dual existence bound does not determine the positive αβ combination or force the five independent primal edges.",
+          "The new proof establishes Q<0 monotonicity by Bernstein certificates and unique equality via eigenvector equations."
+        ],
+        "reasoning": "The dual framework is prior art but cannot by itself imply a unique closed-valued algebraic optimizer for each 0<q<16 without the new solved identities.",
+        "searches": [
+          "Sun et al MVU dual and cycle section §5.3",
+          "Exact RESULT.md Bernstein and global equality arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al optimize the same λ2 of weighted Laplacian under linear edge-rate cost, and the MVU dual parallels the package even/odd certificate.",
+          "The discrete-time chain paper optimizes SLEM with probability constraints, so it is not automatically equivalent to the continuous-time cost-normalized problem."
+        ],
+        "reasoning": "The abstract/general optimization matches, but the quantitative all-price family and unrestricted uniqueness are extra claims; matching the SDP formulation cannot itself prove the algebraic formula.",
+        "searches": [
+          "Sun, Boyd, Xiao, Diaconis 2006 The Fastest Mixing Markov Process, §3 duality and §5.3 cycles",
+          "Boyd Diaconis Xiao 2004 Fastest Mixing Markov Chain on a Graph",
+          "Resultary query: fastest mixing Markov process five cycle one priced edge exact optimal spectral gap conductance dual price q"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equal-price cycle results and critical screening threshold precede this claim; the exact subcritical vector (a,b,b,a,t), root Q and unique optimizer were not in inspected source portions.",
+          "For q=25/16 direct eigenvalue computation confirms λ2=1 twice and normalized cost 4."
+        ],
+        "reasoning": "A known threshold is credited, not repackaged as new. No checked table of all subcritical one-priced C5 optimum vectors matched the claim.",
+        "searches": [
+          "Sun et al cycle example formulas/figures",
+          "Five-cycle edge screening q=16 published prior",
+          "verify.py symbolic identities at q=25/16"
+        ]
+      },
+      "rationale": "PASS, qualified. Sun/Boyd/Xiao/Diaconis (SIAM Review 2006) Section 5.3 already formulates the same continuous-time SDP and dual and handles equal-price cycles plus dimension-two duality for general cycles; screening at q=16 is not claimed novel. It does not provide this exact one-priced five-cycle allocation for all subcritical q with uniqueness against asymmetric designs. The 2004 fastest mixing chain paper concerns discrete-time SLEM. Specialist Fiedler 1993 remains an uninspected possible predecessor.",
+      "residual_risks": [
+        "Older specialized priced-graph minimax optimization may encode the closed C5 solution without matching title.",
+        "Uniqueness only on open 0<q<16, equal masses, ordinary graph Laplacian and one-priced-edge symmetry class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING SDP/duality/equal-price cycles; no identified explicit one-priced C5 all-q conductance allocation",
+          "evidence": "Sun et al SIAM Rev 48 (2006), §§3–5.3",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Author-hosted complete paper, formulation and dual §§3–5 and cycle §5.3 (including pages corresponding to the cycle analysis and asymmetry discussion)",
+          "method": "Readable primary PDF and relevant PDF page screenshots",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same Laplacian eigenvalue maximization, weighted edges and dual"
+        },
+        {
+          "assessment": "Different objective, so not direct implication",
+          "evidence": "Boyd/Diaconis/Xiao SIAM Rev 46 (2004), abstract and formulation",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Published 2004 paper abstract/formulation and differences between SLEM and continuous-time spectral gap",
+          "method": "Author publication page and supplied PDF description",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Potential optimization alias"
+        },
+        {
+          "assessment": "UNKNOWN; retain historical-priority risk",
+          "evidence": "Fiedler 1993 Discrete Mathematics 121, pp 65–74",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(93)90143-Z",
+          "material_read": "Bibliographic reference only; complete text not read",
+          "method": "Source bibliography and bounded search",
+          "title": "Some minimax problems for graphs",
+          "trigger": "Possible older graph Laplacian minimax special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md 3253d806c559377fe28c6edce42bab0f30ead167, verify.py 3f4ba892db2306e593be5f3fdbecf19ce6cea660, SLOGAN and other metadata read",
+        "Sun/Boyd/Xiao/Diaconis SIAM Review 2006 full author PDF",
+        "Boyd/Diaconis/Xiao SIAM Review 2004 SLEM",
+        "Fiedler 1993 bibliographic comparison",
+        "Resultary spectral-gap priced cycle semantic search"
+      ],
+      "rationale": "This supplies a sharp globally unique conductance design with continuously variable edge price, exact algebraic inverse and active-edge/edge-screening transition. Spectral-gap allocation is a natural convex graph optimization problem, and the concrete nontrivial price law plus unrestricted symmetry-breaking exclusion improves on equal-price cycles or SDP solvability, providing usable explicit network-design data.",
+      "residual_risks": [
+        "Older specialized priced-graph minimax optimization may encode the closed C5 solution without matching title.",
+        "Uniqueness only on open 0<q<16, equal masses, ordinary graph Laplacian and one-priced-edge symmetry class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No uniqueness assertion at q=0 or q=16, no arbitrary masses or arbitrary priced cycles, not discrete-time SLEM.",
+    "Older specialized priced-graph minimax optimization may encode the closed C5 solution without matching title.",
+    "Uniqueness only on open 0<q<16, equal masses, ordinary graph Laplacian and one-priced-edge symmetry class."
+  ],
+  "schema_version": 1
+}

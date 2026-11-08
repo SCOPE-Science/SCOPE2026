@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The full five-dimensional Laplacian splits by reflection into two nontrivial two-dimensional spectral blocks. Explicit branch equations give the candidate; a polynomial with seven strictly negative Bernstein coefficients proves uniqueness of the price parameter on the entire claimed interval. Two positive spectral-dual multipliers furnish an exact edgewise supporting certificate valid for unrestricted conductance vectors, and equality forces the original symmetric solution by five eigenvector equations. All central symbolic identities are independently recomputed by `verify.py`; the finite numerical tests only supplement the proof. The boundaries are explicitly excluded from uniqueness.
+PASS
 
-## Originality
+For ordinary combinatorial weighted Laplacian C5, objective lambda_2 with positive linear budget, 0<q<16 and B>0, positive homogeneity reduces optimization to minimizing cost for lambda_2>=1. Reflection-even and odd two-dimensional characteristic polynomials give b=(2a-1)/(5a-3), t=(2a-1)^2/(5a^2-6a+2) and both low eigenvalues exactly 1. The exact sixth-degree Bernstein coefficients are all negative on z=5a-3 in [0,1], proving Q(a) strictly decreasing on (sqrt(2/5),4/5) from 16 to 0. Remaining eigenvalues lie above 1. Positive dual weights alpha,beta multiply squared edge differences of normalized unit even and odd eigenvectors to equal the individual edge prices, so any independent nonnegative conductances with gap>=1 cost>=C=alpha+beta. Equality makes both eigenvectors eigenvalue-one eigenvectors; their five vertex equations force all conductances individually, proving uniqueness even without imposed symmetry. Independently checked the exact q=25/16 instance a=.7,b=.8,t=.64,C=4 and Laplacian low double eigenvalue=1. The bundled verify.py symbolic identities, Bernstein representation and 1500 random comparisons were read; random comparisons alone do not prove globality. Endpoint q=0,16 excluded.
 
-PASS on inspected evidence, with priority risk. Sun–Boyd–Xiao–Diaconis (2006), Sections 3–5, solve the general problem by SDP and the equal-price cycle case, but do not give the claimed exact price-to-conductance law on an unequal-price five-cycle. Their Result 6 bounds the cycle eigenvalue multiplicity, which does not imply the explicit active-phase allocation. Boyd–Diaconis–Xiao (2004) optimize a different discrete-time SLEM objective. An earlier cycle-edge-screening result already gives the closing-edge threshold at \(q=16\) and is not superseded by claiming that threshold again. Exact all-parameter active allocation, global uniqueness and strict monotone rational inversion are the distinctive claim. Specialist older spectral extremal literature, including Fiedler's 1993 minimax work, remains a possible priority overlap because its full text was not available.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Four identical prices and one exceptional price are a canonical one-defect graph-design problem. The smallest nontrivial odd cycle beyond a triangle has a two-dimensional competing Fiedler eigenspace, so the allocation is not a direct one-branch path calculation. The new explicit active-phase solution and global asymmetric uniqueness complement the already known edge-screening price and provide an exactly solvable benchmark for cost-sensitive spectral optimization.
+PASS, qualified. Sun/Boyd/Xiao/Diaconis (SIAM Review 2006) Section 5.3 already formulates the same continuous-time SDP and dual and handles equal-price cycles plus dimension-two duality for general cycles; screening at q=16 is not claimed novel. It does not provide this exact one-priced five-cycle allocation for all subcritical q with uniqueness against asymmetric designs. The 2004 fastest mixing chain paper concerns discrete-time SLEM. Specialist Fiedler 1993 remains an uninspected possible predecessor.
 
-## Limits and closely related literature
+## value
 
-The result is restricted to \(C_5\), ordinary Laplacian mass normalization, continuous-time gap and \(0<q<16\). It does not claim general-cycle formulas or rates at endpoint prices. The historical full-text access limitation is a residual originality risk rather than a claim of having read inaccessible work. Numerical checks do not certify an infinite parameter continuum; the analytic Bernstein and dual identities do.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This supplies a sharp globally unique conductance design with continuously variable edge price, exact algebraic inverse and active-edge/edge-screening transition. Spectral-gap allocation is a natural convex graph optimization problem, and the concrete nontrivial price law plus unrestricted symmetry-breaking exclusion improves on equal-price cycles or SDP solvability, providing usable explicit network-design data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
