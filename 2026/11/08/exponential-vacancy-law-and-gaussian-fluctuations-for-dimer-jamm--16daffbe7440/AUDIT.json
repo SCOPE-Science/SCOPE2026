@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "State symmetry gives an exact rational recurrence and correct boundary conditions. A self-contained fluid-martingale argument yields the positive vacancy density and an almost-martingale with predictable quadratic variation \\((4e^c-(c+2)^2)/\\beta\\), giving the explicit CLT. Finite exact enumeration on 49 states and symbolic variance checks independently agree; simulations corroborate only finite behavior.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gamarnik–Goldberg, arXiv:0807.1277, Theorems 2 and 5 and Introduction explicitly require regular large-girth/constant-degree settings for their explicit matching laws; their arbitrary-graph variance bounds depend on bounded degree.",
+        "Krivelevich et al., DOI:10.1002/rsa.21200, discuss local-convergence limits for greedy vertex independent sets; the line graphs of the present split graphs have diverging degree.",
+        "Dyer–Frieze (1991) public abstract describes general approximation guarantees and sparse graphs; full text was unavailable."
+      ],
+      "reasoning": "Regular/girth or local-finite-degree asymptotic formulas do not dominate the dense, nonregular complete split family; general performance inequalities cannot directly yield the exact \\(e^{-\\alpha/\\beta}\\) density or stated Gaussian variance. Historical priority from inaccessible general-matchings treatments remains an explicit risk.",
+      "searches": [
+        "random greedy matching graphons deterministic ODE dense graphs graphon limit",
+        "random greedy matching complete multipartite graph limiting size differential equations",
+        "Gamarnik Goldberg 2008 randomized greedy regular graphs girth matching",
+        "Dyer Frieze 1991 randomized greedy matching fixed graph performance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0611413",
+      "arxiv:0807.1277",
+      "doi:10.1002/rsa.21200",
+      "doi:10.1137/0402034 (abstract only)",
+      "doi:10.1002/rsa.3240020104 (abstract only)",
+      "published mathematical result: Sharp variance of random greedy maximal independent sets on complete multipartite graphs (distinct vertex-greedy observable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cadilhe–Araújo–Privman, arXiv:cond-mat/0611413, sections 1–5: continuum, Euclidean lattice, prepatterned Bethe and square lattice settings, not complete split graphs.",
+        "Gamarnik–Goldberg, arXiv:0807.1277, studied matching results restricted to regular fixed-degree high-girth graphs.",
+        "Krivelevich et al., DOI:10.1002/rsa.21200, full online article focuses on vertex-greedy maximal independent sets and local graph limits.",
+        "The Dyer–Frieze and Pippenger public abstracts are too limited for a whole-document negative assertion."
+      ],
+      "reasoning": "No inspected theorem with applicable assumptions outputs the explicit density and covariance coefficient. This establishes nonimplication for the examined statements, not a guarantee against an inaccessible special case or historical equivalent.",
+      "searches": [
+        "Random Sequential Adsorption on Graphs Pippenger 1989",
+        "Randomized greedy matching Dyer Frieze 1991",
+        "Random Sequential Adsorption From Continuum to Lattice and Pre-Patterned Substrates Cadilhe 2006",
+        "Greedy maximal independent sets via local limits Krivelevich 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is equivalent to the uniform-edge random greedy matching algorithm on a complete split graph, or to a random-order greedy independent set on its line graph. Gamarnik–Goldberg, arXiv:0807.1277, Section 1.1 explicitly describes greedy edge matching; Krivelevich et al., DOI:10.1002/rsa.21200, Introduction states the line-graph relation."
+      ],
+      "reasoning": "The exact two-population terminal vacancy distribution, its explicit nonzero macroscopic density, and its central-limit variance are not present in the inspected equivalent-model discussions; the line-graph equivalence alone supplies no evaluation.",
+      "searches": [
+        "uniform random available edge greedy matching complete split graph clique joined independent set limit unmatched m exp(-n/m)",
+        "random sequential dimer adsorption split graph complete join K_n independent vertices jamming e^{-alpha} continuum limit",
+        "complete split graph random sequential adsorption dimers clique independent set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published search results returned general frameworks, greedy independent-set results on other graph families, and the graph RSA review; no published exact split-graph dimer polynomial or fluctuation table was identified.",
+        "The computed \\(Q_{4,4}\\) polynomial was independently checked against explicit labeled-edge exact enumeration."
+      ],
+      "reasoning": "The finite rational data are deductions of the recurrence, not a reprint of a previously identified table. An unsuccessful table search is not evidence of uniqueness, so unindexed tabulations remain possible.",
+      "searches": [
+        "random sequential adsorption matching complete split graph exact distribution polynomial",
+        "edge-uniform greedy matching split graphs sharp law number of isolated independent vertices",
+        "randomized greedy matching split graph coefficient Gaussian variance"
+      ]
+    },
+    "rationale": "After semantic search of equivalent graph/algorithm descriptions, comparison against accessible primary results and the available prior-claim ledger, no statement was found giving both the two-population exponential jamming law and its explicit Gaussian variance. Relevant abstract-only foundational texts remain residual priority risks; unsuccessful search is not proof of uniqueness.",
+    "residual_risks": [
+      "Dyer–Frieze 1991 full text could not be recovered and may contain a special-case analysis not named in its abstract.",
+      "Pippenger 1989 complete source was unavailable; the article includes an edge RSA variant beyond the abstract summary.",
+      "Generic density-dependent Markov chain central-limit theory supplies proof methods; any previously published explicitly evaluated split-graph solution would dominate the claimed originality.",
+      "Unindexed older physics studies or graph tables may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Context, not covering: lattice/continuum/prepatterned substrate cases do not provide the complete-split-graph stochastic law",
+        "evidence": [
+          "Sections 3–5 treat lattice deposition, pre-patterned Bethe lattices, and square-lattice geometries; no complete split graph stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0611413",
+        "material_read": "PDF text, Sections 1–5 (pages 1–10), with page-image checks on pages 1 and 5; references metadata",
+        "method": "Direct source reading and phrase searches for split, complete, dimer",
+        "title": "Random sequential adsorption: from continuum to lattice and pre-patterned substrates",
+        "trigger": "Focal early statistical-physics treatment of irreversible adsorption and jammed coverage"
+      },
+      {
+        "assessment": "Not covering: bounded-degree regular high-girth matching laws and arbitrary bounded-degree concentration do not imply dense split-graph law or CLT coefficient",
+        "evidence": [
+          "Section 1.2 specifies regular fixed-degree and large girth for exact laws; Theorems 2 and 5 apply to regular graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0807.1277v1",
+        "material_read": "Full accessible HTML article structure, Introduction, Theorems 1–6, related results and text searches for split and multipartite",
+        "method": "Read primary full HTML including problem and hypotheses, compare theorem quantifiers",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Same edge-greedy algorithm and possibility of dominating asymptotic matching theorem"
+      },
+      {
+        "assessment": "Not covering on inspected applicable statements: its local-limit vertex-MIS settings do not evaluate the growing-degree line-graph family",
+        "evidence": [
+          "Introduction connects matching with line graphs, while its results concern vertex greedy independent sets and sparse local convergence."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Accessible full HTML: abstract, introduction, statement scope, matching equivalence and searches for split",
+        "method": "Direct reading and full-document keyword searches",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Generic local-limit work and exact equivalence of edge-greedy matching with greedy independence on a line graph"
+      },
+      {
+        "assessment": "Possible historical overlap not excluded; described regular few-short-cycles settings do not match complete split graphs",
+        "evidence": [
+          "Article abstract describes regular graph cases with few short cycles and a separate edge RSA variant; original print year 1989."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Public abstract and bibliographic/MSC information only; no complete paper",
+        "method": "Publisher abstract and institutional listing",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Foundational edge RSA on graphs, potentially strongest prior physical result"
+      },
+      {
+        "assessment": "Unresolved source-priority risk; abstract emphasizes worst-case and sparse-graph approximation, not a stated exact split-graph CLT",
+        "evidence": [
+          "Journal abstract states uniformly chosen remaining edges and forest/planar performance, not an evaluated split-graph law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Public abstract and bibliographic information only; full text not obtained",
+        "method": "ArXiv and freely accessible full-text searches yielded only the bibliographic abstract; full text remained inaccessible",
+        "title": "Randomized greedy matching",
+        "trigger": "Same edge-selection process and general graph results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "16daffbe-7440-4f9d-a8d4-645de12c81e4",
+  "value": {
+    "rationale": "The complete split family has abundant perfect matchings but irreversibly jams with a positive macroscopic defect. The closed \\(e^{-\\alpha/\\beta}\\) law, explicit Gaussian variance and full finite recurrence are a motivated, nontrivial statistical-mechanics benchmark beyond static matching counts.",
+    "status": "PASS"
+  }
+}
