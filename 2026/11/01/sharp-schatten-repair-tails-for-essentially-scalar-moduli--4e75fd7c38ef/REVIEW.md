@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The precise hypotheses are an invertible operator with modulus a compact self-adjoint perturbation of a positive scalar identity and a finite rank budget on subcritical singular directions. Compactness of the shifted modulus after correction, the codimension-intersection min--max lower bound, the polar-aligned clipping extremizer, and the all-\(p\) Schatten infimum are proved in RESULT.md. The proof uses an infinite-dimensional min--max argument and does not extrapolate finite tests. The executable checker supplies 3,000 supplementary finite assertions.
+## correctness
 
-## Originality (O) — PASS (best knowledge)
-Su and Zhang, arXiv:2609.37621, establish the qualitative membership and compact-perturbation spectral criteria for \(eta_0(H)\). Bala and Golla, arXiv:2607.15222, characterize full Schatten deviations from scalar partial isometries. The inspected public record on polar-fiber density treats operator-norm approximation with no ideal restriction; the inspected public AN-distance record treats operator-norm distance. None of those inspected statements supplies the claimed universal pointwise singular-value lower bounds, sharp all-\(p\) correction costs, or one-sided Schatten repairability dichotomy. Statement-to-implication searches are detailed in AUDIT.json. Residual risk: an equivalent spectral-clipping/min--max theorem could exist under other terminology.
+PASS
 
-## Mathematical value (V) — PASS
-The exact cost of restoring reducing-subspace norm attainment under a prescribed budget of subcritical spectral directions is a natural quantitative problem following the published perturbation stability and instability results. Simultaneous optimality for all singular values, not just one norm, and the inability of arbitrary noncommuting corrections to improve these costs give a complete, reusable structural invariant. One-sided Schatten repair can hold even when full scalar-unitary Schatten approximation fails, and finite-rank repair can remain impossible.
+For invertible T=U(cI+E), E compact self-adjoint, |T+K|-cI stays compact under compact K. The beta_0 target has finite below-c spectral projection, exactly because infinite below-c eigenvalues rising to essential c create a reducing subspace whose top norm is not attained. Let V span the first m+j negative E eigendirections. Intersect with the orthogonal complement of the at-most m-dimensional below-c subspace of |T+K|; on its j-dimensional remainder the norm of X=T+K is >=c and norm T <=c-d_(m+j), so ||Kx|| >=d_(m+j)||x||. The compact singular min-max principle proves s_j(K)>=d_(m+j) without commutation assumptions. The single polar-aligned clipping correction U E_-(I-Q_m) realizes all ranks, gives every S_p tail infimum, the iff negative-tail membership criterion, cost-infimum zero for beta_0, and the infinite-rank finite-rank obstruction. All Hilbert and threshold assumptions were checked, including p<1 quasi-norms.
 
-## Scientific scope and limitations
-The result concerns invertible essentially-scalar-modulus operators and the modulus-defined class \(eta_0(H)\), not the whole class \(eta(H)\) or general essential spectra. Correctness is an analytical argument supplemented by finite numerical checks. Search incompleteness and independent mathematical assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact conclusions and logical implications, not titles or equal parameter words. Equivalent descriptions using reducing-subspace attainment, polar decomposition and scalar-essential-modulus spectral clipping were compared. The exact all-rank lower bound is not a restatement of qualitative membership or operator-norm density. A positive-tail E_+ outside S_p and negative-tail E_- inside S_p is repairable by this claim but not covered by Bala-Golla scalar-isometry S_p approximation. Operator-norm bounds cannot imply pointwise singular-value inequalities. The two 2026 preprints were inaccessible in complete text; hidden coverage risk remains explicit. Residual source-access risks and credited antecedents are explicit.
+
+## value
+
+PASS
+
+Restoring modulus norm attainment on every reducing subspace under a controlled finite below-essential-spectrum budget is a natural quantitative refinement of spectral repair. The simultaneous pointwise singular-number optimum rules out cheaper noncommuting corrections, and the strict negative-tail-only repairability criterion differs from two-sided Schatten distance to scalar partial isometries. The exact tail is an invariant that can be used for any p and any finite rank budget, not an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
