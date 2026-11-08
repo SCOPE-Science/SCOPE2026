@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:53:54.188601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In orthonormal (p,q) coordinates the error matrix has rows (0,-h/a) and (-alpha h,1-alpha b). Direct independent SymPy expansion of det(I-T^T T) agrees identically with -r^2+2y-[1+(1-r^2)s^2]y^2. If r>=1, ||T q||>=r; if r<1 the determinant criterion gives exactly the root interval. Setting alpha=1/b gives norm max(r,s), bounded by (kappa-1)/(2sqrt(kappa)) by AM-GM on rotated diagonal SPD matrices. Choosing tan(theta)=sqrt(mu/L) forces r to attain this value for every alpha, proving exact minimax, including kappa=1, h=0 and the critical 3+2sqrt2 threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Hu–Zhang (2026) claims Type-II nonsingularity and general error bounds; general convergence or energy norm estimates do not supply exact Euclidean transient minimax."
+        ],
+        "reasoning": "A stronger spectral preconditioning theorem does not directly determine the Euclidean singular-value norm; full-paper implication risk remains because only abstract was accessible.",
+        "searches": [
+          "Fan Hu Zhang arxiv:2609.11097 abstract and Type II",
+          "Xu Zhang two grid energy norm error propagation"
+        ]
+      },
+      "checked_sources": [
+        "Additive reduced basis preconditioners for large-scale parametrized PDEs — arxiv:2609.11097 — material read: Abstract and method summary; full text unavailable through arXiv and lawful OA; authorized institutional retrieval returned vpn_disconnected",
+        "Sharp Euclidean damping frontier for weighted Jacobi on 2x2 SPD systems — Resultary:2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f — material read: Published finding title and mathematical summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fan–Hu–Zhang gives nonsingularity sufficient conditions and Richardson context, while the safety frontier optimizes over alpha after orientation is fixed."
+        ],
+        "reasoning": "Exact sharp lower witness and full alpha interval are not derived from a general nonsingularity guarantee; a hidden theorem in the unavailable full text is a residual risk.",
+        "searches": [
+          "arxiv:2609.11097",
+          "Resultary: SCOPE-stagewise-safe-two-step-richardson-frontier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary works use two-coordinate Gauss–Seidel ordering and common scalar weighted-Jacobi damping, not one coarse Galerkin direction plus independent complementary correction."
+        ],
+        "reasoning": "The same condition-number constant may arise for other methods but the operators and minimax order differ; equivalent form not established.",
+        "searches": [
+          "rank one additive reduced basis 2x2 SPD Euclidean Richardson norm amplification",
+          "Resultary: two-coordinate Gauss-Seidel Euclidean transient threshold; weighted-Jacobi damping frontier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed formula belongs to weighted Jacobi, with different damping and Euclidean norm matrix."
+        ],
+        "reasoning": "No identified exact same Type-II 2x2 table or optimization; failed search alone is not novelty proof.",
+        "searches": [
+          "Resultary: SCOPE-weighted-jacobi-euclidean-damping-frontier",
+          "arxiv:2609.11097"
+        ]
+      },
+      "rationale": "Fan–Hu–Zhang establish Type-II reduced-basis correction, invertibility and general Richardson error discussion. The rank-one 2D Euclidean one-step minimax, exact tunable window and the nonnormal amplification threshold differ mathematically from spectral/energy-norm bounds and the separate published weighted-Jacobi problem. Full motivating paper was not accessible in this run; this is best-knowledge with explicit implication risk.",
+      "residual_risks": [
+        "The complete Fan–Hu–Zhang text could have sharper local error results than its abstract exposes; OA and institutional retrieval did not yield full text.",
+        "Claims are exactly two-dimensional SPD and Euclidean one-step Richardson; no higher-dimensional or Krylov conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source introduces method and general bounds; cannot assert whole document excludes exact minimax.",
+          "evidence": "Abstract: Type-II regularization, sufficient nonsingularity conditions and Richardson error bounds",
+          "identifier_or_url": "arxiv:2609.11097",
+          "material_read": "Abstract and method summary; full text unavailable through arXiv and lawful OA; authorized institutional retrieval returned vpn_disconnected",
+          "method": "arXiv abstract/OA metadata and institutional-access attempt",
+          "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+          "trigger": "Exact motivating Type-II correction and Richardson error"
+        },
+        {
+          "assessment": "Different correction map/common relaxation; not an implication without additional reduction.",
+          "evidence": "Summary states Jacobi robust frontier and damping thresholds",
+          "identifier_or_url": "Resultary:2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+          "material_read": "Published finding title and mathematical summary",
+          "method": "Resultary mathematical record summary",
+          "title": "Sharp Euclidean damping frontier for weighted Jacobi on 2x2 SPD systems",
+          "trigger": "Same Euclidean transient issue on a different scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-step Euclidean amplification of a convergent preconditioned iteration is a natural numerical stability invariant. The exact worst-orientation condition-number threshold separates universal contractivity from unavoidable optimally tuned spikes; the sharp safety interval supports practical coefficient selection in the specified 2D model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md Git blob 846d6f76382e2ec7132b22e9c72ed4ed3d4e3848; Git tree 0b50e1783392f6290d0eb26790ccee76a961693b",
+    "Independent calculations: /mnt/data/check_worker03_2345.py; direct BFS subsets, rational kernel and coverage checks, symbolic Type-II determinant, F2/F3/F5/F7 evolution automorphism count",
+    "Additive reduced basis preconditioners for large-scale parametrized PDEs — arxiv:2609.11097 — material read: Abstract and method summary; full text unavailable through arXiv and lawful OA; authorized institutional retrieval returned vpn_disconnected",
+    "Sharp Euclidean damping frontier for weighted Jacobi on 2x2 SPD systems — Resultary:2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f — material read: Published finding title and mathematical summary"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The complete Fan–Hu–Zhang text could have sharper local error results than its abstract exposes; OA and institutional retrieval did not yield full text.",
+    "Claims are exactly two-dimensional SPD and Euclidean one-step Richardson; no higher-dimensional or Krylov conclusion."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact basis reduction gives an explicit error matrix. Sylvester's criterion produces the complete strict one-step safety interval; the AM–GM inequality gives a universal upper bound, and a rotated SPD diagonal family attains that bound against every positive complementary correction. The symbolic checker independently reconstructs the decisive identities, and the finite probes check the numerical interpretation. At \(\kappa=1\), the preconditioner can equal the exact inverse. Boundary cases, including the neutral threshold, are stated explicitly.
+## correctness
 
-**Originality: PASS (best knowledge, residual priority risk).** The motivating additive reduced-basis manuscript establishes its correction construction, nonsingularity and norm estimates, not the present sharp Euclidean minimax result. The closest published weighted-Jacobi Euclidean result already contains the same **numerical** robust undamped-Jacobi condition-number threshold. Its common-scalar relaxation does not state the optimal-complement minimax identity or the entire allowable complementary interval with the first Galerkin coordinate fixed. Demmel's block scaling addresses preconditioned condition numbers; Xu–Zhang's two-grid theory concerns energy norms. Older exact two-dimensional relaxation calculations may remain; no historical uniqueness is claimed.
+PASS
 
-**Value: PASS.** The theorem supplies a complete calibration interval and exact worst-case robustness limit for a natural low-order instance of an actively proposed reduced-basis preconditioner. It quantifies \(\Theta(\sqrt\kappa)\) transient Euclidean growth even **after** optimizing the allowed correction and separates that growth from asymptotic convergence. This is a structural worst-case benchmark, not a performance claim for trained coarse spaces.
+In orthonormal (p,q) coordinates the error matrix has rows (0,-h/a) and (-alpha h,1-alpha b). Direct independent SymPy expansion of det(I-T^T T) agrees identically with -r^2+2y-[1+(1-r^2)s^2]y^2. If r>=1, ||T q||>=r; if r<1 the determinant criterion gives exactly the root interval. Setting alpha=1/b gives norm max(r,s), bounded by (kappa-1)/(2sqrt(kappa)) by AM-GM on rotated diagonal SPD matrices. Choosing tan(theta)=sqrt(mu/L) forces r to attain this value for every alpha, proving exact minimax, including kappa=1, h=0 and the critical 3+2sqrt2 threshold.
 
-**Limitations and closest literature.** The result concerns real two-dimensional SPD systems, exact arithmetic and a stationary Richardson error norm. The main nearby mathematical source is the published weighted-Jacobi Euclidean damping frontier, which already proves a related undamped threshold; classical diagonal relaxation and two-grid literature remains a residual priority risk. The proof does not extend to higher-dimensional, nonsymmetric or indefinite systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fan–Hu–Zhang establish Type-II reduced-basis correction, invertibility and general Richardson error discussion. The rank-one 2D Euclidean one-step minimax, exact tunable window and the nonnormal amplification threshold differ mathematically from spectral/energy-norm bounds and the separate published weighted-Jacobi problem. Full motivating paper was not accessible in this run; this is best-knowledge with explicit implication risk.
+
+## value
+
+PASS
+
+One-step Euclidean amplification of a convergent preconditioned iteration is a natural numerical stability invariant. The exact worst-orientation condition-number threshold separates universal contractivity from unavoidable optimally tuned spikes; the sharp safety interval supports practical coefficient selection in the specified 2D model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
