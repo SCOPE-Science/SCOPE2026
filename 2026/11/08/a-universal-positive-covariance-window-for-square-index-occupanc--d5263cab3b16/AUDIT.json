@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For every fixed positive j, the mixed moment m(m-1)Q-m²P_rP_s is derived from one- and two-box occupancy probabilities. The log-factor ratio has a uniform m^-2 expansion for N/m in compact positive intervals, with F=(alpha-a)^2/alpha and G(a)=1 at r=j²,s=(j+1)²,a=j(j+1). This yields the unscaled limiting covariance including the strict sign regions; the boundary signs are not asserted. A standalone standard-library verifier checked 720 exhaustive finite exact covariance identities, 300 critical polynomial identities, and 14 numerical diagnostics. Finite checks are supplemental and do not replace the Taylor proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sagitov (2026), arXiv:2604.15152v2, Theorem A and Theorem 1: general heterogeneous box covariance with order-n^-2 remainder for proportions; its main theorem does not specify the order-n^-2 coefficient.",
+        "Sevastyanov and Chistyakov (1964), DOI 10.1137/1109034, abstract: joint local normal theorem in central occupancy regime; full text inaccessible in inspected sources.",
+        "Barbour and Gnedin (2008), arXiv:0809.4387v1, §§4–6: multivariate infinite-box Poissonized covariance and correlation-limit classification."
+      ],
+      "reasoning": "A first-order multivariate covariance theorem is broader in model scope, but it leaves the order-one unnormalized covariance after first-order cancellation undetermined. The inspected bounds in Sagitov are two-sided rather than an identified limit coefficient, and cannot imply the positive sign at r=1,s=4,N=2m. The source gap for the full 1964 paper is retained as risk.",
+      "searches": [
+        "covariance of occupancy frequency counts double root r s square j j+1 density Poisson",
+        "Asymptotic Normality in the Classical Ball Problem Sevastyanov Chistyakov pdf",
+        "The Multinomial Allocation Model and the Random Box Load arxiv 2604.15152"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0809.4387v1, https://arxiv.org/html/0809.4387v1",
+      "Békéssy 1963, https://real.mtak.hu/201424/1/cut_MATKUTINT_8_1_-_2_1963_pp59_-_71.pdf",
+      "Sagitov arXiv:2604.15152v2, https://arxiv.org/html/2604.15152v2",
+      "Sevastyanov–Chistyakov 1964 abstract, https://doi.org/10.1137/1109034",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+      "Indexed mathematical research nearest IDs 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 and 2026/9/18/SCOPE-multinomial-mode-cesaro-universality--a66b1067c370"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical mixed moments: E[C_rC_s]=m(m-1)Q for distinct r,s; the novelty deliberately begins after this identity.",
+        "Sagitov (2026), Eq. (4) general leading covariance; for a consecutive-square pair this leading coefficient vanishes quadratically, and the unspecified remainder is of the same order as the answer.",
+        "Barbour–Gnedin (2008), Eq. (4.3) describes always-negative *Poissonized* cross-covariance in an infinite-box scheme, a different sampling law; the finite-fixed-total model can be positive."
+      ],
+      "reasoning": "At fixed load alpha=a the first-order covariance formula supplies only o(m), not the positive order-one constant; at alpha=a+z/sqrt(m) it supplies a negative quadratic contribution but misses the positive second-order correction. Hence no inspected stated theorem directly yields the full parabolic profile or its signs. Standard exact moments permit deriving it by new uniform expansion, a limited but motivated analytic contribution.",
+      "searches": [
+        "occupancy counts covariance number of cells containing r and s balls positive double root square frequencies",
+        "multinomial allocation covariance of r-tons and s-tons finite size corrections conditional Poisson",
+        "covariance frequency of frequencies occupancy counts second-order critical window tangency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed closest: 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813; the read RESULT.md theorem is about Cov(richness, one frequency), not Cov(two different frequencies).",
+        "Békéssy (1963), Eq. (13), gives a joint occupancy generating function encoding exact finite moments, but its investigated asymptotics concern marginal count distributions.",
+        "Sagitov arXiv:2604.15152v2 §2 Eq. (4) states the first covariance coefficient plus an unspecified bounded remainder, not the critical coefficient."
+      ],
+      "reasoning": "The identified alias is the cross-covariance of two frequency-of-frequencies coordinates. It is not a reparameterization of the richness-frequency covariance. A generating function or a first-order formula supports the starting moments but does not, by itself as a stated result, identify the square-index order-one limit after two cancellations. The new theorem requires and provides the next explicit coefficient.",
+      "searches": [
+        "Uniform multinomial occupancy frequency counts number of boxes occupied by exactly r and s balls: sign of covariance, double-zero transition at square indices r=j^2 s=(j+1)^2, finite-size positive covariance at density j(j+1)",
+        "Fine asymptotics of cross-covariance frequency-of-frequencies in finite equal-probability urn occupancy, degeneracy at r=1 s=4 and N=2m, positive constant covariance and sqrt(m) window",
+        "occupancy counts covariance number of cells containing r and s balls positive double root square frequencies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest indexed IDs: 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 and 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166. Neither summary or retrieved relevant theorem states the square-index cross-frequency window.",
+        "Békéssy (1963) p.62 Eq. (13) supplies general joint occupancy GF, not a table of the double-zero parabolic limits.",
+        "No exact matching indexed record or numerical table was identified in the completed queries."
+      ],
+      "reasoning": "Database nonmatches are not proof of global novelty; evidence only says the accessed index and relevant full-text result lacked an exact match. The claimed universal coefficient is not a recomputation of a cited table or a marginal variance.",
+      "searches": [
+        "Random allocations of n balls to m boxes covariance of r-tons and s-tons second-order critical window at tangency or degenerate limiting covariance",
+        "Small counts in infinite occupancy scheme Barbour Gnedin 2008 occupancy correlation exact covariance sign reversal",
+        "occupancy frequency covariance positive different sizes double sign changes threshold"
+      ]
+    },
+    "rationale": "The classical exact occupancy moments and fixed-load first covariance coefficient are explicitly excluded from the novel claim. A double cancellation for precisely consecutive square indices requires retaining the next asymptotic order and tuning load within m^-1/2; the resulting universal order-one parabolic covariance window was not identified in the primary source sections inspected, nor in the recoverable closest indexed records. The historical multivariate literature may contain implicit higher-order expansions, so this is a qualified best-knowledge priority assessment.",
+    "residual_risks": [
+      "Classic multivariate local-limit sources may contain an uninspected second-order expansion; specifically the full Sevastyanov–Chistyakov 1964 text could not be inspected.",
+      "Békéssy’s 1963 general joint generating function and later general exact moment formulas imply the starting identity; a previously worked-out square-index degenerate asymptotic may exist under other notation.",
+      "No statistical inference, independent external verification, or assertion about sign exactly at the limit-window boundaries is supplied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different infinite-box regime and Poissonized cross-covariance; does not state the finite equal-box square-index critical profile.",
+        "evidence": [
+          "Eq. (4.3) gives Poissonized cross-covariance as a negative multiple of Phi_(r+s)(2t).",
+          "§6 develops possible limiting correlation structures under regular variation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0809.4387v1",
+        "material_read": "Relevant full HTML sections 1–6, especially §2 Poissonization, §4 equations (4.1)–(4.3), and §6 on covariance convergence.",
+        "method": "Direct searchable full-text HTML review; checked theorem statements and exact displayed covariances.",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Same occupancy frequency counts and cross-covariances; verified 2008-09-25 preprint"
+      },
+      {
+        "assessment": "The full joint generating function encodes moment identities, but the investigated asymptotic statements are single-frequency normal/Poisson limits, not the displayed cross-frequency double-cancellation limit.",
+        "evidence": [
+          "p.62 Eq. (13): multi-coordinate generating function; (14)–(15): marginal mean and second moment.",
+          "Introduction states extension of marginal occupancy normal limits."
+        ],
+        "identifier_or_url": "https://real.mtak.hu/201424/1/cut_MATKUTINT_8_1_-_2_1963_pp59_-_71.pdf",
+        "material_read": "Text of pp.59–70 across introduction, §§2–3, and remainder of the univariate saddle-point analysis; rendered p.62 directly.",
+        "method": "PDF text and page screenshot; key joint GF (13), moments (14)–(17), and later univariate proof passages examined.",
+        "title": "On Classical Occupancy Problems I",
+        "trigger": "Original finite uniform occupancy distribution and joint generating function"
+      },
+      {
+        "assessment": "First-order covariance coefficient plus unspecified order-n^-2 remainder on normalized proportions; does not supply its coefficient at square-index degeneracy.",
+        "evidence": [
+          "Theorem 1 Eq. (4) records covariance = explicit n^-1 term + n^-2 R_2 with two-sided R_2 bounds.",
+          "Lemma 1 gives the exact mixed multinomial moments that underlie the present starting identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.15152v2",
+        "material_read": "Full-text main Theorem A and Theorem 1, equations (1)–(6), occupancy mixed-moment lemma and proof sections.",
+        "method": "Direct arXiv HTML reading and claim-level comparison of the coefficient and remainder order.",
+        "title": "The Multinomial Allocation Model and the Random Box Load",
+        "trigger": "Most plausible later generalized covariance asymptotic and remainder bounds"
+      },
+      {
+        "assessment": "Abstract establishes joint local normality, not a stated second-order cross-covariance profile; its full text remains an explicit priority risk.",
+        "evidence": [
+          "Publisher abstract: local normal theorem for joint occupancy counts at a fixed bounded positive load."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1109034",
+        "material_read": "Publisher abstract and bibliographic metadata only; complete primary text unavailable from searched open sources.",
+        "method": "Publisher metadata and lawful open-access source search.",
+        "title": "Asymptotic Normality in the Classical Ball Problem",
+        "trigger": "Original joint local-limit theory for fixed-density finite boxes"
+      },
+      {
+        "assessment": "Studies Cov(number occupied, count at one frequency), not the two-coordinate cross-covariance and its square-index critical window.",
+        "evidence": [
+          "Theorem (1) has Cov(K,K_r) and the sign switch across r; it expressly does not classify Cov(K_r,K_s)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "material_read": "Complete RESULT.md theorem, proof, prior-work comparison, and limitations.",
+        "method": "Published repository file inspection using authorized read-only access.",
+        "title": "A one-switch covariance law for occupancy richness and frequency counts",
+        "trigger": "Closest semantically indexed published finite uniform occupancy finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5263cab-3b16-44ca-93b3-64829cd48ef7",
+  "value": {
+    "rationale": "The distinct square-index frequency pairs are exactly all positive-integer tangencies of the classical fixed-density covariance coefficient. Their leading order disappears, but the next coefficient is universally +1 in the normalized log ratio, producing a positive order-one mixed covariance and an explicit reentrant parabolic window of width m^-1/2. This natural dependence boundary matters when interpreting frequency-of-frequencies data; it is not an arbitrary fixed-size computation or merely an arithmetic reparameterization.",
+    "status": "PASS"
+  }
+}
