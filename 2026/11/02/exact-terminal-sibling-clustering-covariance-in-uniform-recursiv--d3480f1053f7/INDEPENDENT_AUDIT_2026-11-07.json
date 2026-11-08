@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:50:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform-parent rooted recursive trees let F_(n,r)=∑_v binom(L_v,r) for the number L_v of terminal children. Conditioned on the tree, increment drift is [F_(n,r-1)-r F_(n,r)]/n (F_0=n), because adding the new leaf increases its chosen parent's binomial count while a previously terminal chosen parent ceases to be a terminal child. This gives E F_(n,r)=n/(r+1)! for n≥r+1. For X=F_1, Y=F_2, Z=F_3, exact conditional increments are E∆X=1-X/n, E∆Y=(X-2Y)/n, E(∆X∆Y)=X/n, E(∆Y)^2=(X+4Y+6Z)/n. Product recurrence and true small n initial conditions give E X=n/2, E Y=n/6, E X²=n²/4+n/12, E XY=n²/12+n/8, E Y²=n²/36+59n/180. Thus for n≥5 Cov=n[[1/12,1/8],[1/8,59/180]], determinant 101n²/8640 and correlation 3sqrt(15)/(2sqrt59). Independently enumerated complete labeled parent-choice sets n≤8 and checked moments; induction proves general n. Rooted terminal children differ from unrooted graph-degree-one leaves.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartle & Krapivsky arXiv:2511.04085 treat leaves in growing random trees, leaf-neighbor degree and marginal leaf statistics, not this exact rooted X/Y cross statistic.",
+          "Resultary finding Equal-share covariance of root degree and leaves gives Cov(root degree, leaf count)=(n-2)/(2(n-1)), a genuinely different pair of observables."
+        ],
+        "reasoning": "Generic fringe-subtree joint normality and recursive-tree functionals provide methods but do not state the n/8 cross covariance and 59n/180 sibling-pair variance as a specialization in inspected material.",
+        "searches": [
+          "uniform random recursive trees pairs of leaf siblings cherries variance covariance leaves exact n/8 59/180",
+          "random recursive tree leaf sibling pairs variance covariance terminal child count",
+          "Hartle Krapivsky Statistics of Leaves in Growing Random Trees arxiv 2511.04085",
+          "Gopaladesikan Mahmoud Ward counts of uncorrelated motifs recursive trees covariance"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2511.04085v1",
+        "https://doi.org/10.1007/s11009-013-9333-z",
+        "Resultary semantic query: uniform random recursive trees pairs of leaf siblings cherries variance covariance leaves exact n/8 59/180"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hartle & Krapivsky arXiv:2511.04085 treat leaves in growing random trees, leaf-neighbor degree and marginal leaf statistics, not this exact rooted X/Y cross statistic.",
+          "Resultary finding Equal-share covariance of root degree and leaves gives Cov(root degree, leaf count)=(n-2)/(2(n-1)), a genuinely different pair of observables."
+        ],
+        "reasoning": "Unrooted leaf-neighbor degree expectations cannot determine joint covariance over distinct parents, which needs E(ΔY)^2= (X+4Y+6Z)/n; even matching first moments has no implication for this second-order law.",
+        "searches": [
+          "uniform random recursive trees pairs of leaf siblings cherries variance covariance leaves exact n/8 59/180",
+          "random recursive tree leaf sibling pairs variance covariance terminal child count",
+          "Hartle Krapivsky Statistics of Leaves in Growing Random Trees arxiv 2511.04085",
+          "Gopaladesikan Mahmoud Ward counts of uncorrelated motifs recursive trees covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hartle & Krapivsky arXiv:2511.04085 treat leaves in growing random trees, leaf-neighbor degree and marginal leaf statistics, not this exact rooted X/Y cross statistic.",
+          "Resultary finding Equal-share covariance of root degree and leaves gives Cov(root degree, leaf count)=(n-2)/(2(n-1)), a genuinely different pair of observables."
+        ],
+        "reasoning": "Pairs of terminal siblings are combinatorial cherries allowing arbitrary other children at the same parent; a fixed fringe-motif count usually restricts the whole descendant fringe tree, so it is not the same statistic without nontrivial summation.",
+        "searches": [
+          "uniform random recursive trees pairs of leaf siblings cherries variance covariance leaves exact n/8 59/180",
+          "random recursive tree leaf sibling pairs variance covariance terminal child count",
+          "Hartle Krapivsky Statistics of Leaves in Growing Random Trees arxiv 2511.04085",
+          "Gopaladesikan Mahmoud Ward counts of uncorrelated motifs recursive trees covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hartle & Krapivsky arXiv:2511.04085 treat leaves in growing random trees, leaf-neighbor degree and marginal leaf statistics, not this exact rooted X/Y cross statistic.",
+          "Resultary finding Equal-share covariance of root degree and leaves gives Cov(root degree, leaf count)=(n-2)/(2(n-1)), a genuinely different pair of observables."
+        ],
+        "reasoning": "An exact small-tree enumeration table through n=8 is possible but the all-n covariance is determined by exact recurrences; searched literature/Resultary descriptions did not supply these constants.",
+        "searches": [
+          "uniform random recursive trees pairs of leaf siblings cherries variance covariance leaves exact n/8 59/180",
+          "random recursive tree leaf sibling pairs variance covariance terminal child count",
+          "Hartle Krapivsky Statistics of Leaves in Growing Random Trees arxiv 2511.04085",
+          "Gopaladesikan Mahmoud Ward counts of uncorrelated motifs recursive trees covariance"
+        ]
+      },
+      "rationale": "Qualified PASS: Hartle–Krapivsky 2025 studies marginal degree-one leaf-neighbor distributions (unrooted) and fluctuations, while present full cross-covariance of rooted terminal-leaf count with unordered sibling pairs needs overlapping local descendant dependencies. Earlier recursive-tree fringe-motif covariance theory could potentially subsume when represented as an additive pattern mixture but no same statement or direct theorem implication was identified; any existing mean hierarchy is credited.",
+      "residual_risks": [
+        "An additive-functional or fringe-motif theorem with explicit covariance kernel may imply the joint law after a nontrivial specialization; its complete proof was not read.",
+        "Rooted vs unrooted leaf definitions must not be conflated.",
+        "Claim establishes no CLT or full distribution of Y."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrooted leaves and marginal counts, not an explicit rooted sibling-pair covariance in inspected sections",
+          "evidence": "arXiv:2511.04085v1, definitions and leaf-degree/leaf-count statements",
+          "identifier_or_url": "https://arxiv.org/html/2511.04085v1",
+          "material_read": "Accessible full HTML: setup, leaf-degree marginal statistics and leaf-count fluctuation sections",
+          "method": "Primary HTML section reading",
+          "title": "Statistics of Leaves in Growing Random Trees",
+          "trigger": "Most relevant 2025 work in the same uniform recursive tree leaf model"
+        },
+        {
+          "assessment": "Plausible general method and residual priority risk; cannot declare full paper non-covering",
+          "evidence": "Methodology Comput Appl Probab 16 (2014), 863-884",
+          "identifier_or_url": "https://doi.org/10.1007/s11009-013-9333-z",
+          "material_read": "Public abstract, title and bibliographic details, not full theorem proof",
+          "method": "Bibliographic/publication abstract",
+          "title": "Asymptotic Joint Normality of Counts of Uncorrelated Motifs in Recursive Trees",
+          "trigger": "Generic potentially dominating recursive-tree motif covariance theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closed exact joint second-order law for two dependent classical growth-tree statistics, including nontrivial overlap corrections and all-n positive definite correlation; directly informs asymptotic fluctuations and local clustering without assuming independent leaf pairs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An additive-functional or fringe-motif theorem with explicit covariance kernel may imply the joint law after a nontrivial specialization; its complete proof was not read.",
+    "Rooted vs unrooted leaf definitions must not be conflated.",
+    "Claim establishes no CLT or full distribution of Y."
+  ],
+  "schema_version": 1
+}
