@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The reset-history generator supplies the nonstandard moment closure: at a jump time the conditional reset position is the realized history integral divided by elapsed time. Together with the exact thermal marginal second moment, it gives a closed singular second-order ODE for the time-integrated variance. Its regular solution has an exact Laplace transform and Kummer inversion, with distinct \(r<\kappa\), \(r=\kappa\), and \(r>\kappa\) asymptotics. Independent numerical ODE integration, Laplace inversion, asymptotic checks, and direct reset-history path sampling pass. Unproved limits are explicitly excluded.
+## correctness
 
-**Originality: PASS at current best-known source coverage, with risk.** The closest primary source, arXiv:2405.10283, determines single-time marginals and relaxation exponents; its one-time transition density cannot alone fix the variance of the integral over a genuinely non-Markovian history. The general-kernel paper arXiv:2411.00641 likewise analyzes single-time distributions. Budini's arXiv:1605.08930 treats a different finite-state memory mechanism and distinct time-average behavior. published-finding corpus searches on the exact time-average transition, aliases, rates, and models found no equivalent mathematical-physics finding; searching cannot prove novelty. An unlocated general additive-functional result remains a residual priority risk.
+PASS
 
-**Mathematical value: PASS.** The exact change of averaging universality class at the natural threshold where Poisson memory-refresh rate matches harmonic relaxation rate is a structural property of an experimentally relevant trajectory statistic. It occurs despite identical thermal position marginals at every observation time. Exact finite-duration formulas quantify the transition, including the logarithmic critical law and the positive constants in all regimes. The claim is not merely a restatement of known single-time relaxation.
+For equilibrium-initialized OU with independent Poisson resets to uniform past, all one-time marginals stay N(0,D/kappa), but the joint process is not stationary. Jump product calculus for A_t=int X and H=E[A_t X_t] gives J’=2H, H’=sigma²-(kappa+r)H+(r/t)J; thus J’’+(kappa+r)J’-(2r/t)J=2sigma² with J(0)=J’(0)=0. The moment bound J<=sigma² t² selects the regular solution. Laplace transform and Kummer inversion give the stated all-T expression and its beta=1 exponential-integral limit. The three asymptotics follow from beta=2r/(kappa+r) and Kummer negative-ray expansions; boundary r=kappa gives log(T)/T. Independently differentiated the analytic expression at three parameter times to verify the ODE residual to high precision. The claim excludes CLT, almost-sure limits, and nonharmonic potentials.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. No exact time-average J(T) tabulation found; published OU integrator records concern numerical stationary bias
+
+## value
+
+PASS
+
+Non-Markovian ergodic sampling is a natural observable missing from one-time Gibbs relaxation: the sharp kappa=r transition changes the integrated variance from 1/T through log(T)/T to a slower power. This is a motivated exact path statistic with physical meaning, not an arbitrary numerical parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

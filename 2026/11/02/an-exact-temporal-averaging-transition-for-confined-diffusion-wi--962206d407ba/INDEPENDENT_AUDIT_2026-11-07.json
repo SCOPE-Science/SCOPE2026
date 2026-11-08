@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:18:35.171589Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equilibrium-initialized OU with independent Poisson resets to uniform past, all one-time marginals stay N(0,D/kappa), but the joint process is not stationary. Jump product calculus for A_t=int X and H=E[A_t X_t] gives J’=2H, H’=sigma²-(kappa+r)H+(r/t)J; thus J’’+(kappa+r)J’-(2r/t)J=2sigma² with J(0)=J’(0)=0. The moment bound J<=sigma² t² selects the regular solution. Laplace transform and Kummer inversion give the stated all-T expression and its beta=1 exponential-integral limit. The three asymptotics follow from beta=2r/(kappa+r) and Kummer negative-ray expansions; boundary r=kappa gives log(T)/T. Independently differentiated the analytic expression at three parameter times to verify the ODE residual to high precision. The claim excludes CLT, almost-sure limits, and nonharmonic potentials.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer–Majumdar arXiv:2405.10283 Eq41",
+          "Boyer–Evans–Majumdar arXiv:2411.00641 introduction"
+        ],
+        "reasoning": "2024 Boyer–Majumdar gives a broad class of confinements but only density relaxation in the inspected theorem",
+        "searches": [
+          "Ornstein Uhlenbeck diffusion uniform memory resetting trajectory time average variance temporal averaging",
+          "\"uniform memory resetting\" \"time average\" \"Ornstein\" \"variance\"",
+          "Boyer Majumdar arXiv 2405.10283 §4; Boyer Evans Majumdar 2411.00641"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2405.10283",
+        "https://arxiv.org/pdf/2411.00641",
+        "Boyer–Majumdar arXiv:2405.10283 Eq41",
+        "Boyer–Evans–Majumdar arXiv:2411.00641 introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyer–Majumdar arXiv:2405.10283 Eq41",
+          "Boyer–Evans–Majumdar arXiv:2411.00641 introduction"
+        ],
+        "reasoning": "No exact time-average J(T) tabulation found; published OU integrator records concern numerical stationary bias",
+        "searches": [
+          "Ornstein Uhlenbeck diffusion uniform memory resetting trajectory time average variance temporal averaging",
+          "\"uniform memory resetting\" \"time average\" \"Ornstein\" \"variance\"",
+          "Boyer Majumdar arXiv 2405.10283 §4; Boyer Evans Majumdar 2411.00641"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer–Majumdar arXiv:2405.10283 Eq41",
+          "Boyer–Evans–Majumdar arXiv:2411.00641 introduction"
+        ],
+        "reasoning": "Two-time covariance / occupation integral vs one-time spectral density",
+        "searches": [
+          "Ornstein Uhlenbeck diffusion uniform memory resetting trajectory time average variance temporal averaging",
+          "\"uniform memory resetting\" \"time average\" \"Ornstein\" \"variance\"",
+          "Boyer Majumdar arXiv 2405.10283 §4; Boyer Evans Majumdar 2411.00641"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boyer–Majumdar arXiv:2405.10283 Eq41",
+          "Boyer–Evans–Majumdar arXiv:2411.00641 introduction"
+        ],
+        "reasoning": "2025 Boyer–Evans–Majumdar broadens kernels, not the additive OU path moment",
+        "searches": [
+          "Ornstein Uhlenbeck diffusion uniform memory resetting trajectory time average variance temporal averaging",
+          "\"uniform memory resetting\" \"time average\" \"Ornstein\" \"variance\""
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. No exact time-average J(T) tabulation found; published OU integrator records concern numerical stationary bias",
+      "residual_risks": [
+        "A general additive-functional theorem for memory resetting may imply this OU specialization without using the same formula.",
+        "No CLT or pathwise convergence, only ensemble variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-time distribution and spectral relaxation, not the path-integrated second moment J(T) or its sharp sample-mean variance.",
+          "evidence": [
+            "Eq. 41 gives one-time density relaxation exponent λ1/(r+λ1)",
+            "The model resets to a uniformly selected prior time"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.10283",
+          "material_read": "Model, equilibrium law, §3 relaxation expansion (equation 41), §4 harmonic example, conclusions context from 20-page PDF.",
+          "method": "Primary PDF extracted text and screenshot p.10",
+          "title": "Power-law relaxation of a confined diffusing particle subject to resetting with memory",
+          "trigger": "Exactly the same uniform-memory OU process, prior one-time relaxation exponents"
+        },
+        {
+          "assessment": "Broadens memory kernels for one-time probability laws; does not in material checked supply the OU additive-functional variance.",
+          "evidence": [
+            "Intro studies K(τ,t) and long-time density, including K=1/t"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.00641",
+          "material_read": "Abstract, introductory model and uniform K(τ,t)=1/t regime, results overview.",
+          "method": "Primary PDF extracted text and p.2 screenshot",
+          "title": "Diffusion with preferential relocation in a confining potential",
+          "trigger": "Broader nonuniform memory kernels and ergodicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Non-Markovian ergodic sampling is a natural observable missing from one-time Gibbs relaxation: the sharp kappa=r transition changes the integrated variance from 1/T through log(T)/T to a slower power. This is a motivated exact path statistic with physical meaning, not an arbitrary numerical parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general additive-functional theorem for memory resetting may imply this OU specialization without using the same formula.",
+    "No CLT or pathwise convergence, only ensemble variance."
+  ],
+  "schema_version": 1
+}
