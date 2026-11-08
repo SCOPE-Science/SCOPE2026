@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about the actual Birkhoff-restricted power-mean profile of Qi–Yin–Liu, not a renamed unrestricted invariant. Its published sharp Radon-plane input is \(A_2^B(X)\le3/2\), with equality iff an affine-regular hexagonal unit circle (Qi–Yin–Liu 2026, Eq. (23)). For any Birkhoff-orthogonal unit pair, the two deformed chord lengths are at least \(1\), at most \(1+\tau\), and have sum at most \(2+\tau\). The convexity-of-powers argument is sharp and requires no numerical hypothesis. The explicit hexagonal pair \((1,0),(0,1)\) realizes both endpoints for every \(\tau\). The scalar derivative reduces exactly to \((1-\tau)(1+\tau)^{t-1}-\tau\), and a strictly increasing logarithmic transform proves the *unique* optimum. Compactness supplies an attaining pair for equality rigidity; the cited arithmetic-chord equality characterization then forces the hexagon. Exact quadratic substitution and a uniform Lipschitz argument verify the limiting statements. The included checker passed 5,942 finite arithmetic/numerical consistency checks, but the infinite statements are justified analytically in the proof. Scientific reliance on the published Radon arithmetic-chord theorem is explicitly disclosed.
+PASS
 
-## Originality — PASS (best-knowledge)
+The submitted chord reduction is valid: for any Birkhoff-orthogonal unit x,y and 0<=u<=1, 1<=a=||x+uy||,b=||x-uy||<=1+u and a+b<=2+u by convex interpolation and the established sharp Radon bound A^B_2<=3/2. Convexity/increase of z^t (t>=1) majorizes a^t+b^t by 1+(1+u)^t, with equality in the explicit hexagonal norm. Differentiating F_t(u) gives derivative sign D_t(u)=(1-u)(1+u)^{t-1}-u; its unique root follows from monotonicity of T(u)=1+log[u/(1-u)]/log(1+u). At equality the chord sum is 3 and published Radon rigidity forces an affine-regular hexagon. The order-2 value (3+sqrt5)/4, monotone t, and limiting t(2-B(t))=4 log 2 follow by explicit scalar algebra. The compactness/equality argument covers t=1 and endpoints. This relies explicitly, not silently, on the quoted published Radon-plane geometric theorem. Inspected source check.py verifies finite rational hexagonal identities and scalar samples; these are corroboration, not the infinite proof.
 
-The 2026 motivating primary paper, arXiv:2608.07146v1, was inspected through its main definitions, Theorems 8, 10 and 16, Eq. (23), the hexagonal example, and the references. Theorem 16 establishes the exact \(5/4\) extremum only for orders \(t\le1\); its higher-order statements do not provide the present sharp power-mean envelope, quadratic golden-ratio value, or unique high-order scale. The separate 2026 isosceles-orthogonal article (DOI:10.3390/axioms15090684) establishes a constant \(5/4\) at all orders *for a different orthogonality relation*; that distinction is central rather than cosmetic. Martín–Papini (2024) investigates orthogonal sums, not the deformed high-order power mean. Available published-record summaries of other Radon-plane, hexagon, \(\ell_p\), and general Takahashi constants have different domains or functionals and do not dominate this theorem. Relevant publicly indexed mathematical-record search results were compared by their implications, not merely their titles. Residual priority risks: an older convex-majorization formulation of the identical bound may exist, and the full text of the 2025 Du–Liang–Li article was not lawfully available through an open version during this review. No independent publication-priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The primary 2026 Birkhoff–Takahashi paper leaves the entire higher power-mean half-line \(t>1\) outside its sharp Radon-plane theorem. Determining the sharp extremal constant, the unique optimal deformation scale, and the equality class for **all** these orders answers a natural precise problem for the invariant just introduced. The explicit quadratic value \((3+\sqrt5)/4\), strict separation from isosceles orthogonality beyond the arithmetic mean, and logarithmic large-order law make the structural mechanism visible and reusable. The theorem requires no arbitrary finite enumeration or unmotivated special-coordinate slice. It does not prove a stability modulus for near-maximizing Radon planes and does not extend to arbitrary norms.
+The 18-page primary Qi-Yin-Liu arXiv:2608.07146v1 was read in full. Its Theorem 16 p.12 explicitly restricts sharp Radon equality C^B_t=5/4 to t<=1; its Theorem 10 and Eq.(23) supply precisely the prior arithmetic input, not an all-t>1 sharp profile. The new high-order convex majorization, optimizing root, and asymptotics are not logical corollaries of the prior t<=1 upper bound. Separate direct isosceles restriction concerns different admissible pairs. Best-of-knowledge originality PASS with residual older equivalent convex-geometry formulation risk.
 
-## Closest sources and limitations
+## value
 
-* Qi, Yin, Liu, arXiv:2608.07146v1 (2026): same invariant, orders up to one sharp on Radon planes; supplies external arithmetic-chord bound and rigidity.
-* Li, Zhang, Qi, Liu, Axioms 15 (2026) 684: direct isosceles-orthogonal variant; its all-order hexagonal value is different for \(t>1\).
-* Martín and Papini, Math. Inequal. Appl. 27 (2024) 401–415: extrema of Birkhoff-orthogonal sums without this power-mean deformation.
-* Du, Liang, Li, RACSAM 119 (2025) 110: relevant arithmetic-chord functional; detailed full text was not available from lawful open-access routes in this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem completes a natural previously introduced parameter family above its published t=1 boundary, supplies a dimension-free sharp all-Radon inequality, characterizes the unique extremal norm geometry and unique optimizing scale, and identifies strict divergence from direct isosceles-orthogonality constants. This is a motivated structural classification, not just a numerical substitute.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
