@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside this document, using Python 3 standard library. The script reconstructs the tetrahedral Hasse diagrams and all 30 generated subgroups, enumerates the orbit-barycenter triangulations of the 29 nontrivial subgroup fixed spaces and their embedded boundary subcomplexes, and checks all elementary free-face collapses (42/2/0 depending on 2/1/0 globally fixed base labels). It constructs the 2122-face link, checks the 1049-pair augmented matching and full acyclicity of its reversed Hasse digraph, leaving 24 degree-three critical faces. It reconstructs the four incompatible top facet edge stars and the dimension-96 relative integral homology. All claims in RESULT.md that depend on these calculations have finite exhaustive algorithms and explicit assertions.
+## correctness
 
-The relative rank 96 and nonequivariant wedge decompositions have independent primary-literature precedent; those ingredients are not claimed to be new. The rational character follows by theoretical equivariant Euler--Poincaré from the 29 actual fixed-point collapse certificates, not by assuming the integral module splits. No extension to other tetrahedral representations, simplex dimensions, or the identity-subgroup fixed collapse was tested or claimed. Independent external review has not been performed.
+PASS
+
+For the pair of ordinary tetrahedral discrete-Morse matching complexes (F,B), enumerate S4 subgroups as generated permutation closures and represent fixed loci by orbit-barycenter simplex complexes; this is necessary because fixed points need not be pointwise fixed original vertices. Independently reconstructed all 30 subgroups; 29 nontrivial subgroup inclusions collapse by exact relative maximal-free-face pairs: six transposition subgroups each 42, eight one-fixed-label groups each two, remaining fifteen zero. For a top Hasse pair e_i its link consists of 2122 augmented faces with vector (1,21,162,560,846,468,64), admitting 1049 acyclic matching pairs including empty and 24 critical degree-3 faces. Relative chains split over four incompatible top-pair stars, so integral H4(F,B)=Z96 and other relative groups vanish. Nonidentity subgroup fixed-set Euler characteristics are equal, making rational H4 trace zero for all nonidentity g; identity trace 96, precisely 4 regular Q[S4] modules. The finite subgroup and link enumerations were independently implemented and topologically sorted, not merely accepted from logs.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of statements, not a negative-search proof. Equivariance cannot be inferred from relative Betti count; rational regular-character conclusion uses fixed-point collapses. The known 96-dimensional group could support many characters; no stronger prior theorem provided all subgroup fixed-space deformation retractions. The 29-subgroup collapse comparison and regular module are genuine extra invariants; Scoville’s rank is acknowledged as prior.
+
+## value
+
+PASS
+
+The canonical inclusion of full and boundary tetrahedral Morse complexes has a known nonequivariant rank-96 relative group, but detecting a fourfold regular rational symmetry module and simultaneous **geometric** fixed-point collapses for every proper nontrivial subgroup captures a sharp equivariant/non-equivariant contrast. This is motivated by the existing tetrahedral Morse inclusion and useful for equivariant topology, not a renamed Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orbit-barycenter model accounts for group-permuted simplex vertices rather than only fixed original vertices. Exhaustive subgroup closure yields all 30 subgroups; all 29 nontrivial cases are checked via actual free-face deletions, with 42, 2, or 0 elementary pairs according to the number of globally fixed base labels. The complementary finite proof uses a 2122-face augmented link, an exhaustive 1049-pair acyclic face matching and 24 critical degree-three faces. Four relative stars give torsion-free relative degree-four rank 96. Fixed-point Euler differences, plus rational homological concentration, force the relative character \((96,0,0,0,0)\) and hence four regular rational modules. Scope excludes any integral representation decomposition.
+## correctness
 
-## Originality — PASS
-Scoville, arXiv:2604.18172v1, §4.1 and the relative computation already prove the degree-four relative rank 96, so that rank is deliberately not the novelty claim. The primary full paper does not assert proper-subgroup collapses or a relative \(S_4\) action. The closest two published indexed findings, `aa2567a7706d` and `3b1fdcb3c035`, treat the **absolute** \(S_4\) rational character of the full Morse complex. Their entire RESULT documents were inspected; neither includes the claimed relative representation or the 29 subgroup fixed-inclusion collapse certificates. Independent direct finite construction supplies the new information. Residual possibility of an equivalent unindexed theorem remains.
+PASS
 
-## Value — PASS
-The inclusion of boundary and full simplex Morse complexes is an explicit geometric construction in the motivating 2026 paper. Its integer relative homology alone does not determine how tetrahedral symmetry acts, and the rank 96 can support many inequivalent rational characters. Simultaneously proving all nontrivial subgroup fixed loci collapse while the identity fixed inclusion is highly non-equivalent gives a substantive equivariant structural boundary, not a parameter replacement or elementary corollary of known absolute Betti numbers.
+For the pair of ordinary tetrahedral discrete-Morse matching complexes (F,B), enumerate S4 subgroups as generated permutation closures and represent fixed loci by orbit-barycenter simplex complexes; this is necessary because fixed points need not be pointwise fixed original vertices. Independently reconstructed all 30 subgroups; 29 nontrivial subgroup inclusions collapse by exact relative maximal-free-face pairs: six transposition subgroups each 42, eight one-fixed-label groups each two, remaining fifteen zero. For a top Hasse pair e_i its link consists of 2122 augmented faces with vector (1,21,162,560,846,468,64), admitting 1049 acyclic matching pairs including empty and 24 critical degree-3 faces. Relative chains split over four incompatible top-pair stars, so integral H4(F,B)=Z96 and other relative groups vanish. Nonidentity subgroup fixed-set Euler characteristics are equal, making rational H4 trace zero for all nonidentity g; identity trace 96, precisely 4 regular Q[S4] modules. The finite subgroup and link enumerations were independently implemented and topologically sorted, not merely accepted from logs.
 
-## Limits
-The proof is finite and tetrahedral; the fourfold regular splitting is over rational coefficients only. The primary relative rank was already known, and unindexed overlap and lack of external validation remain scientific risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements, not a negative-search proof. Equivariance cannot be inferred from relative Betti count; rational regular-character conclusion uses fixed-point collapses. The known 96-dimensional group could support many characters; no stronger prior theorem provided all subgroup fixed-space deformation retractions. The 29-subgroup collapse comparison and regular module are genuine extra invariants; Scoville’s rank is acknowledged as prior.
+
+## value
+
+PASS
+
+The canonical inclusion of full and boundary tetrahedral Morse complexes has a known nonequivariant rank-96 relative group, but detecting a fourfold regular rational symmetry module and simultaneous **geometric** fixed-point collapses for every proper nontrivial subgroup captures a sharp equivariant/non-equivariant contrast. This is motivated by the existing tetrahedral Morse inclusion and useful for equivariant topology, not a renamed Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
