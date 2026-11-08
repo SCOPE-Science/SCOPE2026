@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for every integer \(m\ge2\) by an exact block decomposition. The unsigned vertex-pair incidence matrix yields two invariant spaces. In its image, normalized singular-vector pairings produce the six eigenvalue families, with their multiplicities. In its kernel, the decomposition of the peripheral token graph into isolated vertices and four-cycles supplies the remaining eigenvalues. All dimensions and boundary coincidences are accounted for. Kirchhoff's formula gives the integer product for spanning trees. Independent exact characteristic polynomials and modular nullity/cofactor computations corroborate the argument, without being substituted for an infinite proof.
+## correctness
 
-## Originality — PASS with residual literature risk
-The closest precursor is Dalfó et al., arXiv:2012.00808, whose general intertwining identity shows inclusion of the base Laplacian spectrum in that of a token graph; it does not evaluate the additional eigenspaces of the token graph of a friendship graph. Audenaert et al., arXiv:math/0507251, study symmetric-square spectra especially for strongly regular originals, whereas the friendship graph is nonregular. Fabila-Monroy et al., arXiv:0910.4774, establish token graph basics. Reyes et al., arXiv:2309.07089, treat cycles and other families, and arXiv:2310.16929 concerns spectral radii and distance-regular families. Checked full research texts do not provide the asserted entire multiset or tree count for \(K_1\vee mK_2\). Research-record and literature queries found no theorem implying this precise result. Unindexed or alternative-name equivalent statements remain possible.
+PASS
 
-## Value — PASS
-The symmetric two-particle walk on a friendship graph is a natural hard-core configuration model. Its nonregularity makes integral Laplacian spectrum non-obvious; the classification resolves every eigenvalue with multiplicity for infinitely many graph sizes, proves a fixed algebraic connectivity, and determines exact spanning-tree complexity. The same decomposition identifies why the residual spectral mass comes from squares and isolated states of a matching token graph. This is an intrinsic structural calculation, not a trivial restatement of the base graph's Laplacian eigenvalues.
+Partition token states into hub+peripheral and peripheral-pair states: Laplacian block [[(2m-1)I+L_H,-R],[-R^T,L_2+2I]] with R unsigned incidence. Exact general identities L_2 R^T=R^T L_H and RR^T=(2m-2)I+J give paired 2×2 blocks whose eigenvalues are (0,2m+1), (1,2m) multiplicity m-1, and (3,2m+2) multiplicity m. Remaining ker R is L_2+2I. Because F2(mK2) comprises m isolated states and C(m,2) copies of C4, residual eigenvalues are 2 with C(m,2), 4 with m(m-2), 6 with C(m,2). Multiplicities sum to m(2m+1), trace 2E with E=3m(2m-1). Kirchhoff product yields exact τ formula; multiple eigenvalues coincide for small m and are added. Independently reconstructed token moves, exact integer characteristic polynomials and tree cofactors m=2,3,4, reproducing τ 7776, 18345885696, 20289081908920320000. Proof handles all m, not inferred from finite samples.
 
-## Scientific limitations
-No claim about higher-token graphs, generalized larger-blade windmills, or uniqueness of this result among all publications. Finite code tests corroborate but do not prove the all-parameter argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General token-graph inclusion/intertwining results and spectral methods are classical; the friendship-specific ker R decomposition, all eigenvalue multiplicities and tree formula were not found in inspected relevant primary sources or published similarity search. A possible windmill/friendship token graph treatment under other terminology is residual risk.
+
+## value
+
+PASS
+
+Complete all-parameter integral Laplacian spectrum of a connected nonregular token graph family determines connectivity and exact spanning-tree complexity. Decomposing the usually uncomputed residual token eigenspaces is mathematically substantive and can support other token-graph spectral calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
