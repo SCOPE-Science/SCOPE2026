@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python verify_spectrum.py` in an environment providing SymPy, NumPy, and SciPy. This checks the exact rational eight-by-eight characteristic polynomial of a four-oscillator polygon; independently verifies both Hurwitz determinant identities and the leading slow-root derivative; and compares the direct real Jacobian spectrum with the factored formula for closed configurations with three, four, five, six, and eight oscillators.
+## correctness
 
-The proof in RESULT.md supplies the noncomputational infinite-family argument: a rank-two determinant lemma, exact eigenspaces, Routh–Hurwitz stability, the implicit-function theorem, and local stable-foliation theory. Numerical eigenvalues alone are not an all-parameter or nonlinear certificate. The system's local behavior at degenerate collinearity, global basins, and historical priority beyond the inspected sources remain unverified. Independent audit: not performed.
+PASS
+
+The nonlinear co-rotating polygon equilibrium and tangent dimension M-2 follow from closure of unit vectors and noncollinearity q<1. Linearizing gives vdot_j=-beta(v_j+u_j² conjugate(v_j))+i gamma sum(v). The rank-two determinant lemma yields the displayed full characteristic factor with P(lambda)=[lambda(lambda+2beta)]²+(M gamma)²[(lambda+beta)²-beta²q²]. Explicit angular and radial kernel dimensions imply both repeated roots are semisimple. The two quartic Hurwitz determinants and implicit-function derivative -beta/2 were independently checked symbolically; stability and local foliation follow for beta>0, gamma!=0, q<1. This does not establish global attraction or behavior at collinearity.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. The finite-size closed spectrum and universal slow coefficient, not polygon existence.
+
+## value
+
+PASS
+
+The full finite-population spectrum settles nonlinear local transverse stability of a natural oscillator equilibrium manifold and identifies a universal slow-relaxation onset as polygons approach collinearity. It improves numerical polygon sampling and asymptotic Q-dependent stability comparisons while preserving local-only and model-specific hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
