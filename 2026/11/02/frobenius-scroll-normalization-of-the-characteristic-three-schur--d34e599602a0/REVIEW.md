@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The independent coordinate transformation gives \(ua^3-vb^3\) in characteristic \(3\). The homogeneous Jacobian is \((a^3,b^3)\). The indicated map from \(\mathbb F_2\) is base-point-free, proper, finite by quasi-finiteness, and an isomorphism away from the singular line; the local normalization ring is \(k[t,z]\) over \(k[t^3,z,tz]\). The conductor monomial test proves that the conductor is precisely the square of the singular-line ideal. Degree arguments on rational maps from an arbitrary geometric line exhaust the lines, and disjoint rulings yield the point-count and zeta formulas. The standalone verifier checks polynomial identities and full enumerations over three finite fields; it is not substituted for the proofs.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-Rams–Schütt (arXiv:1212.3511, introduction) give the characteristic-zero Schur equation and a different smooth characteristic-three model. Rams–Schütt (arXiv:1409.7485, Example 2.1 and Remark 4.4) identify the Fermat quartic as the smooth model. The surface in the same mathematical model has a different, nonnormal special fiber. The closest accessible mathematical-record finding gives only the incidence spectrum of 64 complex Schur lines, not this special fiber. Searches for equivalent Frobenius scroll forms, conductor ideals, point counts and all-lines classifications found no statement implying the full claim. Classical inseparable scroll theory and unindexed older literature remain possible priority sources. Search absence is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The naive specialization of a canonical 64-line quartic at an exceptional characteristic has a strikingly different geometry: nonnormality, a Frobenius residue extension along its singular line, a full one-parameter family of lines, and a normalization homeomorphic to a rational ruled surface. The exact conductor and all-extension point/line formulas distinguish this named integral model from the separately known good-reduction Fermat model. These are natural structural boundary facts rather than an arbitrary finite table.
+Over characteristic 3, setting u=x0,v=x2,a=x0−x1,b=x2−x3 gives F=ua³−vb³. The Jacobian ideal (a³,b³) has singular support L=(a,b); the affine ring R=k[t³,z,tz] on v≠0 has normalization B=k[t,z], finite birational, and conductor z²B=(a²,ab,b²)R by monomial semigroup membership. The projective bundle P(O(3)⊕O(1))≅F2 parameterizes normalization via [λ t³:λ s³:μs:μt], restricts to characteristic-three Frobenius on the nonnormal section, and is finite universal homeomorphism. For any geometric line outside two directrices, ratios (a:b) and (u:v) are linked by degree-3 Frobenius but each given by at most degree-one linear forms on a line, forcing constant ratios and a unique ruling line; ruling fibers disjoint. Finite-field rational points partition into two directrices and q+1 rational rulings, giving (q+1)^2; independent full projective point enumeration gave q=3:16, q=9:100, q=27:784.
 
-## Scope and risk
-No theorem is asserted about all integral models, stable reduction, the nonreduced relative Fano scheme, or a geometric identification of the critical groups of any associated line graphs. Earlier general results on Frobenius scrolls could subsume much of the proof; the named-model conjunction has not been located in searched sources. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the precise coefficientwise characteristic-three naive Schur model and conjunction of conductor, inseparable normalization, all geometric lines and all-field counts. Rams–Schütt describe an integral Schur equation and a DIFFERENT smooth good-reduction Fermat model in characteristic three. Neither a 64-line characteristic-zero result nor a 112-line smooth Fermat special fiber implies this specific nonnormal naive reduction. Classical Frobenius scrolls may encode the same geometric model; historical priority is qualified.
+
+## value
+
+PASS
+
+This is a mathematically natural bad-characteristic boundary of the canonical 64-line Schur model. The explicit normalization, conductor, inseparable singular section and complete line/rational point counts demonstrate how a highly symmetric quartic degenerates into a ruled nonnormal surface; the distinction from smooth good reduction is consequential for arithmetic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
