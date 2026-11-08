@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact certificate verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with `certificates.json` alongside it, under Python 3. The verifier enumerates the 27 ternary ordinary palindromes of length five and reconstructs the pairwise directed overlap costs. It validates each entry of the cyclic (27 vertices) and linear (28 vertices, including one dummy vertex) certificates, including vertex potentials, the positive weights of every nonempty proper directed cut, all distinct-vertex arc inequalities, and the exact sums of the dual objectives (66 and 68). It then constructs both witnesses directly from the permutation and overlap distances, checks that all 27 required substrings are present, and confirms the resulting lengths.
+## correctness
 
-The expected terminal result is `VERIFICATION_OK`, with 702 cyclic arc comparisons and 756 linear arc comparisons. The arithmetic certificate supplies a proof of minimality for all possible covers via the degree-and-cut inequality, not an exhaustive search through potential source words. The code validates the provided finite certificate only; it does not prove that no separate mathematically equivalent statement appears in other literature. Independent scientific audit has not been performed.
+PASS
+
+Selected one occurrence of each of 27 required factors, ordered their starting positions, and proved each clockwise/linear gap dominates the directed overlap cost. Dummy-vertex Hamiltonian-cycle reduction handles linear boundary. Independently rechecked 702 cyclic and 756 linear doubled-integer arc inequalities from supplied degree/cut potentials and exactly summed dual objectives 66 and 68; checked both source witness words, their lengths and all 27 distinct target occurrences. Certificate is exhaustive for all arcs of the finite 27/28-vertex graphs, not an unproved solver optimization. No claim about other alphabet sizes or lengths.
+
+## originality
+
+PASS
+
+The optimal universal covering lengths 66 cyclic/68 linear for the complete ternary palindrome language are distinct from exact-once de Bruijn existence, general shortest-superstring methods and the OEIS binary linear palindrome superstring sequence. Chen–Kitaev–Sun 2020 full paper covers word deletions from all q-ary words and exact enumeration at q=2,n<=4, not minimum covering length for 27 ternary length-five palindromes. No equivalent target-set minima located in checked sources; historical specialized tables remain possible.
+
+## value
+
+PASS
+
+The 27-palindrome target language is canonical for the first ternary length-five case and not an arbitrary subset. Its exact cyclic/linear minima and their two-letter separation give reusable finite benchmarks for constrained superstrings, together with transparent independently checkable primal/dual optimum certificates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
