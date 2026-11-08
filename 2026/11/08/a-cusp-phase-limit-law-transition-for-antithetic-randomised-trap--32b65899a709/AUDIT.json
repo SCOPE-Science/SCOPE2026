@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Exact scaling and parity dissection give finite-n distributional identities. A centered symmetric Taylor expansion proves the uniform gamma(gamma-1)/2 coefficient and local variance gamma^2(gamma-1)^2/720 times offset^(2gamma-4), with controlled remainder. Below 3/2 the variance sum converges, giving independent L2 series and non-Gaussianity by Cramér; at gamma=1 there is exact even zero versus odd uniform error. At and above 3/2 the harmonic/power variance divergences and bounded-summand Lindeberg yield the asserted CLTs and exact constants 1/640 and c_gamma. Verified by 356 deterministic finite checks in verify.py; finite checks are not treated as infinite proof. Ranges and exceptional gamma=1,2 were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Casarin et al., arXiv:2110.15124, Section 5, Theorem 5 proves a Gaussian CLT for generalized Latin-hypercube samples at sqrt(d) scaling with bounded integrands.",
+        "Goda, Kazashi and Suzuki, arXiv:2212.11476, Section 3, Algorithm 3.1 uses a globally shifted, randomly sized Gaussian-weight trapezoid on the real line."
+      ],
+      "reasoning": "Theorem 5 of the antithetic-sampling work is a CLT for a different sampling array and does not imply the non-Gaussian summable-variance phase or the exact location of the cusp relative to the cells. The Gaussian-weight algorithm is not the complementary within-cell estimator. Neither is a stronger theorem covering the stated three regimes by specialization.",
+      "searches": [
+        "phase transition central limit theorem antithetic stratified random quadrature interior singularity logarithmic variance",
+        "randomized trapezoid antithetic uniform pair quadrature power cusp exact asymptotic distribution normal limit central logarithmic variance",
+        "randomized trapezoid antithetic quadrature weak limit interior power cusp normal nonnormal phase transition"
+      ]
+    },
+    "checked_sources": [
+      "Y. Wu, arXiv:2011.15086 (2020-11-30), algorithm (4), Theorems 3.2--3.3, Section 3.3.1",
+      "T. Goda, Y. Kazashi, Y. Suzuki, arXiv:2212.11476 (2022-12-22), Section 3, Algorithm 3.1",
+      "R. Casarin et al., arXiv:2110.15124 (2021-10-28), Section 5, Theorem 5",
+      "An already available endpoint-power second-moment analysis, compared by mathematical implication rather than title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu, arXiv:2011.15086, Theorem 3.2, gives fractional-Sobolev L^p error upper rates, not matching lower constants or distributional limit laws.",
+        "A relevant endpoint-power variance analysis supplies a critical logarithmic coefficient for a one-sided cusp, but does not state or imply odd-cell central-error laws or non-Gaussian limiting series.",
+        "Cramér normal decomposition and Lindeberg--Feller are used as standard general theorems; the mathematical contribution is their verified application to the exact two-parity local arrays and the complete transition."
+      ],
+      "reasoning": "Mean square bounds do not imply convergence in distribution, and the endpoint-power setting does not have the exact central cell of an odd mesh. General triangular-array theorems become applicable only after the local variance and boundedness estimates have been proved. Their existence does not itself provide the cusp-specific scaling and parity laws.",
+      "searches": [
+        "antithetic trapezoidal quadrature t to the power gamma non Gaussian limit infinite series endpoint singularity",
+        "randomized trapezoid antithetic uniform pair quadrature power cusp exact asymptotic distribution normal limit central logarithmic variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yue Wu, arXiv:2011.15086, equation (4), independent within-panel complementary uniforms, Theorems 3.2 and 3.3 on mean/regularity bounds.",
+        "The proved even/odd exact decompositions (equations (1)--(2) in RESULT.md) identify distinct centered-cell and boundary-cell distributions, not merely a different name for a single global random shift."
+      ],
+      "reasoning": "Checked terminology of antithetic quadrature, randomized trapezoid, fractional power cusp and grid phase. The exact sampling mechanism matches Wu, but its results do not state the law of the centered error after exponent-dependent normalization or grid-parity behavior. There is no identified equivalent published assertion.",
+      "searches": [
+        "complementary antithetic randomized trapezoidal quadrature absolute value interior cusp grid parity lattice phase asymptotic law",
+        "randomized quadrature |x-1/2|^gamma centered cusp limiting distribution parity non-Gaussian Gaussian",
+        "Yue Wu randomised trapezoidal quadrature interior cusp parity grid alignment non-Gaussian limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wu, arXiv:2011.15086, Section 3.3.1, Table 1 lists observed convergence orders for endpoint powers t^(5/4), t^(3/2), t^(7/4), not weak limits or interior-cusp parity laws.",
+        "Available mathematical index searches did not identify an exact tabulation of the proposed parity-indexed limit distributions."
+      ],
+      "reasoning": "Numerical error-rate tables and endpoint variance results do not encode the limiting random variables or the odd-grid uniform identity. No directly reproducing table was found; absence from search results is not a global novelty proof.",
+      "searches": [
+        "Yue Wu 2020 randomised trapezoidal quadrature t^gamma endpoint power singularity gamma 3/2 logarithmic variance central limit theorem",
+        "randomized trapezoidal quadrature critical regularity gamma 3/2 logarithmic central limit sharp constant variance"
+      ]
+    },
+    "rationale": "The claim is a joint limit-law and grid-phase classification for a centered interior cusp, not a variance-rate estimate. Wu introduces exactly the local complementary-pair algorithm and proves unbiasedness plus Sobolev error bounds, but does not provide distributional cusp laws. Endpoint-power second-moment asymptotics alone do not yield the odd central-cell law or distributional limits. The examined Gaussian-weight trapezoid and generalized Latin-hypercube CLT concern different algorithms or asymptotic parameters. Classical independent-array CLT and normal decomposition are explicitly treated as standard inputs. Remaining risk: an unlocated equivalent theorem for local antithetic stratification may exist.",
+    "residual_risks": [
+      "An unlocated prior specialization of antithetic triangular-array limit theory may reproduce some or all cusp-phase distributional laws under different terminology.",
+      "The result is for a rational cusp phase of exactly one half, not all interior shifts; cannot claim generality or global literature uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: unbiasedness, Sobolev bounds and endpoint numerical rates are present, but no three-regime centered-interior-cusp weak limits, odd-cell contribution or exact parity identity.",
+        "evidence": "arXiv:2011.15086, equation (4); Theorem 3.2, equation (13); Section 3.3.1, equation (23) and Table 1.",
+        "identifier_or_url": "https://arxiv.org/abs/2011.15086",
+        "material_read": "Introduction and equation (4), Section 3.2 Theorem 3.2 proof and Theorem 3.3, Section 3.3.1 endpoint-power examples and Table 1",
+        "method": "Read open-access arXiv full-text HTML at the algorithm, proofs, and numerical experiments.",
+        "title": "A randomised trapezoidal quadrature",
+        "trigger": "Identical complementary-cell estimator, the obvious primary source and possible stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: integrates on R with Gaussian weight and a different randomized mesh design; worst-case RMSE, not centered-cusp distributional laws for independent cell pairs.",
+        "evidence": "arXiv:2212.11476, Section 3, Algorithm 3.1, and its opening problem specification.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.11476",
+        "material_read": "Introduction, scope, Section 3 Algorithm 3.1 and sample construction including random count and shift",
+        "method": "Read arXiv open-access full-text HTML.",
+        "title": "Randomizing the trapezoidal rule gives the optimal RMSE rate in Gaussian Sobolev spaces",
+        "trigger": "Potential dominant randomized-quadrature error theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: generalized Latin-hypercube CLT with a distinct array design and ordinary sqrt(sample count) scaling; neither the subcritical non-Gaussian series nor the cusp-phase threshold is included.",
+        "evidence": "arXiv:2110.15124, Section 5, Definition 5.1 and Theorem 5.",
+        "identifier_or_url": "https://arxiv.org/abs/2110.15124",
+        "material_read": "Introduction sampling definitions, Section 5 Definition 5.1, Theorem 5 and the statement of its proof",
+        "method": "Read arXiv open-access full-text HTML.",
+        "title": "Living on the Edge: An Unified Approach to Antithetic Sampling",
+        "trigger": "General antithetic-sampling CLT that could dominate Gaussian portion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "32b65899-a709-48d4-a9d1-42977e76b882",
+  "value": {
+    "rationale": "Distributional error laws determine how stochastic quadrature uncertainty behaves, unlike variance rates alone. The cusp changes the effective number of influential strata: summable variance yields a non-Gaussian local error series, critical harmonic accumulation yields a logarithmic CLT, and square-summable curvature away from the cusp yields the Gaussian n^(-5/2) regime. Exact parity at gamma=1 shows a strong, useful grid-placement obstruction for a standard integration test. Natural full parameter classification with explicit constants and precise limitations; no unsupported wider implications.",
+    "status": "PASS"
+  }
+}
