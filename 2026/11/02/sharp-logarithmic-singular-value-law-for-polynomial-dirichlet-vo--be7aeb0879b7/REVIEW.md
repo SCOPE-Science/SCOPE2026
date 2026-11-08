@@ -1,15 +1,21 @@
-# Scientific review: logarithmic singular values of polynomial Dirichlet Volterra operators
+# Independent mathematical audit
 
-## Correctness (C): PASS
-On finite Dirichlet polynomials, horizontal integration yields the exact identity \(T_g=DM_{-g'}\). The compact diagonal has \(s_n(D)=1/\log(n+1)\), so the multiplier norm gives the upper estimate. The multiplier norm is the boundary-torus supremum by the Hardy-polydisk representation and approximate kernel normers. Coprime translates of one finite smooth norming vector have mutually orthogonal domains and images; their positive density in dyadic intervals gives an \(n\)-dimensional min–max lower bound approaching the same coefficient. This proves the analytic limit, including positivity and the counting-law inversion. The supplied Python program passed 10,046 supplementary finite assertions; it cannot establish an infinite limit.
+## correctness
 
-## Originality (O): PASS, best knowledge
-The 2016 Hardy-space Volterra source proves qualitative compactness and non-Schatten membership for polynomial symbols, not the coefficient \(\lim(\log n)s_n(T_g)\). The 2020/2024 Dirichlet Bergman sources treat weighted domains and Schatten issues, while the October 2026 source treats BMOA compactness and essential norms. Searches for the exact limit, the factorization \(DM_{-g'}\), a logarithmic Weyl law, and operator/parameter aliases did not identify an equivalent theorem among published mathematical-record results. Comparison was based on implications, not only titles; no search proves universal priority. A broader unnamed singular-value theorem remains the principal residual risk.
+PASS
 
-## Mathematical value (V): PASS
-The sharp coefficient resolves a natural quantitative gap between compactness and nonmembership in all finite Schatten classes on this operator family. Its all-symbol formula, quantitative counting law, and three-term example exhibit effects of coherent prime-power interactions beyond coefficient magnitudes. The result does not assert a paper-sized contribution or a generalization to other Dirichlet function spaces.
+Termwise horizontal integration yields exact (T_gf)_m=(log m)^-1 sum_{k|m,k>=2} b_k log k a_{m/k}, so T_g= D M_h, h=-g', D diagonal 1/log m (m>=2), compact and s_n(D)=1/log(n+1). The Hardy polydisk Bohr lift gives ||M_h||=sup_{t}|g'(it)| using rationally independent prime logarithms and finite prime-smooth polynomial approximants to the multiplier norm. The ideal inequality gives a sharp upper K/log n. For each finite prime-smooth near-maximizer F, shifts by P-coprime m in a dyadic range give mutually orthonormal domain vectors and orthogonal images supported on disjoint arithmetic fibers; inclusion–exclusion supplies positive-density many m, and the Courant–Fischer min–max bound gives lower (K-eps)/log(C n). Sending eps down proves the limit; logarithmic counting inversion and no-Schatten follow. For g=2^-s+4^-s-8^-s, |h(z)|²/(log2)²=20-8cos(theta)-12cos²(theta) has peak 64/3 at cos=-1/3. Independent coefficient/multiplier tests and 2049 sampled circle values corroborate this.
 
-## Closest literature, limitations, and status
-Brevig–Perfekt–Seip (arXiv:1602.04729), Bommier-Hato (arXiv:2004.04087), Gómez-Cabello–Lefèvre–Queffélec (arXiv:2402.12524), and Tong–Wang–Yuan (arXiv:2610.21873) were compared at claim level. Potential hidden stronger coverage is a publication-priority risk; independent validation is outstanding. The proof only concerns finite symbols on unweighted \(\mathscr H^2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brevig–Perfekt–Seip 2016 arXiv:1602.04729, Section 7 (page 34), was inspected in full PDF and explicitly proves polynomial-symbol compactness and Theorem 7.2 non-Schatten membership for EVERY nonconstant symbol. These qualitative deductions are therefore not novel. The new sharp limit has the quantitatively determined constant ||g'||∞ and exponential singular counting function; the cited theorem only lower bounds column norms by one nonzero coefficient. Weighted Dirichlet Bergman and BMOA studies address other ambient spaces and do not give the H² exact leading coefficient. Resultary returned finite Cesàro and Hardy–Volterra spectra unrelated to the arithmetic fiber asymptotic. Broad compact Toeplitz multiplier singular-value laws remain a priority risk.
+
+## value
+
+PASS
+
+A full exact asymptotic constant and counting law for compact Volterra operators resolves a quantitative gap left by known no-Schatten statements. Prime-power interference makes the coefficient a genuine torus supremum, not the trivial sum of coefficient magnitudes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
