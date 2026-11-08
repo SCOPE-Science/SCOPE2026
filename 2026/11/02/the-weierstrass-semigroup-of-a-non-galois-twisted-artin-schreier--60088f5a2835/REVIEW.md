@@ -1,19 +1,21 @@
-# Scientific assessment: non-Galois twisted Artin–Schreier semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A connected degree-\(p\) Artin–Schreier cover with polynomial right-hand side of degree prime to \(p\) has its standard one-point ramification and genus. The scalar group of order \(p-1\) acts tamely; the only two fixed points (one finite and one infinite) give the quotient genus by Riemann–Hurwitz. Explicit invariant one-pole functions supply \(p\) generators. The Apéry gap count matches the quotient genus, which proves the exact equality of semigroups. No finite computation is used to infer an infinite statement. Risks: the standard Artin–Schreier ramification formula is an invoked, well-known theorem; the exact coefficient and normalization hypotheses are essential.
+PASS
 
-## Originality — PASS, narrowly qualified
+For odd p and d≥2 with p not dividing d−1, W: y^p−y=x f(x^{p−1}) is a connected Artin–Schreier cover of degree p and pole degree M=1+(p−1)d prime to p; standard one-pole AS ramification gives genus (p−1)(M−1)/2. Scalar Fp× acts on (x,y), and invariant u=x^{p−1},v=y/x give C: u v^p−v=f(u), with total scalar ramification at (0,0) and ∞. Tame Riemann–Hurwitz gives g(C)=(p−1)d/2 and unique P∞ over u∞. The polynomials uv^j=x^{p−1−j}y^j give one-pole orders p+j(d−1); the Apéry set mod p of the generated semigroup is {0}∪{p+j(d−1):1≤j<p}. Its gap genus equals g(C), proving semigroup equality, all p minimal generators, Frobenius (p−1)(d−1), conductor +1 and pseudo-Frobenius {j(d−1)}. A second place over u=0 has ramification index p−1 while [k(C):k(u)]=p, proving that projection non-Galois for odd p. Uses normalization and algebraic closure, not a finite-field point-count claim.
 
-The closest fully inspected source is Zhang–Zhao, arXiv:2605.29311, Sections 1 and 3: its Galois linearized cover has a constant-coefficient additive polynomial, whereas the present degree-\(p\) projection is non-Galois with explicit tame branching of index \(p-1\). Zhang–Zhao, arXiv:2605.14583, treats cyclic Kummer covers, not this non-Galois cover. Targeted searches for the exact equation, invariant quotient, and Apéry generators found no identical statement. Earlier work on quotients and semigroups can still potentially imply the result; this remains a real historical-priority risk rather than a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem closes a natural gap between the explicit one-point semigroup theory for Galois linearized or Kummer extensions and an infinite non-Galois family obtained through a tame scalar quotient. It gives the entire one-point semigroup, minimal generator structure, Frobenius number, conductor, numerical-semigroup type, and invariance under all lower coefficients. These data directly control Riemann–Roch gap positions and are standard input for one-point algebraic-geometric code investigations, although no new code parameters are claimed.
+Qualified PASS: explicitly distinguishes the non-Galois variable-coefficient degree-p projection from Zhang–Zhao's 2026 constant-coefficient separable linearized Galois covers and from Kummer covers. Their 27-page full primary linearized paper was read in its introduction and key gap/generator propositions and does not directly specialize under its stated hypotheses. The tame quotient technique and general AS ramification are established tools; unindexed equivalent quotient semigroup results remain a meaningful residual priority risk.
 
-## Scope and limits
+## value
 
-Odd prime characteristic; algebraically closed fields; \(d\ge2\) with \(p\nmid d-1\); normalization of the given affine equation only. No claim about nonpolynomial equations, multi-point gaps, full automorphism groups, or finite-field point counts. Same-source historical priority is still provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weierstrass semigroups at rational places are natural inputs to Riemann–Roch dimension and AG codes; this theorem gives the entire one-point semigroup, Apéry set, minimal generators, conductor and type uniformly for an infinite non-Galois family and proves independence of all lower polynomial coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
