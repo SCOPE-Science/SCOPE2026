@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every k selected subsets, integer Venn-cell counts classify exactly the S_n-orbits. The rank-r recurrence over every possible cell splitting is a complete EF/FO type recursion. An exact Python-standard-library checker computes distinct unary rank-two types 1,2,3,4,5,6,7,7,7 for n=0..8 and identical entire rank-three root signatures for n=6,7,8; a structurally separate direct three-round game check agrees for the ten pairs n,m<=3. The explicit Venn threshold 8,4,2,1 is maintained under splitting and proves all n,m>=8 equivalent, yielding the all-size classification. The one-point extension refinement is obtained by matching cardinality cells at remaining rank two. Enumeration alone is not mistaken for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.24683v1 Theorem 1.1(a)-(f), Section 4 Theorem 4.2, Section 6 Theorem 6.3, Section 7 Remarks, read in HTML full text.",
+        "Previously published Boolean-algebra result, full RESULT.md: n,m rank-q equivalence iff min(n,2^q)=min(m,2^q), in full Boolean-algebra functional language, n,m>=1."
+      ],
+      "reasoning": "Full-theory classifications and first-order definability of fixed product dimension distinguish different numbers of factors with sufficiently large quantifier rank; they do not give a rank-three classification. The published finite Boolean algebra result proves the generic eight-atom upper bound in a stronger syntax, but its language-dependent sharpness is not a statement of six-atom stabilization in the order reduct. There is no logical implication of the new sharp bound from either inspected theorem.",
+      "searches": [
+        "2026 model theory products of chains rank three Boolean lattices.",
+        "2610.24683 Kurilic Model Theory of Products of Chains full text html",
+        "rank three theory finite Boolean algebras as order reduct 6 7 atoms."
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.24683v1 HTML full text",
+      "published:2026/10/4/938cb5f89dc7 complete RESULT.md",
+      "Ehrenfeucht–Fraïssé games background"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kurilić arXiv:2610.24683v1, Theorem 1.1 and Sections 4, 6, 7: fixed-dimensional product model theory and definability, no numerical bounded-rank classification.",
+        "Published Boolean-algebra rank-q theorem (2026/10/4/938cb5f89dc7): different base language, with rank-3 cutoff eight rather than the relational cutoff six."
+      ],
+      "reasoning": "The proof here uses a complete six-to-eight-orbit recurrence plus the general eight-atom EF upper bound. The previous full Boolean-algebra theorem cannot imply B6 equiv_3 B7 in the order-only signature, since it in fact asserts non-equivalence in the full signature. Kurilić establishes distinguishability at some rank, compatible with equivalence at rank three.",
+      "searches": [
+        "finite Boolean algebra as poset rank three Ehrenfeucht Fraisse 6 versus 8",
+        "2026 model theory products of chains rank three Boolean lattices.",
+        "2026 published sharp 2^q atom visibility finite Boolean algebras"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. S. Kurilić, Model Theory of Products of Chains, arXiv:2610.24683v1, Theorem 1.1 and Sections 4, 6, 7 (full HTML).",
+        "Published Sharp 2^q atom-visibility threshold for finite Boolean algebras, RESULT.md, 2026/10/4/938cb5f89dc7 (full text, functional language)."
+      ],
+      "reasoning": "The exact objects are powerset Boolean lattices as relational inclusion posets. Search variations using powerset, Boolean lattice, order reduct, EF-game, and atom visibility returned no established same-language sharp rank-three six-atom cutoff. The closest full-language theorem has the different signature {0,1,meet,join,complement}. Its eight-atom cutoff does not yield the order-only six-atom collapse; in fact it separates the sizes six and seven that the new relational result identifies.",
+      "searches": [
+        "finite Boolean lattice powerset inclusion rank-three 3-round Ehrenfeucht-Fraisse elementary equivalence threshold",
+        "finite powerset poset subset inclusion language only rank three threshold 6 Boolean lattices order reduct versus Boolean algebra operations",
+        "3-move Ehrenfeucht Fraisse finite Boolean lattice inclusion posets 6 atoms cutoff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest identified exact parameter table is the functional-signature atom-visibility result (2026/10/4/938cb5f89dc7).",
+        "The current finite classification is reproduced from the self-contained tuple-orbit checker rather than imported from a table."
+      ],
+      "reasoning": "No inspected published table indexes the seven pure-order rank-three classes or the 64-element smallest stable representative. A search miss is not proof of novelty; overlap with an older unindexed table remains a residual risk.",
+      "searches": [
+        "first-order theories of finite Boolean algebras quantifier rank three atom number",
+        "finite Boolean lattices order language Ehrenfeucht Fraisse quantifier rank three powerset posets",
+        "Boolean lattice order-only quantifier rank 3 equivalence six atoms"
+      ]
+    },
+    "rationale": "A complete primary preprint on chain products treats full theories and dimension definability without a sharp rank-three saturation law. The closest published quantitative theorem is in the more expressive full Boolean-algebra language and establishes cutoff eight, not the pure-order cutoff six; it cannot imply equivalence of sizes six and seven in the reduct. Specialized older literature remains a priority risk.",
+    "residual_risks": [
+      "Earlier unindexed papers about pure-order Boolean lattices may give the same cutoff."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact six-atom rank-three claim; the stated theorems concern unbounded-rank equivalence, finite axiomatizability, and definable product dimension.",
+        "evidence": [
+          "Theorem 1.1 (a)-(f), Theorem 4.2, Theorem 6.3; Remark 7.1 mentions bounded equivalence only for individual linear orders, not Boolean powers or a numerical rank-three cutoff."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24683v1",
+        "material_read": "Full HTML manuscript, including Introduction and Theorem 1.1, Sections 2, 4, 6, and 7 and reference list.",
+        "method": "Direct reading of primary open HTML full text and targeted phrase checks for bounded quantifier rank.",
+        "title": "Model Theory of Products of Chains",
+        "trigger": "Recent primary paper about finite direct products of chains, including Boolean powers and full first-order theories."
+      },
+      {
+        "assessment": "NOT_COVERING the relational reduct threshold: the theorem assumes constants, meet, join, and complement as function symbols and proves a different cutoff (eight for rank three).",
+        "evidence": [
+          "Full theorem B_n equiv_q B_m iff min(n,2^q)=min(m,2^q), n,m>=1, usual functional signature; Section Proof gives the same general Venn-cell upper-bound invariant used here."
+        ],
+        "identifier_or_url": "published:2026/10/4/938cb5f89dc7",
+        "material_read": "Complete published RESULT.md, including theorem, proof, relationship to prior work and limitations.",
+        "method": "Repository primary-text inspection, mathematical comparison of signatures and implications.",
+        "title": "Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+        "trigger": "Same family of powerset algebras and directly comparable quantifier-rank invariant."
+      },
+      {
+        "assessment": "General method, not a claimed numeric result about Boolean-lattice order reducts.",
+        "evidence": [
+          "EF games compare atomic diagrams after bounded pebbles; no specific Boolean threshold in the retrieved material."
+        ],
+        "identifier_or_url": "https://ncatlab.org/nlab/show/Ehrenfeucht-Fra%C3%AFss%C3%A9%2Bgames",
+        "material_read": "Retrieved search-page description of game definitions; full page fetch failed due XHTML content type.",
+        "method": "Background mathematical definitions.",
+        "title": "Ehrenfeucht–Fraïssé games",
+        "trigger": "Standard exact connection between bounded rank and games."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0df7af71-7b82-40e5-b425-7b3bceb3d728",
+  "value": {
+    "rationale": "The inclusion-only order reduct is a canonical relational representation of a finite Boolean algebra. The exact seven-class rank-three classification and sharp 64-element saturation representative quantify a natural expressive-language boundary: the previously published full-functional-language cutoff is eight atoms, versus six for inclusion-only. This is a complete classification of a motivated natural family, with a checkable finite threshold, not an arbitrary numerical slice or a code-only observation.",
+    "status": "PASS"
+  }
+}
