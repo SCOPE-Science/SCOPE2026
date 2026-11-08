@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T06:58:43.288325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md e5b5303c12205f6fd7590b10d2ffdf219d9e98a5",
+        "Full original verify_reuleaux_log_tail.py 78bb570ca67dc4962d3eef3ddff485c6749420ad read (numpy/scipy dependencies identified)",
+        "Independent direct small-s local lens numeric for n=3,5 and exact angular trigonometric identity",
+        "Primary Falcó–Myroshnychenko 2608.05125 area/constant-width description"
+      ],
+      "rationale": "The difference Y−X has normalized covariogram density g(z)/A_n², and the width-one body has circular difference body, so the endpoint probability integrates G_n(s)=∫g((1−s)uθ)dθ radially over s∈(0,ε). There are 2n oriented corner–arc sectors of width α=π/n. In an interior angular sector the two tangent rays at the corner give simplex coefficient c(φ)=sin α/[2 sinφ sin(α−φ)]=(cotφ+cot(α−φ))/2. The trim δ_s=√s log(1/s) enforces uniform O(1/log²(1/s)) relative curvature error; nonincident disks have slack on this trim. Endpoint overlap is bounded by C min(s^(3/2),s²/Δ), giving an o(s² log(1/s)) integrated contribution. Exact integral of c over each trimmed sector is ½log(1/s)+lower order, so G_n(s)~n s²log(1/s), and radial integration gives n/(3A_n²)ε³log(1/ε). Independently checked trig identity and direct small-s local lens geometry for n=3,5; e.g. local coefficient target √3 ≈1.73205 versus s=0.003 numerical 1.71906 for n=3, convergence corroboration only. Disk comparator coefficient independently follows from circle-lens asymptotic. The theorem fixes n first and makes no n-uniform limit assertion.",
+      "residual_risks": [
+        "Uniform geometric estimates hold for each fixed odd n; no n→∞ joint limit.",
+        "Numerical local lens checks alone do not establish the logarithmic asymptotic; analytic trimmed estimates provide proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pure et al: pair distances in ordinary straight-edged polygons.",
+          "Bonnet et al: sharp mean-distance inequalities in arbitrary convex bodies."
+        ],
+        "reasoning": "Mean distances do not determine the near-support tail; straight-edged polygon formulas require different boundary geometry from regular circular-arc Reuleaux corners. A general covariogram identity is only an integral representation, not a dominating endpoint theorem.",
+        "searches": [
+          "Reuleaux regular odd n polygon diameter pair distance logarithmic epsilon tail",
+          "doi:10.1002/mma.7951",
+          "arxiv:2010.03351"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.05125",
+        "https://arxiv.org/abs/2010.03351",
+        "https://doi.org/10.1002/mma.7951",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474",
+        "Reuleaux regular odd n polygon diameter pair distance logarithmic epsilon tail"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Falcó–Myroshnychenko identifies regular Reuleaux polygons as symmetry-restricted area minimizers.",
+          "Published Estermann paper uses the same exact A_n area formula but focuses on symmetry containment."
+        ],
+        "reasoning": "Area and support-width information alone do not specify the distribution of Y−X near unit norm; the angular wedge/log divergence calculation is new relative to the inspected claims. The disk comparator is classical and not credited novel.",
+        "searches": [
+          "arxiv:2608.05125",
+          "Resultary 2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474",
+          "Reuleaux regular odd n polygon diameter pair distance logarithmic epsilon tail"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation G_n(s)~n s²log(1/s) follows by polar covariogram integration.",
+          "General convex-body covariogram formulas specify the transform but not this endpoint angular singularity."
+        ],
+        "reasoning": "The endpoint law can be rephrased as angular overlap asymptotic, radial covariogram singularity or chord-distance tail; none of the inspected Reuleaux symmetry/area results computes this overlap.",
+        "searches": [
+          "Reuleaux regular odd n polygon diameter pair distance logarithmic epsilon tail",
+          "pair distance covariogram near diameter Reuleaux polygon logarithmic",
+          "arxiv:2608.05125"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Reuleaux Estermann finding gives the min-area centrally symmetric container and area ratio, not pairwise distance.",
+          "Published short-distance law pertains to r→0 and straight-edge convex polygons, not r→diameter."
+        ],
+        "reasoning": "No matching table of ε³log coefficient for all odd n found; exact asymptotic depends on corner count and continuous area normalization, not a known table entry.",
+        "searches": [
+          "Reuleaux regular odd n polygon diameter pair distance logarithmic epsilon tail",
+          "Resultary regular Reuleaux exact Estermann measure",
+          "Resultary short pair distance coefficient convex polygons"
+        ]
+      },
+      "rationale": "No exact near-diameter pair-distance law for all regular Reuleaux odd-gons appeared in the searched Resultary findings and literature. Falcó–Myroshnychenko covers area/symmetry minimizers, Pure et al straight-edge polygon pair distances, Bonnet et al mean distance bounds; the published regular Reuleaux Estermann primary result concerns area-ratio symmetry, not the two-point covariogram endpoint. The general covariogram identity and corner contact geometry are classical; novel asserted content is the sharp ε³log(1/ε) law and coefficient n/(3A_n²). This best-of-knowledge result carries residual risk of an unindexed general corner–arc covariogram theorem.",
+      "residual_risks": [
+        "An unindexed stronger boundary-covariogram theorem may already imply the logarithmic tail for all regular Reuleaux odd-gons.",
+        "Full 19-page Falcó–Myroshnychenko and polygon-distance primary texts were not independently read, so no unsupported whole-document noncoverage claims are made.",
+        "Fixed-n asymptotic should not be applied uniformly as n grows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and A_n but computes outer central-symmetry ratio, not two-point endpoint covariogram",
+          "evidence": [
+            "Finding E(R_n)=π/(n tan(π/(2n)))−1; proof uses Firey area A_n, not distance-tail integration"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474",
+          "material_read": "Entire published RESULT.md including area construction, proof, verification and limitations",
+          "method": "Fetched and read complete published SCOPE RESULT.md using connected GitHub connector",
+          "title": "Exact Estermann measure of regular Reuleaux polygons",
+          "trigger": "Same exact regular Reuleaux odd-n family and area normalization"
+        },
+        {
+          "assessment": "Abstract does not assert distance distributions; no whole-document NOT_COVERING conclusion based solely on abstract",
+          "evidence": [
+            "Abstract classifies area-minimizing constant-width bodies under cyclic/dihedral symmetry"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.05125",
+          "material_read": "Accessible primary abstract and bibliographic data; full 19-page text could not be read from arXiv/OA in this run",
+          "method": "Compared problem (area optimality under group invariance) with two-point random distance endpoint",
+          "title": "Area Minimization Among Group-Invariant Planar Convex Bodies of Constant Width",
+          "trigger": "Exact same body family and regular Reuleaux geometry"
+        },
+        {
+          "assessment": "Mean distance inequalities cannot by themselves imply a specific singular endpoint expansion",
+          "evidence": [
+            "Paper concerns mean/expected distance, not an explicit Reuleaux near-diameter probability"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.03351",
+          "material_read": "Accessible abstract-level claims and exact title only; entire proof not read",
+          "method": "Distinguished expected distance from sharp distribution tail",
+          "title": "Sharp inequalities for mean distance of random points in convex bodies",
+          "trigger": "Potential broad distance theorem"
+        },
+        {
+          "assessment": "A relevant approach, but no whole-document exclusion of curved-domain generalizations without full text",
+          "evidence": [
+            "Problem treats arbitrary straight-sided polygons, while each Reuleaux side is a circle arc"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mma.7951",
+          "material_read": "Primary title/abstract and straight-edged domain description; full text not obtained",
+          "method": "Compared polygonal edges with curved circular-arc Reuleaux intersections",
+          "title": "Distance distribution between two random points in arbitrary polygons",
+          "trigger": "Full pair-distance CDF competing framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned full angular-covariogram proof",
+        "Falcó–Myroshnychenko area/symmetry construction",
+        "Published regular Reuleaux Estermann area-normalization result"
+      ],
+      "rationale": "A sharp near-diameter random-pair distance asymptotic is a natural geometric-probability invariant. Its ε³log singularity distinguishes corner–arc constant-width shapes from smooth circular cases, and its area-normalized coefficient recovers the odd number of Reuleaux corners. The all-odd-n parameter law is substantive and independently useful for covariogram boundary asymptotics, not a restatement of area or finite simulation.",
+      "residual_risks": [
+        "Potential known general covariogram endpoint asymptotic may reduce novelty, but this concern is separately recorded under originality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md e5b5303c12205f6fd7590b10d2ffdf219d9e98a5",
+    "Full original verify_reuleaux_log_tail.py 78bb570ca67dc4962d3eef3ddff485c6749420ad read (numpy/scipy dependencies identified)",
+    "Independent direct small-s local lens numeric for n=3,5 and exact angular trigonometric identity",
+    "Primary Falcó–Myroshnychenko 2608.05125 area/constant-width description",
+    "https://arxiv.org/abs/2608.05125",
+    "https://arxiv.org/abs/2010.03351",
+    "https://doi.org/10.1002/mma.7951",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474",
+    "Reuleaux regular odd n polygon diameter pair distance logarithmic epsilon tail",
+    "Assigned full angular-covariogram proof",
+    "Falcó–Myroshnychenko area/symmetry construction",
+    "Published regular Reuleaux Estermann area-normalization result"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the named full final claim was assessed; results are best-of-knowledge scientific judgments, not external certification.",
+    "Independent bounded arithmetic checks support but do not replace all-parameter arguments.",
+    "No new scientific files were changed. Publication/change-set plans are unexecuted."
+  ],
+  "residual_risks": [
+    "Uniform geometric estimates hold for each fixed odd n; no n→∞ joint limit.",
+    "Numerical local lens checks alone do not establish the logarithmic asymptotic; analytic trimmed estimates provide proof.",
+    "An unindexed stronger boundary-covariogram theorem may already imply the logarithmic tail for all regular Reuleaux odd-gons.",
+    "Full 19-page Falcó–Myroshnychenko and polygon-distance primary texts were not independently read, so no unsupported whole-document noncoverage claims are made.",
+    "Fixed-n asymptotic should not be applied uniformly as n grows.",
+    "Potential known general covariogram endpoint asymptotic may reduce novelty, but this concern is separately recorded under originality."
+  ],
+  "schema_version": 1
+}
