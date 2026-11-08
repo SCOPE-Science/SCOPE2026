@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:00:34.448052Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In Kneser K(3r-3,r), closed neighborhoods of distinct r-subsets are disjoint exactly when intersection size is 1 or 2: intersection 0 means adjacency; intersection >=3 creates a common disjoint neighbor. Four such r-sets require union size >=4r-12>3r-3 for r>=10, so maximum 3. Three-block intersections are 1 or 2, and enumerating the eight feasible Venn signatures (number k of pairwise 2-intersections, triple intersection t) gives multinomial counts divided by 6 for unordered families; all atom coordinates identify one S_n orbit for each (k,t). Recomputed exhaustive K(9,4) all 126 vertices: 6300 pairs, 163800 triples with orbit signatures (0,0):7560, (1,0):45360, (1,1):7560, (2,0):22680, (2,1):45360, (3,0):1260, (3,1):30240, (3,2):3780. This finite experiment is cross-check, not all-r proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Proposition 4.2 already proves maximum packing cardinality three, which is excluded from novelty; no inspected theorem enumerates all matching triple Venn types for the infinite diagonal."
+        ],
+        "reasoning": "A general intersection-number formula might imply multinomials mechanically, but the full orbit classification requires assembling feasibility and quotient by S_n.",
+        "searches": [
+          "arXiv:2312.15464 Proposition 4.2; arXiv:2308.15603; Östergård 2010"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.15464",
+        "https://doi.org/10.1109/TIT.2010.2050922",
+        "Resultary published mathematical records: semantic search on the exact claim and equivalent terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximum and pair admissibility are inputs. Exact multinomial Venn enumeration, orbit action and coefficient B_r/C_r are further deductions not explicitly given in that source."
+        ],
+        "reasoning": "The deductions are short and can be rediscovered from prior criterion; they are not claimed independent of the earlier structural input.",
+        "searches": [
+          "arXiv:2312.15464 Observation 4.1, Proposition 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary constant-weight distance constraints encode intersection <=2 but do not impose intersection >=1; an upper-bound code table is not automatically the same packing polynomial."
+        ],
+        "reasoning": "Brešar et al. identify exact pair condition, not the complete enumerator.",
+        "searches": [
+          "arXiv:2312.15464 Observation 4.1; doi:10.1109/TIT.2010.2050922; Resultary Kneser graph K(3r-3,r) 2-packing polynomial three element packings eight orbits intersections constant weight codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite maximal-code size data do not give the eight labeled triple orbit populations; the claimed range begins n>=30."
+        ],
+        "reasoning": "Earlier unindexed counts for exactly this diagonal could exist.",
+        "searches": [
+          "Östergård Classification of Binary Constant Weight Codes 2010; Smith–Hughes–Perkins 2006; Brouwer binary constant-weight bounds"
+        ]
+      },
+      "rationale": "Kneser packing size 3 and 1<=pairwise intersection<=2 were previously proved by Brešar et al. The evaluated full cubic enumerator, exact labeled triple multiplicities and eight orbit classification for all r>=11 were not present in inspected primary results; coding tables for maximum size or upper intersection alone do not logically imply these counts.",
+      "residual_risks": [
+        "A prior coding-theoretic theorem for triple block designs with positive intersections could imply the count without mentioning Kneser graphs.",
+        "No conclusions about n other than the claimed diagonal or about graph-packing equivalences outside the specified definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS pair admissibility and maximum 3; no full enumerator or eight-orbit table found in inspected section",
+          "evidence": [
+            "Observation 4.1 says pairwise intersections 1 or 2; Proposition 4.2 gives 2-packing number 3 on n=3r-3 for large r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.15464",
+          "material_read": "Primary PDF section 4 including Observation 4.1 and Proposition 4.2; inspected rendered page",
+          "method": "ArXiv full-text/PDF and page inspection",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Exact same Kneser diagonal and 2-packings"
+        },
+        {
+          "assessment": "Unresolved historical comparison; this source cannot be asserted globally noncovering from excerpts",
+          "evidence": [
+            "Classifications of maximum codes at selected finite parameters rather than directly proven all-r cubic Kneser polynomial in accessible material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2010.2050922",
+          "material_read": "Bibliographic metadata and available abstracts, not full journal article",
+          "method": "Publication index and scholarly search",
+          "title": "Classification of Binary Constant Weight Codes",
+          "trigger": "Possible constant-weight-code equivalence or table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete counting polynomial and exact orbit representatives of optimizers are natural enumeration and symmetry invariants of the Kneser diagonal; the formulas answer questions not decided by the already-known maximum value, with potentially useful exact distributions for covering/coding correspondences.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2312.15464",
+    "https://doi.org/10.1109/TIT.2010.2050922",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/the-complete-2-packing-polynomial-and-eight-optimal-orbits-of-k--80ff837d1994/RESULT.md",
+    "/mnt/data/scope_worker07_independent_20261106T1041.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For K(3r-3,r), all r>=11, the complete two-packing polynomial is 1+binom(3r-3,r)z+B_r z²+C_r z³, with B_r the intersections-one-or-two count and C_r the sum of eight specified Venn atom multinomials; precisely eight coordinate-permutation orbits of maximum three-vertex packings occur, C_11=9,693,705,696,717,042,000.",
+  "limitations": [
+    "Only simple Kneser graphs with n=3r-3, r>=11; unlabeled packings but labeled ground coordinates."
+  ],
+  "residual_risks": [
+    "A prior coding-theoretic theorem for triple block designs with positive intersections could imply the count without mentioning Kneser graphs.",
+    "No conclusions about n other than the claimed diagonal or about graph-packing equivalences outside the specified definition."
+  ],
+  "schema_version": 1
+}
