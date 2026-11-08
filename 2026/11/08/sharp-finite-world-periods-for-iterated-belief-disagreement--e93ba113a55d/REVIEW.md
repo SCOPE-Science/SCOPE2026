@@ -1,0 +1,11 @@
+# Review: sharp finite-world periods for iterated belief disagreement
+
+**Correctness (PASS).** For functional KD45 relations the agent successors are retractions, and the two-agent disagreement truth-set map is the linear operator \(Tx=x\circ f+x\circ g\) over \(\mathbb F_2\). Its constant-vector kernel forces the stable invertible image to have dimension at most one less than the number of worlds. If its exact eventual order is \(2^r\), the nilpotency index of \(S+I\) exceeds \(2^{r-1}\), implying the claimed lower bound. The alternating retraction construction attains the bound with one-step stabilization. The extracted standalone checker verifies small-frame cases and the proposed explicit family, without replacing the general proof.
+
+**Originality (PASS within inspected material).** The relevant 2026 bundled-modality source analyzes axiomatization and semantics, not the exact iteration-period model-size theorem. A 2018 paper on the same strong-disagreement bundle was located, but only its abstract and bibliographic material were available: its full-text contents remain a substantive historical-priority risk. Published records on unrelated parity automata, nonstandard KD45 models, and separate epistemic operations do not imply the present minimal-world statement. Searches cannot establish absolute novelty.
+
+**Mathematical value (PASS).** This gives a sharp infinite family of finite-model-size thresholds for a natural logical phenomenon: arbitrarily long oscillatory nesting of one bundled operator made from two individually idempotent belief modalities. The exact minimality holds throughout the entire functional-KD45 class, not merely within the constructed example family. It also yields pairwise non-equivalence of all positive iterates across finite frames, a direct expressivity consequence.
+
+**Scope and risks.** The result covers only two deterministic agents and dyadic eventual periods, does not classify all other periods, and has no independent historical-priority or mathematical certification. Earlier specialist modal-logic results could be equivalent; the 2018 directly relevant source was not inspected in full.
+
+Self-review: passed. Independent audit: not yet performed.
