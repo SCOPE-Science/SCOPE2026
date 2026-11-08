@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Affine plane axioms give MM^T=qI+J, full row rank, the exact five-part Laplacian spectrum (multiplicities 1, q^2-1, q, q^2-1, 1), and lower bounds q^2-1 total and q line inputs. For the proposed actuator set, selected line constraints x_P+x_Q=0 for all q omitted-line points and 1^T x=0 force x=0; selected parallel directions sample the q-dimensional line kernel injectively; constant eigenmodes are visible. Every selected black line has exactly two white point neighbors, every selected black point at least q white line neighbors. Exact standard-library checks passed for prime orders 2,3,5,7,11. The finite check is not used as proof of universal coverage.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al., Nature Communications 4, 2447 (2013), proof of geometric-multiplicity formula, https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/, sections Results and Methods.",
+        "Burgarth et al., arXiv:1111.1475v1, section 4, zero-forcing sufficient condition and its nonconverse.",
+        "Monshizadeh et al., arXiv:1403.4868, matrix-family robust controllability and zero forcing."
+      ],
+      "reasoning": "Yuan may cover the numerical minimum among arbitrary independent input matrices, but does not specify the particular field-free, fixed-coordinate pattern achieving both minima. Zero forcing is a sufficient criterion, not a characterization for a fixed Laplacian. The matrix-family guarantee is stronger in robustness but does not entail fixed-matrix controllability is absent from a stalled set.",
+      "searches": [
+        "affine plane incidence graph point line optimal PBH sensor placement minimum number input nodes",
+        "affine resolvable design incidence graph Laplacian controllability minimum leaders",
+        "Exact Controllability of Complex Networks Yuan Zhao Di Wang Lai multiplicity affine plane graph",
+        "web: \"affine plane incidence graph Laplacian controllability minimum leader nodes PBH point line\"",
+        "web: \"affine plane incidence graph controllable pair coordinate inputs finite geometries PBH\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1111.1475",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/",
+      "https://arxiv.org/abs/1403.4868",
+      "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/iet-cta.2018.6214",
+      "https://www.um.edu.mt/library/oar/handle/123456789/28166",
+      "published-finding corpus: 2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4",
+      "Accessible historical claim: 68e7235d-cf95-46ae-8b30-fb7120f0a818",
+      "Accessible historical claim: 2ac3b4ce-4f84-4c1d-be0c-522f02c886fc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yuan general PBH rank approach may imply the minimum input *number* from a known spectrum; the present construction additionally certifies all eigenmodes for a single predetermined coordinate set.",
+        "Burgarth theorem 4.1 is one-directional zero-forcing implies controllability; section 4 explicitly states that its converse fails.",
+        "Farrugia and Sciriha (2014) searchable abstract treats adjacency and signless-Laplacian controllability, without an accessible all-affine-plane placement statement."
+      ],
+      "reasoning": "The scalar q^2-1 is compatible with, and partly implied by, combining prior abstract theory with the elementary incidence spectrum. The asserted contribution is a different stronger combination: an explicit q-line, q^2-q-1-point, simultaneously budget-optimal and zero-forcing-stalled set for every affine plane. None of the checked hypotheses of the cited sufficient or generic theorems produces that specific placement.",
+      "searches": [
+        "affine resolvable design incidence graph Laplacian controllability minimum leaders",
+        "minimum coordinate actuators projective plane affine plane incidence graphs zero forcing Laplacian PBH",
+        "web: \"affine plane Levi graph minimum leader set Laplacian eigenvectors q2-1\"",
+        "web: \"zero forcing controllability symmetric graphs leader nodes sufficient condition\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published exact controllability framework at https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/ gives maximum multiplicity, not the simultaneous line-input-minimal stalled coordinate placement.",
+        "published-finding corpus closest 2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4 is homotopy classification, not Laplacian control."
+      ],
+      "reasoning": "Equivalent formulations include PBH observability of every eigenspace and rank of the stacked point-coordinate/selected incidence restrictions. Those are used directly in the proof; matched incidence geometry alone does not entail the explicit optimization and stalled placement. No equivalent fixed-Laplacian dedicated-placement theorem located.",
+      "searches": [
+        "minimum coordinate actuators exact controllability incidence graphs affine planes of order q points lines Laplacian eigenspaces q squared minus one",
+        "q^2-1 minimum driver vertices incidence graph of finite affine plane Laplacian eigenvalues q and (2q+1±sqrt(4q+1))/2",
+        "web: \"Levi graph affine plane exact controllability leaders q^2-1\"",
+        "web: \"point line incidence affine plane graph controllability spectrum minimum driver nodes q^2-1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4 concerns topological persistence, not actuators.",
+        "Accessible prior exact projective-plane incidence claim 68e7235d-cf95-46ae-8b30-fb7120f0a818 concerns q^2+q input optimum on a different graph.",
+        "Accessible ternary coordinate-axis incidence graph claim 2ac3b4ce-4f84-4c1d-be0c-522f02c886fc concerns a four-dimensional grid incidence, not an affine plane."
+      ],
+      "reasoning": "The relevant accessible record lists no affine-plane incidence actuator table or exact optimal configuration. The projective plane is not an affine plane: deleting a projective line and its points changes row/column sizes, degrees, kernel, spectrum, and control dimension. An absence in search is not a uniqueness theorem.",
+      "searches": [
+        "minimum coordinate actuators exact controllability incidence graphs affine planes of order q points lines Laplacian eigenspaces q squared minus one",
+        "minimum coordinate actuators projective plane affine plane incidence graphs zero forcing Laplacian PBH",
+        "web: \"point line incidence affine plane graph controllability q2-1 driver\""
+      ]
+    },
+    "rationale": "The prior zero-forcing paper supplies sufficiency and acknowledges a small converse counterexample; the maximum-multiplicity framework supplies the abstract input-channel criterion and can imply the scalar lower bound once this spectrum is known. Neither inspected source states or implies the explicit all-affine-plane coordinate placement simultaneously minimizing total and line-only actuator budgets while being zero-forcing-stalled. A projective-plane incidence graph is a different matrix with different spectral multiplicities; its exact controller count is not equivalent. Targeted published-finding corpus and web searches found only related but not dominating claims; remaining unindexed specialty coverage is acknowledged.",
+    "residual_risks": [
+      "A broader affine-design controllability lemma might imply the explicit placement despite not appearing in the targeted search results.",
+      "The Farrugia--Sciriha 2014 PDF was not accessible for full-text exclusion.",
+      "The scalar minimum q^2-1 should not be advertised as a departure from the general maximum-multiplicity theorem; the distinct contribution is the geometric optimum and stalled zero-forcing placement.",
+      "Existing historical snapshots and indexed published-finding corpus records do not constitute complete literature coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides zero forcing as sufficient and shows nonnecessity on a small example, but no affine-plane family or optimal placement.",
+        "evidence": [
+          "Section 4, Theorem 4.1 and discussion of converse; arXiv first v1 dated 2011-11-07."
+        ],
+        "identifier_or_url": "arxiv:1111.1475v1 https://arxiv.org/pdf/1111.1475",
+        "material_read": "PDF pages 1-4 and 9-10 (abstract, setup, section 4 Theorem 4.1 and nonconverse discussion, including example)",
+        "method": "Original publicly accessible arXiv PDF text and direct page screenshots",
+        "title": "Zero forcing, linear and quantum controllability for systems evolving on networks",
+        "trigger": "Direct overlap of dedicated coordinate inputs and stalled zero forcing"
+      },
+      {
+        "assessment": "General freely-configured input count and driver search imply a multiplicity lower bound; no explicit field-free, line-minimal, stalled affine-plane actuator placement.",
+        "evidence": [
+          "Methods max geometric multiplicity equations, Results driver identification, published 2013-09-12."
+        ],
+        "identifier_or_url": "doi:10.1038/ncomms3447 https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/",
+        "material_read": "Full open-access article Results on driver identification, PBH and maximum multiplicity, Methods on rank and Jordan form, table of simple graphs",
+        "method": "Publisher/PubMed Central full-text HTML",
+        "title": "Exact controllability of complex networks",
+        "trigger": "Possible general theorem dominating minimum actuator number"
+      },
+      {
+        "assessment": "Theorem IV.4 characterizes leader sets controlling every member of a qualitative matrix class via zero forcing. The paper explicitly distinguishes a fixed Laplacian singleton from that strong structural guarantee. It contains no affine-plane incidence placement theorem; the present fixed-Laplacian stalled set does not contradict it.",
+        "evidence": [
+          "Original arXiv:1403.4868v1 (2014-03-19), Theorem IV.4 and Corollary IV.6 on all Q(G), and page 4 text explaining the fixed-Laplacian converse failure."
+        ],
+        "identifier_or_url": "arxiv:1403.4868v1 https://arxiv.org/abs/1403.4868",
+        "material_read": "Original PDF pages 1-5: introductory fixed-versus-qualitative-class distinction, Section II problem definition, Section IV Theorem IV.4, Corollary IV.6, Theorem IV.8, Proposition IV.10 and special-case scope.",
+        "method": "Original open-access arXiv v1 PDF with text and direct page screenshot examination.",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Possible stronger controllability characterization via zero forcing"
+      },
+      {
+        "assessment": "Analyzes paths and antiregular graph interconnections, not affine incidence network geometry.",
+        "evidence": [
+          "2019-03-27 first published; graph classes described in full-text introduction."
+        ],
+        "identifier_or_url": "doi:10.1049/iet-cta.2018.6214 https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/iet-cta.2018.6214",
+        "material_read": "Accessible HTML introduction, theorem discussion and path/interconnected-graph problem formulation",
+        "method": "Publisher full-text HTML",
+        "title": "Generalising Laplacian controllability of paths",
+        "trigger": "Later full-text specialized leader-placement comparator"
+      },
+      {
+        "assessment": "Abstract indicates adjacency/signless Laplacian methods; full text inaccessible, so coverage cannot conclusively be excluded.",
+        "evidence": [
+          "Farrugia and Sciriha, Linear Algebra and its Applications 454 (2014) 138-157."
+        ],
+        "identifier_or_url": "https://www.um.edu.mt/library/oar/handle/123456789/28166",
+        "material_read": "Full repository title, bibliographic metadata and abstract; attached full PDF restricted",
+        "method": "Institutional repository abstract; attempted access resolution",
+        "title": "Controllability of undirected graphs",
+        "trigger": "Plausible older leader-placement article for symmetric graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0e964082-256e-4e79-9351-30c43e3353b5",
+  "value": {
+    "rationale": "Determines the natural dedicated-actuator optimum for all existing affine planes, including non-Desarguesian instances, and simultaneously attains the sharp minimum number of line-side inputs with a simple geometric placement. An optimal set has no legal initial zero-forcing move, showing a substantive separation between a topology-only sufficient control certificate and fixed-Laplacian controllability. Does not claim the zero-forcing number or broad performance conclusions.",
+    "status": "PASS"
+  }
+}
