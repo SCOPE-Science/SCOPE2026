@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The radial operator has exact monomial eigenvalues \(u^{n+1}\). Expanding the squared commutator in this orthonormal basis yields a nonnegative matrix generating series evaluated by an absolutely convergent four-real-variable Gaussian integral. The integral determinant gives the closed form. A positive integral representation of the radical difference and a strictly decreasing radicand establish monotonicity through the noncompact endpoint, while coherent-state weak convergence proves endpoint noncompactness. The executable finite checker corroborates the determinant and matrix expansion, but the proof does not rely on finite extrapolation.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Testorf, arXiv:2410.15170, treats discrete Gabor localization and its spectral asymptotics; Svela, arXiv:2410.18769, treats individual localization spectra including symplectically deformed Gaussians; Huang–Zhang, arXiv:2405.11147, treats single-symbol operator norm bounds; Kisil, arXiv:2108.13710, provides general cross-Toeplitz theory. None of their inspected statements supplies this exact *two-mask* commutator norm with the strict fixed-mean-curvature ellipse-to-stripe maximum. General Gaussian-operator covariance methods are a credible source of indirect prior implication and remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** The noncommutativity cost between Gaussian localization masks is a natural invariant of incompatible time-frequency concentration operators. The complete parameter-dependent formula is sharp across every positive ellipse, proves rotational commutation rigidity, and identifies a unique optimizer at a noncompact singular boundary. This is more than a normalization check or isolated numerical example and does not assert an unrelated downstream theorem.
+In one-dimensional Bargmann-Fock space the radial Toeplitz symbol f_a has exact eigenvalues u^(n+1), u=(1+a)^-1. For g_{b,c,theta}, its Fock matrix generating norm F(x,y) is a convergent complex Gaussian integral with determinant (B^2-c^2-xy)^2-c^2(x+y)^2 for B=1+b. Substituting (x,y)=(u^2,1),(u,u) yields the exact two-radical Hilbert-Schmidt commutator norm. The positive integral representation u^2 c^2 int_{4u^2}^{(1+u^2)^2}[(B^2-u^2-c^2)^2-c^2 s]^-3/2 ds establishes strict monotonicity on 0<=c<=b and the small-c coefficient u^2(1-u^2)^2/(B^2-u^2)^3. Positivity at c=b is explicit; coherent-state translates weakly tend to zero but preserve a nonzero g-expectation, proving the maximizing stripe T_g is noncompact. Recomputed complex 4x4 determinant symbolically and independent monotonicity samples. Valid for a,b>0, theta arbitrary, c in [0,b]; no generic masks/Schatten classes conclusion.
 
-**Limitations.** One complex dimension; centered real positive Gaussian masks; fixed radial parameter and fixed trace of the anisotropic quadratic form; no uniform statement in these fixed parameters or extension to general masks. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after same-object source and implication comparisons. This result is not accepted merely because its wording differs from a prior title. Already known reductions, analytic machinery and restricted special cases are credited. Material access risks are explicitly listed.
+
+## value
+
+PASS
+
+The commutator measures incompatibility of two Gaussian time-frequency localization procedures; its full analytic norm and optimal anisotropy at a singular noncompact stripe boundary give a natural exact invariant with a sharp optimization law. The use of two distinct diagonalizing bases is not determined by individual operator spectra; the endpoint phenomenon is mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
