@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "PASS: Ordered-node density 6; three exact rational Lagrange formulas; global bound W<=sqrt(3)/(st); hierarchy decomposition makes large-gap and comparable-gap regions O(1/T); each unbalanced small-gap region contributes half-log area times 6sqrt(2) integral, giving total 6sqrt(2)(z^2-z+1/3). Remainder near endpoints or z has arbitrarily small leading coefficient. Layer cake gives p<1; Gaussian conditioning gives corresponding error moment law. checker.py passed 12 symbolic identities and diagnostics for z=0 and 1/2. Proof of infinite T-tail does not rely on simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunis–Nagel: bounds on condition number for separated nearly colliding Fourier nodes, not a random event law.",
+        "Chkifa–Dolbeault: algorithmically conditioned point sampling and expected approximation bounds, not iid three-node tails.",
+        "Closest published-finding corpus three-knot natural-cubic positivity work concerns deterministic spline undershoot, not quadratic random colliding nodes."
+      ],
+      "reasoning": "Deterministic inverse-spacing inequalities yield upper/lower powers but do not alone establish this two-scale logarithmic coefficient; no stronger searched statement dominated the exact iid tail and moment cutoff.",
+      "searches": [
+        "arXiv:1812.08645; https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "arXiv:2306.07435; https://arxiv.org/html/2306.07435",
+        "published-finding corpus: random Vandermonde quadratic interpolation three close nodes multi-scale collision log t / t instability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.08645",
+      "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+      "arXiv:2306.07435",
+      "https://arxiv.org/html/2306.07435",
+      "https://dlmf.nist.gov/3.3",
+      "own ledger item faf8bda6-def0-4242-b4cc-b9cc04f6a6da",
+      "own ledger item 0bd09ba6-33ae-4feb-ba88-ef51e34fa1b4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own index 124: stratified one-per-cell Lagrange nodes, whose only adjacent-pair collisions have t^-2 tail.",
+        "Own index 115: iid nodes but affine-exact least-norm weights rather than unique degree-two weights, giving a distinct m-1 exponent.",
+        "Source Theorem 1.1 uses constructed sample distributions and provides approximation error bounds, not this risk."
+      ],
+      "reasoning": "IID triple-collision geometry is excluded from one-per-cell sampling; degree-two exactness selects a different weight vector from affine-exact least norm. Thus neither own claim implies the logarithmically amplified iid quadratic-tail constant; source approximation upper bounds are inapplicable to the unsafeguarded design.",
+      "searches": [
+        "own ledger index 124 item faf8bda6-def0-4242-b4cc-b9cc04f6a6da",
+        "own ledger index 115 item 0bd09ba6-33ae-4feb-ba88-ef51e34fa1b4",
+        "arXiv:2306.07435 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching logarithm-over-t iid three-node quadratic interpolation law in the inspected published-finding corpus hits or web results; this absence does not prove novelty.",
+        "NIST DLMF gives basis algebra, but not random tail distribution."
+      ],
+      "reasoning": "Barycentric weights, Lagrange basis, inverse Vandermonde, and Gaussian-noise amplification are equivalent descriptions of the same instability. The contribution is the leading logarithmic factor and its exact evaluation-point coefficient; we searched these aliases.",
+      "searches": [
+        "published-finding corpus: three iid uniform interpolation nodes quadratic Lagrange weights logarithmic t inverse tail asymptotic random Vandermonde collision",
+        "web: random iid nodes Lagrange interpolation Lebesgue function heavy tails logarithmic probability norm",
+        "web: random polynomial interpolation three uniform nodes log tail Cauchy Lagrange weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected published-finding corpus hit SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304 concerns natural cubic shape preservation.",
+        "Inspected prior own ledger entries index 124 (one-per-cell uniform Lagrange, t^-2 tail) and 115 (iid affine-exact minimum-norm, t^{-(m-1)} tail)."
+      ],
+      "reasoning": "Neither known table nor database result returned the present constant 6sqrt(2)(z^2-z+1/3) with log(T)/T decay; database coverage is incomplete and not treated as an originality proof.",
+      "searches": [
+        "published-finding corpus: random polynomial interpolation nodes all independent uniform condition number heavy tails log correction triple collision",
+        "web: condition number Vandermonde random nodes heavy tail log factor",
+        "web: arxiv random interpolation nodes iid uniformly distributed Lebesgue constant tail moments"
+      ]
+    },
+    "rationale": "PASS with residual precedence risk: Compared actual published-finding corpus searches, own random quadratic interpolation/affine-exact claims, and inspected primary literature. Their settings or implications do not establish the iid three-node logarithmic tail coefficient. General interpolation identities and collision estimates are acknowledged; no claim of absolute literature uniqueness.",
+    "residual_risks": [
+      "Equivalent probability-tail calculation for random interpolation may be published under a different phrase or in a statistics/approximation source not found in the bounded search.",
+      "Deterministic general Vandermonde bounds share collision mechanism but not the claimed exact distribution; further specialist comparison could reveal a stronger implied result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this precise probability theorem: the setting is deterministic Fourier Vandermonde on circle, with separated collision pairs, and cond(A) inverse-gap bounds; no iid real quadratic interpolation logarithmic tail coefficient. General collision scaling is shared.",
+        "evidence": [
+          "Theorem 4.7 bounds condition number by 5/tau for separated pairs, not random-node event probabilities.",
+          "Section 6 explicitly focuses on pairs of nodes, not simultaneous three-node collisions."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "material_read": "Abstract, deterministic condition-number results including Theorem 4.7, comparison remarks, Section 6; HTML full article accessible",
+        "method": "Read HTML mathematical definitions, conditioning bounds and their assumptions",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Near-collision effects on Vandermonde stability plausibly cover the singular mechanism"
+      },
+      {
+        "assessment": "NOT_COVERING: Algorithm 1 uses chosen sampling/conditioning rather than three iid uniform interpolation nodes; no heavy-tail distribution with logarithmic factor or constant.",
+        "evidence": [
+          "Theorem 1.1 gives expected L2 approximation bounds for Algorithm 1 sampling.",
+          "Introduction distinguishes iid naive sampling and constructed sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.07435",
+        "material_read": "Introduction, the complete statement of Theorem 1.1 and surrounding design assumptions in publicly accessible arXiv HTML; detailed algorithm proofs were not inspected.",
+        "method": "Read the arXiv HTML introduction, main theorem, and sampling-comparison discussion, not solely abstract/search snippets.",
+        "title": "Randomized least-squares with minimal oversampling and interpolation in general spaces",
+        "trigger": "Modern polynomial interpolation sampling results could dominate a random-node instability"
+      },
+      {
+        "assessment": "SUPPORTS_BASIC_DEFINITION only. Formula does not entail the probability coefficient without a separate gap distribution analysis.",
+        "evidence": [
+          "Equation 3.3.2 provides the product form of Lagrange basis polynomials."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/3.3",
+        "material_read": "Lagrange polynomial definition and formula 3.3.2",
+        "method": "Read online reference formula",
+        "title": "NIST DLMF 3.3 Interpolation",
+        "trigger": "Exact Lagrange formula and normalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31e79eaf-d4fb-4873-b57a-dc67bb351cfc",
+  "value": {
+    "rationale": "PASS: Basic iid node sampling for quadratic interpolation has a different and much worse tail (log T)/T than stratified one-per-cell interpolation; even the mean absolute Gaussian-noise error is infinite. Exact coefficient reveals how evaluation location controls the risk and diagnoses a concrete reason to enforce spacing or conditioned designs. Natural complete minimal three-node classification, not a numerically arbitrary slice.",
+    "status": "PASS"
+  }
+}
