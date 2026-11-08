@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For a=b/v, d=1+zeta-ell>0, R=r(ell), the exact stationary generator gives m1=a/(d+R) and m2=2(ell+a)a/((d+R)(2d+R)). The uniform v->infinity limit at fixed zeta gives the stated integrated formula, and v Var(N)->b/(d+R)+2ell b/((d+R)(2d+R)). Self-consistency yields integrated density rho. Strict beta denominator and nu<1 give rho->finite. At high fitness x=1-ell, the singular integrand is asymptotic to 2/((zeta+Cx^nu)(2zeta+Cx^nu)). Dominated convergence for nu<1/2, two-sided log comparison at nu=1/2, and scaling x=(zeta/C)^(1/nu)y with integrable y^(-2nu) tail for nu>1/2 prove all three regimes and amplitudes. The full CHECK.py package uses exact rational identities, independently integrated finite-chain dynamics and asymptotic quadrature as consistency checks, not replacements for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kapodistria–Phung-Duc–Resing 2015 Section 5.3 general k-th factorial moments; https://www.eurandom.tue.nl/reports/2015/006-report.pdf",
+        "Grange 2019 global-reset model, arxiv:1910.05991; https://arxiv.org/abs/1910.05991"
+      ],
+      "reasoning": "The general catastrophe theorem implies the local algebraic moment identity for each fixed fitness, but it has no varying fitness exponent, density closure, or endpoint-integrated threshold. The earlier reset treatment has global rather than local clearing and hence is not a direct stronger finite-fitness result. Coverage via undiscovered subsequent combinations remains a priority risk.",
+      "searches": [
+        "\"Linear birth/immigration-death process with binomial catastrophes\" \"factorial moments\"",
+        "\"non-conserving zero-range processes with extensive rates under resetting\""
+      ]
+    },
+    "checked_sources": [
+      "Grange, arxiv:2311.12414v1, full text",
+      "Kapodistria–Phung-Duc–Resing, Eurandom 2015-006, original preprint full text, Eq. (5.2)",
+      "Grange, arxiv:1910.05991, abstract and related model",
+      "Grosskinsky–Chleboun–Schütz, DOI:10.1103/PhysRevE.78.030101, different disorder mechanism (bibliographic context)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grange 2023, Eq. (44) gives only m1 and Section 5.2 establishes the nu=1 condensation threshold; https://arxiv.org/abs/2311.12414",
+        "Kapodistria et al. 2015 Eq. (5.2) gives m2 and higher moments at a fixed birth/immigration/death/catastrophe parameter set; https://www.eurandom.tue.nl/reports/2015/006-report.pdf"
+      ],
+      "reasoning": "Grange alone does not supply a fluctuation equation; Kapodistria et al. alone do not introduce the fitness-dependent self-consistent continuum. Their formulas together permit a short new derivation, so the novelty is the meaningful critical integration/classification, not a claim of independent discovery of the constituent formulas.",
+      "searches": [
+        "Grange local resetting fitness zero range process integrated second factorial moment critical fluctuations variance divergence beta delta",
+        "birth immigration death catastrophe fitness-dependent reset high-fitness variance 1/2 threshold",
+        "site:arxiv.org fitness zero range resetting second moments occupation variance power law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grange 2023, arxiv:2311.12414v1, Eq. (31), Eq. (44), Section 5.2; https://arxiv.org/abs/2311.12414",
+        "Kapodistria–Phung-Duc–Resing 2015, Lemma 5.4, Eq. (5.2); https://www.eurandom.tue.nl/reports/2015/006-report.pdf"
+      ],
+      "reasoning": "Alternative expression as integrated second factorial derivative of the generating function, or as the integrated second factorial moment of a linear birth/immigration-death process with total catastrophes, is recognized. The known factorial-moment formula is pointwise, while the present statement includes the fitness mean-field integral and sharp critical asymptotics; neither inspected source states those integrated laws.",
+      "searches": [
+        "\"Local resetting in non-conserving zero-range processes with extensive rates\" \"variance\" \"second\"",
+        "\"local resetting\" \"zero-range\" \"pair\" \"fluctuations\" fitness",
+        "arxiv:2311.12414 Pascal Grange local resetting zero range high fitness second moment variance condensation fluctuations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grange 2023 stationary first-moment density formulas (41)–(44) and Section 5.2 contain the nu=1 condensation result but no table of within-site second-factorial-moment exponents; https://arxiv.org/abs/2311.12414",
+        "Kapodistria–Phung-Duc–Resing 2015, Lemma 5.4, Eq. (5.2) tabulates no fitness-dependent continuum asymptotics; https://www.eurandom.tue.nl/reports/2015/006-report.pdf"
+      ],
+      "reasoning": "The inspected literature does not contain a table of the critical within-site pair intensity or its constants. The reported universal exponent is not a database lookup or known constant-table calculation. Searches are bounded and do not establish exhaustive literature priority.",
+      "searches": [
+        "zero-range local catastrophe independent fitness sites integrated stationary Fano susceptibility squared divergence threshold",
+        "Finite susceptibility divergence at reset fitness exponent one half in local-reset nonconserving zero-range process, while mean condensation starts at exponent one",
+        "exponent nu=1/2 stationary intrinsic variance finite mean in heterogeneous catastrophes"
+      ]
+    },
+    "rationale": "The specific new object is a density-integrated within-site pair factorial moment and its universal nu=1/2 transition below the known nu=1 mean-condensation boundary. Grange 2023 supplies the local generator and first moment, but no critical within-site second-factorial-moment classification in the inspected full text. Kapodistria et al. 2015 already supply factorial moments for generic total-catastrophe birth/death; these cover the unintegrated local formula, which is explicitly not asserted novel. No same combined fitness-integrated and self-consistent result was identified in targeted comparisons. Novelty is best-knowledge, without independent certification.",
+    "residual_risks": [
+      "Unlocated subsequent work may combine the already-known pointwise catastrophe moments and fitness mean-field closure into the same critical classification.",
+      "The proof is for the stationary mean-field marginal model with iterated limits, not a uniform limit of a finite interacting network.",
+      "No independent literature-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains local-clearing Markov master equation, density closure and first-moment nu=1 threshold, but no integrated second-factorial-moment nu=1/2 classification",
+        "evidence": [
+          "Eq. (25) per-site birth, death and reset generator",
+          "Eq. (31) generating function",
+          "Eqs. (41)–(44) mean closure",
+          "Section 5.2 nu=1 condensation boundary"
+        ],
+        "identifier_or_url": "arxiv:2311.12414v1; https://arxiv.org/abs/2311.12414",
+        "material_read": "Full rendered preprint: Sections 2–5, especially equations (25), (31), (41), (44), Section 5.2 and conclusions",
+        "method": "Rendered full-text reading and targeted passage checks",
+        "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+        "trigger": "Exact same local-resetting fitness zero-range model and the primary source of stationary mean condensation"
+      },
+      {
+        "assessment": "Already establishes generic total-catastrophe factorial moments, so unintegrated m2 is covered; no continuous fitness law, closure or nu=1/2 integrated threshold",
+        "evidence": [
+          "Section 1.2 generator",
+          "Section 5.3 total-catastrophe p->0 limit",
+          "Lemma 5.4: m(k)=k! product_i (immigration+birth(i-1))/(catastrophe+i(death-birth))"
+        ],
+        "identifier_or_url": "Eurandom 2015-006; https://www.eurandom.tue.nl/reports/2015/006-report.pdf",
+        "material_read": "Full preprint introduction, rate definitions, Sections 3 and 5.3, especially Lemma 5.4 and Eq. (5.2); inspected original PDF page showing lemma",
+        "method": "Full-text passage reading and original PDF page inspection",
+        "title": "Linear birth/immigration-death process with binomial catastrophes",
+        "trigger": "General stronger coverage of fixed-fitness local stationary factorial moments"
+      },
+      {
+        "assessment": "Earlier global-reset work; not sufficient to exclude all implicit moment consequences",
+        "evidence": [
+          "Abstract explicitly describes global resetting to a new model state and steady occupation numbers"
+        ],
+        "identifier_or_url": "arxiv:1910.05991; https://arxiv.org/abs/1910.05991",
+        "material_read": "Article abstract and model-level description",
+        "method": "Abstract/model comparison; no full-text novelty exclusion based on this source",
+        "title": "Non-conserving zero-range processes with extensive rates under resetting",
+        "trigger": "Possible equivalent broader zero-range resetting formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b88c5509-0541-437d-8202-f246c5bf344b",
+  "value": {
+    "rationale": "The within-site ordered pair count is a natural local crowding/susceptibility observable for particle populations and link accumulation. Its universal nu=1/2 critical point occurs strictly below the motivating paper’s nu=1 density-condensation boundary: bounded mean population coexists with divergent local pair intensity. The sharp logarithmic and power-law constants survive a broad class of fitness densities and reset profiles. This is a qualitatively distinct phase boundary, not an arbitrary parameter increment or an unmotivated invariant. No full-network or physical efficiency implication is asserted.",
+    "status": "PASS"
+  }
+}
