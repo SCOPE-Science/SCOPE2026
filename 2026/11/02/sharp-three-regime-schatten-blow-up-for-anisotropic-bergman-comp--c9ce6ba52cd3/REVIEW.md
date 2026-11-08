@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The coefficient formula follows exactly from normalized monomial norms and the integral defining the companion. Distinct inputs have orthogonal images, so the Schatten power sum is the positive double series written in the proof. Uniform control of the factorial ratio for large second coordinate, small fixed-coordinate contributions, a monotone sum-versus-integral estimate, and dominated convergence for the Laplace integral establish the three regimes including the critical logarithm. The stated hypotheses fix the anisotropy parameter strictly inside its interval, and all Schatten powers are positive. The extracted reproducibility checker passed 8,712 exact rational identities. Finite numerical partial sums were used as diagnostics, not proofs.
+PASS
 
-## Originality: PASS (best knowledge)
+On A²(B_2), normalized monomials have squared norms 2u!v!/(u+v+2)!, so the companion maps each monomial to the unique orthogonal shifted monomial with singular weight exp(-epsilon u-epsilon^a v)*m/(m+k)*sqrt(prod(v+j)/(m+2+j)). Independently verified factorial-weight identities for k=1..4, u,v<=6. For v large, ratio to (v/(u+v))^(kp/2) has uniform O(1/v) relative error; finitely many v cost lower order. Inner positive decreasing sum differs from v*H_q(p epsilon v) by at most 1. Uniform Laplace asymptotics and v-scale epsilon^(-a) Riemann sums yield gamma/p², (1-a)log/p², 1/[p²(q-1)] coefficients in q<1,=1,>1. Compactness for epsilon>0 follows exponential damping. Domain fixed a in (0,1), p>0.
 
-The closest primary work is Dong and Xu, arXiv:2609.27584v1, in particular its compact-range singular-value theorem and fixed-projection ellipsoid example. The former implies Schatten membership at each positive parameter but not sharp rates with constants; the latter is a distinct noncompact map and does not entail this two-scale near-identity limit. Earlier Fock-space and rapidly weighted disc companions and classical ball-Volterra symbol results were compared, along with relevant indexed mathematical records. No equivalent or dominating exact three-regime theorem was located. Some historically plausible journal full text remained access restricted and an unknown equivalent weighted-shift theorem could still exist; publication priority is not certified.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result gives exact quantitative instability of a natural compact operator family as it approaches the identity map, while identifying the nontrivial dividing line between integrable and nonintegrable angular concentration. The gamma-function, logarithmic and reciprocal asymptotics are structural consequences of genuinely distinct frequency regimes, not routine reformulations of membership. A complete three-regime classification is obtained for every positive Schatten exponent with an integer monomial degree.
+The three-regime quantitative two-rate singular-value blow-up is not stated in accessible source material on companion membership, and is genuinely more precise than compactness at each epsilon. Dong–Xu (2026) is same-model literature inaccessible in full and must remain explicit priority risk; no invented definitive whole-document exclusion.
 
-## Scope and limitations
+## value
 
-Only the ordinary complex two-ball, one coordinate monomial, and fixed exponent strictly between zero and one are included. The result says nothing about uniform endpoint limits, general symbols, or higher dimensions. Reproducible finite checks do not independently validate the infinite-dimensional proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp transition at kp=2 distinguishes integrable/nonintegrable angular weighting and gives a natural complete quantitative degeneration law with logarithmic critical regime for a compact operator family approaching identity, including quasi-Schatten p<1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
