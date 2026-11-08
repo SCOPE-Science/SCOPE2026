@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One-block symmetry gives alpha_n=E[X_i sgn(sum X)]=E|sum X|/n=4^{-floor(n/2)} binom(2floor(n/2),floor(n/2)). For F=Q+R with higher Walsh degree, orthogonality fixes E(QF)=E(Q^2)=product n_j, while |E QF|<=||F||∞ E|Q|; independence produces lower bound product 1/alpha_nj. Each block-sign has only odd-degree characters, first-level coefficient alpha_n; their product has only degree>=r and exactly the Q degree-r coefficients after multiplying C, attaining bound. Equality forces F=C sgn(Q) where Q!=0, giving unique optimum when each block odd; positive- and negative-deviation identity under |Q|-tilted measure yields stability <=2eps C E|Q|. Stirling gives parity correction (-1)^n/(4n) for fixed r. A fresh exact Fraction Walsh-Hadamard verification independently checked 36 nontrivial block tuples, including even zeros and odd blocks. All-block-size claim follows from Fourier proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al. Theorem 3.1 is an operator projection norm on B_S^N.",
+          "Eskenazis–Zhang Theorems 2–4 address general norm comparisons and L1 errors for symmetric polynomials."
+        ],
+        "reasoning": "Neither inspected broader theorem directly furnishes all equality/rigidity/stability assertions of this particular L∞ coset; ordinary Khintchine estimates determine alpha_n but do not alone prove exact multiblock Walsh projection feasibility.",
+        "searches": [
+          "arxiv:2302.00233 Theorem 3.1 projection constant",
+          "arxiv:2311.09021 Walsh tail Theorems 2-4",
+          "Walsh tail spaces complete multipartite homogeneous Rademacher chaos exact infinity quotient norm product signs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md and checks/verify.py",
+        "Defant et al. arxiv:2302.00233 actual Section 3",
+        "Eskenazis and Zhang arxiv:2311.09021 full primary preprint",
+        "Resultary two actual Walsh searches",
+        "Direct one-block binomial expectation and Walsh coefficient argument"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-block sign expectations alpha_n are known; the structural equality for product of block-signs requires that *every* Walsh character of degree at most r except the desired support vanishes.",
+          "Projection constant lambda(B_S^N)=E|sum characters| is not equal to the proposed quotient norm C; when support is complete multipartite, lambda=E|Q|=product n_j alpha_n_j."
+        ],
+        "reasoning": "Prior statements permit deriving ingredients but do not state or immediately logically yield the sharp affine completion with support rigidity and explicit weighted near-optimality.",
+        "searches": [
+          "arxiv:2302.00233 Sections 3-4",
+          "arxiv:2311.09021 Theorems 2-4",
+          "Rademacher sign linear Fourier coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quotient is inf over all Fourier degrees >r of sup norm with exact low-degree data fixed; not the norm of a Fourier projection onto its support.",
+          "The dual optimizers are sign of products of disjoint Rademacher sums."
+        ],
+        "reasoning": "Even though the same expectation E|Q| appears in the projection-constant formula, the infimal L∞ completion of one Q is a distinct convex optimization. A generic hypergraph character sum need not have a matching sign-Fourier witness.",
+        "searches": [
+          "Walsh tail spaces complete multipartite homogeneous Rademacher chaos exact infinity quotient norm product signs",
+          "\"projection constants\" Boolean cube Walsh 2302.00233",
+          "\"approximation\" Walsh tail space 2311.09021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near hits concern fourth moments and distinct Walsh projection norms, not the affine complete-multipartite quotient norm.",
+          "The source calculation independently checked tuple examples rather than relying on an external table."
+        ],
+        "reasoning": "No exact preexisting table for all block tuples was located; searches do not rule out textbook tensor-product formulations.",
+        "searches": [
+          "Walsh tail spaces complete multipartite homogeneous Rademacher chaos exact infinity quotient norm product signs",
+          "Resultary Projection constants Walsh subspaces tensor product sign sums",
+          "Eskenazis Zhang Walsh tail spaces multipartite exact"
+        ]
+      },
+      "rationale": "Defant et al. Theorem 3.1 establishes a projection constant in a Walsh spectral subspace expressible as E|character sum|, a different operator invariant, not a specific affine coset quotient norm or uniqueness/stability. Eskenazis–Zhang treats approximation by Walsh tails, largely L1 and general comparison inequalities, but no inspected theorem yields the product formula for these disjoint-block chaoses. Direct duality and sign-products are elementary, so similar tensor-product extremal constructions may exist historically.",
+      "residual_risks": [
+        "The product-sign construction follows classical Rademacher/Khintchine symmetry; a historical exact tensor-product interpolation lemma could encompass it under a different name.",
+        "The value assessment relies on mathematical usefulness of this natural exact quotient and stability, not on claiming a general hypergraph theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DIFFERENT_INVARIANT",
+          "evidence": "Theorem 3.1 is the minimal Fourier projection onto a spectral subspace, given by an absolute kernel expectation; does not optimize a specific coset Q+T_{>r}.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+          "material_read": "Introduction, Section 3 integral/projection constant Theorem 3.1, Section 4 stated parameter classes",
+          "method": "Full arXiv HTML text search and section reading",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "Same Fourier support and projection constants could dominate quotient claim"
+        },
+        {
+          "assessment": "NOT_COVERING stated exact L-infinity multipartite product",
+          "evidence": "The inspected main theorems give general Lr/L1 bounds, not this exact L∞ affine optimum, uniqueness or stability.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.09021",
+          "material_read": "Main statements and the proof context of Theorems 2–4, including L1 and Lr comparison regimes",
+          "method": "Lawful author-hosted complete primary PDF, rendered first page and extracted theorem statements",
+          "title": "Approximation of polynomials from Walsh tail spaces",
+          "trigger": "Same tail space and approximation task, highest-priority source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact coset norm and sharp optimizer characterize a natural rank-one multipartite Walsh chaos where the degree-r polynomial has very large supnorm but a much smaller minimum representative. Rigidity, stability, and parity correction add useful structure, beyond a bare known Khinchine estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md and checks/verify.py",
+    "Defant et al. arxiv:2302.00233 actual Section 3",
+    "Eskenazis and Zhang arxiv:2311.09021 full primary preprint",
+    "Resultary two actual Walsh searches",
+    "Direct one-block binomial expectation and Walsh coefficient argument"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The product-sign construction follows classical Rademacher/Khintchine symmetry; a historical exact tensor-product interpolation lemma could encompass it under a different name.",
+    "The value assessment relies on mathematical usefulness of this natural exact quotient and stability, not on claiming a general hypergraph theorem."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Uniform real cube, disjoint nonempty blocks, equal coefficients within each block; parity-dependent global uniqueness and fixed-r asymptotics only."
+}
