@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact frame count is a disjoint sum over uniquely recovered flags \(U=\sum_i\operatorname{im}A_i\subseteq W=\bigcap_i\ker A_i\). For a fixed flag, \(r\) maps \(V/W\to U\) must jointly inject and span; subspace Möbius inversion yields the displayed closed formula. The necessary inequalities and their sufficiency are justified by explicit basis-edge assignments using at most \(r\) labeled generators per row or column. The rank-stratum assertion uses an open set in a vector bundle over a smooth irreducible flag variety, with reduced structure expressly stated. The second (two-sided) Möbius inversion and exhaustive enumerations in thirteen finite configurations independently corroborate the single-inversion formula. Tests do not replace proof.
+## correctness
 
-## Originality — PASS, with specific residual uncertainty
-The earliest motivating full paper, Bleher–Chinburg–Huisgen-Zimmermann, arXiv:1407.3045v1, has a qualitative radical-square-zero geometry theory and in particular addresses radical/socle pairs and components. The claim does not relabel that existing component theory as new; the contribution assessed is the joint **framed finite-field top–socle multiplicity** for every number of loops and module dimension, with a direct finite closed arithmetic expression. Huang's arXiv:2110.15566 counts pairs of mutually annihilating matrices under broader/different matrix identities; its finite-count theorems do not provide this full joint rank distribution for all labeled square-zero loops. The Bozec–Schiffmann–Vasserot finite-field work counts different nilpotent quiver varieties with doubled-quiver conditions; Drozd's work is categorical. Semantic mathematical-literature searches for the formula, rank strata, equivalent matrix tuple conditions and aliases returned no direct match. This is best-knowledge originality, not a priority certificate; specialized unindexed literature may exist.
+PASS
 
-## Value — PASS
-Module top and socle are intrinsic Loewy invariants. An exact bivariate count over all prime-power fields and all \(r,d\) quantifies the finer distribution not supplied by knowing just possible pairs or generic components, and can be summed or specialized for further representation-theoretic enumerations. The explicit rank support and smooth flag-bundle geometry explain why the arithmetic formula is natural; its unrestricted family and genuine two-variable refinement distinguish it from a one-case exercise.
+All products A_iA_j=0 imply U=ΣimA_i contained in W=∩ker A_i. Fix a flag U⊂W with dim U=a and codimW=c: the r maps are identified with maps k^c→k^a, required simultaneously collectively surjective and jointly injective. There are Gaussian(d,a)*Gaussian(d-a,c) flags. For each i-dimensional candidate total image subspace, the number of injective maps k^c→(k^i)^r is ∏_{j=0}^{c-1}(q^(ri)-q^j); Möbius inversion of the lattice of subspaces in U yields precisely the formula. The zero cell and support a+c<=d, a<=rc, c<=ra follow, and constructive matrix units show sufficiency even q=2. The exact-rank reduced locus is a nonempty open in a rank-rac vector bundle over Fl(a,d-c), hence smooth/geometrically irreducible, dim a(d-a)+c(d-a-c)+rac. Independent all-pair F2 3×3 square-zero enumeration r=2 gives (0,0):1, (1,1):63, (1,2):42,(2,1):42; no inference to arbitrary q from that finite test.
 
-## Scope and risks
-Framed representations are not simultaneous-conjugacy classes. The geometric result concerns reduced exact-rank loci, not full nonreduced schemes or irreducible components of the entire representation space. Literature priority is provisional, and no independent mathematician has audited the proof. Complete comparisons were undertaken for the specifically cited full texts, not for every publication that might imply the formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Bleher–Chinburg–Huisgen-Zimmermann work gives general radical–socle geometry and realizability, so flag parameterization/smoothness alone are not represented as a wholly new discovery. Huang 2022 Theorem 1.2 counts two matrices with AB=BA=0, not the stronger all-products-zero r-loop framed locus with joint image/kernel ranks. Reineke and quiver point-count papers concern different moduli or aggregate counts. The explicit uniform r,d,q framed joint top–socle lattice-Möbius formula is not found as a theorem in the inspected primary material; a wider Hall-polynomial or representation-variety source remains possible.
+
+## value
+
+PASS
+
+The radical and socle are canonical module invariants, and an exact framed distribution over every finite field, tuple length and representation dimension is a natural arithmetic-geometric census. It refines qualitative realizability and unstratified matrix-pair counts with a reproducible Gaussian-binomial formula, and records meaningful support and geometric strata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

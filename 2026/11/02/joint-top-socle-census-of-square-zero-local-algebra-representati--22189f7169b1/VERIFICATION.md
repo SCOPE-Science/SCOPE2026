@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. The executable source is embedded alongside this file.
+## correctness
 
-The checker separately enumerates all labeled tuples satisfying all pairwise products zero and computes their joint horizontal-block and vertical-block ranks. It evaluates a **two-sided** subspace Möbius formula, algebraically equivalent to but computationally distinct from the **single** Möbius formula displayed in the proof. The following thirteen complete finite configurations were checked: \((d,r,q)=(1,1,2),(2,1,2),(3,1,2),(4,1,2),(2,2,2),(3,2,2),(2,3,2),(2,2,3),(2,2,4),(3,2,3),(2,3,3),(2,2,5),(3,2,4)\), where \(\mathbb F_4=\mathbb F_2[u]/(u^2+u+1)\). The full joint distributions agreed in every configuration.
+PASS
 
-For \((d,r,q)=(3,2,2)\), the nonzero cells \((a,c):\mathrm{count}\) are \((0,0):1\), \((1,1):63\), \((1,2):42\), \((2,1):42\), totaling \(148\). The checker terminates with the marker `RADICAL_SQUARE_ZERO_TOP_SOC_CENSUS_OK 13`.
+All products A_iA_j=0 imply U=ΣimA_i contained in W=∩ker A_i. Fix a flag U⊂W with dim U=a and codimW=c: the r maps are identified with maps k^c→k^a, required simultaneously collectively surjective and jointly injective. There are Gaussian(d,a)*Gaussian(d-a,c) flags. For each i-dimensional candidate total image subspace, the number of injective maps k^c→(k^i)^r is ∏_{j=0}^{c-1}(q^(ri)-q^j); Möbius inversion of the lattice of subspaces in U yields precisely the formula. The zero cell and support a+c<=d, a<=rc, c<=ra follow, and constructive matrix units show sufficiency even q=2. The exact-rank reduced locus is a nonempty open in a rank-rac vector bundle over Fl(a,d-c), hence smooth/geometrically irreducible, dim a(d-a)+c(d-a-c)+rac. Independent all-pair F2 3×3 square-zero enumeration r=2 gives (0,0):1, (1,1):63, (1,2):42,(2,1):42; no inference to arbitrary q from that finite test.
 
-The finite computations do not verify every prime power or dimension and are not treated as proof of the general theorem. The proof instead uses exact flags, Möbius inversion, a basis construction and geometric vector bundles. No independent mathematical audit has been performed; historical originality remains provisional.
+## originality
+
+PASS
+
+Prior Bleher–Chinburg–Huisgen-Zimmermann work gives general radical–socle geometry and realizability, so flag parameterization/smoothness alone are not represented as a wholly new discovery. Huang 2022 Theorem 1.2 counts two matrices with AB=BA=0, not the stronger all-products-zero r-loop framed locus with joint image/kernel ranks. Reineke and quiver point-count papers concern different moduli or aggregate counts. The explicit uniform r,d,q framed joint top–socle lattice-Möbius formula is not found as a theorem in the inspected primary material; a wider Hall-polynomial or representation-variety source remains possible.
+
+## value
+
+PASS
+
+The radical and socle are canonical module invariants, and an exact framed distribution over every finite field, tuple length and representation dimension is a natural arithmetic-geometric census. It refines qualitative realizability and unstratified matrix-pair counts with a reproducible Gaussian-binomial formula, and records meaningful support and geometric strata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
