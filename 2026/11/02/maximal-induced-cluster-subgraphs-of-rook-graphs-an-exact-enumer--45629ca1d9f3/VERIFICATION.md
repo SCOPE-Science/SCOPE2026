@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_cluster_rook.py` with the Python 3 standard library. It enumerates all labeled vertex subsets of twelve rook graphs, directly tests the induced cluster property and inclusion-maximality against the original rook adjacency, and compares the coefficient dictionaries to a separately implemented labeled-star recurrence with restricted partitions. It then tests exact predicted supports on 221 additional dimension pairs. Recorded output:
+## correctness
 
-```text
-VERIFY_OK direct_graphs=12 direct_subsets=120694 support_pairs=221
-```
+PASS
 
-The test covers all subsets of the listed twelve graphs, but the program does not exhaust infinitely many dimensions. Infinite correctness uses the explicit proof in `RESULT.md`. Source comparisons concern inspected cited material and are not an independent publication-priority certificate. Independent mathematical audit has not been performed.
+The rook graph is the line graph of K_{a,b}; selected induced graph is cluster iff selected bipartite edges form a star forest. Inclusion-maximality divides exhaustively into full original-vertex support and two asymmetric incomplete-support star cases. The first is counted by the two-sort EGF with correction −zxy for one-edge stars; the others by restricted set partitions S_{≥2}(n,k). Component count gives support {a}∪{b..a+b−2} for 2≤a≤b. Independently enumerated induced P3-free maximal subsets of six rook graphs: R_{2,4} polynomial 4z²+16z⁴; R_{3,4} 4z³+57z⁴+12z⁵; R_{4,4} 104z⁴+144z⁵+16z⁶. Mathematical all-parameter derivation, not test logs, supports the theorem.
+
+## originality
+
+PASS
+
+Cao supplies an algorithm for enumerating maximal hereditary induced subgraphs and Le–Le the cluster-deletion complexity context. They do not in their inspected results give exact rook-family coefficient polynomial, three-way star-forest decomposition or cardinality gap. Small OEIS extremal counts cannot imply an all-a,b labelled enumerator. Unindexed rook enumeration remains historical risk.
+
+## value
+
+PASS
+
+The exact distribution of inclusion-minimal cluster vertex deletion sets in a canonical rook family and arbitrarily large gaps in connected K2□Kb examples supply natural structural and enumerative data, not arbitrary parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
