@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix r cyclic roots and their cyclic permutation. Cayley forest count r n^(n-r-1) and deletion of j forbidden roots give avoidance probability (r-j)(n-j)^(n-r-1)/(r n^(n-r-1)); for j=r<n it is zero. This matches r-1 marked boxes after n-r-1 independent uniform throws with one compulsory occupied root. Inclusion-exclusion determines the full law, including r=n permutation boundary. The total marked-binomial-to-Poisson coupling gives TV<= (r-1)/n and p=e^(-(n-r-1)/n). Exact R_n tail (n)_r/n^r produces Rayleigh n^1/2 scale; conditional triangular binomial CLT gives centered n^1/4 normal mixture with variance e^-1(1-e^-1)X. Independently enumerated all n^n mappings n=2..5 by their cyclic vertices and indegrees and matched exact conditional mean for every r. Finiteness does not establish weak convergence; analytic conditional CLT/tightness do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hansen–Jaworski 2010 conditional rooted forest and component order-statistics are broader setup results.",
+          "Arney–Bender 1982 studies global indegree constraints and asymptotic tables of origins and cyclic points."
+        ],
+        "reasoning": "Neither directly states root indegree-one conditional occupancy and the n^1/4 mixed normal fluctuation; broad forest sampling requires additional marked-root count.",
+        "searches": [
+          "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-s.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-s.pdf",
+        "Resultary semantic published records search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General forest construction supplies the Cayley count; deleting j specified root vertices and the compulsory occupied-root representation are new calculations.",
+          "The joint limit uses conditional binomial fluctuations whose variance is proportional to the Rayleigh root-count limit."
+        ],
+        "reasoning": "Prior component statistics and global indegree counts do not by themselves imply the root-restricted mixed scaling law without a marked-root calculation.",
+        "searches": [
+          "Hansen Jaworski 2010 uniform rooted forest model",
+          "Arney Bender 1982 Table II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Branch-free cycle roots have total indegree exactly one, unlike noncyclic origins with indegree zero.",
+          "Uniform rooted forest conditional on cycle set is a prior equivalent representation of the mapping."
+        ],
+        "reasoning": "The obligate predecessor edge gives the correction factor 1-j/r; an ordinary noncyclic empty-box count lacks it, and does not directly imply the new mixture.",
+        "searches": [
+          "Resultary semantic: random mapping cyclic vertices indegree one branch free cycle vertices conditional occupancy mixed Gaussian limit",
+          "Hansen Jaworski random mappings with a given number of cyclical points 2010",
+          "Arney Bender random mappings indegree one cyclic vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest returned published records have no exact cyclic indegree-one conditional distribution, while older indegree tables count all nodes."
+        ],
+        "reasoning": "No matched root-marked occupancy table was found, but a classical alternate encoding might conceal it.",
+        "searches": [
+          "Resultary semantic: random mapping cyclic vertices indegree one branch free cycle vertices conditional occupancy mixed Gaussian limit",
+          "Resultary 2026/10/11/SCOPE-gaussian-crossover-of-random-grid-collapse-under-coprime-expandi--8b0f31630fa6"
+        ]
+      },
+      "rationale": "Qualified PASS for the cyclic-root mandatory-occupation correction and joint Rayleigh/Gaussian quarter-power limit. Hansen–Jaworski 2010 establish the rooted-forest conditional model and component-size laws, while Arney–Bender 1982 tabulate indegrees/origins and cyclic marginals; the specific root indegree-one conditional law and two-scale fluctuation are not in inspected results. Alias overlap with a marked-root or functional-digraph source/leaf literature remains possible.",
+      "residual_risks": [
+        "Potential older random mapping occupancy formula may imply exact conditional law under a different name.",
+        "Hansen–Jaworski 19-page primary paper was only partly read, so its whole-document noncoverage is not established.",
+        "The proved limit is weak convergence, not a local limit or Berry–Esseen bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERING of underlying conditional forest construction; no whole-document noncoverage claim",
+          "evidence": "Page 342 explicitly constructs uniform rooted forest conditional on selected cyclic vertices and permutation; named targets are component size and order statistics.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "Original primary 19-page PDF inspected first two printed pages 341–342 and the conditional construction with rendered page 342; remaining pages not fully read",
+          "method": "PDF primary page-image inspection; textual extraction unavailable",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Conditional rooted forest potentially implies target"
+        },
+        {
+          "assessment": "PARTIAL_COVERING global indegree and cyclic counts, not the specific root-restricted conditional marked statistic in inspected portions",
+          "evidence": "Paper defines indegree and origins and tabulates mapping quantities under predecessor restrictions; the root-marked mixture is not identified in the read passages.",
+          "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-s.pdf",
+          "material_read": "Primary 29-page PDF introduction, Section 2 terminology, indegree/origin tables via text lookup and rendered page 270",
+          "method": "PDF full-text search plus relevant source-page inspection",
+          "title": "Random mappings with constraints on coalescence and number of origins",
+          "trigger": "Potential older indegree/cyclic statistic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of cyclic vertices with no attached in-tree is a natural local geometric statistic of a random functional graph. Its exact conditional distribution and mixed Gaussian quarter-power fluctuations resolve a genuinely distinct scale beneath the Rayleigh cyclic population and are useful for refined random-mapping sampling and asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+    "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-s.pdf",
+    "Resultary semantic published records search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical priority is qualified to actually inspected material; source full-text access limitations are recorded specifically.",
+    "Finite checks corroborate analytic and combinatorial arguments, not infinite-parameter proofs.",
+    "No GitHub writes, public publication, independent external certification or dispatcher closeout."
+  ],
+  "residual_risks": [
+    "Potential older random mapping occupancy formula may imply exact conditional law under a different name.",
+    "Hansen–Jaworski 19-page primary paper was only partly read, so its whole-document noncoverage is not established.",
+    "The proved limit is weak convergence, not a local limit or Berry–Esseen bound."
+  ],
+  "schema_version": 1
+}
