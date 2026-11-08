@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For a rank-two PSD A=B^T B, the exact Nyström residual is B^T(I-P_{BΩ})B and vanishes if and only if m independent projected sign vectors span R². Conditioning on two linearly independent columns of B gives P(Bε=0)≤1/4. For any projective line L, nontrivial one-dimensional sign anti-concentration yields P(Bε∈L)≤1/2. Thus z≤1/4, p_L≤1/2−z and Σp_L=1−z. Convex majorization by (1/2−z,1/2−z,z) proves failure F_m≤2^(1−m)+(2^m−2)z^m≤3·2^(−m)−2·4^(−m). The displayed 2×3 B gives z=p_1=p_2=p_3=1/4, attaining equality for all m. For n=2 invertibility gives exactly two equiprobable projective lines and F_m=2^(1−m). The verifier reproduces 65,093 integer-exact assertions, including exhaustive finite coefficient examples; the universal claim follows from the proof, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saibaba and Międlar, arXiv:2308.05814v1, Section 3.2 and Appendix D, Theorem D.1: general sub-Gaussian bounds with constants and matrix-approximation errors, not an exact finite rank-loss law.",
+        "Dereziński et al., arXiv:2006.10653v3, Theorem 1 and Sections 1–2: assumptions include a stable-rank ratio exceeding the sketch size, unavailable for rank(A)=2 and m≥2.",
+        "Balabanov et al., PMLR 202 (2023), Sections 1–3 and 5: structured Hadamard subsampling uses a different sketch distribution."
+      ],
+      "reasoning": "A general high-probability approximation or embedding theorem need not imply the exact sharp failure probability, particularly at a fixed low rank and under discrete degeneracy. The most relevant published general results inspected do not state an exact bound which could dominate the all-m extremal expression; no stronger explicit rank-two recovery theorem was found. This is not a uniqueness proof.",
+      "searches": [
+        "Sharp probability of exact rank-two positive semidefinite Nyström recovery using m independent Rademacher sign sketch columns for arbitrary 2-dimensional subspace; failure 3*2^-m - 2*4^-m, zero-projection rank defect",
+        "Rademacher Nyström exact rank recovery worst case low dimensional subspace Littlewood Offord",
+        "rank two Bernoulli sketch exact low rank recovery Nyström 2023 non gaussian zero vector probability",
+        "arxiv:2308.05814 Appendix D Nyström non-Gaussian sketch",
+        "arxiv:2006.10653 Theorem 1 expected random projection"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.05814",
+      "https://arxiv.org/abs/2006.10653",
+      "https://proceedings.mlr.press/v202/balabanov23a.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saibaba and Międlar, arXiv:2308.05814v1, Section 3.2 and Appendix D, Theorem D.1: nonasymptotic sub-Gaussian range approximation and Nyström guarantees.",
+        "Dereziński et al., arXiv:2006.10653v3, Theorem 1 and Sections 1–2: expected projector approximation in high-stable-rank settings.",
+        "Balabanov et al., PMLR 202 (2023), Sections 1–3 and 5: structured Hadamard sketch guarantees.",
+        "Elementary zero/line small-ball probabilities ≤1/4 and ≤1/2 are inputs; neither alone gives sharp all-m occupancy."
+      ],
+      "reasoning": "The conclusion is not a corollary of a rank-independent high-probability error bound with hidden constants. Dereziński et al. do not cover m≥rank(A)=2 in their main hypothesis. The Hadamard law cannot be substituted for iid signs. Standard one-bit conditioning gives bounds only for individual atoms; simultaneous mass budget and convex majorization yield the precise extremal formula. This supports best-knowledge originality subject to specialist precedence.",
+      "searches": [
+        "Sharp probability of exact rank-two positive semidefinite Nyström recovery using m independent Rademacher sign sketch columns for arbitrary 2-dimensional subspace; failure 3*2^-m - 2*4^-m, zero-projection rank defect",
+        "Two dimensional linear image of discrete hypercube: probability m i.i.d. images have rank less than two, atom at origin, collinear projective lines, Littlewood-Offord extremal bound",
+        "rank two Bernoulli sketch exact low rank recovery Nyström 2023 non gaussian zero vector probability",
+        "arxiv:2308.05814 Section 3.2 and Appendix D",
+        "arxiv:2006.10653 Theorem 1",
+        "PMLR v202/balabanov23a Nyström exact recovery"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rank loss is equivalent to P(rank(BΩ)<2), also a projective-line occupancy probability for the image of a discrete hypercube.",
+        "The finite-dimensional probability includes zero atom z and collinear nonzero atoms p_L; analytic occupancy identity F_m=z^m+Σ_L((z+p_L)^m−z^m).",
+        "Saibaba–Międlar 2023 Section 3.2 treats Rademacher/sub-Gaussian low-rank sketches, Appendix D Nyström approximation, without this occupancy extremal formula."
+      ],
+      "reasoning": "Checked aliases rank preservation, full row rank, two-dimensional subspace embedding, dependent projected signs, failure of exact Nyström reconstruction, and Littlewood–Offord concentration. No encountered primary statement gives this joint zero-atom/projective-occupancy optimum or its all-m expression. Search absence is not conclusive; specialist risk remains.",
+      "searches": [
+        "Two dimensional linear image of discrete hypercube: probability m i.i.d. images have rank less than two, atom at origin, collinear projective lines, Littlewood-Offord extremal bound",
+        "Rademacher sketching rank-deficiency probability exact two-dimensional subspace 5/8 for two probes",
+        "Rademacher Nyström exact rank recovery worst case low dimensional subspace Littlewood Offord",
+        "rank two matrix Rademacher sketch exact recovery probability Nyström rank deficiency sharp bound",
+        "probability rank deficiency two row Rademacher projected sketch 2-dimensional exact 5/8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected non-Gaussian sketch and random-projection sources do not tabulate exact n≥3 rank-two Rademacher failure probabilities 5/8, 11/32 or 23/128.",
+        "Relevant published analogues study either multistage adaptive pivoting or finite-field rank-two coding rather than independently sampled real sign projections."
+      ],
+      "reasoning": "Compared the actual rank-loss event, conditioning and sample budgets, not merely matching the phrase rank two. Neither cited database record addresses iid real Rademacher columns hitting a two-dimensional range. There remains a risk of unindexed independent computations.",
+      "searches": [
+        "Sharp probability of exact rank-two positive semidefinite Nyström recovery using m independent Rademacher sign sketch columns for arbitrary 2-dimensional subspace; failure 3*2^-m - 2*4^-m, zero-projection rank defect",
+        "Rademacher sketching rank-deficiency probability exact two-dimensional subspace 5/8 for two probes",
+        "rank two matrix Rademacher sketch exact recovery probability Nyström rank deficiency sharp bound"
+      ]
+    },
+    "rationale": "The exact all-m worst-case Rademacher Nyström rank-loss probability and dimension-two versus dimension-three boundary were compared with published non-Gaussian sketch guarantees, low-rank projection expectations, structured Hadamard Nyström analyses, and nearest accessible research records. Those comparisons do not entail the formula: the general guarantees do not fix the exact rank-two atomic failure constant, the projection expectation theorem operates under a high-stable-rank assumption, and structured Hadamard sketches have a different distribution. Ordinary anti-concentration bounds are prior lemmas, not novelty claims. Remaining specialist precedence risk is explicit.",
+    "residual_risks": [
+      "An equivalent exact rank-two sign-sketch occupancy theorem could exist in specialist or unindexed literature despite the searches and relevant primary-text comparisons.",
+      "No general higher-rank or quantitative residual-norm conclusion follows from this rank-loss probability; exact arithmetic is assumed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General non-Gaussian matrix approximation and Nyström results; no exact rank-two real Rademacher minimax rank-loss formula in inspected relevant material.",
+        "evidence": [
+          "Saibaba and Międlar, arXiv:2308.05814v1, Section 3.2 and Appendix D, Theorem D.1",
+          "arXiv first submission 10 August 2023."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.05814",
+        "material_read": "Full-text extracted passages from Sections 3.2 and Appendix D, including Theorem 3.3 and Theorem D.1, plus inspected PDF page images of the relevant results and front matter.",
+        "method": "Read relevant theorem hypotheses and conclusions, checked random sign sketch scope and whether low-rank rank-defect constants are supplied.",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Primary motivating paper directly studies non-Gaussian independent sketches and includes Nyström appendix."
+      },
+      {
+        "assessment": "Its quantitative regime assumes effective rank greater than sketch dimension; not applicable at exact rank two for sketch size at least two.",
+        "evidence": [
+          "Dereziński et al., arXiv:2006.10653v3, Theorem 1 and Sections 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.10653",
+        "material_read": "Introduction, Theorem 1, assumptions and nearby text inspected in extracted full text and PDF screenshots.",
+        "method": "Compare stable-rank and sample-size hypotheses and quantity (expected projector) to exact rank-loss event.",
+        "title": "Precise expressions for random projections: Low-rank approximation and randomized Newton",
+        "trigger": "Plausibly broader exact random-projector theory might imply the low-rank result."
+      },
+      {
+        "assessment": "Different structured randomized transform and no directly applicable exact rank-two independent-sign extremal formula in inspected material.",
+        "evidence": [
+          "Balabanov et al., PMLR 202 (2023), Sections 1–3 and 5"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/balabanov23a/balabanov23a.pdf",
+        "material_read": "PDF front matter and relevant introduction/theoretical statements, including page images and the main sketch construction.",
+        "method": "Compare structured Hadamard subsampling distribution and embedding guarantees with independent fair Rademacher columns.",
+        "title": "Block Subsampled Randomized Hadamard Transform for Nyström Approximation on Distributed Architectures",
+        "trigger": "Nyström rank recovery using discrete/sketching matrices could cover the same event."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "44410dba-8e8e-43a5-a5e5-68fd207dc4c3",
+  "value": {
+    "rationale": "Exact recovery is an intrinsic success criterion for rank-two positive-semidefinite Nyström approximations, and iid sign sketches have a genuine collision probability even on exact low-rank inputs. A sharp all-budget worst-case formula determines the discrete sketch count needed for any fixed rank-loss tolerance. It shows a discontinuous ambient-dimension effect already at n=3 and a minimal extremizer. At m=2 the sharp failure is 5/8 instead of the unconditionally 1/2 rate at n=2, and the discrepancy persists by the closed form for every m. This is a natural complete classification of a parameter, not a gratuitous small-m numerical record. It does not assert practical improvement or broad approximation guarantees.",
+    "status": "PASS"
+  }
+}
