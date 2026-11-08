@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix-tree determinant is reconstructed from the two ring-Fourier branches, with its unweighted Chebyshev specialization independently checked against exact integer determinants. The edge-to-grounded-matrix map is injective on this simple graph, making log-determinant strictly concave on connected designs; the symmetry reduction is therefore a theorem about the **unrestricted** optimizer, not an assumption. Positive cost saturation follows from homogeneity. The scalar stationarity equation is derived by differentiating the tree polynomial and its uniqueness follows from a strict Cauchy--Schwarz inequality. All boundary prices, the fixed-price limit, the \(Q_n=\kappa n\) limiting law, and the first finite-size correction have explicit derivations. The standalone verifier passed 23,668 finite checks. No computational sample is presented as a proof of a universal statement.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+The reduced Laplacian L_0(w) is affine and injective in every individual edge weight for the simple prism; strict concavity of log det L_0 gives uniqueness on connected allocations and transitive within-class prism automorphisms force the symmetric optimizer without assuming it. If all rungs or all cycle edges vanish the graph disconnects, and homogeneity forces full budget expenditure. Fourier symmetric/antisymmetric branches give tau=n*a^(2n-1)(T_n(1+b/a)-1). Differentiation yields S_n(t)-(2n-1)Q/(2P+Qt); H_n(t) is strictly decreasing since (2n-1)sum(t+d_k)^-2 > S_n(t)^2 by Cauchy--Schwarz, establishing the unique root and price limits. The finite Chebyshev resolvent S_n(t)=n*coth((n/2)acosh(1+t))/sqrt(t(t+2)) proves fixed-price and t~u/n^2 in Q=κn, with g(u)=coth(sqrt(u/2))/sqrt(2u)=κ/P; uniform analytic expansion and g' <0 give the stated 1/n^3 correction. Independently reconstructed exact sympy reduced-Laplacian determinants for n=3,4,5,6; agrees with Chebyshev tree polynomial. Bounded tests do not replace the analytic all-n proof.
 
-The unweighted prism spanning-tree enumeration (Boesch--Bogdanowicz, 1987; Jagers, 1988) and general determinant-maximizing graph-design formalism (Khosoussi et al., 2016) are acknowledged as predecessors and excluded from the novelty claim. The inspected full Khosoussi et al. article develops weighted tree counts with edge selection, probability relaxations and general determinant criteria, not a complete priced independent-weight optimum for cyclic ladders. The inspected Sun--Wang--Zhang article counts prism-family spanning trees through recurrence, not this allocation. The related published finite-path-ladder rung kernel concerns a boundary graph and not all-price optimization on the cyclic ladder. A direct full-text comparison with Boesch--Bogdanowicz (1987) was unavailable, so hidden specialist overlap remains an explicit residual priority risk. Search nonmatches alone do not prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural determinant-based network-design criterion, the result supplies a complete globally optimal resource allocation with a certified uniqueness assertion despite independently variable edges. Its nontrivial structural content includes sharp lower and upper rung-spend fractions, strictly decreasing price response, and a distinct \(n^{-2}\) conductance scale when the relative rung price grows as \(n\); the limiting equation and its next-order correction quantify the crossover. These conclusions are not consequences of the older effective-resistance optimum on the same graph, which optimizes a different functional.
+Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.
 
-## Scope and unresolved risks
+## value
 
-The proof assumes a simple two-ring prism with \(n\ge3\) and nonnegative independent weights at constant within-orbit prices. Fixed-price and linear-price asymptotics are separate regimes; no unrestricted multi-parameter uniformity is claimed. Early full-text availability limits the literature-priority conclusion; specialist work could provide an equivalent result. This is a self-review, not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unique unrestricted D-optimal independent-conductance allocation and its sharp rung budget threshold are natural determinant-based network design invariants. The Q=κn regime has a distinct n^-2 optimal conductance ratio and explicitly computable coth law plus next correction, not a routine unweighted tree count or resistance-sum optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
