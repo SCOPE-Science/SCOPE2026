@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim is about a finite, unwrapped, symmetric-Laplacian linear process with one Poisson clock resetting at least two vertices simultaneously. Connectedness makes the grounded Laplacian positive definite and the reset-augmented quadratic form coercive. This proves a unique finite-second-moment invariant law; the generator yields exact mean and centered covariance equations. The block covariance expansions prove the cubic transfer coefficient, and its Gramian representation proves the exact Krylov rank. The all-rate silence equivalence is proved in both directions by conditioning on a common reset and exploiting analytic inter-event trajectories. Symmetric-star and asymmetric four-vertex examples verify that cubic cancellation and exact silence differ. The 485 independent numerical assertions test equations and finite examples; they do not replace the proof.
+## correctness
 
-## Originality — PASS, qualified best knowledge
-The initiating 2026 network-reset study gives an infinite-rate grounded-Laplacian analysis and numerical synchronization observables but does not provide the finite-rate joint-reset covariance transfer and Krylov silence classification. The 2024 subsystem-reset study explicitly acknowledges correlations neglected in finite-rate approximations. A preceding one-vertex result already contains the single-reset-vertex cubic covariance law, so **that case is not claimed as new**. The evaluated result instead treats two or more vertices sharing one clock, where nontrivial drift cancellations can force exact silence, leading-order silence can conceal finite-rate fluctuations, and the transferred covariance can have different ranks. The 2026 continued-fraction paper's accessible abstract describes order parameters for generalized globally coupled dynamics; the full text was unavailable for a complete exclusion check. No broad theorem establishing the exact two-Krylov characterization was located in the searched mathematical records or primary literature. Residual priority risk remains and is not represented as independence or exhaustive novelty certification.
+PASS
 
-## Value — PASS
-Stochastic subsystem resetting is proposed as a means to stabilize network synchronization, but a pinned deterministic description alone cannot quantify residual stochastic fluctuations transmitted to never-reset sites. The result supplies a sharp \(\lambda^{-3}\) fluctuation scale and an explicit computable covariance, an exact graph/frequency criterion for **all-rate** isolation, a separate rank test for the transmitted modes, and connected examples distinguishing isolation from deceptive cancellation. These distinctions matter for choosing jointly reset vertices and frequencies. They are neither a generic second-moment identity alone nor an arbitrary finite enumeration.
+For any finite connected undirected positively weighted Laplacian, a jointly reset subset R with |R|>=2 and nonempty unreset M, kappa>0, lambda>0 and arbitrary fixed real frequency vector, the synchronous-coupling generator has negative definite mean-square drift -2 kappa L-lambda P; thus one invariant law exists and is unique with finite second moments. I reconstructed the Schur-complement mean xbar_R=(lambda I+kappa(H-E^T G^-1 E))^-1 h and centered matrix equation kappa(LC+CL)+lambda(C-JCJ)=lambda(P xbar)(P xbar)^T. If W=C_MM vanishes, zero variance makes X_M pathwise constant; continuity at resets and analyticity of the reset-block ODE force E H^j h=0 for j<r. Conversely Cayley-Hamilton annihilation gives a stationary deterministic unreset block at every rate. Positive definite grounded G and the three covariance block equations give U=lambda^-2 hh^T+O(lambda^-3), V=-kappa lambda^-3 hh^T E^T+O(lambda^-4), and W=lambda^-3 T+O(lambda^-4), GT+TG=2 kappa(Eh)(Eh)^T; the integral Gramian proves rank T=dim span{G^j Eh:0<=j<m}. Explicit reset-star silence, four-vertex cubic-cancellation without silence, and n=4 r=2 full-rank transfer were independently cross-checked numerically at several finite lambda values. Norm bounds are for fixed finite systems only, not graph-uniform or nonlinear sine coupling.
 
-## Closest literature and limitations
-The broad formulas use standard Laplacian, Lyapunov and controllability-Gramian ideas. The original contribution claimed is their complete strong-rate and all-rate *joint-subsystem-reset* classification for at least two reset vertices. Access to one plausible broader 2026 article was limited to descriptive material; claims of comprehensive priority are withheld. The model is linear and unwrapped, not the full nonlinear Kuramoto phase dynamics; all asymptotics fix the network and parameters and concern one common reset clock, not independent vertex clocks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Known classical Lyapunov/Gramian tools and the earlier one-reset-vertex lambda^-3 theorem are credited. The same-model finite-network literature inspected addresses pinned infinite-rate means or numerical order parameters, not the complete simultaneous-multiple-reset two-Krylov all-rate silence/rank distinction. General uninspected linear resetting/controllability literature remains a risk; searches cannot certify priority.
+
+## value
+
+PASS
+
+The two distinct graph/Krylov obstructions explain when synchronized reset randomness is completely invisible to unreset oscillators versus when its leading lambda^-3 signal disappears while higher-order noise remains. This is a natural network-transfer/controllability classification with an exact rank invariant and an explicit nonimplication, not merely a generic Lyapunov equation or a small numerical example; it can guide placement of synchronized reset sets and high-rate approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

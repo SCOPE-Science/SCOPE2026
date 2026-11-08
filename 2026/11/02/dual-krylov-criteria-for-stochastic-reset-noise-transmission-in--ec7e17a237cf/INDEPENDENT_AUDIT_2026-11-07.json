@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:42:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite connected undirected positively weighted Laplacian, a jointly reset subset R with |R|>=2 and nonempty unreset M, kappa>0, lambda>0 and arbitrary fixed real frequency vector, the synchronous-coupling generator has negative definite mean-square drift -2 kappa L-lambda P; thus one invariant law exists and is unique with finite second moments. I reconstructed the Schur-complement mean xbar_R=(lambda I+kappa(H-E^T G^-1 E))^-1 h and centered matrix equation kappa(LC+CL)+lambda(C-JCJ)=lambda(P xbar)(P xbar)^T. If W=C_MM vanishes, zero variance makes X_M pathwise constant; continuity at resets and analyticity of the reset-block ODE force E H^j h=0 for j<r. Conversely Cayley-Hamilton annihilation gives a stationary deterministic unreset block at every rate. Positive definite grounded G and the three covariance block equations give U=lambda^-2 hh^T+O(lambda^-3), V=-kappa lambda^-3 hh^T E^T+O(lambda^-4), and W=lambda^-3 T+O(lambda^-4), GT+TG=2 kappa(Eh)(Eh)^T; the integral Gramian proves rank T=dim span{G^j Eh:0<=j<m}. Explicit reset-star silence, four-vertex cubic-cancellation without silence, and n=4 r=2 full-rank transfer were independently cross-checked numerically at several finite lambda values. Norm bounds are for fixed finite systems only, not graph-uniform or nonlinear sine coupling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paramero-Arias and Riascos analyze grounded-Laplacian pinned strong-reset limit and finite-rate synchronization numerics.",
+          "Majumder et al. explicitly approximate order-parameter results without full finite-rate subsystem correlations.",
+          "The 2026 generalized globally coupled order-parameter article was only partially accessible."
+        ],
+        "reasoning": "The deterministic infinite-rate pinned limit does not entail a lambda^-3 covariance tensor, its exact rank, or a one-rate iff all-rate vanishing criterion. General globally coupled phase models have different topology and observables; accessible material does not decisively dominate the theorem.",
+        "searches": [
+          "arXiv:2610.21842 Paramero-Arias Riascos stochastic subsystem resetting in complex networks",
+          "arXiv:2402.14921 Majumder Chattopadhyay Gupta resetting Kuramoto subsystem",
+          "arXiv:2604.04769 generalized Kuramoto resetting analytic approach"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md f46ae23af2d607a097c79399e1be94570f5a7787; verification/check.py 03d5dbfdcb18230517abc1fde225c5c2a6c0924d; METADATA and SLOGAN inspected",
+        "arXiv:2610.21842, arXiv:2402.14921, arXiv:2604.04769 (partial)",
+        "Earlier one-reset-vertex finding 6ff92a1f-0bdb-46eb-8f47-39a1b0b2ffcf",
+        "Actual Resultary semantic query and high-ranked records reviewed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-reset-vertex h is scalar, so Eh=0 normally forces all H powers to annihilate; with multiple reset coordinates cancellation Eh=0 need not imply EHh=0.",
+          "The four-vertex r=3 example has Eh=0 but EHh=-1, while its finite-lambda remote covariance is positive.",
+          "G- and H-Krylov spaces correspond to distinct blocked matrices."
+        ],
+        "reasoning": "The prior |R|=1 statement is a genuine special case of a related cubic mechanism but cannot imply all-rate silence distinction for |R|>=2, nor full-rank transfer with one shared clock. The same-model finite-rate correlation was not mathematically determined in the inspected work.",
+        "searches": [
+          "arXiv:2610.21842 model and strong-rate limit",
+          "arXiv:2402.14921 correlation discussion",
+          "single-reset-vertex cubic-noise theorem id 6ff92a1f-0bdb-46eb-8f47-39a1b0b2ffcf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank formula equals the controllability rank of (G,Eh) via its positive semidefinite Gramian, while exact silence instead annihilates the H-Krylov span through E.",
+          "Earlier single-reset-vertex result 6ff92a1f-0bdb-46eb-8f47-39a1b0b2ffcf applies only to |R|=1 and cannot imply the strict cancellation example for |R|>=2."
+        ],
+        "reasoning": "Standard Gramian/observability theory supplies the rank principle but not the two independently parameterized network criteria or strict nonequivalence in the stated synchronized Poisson-reset model. No equivalent all-rate test was identified; that is not absence proof.",
+        "searches": [
+          "Resultary semantic: graph Laplacian simultaneous stochastic subsystem resetting common Poisson clock covariance Krylov uncontrollable grounded Laplacian noise transfer strong reset rate",
+          "Krylov observability Gramian for jointly reset linear oscillator network stationary covariance",
+          "arXiv:2610.21842 finite-rate reset covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked source and Resultary hits do not provide a table of simultaneous-multiple-reset all-rate cancellation or rank for arbitrary connected weighted graphs.",
+          "The claim ranges over arbitrary finite graphs and frequencies, not a single finite enumerative table."
+        ],
+        "reasoning": "An exact graph database is inapplicable as an exhaustive substitute because the assertion is for all finite connected graphs. Finite witness calculations distinguish the proposed criteria but alone do not prove the theorem.",
+        "searches": [
+          "Resultary exact jointly resetting oscillator covariance Krylov rank search",
+          "Git source 2026/11/02/dual-krylov-criteria... RESULT.md and verification/check.py",
+          "prior one-reset-vertex finding id 6ff92a1f-0bdb-46eb-8f47-39a1b0b2ffcf"
+        ]
+      },
+      "rationale": "PASS, qualified. Known classical Lyapunov/Gramian tools and the earlier one-reset-vertex lambda^-3 theorem are credited. The same-model finite-network literature inspected addresses pinned infinite-rate means or numerical order parameters, not the complete simultaneous-multiple-reset two-Krylov all-rate silence/rank distinction. General uninspected linear resetting/controllability literature remains a risk; searches cannot certify priority.",
+      "residual_risks": [
+        "An inaccessible broad generalized-resetting article or classical stochastic controllability theorem might encode this specialization.",
+        "Gaussianity of the Poisson-reset stationary law is not claimed; finite graph fixed-parameter limits only.",
+        "No independent Lean/formal certification; computations check finite witnesses only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": [
+            "The source primarily gives grounded-Laplacian deterministic strong-rate pinned limit, without the two-Krylov all-rate covariance classification in the passages read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21842",
+          "material_read": "Accessible primary full-text HTML model setup, pinned infinite-rate dynamics and finite-rate numerical discussion",
+          "method": "Read relevant full-text HTML passages and checked claims/variables against submitted theorem",
+          "title": "Synchronization induced by stochastic subsystem resetting in complex networks",
+          "trigger": "Same connected-network and partial-reset model"
+        },
+        {
+          "assessment": "CONTEXT_DIFFERENT_OBSERVABLE",
+          "evidence": [
+            "Order-parameter treatment explicitly omits finite-rate subsystem correlations in the approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.14921",
+          "material_read": "Abstract/model and finite-rate correlation approximation remarks, not every full-text page",
+          "method": "Read accessible preprint discussion and compared approximation assumptions",
+          "title": "Kuramoto model subject to subsystem resetting: How resetting a part of the system may synchronize the whole of it",
+          "trigger": "Earlier same-type simultaneous resetting"
+        },
+        {
+          "assessment": "PARTIAL_READING_PRIORITY_RISK",
+          "evidence": [
+            "Describes globally coupled order-parameter continued fractions, so a hidden analogous specialization cannot be ruled out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.04769",
+          "material_read": "Abstract and indexed topic description; complete argument not inspected",
+          "method": "Public metadata/abstract examination",
+          "title": "Analytical approach to subsystem resetting in generalized Kuramoto models",
+          "trigger": "Possible general analytic treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two distinct graph/Krylov obstructions explain when synchronized reset randomness is completely invisible to unreset oscillators versus when its leading lambda^-3 signal disappears while higher-order noise remains. This is a natural network-transfer/controllability classification with an exact rank invariant and an explicit nonimplication, not merely a generic Lyapunov equation or a small numerical example; it can guide placement of synchronized reset sets and high-rate approximations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only joint Poisson clock resetting >=2 vertices of linear unwrapped model; no independent clocks/nonlinear Kuramoto extension.",
+    "Strong-rate remainders nonuniform in graph size and parameters.",
+    "General literature may contain equivalent Gramian specializations."
+  ],
+  "schema_version": 1
+}
