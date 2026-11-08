@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every Gram diagonal is exactly \(Nw_k/K\), so the min/max eigenvalue quotient dominates the diagonal ratio. Strict monotonicity of that ratio on either side of \((n!)^{1/n}\) proves the unique radial optimum. At equality the constant basis vector must be a least-eigenvalue eigenvector, forcing all first \(n\) weighted angular moments to vanish; square Vandermonde unitarity then forces unit weights and an exact regular polygon. Stirling with the Poisson-mode maximum proves the stated pre-exponential coefficient. Independent recomputation of 694 finite assertions from the embedded script supplements, but cannot prove, the all-degree claim.
-The all-degree proof checks hypotheses \(n\ge1\), distinct positive-radius nodes and positive row weights, finite-Fock monomial normalization, strict radius balance and equality rigidity. At the endpoint \(n=1\), moment vanishing requires two equal-weight antipodal nodes, consistent with the formula. The logged 694 finite assertions supplement rather than replace the proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest exact-domain paper, Gröchenig–Ortega-Cerdà, arXiv:2109.11825, was read through its introduction, kernel definitions, interpolation/sampling sections and Proposition 6.4. It proves the absence of uniformly conditioned \(n+1\)-point sampling families but does not optimize a *single circular* positive-weight design, identify its only equality geometry, or supply the exact exponential coefficient. The already published two-ring analytic Fock kernel problem uses full-space normalized kernels and a different geometry, and the harmonic Fock cyclic example uses a different Hilbert space. Generic circular Vandermonde/DFT conditioning is an ingredient but does not determine the factorial Gaussian radial balance. Specialized equivalent results outside the inspected literature remain a historical priority risk.
-The closest primary paper is Gröchenig–Ortega-Cerdà, arXiv:2109.11825, specifically Proposition 6.4 and Sections 2 and 7. The classical Fourier/Vandermonde orthogonality underlying the construction is not presented as new. A remaining specialist-literature risk is an older, equivalent exact circular Gaussian design.
+PASS
 
-## Value — PASS
-The focal paper proves a qualitative no-square-uniform-sampling theorem, motivating a precise finite-dimensional answer: among square designs restricted to a feasible single-radius sensor aperture, which placement and radius give the best numerical stability and how fast does that best stability deteriorate? This theorem solves the complete naturally parameterized circle geometry/positive-weight optimization, proves unique optimal design, and quantifies the unavoidable exponential loss including its exact polynomial prefactor. The conclusion is not an arbitrary parameter slice or a numerical table; it is a full all-degree classification of the physically natural one-ring regime.
-The result does not claim full-plane optimality, oversampling stability or the absence of previous equivalent formulations.
+In the orthonormal Fock monomial basis e_k=pi^(k/2)z^k/sqrt(k!), the normalized weighted circular sampling Gram has diagonal G_kk=N x^k/(k! K_n), independent of angles and positive weights of total N. Rayleigh bounds therefore imply kappa²>=h_n(x)=max_k(x^k/k!)/min_k(x^k/k!). A regular N-gon of equal weights diagonalizes G via discrete Fourier orthogonality and attains h_n(x) at each radius. Since w_k=x^k/k! is log-concave in k, its minimum occurs at k=0 or k=n; h_n(x) strictly decreases below x_n=(n!)^(1/n) and strictly increases above, giving unique radius. At x_n, w0=wn=1 force constant column to be a least-eigenvalue eigenvector for equality. Vanishing weighted Fourier moments makes the square weighted Vandermonde unitary, whose row norms force all a_j=1 and whose geometric sums force one regular N-gon. Stirling expansion and Poisson mode estimate give e^(1/4)(2pi n)^((1/e-1)/4) exp(n/(2e))(1+o(1)). Independent finite DFT and Gram eigenvalues agreed at n=1,2,3,5,8,16 with κ from sqrt(M_n); all-n proof is algebraic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Gröchenig–Ortega-Cerdà 2022 open full paper establishes finite Fock polynomial MZ families and Proposition 6.1 (no N=n+1 sample families with constants uniformly bounded in n), not the exact degree-by-degree optimum within equal-radius weighted designs, its unique factorial radius, rigidity or exponential asymptotic prefactor. Pan general Vandermonde ill-conditioning is not specialized to the truncated Fock normalized kernel and factorial radial weights. Resultary search identifies other disk/cyclic frame conditioning but no dominating same-claim theorem. The DFT observation alone is prior and excluded as new.
+
+## value
+
+PASS
+
+Exactly N=n+1 normalized samples are the natural square critical Fock polynomial sampling regime; restricting to one radius models circular measurement and leaves nontrivial joint optimization of radius, phases and positive weights. A sharp finite-degree spectral conditioning barrier, unique optimal design and exponential rate with explicit power prefactor are precise structural facts usable in sampling/stability research; not just recomputation of a published no-uniform-bounds statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

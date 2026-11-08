@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:13:44.882495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the orthonormal Fock monomial basis e_k=pi^(k/2)z^k/sqrt(k!), the normalized weighted circular sampling Gram has diagonal G_kk=N x^k/(k! K_n), independent of angles and positive weights of total N. Rayleigh bounds therefore imply kappa²>=h_n(x)=max_k(x^k/k!)/min_k(x^k/k!). A regular N-gon of equal weights diagonalizes G via discrete Fourier orthogonality and attains h_n(x) at each radius. Since w_k=x^k/k! is log-concave in k, its minimum occurs at k=0 or k=n; h_n(x) strictly decreases below x_n=(n!)^(1/n) and strictly increases above, giving unique radius. At x_n, w0=wn=1 force constant column to be a least-eigenvalue eigenvector for equality. Vanishing weighted Fourier moments makes the square weighted Vandermonde unitary, whose row norms force all a_j=1 and whose geometric sums force one regular N-gon. Stirling expansion and Poisson mode estimate give e^(1/4)(2pi n)^((1/e-1)/4) exp(n/(2e))(1+o(1)). Independent finite DFT and Gram eigenvalues agreed at n=1,2,3,5,8,16 with κ from sqrt(M_n); all-n proof is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gröchenig-Ortega-Cerdà Math Z 302 (2022) Prop 6.1",
+          "Pan arXiv:1504.02118"
+        ],
+        "reasoning": "Their 2022 no-uniform-MZ result with exactly n+1 points applies to wider planar node classes but only prohibits bounded frame constants across degree; it does not give the exact finite n best spectral condition number, optimized factorial radius, or uniqueness in a constrained class. No more general quantitative theorem found whose specialization supplies these values.",
+        "searches": [
+          "Resultary: Gaussian Fock polynomial sampling n+1 equally spaced circle factorial radius condition number weighted Vandermonde",
+          "Resultary: weighted roots of unity Gaussian polynomial sampling condition number factorial optimal radius n!",
+          "web: Gröchenig Ortega-Cerdà Marcinkiewicz-Zygmund inequalities for polynomials in Fock space full Math Z 2022",
+          "web: V Y Pan How Bad Are Vandermonde Matrices arXiv:1504.02118"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00209-022-03087-4",
+        "https://arxiv.org/abs/1504.02118",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa",
+        "Resultary: Gaussian Fock polynomial sampling n+1 equally spaced circle factorial radius condition number weighted Vandermonde",
+        "Resultary: weighted roots of unity Gaussian polynomial sampling condition number factorial optimal radius n!",
+        "web: Gröchenig Ortega-Cerdà Marcinkiewicz-Zygmund inequalities for polynomials in Fock space full Math Z 2022",
+        "web: V Y Pan How Bad Are Vandermonde Matrices arXiv:1504.02118"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gröchenig-Ortega-Cerdà 2022 Proposition 6.1",
+          "Pan arXiv:1504.02118"
+        ],
+        "reasoning": "Nonuniformity of N-point sampling follows from prior weak-limit interpolation obstruction, whereas the current exponential rate and unique optimizer do not follow without the diagonal Gram inequality, radius balancing and equality-rigidity analysis. Standard DFT diagonalization proves one attaining construction but not universal weighted-node optimality by itself.",
+        "searches": [
+          "Resultary: Gaussian Fock polynomial sampling n+1 equally spaced circle factorial radius condition number weighted Vandermonde",
+          "Resultary: weighted roots of unity Gaussian polynomial sampling condition number factorial optimal radius n!",
+          "web: Gröchenig Ortega-Cerdà Marcinkiewicz-Zygmund inequalities for polynomials in Fock space full Math Z 2022",
+          "web: V Y Pan How Bad Are Vandermonde Matrices arXiv:1504.02118"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gröchenig-Ortega-Cerdà 2022 Sec 2, Prop 6.1",
+          "RESULT.md Fock sampling matrix"
+        ],
+        "reasoning": "Equivalent formulations use the Gram matrix of normalized Fock kernel evaluations or a diagonally weighted Fourier-Vandermonde matrix at common radius. Gröchenig–Ortega-Cerdà develop those spaces/norms but not this finite-dimensional exact minimax and unique equality characterization.",
+        "searches": [
+          "Resultary: Gaussian Fock polynomial sampling n+1 equally spaced circle factorial radius condition number weighted Vandermonde",
+          "Resultary: weighted roots of unity Gaussian polynomial sampling condition number factorial optimal radius n!",
+          "web: Gröchenig Ortega-Cerdà Marcinkiewicz-Zygmund inequalities for polynomials in Fock space full Math Z 2022",
+          "web: V Y Pan How Bad Are Vandermonde Matrices arXiv:1504.02118"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RESULT.md weights w_k=x^k/k!",
+          "Gröchenig-Ortega-Cerdà 2022 polynomial basis setup"
+        ],
+        "reasoning": "The object is an all-degree variational extremum, not a finite database or tabulated MZ array; factorial/Poisson maxima are standard but their occurrence as the sharp spectral optimum with rigidity and asymptotic prefactor is a new combined statement as far as the inspected sources show.",
+        "searches": [
+          "Resultary: Gaussian Fock polynomial sampling n+1 equally spaced circle factorial radius condition number weighted Vandermonde",
+          "Resultary: weighted roots of unity Gaussian polynomial sampling condition number factorial optimal radius n!",
+          "web: Gröchenig Ortega-Cerdà Marcinkiewicz-Zygmund inequalities for polynomials in Fock space full Math Z 2022",
+          "web: V Y Pan How Bad Are Vandermonde Matrices arXiv:1504.02118"
+        ]
+      },
+      "rationale": "Gröchenig–Ortega-Cerdà 2022 open full paper establishes finite Fock polynomial MZ families and Proposition 6.1 (no N=n+1 sample families with constants uniformly bounded in n), not the exact degree-by-degree optimum within equal-radius weighted designs, its unique factorial radius, rigidity or exponential asymptotic prefactor. Pan general Vandermonde ill-conditioning is not specialized to the truncated Fock normalized kernel and factorial radial weights. Resultary search identifies other disk/cyclic frame conditioning but no dominating same-claim theorem. The DFT observation alone is prior and excluded as new.",
+      "residual_risks": [
+        "A specialist result on weighted Fourier/Vandermonde optimal conditioning might implicitly cover the factorial case; no exhaustive full-text survey across all frame papers.",
+        "The optimality holds only for exactly N polynomial evaluations sharing one centered radius with positive weights and the specified kernel normalization.",
+        "Finite DFT tests corroborate but do not prove equality characterization for all degrees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELEVANT_GENERAL_NO_SHARP_CIRCULAR_FORMULA",
+          "evidence": "Proposition 6.1 rules out uniform N-point MZ arrays, does not optimize fixed-n circle, weighting or sharp exp constant.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00209-022-03087-4",
+          "material_read": "Publisher openly accessible full HTML: Sections 1 and 2 on norms and sampling, Sections 5-6 including Proposition 6.1, no-uniform-constants theorem and proof",
+          "method": "Read mathematical definitions, normalizations and theorem/proof, not just title",
+          "title": "Marcinkiewicz-Zygmund inequalities for polynomials in Fock space",
+          "trigger": "Same Fock polynomial sampling normalization and critical N=n+1 regime"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_WEIGHTS",
+          "evidence": "Addresses general Vandermonde condition numbers, not factorial Fock radial minimax.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.02118",
+          "material_read": "ArXiv scholarly abstract and broad Vandermonde scope; full text not reread this run",
+          "method": "Read abstract and general subject",
+          "title": "How Bad Are Vandermonde Matrices?",
+          "trigger": "Possible equivalent optimized root-of-unity Vandermonde conditioning"
+        },
+        {
+          "assessment": "DIFFERENT_HILBERT_KERNEL",
+          "evidence": "Finite Blaschke Szegő generators, not Gaussian-Fock polynomial sampling with factorial weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa",
+          "material_read": "Title and matched Resultary semantic summary only",
+          "method": "Read search summary; whole-text exclusion not asserted",
+          "title": "Sharp determinant stability and conditioning of concentric Szegő orbit frames",
+          "trigger": "Resultary related regular polygon frame design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly N=n+1 normalized samples are the natural square critical Fock polynomial sampling regime; restricting to one radius models circular measurement and leaves nontrivial joint optimization of radius, phases and positive weights. A sharp finite-degree spectral conditioning barrier, unique optimal design and exponential rate with explicit power prefactor are precise structural facts usable in sampling/stability research; not just recomputation of a published no-uniform-bounds statement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s00209-022-03087-4",
+    "https://arxiv.org/abs/1504.02118",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa",
+    "Resultary: Gaussian Fock polynomial sampling n+1 equally spaced circle factorial radius condition number weighted Vandermonde",
+    "Resultary: weighted roots of unity Gaussian polynomial sampling condition number factorial optimal radius n!",
+    "web: Gröchenig Ortega-Cerdà Marcinkiewicz-Zygmund inequalities for polynomials in Fock space full Math Z 2022",
+    "web: V Y Pan How Bad Are Vandermonde Matrices arXiv:1504.02118",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4/RESULT.md Git blob 1dfa0a3bf42546b6177caf0928c13605a8da2a3e",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4 verifier Git blob 7e6489490e75ad09c8be1120d18171c28b2a03e9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialist result on weighted Fourier/Vandermonde optimal conditioning might implicitly cover the factorial case; no exhaustive full-text survey across all frame papers.",
+    "The optimality holds only for exactly N polynomial evaluations sharing one centered radius with positive weights and the specified kernel normalization.",
+    "Finite DFT tests corroborate but do not prove equality characterization for all degrees."
+  ],
+  "schema_version": 1
+}
