@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite saturation lemma reduces any labelled crown graph to nine populations clipped at three; each occupied original pair type is tracked independently. The source `verify.cpp` exhaustively traverses every nonempty saturated vector and the tagged microscopic orbit, with exact integer transitions and no sampling. Its output confirms 262143 nonempty population vectors, maximum preperiod nine, all and only the periods 1, 3, 4, 6, 10, 12, and 30, and exactly two recurrent period-30 population vectors, each having eight distinct pair types of multiplicity one.
+# Independent mathematical audit
 
-The pair-type vectors corresponding to period 30 are (1,1,1,1,1,1,1,0,1) and (1,1,1,1,1,0,1,1,1) in order (00,01,02,10,11,12,20,21,22). They each contribute 8! labelled states on the eight-pair graph; hence the number of primitive period-30 cycles is 2*8!/30 = 2688. The program explicitly validates every period-30 capped vector is an all-zero-or-one occupancy vector with exactly eight occupied classes, ruling out such periodic behaviour at any other size.
+## correctness
 
-`direct_check.py` independently updates every vertex instead of using capped populations. It exhausts the 3^(2n) labelled configurations for n = 1 through 5 and checks explicit primitive-period-30 witnesses for n = 8 and a sharp preperiod-nine witness for n = 9. It does not replace the all-size exhaustive capped certificate. All standard compilation, executable output, and actual source paths are included in this self-contained package. Historical novelty remains qualified; no external or independent audit was performed.
+PASS
+
+Pair-state populations clipped at 3 suffice because opposite-shore excitation tests at most threshold 2 after subtraction of matched pair excitation. Occupied origin tags retain exact microscopic states, avoiding artificial identification of period-30 and period-10 orbits. All 4^9−1=262143 nonempty clipped profiles were traversed with exact integer transitions and tagged signatures; maximum preperiod=9, periods {1,3,4,6,10,12,30}; two recurrent 30-profile states have exactly eight distinct occupied pair types, giving 2·8!/30=2688. Independent C++ reproduced 262143 profiles, max9, periods and two recurrent 30 states; six profiles reach a 30-cycle including four transient ones. Complete finite reduction via saturation proves every n, unlike tests of finitely many n.
+
+## originality
+
+PASS
+
+The one-neighbor Greenberg–Hastings graph theorem studies a different update map, and lattice threshold scaling does not state a crown-graph labelled cycle census. Complete bipartite graphs have different excitatory neighbor sets. No exact 2688-orbit table appeared in actual Resultary crown-graph search; this is a qualified best-of-knowledge judgment. Best-of-knowledge, not a guarantee of global historical priority.
+
+## value
+
+PASS
+
+Removing one matched edge at every vertex changes exactly the threshold-boundary behavior, producing a sharp size-isolated period-30 resonance and an exact all-size cycle spectrum. Such an exhaustive graph-family classification is a motivated structural dynamics result, not a tiny negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
