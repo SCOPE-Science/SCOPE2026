@@ -1,19 +1,21 @@
-# Scientific review of telegraph-tension moment order and finite-size quantization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is exact for spatially uniform symmetric Poisson switching, positive mean tension, positive bending, positive flip rate, and every real moment order \(p>0\). The Fourier equation integrates explicitly, the two-state tilted generator has eigenvalues \(-r\pm\sqrt{r^2+p^2a^2|k|^4}\), and its leading coefficient is positive for a stationary switching start. Squaring the positive branch yields the strictly convex threshold function \(H_p\). The critical order is the unique minimizer of a proper one-dimensional rational function, with a strictly monotone cubic numerator. The near-threshold coefficient follows by an ordinary implicit-function expansion. Restriction to circle wave numbers gives a finite-order minimum, the single-mode geometric onset pole and the quadratic mode-quantization expansion; the latter follows by a nondegenerate Taylor minimum and nearest-lattice-point comparison. The independent standard-library checker passed 2979 deterministic assertions. Computation is not treated as proof of universal claims.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+Fourier diagonalization of the globally modulated linear PDE gives exact mode amplitude exp[−(σx+κx²)t−ax∫S]. Stationary symmetric two-state Feynman–Kac has tilted eigenvalues −r±sqrt(r²+p²a²x²), with positive leading coefficient, giving Λ_p(x). Reversibly squaring its positive branch yields a²>H_p(x); direct differentiation shows H_p strictly convex with a unique minimum. Holding a>σ, change variable u=σ+κx, and the proper critical-order function has a unique minimizer satisfying 2u³−σu²−σa²=0. For a≤σ there is no positive-moment unstable mode. Discrete circle k=2πn/L gives existence iff L>L0, the exact minimum, and a near-L0 pole from n=1 only. Quadratic Taylor expansion at nondegenerate unique k* and nearest grid point yields the uniform O(L^-3) oscillatory correction and liminf/limsup. Independently evaluated σ=1, κ=0.5, r=0.7, a=1.9: p_c≈1.484251344964, x*=0.818166948817, L0≈4.683209820694, and Λ_(p_c)(x*)≈0. Finite calculations corroborate, do not prove the general asymptotics.
 
-The motivating active-surface paper analyzes spatially correlated Gaussian tension and mean-mode buckling; it does not state an all-real-moment cubic order boundary for spatially uniform binary tension. Falkovich and Martins Afonso (2007) already give exact scalar telegraph moment-growth rates and the quenched/annealed distinction, while Bogachev and Ratanov (2010) cover occupation-time transforms; these contributions are expressly credited. Searches for the joint elastic phase model, equivalent moment-order/wave-number optimization and finite-size quantization laws returned no clearly dominating exact classification. Accessible previous findings were checked for overlap in source, claim, aliases and mode-order parameters. No broad uniqueness is inferred from a search failure. Important residual priority risk: the scalar moment exponent is directly covered by an older telegraph-strain result, and the remaining spectral optimization and lattice asymptotic may be obtainable as unstated consequences of existing general results or published elsewhere with different terminology.
+## originality
 
-## Value — PASS
+PASS
 
-The natural finite-wavelength instability question posed by active-surface buckling acquires an exact model benchmark that separates three notions often conflated: almost-sure mode stability, first-moment stability and high-order moment instability. The classification is complete over both positive moment orders and continuous wave numbers, including the sharp critical-order divergence, a complete periodic finite-size cutoff and its oscillatory threshold correction, and a tunable regime in which the first moment decays while the second grows. It is neither a numerical example nor an arbitrary fixed-order slice. Its limits are substantive: global dichotomous noise with occasional negative tension, not generic active tissue stress.
+The scalar telegraph multiplicative-growth exponent, Feynman–Kac transform and almost-sure versus annealed separation are prior work, particularly Falkovich–Martins Afonso (2007). The motivating active-surface model has spatially correlated Gaussian stress and different closure. The candidate new piece is a globally optimized nonlinear bending dispersion for all p with a sharp finite-circle cutoff, onset pole, and oscillatory quantization, not the one-mode growth rate. Direct equivalent global-elastic calculation remains a possible priority risk.
 
-## Closest literature and limits
+## value
 
-Ciarchi–Goychuk–Frey (2026), arXiv:2602.24272, is closest in elastic operator and physical problem, but employs spatially correlated Gaussian noise. Falkovich–Martins Afonso (2007), arXiv:nlin/0703054, directly covers scalar multiplicative-telegraph moment exponents; Bogachev–Ratanov (2010), arXiv:1007.3139, also covers integrated-telegraph functionals. These sources do not, in their inspected sections, give the bending-mode continuum optimization or circle-size onset and quadratic oscillations. Spatially local disorder, nonlinear stabilization, finite-domain allowed spectra and experimentally realistic negative tension remain outside scope. A separate priority audit is advisable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A linearly elastic surface with one spatially uniform dichotomous stochastic tension is a natural solvable alternative to spatially fluctuating active-surface models. The joint exact all-real-moment continuum/finite-circle phase diagram and a first unstable system size resolve genuinely physical and mathematical questions; geometric onset pole and universal lattice-phase oscillation are not supplied by the known single-mode telegraph exponent. The result does not predict nonlinear buckling or typical growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

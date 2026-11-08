@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory using Python 3.10 or later. The checker uses the standard library only. Its deterministic tests verify the defining minimizer equations, the sign change when tension amplitude crosses its calculated threshold, the moment-order cubic boundary, the exact finite-time telegraph formula against an independently integrated pair of coupled equations, the sharp small-overdrive scaling, the finite-domain geometric threshold and the leading finite-size quantization error. The expected final line is `PASS 2979 deterministic assertions`.
+## correctness
 
-The analytical proof in `RESULT.md` establishes the universal statement, including all positive real moments and all positive continuous squared wave numbers. Finite deterministic tests cannot prove universal assertions, publication priority, stochastic-model realism, or the correctness of an untested nonlinear extension.
+PASS
 
-The theorem assumes an initially stationary symmetric two-state Markov chain, a single globally modulated tension common to every Fourier mode, strictly positive mean tension, bending modulus and flip rate, and linearized surface mechanics. Almost-sure and ensemble-moment results refer to distinct notions of growth and must not be interchanged. Independent audit and independent validation have not been performed.
+Fourier diagonalization of the globally modulated linear PDE gives exact mode amplitude exp[−(σx+κx²)t−ax∫S]. Stationary symmetric two-state Feynman–Kac has tilted eigenvalues −r±sqrt(r²+p²a²x²), with positive leading coefficient, giving Λ_p(x). Reversibly squaring its positive branch yields a²>H_p(x); direct differentiation shows H_p strictly convex with a unique minimum. Holding a>σ, change variable u=σ+κx, and the proper critical-order function has a unique minimizer satisfying 2u³−σu²−σa²=0. For a≤σ there is no positive-moment unstable mode. Discrete circle k=2πn/L gives existence iff L>L0, the exact minimum, and a near-L0 pole from n=1 only. Quadratic Taylor expansion at nondegenerate unique k* and nearest grid point yields the uniform O(L^-3) oscillatory correction and liminf/limsup. Independently evaluated σ=1, κ=0.5, r=0.7, a=1.9: p_c≈1.484251344964, x*=0.818166948817, L0≈4.683209820694, and Λ_(p_c)(x*)≈0. Finite calculations corroborate, do not prove the general asymptotics.
+
+## originality
+
+PASS
+
+The scalar telegraph multiplicative-growth exponent, Feynman–Kac transform and almost-sure versus annealed separation are prior work, particularly Falkovich–Martins Afonso (2007). The motivating active-surface model has spatially correlated Gaussian stress and different closure. The candidate new piece is a globally optimized nonlinear bending dispersion for all p with a sharp finite-circle cutoff, onset pole, and oscillatory quantization, not the one-mode growth rate. Direct equivalent global-elastic calculation remains a possible priority risk.
+
+## value
+
+PASS
+
+A linearly elastic surface with one spatially uniform dichotomous stochastic tension is a natural solvable alternative to spatially fluctuating active-surface models. The joint exact all-real-moment continuum/finite-circle phase diagram and a first unstable system size resolve genuinely physical and mathematical questions; geometric onset pole and universal lattice-phase oscillation are not supplied by the known single-mode telegraph exponent. The result does not predict nonlinear buckling or typical growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
