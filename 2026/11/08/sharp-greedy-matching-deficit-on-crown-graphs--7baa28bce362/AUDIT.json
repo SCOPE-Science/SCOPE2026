@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The theorem holds for all integers n≥3 under the uniform-at-each-step RANDOM-EDGE rule. Direct counting establishes the exact (m,t) Markov transition probabilities, and at m=2 failure is precisely the t=1 event followed by the sole wrong edge (probability 1/3). Conditional first and second factorial moment identities yield a telescoping normalized expectation, the uniform product bound V_m≤5m²(m−1)²/[n(n−1)], and the displayed explicit O(log(n)/n²) error. The derivations were symbolically checked, and a standalone labeled-mask rational calculation matches the reduced chain up to n=8. The derangement count and inclusion-exclusion asymptotics prove the uniform-maximal limit. Unbounded conclusions rely on the written proof, not finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arnosti (2021), Section 1.3 Theorems 1-2, compares RANDOM-EDGE, RANDOM-VERTEX, and RANKING over random input-edge distributions; the full fixed crown failure event is not given.",
+        "Dyer and Frieze (1991) accessible abstract reports worst-case and sparse-graph performance, not a fixed crown graph asymptotic; full article not read."
+      ],
+      "reasoning": "The previous algorithmic guarantees control expected size or stochastic order in other input ensembles and do not identify the sharp one-step deficiency chance on this fixed dense graph. Nevertheless Dyer–Frieze is a genuinely plausible umbrella reference, so an uninspected specialization remains a priority risk.",
+      "searches": [
+        "Nick Arnosti Greedy Matching in Bipartite Random Graphs pdf 2021",
+        "Dyer Frieze Randomized greedy matching 1991 pdf",
+        "Randomized greedy matching crown graph failure probability 2/n",
+        "published-finding corpus published-findings search: random random sequential adsorption maximal independent set on finite complete bipartite graphs exact joint distribution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2006.07234",
+      "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/60FD42CCE9AD321CBEDBCFC33CF736DB/S0963548322000189a.pdf/bk_inequality_for_random_matchings.pdf",
+      "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+      "https://doi.org/10.1002/rsa.3240020104",
+      "https://mathworld.wolfram.com/CrownGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mészáros, arXiv:2006.07234, Theorems 1.1 and 1.6: respectively uniform over all matchings and uniform over maximum matchings, not uniform over maximal matchings or greedy output.",
+        "Arnosti 2021, Theorems 1 and 2: stochastic comparisons across algorithms under specified random input-graph ensembles, not evaluation of crown graphs.",
+        "Dyer–Frieze 1991 abstract: fixed-graph greedy algorithm and broad expected ratio guarantees; no exact crown probability in accessible material."
+      ],
+      "reasoning": "A BK inequality for a uniform monomer–dimer measure cannot be applied to greedy maximal-matching sampling without proving an identification of measures, and the two measures are in fact sharply different. Random-input algorithm comparisons do not imply a fixed graph asymptotic. Worst-case approximation ratios only bound the range of matching sizes, and cannot yield the 2/n leading constant.",
+      "searches": [
+        "A BK inequality for random matchings arxiv 2022 2021",
+        "Greedy Matching in Bipartite Random Graphs Nick Arnosti pdf 2021",
+        "random greedy matching crown graph randomized edge order probability perfect matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph is the deleted-identity-edge complete bipartite graph, also called the crown graph and the off-diagonal rook board (MathWorld definition).",
+        "The direct exact state formulation is probability that the last unmatched left and right vertices carry the same label; no equivalent theorem surfaced in the targeted searches."
+      ],
+      "reasoning": "The equivalences concern exactly the same process and event, not merely similar vocabulary. Searches using all three forms returned greedy matching generalities and crown graph results about other invariants, without a statement giving the probability or its 2/n asymptotic. This absence is not treated as uniqueness proof.",
+      "searches": [
+        "crown graph K_{n,n} minus diagonal random-edge greedy maximal matching failure asymptotic 2/n derangement",
+        "random sequential greedy matching complete bipartite minus perfect matching probability unmatched same label",
+        "edge random order maximal matching rook board off diagonal first order deficiency 2/n",
+        "published-finding corpus published-findings search: random greedy matching chain graphs success probability complete bipartite minus matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published crown-graph finding identified concerns counts of non-CIS pairs in a matching-deleted complete bipartite graph; it is not a matching sampler.",
+        "A separately returned result concerns lower bounds for average sizes of maximal matchings in graphs with prescribed cyclomatic number; it does not list crown random-greedy failure probabilities."
+      ],
+      "reasoning": "Neither returned public finding has the same random process or a dominating parameter theorem. No exact crown matching failure table was located. Database incompleteness remains possible.",
+      "searches": [
+        "crown graph K_{n,n} minus diagonal random-edge greedy maximal matching failure asymptotic 2/n derangement",
+        "uniform maximal matching crown graph derangements size n-1 half probability",
+        "published-finding corpus published-findings search: crown graph K_{n,n} minus diagonal random-edge greedy maximal matching failure asymptotic 2/n derangement",
+        "published-finding corpus published-findings search: uniform maximal matching crown graph derangements size n-1 half probability"
+      ]
+    },
+    "rationale": "The lead probabilistic matching paper proves BK negative dependence under uniform sampling of all matchings, not the greedy output law or uniform maximal sampling. The principal modern greedy paper studies random-input graphs and compares algorithms, and the original fixed-graph greedy paper gives broad guarantees in its accessible abstract but not the stated crown asymptotic. Exact matching, off-diagonal-board, derangement and source-reduction searches did not identify the sharp 2/n leading coefficient paired with the 1/2 uniform-maximal limit. A general mathematical principle could in principle imply the result without an identical title; an inaccessible 1991 full text remains the concrete priority risk.",
+    "residual_risks": [
+      "Full text of Dyer–Frieze (1991) was not accessible, so its specific fixed-graph examples or appendices could contain an equivalent special case.",
+      "Search engines and published finding indexes are incomplete; absence of search hits is not proof of novel priority.",
+      "An independent expert has not verified the mathematical argument or its historical originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the target claim; both the uniform all-matching measure and its uniform maximum-matching limit differ from the greedy law and from uniform maximal matching.",
+        "evidence": "Its Theorem 1.1 samples uniformly from all matchings; Theorem 1.6 samples from maximum-size matchings; neither addresses random-edge greedy crown failure.",
+        "identifier_or_url": "https://arxiv.org/abs/2006.07234 ; https://doi.org/10.1017/S0963548322000189",
+        "material_read": "Accessible published open-access full PDF, seven pages: abstract, Theorems 1.1–1.6, Section 2 proof, corollaries, and references.",
+        "method": "Read the paper text and inspected rendered first page plus subsequent proof sections.",
+        "title": "A BK inequality for random matchings",
+        "trigger": "Lead 60C05 combinatorial-probability paper on matching sampling and negative dependence"
+      },
+      {
+        "assessment": "NOT_COVERING for the specified deterministic crown graph and two distinct maximal-matching sampling measures; its mathematical comparison requires averaging over random edge-set distributions.",
+        "evidence": "Theorem 1 considers fixed numbers of randomly sampled neighbors; Appendix B describes sparse Erdős–Rényi input graphs, while crown graphs have a deterministic deleted perfect matching.",
+        "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "material_read": "Abstract and introduction, Sections 1.2–1.3, principal algorithm definitions and Theorems 1–2, chain construction/proof sections, and Appendix B asymptotic regimes.",
+        "method": "Read selected full-text sections and inspected rendered PDF pages 1 and 4.",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Uses exactly the random feasible-edge algorithm but on random input graphs"
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON: the abstract gives global worst-case and sparse-graph results, but no reliable full-document exclusion is possible.",
+        "evidence": "Publisher abstract: random edge selected from remaining graph; main theorem concerns forests. Exact crown-graph behavior not stated in accessible abstract.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher title, bibliographic information and full accessible abstract, plus its algorithmic description in Arnosti 2021.",
+        "method": "Read accessible publisher landing page and searched for lawful open full-text or preprint; complete text unavailable.",
+        "title": "Randomized greedy matching",
+        "trigger": "Original fixed-input random-edge greedy matching study, potentially closest historical source"
+      },
+      {
+        "assessment": "Terminology only; not a probabilistic theorem.",
+        "evidence": "A crown graph is the complete bipartite graph with a perfect matching removed.",
+        "identifier_or_url": "https://mathworld.wolfram.com/CrownGraph.html",
+        "material_read": "Definition and equivalent graph construction in the reference entry.",
+        "method": "Read the accessible reference page.",
+        "title": "Crown Graph",
+        "trigger": "Graph-name equivalence and deletion-of-perfect-matching formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7baa28bc-e362-4417-85ea-72aadd55f5e2",
+  "value": {
+    "rationale": "This gives a sharp first-order deficiency probability for a highly symmetric dense graph family in a classical greedy matching algorithm. More significantly, the two natural distributions supported on the same class of maximal matchings are asymptotically singular on the substantive perfect-vs-one-defect event: failure vanishes as 2/n for greedy output but approaches 1/2 under uniform maximal sampling. The exact recurrence is a finite-size benchmark, and the coupling-free two-label moment analysis explains the sharp constant. This is not an arbitrary finite slice or a table lookup.",
+    "status": "PASS"
+  }
+}
