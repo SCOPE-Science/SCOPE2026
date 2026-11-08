@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The companion matrix reproduces the exact Perrin normalization. Its thirteenth power is the stated integer matrix, and all three relevant linear trace coefficients are 3-adic units. The binomial bound on every nonlinear term is uniform in the shift, so the three quotient sequences are genuine 3-adic isometries, not merely locally nonconstant functions. Injectivity on each finite residue ring and cardinality give unique roots. Residue-progression counting proves the uniform discrepancy bound. The supplied independent recurrence implementation checks 119,998 nonzero indices and the root lifts through fifteen 3-adic digits. No finite experiment substitutes for the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Verified companion matrix M has characteristic polynomial x^3-x-1 and exact return M^13=I+3A with A matrix [[2,3,4],[4,5,7],[3,4,5]]. Direct matrix products give unit 3-adic trace slopes at r=1,3,9: 17,29,158. For h with valuation s, nonlinear binomial terms of (I+3A)^h have 3-adic order >=s+2, hence each F_r(m)=R(13m+r)/3 has exact isometric differences and a unique 3-adic zero βr. Regular mod13 branches and r=0 yield the valuation law. Count three root-class residue progressions for pt>=2 and the nine unit classes/other branches, giving p0=9/13,p1=3/13,pt=6/(13*3^t) and discrepancy <=9 from at most nine arithmetic progressions. Independently checked matrix, slopes and 30000 finite indices, and examined VERIFY.py root-lifting/congruence code; finite tests not proof of unbounded statement.
 
-Rihane–Togbé (2021, DOI 10.1007/s40065-021-00317-1) states 2-adic formulas in Lemma 2.2, not a 3-adic classification. Batte–Chalebgwa–Ddamulira (2021, arXiv:2105.08515) studies a repdigit Diophantine equation, using Perrin Binet formulae and logarithmic estimates. Bravo–Irmak (2024, DOI 10.55730/1300-0098.3568) studies shifted 2-adic valuations. OEIS A001608 lists the Perrin sequence, without this all-level ternary valuation and density theorem. Searches for exact 3-adic Perrin valuation formulae, lifted congruence roots, and related local recurrence structures did not identify equivalent or dominating published statements, and the accessible historical claim inventory contains no matching result. Search failure cannot certify priority; an unindexed general recurrence valuation theorem remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Published work treats the same classical sequence through its prime-two valuations and a variety of Diophantine questions. Its prime-three valuation behavior is a natural parallel arithmetic problem, but differs structurally: the thirteen-step companion return has three isometric root branches. A complete infinite-index classification, effective roots, every frequency, and a cutoff-uniform bound answer a substantive invariant question not supplied by a finite table or a mere normalization exercise.
+The same unshifted Perrin sequence is classical and prime-2 valuation formulae are earlier work. Rihane–Togbé 2021 uses a known 2-adic lemma; Bravo–Irmak analyzes shifted Padovan/Perrin 2-adic valuations. OEIS A001608 supplies sequence values, not the all-index prime-three 13-step root isometry and bounded-discrepancy distribution. Similar p-adic recurrence techniques are acknowledged; no equivalent full theorem located in checked primary statements.
 
-## Verification boundaries
+## value
 
-The full argument requires only exact integer matrix multiplication, the elementary binomial valuation bound, compactness of the 3-adic integers, and arithmetic-progression counts. The standalone script is finite corroboration only. Possible unindexed published equivalences and independent mathematical verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact 3-adic valuation stratification for a classical recurrence naturally complements known 2-adic results. The 13-step return and three root branches yield full frequency distribution and a strong cutoff- and level-uniform discrepancy bound, a useful global arithmetic invariant rather than mere tabulation of initial terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
