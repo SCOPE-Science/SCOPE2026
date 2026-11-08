@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute the standard-library-only `check_kneser.py` with Python 3.11 or later:
+## correctness
 
-```sh
-python check_kneser.py
-```
+PASS
 
-A successful run ends with `KNESER_DIAMETER_THREE_NEGATIVE_TYPE_CERTIFICATE_OK`. The script constructs all vertices and relevant orbital matrix actions for three small instances, independently verifies Kneser graph distances by breadth-first search, checks rational inequalities over 173 family parameters, and computes high-precision critical roots and competing harmonic signs for eight selected parameters.
+Reconstructed the intersection-distance trichotomy for n=3k-2 and all k>=8, the Johnson eigenspaces and a_j,r_j eigenvalues, the unique root of A_k[r2((3/2)^p-1)-(1-2^-p)]=1, and all competing harmonic signs via geometric coefficient decay and q<7/4. Endpoint rank is binom(n,k)-1-(binom(n,2)-n); central binomial asymptotic yields p_k~16 sqrt(pi)/(4^k sqrt(k) log(3/2)). Independent high-precision sector checks at k=8,9,10,16,32 corroborated p8≈0.00185922290644 and V2 sole zero; the inequalities, not finite cases, establish all k.
 
-These are supplementary finite checks. The proof in `RESULT.md` establishes the infinite family using exact Johnson eigenvalue formulas and elementary uniform analytic estimates; exhaustive testing over all \(k\ge8\) is neither claimed nor needed. The source comparisons are literature-bounded, and no independent external validation has been performed.
+## originality
+
+PASS
+
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
+
+## value
+
+PASS
+
+A sharp generalized-roundness exponent is a natural finite-metric invariant of the first diameter-three Kneser family. The unique obstructing irreducible and exact equality embedding dimension are structural, useful beyond any one numerical spectral value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
