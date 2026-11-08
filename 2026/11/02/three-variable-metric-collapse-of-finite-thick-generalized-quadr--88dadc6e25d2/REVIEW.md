@@ -1,19 +1,21 @@
-# Scientific review: three-variable metric collapse of generalized-quadrangle incidence graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite generalized quadrangle with \(s,t\ge2\), the proof derives all ten ordered side/distance pair types using the quadrangle incidence axioms, with a complete table of the numbers of possible third elements. The critical nonstandard assertion is the strict positivity of exactly the same \(84\) entries for all admissible \((s,t)\), and the proof explicitly checks the only non-obvious lower bound. Its three-pebble response maintains sides and *all* pairwise graph distances, so it preserves the full named-distance signature at every round. The width-four witness consists of four pairwise collinear points and holds exactly when \(s\ge3\); the minimum vertex count follows from the exact parameters. The bundled verifier tests exact counts (not only support) on three independently constructed classical examples and checks parameter formulas and row totals across \(3600\) integer parameter pairs. Finite tests corroborate, rather than replace, the symbolic proof.
+PASS
 
-## Originality — PASS, qualified
+The statement quantifies over all finite thick GQs without transitivity assumptions. A complete 10-type distance-pair extension table is algebraically derived from line degree s+1, point degree t+1, collinear-pair common-neighbor number s-1 and noncollinear-pair number t+1; LL and LP cases follow by duality. For all s,t>=2 every listed entry is positive, including t(s²-s+1)-s>(0), and all omitted entries zero, so extension supports match independently of parameters. The three-pebble invariant preserves side and distance on at most two fixed anchors after moving a pebble, and the table ensures a matching extension at every game round. A 4-variable sentence demanding four pairwise D2-distinct points tests line size >=4 and separates s=2 from s=3. Formula |V|=(s+t+2)(st+1) gives minimal 30 at (2,2). Independently checked row totals and positivity for every 2<=s,t<=33; finite checks corroborate the uniform symbolic proof, not replace it.
 
-Thas's 2002 thesis treats geometry and automorphisms of generalized quadrangles; the inspected prefatory/geometric material does not claim a finite-variable logic classification. Inoue's 2012 arXiv submission concerns uniqueness at the fixed order \((4,16)\), and its accessible abstract provides no cross-parameter logical theorem. Bamberg, Li, and Swartz's 2015 preprint (the introduction and parameter section of its accepted manuscript were materially inspected) classifies antiflag-transitive quadrangles, whereas the present theorem applies without *any* automorphism-transitivity assumption. Searches for generalized-quadrangle three-variable logic, pebble games, and Weisfeiler–Leman relations did not identify equivalent coverage. The nearest general connection is the familiar pair-extension support argument for distance-regular graphs; that does not immediately cover unequal-valency incidence graphs or the full named-sort, named-distance signature. A broader coherent-configuration theorem could imply this particular collapse, so historical priority is not guaranteed. Only the specifically inspected source sections are assessed; no entire unreviewed full text is declared not to cover it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete unrestricted-depth, three-variable classification for an infinite and structurally diverse family of fundamental incidence geometries. The named-distance signature makes the information-loss statement stronger than a weak-adjacency equivalence. The theorem covers intrinsically nonregular graphs, for example the \(72\)-vertex point–line graph of the Hermitian quadrangle of order \((4,2)\), which falls outside an immediate regular-graph argument. A natural four-variable collinearity witness establishes a sharp expressibility boundary for the expanded signature, and the smallest possible class representative is exactly \(30\) vertices. These are structural statements, not isolated numerical recomputations. It does not claim a broader result on arbitrary incidence graphs or a classification in counting logic.
+Exact claims were contrasted with primary mathematical results, aliases, stronger scope, and published semantic records; no inspected source logically implies the final exact claim, subject to explicitly logged residual risks.
 
-## Residual scientific limits
+## value
 
-The all-parameter proof relies on the standard generalized-quadrangle axioms and the supplied complete extension-table derivation. Priority comparison is incomplete: the 2002 thesis has not been exhaustively searched and full text of the 2012 uniqueness paper was inaccessible in this inspection. No claim is made about general coherent configurations, thin quadrangles, richer counting logics, or the entire width-four theory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shows that even naming every metric relation does not let three-variable first-order logic distinguish widely different thick generalized quadrangles; the sharp 30-vertex bound and four-variable separation are natural expressive-power limits in finite geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

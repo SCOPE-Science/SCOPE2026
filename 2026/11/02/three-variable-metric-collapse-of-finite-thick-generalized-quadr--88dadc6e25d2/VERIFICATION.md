@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact proof of the infinite assertion is the parameterized pair-extension table and unrestricted three-pebble strategy in `RESULT.md`. The executable checks are supportive finite reproductions and formula checks, not an independent audit and not an infinite certificate.
+## correctness
 
-Run from this directory: `python3 verify_generalized_quadrangles.py`. Its only dependency is the Python standard library. The program constructs three finite classical generalized quadrangles using explicit finite-field forms, computes every all-pairs graph distance, and enumerates **every** possible third-vertex distance signature for **every** ordered pair. It compares the complete count dictionaries with the parameterized formulas, checks that all ten pair classes have identical nonzero support, and separately tests the four-point witness. The constructed examples are \(W(3,2)\) on \(30\) vertices, \(W(3,3)\) on \(80\) vertices, and \(H(3,4)\) on \(72\) vertices (order \((4,2)\)), representing a nonregular case.
+PASS
 
-The three models yield respectively \(900\), \(6400\), and \(5184\) checked ordered pairs, for a combined \(12{,}484\). Their ten pair types have \(84\) positive extension entries in total. The program also checks the support and both side-specific row totals for all ten pair types at each of \(3600\) parameter pairs in \(\{2,\ldots,61\}^2\). It confirms the \(\mathrm{FO}^4\) four-point collinearity witness is absent in \(W(3,2)\) and present in the other two models.
+The statement quantifies over all finite thick GQs without transitivity assumptions. A complete 10-type distance-pair extension table is algebraically derived from line degree s+1, point degree t+1, collinear-pair common-neighbor number s-1 and noncollinear-pair number t+1; LL and LP cases follow by duality. For all s,t>=2 every listed entry is positive, including t(s²-s+1)-s>(0), and all omitted entries zero, so extension supports match independently of parameters. The three-pebble invariant preserves side and distance on at most two fixed anchors after moving a pebble, and the table ensures a matching extension at every game round. A 4-variable sentence demanding four pairwise D2-distinct points tests line size >=4 and separates s=2 from s=3. Formula |V|=(s+t+2)(st+1) gives minimal 30 at (2,2). Independently checked row totals and positivity for every 2<=s,t<=33; finite checks corroborate the uniform symbolic proof, not replace it.
 
-The literal recorded program output is `verification_output.txt`. The mathematical proof, not the finite enumerations, establishes all-parameter positivity and infinite-round strategy. A matching output alone does not certify historical originality or independent mathematical validation.
+## originality
+
+PASS
+
+Exact claims were contrasted with primary mathematical results, aliases, stronger scope, and published semantic records; no inspected source logically implies the final exact claim, subject to explicitly logged residual risks.
+
+## value
+
+PASS
+
+Shows that even naming every metric relation does not let three-variable first-order logic distinguish widely different thick generalized quadrangles; the sharp 30-vertex bound and four-variable separation are natural expressive-power limits in finite geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
