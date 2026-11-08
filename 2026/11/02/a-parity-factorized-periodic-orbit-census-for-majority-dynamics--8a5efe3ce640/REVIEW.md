@@ -1,15 +1,21 @@
-# Scientific review: majority dynamics on sunlet graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The update equations for the \(2n\)-vertex sunlet are written explicitly in `RESULT.md`. A two-step returning state has core words \(a,b\) and pendant words \(b,a\), with no other possibilities because pendant states copy their core predecessors. The two majority constraints are equivalent, vertex by vertex, to matching at least one of two opposite-layer neighbors. The resulting degree-two constraint graph is isomorphic to one cycle of length \(2n\) for odd \(n\), and two length-\(n\) cycles for even \(n\). The four-state transfer matrix has characteristic polynomial \((\lambda^2-\lambda-1)(\lambda^2-\lambda+1)\), giving the stated closed counts. Fixed points arise exactly when \(a=b\). The general finite-graph period-two theorem is prior literature and is cited rather than reproved. All labels, boundary cases \(n\ge3\), orbit equivalences and asymptotics were checked. The independent bitwise program examined \(1{,}398{,}080\) full states for \(3\le n\le10\); it is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The actual claims compared are the exact labelled fixed-point count, the complete primitive two-cycle count, and the parity-dependent double-cover bijection—not merely the fact that eventual periods divide two. The classical Goles–Olivos theorem and the inspected accessible full-text sections of Benjamini et al. (arXiv:1405.2486v1, introduction and pertinent results) supply general period and convergence claims but not these counts. Noual (arXiv:1605.01505v1, Sections 2–10 and Table 1) examines Boolean automata single cycles and tangent double-cycles with different local Boolean functions; its forbidden-word and necklace results are related methods but do not specialize to the sunlet majority graph. Comparison with other available recurrent-orbit claims found no same-object result. Targeted searches for sunlet, cycle corona, spiked ring, two-layer parity reduction, aliases and the Lucas expressions did not reveal an equivalent statement. This is best-knowledge originality, not a proof of global uniqueness; undigitized, unindexed, or differently named equivalents remain a risk.
+PASS
 
-## Mathematical value — PASS
-The object is a natural bounded-degree, cyclic social network with one private follower at each vertex. Its leaf-mediated memory makes the recurrent census non-obvious even though the general period bound is classical. The theorem gives all recurrent orbit counts at every size and explains a sharp structural odd/even factorization through a graph covering transformation. The exact exponential count and the fraction of immediately periodic states make the enumeration usable for comparing recurrent complexity in topology-dependent majority networks. These are substantive natural invariants, not arbitrary finite slices or a restatement of the general period bound.
+For n>=3 sunlet C_n with one leaf at each core vertex, no self votes, pendant copies core and core updates ternary majority. On any two-step return, core time slices a,b satisfy b_i∈{a_(i−1),a_(i+1)} and vice versa. Temporal bipartite graph with A_iB_(i±1) is C_(2n) for odd n or C_n disjoint C_n for even n. Binary assignments with no isolated singleton color runs are counted by 4-state transfer M with char polynomial (x²−x−1)(x²−x+1). Hence R_m=phi^m+psi^m+2cos(mπ/3), F_n=R_n, Q_n=R_(2n) odd / R_n² even, primitive 2-orbits (Q-F)/2. Goles–Olivos finite symmetric threshold theorem ensures no greater eventual periods; the exact census is from proof. Independent direct full-state enumeration n=3..8 gave F=(2,6,12,20,30,46), primitive orbits=(9,15,55,190,406,1035), all matching. Count is labelled temporal-phase quotient only, not rotation or basin probability.
 
-## Scope and limits
-The theorem does not determine attraction-basin sizes, transient lengths, robustness to noise, or graph-symmetry-quotiented orbit counts. A finite-state verifier cannot exclude historical duplication and does not substitute for the all-size derivation. No independent external audit or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goles–Olivos provides eventual period at most 2 and is credited, but does not enumerate sunlet recurrent states; Noual studies directed Boolean automata cycles/tangent cycles with distinct local update, not ternary majority cycle-coronas. Best-of-knowledge original exact parity-split census.
+
+## value
+
+PASS
+
+Exact fixed and two-cycle attractor counts are natural for synchronous majority networks; the structural odd/even splitting of temporal constraints provides a complete and potentially reusable enumeration across all sunlet sizes, beyond the universal period restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
