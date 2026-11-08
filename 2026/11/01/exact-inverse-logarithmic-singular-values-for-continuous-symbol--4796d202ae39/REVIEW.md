@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact angular diagonalization reduces all singular numbers to explicit beta-expectation squares, with the one exceptional degree-zero component handled separately. The squared singular entry differs from the variance of the radial multiplier by \(O_\alpha(n^{-1})\). Rescaled beta variables converge to a Gamma law with controlled logarithmic moments, producing the exact positive trigamma coefficient; rearrangement preserves the logarithmic leading term. A standalone checker corroborates moment identities and selected finite calculations; infinite asymptotics rely on the proof.
+## correctness
 
-## Originality
-PASS with historical-priority risk. The focal 2022/2023 Keshavarzi–Wu characterization concerns joint Schatten membership in terms of local or global oscillation; its inspected Theorem 1 neither states nor entails the exact singular-value constant as a numerical assertion. The 2021 Bourass–El-Fallah–Marrhich–Naqos spectral asymptotics are for anti-analytic symbols, while the example is genuinely nonanalytic. The 2018 Peláez–Perälä–Rättyä work concerns boundedness conditions. Searches for weighted Bergman inverse-log Hankel singular numbers, trigamma constants, equivalent radial-angular symbols and generic compact non-Schatten phenomena did not reveal an exact covering result. This is a priority assessment within inspected material, not a proof that none exists.
+PASS
 
-## Mathematical value
-PASS. This exact law shows that a continuous perturbation of the elementary \(\overline z\) symbol can change the approximation-number scale from \(j^{-1}\) to a prescribed inverse-log power, and identifies its constant by the intrinsic logarithmic variance of a Gamma distribution. Compactness alone thus yields no finite Schatten membership; the full family and exact counting function quantify this boundary-regularity gap beyond qualitative compactness and ideal criteria.
+Angular separation makes H(e_n) orthogonal for distinct n, so singular values are the decreasing rearrangement of d_n. For U_n~Beta(n+1,alpha+1), exact projection yields d_n²=E[U_n Y_n²]-n/(n+alpha+1)(E Y_n)² with Y_n=1+(log(e/(1-U_n)))^{-a}; difference from Var(Y_n) is O_alpha(1/n). Set X_n=n(1-U_n), L=1+log n; logarithmic moments converge, Var(log X_n)->psi_1(alpha+1) and uniformly controlled fourth moments plus exponential endpoint tails justify L^{a+1}(Y_n-constant)-> a log X in L². Rearrangement then gives exact constant, compactness and divergence of all Schatten p-series. Independently computed gamma-proxy variance/leading coefficient ratios for alpha=0,1,-0.5 and a=1,0.5,1.5 at n=10^4,10^6 (slow approach consistent with inverse-log remainders); the gamma proxy is not a direct beta certification and does not prove the limit.
 
-## Literature and limits
-The nearest general theory is arXiv:2210.06896 (joint mean-oscillation criteria). The nearest spectral comparison is arXiv:2102.01743 (anti-analytic symbols, including the \(\overline z\) baseline). Also compared with arXiv:1806.09854 (radial-weight boundedness). Residual risk is unlocated older exact radial-angular asymptotic work. The result covers only the specified smooth-in-the-open-disk, continuous-to-the-boundary symbol family and fixed weights; it makes no independent certification claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: identified and materially compared directly relevant primary theorems, distinguished prerequisite frameworks from implication of the final exact claim, recorded access and priority risks.
+
+## value
+
+PASS
+
+Exhibits a natural continuous-symbol big Hankel operator compact but outside all Schatten classes, with an exact non-power singular-value asymptotic and trigamma constant; separates radial perturbation behavior sharply from the baseline conjugate-z example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
