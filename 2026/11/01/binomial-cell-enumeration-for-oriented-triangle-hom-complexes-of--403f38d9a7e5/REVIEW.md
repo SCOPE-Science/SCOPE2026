@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem counts the original regular CW cells of the directed multihomomorphism complex, not barycentric simplices. Three directed arc lengths around any selected triple sum to exactly one target circumference because each is at most half the circumference. This forces a unique cyclic order of the nonempty coordinate supports, and a unique first-A anchor. The extremal block widths and three arc slacks give six **nonnegative** variables summing to \(m-1\); conversely their explicit positive-gap formulas reconstruct each allowed cell. The width series \(s(1-z)/(1-(1+s)z)\) cancels the three slack factors, proving the complete binomial polynomial. Target rotation must rotate the unique anchor, so every cell has trivial stabilizer; Euler-characteristic conclusions follow. The small boundary case \(m=1\) is included separately in the Euler conclusion. The actual standalone checker exhausts orders 3 through 19, and directly validates anchors and rotation stabilizers through order 15. Numerical tests are corroboration, not the proof of the infinite theorem.
+## correctness
 
-## Originality — PASS against inspected evidence
-The foundational paper by Dochtermann and Singh defines directed Hom complexes, proves contractibility for transitive targets, and gives small nontransitive examples. It does not provide the universal cyclic-target f-polynomial. The closest exact mathematical record computes \(\operatorname{Hom}(\overrightarrow C_3,R_9)\simeq S^1\) and the single cell vector \((90,270,270,90)\). Its full `RESULT.md` explicitly restricts to that named tournament and disclaims a family formula. The existing finite vector is recovered, **not** claimed to be new. Semantic searches for Hom-cell counts, round/locally transitive tournaments, quotient actions and equivalent formulas disclosed no result covering the all-order six-parameter bijection. Residual risk: an unindexed prior enumeration under alternate terminology may exist.
+PASS
 
-## Value — PASS
-The formula gives all cellular ranks, exact dimension, and Euler characteristic simultaneously across an infinite canonical family. The dimension is directly relevant to the oriented-three-cycle equivariant obstruction framework articulated in the foundational paper. Unlike the known transitive-target contractibility theorem, every cyclic target of odd order at least five is shown noncontractible by the proved Euler characteristic. The free target-rotation cell action also gives a full quotient cell census. These are structural topological and enumeration facts, not a one-off small numerical lookup. No homotopy classification or circle conjecture is asserted.
+Every allowed cyclic triple a∈A,b∈B,c∈C has positive clockwise arc gaps p,q,r∈[1,m] summing a multiple of n=2m+1 but <=3m<2n, so sum=n and A,B,C occur in unique noninterlaced cyclic blocks. The first selected A after C is a unique anchor. Block widths u,v,w and gaps p,q,r satisfy all-to-all inequalities u+v+p<=m, v+w+q<=m, w+u+r<=m. Defining slacks i,j,k gives six nonnegative parameters u+v+w+i+j+k=m-1, and inverse positive gaps p=1+w+j+k etc; optional block interiors yield weight W(z,s)=s(1-z)/(1-(1+s)z). Three gap-slack factors (1-z)^-3 cancel W(z,s)^3 numerator, leaving n[z^(m-1)](1-(1+s)z)^-3=n C(m+1,2)(1+s)^(m-1). Rotation shifts the unique anchor, so cell stabilizer is trivial. Alternating sum zero for m>=2 implies noncontractibility of finite nonempty CW complex; m=1 is three vertices. Independently enumerated all ordered nonempty A,B,C satisfying actual arc constraints for target orders 3,5,7,9, reproducing e.g. R9 f=(90,270,270,90), not used to infer general m.
 
-## Closest literature and limits
-Dochtermann–Singh, arXiv:2108.10948v1, §§2.4, 5, 7.2; the published exact finite \(R_9\) record, with its full main result and proof inspected; and Savchenko arXiv:2403.07629 as nomenclature context. The proof does not determine homotopy groups, integer homology, torsion, or regularity of the quotient cell structure. An independently unindexed result may remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge universal exact all-dimensional cell polynomial for cyclic *nontransitive* target tournaments. Dochtermann–Singh defines directed Hom and proves transitive-target properties, not this all cyclic target f-polynomial. The closest complete Resultary R9 result gives precisely the m=4 vector (90,270,270,90) and even S1 homotopy for that *one* finite target, but expressly disclaims any all-order formula. The m=4 values are prior-covered numerical facts and are not counted as newly discovered. Directed flag/homology tournament results concern different constructions.
+
+## value
+
+PASS
+
+An explicit binomial cell vector in every dimension for a canonical infinite family of directed Hom complexes provides useful exact invariants, dimension and Euler-zero/noncontractibility results, plus free cyclic cell-orbit census. The known finite R9 computation does not imply these symbolic formulas. The dimension is relevant to the oriented-triangle equivariant obstruction setting, so this is motivated all-order structural enumeration rather than table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

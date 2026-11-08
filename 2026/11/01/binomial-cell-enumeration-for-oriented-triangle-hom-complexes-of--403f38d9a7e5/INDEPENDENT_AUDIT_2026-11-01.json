@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:14:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md full bijection and coefficient extraction",
+        "Frozen verify.py direct bitmask enumeration and six-parameter alternate counts",
+        "Independent direct Hom-cell enumeration for n=3,5,7,9"
+      ],
+      "rationale": "Every allowed cyclic triple a∈A,b∈B,c∈C has positive clockwise arc gaps p,q,r∈[1,m] summing a multiple of n=2m+1 but <=3m<2n, so sum=n and A,B,C occur in unique noninterlaced cyclic blocks. The first selected A after C is a unique anchor. Block widths u,v,w and gaps p,q,r satisfy all-to-all inequalities u+v+p<=m, v+w+q<=m, w+u+r<=m. Defining slacks i,j,k gives six nonnegative parameters u+v+w+i+j+k=m-1, and inverse positive gaps p=1+w+j+k etc; optional block interiors yield weight W(z,s)=s(1-z)/(1-(1+s)z). Three gap-slack factors (1-z)^-3 cancel W(z,s)^3 numerator, leaving n[z^(m-1)](1-(1+s)z)^-3=n C(m+1,2)(1+s)^(m-1). Rotation shifts the unique anchor, so cell stabilizer is trivial. Alternating sum zero for m>=2 implies noncontractibility of finite nonempty CW complex; m=1 is three vertices. Independently enumerated all ordered nonempty A,B,C satisfying actual arc constraints for target orders 3,5,7,9, reproducing e.g. R9 f=(90,270,270,90), not used to infer general m.",
+      "residual_risks": [
+        "Counts are for original product-of-simplices regular cells, not simplices of a barycentric subdivision; quotient regularity and full homotopy type unclaimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general directed Hom framework and transitive target theorem do not make R_{2m+1} transitive, so cannot imply these f-vectors.",
+          "Specific R9 homotopy S1 is stronger only for that fixed target, not a family enumeration theorem."
+        ],
+        "reasoning": "The compared broader formal framework is a definition or transitive-family result, with different hypotheses, not a stronger cyclic-target enumeration.",
+        "searches": [
+          "Resultary: directed Hom oriented triangle cyclic tournaments regular cell enumeration binomial f-vector",
+          "Dochtermann–Singh Theorem 5.2 / §7.2",
+          "Resultary R9 complete RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query Resultary: directed Hom oriented triangle cyclic tournaments regular cell enumeration binomial f-vector",
+        "Dochtermann–Singh directed Hom arXiv:2108.10948 §§2,5,7.2",
+        "Full published Resultary R9 exact Hom RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R9 proof enumerates 4^9 assignments and 359 Morse pairs but says “only for the named tournament R9” and no all-order formula.",
+          "Transitive target contractibility theorem cannot imply nontransitive R_{2m+1} counts or Euler zero."
+        ],
+        "reasoning": "The all-m six-nonnegative-parameter bijection and generating function supply the required inference beyond isolated examples or generic definitions.",
+        "searches": [
+          "Resultary: directed Hom oriented triangle cyclic tournaments regular cell enumeration binomial f-vector",
+          "Dochtermann–Singh target tournament theorems",
+          "Resultary R9 proof complete"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers use the same directed regular polyhedral multihomomorphism definition; product cells are ordered A,B,C not collapsed under source rotation.",
+          "R9 prior cell vector is precisely specialization m=4 of new F_m(t) and is explicitly acknowledged."
+        ],
+        "reasoning": "Searched cyclic/round/locally transitive tournament Hom, cellular generating functions, and quotient orbit counts. Exact finite instance is covering only for m=4, not the universal quantifier.",
+        "searches": [
+          "Resultary: directed Hom oriented triangle cyclic tournaments regular cell enumeration binomial f-vector",
+          "Dochtermann–Singh arXiv:2108.10948 (full primary paper)",
+          "Resultary R9 Hom(C3,R9) exact result 879b51cbdd1a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "R9 f=(90,270,270,90), 720 cells, exactly matches m=4 and is explicitly previously known.",
+          "No published all-m binomial polynomial or quotient cell orbit sequence located among closest sources."
+        ],
+        "reasoning": "Exact known table is a finite special case and is *covered*; novelty is restricted to the derived all-order bijection and formula, not the R9 numbers.",
+        "searches": [
+          "Resultary: directed Hom oriented triangle cyclic tournaments regular cell enumeration binomial f-vector",
+          "Resultary 2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a/RESULT.md",
+          "Dochtermann–Singh example section"
+        ]
+      },
+      "rationale": "Best-of-knowledge universal exact all-dimensional cell polynomial for cyclic *nontransitive* target tournaments. Dochtermann–Singh defines directed Hom and proves transitive-target properties, not this all cyclic target f-polynomial. The closest complete Resultary R9 result gives precisely the m=4 vector (90,270,270,90) and even S1 homotopy for that *one* finite target, but expressly disclaims any all-order formula. The m=4 values are prior-covered numerical facts and are not counted as newly discovered. Directed flag/homology tournament results concern different constructions.",
+      "residual_risks": [
+        "Earlier unindexed family cell enumeration under round/locally transitive tournament terminology possible.",
+        "Topology beyond Euler characteristic and quotient regular CW structure not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING all-order cyclic tournament cell polynomial",
+          "evidence": "Theorems are for transitive tournament targets and no all-m nontransitive cyclic cell enumeration appears.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.10948",
+          "material_read": "Full accessible version sections defining directed Hom regular cells, transitive tournament results in §5 and oriented triangle obstruction discussion §7.2",
+          "method": "Read the accessible primary full result/proof text and compare actual mathematical statements; located relevant theorems and stated scope.",
+          "title": "Homomorphism complexes, reconfiguration, and homotopy for directed graphs",
+          "trigger": "Primary definition and potentially general tournament Hom theorem"
+        },
+        {
+          "assessment": "COVERING m=4 cell-vector special case only; NOT_COVERING universal formula",
+          "evidence": "Prior result f=(90,270,270,90), says scope only R9 and disclaims all cyclic tournaments; new result acknowledges this.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a",
+          "material_read": "Full RESULT.md mathematical finding, assumptions, direct enumeration, Morse matching and limitations",
+          "method": "Full primary scientific record read through GitHub connector.",
+          "title": "The directed Hom complex Hom(C3->,R9) has the homotopy type of a circle",
+          "trigger": "Exact same Hom invariant for a direct member of infinite claimed family"
+        },
+        {
+          "assessment": "NOT_RELEVANT to directed Hom cell enumeration",
+          "evidence": "No directed Hom complex in stated results.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.07629",
+          "material_read": "Abstract and nomenclature context of regular tournaments",
+          "method": "Bibliographic/abstract scope review, no unearned fulltext claim.",
+          "title": "On the number of 8-cycles for two particular regular tournaments of order N",
+          "trigger": "Alternative naming locally transitive tournaments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dochtermann–Singh directed Hom and oriented triangle obstruction framework",
+        "New all-m six-variable bijection and binomial f-vector"
+      ],
+      "rationale": "An explicit binomial cell vector in every dimension for a canonical infinite family of directed Hom complexes provides useful exact invariants, dimension and Euler-zero/noncontractibility results, plus free cyclic cell-orbit census. The known finite R9 computation does not imply these symbolic formulas. The dimension is relevant to the oriented-triangle equivariant obstruction setting, so this is motivated all-order structural enumeration rather than table recomputation.",
+      "residual_risks": [
+        "Euler zero is only a noncontractibility test; homotopy type cannot be inferred from it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Counts are for original product-of-simplices regular cells, not simplices of a barycentric subdivision; quotient regularity and full homotopy type unclaimed.",
+    "Earlier unindexed family cell enumeration under round/locally transitive tournament terminology possible.",
+    "Topology beyond Euler characteristic and quotient regular CW structure not determined.",
+    "Euler zero is only a noncontractibility test; homotopy type cannot be inferred from it.",
+    "No live GitHub edits, scientific repair files or publication operations were performed. Publication not_ready is a privacy/metadata transport block, not a scientific FAIL.",
+    "Continuity cursor never certifies proof or original publication."
+  ],
+  "schema_version": 1
+}
