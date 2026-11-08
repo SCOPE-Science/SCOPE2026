@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The telescoping information identity, strict convexity and monotonicity of g on the relevant eventual/posterior range, Jensen, and the global attracting fixed-cycle argument prove the full claim for all nonnegative precision sequences of positive Cesaro mean, including stable/unstable boundaries. Correct exact stationary root and strict periodic equality were reconstructed. Script check.py passed 7609 independent algebraic and numerical assertions; they support but do not replace infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das and Bhattacharya (2021), Theorem 2 and Remark 5: minimum precision for an error target using a conservative bound, not a global minimum average error at fixed precision.",
+        "Aspeel et al. (2021), full open text Sections 2.1, 2.7, and 3.6: finite number of measurement times, fixed noise level per reading, finite-horizon prediction error.",
+        "1995 Shakeri et al.: public abstract describes constrained finite-horizon nonlinear optimization solved by projected Newton and a boundary-value method.",
+        "2014 infinite-horizon linear sensor scheduling paper: abstract addresses discrete sensor selection and approximability by periodic schedules."
+      ],
+      "reasoning": "General optimization formulations may include special scalar cases but neither the mere formulation nor computational algorithms logically imply an analytic global minimizer. Fixed-count sensing is a different feasible set from fractional precision budgets. The full text of the 1995 candidate could not be inspected; that leaves a real but not decisive precedence risk.",
+      "searches": [
+        "Kalman scalar autoregressive periodic measurement precision schedule fixed mean budget exact minimal time-average posterior variance uniform strictly all-period result",
+        "constant observation precision uniquely minimizes period-average scalar Kalman posterior covariance at a fixed arithmetic mean precision by Jensen Riccati",
+        "scalar Kalman filter constant precision optimal power allocation stationary average error covariance Jensen convex",
+        "Optimal Sensor Precision for Multi-Rate Sensing for Bounded Estimation Error Theorem 2 Remark 5",
+        "Optimal measurement scheduling for state estimation Shakeri Pattipati Kleinman 1995",
+        "infinite horizon Kalman sensor scheduling average error continuous measurement precision budget 2014",
+        "doi:10.1109/TAC.2014.2314222",
+        "doi:10.1109/7.381919"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/351955056_Optimal_Sensor_Precision_for_Multi-Rate_Sensing_for_Bounded_Estimation_Error",
+      "https://doi.org/10.1186/s13634-021-00732-8",
+      "https://doi.org/10.1109/7.381919",
+      "https://doi.org/10.1109/TAC.2014.2314222",
+      "https://arxiv.org/abs/2109.13854"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Das and Bhattacharya optimize resource under an accuracy constraint using conservative Riccati bounds; reversing an optimizer objective would not yield the claimed sharp convex equality automatically.",
+        "Aspeel et al. use fixed numbers of observations and a finite-horizon predictor, a model where nonuniform scheduling is actually advantageous.",
+        "The 2014 and 1995 sources provide broader setup/algorithms but no verified implication to the exact theorem from accessible statements.",
+        "Zinage et al. treat continuous-time finite-horizon mutual-information/distortion trade-offs, with different gain objective and horizon."
+      ],
+      "reasoning": "The assertion requires comparing both feasible sets (divisible mean precision versus discrete sensor count/finite allocations) and objectives (posterior time average versus endpoint error/prediction/information rate). No stronger inspected statement implies all three parts: arbitrary-schedule lower bound, exact stationary value, and strict periodic uniqueness. Unread full text from Shakeri et al. remains an explicitly acknowledged risk.",
+      "searches": [
+        "arxiv:2106.06906",
+        "doi:10.1186/s13634-021-00732-8",
+        "doi:10.1109/7.381919",
+        "doi:10.1109/TAC.2014.2314222",
+        "arxiv:2109.13854"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Scalar steady-state precision map: u=1/P-1/(sP+q), and strict convexity; direct candidate equivalences: homogeneous scalar Kalman information filtering, temporal observation gain allocation, infinite-horizon Riccati resource optimization.",
+        "Das and Bhattacharya, public full text Section IV and Theorem 2: DOI 10.13140/RG.2.2.22073.08806."
+      ],
+      "reasoning": "Equivalent precision/information-state formulations were compared, not merely titles. Standard information-form Kalman recursion supplies the ingredients but not the stated global time-average minimizer, nonperiodic lower bound, and unique periodic equality case. The accessible primary text did not state or imply those as a specific theorem under the same objective.",
+      "searches": [
+        "uniform sensing information across time uniquely minimizes average posterior Kalman Riccati variance under mean precision budget including unstable scalar process",
+        "Jensen strict convexity stationary precision error mapping g(P)=1/P-1/(a^2 P+q) Kalman filtering periodic",
+        "sensor precision temporal allocation period constant optimal scalar covariance inverse Riccati average cost",
+        "periodic Kalman filters with fixed average observation information strict uniform schedule minimax"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula/equality table for arbitrary period was found in the inspected sensor scheduling literature.",
+        "The explicit two-period example \\(s=2,q=1,u=(0,1)\\) has algebraic cycle \\(1+\\sqrt3\\), \\(\\sqrt3/2\\), checked directly."
+      ],
+      "reasoning": "The finding is an infinite-family theorem, not a finite table lookup or recomputation. A negative search cannot establish uniqueness of the result in the world; it is only one part of the precedence assessment.",
+      "searches": [
+        "\"Kalman\" \"constant\" \"measurement precision\" \"optimal\" schedule",
+        "\"Riccati\" \"uniform allocation\" \"measurement\" variance",
+        "scalar Kalman filter Jensen precision scheduling",
+        "uniform sensing information across time uniquely minimizes average posterior Kalman Riccati variance under mean precision budget including unstable scalar process",
+        "Jensen strict convexity stationary precision error mapping g(P)=1/P-1/(a^2 P+q) Kalman filtering periodic"
+      ]
+    },
+    "rationale": "Full-text comparisons of the two closest recent primary papers establish materially different resource objectives or outcome metrics. A broad prior finite-horizon 1995 optimization is acknowledged as an inaccessible plausible equivalent. Additional searches of mathematical records and published literature revealed no exact infinite-horizon scalar constant-precision optimality and strict periodic equality theorem; search absence alone is not treated as novelty proof. The claim is restricted to the precise new implication, not the standard Riccati/Jensen ingredients.",
+    "residual_risks": [
+      "A previously derived scalar specialization within the 1995 resource-allocation paper may imply all or part of the result; its full text was not accessible.",
+      "A related theorem in specialist convex Riccati resource scheduling may exist under alternate terminology; no global literature search can exclude it.",
+      "Periodic optimality is specific to the linear mean-precision cost, and does not contradict results for a fixed number of measurements or different sensing costs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the exact stationary mean-error minimization at fixed mean precision or strict all-period scalar uniqueness",
+        "evidence": [
+          "Theorem 2 minimizes sensing precision to meet an upper bound on a covariance proxy",
+          "Remark 5 states that the proxy bound can be conservative relative to actual steady-state covariance"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/351955056_Optimal_Sensor_Precision_for_Multi-Rate_Sensing_for_Bounded_Estimation_Error",
+        "material_read": "Public full text: abstract, preliminaries, one-step precision formulation, Section IV and Theorem 2, Remark 5, and periodic applications",
+        "method": "Direct reading and mathematical comparison of the bound-based precision objective and lifted periodic Riccati model",
+        "title": "Optimal Sensor Precision for Multi-Rate Sensing for Bounded Estimation Error",
+        "trigger": "Direct match for Kalman sensor precision, periodic sensing, and error covariance bounds"
+      },
+      {
+        "assessment": "Related model but no implication to exact constant-precision optimum in this distinct resource model",
+        "evidence": [
+          "Fixed number of measurement times with per-measurement noise, rather than arbitrary precision every step",
+          "Section 2.7 varies an overall noise level with the count, not individual infinite-horizon precision allocations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13634-021-00732-8",
+        "material_read": "Public full HTML: abstract; introduction and literature; Sections 2.1, 2.7, 3.6 and one-dimensional examples",
+        "method": "Compared its finite-horizon predictor/counted-measurements formulation to divisible precision and posterior time average",
+        "title": "Optimal measurement budget allocation for Kalman prediction over a finite time horizon by genetic algorithms",
+        "trigger": "Direct optimization of measurement timing, quality, count, and Kalman prediction error"
+      },
+      {
+        "assessment": "Plausible precedence source; it formulates/solves finite-horizon optimization, so no verified full theorem-level coverage of our infinite-horizon statement",
+        "evidence": [
+          "The abstract describes a finite time duration, weighted sum of covariances, nonlinear program and projected Newton solution"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/7.381919",
+        "material_read": "Public abstract only; no verifiable full text obtained",
+        "method": "Compared the published abstract objectives and claimed results; full-document equivalence left unresolved",
+        "title": "Optimal measurement scheduling for state estimation",
+        "trigger": "Strongest earlier plausible equivalent formulation: measurement variance allocation under resource budget"
+      },
+      {
+        "assessment": "No implication of an exact constant-precision optimizer is established from available material",
+        "evidence": [
+          "Main stated results: initial-covariance independence, periodic approximation of scheduling, and existence of average cost limit"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TAC.2014.2314222",
+        "material_read": "Publisher abstract and bibliographic metadata; full text inaccessible",
+        "method": "Compared discrete sensor-scheduling feasible sets and general periodic-approximation claims to continuous precision allocation",
+        "title": "On the Optimal Solutions of the Infinite-Horizon Linear Sensor Scheduling Problem",
+        "trigger": "Infinite-horizon scheduling and periodic approximation might dominate temporal allocation"
+      },
+      {
+        "assessment": "Distinct cost and horizon; no evidence that its bang-bang result contradicts or implies the discrete-time homogeneous precision-budget theorem",
+        "evidence": [
+          "Abstract frames a finite-horizon weighted sum of mutual information and distortion; scalar solution is bang-bang except singular controls"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.13854",
+        "material_read": "arXiv abstract only",
+        "method": "Compared continuous-time, finite-horizon mutual-information/distortion objective and bang-bang gains",
+        "title": "Optimal Sensor Gain Control for Minimum-Information Estimation of Continuous-Time Gauss-Markov Processes",
+        "trigger": "Continuous-variable sensor-gain scheduling in closely related scalar Gaussian filtering"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2743d2c7-10c0-41d3-b279-e79437d5d7f2",
+  "value": {
+    "rationale": "An exact classification of the optimal precision budget over all periods and arbitrary infinite schedules answers a natural and operationally meaningful question about sensing intensity in homogeneous scalar Kalman filtering. It distinguishes divisible precision allocation from discrete measurement scheduling where irregularity may be optimal, and provides a large exact unstable example. No vector, nonlinear-cost or finite-horizon result is claimed.",
+    "status": "PASS"
+  }
+}
