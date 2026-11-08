@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For \\(k\\ge5\\) and \\(|n|\\le F_{k-4}\\), direct lower bounds exclude all but the prefixes \\((1,0,-1)\\) and \\((-1,0,1)\\); their lower signed digits map bijectively to \\(d_i\\in\\{0,1,2\\}\\), giving \\(n=\\pm(1+\\sum d_iF_i)\\). The \\(n=0\\) case vanishes; weights beyond index \\(k-3\\) are too large to affect the required coefficient. The summatory count is trapped between \\(3^{J-4}\\) and \\(3^J\\) whenever \\(F_J\\le X-1<F_{J+1}\\), implying exponent \\(\\log 3/\\log\\varphi\\) by Binet. The attached verifier compares forbidden-prefix counts, direct four-term differences, bounded-digit coefficients, and finite growth bounds using exact integers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2009.08222v1, pp. 1–4, Theorems 1.1–1.3, counts partitions into distinct Fibonacci numbers",
+        "arxiv:2505.04589v1, pp. 1–3, digit weights are powers of 4, not Fibonacci indices"
+      ],
+      "reasoning": "The distinct-part mean law has exponent \\(\\log 2/\\log\\varphi\\), not the \\(\\log 3/\\log\\varphi\\) law for a labelled three-choice digit at each Fibonacci index; the two counts differ already in initial coefficients. Positional quaternary enumerations concern another weight sequence.",
+      "searches": [
+        "Fibonacci partitions with each Fibonacci part at most twice growth exponent log 3 log golden ratio count",
+        "Fibonacci digit partitions multiplicity at most two partition function summatory growth log_phi 3",
+        "Chow Slattery \"On Fibonacci partitions\" 2021 arxiv PDF upper bound partition number sum distinct"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.15446v1 (full text)",
+      "arxiv:2009.08222v1 (relevant primary theorem sections)",
+      "arxiv:2505.04589v1 (relevant definitions and main theorems)",
+      "OEIS:A000119",
+      "OEIS:A007000",
+      "OEIS:A103577",
+      "semantic mathematical research records searched by exact and alias formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2604.15446v1, §4 bounds nonminimal forbidden prefixes and proves eventual equality f(n;k+1)=f(n;k) for each fixed n",
+        "arxiv:2009.08222v1, Theorem 1.3 concerns a different distinct-Fibonacci partition function"
+      ],
+      "reasoning": "Pointwise stabilization does not state the stable values, uniform range of stabilization, or their cumulative growth. The new statements use the existing prefix decomposition but also derive an explicit coefficient bijection and count all bounded-digit vectors. Distinct-Fibonacci mean-value theorems do not imply the three-choice count without an additional derivation.",
+      "searches": [
+        "arxiv:2604.15446v1 Section 4 \"mysterious sequence\" stabilization",
+        "On Fibonacci partitions arxiv:2009.08222v1 Theorem 1.3",
+        "non-standard Zeckendorf forcing f(n;k) exact coefficient, effective index bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.15446v1, Theorem 1.2 and §4, defines a forcing term but only proves stabilization",
+        "arxiv:2505.04589v1, §1–2, studies positional base-four digit expansions, not Fibonacci weights"
+      ],
+      "reasoning": "A direct change of lower signed digits to \\(\\{0,1,2\\}\\) gives the claimed coefficient sequence, but this exact product is not stated by the source. The quaternary analog has powers of an integer base and does not imply the Fibonacci-indexed result.",
+      "searches": [
+        "\"Non-standard Zeckendorf decompositions\" \"generating function\" \"f(n)\" 2026",
+        "\"Tribonacci within Fibonacci\" \"f(n)\" \"partitions\" 2026",
+        "ternary signed Fibonacci representation recurrence inhomogeneous term generating function 0 1 2 Fibonacci digits",
+        "Anders Dawsey Vandehey 2026 Non-standard Zeckendorf decompositions f(n;k) stabilized inhomogeneous Tribonacci signed Fibonacci digit generating product restricted partitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2604.15446v1, p. 2, lists stable initial terms 0,1,2,4,5,7,9,11,13,15,17,20,21,24,26,29",
+        "OEIS A000119 has one type of unit and digits 0/1",
+        "OEIS A007000 uses unlimited multiplicity with two types of unit",
+        "OEIS A103577 uses unbounded two-color partitions, generating function as a product of reciprocal squares"
+      ],
+      "reasoning": "None of the inspected tables is an exact table for the finite \\(\\{0,1,2\\}\\) digit constraint independently at each labelled Fibonacci index. A numerical table match alone would not establish the formula or growth result.",
+      "searches": [
+        "site:oeis.org \"1,2,4,5,7,9,11,13,15,17,20,21,24,26,29\"",
+        "\"1,2,4,5,7,9,11,13,15,17,20\" \"Fibonacci\" signed digit",
+        "OEIS A000119",
+        "OEIS A007000",
+        "OEIS A103577"
+      ]
+    },
+    "rationale": "The motivating paper proves only pointwise eventual stabilization of the signed-string forcing. It does not identify its all-integer generating product, supply the explicit Fibonacci-index threshold or prove the cumulative exponent. The identified closest primary and database sources count different digit multiplicities or number systems. Actual claim searches returned no covering result; historical-priority uncertainty remains.",
+    "residual_risks": [
+      "An equivalent product formula might exist in unindexed numeral-system or restricted-partition literature.",
+      "Published primary-source prefix bounds are the foundation for the identification, so the exact increment of novelty depends on implicit-result conventions.",
+      "The two-sided power law does not establish a leading asymptotic constant or pointwise coefficient asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "establishes definition and eventual stabilization; does not state bounded-digit product, explicit uniform Fibonacci threshold, or summatory exponent",
+        "evidence": [
+          "Theorem 1.2, pp. 2–3, exact recurrence",
+          "§4, pp. 5–6, nonminimal-prefix bounds and stabilized forcing"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.15446",
+        "material_read": "entire six-page v1 PDF, especially Theorem 1.2 and §§3–4 with prefix list, inequalities, and stabilization argument",
+        "method": "direct full-text statement and proof comparison, with visual page checks",
+        "title": "Non-standard Zeckendorf decompositions; or, Tribonacci within Fibonacci",
+        "trigger": "same signed Fibonacci correction and the exact published theorem"
+      },
+      {
+        "assessment": "studies distinct Fibonacci weights, not the labelled ternary bounded-digit product",
+        "evidence": [
+          "pp. 1–3 define A000119 distinct-part count and a summatory exponent log(2)/log(phi)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.08222",
+        "material_read": "pp. 1–4, introduction and Theorems 1.1–1.3 with definitions, and methods summary",
+        "method": "primary full-text theorem and object comparison",
+        "title": "On Fibonacci partitions",
+        "trigger": "plausible stronger sum and mean-value theorem for Fibonacci partition counts"
+      },
+      {
+        "assessment": "uses positional powers of integer bases, with Fibonacci numbers arising in extrema; no signed Fibonacci-index forcing formula",
+        "evidence": [
+          "§1 weights are powers of d and digits are hyper-d-ary/balanced-d-ary"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.04589",
+        "material_read": "pp. 1–3, definitions of base-d positional representations and Theorems 1.1–1.4",
+        "method": "primary PDF object and theorem comparison",
+        "title": "Non-standard quaternary representations and the Fibonacci numbers",
+        "trigger": "same authors, balanced-digit counts and Fibonacci in title"
+      },
+      {
+        "assessment": "does not cover labelled bounded digits 0,1,2",
+        "evidence": [
+          "only one unit type and no repetitions"
+        ],
+        "identifier_or_url": "https://oeis.org/A000119",
+        "material_read": "sequence definition and comments on digit conventions",
+        "method": "direct reference-page comparison",
+        "title": "OEIS A000119",
+        "trigger": "classical distinct Fibonacci partition enumeration"
+      },
+      {
+        "assessment": "unbounded multiplicity, not digit cap two",
+        "evidence": [
+          "generating function is reciprocal product of (1-z^F)"
+        ],
+        "identifier_or_url": "https://oeis.org/A007000",
+        "material_read": "definition, initial terms, generating-function formula",
+        "method": "direct reference-page comparison",
+        "title": "OEIS A007000",
+        "trigger": "partition table with two types of Fibonacci unit"
+      },
+      {
+        "assessment": "two-colour unbounded multiplicities, not one three-state digit per labelled index",
+        "evidence": [
+          "generating function reciprocal square product"
+        ],
+        "identifier_or_url": "https://oeis.org/A103577",
+        "material_read": "definition, initial terms and generating-function formula",
+        "method": "direct reference-page comparison",
+        "title": "OEIS A103577",
+        "trigger": "two-colour Fibonacci partition count potentially covering ternary labels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4da9d889-8a0b-4757-8939-35add8f7dfdd",
+  "value": {
+    "rationale": "The motivating paper treats the eventually constant signed-Fibonacci correction as a mysterious integer sequence. An all-integer generating product gives its values and explicit finite computation, a uniform effective stabilization threshold replaces unspecified sufficiently large length, and the summatory exponent supplies a globally quantified behavior for the precise object. These are natural structural questions motivated by the published recurrence rather than arbitrary coefficient slices; no pointwise or asymptotic-constant claim is made.",
+    "status": "PASS"
+  }
+}
