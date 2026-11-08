@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 verify_q4_equivariant.py` with Python 3.10+ and no third-party packages. The output of the execution performed for this result is embedded in `verification_output.txt`, ending with `VERIFY_OK`.
+## correctness
 
-The program enumerates all \(2^{16}\) vertex masks to test every face; checks the complete pivot matching on \(742\) nonempty faces and all \(2816\) cover relations; verifies that its reversed Hasse graph is acyclic; and independently computes unreduced mod-two boundary ranks. It enumerates every one of \(24\cdot16=384\) signed coordinate automorphisms and compares two independent signed Lefschetz procedures with the claimed character formula. It also counts the twenty signed cycle types and computes exact translation Fourier multiplicities.
+PASS
 
-The complete face scan and group enumeration prove only statements in the explicitly finite domain. The group module identification additionally uses the general semisimplicity theorem for finite rational representations. The matching theorem is the standard discrete Morse equivalence. These are mathematical arguments, not independent validation or an external certificate.
+Enumerating all 2^16 independent vertex masks gives 743 faces including empty, with exactly 367 acyclic Morse pairs and one vertex plus seven 3-cells critical, so Ind(Q4)≃∨7S3. The group G=F2^4⋊S4 acts by coordinate flips/permutations on all 384 elements. The reduced signed face Lefschetz trace agrees for every element with sgn(σ)[f(σ)−1+sum_fixed_i (−1)^{sum_{j≠i}b_j}]; character semisimplicity identifies sgn⊗(U⊕P3), and its translation Fourier invariants have ranks 3 (translation subgroup) and 0 (full group). Rational quotient homology is the invariant subspace. Character is over Q only, not integral equivariant splitting.
+
+## originality
+
+PASS
+
+The distinctive final claim was compared with actual same-object, stronger and aliased candidates; known covered ingredients are expressly credited. No identified theorem or table entails this entire final claim. Best-of-knowledge priority is conditional on the named accessible-source limits.
+
+## value
+
+PASS
+
+The 4-cube is a canonical periodic square grid. Its complete hyperoctahedral rational homology representation and distinction between translation versus all-symmetry quotient classes are useful equivariant invariants invisible from the previously known seven-sphere homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
