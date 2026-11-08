@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:48:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-one-fifth-correlation-limit-for-paired-wet-spell-risk--ef8eca4293c6/RESULT.md blob 8091d1a0ce4fe107d334a304812b1a9bf50c7d79",
+        "/mnt/data/scope_worker03_independent_checks_20261106.py and successful output (independent bounded calculations)"
+      ],
+      "rationale": "For q in [0,1] the substochastic killed transition M=[[q,1-q],[1-q,0]] gives F_n=pi M^(n-1)1 and exact F_1=1,F_2=1-q/2,F_n=qF_(n-1)+(1-q)^2F_(n-2). Direct expansion proves the four-day formula. The Perron root lambda=(q+sqrt(q^2+4(1-q)^2))/2 satisfies f_q(4/5)=-(q-3/5)^2 and is uniquely minimized at 3/5. A normalized nonnegative Perron eigenvector yields uniform F_n(q)>=lambda(q)^(n-1)/2, forcing all moving global minimizers to 3/5; local eigenprojection F_n=A lambda^(n-1)+(1-A)mu^(n-1) gives uniform logarithmic strict convexity and A(3/5)=9/10, A_prime=-3/5, log(lambda) second derivative 5/2. Stationarity holds at endpoints by the stipulated initial law. Independent complete binary-path enumeration in 48 rational small instances and symbolic recurrence checks agreed; finite checks are not the all-horizon proof.",
+      "residual_risks": [
+        "Independent finite verification corroborates but cannot establish the all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General run distribution and waiting time theorems cover broader Markov chains but are statements at fixed transition probabilities."
+        ],
+        "reasoning": "A stronger-domain run formula does not itself compare probabilities across persistence parameters or establish unique global optimum; the unread historical report remains a genuine risk.",
+        "searches": [
+          "arxiv:2210.08797",
+          "doi:10.1080/01621459.1983.10477947"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2210.08797: Covers arbitrary two-state run recurrences/eigenvalues but no inspected fixed-marginal persistence optimum",
+        "doi:10.1080/01621459.1983.10477947;hdl:1813/32867: ACCESS LIMITED; no whole-document noncoverage conclusion",
+        "doi:10.1175/1520-0493(1964)092<0169:SOWODD>2.3.CO;2: Background model, not evidence of same optimizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing eigenvalue recurrence yields F_n(q) for fixed q; new comparison uses f_q(4/5)=-(q-3/5)^2, uniform Perron bound and derivative ratio A_prime/A."
+        ],
+        "reasoning": "A prior method supplies the probabilities but the claim requires optimization and parameter-uniform asymptotic convexity; not shown in materially read prior portions.",
+        "searches": [
+          "arxiv:2210.08797 Theorem 2.14",
+          "doi:10.1080/01621459.1983.10477947"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oh–Park–Kim arbitrary two-state run recurrence specializes to the same 2x2 killed matrix; optimization is not a mere reparameterization of the run formula."
+        ],
+        "reasoning": "Equivalence of the avoidance recurrence is acknowledged prior. Identifying minimizing q over a fixed-marginal transition family and the 1/n correction is a mathematically additional analysis; Schwager whole text was not read.",
+        "searches": [
+          "Markov two state stationary equal marginals wet wet run persistence optimum 3/5 asymptotic 1/5 correlation",
+          "arxiv:2210.08797 Sections 2.2-2.3",
+          "Schwager 1983 run probabilities Markov-dependent trials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic published-result search gave related Markov covariance/sliding-count results, not a matching fixed-fair-marginal optimized-run table."
+        ],
+        "reasoning": "Claim is an analytic infinite-horizon extremization, not a tabulated small-n sequence; absence from a database is not novelty proof.",
+        "searches": [
+          "Markov two state stationary equal marginals wet wet run persistence optimum 3/5 asymptotic 1/5 correlation",
+          "two state Markov wet wet run probability optimized transition parameter long horizon"
+        ]
+      },
+      "rationale": "Known unrestricted run-probability recurrences contain the model spectral calculation, but the fixed-marginal global persistence extremization, 1/5 limiting autocorrelation, global moving-optimizer control, finite-horizon 4/(15n) displacement and avoidance prefactor are not the inspected prior conclusions. Best-of-knowledge priority PASS with a genuine unread historical optimized-run risk.",
+      "residual_risks": [
+        "Cornell Schwager 1982/83 technical report could contain fixed-marginal optimized-run comparisons; full PDF retrieval returned 405, no assertion of noncoverage.",
+        "No empirical flood hazard prediction; first-order symmetric stationary occurrence model only.",
+        "Eventual uniqueness does not give numerical N0; intermediate-horizon uniqueness is unclaimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers arbitrary two-state run recurrences/eigenvalues but no inspected fixed-marginal persistence optimum",
+          "evidence": "General run formulas encompass M(q) spectral roots, not extremal q_n or asymptotic drift.",
+          "identifier_or_url": "arxiv:2210.08797",
+          "material_read": "PDF Sections 2.2-2.3 and Theorem 2.14, eigenvalue/recurrence formulas",
+          "method": "arXiv lawful full text and checked passages",
+          "title": "Recurrence Algorithms of Waiting Time for the Success Run of Length k in Relation to Generalized Fibonacci Sequences",
+          "trigger": "Same two-state Markov run waiting problem"
+        },
+        {
+          "assessment": "ACCESS LIMITED; no whole-document noncoverage conclusion",
+          "evidence": "22-page Cornell technical report likely includes general run theory; optimization comparison remains open.",
+          "identifier_or_url": "doi:10.1080/01621459.1983.10477947;hdl:1813/32867",
+          "material_read": "Cornell bibliographic report metadata and journal record; PDF text not retrieved (405 download response)",
+          "method": "Lawful repository full-text attempt; bibliographic/abstract metadata only",
+          "title": "Run Probabilities in Sequences of Markov-Dependent Trials",
+          "trigger": "Broader run probabilities and likely historical alias"
+        },
+        {
+          "assessment": "Background model, not evidence of same optimizer",
+          "evidence": "Wet-day Markov chain framework predates the evaluated optimization.",
+          "identifier_or_url": "doi:10.1175/1520-0493(1964)092<0169:SOWODD>2.3.CO;2",
+          "material_read": "Publication metadata and model description, not full historical proof",
+          "method": "Publisher bibliographic/abstract inspection",
+          "title": "Sequences of Wet or Dry Days Described by a Markov Chain Probability Model",
+          "trigger": "Original wet/dry Markov models"
+        }
+      ],
+      "source_searches": [
+        "Markov two state stationary equal marginals wet wet run persistence optimum 3/5 asymptotic 1/5 correlation"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-one-fifth-correlation-limit-for-paired-wet-spell-risk--ef8eca4293c6/RESULT.md",
+        "Corresponding adjacent primary research and published-result comparisons"
+      ],
+      "rationale": "A natural persistence-conditioned wet-spell occurrence probability is optimized without changing the wet-day marginal. The sharp limiting correlation, nontrivial four-day interior optimum, explicit finite-horizon correction, and prefactor answer quantitative questions a rainfall occurrence researcher may need, without claiming flood causation.",
+      "residual_risks": [
+        "Eventual uniqueness does not give numerical N0; intermediate-horizon uniqueness is unclaimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2210.08797",
+    "doi:10.1080/01621459.1983.10477947;hdl:1813/32867",
+    "doi:10.1175/1520-0493(1964)092<0169:SOWODD>2.3.CO;2"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Cornell Schwager 1982/83 technical report could contain fixed-marginal optimized-run comparisons; full PDF retrieval returned 405, no assertion of noncoverage.",
+    "No empirical flood hazard prediction; first-order symmetric stationary occurrence model only.",
+    "Eventual uniqueness does not give numerical N0; intermediate-horizon uniqueness is unclaimed."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Cornell Schwager 1982/83 technical report could contain fixed-marginal optimized-run comparisons; full PDF retrieval returned 405, no assertion of noncoverage.",
+    "No empirical flood hazard prediction; first-order symmetric stationary occurrence model only.",
+    "Eventual uniqueness does not give numerical N0; intermediate-horizon uniqueness is unclaimed."
+  ]
+}

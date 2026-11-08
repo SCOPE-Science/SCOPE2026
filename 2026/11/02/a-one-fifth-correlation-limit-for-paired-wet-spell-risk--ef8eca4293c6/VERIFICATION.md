@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory holding the seven included files. This standalone standard-library program verifies polynomial coefficients, an exact Markov-chain avoidance recursion, independent enumeration up to thirteen observed days over eight rational persistence settings, the basepoint spectral identities, and illustrative long-horizon stationary points. The exact run reports `VERIFY_OK assertions=288`.
+## correctness
 
-The infinite-horizon limit, existence of interior finite-horizon optima for all integers \(n\ge4\), eventual uniqueness, and the \(O(n^{-2})\) correction are justified analytically in RESULT.md. No finite experiment certifies those infinite assertions. The actual code is included, and no external data, private files, or network access are required to rerun the checks.
+PASS
 
-Historical originality comparisons rely on accessible abstracts for some archival papers. A 48-page 2022 preprint was inspected in its relevant run-waiting-time sections. This is self-review, not an independent assessment.
+For q in [0,1] the substochastic killed transition M=[[q,1-q],[1-q,0]] gives F_n=pi M^(n-1)1 and exact F_1=1,F_2=1-q/2,F_n=qF_(n-1)+(1-q)^2F_(n-2). Direct expansion proves the four-day formula. The Perron root lambda=(q+sqrt(q^2+4(1-q)^2))/2 satisfies f_q(4/5)=-(q-3/5)^2 and is uniquely minimized at 3/5. A normalized nonnegative Perron eigenvector yields uniform F_n(q)>=lambda(q)^(n-1)/2, forcing all moving global minimizers to 3/5; local eigenprojection F_n=A lambda^(n-1)+(1-A)mu^(n-1) gives uniform logarithmic strict convexity and A(3/5)=9/10, A_prime=-3/5, log(lambda) second derivative 5/2. Stationarity holds at endpoints by the stipulated initial law. Independent complete binary-path enumeration in 48 rational small instances and symbolic recurrence checks agreed; finite checks are not the all-horizon proof.
+
+## originality
+
+PASS
+
+Known unrestricted run-probability recurrences contain the model spectral calculation, but the fixed-marginal global persistence extremization, 1/5 limiting autocorrelation, global moving-optimizer control, finite-horizon 4/(15n) displacement and avoidance prefactor are not the inspected prior conclusions. Best-of-knowledge priority PASS with a genuine unread historical optimized-run risk.
+
+## value
+
+PASS
+
+A natural persistence-conditioned wet-spell occurrence probability is optimized without changing the wet-day marginal. The sharp limiting correlation, nontrivial four-day interior optimum, explicit finite-horizon correction, and prefactor answer quantitative questions a rainfall occurrence researcher may need, without claiming flood causation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Under the explicitly stationary fair binary Markov law, killed transition matrix \(M(q)\) computes the no-run probability exactly. The Cayley--Hamilton recurrence proves the four-day optimizer, and the identity \(f_q(4/5)=-(q-3/5)^2\) proves the unique long-window spectral optimum. A uniform Perron-eigenvector lower bound forces every global finite-window minimizer toward that optimum; a local two-eigenvalue expansion proves eventual global uniqueness and the positive \(4/(15n)\) shift. The standalone checker uses exact rational enumeration and polynomial identities; it does not substitute numerical evidence for the global argument.
+PASS
 
-## Originality
+For q in [0,1] the substochastic killed transition M=[[q,1-q],[1-q,0]] gives F_n=pi M^(n-1)1 and exact F_1=1,F_2=1-q/2,F_n=qF_(n-1)+(1-q)^2F_(n-2). Direct expansion proves the four-day formula. The Perron root lambda=(q+sqrt(q^2+4(1-q)^2))/2 satisfies f_q(4/5)=-(q-3/5)^2 and is uniquely minimized at 3/5. A normalized nonnegative Perron eigenvector yields uniform F_n(q)>=lambda(q)^(n-1)/2, forcing all moving global minimizers to 3/5; local eigenprojection F_n=A lambda^(n-1)+(1-A)mu^(n-1) gives uniform logarithmic strict convexity and A(3/5)=9/10, A_prime=-3/5, log(lambda) second derivative 5/2. Stationarity holds at endpoints by the stipulated initial law. Independent complete binary-path enumeration in 48 rational small instances and symbolic recurrence checks agreed; finite checks are not the all-horizon proof.
 
-**PASS under inspected evidence, with meaningful residual historical risk.** The 1964 and 1977 meteorological sources motivate the precipitation Markov model rather than its optimization. Schwager (1982/1983), Wang and Ji (1995), and Oh--Park--Kim (2022) treat substantially more general run probabilities. In particular, the inspected 2022 preprint explicitly contains the relevant two-state spectral roots (Theorem 2.14); these roots and the recurrence are **prior work**, not claimed discoveries. The distinct question proved here is global optimization of paired-wet occurrence over persistence with wet frequency fixed, including finite-window correction. Search and statement comparisons found no explicit optimization of this family. Because Schwager's Cornell report and some earlier runs articles were not materially accessible, prior coverage of an equivalent optimization remains possible. This is not an independent historical-priority certification.
+## originality
 
-## Value
+PASS
 
-**PASS.** At unchanged wet-day frequency, serial persistence can make the occurrence of a paired wet spell more likely at an interior value than at either maximal alternation or maximal persistence. The four-day optimum differs from the unique asymptotic optimum, whose exact finite-horizon displacement and exponential avoidance rate quantify the distinction. This is a useful mathematical benchmark for diagnosing finite-window wet-spell risk in Markov weather generators; no unmeasured flooding or climatic consequences are asserted.
+Known unrestricted run-probability recurrences contain the model spectral calculation, but the fixed-marginal global persistence extremization, 1/5 limiting autocorrelation, global moving-optimizer control, finite-horizon 4/(15n) displacement and avoidance prefactor are not the inspected prior conclusions. Best-of-knowledge priority PASS with a genuine unread historical optimized-run risk.
 
-## Boundaries
+## value
 
-The result is confined to a fair stationary two-state first-order chain and at least one adjacent wet pair. It does not resolve arbitrary marginal wet frequency, wet-spell lengths above two, higher-order memory, rainfall amounts, or real flood probabilities. Existing general run-distribution papers can reproduce the underlying avoidance probability; the assessed new content is the constrained extremal analysis.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural persistence-conditioned wet-spell occurrence probability is optimized without changing the wet-day marginal. The sharp limiting correlation, nontrivial four-day interior optimum, explicit finite-horizon correction, and prefactor answer quantitative questions a rainfall occurrence researcher may need, without claiming flood causation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
