@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The quantifiers cover positive numbers of data rows and columns. The full proof separates edits by output row lengths, uses the XOR row to recover any singly deleted or inserted row from the other rows, identifies substitution-confusable pairs by the even column-weight condition, obtains an exact fiber upper bound, and matches it with a row-parity code. The construction is also independently checked against the published theorem and exhaustive small instances. No finite run is offered as an infinite proof. The length-eight code's minimum distance is checked; its cardinality optimality is taken from established code tables/classification rather than inferred from one witness.
+## correctness
 
-## Originality (O): PASS, subject to normal publication-priority uncertainty
-Abboud–Yaakobi [1] introduced the model, the row-parity lower construction and a general sphere-volume upper bound. They did not give the all-row converse or the equality to the classical binary distance-three packing number; the displayed general redundancy gap was still open in their Section V-B. Brouwer [2] and Östergård–Baicheva–Kolev [3] provide classical packing data only. Indexed mathematical findings and accessible claim histories were compared for sum-channel, row-parity, one-edit, tensor-product, confusability and equivalent packing formulations; no covering result was located. A missed or unpublished equivalent is a residual risk, and absence from an index is not itself novelty proof.
+PASS
 
-## Value (V): PASS
-The result replaces the published nearly sharp all-row bound with exact finite-parameter capacity, reduces its evaluation to a classical and well-studied packing number, and shows a necessary rigidity condition on every optimal code. The length-eight case demonstrates a genuine cardinality improvement at all blocklengths, rather than simply restating a known code-table entry. The work neither claims an explicit formula for unknown classical optima nor a classification of all extremizers.
+With ordered row identities and visible lengths, an insertion/deletion collision of two distinct input sums cannot occur: length pattern fixes which row was edited, and the other ell rows uniquely determine all ell+1. Unedited outputs have even column parity and one-substitution outputs have a single odd column. Two input sums have column distance w+(w mod 2), so their radius-one substitution balls intersect exactly when they differ in a single data column by Hamming weight 1 or 2. Each fixed-all-but-one-column section is a classical distance-three code, giving at most A_2(ell,3) times 2^{ell(n−1)}. A row-parity check in an optimal classical code attains it, and equality forces every coordinate section optimal. Independently enumerated complete SID balls and compared all pairs for ell=1..3,n=1..2, exactly matching the criterion. For ell=8 the witness of 20 words is distance-three; optimality 20 is borrowed from published code classification, not proved by local checker. Exact formula holds all ell,n>=1 but not two edits, unlabeled rows or unknown A_2 values.
 
-## Closest literature and scientific limits
-Primary source: L. Abboud and E. Yaakobi, arXiv:2601.10256, Sections II and V-B. Supporting classical code tables: A. E. Brouwer, https://aeb.win.tue.nl/codes/binary-1.html; P. R. J. Östergård et al., https://users.aalto.fi/~pat/72.html. The channel interpretation, single-error constraint, baseline construction and exact numerical examples are separated from the new converse in RESULT.md. The direct finite checks do not certify unknown large classical packing parameters or publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The lower parity construction and A_2(8,3)=20 are not new; Abboud–Yaakobi introduced the same channel and near-optimal substitution construction. The matching all-parameter converse and section rigidity are additional to the accessible primary statements, with uninspected full paper remaining a qualified risk.
+
+## value
+
+PASS
+
+The exact capacity of a natural row-parity edit channel reduces to classical Hamming distance-three packing with a tight converse, and every optimum has a nontrivial necessary sectional property. It sharpens previously near-optimal constructions and yields the concrete ell=8 gain. This is substantive coding structure rather than a renamed table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

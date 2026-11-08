@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-`verification/check.py` requires Python 3.8 or later and only the standard library. Run `python verification/check.py` from the package root. It prints a minimum-distance check for a 20-word classical binary code, exact branch-and-bound results for lengths one to four, exhaustive direct one-edit error-ball comparisons for row counts one to four and column counts one to two, and terminates in `VERIFY_OK`. The recorded output is `verification/check-output.txt`.
+## correctness
 
-Proof Step 1 is exact: output row lengths rule out confusion across edit types, and the XOR dependency recovers a deleted or inserted row from the remaining rows. Step 2 reduces substitution confusability to two codewords differing in one column by Hamming distance one or two. Steps 3 and 4 match a packing upper bound in every fixed-prefix section with a row-parity-code lower bound for all positive parameters. Step 5 yields the necessary maximum-section property for arbitrary optimum codes.
+PASS
 
-The classical \(A_2(8,3)=20\) value uses independent published coding tables. The checker proves that the transcribed 20-word *witness* has distance three, not that a 21-word classical code cannot exist; the latter is external mathematical prior work. Likewise, finite direct error-ball tests do not certify the infinite theorem, which is supported by the displayed proof. Nothing here constitutes an independent external mathematical audit.
+With ordered row identities and visible lengths, an insertion/deletion collision of two distinct input sums cannot occur: length pattern fixes which row was edited, and the other ell rows uniquely determine all ell+1. Unedited outputs have even column parity and one-substitution outputs have a single odd column. Two input sums have column distance w+(w mod 2), so their radius-one substitution balls intersect exactly when they differ in a single data column by Hamming weight 1 or 2. Each fixed-all-but-one-column section is a classical distance-three code, giving at most A_2(ell,3) times 2^{ell(n−1)}. A row-parity check in an optimal classical code attains it, and equality forces every coordinate section optimal. Independently enumerated complete SID balls and compared all pairs for ell=1..3,n=1..2, exactly matching the criterion. For ell=8 the witness of 20 words is distance-three; optimality 20 is borrowed from published code classification, not proved by local checker. Exact formula holds all ell,n>=1 but not two edits, unlabeled rows or unknown A_2 values.
+
+## originality
+
+PASS
+
+The lower parity construction and A_2(8,3)=20 are not new; Abboud–Yaakobi introduced the same channel and near-optimal substitution construction. The matching all-parameter converse and section rigidity are additional to the accessible primary statements, with uninspected full paper remaining a qualified risk.
+
+## value
+
+PASS
+
+The exact capacity of a natural row-parity edit channel reduces to classical Hamming distance-three packing with a tight converse, and every optimum has a nontrivial necessary sectional property. It sharpens previously near-optimal constructions and yields the concrete ell=8 gain. This is substantive coding structure rather than a renamed table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

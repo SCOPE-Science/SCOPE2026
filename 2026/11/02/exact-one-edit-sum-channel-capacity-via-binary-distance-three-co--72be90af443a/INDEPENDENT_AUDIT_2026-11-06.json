@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:49:55.712821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ordered row identities and visible lengths, an insertion/deletion collision of two distinct input sums cannot occur: length pattern fixes which row was edited, and the other ell rows uniquely determine all ell+1. Unedited outputs have even column parity and one-substitution outputs have a single odd column. Two input sums have column distance w+(w mod 2), so their radius-one substitution balls intersect exactly when they differ in a single data column by Hamming weight 1 or 2. Each fixed-all-but-one-column section is a classical distance-three code, giving at most A_2(ell,3) times 2^{ell(n−1)}. A row-parity check in an optimal classical code attains it, and equality forces every coordinate section optimal. Independently enumerated complete SID balls and compared all pairs for ell=1..3,n=1..2, exactly matching the criterion. For ell=8 the witness of 20 words is distance-three; optimality 20 is borrowed from published code classification, not proved by local checker. Exact formula holds all ell,n>=1 but not two edits, unlabeled rows or unknown A_2 values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original abstract claims one-substitution redundancy ceil(log2(ell+1)) and within one bit of optimality; the exact expression can improve that bound for ell=8."
+        ],
+        "reasoning": "Approximate packing upper/lower bounds do not imply the exact identity with A_2(ell,3), nor rigidity of every section; full text could contain stronger results than abstract.",
+        "searches": [
+          "arXiv:2601.10256",
+          "Technion ISIT 2026 Error-Correcting Codes for the Sum Channel"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2601.10256",
+        "https://aeb.win.tue.nl/codes/binary-1.html",
+        "https://users.aalto.fi/~pat/opt/20.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower row-parity construction is acknowledged; upper section bound is not the same as their quoted floor(2^{ell n}/(ell+1)) sphere upper bound."
+        ],
+        "reasoning": "Published lower+coarse upper do not together force equality for arbitrary ell. If the complete original primary text contains an equivalent section converse, originality would fail; not certified absent.",
+        "searches": [
+          "Abboud Yaakobi 2026 construction 4/theorems 4–5 (source citations)",
+          "Resultary sum channel one edit Hamming distance three optimal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical sum-parity channel, exact row-wise edit model; classic A_2(ell,3) is a separate known packing invariant."
+        ],
+        "reasoning": "The section upper bound relates each n-column slice to a classical code, not just a tensor construction; equivalence to a previously published theorem is not demonstrated.",
+        "searches": [
+          "Resultary: binary sum channel one substitution insertion deletion optimal capacity Hamming distance three code exact converse",
+          "Abboud Yaakobi Error Correcting Codes for the Sum Channel one substitution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numeric A_2(8,3)=20 is an old classical optimum, explicitly credited and used only as an input."
+        ],
+        "reasoning": "This claim is an infinite reduction theorem, not a new classical code size; known A_2 table alone does not yield the sum-channel equality without confusability analysis.",
+        "searches": [
+          "Brouwer table of general binary codes",
+          "Östergård–Baicheva–Kolev A(8,3)=20"
+        ]
+      },
+      "rationale": "The lower parity construction and A_2(8,3)=20 are not new; Abboud–Yaakobi introduced the same channel and near-optimal substitution construction. The matching all-parameter converse and section rigidity are additional to the accessible primary statements, with uninspected full paper remaining a qualified risk.",
+      "residual_risks": [
+        "Abboud–Yaakobi full primary text unavailable (Oxford VPN disconnected); previously published exact converse cannot be categorically excluded.",
+        "A_2(ell,3) may remain unknown for general ell: the exact reduction does not solve those classical packing problems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The construction and near-optimality are credited; complete text/appendix priority remains a risk",
+          "evidence": [
+            "Abstract: single substitution with ceil(log2(ell+1)) redundancy, within 1 bit of optimum"
+          ],
+          "identifier_or_url": "arXiv:2601.10256",
+          "material_read": "ArXiv abstract and Technion published conference abstract only; full paper unavailable",
+          "method": "Web primary abstracts and OA search; Oxford attempted, VPN disconnected",
+          "title": "Error-Correcting Codes for the Sum Channel",
+          "trigger": "Same exact sum channel and substitution construction"
+        },
+        {
+          "assessment": "Established 20-word optimum explicitly reused, not claimed as new",
+          "evidence": [
+            "A_2(8,3)=20"
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/codes/binary-1.html",
+          "material_read": "Table identification and source-package citation; complete coding classification not independently re-proved",
+          "method": "Web table lookup and source proof",
+          "title": "Table of general binary codes",
+          "trigger": "Numerical classical A_2(8,3) optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact capacity of a natural row-parity edit channel reduces to classical Hamming distance-three packing with a tight converse, and every optimum has a nontrivial necessary sectional property. It sharpens previously near-optimal constructions and yields the concrete ell=8 gain. This is substantive coding structure rather than a renamed table lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Abboud–Yaakobi full primary text unavailable (Oxford VPN disconnected); previously published exact converse cannot be categorically excluded.",
+    "A_2(ell,3) may remain unknown for general ell: the exact reduction does not solve those classical packing problems."
+  ],
+  "schema_version": 1
+}
