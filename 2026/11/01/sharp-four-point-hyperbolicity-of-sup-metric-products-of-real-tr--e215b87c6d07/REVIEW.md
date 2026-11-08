@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The global analytic argument is complete: a zero-hyperbolic factor forces equality of the two largest pairing sums, and a bounded sup perturbation changes the four-point gap by at most its diameter. The lower bound is attained in the limit by two-coordinate geodesic squares. All singleton/unbounded and unattained-diameter boundary cases are treated. `verify.py` passed 14,680,587 exact-rational finite-quartet comparisons across nine finite products; these are checks, not a substitute for a proof.
+## correctness
 
-**Originality — PASS (historical-priority uncertainty remains).** The closest directly inspected primary paper is Michel–Soria-Lorente–Vilaire, arXiv:2610.24253v1. Its results are for Cartesian shortest-path and \(\ell_1\) sum products, and do not imply the \(\ell_\infty\) formula. Indeed, for \(k\ge3\) equal segments, its partition constant differs from the present constant. Actual semantically varied indexed-record searches returned no direct sup-product four-point result, though an older unindexed equivalent remains possible. Search excerpts were never taken as proof of full-document absence.
+PASS
 
-**Value — PASS.** The theorem determines an exact natural metric invariant in arbitrary finite dimension and gives a sharp classification with unbounded factors, exhibiting a qualitative contrast between \(\ell_1\) and \(\ell_\infty\) metric geometry. The accompanying upper-bound lemma isolates the structural role of a single zero-hyperbolic factor.
+Using four-point δ4=(1/2)sup of the largest-minus-second-largest among three distance-pair sums, a 0-hyperbolic tree factor T makes the top two sums of a_ij equal A. For max(a_ij,b_ij) with diam(Y)<=D: if A>D, every c pairing sum ≤A+D and at least two are ≥A; hence defect≤D. If A≤D, all c pair distances≤D, and metric triangle inequalities yield S_max≤S_mid+S_min and S_max≤2D, hence defect≤D. Thus δ4(T×∞Y)≤D/2. Aggregate k-1 factors into Y of diameter D2. For lower bound, any two factors of diam≥L contain isometric geodesic length-L segments, yielding an ℓ∞ square with compass points and pair sums (2L,L,L), so δ4≥L/2 for every L<D2. Supremum gives D2/2 even for nonattained diameters or D2 infinite. Singleton factors contribute zero. Independent exact grid quartets confirm representative 2/3-factor cases but are not the proof.
 
-**Limitations.** Four-point hyperbolicity is not numerically equated to geodesic-triangle thinness; there is no claim of arbitrary \(\ell_p\) norms, arbitrary hyperbolic factors, infinite products or independent scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after comparing the exact claim with its closest known general theorem and special cases. Novelty refers only to the stated full result, not common definitions, known subcases or routine ingredients.
+
+## value
+
+PASS
+
+This is a sharp structural invariant for all finite ℓ∞ real-tree products and the exact hyperbolicity/non-hyperbolicity dichotomy. The maximum metric differs fundamentally from the already understood ℓ1 product: extra bounded factors beyond the second largest do not affect the constant. The reusable zero-hyperbolic-by-bounded-factor upper bound has direct metric-geometric motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
