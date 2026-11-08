@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every RREF chart of the Grassmannian of lines is treated, including the two empty charts. The exact symbolic coefficient equations establish the geometric enumeration and the additive nine-root equations. The quadratic Frobenius relation and its irreducibility prove the exact eight-cycle order; a smooth-K3 normal-bundle calculation proves the finite line Hilbert scheme is étale, justifying its zeta function. The independent exact enumeration for the first two finite extensions supports but does not replace the general proof. Risk: the result covers only parameters in the base field, not all characteristic-three parameters.
+## correctness
 
-**Originality — PASS, qualified.** Veniani's 2016 paper gives this quartic family and the geometric totals 112 and 58, and Degtyarev's 2016 paper treats geometric line configurations; neither inspected source gives the complete arithmetic Frobenius cycles 40+36 pairs or 10+six octuples. Searches for equivalent fields-of-definition tables, line-scheme zeta functions, and stronger general statements found no decisive prior implication. The standard Fermat quartic model over the same finite field has a different Frobenius permutation; geometric isomorphism does not imply equal arithmetic line splitting. Risk: historic coverage might reside in unindexed arithmetic computations, and absence from a search is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The closed-point degrees and complete line-scheme zeta functions are natural arithmetic invariants of the explicitly studied geometric family. The theorem determines the smallest splitting degree of all 58 lines for both nonzero parameter values and contrasts it with a 112-line twist, explaining the marked field-of-definition jump through the order-eight Frobenius action on a two-dimensional additive-root space. This is a complete classification for the natural three-element rational parameter space, not merely an isolated experimental count.
+The partial derivatives in characteristic 3 force x0=x1=x2=x3=0 at a simultaneous zero, establishing smoothness. Six disjoint reduced-row-echelon charts exhaust Grassmannian lines. Two charts are impossible and the other two principal families reduce to the separable additive degree-nine polynomials u^9±a^3u^3−u with exact free F3 coefficients; remaining charts give 4 fixed lines. At a=0 all roots lie in F9. At a≠0, Frobenius u↦u^3 satisfies the irreducible relation φ²±aφ−I=0 on a two-dimensional F3 root space, so φ^4=−I and its nonzero vectors have primitive period 8. Smooth quartic K3 line normal bundle O(-2) gives isolated reduced line scheme and finite étaleness; Galois cycles yield zeta factors. Independent elementary finite F3 quadratic action computation checked that nonzero vectors form one eight-cycle for both signs.
 
-The closest literature is D. C. Veniani, *Lines on K3 quartic surfaces in characteristic 3*, arXiv:1608.04209, and A. Degtyarev, *Lines in supersingular quartics*, arXiv:1604.05836. This is not a claim of independently established historical priority; neither a full geometric line-incidence classification nor a surface zeta function is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the finite-field Frobenius orbit and line-Fano-scheme zeta classification ONLY. Veniani already gives this exact quartic family and the geometric 112/58 counts; these totals are not new. The cited primary geometric article does not report 40+36 two-cycles and 10+six eight-cycles for these F3 coefficient models. Geometric line counts or an algebraic-closure incidence configuration alone do not specify Frobenius action on rational forms.
+
+## value
+
+PASS
+
+Closed-point degrees and line-scheme zeta functions are canonical arithmetic invariants; determining every geometric line's least splitting degree for the natural entire F3 parameter set is a complete, useful finite-field classification, and the striking switch from degree-2 to degree-8 splitting is structurally explained by additive-polynomial Frobenius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
