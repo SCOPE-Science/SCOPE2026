@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof treats arbitrary Hilbert maps through the variance identity and the matched-pair reverse triangle inequality. For a noncontracting map of distortion \(C<3\), the exact inequalities \(V_P\le (n-1)C^2/(2n)\), \(V_Q\ge9(n-1)/(2n)\), and \(W\le C^2\) imply \(C^2\ge(n-1)(3-C)^2/(2n)\). The explicit concentric-simplex construction realizes this lower bound and satisfies all four graph pair classes. Equality in the lower bound forces common centroids, homothetic centered vectors, exact interclass distances, and dimension \(n-1\). The included checker independently replays finite algebraic and coordinate consistency checks; those checks alone do not establish the unrestricted theorem.
+PASS
 
-## Originality
+For n>=2, graph H_n=K_n with one private leaf per clique vertex has four pair-distance types: 1 core-core, 3 leaf-leaf, 1 matched, and 2 unmatched. For noncontracting embedding with distortion C, core variance V_P<=A C² and leaf variance V_Q>=9A, A=(n-1)/(2n). Hilbert reverse triangle for centered n-tuples and centroid separation gives matched mean squared distance W>=(sqrt(V_Q)-sqrt(V_P))² while W<=C²; for C<3 this forces C²>=A(3-C)², hence c_n=3/(1+sqrt(2n/(n-1))). Homothetic centered simplex points p_i=c_n u_i/sqrt2, q_i=3u_i/sqrt2 achieve all inequalities; unmatched squared distance c_n²+3c_n lies between 4 and 4c_n². Equality forces two regular simplices with identical centroids and homothetic vertices, giving uniqueness and affine dimension n−1. For n=2 formula gives 1; limit n→infinity is 3/(1+sqrt2). Fresh independent checks validated defining quadratic identity and unmatched-pair inequalities for n=2,3,4,7,12,100; inspected exact-rational checker.py also covers finite indices.
 
-**PASS, conditional on the surveyed literature.** Robertson's 2023 distorted-negative-type paper develops the general theory and exact examples for complete bipartite graphs and Hamming cubes, not the private-leaf complete-graph corona. Baskoro–Obata's 2019 quadratic-embedding-constant work studies a one-sided spectral invariant of the graph distance matrix; it does not by itself determine optimal Hilbert distortion. A 2025 corona quadratic-embedding-constant paper has the same distinction. The separate previously documented negative-type *exponent* of uniform clique coronas does not imply the present exact distortion or its rigidity; it concerns existence of isometries after changing the metric exponent. A 2014 paper on Euclidean distance matrices was checked at abstract level, but full-text access was unavailable. An equivalently formulated historical theorem remains a residual priority risk; search non-detection alone is not proof of originality.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The graph family is canonical: a private-leaf corona of the complete graph, and the question is the natural best bi-Lipschitz real-Hilbert embedding constant. The result gives a nontrivial, dimension-free sharp formula for every clique order and uniquely determines the entire optimal configuration, rather than a numerical estimate, one-off finite value, or a bare negative-type obstruction. The centroid proof explains why the two natural cliques and the matched edges force the bound. More complicated corona and weighted variants are not treated.
+Point-metric Hilbert bi-Lipschitz distortion of the complete-clique corona K_n⊙K_1 is distinct from Robertson’s complete bipartite/hypercube metric families and from the quadratic embedding constants of corona distance matrices. Robertson’s full Theorem 4.3 does not imply this optimizer rigidity or pendant pairing. Baskoro–Obata and 2025 corona results use negative-type or quadratic form invariants, not the minimax two-sided Euclidean distortion. Resultary near matches were Banach–Mazur distances of Lipschitz-free metric spaces rather than this metric-embedding problem. The 2014 distance-matrix paper has only abstract-level comparison and remains a priority risk.
 
-## Closest literature and limitations
+## value
 
-The primary motivating study is Robertson, arXiv:2309.16070v1 (September 27, 2023); supporting related works are Baskoro–Obata, arXiv:1904.08059v1 (April 17, 2019), and Ferdi et al., arXiv:2512.17258 (December 2025). A possible 2014 related matrix paper was not available in full; historical-priority uncertainty remains. This is a self-review; no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The clique corona is a standard graph product/corona with a strongly nonuniform shortest-path metric. Its sharp nonlinear Hilbert embedding distortion and all-optimal configuration rigidity, including minimal affine dimension, answer natural quantitative metric-geometry questions and reveal an exact dependence and nontrivial n→∞ limit; not merely a known negative-type qualitative result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
