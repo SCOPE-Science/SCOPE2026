@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The object and the full automorphism action are precisely specified. A fifteen-pair acyclic matching on thirty-one nonempty faces has one critical vertex; conversely every optimal matching has one critical vertex. Fixing that vertex reduces the calculation to an exactly enumerable perfect matching problem on thirty faces. The smallest-unmatched-face recurrence exhausts this finite space uniquely. A directed Hasse-graph DAG test and a mathematically distinct closed-\(V\)-path test were run independently and agree on 117837 perfect matchings and 76025 acyclic ones; the full 24-element fixed-count profile and stabilizer spectrum agree. Burnside's formula and orbit-stabilizer arithmetic then give the final orbit and stabilizer tables. Risks: independent expert checking of source code and recurrence has not been performed; this finite theorem does not claim an infinite-dimensional formula.
+## correctness
 
-## Originality
-PASS subject to the limits of literature access. Scoville (arXiv:2604.18172) reports the labelled count 380125 and the topology of lower-dimensional Morse complexes, not the fixed-count table or stabilizer classification. Lin–Scoville (arXiv:1904.10907) proves that the full Morse-complex automorphism group is the simplex relabeling group in this case, without counting its orbits of optimal matchings. Chari–Joswig introduced the objects and treated smaller instances. Actual searches for cycle indices, unlabeled discrete Morse fields, symmetry-reduced matchings, and the specific numbers found no stronger statement covering the new theorem. Risk: an equivalent count could exist in literature not indexed or not inspectable by these searches; absence from results is not a proof of uniqueness.
+PASS
 
-## Value
-PASS. The labelled total does not reveal the structure of equivalence under the full symmetry group, which is a natural classification problem for gradient vector fields. The computation determines an exact complete classification for the first simplex whose optimal matching count required a large exhaustive computation, including inequivalent involution stabilizers and the unique fully symmetric rooted gradient. Such stabilizer information identifies symmetry types of optimal reductions, rather than merely re-reporting the number of labelled reductions. This is finite, not a general theorem for all simplex dimensions.
+For the four-simplex on five vertices, 31 nonempty faces, an optimal Morse matching uses 15 incidence pairs and leaves exactly one critical vertex (Euler/Morse constraints). Rooting that vertex at zero converts the full S5 orbit question to S4 orbits of perfect Hasse matchings of the remaining 30 faces. The least-unmatched-mask recurrence lists each perfect matching once and no others, giving exactly 117837 candidates; orient every Hasse cover upward except matched edges reversed, test the resulting full directed graph for acyclicity (equivalently no closed Forman V-path). An independent C++ enumeration and the pinned distinct Python method confirm 76025 acyclic rooted matchings and S4 fixed counts 76025, 243, 21, 8, 1 for cycle types 1^4, 2.1^2, 2^2, 3.1, 4. Burnside numerator 76025+6*243+3*21+8*8+6*1=77616 yields exactly 3234 orbits. Matching stabilizer counts 74568 trivial,1368 transposition,60 double transposition,28 S3,1 S4 sum to 76025 and give 3107+114+5+7+1=3234 orbits. The explicit S4-fixed cone pairing verifies the final singleton. This is an exhaustive finite certificate for the whole finite five-vertex simplex, not partial sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: primary Scoville 2026 gives 380125 *labelled* optimal matchings (five times 76025) and Lin–Scoville gives the automorphism group S5, but neither determines the nonidentity permutation fixed-point counts, stabilizer classes, or 3234 orbits. The new invariant is the full orbit/stabilizer refinement, not an independently novel labelled census.
+
+## value
+
+PASS
+
+PASS: Exact classification up to the full automorphism group of a natural first large simplex provides a nontrivial fixed-point table and symmetry spectrum, refining an existing labelled census. The numbers cannot be recovered from only the group order and labelled count; a complete finite exhaustive classification is mathematically useful without an all-n family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

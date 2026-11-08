@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T09:02:08.974671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 3fdd224d568661acc592954401f3092c6329829a",
+        "Pinned RESULT.md blob 3fdd224d568661acc592954401f3092c6329829a",
+        "Pinned verify_vpaths.py blob 2cc90b689c0ef62caceb4ff36378a54172140241",
+        "Pinned verify_hasse.cpp blob 9153ba5ee068e8a3dfa5ae8aa1f020e59af94711"
+      ],
+      "rationale": "For the four-simplex on five vertices, 31 nonempty faces, an optimal Morse matching uses 15 incidence pairs and leaves exactly one critical vertex (Euler/Morse constraints). Rooting that vertex at zero converts the full S5 orbit question to S4 orbits of perfect Hasse matchings of the remaining 30 faces. The least-unmatched-mask recurrence lists each perfect matching once and no others, giving exactly 117837 candidates; orient every Hasse cover upward except matched edges reversed, test the resulting full directed graph for acyclicity (equivalently no closed Forman V-path). An independent C++ enumeration and the pinned distinct Python method confirm 76025 acyclic rooted matchings and S4 fixed counts 76025, 243, 21, 8, 1 for cycle types 1^4, 2.1^2, 2^2, 3.1, 4. Burnside numerator 76025+6*243+3*21+8*8+6*1=77616 yields exactly 3234 orbits. Matching stabilizer counts 74568 trivial,1368 transposition,60 double transposition,28 S3,1 S4 sum to 76025 and give 3107+114+5+7+1=3234 orbits. The explicit S4-fixed cone pairing verifies the final singleton. This is an exhaustive finite certificate for the whole finite five-vertex simplex, not partial sampling.",
+      "residual_risks": [
+        "The finite result does not determine the homotopy type of the entire Morse complex or higher-dimensional simplex symmetry profiles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Scoville arXiv:1904.10907 identifies Aut(M(Delta^4)) with S5; Scoville 2026 general skeleton-restriction theorem counts labelled top-dimensional facets; neither computes the permutation character for S5 on them."
+        ],
+        "reasoning": "A general isomorphism for an automorphism group, even combined with total number of elements in its acted-upon set, does not imply the number of fixed points for nonidentity conjugacy classes or orbit count.",
+        "searches": [
+          "optimal discrete Morse matchings four simplex symmetry S5 orbit count stabilizer 3234",
+          "Lin Scoville 2019 automorphism group Morse complex simplex theorem",
+          "Chari Joswig discrete Morse complexes 2000 simplex enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 3fdd224d568661acc592954401f3092c6329829a",
+        "Pinned verify_vpaths.py blob 2cc90b689c0ef62caceb4ff36378a54172140241",
+        "Pinned verify_hasse.cpp blob 9153ba5ee068e8a3dfa5ae8aa1f020e59af94711",
+        "Independent C++ finite exhaustive Hasse DAG/Burnside computation",
+        "Scoville arXiv:2604.18172 full primary HTML/PDF",
+        "Lin–Scoville arXiv:1904.10907 full primary PDF",
+        "Resultary query: optimal discrete Morse matchings four simplex symmetry S5 orbit count stabilizer 3234"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted 3234 follows from Burnside using 24 exact fixed counts; Scoville provides only the identity fixed count 76025, while Lin–Scoville gives group identity."
+        ],
+        "reasoning": "A prior theorem fixes the space and group, not the other 23 fixed-point values. Conversely, this new table implies the previously known labelled count by multiplying 76025 by five, which is not claimed as an original output.",
+        "searches": [
+          "optimal discrete Morse matchings four simplex symmetry S5 orbit count stabilizer 3234",
+          "arXiv:2604.18172 Section 3 and 5.2",
+          "arXiv:1904.10907 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scoville lists f(4)=380125 and gives 76025 rooted factor, but not cycle type fixed counts; the submitted calculation uses acyclic Hasse matchings/discrete gradients on the same nonempty face poset."
+        ],
+        "reasoning": "Unlabelled Morse gradients, automorphism orbits of optimal Hasse acyclic matchings, and S4 rooted-orbits are the same orbit problem by equivariance and transitive critical vertices; older labelled counts are not equivalent to its solution.",
+        "searches": [
+          "optimal discrete Morse matchings four simplex symmetry S5 orbit count stabilizer 3234",
+          "four simplex 380125 optimal discrete Morse gradient vector fields symmetry orbits unlabeled 3234",
+          "Scoville arXiv:2604.18172 Section 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published exact f-vector ends at 380125, counting *labelled* top facets, and does not list 243 transposition-fixed, 21 double-transposition-fixed or 8 three-cycle-fixed gradients."
+        ],
+        "reasoning": "An exact known labelled table is distinguished from the new full symmetry-reduced table. The search has not established global absence of an unpublished orbit database.",
+        "searches": [
+          "optimal discrete Morse matchings four simplex symmetry S5 orbit count stabilizer 3234",
+          "\"76025\" \"243\" Morse simplex",
+          "\"3234\" discrete Morse matchings simplex",
+          "Scoville 2026 f-vector optimal 380125"
+        ]
+      },
+      "rationale": "PASS: primary Scoville 2026 gives 380125 *labelled* optimal matchings (five times 76025) and Lin–Scoville gives the automorphism group S5, but neither determines the nonidentity permutation fixed-point counts, stabilizer classes, or 3234 orbits. The new invariant is the full orbit/stabilizer refinement, not an independently novel labelled census.",
+      "residual_risks": [
+        "An unindexed independently generated orbit table may exist.",
+        "The finite result does not determine the homotopy type of the entire Morse complex or higher-dimensional simplex symmetry profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_LABELLED_COUNT_NOT_ORBITS",
+          "evidence": [
+            "arXiv:2604.18172 lines 1–36 and Section 5.2; no nonidentity S4 fixed-point/stabilizer table."
+          ],
+          "identifier_or_url": "arXiv:2604.18172",
+          "material_read": "Introduction, Sections 3 and 5.2, full f-vector, total 380125, identity 5*76025, examined via full arXiv HTML and PDF",
+          "method": "Read primary HTML/PDF including computational data and theorem statements",
+          "title": "The complex of discrete Morse matchings of the n-simplex: homotopy types and structural results",
+          "trigger": "Exact same Delta^4 optimal matchings; highest priority covering source"
+        },
+        {
+          "assessment": "PRIOR_GROUP_CLASSIFICATION_NOT_ORBITS",
+          "evidence": [
+            "Aut(M(Delta^4)) = Aut(Delta^4) = S5, but no top-matching stabilizer profile."
+          ],
+          "identifier_or_url": "arXiv:1904.10907",
+          "material_read": "Theorem 1 and relevant proof discussion of automorphism group; primary PDF read",
+          "method": "Read primary theorem in PDF and surrounding group action",
+          "title": "On the automorphism group of the Morse complex",
+          "trigger": "Confirms S5 is full rather than a restricted symmetry group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 3fdd224d568661acc592954401f3092c6329829a",
+        "Pinned verify_vpaths.py blob 2cc90b689c0ef62caceb4ff36378a54172140241",
+        "Pinned verify_hasse.cpp blob 9153ba5ee068e8a3dfa5ae8aa1f020e59af94711"
+      ],
+      "rationale": "PASS: Exact classification up to the full automorphism group of a natural first large simplex provides a nontrivial fixed-point table and symmetry spectrum, refining an existing labelled census. The numbers cannot be recovered from only the group order and labelled count; a complete finite exhaustive classification is mathematically useful without an all-n family.",
+      "residual_risks": [
+        "Value is for the exact stated object and invariant, not a claim of a new general theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 3fdd224d568661acc592954401f3092c6329829a",
+    "Pinned verify_vpaths.py blob 2cc90b689c0ef62caceb4ff36378a54172140241",
+    "Pinned verify_hasse.cpp blob 9153ba5ee068e8a3dfa5ae8aa1f020e59af94711",
+    "Independent C++ finite exhaustive Hasse DAG/Burnside computation",
+    "Scoville arXiv:2604.18172 full primary HTML/PDF",
+    "Lin–Scoville arXiv:1904.10907 full primary PDF",
+    "Resultary query: optimal discrete Morse matchings four simplex symmetry S5 orbit count stabilizer 3234"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full S5 orbits of *optimal* acyclic matchings of Delta^4 only; not arbitrary matchings or arbitrary n.",
+    "Exhaustiveness follows from recurrence over all Hasse perfect matchings, not from mere program exit."
+  ],
+  "residual_risks": [
+    "An unindexed independently generated orbit table may exist.",
+    "The finite result does not determine the homotopy type of the entire Morse complex or higher-dimensional simplex symmetry profiles."
+  ],
+  "schema_version": 1
+}
