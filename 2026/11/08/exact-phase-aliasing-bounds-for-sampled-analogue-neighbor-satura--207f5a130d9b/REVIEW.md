@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The hypothesis that distinct phases have distinct first observations makes history equality equivalent to congruence modulo the primitive period. Directly counting admissible starts establishes the sharp residue cutoff. Elementary additive subgroup arithmetic proves the progression census. The explicit construction satisfies the chronological split and forecast-horizon boundary; full test starts have all phases equally often, yet all sampled starts select the sole fully saturated phase. The finite exhaustive verifier reproduces the counting statements but is not used to infer the infinite-parameter result.
+
+**Originality — PASS on inspected evidence, with residual priority risk.** Velichko and Pham (arXiv:2608.16120v2, Sections 2.3–2.8 and 3–4) define exact-neighbor saturation, use evenly spaced test subsets in selected controls, and give a rough recurrence-scale estimate. Their inspected text does not derive the finite \(K\)-copy residue cutoff or arithmetic-progressions saturation law, nor a sharp \(1\) versus \(1/P\) discrepancy. Published relevant records on Fourier quadrature aliasing, phase-dependent calibration, and sensor schedules concern different observables and do not imply the claimed neighbor-multiplicity law. Historical completeness, including generic sampling literature, is not established.
+
+**Value — PASS.** The statistic being sampled is the paper's mechanism-specific diagnostic for a known finite-precision inference failure. The result gives a sharp, arbitrarily severe false-saturation warning and a precise phase-balanced sampling condition, instead of a generic observation that periodic samples can alias. The theorem is a natural finite cutoff for an exact, practically interpretable diagnostic. It does not establish error on the cited experiments or generalize to noisy or transient dynamics.
+
+**Closest literature and limits.** Velichko–Pham is the closest primary full-text source. Familiar arithmetic phase-locking in other sampled statistics is acknowledged, without implying the exact catalogue-neighbor result. Independent historical and mathematical assessment remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
