@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:55:17.609102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For clique phase 2 and path word 2^a0 1^b (a>=1,b>=0,n=a+b+1), the source supplies explicit states at 3k,3k+1,3k+2 and the final three-step release. Each transition is checked against open-neighborhood inhibition only when the vertex is color 2 and a neighbor has color 1; clique vertices are held at 2 by the current path blink when the front moves. At time 3b the final 2^(n−1)0 path releases through (0|0^(n−1)1) and (1|1^(n−1)2), reaching (2|2^n) first at 3(b+1)=3(n−a); all prior states visibly use multiple colors. Independent literal vertex-neighbor simulation checked 456 trajectories and 8,712 consecutive graph updates for r=1,2,5,n=3..18 and all a. Removing the whole clique and one internal path vertex, while every cut of size<=r leaves graph connected, gives κ=r+1; path Laplacian orthogonal modes give λ2=r+2−2cos(π/n), all other clique/transverse modes N=r+n. Missing edges (n−1)(n−2)/2 show density→1 for r=n², and delay 3(n−1) grows Θ(√N). These are special initial states, not universal convergence or sharp maximum for every coloring.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lyu proves synchronization results and timing on paths/trees for same inhibitory rule; graph joins K_r∨P_n have many cycles and degree up to r+n−1, invalidating tree topology and bounded-degree assumptions."
+        ],
+        "reasoning": "The old path theorem cannot justify the path-front dynamics after universal clique adjacencies are added; persistence of the front is a genuinely separate invariant proof.",
+        "searches": [
+          "arxiv:1407.1103 main path/tree theorem",
+          "arxiv:1610.00837 finite tree degree and synchronization bound",
+          "Resultary: three color inhibitory firefly automaton join clique path synchronization slow traveling wave high connectivity"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1407.1103 (same inhibitory update, abstract/main result scope)",
+        "arxiv:1610.00837 (tree time complexity)",
+        "Resultary: three color inhibitory firefly automaton join clique path synchronization slow traveling wave high connectivity",
+        "Resultary firefly near-clique searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The added universal clique changes local inhibitory neighborhoods; separately proven word dynamics gives delay 3(n−a) even while diameter and normalized connectivity remain high."
+        ],
+        "reasoning": "Neither a path synchronization-time upper bound nor dense graph synchronization conditions supply the explicit joint graph first-sync time; the prior mechanism is used but the new topology matters.",
+        "searches": [
+          "Lyu arxiv:1407.1103 path/tree theorem",
+          "Lyu arxiv:1610.00837 tree time complexity",
+          "Resultary firefly/cellular automata neighborhood searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First synchronization time for an explicitly chosen firefly state differs from uniform convergence time or global maximum; a join construction is not the same as the path graph."
+        ],
+        "reasoning": "Compared only the exact conditional delay claim, not false stronger assertions about all starts; graph density and connectivity are asymptotic proxies, not equivalent to transient time.",
+        "searches": [
+          "Resultary: three color inhibitory firefly automaton join clique path synchronization slow traveling wave high connectivity",
+          "arxiv:1407.1103 finite-state pulse coupled oscillators",
+          "arxiv:1610.00837 synchronization on finite trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed records discuss firefly systems on stars, complete split graphs and bridged cliques, not the exact high-connectivity join trajectory."
+        ],
+        "reasoning": "No exact delay table or construction on this graph was found in searches; this is not a proof of historical priority.",
+        "searches": [
+          "Resultary: three color inhibitory firefly automaton join clique path synchronization slow traveling wave high connectivity",
+          "Resultary: high connectivity firefly cellular automaton clique path synchronization",
+          "Resultary: three color inhibitory firefly automaton join clique path synchronization slow traveling wave high connectivity"
+        ]
+      },
+      "rationale": "Lyu introduced the same three-state inhibitory firefly rule and gave path/tree synchronization bounds. Those prior theorems do not transfer to a clique joined to every path vertex because the update of each path and clique vertex changes; the exact traveling-front invariant under those extra edges is separately proved here. Published nearest star/split/bridged-clique examples have different adjacency and bounded conditional delays. Only primary abstract/relevant theorem description was accessible in this run, so an unindexed dense graph construction remains a nonzero priority risk.",
+      "residual_risks": [
+        "The first synchronization times are conditional on specified states, not a bound for all initial states.",
+        "Lyu primary papers were not read in full in this execution; an equivalent join construction in their later appendices or independent work remains possible.",
+        "Independent finite trajectory checks corroborate only finitely many r,n,a; the unbounded theorem is the displayed symbolic induction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PATH_TREE_PRIOR",
+          "evidence": "Main results cover paths and trees and low-degree local-global principles, not K_r join P_n invariant trajectories.",
+          "identifier_or_url": "arxiv:1407.1103 (Lyu 2014)",
+          "material_read": "Primary abstract and accessible full-text listings of path/tree main statements; arXiv HTML full-text attempt blocked by access interface",
+          "method": "Primary arXiv abstract, article indexed metadata, HTML retrieval attempt",
+          "title": "Synchronization of finite-state pulse-coupled oscillators",
+          "trigger": "Same exact inhibitory three-color model; path slow waves and synchronization theorems"
+        },
+        {
+          "assessment": "TREE_ONLY_SCOPE",
+          "evidence": "Tree topology and degree restrictions are not satisfied by clique-joined path for large r.",
+          "identifier_or_url": "arxiv:1610.00837",
+          "material_read": "Abstract and source-identified theorem scope on finite trees; whole primary text not read during this run",
+          "method": "Primary arXiv metadata and source theorem comparison",
+          "title": "Time complexity of synchronization of discrete pulse-coupled oscillators on trees",
+          "trigger": "Potential stronger time upper bound for arbitrary connected graphs"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILIES",
+          "evidence": "Nearest records give short cutoffs or nonsynchronizing states on different graphs, not unbounded conditional synchronization time on K_r∨P_n.",
+          "identifier_or_url": "Resultary firefly and cellular automaton semantic queries",
+          "material_read": "Relevant returned finding titles and summaries, plus assigned AUDIT.json scientific comparisons",
+          "method": "Published-finding semantic index and source comparison",
+          "title": "Relevant published dynamics records on stars, split graphs and bridged cliques",
+          "trigger": "Nearest in-scope family-specific claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph family is canonical (clique join path) and simultaneously has diameter two and connectivity/edge density nearly maximal. The explicit slow yet eventually synchronizing fronts disprove a plausible bound based solely on those bulk connectivity proxies for synchronizing trajectories. It is a motivated boundary counterexample with a transparent exact induction rather than an unmotivated long simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1407.1103 (same inhibitory update, abstract/main result scope)",
+    "arxiv:1610.00837 (tree time complexity)",
+    "Resultary: three color inhibitory firefly automaton join clique path synchronization slow traveling wave high connectivity",
+    "Resultary firefly near-clique searches"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The first synchronization times are conditional on specified states, not a bound for all initial states.",
+    "Lyu primary papers were not read in full in this execution; an equivalent join construction in their later appendices or independent work remains possible.",
+    "Independent finite trajectory checks corroborate only finitely many r,n,a; the unbounded theorem is the displayed symbolic induction."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The first synchronization times are conditional on specified states, not a bound for all initial states.",
+    "Lyu primary papers were not read in full in this execution; an equivalent join construction in their later appendices or independent work remains possible.",
+    "Independent finite trajectory checks corroborate only finitely many r,n,a; the unbounded theorem is the displayed symbolic induction."
+  ]
+}
