@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:08:40.591867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let m=floor((N+1)/2). Any admissible Schreier output set has <=m points since a k-set has greatest element >=2k-1. Compress an arbitrary k-point preimage to first k ordered indices; Schreier admissibility is preserved because the jth chosen coordinate a_j>=j, giving total p-mass <=C_k<=C_m. Reversal maps the first m coordinates onto terminal admissible block, hence attains C_m^(1/p). It is self-inverse, so product optimum C_m^(2/p). The dyadic partition upper bound J+1 and nonincreasing dyadic weight lower bound J+(m-2^J+1)/2^J establish asymptotic (log2 N)^(1/p), including m=1 and real/complex scalar. Independent SciPy LP reproduced C_m for m=1..8 as 1,2,2,5/2,8/3,3,3,13/4; computation supports but does not establish all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General geometric and isometry structure results for combinatorial Banach spaces do not identify which non-isometric finite permutation maximizes the norm and its asymptotic coefficient."
+        ],
+        "reasoning": "Strong scope in dimension/order for isometries is not stronger in desired quantitative operator-norm conclusion.",
+        "searches": [
+          "arXiv:1903.03492 Antunes–Beanland–Chu",
+          "arXiv:1907.06815",
+          "arXiv:2305.13125"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.13125 Fakhoury full text",
+        "arXiv:1907.06815 Brech–Ferenczi–Tcaciuc",
+        "arXiv:1903.03492 Antunes–Beanland–Chu",
+        "arXiv:2007.11071 Brech–Piña",
+        "Resultary semantic Schreier permutation operator-norm search",
+        "Git RESULT.md and checker.py at frozen tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Isometry theorem that only certain permutations have norm 1 cannot determine the largest norm of arbitrary finite permutations; compression lemma and terminal-block reversal witness supply that implication."
+        ],
+        "reasoning": "Explicitly tested strength of prior conclusion (norm-one classification) versus target (largest norm and two-sided product).",
+        "searches": [
+          "arXiv:2305.13125",
+          "arXiv:1907.06815",
+          "arXiv:2007.11071"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Target is operator norm of finite coordinate bijections, equivalently finite permutation symmetry constants in order-one Schreier norm. Infinite surjective-isometry classification concerns norm-one operators, not maximum norm."
+        ],
+        "reasoning": "Aliases finite symmetry constant, permutation unconditional constant and p-convexification were compared at mathematical implication level.",
+        "searches": [
+          "Resultary semantic query: Schreier finite p convexified space permutation operator norm reversal logarithm",
+          "arXiv:2305.13125 Fakhoury",
+          "arXiv:1907.06815 Brech–Ferenczi–Tcaciuc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Computed exact small C_m values 1,2,2,5/2,8/3,3,3,13/4; no identified independent preexisting full sequence or reversal-maximizing table."
+        ],
+        "reasoning": "Finite LP samples do not establish novelty; mathematical reversal extremality all N is more than a small sequence.",
+        "searches": [
+          "Resultary semantic query: Schreier finite p convexified space permutation operator norm reversal logarithm",
+          "Git frozen Schreier RESULT.md C_m examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Infinite-order Schreier isometries and combinatorial Banach-space automorphisms are established prior theory, but a non-isometric finite coordinate permutation extremum, its exact prefix LP reduction, and the reversal maximizer are not implied by isometry classifications. A broader symmetry-constant treatment could give the same theorem under alternate terminology.",
+      "residual_risks": [
+        "Finite Schreier permutation/unconditional-basis constants may have older unindexed equivalent formulations.",
+        "C_m is specified exactly by an LP, not an explicit closed all-m elementary formula.",
+        "Only order-one finite Schreier spaces and 1<=p<infinity are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Discusses isometries, not universal max finite permutation distortion or prefix LP in inspected statements",
+          "evidence": [
+            "An isometry theorem cannot determine a non-isometry worst-case amplification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.13125",
+          "material_read": "Accessible arXiv primary full research text: definitions, isometry classifications and statements",
+          "method": "Read primary full-text paper",
+          "title": "Isometries of p-convexified combinatorial Banach spaces",
+          "trigger": "Same p-convexified Schreier norms, possible quantitative permutation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite Schreier geometry is a canonical non-symmetric normed sequence-space model. Quantifying its maximal coordinate rearrangement distortion, including sharp reversal extremal and logarithmic growth, is a natural quantitative complement to qualitative basis-isometry rigidity; no closed-form C_m is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2305.13125 Fakhoury full text",
+    "arXiv:1907.06815 Brech–Ferenczi–Tcaciuc",
+    "arXiv:1903.03492 Antunes–Beanland–Chu",
+    "arXiv:2007.11071 Brech–Piña",
+    "Resultary semantic Schreier permutation operator-norm search",
+    "Git RESULT.md and checker.py at frozen tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite Schreier permutation/unconditional-basis constants may have older unindexed equivalent formulations.",
+    "C_m is specified exactly by an LP, not an explicit closed all-m elementary formula.",
+    "Only order-one finite Schreier spaces and 1<=p<infinity are covered."
+  ],
+  "schema_version": 1
+}

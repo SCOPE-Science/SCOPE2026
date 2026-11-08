@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly defines the Schreier family, coordinate permutations, and normalization for all \(N\ge1\), real or complex scalars, and \(1\le p<\infty\). The largest admissible support has size \(m=\lfloor(N+1)/2\rfloor\); compression of an arbitrary preimage onto its ordered prefix is valid by spreading; reversal maps a maximizing prefix witness to an admissible terminal block. The matching upper and lower bounds are therefore exact for every dimension and exponent. The dyadic weight construction is feasible because every length-\(k\) consecutive window beginning at \(k\) sums to one, and the dyadic upper partition consists of admissible sets. Inverse distortion is attained because reversal is involutive. Critical finite LP values have exact rational primal-dual certificates; they are supplementary, not a substitute for the general proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic uncertainty
-Direct comparisons were made with arXiv:1903.03492 (infinite Schreier isometry rigidity), arXiv:1907.06815 (general signed-permutation classification), arXiv:2007.11071 (rigidity of regular families under permutations), arXiv:2110.11786 (isometry survey), and arXiv:2305.13125 (\(p\)-convexified isometry classification). These sources concern norm-preserving surjections, whereas the new claim optimizes non-isometric finite permutation operators and obtains a canonical extremizer with sharp asymptotic constant. The propositions inspected do not assert these numerical norms. A semantic mathematical index comparison and searches for dual, reversal, permutation-constant, and logarithmic variants did not reveal direct coverage. Absence in search results is not proof of novelty; a differently named quantitative estimate could exist.
+PASS
 
-## Mathematical value — PASS
-The natural quantitative question following qualitative permutation rigidity is how badly a finite coordinate rearrangement can distort a Schreier norm. The result solves the global maximum over all \(N!\) permutations, identifies a uniform extremizer instead of merely a witness, covers the whole \(p\)-convexified scale, gives exact forward/inverse distortion through a single smaller linear program, and determines the sharp growth coefficient. The logarithmic order is not a dimension-free exercise; it records the strength of Schreier admissibility under reversing coordinate order. This does not establish a general Banach–Mazur distance or a higher-order Schreier theorem.
+Let m=floor((N+1)/2). Any admissible Schreier output set has <=m points since a k-set has greatest element >=2k-1. Compress an arbitrary k-point preimage to first k ordered indices; Schreier admissibility is preserved because the jth chosen coordinate a_j>=j, giving total p-mass <=C_k<=C_m. Reversal maps the first m coordinates onto terminal admissible block, hence attains C_m^(1/p). It is self-inverse, so product optimum C_m^(2/p). The dyadic partition upper bound J+1 and nonincreasing dyadic weight lower bound J+(m-2^J+1)/2^J establish asymptotic (log2 N)^(1/p), including m=1 and real/complex scalar. Independent SciPy LP reproduced C_m for m=1..8 as 1,2,2,5/2,8/3,3,3,13/4; computation supports but does not establish all-N proof.
 
-## Outstanding scientific risks
-An equivalent quantitative permutation-unconditionality result may exist under another name, and the full closed-form values of the finite prefix constants remain unknown here. Independent validation and bibliography review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Infinite-order Schreier isometries and combinatorial Banach-space automorphisms are established prior theory, but a non-isometric finite coordinate permutation extremum, its exact prefix LP reduction, and the reversal maximizer are not implied by isometry classifications. A broader symmetry-constant treatment could give the same theorem under alternate terminology.
+
+## value
+
+PASS
+
+Finite Schreier geometry is a canonical non-symmetric normed sequence-space model. Quantifying its maximal coordinate rearrangement distortion, including sharp reversal extremal and logarithmic growth, is a natural quantitative complement to qualitative basis-isometry rigidity; no closed-form C_m is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
