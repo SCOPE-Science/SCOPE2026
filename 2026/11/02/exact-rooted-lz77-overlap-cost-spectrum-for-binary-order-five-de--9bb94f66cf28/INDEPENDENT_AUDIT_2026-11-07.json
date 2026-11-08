@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:51:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Every 32-state de Bruijn successor permutation is encoded by exactly 16 binary local switches t_x, since predecessor/successor balancing at each 4-bit suffix forces a bijection (0,x),(1,x) to (x,0),(x,1). The one-orbit condition enumerates all binary order-five cyclic words without rotation duplicates via their unique 00000 state. The greedy LPF matching definitions for overlapping and disjoint-source LZ77 are explicit and exhaustive over all earlier source positions, with end boundary truncation. A fresh independent implementation enumerated all 65,536 switch settings, selected exactly 2,048 cycles, all 32 roots, and recomputed both parsing counts directly; it reproduced all 24 nonzero joint cells, gap counts (8848,20732,20334,11878,3468,268,8) for gains 0..6, and eight per-cycle gain-range cells, total 65,536 roots. The supplied checker also provides independent Euler-tour and suffix-LCP checks, whose code was inspected. This is a complete finite census, not a sample; the theorem makes no claim for higher de Bruijn orders or other LZ conventions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosolobov–Shur general theorem z≤novLZ and asymptotic gap bounds apply to all words but do not determine the exact distribution among 32-symbol de Bruijn rotations.",
+          "Kärkkäinen–Kempa–Puglisi derive efficient LZ77 algorithms, not a cyclic-word classification."
+        ],
+        "reasoning": "Broader ambient-input results are much weaker with respect to this conditional exact census: a universal inequality cannot imply the joint frequencies or all per-necklace extremizers.",
+        "searches": [
+          "LZ77 overlap no overlap greedy phrase count de Bruijn sequence order five rooted words exhaustive table",
+          "arxiv:1708.03558",
+          "arxiv:1212.2952"
+        ]
+      },
+      "checked_sources": [
+        "Kosolobov–Shur arxiv:1708.03558v3 full public HTML sections and statements",
+        "Goto–Bannai arxiv:1211.3642 accessible public text",
+        "Kärkkäinen–Kempa–Puglisi arxiv:1212.2952 algorithmic description",
+        "Andreasen Universal Source Coding thesis partial primary passages",
+        "Resultary semantic query LZ77 overlap no overlap greedy phrase count de Bruijn sequence order five rooted words exhaustive table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing z≤novLZ theorem implies only nonnegative phrase-count difference.",
+          "General optimal parser implementations compute one word at a time; they do not give the aggregated 2,048-necklace, 65,536-root joint counts."
+        ],
+        "reasoning": "Novelty is the complete enumeration and sharp gain classifications, not the parser definition, binary de Bruijn count or generic monotonicity inequality.",
+        "searches": [
+          "LZ77 overlap no overlap greedy phrase count de Bruijn sequence order five rooted words exhaustive table",
+          "arxiv:1708.03558",
+          "arxiv:1211.3642",
+          "arxiv:1212.2952"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosolobov–Shur define the pair-reference overlap-allowed LZ and no-overlap novLZ variants matching the current restrictions.",
+          "Goto–Bannai formulate longest previous factor greedy parsing."
+        ],
+        "reasoning": "LPF, greedy source reference, LZ and novLZ are actual same metrics. LZ78 dictionary parsing is different; no equivalent two-variant de Bruijn order-five rooted joint spectrum appeared in the inspected statements.",
+        "searches": [
+          "LZ77 overlap no overlap greedy phrase count de Bruijn sequence order five rooted words exhaustive table",
+          "arxiv:1708.03558",
+          "arxiv:1211.3642"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 24-cell LZ/novLZ order-five table emerged from the Resultary matched records, which primarily involved substring and coding invariants.",
+          "Andreasen studies specially concatenated de Bruijn strings, not the all-cycle all-root pair-reference LZ77 table."
+        ],
+        "reasoning": "This result is explicitly a finite database; checked table sources and primary comparisons did not identify a duplicate, though an unpublished or older coded census remains possible.",
+        "searches": [
+          "LZ77 overlap no overlap greedy phrase count de Bruijn sequence order five rooted words exhaustive table",
+          "Resultary: LZ77 overlap no overlap greedy phrase count de Bruijn sequence order five rooted words exhaustive table",
+          "Andreasen Universal Source Coding thesis 2001 de Bruijn Lempel Ziv"
+        ]
+      },
+      "rationale": "PASS (qualified): The exact rooted order-five two-parser joint table and per-necklace gain extrema are not given by the general LZ-versus-nonoverlap inequality, efficient parsing algorithms or de Bruijn concatenation compression results reviewed. Kosolobov–Shur's all-string z≤novLZ is expressly old. Small alphabet exact tables can exist unindexed, so absence in semantic Resultary and current primary sources is evidence of bounded comparison, not priority certification.",
+      "residual_risks": [
+        "An unpublished, nonindexed finite enumeration or appendix could already list these exact 24 LZ/novLZ cells.",
+        "Specific parsing conventions are essential: pair-reference greedy matching, not LZ78, next-symbol triples, or encoded bit length.",
+        "Independent exhaustive implementation establishes finite outcomes but a human review of the entire source-generation formalization remains valuable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE generic inequality and constructions, not rooted order-five complete census",
+          "evidence": [
+            "Section 2 defines LZ and novLZ pair-reference parsing; Theorems 1–3 give general bounds and examples, no specific 24-cell order-five table."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1708.03558v3",
+          "material_read": "Full public HTML principal definitions, Theorems 1–3 and proof sections, searched for de Bruijn terminology",
+          "method": "Read accessible primary article and compared formal parsing variants and theorem implications",
+          "title": "Comparison of LZ77-type Parsings",
+          "trigger": "Directly matching source-overlap and no-overlap pair-reference parsing definitions"
+        },
+        {
+          "assessment": "Generic algorithmic definitions only; no all-rotation order-five distribution identified",
+          "evidence": [
+            "The result is a faster factorization algorithm, not a complete enumeration of de Bruijn necklace-root pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3642",
+          "material_read": "Open text introduction and principal parsing definitions and algorithmic results",
+          "method": "Compared algorithmic statements to joint frequency theorem",
+          "title": "Simpler and Faster Lempel Ziv Factorization",
+          "trigger": "Foundational longest-previous-factor greedy parser formulation"
+        },
+        {
+          "assessment": "DIFFERENT construction; possible uninspected appendix priority risk",
+          "evidence": [
+            "Constructed concatenated de Bruijn words differ from the complete set of length-32 de Bruijn cycles with every root."
+          ],
+          "identifier_or_url": "https://www.cs.auckland.ac.nz/~cristian/toprint/andreasen.pdf",
+          "material_read": "Accessible thesis de Bruijn and Lempel–Ziv passages described in prior bibliography; no fresh exhaustive full-thesis reading",
+          "method": "Compared described de Bruijn concatenation compression to current pair-reference setting",
+          "title": "Universal Source Coding",
+          "trigger": "Earlier thesis potentially coupling de Bruijn cycles with Lempel–Ziv"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Greedy LZ77 source-overlap behavior on the natural finite class of all binary order-five de Bruijn cycles is an exact, full, reproducible compression-invariant classification rather than an arbitrarily sampled word. Root selection changes both parsings substantially, and the sharp six-phrase benefit, all 24 joint cells and exact per-necklace root robust benefit are meaningful reusable benchmarks for cyclic parsing. Its finite scope is openly stated; no extrapolation to order six.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unpublished, nonindexed finite enumeration or appendix could already list these exact 24 LZ/novLZ cells.",
+    "Specific parsing conventions are essential: pair-reference greedy matching, not LZ78, next-symbol triples, or encoded bit length.",
+    "Independent exhaustive implementation establishes finite outcomes but a human review of the entire source-generation formalization remains valuable."
+  ],
+  "schema_version": 1
+}
