@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For n=3m+1, each paired vertex-pair of L(K_n) covers exactly three K_n ground vertices and the domination requirement covers at least n-1. Equality forces disjoint centered triples and a unique unmatched ground vertex. Removing one selected K_n edge yields exactly two incident replacement edges that preserve the structure, per selected edge. The resulting connected position graph is a bouquet of m four-cycles whose edge transpositions generate S_(3m+1), proving connectivity. The 4m-degree, edge count and exhaustive two-family triangle census follow. Direct brute-force verification at n=4,7 and independent slot BFS through m=3 passed; the general proof is not inferred from them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haynes–Slater, Networks 32 (1998), publisher abstract: definition, general inequalities and computational complexity.",
+        "Dutton–Brigham, JCMCC 31 (1999) pp.161–168: line-graph domination bounds; no complete paired-domination optimum-state reconfiguration theorem for T_(3m+1) in inspected results.",
+        "Mynhardt–Teshima general gamma_pr graph realizability theorem does not imply the explicit structural census of the given source family."
+      ],
+      "reasoning": "General domination bounds and universality of target reconfiguration graphs are too weak to force connectedness, regularity, or two-family triangle counts for a fixed family of triangular graphs. There is no parameter reduction deriving the new move graph from these general results.",
+      "searches": [
+        "web: \"Paired-domination in graphs\" Haynes Slater 1998 first published",
+        "web: \"A Note on Relations Between a Graph and Its Line Graph\" Dutton Brigham",
+        "web: \"paired domination\" \"line graph of complete graph\"",
+        "web: \"paired domination\" \"Johnson graph\" \"token\" 2022"
+      ]
+    },
+    "checked_sources": [
+      "Wiley 1998 Haynes–Slater publisher record (first public date 1998-12-07)",
+      "JCMCC 31 (1999) Dutton–Brigham full PDF",
+      "Ars Combinatoria 57 (2000) Studer–Haynes–Lawson partial scanned PDF",
+      "arXiv:1707.02039 general paired-domination gamma-graph preprint",
+      "Earlier triangular-graph maximum-induced-matching theorem, recoverable statement id 6240a7fb-625f-42ee-8b5e-4d3ac895d981",
+      "Earlier minimum ordinary domination distance-sphere theorem, recoverable statement id 4215f72a-a114-4f7b-bb9a-da27dd5b330e",
+      "Relevant mathematical-index semantic searches and targeted web queries for triangular graphs, L(K_n), paired domination, gamma_pr and single-token reconfiguration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior maximum-induced-matching theorem: maximum m disjoint centered triples, count n!/(r!2^m m!), and whole-edge TS degree m(4r+2), with connectedness for r=1,2.",
+        "New theorem when r=1: paired-dominating token-slide replaces one of the 2m selected original vertices, has degree 4m and connectedness proved by a different bouquet-transposition argument.",
+        "Prior ordinary-domination distance-sphere result concerns near-perfect matchings on odd triangular graphs, not paired domination with 2m selected vertices in T_(3m+1)."
+      ],
+      "reasoning": "The prior matching theorem covers the state classification and its count but not the finer adjacency or 4m-degree and triangle distribution. Whole-edge slide sequences are not known to split into feasible one-vertex slides solely from that statement; the new proof supplies a nontrivial independent construction. The ordinary domination reconfiguration result has different feasible sets.",
+      "searches": [
+        "own prior claim 6240a7fb-625f-42ee-8b5e-4d3ac895d981: maximum induced matchings in triangular graphs",
+        "own prior claim 4215f72a-a114-4f7b-bb9a-da27dd5b330e: minimum ordinary dominating sets of odd triangular graphs",
+        "web: \"paired domination\" \"triangular graphs\"",
+        "Mathematical-index query: paired domination minimum configurations of triangular graph line graph K_n when n is 1 mod 3 token sliding reconfiguration 4m regular connected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mynhardt–Teshima arXiv:1707.02039 §1 defines the paired-domination slide graph, but gives general realizability constructions rather than a formula for the triangular-graph family.",
+        "Previous triangular-graph maximum-induced-matching theorem identifies the same block states, but analyzes moves replacing a whole induced-matching edge (two selected vertices), not one selected vertex."
+      ],
+      "reasoning": "Two nearby encodings of the same configurations are not equivalent assertions about adjacency: the former changes both selected vertices in a backup pair and can jump over infeasible intermediate states, while the new move changes only one adjacent selected vertex at each step. A connected graph under the former moves need not be connected under the latter.",
+      "searches": [
+        "Mathematical-index query: minimum paired domination sets of triangular graph T(n) line graph complete graph counts optimal paired dominating configurations",
+        "Mathematical-index query: paired domination reconfiguration graph of complete graph line graph, vertex-transitive regular exchange moves",
+        "web: \"paired domination\" \"triangular graph\" reconfiguration gamma graph",
+        "web: \"paired domination\" \"line graph\" \"reconfiguration\" triangular"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The state count n!/(2^m m!) is already included in a prior exact maximum-induced-matching classification of T_n (claim id 6240a7fb-625f-42ee-8b5e-4d3ac895d981); it is explicitly not the original contribution.",
+        "Targeted searches did not identify an exact table of one-vertex-slide graph degrees and triangle counts for these paired-dominating states."
+      ],
+      "reasoning": "Even a table of the same number of optimal states or their whole-edge reconfiguration components would not entail which single-vertex replacements are legal. The new graph has its own adjacency relation and local cycle census.",
+      "searches": [
+        "web: \"12, 630, 75600\" \"triangular\" \"paired\" reconfiguration",
+        "web: \"L(K_n)\" \"paired domination graph\" slide",
+        "Mathematical-index query: triangular graph L(K_n) paired domination count factor n!/(2^m m!) for n=3m+1"
+      ]
+    },
+    "rationale": "The claimed NEW object is the one-selected-vertex token-slide graph of optimum paired-dominating sets of L(K_(3m+1)), with connectedness, 4m-regularity, edge count, two triangle types and their counts. The known equality-structure/count and whole-induced-matching-edge reconfiguration are explicitly prior coverage, not claimed as original. The available literature and mathematical-record comparisons do not imply the stricter one-vertex dynamics; remaining historical-priority risk is acknowledged.",
+    "residual_risks": [
+      "The 1998 foundational publisher full text was not accessible, although its abstract and bibliographic date were accessible.",
+      "The 2000 induced-paired paper was a scanned PDF and only selected pages could be visually inspected.",
+      "No search can establish global historical novelty; unindexed prior literature or independently recorded complete proofs may cover the one-vertex graph.",
+      "The earlier maximum-induced-matching theorem already covers the same state count; originality depends specifically on the stricter single-vertex slide adjacency and cycle census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundation, not a covering result in inspected material; unread full text remains a literature risk.",
+        "evidence": [
+          "Wiley: First published December 7, 1998; defines paired-domination and general inequalities, not the particular reconfiguration structure in abstract."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291097-0037%28199810%2932%3A3%3C199%3A%3AAID-NET4%3E3.0.CO%3B2-F",
+        "material_read": "Publisher abstract, bibliographic metadata, and listed general results; full paper not available in this examination.",
+        "method": "Web publisher abstract and first-publication metadata read.",
+        "title": "Paired-domination in graphs",
+        "trigger": "Foundational source introducing paired domination and verifying first public date."
+      },
+      {
+        "assessment": "Provides line-graph domination relationships but no matching optimum single-token paired-domination reconfiguration theorem in the inspected material.",
+        "evidence": [
+          "JCMCC 31 (1999), pp.161–168, especially Theorem 1, Corollary 2, Theorem 5, and Theorem 13."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20031/vol-31-paper%2012.pdf",
+        "material_read": "Accessible full PDF text, introduction, Theorems 1–15 and their proof statements including complete-graph line-graph examples; screenshot of first page.",
+        "method": "Full-text PDF inspection and screenshot.",
+        "title": "A Note on Relations Between a Graph and Its Line Graph Which Involve Domination Concepts",
+        "trigger": "Directly addresses line graphs and domination invariants; plausible source for T_n=L(K_n)."
+      },
+      {
+        "assessment": "Defines induced-paired domination and discusses complexity, bounds, cycles and trees. The limited inspection cannot certify global noncoverage; main claim is one-vertex reconfiguration, not the basic induced-paired invariant.",
+        "evidence": [
+          "Ars Combinatoria 57 (2000), pp.111–128; Section 2 complexity and Section 4 caterpillars evident in screenshots."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20057/volume-57-paper-11.pdf",
+        "material_read": "Publisher abstract and scanned pages 111, 113, and 124 (pages 1, 3, and 14 of PDF). Other pages could not be searched as text.",
+        "method": "Visual PDF screenshots of selected primary pages, no text extraction available.",
+        "title": "Induced-Paired Domination in Graphs",
+        "trigger": "Strong variant of paired domination potentially equivalent at the equality case."
+      },
+      {
+        "assessment": "Defines the same slide relation in general and proves realizability, but the relevant text does not address the explicit triangular-graph family.",
+        "evidence": [
+          "arXiv:1707.02039, pp.1–3, Corollary 2, first posted July 7, 2017."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1707.02039",
+        "material_read": "Abstract, general gamma-graph models and section 1 through paired-domination general realizability; searchable text checked for triangular and line-graph terminology; section 1 screenshot.",
+        "method": "ArXiv full-text opening, targeted text finds and PDF screenshot of page 3.",
+        "title": "A note on some variations of the gamma-graph",
+        "trigger": "Most directly relevant general notion of slide reconfiguration for minimum paired domination."
+      },
+      {
+        "assessment": "Directly covers optimum-state structure/count and whole-induced-matching-edge move counts; does not assert the finer one-vertex slide connectivity, degree or triangle census.",
+        "evidence": [
+          "Prior result explicitly says moves replace a whole edge of T_n, not one vertex of the selected induced subgraph."
+        ],
+        "identifier_or_url": "6240a7fb-625f-42ee-8b5e-4d3ac895d981",
+        "material_read": "Recoverable theorem claim only, not an independent rereview.",
+        "method": "Statement-to-statement implication check of exact move definitions and formulas.",
+        "title": "Modular mobility of maximum induced matchings in triangular graphs",
+        "trigger": "Previously recorded mathematical claim on exactly the same centered-triple states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ce9a058-7341-40bd-954b-59331b09d7ba",
+  "value": {
+    "rationale": "The stricter operational motion of one guard while retaining an optimal paired-backup configuration is distinct from replacing two guards as a whole induced-matching edge. The infinite-family connectedness theorem, exact vertex-transitive 4m-regular graph, edges and local triangle structure identify the precise feasible exchange topology in a natural tight-coverage family. The family is motivated by saturation of the 3-ground-vertices-per-pair bound; it is not an arbitrary finite slice. The covered optimum-state count is clearly treated as prerequisite rather than originality evidence.",
+    "status": "PASS"
+  }
+}
