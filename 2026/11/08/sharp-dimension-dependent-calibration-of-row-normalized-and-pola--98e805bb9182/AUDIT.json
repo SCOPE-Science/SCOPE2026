@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every admissible full-row-rank matrix, Gershgorin bounds its Gram spectrum in [1-delta,1+delta]. SVD/nuclear duality gives the exact efficiency m/(sqrt(lambda1)sum_i sqrt(lambdai)); Cauchy--Schwarz at fixed trace and a one-variable critical point yield the global minimax. Positive equicorrelation matrices attain the lower bound; signed equicorrelation matrices attain the extremal polar-gap branches or approach a positive-definite singular limit. A self-contained verifier cross-checked 10699 finite rational and SVD identities. The proof is analytic, and finite checks are not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The NorMuon iteration performs polar orthogonalization first and then row-wise second-moment normalization; its dimension-dependent convergence bounds are not for the raw unit-row Gram with spectral-budget calibration.",
+        "The Hessian-structure paper proves expected diagonal dominance for specific initialization distributions, not all unit-diagonal Gram matrices.",
+        "Pethick et al. list row and spectral norm-ball LMOs as separate operators but provide no exact relative alignment frontier conditional on an observed Gram row statistic."
+      ],
+      "reasoning": "Neither source bounds this exact deterministic model by a stronger theorem of which it is a parameter-specialized corollary.",
+      "searches": [
+        "arxiv:2502.07529v1 §3.1 Table 2",
+        "arxiv:2609.39114v1 Thms 3.1--3.2 Lemma B.2",
+        "arxiv:2610.28975v1 §4 Appendix F",
+        "row momentum normalized preconditioning RMNP Gram diagonal dominance ratio exact spectral calibration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.20527v1 §3.1 §3.2 Appendix B",
+      "arxiv:2609.39114v1 §2 §3 Appendix B",
+      "arxiv:2610.28975v1 §4 Appendix F",
+      "Published mathematical-record search: A sharp row-coherence obstruction in PDNQP diagonal step initialization",
+      "Published mathematical-record search: Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+      "arxiv:2502.07529v1 §3.1 Table 2, §5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper treats high values of the average-off-diagonal ratio as evidence of Gram diagonal dominance.",
+        "The new result shows for unit rows the ratio R can grow while relative operator-budget descent degenerates, and identifies exactly the correction R/m.",
+        "Established spectral/nuclear duality gives the polar optimum but does not itself impose the row-ratio constraint or prove sharp joint extremizers."
+      ],
+      "reasoning": "The claimed new content is the exact constrained minimax, phase boundary, sharp polar deviation, and necessary-and-sufficient dimensional scaling, not the standard constituent inequalities or existence of row normalization.",
+      "searches": [
+        "arxiv:2603.20527v1 §3.1--3.2",
+        "arxiv:2609.39114v1 §§2--3 Appendix B",
+        "arxiv:2610.28975v1 §4 Appendix F",
+        "sharp minimax operator-norm spectral-normalized row update vs optimal polar nuclear duality equicorrelation coherence",
+        "arxiv:2502.07529v1 §3.1 Table 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The empirical statistic is diagonal divided by mean absolute off-diagonal, matching the normalized Gram row constraint. Appendix F establishes equality only for exactly diagonal Gram."
+      ],
+      "reasoning": "The candidate calibrates spectral-norm step size and optimizes a nuclear-dual alignment ratio; exact Gram diagonality is only one endpoint, not an equivalent all-R minimax result.",
+      "searches": [
+        "arxiv:2603.20527v1 §3.2 eqs (5)-(6), Appendix B metric computation",
+        "arxiv:2610.28975v1 Appendix F",
+        "sharp coherence-conditioned spectral norm row-normalization versus polar factor and nuclear-norm descent alignment for equicorrelation Gram matrices",
+        "sharp minimax operator-norm spectral-normalized row update vs optimal polar nuclear duality equicorrelation coherence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical record concerns PDNQP diagonal step sizing and coherent constraint rows; its operator-norm obstruction does not contain a sharp RMNP-versus-polar relative descent formula."
+      ],
+      "reasoning": "No exact known table of spectral-ball efficiency by row statistic was recovered; negative search alone is not proof of novelty.",
+      "searches": [
+        "row-wise normalized preconditioning RMNP deterministic matrix quadratic row normalization exact limiting dynamics",
+        "row Gram diagonal dominance ratio can diverge while row-normalized update has poor operator norm and steepest descent alignment",
+        "normalized Gram equicorrelation eigenvalues worst case row-mean diagonal dominance spectral gap",
+        "row-wise normalized preconditioning RMNP deterministic matrix quadratic row normalization exact limiting dynamics"
+      ]
+    },
+    "rationale": "The original RMNP source defines the observed row statistic without the exact uniform sharp alignment frontier; its follow-up work gives diagonal-expectation heuristics, while NorMuon studies a different order of normalization. Searches found no implication providing the joint minimax efficiency and exact operator deviation over positive-definite unit-diagonal Grams with fixed minimum ratio. This is a best-knowledge originality judgment, not a priority certification. An inspected 2025 framework provides both separate linear minimization oracles but not this sharp constrained comparison.",
+    "residual_risks": [
+      "An earlier general sharp eigenvalue/nuclear-to-spectral-ratio matrix optimization theorem could subsume the constrained formula under Gram diagonal and average absolute off-diagonal constraints; none was identified.",
+      "Best-knowledge originality depends on public indexed mathematics and inspected papers, not an exhaustive historical proof.",
+      "Raw non-unit-row optimizer moments require extra analysis and are outside the current statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same statistic and basic operation; no all-R sharp spectral-ball efficiency or deviation formula",
+        "evidence": [
+          "§3.2 defines the mean-absolute row ratio and asserts large values signal diagonal structure",
+          "§3.1 defines direct row normalization"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20527v1",
+        "material_read": "Primary full-text HTML, focusing on §3.1–3.2, eqs. (4)–(6), Appendix B eqs. (10)–(13), and the main conclusions",
+        "method": "Direct inspection of source equations and main/appendix results",
+        "title": "RMNP: Row-Momentum Normalized Preconditioning for Scalable Matrix-Based Optimization",
+        "trigger": "Original row normalization algorithm and observed r_min metric; plausible exact overlap"
+      },
+      {
+        "assessment": "Studies rowwise adaptive normalization of already orthogonalized updates; bounds different process and cannot imply proposed RMNP sharp frontier",
+        "evidence": [
+          "Algorithm 1 first forms polar step O, then uses EMA of row squared norms",
+          "Lemma B.2 guarantees dimension-dependent alignment under other assumptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.39114",
+        "material_read": "Full-text HTML §§2--3 including Algorithms, Theorems 3.1--3.2 and Appendix B, especially Lemma B.2",
+        "method": "Read algorithmic operation and compare quantified objects and norm budgets",
+        "title": "The Row Normalization Puzzle in Muon",
+        "trigger": "Potential stronger dimension-dependent alignment result"
+      },
+      {
+        "assessment": "Proves direct equality for diagonal Gram and expectation-based initialization regimes; no exact deterministic finite-ratio minimax or adversarial sharp extremizers",
+        "evidence": [
+          "Appendix F eq. (98) assumes exactly diagonal Gram",
+          "§4 analyzes expected initialization Gram patterns rather than worst possible matrices under observed row ratio"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.28975",
+        "material_read": "Full-text HTML §4 and Appendix F, in particular Eq. (98), Appendix E discussion",
+        "method": "Read exact equations and asymptotic hypothesis; check whether uniform finite-R frontier is stated",
+        "title": "How Does Orthogonalization Adapt to the Neural Network Hessian Structure? A Gradient Self Outer-Product Analysis at Initialization",
+        "trigger": "Explicit Appendix F discussing equivalence between polar and row normalization"
+      },
+      {
+        "assessment": "Provides both underlying norm-ball oracles, not their exact worst-case relative efficiency at a specified off-diagonal Gram ratio or its equicorrelation sharp witnesses",
+        "evidence": [
+          "§3.1 Table 2 explicitly gives different row-normalized and polar spectral oracle formulas",
+          "§5 studies method convergence, not the constrained Gram ratio extremal problem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.07529",
+        "material_read": "Primary full-text HTML: Tables 1–2, §3.1 choice of norms and §5 convergence assumptions",
+        "method": "Compare row and spectral linear minimization oracles and quantified optimization domain",
+        "title": "Training Deep Learning Models with Norm-Constrained LMOs",
+        "trigger": "Broad framework could imply a stronger cross-norm LMO comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98e805bb-9182-48c9-9975-27eb1b6e6588",
+  "value": {
+    "rationale": "The motivating numerical optimizer actually reports the minimum diagonal-to-mean-off-diagonal Gram ratio and treats large values as favorable; the exact minimax shows that the correct dimension-scaled diagnostic is R/m, not simply R>1 or even R diverging. It supplies sharp phase transitions and attainable worst-case matrices for spectral-budget calibration. This is a concrete design/interpretation criterion, not an arbitrary finite slice, and no optimizer convergence theorem is inferred.",
+    "status": "PASS"
+  }
+}
