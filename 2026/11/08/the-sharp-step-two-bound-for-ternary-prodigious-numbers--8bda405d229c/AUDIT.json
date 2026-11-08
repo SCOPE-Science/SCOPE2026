@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For any base-3 digit product \\(p_3(n)=2^{t(n)}\\), odd prodigious n requires \\(t(n)=0\\), so \\(n\\pmod9\\) belongs to \\(\\{0,1,3,4\\}\\), which has no three-member difference-two run. For even n, CRT of \\(n\\equiv2\\pmod4\\) and the seven three-digit ternary suffix patterns with >=2 digit-2s gives \\(F=\\{26,50,62,74,78,98,106\\}\\pmod{108}\\). The forbidden positions in a 54-position even residue cycle are \\(\\{13,25,31,37,39,49,53\\}\\); successive circular gaps 12,6,6,2,10,4,14 force every 14-term even progression to hit F. The 13 terms \\(108+2j\\ (0\\le j<13)\\) have products [1,2,1,2,4,1,1,2,2,2,4,2,4] dividing each term. Adding \\(4\\cdot3^K\\ (K\\ge5)\\) prepends ternary digits 11 without changing products, and preserves divisibility by products dividing 4; infinitely many witnesses. check_prodigious.py reproduces exact complete residue cycles and finite witnesses; finite search is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf#page=3",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf#page=4",
+        "https://arxiv.org/html/1809.05463v1"
+      ],
+      "reasoning": "Theorem 3 of Gohn et al. excludes d=2 since 2 does not divide b=3, and Theorem 5 excludes odd b=3. Corollary 4 covers d=1 only. Its section 3 concerns maximal consecutive runs and thus cannot imply a d=2 extremum. Sanna estimates cardinalities over all integers and supplies no maximal difference-two classification.",
+      "searches": [
+        "Arithmetic Progressions of b-Prodigious Numbers theorem general base difference d maximum length",
+        "\"b-prodigious\" \"d\" not dividing base upper bound",
+        "On numbers divisible by product of nonzero base b digits progression maxima"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf",
+      "https://arxiv.org/html/1809.05463v1",
+      "https://arxiv.org/abs/1809.05463",
+      "https://oeis.org/A055471"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf#page=3",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf#page=4",
+        "https://arxiv.org/html/1809.05463v1",
+        "https://oeis.org/A055471"
+      ],
+      "reasoning": "The exact infinite-bound claim universally quantifies over positive starts a for (b,d)=(3,2) and includes infinite sharp witnesses. Gohn et al. is a different parameter domain (d|b or even b half-base) and its base-3 five-consecutive result is neither stronger nor overlapping at step two. Sanna concerns global density, not a universal short-window obstruction. No stronger prior result identified; this does not claim search exhaustion.",
+      "searches": [
+        "Gohn Harrington Lebiere Samamah Shappell Wong 2022 Theorem 3 Theorem 5 d divides b",
+        "Sanna 2018 nonzero base b digit product positive integer asymptotics",
+        "\"3-prodigious\" \"2-AP\" maximum length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gohn et al., JIS 25 (2022), Article 22.8.7, section 2: product-of-nonzero-digits definition and parameter-restricted d-AP theorems",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf",
+        "Sanna arXiv:1809.05463v1, abstract and main counting results",
+        "https://arxiv.org/html/1809.05463v1"
+      ],
+      "reasoning": "Alternate keywords included nonzero-digit-product divisibility, 3-prodigious, 2-AP, ternary, and the exact 108–132 witness. The reviewed primary theorems and returned search records do not state a maximum of 13 for positive ternary prodigious numbers at difference 2; the search cannot establish global uniqueness.",
+      "searches": [
+        "\"prodigious numbers\" \"base 3\" \"difference 2\" progression",
+        "\"3-prodigious\" \"2-AP\" maximum length",
+        "\"product of its nonzero ternary digits\" arithmetic progression",
+        "\"prodigious\" \"ternary\" \"108\" \"132\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A055471",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf#page=10"
+      ],
+      "reasoning": "OEIS A055471 indexes decimal prodigious numbers and the paper cross-references it as such. It is not an exact table of base-3 step-two maximal progression lengths; no table identifying the value 13 was located in the targeted searches.",
+      "searches": [
+        "OEIS A055471 prodigious numbers base three progression difference two",
+        "\"prodigious\" \"ternary\" \"108\" \"132\"",
+        "prodigious ternary maximum length 13 arithmetic progression"
+      ]
+    },
+    "rationale": "Full primary comparison with Gohn et al. 2022 identifies an uncovered first non-divisor step in the smallest nonbinary base: their Theorem 3 requires \\(d\\mid b\\) with \\(d<b/2\\), and their Theorem 5 requires even b with \\(d=b/2\\); \\((b,d)=(3,2)\\) satisfies neither. Their d=1 maximum of 5 does not imply this \\(d=2\\) maximum 13. Sanna 2018 treats growth of counting functions, not progression extrema, and OEIS A055471 indexes decimal rather than this ternary invariant. Targeted statement and exact witness searches produced no equivalent. Independent novelty is unproved, and unindexed equivalent work remains a residual risk.",
+    "residual_risks": [
+      "Unindexed or recent equivalent theorem could exist beyond targeted literature searches.",
+      "The compared primary results do not certify novelty; independent scientific audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: stated exact d-AP results exclude b=3,d=2; d=1 case only gives five consecutive integers",
+        "evidence": "Theorem 3: d|b and d<b/2; Theorem 5: b even, d=b/2; footer MSC 11A63 and publication October 25, 2022.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf",
+        "material_read": "Full ten-page primary PDF, including definitions, Lemmas 1–2, Theorems 3 and 5, Corollary 4, section 3 and conclusion, publication footer",
+        "method": "Read PDF text and inspected rendered page images including pages 3, 4 and 10; compared hypothesis and conclusion scopes",
+        "title": "Arithmetic Progressions of b-Prodigious Numbers",
+        "trigger": "Same object and progression-length problem"
+      },
+      {
+        "assessment": "NOT_COVERING: counts all digit-product-divisible integers asymptotically, not maximal step-two progression lengths",
+        "evidence": "arXiv:1809.05463v1, submitted September 14, 2018; counting-function bounds in base b.",
+        "identifier_or_url": "https://arxiv.org/html/1809.05463v1",
+        "material_read": "Open arXiv HTML article including hypotheses, counting statements and proof sections",
+        "method": "Read primary open HTML text and compared theorems to fixed-step maximal progression assertion",
+        "title": "On numbers divisible by the product of their nonzero base b digits",
+        "trigger": "Possible broader theorem governing prodigious sets in arbitrary radix"
+      },
+      {
+        "assessment": "NOT_COVERING: ordinary decimal digit-product sequence, not a table of maximal ternary 2-APs",
+        "evidence": "Gohn et al. introduction and footer concerned-with sequence A055471.",
+        "identifier_or_url": "https://oeis.org/A055471",
+        "material_read": "Sequence identification, definitions, and cross-reference in Gohn et al. article",
+        "method": "Compared recorded radix and invariant to the ternary fixed-step maximum",
+        "title": "OEIS A055471",
+        "trigger": "Potential exact database of previously known examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8bda405d-229c-44e2-a2c2-27366c8ab01c",
+  "value": {
+    "rationale": "Exact sharp first missing step (\\(d=2\\) not dividing \\(b=3\\)) for a natural family explicitly studied in JIS 2022: the established \\((b,d)=(3,1)\\) maximum is 5, whereas the new precise \\((b,d)=(3,2)\\) maximum is 13. The result gives a universal congruence obstruction and infinitely many extremizers, forming a substantive boundary case for study of fixed-step digit-product divisibility, not a routine application of the \\(d\\mid b\\) classification.",
+    "status": "PASS"
+  }
+}
