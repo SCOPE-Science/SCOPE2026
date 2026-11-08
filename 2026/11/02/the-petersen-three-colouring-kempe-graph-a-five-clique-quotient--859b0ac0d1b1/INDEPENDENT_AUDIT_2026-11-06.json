@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:49:09.937454Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Petersen is KG(5,2). Any independent set of size 4 is a unique complete star; a 3-colouring of 10 vertices must have such a 4-class, and the leftover six vertices induce 3K2, whose 3+3 classes are a three-star (centre t≠c) and the complementary triangle. This yields exactly 5×4×3!=120 named states (c,t;A,B,C), with no missing assignments. Analyzing each pair of colour classes: BC has three isolated two-vertex components (3 moves), AB has a singleton and a connected six-cycle (2 moves), AC connected (1 move), giving six exact neighbor transformations and quotient adjacency. Independent enumeration over all 3^10=59049 color assignments reconstructed the legal Kempe components directly; it found 120 states, 360 edges, all six-regular, shortest-path shells (1,6,25,61,27), radius/diameter 4, and 60 one-site-recoloring edges. The transitive action of permutations of 5 ground labels and named colours transfers the representative distance census to all states. Entire finite case is exhaustively classified rather than extrapolated to all cubic graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of arXiv:1503.03430 establishes connectivity of Kempe-equivalence class for every cubic G except K4 and 3-prism, including Petersen, but not its exact move graph or diameter. Other works address general complexity or different single-site adjacency."
+        ],
+        "reasoning": "Strong general connectivity covers only one conclusion, not the 120-state presentation, quotient metric or distance distribution.",
+        "searches": [
+          "Feghali Johnson Paulusma arXiv:1503.03430 Theorem 1",
+          "Bonamy et al STACS 2020 shortest reconfiguration under Kempe changes",
+          "Cereceda et al 2011 finding paths between 3-colorings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 8772927a5d8390fb30f721ece231b8b92bdc5c8c",
+        "Frozen verify_direct.py SHA 1fcd4872bc3c77f4b5891e1718fdd35e8f8e69a6 and verify_state_model.py SHA e83592883eccb3f711051219c875729083e79f4d",
+        "Independent checks CASE5_OK",
+        "Feghali–Johnson–Paulusma arXiv:1503.03430",
+        "Peter Cameron 2012 Counting colourings of graphs",
+        "A. E. Brouwer The Petersen graph",
+        "Resultary Petersen Kempe reconfiguration query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Connectivity of an unspecified graph on 120 colorings gives no diameter bound nor degree six, nor single-site 60K2. The explicit Kempe-component move analysis supplies these properties."
+        ],
+        "reasoning": "Known state counts and connectivity are acknowledged as covered; the precise adjacency/metric theorem is not a formal consequence without additional work.",
+        "searches": [
+          "Feghali et al arXiv:1503.03430 Theorem 1",
+          "Cameron 2012 colorings blog post",
+          "Brouwer Petersen graph page"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The colour-renaming quotient corresponds to the 20 three-partitions/ordered pairs of ground symbols; Kempe changes act on two-color components rather than recoloring one graph vertex."
+        ],
+        "reasoning": "Equivalent reconfiguration graph descriptions must preserve named-colour states and a single-component Kempe move. Prior chromatic polynomial and unlabeled partitions do not fix this graph adjacency.",
+        "searches": [
+          "Resultary: Petersen graph proper three coloring Kempe swap graph diameter 4 five clique quotient",
+          "Cameron Counting colourings of graphs 2012",
+          "Brouwer The Petersen graph",
+          "Feghali Johnson Paulusma arXiv:1503.03430"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing chromatic count 120/20 is numerical data about states, not Kempe edges or distances; independently verified 360 edges and shells do not appear in named count table."
+        ],
+        "reasoning": "The new exact metric and quotient are distinguished from previously tabulated coloring counts; an old specialized reconfiguration table remains risk.",
+        "searches": [
+          "Cameron 2012 Petersen chromatic polynomial 120 named /20 unnamed",
+          "Brouwer Petersen twenty partitions",
+          "Resultary Petersen Kempe diameter query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for full six-move model, exact quotient and metric, and single-vertex contrast. The chromatic counts 120/20 and cubic-graph Kempe connectivity are known prior facts, not novel. No checked literature supplies exact all-state distance shells or five K4 reconfiguration quotient.",
+      "residual_risks": [
+        "A historical Petersen-graph compendium or unindexed coloring reconfiguration calculation could explicitly determine the same quotient and shells.",
+        "The theorem treats exactly 3 named colors on the ordinary Petersen graph, not all cubic graphs or alternative multi-component swaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general connectivity, not exact Petersen 120-state graph, quotient or distance shells.",
+          "evidence": [
+            "Theorem 1: cubic graphs except K4 and triangular prism have one three-colouring Kempe class"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03430",
+          "material_read": "Accessible full 13-page mathematical preprint including Theorem 1, proof framework and definition of Kempe-change components; rendered page 2 inspected",
+          "method": "Full arXiv PDF text and page image",
+          "title": "Kempe Equivalence of Colourings of Cubic Graphs",
+          "trigger": "The closest general Kempe-equivalence theorem containing Petersen as a special case"
+        },
+        {
+          "assessment": "Covers numerical proper coloring counts, not the six Kempe moves/distance distribution.",
+          "evidence": [
+            "Peter Cameron, 12 April 2012"
+          ],
+          "identifier_or_url": "https://cameroncounts.wordpress.com/2012/04/12/counting-colourings-of-graphs/",
+          "material_read": "Public article text discussing Petersen chromatic polynomial and 120/20 colorings",
+          "method": "full accessible web article",
+          "title": "Counting colourings of graphs",
+          "trigger": "Same finite Petersen three-colouring counts"
+        },
+        {
+          "assessment": "Could overlap partition encodings, but exact named Kempe reconfiguration metric was not identified.",
+          "evidence": [
+            "A. E. Brouwer Petersen reference"
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Petersen.html",
+          "material_read": "Accessible reference text on Petersen representation and twenty partitions",
+          "method": "public web reference",
+          "title": "The Petersen graph",
+          "trigger": "Canonical graph 20 three-colour partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact finite structure of Kempe reconfiguration at the chromatic threshold of a canonical cubic graph: five-K4 quotient, diameter four, transitive all-state shell census, and disconnected elementary recoloring contrast. A natural benchmark for differences between two standard reconfiguration moves, not just state-count trivia.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 8772927a5d8390fb30f721ece231b8b92bdc5c8c",
+    "Frozen verify_direct.py SHA 1fcd4872bc3c77f4b5891e1718fdd35e8f8e69a6 and verify_state_model.py SHA e83592883eccb3f711051219c875729083e79f4d",
+    "Independent checks CASE5_OK",
+    "Feghali–Johnson–Paulusma arXiv:1503.03430",
+    "Peter Cameron 2012 Counting colourings of graphs",
+    "A. E. Brouwer The Petersen graph",
+    "Resultary Petersen Kempe reconfiguration query"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A historical Petersen-graph compendium or unindexed coloring reconfiguration calculation could explicitly determine the same quotient and shells.",
+    "The theorem treats exactly 3 named colors on the ordinary Petersen graph, not all cubic graphs or alternative multi-component swaps."
+  ],
+  "schema_version": 1
+}

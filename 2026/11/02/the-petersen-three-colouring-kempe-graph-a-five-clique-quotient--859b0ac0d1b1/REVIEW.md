@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-star class is forced in every proper named three-colouring of the Petersen graph; classifying the residual three independent disjoint-edge pairs gives precisely the \((c,t;A,B,C)\) states. Direct analysis of the three pairs of colour classes yields exactly six distinct Kempe moves, so the model is a proof of complete adjacency. An explicitly presented seven-row breadth-first distance certificate, corroborated by two executable independent representations, gives identical distance shells from every vertex by transitivity. The one-site-only move is the isolated vertex of the \(A,B\)-Kempe subgraph. Both verification programs were executed successfully on their actual contents. Risk: no independent scholarly audit.
+## correctness
 
-**Originality — PASS, with a historical-priority caveat.** Cameron (2012) records 120 named proper Petersen three-colourings and 20 colour-unlabelled partitions; Brouwer gives the five-star partition description. Feghali–Johnson–Paulusma (2015/2017) prove connectivity for all nonexceptional cubic graphs, covering Petersen connectivity. The proposed exact six-rule adjacency, four-clique expansion over the \(K_5\) source graph, full 120-state distance shells, and single-site-versus-Kempe contrast are not consequences of those counts or connectivity statements, and were not found in the inspected sources or targeted mathematical-record queries. Scope of comparison includes single-site reconfiguration results, which use a different move notion. Risk: an unindexed article or the historical Petersen-graph book might explicitly compute the same graph.
+PASS
 
-**Value — PASS.** The object is the chromatic-threshold solution space of a canonical cubic graph, and the standard Kempe move is the natural operation. The exact quotient and self-centered diameter-four geometry give more than routine counts; the startling change from sixty disconnected single-site pairs to one short-diameter Kempe component exhibits a mathematically substantive boundary between two established reconfiguration notions. This is an exact self-contained structural classification and a reproducible benchmark, without a claim of broad generalization.
+Petersen is KG(5,2). Any independent set of size 4 is a unique complete star; a 3-colouring of 10 vertices must have such a 4-class, and the leftover six vertices induce 3K2, whose 3+3 classes are a three-star (centre t≠c) and the complementary triangle. This yields exactly 5×4×3!=120 named states (c,t;A,B,C), with no missing assignments. Analyzing each pair of colour classes: BC has three isolated two-vertex components (3 moves), AB has a singleton and a connected six-cycle (2 moves), AC connected (1 move), giving six exact neighbor transformations and quotient adjacency. Independent enumeration over all 3^10=59049 color assignments reconstructed the legal Kempe components directly; it found 120 states, 360 edges, all six-regular, shortest-path shells (1,6,25,61,27), radius/diameter 4, and 60 one-site-recoloring edges. The transitive action of permutations of 5 ground labels and named colours transfers the representative distance census to all states. Entire finite case is exhaustively classified rather than extrapolated to all cubic graphs.
 
-Closest literature: Peter Cameron, *Counting colourings of graphs* (2012); A. E. Brouwer, *The Petersen graph*; Feghali, Johnson and Paulusma, *Kempe Equivalence of Colourings of Cubic Graphs* (arXiv:1503.03430); Cereceda, van den Heuvel and Johnson, *Finding Paths Between 3-Colorings* (2011); Bonamy and collaborators, *Shortest Reconfiguration of Colorings Under Kempe Changes* (2020). The prior 120/20 counts and cubic-graph connectivity are expressly not original findings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for full six-move model, exact quotient and metric, and single-vertex contrast. The chromatic counts 120/20 and cubic-graph Kempe connectivity are known prior facts, not novel. No checked literature supplies exact all-state distance shells or five K4 reconfiguration quotient.
+
+## value
+
+PASS
+
+Exact finite structure of Kempe reconfiguration at the chromatic threshold of a canonical cubic graph: five-K4 quotient, diameter four, transitive all-state shell census, and disconnected elementary recoloring contrast. A natural benchmark for differences between two standard reconfiguration moves, not just state-count trivia.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

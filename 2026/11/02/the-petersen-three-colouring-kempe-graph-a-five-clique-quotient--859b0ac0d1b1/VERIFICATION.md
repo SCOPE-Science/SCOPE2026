@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-Two source-independent constructions of the Petersen colouring graph were tested.
+# Independent mathematical audit
 
-Run `python verify_direct.py` and `python verify_state_model.py` using Python 3. They require no nonstandard modules. The first enumerates all \(3^{10}=59049\) raw named assignments and derives the legal Kempe moves from connected components in the ten-vertex Petersen graph. The second enumerates the \(5\cdot4\cdot3!=120\) colour-partition encodings, constructs transitions symbolically, and checks each transition against connected-component switching.
+## correctness
 
-Observed output from the source files included in this package:
+PASS
 
-```
-DIRECT_PETERSEN_KEMPE_PASS
-colorings=120 moves=360 degree=6 quotient_vertices=20 quotient_edges=40
-shells_per_coloring=(1,6,25,61,27) radius=4 diameter=4
-unordered_distance_distribution=(360,1500,3660,1620)
-one_vertex_recoloring_graph=60K2
-EXPLICIT_STATE_MODEL_PASS
-states=120 oriented_pairs=20 quotient_edges=40 each_state_six_moves=TRUE
-base_shells=(1,6,25,61,27) radius=4 diameter=4
-```
+Petersen is KG(5,2). Any independent set of size 4 is a unique complete star; a 3-colouring of 10 vertices must have such a 4-class, and the leftover six vertices induce 3K2, whose 3+3 classes are a three-star (centre t≠c) and the complementary triangle. This yields exactly 5×4×3!=120 named states (c,t;A,B,C), with no missing assignments. Analyzing each pair of colour classes: BC has three isolated two-vertex components (3 moves), AB has a singleton and a connected six-cycle (2 moves), AC connected (1 move), giving six exact neighbor transformations and quotient adjacency. Independent enumeration over all 3^10=59049 color assignments reconstructed the legal Kempe components directly; it found 120 states, 360 edges, all six-regular, shortest-path shells (1,6,25,61,27), radius/diameter 4, and 60 one-site-recoloring edges. The transitive action of permutations of 5 ground labels and named colours transfers the representative distance census to all states. Entire finite case is exhaustively classified rather than extrapolated to all cubic graphs.
 
-The direct and symbolic programs exhaust their stated finite state spaces. The theorem also includes an explicit classification proof of every state and Kempe component; the computations do not extrapolate beyond a finite case. The classification has not undergone a separate independent scholarly audit, and exhaustive priority checking of inaccessible historical literature is not asserted.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full six-move model, exact quotient and metric, and single-vertex contrast. The chromatic counts 120/20 and cubic-graph Kempe connectivity are known prior facts, not novel. No checked literature supplies exact all-state distance shells or five K4 reconfiguration quotient.
+
+## value
+
+PASS
+
+Exact finite structure of Kempe reconfiguration at the chromatic threshold of a canonical cubic graph: five-K4 quotient, diameter four, transitive all-state shell census, and disconnected elementary recoloring contrast. A natural benchmark for differences between two standard reconfiguration moves, not just state-count trivia.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
