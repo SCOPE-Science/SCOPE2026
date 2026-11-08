@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T00:10:23.024084Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nondegenerate tetrahedron, affine reduction S=conv(0,e1,e2,e3) is legitimate. Its four barycentric directional derivatives sum to zero. Independently reconstructed the orthant formula vol(aS+b(−S))=(a³+9a²b+9ab²+b³)/6 and the 14 facet projection contributions, which combine into G_v(a,b)=T(a²+b²)/2+Hab. Segment extrusion slices give vol K=(1+3tT)/6 and vol(K−K)=10/3+2t(T+H), hence ratio=(20+4q(1+H/T))/(1+q), q=3tT. The zero-sum quadruple sign patterns give T≤H≤2T; equal balanced pair ±s gives lower endpoint, one-versus-three gives upper, continuous w=(1,1,−u,−(2−u)) realizes every intermediate ratio. Three-dimensional mixed-volume expansion gives vol(K−K)=2vol K+6V(K,K,−K). An independent script formed hulls of 150 random tetrahedral extrusions and all pairwise vertex differences; volume ratios agreed with the closed form to 1.1e−14. Equality cases include zero-coordinate boundaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fryš–Kotrbatý–Mouamine–Wang arXiv:2610.06806 main Godbersen inequality/equality for all convex bodies; Friedland–Putterman–Szusterman arXiv:2610.04527 global equality cases."
+        ],
+        "reasoning": "Universal normalized upper bound 3 or difference-body upper 20, and equality characterization at simplex, supply no fixed positive q lower bound, sharp directional loss, or all intermediate attainable ratios.",
+        "searches": [
+          "Rogers Shephard difference body all convex bodies Godbersen equality 2610.06806 2610.04527",
+          "strong stability estimates near simplex Minkowski asymmetry 2607.27041"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md tree 9dfcca03eea6656cec6db7e44721a8b69156f3da",
+        "verify.py blob 885d776beb7f0beb808ed8a14069e9567e0de7ee",
+        "arXiv:2610.06806",
+        "arXiv:2610.04527",
+        "arXiv:2607.27041 (abstract scope)",
+        "Resultary:2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current global inequalities only give ratio≤20 and mixed-volume≤3, weaker than the q-dependent upper end for q>0. The ratio lower bound requires exact projection facet contributions."
+        ],
+        "reasoning": "Neither the all-body inequality nor nearby Banach–Mazur stability is a statement that quantitatively implies both sharp fixed-q endpoints and the full spectrum.",
+        "searches": [
+          "Godbersen near simplex tetrahedral segment extrusion fixed relative volume q equality loss",
+          "projection functional simplex plus segment difference body"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "vol(K−K)=2vol(K)+6V3(K,K,−K), so the complete Rogers–Shephard ratio interval and normalized Godbersen interval are equivalent here."
+        ],
+        "reasoning": "Treating the mixed volume and difference-body formulations as one claim avoids a false novelty claim for the classical mixed-volume identity.",
+        "searches": [
+          "tetrahedron plus segment Minkowski sum Rogers Shephard difference body directional spectrum Godbersen",
+          "tetrahedron segment extrusion mixed volume difference body projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949, one-vertex cap truncation rather than segment Minkowski extrusion."
+        ],
+        "reasoning": "No identical tetrahedral segment-extrusion directional table appeared; the closest record is a geometrically different perturbation and its formula cannot be directly specialized.",
+        "searches": [
+          "Resultary: tetrahedron plus segment Minkowski sum Rogers Shephard difference body mixed volume directional spectrum Godbersen"
+        ]
+      },
+      "rationale": "The global Rogers–Shephard and Godbersen inequalities and sharp simplex equality cases do not determine the complete fixed-q, direction-sensitive spectrum of a simplex plus segment. The 2026 simplex-cap truncation profile changes K by removing a cap, not by Minkowski sum with [0,v]. Closest current Godbersen papers were read at their main results, but older polytope mixed-volume facet formulas could contain an equivalent parameterization.",
+      "residual_risks": [
+        "Older facet-based polyhedral geometry might encode the same H/T orientation spectrum without using Rogers–Shephard terminology.",
+        "Independent floating hull calculations support but do not replace exact facet and zero-sum arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING complete positive fixed-q tetrahedral extrusion ratios.",
+          "evidence": [
+            "A global upper mixed-volume inequality with simplex equality is not a two-sided directional perturbation spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06806",
+          "material_read": "Full arXiv HTML article, abstract and main Godbersen theorem, simplex equality/face lattice treatment.",
+          "method": "Read arXiv HTML full text and searched within paper by scientific concepts/theorem statements",
+          "title": "Higher-Order Godbersen Inequality and a characterization of simplices via the face lattice",
+          "trigger": "Potential stronger theorem for all convex bodies, with equality case."
+        },
+        {
+          "assessment": "No fixed-volume orientation parameter or exact range in the examined results.",
+          "evidence": [
+            "Strictness away from simplex does not give exact q-dependent infimum and supremum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04527",
+          "material_read": "arXiv theorem/abstract and principal global equality classification examined.",
+          "method": "Read arXiv HTML full text and searched within paper by scientific concepts/theorem statements",
+          "title": "The equality case in Godbersen’s inequality and its generalizations",
+          "trigger": "Could determine strict inequality after simplex perturbation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The directional spectrum is a natural sharp two-sided classification of a canonical first non-simplex Minkowski perturbation, at fixed affine-invariant volume increase. The balanced-edge midpoint minimum and one-versus-three maximum are genuine geometric information beyond a universal upper bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md tree 9dfcca03eea6656cec6db7e44721a8b69156f3da",
+    "verify.py blob 885d776beb7f0beb808ed8a14069e9567e0de7ee",
+    "arXiv:2610.06806",
+    "arXiv:2610.04527",
+    "arXiv:2607.27041 (abstract scope)",
+    "Resultary:2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only tetrahedron + one segment in R³ with positive q; not arbitrary convex body or several segments.",
+    "Older facet-based polyhedral geometry might encode the same H/T orientation spectrum without using Rogers–Shephard terminology.",
+    "Independent floating hull calculations support but do not replace exact facet and zero-sum arguments.",
+    "No claim of exhaustive external certification or priority.",
+    "Unchanged source package contains operational provenance; publication not ready."
+  ],
+  "schema_version": 1
+}
