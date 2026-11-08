@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run all three Python-standard-library programs alongside this document:
+## correctness
 
-```
-python verify_matrix.py
-python verify_orbits.py
-python verify_polynomial.py
-```
+PASS
 
-All program outputs for this reviewed submission appear in `verification_output.txt`. The matrix program tests grid lengths \(7\), \(15\), and \(31\) using actual binary adjacency rows, tests exact corner moments, null-feedback extinction, eventual rank, and fixed-point dimensions. The orbit program constructs an independent site-by-site update routine, isolates the full seven-dimensional recurrent subspace on the \(3\times7\) example, and checks all \(127\) nonzero states return for the first time at step \(127\). The polynomial program supplies complete finite-field Rabin tests for degrees \(7\) and \(31\), and verifies the two Mersenne primality assertions by complete trial division.
+Derive path continuants f_{2k+1}=zf_k² and f_{2k}=f_k²+f_{k−1}² in characteristic two. Since T_3 and T_{2^b−1} are nilpotent, the Kronecker-sum grid A is nilpotent. Return moments from the corner resolvent and binomial mod2 reduce to t=0 and t=2^j−2 (j=3..b). Applying determinant lemma to B=A+eeT yields det(zI−B)=z^{2n}p_b(z); p_b(0)=1 and p_b′(z)=z^{n−1}, so p_b is squarefree. Fitting splitting gives q^n recurrent points and q^{deg gcd(p_b,z^t−1)} fixed under B^t. For b=3,5 exact irreducibility checks, plus primality of 2^7−1 and 2^31−1, imply one nonzero primitive binary cycle. Independently reconstructed binary polynomials p_3=0xc1,p_4=0xc101,p_5=0xc1010001 and verified GF(2) irreducibility for degrees7 and31; inspected all three independent source verifiers and logged outcomes. This does not claim maximal cycles for all b.
 
-These computations do not enumerate all \(2^{93}\) grid states or simulate a \(2^{31}-1\)-step orbit. Those universal conclusions follow from the exact determinant, Fitting-decomposition and irreducibility arguments in `RESULT.md`, together with the finite arithmetic certificates. No external independent audit is represented.
+## originality
+
+PASS
+
+Known additive-CA algebra, homogeneous multidimensional rules and hybrid 2D reversibility give background techniques, not an identified all-b characteristic polynomial and its exact one-corner recurrent census for 3×(2^b−1). The maximal b=3,5 cycle fact is more specific than generic reversibility.
+
+## value
+
+PASS
+
+An unusually small local modification changes a nilpotent global cellular-automaton map into one with q^n recurrent states; 93 binary cells support a primitive cycle of length 2^31−1. The general all-b exact periodic census is a structural finite-field invariant, with clear boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

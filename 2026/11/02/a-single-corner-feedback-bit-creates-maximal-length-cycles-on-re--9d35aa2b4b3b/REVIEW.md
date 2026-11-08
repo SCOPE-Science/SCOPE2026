@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed characteristic polynomial follows from an explicit path continuant, the binary tensor binomial theorem, a complete list of corner-return moments, and the matrix determinant lemma. The unperturbed operator is nilpotent by Frobenius, and the polynomial's unit factor is squarefree because its derivative is a pure monomial coprime to its nonzero constant term. The Fitting decomposition therefore provides exactly the claimed dimension of recurrent configurations and the fixed-iterate gcd formula over every finite characteristic-two field. The two Mersenne-prime special cases have separate exact irreducibility and arithmetic certificates, checked by an executable standalone verifier; a direct grid simulator checks the small cycle. Finite tests are corroboration, not substitutes for the proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Derive path continuants f_{2k+1}=zf_k² and f_{2k}=f_k²+f_{k−1}² in characteristic two. Since T_3 and T_{2^b−1} are nilpotent, the Kronecker-sum grid A is nilpotent. Return moments from the corner resolvent and binomial mod2 reduce to t=0 and t=2^j−2 (j=3..b). Applying determinant lemma to B=A+eeT yields det(zI−B)=z^{2n}p_b(z); p_b(0)=1 and p_b′(z)=z^{n−1}, so p_b is squarefree. Fitting splitting gives q^n recurrent points and q^{deg gcd(p_b,z^t−1)} fixed under B^t. For b=3,5 exact irreducibility checks, plus primality of 2^7−1 and 2^31−1, imply one nonzero primitive binary cycle. Independently reconstructed binary polynomials p_3=0xc1,p_4=0xc101,p_5=0xc1010001 and verified GF(2) irreducibility for degrees7 and31; inspected all three independent source verifiers and logged outcomes. This does not claim maximal cycles for all b.
 
-Martin–Odlyzko–Wolfram (1984), Sections 4D and 4F, analyzes additive multidimensional and boundary-controlled automata but gives general polynomial techniques, not the present single-corner calculation for a null-boundary Mersenne rectangle. Ciandrini et al. (arXiv:0809.1526, Section II) analyzes directed random Boolean XOR networks and does not supply this rectangular characteristic polynomial. Temiz–Sah–Akın (2019), Sections 3–5, gives rule matrices and reversibility/rank conditions for two other hybrid diamond/cross families, not this characteristic and periodic-basin census. A related prior result for **square** grids with one corner feedback bit has only a one-dimensional periodic subspace, and its parameters do not include the present proper rectangles. The new formula is not a wording variant of these results. The computationally motivated primitive length \(2^{31}-1\) remains subject to unindexed equivalence risk and an inaccessible more recent paper on permutation XOR automata with different connections.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single altered update bit on a natural zero-boundary grid converts universal finite-time extinction into a growing, explicitly counted invertible recurrent sector. On a 93-site rectangle it produces one period-\(2147483647\) orbit that attracts a fraction \(1-2^{-31}\) of all initial binary states, a sharp and nontrivial distinction from the unmodified dynamics. The result gives a structural all-parameter polynomial formula, not just a finite example or a minor numeric improvement.
+Known additive-CA algebra, homogeneous multidimensional rules and hybrid 2D reversibility give background techniques, not an identified all-b characteristic polynomial and its exact one-corner recurrent census for 3×(2^b−1). The maximal b=3,5 cycle fact is more specific than generic reversibility.
 
-## Scope and limitations
+## value
 
-Only rectangles of width three and lengths \(2^b-1\), \(b\ge3\), are classified; finite characteristic-two fields are allowed. The two maximal-length polynomial cases are \(b=3\) and \(b=5\), not all \(b\). No complete nonperiodic transient-time census is asserted, and no external independent audit has been undertaken. The existing square-grid formula is prior work, not part of the new claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An unusually small local modification changes a nilpotent global cellular-automaton map into one with q^n recurrent states; 93 binary cells support a primitive cycle of length 2^31−1. The general all-b exact periodic census is a structural finite-field invariant, with clear boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
