@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "All unary operators are discrete one-Lipschitz maps by nonexpansive closure and finite McShane representation. An idempotent map fixes precisely an interval image, yielding independent left and right bounded lazy walks. Exact matrix enumeration follows. The uniform boundary eigenvector lower bound \\(q_d\\ge8/(d+2)^3\\) and spectral norm upper bound reduce the logarithm to a one-dimensional variable-width Perron optimization. The small-angle expansion gives the unique cube-root optimum and sharp coefficient; uniform polynomial errors yield width concentration. A separate increment-walk argument controls all nonexpansive maps. Exact finite brute-force and dynamic programming checks passed; their limitations are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gebhart–Schröder–Wild (arXiv:2610.32335), introduction and §3, proves uniform interpolation and sets the language, not the composition-idempotent spectrum.",
+        "Knauer–Pipattanajinda (2018), complete paper, counts all weak undirected-path endomorphisms; its count of the total class is not the idempotent subcount.",
+        "An arXiv:1810.09307 classification of regular maps does not give the count of identity-on-image retractions or a stretched-exponential asymptotic."
+      ],
+      "reasoning": "The stronger general class of all maps is counted in previous work, but knowing its cardinality neither determines the size or image law of its idempotent subclass nor the sharp subexponential deficit. Generic Perron/Motzkin results could potentially imply asymptotics after a reduction; no covering application was found, hence this remains a priority risk.",
+      "searches": [
+        "stretched exponential count of retractions of finite paths 1-Lipschitz maps fixed interval and Motzkin walks",
+        "asymptotic count idempotent weak endomorphisms undirected path n exp cube root",
+        "idempotent weak endomorphisms finite paths enumeration retractions nonexpansive maps 1-Lipschitz path",
+        "arXiv:1810.09307",
+        "arXiv:2112.13427"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.32335",
+      "arXiv:2505.09416",
+      "Knauer–Pipattanajinda, Algebra and Discrete Mathematics 26 (2018) 270–279",
+      "arXiv:1810.09307",
+      "arXiv:2112.13427",
+      "OEIS A111589",
+      "OEIS A144224",
+      "Scholarly research-index records queried for idempotent weak path endomorphisms, nonexpansive finite-chain retractions, and cubic-root image laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 fuzzy-logic syntax supports exactly the operations used in the new theorem; its main theorem concerns uniform interpolation, not counts of idempotent unary functions.",
+        "The 2018 whole-monoid count gives \\(N_m\\), not \\(I_m\\) or the image-width asymptotic; subgroup size does not follow from parent size.",
+        "A characterization of regular elements does not enumerate idempotents or give the saddle-point constant.",
+        "The directed-path polynomial count \\(n(n+1)/2\\) excludes the nonmonotone maps that are crucial for the asymptotic base 3."
+      ],
+      "reasoning": "The proposed claim does not follow as a corollary from any of these statements: it imposes composition-idempotence on the undirected one-Lipschitz maps, derives a new exact width-resolved count, optimizes variable-width strip spectral radii, and proves concentration. Standard McShane and Perron tools are used without novelty assertions.",
+      "searches": [
+        "arXiv:2610.32335 uniform interpolation §3 propositional operators",
+        "Knauer Pipattanajinda 2018 A formula for the number of weak endomorphisms on paths pp. 270–279",
+        "arXiv:1810.09307 Proposition 1.7 and §1.9",
+        "arXiv:2112.13427 Corollary 1.9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dimitrova et al. (arXiv:1810.09307), §1 defines undirected weak endomorphisms and §1.7 treats regularity, while §1.9 counts every weak endomorphism.",
+        "Fernandes–Paulista (arXiv:2112.13427), Corollary 1.9 counts idempotents of directed weak path endomorphisms by \\(n(n+1)/2\\); such maps are order-preserving and exclude nonmonotone paths.",
+        "No semantically equivalent idempotent undirected-path enumeration or cube-root image law occurred among inspected research-indexed finding statements."
+      ],
+      "reasoning": "Unary one-Lipschitz maps are exactly weak endomorphisms of an undirected path, and composition-idempotents are precisely retractions. The directed-path idempotent theorem changes the admissible step alphabet from {-1,0,1} to {0,1}, so its polynomial count does not imply the present exponential count. The undirected papers cover all maps or regularity but not a matching idempotent enumeration.",
+      "searches": [
+        "idempotent nonexpansive functions finite chains reflexive path retractions exact count",
+        "number idempotent weak endomorphisms undirected finite paths sequence 3 8 21 56 149 and asymptotic exp cube root",
+        "idempotents weak endomorphism monoid path Pn enumeration",
+        "arXiv:1810.09307"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A111589 and A144224 record idempotent ORDER-PRESERVING transformations, in contrast to these unrestricted nonmonotone weak endomorphisms.",
+        "A sequence-site hit for A055876 has a coinciding short interior subsequence but differs at the subsequent value; the present independently checked value for \\(m=6\\) is 395, not 404.",
+        "The inspected Knauer–Pipattanajinda article gives the table/formula for all weak maps rather than a separate table for these idempotents."
+      ],
+      "reasoning": "Similar first few integers and the directed/monotone idempotent sequence cannot establish exact table coverage. No located published database table matches the entire relevant sequence, but the searches are not an exhaustive database proof.",
+      "searches": [
+        "\"1, 3, 8, 21, 56, 149, 395\" idempotent maps paths",
+        "\"3, 8, 21, 56, 149\" retractions path",
+        "idempotent weak endomorphisms path number 3 8 21 56 149 395",
+        "OEIS idempotent order preserving finite chain table A111589 A144224"
+      ]
+    },
+    "rationale": "Inspected relevant full primary source and several closely related semigroup papers, searched semantically equivalent formulations and explicit numerical sequences, and compared mathematical implications. The only located idempotent path formula concerns directed, hence order-preserving, paths; the located undirected papers count all maps or study monoid regularity. Neither covers the exact idempotent undirected-walk sum, the \\(\\exp(-C m^{1/3})\\) fraction, or typical cube-root image width. Originality is a best-knowledge same-model assessment, not exhaustive priority certification.",
+    "residual_risks": [
+      "Older specialist semigroup literature may contain an equivalent idempotent count under a different name.",
+      "A pre-existing general variable-strip walk theorem could imply the saddle-point and concentration conclusions by substitution.",
+      "Historical priority has not been established by an independent expert or exhaustive database review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Source original public timestamp October 23, 2026.",
+          "Its grammar uses constants, negation, truncated subtraction and minimum, with disjunction and truncated addition definable.",
+          "Its uniform interpolation theorem does not count compositional idempotents or establish a spectral strip-width law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32335",
+        "material_read": "Full accessible arXiv text; abstract and introduction, §2 propositional semantics, §3 syntax and truth-constant shifts, discussion of uniform interpolation; in-text searches for idempotence and chain enumeration.",
+        "method": "Read online scholarly full text and matched hypothesis, connectives and claimed theorem against the proposed count.",
+        "title": "Non-Expansive Fuzzy Modal Logic Has Uniform Interpolation",
+        "trigger": "The dated recent source defines the non-expansive propositional fragment and motivates unary semantic operations."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Establishes fuzzy-logic language and reasoning complexity; no idempotent unary truth-chain enumeration was located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.09416",
+        "material_read": "Accessible arXiv text, foundational syntax/semantic material and relevant idempotence search.",
+        "method": "Full-text keyword and relevant-section inspection.",
+        "title": "Non-expansive Fuzzy ALC",
+        "trigger": "Prior source for the propositional connectives and logical significance."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Knauer–Pipattanajinda (2018) enumerates the entire weak endomorphism monoid, not the composition-idempotent subgroup of retractions."
+        ],
+        "identifier_or_url": "https://admjournal.luguniv.edu.ua/index.php/adm/article/download/349/pdf",
+        "material_read": "Entire 10-page scholarly PDF inspected, including formulas, tables, and final discussion.",
+        "method": "Opened full PDF, inspected page images and textual formulas, searched relevant terminology.",
+        "title": "A formula for the number of weak endomorphisms on paths",
+        "trigger": "Same underlying undirected path weak-endomorphism monoid."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Proposition 1.7 characterizes regular weak endomorphisms and Theorem 1.9 counts all weak endomorphisms; neither supplies idempotent counts or the cube-root limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.09307",
+        "material_read": "Open arXiv full-text HTML; Introduction and Preliminaries, Proposition 1.7 and regularity discussion, §1.9 cardinality, and relevant keyword locations.",
+        "method": "Inspected text of relevant propositions and cardinality section, with comparison of regular versus idempotent requirements.",
+        "title": "Ranks of monoids of endomorphisms of a finite undirected path",
+        "trigger": "Potentially stronger algebraic characterization of the exact same weak-endomorphism monoid."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Corollary 1.9 gives n(n+1)/2 idempotents of directed weak endomorphisms; this is a different monoid, excluding nonmonotone walks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.13427",
+        "material_read": "Open arXiv full-text HTML: introduction, definitions, idempotents subsection and Corollary 1.9.",
+        "method": "Compared the directed order-preserving step condition and exact counting statement.",
+        "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+        "trigger": "Explicit idempotent enumeration for a superficially similar path monoid."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdb6a3b6-a6ab-44c6-bc21-c808eaff1b57",
+  "value": {
+    "rationale": "The idempotents of unary truth-value maps form the natural stable projection operators for a non-expansive fuzzy propositional base. The exact formula covers every chain granularity, while the sharp stretched-exponential rarity and cube-root image law provide a structural explanation unavailable from the total-monoid count. This is a natural complete all-size classification with asymptotic mechanism, not an arbitrary isolated numerical observation.",
+    "status": "PASS"
+  }
+}

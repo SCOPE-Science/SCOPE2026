@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim identifies unary term operations with discrete one-Lipschitz maps by explicit McShane expressions in the stated propositional operators. Image intervals are pointwise fixed exactly for compositional idempotence; the disjoint two-sided bounded-walk decomposition gives the exact integer formula. Spectral upper/lower estimates, including the boundary eigenvector weight, hold uniformly in width and walk length. Optimization of the Perron penalty yields both the logarithmic stretched-exponential coefficient and concentration of image width. An independent increment encoding bounds all one-Lipschitz maps. The standalone checker verifies small chains and walks. The finite tests are not offered as infinite proofs.
+
+## Originality — PASS within the inspected literature
+Gebhart–Schröder–Wild (arXiv:2610.32335) studies uniform interpolation and specifies the propositional syntax, without enumerating composition-idempotent unary terms. Knauer–Pipattanajinda (Algebra and Discrete Mathematics 26 (2018), 270–279) enumerates all weak endomorphisms of undirected paths, not the idempotent part. Dimitrova–Fernandes–Koppitz–Quinteiro (arXiv:1810.09307) studies ranks and regularity of undirected-path transformation monoids, without the bounded-walk idempotent profile. Fernandes–Paulista (arXiv:2112.13427) counts idempotents for directed paths, where nonmonotone return steps are excluded. The present claim is the exact idempotent count coupled to the sharp cube-root entropy and typical image width; the McShane identity and general transfer-matrix method are not claimed new. Searches for non-expansive retractions, idempotent weak path endomorphisms, corresponding integer sequences, and semigroup analogues did not expose a covering result. This negative search is not a uniqueness proof.
+
+## Mathematical value — PASS
+Idempotence under composition is the natural stability law for a reusable unary truth-value projection, and the specified propositional language is current in fuzzy modal logic. The full class of finite chain resolutions is classified and counted, not a selected numerical slice. The exact counting formula enables evaluation at any granularity; the sharp \(m^{1/3}\) logarithmic scarcity and typical image-width law explain what a uniform random idempotent unary operator looks like. A relation between the semantic restriction and the reflecting-walk spectral boundary supplies the mathematical mechanism.
+
+## Closest literature and residual limitations
+All-path weak endomorphism counts (Knauer–Pipattanajinda), undirected-path monoid regularity/rank (Dimitrova et al.), and directed-path idempotents (Fernandes–Paulista) are the closest inspected comparisons. Unindexed semigroup enumeration may subsume pieces of the count or asymptotics. The result does not address modal formulae, arbitrary truth constants outside the chosen finite chain, formula-size complexity, exact asymptotic prefactors, or fluctuation laws. There is no independent mathematical or historical-priority audit.
+
+Self-review: passed. Independent audit: not yet performed.
