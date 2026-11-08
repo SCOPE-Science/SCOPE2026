@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:55:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md git blob 836fac57975136d2a046e444c0c9e65257a23a70",
+        "assigned verify_spectrum.py git blob 314bf7c036a3f58e98f66146804f5b6e1cd812b9",
+        "independent_checks_output.txt CASE3 rank and eigenvalues",
+        "Classical spherical-harmonic addition formula for S^3"
+      ],
+      "rationale": "The spherical harmonics addition formula identifies E_l E_l*=(l+1)G_l where G_l(x,y)=U_l(<x,y>) for normalized surface probability measure. Opposite roots imply a 12-dimensional parity compatible quotient, with reduced M_l=2U_l(<r_i,r_j>). The 12 root lines split into three mutually orthogonal 4-sets, giving the orthogonality graph 3K4 (spectrum 3 mult3 and -1 mult9). The signed off-diagonal matrix S=2WW^T-2I for W^TW=3I has eigenvalues 4 mult4 and -2 mult8; even-degree A=J-I-B has eigenvalues 8 mult1,-4 mult2,0 mult9. Chebyshev values w=U_l(1/2), c=U_l(0) yield exact even and odd eigenvalue tables, and their periods 6 and 4 imply M_{l+12}=M_l+24I. Exact small-degree rank defects and strict eigenvalue lower bounds at all higher degrees prove the permanent rank12 from l=11. Independently re-created all 12 root lines and matrices and checked eigenvalue/rank formulas through degree40, with exact polynomial/U_l recurrences.",
+      "residual_risks": [
+        "Finite exact checks through l=40 are corroboration; infinite full-rank theorem uses periodic Chebyshev formulas plus linear growth lower bounds.",
+        "Eigenvalue magnitudes depend on the stated normalized surface-measure convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hirao–Nozaki–Tasaka 2023 uniquely classify the D4 24-point harmonic-index design and its strength in degrees 2,4,10.",
+          "Cohn–Conway–Elkies–Kumar examine the same spherical code and its energies, not a full evaluation spectral table."
+        ],
+        "reasoning": "The known tight-design and energy theorems do not state the 1+2+9 / 4+8 Gram splittings, low-degree nonconstant defects or affine 12-step spectral recurrence.",
+        "searches": [
+          "24 cell D4 root system exact degree spherical harmonic sampling rank eigenvalues Gram spectrum",
+          "arxiv:2303.09000 Theorem 1.1 and Section 2",
+          "arxiv:math/0607447"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.09000",
+        "https://arxiv.org/pdf/2507.01358",
+        "https://arxiv.org/pdf/math/0607447",
+        "Resultary semantic search: 24 cell D4 root system exact degree spherical harmonic sampling rank eigenvalues Gram spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The harmonic-index vanishing at l=2,4,10 is prior and appears as one zero even-sector eigenvalue in the proposed spectrum.",
+          "At l=6 the proposed rank is 10, with a two-dimensional nonconstant deficit, not specified by constant-mode design vanishing."
+        ],
+        "reasoning": "The new claim strictly resolves the remaining representation sectors, all eigenvalues and l>=11 full rank; these do not follow from harmonic-strength statements alone.",
+        "searches": [
+          "24 cell D4 root system exact degree spherical harmonic sampling rank eigenvalues Gram spectrum",
+          "arxiv:2303.09000 Theorem 1.1",
+          "arxiv:2507.01358 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unit quaternions in the binary tetrahedral group realize the same 24-point spherical configuration.",
+          "Hirao–Nozaki–Tasaka 2025 calculate harmonic-index design strength; this tests the constant output functional rather than all twelve parity directions."
+        ],
+        "reasoning": "An averaged zonal coefficient or design vanishing does not determine nonconstant Gram eigenvalues/ranks; potential representation-theoretic branching may independently yield part of the claim and remains a risk.",
+        "searches": [
+          "24 cell D4 root system exact degree spherical harmonic sampling rank eigenvalues Gram spectrum",
+          "binary tetrahedral group 2T spherical harmonics full sampling rank",
+          "arxiv:2507.01358 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns D4 lattice/polytope results and Fourier sampling on different spaces, not the exact D4 root sampling operator.",
+          "2023/2025 D4 harmonic-index results list constant-mode design degrees, not the full twelve-dimensional rank table."
+        ],
+        "reasoning": "No matching exact-degree all-rank/condition-number table was found in compared sources; generic association-scheme algebra may produce it and novelty is bounded.",
+        "searches": [
+          "24 cell D4 root system exact degree spherical harmonic sampling rank eigenvalues Gram spectrum",
+          "Resultary semantic search for D4 24cell exact-degree harmonic Gram spectrum",
+          "arxiv:2507.01358 rank eigenvalue checks"
+        ]
+      },
+      "rationale": "After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. Every exact-degree harmonic evaluation Gram matrix of the D4 24-cell has explicit 2 or 3 nontrivial eigenvalue levels; the 12-dimensional parity-compatible ranks are [1,4,9,8,11,12,10,12,12,12,11] for degrees 0..10, and 12 forever from degree 11.",
+      "residual_risks": [
+        "Older binary-tetrahedral/McKay branching rules or finite association-scheme tables may entail some rank/eigenvalue formulas even without matching terminology.",
+        "Searches and inspected theorem sections cannot prove global bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_CONSTANT_MODE: tight {2,4,10}-design and uniqueness; nonconstant full evaluation eigenvalues not asserted by inspected theorem statements.",
+          "evidence": [
+            "Theorem 1.1 uniqueness of D4 root design; Theorem 1.2 shell harmonic strength."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09000",
+          "material_read": "Accessible 18-page PDF; abstract, Theorems 1.1–1.2, Section 2 definitions and inner-product set in Section 4, page 1 visually inspected.",
+          "method": "PDF text, search and visual review",
+          "title": "Spherical designs and modular forms of the D4 lattice",
+          "trigger": "Exact same root configuration and harmonic interpolation apparatus"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: averaged/constant harmonic-mode vanishing, not complete Gram eigenvalue multiplicities.",
+          "evidence": [
+            "Proof establishes T(2T)={2,4,10} union odd degrees, a one-sector statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.01358",
+          "material_read": "Accessible 22-page PDF; Theorem 1.2 and 2T generating-function proof and harmonic-strength discussion, first page visually inspected.",
+          "method": "PDF theorem/proof text and image review",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Binary tetrahedral group is equivalent to 24-cell points"
+        },
+        {
+          "assessment": "RELATED_GEOMETRY: establishes D4 spherical code and energy facts, not all-degree sampling rank spectra in material read.",
+          "evidence": [
+            "24-cell same point set, different invariant: energy and deformation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607447",
+          "material_read": "Accessible 2006 PDF introduction and root inner-product energy discussion inspected; not claimed to have read all pages.",
+          "method": "Preprint result statement comparison",
+          "title": "The D4 Root System Is Not Universally Optimal",
+          "trigger": "Original D4 24-cell code geometry and possible higher harmonic facts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "D4 24-cell exact Gram eigenvalue/rank table in RESULT.md",
+        "D4 design theory of Hirao–Nozaki–Tasaka and classical zonal harmonic addition"
+      ],
+      "rationale": "A complete exact-degree interpolation and conditioning classification for a highly symmetric 24-point spherical design is a natural harmonic-analysis invariant; the recurrent exceptional degrees and sharp eventual surjectivity are not implied by simply naming a spherical design.",
+      "residual_risks": [
+        "A representation-theoretic reinterpretation may be known elsewhere; this is not claimed to classify all 24-point designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exact checks through l=40 are corroboration; infinite full-rank theorem uses periodic Chebyshev formulas plus linear growth lower bounds.",
+    "Eigenvalue magnitudes depend on the stated normalized surface-measure convention.",
+    "Older binary-tetrahedral/McKay branching rules or finite association-scheme tables may entail some rank/eigenvalue formulas even without matching terminology.",
+    "Searches and inspected theorem sections cannot prove global bibliographic priority.",
+    "A representation-theoretic reinterpretation may be known elsewhere; this is not claimed to classify all 24-point designs."
+  ],
+  "schema_version": 1
+}
