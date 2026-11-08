@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Exact verification and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python \(3\) and no third-party packages. Its transfer-graph builder enumerates the \(17\) legal column types, \(119\) compatible ordered-pair states, and \(343\) triple-valid optimality transitions. Cyclic strongly connected components have sizes \(49\), \(2\), \(2\); the integer characteristic-polynomial computation confirms the exact factors in the proof. It independently enumerates matching and singleton states directly in the original prism graphs and verifies the closed-neighborhood sub-quorum inequality for \(n=3,4,5,6\).
+## correctness
 
-The infinite enumeration follows because valid cyclic words are in bijection with closed transfer walks and the matrix identity holds exactly; merely checking the first four graph sizes would not prove the result. The determinant-factor check is a finite exact calculation included in the source. It is **not an independent audit**. The graph-theoretic result counts only reduced optimum colorings, not optimum partitions containing a larger color class.
+PASS
 
-Expected terminal lines include:
+Subcubic representative pair lemma gives an upper bound by singleton set T and matched edges M. Statuses U,T,L,R,V on a two-row column yield 17 allowed column types; column weight counts colors once, and a weight-2 column forces weight-zero successor, proving maximum n for C_n□K_2 (n≥3). Closed local pair states with matching and singleton constraints form 119 transfer states and 343 transitions, giving a bijection to reduced optimal colorings with labelled vertices but unlabelled colors. Independently reconstructed the full integer transfer matrix: traces for n=3..12 are 16,65,151,434,1177,3225,8890,24337,66947,183638 and characteristic polynomial is x^103(x^2-1)^2 (x^5+x^4-x^3+x-1)(x^7-2x^6-3x^5+2x^4+2x^3-2x-1). The trace-log-determinant identity proves the rational generating function for all n, not by fitting finite data.
 
-```
-EXACT_119_STATE_TRANSFER_AND_CHARPOLY_OK [49, 2, 2]
-INDEPENDENT_ORIGINAL_GRAPH_COUNT_OK 3 16
-INDEPENDENT_ORIGINAL_GRAPH_COUNT_OK 4 65
-INDEPENDENT_ORIGINAL_GRAPH_COUNT_OK 5 151
-INDEPENDENT_ORIGINAL_GRAPH_COUNT_OK 6 434
-FORMAL_RATIONAL_GENERATING_FUNCTION_CHECK_OK
-VERIFY_OK
-```
+## originality
+
+PASS
+
+Ma–Sahbi–Zhang sub-quorum coloring results give a general representative-pair optimization and exact maximum for open ladders P2□Pn, not the evaluated count of all reduced optimal colorings of closed labelled circular ladders. The mere maximum n is not treated as independent novelty. Similar circular-ladder topology and prism domination enumerations concern different invariants.
+
+## value
+
+PASS
+
+The complete rational labelled enumerator refines the optimization parameter with its multiplicities, a natural enumerative invariant of a tightly constrained partial coloring family. Cyclic closure creates transfer constraints absent in open-ladder maximum results, and the exact recurrence is reusable for sampling and asymptotic study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
