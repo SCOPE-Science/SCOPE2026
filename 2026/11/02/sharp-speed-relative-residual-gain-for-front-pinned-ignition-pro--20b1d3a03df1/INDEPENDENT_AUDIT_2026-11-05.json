@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:57:41Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "SymPy derivation of Θ and root-gap derivative for q=2..8; numerical root equation at 7 orders and independent limiting root quadrature."
+      ],
+      "rationale": "The heteroclinic time derivative Θ_q'(y)=1/[y^q(1−y)] and linearized homogeneous speed G_q yield w(t)=G_q(y(t))∫_{t*}^t ε(s)ds. The left-envelope root gap D has D'(y)=y^(1−q)/[(1−y)(q−1−qy)^2]>0, with −∞/+∞ endpoint signs; hence a unique pre-pin maximizer. The right side is bounded by log[q/(q−1)]<1/(q−1)<B_q, proving global unique sharp operator norm with constant forcing. The high-order change z=q(1−y) gives a decreasing limit E(z)=exp(z)/(z−1)−∫_1^z exp(u)/u du with unique zero; bracketing traps z_q and yields the claimed universal limits. Independently differentiated the critical identities symbolically and recomputed 7 roots plus limiting z*=4.300640970392886. At finite intervals the universal B_q is attained only if y_q is included. The unweighted norm and nonlinear/discrete inverse are not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boros studies front-pinned spectral collocation and states bounded homogeneous propagators; Du 2016 treats integrated spectral conditioning for discretized methods."
+        ],
+        "reasoning": "A bounded propagator theorem neither identifies the optimal weighted operator gain nor its extremizer and asymptotics; collocation conditioning is a different norm/object.",
+        "searches": [
+          "Resultary: ignition front pinned heteroclinic orbit y'=y^q(1-y), speed weighted residual linearized Green operator norm gain unique pre-pin high order asymptotic",
+          "arxiv:2610.27864",
+          "doi:10.1137/15M1046629"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.27864",
+        "doi:10.1137/050641296",
+        "doi:10.1137/15M1046629",
+        "Resultary semantic queries Resultary: ignition front pinned heteroclinic orbit y'=y^q(1-y), speed weighted residual linearized Green operator norm gain unique pre-pin high order asymptotic ; Resultary: pinned ignition speed relative residual weighted Green operator exact norm Theta_q root z star 4.300640970392"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous propagator is the starting identity; an additional global optimization and q-scaling argument are required for the boxed B_q and z* equations."
+        ],
+        "reasoning": "Known Green representation alone does not logically supply the unique maximizer, right/left branch comparison or the universal scaled constants.",
+        "searches": [
+          "Boros arxiv:2610.27864 Prop 4.1 Theorem 4.2",
+          "Resultary: ignition front pinned heteroclinic orbit y'=y^q(1-y), speed weighted residual linearized Green operator norm gain unique pre-pin high order asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The propagator is an integrating-factor Green kernel G_q(y(t))/G_q(y(s)); with forcing r=G_q ε the exact L-infinity gain is sup G_q |t−t*|, which is a different optimization from homogeneous speed-ratio boundedness."
+        ],
+        "reasoning": "A general Volterra Green-operator formulation could be equivalent; the checked pinned-orbit source does not maximize the inhomogeneous normalized response nor determine its q-limit.",
+        "searches": [
+          "Resultary: ignition front pinned heteroclinic orbit y'=y^q(1-y), speed weighted residual linearized Green operator norm gain unique pre-pin high order asymptotic",
+          "Resultary: pinned ignition speed relative residual weighted Green operator exact norm Theta_q root z star 4.300640970392",
+          "Boros arxiv:2610.27864 Proposition 4.1 / Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The constants depend continuously on scalar root equations as q varies and are not a standard tabulated combinatorial invariant; no exact matching value/database result appeared in the targeted queries."
+        ],
+        "reasoning": "An exact table of B_q or limiting zero could cover a part of the claim, but no such covering table was found; this negative retrieval is not a novelty proof.",
+        "searches": [
+          "Resultary: pinned ignition speed relative residual weighted Green operator exact norm Theta_q root z star 4.300640970392",
+          "search: Bq ignition Green sharp limit 4.300640970392"
+        ]
+      },
+      "rationale": "The speed-ratio linear propagator for the same pinned ignition orbit is established prior work. The surviving claim optimizes its new speed-relative inhomogeneous L-infinity Green gain, proves global pre-pin uniqueness for every q, and derives a universal q-asymptotic constant; no inspected source implies these optimized quantities. Best-of-knowledge priority remains qualified.",
+      "residual_risks": [
+        "Unindexed published or unpublished Green-operator norm formulas may already optimize this exact weighting and pin.",
+        "Full text of closely related Boros paper was not independently readable; inspected technical passages cannot rule out material elsewhere.",
+        "No nonlinear, discrete collocation, or unweighted stability theorem follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers speed-ratio propagator and pin stability, not proven coverage of optimized speed-relative L-infinity response.",
+          "evidence": "Prop 4.1 and Thm 4.2; original new result cites this mechanism.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27864",
+          "material_read": "Search-indexed Proposition 4.1 and Theorem 4.2 statements and portions of technical discussion; full HTML not independently retrieved.",
+          "method": "indexed arXiv HTML passages and source metadata",
+          "title": "Front-pinned spectral collocation for the flame problem and related ignition problems",
+          "trigger": "Same ignition ODE, pin and homogeneous variation/Green propagator"
+        },
+        {
+          "assessment": "Different discrete spectral transformation, no demonstrated implication to the continuous weighted Green optimum.",
+          "evidence": "Distinct collocation vs continuous pinned orbit operators.",
+          "identifier_or_url": "https://doi.org/10.1137/050641296",
+          "material_read": "Bibliographic information and summary, not entire source.",
+          "method": "bibliographic/abstract comparison",
+          "title": "A rational spectral collocation method with adaptively transformed Chebyshev grid points",
+          "trigger": "Possible broader weighted collocation stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Speed-relative residuals are a natural way to prevent degenerating reaction-front speed from inflating linearized error estimates. The sharp pre-pin worst state and high-order universal coefficient locate the actual conditioning bottleneck, rather than merely recording a known homogeneous propagator. This is an exact, motivated structural Green-operator result, not a generic stability exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.27864",
+    "doi:10.1137/050641296",
+    "doi:10.1137/15M1046629",
+    "Resultary semantic queries Resultary: ignition front pinned heteroclinic orbit y'=y^q(1-y), speed weighted residual linearized Green operator norm gain unique pre-pin high order asymptotic ; Resultary: pinned ignition speed relative residual weighted Green operator exact norm Theta_q root z star 4.300640970392"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact L-infinity norm for the pinned linearized ignition Green response to speed-relative forcing, unique pre-pin maximizer, and the sharp q-to-infinity scaled location/gain limit for every integer reaction order q>=2.",
+  "limitations": [
+    "Unindexed published or unpublished Green-operator norm formulas may already optimize this exact weighting and pin.",
+    "Full text of closely related Boros paper was not independently readable; inspected technical passages cannot rule out material elsewhere.",
+    "No nonlinear, discrete collocation, or unweighted stability theorem follows."
+  ],
+  "schema_version": 1
+}
