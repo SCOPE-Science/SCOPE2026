@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** In the order-two binary de Bruijn graph, flow conservation forces two paired edge counts and one balance equation. A unique five-parameter nonnegative representation of all balanced vectors results; five disjoint positive-support cases characterize precisely which ones admit Euler circuits. Summing the resulting contributions gives the displayed rational function and its leading coefficient. The finite direct checker agrees with all profile vectors through length 16, but the all-length theorem rests on the support classification, not the experiment.
+## correctness
 
-**Originality — PASS with residual priority risk.** The closest inspected foundational work studies linear \(k\)-Abelian class counts and sizes, not the number of binary cyclic length-three observation vectors. The graph/Eulerian mechanism is shared, but a linear class-count theorem, a class-size theorem, and a cyclic histogram capacity are different claims; none of the read claims implies the explicit rational function without the new support count. A related later general rationality article was checked via its published abstract only, and an unindexed equivalent cyclic formula remains possible.
+PASS
 
-**Value — PASS.** This is a complete all-blocklength characterization of a natural read-channel invariant: the maximum number of cyclic binary source messages uniquely reconstructed from all length-three substring counts. The distinction from counting necklaces is substantive (already a collision at length six), and the exact polynomial-order leading constant permits comparison of observation resolution with raw word complexity.
+For each binary circular word, length-three counts form a nonzero balanced integral circulation on the order-two de Bruijn digraph. Conversely, connected positive support gives an Euler circuit (including wraparound n=1,2). Balance forces g001=g100=t and g011=g110=u, and g010−g101=t−u, uniquely giving g010=(t−u)_++j and g101=(u−t)_++j, j≥0. The total length is a+h+3max(t,u)+min(t,u)+2j. Connectivity splits exhaustively into (t,u>0), (t>0,u=0,h=0), (t=0,u>0,a=0), (t=u=0,j>0,a=h=0), and the two pure-loop choices when t=u=j=0. The five contributions sum exactly to the supplied rational generating series. At z=1 the high-order term is (1/12)(1−z)^−5, and all other unit-circle poles have order <5, giving n^4/288+O(n^3). The zero-error capacity equality is the exact count of distinguishable profile outputs. Independently enumerated all 2^n binary words n=1..16, all balanced connected nonnegative eight-flow vectors for n=1..10, GF coefficients through n=35, and a nonconjugate n=6 collision; no finite computation is being substituted for the all-n proof. Git tree recomputed from seven real blob identities.
 
-**Limits.** The result gives the count of attainable vectors, not their individual fiber sizes; the dependent tests do not establish literary priority or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the *exact* all-n binary circular trigram profile generating series and its sharp coefficient 1/288. The strongest newly inspected same-object primary source, Arnoux 2016, already proves the de Bruijn Kirchhoff constraints and the Eulerian connected-support criterion, and so these ingredients are known; it does NOT enumerate nonnegative connected integer flows at each length. Cassaigne et al. DLT 2016 gives a different exact *linear* k=3 class formula of degree six, not this cyclic degree-four count. The target five-case support census supplies nontrivial fixed-length enumeration beyond these premises. Exact-priority uncertainty remains, especially unindexed Markov-type results and the uninspected extended 2017 journal version.
+
+## value
+
+PASS
+
+The natural cyclic length-three read histogram is a lossy observation channel on circular binary words. Exact attainable-output counts determine the optimal zero-error one-shot code size for each n, a complete intrinsic enumeration rather than a tiny arbitrary instance. The explicit rational series, quartic rate and coefficient 1/288, and the n=6 departure from necklace counts quantify achievable resolution. This exact integer-flow count is not a routine quoted linear-class table or merely the known Eulerian feasibility criterion; finite exact invariant of a natural infinite object family merits mathematical use independently of any later general-alphabet theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

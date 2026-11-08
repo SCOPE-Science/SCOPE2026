@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T05:49:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each binary circular word, length-three counts form a nonzero balanced integral circulation on the order-two de Bruijn digraph. Conversely, connected positive support gives an Euler circuit (including wraparound n=1,2). Balance forces g001=g100=t and g011=g110=u, and g010−g101=t−u, uniquely giving g010=(t−u)_++j and g101=(u−t)_++j, j≥0. The total length is a+h+3max(t,u)+min(t,u)+2j. Connectivity splits exhaustively into (t,u>0), (t>0,u=0,h=0), (t=0,u>0,a=0), (t=u=0,j>0,a=h=0), and the two pure-loop choices when t=u=j=0. The five contributions sum exactly to the supplied rational generating series. At z=1 the high-order term is (1/12)(1−z)^−5, and all other unit-circle poles have order <5, giving n^4/288+O(n^3). The zero-error capacity equality is the exact count of distinguishable profile outputs. Independently enumerated all 2^n binary words n=1..16, all balanced connected nonnegative eight-flow vectors for n=1..10, GF coefficients through n=35, and a nonconjugate n=6 collision; no finite computation is being substituted for the all-n proof. Git tree recomputed from seven real blob identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnoux Prop.1.4 gives l=3 binary 5-dimensional flow space, but not an integer-point counting formula with disconnected supports removed",
+          "2013 Theorem 2.14 gives only linear class Θ(n^4) in binary k=3",
+          "2016 DLT Proposition 14 gives P_(3,2)(n)~n^6/960, a different sequence; Theorem 9 rationality is about linear k-abelian classes"
+        ],
+        "reasoning": "These general principles are powerful proof inputs, but none inspected gives the target f(n). Dimensionality/rationality does not determine the exact rational function or coefficient; coverage by an unknown stronger Markov-type enumeration remains a stated risk.",
+        "searches": [
+          "Cassaigne Karhumäki Puzynina Whiteland 2017 k-Abelian Equivalence and Rationality pdf/preprint/full text",
+          "order-two Markov type count stationary binary empirical transitions cyclic sample",
+          "arXiv:1301.5104v1 Theorem 2.14",
+          "DLT 2016 Cassaigne et al. Theorem 9, Proposition 14",
+          "Arnoux 2016 Proposition 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md@9e7656b76129a4440340c3cc4ed02e490178c27d",
+        "Git verify.py@92c1225a7dbc7c95df2ee19c62be92f049c3b36b",
+        "DOI:10.1051/ita/2016019 (primary entire text)",
+        "arXiv:1301.5104v1",
+        "arXiv:1605.03319v1",
+        "DLT2016 DOI:10.1007/978-3-662-53132-7_7 (primary proceedings article)",
+        "2017 journal DOI:10.3233/FI-2017-1553 (abstract only)",
+        "OEIS:A289657",
+        "Resultary semantic searches described in checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arnoux integer connected-support realizability supplies a necessary/sufficient criterion but does not perform length-graded support-sensitive count",
+          "2013 linear class n^4 growth bound (same exponent) leaves constant unspecified and does not handle circularity",
+          "2016 DLT exact P_(3,2) is degree six, so specialization cannot equal target quartic f(n)"
+        ],
+        "reasoning": "One must split distinct t,u support patterns, exclude disconnected loops, and sum their integer length weights to derive the claimed function; no inspected prior result supplies that calculation. The theorem is a specialized original enumeration built on an established classical flow correspondence, not a new flow criterion or a corollary of linear class-count tables.",
+        "searches": [
+          "DOI:10.1051/ita/2016019 pp.167–170 all; Prop.1.4",
+          "arXiv:1301.5104 Lemma 2.12 and Thm.2.14",
+          "arXiv:1605.03319 §§2–8",
+          "DLT 2016 k-Abelian Equivalence and Rationality pp.77–88 Theorem 9/Proposition 14",
+          "order-two Markov type count stationary binary empirical transitions cyclic sample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic 3-gram vector equality also fixes all shorter cyclic factor counts by marginals; hence it is cyclic 3-Abelian equivalence, not ordinary linear 3-Abelian equivalence",
+          "Arnoux 2016 already equates circular counts with connected nonnegative integral balanced flows on de Bruijn B(2,2); published statement does not give the target count",
+          "2016 linear class-size paper imposes fixed prefix/suffix via Lemma 2.4"
+        ],
+        "reasoning": "The equivalent cyclic Markov-type/closed-flow interpretations were searched and contrasted with exact prior statements; the integral circulation characterization is known but the enumerative generating function is not a formal statement of that structural theorem. Ordinary necklaces distinguish more words (already 14 vs 13 at n=6), whereas linear 3-abelian classes have different boundary information.",
+        "searches": [
+          "circular binary words cyclic length-three factor frequency profiles count rational generating series Eulerian de Bruijn",
+          "circular cyclic k-abelian equivalence binary length three class counting necklaces",
+          "Arnoux Note on occurrences of factors in circular words 2016 integral connected flows B(d,l−1)",
+          "Arnoux DOI:10.1051/ita/2016019 Prop. 1.4; Karhumäki et al. arXiv:1301.5104 Lemma 2.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A289657 starts 1,2,4,8,16... and describes linear binary 3-abelian classes, not target f(1..)=2,3,4,6,8,13,...",
+          "Resultary record 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 counts linear adjacent pair profiles, not cyclic trigrams",
+          "Independent exact direct n≤16 counts 2,3,4,6,8,13,18,27,38,53,72,98,128,167,214,271"
+        ],
+        "reasoning": "No exact previously printed matching all-n table was found in the searches, but lack of indexing is not proof of novelty. OEIS and the closest published profile table concern different objects and give incompatible sequences.",
+        "searches": [
+          "OEIS search 2,3,4,6,8,13,18,27,38,53; A289657",
+          "OEIS A289657 number of linear 3-abelian equivalence classes over binary alphabet",
+          "Resultary semantic search exact number attainable cyclic binary trigram histograms length n rational generating function; binary cyclic k-abelian equivalence classes 3 circular words necklace factors exact enumeration",
+          "Resultary: Exact binary two-multispectrum code size and singleton classification (2026)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the *exact* all-n binary circular trigram profile generating series and its sharp coefficient 1/288. The strongest newly inspected same-object primary source, Arnoux 2016, already proves the de Bruijn Kirchhoff constraints and the Eulerian connected-support criterion, and so these ingredients are known; it does NOT enumerate nonnegative connected integer flows at each length. Cassaigne et al. DLT 2016 gives a different exact *linear* k=3 class formula of degree six, not this cyclic degree-four count. The target five-case support census supplies nontrivial fixed-length enumeration beyond these premises. Exact-priority uncertainty remains, especially unindexed Markov-type results and the uninspected extended 2017 journal version.",
+      "residual_risks": [
+        "Exact cyclic Markov-type frequencies might have a previously tabulated formula under a different name not found by actual searches.",
+        "2017 expanded journal article was not retrieved in full; 2016 same-paper conference version was materially read, so no whole-journal negative claim is made.",
+        "Prior flow criterion and dimension from Arnoux 2016 are not novel; any claim of originality must be restricted to the enumerated exact series and coefficient.",
+        "Search absence and first-term data alone do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already proves the general linear Kirchhoff relations, dimension of the flow space d^l−d^(l−1)+1, and the integer connected-support realizability criterion. For binary l=3 this gives five flow degrees of freedom and suggests quartic fixed-length growth. Does NOT state or derive the explicit all-n count of connected nonnegative integral flows, generating function, n^4/288 leading constant or profile-channel capacity. Shared flow criterion must not be claimed as novel.",
+          "evidence": [
+            "Proposition 1.4 and proof pp.169–170: exact d^(l−1)−1 linear relations and integer connected-support Eulerian realization",
+            "p.167: circular factors with wraparound and |W|001=|W|100; p.168: de Bruijn Kirchhoff law"
+          ],
+          "identifier_or_url": "Pierre Arnoux, RAIRO Theor. Informatics Appl. 50 (2016), 167–170; DOI:10.1051/ita/2016019; https://www.numdam.org/item/10.1051/ita/2016019.pdf",
+          "material_read": "Complete four-page original article, including Proposition 1.4, its proof on p.170, and Kirchhoff discussions on pp.167–169; page 170 screenshot inspected",
+          "method": "Primary OA full PDF, parsed text and graphical page review",
+          "title": "Note on occurrences of factors in circular words",
+          "trigger": "Exact same circular-word factor frequencies and order-two de Bruijn graph; candidate strongest conceptual prior"
+        },
+        {
+          "assessment": "Lemma 2.12 already gives Euler-path graph characterization for linear factors with endpoints. Theorem 2.14 gives Theta(n^(m^k−m^(k−1))) for *linear* k-abelian classes (k=3,m=2 gives n^4). It does not count circular length-three profiles or supply exact coefficient 1/288 or the rational function.",
+          "evidence": [
+            "Lemma 2.12: f counts n−k+1 linear windows and fixed prefix/suffix Euler path, not closed cyclic counts",
+            "Theorem 2.14 p.10: linear class growth exponent 2^3−2^2=4 only"
+          ],
+          "identifier_or_url": "Karhumäki, Saarela, Zamboni, arXiv:1301.5104v1; https://arxiv.org/pdf/1301.5104",
+          "material_read": "Full paper parsed in relevant Sections 2.1–2.3 and Lemmas 2.12–2.13 and Theorem 2.14, page 10 screenshot; abstract and intro read",
+          "method": "Primary arXiv full PDF, passage and page-image inspection",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Foundational 3-abelian equivalence counts and de Bruijn flow method could dominate proposed invariant"
+        },
+        {
+          "assessment": "Concentrates on sizes of linear-word classes and singleton counts, including cycle decompositions. Lemma 2.4 retains prefix/suffix constraints in linear equivalence. It does not supply the global count of cyclic observation vectors at each n.",
+          "evidence": [
+            "Lemma 2.4: same k-gram counts PLUS same prefix and suffix for linear equivalence",
+            "§§5–8 and conclusion: cardinalities/singletons, cycle decomposition, and singleton asymptotics"
+          ],
+          "identifier_or_url": "Karhumäki, Puzynina, Rao, Whiteland, arXiv:1605.03319v1; https://arxiv.org/pdf/1605.03319",
+          "material_read": "Primary full PDF intro, definitions and Lemma 2.4, §§3–5, relevant §§6–8, conclusion; first and interior page screenshots",
+          "method": "Public arXiv full text and page image",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "De Bruijn Eulerian trails and necklaces analyzed in same binary k=3 setting"
+        },
+        {
+          "assessment": "Theorem 9 establishes N-rationality of counts of finite linear k-abelian classes, while Proposition 14 gives the exact binary linear k=3 formula with degree 6. Neither is the cyclic trigram observation count (degree 4). Conference pp.77–88 contain no cyclic-count theorem; uninspected 2017 expanded journal version remains residual priority risk.",
+          "evidence": [
+            "DLT 2016 Theorem 9: P_(k,m)(n),S_(k,m)(n) N-rational for linear word classes",
+            "DLT 2016 Proposition 14: P_(3,2)(n) has n^6/960 leading term; target cyclic f(n) grows n^4/288",
+            "2017 journal abstract defines linear factors (not cyclic wraparound); full expanded article unread"
+          ],
+          "identifier_or_url": "Cassaigne, Karhumäki, Puzynina, Whiteland, DLT 2016, LNCS 9840 pp.77–88, DOI:10.1007/978-3-662-53132-7_7; available proceedings https://ndl.ethernet.edu.et/bitstream/123456789/63746/1/9.pdf; journal expanded DOI:10.3233/FI-2017-1553",
+          "material_read": "Full 2016 conference contribution (pp.77–88) via complete searchable text, especially Theorem 9, Proposition 14, §§4–6, and open problems; attempted PDF screenshot returned HTTP 502. 2017 expanded journal abstract/metadata read, but expanded full text not obtained.",
+          "method": "Lawfully accessible full DLT 2016 primary conference proceedings text plus 2017 publisher abstract; arXiv/author OA 2017 searches produced no full extended text; no publisher-whitelist assumption; no claimed full journal inspection",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "2017 journal and 2016 conference theorem give rationality and exact formulas for binary 3-abelian classes; plausible stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural cyclic length-three read histogram is a lossy observation channel on circular binary words. Exact attainable-output counts determine the optimal zero-error one-shot code size for each n, a complete intrinsic enumeration rather than a tiny arbitrary instance. The explicit rational series, quartic rate and coefficient 1/288, and the n=6 departure from necklace counts quantify achievable resolution. This exact integer-flow count is not a routine quoted linear-class table or merely the known Eulerian feasibility criterion; finite exact invariant of a natural infinite object family merits mathematical use independently of any later general-alphabet theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual pinned Git record: RESULT.md@9e7656b76129a4440340c3cc4ed02e490178c27d",
+    "Actual Git verify.py@92c1225a7dbc7c95df2ee19c62be92f049c3b36b",
+    "Actual Git AUDIT.json@23c8ea23c37d64b2354002773b15ae0cc40da7ac",
+    "Actual Git METADATA.json@bee711209e8a3b43ab8185b86bd96375e9fe0817",
+    "Arnoux DOI:10.1051/ita/2016019",
+    "Karhumäki et al. arXiv:1301.5104v1",
+    "Karhumäki et al. arXiv:1605.03319v1",
+    "Cassaigne et al. DLT2016 DOI:10.1007/978-3-662-53132-7_7",
+    "Journal expansion DOI:10.3233/FI-2017-1553 (abstract only)",
+    "Resultary searches: exact cyclic trigram profile; cyclic k-Abelian class counts",
+    "OEIS A289657 linear binary 3-abelian classes"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n≥1, the number f(n) of distinct length-three cyclic binary factor-count vectors realized by circular words of length n has GF 2z/(1−z)+z²/(1−z²)+2z³/((1−z)(1−z²)(1−z³))+z⁴(1+z³)/((1−z)²(1−z²)(1−z³)(1−z⁴)), whence f(n)=n⁴/288+O(n³), and f(n) is the maximum one-shot zero-error code size of this deterministic profile channel.",
+  "limitations": [
+    "Only binary alphabet and cyclic length-three factor profiles with multiplicity at every n starting positions, even n=1,2. No claim for larger alphabets or k>3.",
+    "Circular words identified only up to rotation; no fiber cardinality formula or explicit code construction beyond arbitrary representatives.",
+    "2017 expanded journal primary text not read; 2016 full conference version materially read.",
+    "Cyclic connected-flow criterion is already established in Arnoux 2016; only explicit enumeration and its consequence are novelty candidates."
+  ],
+  "residual_risks": [
+    "Potential prior exact binary cyclic Markov-type enumeration under different terminology.",
+    "2017 expanded journal edition uninspected in full.",
+    "Existing potentially public AUDIT.json and METADATA.json retain operational scope_run_id, so publication must be withheld pending guarded sanitized complete replacements."
+  ],
+  "schema_version": 1
+}
