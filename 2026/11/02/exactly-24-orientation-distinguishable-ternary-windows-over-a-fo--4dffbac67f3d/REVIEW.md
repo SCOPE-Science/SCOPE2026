@@ -1,11 +1,21 @@
-# Mathematical review of the exact quaternary three-window maximum
+# Independent mathematical audit
 
-**Correctness — PASS.** Every admissible window belongs to one of 28 nonfixed reverse-negative triple orbits. An admissible cyclic code selects a distinct-edge closed walk in the 10-vertex quotient multigraph. Six odd vertices force removal of at least three edges; the only two three-edge parity-correcting subsets are identified exhaustively. For each, an orientation-independent telescoping flux gives a nonzero sum, ruling out length 25. A literal 24-character witness passes exhaustive cyclic-window checks. This is a complete finite structural proof, not a finite search extrapolated to arbitrary cycle lengths.
+## correctness
 
-**Originality — PASS, with residual risk.** Mitchell–Wild (arXiv:2602.04433, first public February 4, 2026; full paper and relevant theorem/table examined) leave the 22–26 case open. Mitchell–Wild (arXiv:2603.18646, full paper inspected) provide improved constructions but not this exact maximum. Earlier arXiv:2409.00672 gives general orientable-sequence methods, not an equivalent 24-optimum theorem. Scientific claim and alternative formulation comparisons found no identical or dominating result. Unindexed publication priority and material outside the examined sources remain residual risks; database absence alone does not prove novelty.
+PASS
 
-**Value — PASS.** This closes the explicitly identified smallest open alphabet/window instance of the negative-orientability problem, sharpens a natural maximum unique-position count from 22–26 to exactly 24, and offers a broadly applicable parity-plus-flux obstruction on quotient de Bruijn graphs. A precise finite natural parameter can have value without a separate generalization.
+With q=4 and τ(a,b,c)=(-c,-b,-a) mod4, there are exactly eight τ-fixed triples among 64, leaving 28 nonfixed τ-orbit edges. Quotient two-letter τ-orbits give ten multigraph vertices with six odd degrees (00,01,03,12,21,22). A negative-orientable cyclic word selects pairwise distinct quotient edges in a closed walk; an Eulerian selected subgraph must omit ≥3 edges, so length≤25. Exactly 25 would omit a perfect matching among those six odd vertices. Exhaustive 28-edge quotient construction yields exactly two matchings, represented by 001/032/122 and 003/012/221. For a nonfixed pair v, the τ-invariant edge flux φ_v(a,b,c)=p_v(a,b)−p_v(b,c) telescopes to zero along any cycle. The two omission choices leave total flux −2 at v=12 and +2 at v=03 respectively, obstructing a 25-cycle. The explicitly given cyclic word 003122113232010233313033 has 24 distinct nonfixed τ-orbits. Independently recomputed all 64 triples, quotient parity, two matching choices, both fluxes and witness windows; source verifier Git blob 2c77445b35319f5b725ad8d0e73c4a637a27b1c9 uses exhaustive finite universe. No extrapolation to other q,n.
 
-**Verification limitations.** The supplied independent reproducible *computational* checker validates the enumerated graph, both flux contradictions, and the explicit witness. It does not constitute independent mathematical peer review or address unpublished-priority uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim is compared by statement and implication, not by title. The negative-reversal orbit condition differs from reversal-only orientability and from negative avoiding sequences which forbid additive negation without reversal. Prior de Bruijn subgraph balance methods are equivalent to the quotient graph parity obstruction at a conceptual level, but the two exact matching exclusions by invariant flux and a length-24 witness are additional. Existing 2025 general period upper bounds for NOS_4(3) give 27 (Table1); 2026 improved bounds leave a gap for n>2. Neither gives a general theorem implying the exact 24 for this instance in accessible material. Stronger recent manuscript inaccessible makes this best-of-knowledge. This is a concrete extremal finite alphabet/window invariant, not merely re-reading an OEIS table. Direct Resultary search yielded no q4 n3 exact 24 result; negative result alone is insufficient for absolute novelty. A stated upper bound 25 or 26 plus a known 22-period construction does not imply exact maximum 24. The independent flux obstruction to 25 and verified 24-word close that gap; possible later manuscript revision could still cover the same claim. Accessible primary texts were materially compared; inaccessible plausible primary texts are named as residual risks rather than treated as disproving novelty.
+
+## value
+
+PASS
+
+Negative-orientable sequences are canonical cyclic position codes robust to reversal followed by additive negation. The four-symbol, length-three case is a natural explicitly published smallest open instance. Tightening the known construction and upper bounds to a provable 24-position exact maximum via combinatorial parity plus a new flux obstruction resolves a mathematically motivated finite classification, even without a general (q,n) theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
