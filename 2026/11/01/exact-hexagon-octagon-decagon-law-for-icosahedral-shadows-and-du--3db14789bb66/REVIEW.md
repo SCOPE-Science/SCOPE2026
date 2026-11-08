@@ -1,15 +1,21 @@
-# Scientific review: icosahedral shadow polygon-type law
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claimed random object and quantifiers are explicit: Haar-uniform normal on the unit sphere, regular icosahedron, and almost-sure generic orientations. The twenty supporting facet normals and thirty adjacency edges are derived from the twelve vertices, exactly over \(\mathbb Q(\sqrt5)\). Icosahedral flag symmetry reduces the sphere to 120 congruent triangles. A complete ten-normal sign table shows that two great circles, and no others, divide a fundamental triangle into three regions of constant shadow side count, respectively 10, 8, and 6. Exact squared-cosine computations determine their spherical angles; Girard's formula yields the three probabilities. The independent thirty-edge expectation agrees identically. The distributed verifier executes with only the Python standard library and prints `EXACT_Q5_CHAMBERS_AND_SHADOW_COUNTS_OK`. The finite certificate is exhaustive for the analytically reduced incidence classification; 2,000 sampled projections are only diagnostics. No statement covers nongeneric orientations or arbitrary icosahedra.
+## correctness
 
-## Originality (PASS, historical risk retained)
-The actual searchable comparisons covered random projection face counts, fixed-polytope random shadows, exact laws for *central sections of the icosahedron*, and Platonic shadow-area moments. The central-icosahedron-section result has 10/12 sides; by polarity, the present *shadows of an icosahedron* correspond instead to *sections of a dodecahedron*, with 6/8/10 sides. These claims are neither equivalent nor implications of each other. Earlier geometric examples show all three possible silhouette types but not their exact Haar measures. General projection bounds, second moments of continuous shadow area, and an octahedral six-vertex silhouette law do not imply this discrete icosahedral distribution. A further table/alias search of the publication index found no matching full law. Published results on spherical icosahedral tessellations or unindexed stereological tables could still implicitly furnish an equivalent calculation; the search cannot prove historical novelty. The full available 2024 shadow paper was compared on the mathematical statements, while older sources were inspected to the material actually accessible.
+PASS
 
-## Value (PASS)
-The exact and complete discrete law for a classical Platonic solid is a natural stereological invariant, determining three nontrivial orientation-region measures rather than a single example or a first moment. The probabilistic description is simultaneously the exact 6/8/10-section law for the polar regular dodecahedron, a distinction otherwise easily lost under geometric duality. The result uses a tight fundamental-domain decomposition and precise algebraic spherical angles; it is neither a substitution into a quoted formula nor a routine recomputation of an existing table. It supplies a reproducible benchmark for visibility and random-projection geometry without asserting further applications or results beyond the proved domain.
+The icosahedron has 20 oriented face normals and 30 dual adjacencies. An edge silhouettes for generic view u iff adjacent face normal dot-products with u have opposite signs. Exact Q(sqrt5) sign patterns on an icosahedral fundamental spherical triangle of area pi/30 show precisely two active great-circle cuts, partition into 10-, 8- and 6-edge regions. Girard excess with alpha=acos(1/(phi*sqrt3)), beta=acos(1/sqrt3) yields p6=30/pi(alpha+beta-2pi/3), p8=30/pi(pi-alpha-2beta), p10=30/pi(beta-3pi/10). Their sum1, positive, mean 30/pi acos(sqrt5/3). Duality (proj_L I)^polar=I^polar intersection L gives the same count law for central dodecahedral sections. Independently recomputed the exact spherical areas, mean and probabilities; globality depends on exact face adjacency and symmetry tiling, not the 2000 random samples in package.
 
-## Closest literature and limitations
-Donoho–Tanner, arXiv:math/0607364 (2006), concerns projection face counting in broad regimes, not this shape-specific finite Haar law. Black–Criado, arXiv:2406.06936 (2024), gives general expected shadow complexity, not the present probability distribution. Eusebeia's icosahedron projections identify example shadow shapes, not their probabilities. The published 2026 central-section result concerns the *icosahedron*, whereas this law's polar formulation concerns the *dodecahedron*. A published Platonic shadow-variance result calculates area moments, not combinatorial shadow type. Equivalent formulas might exist in older unindexed stereological literature. The theorem is an almost-sure generic-view statement with exact incidence verification, not an independently audited historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published central *icosahedron section* law counts 10/12 sides, not projected icosahedron shadows or central *dodecahedron* sections. Black--Criado random-shadows bounds concern expectation and general upper/lower estimates, not the full icosahedral 6/8/10 Haar law. No stronger complete law for this object found in inspected literature; possible classical stereological equivalence remains priority risk.
+
+## value
+
+PASS
+
+A natural complete probability distribution of polygon types under Haar observation of a canonical Platonic solid is independently useful for stochastic geometry, visibility, and dual sections. Resolving all three probabilities is not a trivial corollary of the well-known expected projected edge count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

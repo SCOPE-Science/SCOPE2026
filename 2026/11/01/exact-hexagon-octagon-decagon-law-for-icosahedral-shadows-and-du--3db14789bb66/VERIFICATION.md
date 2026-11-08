@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The self-contained file `verify_icosahedron_shadows.py` was executed from its containing directory using `python3 verify_icosahedron_shadows.py`, with successful sentinel `EXACT_Q5_CHAMBERS_AND_SHADOW_COUNTS_OK`. It uses rational coefficient arithmetic in \(\mathbb Q(\sqrt5)\) to establish all twenty triangular facet-support sets, thirty two-facet edge adjacencies, ten antipodal normal representatives, precise endpoint sign patterns, active great-circle incidences, and the three constant silhouette counts 10/8/6. Its exact squared-cosine checks verify the needed spherical-angle identities; analytic Girard integration and symmetry derive the complete infinite-direction law. Independently, numerical projected planar hulls matched sign-change edge counts in 2,000 seeded random views; these are diagnostics, not a universal proof.
+## correctness
 
-The mathematical claim is restricted to generic Haar-uniform orientations of a regular icosahedron and polar central dodecahedral sections. The normal great circles have zero Haar probability. The original projection literature and closest exact central-section and shadow-area statements were compared for mathematical implication, with historical-priority uncertainty noted separately. No independent scientific audit or independent validation has been performed.
+PASS
+
+The icosahedron has 20 oriented face normals and 30 dual adjacencies. An edge silhouettes for generic view u iff adjacent face normal dot-products with u have opposite signs. Exact Q(sqrt5) sign patterns on an icosahedral fundamental spherical triangle of area pi/30 show precisely two active great-circle cuts, partition into 10-, 8- and 6-edge regions. Girard excess with alpha=acos(1/(phi*sqrt3)), beta=acos(1/sqrt3) yields p6=30/pi(alpha+beta-2pi/3), p8=30/pi(pi-alpha-2beta), p10=30/pi(beta-3pi/10). Their sum1, positive, mean 30/pi acos(sqrt5/3). Duality (proj_L I)^polar=I^polar intersection L gives the same count law for central dodecahedral sections. Independently recomputed the exact spherical areas, mean and probabilities; globality depends on exact face adjacency and symmetry tiling, not the 2000 random samples in package.
+
+## originality
+
+PASS
+
+The previously published central *icosahedron section* law counts 10/12 sides, not projected icosahedron shadows or central *dodecahedron* sections. Black--Criado random-shadows bounds concern expectation and general upper/lower estimates, not the full icosahedral 6/8/10 Haar law. No stronger complete law for this object found in inspected literature; possible classical stereological equivalence remains priority risk.
+
+## value
+
+PASS
+
+A natural complete probability distribution of polygon types under Haar observation of a canonical Platonic solid is independently useful for stochastic geometry, visibility, and dual sections. Resolving all three probabilities is not a trivial corollary of the well-known expected projected edge count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
