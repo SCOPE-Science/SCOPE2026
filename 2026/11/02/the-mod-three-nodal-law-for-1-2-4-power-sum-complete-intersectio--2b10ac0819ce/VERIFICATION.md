@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact mathematical proof in `RESULT.md` establishes the complete-intersection property, all-dimensional Jacobian classification, projective orbit count, and local Hessian nondegeneracy. All assumptions and the characteristic-zero restriction are explicit.
+## correctness
 
-The standalone `verify.py` was run with the system Python interpreter and returned:
+PASS
 
-```text
-VERIFY_OK: exact projective orbit counts n=6,9,12; modular Hessian rank n=6,9,12,15,18; multiplicity obstruction n<=31
-```
+PASS: On p1=0 the quadratic p2 is nondegenerate and p4 is not identically zero, giving regular-sequence complete intersection degree 8 of dimension n−4. The singular Jacobian condition makes all coordinates roots of x³=Ax+B, hence 2 or 3 values. Two nonzero distinct values contradict p1=p2=0; for three the identity a(b-c)^2+b(c-a)^2+c(a-b)^2≥0 forces equal multiplicities a=b=c, and the roots are a scalar multiple of 1,ω,ω². Projective equivalence quotients the multinomial assignments by the free cyclic scalar action (factor 3). On W={sum v=sum x_i v_i=0}, the constrained quartic Hessian has radical exactly radial Cx, so on projective tangent its rank is n−3 and all singular points are ordinary nodes. Independent integer calculations confirmed node counts [30,560,11550,252252] at n=6,9,12,15, but the complex n-uniform result comes from the proof, not modular sampling.
 
-The script uses only the Python standard library. It computes orbit representatives in the labelled \((1,\omega,\omega^2)\) model for \(n=6,9\), checks the combinatorial counts \(30,560,11550,252252\), evaluates Jacobian and constrained-Hessian ranks exactly modulo \(1009\), and checks the positive multiplicity expression for the finite stated range. Finite-field tests and enumerations are auxiliary evidence, not proofs in characteristic zero or for arbitrary \(n\). The Hessian argument over \(\mathbb C\) and its projective radial quotient are explicitly supplied in the main proof.
+## originality
 
-No external proof certification or independent audit is asserted.
+PASS
+
+PASS, qualified: complete-intersection generalities and the n=6 orbit of 30 nodes are published; the all-n mod-three smoothness and exact nodal count with local type for this fixed zero-fiber exponent tuple were not found covered by inspected general power-sum statements. The relevant recent finite-field preprint was inaccessible in full; its possible special case is a priority risk.
+
+## value
+
+PASS
+
+PASS: a complete singularity classification of a natural symmetric family (power-sum zero loci of degrees 1,2,4) across all ambient dimensions gives precise nodal counts and total Milnor numbers. The mod-three transition and projective roots-of-unity mechanism are structurally motivated, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

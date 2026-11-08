@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS (self-review). The complete-intersection property is proved using a nondegenerate quadric and an explicit nonvanishing witness for the quartic. The Jacobian rank condition reduces singular points to at most three coordinate values. The multiplicity obstruction is a strictly positive integer unless all three multiplicities coincide. The equal-multiplicity points are classified by cubic roots of unity and counted modulo their projective scalar action. A restricted Hessian calculation proves ordinary nodes for every \(n=3a\ge6\); the only radical is the radial direction. The finite exact checker reproduces low-dimensional counts and tangent-Hessian ranks but is not used to prove the infinite statement.
+## correctness
 
-## Originality
-PASS, qualified by historical priority. The public source on finite-field power-sum varieties provides general rank and singular-dimension bounds, not the exact all-dimensional nodal classification. The 2025 characteristic-zero ideal-theoretic theorem provides stronger *global algebra* conclusions (complete intersection, normality, factoriality at their thresholds) but no enumeration of the isolated singularities. The 2021 recovery paper concerns generic and certain exceptional power-sum fibers. Crucially, Beauville's 2013 paper already reports the \(30\)-point cubic-root orbit for six variables on \(S_6\)-invariant quartic threefolds. The six-variable orbit is therefore expressly credited and not an isolated novelty claim. The principal additional assertion is the uniform mod-three smoothness/no-node dichotomy and higher-dimensional complete-intersection node-count formula. No exact equivalent appeared in the targeted text searches or the compared research records. Historical equivalence in older symmetric-quartic literature remains a residual risk.
+PASS
 
-## Mathematical value
-PASS. The same natural family of codimension-three symmetric power-sum schemes alternates between smooth geometry and a fully explicit collection of isolated ordinary nodes according to the number of variables modulo three. The enumeration determines the total Milnor number, extending the classical six-variable orbit into an infinite family. This is finer geometric information than known regularity/normality results and is relevant to analyzing special fibers of power-sum maps.
+PASS: On p1=0 the quadratic p2 is nondegenerate and p4 is not identically zero, giving regular-sequence complete intersection degree 8 of dimension n−4. The singular Jacobian condition makes all coordinates roots of x³=Ax+B, hence 2 or 3 values. Two nonzero distinct values contradict p1=p2=0; for three the identity a(b-c)^2+b(c-a)^2+c(a-b)^2≥0 forces equal multiplicities a=b=c, and the roots are a scalar multiple of 1,ω,ω². Projective equivalence quotients the multinomial assignments by the free cyclic scalar action (factor 3). On W={sum v=sum x_i v_i=0}, the constrained quartic Hessian has radical exactly radial Cx, so on projective tangent its rank is n−3 and all singular points are ordinary nodes. Independent integer calculations confirmed node counts [30,560,11550,252252] at n=6,9,12,15, but the complex n-uniform result comes from the proof, not modular sampling.
 
-## Scope and limitations
-Only characteristic zero, zero power-sum fibers, exponent set \((1,2,4)\), and \(n\ge4\) are covered. The complete statement is proved mathematically, with checks on selected finite examples. Literature comparison is qualified: older work could contain implicit all-dimensional formulations. The \(n=6\) coordinate orbit is previously documented. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: complete-intersection generalities and the n=6 orbit of 30 nodes are published; the all-n mod-three smoothness and exact nodal count with local type for this fixed zero-fiber exponent tuple were not found covered by inspected general power-sum statements. The relevant recent finite-field preprint was inaccessible in full; its possible special case is a priority risk.
+
+## value
+
+PASS
+
+PASS: a complete singularity classification of a natural symmetric family (power-sum zero loci of degrees 1,2,4) across all ambient dimensions gives precise nodal counts and total Milnor numbers. The mod-three transition and projective roots-of-unity mechanism are structurally motivated, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
