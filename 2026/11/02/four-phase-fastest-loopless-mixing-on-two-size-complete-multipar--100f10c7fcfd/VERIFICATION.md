@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_two_size_multipartite.py` using Python 3 and no third-party packages. In the completed exact-rational run, the script printed:
+## correctness
 
-```text
-PASS: 576512 exact rational assertions; 4900 parameter cases; 144 full matrix eigenbasis cases
-```
+PASS
 
-The 4,900 sampled parameter combinations cover \(2\le p,q\le8\) and \(1\le a,b\le10\), testing the rational minmax certificate, row-normalization, support cutoffs, and a grid of 101 candidate parameters each. The 144 full-matrix tests cover \(2\le p,q\le4\) and \(1\le a,b\le4\); each constructs the full edge-weight matrix independently and checks a complete rational eigenbasis. No floating-point eigenvalue estimates are needed for the reported checks.
+For p,q>=2 independent parts of sizes a,b>=1, group-averaging any symmetric row-stochastic zero-diagonal nonnegative kernel over within-part and same-size part permutations does not increase centered operator norm. The invariant family has one variable x=qb w_AB in [0,min(1,1/r)], r=pa/(qb), and exact nonconstant eigenvalues -(1-x)/(p-1), -(1-rx)/(q-1), and 1-(1+r)x plus zeros. Thus SLEM is max of three affine absolute-value branches; decreasing-vs-increasing minimax gives unique invariant x*=min(cap,max(p/(p+(p-1)r),q/(q-1+qr))). This yields four exact r-phases with boundaries 1/q,p/q,p; global optimality follows by convex averaging, not uniqueness of all global kernels. Independent exact-rational scalar minimax on 6 parameter configurations and 501-point rational grids reproduced the branches and boundary deletion patterns; a finite grid cannot prove global optimality, supplied convex proof does.
 
-For the all-dimensional theorem, the critical non-computational steps are: (i) convex group averaging for \(\|P-J_N/N\|_2\); (ii) the complete eigenbasis consisting of the constant, the two kinds of part contrasts, the aggregate type contrast, and within-part zero modes; and (iii) a minimax of two strictly decreasing affine functions and one strictly increasing affine function, with exact crossover and interval caps. These steps are developed in `RESULT.md`. Finite sampling does not establish an infinite-family identity, nor is the self-review an independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Boyd–Diaconis–Parrilo–Xiao reduce a broader complete multipartite fastest mixing problem to a block-diagonal SDP with holding transitions, but do not solve the zero-diagonal two-part-size minimax or identify its four thresholds in inspected Section 5.3.2. The full invariant solution and support deletion boundaries are neither a trivial rescaling nor implied by their displayed with-loops SDP.
+
+## value
+
+PASS
+
+PASS: fastest symmetric mixing with no self-loops is a natural constrained Markov-chain optimization; the attained global SLEM, four sharp analytic phases and support deletion transitions for all p,q,a,b give exact nontrivial structural results beyond general SDP formulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

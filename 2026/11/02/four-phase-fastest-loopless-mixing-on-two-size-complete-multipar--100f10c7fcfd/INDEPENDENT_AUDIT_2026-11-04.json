@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:01:33.025584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p,q>=2 independent parts of sizes a,b>=1, group-averaging any symmetric row-stochastic zero-diagonal nonnegative kernel over within-part and same-size part permutations does not increase centered operator norm. The invariant family has one variable x=qb w_AB in [0,min(1,1/r)], r=pa/(qb), and exact nonconstant eigenvalues -(1-x)/(p-1), -(1-rx)/(q-1), and 1-(1+r)x plus zeros. Thus SLEM is max of three affine absolute-value branches; decreasing-vs-increasing minimax gives unique invariant x*=min(cap,max(p/(p+(p-1)r),q/(q-1+qr))). This yields four exact r-phases with boundaries 1/q,p/q,p; global optimality follows by convex averaging, not uniqueness of all global kernels. Independent exact-rational scalar minimax on 6 parameter configurations and 501-point rational grids reproduced the branches and boundary deletion patterns; a finite grid cannot prove global optimality, supplied convex proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd–Diaconis–Parrilo–Xiao 2007 general multipartite symmetry block SDP",
+          "Section 5.3.2 displays block matrices including holding parameters but leaves optimization in general form; zero-diagonal constrained analytic four-branch solution does not follow by a printed formula."
+        ],
+        "reasoning": "Section 5.3.2 displays block matrices including holding parameters but leaves optimization in general form; zero-diagonal constrained analytic four-branch solution does not follow by a printed formula.",
+        "searches": [
+          "Resultary search: fastest mixing symmetric loopless Markov chain complete multipartite graph two sizes edge weights optimal SLEM",
+          "https://arxiv.org/abs/0709.0955",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/1008.2588"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_two_size_multipartite.py Git blobs",
+        "Boyd et al. (2004) https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo and Xiao (2007) https://arxiv.org/abs/0709.0955",
+        "Jafarizadeh (2010) https://arxiv.org/abs/1008.2588"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General SDP existence, equal-size trivial symmetric walk, layered K-partite results",
+          "General SDP formulation guarantees computability of optimum, not the exact piecewise closed formula. Layered K-partite topology is not the complete multipartite graph; equal-size special case does not imply imbalanced support transitions."
+        ],
+        "reasoning": "General SDP formulation guarantees computability of optimum, not the exact piecewise closed formula. Layered K-partite topology is not the complete multipartite graph; equal-size special case does not imply imbalanced support transitions.",
+        "searches": [
+          "Resultary search: fastest mixing symmetric loopless Markov chain complete multipartite graph two sizes edge weights optimal SLEM",
+          "https://arxiv.org/abs/0709.0955",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/1008.2588"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fastest mixing Markov chain, SLEM, complete multipartite, zero diagonal",
+          "The 2004 convex-SDP and 2007 symmetry reduction share the Markov eigenvalue objective; source imposes zero self-transition and only two part sizes, creating a distinct feasible SDP slice."
+        ],
+        "reasoning": "The 2004 convex-SDP and 2007 symmetry reduction share the Markov eigenvalue objective; source imposes zero self-transition and only two part sizes, creating a distinct feasible SDP slice.",
+        "searches": [
+          "Resultary search: fastest mixing symmetric loopless Markov chain complete multipartite graph two sizes edge weights optimal SLEM",
+          "https://arxiv.org/abs/0709.0955",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/1008.2588"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four r-regimes and support deletion for fastest loopless mixing",
+          "No matching two-size complete-multipartite exact table surfaced in Resultary or comparison papers; this absence is not independent evidence of historical uniqueness."
+        ],
+        "reasoning": "No matching two-size complete-multipartite exact table surfaced in Resultary or comparison papers; this absence is not independent evidence of historical uniqueness.",
+        "searches": [
+          "Resultary search: fastest mixing symmetric loopless Markov chain complete multipartite graph two sizes edge weights optimal SLEM",
+          "https://arxiv.org/abs/0709.0955",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://arxiv.org/abs/1008.2588"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Boyd–Diaconis–Parrilo–Xiao reduce a broader complete multipartite fastest mixing problem to a block-diagonal SDP with holding transitions, but do not solve the zero-diagonal two-part-size minimax or identify its four thresholds in inspected Section 5.3.2. The full invariant solution and support deletion boundaries are neither a trivial rescaling nor implied by their displayed with-loops SDP.",
+      "residual_risks": [
+        "A specialized zero-holding K-partite SLEM calculation may exist in unindexed literature, including reductions of the general SDP.",
+        "Zero-weight allowed edges are essential at phase boundaries; strict-positive edge constraints change attainment.",
+        "Global minimizer uniqueness is not proved, only uniqueness in invariant family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SYMMETRIC_SDP_FORMULATION_NOT_LOOPLESS_2SIZE_CLOSED_FORM",
+          "evidence": "Section 5.3.2 reduces complete multipartite FMMC to block SDP with holding terms but does not provide exact zero-diagonal four-phase minimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Full relevant Section 5.3.2 including block spectral reduction and matrix formulas; PDF page screenshot inspected",
+          "method": "Public arXiv full PDF",
+          "title": "S. Boyd, P. Diaconis, P. A. Parrilo, and L. Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries (2007)",
+          "trigger": "General complete multipartite SDP reduction might contain target closed-form optimum"
+        },
+        {
+          "assessment": "FOUNDATIONAL_SDP_NOT_EXACT_SPECIALIZATION",
+          "evidence": "General convex program includes self-loop design, not the evaluated four-support-phase result.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "General SDP formulation and mixing objective from lawful author hosted paper, not a proof of absence of other cases",
+          "method": "Lawful Stanford author-hosted PDF",
+          "title": "S. Boyd, P. Diaconis and L. Xiao, Fastest Mixing Markov Chain on a Graph (2004)",
+          "trigger": "Foundational global SLEM convexity and averaging"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_AND_FEASIBLE_SET",
+          "evidence": "Layered K-partite network does not have every interpart edge of complete multipartite graph; not a covering special case.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2588",
+          "material_read": "ArXiv abstract and relevant description of layered network with neighboring class links",
+          "method": "Public arXiv available material",
+          "title": "S. Jafarizadeh, Fastest Mixing Markov Chain on Symmetric K-Partite Network (2010)",
+          "trigger": "Potential explicit K-partite nearest-layer optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: fastest symmetric mixing with no self-loops is a natural constrained Markov-chain optimization; the attained global SLEM, four sharp analytic phases and support deletion transitions for all p,q,a,b give exact nontrivial structural results beyond general SDP formulations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify_two_size_multipartite.py Git blobs",
+    "Boyd et al. (2004) https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+    "Boyd, Diaconis, Parrilo and Xiao (2007) https://arxiv.org/abs/0709.0955",
+    "Jafarizadeh (2010) https://arxiv.org/abs/1008.2588"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized zero-holding K-partite SLEM calculation may exist in unindexed literature, including reductions of the general SDP.",
+    "Zero-weight allowed edges are essential at phase boundaries; strict-positive edge constraints change attainment.",
+    "Global minimizer uniqueness is not proved, only uniqueness in invariant family."
+  ],
+  "residual_risks": [
+    "A specialized zero-holding K-partite SLEM calculation may exist in unindexed literature, including reductions of the general SDP.",
+    "Zero-weight allowed edges are essential at phase boundaries; strict-positive edge constraints change attainment.",
+    "Global minimizer uniqueness is not proved, only uniqueness in invariant family."
+  ],
+  "schema_version": 1
+}
