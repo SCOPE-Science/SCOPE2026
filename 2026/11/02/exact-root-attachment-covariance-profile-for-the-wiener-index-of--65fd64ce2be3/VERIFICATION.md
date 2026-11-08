@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` from the folder containing the extracted artifacts. No nonstandard packages or network access are required.
+## correctness
 
-The checker enumerates all \((n-1)!\) recursive trees for each size \(n=2,\ldots,8\): exactly \(5913\) trees. It constructs each undirected tree and computes graph distances without relying on the proposed Wiener recurrence, then checks the local covariance for all \(28\) admissible \((n,j)\) pairs with exact fractions. It separately checks the finite-sum formula against the closed covariance formula for every \(n=2,\ldots,150\), also using exact fractions. Observed result: `PASS: 5913 recursive trees exhaustively enumerated (sizes 2..8), 28 exact local covariance checks; 149 exact symbolic-sum comparisons (sizes 2..150).`
+PASS
 
-The proof for all \(n\) is the conditional-growth argument and elementary strict harmonic-ratio inequality in `RESULT.md`. Enumeration beyond \(n=8\) was not performed and is not claimed. External independent audit remains unperformed.
+Exact source RESULT.md proves conditional Wiener-growth E[W_(m+1)|T_m]=(1+2/m)W_m+m. Known mean a_m=m(m+1)H_m-2m² and root path mean m(H_m-1) give at marked arrival j the shift delta_j=3(j-1)-(j+1)H_(j-1). Independence of future uniform parents propagates this shift by product_{m=j}^{n-1}(m+2)/m=n(n+1)/(j(j+1)); multiply by P(I_j=1)=1/(j-1) to get displayed covariance. The g_j=(j+1)H_(j-1)/(j-1) increases for j>=3 via H_(j-1)<=j/2, with g_2=g_3=3. Summing finite harmonics gives the global expression and pi²/6 limiting coefficient. Independent enumeration of all 120 labeled recursive trees n=6 computed every Wiener distance and every local covariance exactly, agreeing. Zero covariance at j=2,3 is not independence.
+
+## originality
+
+PASS
+
+PASS qualified: exact root-child attachment versus Wiener covariance local profile and its summed quadratic asymptotic, not the old Wiener mean or Wiener/internal-path joint limit. The latter does not determine root degree interactions.
+
+## value
+
+PASS
+
+Wiener index is a canonical global pairwise metric, and root child count a canonical local growth degree. The theorem resolves the arrival-wise sign profile (exact neutrality at j=2,3, strict negative thereafter for every final n) and gives an explicit nonzero quadratic scaling constant; the information is not recoverable from marginal Wiener or path-length means alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

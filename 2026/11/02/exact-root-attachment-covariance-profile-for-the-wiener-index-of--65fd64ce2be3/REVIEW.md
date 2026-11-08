@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact local formula follows from the conditional Wiener-growth recurrence, the independence of earlier and later parent choices from a fixed arrival indicator, and the explicit expectations of the Wiener index and total root path length. The factor \(n(n+1)/(j(j+1))\) is a telescoping product, and the strict sign follows from the increasing harmonic ratio \(\frac{j+1}{j-1}H_{j-1}\) starting at \(3\). Both the finite-sum identity and limiting coefficient are derived directly in `RESULT.md`. Exhaustive independent computation for all \(5913\) recursive trees through size \(8\) corroborates all \(28\) local cases; rational sum identities were checked through size \(150\). Finite checking is not offered as a proof for all sizes.
+PASS
 
-## Originality — PASS (qualified)
+Exact source RESULT.md proves conditional Wiener-growth E[W_(m+1)|T_m]=(1+2/m)W_m+m. Known mean a_m=m(m+1)H_m-2m² and root path mean m(H_m-1) give at marked arrival j the shift delta_j=3(j-1)-(j+1)H_(j-1). Independence of future uniform parents propagates this shift by product_{m=j}^{n-1}(m+2)/m=n(n+1)/(j(j+1)); multiply by P(I_j=1)=1/(j-1) to get displayed covariance. The g_j=(j+1)H_(j-1)/(j-1) increases for j>=3 via H_(j-1)<=j/2, with g_2=g_3=3. Summing finite harmonics gives the global expression and pi²/6 limiting coefficient. Independent enumeration of all 120 labeled recursive trees n=6 computed every Wiener distance and every local covariance exactly, agreeing. Zero covariance at j=2,3 is not independence.
 
-Neininger's full author manuscript (2001) treats the Wiener index jointly with **internal/root path length**, not the root outdegree; its exact expectation is prior art and is used here. Grübel and Michailow (2014), inspected through the introduction and Sections 3.1 and 3.3–3.4, establish path-length/Wiener limit results but do not state the root-attachment influence or its exact sign threshold. A published result on root attachments and **total root path length** is mathematically distinct: that statistic sums root distances, whereas Wiener index sums distances over all pairs. Neither mixed covariance determines the other. Searches by the present statistics, harmonic-square formulas, and equivalent attachment/degree wording did not identify a stronger prior covering statement. This is a best-knowledge priority assessment, not proof of uniqueness. Residual risks include older tree-index literature and potential unstated corollaries of general joint enumerations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Root degree measures local attachment concentration; the Wiener index measures global pairwise-distance spread. The theorem determines the entire arrival-resolved dependence profile rather than only a mean or one numerical value. The exact neutrality of arrivals \(2\) and \(3\), the strict negativity at every subsequent arrival for all final sizes, and the nonzero quadratic limiting constant give a structural and all-size answer. The result is not just a substitution into a published path-length covariance because Wiener distances include pairwise subtree interactions.
+PASS qualified: exact root-child attachment versus Wiener covariance local profile and its summed quadratic asymptotic, not the old Wiener mean or Wiener/internal-path joint limit. The latter does not determine root degree interactions.
 
-## Scientific limits and sources
+## value
 
-The claim concerns the uniform increasing-label recursive-tree model; zero covariance does not assert independence, and finite tests do not establish infinite-size validity. Priority risk remains after comparison with Neininger's author PDF (https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf), Grübel–Michailow's full arXiv text (https://arxiv.org/abs/1406.7614), and the abstract of Munsonius' tail-bound paper (doi:10.1239/jap/1339878805). No external independent mathematical validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wiener index is a canonical global pairwise metric, and root child count a canonical local growth degree. The theorem resolves the arrival-wise sign profile (exact neutrality at j=2,3, strict negative thereafter for every final n) and gives an explicit nonzero quadratic scaling constant; the information is not recoverable from marginal Wiener or path-length means alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

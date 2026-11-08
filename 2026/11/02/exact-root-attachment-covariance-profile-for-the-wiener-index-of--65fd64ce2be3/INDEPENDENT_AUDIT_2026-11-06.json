@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:16:45.879922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact source RESULT.md proves conditional Wiener-growth E[W_(m+1)|T_m]=(1+2/m)W_m+m. Known mean a_m=m(m+1)H_m-2m² and root path mean m(H_m-1) give at marked arrival j the shift delta_j=3(j-1)-(j+1)H_(j-1). Independence of future uniform parents propagates this shift by product_{m=j}^{n-1}(m+2)/m=n(n+1)/(j(j+1)); multiply by P(I_j=1)=1/(j-1) to get displayed covariance. The g_j=(j+1)H_(j-1)/(j-1) increases for j>=3 via H_(j-1)<=j/2, with g_2=g_3=3. Summing finite harmonics gives the global expression and pi²/6 limiting coefficient. Independent enumeration of all 120 labeled recursive trees n=6 computed every Wiener distance and every local covariance exactly, agreeing. Zero covariance at j=2,3 is not independence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neininger (2001/2002) computes E W_n and asymptotic joint covariances of W with internal path length; Grübel–Michailow 2014 gives path/Wiener strong limits."
+        ],
+        "reasoning": "These broad probabilistic limit results encompass the model but do not state a marked-arrival finite-n covariance profile or determine it as an immediate logical consequence.",
+        "searches": [
+          "random recursive tree covariance root degree Wiener index root attachment indicators",
+          "Neininger Wiener Index of Random Trees Theorem 1.2; arxiv:1406.7614"
+        ]
+      },
+      "checked_sources": [
+        "Neininger author PDF 2001 Theorem 1.2",
+        "arxiv:1406.7614 abstract",
+        "Resultary query random recursive tree covariance root degree Wiener index root attachment indicators",
+        "Resultary 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neininger Theorem 1.2 gives E W_n=n(n+1)H_n-2n² and mixed asymptotics Cov(W,P); neither includes D_n. A separate same-model published root-attachment path-length law has different n-order."
+        ],
+        "reasoning": "The submitted proof explicitly adds conditional marked-arrival propagation; prior marginal means and mixed path-length covariance do not imply the new entries of a larger joint covariance matrix.",
+        "searches": [
+          "random recursive tree root children Wiener index covariance exact",
+          "Neininger Wiener Index of Random Trees Theorem 1.2; arxiv:1406.7614"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Root degree D_n is sum of root-parent indicators I_j; Wiener index is unordered sum of ALL pairwise distances. Internal path length is root-to-vertex distance sum, a different random variable."
+        ],
+        "reasoning": "A root-degree/path-length covariance cannot be substituted for root-degree/Wiener because covariance of W with S or D with S leaves the D,W covariance undetermined.",
+        "searches": [
+          "random recursive tree covariance root degree Wiener index root attachment indicators",
+          "random recursive tree root children Wiener index covariance exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found related root-degree versus leaf-count and root-attachment versus total path-length exact profiles (2026/10/4) but not the Wiener profile; Neininger manuscript has no text match for degree."
+        ],
+        "reasoning": "A profile for a different tree statistic is not an exact database/table of this covariance; search does not prove priority.",
+        "searches": [
+          "random recursive tree covariance root degree Wiener index root attachment indicators",
+          "random recursive tree root children Wiener index covariance exact"
+        ]
+      },
+      "rationale": "PASS qualified: exact root-child attachment versus Wiener covariance local profile and its summed quadratic asymptotic, not the old Wiener mean or Wiener/internal-path joint limit. The latter does not determine root degree interactions.",
+      "residual_risks": [
+        "Older joint generating-function work could imply this covariance without stating its label.",
+        "Grübel–Michailow full manuscript not retrieved in this run; literature inspection of that paper is not complete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Wiener mean and W/internal-path covariance; no root outdegree mixed formula found.",
+          "evidence": [
+            "Theorem 1.2 concerns (W_n,P_n), with P_n total internal root path length."
+          ],
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf; DOI:10.1017/S0963548302005321",
+          "material_read": "Author PDF full-text: introduction, Theorem 1.2 on mean/joint path-length law, recursive-tree proof passages, remarks; one rendered page screenshot, text search for degree",
+          "method": "PDF text inspection and page-image check",
+          "title": "The Wiener Index of Random Trees",
+          "trigger": "Same random recursive tree and Wiener statistic"
+        },
+        {
+          "assessment": "Limit framework plausible but no full-text absence asserted.",
+          "evidence": [
+            "Abstract describes strong limit theorems for path length/Wiener index, not root attachment indicator."
+          ],
+          "identifier_or_url": "arxiv:1406.7614",
+          "material_read": "Primary arXiv abstract/metadata and contextual paper description; full paper not available to independently reread this run",
+          "method": "Limited primary abstract + cross-check of known Section 3.3 aim",
+          "title": "Random Recursive Trees: A Boundary Theory Approach",
+          "trigger": "Same model and both Wiener/total path functionals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Wiener index is a canonical global pairwise metric, and root child count a canonical local growth degree. The theorem resolves the arrival-wise sign profile (exact neutrality at j=2,3, strict negative thereafter for every final n) and gives an explicit nonzero quadratic scaling constant; the information is not recoverable from marginal Wiener or path-length means alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform recursive-tree attachment, n>=j>=2; not preferential attachment.",
+    "Zero covariance does not imply independence; weak historical priority risk persists."
+  ],
+  "schema_version": 1
+}
