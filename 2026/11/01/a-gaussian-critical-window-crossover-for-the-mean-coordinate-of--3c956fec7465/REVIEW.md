@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The shell Markov recurrence is exact; kernel cancellation yields the mean-coordinate generating function, and the first-passage ballot coefficient theorem yields a finite binomial formula. The triangular-array central limit theorem with uniform integrability then proves the critical-window coefficient. The script `checker.py` independently checks direct branch integration against the ballot identity in 27 exact-rational cases. These finite checks are supplementary to the proof.
+## correctness
 
-**Originality: PASS within inspected literature.** Monthus, arXiv:2409.19999, already gives the finite-time propagator, the one-time coordinate observable in Eqs. 157–159, and fixed-critical-time shell asymptotics in Eq. 66; Yan et al., arXiv:2308.09269, already establish the model's transition and discuss correlations. The exact finite-time formula is an algebraic organization of this established system, not a new general ergodic principle. The distinct claim is the moving-probability critical-window limit and its Gaussian crossover, not stated in the inspected source sections. Unread or unindexed equivalent asymptotic analyses remain a priority risk.
+PASS
 
-**Mathematical value: PASS.** A natural width in a finite-time observation of the intermittent threshold is \(n^{-1/2}\): this theorem identifies the entire crossover curve for a physical observable with an exact coefficient, including its strict monotonicity, convexity and the two edge regimes. It cannot be obtained by inserting \(p=1/2\) into a fixed-parameter stationary formula, as the critical law has no finite stationary density. The exact walk representation makes the finite-time comparison reproducible.
+For uniform initial [0,1), exact dyadic shell probabilities obey the stated reset biased-walk recurrence. Kernel cancellation at r=z(p+q r^2) yields M_p(z)=r/[z(1-r)(2p-qr)] and Lagrange/ballot coefficients give the stated finite binomial mean. With p_n=1/2+alpha/sqrt(n) and c_n=q_n/(2p_n)->1/2, the tail correction E[S^+ c_n^S] is O(1); triangular-array CLT plus uniform integrability gives sqrt(n) E X_n -> 2 E[(Z+2alpha)^+] = sqrt(2/pi)exp(-2alpha^2)+4alpha Phi(2alpha). Independently coded rational dyadic-shell integration and ballot expectation agree in 32 cases. The proof does not infer the all-n limit from those cases.
 
-**Limitations.** Uniform initial distribution; annealed first moment only; the source literature has strong prior full-time formulas from which this focused limit can be derived. Independent publication-priority checking and independent mathematical audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Monthus (2024) derives the full shell transient propagator and formulae for physical coordinate for the exact same Pelikan map, so those ingredients and the finite-time representation are not original. The asserted residual contribution is the *moving-parameter* p=1/2+alpha/sqrt(n) asymptotic with the complete Gaussian crossover function. Relevant primary full-text portions on Eq. 66 and Eqs. 157–159 were compared; they work at fixed p/critical point, not a uniform matched p_n window. This is a close priority comparison because a sufficiently strong unexamined uniform consequence of the prior propagator could imply the crossover; the claim is not certified historically.
+
+## value
+
+PASS
+
+The width n^{-1/2} near the intermittent threshold is natural for a biased random-walk crossover. The explicit entire Gaussian positive-part curve for a physical coordinate quantifies a genuinely nonstationary finite-observation transition with fixed sharp coefficient, rather than a parameter-renaming or one-number calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

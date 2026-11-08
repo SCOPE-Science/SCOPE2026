@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:11:36.683445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 7891b1d1386c29638b10b01851c333d78a94d212 steps 1–4",
+        "Frozen checker.py blob 10c400fb089c85db4adc190f36042804ad06181e (inspected only)",
+        "Independent rational dynamics and ballot coefficients, private independent_scope05_checks_20261102.py"
+      ],
+      "rationale": "For uniform initial [0,1), exact dyadic shell probabilities obey the stated reset biased-walk recurrence. Kernel cancellation at r=z(p+q r^2) yields M_p(z)=r/[z(1-r)(2p-qr)] and Lagrange/ballot coefficients give the stated finite binomial mean. With p_n=1/2+alpha/sqrt(n) and c_n=q_n/(2p_n)->1/2, the tail correction E[S^+ c_n^S] is O(1); triangular-array CLT plus uniform integrability gives sqrt(n) E X_n -> 2 E[(Z+2alpha)^+] = sqrt(2/pi)exp(-2alpha^2)+4alpha Phi(2alpha). Independently coded rational dyadic-shell integration and ballot expectation agree in 32 cases. The proof does not infer the all-n limit from those cases.",
+      "residual_risks": [
+        "Initial measure must be uniform, mean is annealed, alpha fixed as n tends to infinity.",
+        "Joint p_n scaling cannot be obtained by interchanging fixed-p stationary limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monthus studies chaotic region and intermittent critical point fixed parameter; Yan et al establish dynamics and threshold.",
+          "Homburg et al critical intermittency treats a different random interval-map family."
+        ],
+        "reasoning": "The earlier exact propagator is broader finite-time information and can serve as a starting point; the inspected asymptotic statements are fixed-parameter, not the two-scale n-dependent p limit. A latent implication via the full propagator remains explicitly a risk.",
+        "searches": [
+          "arXiv:2409.19999",
+          "arXiv:2308.09269",
+          "DOI:10.1007/s00220-022-04396-9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2409.19999",
+        "https://arxiv.org/abs/2308.09269",
+        "Resultary semantic search: Pelikan random map doubling and halving critical window p = 1/2 + alpha / sqrt n coordinate mean Gaussian crossover transient exact binomial",
+        "Resultary semantic search: Pelikan map Monthus mean position probability drifts with observation time CLT normal crossover critical window"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=1/2 the prior critical asymptotics recover F(0), and fixed-p propagators determine each finite-n observable.",
+          "No inspected prior theorem gives uniform p=1/2+O(n^{-1/2}) error control."
+        ],
+        "reasoning": "Fixed-p limits alone do not imply the displayed joint Gaussian curve by substitution. A separate ballot+uniform-integrability argument proves it. Nonetheless the source full transient formula is strong enough that a prior unexamined corollary could cover this specific limit.",
+        "searches": [
+          "arXiv:2409.19999 Eq. 66 and Eqs. 157–159",
+          "arXiv:2308.09269",
+          "Resultary semantic search: Pelikan random map doubling and halving critical window p = 1/2 + alpha / sqrt n coordinate mean Gaussian crossover transient exact binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monthus 2024: Eq. 157–159 express physical mean as a shell observable, and paper gives full finite-time transient for the exact affine random map.",
+          "Frozen claim identifies the same model but takes a triangular-array limit p_n."
+        ],
+        "reasoning": "The exact finite-time shell representation is substantially equivalent to prior propagator ingredients; the new mathematical statement is the specific moving-p critical-window asymptotic, which requires separate joint-limit uniformity.",
+        "searches": [
+          "Resultary semantic search: Pelikan random map doubling and halving critical window p = 1/2 + alpha / sqrt n coordinate mean Gaussian crossover transient exact binomial",
+          "Resultary semantic search: Pelikan map Monthus mean position probability drifts with observation time CLT normal crossover critical window",
+          "arXiv:2409.19999"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on other Gaussian windows for other maps, not this coordinate function.",
+          "Monthus has exact shell Green functions, not a displayed F(alpha)=2 phi(2alpha)+4alpha Phi(2alpha) crossover table in inspected passages."
+        ],
+        "reasoning": "A pre-existing exact finite-time representation is acknowledged; the exact matched asymptotic function was not identified as tabulated in consulted sources.",
+        "searches": [
+          "Resultary semantic search: Pelikan random map doubling and halving critical window p = 1/2 + alpha / sqrt n coordinate mean Gaussian crossover transient exact binomial",
+          "Resultary semantic search: Pelikan map Monthus mean position probability drifts with observation time CLT normal crossover critical window",
+          "web: Pelikan random map critical window mean coordinate formula Gaussian"
+        ]
+      },
+      "rationale": "Monthus (2024) derives the full shell transient propagator and formulae for physical coordinate for the exact same Pelikan map, so those ingredients and the finite-time representation are not original. The asserted residual contribution is the *moving-parameter* p=1/2+alpha/sqrt(n) asymptotic with the complete Gaussian crossover function. Relevant primary full-text portions on Eq. 66 and Eqs. 157–159 were compared; they work at fixed p/critical point, not a uniform matched p_n window. This is a close priority comparison because a sufficiently strong unexamined uniform consequence of the prior propagator could imply the crossover; the claim is not certified historically.",
+      "residual_risks": [
+        "Monthus (2024) exact transient propagator for same map is a strong prior ingredient; an unstated short uniform-CLT corollary could cover the matched limit.",
+        "Searches cannot establish priority among unindexed subsequent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_INGREDIENT_NOT_EXPLICIT_MATCHED_LIMIT",
+          "evidence": [
+            "Existing arbitrary-time propagator and coordinate expectation are acknowledged as prior.",
+            "Inspected sections describe fixed parameter asymptotics, not the moving critical p_n window."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.19999",
+          "material_read": "Full 45-page arXiv PDF obtained; inspected random-map definitions, main scope, fixed-critical Eq. 66 and physical-coordinate formulas around Eqs. 157–159 (not all pages line-by-line)",
+          "method": "arXiv PDF textual sections and page images",
+          "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point towards the non-chaotic region",
+          "trigger": "Exact same random map and physical mean observable"
+        },
+        {
+          "assessment": "BACKGROUND_DIFFERENT_CONCLUSION",
+          "evidence": [
+            "Critical p=1/2 transition is already known; it does not specify the displayed F(alpha) in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.09269",
+          "material_read": "Primary publication abstract, model and reported threshold/correlation results; no complete exhaustive paper reading claimed",
+          "method": "arXiv paper landing and primary descriptions",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Same threshold and random expanding/contracting interval map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic search: Pelikan random map doubling and halving critical window p = 1/2 + alpha / sqrt n coordinate mean Gaussian crossover transient exact binomial",
+        "Resultary semantic search: Pelikan map Monthus mean position probability drifts with observation time CLT normal crossover critical window",
+        "https://arxiv.org/abs/2409.19999",
+        "https://arxiv.org/abs/2308.09269"
+      ],
+      "rationale": "The width n^{-1/2} near the intermittent threshold is natural for a biased random-walk crossover. The explicit entire Gaussian positive-part curve for a physical coordinate quantifies a genuinely nonstationary finite-observation transition with fixed sharp coefficient, rather than a parameter-renaming or one-number calculation.",
+      "residual_risks": [
+        "Only first annealed moment from uniform start; does not establish process-level or quenched crossover."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Initial measure must be uniform, mean is annealed, alpha fixed as n tends to infinity.",
+    "Joint p_n scaling cannot be obtained by interchanging fixed-p stationary limits.",
+    "Monthus (2024) exact transient propagator for same map is a strong prior ingredient; an unstated short uniform-CLT corollary could cover the matched limit.",
+    "Searches cannot establish priority among unindexed subsequent work.",
+    "Only first annealed moment from uniform start; does not establish process-level or quenched crossover."
+  ],
+  "schema_version": 1
+}
