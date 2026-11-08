@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For 3<=n and 1<=k<=n-2, any feasible shore has at least two selected vertices: a one-element first shore forces its matched second-shore vertex selected to dominate it, which would expose n-1>k outside neighbors. With at least two selected per shore, domination is automatic, and selected a_i has exactly n-1-|J|+1_{i in J} outside neighbors, symmetrically for selected b_j. This proves the disjoint/intersecting capacity cases necessary and sufficient. Multiplicity counts follow from elementary labelled subset choices. Minimizing these two cases yields exactly the three stated regimes and their equality classes. The comparison to K_{n,n} uses the known minimum 2(n-k). Direct adjacency-mask enumeration verifies all coefficients and minima for n<=8, and additional coefficient-level checks reach n=60; no finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.22422 Proposition 2(iv) treats K_{m,n}, not matching-deleted complete bipartite graphs.",
+        "The corresponding open-access Computational and Applied Mathematics article confines explicit basic classes to paths, cycles, stars, complete graphs, complete bipartite graphs.",
+        "Published mathematical record: Exact k-limited domination of complete multipartite graphs (indexed summary) concerns graphs complete between every two partite classes; for n>=3 the crown graph is not of this type."
+      ],
+      "reasoning": "The complete multipartite formulas apply to K_{n,n}, giving the baseline 2(n-k), but a crown is not complete multipartite for n>=3: the deleted matching forces different cross-adjacencies within each shore. The original general bounds and regular-graph reduction do not give the bivariate coefficients without an independent analysis of matched indices.",
+      "searches": [
+        "k-limited domination number and minimum k-limited dominating sets crown graph K_n,n minus perfect matching for all k",
+        "k-limited domination complete bipartite minus matching strong majorities",
+        "\"k-limited domination\" \"crown\" \"enumerator\"",
+        "\"complete bipartite graphs minus perfect matching\" \"(1,t)-domination\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.22422",
+      "https://doi.org/10.1007/s40314-026-03902-2",
+      "https://arxiv.org/abs/2606.22428 (abstract and contents)",
+      "Pitchfork domination in graphs (2020), complete 13-page PDF textual rendering; introductory definitions and Theorem 2.4 read",
+      "Indexed mathematical records: Exact k-limited domination of complete multipartite graphs; Restrained-dominating-set profile of crown graphs; Perfect Roman domination of crown graphs."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper computes gamma_k^L(K_{n,n})=2(n-k) and proves gamma_k^L(G)=gamma_{1,d-k}(G) for d-regular graphs.",
+        "The crown result has a positive matching-deletion gain of 2 precisely when r>=2 and n>=2r and gives every feasible coefficient and minimum multiplicity; neither follows by substituting a graph into Proposition 2(iv).",
+        "Nearby records for crowned Roman, restrained, or singleton rainbow parameters have non-equivalent feasibility conditions."
+      ],
+      "reasoning": "There is a genuine statement-level distinction: replacing K_{n,n} by K_{n,n}-M_n changes neighbour loads according to whether selected matching indices coincide. This intersection term and all coefficient counts are absent from the cited exact K_{m,n} formulas. The (1,t) equivalence changes notation but gives no specific crown solution in the inspected materials.",
+      "searches": [
+        "arXiv:2606.22422 Proposition 2(iv) complete bipartite and regular graph relation",
+        "On k-limited domination in graphs doi:10.1007/s40314-026-03902-2 section exact classes and conclusions",
+        "\"pitchfork domination\" \"crown\" 2020",
+        "\"K_{n,n}-M\" \"(1,2)-domination\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Božović et al., arXiv:2606.22422, regular-graph identity gamma_k^L=gamma_{1,d-k} for d-regular G.",
+        "Božović et al., journal full text Introduction: (0,k)-pitchfork is the same capacity predicate, but differs from the pitchfork literature focus on j=1."
+      ],
+      "reasoning": "The two aliases use identical pointwise constraints on a regular crown graph of degree n-1; they are not distinct novel invariants. However the inspected primary exposition proves the equivalence of problems, not the present all-set bivariate crown enumeration or sharp extremal multiplicities. Exact-formulation searches found no specific stronger crown theorem. The 2020 pitchfork full-text rendering was additionally inspected: its Definition 1.1 and Theorem 2.4 study the (1,2) lower-positive-load variant and K_{m,n}, not the (0,k) all-set crown enumerator. The broad family is still old terminology; priority risk remains.",
+      "searches": [
+        "crown graph (1,t) domination minimal sets all cardinalities n regular bipartite minus matching",
+        "crown graph 1 t domination number t=n-k-1 strong degree induced subgraph capacity",
+        "pitchfork (0,k) domination exact crown graphs generating function",
+        "\"(1,t)\" \"crown graph\" graph domination",
+        "arXiv:2606.22422, section 4: d-regular (1,d-k)-domination equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical records for restrained-dominating-set profile of crown graphs and perfect Roman domination of crown graphs address different predicates; no value for this bivariate polynomial appears in those records.",
+        "Exact complete-bipartite k-limited number in arXiv:2606.22422 is not a crown parameter table.",
+        "Related 2024 Roman domination literature is a different vertex-labelling invariant."
+      ],
+      "reasoning": "The database comparisons distinguish all-set k-limited counts from other domination counts on the same graph. Neither a standard ordinary domination table nor a different domination polynomial supplies the matching-index correlation. No exact profile table covering this result was located; index absence does not establish priority.",
+      "searches": [
+        "all k-limited dominating sets of crown graph bivariate generating polynomial indexed sides",
+        "crown graph exact k limited domination matching deleted bipartite gamma n k",
+        "\"crown graph\" \"pitchfork domination\" polynomial",
+        "\"crown graphs\" \"(1,t)-domination\" exact"
+      ]
+    },
+    "rationale": "Direct primary full text and related-result comparisons show baseline/alias coverage, but not the claimed all-set crown profile. Searches for crown, matching-deleted bipartite, (1,t) and (0,k) pitchfork variants yielded no identified covering theorem. Residual priority risk is explicit.",
+    "residual_risks": [
+      "The 2020 pitchfork paper was checked through the accessible full PDF textual rendering but the image screenshot failed; other older variants and literature not indexed in the present searches may still affect historical priority.",
+      "An adjacent 2026 Cartesian-products manuscript was only inspected through abstract and contents; potential appendices were not searched in full.",
+      "Ranked search and online indexing cannot establish exhaustive bibliographic novelty; independent mathematical and priority assessment is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers K_{n,n} and the regular equivalence but no matching-deleted crown bivariate classification in the inspected full-text parts.",
+        "evidence": [
+          "Definition 1; Proposition 2(iv); regular-graph link; conclusion on further graph families, arXiv:2606.22422."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+        "material_read": "Full HTML textual manuscript: definition, Proposition 2 and proof for K_{m,n}, regular-graph equivalence, section on packings, conclusion, references.",
+        "method": "Read arXiv full-text rendering and compared its exact families and implications to the crown classification.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Introduces the capacity predicate and explicitly solves complete bipartite graphs; strongest direct primary antecedent."
+      },
+      {
+        "assessment": "Confirms K_{m,n} as a basic solved family and the (0,k)-pitchfork alias; the material inspected does not state the crown enumerator.",
+        "evidence": [
+          "Published 2026-09-11; Computational and Applied Mathematics, DOI 10.1007/s40314-026-03902-2."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-026-03902-2",
+        "material_read": "Open-access HTML abstract, Introduction, basic graph classes and selected discussion, plus references to pitchfork terminology.",
+        "method": "Read accessible publisher page and checked section descriptions and displayed results.",
+        "title": "On k-limited domination in graphs (open-access journal version)",
+        "trigger": "Check that the later article version had not added a crown formula and confirm older terminology."
+      },
+      {
+        "assessment": "Its stated contributions concern complexity, Cartesian products and bounds, not explicit crown graphs; abstract-only inspection cannot rule out hidden special cases.",
+        "evidence": [
+          "arXiv:2606.22428 abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "Abstract and accessible table of contents only; full-text search was not accessible.",
+        "method": "Searched exact title/abstract and attempted available HTML access.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Closely related 2026 manuscript on exact families of the same invariant."
+      },
+      {
+        "assessment": "The actual paper defines a general j-to-k pitchfork notion but explicitly studies j=1,k=2, and Theorem 2.4 treats complete bipartite graphs, not matching-deleted crowns. It contains no indexed crown statement or all-(0,k) bivariate enumeration; older literature beyond this paper remains a priority risk.",
+        "evidence": [
+          "Al-Harere and Abdlhusein (2020), Pitchfork domination in graphs, DOI 10.1142/S1793830920500251, pp. 1-2 (general definition and j=1,k=2 focus), pp. 6-7, Theorem 2.4 for K_{m,n}, PDF at https://des.utq.edu.iq/wp-content/uploads/sites/22/2022/11/pitchfork-domination-in-graphs.pdf ."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S1793830920500251",
+        "material_read": "Open university-hosted PDF, extracted text of definition, general bounds, Section 2 (including Theorem 2.4), and full manuscript text. PDF image screenshot access failed; textual sections and theorem statements were read.",
+        "method": "Read the 13-page university-hosted PDF text with definitions and graph-family results, searched crown and complete-bipartite strings, compared the (1,2) requirement and Theorem 2.4 against the (0,k) crown theorem.",
+        "title": "Pitchfork domination in graphs",
+        "trigger": "Older equivalent (0,k) terminology flagged by original primary paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c127eb82-1d6b-4d28-a0a4-1db07a655174",
+  "value": {
+    "rationale": "The all-set two-shore polynomial gives every feasible cardinality and exact number of minimum configurations for a natural dense graph with one missing perfect matching. The disjoint-versus-intersecting structural split yields a sharp phase boundary: deleting the perfect matching improves the k-limited domination number by exactly two in one parameter interval, but has no effect outside it. This is stronger than an isolated exact minimum, is not determined by the known K_{n,n} value, and provides an explicit benchmark for bounded-external-load domination under structured edge failures.",
+    "status": "PASS"
+  }
+}
