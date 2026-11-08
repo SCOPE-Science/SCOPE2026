@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The objective and admissible simplex are explicit, and compactness guarantees a maximizer. For positive unequal coordinates, stationarity under opposite-coordinate transfer forces the mean of \(f''\) over the intervening interval to vanish; strict convexity of \(f''\) then forces a positive second directional derivative, contradicting maximality. Consequently any optimizer has \(k\) identical positive components. Exact adjacent-support differences and their strictly ordered zeros prove the exhaustive staircase, tie cases and all equality conditions. A dependency-free exact-rational checker was run from the actual new package and returned 4963 passing assertions. Computational tests corroborate but do not replace the analytic universal proof.
+## correctness
 
-## Originality — PASS within inspected evidence, provisional
-The relevant 2005 Schreiber–Vejdani full article studies evolved patch preferences under handling-time predation, not fixed-biomass maximization of instantaneous Holling-II-minus-logistic net growth. The inspected 2013 Barraquand–Murrell article treats spatial moment closure and scale effects, not the complete \(n\)-patch occupancy optimization. Selected pages of the 1985 Holt two-patch study concern movement and dynamic habitat distribution rather than the explicit arbitrary-\(n\) threshold sequence. A targeted mathematical-record search yielded related predator–prey dynamics and general resource-allocation findings, but no compared statement subsumes the exact theorem. Broad nonlinear allocation theory and uninspected historical ecology literature remain priority risks; absence of a matching search hit is not a proof of historical novelty.
+PASS
 
-## Value — PASS
-The natural question of how fixed prey biomass should be spatially distributed exposes an explicit tradeoff between strong density-dependent self-crowding and diminishing per-capita predation loss under predator satiation. The complete support-size classification is stronger than a local approximation or isolated two-patch example, predicts \(n-1\) non-skipping phase transitions at analytically defined pressures and identifies all exact parameter boundaries. This is a motivated finite-dimensional model theorem, not a field prescription; consequences for long-term dynamics or real animal behavior remain unproved.
+For n≥2, B,r,K,c,h>0, maximize Σf(x_i) with Σx=B and f(t)=rt−rt²/K−ct/(1+ht). f''(t)=−2r/K+2ch/(1+ht)^3 is strictly convex (its second derivative positive). If a maximizer has 0<a<b, first stationarity under pair transfer gives ∫_a^b f''(t)dt=0; strict upper Hermite–Hadamard yields f''(a)+f''(b)>0, a forbidden positive second variation. Thus every positive entry equals B/k. G_k=kf(B/k) and G_k−G_{k+1}=B²/[k(k+1)]·[ch/((1+hB/k)(1+hB/(k+1)))−r/K]; zeros c_k=r/(Kh)(1+hB/k)(1+hB/(k+1)) strictly decrease with k. Strict signs on either side show only k wins for c_k<c<c_{k−1}, with exactly k,k+1 tied at c_k, no skipped support or unequal maxima. Verified Step3 and all boundaries from actual RESULT.md; independent exact rational threshold and G_k calculations for n=2–5 and multiple pressures matched; finite checks do not substitute for Hermite–Hadamard proof.
 
-## Limitations and sources
-Model assumptions include positive parameters, identical patches, a fixed biomass and instantaneous growth, with no movement cost or predator feedback. Close literature: Schreiber–Vejdani DOI 10.1098/rspb.2005.3236; Barraquand–Murrell DOI 10.1111/2041-210X.12014; Holt DOI 10.1016/0040-5809(85)90027-9. Historical priority and independent scientific validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the closest full primary ecological papers analyze evolving preferences and spatial-moment model scaling, not this fixed-sum global instantaneous optimizer. The same structure may be a specialization of general separable resource-allocation theorem; that risk is recorded, and basic Hermite–Hadamard inequality itself receives no novelty credit.
+
+## value
+
+PASS
+
+The distribution of fixed biomass under opposing density-dependent crowding and predator satiation is a natural explicit constrained nonlinear allocation problem. All global optimizers and all n−1 exact monotone critical pressures are classified for every n, rather than an isolated numerical example; only instantaneous model optimality is claimed, not observed prey behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:51:04.187060Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥2, B,r,K,c,h>0, maximize Σf(x_i) with Σx=B and f(t)=rt−rt²/K−ct/(1+ht). f''(t)=−2r/K+2ch/(1+ht)^3 is strictly convex (its second derivative positive). If a maximizer has 0<a<b, first stationarity under pair transfer gives ∫_a^b f''(t)dt=0; strict upper Hermite–Hadamard yields f''(a)+f''(b)>0, a forbidden positive second variation. Thus every positive entry equals B/k. G_k=kf(B/k) and G_k−G_{k+1}=B²/[k(k+1)]·[ch/((1+hB/k)(1+hB/(k+1)))−r/K]; zeros c_k=r/(Kh)(1+hB/k)(1+hB/(k+1)) strictly decrease with k. Strict signs on either side show only k wins for c_k<c<c_{k−1}, with exactly k,k+1 tied at c_k, no skipped support or unequal maxima. Verified Step3 and all boundaries from actual RESULT.md; independent exact rational threshold and G_k calculations for n=2–5 and multiple pressures matched; finite checks do not substitute for Hermite–Hadamard proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2006 Schreiber–Vejdani discusses adaptive patch preferences in a discrete predator–prey model; 2013 Barraquand–Murrell uses moment equations; Holt focuses on two patches with dynamics."
+        ],
+        "reasoning": "None of those model the exact same fixed-B additive optimization and prove its no-skipping n-patch diagram. A general mathematical theorem of separable utilities is an unexcluded possible dominating theorem.",
+        "searches": [
+          "Resultary query: optimal allocation prey biomass across patches saturating predation logistic crowding discrete occupancy staircase thresholds",
+          "Web query: separable resource allocation equal positive components saturating term quadratic crowding occupancy staircase fixed sum",
+          "doi:10.1098/rspb.2005.3236",
+          "doi:10.1111/2041-210X.12014"
+        ]
+      },
+      "checked_sources": [
+        "Schreiber and Vejdani 2006 full PMC HTML",
+        "Barraquand and Murrell 2013 primary article full accessible HTML",
+        "Holt 1985 bibliographic identification and two-patch model summary, partial not full",
+        "Resultary related predator-prey and separable allocation searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published studies give handling-time aggregation and dynamic heterogeneity or spatial moment approximations; no formulas for G_k and c_k or inequality excluding unequal allocation maxima."
+        ],
+        "reasoning": "Earlier qualitative aggregation does not imply finite-sum exact optimal support or strict ordered transitions; conversely the current instantaneous model does not claim ecological dynamical conclusions.",
+        "searches": [
+          "Resultary query: optimal allocation prey biomass across patches saturating predation logistic crowding discrete occupancy staircase thresholds",
+          "Web query: separable resource allocation equal positive components saturating term quadratic crowding occupancy staircase fixed sum",
+          "doi:10.1098/rspb.2005.3236",
+          "doi:10.1111/2041-210X.12014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reformulated the model as maximization of separable fixed-sum f(t)=rt−αt²−ct/(1+ht), with a single convexity-change in its curvature."
+        ],
+        "reasoning": "Nonlinear resource allocation with identical sites is the pertinent mathematical alias; inspected ecology papers do not prove arbitrary-n equal-positive optimum or exact adjacent c_k thresholds.",
+        "searches": [
+          "Resultary query: optimal allocation prey biomass across patches saturating predation logistic crowding discrete occupancy staircase thresholds",
+          "Web query: separable resource allocation equal positive components saturating term quadratic crowding occupancy staircase fixed sum",
+          "doi:10.1098/rspb.2005.3236",
+          "doi:10.1111/2041-210X.12014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite rational grids in checker.py are original corroborating data, not historical exact tables; Resultary related predator-prey entries concern extinction and dynamic recurrence rather than static allocations."
+        ],
+        "reasoning": "No previously tabulated exact critical sequence found. But the claim is an unrestricted all-n optimizer classification, not a restatement of an ecological table.",
+        "searches": [
+          "Resultary query: optimal allocation prey biomass across patches saturating predation logistic crowding discrete occupancy staircase thresholds",
+          "Web query: separable resource allocation equal positive components saturating term quadratic crowding occupancy staircase fixed sum",
+          "doi:10.1098/rspb.2005.3236",
+          "doi:10.1111/2041-210X.12014"
+        ]
+      },
+      "rationale": "Qualified PASS: the closest full primary ecological papers analyze evolving preferences and spatial-moment model scaling, not this fixed-sum global instantaneous optimizer. The same structure may be a specialization of general separable resource-allocation theorem; that risk is recorded, and basic Hermite–Hadamard inequality itself receives no novelty credit.",
+      "residual_risks": [
+        "Unindexed mathematical nonlinear allocation results with strict convex curvature may imply general equal-support structure and transitions.",
+        "Holt 1985 original full text not completely examined here; its exact 2-patch results may overlap in a special case.",
+        "Model conclusions are conditional instantaneous optima, not behavioral or dynamical validation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not the same static optimization; supplies ecological motivation and precedent for aggregation, not formula c_k.",
+          "evidence": [
+            "Original handling-time patch preference and coexistence/evolution dynamics."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1560034/; DOI:10.1098/rspb.2005.3236",
+          "material_read": "Complete accessible PMC HTML article, introduction, model, results, figures, discussion.",
+          "method": "Compared actual dynamical fitness and evolutionary objectives against present fixed-B optimizer",
+          "title": "Handling time promotes the coevolution of aggregation in predator–prey systems",
+          "trigger": "Predator handling time and patch aggregation closely match mechanism"
+        },
+        {
+          "assessment": "Focuses on spatial moment scaling, not the global constrained maximizer for arbitrary n.",
+          "evidence": [
+            "Article characterizes moment approximation/scale dependence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12014",
+          "material_read": "Accessible primary full HTML, spatial model, moment closure and conclusions.",
+          "method": "Compared objectives and model quantifiers",
+          "title": "Scaling up predator–prey dynamics using spatial moment equations",
+          "trigger": "Nonlinear local predator–prey interactions under spatial aggregation"
+        },
+        {
+          "assessment": "Full-document exclusion is not justified; uninspected exact two-patch subcases remain priority risk.",
+          "evidence": [
+            "The title and synopsis concern two-patch population dynamics and habitat choice."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0040-5809(85)90027-9; https://people.clas.ufl.edu/rdholt/files/012.pdf",
+          "material_read": "Bibliographic/title information and comparison to available summary; not a complete read of full PDF in this execution.",
+          "method": "Limited source identification and scope triage; no whole-paper noncoverage claim",
+          "title": "Population dynamics in two-patch environments: Some anomalous consequences of an optimal habitat distribution",
+          "trigger": "Plausible two-patch predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distribution of fixed biomass under opposing density-dependent crowding and predator satiation is a natural explicit constrained nonlinear allocation problem. All global optimizers and all n−1 exact monotone critical pressures are classified for every n, rather than an isolated numerical example; only instantaneous model optimality is claimed, not observed prey behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All patches identical; no migration penalty, predator feedback, dynamic selection or heterogeneity.",
+    "Only instantaneous net-growth maximization for a fixed total prey biomass B."
+  ],
+  "schema_version": 1
+}
