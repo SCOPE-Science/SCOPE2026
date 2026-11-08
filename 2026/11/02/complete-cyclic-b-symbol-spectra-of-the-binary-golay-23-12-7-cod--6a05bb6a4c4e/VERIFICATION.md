@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducing the cyclic Golay read-weight census
+# Independent mathematical audit
 
-From a directory containing `GENERATE.py`, `VERIFY.py`, `ZERO_RUN_CENSUS.csv` and `B_SYMBOL_SPECTRA.csv`, use Python 3 with no additional packages:
+## correctness
 
-```sh
-python3 GENERATE.py
-python3 VERIFY.py
-```
+PASS
 
-The generator program enumerates every message integer from 0 through 4095, builds the standard Golay cyclic code, records all cyclic zero-run partitions and uses an exact window-count formula to construct each b-symbol spectrum. The verifier then independently reconstructs the same code using systematic polynomial division; it scans all 23 cyclic window starts for every word and every width 1 through 23. It checks all supplied coefficients, every zero-run multiplicity, and the exact minimizers and values, including the 23 rotations of the generator for widths 3 through 11.
+The polynomial g=1+x^2+x^4+x^5+x^6+x^10+x^11 has degree 11 and divides x^23+1, so all 2^12 messages with degree<12 map injectively to 4096 distinct codewords. For each nonconstant codeword its cyclic zero-run lengths r give w_b=23-sum max(r-b+1,0); the 81-class run census therefore determines all 23 complete b-symbol distributions. Inspected actual GENERATE.py, VERIFY.py, both CSVs. A separate independently written enumerator generated 4096 words, computed every one of 23 cyclic-window spectra and all 81 zero-run multiplicities, confirming all values and the 23 common cyclic-generator-orbit minimizers for b=3..11. The ordinary b=1 code weight enumerator, known minimum b distances and saturated 12..23 widths were checked separately. This is a finite exhaustive computation for the exact code, with an injectivity proof; it asserts no general arbitrary-code result.
 
-Observed output: `GENERATED: 81 run types, 23 complete window spectra` followed by `VERIFY_OK: 4096 codewords, 81 zero-run classes, all 23 read lengths`.
+## originality
 
-The result is limited to the explicitly specified binary length-23 code. The exhaustive 4096-word calculation proves this finite classification, not a result about arbitrary blocklengths or arbitrary coordinate orderings. No external independent scientific audit has been performed.
+PASS
+
+The b-symbol minimum-distance values for widths 1–11 were published explicitly by Guan et al, Example 4, using the reciprocal Golay generator. Wide-width stabilization is general prior theory and the run-to-window identity is elementary/known. The surviving novel claim is the nontrivial full weight-multiplicity spectra and 81-class run-partition refinement, plus equality of all width-3..11 minimizing word sets with one 23-word orbit. No inspected prior table yields those stronger multiplicity statements, but code-table priority risk remains.
+
+## value
+
+PASS
+
+This is a complete and independently reproducible symbol-read spectrum for the canonical perfect binary Golay code, useful for enumerator-based error-detection/coding analyses. Full multiplicity profiles distinguish codes/read lengths with identical minimum distance, and the common-minimizer orbit identifies exact extremizers. A complete finite classification of a central natural object has scientific value despite no general b-symbol theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

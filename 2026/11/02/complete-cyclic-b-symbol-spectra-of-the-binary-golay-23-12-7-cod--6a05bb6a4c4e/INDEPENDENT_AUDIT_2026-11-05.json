@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:42:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polynomial g=1+x^2+x^4+x^5+x^6+x^10+x^11 has degree 11 and divides x^23+1, so all 2^12 messages with degree<12 map injectively to 4096 distinct codewords. For each nonconstant codeword its cyclic zero-run lengths r give w_b=23-sum max(r-b+1,0); the 81-class run census therefore determines all 23 complete b-symbol distributions. Inspected actual GENERATE.py, VERIFY.py, both CSVs. A separate independently written enumerator generated 4096 words, computed every one of 23 cyclic-window spectra and all 81 zero-run multiplicities, confirming all values and the 23 common cyclic-generator-orbit minimizers for b=3..11. The ordinary b=1 code weight enumerator, known minimum b distances and saturated 12..23 widths were checked separately. This is a finite exhaustive computation for the exact code, with an injectivity proof; it asserts no general arbitrary-code result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guan, Luo, Luo, Fei and Wang, Generalized Repetition Codes and Their Application to HARQ (https://arxiv.org/abs/2511.15207): Example 4 displays (7,11,13,15,16,17,18,19,20,21,22). Reciprocal code reverses coordinate order and preserves cyclic b-window spectra.",
+          "Vega, The b-symbol weight distributions of all semiprimitive irreducible cyclic codes (https://doi.org/10.1007/s10623-023-01193-w): Golay has seven nonzero ordinary Hamming weights and reducible parity-check polynomial; family constraints exclude it.",
+          "Shi, Özbudak and Solé, Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes (https://doi.org/10.1109/TIT.2021.3069772): General stabilizing count gives 4095 nonzero words with weight23 at b>=12 but not finite widths 2..11 coefficients.",
+          "Resultary published SCOPE080, three binary cyclic symbol-pair codes (https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE080): Separate finite codes do not dominate [23,12,7] b-symbol spectra."
+        ],
+        "reasoning": "Vega's general b-spectrum theorems impose irreducible/semiprimitive code hypotheses excluded by Golay's reducible parity-check; Shi–Özbudak–Solé general stabilization covers only high-width trivial rows. Neither dominates the 81-partition refinement and widths 2..11.",
+        "searches": [
+          "Resultary: Binary Golay [23,12,7] cyclic b-symbol weight enumerator distribution run partition minimum b read distances",
+          "binary Golay b-symbol weight enumerator all coefficients b=2 to 11 cyclic run distribution",
+          "Guan et al arXiv:2511.15207 Example 4",
+          "Shi Ozbudak Sole cyclic b-symbol stabilization",
+          "Vega semiprimitive irreducible cyclic b-symbol weights"
+        ]
+      },
+      "checked_sources": [
+        "Guan, Luo, Luo, Fei and Wang, Generalized Repetition Codes and Their Application to HARQ — https://arxiv.org/abs/2511.15207 — material read: Example 4 and its table on PDF page 9, verified against reciprocal generator orientation",
+        "Vega, The b-symbol weight distributions of all semiprimitive irreducible cyclic codes — https://doi.org/10.1007/s10623-023-01193-w — material read: Available full paper's code-family hypotheses and stated enumerator results",
+        "Shi, Özbudak and Solé, Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes — https://doi.org/10.1109/TIT.2021.3069772 — material read: Published theorem scope and saturation claim from primary citation/context, not entire full-text scan",
+        "Resultary published SCOPE080, three binary cyclic symbol-pair codes — https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE080 — material read: Indexed result summary with code parameters (8,3,6), (12,5,8), (14,3,12)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guan, Luo, Luo, Fei and Wang, Generalized Repetition Codes and Their Application to HARQ (https://arxiv.org/abs/2511.15207): Example 4 displays (7,11,13,15,16,17,18,19,20,21,22). Reciprocal code reverses coordinate order and preserves cyclic b-window spectra.",
+          "Vega, The b-symbol weight distributions of all semiprimitive irreducible cyclic codes (https://doi.org/10.1007/s10623-023-01193-w): Golay has seven nonzero ordinary Hamming weights and reducible parity-check polynomial; family constraints exclude it.",
+          "Shi, Özbudak and Solé, Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes (https://doi.org/10.1109/TIT.2021.3069772): General stabilizing count gives 4095 nonzero words with weight23 at b>=12 but not finite widths 2..11 coefficients.",
+          "Resultary published SCOPE080, three binary cyclic symbol-pair codes (https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE080): Separate finite codes do not dominate [23,12,7] b-symbol spectra."
+        ],
+        "reasoning": "A sequence of minima d_b and a high-b stabilization theorem does not determine counts at nonminimum weights or the common 23-word minimizing orbit. Exhaustive 4096-word spectrum computation and run-partition refinement supply the additional exact claims.",
+        "searches": [
+          "Resultary: Binary Golay [23,12,7] cyclic b-symbol weight enumerator distribution run partition minimum b read distances",
+          "binary Golay b-symbol weight enumerator all coefficients b=2 to 11 cyclic run distribution",
+          "Guan et al arXiv:2511.15207 Example 4",
+          "Shi Ozbudak Sole cyclic b-symbol stabilization",
+          "Vega semiprimitive irreducible cyclic b-symbol weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guan, Luo, Luo, Fei and Wang, Generalized Repetition Codes and Their Application to HARQ (https://arxiv.org/abs/2511.15207): Example 4 displays (7,11,13,15,16,17,18,19,20,21,22). Reciprocal code reverses coordinate order and preserves cyclic b-window spectra.",
+          "Vega, The b-symbol weight distributions of all semiprimitive irreducible cyclic codes (https://doi.org/10.1007/s10623-023-01193-w): Golay has seven nonzero ordinary Hamming weights and reducible parity-check polynomial; family constraints exclude it.",
+          "Shi, Özbudak and Solé, Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes (https://doi.org/10.1109/TIT.2021.3069772): General stabilizing count gives 4095 nonzero words with weight23 at b>=12 but not finite widths 2..11 coefficients.",
+          "Resultary published SCOPE080, three binary cyclic symbol-pair codes (https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE080): Separate finite codes do not dominate [23,12,7] b-symbol spectra."
+        ],
+        "reasoning": "Generator reciprocity/reversal preserves cyclic-window counts and converts Guan's code to the same length-23 Golay code; checked this near-equivalence explicitly and credited their full minimum-distance sequence. The remaining distribution of *all* weights and minimizing words is a stronger different invariant.",
+        "searches": [
+          "Resultary: Binary Golay [23,12,7] cyclic b-symbol weight enumerator distribution run partition minimum b read distances",
+          "binary Golay b-symbol weight enumerator all coefficients b=2 to 11 cyclic run distribution",
+          "Guan et al arXiv:2511.15207 Example 4",
+          "Shi Ozbudak Sole cyclic b-symbol stabilization",
+          "Vega semiprimitive irreducible cyclic b-symbol weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Guan, Luo, Luo, Fei and Wang, Generalized Repetition Codes and Their Application to HARQ (https://arxiv.org/abs/2511.15207): Example 4 displays (7,11,13,15,16,17,18,19,20,21,22). Reciprocal code reverses coordinate order and preserves cyclic b-window spectra.",
+          "Vega, The b-symbol weight distributions of all semiprimitive irreducible cyclic codes (https://doi.org/10.1007/s10623-023-01193-w): Golay has seven nonzero ordinary Hamming weights and reducible parity-check polynomial; family constraints exclude it.",
+          "Shi, Özbudak and Solé, Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes (https://doi.org/10.1109/TIT.2021.3069772): General stabilizing count gives 4095 nonzero words with weight23 at b>=12 but not finite widths 2..11 coefficients.",
+          "Resultary published SCOPE080, three binary cyclic symbol-pair codes (https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE080): Separate finite codes do not dominate [23,12,7] b-symbol spectra."
+        ],
+        "reasoning": "Published Guan Example 4 has known minimums but not all 24 coefficients per b; GUAVA documents ordinary Golay generator/weight enumerator, not cyclic read spectra. Resultary SCOPE080 catalogs unrelated small cyclic codes, so it does not supply the full Golay table.",
+        "searches": [
+          "Resultary: Binary Golay [23,12,7] cyclic b-symbol weight enumerator distribution run partition minimum b read distances",
+          "binary Golay b-symbol weight enumerator all coefficients b=2 to 11 cyclic run distribution",
+          "Guan et al arXiv:2511.15207 Example 4",
+          "Shi Ozbudak Sole cyclic b-symbol stabilization",
+          "Vega semiprimitive irreducible cyclic b-symbol weights"
+        ]
+      },
+      "rationale": "The b-symbol minimum-distance values for widths 1–11 were published explicitly by Guan et al, Example 4, using the reciprocal Golay generator. Wide-width stabilization is general prior theory and the run-to-window identity is elementary/known. The surviving novel claim is the nontrivial full weight-multiplicity spectra and 81-class run-partition refinement, plus equality of all width-3..11 minimizing word sets with one 23-word orbit. No inspected prior table yields those stronger multiplicity statements, but code-table priority risk remains.",
+      "residual_risks": [
+        "Complete binary Golay b-symbol weight enumerators or a reciprocal-version run census may exist in unindexed coding-theory tables or theses.",
+        "Known b=1 Golay Hamming enumerator, b=1..11 minimum *values*, and b>=12 stabilization must not be rebranded as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS b-symbol minimum distances for b=1..11; does not tabulate full nonminimal spectrum coefficients or minimizing orbit",
+          "evidence": "Example 4 displays (7,11,13,15,16,17,18,19,20,21,22). Reciprocal code reverses coordinate order and preserves cyclic b-window spectra.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.15207",
+          "material_read": "Example 4 and its table on PDF page 9, verified against reciprocal generator orientation",
+          "method": "Full accessible PDF with targeted theorem/page-image reading",
+          "title": "Guan, Luo, Luo, Fei and Wang, Generalized Repetition Codes and Their Application to HARQ",
+          "trigger": "Exact same binary Golay 23 code and b-read distance hierarchy"
+        },
+        {
+          "assessment": "Covers irreducible semiprimitive one/two-weight code families, not the reducible binary Golay 7-weight code",
+          "evidence": "Golay has seven nonzero ordinary Hamming weights and reducible parity-check polynomial; family constraints exclude it.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01193-w",
+          "material_read": "Available full paper's code-family hypotheses and stated enumerator results",
+          "method": "Lawfully accessible full-text article inspection",
+          "title": "Vega, The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+          "trigger": "Potential dominating general b-symbol spectrum theorem"
+        },
+        {
+          "assessment": "Covers broad b>=dimension stabilization, so high-width rows are not novel by themselves",
+          "evidence": "General stabilizing count gives 4095 nonzero words with weight23 at b>=12 but not finite widths 2..11 coefficients.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2021.3069772",
+          "material_read": "Published theorem scope and saturation claim from primary citation/context, not entire full-text scan",
+          "method": "Published abstract/theorem-level comparison",
+          "title": "Shi, Özbudak and Solé, Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+          "trigger": "General high-width stabilization can dominate part of the statement"
+        },
+        {
+          "assessment": "Different code lengths and dimensions; does not imply binary Golay enumerators",
+          "evidence": "Separate finite codes do not dominate [23,12,7] b-symbol spectra.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE080",
+          "material_read": "Indexed result summary with code parameters (8,3,6), (12,5,8), (14,3,12)",
+          "method": "Resultary semantic published search",
+          "title": "Resultary published SCOPE080, three binary cyclic symbol-pair codes",
+          "trigger": "Possible exact b-symbol tables in published research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete and independently reproducible symbol-read spectrum for the canonical perfect binary Golay code, useful for enumerator-based error-detection/coding analyses. Full multiplicity profiles distinguish codes/read lengths with identical minimum distance, and the common-minimizer orbit identifies exact extremizers. A complete finite classification of a central natural object has scientific value despite no general b-symbol theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete binary Golay b-symbol weight enumerators or a reciprocal-version run census may exist in unindexed coding-theory tables or theses.",
+    "Known b=1 Golay Hamming enumerator, b=1..11 minimum *values*, and b>=12 stabilization must not be rebranded as original.",
+    "The assessment gives a qualified priority judgment; finite computations prove only the exact finite ranges exhausted and do not substitute for general arguments."
+  ],
+  "schema_version": 1
+}
