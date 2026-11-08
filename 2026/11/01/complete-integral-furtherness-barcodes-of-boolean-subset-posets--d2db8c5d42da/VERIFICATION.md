@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction of the finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the accompanying standalone script. Python 3.10 or later and the standard library suffice. The script enumerates all nonempty faces of the Boolean simplex up to eight vertices, calculates exact furtherness timestamps, and reduces boundary columns separately over the prime fields of sizes \(2\), \(3\), and \(5\), without employing the theorem's cone-boundary basis. It also enumerates actual chains of the nonempty-subset poset up to five ground vertices and independently calculates the order-complex persistence over \(\mathbb F_2\). The two computations test the natural subdivision identification.
+## correctness
 
-Expected output:
+PASS
 
-```
-ORDER_COMPLEX_OK cases=14 chains=6086
-VERIFY_OK n2..8 cases=35 direct_field_reductions=105 simplices_examined=3549 positive_bars=1291 boundary_primes=(2,3,5)
-```
+From downset counting the weight of T is 2^|T|-2^|S∩T|=2^a(2^b-1), inclusion-monotone. The nonempty face poset sublevel order complex is the barycentric subdivision of the filtered simplicial complex. Fix v in S. For each face sigma avoiding v the integral basis c_sigma=boundary[v,sigma], [v,sigma] is upper triangular with unit diagonal and filtration-compatible: a codimension-one face tau gives w({v}∪tau)<=w(sigma); w({v}∪sigma)=2w(sigma). Differential consists only of unit pairs, hence complete Z interval splitting including ties, H0 essential [v], and zero torsion. Independent brute-force mod-two boundary reductions for all n=2..6 and every center size agreed with the precise bar multiset; those finite checks do not prove all n or integral freeness independently.
 
-All assertions executed successfully in the reported computation. They verify small parameter cases, not the theorem for all \(n\), and field tests alone cannot exclude integral torsion. The explicit unimodular filtered basis and its proved timing inequalities supply the infinite-family and integral argument. The result is not independently audited.
+## originality
+
+PASS
+
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
+
+## value
+
+PASS
+
+This is a canonical finite-T0-space filtration defined in recent literature, and the new exact, center-sensitive all-degree integral persistence (higher-dimensional bars, uniform doubling and no torsion) answers a natural previously unspecified question. These precise bar endpoints and multiplicities cannot be read off from the generic stability or degree-zero theory, so are mathematically reusable, not a mere normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

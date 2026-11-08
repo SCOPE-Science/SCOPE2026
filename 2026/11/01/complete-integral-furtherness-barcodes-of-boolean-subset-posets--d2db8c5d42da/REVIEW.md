@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact furtherness weight follows from counting principal downsets. The order-complex filtration is naturally the barycentric subdivision of a downward-closed simplicial face filtration, preserving integral persistence. The critical nonstandard step is an explicit *filtered unimodular* basis substitution: each face avoiding a chosen center vertex is replaced by the integral cycle forming the boundary of its cone. The necessary inequality for every codimension-one face is proved by separate inside/outside cases. It makes every cone boundary available at the claimed birth time and leaves unit differentials at exactly twice that time, so neither hidden torsion nor extension phenomena remain. Direct independent boundary reductions modulo three primes for 35 parameter combinations, plus literal order-complex tests for 14 combinations, support but do not replace this proof. The conclusion is restricted to finite nonempty Boolean subset posets and inclusive furtherness sublevels.
+## correctness
 
-## Originality — PASS (with residual risk)
-Badra–Singh's October 2026 article defines this centered filtration but computes structural statements for degree zero; its inspected text does not provide the higher-degree Boolean barcode or an integral split chain complex. Their March 2026 predecessor defines furtherness, without persistence. Kayacan's 2025 framework filters finite topologies rather than the present sublevel order complexes. The closest published Boolean-poset result is about rank-span-two *proper* Boolean order complexes, not a center-dependent furtherness filtration; its inspected complete scientific statement and proof do not cover this claim. A generic filtered-chain decomposition theorem guarantees existence of interval decompositions but supplies neither these endpoints nor the all-parameter multiplicities. Targeted semantic database and web searches of aliases and parameters found no covering implication; they cannot rule out an unindexed equivalent computation. The result is not claimed to follow from search absence.
+PASS
 
-## Mathematical value — PASS
-The newly introduced centered furtherness invariant had an explicit degree-zero theory but no all-degree calculation in this canonical high-dimensional test family. The result computes **every degree and every inclusion map integrally**, not merely Betti numbers or a small numerical example. The exact exponential birth scales, common death-to-birth factor \(2\), multiplicities depending on both center rank and homological degree, and filtered chain splitting provide a reproducible benchmark for studying how furtherness detects higher-order topology. Its exact dimensions are naturally motivated by the Boolean lattice and the centered filtration, rather than by an arbitrary selected subcase. No general result for other posets or equivariant splitting is asserted.
+From downset counting the weight of T is 2^|T|-2^|S∩T|=2^a(2^b-1), inclusion-monotone. The nonempty face poset sublevel order complex is the barycentric subdivision of the filtered simplicial complex. Fix v in S. For each face sigma avoiding v the integral basis c_sigma=boundary[v,sigma], [v,sigma] is upper triangular with unit diagonal and filtration-compatible: a codimension-one face tau gives w({v}∪tau)<=w(sigma); w({v}∪sigma)=2w(sigma). Differential consists only of unit pairs, hence complete Z interval splitting including ties, H0 essential [v], and zero torsion. Independent brute-force mod-two boundary reductions for all n=2..6 and every center size agreed with the precise bar multiset; those finite checks do not prove all n or integral freeness independently.
 
-## Source comparisons and limitations
-The most directly relevant inspected text is Badra–Singh, arXiv:2610.16386v1, Sections 2–5 and 7. The precursor arXiv:2603.18580, a distinct finite-topology-filtration framework arXiv:2512.23348, the full scientific RESULT.md of the published rank-span-two Boolean-poset result, and abstract/intro of general filtered-complex decomposition literature were also compared. Scientific risks are unindexed equivalences and possible applications of more general published theorems whose specialized consequences are not explicitly recorded. The proof is internal and all-parameter; finite experiments do not independently certify it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
+
+## value
+
+PASS
+
+This is a canonical finite-T0-space filtration defined in recent literature, and the new exact, center-sensitive all-degree integral persistence (higher-dimensional bars, uniform doubling and no torsion) answers a natural previously unspecified question. These precise bar endpoints and multiplicities cannot be read off from the generic stability or degree-zero theory, so are mathematically reusable, not a mere normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
