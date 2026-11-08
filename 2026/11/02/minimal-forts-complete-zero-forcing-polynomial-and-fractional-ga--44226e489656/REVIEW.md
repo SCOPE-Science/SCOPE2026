@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact neighborhood counts for a fort with left/right index sets are reconstructed in the proof. Cases with each shore size at most two are exhaustive, yielding exactly the two types of small minimal forts and ruling out every other type; any fort having three left or right vertices contains a listed triple. The zero-forcing polynomial then follows through the established fort-transversal equivalence. The disjoint-fort upper bound uses the proved minimum cardinality three, and the matching lower construction handles all three residue classes of the parameter. The fractional value has an explicit feasible primal assignment and an explicit dual packing with matching objectives, including the \(n=3\) boundary. Standard-library verification directly checked forts and zero forcing from graph adjacency for orders three through eight and returned `VERIFY_OK`. Computation does not certify untested orders; the infinite claims use the general proofs.
+PASS
 
-## Originality — PASS, with bounded priority risk
+The crown adjacency rule makes the fort condition exactly b-1_{i in B} !=1 for each omitted left i and symmetrically a-1_{j in A} !=1. An exhaustive symbolic case distinction for a,b<=2 proves the only minimal mixed forts are matching-index four-sets; shore triples cover the >=3 cases. Fort hitting gives the zero-forcing polynomial; disjoint triple packing and an explicit size-four fort when n mod 3=2 give floor(2n/3). Uniform fractional weights 1/3 and dual weights on all shore triples prove Z*=2n/3 for all n>=3. Independent verification: Independently generated crown adjacency for n=3,4,5, enumerated minimal forts and forcing subsets. Minimal fort totals 5,14,30 and generating coefficients n=3 {2:6,3:18,4:15,5:6,6:1}; n=4 {4:30,5:48,6:28,7:8,8:1}; n=5 {6:90,7:100,8:45,9:10,10:1}. The all-order LP certificates were algebraically checked. Inspected verify.py; finite enumeration alone is not the proof.
 
-The foundational 2023 fort-cover/LP article and 2024 minimal-fort enumeration establish the corresponding complete-bipartite problem, where a shore pair is a fort. This does **not** survive deletion of a perfect matching and does not imply this crown-graph theorem. The 2025 computational-IP paper gives generic methods rather than this all-orders specialization. The 2025 hypercube paper overlaps at the single isomorphic case \(\operatorname{Cr}_4\cong Q_3\) but is not a family covering all parameters. Semantic research-record searches for crown-graph minimal forts, fractional parameters, equivalent direct-product formulations, and complete-bipartite matching deletion returned results on distinct invariants, or on complete multipartite graphs with different edge sets. Other indexed crown invariants and unrelated fort-family statements do not imply this claim. Search does not establish absolute priority, and obscure unpublished formulas remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Deleting one perfect matching from a biclique changes the minimal-fort hypergraph from a union of shore-pair systems to a nonuniform rank-three/rank-four system. Determining **all** its minimal forts gives an exact global zero-forcing polynomial, not merely one optimum, and yields both a sharp disjoint-fort packing formula and a fractional LP value. The limiting integrality ratio of three differs from the near-two behavior for complete bipartite graphs in the foundational paper, making this a structural example relevant to fort relaxations and extremal graph zero forcing. It is a natural infinite graph family, not a parameter-selected finite table.
+Best-of-knowledge: inspected accessible closely related primary PDFs, searched published mathematical records for aliases/stronger results, and compared implications. The complete-bipartite minimal forts and its fractional optimum are different because the crown has no cross-adjacent matched pairs; the known Q3=Cr4 case cannot imply an all-n theorem without further argument. Residual priority limitations are explicit.
 
-## Limitations and evidence
+## value
 
-Scientific novelty is conditional on the specified inspected literature and indexed research records, not a declaration of independent priority certification. Enumeration by direct Python search was performed only through \(n=8\), and maximum disjoint-fort packing directly through \(n=7\). The independent audit channel is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The deletion of a perfect matching from K_{n,n} changes the fort hypergraph from twin pairs to shore triples and matched four-sets; the exact polynomial, fort packing and fractional integrality gap tending to 3 quantify the change over a natural infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
