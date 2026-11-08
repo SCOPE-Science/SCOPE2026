@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** The graph and all legal states are defined by explicit \(\mathbb F_3^3\) incidence. A bijection reduces all efficient open dominating sets to two independent exact-cover factors. The Latin-square affine classification is proved in full, the line-tiling classification uses an exhaustive planar-slice argument, and every size-three line exchange is shown to be a single-slab rotation. The Cartesian product then supplies exact graph parameters and distances. Two independently structured, standalone Python programs agree on every count, verify all \(252\) codes and their edges, and reproduce the automorphism orbits. Scope is expressly finite.
+
+**Originality — PASS, qualified.** The 54-vertex Gray configuration, 1296-element coordinate group, definition of efficient open domination, twelve order-three Latin squares, and 21 straight-rod tilings are prior knowledge. In particular, OEIS A181323 records the exact tiling count 21. The complete Gray-code reconfiguration product, minimum-trade characterization, glued-cube geometry, six-step metric, distance enumerator, and code-orbit classification were not identified in targeted research-record searches or inspected literature. The earlier four-cube total-perfect-code exchange result concerns a distinct graph and does not determine these properties. Published Gray-graph papers available only as abstracts are a residual priority risk; no definitive historical novelty certificate is claimed.
+
+**Value — PASS.** This identifies all optimal exact-open-neighborhood partitions of the smallest cubic semisymmetric graph and gives a complete, connected local transformation geometry with a sharp uniform six-move bound. The product decomposition explains two different minimal local mechanisms (Latin bitrades and planar rod trades) and isolates the effect of Gray-graph symmetry. It is a natural finite benchmark for total-perfect-code reconfiguration, not a sample of arbitrary graph parameters. Neither the known tiling count nor the small-code enumeration alone supplies the metric result.
+
+## Limits of source access and scope
+
+The graph-defining 2000 primary paper was accessible by its abstract and bibliographic record, not its complete article. The 2014 efficient-open-domination paper was materially inspected through its title, abstract, introduction, product-scope statements, and references; complete line-by-line exclusion of every possible mention is not asserted. Exact keyword searches and result-record comparisons returned no equivalent Gray-code trade theorem. Independent scholarly validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
