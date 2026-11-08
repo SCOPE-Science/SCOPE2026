@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The genus and smoothness follow from the squarefree degree-eight branch divisor. The hyperelliptic Cartier–Manin coefficient formula gives a symmetric \(3\times3\) matrix diagonalized by an \(\mathbb F_7\)-rational basis. Its three diagonal entries factor as stated, so the Frobenius-semilinear stable rank equals the matrix rank. The six displayed restrictions of \(H_0\) to the Hasse lines show that every point in the intersection of two different Hasse divisors is \(\mathbb F_7\)-rational. Exhausting all twenty smooth ordered parameters over \(\mathbb F_7\) proves the 2/12/6/0 histogram globally at ranks 0/1/2/3 on the rational points and exhausts rank-at-most-one geometrically. Two exact-arithmetic scripts reconstructed the coefficients; an independent field implementation independently checked quotients and \(\mathbb F_{49}\). Risk: the field checks alone would not establish geometric exhaustiveness, which instead uses the line-restriction factorizations.
+## correctness
 
-**Originality — PASS, with risk.** Ohashi (arXiv:2112.11152, sections 2–3 and superspecial results) supplies the genus-three Howe model and quotient decompositions, and literature already establishes Fermat-type rank-zero examples. Achter–Howe establishes the matrix conventions; Frei gives general hyperelliptic \(a\)-number methods. The specific complete characteristic-seven rank-one locus, six line-factor Hasse stratification, and algebraic-closure proof were not found in these relevant primary comparisons or searched mathematical research summaries. This is a best-knowledge originality judgment, not a proof that no unindexed prior specialization exists.
+PASS
 
-**Mathematical value — PASS.** Exact arithmetic strata in symmetric genus-three families constrain positive-characteristic moduli and distinguish three elliptic-quotient degenerations. The nontrivial claim is an entire, geometrically exhaustive deepest-strata classification (twelve rank-one points plus the rank-zero boundary) with simple Hasse divisors, rather than a single arbitrary numerical sample. The striking absence of ordinary curves among twenty smooth rational parameters motivates independent reproduction. Scope is intentionally limited to marked parameters, not isomorphism classes.
+For smooth marked a,b over Fbar_7, the hyperelliptic Hasse/Cartier matrix (c_{7i-j}) from f^3 has form [[c6,0,c4],[0,c12,0],[c4,0,c6]] and is diagonalized by a constant F7-rational invertible matrix into H-, H0, H+. This also diagonalizes the Frobenius-semilinear products; nonzero eigenfunctions stay nonzero so f7 is the number of nonzero H factors and a-number=3-f7. The six intersections H0 with Hasse lines factor completely over F7, and pairs of opposite-family lines have F7 intersections or are parallel; checking all 20 smooth marked F7 pairs gives rank counts 2,12,6,0 and the exact 12 rank-one list. Thus the geometric rank≤1 assertion is exhaustive, not merely finite enumeration.
 
-**Scientific limits.** Source priority may be affected by older tables or equivalent elliptic-moduli parameterizations; the rank-zero Fermat-type members are known and are not claimed as a new construction. No claim is made for extension of the polynomial factorization to primes other than seven.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Ohashi's same-model full text establishes the smooth family, elliptic quotient isogenies and superspecial maximality, but its inspected rank-zero criteria and p>7 isomorphism tables do not determine the characteristic-seven ordered 12 rank-one parameter list, the factorized H0/H± stratification, or geometric exhaustiveness. General Hasse–Witt/Cartier methods are prior work. Risk of other elliptic-parameter tables remains.
+
+## value
+
+PASS
+
+A geometrically exhaustive p-rank and a-number classification of a natural symmetric genus-three Howe family yields precise nonordinary strata in marked arithmetic moduli, not an arbitrarily chosen finite table. Factorized Hasse divisors and all algebraic-closure rank≤1 points are information beyond the familiar superspecial examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
