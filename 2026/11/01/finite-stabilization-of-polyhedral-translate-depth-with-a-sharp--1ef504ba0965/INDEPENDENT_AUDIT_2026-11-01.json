@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:43:34.189472Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Upper bound: every closed translate missing y violates at least one facet and is contained in the corresponding strict projection halfspace. Lower bound: for j and cutoff a in projection support range, shifted T_j,a=a*u_j+t(K-p_j) has its j-th face at a and all other inequalities slack on support because tη≥2R, so its mass agrees with that halfspace and it misses y when a<u_j·y. Sup over increasing strict cutoffs gives exact measure even with atoms. Upper quantiles are well defined/finite for α>0 and closed ray mass upper semicontinuity yields displayed polyhedral contour. For boxes, other coordinate support widths are coverable iff tℓ_i≥w_i; both opposing facet cuts realize coordinate halfspaces. For t below max w_i/ℓ_i, uniform measure on a support segment parallel to failing coordinate with query y beyond max(L,w/2) gives excluded halfspace mass >L/w while every missing translate captures ≤L/w. All-point, all-law finite equality is proved analytically; 9,342 exact rational witness tests in inspected verifier cannot certify universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Molchanov–Nagy Theorem 5.6 has a decaying error bound for smooth rolling-ball bodies with hyperplane-null distributions; this is a different smooth regime.",
+          "The sharp centerpoint depth constant for parallelotopes (Theorem 2.7/Example2.9) controls maximal depth, not stabilization scale vs support widths."
+        ],
+        "reasoning": "A general t→∞ tangent-cone limit, uniform approximate smooth-body bound or Helly constant does not imply finite exact facet-tail equality and optimal width threshold, particularly with support atoms.",
+        "searches": [
+          "Ilya Molchanov & Stanislav Nagy arXiv:2610.26108v1",
+          "Theorem 5.6 quantitative halfspace approximation",
+          "Resultary: exact three-slice halfspace depth"
+        ]
+      },
+      "checked_sources": [
+        "Depth based on translates of a convex body: geometry, floating bodies, and empirical theory — Asymptotic tangent-cone convergence under boundary nullity and smooth-body uniform approximation do not state finite all-y facet stabilization or optimal box cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing theorem 5.2 requires boundary nullity and only takes a limit.",
+          "The existing computational polytope arrangement does not show at what t a fixed-support box depth stops changing."
+        ],
+        "reasoning": "The finite facet-clearance witness argument is additional geometry not a direct substitution into the published asymptotic theorem; it extends to atomic supports where that theorem does not apply. Confidence is qualified by possible alternate polyhedral-data-depth formulations not fully indexed.",
+        "searches": [
+          "Ilya Molchanov & Stanislav Nagy arXiv:2610.26108v1",
+          "Molchanov–Nagy Theorem 5.2; Theorem 5.6; Section 7.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Molchanov–Nagy define d_K via mass of translates missing y and its dilation-limit tangent-cone depth.",
+          "Their Theorem 5.2 states pointwise t→∞ convergence given a boundary-null hypothesis, not exact finite stabilization for all compactly supported measures with atoms."
+        ],
+        "reasoning": "The result can be phrased as finite exact agreement of translate depth with the minimum of finitely many facet-normal tail functionals. No identical finite all-point cutoff was found in the directly inspected depth-primary sections.",
+        "searches": [
+          "Resultary semantic: polyhedral convex body translate depth finite dilation facet directions halfspace depth exact threshold box",
+          "Ilya Molchanov & Stanislav Nagy arXiv:2610.26108v1",
+          "Molchanov–Nagy Sections 2.2, 5.1, 5.2, 7.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary three-slice depth calculates a maximum in a different distributional model.",
+          "The original source Section7.4 offers an arrangement algorithm for polytope translates; no statement of the universal finite stopping scale or coordinate-width sharp constant is made there."
+        ],
+        "reasoning": "A standard axis-aligned box itself is elementary, but exact threshold max_i w_i/ℓ_i across every measure and query is a distribution-uniform finite invariant, not found as a known table entry.",
+        "searches": [
+          "Resultary semantic: polyhedral convex body translate depth finite dilation facet directions halfspace depth exact threshold box",
+          "Resultary: exact three-slice halfspace depth by reflected-core pairing--600b8c67eba9",
+          "Molchanov–Nagy Section 7.4 polytope arrangement computation"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for this exact final mathematical claim, with primary-source comparisons, qualified access residual risks, and four explicit implication checks.",
+      "residual_risks": [
+        "The precise supporting ball radius and choice of facet rel-interior points affect the sufficient 2R/η bound; it is not claimed sharp except for boxes.",
+        "No finite stopping established for general smooth K or unbounded μ; no distribution-recovery assertion.",
+        "Alternative depth terminology and unindexed polyhedral-specialization literature could carry equivalent finite statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic tangent-cone convergence under boundary nullity and smooth-body uniform approximation do not state finite all-y facet stabilization or optimal box cutoff",
+          "evidence": [
+            "Theorem5.2 Eq.5.1 and limit; Theorem5.6 Eq.5.4; Section7.4 algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.26108v1",
+          "material_read": "Accessible full HTML text in Section 2.2, Theorem 5.2 with proof, Theorem 5.6, Section7.4; other portions navigated via contents",
+          "method": "Read the relevant full theorem statements/proofs and polytope algorithm, directly compared hypotheses/quantifiers",
+          "title": "Depth based on translates of a convex body: geometry, floating bodies, and empirical theory",
+          "trigger": "Same exact depth definition and plausible stronger all-body theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite explicit stopping threshold transforms an asymptotic geometric depth limit into an all-query formula with atoms and exact polyhedral depth regions. The universal optimal scale for support boxes is a natural sharp boundary. The bound depends geometrically on facet clearance, not a numerical coincidence; researchers computing robust depths could use the exact reduction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Depth based on translates of a convex body: geometry, floating bodies, and empirical theory — Asymptotic tangent-cone convergence under boundary nullity and smooth-body uniform approximation do not state finite all-y facet stabilization or optimal box cutoff"
+  ],
+  "disposition": "passed",
+  "final_claim": "For an irredundantly faceted full-dimensional compact polytope K in R^d, chosen relative-interior facet points p_j with clearance η>0, a compact supported probability μ in a ball of radius R, and t>0 with tη≥2R, the translated-tK depth equals min_j μ{u_j·x≥u_j·y} for every y including atomic laws; all positive depth-level sets are the facet normal upper-quantile halfspace intersection. For axis-aligned boxes K of side lengths ℓ_i and supports in a box of widths w_i, the least universal t is max_i w_i/ℓ_i.",
+  "limitations": [
+    "The precise supporting ball radius and choice of facet rel-interior points affect the sufficient 2R/η bound; it is not claimed sharp except for boxes.",
+    "No finite stopping established for general smooth K or unbounded μ; no distribution-recovery assertion.",
+    "Alternative depth terminology and unindexed polyhedral-specialization literature could carry equivalent finite statements."
+  ],
+  "residual_risks": [
+    "The precise supporting ball radius and choice of facet rel-interior points affect the sufficient 2R/η bound; it is not claimed sharp except for boxes.",
+    "No finite stopping established for general smooth K or unbounded μ; no distribution-recovery assertion.",
+    "Alternative depth terminology and unindexed polyhedral-specialization literature could carry equivalent finite statements."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Asymptotic tangent-cone convergence under boundary nullity and smooth-body uniform approximation do not state finite all-y facet stabilization or optimal box cutoff",
+      "evidence": [
+        "Theorem5.2 Eq.5.1 and limit; Theorem5.6 Eq.5.4; Section7.4 algorithm."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2610.26108v1",
+      "material_read": "Accessible full HTML text in Section 2.2, Theorem 5.2 with proof, Theorem 5.6, Section7.4; other portions navigated via contents",
+      "method": "Read the relevant full theorem statements/proofs and polytope algorithm, directly compared hypotheses/quantifiers",
+      "title": "Depth based on translates of a convex body: geometry, floating bodies, and empirical theory",
+      "trigger": "Same exact depth definition and plausible stronger all-body theory"
+    }
+  ]
+}
