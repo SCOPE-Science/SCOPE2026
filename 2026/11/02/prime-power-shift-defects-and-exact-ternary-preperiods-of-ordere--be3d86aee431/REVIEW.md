@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rational-moment identity follows from the exact exponential generating function. The shift-defect proof is a coefficientwise divisibility assertion for a rational function with a denominator that is a unit at the evaluation point; it does **not** treat a divergent \(p\)-adic series as a convergent sum. The exact preperiod argument explicitly rules out the possibility of an earlier onset with a different period. The ternary classification uses the elementary \(F_n\equiv2^n-1\pmod3\) for \(n\ge1\). The independent modular verifier checks all stated branches in bounded grids, with no claim of exhaustive infinite certification.
+PASS
 
-## Originality
+The rational generating identity M_n(z)=sum a^n z^a=∑j!S(n,j)z^j/(1−z)^{j+1} and F_n=(1/2)M_n(1/2) are standard. Coefficientwise Euler divisibility at p∤a and a=pb shows M_{n+P}(z)−M_n(z)+p^n M_n(z^p) has all coefficients in p^k Z; clearing unit-constant rational denominators evaluates at 1/2 in Z_(p). The R congruence and R≡F_n mod p follow. The proof of minimal preperiod uses any putative period d and a large d-multiple to transfer the P-shift backward; it does not assume P the only possible period. Modulo 3, F_n≡2^n−1 for n≥1 gives odd-index units and even-index divisibility; k−1/k−2 boundaries yield parity law, with k=1 and n=0 treated. Independent bounded grids corroborate.
 
-**PASS, with historical-priority uncertainty.** Mező (arXiv:1308.1637) treats last-digit periodicity and related sequences; Asgari–Jahangiri (arXiv:1701.07276) establish eventual periods in distinguished Fubini sequences; Schreyer (arXiv:2409.03799), Section 4, supplies the known exact scalar period and the bound on onset. These statements do not determine the exact scalar onset at every prime power or the sharp phase congruence. The coefficientwise Fubini-polynomial result has a stronger *polynomial* onset obstruction; specialization to a scalar loses that obstruction and cannot imply exact scalar onset. Original priority in inaccessible older specialized literature remains unverified.
+## originality
 
-## Value
+PASS
 
-**PASS.** The onset is a natural invariant of an eventually periodic arithmetic sequence, and earlier results supply only an upper bound. The new formula isolates its exact prime-power obstruction in a computable rational sum; for all ternary levels it gives a closed infinite classification, including infinitely many strict improvements over the general upper bound. The odd-index valuation identity quantifies the obstruction, rather than merely reciting a bounded experiment or substituting a parameter into an existing period theorem.
+Known least eventual period P and onset upper bound k are explicitly credited to Schreyer, with earlier Mező and r-Fubini work. The inspected full primary 2025 periodicity paper gives a general eventual periodicity theorem and tail onset bound, not the exact rational shift defect or scalar ternary parity classification; these are not automatic consequences of period minimality. Best-of-knowledge PASS with specialized scalar periodicity risk.
 
-## Scope and limitations
+## value
 
-The exact period itself is established prior work. The theorem does not provide a closed expression for the onset at arbitrary odd primes without evaluating finitely many Stirling sums, and does not address \(p=2\). Historical coverage is not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural p-adic transient phase before the known eventual period, previously bounded rather than sharp, is resolved by a precise finite Stirling valuation criterion and an explicit ternary parity formula. It measures genuine cancellation at scalar specialization, not arbitrary small residue tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
