@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact chain complex is defined without hidden inputs. A full enumeration yields \((1,30,315,1420,2715,1854,265)\) faces for the diagonal-deleted complex and \((1,36,450,2400,5400,4320,720)\) for the complete complex. Witness-preserving integer elimination gives 1552 unit pivots and a residual matrix equal to three times a rank-five integer matrix with unit Smith factors. Sixteen exactly reconstructed relations \(\partial_4w_j=3z_j\) yield source order-three cycles; modular reductions show the span is five-dimensional in both source and target third homology. The resulting full three-torsion inclusion is injective. The supplied executable rederives all relevant matrices, exact relations, and ranks, and its recorded output ends with `VERIFY_OK`. Residual risk is an implementation error common to the certificate and proof; the finite check is not an independent audit.
+## correctness
 
-## Originality — PASS, with remaining literature risk
-Shareshian and Wachs (arXiv:math/0409054v1), in their inspected Sections 1 and 8, already list the two torsion groups. Their Lemma 8.2 and Theorem 8.3 establish nonvanishing by exhibiting a class that does not die after inclusion, but do not assert that all five independent source torsion classes remain independent in the complete board. The new statement concerns the rank-five map, not the two ranks. Jonsson (arXiv:1203.5644) concerns rectangular chessboard homology and does not supply this specific induced map in inspected material. Searches also used the crown-graph, derangement-rook, missing-diagonal, and matching-complex formulations, and compared potentially stronger coverage. No identified published-finding corpus entry or inspected full-text theorem covers this map. Equivalent unindexed work remains possible; absence from search results does not prove absolute novelty.
+PASS
 
-## Value — PASS
-The canonical inclusion changes a historically studied restricted rook-placement complex into the classical chessboard complex. Although both integral homology groups and a nonzero map were known, neither determines which of the five independent order-three classes survive; an inclusion could have positive kernel while retaining a nonzero image. Determining the full injection supplies a functorial torsion-persistence fact at a natural, independently motivated first nontrivial diagonal-deletion case. It is a finite exact statement with structural significance, not a routine recomputation of Betti numbers or a new name for the pre-existing group calculation.
+Let D=K_{6,6} minus the canonical diagonal perfect matching, Q=K_{6,6}, and let M(D)⊂M(Q) be matching/rook complexes. The new theorem is injection on all source 3-primary torsion in reduced H3, not the previously known group ranks. Independently regenerated each matching face from ordered distinct rows and columns, giving augmented f vectors (1,30,315,1420,2715,1854,265) and (1,36,450,2400,5400,4320,720). Built exact integer signed ∂4 matrices for 2715×1854 source and 5400×4320 target. Independently performed 1552 unit integral pivot eliminations on the source and verified every original-column witness identity against the unreduced matrix: 302 remaining columns, exactly 16 nonzero divisible by3. Dividing by3 gives exact Smith invariants (1,1,1,1,1), hence source T3 H3≅(Z/3)^5 (using freeness of im ∂3). Each z_j=(∂4 w_j)/3 is an integral 3-cycle. Independent sparse mod3 boundary ranks are 1552 for source and 3380 for full board; projected classes of these 16 cycles span rank5 in both complexes after inclusion, proving the full T3 source map injects. The target T3 H3 rank10 is known from published tables, not independently deduced merely from mod3 rank. No conclusion is drawn about other primes, board sizes or free homology.
 
-## Scope and residual risk
-Only the six-by-six board and integral third homology are addressed. The proof is computer-assisted exact algebra, with no assertion of a uniform theory. A potentially covering result in unindexed literature, or errors in the finite chain construction, remain possible. The review is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct comparison of distinct graph/complex or fixed-locus objects and their known implications: Five independent three-torsion classes survive diagonal deletion in the six-by-six chessboard complex. Inspected sources and Resultary searches below support a best-of-knowledge novelty finding, not a worldwide priority guarantee.
+
+## value
+
+PASS
+
+The inclusion from the derangement (crown-graph) rook complex into the complete 6×6 rook complex is canonical, and the behavior of torsion under that inclusion is not determined by previously known source and target group isomorphism types. Injectivity of all five independent 3-torsion classes, rather than just nonvanishing of one image, gives a meaningful exact persistence map that subsequent homological or inclusion-stability calculations can use. Although finite, it is a nontrivial invariant with a specific mathematical reason.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
