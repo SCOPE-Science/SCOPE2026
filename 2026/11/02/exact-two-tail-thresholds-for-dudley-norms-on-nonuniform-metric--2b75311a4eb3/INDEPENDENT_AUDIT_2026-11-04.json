@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:52:31.053924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite metric star r_i>0 and real zero-total-mass σ, centering f and fixing Lip L reduces linear functional to independent positive/negative signed caps a,b. Oscillation bound gives upper 2(P(b)+N(a))/(2+a+b); saturated truncated signed leaf potentials centered at range midpoint attain same value. Legendre/Dinkelbach-type ratio optimality yields unique gamma>0 solving ∫(T_+-gamma)_+ +∫(T_--gamma)_+=2gamma, with norm 2gamma. Each tail is nonincreasing piecewise constant; sort its <=n height intervals and test gamma_k=B_k/(2+A_k) in [h_{k+1},h_k] for O(nlogn) exact arithmetic. Strictly decreasing root and zero-mass special case handled; one vs two-sided minimal optimal caps determined by T_±(0)>gamma. Independently compared exact Fraction root to fresh primal BL LP on 132 heterogeneous, tied, zero and one-sign examples; LP finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hille–Theewis present a general LP over bounded-Lipschitz potential constraints; Sato–Yamada–Kashima tree OT uses a fixed creation/destruction penalty and does not directly impose a joint supnorm+Lip budget."
+        ],
+        "reasoning": "General LP computability and fixed-penalty tree transport could in principle be specialized but inspected statements lack this two-independent-cap tail threshold and sorting certificate; equivalent dual transport formula remains a risk.",
+        "searches": [
+          "Hille Theewis arXiv:2206.12234 Section 6",
+          "Hille Theewis arXiv:2305.08500",
+          "Sato Yamada Kashima arXiv:2006.02703"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2206.12234",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54",
+        "https://arxiv.org/abs/2006.02703"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-arm formula has a single switching mass ratio; heterogeneous radii generate up to n distinct interval heights and two independently activated caps; Hille’s LP dimension grows with support."
+        ],
+        "reasoning": "The cited equal-arm theorem is a strict special case of new claim and cannot imply all-radius threshold by plugging an effective common radius. General LP gives existence/algorithm but not asserted sharp O(nlogn) evaluation.",
+        "searches": [
+          "Resultary equiradial star 2026/10/11",
+          "arXiv:2206.12234 Section 6",
+          "arXiv:2006.02703"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known dual bounded-Lipschitz/flat norm LP is an equivalent optimization but not a sorted nonuniform two-tail threshold. Equal-arm Resultary exact note covers only all r_i equal."
+        ],
+        "reasoning": "The new formula is an exact evaluation and solution in a natural heterogeneous star subclass, not a claim that general BL duality or equal-arm mass-imbalance is new.",
+        "searches": [
+          "Resultary: Dudley bounded Lipschitz dual norm signed measures weighted metric star nonuniform arms two tail threshold sorted",
+          "Hille Theewis arXiv:2206.12234 Dudley sum-normalized",
+          "equiradial star Dudley norm Resultary 2026-10-11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary reports explicit equiradial formula valid even countable arms, but its hypothesis r_1=...=r_n excludes the submitted arbitrary-radius condition; no full weighted nonuniform table in inspected general LP."
+        ],
+        "reasoning": "Same invariant and star objects require acknowledging exact covered equal-arm case; unique heterogeneous tail heights are not recovered from a common radius via parameter substitution.",
+        "searches": [
+          "Resultary: Dudley bounded Lipschitz dual norm signed measures weighted metric star nonuniform arms two tail threshold sorted",
+          "Exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+          "weighted star Fortet Mourier two tail exact formula"
+        ]
+      },
+      "rationale": "A published equiradial-star Dudley-norm formula already covers equal-arm specialization and must be credited. Hille–Theewis general finite-support LP for the sum-normalized Dudley norm is also known, and Sato et al solve another fixed-penalty tree transport. These do not give the heterogeneous sorted two-tail root, exact caps and witness in the inspected evidence; historical equivalent metric-transport characterizations remain possible.",
+      "residual_risks": [
+        "An equivalent nonuniform-star formula under flat metric, unbalanced tree transport or Lipschitz-free norm terminology could be prior even though not located.",
+        "The equal-arm specialization is already covered and is not independently novel; the value claim requires arbitrary unequal radii and multi-threshold computation.",
+        "The 132 primal LP cases are finite; existence of an all-input exact sorting algorithm follows from the tail-root proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_LP_ONLY",
+          "evidence": "General LP expresses norm on finite metric support but does not give the arbitrary weighted-star exact O(nlogn) root in inspected Section 6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.12234",
+          "material_read": "Full publicly accessible PDF with Section 6 Dudley norm LP and corresponding screenshot around page 15 inspected",
+          "method": "Read primary full text with PDF page image of Section 6",
+          "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "General full-scope dual bounded Lipschitz norms for finite support, possible dominating formula"
+        },
+        {
+          "assessment": "COVERS_EQUAL_ARM_SUBCASE_ONLY",
+          "evidence": "Complete equal-radius specialization and mass-ratio activation are prior; distinct arbitrary radii and n-height sorted tail criterion not implied by the published summary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54",
+          "material_read": "Published Resultary title, summary and precise equal-arm hypothesis; full proof not read in this run",
+          "method": "Semantic published result search",
+          "title": "Exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+          "trigger": "Same invariant and same graph type with all equal radii, must check coverage"
+        },
+        {
+          "assessment": "DIFFERENT_PENALTY_LIMITED_READ",
+          "evidence": "Fixed transport creation/destruction penalty differs from the sum-norm shared amplitude/slope budget; no direct exact threshold derived from inspected content.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.02703",
+          "material_read": "Public abstract and indexed quasi-linear tree algorithm result; full text not read",
+          "method": "Preprint abstract/index comparison",
+          "title": "Fast Unbalanced Optimal Transport on a Tree",
+          "trigger": "Different unbalanced transport formulation might produce equivalent star dual norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sum-normalized dual BL norm is a standard meaningful metric-measure invariant; nonuniform star radii create multiple independent tail-scale thresholds, and the theorem gives both a constructive norming witness and a sharp O(nlogn) computation instead of generic LP, a nontrivial natural parameter-family classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2206.12234",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54",
+    "https://arxiv.org/abs/2006.02703"
+  ],
+  "disposition": "passed",
+  "limitations": "Real zero-total-mass measure on finite positive-arm metric star, sum-normalized supnorm+Lipschitz, not max-normalized Fortet-Mourier or arbitrary tree with unbalanced total masses.",
+  "residual_risks": [
+    "An equivalent nonuniform-star formula under flat metric, unbalanced tree transport or Lipschitz-free norm terminology could be prior even though not located.",
+    "The equal-arm specialization is already covered and is not independently novel; the value claim requires arbitrary unequal radii and multi-threshold computation.",
+    "The 132 primal LP cases are finite; existence of an all-input exact sorting algorithm follows from the tail-root proof."
+  ],
+  "schema_version": 1
+}

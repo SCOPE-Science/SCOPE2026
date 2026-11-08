@@ -1,15 +1,21 @@
-# Scientific assessment: weighted-star Dudley threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts with the exact sum normalization \(\|f\|_\infty+\operatorname{Lip}(f)\) and uses zero total signed mass to remove the additive constant. Star-arm constraints and the oscillation bound supply the upper inequality in the two-cap quotient; a concrete signed, truncated leaf potential, midpoint centering, and scaling give equality. Maximizing the numerator minus a trial multiple of the denominator separates the two tails and yields a strictly decreasing scalar root equation. Each tail is piecewise constant, so sorting the positive-height intervals proves the finite scan without relying on enumeration. The zero measure, tied radii, tied tail heights, one-sign and both-sign cases are included. Verification reports 916 independent LP comparisons and 1,370 exact-rational maximizing-function checks; the infinite parameter statement rests on the proof, not these tests.
+## correctness
 
-## Originality — PASS, with priority risk
-The nearest finite-support bounded-Lipschitz study is Hille and Theewis, arXiv:2206.12234, Section 6: it gives a general optimization over half-space intersections and a linear-program solution, not a two-tail weighted-star root or a sorting formula. Hille and Theewis, arXiv:2305.08500, develop general norming/extreme bounded-Lipschitz functions without the present heterogeneous-star threshold. Sato, Yamada and Kashima, arXiv:2006.02703, supply a quasi-linear algorithm for fixed creation/destruction-cost unbalanced transport on trees; this is not the sum-normalized bounded-Lipschitz norm and does not state the root or the witness here. An online note on equiradial stars covers the equal-arm specialization; that special case is not asserted as new. Searches under dual bounded-Lipschitz, Dudley, Fortet–Mourier, flat norm, weighted star and unbalanced tree-transport terms found no equivalent nonuniform two-tail result. This does not prove priority, and full-text inspection of the equiradial note was unavailable; an older equivalent result remains possible.
+PASS
 
-## Mathematical value — PASS
-The dual bounded-Lipschitz norm is a natural quantitative distance between signed measures on a metric space. Heterogeneous-arm stars are the simplest tree family in which several distinct geometric scales compete. The exact norm, a constructive dual maximizer, an explicit sign-activation criterion, and an exact \(O(n\log n)\) procedure replace a generic high-dimensional LP by a sort and scan. The nonuniform result is not merely a renamed equal-arm formula: it depends on all ordered tail height changes and allows distinct positive and negative cap radii. This is a complete classification of the natural invariant under the stated hypotheses, rather than an arbitrary finite sample.
+For finite metric star r_i>0 and real zero-total-mass σ, centering f and fixing Lip L reduces linear functional to independent positive/negative signed caps a,b. Oscillation bound gives upper 2(P(b)+N(a))/(2+a+b); saturated truncated signed leaf potentials centered at range midpoint attain same value. Legendre/Dinkelbach-type ratio optimality yields unique gamma>0 solving ∫(T_+-gamma)_+ +∫(T_--gamma)_+=2gamma, with norm 2gamma. Each tail is nonincreasing piecewise constant; sort its <=n height intervals and test gamma_k=B_k/(2+A_k) in [h_{k+1},h_k] for O(nlogn) exact arithmetic. Strictly decreasing root and zero-mass special case handled; one vs two-sided minimal optimal caps determined by T_±(0)>gamma. Independently compared exact Fraction root to fresh primal BL LP on 132 heterogeneous, tied, zero and one-sign examples; LP finite corroboration only.
 
-## Closest literature and limitations
-See arXiv:2006.02703, arXiv:2206.12234 (especially Section 6), arXiv:2305.08500, and the abstract of *Exact Dudley norms and mass-imbalance thresholds on equiradial stars*. The theorem assumes finite positive-length stars and real measures of total mass zero; it makes no claim for arbitrary trees or unequal total mass. An independent scientific examination has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A published equiradial-star Dudley-norm formula already covers equal-arm specialization and must be credited. Hille–Theewis general finite-support LP for the sum-normalized Dudley norm is also known, and Sato et al solve another fixed-penalty tree transport. These do not give the heterogeneous sorted two-tail root, exact caps and witness in the inspected evidence; historical equivalent metric-transport characterizations remain possible.
+
+## value
+
+PASS
+
+The exact sum-normalized dual BL norm is a standard meaningful metric-measure invariant; nonuniform star radii create multiple independent tail-scale thresholds, and the theorem gives both a constructive norming witness and a sharp O(nlogn) computation instead of generic LP, a nontrivial natural parameter-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
