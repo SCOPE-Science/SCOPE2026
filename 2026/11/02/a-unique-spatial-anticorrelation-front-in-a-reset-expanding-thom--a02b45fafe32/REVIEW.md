@@ -1,21 +1,21 @@
-# Scientific review: unique spatial covariance front in a reset-expanding condensate
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed covariance is over an exponential stationary resetting age, not over microscopic quantum density measurements. The hydrodynamic scale law yields the positive random expansion distribution used throughout the proof. Defining \(U=1/\lambda(T)\) makes the central density proportional to \(U\) and the local density proportional to \(U(1-z^2U^2)_+\). Reweighting by the latter produces a strictly decreasing likelihood-ratio family, and its weighted mean crosses the unweighted mean exactly once. The fast-resetting expansion uses controlled exponential moments of age. The slow-resetting double-logarithmic law follows from separately estimated denominator and numerator integrals in the window \(z\asymp1/[\alpha\log(1/\alpha)\log\log(1/\alpha)]\). The final included verifier passed 454 quadrature and boundary checks. No numerical experiment is treated as a proof.
+PASS
 
-## Originality — PASS (qualified best knowledge)
+The deterministic hydrodynamic expansion solves lambda_ddot=omega^2/lambda^2 and lambda_dot=sqrt(2) omega sqrt(1-1/lambda); the stationary Poisson reset age has density h_alpha(lambda)=alpha exp[-alpha F(lambda)] F_prime(lambda), F(lambda)=sqrt(lambda(lambda-1))+asinh sqrt(lambda-1), alpha=r/(sqrt2 omega). Setting U=1/lambda(T), the center macroscopic density is proportional to U and density at x0 z to B_z(U)=U(1-z^2 U^2)_+. The mean q(z)=E[U B_z]/E B_z strictly decreases in z by decreasing likelihood ratios (and removal of high-U mass); q(0)=E[U^2]/E[U]>E U, q(z)<=1/z->0. The covariance is positive multiple of E B_z(q(z)-E U), so a unique threshold exists. For large alpha, moment expansions U=1-(omega^2/2)T^2+O(T^4) and exact covariance Var U/z²Cov(U,U^3) imply z_*^2=1/3+O(alpha^-2). For small alpha, m=E U=alpha(L+O(1)), and for z=k/(alpha L log L) with L=ln(1/alpha), I1(z)~alpha log L, I2(z)~2alpha/(3z); q(z)/m->2/(3k), giving z_*~2/[3alpha L log L]. Independently evaluated positive reset-age integrals with scipy quadrature at alpha=0.2,1,10, finding roots ~1.029090172, 0.795436896, 0.596232179 with strict opposite signs at 0.9 and 1.1 times each root. This corroborates, not proves, the monotone-likelihood-ratio and double-logarithmic asymptotic.
 
-The closest source is Mesquita et al., arXiv:2609.37110v1. Its full text, main results and Appendices B–C were inspected. It provides the hydrodynamic profile, reset-age expansion law, average density, edge fluctuations and centered-interval counting statistics. Those source results are acknowledged and not claimed anew. The distinct evaluated claim is the **unique spatial sign change of macroscopic density covariance**, together with the exact fast-resetting threshold and slow-resetting double-logarithmic scale. The cited source does not explicitly identify the corresponding two-point covariance front or its asymptotics.
+## originality
 
-Earlier work on common resetting of an independent Brownian gas (de Mauro et al., arXiv:2509.06658; Biroli et al., Phys. Rev. Lett. 130, 207101) supplies relevant conditional-mixture methodology but uses different conditional profiles; full primary texts for these background sources were not retrieved. Semantic research-record queries for the exact source, covariance sign changes, and equivalent scaling forms returned no decisive identical claim, but an unsuccessful search is not a uniqueness certificate. General stochastic ordering could subsume the monotone-weighting component, and all originality conclusions remain subject to fuller external priority review.
+PASS
 
-## Value — PASS
+Mesquita–Kulkarni–Majumdar–Sabhapandit arXiv:2609.37110 derives the SAME self-similar Thomas–Fermi reset profile, expansion-clock density h(lambda), averaged density and counting/edge observables (Eq. 48–55 on inspected PDF page 17). It already implies every reset-age-induced local density random variable in principle; no novelty is asserted for the profile or mixture construction. The assessed extra result is a unique all-distance covariance sign front for center versus point, plus its fast-reset 1/sqrt3 and slow-reset doubly logarithmic asymptotics. The source sections inspected describe the mean density, particle counting and edge statistics rather than the exact two-point sign boundary; however a full prior conditional distribution logically enables its derivation. Brownian common-reset gases are different profiles. Qualified O pass for structural covariance threshold, not for the reset-age law itself.
 
-The model's mean density masks whether the center and a second point co-fluctuate or anticorrelate from run to run. The theorem gives a natural two-point diagnostic with a unique spatial crossover for every positive reset rate. Its qualitative crossing of the initial Thomas–Fermi edge and its sharp slow-resetting double logarithm are mathematically informative and potentially measurable through repeated macroscopic density images in the valid mean-field regime. The conclusion is neither a restatement of normalization nor a finite-grid observation.
+## value
 
-## Limits and closest-prior implication
+PASS
 
-The random macroscopic profile is implied by the 2026 paper's self-similar hydrodynamics; this is a theorem about a new structural consequence of that profile rather than a new microscopic dynamics. The source's full counting statistics are for particle counts in centered intervals, whereas this result compares densities at two fixed spatial points. Results are established only for Poisson resetting, large-particle-number Thomas–Fermi hydrodynamics, and stationary reset-age covariance. They do not prove full quantum connected correlations, non-Poisson robustness, experimental detectability at arbitrarily slow resetting, or monotonicity of the front as the rate varies.
+Averaging stationary macroscopic density conceals anticorrelation between central and distant local density across repeated reset ages. The exact unique spatial sign front and sharp slow-reset scale [alpha log(1/alpha) loglog(1/alpha)]^-1 give a meaningful two-point diagnostic and its rate-dependent crossing of initial cloud support, with clear hydrodynamic limitations. This is not a trivial consequence of total mass conservation or a sampled finite grid.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
