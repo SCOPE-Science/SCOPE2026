@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The midpoint lemma for each odd palindrome is proved by two-sided greedy arches and credited to Barker et al. (2020). For proper words, while s distinct symbols are seen, exactly s-1 old and q-s new symbols may follow; this yields the exact incomplete-arch B_{q,s} and complete-arch A_q series. Counting centers via the single missing-letter correction and using (q-1)q!=q(q-1)(q-1)! gives the displayed F_q. Minimal length forces permutation arches and a distinct (q-1)-letter rest. Standalone direct-subsequence enumeration checked 65,414 palindromes and exact rational recurrence/extrema independently over bounded ranges; finite checks are not infinite proofs. Boundary cases q=2, h=0, index zero, odd/even index and all q>=2 are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson 2023 develops counting/ranking algorithms for unrestricted words over a fixed alphabet.",
+        "Adamson et al. 2023, Section 4, gives counting algorithms for finite automata and tracks arch remainder sets.",
+        "Palindromes of unbounded length are not a regular language; treating the palindrome constraint as a fixed regular-language automaton does not provide this distribution."
+      ],
+      "reasoning": "Generic algorithms for unrestricted or regular-language-constrained words do not supply the explicit rational family for reversal-symmetric and adjacency-distinct words. The overlap is methodology, not the claimed specialized exact result.",
+      "searches": [
+        "arXiv:2304.04583v1 counting all k-universal words",
+        "arXiv:2311.10658v1 regular languages counting section 4",
+        "\"palindromic\" \"subsequence universality\" \"generating function\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2003.04629",
+      "https://arxiv.org/pdf/2304.04583",
+      "https://arxiv.org/pdf/2311.10658",
+      "https://arxiv.org/abs/2108.02729"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Barker midpoint formula directly supplies only the exact index of a given palindrome, not the number of constrained palindromes of each length and index.",
+        "The Adamson counting methods do not give the explicit remainder-size generating series of the present proof.",
+        "The present proof has the extra transition counts s-1 and q-s and the exact correction for a missing center symbol."
+      ],
+      "reasoning": "The distribution is not a literal corollary of a stated prior count: the remainders must be refined by alphabet size and the first-letter exclusions of each arch respected. Nonetheless the necessary lemma and general counting philosophy are known, and this dependence is expressly acknowledged.",
+      "searches": [
+        "arXiv:2003.04629v1 Definition 6 and Proposition 15",
+        "arXiv:2304.04583v1 arch-factorization and counting definitions",
+        "arXiv:2311.10658v1 Section 4 arch-remainder automaton"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barker et al. Proposition 15 exactly determines the index of each palindrome from the greedy-arch remainder and its middle symbol. It does not enumerate the admissible adjacency-distinct half-words.",
+        "Targeted searches returned general universality and palindrome material, but no exact q-ary two-variable restricted-palindrome enumerator."
+      ],
+      "reasoning": "The known parity/midpoint criterion is a necessary prior ingredient but not equivalent to the new all-length counting law. The latter additionally weights the number of distinct symbols in every arch remainder while enforcing a forbidden equal-adjacency transition. The exact formula and minimal multiplicities are not stated in the inspected source.",
+      "searches": [
+        "\"palindrome\" \"subsequence universal\" \"adjacent\" enumeration",
+        "\"palindromic\" \"subsequence universality\" \"generating function\"",
+        "\"palindrome\" \"universality index\" \"adjacent\" alphabets",
+        "arXiv:2003.04629v1 Proposition 15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact distribution table or function for this simultaneous constraint was located in targeted bibliographic queries.",
+        "The q=2 and q=3 specializations were independently checked against direct enumeration, not borrowed from an existing table."
+      ],
+      "reasoning": "No identified data table has entries or a structural formula covering all q, h, and k. Absence of a located match is weak evidence only, not a uniqueness certificate.",
+      "searches": [
+        "\"palindromic\" \"subsequence universality\" \"generating function\"",
+        "\"palindrome\" \"subsequence universal\" \"adjacent\" enumeration",
+        "\"proper colouring\" \"palindrome\" \"subsequence universality\""
+      ]
+    },
+    "rationale": "Barker et al. (2020) Proposition 15 already proves the general palindrome midpoint criterion; it is not claimed as new. Adamson (2023) counts unrestricted universal words; Adamson et al. (2023) count words in regular languages. New contribution is a fully evaluated bivariate series for adjacency-distinct palindromes, using the refined size of the incomplete arch remainder and constrained first-letter counts, plus sharp extremal enumeration. Targeted searches found no same or stronger specialized distribution. Residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "The midpoint lemma is already a published result and is only a cited ingredient. A specialized but unindexed formula could exist.",
+      "Targeted bibliography and accessible primary text are not an exhaustive universal literature search.",
+      "An independent scientific audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong overlap: Proposition 15 gives the midpoint lemma; not the adjacency-distinct bivariate enumeration. Credited and used explicitly.",
+        "evidence": [
+          "Definition 6 equates greedy arches with subsequence universality.",
+          "Proposition 15 establishes parity and missing-middle-letter criterion for palindromes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Full-text sections on arch factorization and palindromes: Definition 6 (PDF page 5) and Corollary 14, Proposition 15, Remark 16 (PDF pages 11–12); title, abstract and references context",
+        "method": "Read publicly available full-text PDF, including relevant propositions and proof",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Plausible exact palindrome universality coverage and arch definitions"
+      },
+      {
+        "assessment": "Provides generic unconstrained counting/ranking methods and arch machinery; no specialized palindrome intersection distribution was found.",
+        "evidence": [
+          "Theorem 1 states arch-factorization characterization.",
+          "The abstract specifies counting arbitrary universal words by length, index and alphabet."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+        "material_read": "Abstract, Introduction, arch-factorization definitions and Theorem 1 on PDF pages 1–3; searched full text for palindromic coverage",
+        "method": "Read openly available primary PDF and inspect relevant passages",
+        "title": "Ranking and Unranking k-subsequence Universal Words",
+        "trigger": "Possible broader complete enumeration of universal words and mirrored subclasses"
+      },
+      {
+        "assessment": "General DFA/NFA counting for regular languages; no formula for arbitrary-length palindromes with adjacency restrictions.",
+        "evidence": [
+          "Section 4 explicitly defines counting by automaton paths and arch-remainder sets.",
+          "The regular-language hypothesis does not describe all palindromes of arbitrary lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+        "material_read": "Abstract, introductory scope, Section 4 and remainder-table construction on PDF pages 13–14; searched primary full text for palindrome coverage",
+        "method": "Read openly available primary PDF, focusing on algorithmic counting and arch remainder states",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Broader counting theorem that might dominate a constrained-language exact enumerator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "44aefab7-f7c9-4ac9-af60-146ed8da7020",
+  "value": {
+    "rationale": "The result determines an all-parameter natural invariant for an explicitly motivated intersection of palindrome symmetry, no-equal-neighbor constraint and scattered-subsequence universality. Its finite rational expression for every q and sharp parity-dependent minimum lengths with every extremal count provide a complete classification not an arbitrary finite slice. The ternary rational function and binomial coefficients provide directly usable exact counts. No downstream theorem is required for this complete natural counting problem.",
+    "status": "PASS"
+  }
+}
