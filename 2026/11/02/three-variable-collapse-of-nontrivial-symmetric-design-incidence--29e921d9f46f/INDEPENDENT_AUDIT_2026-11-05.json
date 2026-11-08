@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:53:48.732401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Full RESULT.md frozen blob 73a5e539c09f8140d8d77014184744f2b299231f §§dual design identity, extension table, three pebble strategy, four-variable witness",
+        "Frozen verify_extension.py 691415724ed1fc1f04015106ddbd9db996109f95 and verify_pebble.py 103dbceb5ef65c25f0263cab6731b22f2a8aa79d",
+        "Private independent_checks.py check 5 Fano/complement counts"
+      ],
+      "rationale": "For finite symmetric 2-(v,k,lambda) designs with distinct blocks and 2<=k<=v-2, square point-block incidence N has NN^t=(k-lambda)I+lambda J and N1=N^t1=k1; invertibility since 0<lambda<k yields N^tN=(k-lambda)I+lambda J. For any two pebbled elements (including equal and cross-sort pairs), the occurrence of every desired equality/sort/incidence pattern for a third is parameter independent: two distinct points or blocks have lambda common, k-lambda one-sided, and v-2k+lambda=(v-k)(v-k-1)/(v-1)>0 neither incidences; point-block pairs have k-1,v-k or k,v-k-1 choices, all positive. Thus Duplicator preserves atomic relations under any three-pebble move for arbitrary rounds, proving common FO^3 theory without counting, including unary sorts; pure adjacency follows by reduct. Fano lambda1 incidence graph is C4-free, whereas complementary symmetric (7,4,2) design has 4-cycles, yielding a four-variable separating sentence. Independent exact Fano pair-intersection and four-cycle computations confirm boundary; unrestricted logic theorem follows from pair extension identities, not finite examples.",
+      "residual_risks": [
+        "Finite symmetric 2-(v,k,lambda) with distinct blocks and 2<=k<=v-2; unary side predicates allowed, no counting quantifiers.",
+        "No claim about FO4 equivalence of arbitrary designs, counting logic, nonsymmetric designs, or trivial excluded designs.",
+        "Finite code checks corroborate but do not prove unbounded depth."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grohe–Otto characterize general finite-variable logic via k-pebble games and linear equations, but the paper does not give the specific homogeneous design extension table in inspected portions.",
+          "Venema studies a specialized two-sorted modal language for projective planes, not FO3 for all symmetric designs."
+        ],
+        "reasoning": "The generic k-pebble equivalence principle does not automatically say that arbitrary symmetric designs of different sizes are FO3-equivalent; positive extension profiles require the design axioms.",
+        "searches": [
+          "Resultary query: three variable first order logic incidence graphs symmetric 2 designs three pebble equivalence Fano plane complements",
+          "https://doi.org/10.4230/LIPIcs.CSL.2012.289",
+          "https://www.cambridge.org/core/books/combinatorics-of-symmetric-designs/"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.CSL.2012.289",
+        "https://doi.org/10.1093/logcom/9.5.601",
+        "Ionin–Shrikhande Combinatorics of Symmetric Designs (2006)",
+        "Resultary 2026/10/4/SCOPE-a-sharp-overlap-corrected-criterion-for-separated-triples-in-sym--2026b4060dda (triples, unlike pair profiles)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General 3-pebble characterization and symmetric-design duality are individually prior tools.",
+          "The Fano/complement 4-cycle difference shows four symbols suffice, while three symbols cannot count lambda=1 vs lambda=2 because all needed extension types are positive."
+        ],
+        "reasoning": "Neither a general game equivalence criterion nor design incidence identities by themselves state the cross-design all-parameters equivalence; their mathematical combination is the assessed addition.",
+        "searches": [
+          "Resultary query: three variable first order logic incidence graphs symmetric 2 designs three pebble equivalence Fano plane complements",
+          "https://doi.org/10.4230/LIPIcs.CSL.2012.289",
+          "https://www.cambridge.org/core/books/combinatorics-of-symmetric-designs/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation: all such side-colored incidence graphs satisfy the same 3-variable back-and-forth extension game, because all possible third-element profiles relative to two retained elements exist.",
+          "Grohe–Otto give general L^k game/Boolean-semiring equivalence, not the cross-parameter symmetric-design application."
+        ],
+        "reasoning": "The pebbles provide a proof method rather than a known classification of the infinite design family; no directly equivalent prior theorem identified.",
+        "searches": [
+          "Resultary query: three variable first order logic incidence graphs symmetric 2 designs three pebble equivalence Fano plane complements",
+          "https://doi.org/10.4230/LIPIcs.CSL.2012.289",
+          "https://www.cambridge.org/core/books/combinatorics-of-symmetric-designs/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fano and its complement have different sizes of incidence relation and different 4-cycle counts, but three-variable **without counting** only tests existence of pair-to-third profiles.",
+          "The result covers every nontrivial finite symmetric design, not a finite catalogue or database of particular parameters."
+        ],
+        "reasoning": "No exact table supplies the unbounded-depth uniform FO3 equivalence; the proved duality and positivity give a general result.",
+        "searches": [
+          "Resultary query: three variable first order logic incidence graphs symmetric 2 designs three pebble equivalence Fano plane complements",
+          "https://doi.org/10.4230/LIPIcs.CSL.2012.289",
+          "https://www.cambridge.org/core/books/combinatorics-of-symmetric-designs/"
+        ]
+      },
+      "rationale": "The bounded-variable back-and-forth theorem and symmetric-design pair intersection identities are standard ingredients; the asserted universal equivalence of *all* nontrivial symmetric designs in FO^3 at unbounded quantifier rank, plus a sharp 4-variable separation for Fano/complement, was not stated by inspected Grohe–Otto or design literature. The result is an application of robust 2-pebble extension spectra, but it classifies a natural infinite heterogeneous class; generic extension axioms alone do not explicitly furnish the design-specific parameter positivity.",
+      "residual_risks": [
+        "A general theorem on complete binary extension spectra or finite-variable ultrahomogeneity could specialize to these designs.",
+        "Complete design-theory monograph and related modal-logic primary source were not accessible in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD; no symmetric-design classification observed in material read",
+          "evidence": "Section 2 distinguishes k-variable ordinary logic from k-variable logic with counting and describes k-pebble game; paper establishes general algebraic characterization.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CSL.2012.289",
+          "material_read": "Original 16-page OA proceedings PDF: page 1 abstract and section 1, page 3 section 2 definitions; PDF text inspected for Boolean semiring L^k framework, no claim of whole-paper absence",
+          "method": "Official Dagstuhl original PDF text plus verified screenshots of pp 1,3",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "Direct model-theoretic three-pebble equivalence technique"
+        },
+        {
+          "assessment": "STANDARD_DESIGN_PRIOR; direct FO3 scope unverified",
+          "evidence": "The incidence duality and pair overlap lambda are classical; unbounded 3-variable logical collapse not shown in material read.",
+          "identifier_or_url": "https://www.cambridge.org/core/books/combinatorics-of-symmetric-designs/",
+          "material_read": "Bibliographic scope and standard duality identity only; book text not accessed",
+          "method": "Publisher bibliographic references",
+          "title": "Combinatorics of Symmetric Designs",
+          "trigger": "Exact same design class, could contain combinatorial extension identities"
+        },
+        {
+          "assessment": "DIFFERENT_LOGIC; residual theoretical risk",
+          "evidence": "Modal language on projective planes differs from pure and side-colored FO3 over all symmetric designs.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/9.5.601",
+          "material_read": "Bibliographic abstract and signature description; no full paper read",
+          "method": "DOI and title scope",
+          "title": "Points, lines and diamonds: a two-sorted modal logic for projective planes",
+          "trigger": "Related two-sort projective plane logic potentially stronger"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Grohe–Otto 2012 finite variable model theory and pebble games",
+        "Classical symmetric 2-design duality and Fano/complement constructions",
+        "Full RESULT.md complete all-design extension argument"
+      ],
+      "rationale": "The inability of three-variable logic, despite arbitrary quantifier depth, to distinguish *any* nontrivial symmetric design is a strong uniform expressivity collapse that covers infinite families with differing block numbers and intersection parameters. The four-variable Fano/complement boundary demonstrates sharpness. This is a natural finite-model-theoretic structural theorem with relevance to design-incidence indistinguishability, not a tiny computational observation.",
+      "residual_risks": [
+        "A general theorem on complete binary extension spectra or finite-variable ultrahomogeneity could specialize to these designs.",
+        "Complete design-theory monograph and related modal-logic primary source were not accessible in full."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Finite symmetric 2-(v,k,lambda) with distinct blocks and 2<=k<=v-2; unary side predicates allowed, no counting quantifiers.",
+    "No claim about FO4 equivalence of arbitrary designs, counting logic, nonsymmetric designs, or trivial excluded designs.",
+    "Finite code checks corroborate but do not prove unbounded depth."
+  ]
+}
