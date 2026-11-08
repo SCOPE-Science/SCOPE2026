@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the independent finite checker from the extracted complete package directory with `python3 verify.py` (Python standard library only). It numerically integrates the two full and inner-half Gram matrices using Simpson quadrature, solves the two-dimensional generalized eigenvalue polynomial, and compares against the closed spectral formula for five annulus moduli and nine Fourier degrees. The checked execution returned `PASS: 271 finite checks; analytic proof required for all-mode statements.` It also tests ordering and the limiting exponential profile at selected values.
+## correctness
 
-The exact integral evaluations, nonzero Gram determinants, zero-mode calculation, power-series positivity of the derivative numerator, and exponential spectral-tail counting are given explicitly in RESULT.md. These are analytic arguments for all positive moduli and all Fourier modes. Finite samples neither establish those infinitely quantified statements nor independently validate originality.
+PASS
 
-The source anchor for the middle-period literature is arXiv:2303.12137v1, first publicly posted 2023-03-21. Potential historical overlap with a 1994 annular Toeplitz/Hankel paper has not been eliminated because full text was not accessible. No independent mathematical audit or validation has been performed.
+The conformally weighted annulus |z|^-2 dA becomes a flat logarithmic cylinder where all harmonic functions split into 2x2 Fourier blocks, including the zero logarithmic mode. Exact complete/half-cylinder Gram integrals produce zero-mode eigenvalues (2±sqrt(3))/4 and n>=1 pairs 1/2(1±(cosh(nL)-1)/sqrt(sinh²(nL)-(nL)²)), each of complex multiplicity two. Positivity of the power-series derivative proves strict ordering, hence ||T-T²||=1/16 reached only by zero mode; exponential tails give essential spectrum {0,1}, compact defect in all S_p, and counting 4/L log(1/ε)+O_L(1). Zero-mode trace uniquely selects the central cut. Independent generalized Gram-matrix eigenvalues agreed for L=0.35,1.3,2.6 and modes n=0,1,2. Infinite conclusions use the analytic argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. A general annular Toeplitz spectral result might implicitly contain this special compression; 1994 Jiang–Peng full text inaccessible. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+The harmonic concentration/compression operator is a natural two-sided sampling problem on a conformal annulus. A modulus-independent sharp projection defect together with a recoverable logarithmic spectral modulus and uniqueness of balanced cut is a coherent structural spectral classification, not an arbitrary numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

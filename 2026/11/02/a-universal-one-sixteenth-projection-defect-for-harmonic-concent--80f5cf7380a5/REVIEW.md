@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The concentration operator is a positive selfadjoint contraction defined by its norm-compression form. The logarithmic radial coordinate transforms the harmonic equation into a flat cylinder equation, and orthogonal angular Fourier blocks have exactly the two radial solutions stated. Direct full/partial Gram integration produces every pair and its multiplicity; the zero block gives the modulus-independent extremal pair. The derivative power series with coefficients \((4^k-4k^2)/(2k+1)!>0\) shows strict spectral ordering, eliminating any unexamined intermediate eigenvalues. The exponential tails yield the exact multiplicities and logarithmic counting coefficient. The zero-block trace is strictly monotone in the general cut coordinate, proving its rigidity. A standalone numerical checker independently passed 271 finite assertions, which are not substituted for proof of the infinite conclusions.
+## correctness
 
-## Originality — PASS (provisional)
-The closest full-text studies of harmonic Hilbert spaces and Toeplitz forms—Üreyen (arXiv:2303.12137v1, harmonic hyperbolic balls, atomic/interpolation/inclusion theorems) and Doğan (arXiv:2202.12771v1, harmonic Bergman–Besov balls and positive Toeplitz criteria)—do not imply this *exact two-radial-solution cylindrical concentration spectrum*. The inspected work on harmonic disk circle traces concerns a different trace form; half-space Fourier/Hermite concentration identities concern bandlimited functions, rather than the full harmonic annulus and its logarithmic mode. Holomorphic annulus Toeplitz spaces omit the \(s\) radial harmonic mode and do not directly dominate the result. Related historic annulus material was available only as an extract, leaving an explicit priority risk. The mathematical claim is original to the extent justified by these bounded comparisons, not certified unique in all literature.
+PASS
 
-## Mathematical value — PASS
-Ordinary Toeplitz criteria do not quantify the sharp failure of a spatial concentration compression to be a projection. Here the exact obstruction is independent of annulus modulus yet *attained*, its forbidden spectral interval is uniform, the compact spectral defect is in every Schatten class, and its logarithmic tail recovers the conformal modulus. The uniqueness of the balanced cut ties analytic spectral symmetry to a canonical geometric dividing circle. These are related consequences of one structural result, not arbitrary parameter substitutions.
+The conformally weighted annulus |z|^-2 dA becomes a flat logarithmic cylinder where all harmonic functions split into 2x2 Fourier blocks, including the zero logarithmic mode. Exact complete/half-cylinder Gram integrals produce zero-mode eigenvalues (2±sqrt(3))/4 and n>=1 pairs 1/2(1±(cosh(nL)-1)/sqrt(sinh²(nL)-(nL)²)), each of complex multiplicity two. Positivity of the power-series derivative proves strict ordering, hence ||T-T²||=1/16 reached only by zero mode; exponential tails give essential spectrum {0,1}, compact defect in all S_p, and counting 4/L log(1/ε)+O_L(1). Zero-mode trace uniquely selects the central cut. Independent generalized Gram-matrix eigenvalues agreed for L=0.35,1.3,2.6 and modes n=0,1,2. Infinite conclusions use the analytic argument.
 
-## Limitations and unresolved literature risk
-All constants are tied to conformal cylindrical area and concentric logarithmic bisection; Euclidean-area and off-centre observations are not covered. A 1994 annulus Toeplitz/Hankel paper is a plausible older source not available here in complete form, so hidden earlier equivalent results remain possible. Mathematical proofs were independently reconstructed within the self-review only; no independent mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. A general annular Toeplitz spectral result might implicitly contain this special compression; 1994 Jiang–Peng full text inaccessible. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+The harmonic concentration/compression operator is a natural two-sided sampling problem on a conformal annulus. A modulus-independent sharp projection defect together with a recoverable logarithmic spectral modulus and uniqueness of balanced cut is a coherent structural spectral classification, not an arbitrary numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
