@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing that file; only the Python standard library is needed. The script performs independent exact-rational Gaussian elimination of absorption and unit-current voltage systems on 840 reproducibly generated graph/parameter instances, compares the two solutions term by term, verifies the attained path bound for path sizes 2 through 14, verifies the finite broom voting weights, and evaluates eight growing-broom rational cases. Successful execution reports `PASS`.
+## correctness
 
-The universal theorem and its asymptotic consequences are proved in `RESULT.md`, not inferred from the finite tests. The scientific review covers correctness, originality and mathematical value; independent external validation has not been performed. The 2021 predecessor already contains a generic finite-temperature assignment reversal and general absorption equations; neither is presented as a new finding.
+PASS
+
+Dividing edge weights by epsilon turns the absorption equation into Lh=j(delta_u-delta_v), with j=epsilon^2/(1+epsilon+epsilon^2R). Maximum principle and effective resistance R<=dist<=N-1 prove the sharp envelope; path endpoints attain equality. Explicit broom voltages yield the aggregate weights. An independent exact-rational solve of several path/cycle Laplacians agreed with the formula; universal proof uses electrical network principles.
+
+## originality
+
+PASS
+
+Utke and Schmidt-Kraepelin (2024 version) give random-walk/mixed-branching equivalence and cost-weighted transitions. Their preliminaries and introductory results contain the general random-walk rule but no evaluated N-graph worst-error envelope or broom aggregate inversion. Prior directed probabilistic watershed and resistor network formulas subsume the setup but do not themselves state the sharp graph-size asymptotic conclusion. Historical special-case precedence remains possible.
+
+## value
+
+PASS
+
+Uniform approximation of finite-temperature weighted delegation by minimum-cost delegation across graph sizes is practically and mathematically meaningful; the sharp N^-1/2 boundary and explicit noncommuting aggregate-weight limit are more than restating harmonic hitting probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
