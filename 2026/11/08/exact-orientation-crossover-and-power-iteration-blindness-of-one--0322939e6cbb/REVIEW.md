@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The conclusion covers all real rank-two matrices having exactly two columns, all \(m\ge2\), all \(\kappa>1\), all orientations, and every integer \(q\ge0\). The SVD reduction derives the pointwise residual identity (1). The Gaussian angular integral (2) and direct enumeration of the two antipodal sign pairs (3) give the exact expected risks. A strictly positive rational derivative establishes monotonic orientation dependence; the fully factored difference (4) proves the unique crossover and directions of strict inequality. The singular orientation at \(t=1\) is treated directly, so no invalid interchange of limits is needed. The analytic argument does not depend on the finite tests. The accompanying verifier passed 606 checks, including exact symbolic and rational identities, numerical angular quadrature, and direct matrix projection. Computational limitations are described in VERIFICATION.md.
+
+## Originality — PASS, with boundaries
+
+Saibaba–Międlar (arXiv:2308.05814, full-text main theorem/algorithm/appendix inspection) already provide non-Gaussian, including Rademacher, low-rank approximation theory. Their stated general sample-size and high-probability results do not directly entail the unique, one-vector two-column mean-error comparison or its \(q\)-dependent phase threshold. Epperly–Webber (arXiv:2605.19096, full arXiv HTML Sections 3.1–3.3 and supporting proofs) already prove minimax optimality for rotation-invariant embeddings and empirically find anomalous sign-sketch errors for small sketch dimensions, specifically noting exact annihilation of leading directions. Thus the qualitative warning is prior art and is not the new claim; neither those minimax bounds nor the reported experiments state the exact orientation threshold, two-sided risk reversal, or failure of uniform power-limit convergence. Halko–Martinsson–Tropp (2011) establishes the algorithm and standard framework. Research-database searches for exact Gaussian/Rademacher one-vector orientation/power risk and comparison with related published claims found no exact coverage; particularly, a Gaussian-only one-spike result, a randomized-pivoting multi-stage bound, and a distinct geometric phase-boundary claim do not imply this result. This is a best-knowledge assessment, not a proof of uniqueness: a more specialized exact two-dimensional analysis may exist.
+
+## Value — PASS
+
+An independent-sign sketch is entrywise isotropic but not rotationally invariant. The exact two-dimensional failure mechanism quantifies the parameter region where isotropic inputs improve or degrade expected subspace recovery, and demonstrates a power-iteration method that cannot fix a positive-probability zero-overlap direction. The single formula describes both extremes and gives a sharp angular tolerance \(1-t_c^2=2p/(p+1)^2\) that shrinks with iteration count. This is a reproducible exact benchmark for how embedding distribution and basis orientation interact; it is not a claim that sign sketches are generally inferior or that a tiny test matrix represents typical high-dimensional practice.
+
+## Literature and residual risks
+
+Saibaba and Międlar, *Randomized low-rank approximations beyond Gaussian random matrices* (2023): https://arxiv.org/abs/2308.05814. Epperly and Webber, *Sharp analysis of sketched least squares and randomized low-rank approximation* (2026): https://arxiv.org/abs/2605.19096. Halko, Martinsson and Tropp, *Finding structure with randomness* (2011): https://doi.org/10.1137/090771806. The last source was compared through its bibliographic identity and accessible descriptions, rather than a complete verified full-text reading. A specialized earlier paper with an equivalent exact planar formula remains possible. The result has only the scope in RESULT.md and no independently performed audit.
+
+Self-review: passed. Independent audit: not yet performed.
