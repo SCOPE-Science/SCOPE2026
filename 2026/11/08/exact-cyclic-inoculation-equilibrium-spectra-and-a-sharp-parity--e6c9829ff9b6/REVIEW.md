@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+**PASS.** From individual costs \(C\) and \(L g/n\), a unilateral inoculation decision gives exact inequalities on susceptible gap sizes and pairs. The transfer trace counts all cyclic gap lists with the correct \(n/k\) marked-origin factor, including ties and the zero/one-inoculation exceptions. The welfare proof uses a strictly improving removal of susceptible runs for \(1<t<3\), a cyclic incidence bound \(b\ge c\) for gap sizes \(0,1,2\) when \(2<t<3\), and explicit extremal profiles. At integer boundaries only the transfer census, not the open-cell welfare formula, is claimed. Separate direct enumeration of decisions and deviations verified the formulas for all labelled cycles through order eleven in 86 parameter cases; 54 additional social-cost comparisons passed.
+
+## Originality
+**PASS, with disclosed risk.** Aspnes–Chang–Yampolskiy (2006) already prove the general Nash component threshold, which implies the local equilibrium conditions used here. The relevant inspected portions do not supply the present labelled-cycle **all-cost counting polynomial** or the exact \(2<t<3\) odd/even price-of-stability law. DiCicco–Poskanzer–Reichman (2023) include cycles as an illustration in asymptotic inefficiency bounds, not this exact cycle census. Chen–David–Kempe (2010) treat vaccination and altruism/opt-out quantities without this exact cycle result. Searchable mathematical records, web literature searches, and accessible earlier claim ledgers disclosed no covering statement. Perrin counts are classical and are expressly identified as such. Some unindexed equivalent or a combination of published elementary lemmas may still cover portions of this result; no assertion of absolute uniqueness is justified.
+
+## Value
+**PASS.** The cycle is a natural baseline bounded-degree social-contact topology, and the paper motivating the work explicitly considers bounded-degree costs and uses cycles. The finding exactly resolves equilibrium multiplicities at every homogeneous cost ratio, a meaningful equilibrium-selection statistic not supplied by the general characterization alone, and determines a sharp welfare obstruction: the odd cycle's unavoidable best-equilibrium excess at precisely the cost interval \(2<nC/L<3\), in contrast with even cycles. A natural complete classification and explicit boundary are useful as exact benchmarking results for graph vaccination games; no broader epidemiological generalization is claimed.
+
+## Closest literature and limits
+The 2006 equilibrium characterization and 2023 bounded-degree study are the nearest sources. Their structural results are acknowledged; the finite enumerator is a specialization with additional counting and sharp-welfare work. The work assumes homogeneous perfectly effective inoculation, a uniformly random attack seed among all vertices, cycles of order at least three, and pure best responses with equality permitted. An unindexed mathematically equivalent cycle result remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
