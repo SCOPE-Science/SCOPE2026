@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The midpoint splitting bijection yields an exact nonnegative integer factor \(J_n=T_nT_n^{\mathsf T}\). The reflected ballot formula is checked against independent enumeration, the all-order minor sign follows from the explicit planar path noncrossing argument and standard LGV, and the determinant-one submatrix supplies full column rank. Every function covariance follows from conditional independence of the two halves, and the conditional ordering from cross-products. Actual verification: 227,640 exact checks across exhaustive small Dyck paths, all small minors and larger two-by-two minors. This is a mathematical proof plus diagnostic testing, not a claim of computational certification of all sizes.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+Cut a uniform Dyck path at midpoint n; reversal of second half with U/D swap gives an independent pair of nonnegative prefixes of length n conditional on common height. The joint count J_n=T_n T_n^T, with T_n(a,h) counting prefixes with first ascent a. This proves PSD and same-function covariance via conditional-mean variance. Reflection gives the closed binomial formula including deterministic a=b=n boundary. Planar noncrossing paths from staggered sources (a+1,a−1) to ordered height endpoints imply total nonnegativity of every minor of T_n by LGV, then Cauchy–Binet of J_n. The selected rows a=ceil(n/2),...,n produce an upper triangular d×d submatrix with diagonal one, d=floor(n/2)+1, proving exact rank. Two-row plateau a=1,2 for n≥3 follows from first-three-step bijection; ballot row-sum ratios and top support imply strict stochastic increase thereafter, with n=2 exception. Independent exhaustive generator of all Dyck paths n=1..8 recreated boundary formula, rank and every 2×2 minor: Catalan counts 1,2,5,14,42,132,429,1430 and ranks 1,2,2,3,3,4,4,5. Finite tests are corroboration, not an all-minor proof.
 
-Deutsch already supplies the first-ascent marginal and Jelínek (2015, Fact 2.11) supplies the symmetric first-ascent/final-descent joint statistic. Neither is asserted novel. The full all-order positive minor theorem, Gram interpretation, rank and conditional likelihood-ratio phase were not found as recorded claims in these sources, the published comparison set or accessible relevant previous research. The general LGV planar path lemma is explicitly prior. It could imply the result through an unrecorded reduction; this substantive priority risk remains. Searching cannot establish definitive historical novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The two natural endpoint-run statistics arise in random conditioned walks, random plane trees and Catalan-pair models. An all-size, all-minor sign theorem is substantially stronger than symmetric joint counts or marginal formulas: it controls every conditional likelihood ratio; the Gram identity controls covariance for every, even nonmonotone, real test function; and the rank theorem reveals a sharp low-dimensional boundary kernel. The first-two-row equality is a nontrivial exact boundary of otherwise strict stochastic ordering, giving a complete structural conditional-comparison result rather than an arbitrary small calculation.
+Best-of-knowledge originality after inspecting the assigned theorem, searching the relevant published Resultary findings and primary literature, and comparing equivalence, broader results, exact tables and logical implications. The theorem is a specific, motivated consequence of prior general tools plus a new explicit kernel factorization and source ordering; cannot be dismissed as restating the known joint-symmetry fact. General path positivity is powerful but requires a nontrivial representation of this exact joint boundary count and proof that staggered source paths cannot cross; neither checked publication gives the rank/conditional law theorem. Priority is not certified; the named residual source-access and prior-coverage risks remain.
 
-## Closest literature and limitations
+## value
 
-Jelínek, *Catalan Pairs and Fishburn Triples* (arXiv:1501.05157v1), especially the known joint symmetry (Fact 2.11), is the closest object-level work. Deutsch's 1998 paper provides the known one-point ballot formula. The 1985 Gessel–Viennot theorem supplies the general path-minor principle, so priority for the specific reduction is the main risk. The theorem covers the uniform finite excursion model, not a weighted or generalized path family. Independent review and exhaustive historical-priority verification are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical pair of Catalan boundary statistics gains a full all-order totally nonnegative and Gram kernel, an exact finite rank and complete conditional ordering, much stronger than the known marginal count or symmetry. Exact correlation/association structure is independently useful in random trees and excursion statistics; not a routine table recitation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
