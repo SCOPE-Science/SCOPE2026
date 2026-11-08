@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem fixes a real seven-dimensional harmonic space, normalized full-sphere measure, and nondegenerate cutoff. The azimuthal decomposition is orthogonal under both integrals. Exact associated-Legendre integration independently reconstructs the four eigenvalue polynomials, and six rational factorizations establish all crossings and strict inequalities for the full continuum of cutoffs. The two exceptional multiplicities and all sharp equality cases follow from the spectral theorem. `checks/verify.py` reproduces the critical algebra with rational coefficients. Independent numerical quadrature is a secondary check, not the basis of proof.
+
+## Originality — PASS with residual risk
+The two main primary references give the general spherical Slepian concentration framework, single-cap decomposition, and double-cap matrix and parity formulas. They are credited as inputs rather than independently rediscovered. The distinctive result here is the explicit and complete cross-order ordering for one real cubic harmonic level, including exact locations of *both* transitions, the fivefold collision at the first one, and the never-switching least-concentrated order. Inspected main text and specific relevant sections of the primary publications do not state that classification. Database and focused exact-parameter searches also did not identify a stronger published statement implying it without additional polynomial comparisons. Existing formulas make the specialization tractable; an older unpublished or unindexed exact ordering remains possible.
+
+## Mathematical value — PASS
+Polar gaps cause loss of stable harmonic reconstruction. A complete list of optimal and least-observed modes across every cap radius is a natural invariant and gives sharp stability factors and equality subspaces. The order-two/order-one/order-zero succession and the exceptional five-dimensional degeneracy describe a genuine spectral phase structure, rather than a single numerical example, an arbitrary slice, or a routine bound from general operator theory. The result is restricted to the first cubic harmonic level and does not establish higher-level behavior.
+
+## Literature scope and scientific limitations
+Simons–Dahlen–Wieczorek (arXiv:math/0408424v1, 2004, Section 5.1) supplies general one-cap spectral matrices. Simons–Dahlen (2006, Section 4.2) explicitly handles the double-cap matrix with parity splitting; the present analysis sharpens the algebraic ordering of a particular single-level spectrum rather than claiming to originate those operators. The numerical SHReturnTapersM routine accepts degree masks but provides no symbolic phase proof. The 1977 Gilbert–Slepian study of two-interval concentrated polynomials could not be read in full; its abstract addresses a related one-dimensional concentration problem, not the stated four-order angular comparison. Historical indexing may miss an equivalent exact comparison. No claims are made for multi-degree Slepian bands or nonsymmetric observation regions.
+
+Self-review: passed. Independent audit: not yet performed.
