@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Every vertex is uniquely exposed by a generic support direction, which selects one signed endpoint on each coordinate diamond. The induced orientation of the cycle must be acyclic; conversely every nonconstant orientation word is realized by a strict topological ordering of coordinate magnitudes, with independently selected signs. Distinct acyclic binary words give distinct indegree vectors. Counting even transition sets establishes both the exact full radial shell multiplicities and all equality cases. Central symmetry and a strict antipodal squared-distance lower bound establish the unique minimum enclosing sphere. Convexity and strict Euclidean norm convexity classify its contacts and diametral pairs. The attached verifier checks independently enumerated endpoint sums through dimension seven and numerically computed convex hulls through dimension five. Finite computations are explicitly subordinate to the unrestricted proof.
+
+## Originality — PASS (historical priority provisional)
+The Wang–Hou–Thawinrak–Liu–Dai original full-text preprint, arXiv:2608.16037v1, defines the broader Minkowski-sum family and gives inequality, lattice-enumeration, Ehrhart and volume results. Its general support-inequality description does not state the radial vertex shell classification; the new formulas do not follow from an Ehrhart polynomial or supporting inequalities without the additional orientation/equality analysis. Other directly compared records address (i) segment graphical zonotopes (not signed coordinate diamonds), (ii) the convex hull of signed edge differences for a cycle (not its edge-diamond Minkowski sum), and (iii) the complete-multipartite edge-diamond sum, which includes the exceptional cycles of length three and four but not the stated range \(n\ge5\). Related type-B normal-fan literature does not supply an identified Euclidean shell spectrum. Search absence is not a novelty proof. Risk: an unindexed cycle-arrangement or type-B polytope formula could imply the theorem.
+
+## Mathematical value — PASS
+The source develops Ehrhart-theoretic invariants but leaves natural Euclidean extremal geometry unclassified for its graph-indexed examples. A complete all-dimensional radial vertex distribution simultaneously controls exact vertex count, circumradius, contact multiplicity and all diameter pairs; its parity-dependent outer layer is a structural metric consequence, not an arbitrary numerical slice or a small incremental bound. The cycle length at least five restriction excludes the previously handled complete-multipartite special cases.
+
+## Limits
+Results apply to equal unit weights on cyclic incidence neighborhoods. No claim is made about other graphs, arbitrary positive weights, or a classification of all lattice points. Numerical tests extend only to n=7, hull-based full shell tests only to n=5. External independent validation and global historical priority verification were not performed.
+
+Self-review: passed. Independent audit: not yet performed.
