@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs first-Hermite complex-polynomial STFT under normalized Lebesgue phase-space measure. Its incomplete-gamma integrals give an exact signed adjacent eigenvalue difference and isolate the three-dimensional integer-area Fermi plateau by strict outer gaps. Differentiating the area-preserving elliptic boundary in trace norm and performing the exact degree-two angular selection yields the off-diagonal derivative -p_N sqrt(N/(N+1)); an isolated finite spectral projection then gives three sharp first-order branches and opposite limiting optimizer lines. The supplied Python checker independently integrates the matrix and passed 252 assertions for 7 sizes; checks supplement, not replace, the general proof. Fixed N is essential.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2301.01726 explicitly restricts its semiclassical state analysis to lowest Landau level, identifying higher levels beyond scope.",
+        "arxiv:2106.03423 characterizes Gaussian-window STFT concentration over arbitrary measurable regions.",
+        "Knutsen (2020) considers Gaussian windows and spherical Cantor weights, despite Hermite eigenfunction diagonalization."
+      ],
+      "reasoning": "Arbitrary-region theorems for the Gaussian window do not dominate the non-Gaussian first-Hermite localization problem. Lowest-Landau-level and semiclassical anisotropic results are not finite-N statements about first-excited Landau level concentration on moving ellipse boundaries.",
+      "searches": [
+        "elliptically deformed disk first Hermite polyanalytic Toeplitz eigenvalue degeneracy spectral gap anisotropic ellipse shape derivative",
+        "higher Landau level disk integer flux Fermi level threefold degeneracy elliptical deformation Hermite localization",
+        "arxiv:2301.01726 Sections II–IV and Appendix A",
+        "arxiv:2106.03423 abstract and scope",
+        "doi:10.1007/s00041-020-09751-9 Sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1704.03042 (Abreu–Gröchenig–Romero): exact circular Hermite eigenvalues, radial crossings, finite ensemble construction, but no elliptic derivative or universal Fermi cutoff claim",
+      "arxiv:2301.01726 (Oblak et al.): anisotropic lowest Landau level semiclassical state changes; no first excited level or fixed-N disk/ellipse concentration gap",
+      "arxiv:2106.03423 (Nicola–Tilli): Gaussian-window STFT, no first-Hermite conclusion",
+      "doi:10.1007/s00041-020-09751-9 (Knutsen): Gaussian-window radial Cantor localization, no h1 ellipse",
+      "published-finding corpus 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88: half-line physical Hermite Fourier restrictions, different operator",
+      "published-finding corpus 2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5: smooth radial Fock symbols, not elliptical first-Hermite cutoff",
+      "published-finding corpus 2026/10/4/SCOPE-polylogarithmic-safety-window-at-the-critical-hermite-gabor-expo--7668811a3a7a: discrete lattice frames, not localized continuous STFT spectrum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017/2019 source supplies exact first-Hermite radial eigenvalues, whose j-difference can derive the disk triple degeneracy, but contains no area-preserving ellipse operator, shape derivative, or selected cutoff eigenvectors.",
+        "Source Section 4.3 identifies arbitrary finite index sets by circular eigenvalue order and compares spectral truncations; it does not give the derivative of an anisotropic localization cutoff.",
+        "Explicit projected elliptical shape derivative is the 3-by-3 matrix with off-diagonal -p_N sqrt(N/(N+1))."
+      ],
+      "reasoning": "An algebraic corollary that merely finds the triple tie would have limited priority because it follows from the source integral. The final claim deliberately includes the exact nonradial elliptic response and uniquely selected subspaces. That response is not a consequence of an assertion of radial diagonalization alone; it requires the separate shape derivative computation and isolated degenerate spectral perturbation.",
+      "searches": [
+        "arxiv:1704.03042 Sections 1.2, 3.2, 4.1–4.3, 5.1–5.4",
+        "polyanalytic Weyl Heisenberg finite ensembles spectral truncation integer disk area nonunique top N Hermite indices",
+        "For first-Hermite short-time Fourier localization on area-N disk, eigenvalues at N-1 N N+1 coincide; area-preserving ellipse splits the triple eigenvalue with slope exp(-N) N^N / N! sqrt(N/(N+1)) and selects antisymmetric Hermite superposition",
+        "elliptically deformed disk first Hermite polyanalytic Toeplitz eigenvalue degeneracy spectral gap anisotropic ellipse shape derivative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1704.03042 Proposition 4.1/Lemma 4.2: general radial eigenvalue integral; Remark 4.3: a two-level crossing, no full finite-rank triple cutoff classification",
+        "The two displayed first-Hermite angular matrix entries in the current proof are nonradial; not an equivalent restatement of radial diagonalization.",
+        "published-finding corpus half-line Hermite record refers to physical-line restrictions, not phase-space first-Hermite localization."
+      ],
+      "reasoning": "Exact finite-rank triple Fermi degeneracy plus the signed elliptic derivative/spectral branch selection is stronger than merely expressing the radial eigenvalues by Laguerre integrals. Repeating the reference formulas alone would be subsumed; the nonradial splitting, branch directions and their sharp coefficient are not entailed by a statement about radial eigenvalues without further calculation.",
+      "searches": [
+        "first Hermite window circular Gabor localization integer area spectral triple degeneracy rank N optimal subspace",
+        "polyanalytic Weyl Heisenberg finite ensembles spectral truncation integer disk area nonunique top N Hermite indices",
+        "first Hermite disk Toeplitz eigenvalue consecutive differences Hermite mode plateau Poisson",
+        "For first-Hermite short-time Fourier localization on area-N disk, eigenvalues at N-1 N N+1 coincide; area-preserving ellipse splits the triple eigenvalue with slope exp(-N) N^N / N! sqrt(N/(N+1)) and selects antisymmetric Hermite superposition",
+        "arxiv:1704.03042 Section 4",
+        "published-finding corpus 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact phase-space elliptic first-Hermite triple-cutoff entries were returned by the named semantic searches.",
+        "Published source arxiv:1704.03042 gives integrals but not a table of the ellipse shape derivative."
+      ],
+      "reasoning": "This is a continuous family of spectral asymptotics rather than a finite database invariant. Absence from searched records is not a proof of priority; the strongest original source has been compared by implication.",
+      "searches": [
+        "For first-Hermite short-time Fourier localization on area-N disk, eigenvalues at N-1 N N+1 coincide; area-preserving ellipse splits the triple eigenvalue with slope exp(-N) N^N / N! sqrt(N/(N+1)) and selects antisymmetric Hermite superposition",
+        "elliptically deformed disk first Hermite polyanalytic Toeplitz eigenvalue degeneracy spectral gap anisotropic ellipse shape derivative",
+        "\"first Hermite\" \"ellipse\" \"localization operator\" eigenvalues",
+        "published-finding corpus 2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5"
+      ]
+    },
+    "rationale": "Closest verified original source arxiv:1704.03042 already gives the radial Hermite integral and reports a crossing, so those identities are not claimed new. The exact whole-family Fermi triple degeneracy becomes meaningful when combined with the first-order *nonradial elliptic* gap coefficient, precise eigenline selection and discontinuity of the maximizing rank-N projection as ellipticity changes sign. Full relevant primary text comparisons and multiple claim/alias searches found no stronger covering result. Priority remains provisional, since equivalent shape-calculus literature could exist.",
+    "residual_risks": [
+      "An earlier polyanalytic Toeplitz shape-perturbation calculation might implicitly contain the exact three-by-three splitting for integer-area ellipses.",
+      "The integer-area plateau is an elementary consequence of published radial Laguerre integrals and must not be represented as wholly independent of that prior formula.",
+      "Semantic search and inspected primary sources cannot establish absolute global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS circular-domain Hermite eigenfunctions and eigenvalue integral; does not directly state general N triple plateau together with exact elliptic splitting",
+        "evidence": [
+          "Proposition 4.1: circular Hermite eigenbasis",
+          "Lemma 4.2: radial eigenvalue integral",
+          "Remark 4.3: multiplicity crossing",
+          "Section 4.3 and 5: spectral truncation comparisons but no elliptical derivative"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.03042",
+        "material_read": "Full arXiv HTML text, focusing on Sections 1.2, 3, 4 and 5, Proposition 4.1, Lemma 4.2 and Remark 4.3",
+        "method": "Direct full-text reading and formula/implication comparison",
+        "title": "Harmonic analysis in phase space and finite Weyl–Heisenberg ensembles",
+        "trigger": "Same Hermite-window circular localization, eigenvalue formula, finite rank truncations and observed crossings"
+      },
+      {
+        "assessment": "Treats large-N semiclassical lowest-Landau-level droplets under anisotropic potentials, not the present fixed-N first-Hermite cutoff",
+        "evidence": [
+          "Abstract and Sections II–IV specify lowest Landau level",
+          "Sections V–VII explicitly label higher levels beyond scope",
+          "Section IV.5 treats elliptic lowest-level wave functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.01726",
+        "material_read": "Full accessible arXiv HTML, sections II–IV and text searches for higher Landau levels, Toeplitz and ellipse",
+        "method": "Direct source reading with primary text search",
+        "title": "Anisotropic Quantum Hall Droplets",
+        "trigger": "Anisotropy of Landau-level states and elliptical boundary geometry"
+      },
+      {
+        "assessment": "Gaussian analysis window with radial Cantor observation, no first-Hermite elliptical cutoff",
+        "evidence": [
+          "Abstract: Gaussian window and spherically symmetric weight",
+          "Introduction: Cantor type sets and operator-norm asymptotics"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+        "material_read": "Open-access full HTML introduction and sections describing window, radial symbol, spectral calculation and purpose",
+        "method": "Direct primary full-text comparison",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+        "trigger": "Explicit localization eigenvalues with Hermite eigenfunctions"
+      },
+      {
+        "assessment": "Explicitly about Gaussian window, so its arbitrary-region shape extremality cannot directly cover the first-Hermite operator",
+        "evidence": [
+          "ArXiv abstract names Gaussian window and measurable regions",
+          "Scope stated as Gaussian STFT Faber–Krahn theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.03423",
+        "material_read": "ArXiv abstract and scope statement; full proof not required to establish differing Gaussian-only window hypothesis",
+        "method": "Direct abstract and hypothesis check, not a whole-document negative assertion",
+        "title": "The Faber–Krahn inequality for the Short-time Fourier transform",
+        "trigger": "Potentially dominating arbitrary-region STFT concentration theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0f93868-1288-40ce-a9ab-55f7474f32b7",
+  "value": {
+    "rationale": "Maximal-rank spectral truncations are canonical finite Weyl–Heisenberg ensembles, so nonuniqueness of the exact rank-N Fermi projection is an operator-selection issue rather than an arbitrary invariant. The theorem gives a natural and exact resolution by a physically/geometrically motivated equal-area anisotropy, exposes opposite limiting maximizers for the two ellipse orientations, and computes the sharp gap-opening rate and isolated plateau margins. It distinguishes a structural degeneracy from generic perturbative splitting, but does not claim uniform-N estimates or a global shape optimum.",
+    "status": "PASS"
+  }
+}
