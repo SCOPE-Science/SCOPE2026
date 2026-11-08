@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and concept matrix are rebuilt from the 35 distinct two-dimensional subspaces of \(\mathbb F_2^4\), using intersection in exactly one dimension as the open-adjacency predicate. The lower VC bound has sixteen directly verified labels on the support \((0,1,3,7)\); the upper VC bound tests all 324,632 distinct five-query supports and excludes shattering. A complete depth-five decision tree has 31 verified query nodes and 32 distinct leaf concepts, and the cardinality bound \(35<64\) excludes depth six. The checker passes, with the output preserved verbatim. Limit: correctness of the exhaustive finite conclusion depends on the standalone program faithfully implementing the specified complete enumeration.
+## correctness
 
-**Originality — PASS subject to documented historical risk.** The exact joint statement is not recovered from accessible comparison sources. Adler–Benediktsson–Macpherson (2020, arXiv:2007.16042) treat ordinary Johnson/Hamming neighborhood VC bounds, rather than this binary Grassmann graph or its adaptive dimension. Liang–Tan–Koolen (2021, DOI 10.37236/10586) study structural identification of high-rank Grassmann graphs; their hypothesis excludes rank two and their claim concerns neither VC nor online shattering. Byrne–Byrne–Cioabă (2026, arXiv:2609.10330) study VC on strongly regular graphs and report exact data only through 28 vertices, whereas this graph has 35. Its full preprint was inaccessible, so a covering general theorem remains a residual priority risk. Results of relevant index and literature searches are not a proof of novelty. Previously established ordinary Johnson/Hamming bounds are not reasserted as new.
+PASS
 
-**Mathematical value — PASS.** The claim gives an exact nontrivial static/adaptive separation for the smallest rank-two binary Grassmann graph not already complete. The 35-vertex strongly regular object is a canonical finite-field analogue of the Johnson structures whose neighborhood VC complexity has been studied. The 41,160-shattered-four-support census and explicit depth-five online witness distinguish fixed-query and adaptive learning complexity at its first ambient-dimension transition. This is a natural finite invariant with a concrete future comparison role in the \(q\)-Grassmann neighborhood problem; no unproved infinite-family upper bound or paper-scale theorem is claimed.
+For F_2^4, the 35 two-planes are exactly the sets of three nonzero XOR-closed vectors. Pairwise intersection gives the 35-by-35 open adjacency with strongly regular parameters (35,18,9,9). A fresh independent script enumerated all 52360 four-supports (41160 shattered) and all 324632 five-supports (none shattered); independent version-space recursion gave Littlestone dimension five. The supplied grassmann35_cert.json independently checked a 32-leaf tree and 16 fixed response witnesses; the cardinality bound 35<64 excludes depth six. Boundaries at ambient dimensions 2 and 3 are singleton / complete graph. This is an exhaustive proof for the finite stated object only.
 
-**Scope and limits.** The exact computation is finite, for one field and one rank. There has been no external replication, independent audit, or exhaustive historical-priority certification. For ambient binary rank-two graphs with higher dimension, the 35-line induced subgraph gives only the immediate lower bounds; the present proof does not furnish their exact dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior ordinary Johnson and Hamming graph VC theorems concern different graphs; newer strongly regular graph bounds have potentially relevant VC consequences but the abstract does not imply the exact 35-vertex census or adaptive dimension. Published semantic search did not surface an exact duplicate. Best-of-knowledge original with a material inaccessible-source risk.
+
+## value
+
+PASS
+
+The rank-two q-Grassmann graph is a canonical finite-geometry test case. The explicit first low-rank separation between offline and online neighborhood shattering, full static census and sharp adaptive tree are motivated, nonroutine combinatorial invariants, not a random parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
