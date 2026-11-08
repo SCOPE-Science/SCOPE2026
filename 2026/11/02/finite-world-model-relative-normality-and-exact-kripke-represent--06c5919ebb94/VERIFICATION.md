@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `checker.py` was executed with Python 3. It returned `ALL_CHECKS_OK baseline_models=2742 all_alternatives_3world=1310720 sampled_alternatives_4world=46592 toy_census=27`. The check independently computes complete finite modal types via partition refinement and uses joint refinement on a disjoint union to test pointwise equivalence of all formulas. This is a test on finite Kripke-derived instances of the census and is not an exhaustive enumeration of closure operations. The general equivalence for arbitrary finite-world closure models follows from the symbolic proof; arbitrary infinite-world generalization is not claimed. Independent audit is not performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Necessity of U and MP is immediate from universal Kripke successor semantics. For sufficiency, U puts all globally valid tautologies in each H_w, and MP yields finite conjunction closure. Finite W lets finitely many γ∈H_w define K_w=∩⟦γ⟧, hence θ∈H_w iff K_w⊂⟦θ⟧; the converse uses a globally true conjunction implication and detachment. Canonical R[w]=K_w preserves modal truth inductively. Every modal truth type T is formula-definable on finite W, so all representing rows consist exactly of nonempty chosen subsets of every type contained in K_w and no outside worlds; multiplying gives the stated census, with edge extrema #types and |K_w|. Independent 3-world 1+2 type sanity check gives 27, 3–6 edges.
+
+## originality
+
+PASS
+
+The finite-world model-relative U+MP equivalence and all-labelled-relations product census were not found in Nishimura’s accessible full primary text, which characterizes generic KRep and some frame-relative G+K properties instead. General bisimulation partition methods underlie the proof and receive no originality credit.
+
+## value
+
+PASS
+
+The exact criterion for translating any finite closure model to a standard same-world accessibility relation is a natural model-theoretic boundary. Its product count and sharp edge-cost extrema quantify nonuniqueness and sparsest representations, useful beyond existence and distinct from simple bisimulation quotients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

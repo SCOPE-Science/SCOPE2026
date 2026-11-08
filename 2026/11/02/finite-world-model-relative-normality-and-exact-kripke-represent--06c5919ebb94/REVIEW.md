@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof distinguishes model-valid from frame-valid formulas, reconstructs the filter argument using model-relative (U), and explicitly invokes finiteness of the world set to reduce intersections to finite conjunctions. Equation (1) is checked in both directions. Induction validates existence; finite modal-type characteristic formulas establish necessity and sufficiency of the row choices. The product formula, minimum and maximum edge counts follow. The checker was executed from the package's standalone source and passed 1,310,720 exhaustive three-world relation comparisons plus sampled four-world comparisons. Finite experiments are corroboration, not infinite proofs.
+## correctness
 
-## Originality
-**PASS within inspected sources, with residual historical-priority risk.** Nishimura's Section 4.3 states general (KRep) and same-world translations but does not identify the exact finite-world (U)+(MP) boundary or enumerate all representing relations. The prior (G)+(K) condition is weaker and is not substituted for (U). General-frame compactness and Hennessy–Milner equivalence offer background machinery but do not state the combined closure-model criterion and labelled representation census. published-finding corpus and accessible same-slot claims returned no directly covering result. A pre-existing bisimulation-based census outside inspected sources remains possible.
+PASS
 
-## Value
-**PASS.** The number and minimum edge count of same-world relational representations measure the nonuniqueness and resource cost of translating a specific finite closure semantics into ordinary Kripke semantics. The theorem simultaneously pinpoints the finite/infinite boundary for a natural new model-relative strengthening of normality. The exact product is defined for every finite-world model and can be computed from its logical type partition; this is a complete classification, not a selected example.
+Necessity of U and MP is immediate from universal Kripke successor semantics. For sufficiency, U puts all globally valid tautologies in each H_w, and MP yields finite conjunction closure. Finite W lets finitely many γ∈H_w define K_w=∩⟦γ⟧, hence θ∈H_w iff K_w⊂⟦θ⟧; the converse uses a globally true conjunction implication and detachment. Canonical R[w]=K_w preserves modal truth inductively. Every modal truth type T is formula-definable on finite W, so all representing rows consist exactly of nonempty chosen subsets of every type contained in K_w and no outside worlds; multiplying gives the stated census, with edge extrema #types and |K_w|. Independent 3-world 1+2 type sanity check gives 27, 3–6 edges.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The finite-world model-relative U+MP equivalence and all-labelled-relations product census were not found in Nishimura’s accessible full primary text, which characterizes generic KRep and some frame-relative G+K properties instead. General bisimulation partition methods underlie the proof and receive no originality credit.
+
+## value
+
+PASS
+
+The exact criterion for translating any finite closure model to a standard same-world accessibility relation is a natural model-theoretic boundary. Its product count and sharp edge-cost extrema quantify nonuniqueness and sparsest representations, useful beyond existence and distinct from simple bisimulation quotients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
