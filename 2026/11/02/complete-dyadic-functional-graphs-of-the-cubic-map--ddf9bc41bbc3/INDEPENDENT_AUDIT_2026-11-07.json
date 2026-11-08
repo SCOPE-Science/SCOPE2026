@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:55:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every k>=5 the even restriction of f(x)=x+x^3 mod 2^k is an isometry since f(a)-f(b)=(a-b)(1+a^2+ab+b^2), multiplier=1 mod4 for evens; it therefore permutes the finite even set. For x with ν2(x)=r>=1, f(x)-x=x^3 has valuation 3r. The iterate-difference quotient remains 1 mod4, so doubling iteration gives ν2(f^(2^j)(x)-x)=3r+j, and the least period is 2^max(k-3r,0). Every valuation stratum size 2^(k-r-1) therefore has the claimed quotient count of cycles and zero is fixed. Odd a in one class mod8 satisfies ν2(f(a)-f(b))=ν2(a-b)+2, and odd residues map precisely to even targets ±2 mod32 with four sources per contributing source class and eight total. The resulting indegrees are 0:2^(k-1), 1:7*2^(k-4), 9:2^(k-4), with odd leaves depth exactly one. Independent brute force graphs k=5..11 matched complete cycle and indegree counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Liao 2010 gives general minimal decomposition and cycle-lifting theory and explicitly analyzes quadratic x^2+x, but inspected paper sections do not give a table for cubic x+x^3 with odd-fiber census.",
+          "desJardins–Zieve arXiv:math/0103046 focuses on odd primes, excluding 2."
+        ],
+        "reasoning": "General lifting lemmas can underpin the submitted infinite proof, but do not alone mechanically instantiate the exact 2^(max(k-3r,0)) and 8-to-1 fiber formulas without additional polynomial-specific calculations.",
+        "searches": [
+          "2-adic functional graph iteration x+x^3 modulo 2^k exact periods valuation odd fibers",
+          "Fan Liao minimal decomposition p adic polynomial x^3+x modulo 2^n"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md e4010d1510adf4a553e776f0471b59861cfab875 and verify_cubic_dyadic.py a94e305ae98f0f1d24ee4313263b486d314a1472",
+        "https://arxiv.org/pdf/1010.5583",
+        "https://arxiv.org/abs/math/0103046",
+        "Resultary query: 2-adic functional graph iteration x+x^3 modulo 2^k exact periods valuation odd fibers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period law requires proving exact doubling of displacement valuations 3r+j, not just eventual decomposition.",
+          "Eight odd predecessors arise from a separate 2-adic ramification argument specific to x+x^3, beyond general map continuity."
+        ],
+        "reasoning": "The published general framework does not immediately imply the complete indegree census or the exact stratum cycle numbers; they are specific calculations of this cubic.",
+        "searches": [
+          "2-adic functional graph iteration x+x^3 modulo 2^k exact periods valuation odd fibers",
+          "arXiv:1010.5583 cycle lifting valuation dyadic quadratic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Even f is 1-Lipschitz bijective with isometric difference quotient, a standard p-adic permutation-dynamics formulation.",
+          "Odd branches have exact multiplicity 8 into two mod-32 classes, which is distinct from the periodic orbit census."
+        ],
+        "reasoning": "Equivalent language includes polynomial dynamics on Z/2^k, cycle lifting in Z_2, and functional directed graphs; exact finite quotient orbit/branch multiplicities are the operative comparison, not merely the polynomial degree.",
+        "searches": [
+          "2-adic functional graph iteration x+x^3 modulo 2^k exact periods valuation odd fibers",
+          "x^3+x mod 2^n cycle lifts valuation lengths",
+          "2-adic cubic 1-lipschitz map functional digraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query did not return the cubic dynamical graph or an exact level-by-level table; nearest prime-square cubic graph entry concerns Fourier spectral bases of {(t,t^3)}, not dynamics.",
+          "Independent direct finite maps k=5..11 precisely match cycle-period and indegree strata."
+        ],
+        "reasoning": "No exact database table containing this all-k family was found; sample graph data are corroboration only.",
+        "searches": [
+          "2-adic functional graph iteration x+x^3 modulo 2^k exact periods valuation odd fibers",
+          "functional graph x+x^3 mod 2^k counts cycles indegree 9"
+        ]
+      },
+      "rationale": "General 2-adic polynomial cycle-lifting in Fan–Liao can be specialized but the inspected statements and quadratic examples do not present the exact map-specific cycle, leaf and indegree census. DesJardins–Zieve treats odd primes, and Resultary cubic-graph hits address a distinct spectral construction. The natural cubic map’s complete finite 2-power graph appears best-of-knowledge new, subject to specialized dynamical systems literature not fully indexed.",
+      "residual_risks": [
+        "Specialized studies of x+x^3 on Z_2 may already contain these formulas, possibly as an unstated exercise; negative search does not certify priority.",
+        "The theorem concerns finite rings k>=5; it does not assert a continuous Z_2 ergodic decomposition or odd prime dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General dynamical framework but no displayed all-level cubic x+x^3 cycle/fiber histogram in inspected material",
+          "evidence": "Fan–Liao arXiv:1010.5583 main theorems and quadratic sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.5583",
+          "material_read": "Original PDF with main general theorems on minimal decomposition, p=2 discussion and quadratic examples",
+          "method": "Full original arXiv PDF sections, page image inspected",
+          "title": "On minimal decomposition of p-adic polynomial dynamical systems",
+          "trigger": "general polynomial dynamics and exact p=2 cycle lifting"
+        },
+        {
+          "assessment": "Deals with odd primes, not the 2-adic k>=5 census; no claim of complete-paper noncoverage",
+          "evidence": "desJardins–Zieve arXiv:math/0103046 abstract notes odd primes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0103046",
+          "material_read": "Abstract and parameter scope only",
+          "method": "arXiv abstract",
+          "title": "Polynomial Mappings mod p^n",
+          "trigger": "potentially more general mod prime-power polynomial map classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-level structural classification of a simple nonlinear 2-adic dynamical system, including exact ramified odd fibers and cycle lengths by valuation. It gives the complete graph, not just example orbits, and is a useful baseline for finite-ring dynamical classifications.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md e4010d1510adf4a553e776f0471b59861cfab875 and verify_cubic_dyadic.py a94e305ae98f0f1d24ee4313263b486d314a1472",
+    "https://arxiv.org/pdf/1010.5583",
+    "https://arxiv.org/abs/math/0103046",
+    "Resultary query: 2-adic functional graph iteration x+x^3 modulo 2^k exact periods valuation odd fibers"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "k>=5, polynomial x+x^3, modulus 2^k only.",
+    "Complete finite-level enumeration k<=11 corroborates but does not prove the infinite parameter theorem."
+  ],
+  "residual_risks": [
+    "Specialized studies of x+x^3 on Z_2 may already contain these formulas, possibly as an unstated exercise; negative search does not certify priority.",
+    "The theorem concerns finite rings k>=5; it does not assert a continuous Z_2 ergodic decomposition or odd prime dynamics."
+  ],
+  "schema_version": 1
+}

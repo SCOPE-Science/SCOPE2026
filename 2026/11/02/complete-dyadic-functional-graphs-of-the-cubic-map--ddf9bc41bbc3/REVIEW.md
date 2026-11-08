@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The even difference factor has unit quotient congruent to one modulo four; composition preserves this congruence. A doubling induction gives the unrestricted exact iterate valuation \(\nu_2(F^{2^t}(x)-x)=3\nu_2(x)+t\), which determines every even period. For odd inputs in one residue class modulo eight, the difference multiplier has exact valuation two, forcing an exactly four-to-one map onto its image class modulo 32. Two classes per target give eight odd predecessors. These algebraic steps prove the entire finite graph; the full finite enumerations are ancillary checks.
+PASS
 
-## Originality — PASS (historical priority qualified)
+For every k>=5 the even restriction of f(x)=x+x^3 mod 2^k is an isometry since f(a)-f(b)=(a-b)(1+a^2+ab+b^2), multiplier=1 mod4 for evens; it therefore permutes the finite even set. For x with ν2(x)=r>=1, f(x)-x=x^3 has valuation 3r. The iterate-difference quotient remains 1 mod4, so doubling iteration gives ν2(f^(2^j)(x)-x)=3r+j, and the least period is 2^max(k-3r,0). Every valuation stratum size 2^(k-r-1) therefore has the claimed quotient count of cycles and zero is fixed. Odd a in one class mod8 satisfies ν2(f(a)-f(b))=ν2(a-b)+2, and odd residues map precisely to even targets ±2 mod32 with four sources per contributing source class and eight total. The resulting indegrees are 0:2^(k-1), 1:7*2^(k-4), 9:2^(k-4), with odd leaves depth exactly one. Independent brute force graphs k=5..11 matched complete cycle and indegree counts.
 
-The inspected 2010 Fan–Liao full preprint establishes general dyadic cycle lifting and exact *quadratic* minimal decompositions, including the different map \(x\mapsto x^2+x\). Its quadratic classification does not imply the exact cubic odd-fiber or period-count laws as a stated corollary. Comparison against published-finding corpus search hits for cubic graphs and modular dynamics found no matching claim, and the related identified work concerns different dynamical or spectral questions. Search absence is not proof of originality. Residual risk: an uncatalogued specialized paper may already contain an equivalent case or a stronger uniform theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural functional-graph invariant is completely determined for a nonpermutation polynomial on every dyadic residue ring. The result couples a sharp valuation-dependent cycle law with an unexpectedly uniform eight-to-one ramified odd-fiber structure, giving every cycle size and every indegree in closed form. The exact graph census is more informative than an isolated small-modulus computation and distinguishes periodic and transient behavior quantitatively.
+General 2-adic polynomial cycle-lifting in Fan–Liao can be specialized but the inspected statements and quadratic examples do not present the exact map-specific cycle, leaf and indegree census. DesJardins–Zieve treats odd primes, and Resultary cubic-graph hits address a distinct spectral construction. The natural cubic map’s complete finite 2-power graph appears best-of-knowledge new, subject to specialized dynamical systems literature not fully indexed.
 
-## Verification and limits
+## value
 
-The standalone verifier exhaustively checks moduli \(2^k\) for \(5\le k\le16\); algebraic proof, not extrapolation, handles all higher levels. Relevant general theory and potential uninspected historical priority remain limitations. No external or independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an all-level structural classification of a simple nonlinear 2-adic dynamical system, including exact ramified odd fibers and cycle lengths by valuation. It gives the complete graph, not just example orbits, and is a useful baseline for finite-ring dynamical classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
