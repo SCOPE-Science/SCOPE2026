@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:00:31.892229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In connected simple homogeneous-unit endpoint-valued graphs, EF1 is automatic: any agent values at most the single edge shared with another agent. EQ1 is precisely indegree spread <=1. The integral Frank–Gyárfás orientation cut criterion requires e(S)<=(q+1)|S| and i(S)>=q|S| for q=floor(m/n). It guarantees every connected n<=6 example (tree orientation when m=n-1; q=1 cycles; q=2 dense n<=6) and all connected n=7,m<=13. At n=7,m=14 all indegrees must equal two; Hall capacity inequalities reduce to e(S)<=2|S|, violated precisely by a six-vertex subset with 13 internal edges, i.e. a degree-one vertex. Such a graph has a unique leaf and K6 core missing exactly two edges, hence 7*6*C(15,2)=4410 failures. The connected total is C(21,14)-7*C(15,14)=116175, and the exact ratio is 294/7745. Independently checked all integer counts; proof analytic over every graph in stated finite domain, not dependent on sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Wang–Li prove nonexistence and hardness with edge values varying by edge or endpoint; Frank–Gyárfás handles arbitrary degree bounds."
+        ],
+        "reasoning": "These stronger general feasibility/complexity results provide mechanisms and earlier negative instances but do not establish that failure first occurs at seven agents and fourteen uniform-unit goods.",
+        "searches": [
+          "Sun–Wang–Li arXiv:2602.18098 Proposition 4.2 and Theorem 4.3",
+          "Hakimi 1965 degree sequences"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2602.18098",
+        "https://lemon.cs.elte.hu/egres/open/Orientation_with_degree_bounds",
+        "https://doi.org/10.1016/0016-0032(65)90340-6",
+        "Resultary semantic query: unit-value graph orientations equitable EQ1 EF1 smallest connected seven vertex fourteen edges indegree balanced"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Figure 5 contains nonunit weights such as 1/3; the earlier failure example does not meet the exact uniform-unit hypothesis.",
+          "The cut theorem plus a separate small-graph density argument yields the claimed threshold."
+        ],
+        "reasoning": "The existence theorem can be specialized to prove the new statement with additional graph extremal arguments. It does not immediately imply the claimed numerical threshold without those steps, and the earlier weighted nonexistence does not refute it.",
+        "searches": [
+          "Sun–Wang–Li 2026 Figure 5",
+          "Frank–Gyárfás orientation criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EQ1 for homogeneous unit values is exactly near-balanced indegree orientation; EF1 is automatic for simple graphs."
+        ],
+        "reasoning": "The equivalent graph-theoretic formulation makes prior general orientation feasibility the appropriate benchmark. That theorem does not itself state the 7/14 sharp threshold and 4410 labeled first obstructions.",
+        "searches": [
+          "unit-value graph orientations equitable EQ1 EF1 smallest connected seven vertex fourteen edges indegree balanced",
+          "Frank–Gyárfás degree-bounded orientation criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 4410 count comes from choosing a unique leaf, attachment and two missing edges in K6, not from the unrelated matching/fairness records returned by semantic search."
+        ],
+        "reasoning": "No retrieved published table gives the uniform-unit connected first-layer count. The simple exact counting formula is disclosed, so this is not represented as an independently deep computation.",
+        "searches": [
+          "unit-value graph orientations equitable EQ1 EF1 smallest connected seven vertex fourteen edges indegree balanced",
+          "Resultary graph orientation fair division exact seven vertices"
+        ]
+      },
+      "rationale": "The powerful general integer degree-bounded orientation cut criterion belongs to Frank–Gyárfás and is not claimed new. Sun–Wang–Li 2026 Proposition 4.2 exhibits EQ1 failure with weighted edges (their illustrated weights include 1/3), and their complexity theorem likewise allows nonunit values. The present sharper connected uniform-unit threshold and full first-boundary classification were not stated in inspected source sections. As a finite corollary of the general cut theorem, the result may have been previously recorded under balanced graph orientations; best-of-knowledge PASS with that residual risk.",
+      "residual_risks": [
+        "The exact 7/14 boundary could be an unstated corollary in older equitable/balanced-orientation literature.",
+        "Scope excludes disconnected graphs, multigraphs and heterogeneous valuations; broad NP-hardness does not extend to this uniform-unit feasibility special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted nonexistence and hardness, not the uniform-unit 7/14 classification",
+          "evidence": "Figure 5 and Proposition 4.2 use 1/3 edge values; theorem 4.3 reduction has heterogeneous fractions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.18098",
+          "material_read": "Read accessible full 26-page PDF text, focusing on Sections 1, 4, Proposition 4.2, Figure 5 and Theorem 4.3; inspected page image",
+          "method": "arXiv primary PDF text and screenshot",
+          "title": "Fair Orientations: Proportionality and Equitability",
+          "trigger": "Direct same EQ1 orientation model, closest 2026 counterexample"
+        },
+        {
+          "assessment": "Prior theorem fully credited; not claimed as new",
+          "evidence": "Necessary and sufficient e(S) and i(S) inequalities for all vertex subsets.",
+          "identifier_or_url": "https://lemon.cs.elte.hu/egres/open/Orientation_with_degree_bounds",
+          "material_read": "Criterion and attribution as printed in assigned full proof; external page text not independently recovered",
+          "method": "Mathematical reconstruction of its standard cut proof via bipartite integral-flow feasibility",
+          "title": "Orientation with degree bounds",
+          "trigger": "Exact integral orientation criterion"
+        },
+        {
+          "assessment": "Known general orientation degree feasibility; priority not claimed for general lemma",
+          "evidence": "Hakimi (1965) gives directed degree sequence realizability context.",
+          "identifier_or_url": "https://doi.org/10.1016/0016-0032(65)90340-6",
+          "material_read": "Bibliographic/source citation only",
+          "method": "Reference comparison",
+          "title": "On the degrees of the vertices of a directed graph",
+          "trigger": "Classical orientation indegree feasibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parameter boundary is determined by a fairness-model restriction that materially changes existence (identical unit endpoint values instead of heterogeneous weights). Finding the first connected market size, minimal number of goods and all boundary obstructions is a natural complete finite classification with an exact failure frequency, not an arbitrary tiny graph counterexample or a new claim to the generic flow theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact 7/14 boundary could be an unstated corollary in older equitable/balanced-orientation literature.",
+    "Scope excludes disconnected graphs, multigraphs and heterogeneous valuations; broad NP-hardness does not extend to this uniform-unit feasibility special case."
+  ],
+  "schema_version": 1
+}

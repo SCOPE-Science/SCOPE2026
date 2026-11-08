@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The orientation criterion gives necessary and sufficient inequalities for target indegree intervals, with the upper and lower cut bounds checked analytically for all graph orders through six and all seven-vertex graphs with at most thirteen edges. For seven vertices and fourteen edges, capacity-two Hall inequalities reduce exactly to minimum degree at least two. The pendant-core classification and labeled counts follow by elementary counting. The standalone exhaustive integer checker confirms all \(26704\) connected six-vertex graphs and all \(116175\) connected seven-vertex, fourteen-edge graphs; no extrapolation from a partial search is used.
+## correctness
 
-**Originality — PASS (qualified).** Sun, Wang, and Li (arXiv:2602.18098, Section 4, including Proposition 4.2, inspected) give heterogeneous-weight nonexistence and general complexity statements, not the sharp connected uniform-unit threshold. Frank--Gyárfás already provide the complete degree-bounded orientation condition, so the orientation feasibility criterion itself is prior art. The distinct mathematical assertion being evaluated is the extremal first obstruction, its if-and-only-if structural characterization, and exact first-layer count. Targeted published-record searches found no equivalent statement. Risk: a less indexed graph-theoretic study may have derived this minimal cut-off as a corollary.
+PASS
 
-**Value — PASS.** Fair orientation papers show that EQ1 may fail but the weight and relevance restrictions matter. Identifying the smallest connected market in which the failure persists when *every* relevant good is worth exactly one, and classifying all minimal-edge failures with an exact incidence, settles a natural parameter-boundary question. The result is not proposed as a new flow algorithm or an improvement to the general orientation theorem.
+In connected simple homogeneous-unit endpoint-valued graphs, EF1 is automatic: any agent values at most the single edge shared with another agent. EQ1 is precisely indegree spread <=1. The integral Frank–Gyárfás orientation cut criterion requires e(S)<=(q+1)|S| and i(S)>=q|S| for q=floor(m/n). It guarantees every connected n<=6 example (tree orientation when m=n-1; q=1 cycles; q=2 dense n<=6) and all connected n=7,m<=13. At n=7,m=14 all indegrees must equal two; Hall capacity inequalities reduce to e(S)<=2|S|, violated precisely by a six-vertex subset with 13 internal edges, i.e. a degree-one vertex. Such a graph has a unique leaf and K6 core missing exactly two edges, hence 7*6*C(15,2)=4410 failures. The connected total is C(21,14)-7*C(15,14)=116175, and the exact ratio is 294/7745. Independently checked all integer counts; proof analytic over every graph in stated finite domain, not dependent on sampling.
 
-**Scientific limitations.** The graphs are connected, simple and uniformly valued at endpoints; no claim applies to heterogeneous weights, disconnected graphs or multigraphs. Counted instances are labeled. The general cut theorem is credited; priority beyond the inspected literature is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The powerful general integer degree-bounded orientation cut criterion belongs to Frank–Gyárfás and is not claimed new. Sun–Wang–Li 2026 Proposition 4.2 exhibits EQ1 failure with weighted edges (their illustrated weights include 1/3), and their complexity theorem likewise allows nonunit values. The present sharper connected uniform-unit threshold and full first-boundary classification were not stated in inspected source sections. As a finite corollary of the general cut theorem, the result may have been previously recorded under balanced graph orientations; best-of-knowledge PASS with that residual risk.
+
+## value
+
+PASS
+
+The parameter boundary is determined by a fairness-model restriction that materially changes existence (identical unit endpoint values instead of heterogeneous weights). Finding the first connected market size, minimal number of goods and all boundary obstructions is a natural complete finite classification with an exact failure frequency, not an arbitrary tiny graph counterexample or a new claim to the generic flow theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
