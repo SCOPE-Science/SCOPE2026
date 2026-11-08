@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:58:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 61cb42e263946f21fff19244a47e1c07a190193c",
+        "Frozen verify.py 67214dc1caf0c43dbf86b6202736ec71b2db9869",
+        "Independent rational amplifier and sign probability checks in independent_checks.py"
+      ],
+      "rationale": "Solve the actual two-stage tableau at each x in [1/2,1] for yprime=-lambda y. One-step multiplier R_x(-r)=[2+(4x-2)r+(2x²-4x+1)r²]/[2(1+rx)²]. The denominator is positive; q_r convex and its two endpoint values and roots x±=1−1/r±sqrt((r−2)/(2r)) prove p=0 for r<=2, p=1−2/r+sqrt(2−4/r) for 2<r<1+sqrt3, p=1 thereafter. At thresholds zero-sign sampling sets have measure zero. Fresh independent x samples imply Binomial(N,p) reversal count, parity formula, all-positive probability (1-p)^N; p(2+delta)~sqrt(delta) yields N^-2 Poisson(sqrt(c)). Independent rational amplifier derivation and six finite sign-fraction probes corroborate, not substitute for analytic proof.",
+      "residual_risks": [
+        "Only exact scalar decay, fresh independent uniform tableau choices and positive initial state; not nonlinear positivity, fixed horizon convergence or finite precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Main original is stability/mean-square convergence and method definition, distinct from endpoint positivity probability.",
+          "Bochacik–Przybyłowicz studies a different two-stage implicit family; no exact matching sign-law identified in accessible abstract."
+        ],
+        "reasoning": "A broader probabilistic stability theorem could subsume this scalar law only if it explicitly integrates sign conditions; not established by A-stability or mean-square error alone.",
+        "searches": [
+          "arxiv 2607.18928 error bound stability randomized SDIRK sections 3 5 7",
+          "arxiv 2404.19059 convergence and stability randomized implicit two-stage"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: randomized singly diagonally implicit Runge Kutta probability negative stability multiplier critical Poisson window",
+        "Eisenmann et al arxiv:2607.18928 abstract; Oxford vpn_disconnected",
+        "Higueras–Ketcheson–Kocsis arxiv:1505.04024",
+        "Bochacik–Przybyłowicz arxiv:2404.19059",
+        "Own algebraic rational and finite probability checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A-stability means |R|<=1 on left half-plane and permits negative R, hence cannot imply positivity p=0.",
+          "Deterministic SSP/absolute monotonicity radii for a fixed tableau do not determine the measure of random parameter values giving R<0."
+        ],
+        "reasoning": "The sharp N^-2 window follows from a new square-root cusp in p and Bernoulli resampling; not a consequence of mean-square stability or deterministic SSP results.",
+        "searches": [
+          "arxiv 2607.18928 randomized SDIRK stability A-stability positivity",
+          "arxiv 1505.04024 RK monotonicity preserving perturbations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original 2026 paper provides random tableau and stability-function analysis.",
+          "The sign event is the negative set of a parameterized quadratic in the random tableau variable, a distinct probability from |R|<=1 or A-stability."
+        ],
+        "reasoning": "Rewriting as stability-polynomial root measure and binomial rare events exposes exact equivalence; no found prior formula for p(r) or Poisson window on that method.",
+        "searches": [
+          "randomized singly diagonally implicit Runge Kutta probability negative stability multiplier critical Poisson window",
+          "Eisenmann Jans Kruse Podhaisky randomized SDIRK scalar decay sign probability stability function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest are different-method positivity barriers for BDF2, Padé, Richardson extrapolation.",
+          "No matching explicit p(r) table or n^-2 Poisson transition appeared."
+        ],
+        "reasoning": "A finite RK stability plot is not a repeated-independent-step sign-count distribution; no exact same-law table identified.",
+        "searches": [
+          "randomized singly diagonally implicit Runge Kutta probability negative stability multiplier critical Poisson window",
+          "random SDIRK uniform x sign reversal probability critical timestep 2 Poisson"
+        ]
+      },
+      "rationale": "The randomized SDIRK tableau and its stability function are prior from Eisenmann et al. Earlier randomized and deterministic RK stability work does not, in the inspected accessible statements, determine the distribution of negative scalar multipliers or repeated-step Poisson window. The new claim is an exact positivity probability and stopping-window classification; accessible-only priority evidence is incomplete because the main original full text was unavailable.",
+      "residual_risks": [
+        "Original same-tableau Eisenmann et al full text inaccessible (Oxford VPN disconnected), so an implicit positivity calculation cannot be ruled out.",
+        "A-stability and scalar positivity are logically distinct; avoid misleading equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar amplifier and probability derivation checked",
+          "evidence": [
+            "Three regimes with boundaries r=2,1+sqrt3; binomial and Poisson formulas."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-sign-loss-probability-and-poisson-critical-window-for-rand--119cb032c3ba",
+          "material_read": "Complete RESULT.md and verify.py script from actual Git blobs",
+          "method": "Git blob extraction by SHA",
+          "title": "Sharp sign-loss probability and Poisson critical window for randomized SDIRK",
+          "trigger": "Assigned final claim"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING claim; direct prior-coverage risk retained",
+          "evidence": [
+            "Method and mean-square/A-stability analysis reported in accessible descriptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+          "material_read": "Abstract and available metadata/tableau description; complete paper not obtained",
+          "method": "arXiv/OA attempts followed by authorized Oxford, returned vpn_disconnected",
+          "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge--Kutta Method",
+          "trigger": "Original same tableau and nearest possible prior coverage"
+        },
+        {
+          "assessment": "Different deterministic positivity mechanism, no matching random-sampling law",
+          "evidence": [
+            "Deterministic monotonicity radii do not give probability of sampled negative multipliers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.04024",
+          "material_read": "Primary arXiv abstract and cited monotonicity-radius results, relevant framing; no full paper reading claimed",
+          "method": "Targeted literature statement comparison",
+          "title": "Optimal monotonicity-preserving perturbations of a given Runge–Kutta method",
+          "trigger": "General SSP positivity possible implication"
+        },
+        {
+          "assessment": "Different scheme; cannot assert full noncoverage",
+          "evidence": [
+            "Focus on convergence/stability, not demonstrated exact same tableau p(r)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+          "material_read": "Accessible primary abstract, not full primary paper",
+          "method": "Abstract/metadata comparison",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Alternative randomized RK scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original random tableau and stability literature",
+        "Analytic quadratic sign law and Poisson limit proof"
+      ],
+      "rationale": "Positivity preservation is a natural numerical-method safety property separate from norm stability. The exact probability across all step sizes and square-root onset quantify a real threshold, and rare sign failures show a nontrivial sharp N^-2 trajectory-level Poisson window. These are natural method-specific stochastic invariants, not arbitrary simulations.",
+      "residual_risks": [
+        "No implication for systems or nonlinear invariance; long-trajectory regime is not fixed-time method convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only exact scalar decay, fresh independent uniform tableau choices and positive initial state; not nonlinear positivity, fixed horizon convergence or finite precision.",
+    "Original same-tableau Eisenmann et al full text inaccessible (Oxford VPN disconnected), so an implicit positivity calculation cannot be ruled out.",
+    "A-stability and scalar positivity are logically distinct; avoid misleading equivalence.",
+    "No implication for systems or nonlinear invariance; long-trajectory regime is not fixed-time method convergence."
+  ],
+  "schema_version": 1
+}

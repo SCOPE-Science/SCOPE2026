@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is tied to exactly the published two-stage tableau and the scalar test equation \(y'=-\lambda y\). Stage elimination yields the explicit rational multiplier in RESULT.md. The positive denominator reduces the sign event to a convex quadratic in the sample parameter. Its two endpoint values, discriminant and roots prove the full piecewise probability law, including both equality cases. Independence gives the exact binomial and parity formulas; the \(N^{-2}\) window is justified by the explicit square-root onset and the standard binomial-to-Poisson limit. An exact-symbolic/rational and seeded numerical verifier passed 1041 checks plus 12 symbolic assertions. Finite checks are supplemental rather than proofs of infinite-scope claims.
+PASS
 
-## Originality — PASS within stated access limits
+Solve the actual two-stage tableau at each x in [1/2,1] for yprime=-lambda y. One-step multiplier R_x(-r)=[2+(4x-2)r+(2x²-4x+1)r²]/[2(1+rx)²]. The denominator is positive; q_r convex and its two endpoint values and roots x±=1−1/r±sqrt((r−2)/(2r)) prove p=0 for r<=2, p=1−2/r+sqrt(2−4/r) for 2<r<1+sqrt3, p=1 thereafter. At thresholds zero-sign sampling sets have measure zero. Fresh independent x samples imply Binomial(N,p) reversal count, parity formula, all-positive probability (1-p)^N; p(2+delta)~sqrt(delta) yields N^-2 Poisson(sqrt(c)). Independent rational amplifier derivation and six finite sign-fraction probes corroborate, not substitute for analytic proof.
 
-The underlying tableau and samplewise algebraic/A-stability are in Eisenmann--Jans--Kruse--Podhaisky, arXiv:2607.18928, especially Sections 3 and 5. Their Section 7 addresses convergence rather than sign probabilities; the material read does not state the exact two-threshold sign law or the Poisson window. The comparison with Higueras--Ketcheson--Kocsis (arXiv:1505.04024) separates deterministic SSP/absolute-monotonicity criteria from the random-parameter probability and long-trajectory sign count. The Bochacik--Przybyłowicz work arXiv:2404.19059 concerns another random RK construction; the accessible abstract alone is not treated as proof of absence from its full text. Closest published-record results concern different time integrators (BDF2, SSP-SDIRK2(2)) and do not imply this method-specific law. Database and web searches cannot establish exhaustive priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-On positivity-sensitive decay problems, algebraic/A-stability controls magnitude but does not prevent negative approximations. The exact one-step probability describes the likelihood of that failure for the actually sampled tableau, while the square-root cusp and \(N^{-2}\) Poisson window quantify the first rare-event regime over repeated updates; neither is an arbitrary parameter slice. The results distinguish samplewise contractivity, sign preservation, and pathwise reliability and can guide diagnostics for positivity-sensitive uses of this integrator.
+The randomized SDIRK tableau and its stability function are prior from Eisenmann et al. Earlier randomized and deterministic RK stability work does not, in the inspected accessible statements, determine the distribution of negative scalar multipliers or repeated-step Poisson window. The new claim is an exact positivity probability and stopping-window classification; accessible-only priority evidence is incomplete because the main original full text was unavailable.
 
-## Closest literature and limitations
+## value
 
-Motivating method: arXiv:2607.18928v1 (2026). Classical SSP context: arXiv:1505.04024 and references therein. Related randomized implicit RK work: arXiv:2404.19059, whose full text was not inspected. The theorem is restricted to scalar constant-coefficient decay, uniform independent sampling, positive initial data and exact arithmetic. No general matrix-positivity, nonlinear, stage-positivity, fixed-final-time error or independent review claims are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positivity preservation is a natural numerical-method safety property separate from norm stability. The exact probability across all step sizes and square-root onset quantify a real threshold, and rare sign failures show a nontrivial sharp N^-2 trajectory-level Poisson window. These are natural method-specific stochastic invariants, not arbitrary simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
