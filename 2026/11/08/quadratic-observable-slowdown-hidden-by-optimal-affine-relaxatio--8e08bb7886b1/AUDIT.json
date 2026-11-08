@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Exact covariance-defect recursion is the Bernoulli-weighted sum of symmetric-square branch matrices, not the square of the mean matrix. The characteristic cubic and endpoint substitutions give P(q)<0<P(1), ensuring a second-degree eigenvalue between the affine rate and one. Positivity and a two-step strict covariance contraction prove the whole covariance spectral radius below one; operator-norm/Gelfand bounds and positive definiteness of first-row Gram show the gap is attained in position variance from a valid centered Gaussian start. The standalone verifier checks the identities in exact rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roberts–Sahu (1997), §§1–2, full accessible 27-page article: spectral methods for usual updating schemes; their §2.3 notes stochastic overrelaxation excluded.",
+        "Fox–Parker (2015), full 33-page arXiv manuscript, §§1–5: stationary Gaussian linear-solver/sampler correspondence and Chebyshev-SSOR schemes, not this Bernoulli mirror refresh law.",
+        "Wolff (1992), accessible abstract: fixed-length deterministic microcanonical sweeps alternating heat-bath passes in a Gaussian lattice model."
+      ],
+      "reasoning": "The primary Gaussian Gibbs sources establish linear-Gaussian and matrix-splitting results and explicitly record historical SOR improvements. Their usual deterministic linear coefficient tensor-squares do not cover independently randomized mirror versus refresh coefficient matrices. Existing hybrid overrelaxation literature is acknowledged and remains a priority risk, but the inspected results do not state this exact strict quadratic-vs-affine obstruction.",
+      "searches": [
+        "Roberts Sahu 1997 Updating Schemes Correlation Structure Blocking Parameterization Gaussian Gibbs overrelaxation",
+        "Fox Parker accelerated Gibbs sampling normal distributions matrix splittings polynomials arXiv:1505.03512",
+        "Ulli Wolff Dynamics of hybrid overrelaxation in Gaussian model 1992"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.16248v1",
+      "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/RobertsSahuJRSSB1997.pdf",
+      "https://arxiv.org/pdf/1505.03512",
+      "https://doi.org/10.1103/PhysRevD.37.458",
+      "https://glizen.com/radfordneal/over.abstract.html",
+      "https://inspirehep.net/literature/333936"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper proves invariant law for arbitrary conditional-preserving kernels, not a sharp spectral rate for all of them; its analyzed implementations are kinetic.",
+        "Fox–Parker establish solver/Gibbs equivalence and Chebyshev-optimal polynomials for their splittings, but not the exact shared-Bernoulli transfer polynomial z²−t(2−rho)z+(1−rho).",
+        "Adler (1988) establishes a relaxation continuum; the deterministic Gaussian mirror is a known endpoint, not a claimed new construction."
+      ],
+      "reasoning": "The original reflected-proximal exact-invariance principle does not imply numerical rate comparisons. Classical optimal SOR does imply the preliminary affine q formula (credited, not new), but cannot imply quadratic convergence of a shared-Bernoulli random-coefficient transition through tensor-square propagation. Here E[M⊗M] differs from E[M]⊗E[M], and the explicit strict spectral gap proves why those implications fail.",
+      "searches": [
+        "arXiv:2610.16248v1 3.1 framework invariant any conditional kernel vs Gaussian mirror refresh",
+        "Fox Parker 2015 Gaussian sampler Chebyshev acceleration, antithetic variables, general matrix splitting",
+        "Adler 1988 overrelaxation algorithms lattice field theories"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.16248v1, §3.1 Eq. 1/Algorithm 1: any conditional-invariant kernel is allowed; the paper selects kinetic kernels.",
+        "R. M. Neal, report 9508 (1995), abstract and contextual description: Gaussian overrelaxation and mirror endpoints predate this result.",
+        "G. O. Roberts and S. K. Sahu (1997), §2.3: Gaussian Gibbs spectral calculations; stochastic overrelaxation not treated in that article."
+      ],
+      "reasoning": "The affine spectral calibration is a standard optimal-SOR consequence and is not assessed as a new finding. The covariance obstruction instead concerns a random-coefficient linear update whose second-degree matrix is a mixture of symmetric squares, not a symmetric square of the averaged affine matrix. Gaussian SOR statements about first-degree rates therefore do not imply the exact cubic sign and position-variance witness.",
+      "searches": [
+        "Gaussian conditional Gibbs reflection deterministic overrelaxation random refresh rate optimal spectral radius parameter 1990",
+        "Gaussian data augmentation conditional antithetic reflection random refresh mix eigenvalues spectral radius optimum square root transformation",
+        "arXiv:2610.16248v1 §3.1 ideal reflected proximal dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Motivating arXiv v1, sections 3–5 and appendices B–C inspected for a matching specialization; no displayed exact two-parameter Gaussian mirror minimax table or formula.",
+        "Relevant 1997 and 2015 Gaussian Gibbs primary texts inspected; neither displayed this exact Bernoulli-mirror augmentation family."
+      ],
+      "reasoning": "The inspected current source, Gaussian Gibbs primary literature and mathematical-record searches did not identify the explicit cubic, its P(q)<0<P(1) witness, or a corresponding covariance observable. Negative searches are not a proof of absolute novelty.",
+      "searches": [
+        "Yuan Guo Chen Reflected Proximal Dynamics Gaussian conditional mirror independently refreshed Bernoulli optimal spectral radius kappa quarter root",
+        "hybrid overrelaxation Gaussian Bernoulli heatbath microcanonical reflection optimal one-step stationary affine rate kappa^(1/4)",
+        "arXiv:2610.16248v1 spectral radius overrelaxation Gaussian quadratic"
+      ]
+    },
+    "rationale": "The classical first-degree optimal SOR formula is explicitly credited as prior work, not claimed new. The new content is the exact random-coefficient second-chaos cubic, strict gap at classical tuning and observable position-variance witness. Prior Gaussian linear-autoregression/matrix-splitting results tensorize the averaged first-degree matrix, while random Bernoulli switching tensors before averaging, so that prior implication fails. Historic hybrid-overrelaxation priority is a real residual risk.",
+    "residual_risks": [
+      "Old Gaussian overrelaxation and SOR literature might give an equivalent specialized minimax formula under different terminology; complete priority assurance is not established.",
+      "Wolff (1992), Adler (1988), Neal (1995/1998) were not all accessible as full primary text this round; the close abstracts were reviewed and are not represented as whole-document noncoverage.",
+      "A generic matrix-splitting or Chebyshev theorem may yield the frontier after nontrivial specialization, though no exact implication was found.",
+      "Prior random-coefficient linear-iteration or hybrid overrelaxation theorems might subsume the covariance cubic and strict gap, despite no matching statement found in examined sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "general exactness preexists; its two kinetic conditional kernels and analysis differ from deterministic conditional mirror plus Bernoulli tuning",
+        "evidence": [
+          "Algorithm 1 and Proposition 1, §3.1",
+          "§§4–5 kinetic realizations",
+          "Appendix C.5 Gaussian quadratic baseline"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.16248v1",
+        "material_read": "§§2–5, §3.1 full algorithm/proposition and proof, relevant appendices B/C transfer and quadratic baseline",
+        "method": "primary open-access full HTML sections and targeted text search",
+        "title": "Reflected Proximal Dynamics for Accelerated High-Accuracy Log-Concave Sampling",
+        "trigger": "direct motivating source, same outer reflection and conditional-invariance interface"
+      },
+      {
+        "assessment": "relevant general spectral methodology; §2.3 explicitly excludes stochastic overrelaxation",
+        "evidence": [
+          "§1.1 linear-observable rate definition",
+          "§2 Gaussian updating theorems",
+          "§2.3 note excluding stochastic overrelaxation"
+        ],
+        "identifier_or_url": "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/RobertsSahuJRSSB1997.pdf",
+        "material_read": "accessible primary 27-page PDF, introduction and entire §2 including theorem statements and §2.3 overrelaxation exception",
+        "method": "full primary PDF text and page-image inspection",
+        "title": "Updating Schemes, Correlation Structure, Blocking and Parameterization for the Gibbs Sampler",
+        "trigger": "classical exact Gaussian Gibbs spectral convergence and overrelaxation coverage"
+      },
+      {
+        "assessment": "general Gaussian solver/sampler equivalence and polynomial acceleration, different update family",
+        "evidence": [
+          "§§1–2 algorithm forms",
+          "§§3–5 splitting and polynomial acceleration",
+          "comparison of stationary SOR and Chebyshev SSOR"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.03512",
+        "material_read": "primary 33-page PDF, abstract, §§1–5 on splitting transfer, stationary and polynomial algorithms; targeted searches for antithetic/overrelaxation",
+        "method": "full PDF opened, page inspected, relevant theorem/algorithm passages read",
+        "title": "Accelerated Gibbs sampling of normal distributions using matrix splittings and polynomials",
+        "trigger": "possible dominating Gaussian sampler acceleration theorem"
+      },
+      {
+        "assessment": "mirror/antithetic ideas preexisting; full theorem coverage not established from accessible abstract",
+        "evidence": [
+          "Phys. Rev. D 37 (1988) abstract on heat-bath and Gaussian free-field SOR"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevD.37.458",
+        "material_read": "publisher abstract and bibliographic metadata only",
+        "method": "publisher abstract search",
+        "title": "Overrelaxation algorithms for lattice field theories",
+        "trigger": "classical overrelaxation might subsume mirror conditional kernel"
+      },
+      {
+        "assessment": "Gaussian overrelaxation is expressly acknowledged prior art; no specific two-control minimax shown in accessible material",
+        "evidence": [
+          "Neal technical report 9508 (1995) abstract"
+        ],
+        "identifier_or_url": "https://glizen.com/radfordneal/over.abstract.html",
+        "material_read": "author-hosted 1995 report abstract and contextual description",
+        "method": "author-maintained abstract and cited algorithm overview",
+        "title": "Suppressing Random Walks in Markov Chain Monte Carlo Using Ordered Overrelaxation",
+        "trigger": "historical Gaussian overrelaxation identity and hybrids"
+      },
+      {
+        "assessment": "different fixed-number microcanonical sweep schedule; high relevance and unresolved full-text priority risk",
+        "evidence": [
+          "Wolff (1992) abstract: N microcanonical sweeps alternating one heat-bath pass"
+        ],
+        "identifier_or_url": "https://inspirehep.net/literature/333936",
+        "material_read": "bibliographic data and abstract, no reliable full text available in this round",
+        "method": "INSPIRE abstract plus targeted open-access search",
+        "title": "Dynamics of hybrid overrelaxation in the Gaussian model",
+        "trigger": "nearby hybrid mirror/heatbath method in Gaussian systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e08bb78-86b1-4be3-9754-7ba8fc976bf0",
+  "value": {
+    "rationale": "This is a motivated structural obstruction to transferring optimally tuned first-degree Gaussian Gibbs/SOR rates to actual quadratic statistics under randomly switched conditional kernels. It supplies a strict all-condition-number quantitative gap and a realizable variance witness, with exact algebraic cubic and no unsupported full-mixing extrapolation.",
+    "status": "PASS"
+  }
+}
