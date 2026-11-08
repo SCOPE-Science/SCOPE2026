@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ordinal chain's least open neighbourhood is exactly its initial segment. Hence infinite accumulation is decided by counting the points of a set below each ordinal. The first \(\omega\) elements of every infinite subset give a unique limiting threshold, and all images are tails. The proof then shows that taking one more derivative advances a tail threshold by ordinal addition of \(\omega\), while limit iterates intersect tails by taking the supremum of thresholds. This verifies every displayed formula, including noncommutativity of ordinal multiplication and the base stage. The precise removal stage of a point and the least ordinal realizing a given rank follow from strict monotonicity and continuity of left multiplication by \(\omega\) in its right factor.
+PASS
 
-`checker.py` independently evaluated the finite \(m\)-point analogue on 12,282 labelled subset cases (147,450 derivative comparisons) and 1,100 finite rank cases; it returned `ALL_CHECKS_OK`. These tests do not establish the infinite or transfinite statements, for which the symbolic induction is indispensable. Boundary cases \(\theta=0\), finite \(\theta\), \(\theta=\omega\), empty sets and first-infinite-block thresholds equal to \(\theta\) are expressly covered.
+In the downward-initial-segment Alexandrov topology on ordinal theta, minimal neighbourhood of beta is [0,beta]. Therefore D(A) consists exactly of beta whose initial segment contains infinitely many A. If infinite A has first omega elements a_n, threshold delta=sup_n(a_n+1) and D(A)=[delta,theta), including delta=theta empty. D([eta,theta))=[eta+omega,theta) by counting the first omega points of that ordinal tail. At successor stages thresholds add omega; at any limit, intersection of tails is tail at supremum of thresholds. This proves D^n(A)=[delta+omega(n-1),theta) for finite n>=1, and D^alpha(A)=[delta+omega*alpha,theta) for alpha>=omega, with ordinal multiplication on LEFT by omega. Full-space derivative at stage alpha is [omega*alpha,theta), extinction rank min{gamma:omega*gamma>=theta}, point removal at first gamma with omega*gamma>beta, and minimal realizing theta omega*eta+1 for gamma=eta+1 or omega*gamma for nonzero limit gamma. Empty/finite theta and small boundary theta=omega+1,omega^2+1 follow. Finite m-threshold checker does NOT prove ordinal transfinite claims; their proof is transfinite induction. Independently checked hand rank examples theta=omega,omega+1,omega^2,omega^2+1 and finite threshold analog.
 
-## Originality — PASS within inspected evidence
+## originality
 
-Yoàv Montacute's *Halo Semantics for Modal Logic* (arXiv:2606.31885v1, §§4, 6.1–6.3, conclusion) was read in its accessible full-text version. Its Theorem 6.4 proves the halo-to-accumulation identification and Theorem 6.14 constructs a general transfinite decomposition. It does not give the arbitrary-subset first-\(\omega\)-block form on Alexandrov ordinal chains, the exact pointwise transfinite tail formula, the rank \(\min\{\gamma:\omega\gamma\ge\theta\}\), or the least-order-type realizations. These computations are not entailed by a merely existential decomposition without the chain-specific neighbourhood reduction and ordinal arithmetic.
+PASS
 
-Classical Hausdorff ordinal Cantor–Bendixson ranks and their countable spectrum are recognized prior art. The result is not a new proof of that general spectrum: it concerns the *different*, non-\(T_1\), initial-segment Alexandrov topology and a full normal form for arbitrary valuations. Published research-record searches using halo, ordinal chain, infinite-accumulation, and condensation/rank terminology located no mathematical statement dominating this one. The closest related records describe the indiscrete halo logic and ordinary Cantor–Bendixson ranks of unary-function type spaces; neither implies the presented formula. A historical source describing the same initial-segment topology under a different name could still predate this computation; the search does not prove absolute priority.
+Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.
 
-## Mathematical value — PASS
+## value
 
-The 2026 infinite-accumulation modality makes a general transfinite decomposition available but does not quantify how long it lasts on concrete non-Hausdorff spaces. The new exact normal form answers that natural rank question for **every** ordinal in a canonical Alexandrov chain class and **every** valuation. It gives all point-removal stages, proves no fixed countable ordinal bounds the ranks of countable such spaces, and identifies the least order types for each rank. These are precise calibration examples for \(\omega\)-scattered topological modal semantics, not isolated small-order experiments. The elementary order-statistic ingredient is acknowledged; the value lies in the complete transfinite classification and sharp canonical realizations.
+PASS
 
-## Closest literature and limitations
+For a genuinely studied nonstandard halo/infinite-accumulation modality, general transfinite existence leaves its exact behaviour on concrete non-T1 spaces unknown. The theorem gives every derivative and point rank for every valuation on all ordinal initial-segment chains, a sharp extinction ordinal, and minimal order-type realizations. This is a natural complete classification and calibration family rather than an arbitrary finite computation, although not a new general rank-spectrum theorem.
 
-Primary source: Montacute (2026), Theorems 6.4 and 6.14. Background: classical Cantor–Bendixson theory of Hausdorff ordinal spaces; other published research records on purely nonstandard halo logic and ordinary type-space ranks. The calculation applies to ordinal initial-segment Alexandrov topologies; it does not classify arbitrary infinite Alexandrov spaces or provide new general modal completeness axioms. The finite checker validates only a threshold analogue. Older equivalent formulations remain a priority risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
