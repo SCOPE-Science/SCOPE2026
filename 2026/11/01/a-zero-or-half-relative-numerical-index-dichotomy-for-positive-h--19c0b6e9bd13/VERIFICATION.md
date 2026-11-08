@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python3 CHECK.py` in the directory containing the files. The checker requires only the standard Python library. Its current successful run reports exactly **35,409 finite assertions** covering the positive-contraction defect inequality, finite spectral-band estimates, square-zero numerical-radius sharpness, and near-norming diagonal examples.
+# Independent mathematical audit
 
-The proof of the universal theorem is analytic. Critical nonfinite steps are the characterization of weak-null unit sequences by compact injective positive defects, double-tail compression formulas for the essential norm and numerical radius, and existence of a partial isometry from an infinite low spectral band to an infinite high band for noncompact injective defect. The code does not certify any of those infinite-dimensional steps.
+## correctness
 
-The manuscript and checker cover positive norm-one contractions on separable infinite-dimensional complex Hilbert spaces. The title, precise ratio and the zero/half cases are consistent across files. The prior published compact-defect characterization is credited rather than claimed as original. Publication priority is assessed on available sources only. Independent audit has not been performed.
+PASS
+
+Reconstructed the precise p_G seminorm and paired-vector v_G limits. Since (I−G)^2≤I−G², unit near-norming pairs have y−x→0; this yields the same near-norming-vector characterization of v_G. For compact injective D, near-norming unit sequences are precisely weak-null, hence p_G=||T||ess and v_G=w_ess(T). Finite-rank head/tail decompositions establish the Calkin norm and tail numerical-radius identities; classical w(S)≥||S||/2 and square-zero infinite-multiplicity partial isometry give sharp 1/2. D=0 reduces to ordinary w/||.||. With nonzero ker D and D≠0, a rank-one map from ker D to a positive spectral band gives p=1,v=0. With injective noncompact D, take infinite low- and high-defect spectral subspaces and a partial isometry low→high: p=1,v=0, including spectral-limit boundary. CHECK.py consists of finite spectral/quadratic diagnostics; it does not prove the infinite statement. No missing positive-contraction spectral case.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the joint v_G identification and exhaustive positive-contraction eta=0/1/2 phase diagram, not for classical numerical-radius inequalities or the previously published p_G essential-norm criterion.
+
+## value
+
+PASS
+
+A complete, sharp index dichotomy for all positive norm-one infinite-dimensional Hilbert contractions gives the exact structural boundary between compact-injective defects and every other spectral regime; explicitly captures discontinuity for arbitrarily small finite-rank defects and distinguishes full norm from quotient seminorm. These are motivated nontrivial infinite-dimensional operator-geometry facts, not a routine finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
