@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every SPD \\(2\\times2\\) input, the residual is positive semidefinite rank one. Cayley–Hamilton yields \\(\\det(A)\\|w\\|_2^2/(w^{\\mathsf T}Aw)\\); two sign directions yield the exact Bernoulli best-of-m selection probability \\(2^{-m}\\); strict convexity gives the all-orientations maximum and equality cases. The uniform angular integral equals \\(\\sqrt{\\det A}\\), and AM–GM then gives the exact minimum \\(m\\) threshold. Standalone tests passed 33,062 exact-rational, direct matrix and angular-integral assertions. Finite tests are supplementary; infinite parameter claims have analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dereziński et al., arXiv:2006.10653, theorem 1 provides an approximate residual-projection formula under fixed stable-rank/sketch-size separation, not an exact finite planar best-candidate law.",
+        "Saibaba–Międlar, arXiv:2308.05814v1, appendix D theorem 23 gives a high-probability upper bound assuming a sufficient number of columns and does not optimize over eigenbasis rotations of a one-column shortlist."
+      ],
+      "reasoning": "The inspected stronger-looking general theorems do not imply an exact sharp two-endpoint supremum or exact \\(m\\) threshold: their assumptions, sketch architecture and approximation character differ. General theory motivates rather than subsumes this calculation.",
+      "searches": [
+        "two-dimensional positive definite randomized rank one approximation repeated independent Rademacher vectors select best of multiple",
+        "Web: Rademacher sketch random low rank approximation orientation eigenvectors condition number Gaussian comparison",
+        "arXiv:2006.10653 Theorem 1 and Section 1.2",
+        "arXiv:2308.05814v1 Theorem 23 Appendix D"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2308.05814v1 (Sections 1–3, Appendix D)",
+      "https://arxiv.org/abs/2006.10653 (accessible full text, Theorem 1, Sections 1.2, 3–4, Appendix C)",
+      "https://arxiv.org/abs/1609.00048 (background paper, abstract/metadata only, no full-text NOT_COVERING assertion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known isotropic Gaussian rank-one formula \\(b\\sqrt{\\kappa}\\) yields the benchmark only; it does not determine the distribution of Rademacher sketches or their best-of-m error.",
+        "High-stable-rank Gaussian/Rademacher universality approximations do not determine low-dimensional orientation-dependent worst cases; in fact they are not exact finite-\\(\\kappa\\) claims.",
+        "Best-of-m selection uses m separate one-column candidates and retains a single rank-one result; multi-column Nyström bounds concern a different estimator."
+      ],
+      "reasoning": "The contribution is one exact finite-dimensional statement with its consequences, not a restatement of scalar Gaussian expectation, generic Rademacher sub-Gaussian concentration, or a column-combined sketch. Two-point order statistics and convexity are essential new ingredients of the specified algorithm; nonetheless a specialist exact predecessor remains possible.",
+      "searches": [
+        "low rank Nyström trace error minimax sketch distributions Gaussian Rademacher 2x2 condition number",
+        "Web: \"Rademacher\" \"Nyström\" \"orientation\" sketch exact",
+        "arXiv:2308.05814v1 Section 3, Appendix D",
+        "arXiv:2006.10653 Section 1.2, Appendix C"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For SPD \\(2\\times2\\) matrix \\(A\\), Cayley–Hamilton reduces the error to \\(2\\det(A)/(w^{\\mathsf T}Aw)\\) for fair sign probes; the claimed best-of-m law is the two-point order statistic, not the generic randomized SVD expectation.",
+        "Saibaba–Międlar, arXiv:2308.05814v1, Section 3 and Appendix D, gives distribution-class and multi-column Nyström sufficient bounds, not an exact selected-singleton orientation formula."
+      ],
+      "reasoning": "Checked residual trace/nuclear norm, spectral and Frobenius rank-one identities, two-point Bernoulli order-statistic equivalents, Nyström and Rademacher sketch terminology. Neither actual search results nor inspected published formulas disclosed the stated exact all-angle minimax law.",
+      "searches": [
+        "Nyström rank one Rademacher sketches two by two spectral orientation exact expected trace residual best of m candidates condition number",
+        "Rademacher versus Gaussian Nyström worst case rotation eigenvector alignment sketched rank one",
+        "Web: \"Rademacher\" \"Nyström\" \"2x2\" expected error",
+        "Web: \"Rademacher\" \"Gaussian\" \"rank-one Nyström\" residual"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved semantically similar published records concern multistage adaptive randomized pivoting or ACA residual selection rather than this exact planar sign-probe Nyström distribution.",
+        "The direct planar Gaussian Nyström expected-error formula is an analytical comparator, not the discrete best-of-many Rademacher distribution."
+      ],
+      "reasoning": "Checked accessible mathematical results and exact value tables rather than relying on title matching; no exact table for the selected-singleton minimax function was identified. Absence in a search is not a uniqueness proof.",
+      "searches": [
+        "best of m random sign sketches low rank approximation sharp orientation minimax risk phase transition",
+        "Rademacher Nyström sketch approximation 2x2 SPD rotation orientation eigenvectors expected trace error",
+        "Web: \"best of\" \"Nyström\" \"random\" matrix approximation",
+        "Web: \"candidate\" \"rank-one Nyström\" \"Rademacher\""
+      ]
+    },
+    "rationale": "The exact two-dimensional best-of-m Rademacher orientation law, sharp exchange of worst rotations at \\(\\kappa+1=2^m\\), and minimal \\(m\\) for uniform expected-error comparison with one Gaussian sketch are not the consequences stated by the inspected 2023 sub-Gaussian Nyström bounds or the 2020 approximate high-stable-rank projection formula. The known analytical single-Gaussian planar probe benchmark does not supply the non-Gaussian two-direction, multiple-candidate order statistic or the minimax threshold. Targeted bibliographic and mathematical-equivalence searches did not uncover an exact predecessor; a non-exhaustiveness risk is explicitly acknowledged.",
+    "residual_risks": [
+      "The specialist literature on discrete sign sketches or best-of-several randomized low-rank candidates may contain an equivalent small-dimensional calculation not surfaced by available searches.",
+      "The exact law follows elementary two-direction order statistics once identified; value depends on the natural cost/accuracy interpretation of repeated one-column sketches rather than a new high-dimensional guarantee.",
+      "Literature searches cannot certify publication priority; independent human audit was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this exact best-of-m one-column planar orientation and Gaussian-comparison threshold; general distribution-class Nyström upper bounds use sufficient sketch widths.",
+        "evidence": [
+          "First posted 2023-08-10; Section 1 describes need to compare non-Gaussian distributions; Appendix D defines the usual Nyström approximation and Theorem 23 gives sufficient high-probability bounds."
+        ],
+        "identifier_or_url": "arXiv:2308.05814v1; https://arxiv.org/html/2308.05814v1",
+        "material_read": "Open-access full-text HTML: Introduction; Sections 2.1–2.3 and their definitions; main-results overview; Appendix B.1 examples; Appendix D Nyström method and Theorem 23; reference and experimental context.",
+        "method": "Read accessible full-text HTML sections and search within document for Nyström and Rademacher; compared assumptions, sketch dimensions, loss definition and conclusions.",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Direct source of non-Gaussian randomized low-rank sketches, with Rademacher entries and an explicit Nyström appendix."
+      },
+      {
+        "assessment": "NOT_COVERING: approximate expected-projection formulas in stable-rank regimes and empirical distribution comparisons; no best-of-m selected-single-column exact planar extremal formula.",
+        "evidence": [
+          "First posted 2020-06-18; Theorem 1 uses a stable-rank/sketch-size ratio condition; Section 1.2 states a multiplicative approximation for sketched Nyström expected trace loss, not the exact \\(\\kappa,m,\\theta\\) law."
+        ],
+        "identifier_or_url": "arXiv:2006.10653; https://arxiv.org/abs/2006.10653",
+        "material_read": "Full accessible text: Introduction and Theorem 1; Section 1.2 Nyström interpretation; Section 3 spectral profiles; Section 4 experiments; Appendix C comparisons for Gaussian and Rademacher sketches.",
+        "method": "Read arXiv accessible full text and inspect Nyström/Rademacher exact terms, hypothesis and publication claims.",
+        "title": "Precise expressions for random projections: Low-rank approximation and randomized Newton",
+        "trigger": "Relevant Gaussian/Rademacher equivalence and expected trace-norm error in sketched Nyström approximations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47784687-770d-45b4-acd1-24a35a0027dc",
+  "value": {
+    "rationale": "Low-rank sketch distribution interchangeability can fail badly at small budgets because Rademacher probe directions are discrete. The complete two-dimensional minimax law identifies the worst orientation and its sharp switch at \\(\\kappa+1=2^m\\), and gives the exact minimum number \\(m\\) of independent candidate matvecs needed to match the one-Gaussian expected loss uniformly in orientation. This is a natural stability and method-selection benchmark, not an arbitrary unmotivated matrix slice. It explicitly does not assert an equal-cost efficiency improvement.",
+    "status": "PASS"
+  }
+}
