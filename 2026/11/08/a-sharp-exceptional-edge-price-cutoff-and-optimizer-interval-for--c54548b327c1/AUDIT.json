@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A direct centered Rayleigh witness bounds the spectral gap above the sharp price. The parabolic path weights saturate it and the entire path Laplacian spectrum is verified analytically through invariant polynomial subspaces. At price equality, the eigenvector equations force a one-dimensional affine allocation family; positivity on the orthogonal complement gives an exact positive generalized-Rayleigh endpoint. When price decreases, rescaling a positive-bridge equality optimizer gives strictly greater gap, so a deleted bridge cannot be optimal. The n=5 root is obtained by direct characteristic-polynomial factorization. The extracted standalone checker succeeded with 178 exact symbolic/rational checks; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun, Boyd, Xiao and Diaconis, SIAM Review 48 (2006), author PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, pp. 681–699, particularly Result 5 and Section 5.3 (pp. 695–697).",
+        "Shafi, Arcak and El Ghaoui, IEEE Trans. Automat. Control 57 (2012), author PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf, pp. 1872–1877.",
+        "Fiedler, Some minimax problems for graphs, Discrete Math. 121 (1993), 65–74, identified from bibliographic record and available abstract only."
+      ],
+      "reasoning": "Sun et al. explicitly say the arbitrary-cost cycle case is more complicated and give only an optimal-dimension bound in Result 6; their general SDP encompasses the instance computationally but does not state or automatically imply the closed structural classification without additional analysis. Shafi et al. give a general spectral-constraint formulation, not the named cutoff. Fiedler 1993 available abstract focuses on the absolute algebraic connectivity of trees; full text remains a priority risk.",
+      "searches": [
+        "spectral gap optimization on n-cycle with one edge cost equal squared path length, budget optimal path, degenerate optimizer segment",
+        "weighted cycle graph algebraic connectivity maximize linear constraint one edge 2012 paper",
+        "\"Some minimax problems for graphs\" Fiedler 1993 full pdf"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao and Diaconis, SIAM Review 48 (2006), author PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, pp. 681–699, particularly Result 5 and Section 5.3 (pp. 695–697).",
+      "Shafi, Arcak and El Ghaoui, IEEE Trans. Automat. Control 57 (2012), author PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf, pp. 1872–1877.",
+      "Fiedler, Some minimax problems for graphs, Discrete Math. 121 (1993), 65–74, identified from bibliographic record and available abstract only.",
+      "Boyd, Diaconis, Xiao (2004) discrete-time SLEM study",
+      "Accessible related four-cycle exact allocation and even-cycle alternating-price allocation statements (compared by domain and hypotheses)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun, Boyd, Xiao and Diaconis, SIAM Review 48 (2006), author PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, pp. 681–699, particularly Result 5 and Section 5.3 (pp. 695–697).",
+        "Shafi, Arcak and El Ghaoui, IEEE Trans. Automat. Control 57 (2012), author PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf, pp. 1872–1877.",
+        "Previous priced four-cycle case: sharp cost nine and critical one-parameter face, strictly only the excluded four-vertex case."
+      ],
+      "reasoning": "The known path design is required as the high-price candidate but says nothing by itself about a second closing edge with independently controlled cost and the exact equality optimizer segment. Result 6 only bounds the dimension of dual optimal embeddings, whereas the finding proves the strict activation/deletion transition at a new general formula and gives every critical optimizer. The old four-cycle conclusion does not imply the n>=5 statement.",
+      "searches": [
+        "Cycle C_n continuous time algebraic connectivity maximum under weighted edge budget one exceptional edge price (n-1)^2, sharp deletion threshold, nonunique boundary optimizers",
+        "fastest mixing Markov process on cycle with one costly edge, weighted Fiedler path minimax variance, abrupt edge deletion",
+        "spectral gap optimization on n-cycle with one edge cost equal squared path length, budget optimal path, degenerate optimizer segment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun, Boyd, Xiao and Diaconis, SIAM Review 48 (2006), author PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, pp. 681–699, particularly Result 5 and Section 5.3 (pp. 695–697).",
+        "The affine centered Rayleigh witness corresponds to the maximum-variance unfolding dual of the continuous-time spectral-gap problem; equivalent words include algebraic connectivity, FMMP and Fiedler eigenvalue."
+      ],
+      "reasoning": "The paper already gives the same optimization framework, so terminology is not evidence of novelty. The new result is the exact all-size exceptional-edge cutoff and critical interval, not the SDP or duality itself.",
+      "searches": [
+        "Cycle C_n continuous time algebraic connectivity maximum under weighted edge budget one exceptional edge price (n-1)^2, sharp deletion threshold, nonunique boundary optimizers",
+        "fastest mixing Markov process on cycle with one costly edge, weighted Fiedler path minimax variance, abrupt edge deletion",
+        "\"fastest mixing Markov process\" cycle one edge price expensive path squared threshold spectral gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible related four-cycle statement: exact analogous \\(n=4\\) cutoff \\(9\\), with nonunique equality optimizers, which is expressly excluded here.",
+        "The collected records did not supply an exact table or formula for the all-\\(n\\ge5\\) single-defect threshold or the new five-cycle radical."
+      ],
+      "reasoning": "The four-cycle datum is a special case and is not counted as a novelty claim. The new domain includes every larger cycle, including \\(n=5\\) with independently evaluated boundary interval. A search failure alone would not prove novelty; implication comparison with the actual path and cycle results is decisive for the inspected sources.",
+      "searches": [
+        "Cycle C_n continuous time algebraic connectivity maximum under weighted edge budget one exceptional edge price (n-1)^2, sharp deletion threshold, nonunique boundary optimizers",
+        "complete four-cycle one exceptional edge price exact optimal spectral gap conductance allocation threshold price nine, unique for price below nine, nonunique exactly nine",
+        "cycle C_n exceptional price threshold (n-1)^2 optimized Fiedler edge deletion"
+      ]
+    },
+    "rationale": "Result 5 of Sun et al. already solves weighted paths and the four-cycle one-defect case was recorded separately; neither is claimed as new. Their Section 5.3 gives the unpriced cycle and a two-dimensional eigenvalue-multiplicity bound, not the sharp single-defect cost threshold across all cycles with at least five vertices and its full critical optimizer interval. A 2012 Laplacian-weight design paper presents a general spectral feasibility algorithm, not that explicit structural classification. Searches of published-result records and accessible related statements found no stronger implication with the same price, cycle-size and optimizer-face scope. This supports qualified originality, not a proof of unique publication priority.",
+    "residual_risks": [
+      "Older unindexed weighted-cycle edge-deletion or maximum-variance duality results could imply part or all of the claim.",
+      "Full text of Fiedler (1993) was not accessible; possible broader coverage cannot be excluded by its abstract.",
+      "A general SDP solver can produce these designs but is not itself an explicit published phase classification. Independent priority and mathematical review remain needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the SDP, geometric dual, all priced paths, uniform-cost cycles and arbitrary-cost cycle dimension limit; does not directly state the claimed single-edge price cutoff or optimizer face",
+        "evidence": [
+          "Sun, Boyd, Xiao and Diaconis, SIAM Review 48 (2006), author PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, pp. 681–699, particularly Result 5 and Section 5.3 (pp. 695–697)."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Title/abstract and pp. 681–683; Result 5 and sections 5.2–5.3 on pp. 695–697, including formulas, proofs and Result 6",
+        "method": "Full lawful author-hosted PDF text extraction and source page-image reading",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Foundational identical optimization objective, priced paths, and arbitrary-cost cycle section"
+      },
+      {
+        "assessment": "Gives convex spectral-constraint algorithms, no stated exact exceptional-edge cycle threshold in inspected material; cannot infer all uninspected propositions from an abstract",
+        "evidence": [
+          "Shafi, Arcak and El Ghaoui, IEEE Trans. Automat. Control 57 (2012), author PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf, pp. 1872–1877."
+        ],
+        "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf",
+        "material_read": "Abstract and introduction p. 1872, numerical examples and application section p. 1875, plus text searches across the accessible six-page PDF",
+        "method": "Lawful author PDF with PDF text search and page-image reading",
+        "title": "Graph Weight Allocation to Meet Laplacian Spectral Constraints",
+        "trigger": "Plausible stronger general edge-price spectral optimization framework"
+      },
+      {
+        "assessment": "Abstract describes absolute algebraic connectivity especially on trees; specific cycle price statement unresolved until full text can be checked",
+        "evidence": [
+          "Fiedler, Some minimax problems for graphs, Discrete Math. 121 (1993), 65–74, identified from bibliographic record and available abstract only."
+        ],
+        "identifier_or_url": "https://dblp.org/rec/journals/dm/Fiedler93",
+        "material_read": "Bibliographic identification and public article abstract only; full text not retrieved",
+        "method": "Publisher/bibliographic metadata and open-access searches",
+        "title": "Some minimax problems for graphs",
+        "trigger": "Original spectral graph extremal results may dominate modern formulations"
+      },
+      {
+        "assessment": "Discrete-time symmetric stochastic SLEM with row-stochastic probabilities; its objective is not the continuous-time weighted Laplacian \\(\\lambda_2\\) budget objective",
+        "evidence": [
+          "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), https://web.stanford.edu/~boyd/papers/fmmc.html"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Article abstract and model definition",
+        "method": "Official author publication page",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Possible SLEM counterpart may be confused with continuous-time eigenvalue optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c54548b3-27c1-4042-b878-9ff2a14cd2da",
+  "value": {
+    "rationale": "A sharply priced link in a cycle is a canonical network screening decision; the exact squared-path-length cutoff applies at every network size n>=5. The nonunique optimal allocation segment at the threshold is a structural spectral-design phenomenon, and its finite generalized eigenvalue endpoint is computable; the first five-cycle endpoint is a new closed radical. Unlike restating an SDP, the result identifies all boundary optimizers and proves that below the cutoff every optimum must fund the closing edge.",
+    "status": "PASS"
+  }
+}
