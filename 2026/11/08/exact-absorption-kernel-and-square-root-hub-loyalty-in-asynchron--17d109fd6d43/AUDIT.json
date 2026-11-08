@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The pair invariant proves that homogeneous edges never change; each mixed edge has one eligible vertex while the hub retains its bit. The hub appears at uniform rank among the j mixed-edge resolutions, switches iff rank is at most b-a, and cannot switch twice. This yields the complete labeled kernel and its normalization; multinomial summation yields p_k, a separate beta-integral identity yields c_k, and a triangular-array CLT plus uniform-integrability bounds gives sqrt(pi k)p_k -> 1. Exhaustive exact rational recursion for 10,920 labeled starting states, k=1..6, matches every terminal mass, and a separate independent implementation checks binomial formulas through k=160. Finite checks support but do not replace the all-size argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1402.4050v1: worst-case existence of minority-to-majority update paths and hardness, not probability of random update order.",
+        "arXiv:1408.5192v1: initially unannounced agents with private-signal tie handling, not current-opinion tie retention.",
+        "arXiv:1207.0893v1: synchronous update aggregation, not this asynchronous stopping distribution."
+      ],
+      "reasoning": "Generality of a model or graph family alone does not imply this explicit kernel. The inspected source theorems concern worst-case schedule existence, private-signal announcements, or synchronous aggregation, none of which gives the stated rank-of-hub terminal measure.",
+      "searches": [
+        "asynchronous majority dynamics friendship graph windmill exact hub flip probability",
+        "random sequential majority dynamics windmill friendship graph hub probability fixation",
+        "friendship graph windmill triangles asynchronous majority dynamics uniformly random sequential updates exact probability central hub changes eventually",
+        "sequential random majority dynamics complete bipartite and split graphs exact hitting probabilities"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1207.0893",
+      "https://arxiv.org/abs/1402.4050",
+      "https://arxiv.org/abs/1408.5192",
+      "https://doi.org/10.1145/3771091"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Auletta et al. allow an arbitrary sequence of unhappy-agent updates and characterize reachability; two different update sequences may have different probabilities under the uniform random schedule, so existential coverage is weaker.",
+        "Synchronous dynamics determines a deterministic orbit for each initial state, not an order-dependent distribution over absorbing configurations.",
+        "Feldman et al. start with unannounced public opinions and break ties by private signal, so their Markov state and their transition kernel differ at time zero and at ties."
+      ],
+      "reasoning": "None of the inspected claims directly implies the rank-uniform subset kernel, the exact distribution of whether the hub switches, or the decay-rate separation. An unknown stronger all-graph stochastic-absorption formula remains a residual risk, not an identified covering theorem.",
+      "searches": [
+        "asynchronous majority dynamics stubborn zealots on complete bipartite graph exact absorption probability degree threshold",
+        "random update order majority rule friendship friendship graph k fan triangles hub biased asymptotic 1/sqrt(pi k)",
+        "arXiv:1402.4050v1",
+        "arXiv:1207.0893v1",
+        "arXiv:1408.5192v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary local majority with retention on ties is zero-temperature ferromagnetic single-site alignment without tie flips; standard zero-temperature Glauber that randomly flips at ties has different absorbing behavior.",
+        "arXiv:1402.4050v1, pp.1-4 states the current-opinion tie rule."
+      ],
+      "reasoning": "The fully labeled conditional absorption measure is the relevant equivalence target. Rewriting as a ferromagnetic local-energy update does not furnish a numerical terminal-state law. Tie-randomizing Glauber models are not equivalent; graph-specific windmill or friendship fixation formulas were not found in the checked results.",
+      "searches": [
+        "asynchronous random sequential majority dynamics graph of k triangles sharing hub central opinion flip probability binomial sqrt k",
+        "zero temperature glauber friendship graph hub magnetization freezing windmill triangles",
+        "zero-temperature Ising Glauber windmill graph spin flips exact probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical numerator sequence for hub switches begins 1, 3, 14, 49, 202, 742 at successive powers of four; no directly matching indexed mathematical theorem was retrieved.",
+        "The direct OEIS search endpoint could not be accessed in this session, so absence of a matching table was not established."
+      ],
+      "reasoning": "A possible matching integer sequence would not by itself establish the complete labelled conditional absorption kernel or its graphical interpretation. The inaccessible database remains a priority risk and is not used as evidence that the sequence is unique.",
+      "searches": [
+        "OEIS \"1, 3, 14, 49, 202, 742\"",
+        "sequence 1 3 14 49 202 742 combinatorial",
+        "https://oeis.org/search?q=1%2C3%2C14%2C49%2C202%2C742"
+      ]
+    },
+    "rationale": "The closest primary rule-matched 2014 article studies worst-case sequence reachability; the 2012 article uses synchronous updates and the 2014 asynchronous learning article starts with unannounced states and different tie handling. Direct comparison of assumptions and implications exposes no covering terminal kernel. Semantic searches of indexed mathematics and accessible earlier records returned no equal or stronger result. This is best-knowledge originality, not a proof of historical uniqueness.",
+    "residual_risks": [
+      "Historical coverage in poorly indexed literature cannot be excluded; a direct integer-sequence database query was inaccessible.",
+      "Only specified sections of the 21-, 22- and 20-page primary PDFs were materially inspected, supplemented by targeted full-text searches; no claim of whole-document inspection.",
+      "A future stronger general-state energy-descent kernel on clique bouquets could theoretically subsume this graph-specific evaluation; none was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rule matches, but the stated results address existence and complexity of social pressure under selected update sequences, not random-order exact absorption on triangular windmills.",
+        "evidence": [
+          "arXiv:1402.4050v1, abstract and introduction, pp.1-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.4050",
+        "material_read": "Abstract, introduction, update-model description, overview of theorems and related-work passages on PDF pp.1–4; full-text searches for friendship and probability.",
+        "method": "Extracted text and page-image inspection.",
+        "title": "Minority Becomes Majority in Social Networks",
+        "trigger": "Direct match of sequential strict-majority and tie-retention rules; strongest plausible primary predecessor."
+      },
+      {
+        "assessment": "Synchronous social-network dynamics and aggregation statements do not quantify random sequential terminal distributions on friendship graphs.",
+        "evidence": [
+          "arXiv:1207.0893v1, model/overview pp.1-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1207.0893",
+        "material_read": "Abstract, model, overview and related work on PDF pp.1–4, including simultaneous majority update equations.",
+        "method": "Extracted text and PDF page-image inspection.",
+        "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+        "trigger": "Early graph majority information-aggregation source and possible broader influence theorem."
+      },
+      {
+        "assessment": "Agents initially have private but unannounced signals and break ties toward private signals; results for expansion and sparsity do not supply the proposed terminal law for fully announced states.",
+        "evidence": [
+          "arXiv:1408.5192v1, first three pages."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.5192",
+        "material_read": "Abstract, introduction, complete model description and stated main result on PDF pp.1–3; full-text searches for friendship and windmill.",
+        "method": "Extracted text and PDF page-image inspection.",
+        "title": "Reaching Consensus via non-Bayesian Asynchronous Learning in Social Networks",
+        "trigger": "Asynchronous randomized majority learning, potentially stronger than the conditional kernel."
+      },
+      {
+        "assessment": "Uses private beliefs and initially unannounced public states with distinct tie breaking on random binomial graphs; no friendship graph exact terminal law identified.",
+        "evidence": [
+          "DOI 10.1145/3771091, accessible abstract and model text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3771091",
+        "material_read": "Accessible abstract, model description and comparison with asynchronous learning literature.",
+        "method": "HTML text inspection; no claim of examining inaccessible subsections.",
+        "title": "Asynchronous Majority Dynamics on Binomial Random Graphs",
+        "trigger": "Later analysis of stochastic majority updates might dominate the graph-specific statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "17d109fd-6d43-419a-90e6-da2ff516e737",
+  "value": {
+    "rationale": "The object is a natural hub-and-disjoint-pairs social graph. It is useful to know how stochastic update order selects among many absorbing states, beyond mere reachability; the full labelled kernel answers that question for arbitrary initial states. The derived square-root probability of a permanent hub switch and exponentially small full-consensus probability exhibit two distinct natural fixation scales, and the all-size exact formulas allow quantitative comparison of local leadership and global unanimity. The result is not a textbook implication of finite-system convergence, nor an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
