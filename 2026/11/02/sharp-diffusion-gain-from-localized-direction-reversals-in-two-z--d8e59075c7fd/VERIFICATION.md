@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python verify_two_phase_motility.py` from the package directory with NumPy, SciPy and SymPy installed. The checker uses an independent upwind continuous-time Markov-chain generator, not the continuum integral formula, to approximate transport. It constructs stationary laws and solves a separate finite-state Poisson equation, then compares the jump quadratic-variation diffusivity against the claimed continuum expression at 80, 160 and 320 sites across three coefficient choices. Discrepancies decay linearly with grid spacing. It also checks the symbolic differentiation identities, exact optimum and enhancement relation; 240 seeded random coefficient cases; and sampled global-envelope inequalities.
+## correctness
 
-## Proof-bearing steps
+PASS
 
-The infinite-dimensional correctness rests on the generator calculation, the periodic corrector with difference \(c=L/J\), boundedness of that corrector, and the martingale variance growth. The algebraic sharp maximum depends on the one-positive-root quadratic and strict signs of the logarithmic derivative. The checker cannot establish all-parameter exactness, absence of historical priority, empirical feasibility with unbounded local coefficients, or independent audit.
+Stationary orientation densities (2Iv)^{-1}, with I=∫dx/v, J=∫λdx/v, give a corrector with constant difference L/J and bounded derivative −1+Lλ/(Jv); the corrected displacement martingale has asymptotic bracket L²/(IJ), hence D_eff=L²/(2IJ). Fixed means minimize weighted flip cost Σf_iλ_i/v_i by putting all λ in faster zone. Single-variable derivative of R_f has sign opposite fr²+(f−1)r−2f; its unique root >1 gives global optimum, at f=1/2, r=2 and 32/27. Independent exact symbolic derivative and Taylor checks and sample finite-state calculations corroborate; no simulation establishes the infinite result.
 
-## Observed results
+## originality
 
-The 9 lattice diffusivities approached their analytic targets monotonically under refinement; the script finished with `PASS symbolic identities; 240 random envelope checks; 9 independently built CTMC corrector checks`. The checker is supplied as complete source. All claims are restricted to the stated model and parameter domain.
+PASS
+
+Lutscher–Hillen formulate general periodic correlated-walk homogenization and Angelani–Garra/Di Leonardo address space-dependent RTP dynamics and passage. The general D_eff mechanism is prior; neither materially examined claim gives the constrained two-zone fixed *spatial means* optimization, unique speed ratio, or f→0 unbounded sharp envelope.
+
+## value
+
+PASS
+
+A precise nontrivial fixed-resource optimization of random transport, with a sharp finite gain for equal regions and proof that no region-independent universal ceiling exists absent local coefficient caps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
