@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The directional contact Kac–Rice lemma follows from conditional Taylor expansions for two nearby zeros, the r^−2 joint-value density scaling, and Gaussian dominated convergence. Exact Hermite recurrence (equation (2)) gives both two-dimensional Gaussian regressions (3) and (5), including all variance and complex-phase factors. Fourth moments yield (4) and (6). A separate Hermite-basis Gram-Schur computation in CHECK.py reproduces both closed forms for nine values of s, including endpoints; finite numerical experiments are corroborative only. The time-first/frequency-first order and both boundary values are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.9: window-moment formula for one-point intensity.",
+        "2022 Proposition 5.2: signed/charged second intensity with radial covariance.",
+        "2024/2026 Feldheim paper: large-region charge fluctuations and uncharged variance, not local pair contact."
+      ],
+      "reasoning": "General Kac–Rice methods are foundational, but none of the inspected stronger statements supplies the explicit nonradial unsigned limit along both axes; extending a radial signed formula to nonradial absolute Jacobians is a new computation.",
+      "searches": [
+        "Theorem 1.9 Haimi Koliander Romero 2022 general window STFT intensity",
+        "Theorem 1.12 and Proposition 5.2 2022 charged zero pair statistic",
+        "Theorem 1.1 Feldheim Haimi Koliander Romero general nonradial field 2024",
+        "two Hermite superposition Gaussian white noise STFT zero pair correlation direction dependent coalescence cubic quartic small admixture"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s10955-022-02917-3",
+      "https://arxiv.org/abs/2406.20003",
+      "https://arxiv.org/abs/2610.13531"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Bellourak abstract treats pure Hermite n and rotationally invariant zeros.",
+        "Theorem 1.9 of 2022 implies an exact one-point density for each mixture, but does not determine the two-point unsigned contact.",
+        "2026 Bellourak full text inaccessible, so possible hidden superposition treatment not eliminated."
+      ],
+      "reasoning": "The new claim concerns two distinct limits in a nonradial one-parameter mixture, not a special case of the isotropic pure-Hermite computations. The general 2022 Kac–Rice framework could be applied but its displayed general first-intensity formula and radial charged two-point results do not already establish the current formulas.",
+      "searches": [
+        "arxiv:2610.13531 Bellourak Meignen Polisano Nahon abstract",
+        "doi:10.1007/s10955-022-02917-3 Section 5",
+        "arxiv:2406.20003 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Time/frequency coordinate interchange would make equal contact limits only for rotation-symmetric windows; for 0<s<1 the analytic formulas are generally unequal.",
+        "The older one-point STFT uncertainty theorem controls rho_1, not these r↓0 limits of rho_2."
+      ],
+      "reasoning": "Checked covariance, Kac–Rice, Gabor and polyanalytic aliases. No equivalent two-axis contact computation was located; difference between first and second factorial intensity is substantive.",
+      "searches": [
+        "anisotropic short distance pair correlation spectrogram zeros mixed gaussian first Hermite window contact time frequency axes",
+        "two Hermite superposition Gaussian white noise STFT zero pair correlation direction dependent coalescence cubic quartic small admixture",
+        "zeros Gabor transform Gaussian Hermite linear combination pair correlation time direction frequency direction",
+        "spectrogram zeros pair correlation mixed Gaussian Hermite nonradial near coincidence",
+        "doi:10.1007/s10955-022-02917-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Meaning-search returned finite/cyclic STFT window and unrelated Hermite-frame results, not a corresponding two-axis random-zero contact table.",
+        "Accessible own historical matching claims concern Hermite-window phase-retrieval allocations, Gaussian colored-noise first intensities, and pure-Hermite Palm Jacobian condition numbers—not mixed-window pair contact."
+      ],
+      "reasoning": "No precomputed table of these direction-dependent constants identified. Search incompleteness and synonymous indexing remain risks.",
+      "searches": [
+        "anisotropic short distance pair correlation spectrogram zeros mixed gaussian first Hermite window contact time frequency axes",
+        "two Hermite superposition Gaussian white noise STFT zero pair correlation direction dependent coalescence cubic quartic small admixture",
+        "zeros Gabor transform Gaussian Hermite linear combination pair correlation time direction frequency direction",
+        "2026 Hermite window mixture h0 plus h1 Gaussian white noise spectrogram signed zeros intensity cubic power mixture"
+      ]
+    },
+    "rationale": "Full structural claim compares two distinct directional small-separation limits of an unsigned zero-pair factorial density under a real Hermite mixture. The 2022 general results give one-point intensities and radial signed-pair expressions, while 2026 pure-Hermite results focus on rotation invariant windows. Exact contact formulas require a separate nonradial two-point Kac–Rice regression with second derivatives, and the different cubic/quartic onset exponents are not implied by the prior one-point formulas. Searches and own historical-claim comparisons found no equivalent or dominating statement; inaccessible 2026 full text remains a priority risk.",
+    "residual_risks": [
+      "The 2026 Bellourak paper full text could not be retrieved; its abstract alone cannot rule out an appendix treatment of superposed Hermite windows.",
+      "An older Kac–Rice/complex-wave treatment might contain equivalent anisotropic contact limits under different terminology.",
+      "No independent mathematical or publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.9 covers all one-point unsigned intensities and Theorem 1.12 signed first intensity. The explicit two-point calculation in Section 5 concerns charge-weighted radial covariance; it does not state or imply the two different unsigned contact constants for a nonradial two-Hermite mixture without a new two-point absolute-Jacobian calculation.",
+        "evidence": [
+          "Theorem 1.9, Eq. (1.22), gives only first intensity from five window moments.",
+          "Proposition 5.2, Eqs. (5.10)–(5.16), derive a two-point charged statistic under radial kernel P(|z-w|²).",
+          "Conclusions explicitly describe nonradial generalizations and uncharged zero variance as open areas."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10955-022-02917-3",
+        "material_read": "Full accessible HTML theorem statements 1.6, 1.9, 1.12, 1.14, and Section 5 Gaussian-regression and explicit charged pair formula; Section 6 STFT application; conclusion.",
+        "method": "Read theorem hypotheses, proof formulas and conclusion; compare one-point and charged/radial two-point scope to new unsigned directional contact limits.",
+        "title": "Zeros of Gaussian Weyl–Heisenberg Functions and Hyperuniformity of Charge",
+        "trigger": "General zero statistics of white-noise STFT for arbitrary Schwartz windows could dominate the proposed statement."
+      },
+      {
+        "assessment": "Covers general charge variance bounds at large scales and an uncharged non-hyperuniform example, not exact two-axis unsigned pair contact formulas for the mixed Hermite family.",
+        "evidence": [
+          "First public preprint 2024-06-28; journal version 2026.",
+          "Theorem 1.1 controls variance of aggregate charge in disks, unlike the r↓0 two-point factorial density here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.20003",
+        "material_read": "Public full-text introduction, abstract, Theorem 1.1, and Section 5 description of aggregated charge variance and higher-scale statistics.",
+        "method": "Compare large-disk variance and hyperuniformity statements to pointwise coincidence limits of unordered charged zero pairs.",
+        "title": "Hyperuniformity and non-hyperuniformity of zeros of Gaussian Weyl-Heisenberg Functions",
+        "trigger": "Later treatment of nonradial Gaussian Weyl–Heisenberg fields and uncharged second-order statistics."
+      },
+      {
+        "assessment": "Abstract studies pure Hermite windows and a rotationally invariant zero process, while the proposed two formulas differ by direction for intermediate mixtures. Cannot exclude appendix-level statements from inaccessible full text.",
+        "evidence": [
+          "Abstract explicitly says “Hermite windows of order n” and “translation and rotation-invariant point process”.",
+          "ArXiv first submitted 2026-10-09; paper advertises explicit one- and two-point formulas for pure Hermite orders."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13531",
+        "material_read": "ArXiv abstract, first public submission timestamp (2026-10-09 12:51:07 UTC), title, authors, and scope only; full text unavailable.",
+        "method": "Compared exact abstract scope—each pure Hermite order n, rotationally invariant zeros—to real two-mode mixtures with nonradial two-axis limits; attempted open preprint routes before authorized institutional route.",
+        "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+        "trigger": "2026 paper computes Hermite spectrogram two-point intensities, making it the closest potential prior coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c31553c-b312-4985-bf71-2085f7ee1fc0",
+  "value": {
+    "rationale": "Mixed Gaussian–Hermite windows interpolate between analytic Gaussian zeros (complete zero repulsion) and first-Hermite polyanalytic zeros (positive zero-pair contact). The exact anisotropic contact law reveals different cubic and quartic exponents in physically orthogonal directions as the Hermite contamination vanishes, with a diverging directional ratio 4/(3s). This is a motivated local clustering invariant and sharp structural transition, not a one-point intensity restatement or arbitrary finite tabulation.",
+    "status": "PASS"
+  }
+}
