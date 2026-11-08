@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian quadratic risk, Fan–Pall spectral attainability, strict convexity and KKT clipping give the all-dimension theorem. The scalar root is unique and positive. The sharp principal criterion handles degenerate eigenvalue intervals. The rational examples and 5,060 deterministic checks match the proof, but only the proof establishes universal assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saibaba–Alexanderian–Ipsen analyzes a biased deterministic compressed trace estimator after stochastic subspace iteration; no independently probed Gaussian compression in the final estimator.",
+        "Hutch++ evaluates the dominant subspace trace exactly and probes the complement, creating a different unbiased risk.",
+        "The 2026 infHutch truncated form fixes the subspace and gives a decomposition but not a uniform optimization over subspaces."
+      ],
+      "reasoning": "Broader numerical trace-estimation frameworks do not imply the claimed oracle MSE optimizer because their loss functions or estimators differ. The basic bias-variance identity is covered, and is not claimed novel; the sharp all-rank spectral water-filling classification is the new claim.",
+      "searches": [
+        "truncated Gaussian Hutchinson trace estimator choosing rank-r observation subspace to minimize mean squared error bias variance Fan Pall eigenvalue interlacing water filling",
+        "optimal projection for stochastic trace estimation intentional truncation bias variance tradeoff spectral Ritz values clipped threshold",
+        "\"stochastic trace estimation\" \"subspace\" \"bias\" \"variance\" \"optimal\" projection",
+        "\"Gaussian trace estimator\" \"mean squared error\" \"projection\" subspace",
+        "https://arxiv.org/html/1605.04893v2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.28135",
+      "https://arxiv.org/abs/1203.3908",
+      "https://arxiv.org/html/1605.04893v2",
+      "https://arxiv.org/abs/2010.09649",
+      "https://openreview.net/forum?id=F9dRCbIYJzQ"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (10) in the 2026 source defines the same estimator family at fixed U, while (13) only decomposes its truncation and sampling errors.",
+        "2016 trace(T) for a random Q has no independent Gaussian-probe variance conditional on Q.",
+        "The 1957 Fan–Pall criterion controls compression feasibility only, and Hutch++ handles stochastic variance in the orthogonal complement rather than inside the retained space."
+      ],
+      "reasoning": "Combining classical Gaussian moments with Fan–Pall permits a derivation of the theorem, but none of the inspected statements alone implies the exact optimizer, criterion for principal optimality and finite-probe rank-deficient obstruction. An equivalent specialized result in another literature would cover it regardless of title.",
+      "searches": [
+        "https://arxiv.org/abs/2608.28135",
+        "https://arxiv.org/html/1605.04893v2",
+        "https://arxiv.org/abs/1203.3908",
+        "https://arxiv.org/abs/2010.09649",
+        "2026 stochastic trace estimation positive trace-class Bujanovic Grubisic Kressner Olic basis-truncated infHutch optimal subspace MSE"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Truncated infHutch is Gaussian Hutchinson on Q^TAQ; MSE is squared omitted trace plus (2/m) squared Frobenius of compression.",
+        "The Fan–Pall intervals describe exactly the Ritz eigenvalues possible for any rank-r compression."
+      ],
+      "reasoning": "The MSE design is equivalently a strictly convex spectral box optimization with sorted compression eigenvalues. Fan–Pall supplies the feasible set but not a choice of risk-minimizing clipping level, while the motivating estimator fixes rather than optimizes its basis.",
+      "searches": [
+        "Fan Pall interlacing Gaussian Hutchinson estimator optimal rank r subspace mean squared trace error clipped eigenvalues",
+        "2026 stochastic trace estimation positive trace-class Bujanovic Grubisic Kressner Olic basis-truncated infHutch optimal subspace MSE",
+        "Ritz compression spectrum water filling balancing Gaussian trace Monte Carlo bias variance",
+        "https://arxiv.org/abs/2608.28135",
+        "https://arxiv.org/abs/1203.3908"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Fan–Pall theorem provides intervals rather than a table of optimal compressed risks.",
+        "No directly matching closed-form clipped spectrum or rank-deficient strict-suboptimality classification was observed in the returned mathematical record entries."
+      ],
+      "reasoning": "The answer is a structural all-n/all-r theorem, not an isolated numeric value or database recomputation. Searches do not establish uniqueness; an unindexed equivalent may exist.",
+      "searches": [
+        "\"Gaussian trace estimator\" \"mean squared error\" \"projection\" subspace",
+        "\"trace\" \"Gaussian\" \"compression\" \"MSE\" eigenvalues",
+        "Fan Pall interlacing Gaussian Hutchinson estimator optimal rank r subspace mean squared trace error clipped eigenvalues"
+      ]
+    },
+    "rationale": "Primary article arXiv:2608.28135 fixes sampling subspaces, while arXiv:1605.04893 and Hutch++ optimize/analyze distinct estimators. The classical converse interlacing is cited as a premise, not new. Relevant direct searches gave no implication-equivalent optimizer; residual historical-priority risk is acknowledged.",
+    "residual_risks": [
+      "An equivalent rank-constrained Gaussian-trace MSE water-filling result in unindexed statistical design or matrix-compression literature cannot be ruled out.",
+      "Hutch++ full-text comparison was based on accessible primary excerpts rather than a new complete line-by-line examination; its explicitly described estimator remains different.",
+      "The attained optimal sampling subspace is an oracle object; this is an exact benchmark, not a spectral-free implementation guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It fixes the sampling subspace and estimates bias/variance, but gives no global rank-r subspace MSE optimizer or clipped Ritz spectrum.",
+        "evidence": [
+          "Section 3.3.1 equations (10)–(13): finite-basis Gaussian estimator and compressed operator view",
+          "Section 3.3.3: pilot selection concerns basis dimension rather than globally optimal subspace orientation",
+          "https://arxiv.org/abs/2608.28135"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.28135",
+        "material_read": "Complete accessible article text, with detailed reading of Sections 2.2, 3.1, 3.3.1, 3.3.2, 3.3.3 and conclusion",
+        "method": "Primary full-text HTML reading, including definitions (10)–(13), compression bias, Gaussian sampling and implementation choices",
+        "title": "Stochastic trace estimation for positive trace-class operators",
+        "trigger": "Exactly the compressed Gaussian trace estimator; strongest direct premise and potential coverage"
+      },
+      {
+        "assessment": "Theorem 1 explicitly attributes the Hermitian compression spectral characterization to Cauchy and Fan–Pall; this classical theorem supplies feasibility but not trace-probe MSE optimization.",
+        "evidence": [
+          "Theorem 1: a Hermitian rank-k compression exists exactly for interlacing eigenvalues",
+          "https://arxiv.org/abs/1203.3908"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.3908",
+        "material_read": "Accessible HTML text Section 1 Theorem 1 and surrounding Section 2 compression results",
+        "method": "Primary theorem statement and corresponding proof framework inspected",
+        "title": "Normal matrix compressions",
+        "trigger": "Converse to spectral interlacing essential for global attainability"
+      },
+      {
+        "assessment": "Estimates trace of a projected low-rank matrix using subspace iteration and deterministic trace of its compression; not an additional Gaussian quadratic estimator inside an optimized fixed subspace.",
+        "evidence": [
+          "Section 1.2.1 defines trace(T) with T=Q*AQ and randomized Q; Section 3.1 gives deterministic structural trace bounds",
+          "https://arxiv.org/html/1605.04893v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.04893v2",
+        "material_read": "Accessible full HTML text: Sections 1.1–1.3, 2.1, 3.1, 4.1 and 5.1; trace algorithm and bounds examined",
+        "method": "Primary full-text HTML comparison of estimator definitions and error objective",
+        "title": "Randomized Matrix-free Trace and Log-Determinant Estimators",
+        "trigger": "Plausible broader earlier biased projected-trace construction"
+      },
+      {
+        "assessment": "The paper estimates a complementary residual after evaluating the selected subspace trace exactly, unlike the intentionally biased truncated Gaussian estimator optimized here.",
+        "evidence": [
+          "Hutch++ splits exact tr(Q^TAQ) from a stochastic trace estimate on (I-QQ^T)A(I-QQ^T)",
+          "https://arxiv.org/abs/2010.09649"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+        "material_read": "Accessible indexed full-text portions: abstract, Hutchinson estimator setup, Hutch++ deflation description and complexity analysis; live full-page access was restricted",
+        "method": "Read available primary text returned by literature retrieval; did not claim whole-text absence",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Possible domination by general trace estimator optimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "365f7d1e-1089-4e34-830b-5a25ede45e00",
+  "value": {
+    "rationale": "The natural design object is the rank-limited sampling basis in the source truncated infHutch estimator. The theorem solves its exact all-dimension oracle MSE design, provides a unique computable Ritz spectrum via one scalar root, and proves a sharp unexpected failure of principal eigenspace sampling even for rank-deficient matrices. Its relevance is as a calibration/design benchmark, not a claim of practical matrix-free construction.",
+    "status": "PASS"
+  }
+}
