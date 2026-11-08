@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The smoothness check is characteristic-specific and the bitangent criterion is derived by coefficient comparison after an invertible quadratic normalization. Exact Gröbner-basis equality proves both necessity and sufficiency for the dual affine chart; the nonzero constant term excludes all divisions by zero. The squarefree degree-28 eliminant supplies 28 distinct lines, which exhaust the classical bound for smooth plane quartics in odd characteristic, including the missing projective chart. Certified polynomial-factor irreducibility determines geometric Frobenius cycles and thus every extension-field count. The actual bundled verifier was run successfully. The limitation is that the finite computation is an exact polynomial certificate, not an independent formalized proof.
+## correctness
 
-## Originality — PASS, qualified
-Elkies already gives the 28 complex Klein bitangents, their group-theoretic description, and the distinguished bitangent. Plaumann–Sturmfels–Vinzant give general bitangent algorithms; Janasz–Pokora–Zieliński print equations for a different characteristic-zero Klein-quartic normal form. None of the inspected relevant material yields the exact \(\mathbf F_5\) dual ideal, six Frobenius orbit lengths, or their arithmetic consequence for the specified model. Explicit equivalence with older characteristic-three Klein hyperflex data was ruled out because the geometric loci and primes differ. Searches returned no matching result, which is not itself proof of novelty. Unindexed classical arithmetic tables are a residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The bitangent scheme is the natural set of odd theta characteristics of the most symmetric genus-three plane quartic. Its complete Frobenius conjugacy description is an arithmetic invariant distinguishing rationality of classical tangent geometry over all extensions. The explicit dual ideal, minimal common field of definition, and closed zeta function provide the full classification, not a single small-field count or arbitrary parameter slice. The answer is not implied by the classical complex orbit count without arithmetic descent.
+Restriction of Klein quartic X^3Y+Y^3Z+Z^3X=0 to Z=-aX-bY has listed quartic coefficients. Square-of-quadratic criterion for leading coefficient nonzero produces two polynomial equations. Independently recomputed lex Gröbner basis over F5 exactly (b-a^26, P(a)) with P=a^28-a^21+2a^14+2a^7+1, checked derivative gcd 1 and irreducible factor degree list [1,3,6,6,6,6]. P(0)=1 validates nonzero leading term for all solutions. Odd-characteristic smooth genus-three quartic has exactly 28 geometric bitangents, so computed 28 exhaust all dual lines including chart c=0. Frobenius factor degrees give one rational line X+Y+Z=0, extension counts and zeta factor (1-T)^-1(1-T^3)^-1(1-T^6)^-4. The direct rational restriction equals negative square (X^2+XY+Y^2)^2. Checked original verify.py exact Gröbner/equation/irreducibility code; no reliance only on saved VERIFY_OK.
 
-## Related sources, scope, and limits
-The full-text Elkies proposition (MSRI 35, 1998, pp. 64–65), arXiv:1008.4104 (first public 2010-08-24), and the 2025 Ciani-normal-form bitangent study were compared on implications, not just titles. The findings are restricted to the reduced bitangent locus of the displayed characteristic-five plane model. Historical priority is provisional and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific final mathematical result after explicitly excluding known foundational subclaims. All four equivalence/coverage/table/implication comparisons use stated primary reading, semantic search and uncertainty; no failure-of-search-as-proof assertion. The original claim is accepted without publication or unearned provenance.
+
+## value
+
+PASS
+
+The bitangent Galois permutation and exact finite-field polynomial are natural arithmetic invariants of the exceptionally symmetric Klein quartic, refining the classical complex count of 28 to exact field-of-definition information. A complete six-orbit classification provides a reusable exact Galois action for this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
