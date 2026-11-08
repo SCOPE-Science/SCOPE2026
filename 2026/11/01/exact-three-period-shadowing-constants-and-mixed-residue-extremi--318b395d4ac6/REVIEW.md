@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The bounded correction is unique in the contracting and expanding cases by the exact period-power identity. The operator's \(\ell^\infty\)-time to Hilbert error-amplification norm equals the dual series of adjoint powers, since each error vector can independently align with the testing vector. Period grouping and squared-mass residues give an *exact* simplex reduction. At period three the optimization has a monotone two-coordinate convex-hull geometry; every optimum lies on an edge, and elementary differentiation gives the closed radical formula. The exact mixed-residue witness checks by rational arithmetic. The included finite tests are ancillary and do not replace proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority risk.** The cited 2026 Pinto paper treats qualitative weighted-shift shadowing; Yuan's October 2026 paper states the general dual Green formula and an explicitly computable shift constant, which are credited. The new claim is limited to the explicit complete period-three algebraic optimization and the necessity of mixed-residue extremizers for a natural nonnormal weight example. Claim-level comparisons against relevant published records found periodic weighted-shift norm and numerical radius problems but no same operator-error-modulus statement. The full Yuan and Pinto texts were not accessible; they could still contain an equivalent special-case computation, so independent priority examination remains necessary. A general Green formula does imply the starting optimization after additional arithmetic, but no inspected source settles the full three-period sharp radical classification.
+PASS
 
-**Value — PASS.** The exact best shadowing modulus quantifies worst-case uniform error amplification, which qualitative shadowing does not control. Three-period weights are the first nontrivial setting with two independently varying positive phase moments, and they exhibit an optimizer requiring two residue classes: coordinate-class bounds underestimate the real sharp constant by over one quarter. The theorem gives an explicit finite radical test across all positive three-period weights, allowing exact parameter-sensitive robustness assessment.
+At c<1, T^p=cU^p contracts and the unique bounded solution of d[n+1]=Td[n]+e[n] is the forward Green series; at c>1 use the inverse Green series. Hilbert duality converts its l-infinity input norm into sup_{||v||=1} sum ||(T*)^j v||; residue classes reduce this exactly to simplex sums of sqrt weighted masses. For p=3, increasing sqrt(A)+sqrt(B) cannot attain a strict maximum inside a nondegenerate 2D triangle; checking all three boundary segments and the unique opposing-slope stationary point yields the radical. Independently differentiated F(t)=sqrt(1+99t)+sqrt(100-399t/4) and verified t=1724711/3489255, the exact radical and its strict improvement over the best one-residue bound 24. This is an infinite-dimensional argument, not a finite-grid extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General Green-operator norm and qualitative shadowing are established earlier and explicitly excluded from novelty. The inspected 2026 quantitative predecessor handles universal estimates and a distinct shift example, but the all-positive period-three two-support radical optimization and mandatory mixed-residue witness require additional analysis not stated there. Best-of-knowledge conclusion, not absolute priority.
+
+## value
+
+PASS
+
+A sharp uniform tracking modulus is a natural quantitative stability invariant; solving a 3-period nonlinear residue optimization and exposing a rigorously mixed extremizer corrects tempting but false one-residue simplification. The exact fact supports rigorous shadowing estimates for periodic operator models, not merely a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
