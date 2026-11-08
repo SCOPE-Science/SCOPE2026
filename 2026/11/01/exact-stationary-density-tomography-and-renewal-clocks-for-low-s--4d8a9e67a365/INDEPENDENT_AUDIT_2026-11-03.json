@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:09:42.227249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each iid integer switching law p_b, the actual two-branch transfer operator has on Y one left preimage, giving h1=2h0, and on J_m left contribution h_{m+1}/2 plus c/2 sum_{b<=m} p_b 2^b. Substitution h_m=c sum_b p_b 2^min(b,m) verifies each equation exactly; positivity ensures Lebesgue equivalence and sigma-finiteness. Tonelli over shell lengths 2^(-m-1) gives mass c(E B+2)/2, hence normalized probability iff E B<infinity using the uniqueness in Inoue–Toyokawa. Differences h_m-h_{m-1}=c 2^(m-1) Pr(B>=m) yield the exact inverse and prove the stated nonincreasing-tail characterization with q1=1, limit zero, p_m=q_m-q_{m+1}. Under the induced normalized Lebesgue measure on Y, U=2x-1 is uniform; B independent and the first run of zero binary digits G is geometric with Pr(G=j)=2^(-j-1), yielding first-return time R=B+1+G. The induced return point remains conditionally uniform on Y, giving iid renewal clocks and PGF z E[z^B]/(2-z). I checked 3 explicit laws including multi-point supports with Fraction arithmetic through 99 shell recurrences, tail inversion and mass; the countable-law proof is via transfer identity, Tonelli and regeneration, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Toyokawa 2023 Theorem 3.1/Proposition 4.1 guarantee conservative ergodic equivalent measure and asymptotic bounds",
+          "Inoue 2020 First return maps of random maps and invariant measures states general induction principle"
+        ],
+        "reasoning": "General existence, uniqueness and inducing machinery applies, but does not by itself assert the explicit countable-law tail inversion or exact renewal distribution. The new exact density must be derived using the particular slopes/geometry.",
+        "searches": [
+          "random intermittent interval maps Inoue Toyokawa invariant density dyadic switching probabilities renewal first return",
+          "random piecewise convex interval maps invariant measures induced operator theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.10873v1 §4.1 Proposition 4.1 full paper",
+        "Inoue Nonlinearity (2020) DOI 10.1088/1361-6544/ab4c83 publication abstract",
+        "Resultary random interval/renewal query",
+        "Frozen Git RESULT.md blob 9bd0015ad5f16f3e7553889192c8c63c58c48e45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary arXiv:2303.10873 Proposition 4.1 formula with ≈, not =",
+          "New h_m first differences determine all Pr(B>=m) and iid R=B+1+G"
+        ],
+        "reasoning": "Order equivalence of shell masses cannot recover their exact first differences, and general existence of invariant densities alone does not imply identifiability. Nonetheless the law is an explicit specialization of the already-established induced framework; only its exact new consequences receive priority credit.",
+        "searches": [
+          "random intermittent interval maps Inoue Toyokawa invariant density dyadic switching probabilities renewal first return",
+          "arXiv 2303.10873 Proposition 4.1",
+          "Inoue First return maps random maps Nonlinearity 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inoue–Toyokawa arXiv:2303.10873v1 Section 4.1 defines exactly T_b and J_m and gives shell-mass comparability, not the exact equalities",
+          "Resultary random beta-map and renewal hits are different systems"
+        ],
+        "reasoning": "This is the same mapping family as the primary source, so originality cannot rest on new naming. The exact density formula, its invertible first-difference tomography, and the iid induced physical return-clock law were compared against the actual Proposition 4.1.",
+        "searches": [
+          "random intermittent interval maps Inoue Toyokawa invariant density dyadic switching probabilities renewal first return",
+          "Inoue Toyokawa low slopes exact invariant density dyadic b distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 4.1 of arXiv:2303.10873v1 gives only asymptotic order-comparable dyadic shell mass",
+          "No Resultary hit matched the full countable-law exact inverse-density table"
+        ],
+        "reasoning": "No established exact table for every b and inverse q_m was found in the full primary §4.1 or semantic record search; finite-support Markov matrices could yield special cases, which do not cover arbitrary countable laws.",
+        "searches": [
+          "random intermittent interval maps Inoue Toyokawa invariant density dyadic switching probabilities renewal first return",
+          "invariant density exact shell masses countable low slope random map p_beta"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after primary-literature reading and Resultary queries. The explicitly identified prior statements and implication gaps are documented under the four checks. A failed search is not proof of priority, and inaccessible literature was not treated as automatic failure.",
+      "residual_risks": [
+        "The general random-map induction literature might implicitly contain the exact shell formula under a different normalization; full text of the 2020 inducing paper was not inspected.",
+        "Stationarity and uniqueness assertions are only for measures equivalent to Lebesgue: singular invariant measures such as delta_0 remain possible.",
+        "The iid renewal law uses the induced stationary normalized uniform initial point, not arbitrary deterministic initial conditions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves existence, sigma-finite/conservative/ergodic and asymptotic comparable shell masses; not identified as giving the claimed exact tomography or renewal law",
+          "evidence": "Section 4.1 equation (4.1) same two-branch map; Proposition 4.1 dyadic mass ≈ expression.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.10873",
+          "material_read": "Full paper, especially Theorems 3.1–3.2 and Section 4.1, Proposition 4.1 and Remark 4.1",
+          "method": "Read primary PDF text and inspect page 16 screenshot",
+          "title": "Invariant measures for random piecewise convex maps",
+          "trigger": "Precisely identical low-slope T_b family and potential exact density antecedent"
+        },
+        {
+          "assessment": "General inducing principle plausible but no specific exact countable-law formula established from material read",
+          "evidence": "Inoue (2020), Nonlinearity 33:249–275; residual priority risk",
+          "identifier_or_url": "https://doi.org/10.1088/1361-6544/ab4c83",
+          "material_read": "Bibliographic and searchable theorem/abstract information; complete publisher full text not inspected",
+          "method": "Published-record search",
+          "title": "First return maps of random maps and invariant measures",
+          "trigger": "Potential broad inducing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact identification of a countable random switching law from its full stationary dyadic density is a natural inverse problem, sharper than order-comparable density bounds. It provides a complete realizability characterization and a renewal-process representation, including infinite-mean sigma-finite dynamics and zero return frequency. These are reusable exact facts for a known intermittent random-map family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2303.10873v1 §4.1 Proposition 4.1 full paper",
+    "Inoue Nonlinearity (2020) DOI 10.1088/1361-6544/ab4c83 publication abstract",
+    "Resultary random interval/renewal query",
+    "Frozen Git RESULT.md blob 9bd0015ad5f16f3e7553889192c8c63c58c48e45"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The general random-map induction literature might implicitly contain the exact shell formula under a different normalization; full text of the 2020 inducing paper was not inspected.",
+    "Stationarity and uniqueness assertions are only for measures equivalent to Lebesgue: singular invariant measures such as delta_0 remain possible.",
+    "The iid renewal law uses the induced stationary normalized uniform initial point, not arbitrary deterministic initial conditions.",
+    "Current publication plan is not_ready because full sanitizing metadata replacement bytes were not delivered."
+  ],
+  "schema_version": 1
+}
