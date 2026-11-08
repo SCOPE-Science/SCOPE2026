@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact computational verification
+# Independent mathematical audit
 
-The accompanying `verify.py` requires only Python 3's standard library; run `python3 verify.py`. Its successful output is retained verbatim in `verification_output.txt` and ends with `VERIFY_OK`.
+## correctness
 
-The program computes the unique primitive integer Möbius interpolation vector for each of the 120 permutations of the five discriminant parameters, using signed maximal minors of a three-row matrix. It checks that only identity and reversal satisfy both remaining interpolation equations integrally and that the support of all nonzero residual gcds is exactly \(\{2,3,5,7,11,13\}\). Accordingly, no untested prime above thirteen can introduce an additional point-stabilizing Möbius map. At the three exceptional primes it evaluates all admissible permutations, their exact finite orders, nonzero denominator residues, and Legendre-symbol lift conditions; it also tests a longer list of ordinary primes. The scalar-square identity for quadratic extensions is separately checked in sample fields and proved algebraically in the accompanying result.
+PASS
 
-The output confirms the geometric five-point stabilizer sizes \(6,10,6\) at primes \(7,11,13\), and size two elsewhere in scope; exactly two elements in every such stabilizer have a prime-field monomial lift. In particular, sample finite-field checks are a consistency test, not an infinite-domain proof by extrapolation.
+PASS. Smooth complete intersection of quadrics follows because distinct indices 0..4 modulo p>=7 preclude gradient dependence on a point of S. Anticanonical embedding makes biregular automorphisms projective, and singular pencil vertices force monomial matrices. A PGL2 permutation on T={0,1,2,3,4} lifts over the algebraic closure, with kernel (C2)^4. Independent exact rational nullspace interpolation of all 120 permutations found zero residual only for identity/reversal and exceptional residual-prime support {2,3,5,7,11,13}. Modular admissibility gives stabilizer sizes 6,10,6 at p=7,11,13 and 2 otherwise. Checking every admissible modular denominator Legendre character found only identity/reversal have uniform character, so rational automorphism size 32 for every p>=7. Every Fp* element becomes a square in Fp²; geometric lifts all descend there. Generic group (C2)^4⋊C2 and exceptional S3/D5 follow. The integer residual enumeration, not testing finitely many p, is what proves the all-prime assertion.
 
-The mathematical proof additionally uses the standard theorem that every automorphism of a smooth anticanonically embedded quartic del Pezzo surface acts on its defining pencil of quadrics. The verifier does not enumerate arbitrary projective linear matrices: the independent geometric reduction in the proof makes that unnecessary. No independent scientific review has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge. The general anticanonical-pencil five-point stabilizer theorem is established prior work; exact positive-characteristic sporadic stabilizers for this particular T and the absence of Fp descent of their extra automorphisms are a distinct explicit arithmetic classification. Historical 1989 monograph treats intersections, splitting groups and birationality but not this stated parameter-specific prime census in inspected relevant sections.
+
+## value
+
+PASS
+
+PASS. Exact geometric/rational automorphism comparisons and smallest descent extensions for a distinguished quartic del Pezzo family are natural arithmetic-geometric invariants; exceptional-prime classification explains an actual symmetry jump concealed over the ground field. Not merely asserting the known general 2^4⋊G theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

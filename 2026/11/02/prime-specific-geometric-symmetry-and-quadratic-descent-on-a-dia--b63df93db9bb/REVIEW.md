@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The theorem has a uniform quantifier over every prime at least seven. Smoothness follows from the two diagonal quadratic gradients. Anticanonical linearity and the five distinct singular members of the pencil force a monomial action. The lift criterion \(r_i^2=\kappa(ci+d)\) identifies the only arithmetic issue. Exact signed-minor interpolation exhausts the 120 permutations, and the gcd certificate bounds the exceptional prime support by \(\{2,3,5,7,11,13\}\); exact tests of the remaining primes give the three specified geometric stabilizers. Complete quadratic-character tests prove exactly two liftable permutations in each case. The fact that every nonzero prime-field scalar is square in the quadratic extension proves the final descent assertion. `verify.py` was executed and its `VERIFY_OK` output retained. Finite prime sampling is not used as a substitute for the all-prime gcd proof. No integral-lattice, birational, or low-characteristic claim is made.
+## correctness
 
-## Originality: PASS (qualified)
-Dolgachev–Duncan's 2017 geometric theorem supplies the general \((C_2)^4\rtimes G\) framework; the present result does not claim that framework as new. The contribution is the explicit arithmetic progression branch family, its exact three-prime jump, the nonlifting quadratic-character phenomenon, and the complete prime-field versus geometric comparison for all primes in scope. Knecht's 2013 article addresses unirational parameterizations, not automorphism group orders, and Smith's 2023 complete text restricts its group-existence theorems to characteristic zero. Relevant published mathematical-record comparisons found no matching arithmetic statement. Earlier broad work by Kunyavskij–Skorobogatov–Tsfasman was identified bibliographically but could not be inspected in full, so independent historical-priority checking remains a residual risk. Absence of a database hit alone is not treated as novelty evidence.
+PASS
 
-## Mathematical value: PASS
-The full arithmetic automorphism group is a natural invariant of a degree-four del Pezzo surface. A single explicit family has exceptional geometric stabilizers only at three primes, yet no corresponding prime-field symmetry increase. The precise quadratic descent obstruction connects the moduli of five discriminant points, finite-characteristic specializations, and arithmetic forms of geometric automorphisms. This is a structural, all-prime classification rather than a routine finite test or an unmotivated numerical slice.
+PASS. Smooth complete intersection of quadrics follows because distinct indices 0..4 modulo p>=7 preclude gradient dependence on a point of S. Anticanonical embedding makes biregular automorphisms projective, and singular pencil vertices force monomial matrices. A PGL2 permutation on T={0,1,2,3,4} lifts over the algebraic closure, with kernel (C2)^4. Independent exact rational nullspace interpolation of all 120 permutations found zero residual only for identity/reversal and exceptional residual-prime support {2,3,5,7,11,13}. Modular admissibility gives stabilizer sizes 6,10,6 at p=7,11,13 and 2 otherwise. Checking every admissible modular denominator Legendre character found only identity/reversal have uniform character, so rational automorphism size 32 for every p>=7. Every Fp* element becomes a square in Fp²; geometric lifts all descend there. Generic group (C2)^4⋊C2 and exceptional S3/D5 follow. The integer residual enumeration, not testing finitely many p, is what proves the all-prime assertion.
 
-## Sources and limitations
-Primary sources are Dolgachev–Duncan (arXiv:1712.01167, Section 3 and Theorem 3.1); Knecht (arXiv:1307.3215, finite-field degree-four del Pezzo background); Smith (arXiv:2308.07904, characteristic-zero automorphism actions). The broad 1989 degree-four del Pezzo monograph by Kunyavskij–Skorobogatov–Tsfasman remains a priority risk because only bibliographic material was accessible. The theorem concerns the displayed smooth diagonal family and biregular automorphisms in characteristics at least seven, not all twists, low characteristics, or birational selfmaps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The general anticanonical-pencil five-point stabilizer theorem is established prior work; exact positive-characteristic sporadic stabilizers for this particular T and the absence of Fp descent of their extra automorphisms are a distinct explicit arithmetic classification. Historical 1989 monograph treats intersections, splitting groups and birationality but not this stated parameter-specific prime census in inspected relevant sections.
+
+## value
+
+PASS
+
+PASS. Exact geometric/rational automorphism comparisons and smallest descent extensions for a distinguished quartic del Pezzo family are natural arithmetic-geometric invariants; exceptional-prime classification explains an actual symmetry jump concealed over the ground field. Not merely asserting the known general 2^4⋊G theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
