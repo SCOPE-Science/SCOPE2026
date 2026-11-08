@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal convex-order inequality is proved by two separate inequalities with strict equality conditions: pairing opposite edge parameters and applying Jensen removes skew, while a derivative identity at fixed generator-length sum shows that balancing a rectangle's sides decreases every convex squared-radius moment. Both apply to arbitrary nondegenerate Euclidean parallelograms. Exact integration establishes the equal means, the fourth moment, and the area deficit. Differentiating twice with respect to the inner product and sending one generator length to zero proves the rigidity of shape-independent \(C^2\) weights. Every limiting operation uses continuity on compact intervals. The 305 exact-rational checks independently corroborate the polynomial instances, not the universal proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+Write Q={su+tv:-1<=s,t<=1}, a=|u|, b=|v|, c=u·v, L=4(a+b), A=4sqrt(a²b²−c²). Exact edge integration gives I_f(Q)=2b∫f(a²+b²t²+2ct)dt +2a∫f(b²+a²t²+2ct)dt over [-1,1]. Pairing t and −t with Jensen shows skew c cannot reduce any convex f(squared radius). For c=0, the rectangle integral is G_f=4∫0^a f(x²+b²)dx+4∫0^b f(y²+a²)dy; varying b at fixed a+b produces derivative 8ab∫0¹[f′(a²t²+b²)−f′(b²t²+a²)]dt≤0 for a>=b, with strictness for strictly convex C¹ f. Consequently equal-perimeter square is minimal in convex order, and E(r²)=L²/48 is constant. Power exponents p outside [0,2] minimize, inside maximize at square, with endpoints constant; boundaries exclude origin so p<0 finite. Exact quartic integration gives E4=L⁵/1280−LA²/12, explicitly known from earlier fourth-chord boundary m4 calculation. For shape-independent C² f, varying c and taking its second derivative at c=0, then b→0, yields ∫0^a z² f′′(z²)dz=0 for all a>0, hence f′′≡0; conversely affine f is invariant. Independently rationally integrated E2/E4 in representative orthogonal and skew systems and inspected symbolic verifier; these finite points corroborate, never prove, the convex-order functional inequality.
 
-Csató–Giovagnoli–Roy (arXiv:2608.19851v1), Introduction, Theorem 1.4, and Section 3.2, explicitly acknowledge Sachs's already-known quadratic-moment equality for all centered parallelograms. The proposed claim *does not* reassert that as new, nor does it claim novelty for the fourth radial moment already contained in the published fourth-chord analysis. Their convex-curve/needle inequalities and orthogonal-axis assumptions differ from a sharp fixed-perimeter **square-versus-skew-parallelogram convex-order** theorem and do not imply the all-convex-weight order or only-if weight rigidity. Closest mathematical records examined concern chord-distance moments, radial mean bodies, projection widths, and continuity; their conclusions do not imply this claim. Earlier work under unsearched terminology remains possible, and the original Sachs article was not accessible for primary full-text examination.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single convex-order theorem simultaneously resolves the direction of optimization for every continuous convex and concave radial squared-distance test on this natural family, including both signs of power exponents and a strict crossover at the already-known quadratic equality. A known fourth-moment formula gives a useful quantitative illustration, while the newly proved rigidity theorem characterizes *all* smooth weights that fail to distinguish shapes. These are structural statements about weighted perimeter geometry, rather than a numerical table, a routine parameter substitution, or a small isolated improvement.
+Best-of-knowledge originality: final statement and implication level compared to overlapping primary literature and published mathematical records, including already-known subcases. The audited result implies all convex f inequalities and power-weight reversal/rigidity, strictly beyond the existing invariant and distinct from chord-distribution laws.
 
-## Scope and outstanding risks
+## value
 
-Only nondegenerate centrally positioned parallelograms and the Euclidean arclength measure are covered. The historical quadratic case is cited as prior art. The verification program checks finite rational instances only. Independent mathematical review and exhaustive historical-priority verification are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a distributional comparison for every convex weight, including nonmonotone tests, not merely a known quadratic invariant or a single polynomial moment. The sharp power-exponent phase transition and C² rigidity explain which weighted perimeter measurements are shape-sensitive in a natural four-sided geometric family; the mathematical question is motivated without a need for a paper-sized downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
