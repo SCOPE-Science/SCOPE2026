@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:04:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform Cayley trees are counted by Matrix–Tree. A two-marked-vertex cofactor with nested allowed neighbor sets A,B (and forbidden marked edge) has F_n(a,b)=ab n^(b-1)(n-1)^(a-b)(n-2)^(n-a-3). Schur complement and rank-two determinant lemma establish this identity, with one-vertex isolation p_(n,h)=(n-h)/n*(1-1/n)^(h-2). For a time pair j<=k, partition ordered marked vertex choices into identical vertices (j), two already revealed vertices (j(j-1)), and earlier+newly revealed vertices (j(k-j)), yielding exact cross moment j p_k+j(j-1)u+j(k-j)v. Subtract jk p_j p_k. First-order expansion of the two joint-to-product ratios yields the stated strictly positive rank-two semiseparable kernel K(s,t)=s(1-t)e^-t[1-(1-s)e^-s+s(2-s)(1-t)e^-s] for 0<s<=t<1. Boundary conditions j>=2,k<n; no claim of Gaussian process convergence. Independent Prüfer enumeration checked all (j,k) cases for n=4,5,6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Hackl manuscript focuses on one-time specified components plus edge process.",
+          "General edge count does not determine isolated count, because distinct trees can have same visible edges and different isolate counts."
+        ],
+        "reasoning": "The broader-looking edge/uncover fluctuation results are not enough to deduce the particular two-time singleton formula; an undiscovered stronger multitime theorem is possible.",
+        "searches": [
+          "arxiv:2301.00664 Lemma 8 component subsets",
+          "Janson Uncovering a graph 2025 isolated vertices fluctuations",
+          "uncovering random Cayley labelled tree isolated vertices two time covariance kernel"
+        ]
+      },
+      "checked_sources": [
+        "Hackl–Panholzer–Wagner The uncover process for random labeled trees arxiv:2301.00664v1, Lemma 8 and Theorem 10",
+        "AofA 2022 DOI 10.4230/LIPIcs.AofA.2022.10",
+        "Janson 2025 Uncovering a graph DOI 10.1007/s00440-025-01401-9",
+        "Resultary query: uncovering random Cayley labelled tree isolated vertices two time covariance kernel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-time component enumerations imply p_j and some equal-time moments but not j<k cross-moments.",
+          "Edge-process covariance does not determine singleton covariance."
+        ],
+        "reasoning": "The new theorem contains previously known marginal information as a corollary but derives genuinely asymmetric marked-vertex events not furnished by inspected prior statements.",
+        "searches": [
+          "arxiv:2301.00664v1 Lemma 8 and Theorem 10",
+          "Janson 2025 Uncovering a graph",
+          "uncovering random Cayley labelled tree isolated vertices two time covariance kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-time probability p_(n,j) is already calculable from Hackl–Panholzer–Wagner Lemma 8.",
+          "New u_(n,j,k) and v_(n,j,k) involve two different reveal times."
+        ],
+        "reasoning": "The equal-time isolate variance is a specialization; a one-time forest-component count does not determine covariance of isolates at j and k>j.",
+        "searches": [
+          "uncovering random Cayley labelled tree isolated vertices two time covariance kernel",
+          "Hackl Panholzer Wagner isolated singleton joint reveal time Lemma 8",
+          "Cayley tree random vertex site percolation temporal singleton covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned Cayley degree–distance and recursive-tree leaf covariance, different observables, not this expression."
+        ],
+        "reasoning": "The full n,j,k symbolic second moment and s,t kernel go beyond any compared numerical data table; absence of a hit is only supporting evidence.",
+        "searches": [
+          "uncovering random Cayley labelled tree isolated vertices two time covariance kernel",
+          "two time isolate covariance random labeled Cayley trees exact kernel"
+        ]
+      },
+      "rationale": "The 2022/2023 Hackl–Panholzer–Wagner uncover papers supply one-time component enumeration and edge-process fluctuations, including the one-time isolate probability; those elements are prior. The audited new part is the nested unequal-neighbor Matrix–Tree count and two-time isolate covariance. Resultary related Cayley tree degree-distance and recursive leaf covariance records are different observables. A general multitime forest formula could cover it; retain that risk.",
+      "residual_risks": [
+        "A more general multitime Cayley-tree site-percolation result could imply this covariance without identical language.",
+        "The Janson 2025 possible broader treatment was not exhaustively ruled out from its complete article.",
+        "Continuum kernel is only a second-order limit for fixed interior fractions, not a process-level limit or all-n positivity statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lemma 8 gives one-time specified component probabilities, not joint isolation at unequal j,k; no matching temporal singleton kernel identified in inspected full text",
+          "evidence": [
+            "Lemma 8 enumerates component restrictions under a single reveal time; mixed j<k requires nested, unequal marked-neighbor sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.00664",
+          "material_read": "Accessible full primary manuscript text, especially model, Lemma 8 component events, Theorem 10 and fluctuation results",
+          "method": "Direct comparison of single-time component sets with the asymmetric two-time restrictions on marked vertices",
+          "title": "The uncover process for random labeled trees",
+          "trigger": "Same random-tree reveal process; possible stronger time-dependent isolation formulas"
+        },
+        {
+          "assessment": "The inspected statements concern edges/components and visible small-subgraph counts, not the exact singleton cross-time covariance",
+          "evidence": [
+            "Isolated vertices in an induced reveal graph are not determined by total edge or component count alone."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-025-01401-9",
+          "material_read": "Accessible article synopsis and sections on edge/visible-subgraph observables; full all-section coverage not certified",
+          "method": "Check object of covariance and whether general visible-subgraph results include isolated-vertex counts",
+          "title": "Uncovering a graph",
+          "trigger": "Potential dominating general graph uncover fluctuation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact cross-time second moment and positive nonstationary covariance kernel for a natural dynamic observable of uniform Cayley trees supplements earlier same-time component enumerations and edge-process limits. Rank-two semiseparability is useful for fluctuation and temporal-statistics investigations without asserting an unproved functional CLT.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hackl–Panholzer–Wagner The uncover process for random labeled trees arxiv:2301.00664v1, Lemma 8 and Theorem 10",
+    "AofA 2022 DOI 10.4230/LIPIcs.AofA.2022.10",
+    "Janson 2025 Uncovering a graph DOI 10.1007/s00440-025-01401-9",
+    "Resultary query: uncovering random Cayley labelled tree isolated vertices two time covariance kernel"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A more general multitime Cayley-tree site-percolation result could imply this covariance without identical language.",
+    "The Janson 2025 possible broader treatment was not exhaustively ruled out from its complete article.",
+    "Continuum kernel is only a second-order limit for fixed interior fractions, not a process-level limit or all-n positivity statement."
+  ],
+  "residual_risks": [
+    "A more general multitime Cayley-tree site-percolation result could imply this covariance without identical language.",
+    "The Janson 2025 possible broader treatment was not exhaustively ruled out from its complete article.",
+    "Continuum kernel is only a second-order limit for fixed interior fractions, not a process-level limit or all-n positivity statement."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Lemma 8 gives one-time specified component probabilities, not joint isolation at unequal j,k; no matching temporal singleton kernel identified in inspected full text",
+      "evidence": [
+        "Lemma 8 enumerates component restrictions under a single reveal time; mixed j<k requires nested, unequal marked-neighbor sets."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2301.00664",
+      "material_read": "Accessible full primary manuscript text, especially model, Lemma 8 component events, Theorem 10 and fluctuation results",
+      "method": "Direct comparison of single-time component sets with the asymmetric two-time restrictions on marked vertices",
+      "title": "The uncover process for random labeled trees",
+      "trigger": "Same random-tree reveal process; possible stronger time-dependent isolation formulas"
+    },
+    {
+      "assessment": "The inspected statements concern edges/components and visible small-subgraph counts, not the exact singleton cross-time covariance",
+      "evidence": [
+        "Isolated vertices in an induced reveal graph are not determined by total edge or component count alone."
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/s00440-025-01401-9",
+      "material_read": "Accessible article synopsis and sections on edge/visible-subgraph observables; full all-section coverage not certified",
+      "method": "Check object of covariance and whether general visible-subgraph results include isolated-vertex counts",
+      "title": "Uncovering a graph",
+      "trigger": "Potential dominating general graph uncover fluctuation theorem"
+    }
+  ]
+}

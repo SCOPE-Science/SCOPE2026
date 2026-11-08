@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The complete finite formula comes from a two-special-vertex spanning-tree determinant under nested but asymmetric admissible-neighbor sets. After Schur-complement elimination, the determinant simplifies exactly; direct counting of identical, early/early distinct, and early/late distinct marked-vertex pairs gives the mixed-time moment. The continuum kernel follows from first-order expansion of joint probabilities. Exact enumeration through 7 vertices and a separate 79,130-assertion checker replay support the algebra. Limits: no functional CLT or finite all-size strict-positive covariance assertion is proved.
+## correctness
 
-**Originality: PASS with historical-priority risk.** Hackl–Panholzer–Wagner (2022/2023) provide single-time component counts and an edge-process limit, explicitly including one-time isolation moments; the present claim is restricted to the asymmetric mixed-time singleton second moment, its new two-time kernel, and its semiseparable structure, which are not statements of their Lemma 8 or Theorem 10. Janson (2025) studies edge and small-subgraph uncovering processes, not the analyzed singleton covariance. Research-record and prior-finding comparisons did not identify a covering result. An undiscovered general multitime enumeration could still imply this theorem.
+PASS
 
-**Value: PASS.** Singleton persistence is a natural connectivity statistic of sequentially revealed forests. Its two-time covariance cannot be recovered from either one-time distribution alone or from the global edge-count process. The all-size formula and positive nonstationary covariance kernel quantify temporal persistence and furnish an explicit second-order benchmark for future trajectory-level limit laws. A global Gaussian process theorem is not needed for this precise covariance contribution.
+Uniform Cayley trees are counted by Matrix–Tree. A two-marked-vertex cofactor with nested allowed neighbor sets A,B (and forbidden marked edge) has F_n(a,b)=ab n^(b-1)(n-1)^(a-b)(n-2)^(n-a-3). Schur complement and rank-two determinant lemma establish this identity, with one-vertex isolation p_(n,h)=(n-h)/n*(1-1/n)^(h-2). For a time pair j<=k, partition ordered marked vertex choices into identical vertices (j), two already revealed vertices (j(j-1)), and earlier+newly revealed vertices (j(k-j)), yielding exact cross moment j p_k+j(j-1)u+j(k-j)v. Subtract jk p_j p_k. First-order expansion of the two joint-to-product ratios yields the stated strictly positive rank-two semiseparable kernel K(s,t)=s(1-t)e^-t[1-(1-s)e^-s+s(2-s)(1-t)e^-s] for 0<s<=t<1. Boundary conditions j>=2,k<n; no claim of Gaussian process convergence. Independent Prüfer enumeration checked all (j,k) cases for n=4,5,6.
 
-**Residual scientific limitations.** Uniform labeled Cayley trees only, deterministic increasing labels (equivalent to uniform independent reveal permutation), interior continuum times, no distributional process limit, and non-exhaustive historical-priority search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022/2023 Hackl–Panholzer–Wagner uncover papers supply one-time component enumeration and edge-process fluctuations, including the one-time isolate probability; those elements are prior. The audited new part is the nested unequal-neighbor Matrix–Tree count and two-time isolate covariance. Resultary related Cayley tree degree-distance and recursive leaf covariance records are different observables. A general multitime forest formula could cover it; retain that risk.
+
+## value
+
+PASS
+
+A complete exact cross-time second moment and positive nonstationary covariance kernel for a natural dynamic observable of uniform Cayley trees supplements earlier same-time component enumerations and edge-process limits. Rank-two semiseparability is useful for fluctuation and temporal-statistics investigations without asserting an unproved functional CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
