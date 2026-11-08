@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The mathematical checker is `verify_dodecahedron.py`, written entirely with the Python standard library. Its checks reconstruct the twenty normalized dodecahedral vertices over \(\mathbb Q(\sqrt5)\), select ten antipodal representatives, verify the signed-matrix relations \(C^2=2I-C+J\), \(B^2=A+3I\), and \(B^3=5B\), and compute exact rational reduced-Gram eigenvalue numerators in every degree \(0\le k\le185\). It checks the eight exceptional ranks and nonnegativity at every tested degree. Finally it checks the elementary rational inequality needed to apply the analytic tail estimate from degree \(186\) onward.
+# Independent mathematical audit
 
-The global theorem does **not** follow merely from a finite numerical experiment; the integral estimate for Legendre polynomials in RESULT.md supplies the infinite tail. No floating-point eigenvalue estimate, formal prover, independent audit, or outside certification is claimed.
+## correctness
+
+PASS
+
+The spherical harmonic addition formula identifies evaluation rank with the PSD Legendre Gram rank. Antipodality reduces the twenty-point matrix to ten points. Direct Q(sqrt5) geometry yields even Petersen-sector matrix C with C^2=2I-C+J and signed odd sector B with B^2=A+3I and B^3=5B; those identities prove the displayed eigenvalues and multiplicities, not a numerical rank guess. Exact rational Legendre recurrences determine all zero and nonzero eigensectors for degrees k=0..185, independently checked by direct 10x10 matrices at k<=20. The integral bound |P_k(x)|<=sqrt(pi/(2k(1-x^2))) yields 6|P_k(1/3)|+3|P_k(sqrt5/3)|<1 for k>=186, proving strict positivity for the infinite tail. The exact finite certificate and analytic tail together cover all k.
+
+## originality
+
+PASS
+
+Earlier icosahedral-symmetry harmonic studies (Cohan 1958 and Zheng–Doerschuk 2000) and existing dodecahedral directional sampling work are directly relevant, and Cohan may contain the exceptional low degrees; its complete text was inaccessible. The proposed addition is all-degree exact evaluation ranks including the nonmonotone degree-eight and degree-fourteen gaps and sharp permanent threshold, plus the explicit full Gram spectra. Literature on harmonics invariant under the group is not automatically equivalent to ranks of the full irreducible harmonic space evaluated at 20 vertices. Best-of-knowledge PASS with strong named historical priority caveat.
+
+## value
+
+PASS
+
+The regular dodecahedron is a canonical spherical sampling design. The contrast between exact-degree rank 9 at degree 4, rank 6 at degree 5, full rank at 6 and losses at 8 and 14 makes the precise rank sequence a natural nonmonotone interpolation invariant. Determining the sharp permanent threshold and every eigenvalue is a complete, reusable structural result, not a randomly selected low-degree table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

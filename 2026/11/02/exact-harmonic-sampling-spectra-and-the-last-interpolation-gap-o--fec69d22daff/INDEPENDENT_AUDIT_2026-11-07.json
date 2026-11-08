@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:53:48.990833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The spherical harmonic addition formula identifies evaluation rank with the PSD Legendre Gram rank. Antipodality reduces the twenty-point matrix to ten points. Direct Q(sqrt5) geometry yields even Petersen-sector matrix C with C^2=2I-C+J and signed odd sector B with B^2=A+3I and B^3=5B; those identities prove the displayed eigenvalues and multiplicities, not a numerical rank guess. Exact rational Legendre recurrences determine all zero and nonzero eigensectors for degrees k=0..185, independently checked by direct 10x10 matrices at k<=20. The integral bound |P_k(x)|<=sqrt(pi/(2k(1-x^2))) yields 6|P_k(1/3)|+3|P_k(sqrt5/3)|<1 for k>=186, proving strict positivity for the infinite tail. The exact finite certificate and analytic tail together cover all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hitchin arXiv:0706.0088 studies cubic harmonics and nodal icosahedral geometry",
+          "Earlier 32-direction icosahedral-union result implies some k>=45 surjectivity on a dodecahedral subset, but not sharp k>=15"
+        ],
+        "reasoning": "The stronger sampling set in an existing theorem gives only a nonsharp sufficient tail and not the exceptional k=8,14 behavior or explicit 10-sector Gram spectra. Full Cohan tables remain a priority risk.",
+        "searches": [
+          "spherical harmonics sampling regular dodecahedron exact degree ranks Legendre Gram spectrum harmonic designs",
+          "32-point icosahedral-union spherical harmonic sampling surjective k>=45",
+          "Hitchin 2007 spherical harmonics and icosahedron",
+          "Zheng Doerschuk symmetrized icosahedral harmonics"
+        ]
+      },
+      "checked_sources": [
+        "actual RESULT.md, verify_dodecahedron.py and scientific metadata frozen blobs",
+        "Cohan 1958 publisher extract and Oxford access attempt",
+        "Ye et al. 2012 PMC3343185 full text",
+        "Hitchin 2007 arXiv:0706.0088 primary partial full PDF",
+        "Resultary semantic query: spherical harmonics sampling regular dodecahedron exact degree ranks Legendre Gram spectrum harmonic designs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cohan cited expansions only to degree 14 and accessible extract cannot certify an all-k result",
+          "The inspected proof uses an exact finite check to 185 plus integral tail, yielding all degrees >=186 and sharp threshold 15"
+        ],
+        "reasoning": "A finite degree-14 symmetry expansion cannot by itself imply permanent surjectivity at all k>=15; combining the new all-degree PSD spectrum with an analytic Legendre bound closes that gap. Exact earlier implication remains qualified by inaccessible full text.",
+        "searches": [
+          "spherical harmonics sampling regular dodecahedron exact degree ranks Legendre Gram spectrum harmonic designs",
+          "Cohan 1958 icosahedral spherical harmonic expansions degree fourteen",
+          "Ye 2012 dodecahedron sample directions diffusion MRI",
+          "spherical harmonic Gram eigenvalues Legendre polynomial Petersen"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohan 1958 develops icosahedral-invariant harmonic expansions through degree 14",
+          "RESULT.md uses the full H_k to 20-vertex evaluation Gram, reducing to Petersen/signed sectors"
+        ],
+        "reasoning": "Group-invariant harmonic subspace dimensions are not the same as the rank of evaluation of all degree-k harmonics onto parity arrays. Prior harmonic expansions can indirectly calculate some ranks but the complete all-degree Gram spectrum and permanent threshold are not established by the available extract.",
+        "searches": [
+          "spherical harmonics sampling regular dodecahedron exact degree ranks Legendre Gram spectrum harmonic designs",
+          "icosahedral group spherical harmonics dodecahedron vertex evaluation orbit sampling rank",
+          "Petersen graph dodecahedron harmonic Legendre kernel eigenspaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ye et al. 2012 PMID/PMCID:PMC3343185 uses dodecahedron as candidate diffusion MRI sample directions, without rank sequence",
+          "Resultary nearest Fourier-sampling hits concern q-ary Hamming spheres or finite Grassmannians, not a dodecahedron"
+        ],
+        "reasoning": "Known coordinate tables and sample-grid diagrams do not enumerate exact-degree evaluation ranks for every degree. A hidden historical icosahedral representation table could give low-degree overlap; not presumed absent.",
+        "searches": [
+          "spherical harmonics sampling regular dodecahedron exact degree ranks Legendre Gram spectrum harmonic designs",
+          "icosahedron dodecahedron spherical 5-design Gegenbauer harmonic degrees 8 14",
+          "Resultary harmonics sphere sampling exact ranks all degrees"
+        ]
+      },
+      "rationale": "Earlier icosahedral-symmetry harmonic studies (Cohan 1958 and Zheng–Doerschuk 2000) and existing dodecahedral directional sampling work are directly relevant, and Cohan may contain the exceptional low degrees; its complete text was inaccessible. The proposed addition is all-degree exact evaluation ranks including the nonmonotone degree-eight and degree-fourteen gaps and sharp permanent threshold, plus the explicit full Gram spectra. Literature on harmonics invariant under the group is not automatically equivalent to ranks of the full irreducible harmonic space evaluated at 20 vertices. Best-of-knowledge PASS with strong named historical priority caveat.",
+      "residual_risks": [
+        "Older icosahedral representation/spherical-design tables may encode individual exceptional degrees; Cohan full article was inaccessible.",
+        "The theorem covers exact single-degree unweighted vertex evaluation, not multi-degree interpolation or stable numerical conditioning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The manuscript may already encode low-degree sectors, but cannot be described as non-covering on extract evidence; all-degree k>=15 coverage is not stated in the available material.",
+          "evidence": "Cohan, Proc. Cambridge Philos. Soc. 54 (1958), 28–38; Oxford vpn_disconnected",
+          "identifier_or_url": "DOI:10.1017/S0305004100033156",
+          "material_read": "Publisher extract and indexed description only; complete paper unavailable",
+          "method": "Publisher/metadata search, open-access attempt and authorized Oxford retrieval",
+          "title": "The spherical harmonics with the symmetry of the icosahedral group",
+          "trigger": "Closest historical icosahedral harmonic tables through degree 14"
+        },
+        {
+          "assessment": "A dodecahedral point arrangement is used for diffusion MRI sampling, but no all-degree harmonic rank, sharp gap or Gram spectrum theorem is supplied.",
+          "evidence": "Ye et al. 2012, IEEE TMI 31:1043–1050",
+          "identifier_or_url": "PMCID:PMC3343185; DOI:10.1109/TMI.2012.2184551",
+          "material_read": "Full relevant PMC primary text including sampling scheme and dodecahedral discussion",
+          "method": "Public PMC full-text HTML, relevant sections examined",
+          "title": "An Efficient Interlaced Multi-shell Sampling Scheme for Reconstruction of Diffusion Propagators",
+          "trigger": "Dodecahedral directions as a practical spherical sampling grid"
+        },
+        {
+          "assessment": "Concerns icosahedral cubic harmonic nodal geometry, not full exact-degree sampling of 20 dodecahedral vertices.",
+          "evidence": "Hitchin 2007 arXiv:0706.0088",
+          "identifier_or_url": "arXiv:0706.0088",
+          "material_read": "Primary paper accessible portions of first sections and central degree-three discussion",
+          "method": "ArXiv primary PDF section inspection",
+          "title": "Spherical harmonics and the icosahedron",
+          "trigger": "Related Platonic spherical-harmonic symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular dodecahedron is a canonical spherical sampling design. The contrast between exact-degree rank 9 at degree 4, rank 6 at degree 5, full rank at 6 and losses at 8 and 14 makes the precise rank sequence a natural nonmonotone interpolation invariant. Determining the sharp permanent threshold and every eigenvalue is a complete, reusable structural result, not a randomly selected low-degree table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "actual RESULT.md, verify_dodecahedron.py and scientific metadata frozen blobs",
+    "Cohan 1958 publisher extract and Oxford access attempt",
+    "Ye et al. 2012 PMC3343185 full text",
+    "Hitchin 2007 arXiv:0706.0088 primary partial full PDF",
+    "Resultary semantic query: spherical harmonics sampling regular dodecahedron exact degree ranks Legendre Gram spectrum harmonic designs"
+  ],
+  "disposition": "passed",
+  "final_claim": "The complete exact-degree spherical-harmonic evaluation rank sequence at the 20 regular dodecahedron vertices is 1,3,5,7,9,6 for degrees 0..5, rank 9 at 8 and 14, and rank 10 at all other k>=6. The exact parity-reduced Legendre Gram eigenvalues are given for every degree; 15 is the sharp permanent-surjectivity degree.",
+  "limitations": [
+    "Exact rank classification relies on an exact 0..185 computation plus separately proved analytic tail; finite rank checks alone are not infinite proof.",
+    "The dodecahedron is fixed and sampling noise/conditioning of nonzero Gram eigenvalues is not assessed."
+  ],
+  "residual_risks": [
+    "Older icosahedral representation/spherical-design tables may encode individual exceptional degrees; Cohan full article was inaccessible.",
+    "The theorem covers exact single-degree unweighted vertex evaluation, not multi-degree interpolation or stable numerical conditioning."
+  ],
+  "schema_version": 1
+}
