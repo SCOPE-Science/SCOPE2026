@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The attached `verify.py` defines both exact update matrices, constructs the complete symmetric second-moment matrix directly, and checks its factorized characteristic determinant at one. It independently verifies the two-dimensional Lyapunov identity and its positive determinant. It then compares the transfer matrix with exhaustive erasure-path enumeration over 28 finite rational horizon/parameter cases. Finally, it tests selected spectral radii and the exact step-size root, including the no-compression case. The program executed successfully with Python 3, SymPy and NumPy. Exact finite tests and numerical spectral values do not establish the infinite theorem; the spectral, Lyapunov, positive-map and invariant-subspace proof in `RESULT.md` is essential.
+## correctness
 
-To repeat: install dependencies from `requirements.txt` with a standard Python environment, then run `python verify.py` in the same directory. Results are deterministic; no downloaded datasets, external credentials, remote services, or random seeds are needed.
+PASS
 
-The main boundaries are strict: \(q\in(0,1]\), \(\gamma>0\), and \(\eta=1\). At \(q=1\), uniform stability means convergence for every initial three-state vector, rather than divergence for every exceptional vector outside the stable region. The result is about mean-square convergence, not almost-sure trajectory growth or performance of nonlinear objectives. Publication-priority verification remains qualified.
+The algorithm update under B=0 and B=1 gives A0=[[1,0,-gamma],[1,1,-1],[0,0,1]], A1=[[1-gamma,-gamma,0],[0,0,0],[1,1,0]]. On symmetric second moments the 6x6 map satisfies det(I-M)=gamma*q^2*((q-1)*gamma^2+(7q-8)*gamma+6q-4), checked independently by symbolic algebra. For q>2/3 the displayed positive-definite P solves internal Lyapunov equation at gamma=0; the unique slow moment eigenvalue has derivative -2; PSD cone continuity and positive eigenvalue prevent a hidden crossing before gamma_*(q). The negative determinant outside the root forces real spectral eigenvalue >1. For 0<q<1, A0 has a single length-three unipotent Jordan chain and A1 breaks both proper invariant subspaces, ensuring positive-definite adjoint Perron eigenmatrix, then primal-square identity forces auxiliary decay if primal decays, contradiction. q=1 reduces to ordinary gradient descent after finite transients. Direct symbolic determinant, Lyapunov, and sampled spectral tests corroborate, not replace proof.
+
+## originality
+
+PASS
+
+Gao–Islamov–Stich introduced the precise algorithm and note difficulties with full feedback for different Top-1 examples. Their regulated-eta convergence results do not imply the necessary-and-sufficient eta=1 Bernoulli q and gamma curve. Classical Bernoulli error-feedback has a different two-state delay law and allows small steps for every q>0, and EF21 employs another memory. The model-specific exact three-state phase transition appears distinct, with residual specialized-priority risk.
+
+## value
+
+PASS
+
+A sharp reliability threshold q=2/3 below which arbitrarily small positive steps provably fail is a meaningful algorithmic obstruction, not a routine rate improvement. The exact optimal stability region clarifies when maximal feedback requires qualitative regulation, while remaining restricted to this natural scalar test model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

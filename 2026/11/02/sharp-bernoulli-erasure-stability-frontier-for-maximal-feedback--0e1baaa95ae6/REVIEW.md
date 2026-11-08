@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is the sharp complete-state mean-square stability region for the exact three-state maximal-feedback EControl recurrence, with a stronger primal nonconvergence assertion when the erasures are genuinely random. The update matrices were reconstructed from the actual EControl algorithm, including the separate memory and stored-gradient updates. The symmetric-matrix moment operator has six coordinates, and its determinant is exactly factored as in the proof. For transmission probability exceeding two thirds, the displayed positive-definite two-by-two Lyapunov matrix proves stability of the fast memory mode at zero step size; the isolated slow eigenvalue has derivative \(-2\). The cone-preserving spectral-radius and determinant argument excludes a hidden unit-circle crossing and establishes the exact full interval. A common-invariant-subspace argument supplies a positive-definite dual Perron matrix, so the lower bound is not an artifact of special covariance initial conditions. The primal one-step identity forces auxiliary mean-square decay if the primal mean square decays. The case of perfect transmission is treated separately. Exact rational path enumeration and symbolic identities passed; these finite checks are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The algorithm update under B=0 and B=1 gives A0=[[1,0,-gamma],[1,1,-1],[0,0,1]], A1=[[1-gamma,-gamma,0],[0,0,0],[1,1,0]]. On symmetric second moments the 6x6 map satisfies det(I-M)=gamma*q^2*((q-1)*gamma^2+(7q-8)*gamma+6q-4), checked independently by symbolic algebra. For q>2/3 the displayed positive-definite P solves internal Lyapunov equation at gamma=0; the unique slow moment eigenvalue has derivative -2; PSD cone continuity and positive eigenvalue prevent a hidden crossing before gamma_*(q). The negative determinant outside the root forces real spectral eigenvalue >1. For 0<q<1, A0 has a single length-three unipotent Jordan chain and A1 breaks both proper invariant subspaces, ensuring positive-definite adjoint Perron eigenmatrix, then primal-square identity forces auxiliary decay if primal decays, contradiction. q=1 reduces to ordinary gradient descent after finite transients. Direct symbolic determinant, Lyapunov, and sampled spectral tests corroborate, not replace proof.
 
-The motivating EControl article [arXiv:2311.05645](https://arxiv.org/abs/2311.05645) gives the algorithm and illustrates failure at full feedback in a different multidimensional Top-1 setting; it does not state the exact random-erasure cutoff or step-size formula. [EF21](https://arxiv.org/abs/2106.05203) has a different memory scheme. The subsequent [arXiv:2605.31594](https://arxiv.org/abs/2605.31594) gives broad and empirically optimized feedback conclusions, but not the corresponding three-state Bernoulli moment polynomial. A prior scalar Bernoulli-error-feedback result bounds a different geometric-delay recurrence by \(2q/(2-q)\); it does not logically cover a model with no stable positive step for \(q\le2/3\). The aliases and stronger-coverage searches returned no demonstrably dominating claim. Priority is nevertheless qualified because abstract-level access to the prior technical record and undiscovered compressed-gradient literature do not constitute an exhaustive novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The exact hard reliability threshold for *any* positive step size is algorithmically diagnostic: the motivating EControl study emphasizes controlling error feedback but does not quantify the all-step impossibility under independent erasures. Even after gradient-consistent initialization, below the critical reliability the primal mean square cannot converge. The explicit boundary identifies when smaller positive steps help and when they provably cannot; it is therefore more than a reparameterization of existing sufficient convergence rates. The conclusion is deliberately limited to scalar maximal feedback and should not be read as an indictment of safely regulated EControl.
+Gao–Islamov–Stich introduced the precise algorithm and note difficulties with full feedback for different Top-1 examples. Their regulated-eta convergence results do not imply the necessary-and-sufficient eta=1 Bernoulli q and gamma curve. Classical Bernoulli error-feedback has a different two-state delay law and allows small steps for every q>0, and EF21 employs another memory. The model-specific exact three-state phase transition appears distinct, with residual specialized-priority risk.
 
-## Closest literature and limits
+## value
 
-Closest inspected sources: Gao–Islamov–Stich (2023), Algorithm 2 and Appendix C; Richtárik–Sokolov–Fatkhullin (2021), EF21 update and guarantees; Thomsen–Taylor–Dieuleveut (2026), EControl tuning discussion. A published scientific note on classical Bernoulli error feedback is also compared by implication rather than title alone, but only its searchable abstract could be accessed. Other specialized stability results might contain equivalent calculations. The evidence is self-review, not independent expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp reliability threshold q=2/3 below which arbitrarily small positive steps provably fail is a meaningful algorithmic obstruction, not a routine rate improvement. The exact optimal stability region clarifies when maximal feedback requires qualitative regulation, while remaining restricted to this natural scalar test model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

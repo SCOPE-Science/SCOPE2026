@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:46:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The algorithm update under B=0 and B=1 gives A0=[[1,0,-gamma],[1,1,-1],[0,0,1]], A1=[[1-gamma,-gamma,0],[0,0,0],[1,1,0]]. On symmetric second moments the 6x6 map satisfies det(I-M)=gamma*q^2*((q-1)*gamma^2+(7q-8)*gamma+6q-4), checked independently by symbolic algebra. For q>2/3 the displayed positive-definite P solves internal Lyapunov equation at gamma=0; the unique slow moment eigenvalue has derivative -2; PSD cone continuity and positive eigenvalue prevent a hidden crossing before gamma_*(q). The negative determinant outside the root forces real spectral eigenvalue >1. For 0<q<1, A0 has a single length-three unipotent Jordan chain and A1 breaks both proper invariant subspaces, ensuring positive-definite adjoint Perron eigenmatrix, then primal-square identity forces auxiliary decay if primal decays, contradiction. q=1 reduces to ordinary gradient descent after finite transients. Direct symbolic determinant, Lyapunov, and sampled spectral tests corroborate, not replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General EControl convergence with controlled eta and EF21 rates",
+          "Gao et al. 2023; Thomsen et al. 2026"
+        ],
+        "reasoning": "Sufficient bounds for regulated feedback or different algorithms do not prove a sharp if-and-only-if transition at eta=1 for independent Bernoulli erasures.",
+        "searches": [
+          "EControl maximal-feedback Bernoulli dropout exact mean square stability scalar gradient q>2/3 threshold",
+          "Gao et al. 2023; Thomsen et al. 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2311.05645 Algorithm 2, Appendix C",
+        "https://arxiv.org/abs/2605.31594 Model and feedback tuning sections",
+        "Resultary semantic query: EControl maximal-feedback Bernoulli dropout exact mean square stability scalar gradient q>2/3 threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Necessary q>2/3 no-positive-step obstruction for the three-state recursion",
+          "Gao et al. 2023 Appendix C; Resultary Bernoulli EF record"
+        ],
+        "reasoning": "Prior instability examples at eta=1 do not imply all q<=2/3 and every positive step are unstable for every nonzero initial state; exact PSD moment analysis is new part.",
+        "searches": [
+          "EControl maximal-feedback Bernoulli dropout exact mean square stability scalar gradient q>2/3 threshold",
+          "Gao et al. 2023 Appendix C; Resultary Bernoulli EF record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernoulli erasure error-feedback stability and maximum-feedback EControl",
+          "Gao et al. 2023 and Resultary record 2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+        ],
+        "reasoning": "Classic EF uses a different stored update/delay recurrence; its step ceiling 2q/(2-q) cannot dominate an EControl model with three states.",
+        "searches": [
+          "EControl maximal-feedback Bernoulli dropout exact mean square stability scalar gradient q>2/3 threshold",
+          "Gao et al. 2023 and Resultary record 2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact q and gamma mean-square stability phase diagrams for scalar compressed algorithms",
+          "Resultary IDs 2026/10/4/SCOPE-exact-worker-count-mean-square-stability-frontier-for-scalar-ef2--345138951ae0 and ...--db9fbbc3513e"
+        ],
+        "reasoning": "Published exact tables concern EF21 and classical EF, not the present eta=1 EControl moment polynomial; numerical coincidence of 2/3 is not identical parameter/algorithm.",
+        "searches": [
+          "EControl maximal-feedback Bernoulli dropout exact mean square stability scalar gradient q>2/3 threshold",
+          "Resultary IDs 2026/10/4/SCOPE-exact-worker-count-mean-square-stability-frontier-for-scalar-ef2--345138951ae0 and ...--db9fbbc3513e"
+        ]
+      },
+      "rationale": "Gao–Islamov–Stich introduced the precise algorithm and note difficulties with full feedback for different Top-1 examples. Their regulated-eta convergence results do not imply the necessary-and-sufficient eta=1 Bernoulli q and gamma curve. Classical Bernoulli error-feedback has a different two-state delay law and allows small steps for every q>0, and EF21 employs another memory. The model-specific exact three-state phase transition appears distinct, with residual specialized-priority risk.",
+      "residual_risks": [
+        "The source EControl algorithm and the use of positive-map Perron theory are known, not claimed new.",
+        "Specialized unpublished compressor stability results could imply or duplicate the exact scalar frontier.",
+        "Only independent erasures, eta=1 and deterministic scalar quadratic; no claims for general stochastic objectives or almost-sure divergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original algorithm and controlled-feedback bounds; not the exact eta=1 independent-erasure mean-square frontier",
+          "evidence": [
+            "Algorithm 2, Appendix C"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.05645",
+          "material_read": "Full primary preprint main algorithm and Appendix C instability example",
+          "method": "arXiv/PDF primary full text and equation/algorithm tables",
+          "title": "Gao, Islamov and Stich, EControl: Fast Distributed Optimization with Compression and Error Control",
+          "trigger": "Identical three-state algorithm and eta parameter"
+        },
+        {
+          "assessment": "Describes general rates and tuning; does not provide this Bernoulli eta=1 six-moment determinant in inspected material",
+          "evidence": [
+            "Model and feedback tuning sections"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31594",
+          "material_read": "Accessible article discussion of EF21, classical EF and feedback tuning, model assumptions",
+          "method": "lawful open conference article/abstract",
+          "title": "Thomsen, Taylor and Dieuleveut, A Tight Theory of Error Feedback Algorithms in Distributed Optimization",
+          "trigger": "Potentially dominating general error-feedback analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp reliability threshold q=2/3 below which arbitrarily small positive steps provably fail is a meaningful algorithmic obstruction, not a routine rate improvement. The exact optimal stability region clarifies when maximal feedback requires qualitative regulation, while remaining restricted to this natural scalar test model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2311.05645 Algorithm 2, Appendix C",
+    "https://arxiv.org/abs/2605.31594 Model and feedback tuning sections",
+    "Resultary semantic query: EControl maximal-feedback Bernoulli dropout exact mean square stability scalar gradient q>2/3 threshold"
+  ],
+  "disposition": "passed",
+  "final_claim": "For scalar exact-gradient EControl at eta=1 on f(x)=x^2/2 with independent Bernoulli transmission q, uniform complete-state mean-square stability occurs iff q>2/3 and 0<gamma<2(6q-4)/(8-7q+sqrt((8-7q)^2+4(1-q)(6q-4))); for 0<q<1 outside the stable region every nonzero initial state has nonvanishing primal mean square.",
+  "limitations": [
+    "The source EControl algorithm and the use of positive-map Perron theory are known, not claimed new.",
+    "Specialized unpublished compressor stability results could imply or duplicate the exact scalar frontier.",
+    "Only independent erasures, eta=1 and deterministic scalar quadratic; no claims for general stochastic objectives or almost-sure divergence.",
+    "Git connector did not supply a complete tree listing; Git assignment tree SHA was preserved as returned but independent tree reconstruction is unavailable.",
+    "Original public-intended operational provenance was not sanitized; scientific PASS is not authorization to publish."
+  ],
+  "residual_risks": [
+    "The source EControl algorithm and the use of positive-map Perron theory are known, not claimed new.",
+    "Specialized unpublished compressor stability results could imply or duplicate the exact scalar frontier.",
+    "Only independent erasures, eta=1 and deterministic scalar quadratic; no claims for general stochastic objectives or almost-sure divergence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Original algorithm and controlled-feedback bounds; not the exact eta=1 independent-erasure mean-square frontier",
+      "evidence": [
+        "Algorithm 2, Appendix C"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2311.05645",
+      "material_read": "Full primary preprint main algorithm and Appendix C instability example",
+      "method": "arXiv/PDF primary full text and equation/algorithm tables",
+      "title": "Gao, Islamov and Stich, EControl: Fast Distributed Optimization with Compression and Error Control",
+      "trigger": "Identical three-state algorithm and eta parameter"
+    },
+    {
+      "assessment": "Describes general rates and tuning; does not provide this Bernoulli eta=1 six-moment determinant in inspected material",
+      "evidence": [
+        "Model and feedback tuning sections"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2605.31594",
+      "material_read": "Accessible article discussion of EF21, classical EF and feedback tuning, model assumptions",
+      "method": "lawful open conference article/abstract",
+      "title": "Thomsen, Taylor and Dieuleveut, A Tight Theory of Error Feedback Algorithms in Distributed Optimization",
+      "trigger": "Potentially dominating general error-feedback analysis"
+    }
+  ]
+}
