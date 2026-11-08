@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The included `proof_check.py` is standalone apart from dependencies listed in `requirements.txt`. Execute `python proof_check.py` in a directory containing both files. Actual check output is embedded in `CHECKS.txt`.
+## correctness
 
-The verifier substitutes the proposed full-size integrated amplitudes into the eight reduced equations and evaluates the lifetime and optimizing derivative identities exactly using SymPy: **11 exact checks passed**. It separately constructs the full \(N^2\)-dimensional Markovian Lindblad matrix for nine bipartition sizes, three positive rate triples, and four initial mixture weights, finding **108 passing linear-system comparisons** (maximum relative discrepancy \(1.35\times10^{-14}\); maximal residual \(9.22\times10^{-15}\)). It additionally brackets the rate optimum and checks strict monotonicity numerically in **30 passing trials**.
+PASS
 
-The all-size claims rest on the written Hilbert–Schmidt dissipation, exact integrated-entry equations, and elementary calculus, not on finite numerical samples. The checker does not verify nonuniform dephasing, onsite disorder, multiple sinks, or interacting many-body systems. Independent scientific validation remains unperformed.
+For the Lindbladian defined with offdiagonal rate gamma and a one-site absorber population loss kappa, Hilbert–Schmidt dissipation and graph connectivity exclude imaginary-axis eigenoperators, giving exponential absorption. Taking integrated equations of eight invariant permutation-symmetric real density amplitudes recovers the all-size rational mean T. Positive coefficients A,B,C and direct derivatives give unique fixed-kappa gamma optimum, its strict decrease in kappa, asymptotic endpoints, and positive-definite joint Hessian plus coercivity. Boundary p=1 yields T=N/kappa without unique gamma. Independently constructed full N^2 Liouvillian and directly solved 60 cases across part sizes/rates/mixtures with errors below 1e-8. Finite checks corroborate but do not certify the general algebra.
+
+## originality
+
+PASS
+
+Prior complete-graph open-system transport, ordered-chain dephasing, and coherent K_mn search have related methods but different edge structures or dynamics. None of the actually inspected statements implies the all-size K_mn integrated Liouvillian formula and strictly decreasing optimal gamma. Best-knowledge PASS subject to possible broader Haken–Strobl identities.
+
+## value
+
+PASS
+
+A complete bipartite graph is a natural minimally noncomplete symmetric transport network, and tuning dephasing versus local capture is an established physical optimization objective. The exact lifetime, monotone optimizer dependence on kappa, and strict joint convexity are potentially useful all-size benchmark/design quantities; results do not extend to disorder or arbitrary localized preparations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
