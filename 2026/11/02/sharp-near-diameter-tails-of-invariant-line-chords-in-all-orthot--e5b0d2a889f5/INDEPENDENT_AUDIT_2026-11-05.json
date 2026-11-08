@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:47:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md exact exceedance and local simplex integral",
+        "Clement arXiv:1312.5292 discusses 3D chord measure normalization"
+      ],
+      "rationale": "PASS: For fixed d>=4, orthotope K=Π[-a_i,a_i] and motion-invariant affine-line measure, chord L>ell exactly corresponds (up to zero-measure boundaries) to projection of K∩(K-ell u) to u^perp. For b_i=2a_i-ell|u_i|>0, Cauchy projection formula gives F_ell(u)=Σ|u_i|Π_{j≠i} b_j. Normalize by Z=2^(d-1)(Πa_i)(Σa_i^-1) Γ(d/2)/(sqrt(pi)Γ((d+1)/2)). For ell=2A-ε, only 2^d body-diagonal directions contribute; tangent-coordinate perturbation u=(q+εv)/sqrt(1+ε²||v||²), v·q=0, has angular volume ε^(d-1), and all overlap widths scale ε, producing ε^(2d-2). After substituting w_i=a_i/(2A²)-v_i with Σa_iw_i=1/2, Dirichlet simplex integral yields C_d=2^(1-d)A^(d+1)Γ((d+1)/2)/(π^((d-1)/2)(2d-2)!(Πa_i)^3Σa_i^-1). Fixed diameter A: maximize (Πa_i)^2 e_{d-1}(a) by AM-GM/Maclaurin/Cauchy; only equal a_i saturate, so cubes uniquely minimize leading coefficient. d=4 unit cube C=1/(960π). Independent finite analytic constant/inequality checks passed 16 tests; asymptotic is proved by localization/dominated convergence, not Monte Carlo.",
+      "residual_risks": [
+        "The claimed limit is for each fixed d and each fixed strictly positive orthotope; no uniform-in-d or degenerate-thin-box estimate is proved.",
+        "Direction measure is weighted by projected area in the intersecting-line ensemble, not uniform conditional direction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ren develops general random chord distribution and containment functions; primary full text could not be obtained."
+        ],
+        "reasoning": "The general machinery could imply the sharp endpoint formula after nontrivial orthotope asymptotics. Accessible abstract alone cannot exclude that coverage, so priority remains qualified rather than declared conclusively noncovering.",
+        "searches": [
+          "Resultary query: motion invariant random chords hyperrectangle near diameter tail exponent 2d-2 cube extremal",
+          "Ren 2014 DOI:10.1016/j.aam.2014.05.003"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.5292",
+        "arXiv:1204.2707",
+        "DOI:10.2307/3213189",
+        "Gille 1988 parallelepiped bibliographic record",
+        "DOI:10.1016/j.aam.2014.05.003 abstract",
+        "Resultary semantic published findings query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier planar polygon and rectangular 3D box length laws differ dimensionally. Coleman is described as box with arbitrary dimensions (side lengths), not necessarily arbitrary ambient Euclidean dimension."
+        ],
+        "reasoning": "A 2D/3D full distribution does not imply the all-d>=4 ε^(2d-2) leading coefficient; Ren general dimensional containment theory remains an exact comparison gap with explicit risk, not ignored.",
+        "searches": [
+          "Resultary query: motion invariant random chords hyperrectangle near diameter tail exponent 2d-2 cube extremal",
+          "Clement arXiv:1312.5292; Bäsel arXiv:1204.2707"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Motion-invariant chord tails equal spherical integrals of projected overlaps of K∩(K-ell u); it is not the central-chord or random-point-pair chord law."
+        ],
+        "reasoning": "Containment-function formulations may encode the same probability through transforms but no located high-dimensional endpoint constant and cube rigidity is directly stated in inspected available texts.",
+        "searches": [
+          "Resultary query: motion invariant random chords hyperrectangle near diameter tail exponent 2d-2 cube extremal",
+          "Clement arXiv:1312.5292; Ren DOI:10.1016/j.aam.2014.05.003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical exact box-chord distributions are materially centered on planar/three-dimensional geometries. Clement discusses random trajectories through a box in 3D."
+        ],
+        "reasoning": "No exact d>=4 near-diameter coefficient or fixed-diagonal cube-extremizer table identified in those inspected sources; an unsuccessful search is not a novelty proof.",
+        "searches": [
+          "Resultary query: motion invariant random chords hyperrectangle near diameter tail exponent 2d-2 cube extremal",
+          "Coleman 1981; Gille 1988; Clement 2013"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.",
+      "residual_risks": [
+        "Ren 2014 full text inaccessible (authorized institutional VPN disconnected); plausible general containment theorem may imply special case.",
+        "Coleman 1981 and Gille 1988 original full texts not obtained; low-dimension formulas checked only through accessible references.",
+        "Extremal tail coefficient is under fixed diameter and invariant line measure; other chord sampling schemes not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE_3D_PREDECESSOR",
+          "evidence": "Box here is three-dimensional; cited arbitrary dimensions are width/height/depth parameters; no d>=4 tail theorem found in inspected text.",
+          "identifier_or_url": "arXiv:1312.5292",
+          "material_read": "Full primary PDF introduction, formula derivation and distributions for rectangular 3D boxes, including Coleman citation",
+          "method": "PDF full text and relevant page screenshots",
+          "title": "Joint probability density functions of random trajectories through a box",
+          "trigger": "Same invariant random line/box object"
+        },
+        {
+          "assessment": "PLANAR_NOT_HIGH_DIM",
+          "evidence": "Planar polygon chord laws not the d>=4 near-diameter orthotope endpoint.",
+          "identifier_or_url": "arXiv:1204.2707",
+          "material_read": "Full primary planar-polygon PDF including setup and distributions",
+          "method": "PDF text and relevant screenshot",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Classical exact chord distribution comparator"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Institutional retrieval returned vpn_disconnected, job 757e3bd25f6d8468396ab0656c5bee97; no complete exclusion or invented inspection.",
+          "identifier_or_url": "DOI:10.1016/j.aam.2014.05.003",
+          "material_read": "Abstract and indexed bibliographic text only; full source unavailable",
+          "method": "Open-access searches followed by authorized Oxford retrieval",
+          "title": "Random chord distributions and containment functions",
+          "trigger": "Strong possible general-dimensional equivalence"
+        },
+        {
+          "assessment": "LIMITED_3D_HISTORICAL",
+          "evidence": "Three-dimensional rectangle/box formulas may imply partial low-dimensional limits, not verified d>=4 coefficient.",
+          "identifier_or_url": "DOI:10.2307/3213189",
+          "material_read": "Abstract/bibliography and Clement discussion; original full paper not obtained",
+          "method": "secondary quotation with bibliographic abstract",
+          "title": "Intercept lengths of random probes through boxes",
+          "trigger": "Possible same object classical distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Clement arXiv:1312.5292",
+        "Bäsel arXiv:1204.2707",
+        "Coleman DOI:10.2307/3213189"
+      ],
+      "rationale": "PASS: Invariant-line sampling of convex bodies is a classical integral geometry observable. The exact d>=4 endpoint exponent/coefficient and unique cube minimizer solve a natural high-dimensional rare-long-chord asymptotic with dimension-specific normalization, not a trivial 2D/3D table recomputation.",
+      "residual_risks": [
+        "Ren 2014 broad containment-function article remains an unresolved priority risk, but inaccessible full text alone is not reason to reject best-of-knowledge originality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific correctness is based on the reconstructed mathematical proof, not finite regression counts.",
+    "Originality is a qualified best-of-knowledge assessment, not an exhaustive priority certification.",
+    "No public file updates issued."
+  ],
+  "schema_version": 1
+}

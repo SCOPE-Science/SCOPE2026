@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The invariant-line measure and conditional normalization are explicit. The exact exceedance integral correctly zeroes contributions when any coordinate overlap is empty. Localization near all body diagonals, the spherical chart Jacobian, a compact Dirichlet simplex limit, and the resulting gamma-function constants reconstruct the asymptotic without relying on finite experiments. The rigid minimizer follows from AM–GM, Maclaurin and Cauchy–Schwarz, with equality only for equal half-side lengths. Numerical quadrature and randomized low-discrepancy checks independently test, but do not prove, the asymptotics.
+## correctness
 
-## Originality — PASS, with a historical access risk
-The theorem is restricted to dimensions at least four to avoid presenting classical 2D/3D chord distributions as new. Clement, *Joint probability density functions of random trajectories through a box* (arXiv:1312.5292), and Bäsel, *Random chords and point distances in regular polygons* (arXiv:1204.2707), were materially inspected. Coleman (1981), Gille (1988) and Ren (2014) are pertinent, but their full original texts were not accessible. On the material actually read, none supplies an explicit dimension-at-least-four endpoint coefficient or the cube-rigidity inequality. Because an inaccessible broad chord result could imply the claimed asymptotic, historical-priority uncertainty remains, and originality requires external corroboration.
+PASS
 
-## Mathematical value — PASS
-The near-diameter regime has a natural geometric motivation and a nontrivial sharp constant; its \(2d-2\) scaling reflects a simultaneous angular and chord-offset collapse. The fixed-diameter cube extremizer yields a rigid shape comparison with meaningful geometric content, not an arbitrary case or a merely numerical table.
+PASS: For fixed d>=4, orthotope K=Π[-a_i,a_i] and motion-invariant affine-line measure, chord L>ell exactly corresponds (up to zero-measure boundaries) to projection of K∩(K-ell u) to u^perp. For b_i=2a_i-ell|u_i|>0, Cauchy projection formula gives F_ell(u)=Σ|u_i|Π_{j≠i} b_j. Normalize by Z=2^(d-1)(Πa_i)(Σa_i^-1) Γ(d/2)/(sqrt(pi)Γ((d+1)/2)). For ell=2A-ε, only 2^d body-diagonal directions contribute; tangent-coordinate perturbation u=(q+εv)/sqrt(1+ε²||v||²), v·q=0, has angular volume ε^(d-1), and all overlap widths scale ε, producing ε^(2d-2). After substituting w_i=a_i/(2A²)-v_i with Σa_iw_i=1/2, Dirichlet simplex integral yields C_d=2^(1-d)A^(d+1)Γ((d+1)/2)/(π^((d-1)/2)(2d-2)!(Πa_i)^3Σa_i^-1). Fixed diameter A: maximize (Πa_i)^2 e_{d-1}(a) by AM-GM/Maclaurin/Cauchy; only equal a_i saturate, so cubes uniquely minimize leading coefficient. d=4 unit cube C=1/(960π). Independent finite analytic constant/inequality checks passed 16 tests; asymptotic is proved by localization/dominated convergence, not Monte Carlo.
 
-## Scope and source limitations
-These are fixed-dimension results for invariant random affine lines meeting a specified orthotope. Full chord distributions, other line-sampling conventions and dimension-uniform error bounds are not established. Coleman, Gille and Ren were only partially accessible. Separate independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.
+
+## value
+
+PASS
+
+PASS: Invariant-line sampling of convex bodies is a classical integral geometry observable. The exact d>=4 endpoint exponent/coefficient and unique cube minimizer solve a natural high-dimensional rare-long-chord asymptotic with dimension-specific normalization, not a trivial 2D/3D table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
