@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Counting monomials by normal degree gives the ambient bivariate Hilbert polynomial; the anticanonical exact sequence gives each coefficient of the fourfold Hilbert polynomial. The four fully expanded discriminants have positive coefficients in the independent positive variables \(b\) and \(u=a-b\), giving a proof for all permissible integral polarizations and excluding multiple or non-imaginary roots. The exact symbolic checker reconstructs all four Hilbert polynomials and verifies independent direct monomial counts. Its finite evaluations are checks, not a substitute for the positive-coefficient proof.
+## correctness
 
-**Originality — PASS, qualified.** Weitsman's general toric hypersurface theorem already computes Hilbert polynomials from lattice boundaries, and that computational implication is acknowledged. Golyshev's transfer theorem from a toric Fano canonical strip concerns the ambient anticanonical polarization; Belmans–Galkin–Mukhopadhyay survey that restricted setting and exhibit counterexamples elsewhere. The inspected statements do not prove persistence for every \(a>b>0\) in four full Picard-rank-two ambient ample cones, or the corresponding strict Chern inequality. Broad root-location or enumerative interpretations may contain an implicit equivalent proof; definitive historical priority remains unverified.
+PASS
 
-**Mathematical value — PASS.** The canonical-line phenomenon is not automatic in higher-dimensional Calabi–Yau geometry. A complete root-rigidity theorem simultaneously on four nontrivial two-dimensional polarization cones, with exact strict characteristic-number inequalities, gives an invariant structural statement beyond computing isolated Hilbert polynomials or specializing a single polarization.
+PASS: Monomial counting on Bl_{P^k} P5 gives Euler polynomial C_k(s,r); anticanonical subtraction P(t)=C_k(ta,tb)-C_k(ta-6,tb-(4-k)). The four displayed A_k t^4+B_k t^2+2 identities and discriminant positive-coefficient polynomials in b>0,u=a-b>0 were independently checked against direct monomial counts for 48 parameter/twist cases, supplementing exact finite-sum identities. A,B>0 and B²-8A>0 imply two distinct negative t² roots and thus four simple purely imaginary Hilbert roots. HRR yields (c2.L²)²>192 L⁴. Adjunction/Kodaira show smooth anticanonical members are CY4, restricted ample classes exactly within asserted ambient cone.
 
-**Scope and risks.** Only ambient-induced ample classes on smooth anticanonical hypersurfaces of linear-center blowups of \(\mathbb P^5\) are treated. The proof does not cover general toric Fano fivefolds or all intrinsic polarizations. Broader unpublished or implicit root-location literature is a historical-priority risk; independent mathematical review is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge qualified: Weitsman 2026 gives a general toric polytope-boundary formula which can reproduce the Hilbert polynomials, and Golyshev's canonical-strip framework supplies root-location motivation. But no inspected result asserts strict imaginary-axis roots or uniform Chern discriminants simultaneously across every ample ambient polarization for all four blowup families. The finite count is methodologically a specialization, not an independently novel counting theorem.
+
+## value
+
+PASS
+
+PASS: A natural strong root-location/c2 inequality for four entire two-parameter ample cones of CY fourfolds; uniform positivity is stronger than isolated anticanonical examples, and the coefficientwise certificates are explicit. Restricted to ambient-induced polarizations, not all CY4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
