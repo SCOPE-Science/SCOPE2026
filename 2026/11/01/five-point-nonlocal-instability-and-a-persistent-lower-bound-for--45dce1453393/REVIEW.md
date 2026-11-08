@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof fixes the Euclidean fitting metric and the coordinate maximum norm separately. All active sets are feasible since the second-difference matrix has full row rank; strict KKT multipliers provide actual open cells. Hence the global two-input Lipschitz constant equals the maximum induced norm of finitely many orthogonal face projectors. Exact five-site row-sum enumeration gives the unique separated-curvature maximum \(11/7\), with an explicit pair of inputs and positive dual multipliers. The embedding and the alternating tridiagonal-Green limit establish monotonicity and the asymptotic lower bound for all sizes. The embedded checker completed 420 rational assertions. The full large-size constant is not claimed.
+## correctness
 
-## Originality: PASS, with risks
-Meyer (2008) supplies a facewise cone-projection methodology but not the exact five-site maximum-norm stability classification or alternating-curvature bound. Chen–Wellner (2014) concerns convex least-squares distributional rates rather than a deterministic two-input Lipschitz ratio. Yang–Barber (2017) concerns first-difference isotonic projection, whose norm behavior does not transfer by an isometric coordinate change. Actual primary-literature and published research-record searches found no numerical or implication-equivalent result; missing older or unindexed specialty calculations remain a residual priority risk. The full text material inspected and named comparisons are recorded in AUDIT.json.
+PASS
 
-## Mathematical value: PASS
-This is a motivated minimum-size structural transition: the first opportunity for two separated zero-curvature constraints occurs with five observations and raises worst-case stability above every adjacent or globally affine active face. Its unique mid-site hotspot yields a concrete robustness obstruction; an explicit infinite family shows this is not a disappearing small-sample artifact. The exact cutoff and quantitative lower bound are useful for shape-constrained least-squares perturbation analysis, while an exact all-size classification remains open.
+The second-difference rows are independent, every active constraint subset has a strict KKT realization since D is surjective, and on its full-dimensional cell the Euclidean projector Jacobian equals H_A=I−B_Aᵀ(B_AB_Aᵀ)⁻¹B_A. Piecewise-linearity implies the global ℓ∞ two-input norm is max face absolute row sum. Independently enumerated all subsets with exact SymPy rational arithmetic: n=2 1, n=3 4/3, n=4 7/5, n=5 11/7 uniquely at active rows 1 and 3 and output center; n=6 91/57. The 5-site KKT witness is explicit. Block embedding proves monotonicity, and Green matrix inverse of tridiagonal diag 6/offdiag 1 for alternating active rows yields a limiting central row norm 1+1/√2; independently computed m=2,3,5,10,50 convergence to 1.7071067812. This is a constructive liminf, not a sharp unknown limit.
 
-## Limitations
-Equal spacings, unit least-squares weights, real signals, and second-difference convexity are essential to the statements. The asymptotic lower bound is not asserted sharp. Independent review is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meyer 2008 supplies general cone-projection active-face theory, and Yang–Barber's isotonic regression contraction pertains to first-order monotonicity cone. The convex sequence cone and its Euclidean objective under ℓ∞ perturbation do not preserve those isotonic nonexpansivity conclusions; exact 5-site extremizer and limiting lower obstruction are new relative to inspected statements.
+
+## value
+
+PASS
+
+Pinpoints the first nonlocal separated-curvature amplification beyond adjacent constraints and shows it persists and grows with sample size. The exact natural small-instance instability and explicit asymptotic obstruction explain deterministic robustness limits of convex regression rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

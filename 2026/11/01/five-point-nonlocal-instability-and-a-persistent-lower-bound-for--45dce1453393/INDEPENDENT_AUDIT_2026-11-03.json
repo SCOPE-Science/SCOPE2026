@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:57:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob 6a2947b596f8f6368b4a5dbaf5ea2474298dd9e7",
+        "Immutable verify_convex5.py blob 6440cf340ab91e1b59d30fd0e3df6b437afe7170",
+        "Independent exhaustive SymPy face enumeration through n=6",
+        "Meyer 2008 arXiv:0811.1705 full relevant section",
+        "Yang–Barber 2019 arXiv:1706.01852 Theorem 1",
+        "Resultary semantic query"
+      ],
+      "rationale": "The second-difference rows are independent, every active constraint subset has a strict KKT realization since D is surjective, and on its full-dimensional cell the Euclidean projector Jacobian equals H_A=I−B_Aᵀ(B_AB_Aᵀ)⁻¹B_A. Piecewise-linearity implies the global ℓ∞ two-input norm is max face absolute row sum. Independently enumerated all subsets with exact SymPy rational arithmetic: n=2 1, n=3 4/3, n=4 7/5, n=5 11/7 uniquely at active rows 1 and 3 and output center; n=6 91/57. The 5-site KKT witness is explicit. Block embedding proves monotonicity, and Green matrix inverse of tridiagonal diag 6/offdiag 1 for alternating active rows yields a limiting central row norm 1+1/√2; independently computed m=2,3,5,10,50 convergence to 1.7071067812. This is a constructive liminf, not a sharp unknown limit.",
+      "residual_risks": [
+        "Unindexed exact convex-regression sensitivity literature could contain the 5-point constant",
+        "Larger-n exact limit is not established and is not claimed"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer treats cones of spline constraints and least-squares projection",
+          "Chen–Wellner focus asymptotic estimation rates",
+          "Resultary cross-polytope concerns a different cone"
+        ],
+        "reasoning": "General facewise projection is stronger in method but does not supply these exact maxima, unique active set and alternating Green-kernel lower bound. Asymptotic estimator rates do not imply deterministic two-input global supnorm sensitivity.",
+        "searches": [
+          "arXiv:0811.1705 Meyer sections 1–2",
+          "arXiv:1411.4626 Chen Wellner",
+          "Resultary cross-polytope projection Lipschitz search"
+        ]
+      },
+      "checked_sources": [
+        "Immutable RESULT.md blob 6a2947b596f8f6368b4a5dbaf5ea2474298dd9e7",
+        "Immutable verify_convex5.py blob 6440cf340ab91e1b59d30fd0e3df6b437afe7170",
+        "Independent exhaustive SymPy face enumeration through n=6",
+        "Meyer 2008 arXiv:0811.1705 full relevant section",
+        "Yang–Barber 2019 arXiv:1706.01852 Theorem 1",
+        "Resultary semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Isotonic maxnorm nonexpansivity under first differences",
+          "General convex active-face formula",
+          "Convex estimator limit results"
+        ],
+        "reasoning": "Neither isotonic contractivity nor general KKT geometry implies separated-curvature row 11/7 or the infinite alternating lower bound; those require explicit Gram inversions and row sums.",
+        "searches": [
+          "Yang Barber 2019 Theorem 1",
+          "Meyer 2008 Proposition 1",
+          "Chen Wellner 2016 convex least squares"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer's cone facewise projector is a general technique",
+          "Yang–Barber study first-difference isotonic contraction"
+        ],
+        "reasoning": "An equivalence would require preserving both Euclidean fit geometry and ℓ∞ perturbations in a change to isotonic coordinates. Taking first differences is not an isometry for either. The local row-sum 11/7 is not obtained merely by relabeling the isotonic theorem.",
+        "searches": [
+          "Meyer 2008 arXiv:0811.1705",
+          "Yang Barber 2017 arXiv:1706.01852",
+          "Resultary convex regression sensitivity search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eight exactly enumerated faces in current proof",
+          "No matching facewise absolute row-sum table in inspected Meyer theory"
+        ],
+        "reasoning": "It is an exact small-face census, but not a known table recomputation on observed sources. Completeness comes from checking all 2³ active subsets, not a truncated enumeration.",
+        "searches": [
+          "Resultary convex regression five-point exact table query",
+          "Meyer 2008 original PDF"
+        ]
+      },
+      "rationale": "Meyer 2008 supplies general cone-projection active-face theory, and Yang–Barber's isotonic regression contraction pertains to first-order monotonicity cone. The convex sequence cone and its Euclidean objective under ℓ∞ perturbation do not preserve those isotonic nonexpansivity conclusions; exact 5-site extremizer and limiting lower obstruction are new relative to inspected statements.",
+      "residual_risks": [
+        "Unindexed exact convex-regression sensitivity literature could contain the 5-point constant",
+        "Larger-n exact limit is not established and is not claimed"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers projector method, not matching exact ℓ∞ 5-point table",
+          "evidence": "Meyer 2008 Ann Appl Stat 2 (2008)",
+          "identifier_or_url": "https://arxiv.org/abs/0811.1705",
+          "material_read": "Full accessible PDF section 2 and Proposition 1 on convex cone generators and projections",
+          "method": "Web PDF text plus page-0 screenshot",
+          "title": "Inference using shape-restricted regression splines",
+          "trigger": "Earlier cone least-squares framework"
+        },
+        {
+          "assessment": "Not same cone: first-difference order vs nonnegative second differences; nonisometric transformation",
+          "evidence": "Yang and Barber 2019 Electronic Journal of Statistics",
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852",
+          "material_read": "Full PDF introduction and Theorem 1 on isotonic projection contraction under norm conditions",
+          "method": "Web PDF text plus screenshot",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Possible stronger supnorm contraction"
+        },
+        {
+          "assessment": "Statistical rates not a verified direct coverage",
+          "evidence": "Chen and Wellner 2016",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4626",
+          "material_read": "Abstract/statement in publication metadata; no full-document exclusion claimed",
+          "method": "Web bibliographic search",
+          "title": "On convex least squares estimation when the truth is linear",
+          "trigger": "Statistical convex regression antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Immutable RESULT.md blob 6a2947b596f8f6368b4a5dbaf5ea2474298dd9e7",
+        "Immutable verify_convex5.py blob 6440cf340ab91e1b59d30fd0e3df6b437afe7170",
+        "Independent exhaustive SymPy face enumeration through n=6",
+        "Meyer 2008 arXiv:0811.1705 full relevant section",
+        "Yang–Barber 2019 arXiv:1706.01852 Theorem 1",
+        "Resultary semantic query"
+      ],
+      "rationale": "Pinpoints the first nonlocal separated-curvature amplification beyond adjacent constraints and shows it persists and grows with sample size. The exact natural small-instance instability and explicit asymptotic obstruction explain deterministic robustness limits of convex regression rather than an arbitrary parameter slice.",
+      "residual_risks": [
+        "Unindexed exact convex-regression sensitivity literature could contain the 5-point constant",
+        "Larger-n exact limit is not established and is not claimed"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed exact convex-regression sensitivity literature could contain the 5-point constant",
+    "Larger-n exact limit is not established and is not claimed",
+    "Scientific originality is best-of-knowledge; no external formal or expert certification claimed.",
+    "Immutable file blobs were inspected at exact assigned commit; source tree hash is assignment-provided, not independently recomputed from a complete Git tree listing."
+  ],
+  "schema_version": 1
+}
