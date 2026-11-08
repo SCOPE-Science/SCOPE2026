@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact ordered-pair deletion identity and tree path-splitting formulas reconstruct the requested epidemic expectation. The convexity/concavity of the logarithmic branch mass determines the best interior location. Coefficient signs and Descartes' bound establish that at most one hub-center crossing is possible, with existence equivalent to the explicit \(p=1\) component-size inequality. The supplied exact-rational checker reproduces the formulas; the general proof does not depend on numerical experiments.
+PASS
 
-## Originality — PASS, with documented residual risk
+For a tree, ordered connectivity pairs after removing v have sum W-Bv with p^{distance}. A leaf cannot beat its hub; spine pair counts yield 2g_jg_{L-j}-1. Log-concavity or convexity in j determines the best interior point; a one-sign-change coefficient list for D_{s,L}(p), Descartes rule, and D(1)=2m(L-m)-s(s-1) prove unique sharp transition. Independently enumerated all ordered paths for s=2..5,L=2..8 at three rational p, including the interior score and candidate optimality.
 
-The inspected 2011 network-partitioning source, 2013 message-passing paper, 2013 community immunization heuristics, and 2015 optimal-percolation paper do not state or imply the exact family-wide single-seed expected-outbreak optimizer as a demonstrated special case. Five targeted published-claim searches likewise found no equivalent. A broader theorem about vaccination centralities on trees could nonetheless cover this family; independent historical-priority assessment is outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The mathematical object is a natural two-community corridor graph and the invariant is the finite expected total infection count under a uniform seed and one perfect removal. The complete classification yields an exact structural hub-versus-corridor threshold, not a tiny numerical improvement or an arbitrary sample computation. General vaccine and epidemiological effectiveness is explicitly not asserted.
+Prior community vaccination, percolation and influential-node optimization provide the setting and heuristics. The claim here is a complete exact all-s,L,p optimizer for a precise symmetric finite tree and uniform single seed, not general optimal percolation. No dominating formula was found in the searches; specialist tree-centrality classifications could still cover it and primary full-text comparison remains limited.
 
-## Scientific limits and closest literature
+## value
 
-The closest papers concern network graph partitioning (Hadidjojo–Cheong 2011), intervention message passing (Altarelli et al. 2013), community vaccination heuristics (Gong et al. 2013), and giant-component optimal percolation (Morone–Makse 2015). The source inspection and residual risks are set out in AUDIT.json. The finite checker is not infinite-parameter certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical two-community tree, one-intervention expected outbreak minimization has an exact change of optimizer from population hubs to a connecting corridor. The precise cutoff and unique transition are natural graph-epidemic optimization facts, not claims of clinical efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

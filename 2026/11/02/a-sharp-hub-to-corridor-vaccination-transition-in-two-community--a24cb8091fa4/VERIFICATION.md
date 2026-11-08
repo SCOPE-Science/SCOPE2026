@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The public standalone script `checks/check.py` executes under Python 3 with SymPy and independently constructs every unique tree path for sampled integer corridor/community sizes. It tests the predicted ordered-pair path scores against exact rational arithmetic across all vertices, verifies the stated middle-versus-hub polynomial coefficients and \(p=1\) formula, and checks the unique \(s=3,L=4\) witness threshold. In the scientific review it printed `PASS 3564 independent ordered-path exact-rational tests, coefficient identities, and crossover witness` and the approximate threshold `0.916188398055051`.
+## correctness
 
-The script's finite parameter range is not an exhaustive proof. The arbitrary-size and full-transmissibility conclusion is established by exact score decomposition, curvature and coefficient-sign arguments in RESULT.md. The evidence assumes the symmetric tree, a single uniformly placed seed, identical independent edge transmissibilities and perfect pre-seed vertex deletion. Independent validation has not been performed.
+PASS
+
+For a tree, ordered connectivity pairs after removing v have sum W-Bv with p^{distance}. A leaf cannot beat its hub; spine pair counts yield 2g_jg_{L-j}-1. Log-concavity or convexity in j determines the best interior point; a one-sign-change coefficient list for D_{s,L}(p), Descartes rule, and D(1)=2m(L-m)-s(s-1) prove unique sharp transition. Independently enumerated all ordered paths for s=2..5,L=2..8 at three rational p, including the interior score and candidate optimality.
+
+## originality
+
+PASS
+
+Prior community vaccination, percolation and influential-node optimization provide the setting and heuristics. The claim here is a complete exact all-s,L,p optimizer for a precise symmetric finite tree and uniform single seed, not general optimal percolation. No dominating formula was found in the searches; specialist tree-centrality classifications could still cover it and primary full-text comparison remains limited.
+
+## value
+
+PASS
+
+For a canonical two-community tree, one-intervention expected outbreak minimization has an exact change of optimizer from population hubs to a connecting corridor. The precise cutoff and unique transition are natural graph-epidemic optimization facts, not claims of clinical efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
