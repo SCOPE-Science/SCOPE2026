@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The membership of the second-arrival branch is an exact two-colour Pólya urn with uniform terminal size. Conditional on its membership history, the two induced birth-ordered trees have independent uniform parents. The global size-k fringe count decomposes into counts in the two induced trees minus the complement-root indicator. A separately proved insertion recurrence gives mu_k(m), symmetry cancels its two conditioned means, and the remaining indicator produces (2k-n)/(2(n-1)). Exhaustive enumeration of all recursive trees through n=9 and rational recurrence checks through n=120 passed 14728 assertions. The finite checks corroborate rather than replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holmgren–Janson Theorems 1.13 and 1.15 give the all-shape/global-global covariance n times a parameter coefficient; their variables count every fringe subtree of a given shape/size.",
+        "Feng–Mahmoud–Panholzer DOI:10.1137/060653950 describes marginal global size-profile fluctuations and phase changes, not the second-arrival subtree size, in its accessible abstract and sections reproduced elsewhere.",
+        "A published root-degree/leaf covariance result relates the number of children at the root to the total number of size-one fringes; this is not a descendant-size covariance.",
+        "Bäumler–Briend–Jorritsma (arXiv:2606.24465, 2026) use a fringe-size splitting construction and tail estimates for early-vertex history inference; accessible primary excerpts concern negative association and concentration bounds, not the exact mixed birth-label-2/global-size-k covariance. Full original text could not be read."
+      ],
+      "reasoning": "The nearest stronger-seeming claims provide a mean formula and a whole-family of global/global covariances. None directly yields a label-resolved mixed covariance. In particular the matrix \\(\\operatorname{Cov}(Z_j,Z_k)\\) aggregates all pairs of fringe roots and cannot recover \\(\\operatorname{Cov}(S_2,Z_k)\\) absent birth-label-resolved information. The new exact conditional regression goes beyond the aggregate statements; an inaccessible earlier article remains a historical-priority risk, not affirmative coverage.",
+      "searches": [
+        "root subtree size and fringe subtree size counts random recursive trees joint moments",
+        "uniform attachment tree descendant cluster size negative covariance count fringe subtrees threshold 2k",
+        "Feng Mahmoud Panholzer phase changes subtree varieties random recursive 2007 2008",
+        "arXiv:1406.6883: inspect Theorems 1.13–1.16 and additive-functional scope",
+        "History estimation in random recursive trees fringe-tree splitting covariance 2026",
+        "Bäumler Briend Jorritsma 2026 arXiv 2606.24465 Lemma 2.11 fringe-tree size counts"
+      ]
+    },
+    "checked_sources": [
+      "Holmgren–Janson arXiv:1406.6883, original HTML full-text sections and Theorems 1.4 and 1.13–1.15",
+      "Seelbach Benkner–Wagner DOI 10.1007/s00453-022-01013-y, open-access HTML Section 2.2 Lemma 3",
+      "Feng–Mahmoud–Panholzer DOI 10.1137/060653950, publisher record, abstract and indexed introductory excerpts (not full text)",
+      "Published mathematical finding: Equal-share covariance of root degree and leaves in a random recursive tree",
+      "Published mathematical finding: Root attachments have an exact negative path-length profile in random recursive trees",
+      "Earlier published findings on direct-child/subtree-size covariance, age-indexed degree/leaf covariance, and the level-resolved leaf covariance profile",
+      "Bäumler–Briend–Jorritsma arXiv:2606.24465, indexed original-paper excerpts only (incomplete)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Holmgren–Janson Theorem 1.4 (1.2): \\(\\mathbb E Z_k=\\frac{n}{k(k+1)}\\) (k<n), which establishes only a marginal input used in the proof.",
+        "Holmgren–Janson Theorem 1.15 (1.21)–(1.23): \\(\\operatorname{Cov}(Z_k,Z_m)\\) for global fringe-size counts; the distinguished \\(S_2\\) statistic is absent.",
+        "The previous full triangular covariance \\(\\operatorname{Cov}(D_i,S_j)\\) for direct child counts and individual subtree sizes does not determine Z_k, an indicator of subtree size k, or mixed nonlinear expectation \\(\\mathbb E[S_2 Z_k]\\).",
+        "The new proof requires the independent conditioned induced-tree split and a complement-root subtraction absent from the displayed prior formulas."
+      ],
+      "reasoning": "Known means give \\(\\mathbb E Z_k\\) and \\(\\mathbb E S_2\\); known degree/subtree-size covariance is linear in direct-child counts, whereas Z_k is a nonlinear, all-vertex fringe-size indicator. The global/global second moments sum over all birth labels and do not identify the second label. Hence the exact S_2/Z_k regression and its sign change are not consequences of any inspected prior claim without a new disaggregation argument.",
+      "searches": [
+        "arXiv:1406.6883: Theorem 1.4, Theorem 1.15, labelled increasing tree remarks and Section 1.16",
+        "https://link.springer.com/article/10.1007/s00453-022-01013-y: Lemma 3 and neighboring sections",
+        "random recursive tree vertex 2 descendants fringe subtree size k covariance n 2k",
+        "Prior mathematical findings: direct-child degree vs birth-labelled subtree size, indexed degree vs leaf count, level profile vs leaf count, root preferential degree vs leaf count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holmgren and Janson, arXiv:1406.6883, Theorem 1.4 gives the global fringe-size mean; Theorem 1.15 concerns covariances of two global size-profile counts, not the size of a distinguished birth-label subtree.",
+        "Seelbach Benkner and Wagner, DOI:10.1007/s00453-022-01013-y, Section 2.2 Lemma 3 gives the general increasing-tree fringe-size mean but no birth-rank-specific conditional profile.",
+        "Actual published-finding corpus nearest hits concerned root degree and global leaves, root attachment and path length; neither variable equals the size of the birth-label-2 subtree."
+      ],
+      "reasoning": "An equivalent statistic would couple a fixed birth-rank subtree mass with the full fringe-size profile. A global count/count covariance cannot isolate a fixed vertex because recursive-tree labels have nonexchangeable ages. The identity follows here from conditioning on a two-colour branch split and deleting precisely the complement root. No matching equivalent identity was found in the inspected materials.",
+      "searches": [
+        "uniform random recursive trees covariance number fringe subtrees of size k with descendant subtree size of vertex 2 exact sign reversal",
+        "random recursive tree age of second vertex subtree size mixed moment with fringe-size profile",
+        "random recursive tree descendant of second vertex and number of fringe subtrees covariance",
+        "arXiv:1406.6883: inspect Theorems 1.4 and 1.15 and search for label 2 / descendants"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest relevant published titles were Equal-share covariance of root degree and leaves in a random recursive tree and Root attachments have an exact negative path-length profile in random recursive trees; neither includes the parameters \\((S_2,Z_k)\\).",
+        "The 2014 primary source supplies the mean \\(\\frac{n}{k(k+1)}\\) and global-global covariances, with no displayed table containing the claimed \\(\\frac{2k-n}{2(n-1)}\\) law."
+      ],
+      "reasoning": "The named source and claim searches did not locate this exact finite table or closed form. Negative search results alone do not certify priority; the structural comparison above supplies the substantive originality argument.",
+      "searches": [
+        "random recursive tree vertex 2 descendants fringe subtree size k covariance n 2k",
+        "recursive random tree Polya urn split at vertex two fringe count covariance",
+        "random recursive tree fringe subtree size joint with subtree vertex 2 conditional distribution",
+        "random recursive tree fringe subtree size k 1/(k(k+1)) Holmgren Janson formula 2014"
+      ]
+    },
+    "rationale": "Primary text materially examined: Holmgren–Janson 2014 Theorems 1.4, 1.13–1.15 and Benkner–Wagner 2022 Lemma 3 concern global fringe statistics; the 2008 earliest paper focuses on phase changes of the same global count, though its entire text was not obtained. Existing published related results concern root degree/leaf count and root attachments/path length, and accessible historical claims concern direct-child degrees vs subtree sizes or global leaf counts. None inspected states or implies the distinguished second-arrival subtree size versus all-size-k fringe-count covariance. This is an originality judgment, not proof of universal uniqueness; explicit residual risks follow.",
+    "residual_risks": [
+      "The complete 2008 Feng–Mahmoud–Panholzer text was not accessible for every appendix and proof; an implicit specialized identity is possible even though the stated object is global fringe-size counts.",
+      "Very general multivariate random increasing-tree frameworks might imply the result after additional disaggregation that was not found in the inspected sources.",
+      "Semantic search and a restricted literature sample cannot certify exhaustive historical uniqueness.",
+      "The 2026 Bäumler–Briend–Jorritsma paper has a similar fringe-size splitting construction; its available excerpts address bounds rather than the exact claimed covariance, but the full original text was inaccessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives means and covariance matrices for whole-tree fringe-count statistics and describes labelled increasing-tree variants. It does not state the mixed covariance of S_2, the size of a specific birth-labelled fringe tree, with Z_k.",
+        "evidence": [
+          "Theorem 1.4 (1.2): \\(\\mathbb E Z_k=\\frac{n}{k(k+1)}\\) for k<n",
+          "Theorem 1.15 (1.21)-(1.23): \\(\\operatorname{Cov}(Z_k,Z_m)\\) for global counts; no birth-labelled \\(S_2\\)",
+          "2014-06-26 original public arXiv date, primary MSC 60C05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+        "material_read": "Primary arXiv full-text HTML: introduction, exact mean Theorem 1.4, recursive-tree shape/size covariance Theorems 1.13–1.15, and additive-functional scope in Section 1; searched relevant label-specific and descendant terms",
+        "method": "Cross-read the statements and variables in the original primary text rather than relying on the abstract",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+        "trigger": "Same recursive-tree model, exact global fringe-size means and covariances, and possible general additive-functional coverage"
+      },
+      {
+        "assessment": "Lemma 3 includes the known global mean and variance bounds; its aim is the number of distinct fringe shapes, not the age-two distinguished-subtree/global-profile covariance.",
+        "evidence": [
+          "Section 2.2 Lemma 3 gives E Z_{n,k}=[(1+alpha)n-alpha]/[((1+alpha)k+1)((1+alpha)k-alpha)]",
+          "alpha=0 specializes to \\(\\frac{n}{k(k+1)}\\)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-022-01013-y",
+        "material_read": "Full open-access HTML article, especially Section 2.2 Families of Increasing Trees, Lemmas 3-4, and the sections on global subtree isomorphism-class counts; searched descendant, covariance, and joint",
+        "method": "Direct inspection of theorem statements and search of the article text",
+        "title": "Distinct Fringe Subtrees in Random Trees",
+        "trigger": "Independent later treatment with a general expectation formula for fringe-count variables"
+      },
+      {
+        "assessment": "Accessible text describes size-k global count phase changes and moment methods; absence of a birth-labelled \\(S_2\\) covariance cannot be conclusively inferred from partial coverage alone.",
+        "evidence": [
+          "DOI 10.1137/060653950; published online 2008-02-15",
+          "The 2014 primary article credits it with marginal X_{n,k} asymptotic phase results; full text incomplete"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060653950",
+        "material_read": "Publisher abstract, publication history and indexed author-uploaded introductory excerpts; 2014 primary treatment also identifies and distinguishes its 2008 results",
+        "method": "Original publisher record and searchable article excerpts, supplemented by direct citation/comparison in the 2014 primary text; full original article could not be read",
+        "title": "Phase Changes in Subtree Varieties in Random Recursive and Binary Search Trees",
+        "trigger": "Earlier work on exactly the global size-k fringe statistic and possible dominating multivariate results"
+      },
+      {
+        "assessment": "The displayed lemmas concern urn marginal/negative-association laws and bounds for size-band counts; the exact covariance with the global count at every size is not displayed. Full-text coverage remains a priority risk.",
+        "evidence": [
+          "arXiv:2606.24465; original preprint 2026-06",
+          "Lemma 2.11 is an upper-tail bound for counts of fringe sizes in a prescribed interval",
+          "Construction 2 describes a recursive uniform splitting of fringe sizes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.24465",
+        "material_read": "Publicly indexed original-paper excerpts containing Definition 2.2, Lemma 2.3, Construction 2, Lemma 2.11 and the abstract; original arXiv full text did not open",
+        "method": "Compared original-paper indexed formula snippets and stated lemma scopes against the finite mixed covariance; no claim of complete original-paper inspection",
+        "title": "History estimation in random recursive trees: Pointwise approach via iterated Jordan centralities",
+        "trigger": "Closely related early-vertex fringe sizes, two-colour Pólya coupling, and global size-band fringe counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a66b05b-6f64-46ad-937f-bc18a1e48a2c",
+  "value": {
+    "rationale": "The mixed dependence of early-branch mass and global fringe-size profile is a motivated structural statistic for nonexchangeable increasing trees. The exact all-size regression isolates a single root-boundary term and gives a complete positive/zero/negative sign phase classification at \\(n=2k\\). The object is a canonical whole profile, not an arbitrary numerical slice, and the result is not a textbook substitution or mere recomputation of the global marginal mean.",
+    "status": "PASS"
+  }
+}
