@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The orientation model is exactly the word language with no simultaneous 01 and 10 columns because all cycles of K_{2,b} are four-cycles. Every reachable uncommitted partial-query state is characterized by u, a, c; each possible edge query is accounted for in the well-founded rank recursion. Fixed-sign subspaces are independent products of ternary nested and binary coordinate types with rank equal to the number of free columns. Algebraic induction solves the complete recurrence as max(u+a,u+c,ceil((3u+a+c)/2)), giving ceil(3b/2) initially. The forest VC comparison is standard and separately justified. The standalone verifier enumerates actual orientation hypotheses and full adaptive ranks through b=7 and 6,560 partial states on b<=4, confirming boundary cases; computation is corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kozma and Moran, DOI:10.37236/3326, Lemma 12(ii) and Proposition 15(i), characterize VC-shattered acyclic-orientation edge supports as forests.",
+        "Cameron et al. arXiv:1412.3685, Theorem 2.1 and §3.2, count all complete-bipartite acyclic orientations.",
+        "Blagoev arXiv:1808.02787, §3, gives a recurrence for their number on multipartite graphs.",
+        "West, DOI:10.1016/0012-365X(94)00222-5, studies the achievable number of individually reversible edges, not adaptive learning rank."
+      ],
+      "reasoning": "A general forest VC theorem gives a lower bound Ldim >= b+1 but not the asserted ceil(3b/2), which exceeds b+1 for b>=3. Hypothesis counts give upper bounds only, and an edge-reversibility statistic is not a complete mistake-tree rank. These stronger-looking objects therefore do not imply the claim.",
+      "searches": [
+        "Exact Littlestone dimension of complete bipartite acyclic orientations edge directions",
+        "\"Littlestone\" \"acyclic orientations\" graph",
+        "Exact Littlestone dimension online mistake-tree rank of acyclic orientations of complete bipartite graph K_{3,n}, represented by lonesum 0-1 matrices and edge orientation queries"
+      ]
+    },
+    "checked_sources": [
+      "West (1995) DOI:10.1016/0012-365X(94)00222-5",
+      "Kozma and Moran (2013) DOI:10.37236/3326",
+      "Cameron et al. (2014) arXiv:1412.3685",
+      "Blagoev (2018) arXiv:1808.02787"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kozma and Moran (2013) prove VCdim(AO(K2,b))=b+1 by the graphic forest shattering criterion.",
+        "Cameron et al. (2014) prove |AO(K2,b)|=2*3^b-2^b and the forbidden-opposite-column representation.",
+        "Blagoev (2018) counts acyclic orientations by partitions and paths, without a Littlestone-rank computation.",
+        "The present independent mistake-tree computation gives ranks 2,3,5,6,8,9,11 for b=1,...,7; the proof derives the unrestricted rank via a three-parameter conditional recurrence."
+      ],
+      "reasoning": "The 2013 VC result cannot give the larger online rank. The 2014 exact count gives only the information-theoretic bound Ldim <= floor(log2(2*3^b-2^b)), which is already nonsharp at b=4. The 2018 cardinality recurrence does not encode adversarial query branches. No compared primary theorem subsumes or reduces to the proposed conditional rank equation.",
+      "searches": [
+        "The exact Littlestone dimension of lonesum binary matrices with exactly two rows and b columns is ceil(3b/2); no two columns may realize opposite mixed patterns 01 and 10; equivalently acyclic orientations of K_{2,b} under single-edge membership queries",
+        "Exact Littlestone dimension of complete bipartite acyclic orientations edge directions",
+        "Shattering VC and Littlestone dimensions of lonesum matrices forbidden opposite two by two permutation patterns",
+        "\"Littlestone\" \"acyclic orientations\" graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cameron et al. arXiv:1412.3685, §3.2, identify the forbidden 2x2 opposite pattern matrices with acyclic complete-bipartite orientations.",
+        "Blagoev arXiv:1808.02787, §2, represents acyclic complete multipartite orientations by alternating vertex blocks.",
+        "The targeted online-rank searches returned no equivalently stated result for two-row lonesum matrices or edge-direction mistake trees."
+      ],
+      "reasoning": "The same Boolean class can be described as edge-orientations, lonesum/Ferrers matrices, or words over the four two-bit column types that avoid coexistence of 01 and 10. Search covered these dual descriptions and the exact 3b/2 rank. The primary papers establish encodings and counts, not a decision-tree-depth formula. Search nonretrieval alone is not used as novelty proof.",
+      "searches": [
+        "The exact Littlestone dimension of lonesum binary matrices with exactly two rows and b columns is ceil(3b/2); no two columns may realize opposite mixed patterns 01 and 10; equivalently acyclic orientations of K_{2,b} under single-edge membership queries",
+        "Shattering VC and Littlestone dimensions of lonesum matrices forbidden opposite two by two permutation patterns",
+        "\"Littlestone\" \"Ferrers\" matrices",
+        "\"Littlestone dimension\" \"lonesum\" matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cameron et al. arXiv:1412.3685, Table 1 and §2.4, list numbers of acyclic orientations and prove 2*3^b-2^b for the two-row family.",
+        "Blagoev arXiv:1808.02787, Eq. (1), presents the poly-Bernoulli hypothesis count, not online ranks.",
+        "No exact Littlestone-rank table was located under the graph-orientation, lonesum, or Ferrers names."
+      ],
+      "reasoning": "The known count table is a table of hypothesis cardinalities rather than worst-case complete adaptive query-tree depths. For b=4, the count 146 gives floor(log2 146)=7, whereas the exact rank is 6, so a known table does not directly determine the new invariant.",
+      "searches": [
+        "\"VC dimension\" \"lonesum matrices\"",
+        "\"Littlestone dimension\" \"lonesum\" matrix",
+        "The exact Littlestone dimension of lonesum binary matrices with exactly two rows and b columns is ceil(3b/2); no two columns may realize opposite mixed patterns 01 and 10; equivalently acyclic orientations of K_{2,b} under single-edge membership queries"
+      ]
+    },
+    "rationale": "A full comparison with the same-object 1995, 2014, and 2018 source papers and the 2013 orientation-shattering paper found counts, reversibility statistics, and static VC dimensions, not exact online ranks or the conditional-state theorem. The known count bound is strictly looser at b=4. Targeted matrix, graph, and online-learning searches and similarity searches did not reveal a dominating statement. Residual risk of unindexed prior equivalent terminology is acknowledged.",
+    "residual_risks": [
+      "Potential earlier exact online-rank statement under terminology such as two-row Ferrers/lonesum matrix mistake-bound, beyond accessible indexed literature.",
+      "No broad claim is made for K_{p,b} with p>=3; enumeration of orientations does not imply this rank."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers forest shattering and VC dimension; does not establish adaptive complete mistake-tree depths for the two-row family",
+        "evidence": "Lemma 12(ii), Proposition 15(i); learning motivation at concluding pages",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+        "material_read": "Full-text PDF, especially Sections 2, 3.1, and concluding learning discussion",
+        "method": "Direct inspection of 18-page primary PDF text and page rendering",
+        "title": "Shattering, Graph Orientations, and Connectivity",
+        "trigger": "Forest VC dimension and possible broad graph-orientation shattering coverage"
+      },
+      {
+        "assessment": "Gives exact 2*3^b-2^b count and forbidden-pattern equivalence, but no online rank",
+        "evidence": "Section 2.4, Section 3.2; Theorem 2.1",
+        "identifier_or_url": "https://arxiv.org/abs/1412.3685",
+        "material_read": "Full-text accessible preprint, Sections 1-4, including §2.4 and §3.2",
+        "method": "Read complete arXiv HTML text",
+        "title": "Acyclic orientations and poly-Bernoulli numbers",
+        "trigger": "Same complete-bipartite orientation concept class; exact cardinalities and forbidden matrices"
+      },
+      {
+        "assessment": "Counts and encodes orientations, not adaptive edge-query mistake trees",
+        "evidence": "Introduction, Proposition 2.3 and §3 recurrence",
+        "identifier_or_url": "https://arxiv.org/abs/1808.02787",
+        "material_read": "Full-text preprint Sections 1-3, definitions and counting recurrence",
+        "method": "Read full arXiv HTML text",
+        "title": "On the Number of Acyclic Orientations of Complete k-Partite Graphs",
+        "trigger": "2018 primary research source on the same acyclic orientations"
+      },
+      {
+        "assessment": "Classifies attainable counts of independently reversible edges of each acyclic orientation, not Littlestone dimensions",
+        "evidence": "Theorem 1, pp. 393-396; definition of dependent edges",
+        "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+        "material_read": "Entire four-page primary full text including Lemmas 1-3 and Theorem 1",
+        "method": "Direct PDF text and page rendering",
+        "title": "Acyclic orientations of complete bipartite graphs",
+        "trigger": "Exact same graph family, potentially stronger historical result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d5b7348-3914-4c82-bef8-95f86b9c0428",
+  "value": {
+    "rationale": "The all-b online dimension is a natural exact invariant for learning acyclic graph orientations from adaptive edge queries. It exhibits an unbounded additive separation Ldim-VCdim=ceil(b/2)-1 on connected graphs of treewidth two, despite an already-known simple static forest theorem. The three-parameter conditional formula also determines the best worst-case adaptive depth after any consistent mixed-type-unforced partial observation, giving a structural explanation rather than only an isolated numerical value.",
+    "status": "PASS"
+  }
+}
