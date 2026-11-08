@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:47:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact formula D_jk=1_{k<=j}(H_j-H_{k-1}-log(j/k))/j splits as (R_j-S_k)/j with |R_j|=O(1/j), |S_k|=O(1/k). Dyadic diagonal block compression B_m is two weighted triangular-ones matrices; s_r(L_N)<=CN/r via rank-r interval decomposition, hence s_r(B_m)<=C/(2^m r). Summing min(2^m,C/(2^m t)) gives N_B(t)=O(t^-1/2). Far rectangles m>ell separate into two rank-one matrices whose singular-value p powers are summable over all blocks for each p>0, so F is in every Schatten quasi-ideal and D=B+F has s_n(D)=O(n^-2). D is trace class; triangular diagonal j^-2 gives Tr(D^k)=ζ(2k) and sine Fredholm determinant, hence simple nonzero eigenvalues j^-2. Weyl eigenvalue/singular p-majorization excludes p<=1/2. Independent rational/finite matrix calculations corroborated decomposition and sample spectrum, but infinite counting argument is the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full source Theorem 4.8 proves W(k)W(h)-W(k*h) is S_2 for regular kernels, a weaker ideal statement.",
+          "Its conclusion page 47 explicitly identifies Schatten refinements of the defect as a natural open direction."
+        ],
+        "reasoning": "A general S_2 theorem does not imply exact S_p membership for p in (1/2,1), nor nonmembership at/below 1/2.",
+        "searches": [
+          "arxiv:2609.09453 Bellavita Stylogiannis discrete Mellin calculus Schatten refinements",
+          "Cesaro squared Mellin multiplicative defect sharp Schatten p one half singular values"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.09453",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+        "Resultary semantic search: Cesaro squared Mellin multiplicative defect sharp Schatten p one half singular values"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full primary source relevant §§3–5,10–11 gives Hilbert–Schmidt general defect but not sharp singular-value asymptotic.",
+          "Full Resultary prior proof gives trace class and zeta trace but no dyadic s_n rate."
+        ],
+        "reasoning": "Neither broader Hilbert–Schmidt theorem nor earlier trace-class membership implies the sharp weak S_(1/2), because trace class may have much slower singular decay.",
+        "searches": [
+          "arxiv:2609.09453 Theorem 4.8",
+          "Resultary 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+          "Cesaro squared Mellin multiplicative defect sharp Schatten p one half singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D is exactly the previously studied D_2=C²-W_2, not a new operator by a reindexing.",
+          "Sharp s_n=O(n^-2) and membership p>1/2 are strictly finer claims than its known S_1 membership and ζ(2) trace."
+        ],
+        "reasoning": "Equivalent definitions of the same matrix were matched; the spectral threshold, not the matrix definition or determinant, is the originality target.",
+        "searches": [
+          "Cesaro squared Mellin multiplicative defect sharp Schatten p one half singular values",
+          "Cesaro power minus sampled logarithmic Mellin kernel Schatten quasi norm p half"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier RESULT.md explicitly computes (D_2)_nk and trace ζ(2), proves trace class for Cesàro powers.",
+          "Earlier note limitations explicitly exclude any p<1 quasi-Schatten threshold."
+        ],
+        "reasoning": "The determinant follows from triangular trace data once trace class is known; it is not by itself an independent original fact. The p=1/2 boundary is not tabulated by prior note.",
+        "searches": [
+          "Resultary 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+          "Cesaro squared Mellin multiplicative defect sharp Schatten p one half singular values"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Sharp transition in quasi-Banach Schatten scale for the first nontrivial discrete Mellin multiplicativity defect is natural beyond previously proved Hilbert–Schmidt/trace class. The dyadic rank-two off-block decomposition provides a reusable structural explanation and sharp weak endpoint; the known trace and immediate determinant corollary alone are not treated as independent novelty. Prior-art comparison is based on distinct theorem implications. See four structured checks and material source inspections; not exhaustive historical priority.",
+      "residual_risks": [
+        "Older trace-ideal estimates for Cesàro/Hausdorff lattice errors or block-triangular operators could yield the same exact threshold indirectly.",
+        "Exact leading asymptotic coefficient of n² s_n is neither proved nor claimed.",
+        "Trace determinant and eigenvalue formula are consequences of known trace-class triangular structure, not separately original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general S2 defect and calls Schatten refinements an open direction; the sharp special S_p threshold is not in the read central results",
+          "evidence": "Theorem 4.8 Hilbert–Schmidt product formula; conclusion p47 requests Schatten refinements.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09453",
+          "material_read": "Authorized complete 48-page PDF was available; materially read pp.1–5,12–21,43–48 including Theorem 4.8, conclusion and references",
+          "method": "Read source text page ranges by authorized institutional download",
+          "title": "A discrete Mellin calculus in the Toeplitz algebra",
+          "trigger": "Introduced exact sampled Mellin defect D and could dominate its Schatten estimates"
+        },
+        {
+          "assessment": "Trace-class and trace ζ(2) already covered, but sharp p<1 threshold absent",
+          "evidence": "D2 formula and trace class explicitly; limitations say no quasi-Schatten S_p claims for p<1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+          "material_read": "Entire RESULT.md including theorem, exact defect entries, column-decay proof and limitations",
+          "method": "Read full published Resultary primary result via GitHub",
+          "title": "Trace-class Mellin semigroup defects and zeta traces for Cesàro powers",
+          "trigger": "Exact same operator D2 previously shown trace class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp transition in quasi-Banach Schatten scale for the first nontrivial discrete Mellin multiplicativity defect is natural beyond previously proved Hilbert–Schmidt/trace class. The dyadic rank-two off-block decomposition provides a reusable structural explanation and sharp weak endpoint; the known trace and immediate determinant corollary alone are not treated as independent novelty.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.09453",
+    "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+    "Resultary semantic search: Cesaro squared Mellin multiplicative defect sharp Schatten p one half singular values"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the second classical Cesàro/sampled Mellin defect D=C²-W on l²(N), s_n(D)=O(n^-2), D in weak S_(1/2) and D in S_p iff p>1/2; its Fredholm determinant is sin(pi sqrt(z))/(pi sqrt(z)) and eigenvalues j^-2.",
+  "limitations": [
+    "Older trace-ideal estimates for Cesàro/Hausdorff lattice errors or block-triangular operators could yield the same exact threshold indirectly.",
+    "Exact leading asymptotic coefficient of n² s_n is neither proved nor claimed.",
+    "Trace determinant and eigenvalue formula are consequences of known trace-class triangular structure, not separately original.",
+    "Public-intended METADATA.json and AUDIT.json contain scope_run_id operational provenance identifiers. A complete sanitized replacement for every affected public file, checked against current Git blob guards and privacy-safe decoded JSON, was not staged; publication withheld."
+  ],
+  "residual_risks": [
+    "Older trace-ideal estimates for Cesàro/Hausdorff lattice errors or block-triangular operators could yield the same exact threshold indirectly.",
+    "Exact leading asymptotic coefficient of n² s_n is neither proved nor claimed.",
+    "Trace determinant and eigenvalue formula are consequences of known trace-class triangular structure, not separately original."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides general S2 defect and calls Schatten refinements an open direction; the sharp special S_p threshold is not in the read central results",
+      "evidence": "Theorem 4.8 Hilbert–Schmidt product formula; conclusion p47 requests Schatten refinements.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.09453",
+      "material_read": "Authorized complete 48-page PDF was available; materially read pp.1–5,12–21,43–48 including Theorem 4.8, conclusion and references",
+      "method": "Read source text page ranges by authorized institutional download",
+      "title": "A discrete Mellin calculus in the Toeplitz algebra",
+      "trigger": "Introduced exact sampled Mellin defect D and could dominate its Schatten estimates"
+    },
+    {
+      "assessment": "Trace-class and trace ζ(2) already covered, but sharp p<1 threshold absent",
+      "evidence": "D2 formula and trace class explicitly; limitations say no quasi-Schatten S_p claims for p<1.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+      "material_read": "Entire RESULT.md including theorem, exact defect entries, column-decay proof and limitations",
+      "method": "Read full published Resultary primary result via GitHub",
+      "title": "Trace-class Mellin semigroup defects and zeta traces for Cesàro powers",
+      "trigger": "Exact same operator D2 previously shown trace class"
+    }
+  ]
+}
