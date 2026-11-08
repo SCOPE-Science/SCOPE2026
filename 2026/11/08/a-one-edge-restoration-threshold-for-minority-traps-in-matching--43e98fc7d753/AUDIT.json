@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The explicit dual-color conjugacy yields majority with tie-flip. For odd n and proper matching deletion at even n, count-based finite update paths from every state reach a polar absorber. At the even-size full-deletion endpoint every flip strictly raises cut weight, and a complete local-inequality classification gives exactly two polar absorbers plus binomial(n,n/2) balanced matched-pair absorbers. The two independent scripts prove the exact finite claims in their stated ranges: 22 state-transition graphs (36,352 configurations) and 39 independent stable-state censuses (757,248 configurations). Those experiments are supplementary to the all-size constructive proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry, Proposition 3, gives a general bipartite limit-set membership algorithm, and Theorem 4.1 treats cliques; no matching-deleted biclique recurrent-class census occurs in the inspected sections.",
+        "Lampis, ICALP 2021, pp.1–4, studies computational complexity of minimum stable cuts and remarks that the general worst stable-cut ratio can reach one half (e.g. a four-cycle). It does not state or imply an exact last-restored-edge Markov recurrence threshold for the present family.",
+        "Published published-finding corpus item 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb studies maximal clique/stable-set incidence, not binary update recurrence."
+      ],
+      "reasoning": "General-purpose dynamic/algorithmic frameworks are broad enough to determine a finite example after additional work, but their statements do not logically give the exact labelled, all-parameter recurrence classification. The known global half-performance bound is not an exact graph-specific equilibrium count or the one-edge restoration result.",
+      "searches": [
+        "Web: Stochastic Minority on Graphs Rouquier Regnault Thierry 2010 arxiv full text minority asymptotic Markov recurrent graph",
+        "Web: Lampis 2021 Minimum Stable Cut and Treewidth arxiv",
+        "Web: worst locally optimal cut matching deleted complete bipartite crown graph 1/2",
+        "published-finding corpus: Near-complete bipartite graph K_{2k,2k} deleting t edges of a matching, asynchronous stochastic minority zero-temperature antiferromagnet: sharp threshold t=2k for exponentially many absorbing suboptimal fixed configurations versus only two recurrent classes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1011.5119; accessible full text at https://ar5iv.labs.arxiv.org/html/1011.5119",
+      "arxiv:2104.13097; ICALP 2021 DOI 10.4230/LIPIcs.ICALP.2021.92; accessible PDF inspected",
+      "published-finding corpus ID 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+      "published-finding corpus ID 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+      "published-finding corpus ID 2026/10/4/SCOPE-neighborhood-parity-odd-colorings-of-crown-graphs--fe94e840e8ec",
+      "Related mathematical statement IDs c2b29970-9af4-47c7-8a36-00820e13039a and 19e8f017-1126-4298-9e78-3779386650cb and 826084cb-deb1-45e8-9b36-ad77ada9a0c1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier cocktail-party graph claim (c2b29970-9af4-47c7-8a36-00820e13039a) concerns K_{2m} minus a perfect matching, a non-bipartite graph, and cannot imply the deleted matching from K_{n,n}.",
+        "Earlier friendship and squared-cycle stochastic-minority claims concern different graph families and do not provide a reduction or count for the present biclique deletion family.",
+        "Earlier complete split graph claim (826084cb-deb1-45e8-9b36-ad77ada9a0c1) uses synchronous open-neighborhood minority, not single-site closed-neighborhood minority.",
+        "published-finding corpus closest geometry-independent item 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb does not concern local cut dynamics."
+      ],
+      "reasoning": "The tempting matching-deletion similarity with the cocktail-party graph does not preserve adjacency or the single-site update operator. Other earlier findings involve synchronous majority/minority or different networks. Statement and implication checks found no theorem that covers the two-parameter recurrence and entropy jump; possible unindexed equivalent cut-game formulations remain the primary uncertainty.",
+      "searches": [
+        "published-finding corpus: Majority consensus asynchronous dynamics on complete bipartite graphs minus a partial matching: balanced paired metastable fixed points when degree odd",
+        "published-finding corpus: Stochastic minority asynchronous cellular automata, energy particle dynamics on hypercubes, graph complements, graph prisms",
+        "Web: crown graph Nash equilibrium cut game",
+        "Related mathematical statements: c2b29970-9af4-47c7-8a36-00820e13039a; 63f34224-0c6c-4e86-97b0-c92ca3b7cd5b; 19e8f017-1126-4298-9e78-3779386650cb; 826084cb-deb1-45e8-9b36-ad77ada9a0c1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry, arXiv:1011.5119, Section 3.2: the bipartite dual is majority with tie-flips; the same model is defined in Section 2.",
+        "Lampis, arXiv:2104.13097, ICALP 2021, introduction: locally optimal cuts are the Nash equilibria of the Max-Cut game; the ordinary weak stability notion tolerates ties.",
+        "The present claim separately handles neutral tie updates at undeleted matched-pair vertices, rather than counting merely weakly stable cuts."
+      ],
+      "reasoning": "Under the bipartite spin complement, the stochastic minority process is equivalent to sequential majority with ties flipped. In the full matching-deletion case at even size, its absorbing states coincide with 1-flip locally optimal cuts because all degrees are odd; in the other cases tied vertices may still move. Neither inspected foundational treatment supplies the exact critical final-edge threshold and closed-class count, so the known equivalence does not imply the claim without the new family-specific argument.",
+      "searches": [
+        "published-finding corpus: Stochastic minority fully asynchronous binary updates on complete bipartite crown graphs K_n,n minus a matching: recurrent classes, parity, maximum cuts and exact relaxation spectral gap",
+        "published-finding corpus: Local max cut stable bipartite crown graphs, binomial n choose n/2 bad local optima versus only two when missing edge of matching restored",
+        "Web: crown graph K n n minus perfect matching local majority stable configurations fixed points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The central binomial coefficient is a classical tabulated sequence; the theorem does not claim its values as a newly discovered integer sequence.",
+        "The accessible published-finding corpus crown-graph hits give results on odd colorings, edge metric bases, and restrained domination, each a different invariant.",
+        "No inspected exact recurrence table for matching-deleted bicliques establishes the two-parameter 0<=t<=n transition."
+      ],
+      "reasoning": "Coincidence with a tabulated binomial sequence does not establish coverage of its graph-dynamical interpretation. The precise two-parameter absorbing-class enumeration and restoration threshold are the novelty target; a failed lookup by itself is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Local max cut stable bipartite crown graphs, binomial n choose n/2 bad local optima versus only two when missing edge of matching restored",
+        "Web: 2+binomial(n,n/2) crown",
+        "Web: crown graph K n n minus perfect matching local majority stable configurations fixed points"
+      ]
+    },
+    "rationale": "The two-parameter matching-deletion recurrence threshold was not found in the inspected same-rule source or closest local-stability literature. The primary works supply duality, energy and general stable-cut definitions, but not the sharp t=n endpoint with a central-binomial number of suboptimal absorbing classes and no suboptimal classes at t=n-1. Six actual semantic published-finding corpus comparisons and targeted external searches were performed; historical priority remains qualified, not certified.",
+    "residual_risks": [
+      "A specialized unindexed local-Max-Cut, zero-temperature antiferromagnetic or cut-game equilibrium example might already cover the same family; search absence does not establish universal priority.",
+      "An independent specialist review is outstanding. No external scientific certification is claimed.",
+      "The finite tests validate low orders only and do not replace the analytic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational model, duality and energy monotonicity are prior art. Inspected arguments do not state the partial-matching-deletion recurrent-class threshold; the family-specific enumeration is not a direct corollary of its listed clique/cycle/tree theorems.",
+        "evidence": [
+          "Definition 2, lines 73–80, specifies the rule and tie retention.",
+          "Lemma 1 and Corollary 1, lines 112–124, address energy and recurrent reversibility.",
+          "Proposition 3, lines 190–229, gives a general bipartite membership algorithm.",
+          "Theorem 4.1, lines 251–266, treats cliques."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "material_read": "Accessible HTML full text, especially Sections 1–3.2 and 4.1, Definitions 1–9, Proposition 3, Theorem 4.1, and context on cycles/trees; document-wide term checks for crown and complete bipartite.",
+        "method": "Read primary HTML theorem statements, proofs of energy and duality, and the bipartite limit-set algorithm; checked exact terminology using page search.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "The same closed-neighborhood minority rule and its general bipartite dual; potential stronger implication."
+      },
+      {
+        "assessment": "Introduces general minimum stable cut motivation and complexity, including the known half-performance example on a four-cycle, but does not provide the dynamical restoration threshold or exact number of recurrent classes for matching-deleted bicliques.",
+        "evidence": [
+          "Page 2 discussion of minimum stable cut, local search and Nash equilibrium (PDF lines 57–81).",
+          "Theorem summary is parameterized complexity rather than explicit graph-family enumeration (lines 82–146).",
+          "Document-wide crown/perfect-matching searches returned no match."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/opus/volltexte/2021/14161/pdf/LIPIcs-ICALP-2021-92.pdf",
+        "material_read": "PDF abstract, introduction and related-work discussion (pages 1–4), theorem summary, PDF text searches across the document for crown, perfect matching and complete bipartite; rendered first page.",
+        "method": "Read full-text extracted passage and visual first-page image; scanned matching and family terms and result descriptions.",
+        "title": "Minimum Stable Cut and Treewidth",
+        "trigger": "Nearest alternative formulation as stable cuts and anti-coordination Nash equilibria."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43e98fc7-d753-48bc-bc97-32f18c2257a1",
+  "value": {
+    "rationale": "The graph family interpolates canonically between complete bipartite and crown graphs. Adding a single edge to a dense network sharply removes exponentially many permanently frozen half-optimal cuts, a dimension-free final-edge stability transition. The statement gives both the all-parameter complete recurrent-class classification and an exact limiting entropy/price-of-anarchy comparison. This is a motivated structural result in local anti-coordination dynamics, not an arbitrary finite table or an unexplained invariant.",
+    "status": "PASS"
+  }
+}
