@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Block-Schur exact resolvent identities and strict inequalities establish the full parameter theorem; seeded matrix tests and exact symbolic examples confirm the calculations.
+## correctness
 
-**Originality — PASS, qualified.** The generic resolvent-return condition is prior work; the all-weighted-star hub ordering and fixed-budget sharp homogeneity/contrast law are the assessed additions. A plausible published reversible-chain result was available by summary only, leaving genuine priority uncertainty.
+PASS
 
-**Value — PASS.** Exact graph-specific positivity frontiers and a sharp global allocation extremum provide concrete stability guidance for heterogeneous radial diffusion and stochastic discretization.
+For every star with m>=2 positive spoke conductances, the Schur complement of I+tL has hub inverse diagonal R00=1/(1+sum_i x_i), x_i=tw_i/(1+tw_i), and strictly larger leaf inverse diagonals Rii-R00=sum_{j!=i}x_j/[(1+tw_i)(1+sum x_j)]. Since C(h)=2R-I, off-diagonal entries are nonnegative and positivity is equivalent to sum_i x_i<=1, including equality. Strict monotonicity gives a unique positive t*. Jensen strict concavity at fixed W gives t*>=m/((m-1)W), equality only at uniform weights. On weights (W-(m-1)epsilon,epsilon,...,epsilon), the exact quadratic gives t*~1/sqrt((m-1)W epsilon). Independently verified 9 exact rational resolvent matrices using direct SymPy inversions; inspected original 525-star verifier, which is corroboration, not a universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The generic reversible-Markov resolvent-return criterion and uniqueness are prior work; this complete weighted-star hub ordering, conductance-budget sharp minimizer and singular anisotropy limit were not found stated or implied without additional graph-specific inverse and strict concavity calculations. Qualified best-of-knowledge originality; generic criterion is not new.
+
+## value
+
+PASS
+
+The exact permissible nonnegative Markov step and strict allocation extremum determine a natural positivity invariant for heterogeneous star diffusion. The opposite unbounded boundary behavior is a mathematically meaningful sharp contrast.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

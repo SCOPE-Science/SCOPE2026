@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:48:32.257969Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every star with m>=2 positive spoke conductances, the Schur complement of I+tL has hub inverse diagonal R00=1/(1+sum_i x_i), x_i=tw_i/(1+tw_i), and strictly larger leaf inverse diagonals Rii-R00=sum_{j!=i}x_j/[(1+tw_i)(1+sum x_j)]. Since C(h)=2R-I, off-diagonal entries are nonnegative and positivity is equivalent to sum_i x_i<=1, including equality. Strict monotonicity gives a unique positive t*. Jensen strict concavity at fixed W gives t*>=m/((m-1)W), equality only at uniform weights. On weights (W-(m-1)epsilon,epsilon,...,epsilon), the exact quadratic gives t*~1/sqrt((m-1)W epsilon). Independently verified 9 exact rational resolvent matrices using direct SymPy inversions; inspected original 525-star verifier, which is corroboration, not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary published finding 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a: reversible chains have a sharp diagonal-resolvent positivity criterion.",
+          "I. Higueras–T. Roldán 2023, arXiv:2301.01066: tridiagonal Dirichlet heat meshes, numerical positivity/contractivity.",
+          "The reviewed actual star proof supplies Rii-R00 positive, Jensen equality and the high-contrast quadratic."
+        ],
+        "reasoning": "The published Resultary resolvent-return law works for arbitrary irreducible reversible generators, so covers the existence/uniqueness and diagonal test; it does not present the weighted-star fixed-budget extremum or blow-up statement.",
+        "searches": [
+          "Crank Nicolson positive stochastic update reversible Markov chain resolvent return diagonal threshold star graph weighted conductance homogenization"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2301.01066",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary published finding 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a: reversible chains have a sharp diagonal-resolvent positivity criterion.",
+          "I. Higueras–T. Roldán 2023, arXiv:2301.01066: tridiagonal Dirichlet heat meshes, numerical positivity/contractivity.",
+          "The reviewed actual star proof supplies Rii-R00 positive, Jensen equality and the high-contrast quadratic."
+        ],
+        "reasoning": "Starting from the general criterion still requires Schur inversion, the strict leaf-hub comparison, and optimizing the root over the simplex; neither the classical scheme nor the 1D Dirichlet-grid analysis supplies those deductions as stated. The ease of deriving them from the generic framework remains a residual priority/value risk.",
+        "searches": [
+          "Crank Nicolson positive stochastic update reversible Markov chain resolvent return diagonal threshold star graph weighted conductance homogenization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published finding 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a: reversible chains have a sharp diagonal-resolvent positivity criterion.",
+          "I. Higueras–T. Roldán 2023, arXiv:2301.01066: tridiagonal Dirichlet heat meshes, numerical positivity/contractivity.",
+          "The reviewed actual star proof supplies Rii-R00 positive, Jensen equality and the high-contrast quadratic."
+        ],
+        "reasoning": "The matching terminology includes implicit midpoint, Crank–Nicolson, Markov resolvent return probability and weighted star Laplacian; the cited general criterion gives a diagonal test but does not specify hub ordering, fixed-W optimum or its singular rate.",
+        "searches": [
+          "Crank Nicolson positive stochastic update reversible Markov chain resolvent return diagonal threshold star graph weighted conductance homogenization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published finding 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a: reversible chains have a sharp diagonal-resolvent positivity criterion.",
+          "I. Higueras–T. Roldán 2023, arXiv:2301.01066: tridiagonal Dirichlet heat meshes, numerical positivity/contractivity.",
+          "The reviewed actual star proof supplies Rii-R00 positive, Jensen equality and the high-contrast quadratic."
+        ],
+        "reasoning": "A targeted Resultary query found the strong generic resolvent-return record, not the heterogeneous star scalar-root/Jensen extremal. No exact precomputed table is needed because the result is all-real-weights; failure to locate an explicit prior theorem is not proof of novelty.",
+        "searches": [
+          "Crank Nicolson positive stochastic update reversible Markov chain resolvent return diagonal threshold star graph weighted conductance homogenization"
+        ]
+      },
+      "rationale": "The generic reversible-Markov resolvent-return criterion and uniqueness are prior work; this complete weighted-star hub ordering, conductance-budget sharp minimizer and singular anisotropy limit were not found stated or implied without additional graph-specific inverse and strict concavity calculations. Qualified best-of-knowledge originality; generic criterion is not new.",
+      "residual_risks": [
+        "Generic resolvent positivity is pre-existing; weighted-star algebraic/Jensen consequences may have been worked out elsewhere.",
+        "Published-finding generic source reviewed through indexed statement rather than full proof; a stronger specialized table could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARTIAL_COVERAGE",
+          "evidence": [
+            "C=2(I+tL)^(-1)-I gives nonnegative off-diagonal and diagonal threshold; no fixed-W star theorem shown in indexed summary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Published-finding indexed summary of exact universal diagonal criterion and reversible threshold; complete proof not represented as read",
+          "method": "Resultary indexed primary finding",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Same CN positivity test for a more general class"
+        },
+        {
+          "assessment": "OTHER_GRAPH_CLASS",
+          "evidence": [
+            "The setting is tridiagonal homogeneous Dirichlet heat, not a weighted star with conductance-budget extremum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Accessible arXiv introduction/abstract and mesh model, numerical positivity for homogeneous Dirichlet 1D heat mesh; full-text universal exclusion not asserted",
+          "method": "arXiv accessible text",
+          "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+          "trigger": "Potential sharp CN positivity formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact permissible nonnegative Markov step and strict allocation extremum determine a natural positivity invariant for heterogeneous star diffusion. The opposite unbounded boundary behavior is a mathematically meaningful sharp contrast.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m>=2, weights>0, symmetric Laplacian, t=h/2>=0; boundary at t* permits zero hub diagonal; high-contrast limit exits strictly positive-weight domain."
+  ],
+  "schema_version": 1
+}
