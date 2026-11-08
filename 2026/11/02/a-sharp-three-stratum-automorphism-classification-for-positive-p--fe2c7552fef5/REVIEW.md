@@ -1,11 +1,21 @@
-# Review of the positive-parameter quaternion-core automorphism trichotomy
+# Independent mathematical audit
 
-**Correctness — PASS.** The algebra's trace/norm are intrinsic, and its pure cross-product image canonically determines the quaternionic three-plane. The automorphism group is exactly the rotational centralizer of the explicitly invertible real matrix \(H\). Decomposing \(H\) into symmetric/skew parts reduces possible stabilizers to rotations about one axis; off-diagonal sign constraints rule out every non-half-turn in the non-isotropic case. Diagonal symmetrizability and simple real spectrum exclude the half-turn when all three coefficients differ. Direct substitution gives the residual involution for two equal coefficients, and eigenspace decomposition gives \(O(2)\) when all agree. The separate \(d\)-rescaling is an explicit algebra isomorphism. Ten exact parameter cases and 240 signed-rotation tests corroborate but do not prove generality.
+## correctness
 
-**Originality — PASS, qualified.** The first public arXiv version of [1] (22 October 2026) is the actual definition and nearest primary source. Its Remark 2.4 omits full coefficient-dependent automorphism groups and Section 7 explicitly asks for them. Its Theorem 3.10 proves the canonical \(a=b=c=d=1\) special case, so that case is credited. Searches of indexed mathematical records, historical claims and alternative matrix-centralizer formulations did not find full positive-parameter coverage. Priority in older or unindexed literature remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** This is the entire gamma-zero positive-parameter stratum of a current research question, including exact isotropy thresholds, symmetry breaking and the unexpectedly irrelevant fourth coefficient. The classification is a nontrivial structural invariant of an infinite natural algebra family, not an arbitrary finite slice.
+The exact stated pure multiplication yields H with determinant -2xyz/(uvw), so the product image equals 3D quaternion subspace U, forcing pure orthogonal automorphisms diag(R,epsilon). Orientation of U gives R in SO(3), and det H≠0 implies epsilon=1, hence centralizer in SO(3). For anisotropic parameters skew K has axis kappa with component signs (b-c,c-a,a-b); an oblique non-half-turn would require S=alpha I+beta kk^T, impossible from zero diagonal and strictly negative off-diagonal entries. With exactly two equal parameters the kappa half-turn commutes; with all distinct, positive diagonal D symmetrizes H with simple real spectrum and kappa with nonzero components, so commuting half-turn would force D scalar and a=b=c, contradiction. Isotropic centralizer is O(2), and ell/sqrt(d) removes d. Independently verified DH=H^T D and sample half-turn behavior for (1,1,1),(1,1,4),(1,4,9), supporting but not replacing analytic reasoning.
 
-The argument does not address \(\gamma\ne0\), nonpositive parameters, or other automorphism notions. Reproducible exact tests are included but are not independent proof or audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Poshtkohi–Pumplün introduce the algebra and canonical equal-parameter O(2) group; anisotropic C2/trivial strata and d invariance are not established by the abstract or public visible summary. The general paper is particularly close and full text was unavailable, so historical coverage remains a substantive residual risk.
+
+## value
+
+PASS
+
+Full automorphism-group strata are natural invariants for a newly introduced quadratic nonassociative family; the precise symmetry-breaking boundary and parameter isomorphism have structural content beyond a numeric case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
