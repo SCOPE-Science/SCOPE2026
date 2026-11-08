@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:59:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-transport-amplification-for-asymmetric-bipartite-markov-se--4fd69f17c057/RESULT.md (blob 86439c8c7fdc1a86844cccaf7702bb825eaf4824)",
+        "2026/11/02/exact-transport-amplification-for-asymmetric-bipartite-markov-se--4fd69f17c057/verify.py",
+        "source RESULT.md pinned blob 86439c8c7fdc1a86844cccaf7702bb825eaf4824"
+      ],
+      "rationale": "PASS. For K_{m,n}, m,n≥2, with uniform cross-part rates α,β>0, the generator decomposes into within-X fluctuations e^{-αt}, within-Y fluctuations e^{-βt} and part imbalance e^{-(α+β)t}. A cross Dirac difference has explicit signs, with two optimal primal transport plans and Lipschitz dual potentials yielding max{2(m−1)/m e^{-αt}−(m−2)/m e^{-(α+β)t},2(n−1)/n e^{-βt}−(n−2)/n e^{-(α+β)t}}. Same-part Dirac ratios are dominated; the Dirac-pair reduction proves norm for all measures. Differentiating each branch proves iff α≥(m−2)β/m and β≥(n−2)α/n for global contractivity; violating one yields a unique positive-time global maximum; two violations cannot coexist. Independent full generator expm and graph-Lipschitz dual LP checked three asymmetric cases, including peak 1.056134084152072 at m=n=4,α=1,β=4, t=log(5/3)/4.",
+      "residual_risks": [
+        "No claim for arbitrary edge weights, more than two parts or Wp p≠1.",
+        "LP checks are finite samples; analytical primal and dual witnesses establish general transport cost."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior theorems compare W1 to exponential bounds via curvature/couplings, but do not state the exact two-exponential maximum on part-dependent K_{m,n}."
+        ],
+        "reasoning": "The known general contraction criterion may imply nonexpansiveness from local curvature, but does not calculate transient exact norm and unique peak.",
+        "searches": [
+          "arXiv:1712.00875 Theorem 3.8 curvature contraction heat semigroup",
+          "arXiv:2308.00516 Pedrotti Section 5 contractive coupling rates"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md pinned blob 86439c8c7fdc1a86844cccaf7702bb825eaf4824",
+        "https://arxiv.org/abs/2308.00516",
+        "https://arxiv.org/abs/1712.00875",
+        "https://arxiv.org/abs/1202.0420",
+        "Resultary: complete bipartite graph asymmetric rates Wasserstein one transport semigroup contraction exact norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A reversible finite Markov semigroup can have negative coarse transport curvature and short-time W1 amplification while converging asymptotically.",
+          "Existing curvature-to-exponential estimates are inequalities; exact max of two differences of exponentials and its unique peak require explicit signed-mass computation."
+        ],
+        "reasoning": "The full positive-time profile is not a numerical substitution into the prior generic estimates.",
+        "searches": [
+          "arXiv:2308.00516 contraction estimates versus exact temporal profiles",
+          "arXiv:1712.00875 heat flow curvature equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dirac pair maximal ratio is the finite-metric Dobrushin or Kantorovich contraction coefficient; same-part and cross-part orbit symmetries exhaust it."
+        ],
+        "reasoning": "This is an alias of the norm, not independently novel; what is assessed is the explicit two-rate all-time evaluation and exact nonmonotonic peak.",
+        "searches": [
+          "complete bipartite graph asymmetric rates Wasserstein one transport semigroup contraction exact norm",
+          "Dobrushin coefficient graph distance two-rate complete bipartite generator Wasserstein Lipschitz norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest item is Hilbert distortion of complete-bipartite transportation spaces, a different time-independent Banach–Mazur invariant."
+        ],
+        "reasoning": "No inspected exact temporal norm table or pointwise formula for K_{m,n} in the specified model; failures of searches are not novelty certificates.",
+        "searches": [
+          "Resultary: complete bipartite graph asymmetric rates Wasserstein one transport semigroup contraction exact norm",
+          "weighted complete bipartite Markov semigroup Wasserstein exact mixing coefficient table"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. General W1 semigroup contraction/curvature duality is classical and credited; Pedrotti and Münch–Wojciechowski give general coupling/curvature bounds but do not in accessible inspected statements supply exact two-rate K_{m,n} temporal norm or peak formula. A relevant classical Dobrushin coefficient with nontrivial graph metric might encode the same computation, so specialist historical priority remains qualified.",
+      "residual_risks": [
+        "Exact analogous formula may occur in older transportation coefficient/Dobrushin literature with different notation.",
+        "Primary coupling papers were not reread in full in this execution, limiting priority confidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_LIMITED_READING",
+          "evidence": [
+            "Bounds via coupling rates do not explicitly give the two-rate K_{m,n} exact norm in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00516",
+          "material_read": "Abstract and Section 5 description of transport contraction applications; full PDF not read this run.",
+          "method": "Read arXiv abstract/indexed section description",
+          "title": "Contractive coupling rates and curvature lower bounds for Markov chains",
+          "trigger": "Most relevant general continuous-time coupling-rate method"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": [
+            "Curvature/exponential equivalence not exact two-rate peak calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Abstract and cited Theorem 3.8 statement; not entire paper this run.",
+          "method": "Read accessible statement/abstract",
+          "title": "Ollivier Ricci curvature for general graph Laplacians",
+          "trigger": "Possible stronger all-time graph heat norm theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "General continuous-time curvature; no confirmed exact K_{m,n} time curve."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.0420",
+          "material_read": "Abstract and bibliographic-level method; full text not examined.",
+          "method": "Read arXiv abstract",
+          "title": "Coarse Ricci curvature for continuous-time Markov processes",
+          "trigger": "Original continuous-time transport curvature framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-transport-amplification-for-asymmetric-bipartite-markov-se--4fd69f17c057/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-transport-amplification-for-asymmetric-bipartite-markov-se--4fd69f17c057"
+      ],
+      "rationale": "PASS. The theorem determines a sharp all-time Wasserstein transport norm, a complete two-parameter phase diagram separating global contraction from temporary expansion, and exact peak time/magnitude for a natural reversible heterogeneous graph Markov family, providing a concrete benchmark for coarse-curvature theory.",
+      "residual_risks": [
+        "Uniform rate within each bipartition is essential; no arbitrary weighted-graph classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All parameters m,n≥2, α,β>0, t≥0; W1 graph distance only.",
+    "Historical specialized transport coefficient terminology remains incompletely searched.",
+    "No claim for arbitrary edge weights, more than two parts or Wp p≠1.",
+    "LP checks are finite samples; analytical primal and dual witnesses establish general transport cost.",
+    "Exact analogous formula may occur in older transportation coefficient/Dobrushin literature with different notation.",
+    "Primary coupling papers were not reread in full in this execution, limiting priority confidence."
+  ],
+  "schema_version": 1
+}

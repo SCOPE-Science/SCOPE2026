@@ -1,11 +1,21 @@
-# Review of exact bipartite Markov-semigroup amplification
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof reconstructs the Markov generator, three invariant fluctuation sectors, exact signed cross-edge mass distribution, optimal primal transport and Lipschitz dual witnesses, the all-pair norm reduction, and the derivative test. Independent LP calculations reproduce 60 nontrivial finite configurations. No finite enumeration substitutes for the all-parameter proof.
+## correctness
 
-**Originality (PASS, qualified).** The nearest identified statements are the general graph heat-flow/coarse-curvature equivalence of Münch–Wojciechowski (arXiv:1712.00875, Theorem 3.8), Markov-chain coupling and Wasserstein estimates of Pedrotti (arXiv:2308.00516, Section 5), and results on graph transportation Banach–Mazur geometry. None of the inspected material evaluates the two-rate bipartite semigroup's exact Wasserstein norm as a function of time or its sharp transient-amplification maximum. The overlap check compared implications, not just words or titles. A hidden equivalent under classical coupling or graph-Laplacian terminology remains a residual risk; independent priority review is not asserted.
+PASS
 
-**Value (PASS).** A reversible chain can expand unit-edge transport transiently, despite a strictly positive spectral gap. The theorem completely classifies the contractive and expansive parameter regions, gives an exact all-time norm and a closed maximizing time, and supplies a natural quantitative test case for sharp curvature bounds. The finite asymmetric two-rate family is motivated by weighted complete-bipartite random walks; the result is not an arbitrary parameter slice.
+PASS. For K_{m,n}, m,n≥2, with uniform cross-part rates α,β>0, the generator decomposes into within-X fluctuations e^{-αt}, within-Y fluctuations e^{-βt} and part imbalance e^{-(α+β)t}. A cross Dirac difference has explicit signs, with two optimal primal transport plans and Lipschitz dual potentials yielding max{2(m−1)/m e^{-αt}−(m−2)/m e^{-(α+β)t},2(n−1)/n e^{-βt}−(n−2)/n e^{-(α+β)t}}. Same-part Dirac ratios are dominated; the Dirac-pair reduction proves norm for all measures. Differentiating each branch proves iff α≥(m−2)β/m and β≥(n−2)α/n for global contractivity; violating one yields a unique positive-time global maximum; two violations cannot coexist. Independent full generator expm and graph-Lipschitz dual LP checked three asymmetric cases, including peak 1.056134084152072 at m=n=4,α=1,β=4, t=log(5/3)/4.
 
-The theorem is limited to uniform rates on each of two parts and graph-distance Wasserstein-one; no claim is made about arbitrary weighted graphs or other transport exponents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. General W1 semigroup contraction/curvature duality is classical and credited; Pedrotti and Münch–Wojciechowski give general coupling/curvature bounds but do not in accessible inspected statements supply exact two-rate K_{m,n} temporal norm or peak formula. A relevant classical Dobrushin coefficient with nontrivial graph metric might encode the same computation, so specialist historical priority remains qualified.
+
+## value
+
+PASS
+
+PASS. The theorem determines a sharp all-time Wasserstein transport norm, a complete two-parameter phase diagram separating global contraction from temporary expansion, and exact peak time/magnitude for a natural reversible heterogeneous graph Markov family, providing a concrete benchmark for coarse-curvature theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
