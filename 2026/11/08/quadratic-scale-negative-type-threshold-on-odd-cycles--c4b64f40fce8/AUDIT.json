@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all odd n>=5 the real circulant Fourier spectrum is exactly 2 sum_{r=1}^{(n-1)/2} r^p cos(2*pi*j*r/n). At p=1 every nonconstant mode has eigenvalue at most -1/4; fixed even modes tend to -1/4 and fixed odd modes to -infinity. The n^{-t/n^2} rescaling gives a uniform O(n^-2) Taylor remainder, and bounded variation of x log x yields a uniform O(1/j) normalized-derivative tail. The fixed even derivative integrals are exactly F(2*pi*k)/(8*pi^2*k^2) with a strict maximum at k=1. A finite-low-frequency/high-frequency split proves both sides of the sharp limit, with no extrapolation. Numerical checks of multiple n corroborate but do not prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sánchez Lemma 3.3 supplies an upper bound log_2(3) and cites convergence to 1; this does not give the leading term.",
+        "Murugan theorem 3.1 characterizes a first determinant zero without asymptotically locating it."
+      ],
+      "reasoning": "General methods could be specialized to the cycle, but no stronger inspected statement yields a uniform n^-2 correction. A theorem implying convergence or finite computability does not imply the exact limit constant.",
+      "searches": [
+        "\"supremal\" \"negative type\" \"cycle\" Fourier asymptotic",
+        "\"generalized roundness\" \"odd cycles\" asymptotic",
+        "arxiv:1108.0451v1 Lemma 3.3",
+        "arxiv:1112.5657 Theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1108.0451v1",
+      "https://arxiv.org/abs/1112.5657",
+      "https://msp.org/involve/2010/3-1/involve-v3-n1-p05-p.pdf",
+      "https://dml.cz/bitstream/handle/10338.dmlcz/104151/AplMat_30-1985-4_5.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horak et al theorem 3.1 implies four-point roundness 1+Theta(1/n), which only upper-bounds the generalized-roundness invariant and cannot supply its n^-2 coefficient.",
+        "Sánchez establishes the five-cycle exact value and nonsharp general estimates; Graovac et al evaluate only exponent one."
+      ],
+      "reasoning": "The new claim needs both a local derivative and a tail-uniform comparison across all nonconstant Fourier modes. Those steps are not supplied by unpowered spectral data, a general first-zero characterization, or the distinct four-point invariant.",
+      "searches": [
+        "https://msp.org/involve/2010/3-1/involve-v3-n1-p05-p.pdf",
+        "https://arxiv.org/html/1108.0451v1",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/104151/AplMat_30-1985-4_5.pdf",
+        "exact generalized roundness odd cycle graph C_{2n+1} negative type exponent Fourier spectrum circulant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sánchez arXiv:1108.0451v1 theorem 2.2 and Example 2.8 formulate supremal negative type as a first spectral zero.",
+        "Murugan arXiv:1112.5657 theorem 3.1 gives the equivalent vertex-transitive determinant formulation."
+      ],
+      "reasoning": "Both Fourier conditional-negative-definiteness and the first-zero determinant language were checked. Their equivalence supplies methodology, not the claimed sharp asymptotic constant, while ordinary four-point roundness is a different quantifier condition.",
+      "searches": [
+        "Odd cycle graph metric supremal negative type exponent approaches one quadratically with asymptotic constant 2 pi squared cosine integral Ci(2pi)",
+        "odd n cyclic distance metric negative type p critical first frequency second harmonic asymptotic 1+8.097627/n^2",
+        "odd cycle C_n Hilbert snowflake exponent generalized roundness asymptotic C n^-2",
+        "\"generalized roundness\" \"odd cycles\" asymptotic",
+        "\"p-negative type\" \"odd cycles\" rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Graovac--Jashari--Strunje (1985), equations (15)–(19), is an exact table of the unpowered distance spectrum, with no powered parameter.",
+        "The closest published-finding corpus hits concerned weighted odd-cycle fourth-power edge spectra, discrete Carathéodory–Fejér constants, and cyclic roundness-adjacent questions, not this generalized-roundness limit."
+      ],
+      "reasoning": "The literature tables and checked records do not contain this n^-2 limit. A possible unlocated powered-distance table remains a priority risk.",
+      "searches": [
+        "\"generalized roundness\" \"odd cycles\" asymptotic",
+        "\"p-negative type\" \"odd cycles\" rate",
+        "odd cycle C_n Hilbert snowflake exponent generalized roundness asymptotic C n^-2",
+        "Odd cycle graph metric supremal negative type exponent approaches one quadratically with asymptotic constant 2 pi squared cosine integral Ci(2pi)",
+        "2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af"
+      ]
+    },
+    "rationale": "Actual archive and literature checks distinguish an exponent-one distance spectrum, a four-point roundness formula, a general negative-type first-zero criterion and a nonsharp odd-cycle bound from the new uniform Fourier asymptotic 2*pi^2/F(2*pi); no direct covering result was identified. Residual historical risks are expressly retained.",
+    "residual_risks": [
+      "Older powered-cycle Fourier literature could contain the asymptotic coefficient implicitly or explicitly.",
+      "General metric-transform results beyond the inspected material could yield this scale and constant.",
+      "Search ranking and limited indexing do not prove uniqueness or historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the exponent-one distance spectrum, not the powered negative-type threshold or its quadratic correction.",
+        "evidence": "Theorem and equations (15)–(19) give eigenvalues of D(C_n) for odd and even cycles at the unpowered distance; no variable power or limiting negative-type exponent.",
+        "identifier_or_url": "https://doi.org/10.21136/AM.1985.104151",
+        "material_read": "Article pages 286–289, including odd-cycle equations (15)–(19) and the displayed numerical examples; bibliographic record and cited references.",
+        "method": "Read archival full PDF pages and examined displayed cycle eigenvalue formulas.",
+        "title": "On the distance spectrum of a cycle",
+        "trigger": "Exact unpowered cycle distance eigenvalues could dominate the Fourier part of the proposed result."
+      },
+      {
+        "assessment": "The four-point invariant is not supremal negative type. Its exact formulas yield an order-one-over-n correction, which does not determine the order-one-over-n-squared quantity.",
+        "evidence": "Definition 2.1 quantifies only over four points; theorem 3.1 gives equations 2(2k)^rho=3k^rho+(k+1)^rho and 2(2k−1)^rho=3k^rho+(k−1)^rho.",
+        "identifier_or_url": "https://msp.org/involve/2010/3-1/involve-v3-n1-p05-p.pdf",
+        "material_read": "Full-text Sections 2–3, especially definition 2.1, theorem 3.1, corollary 3.2, and the derivation of the odd-cycle formulas.",
+        "method": "Read accessible publisher PDF extracted text and inspected page images for the definitions and sample calculations.",
+        "title": "Roundness properties of graphs",
+        "trigger": "The article treats roundness of odd cycles explicitly and is cited in the negative-type literature."
+      },
+      {
+        "assessment": "Establishes general determinant criterion, the five-cycle exponent, and a nonsharp universal odd-cycle upper bound, but not the sharp n^-2 asymptotic coefficient.",
+        "evidence": "Example 2.8 gives the value for C5; Lemma 3.3 states the upper bound log_2(3), says it is not optimal, and cites only convergence of the odd-cycle exponent to 1.",
+        "identifier_or_url": "https://arxiv.org/html/1108.0451v1",
+        "material_read": "Sections 2–3, including the general finite-metric criterion, Example 2.8, Lemma 3.3 and the references.",
+        "method": "Inspected original first-version arXiv HTML, the five-cycle example, and the odd-cycle bound proof.",
+        "title": "On the supremal p-negative type of a finite metric space",
+        "trigger": "Direct finite-negative-type methodology and an explicit odd-cycle application."
+      },
+      {
+        "assessment": "Provides a general first-zero criterion, not the asymptotic first-zero constant or the uniform mode separation for odd cycles.",
+        "evidence": "Theorem 3.1 identifies generalized roundness with the first zero of the distance-matrix determinant for a vertex-transitive class; the quantitative n^-2 asymptotics are not stated.",
+        "identifier_or_url": "https://arxiv.org/abs/1112.5657",
+        "material_read": "Introduction, Section 3 theorem 3.1 and proof, Section 4 Hamming-cube classification, and scope of the results.",
+        "method": "Read publicly accessible arXiv HTML including main results and proofs.",
+        "title": "Generalized roundness of vertex transitive graphs",
+        "trigger": "Its Fourier-adjacent vertex-transitive distance-spectrum criterion may subsume a cycle calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4b64f40-fce8-47a5-9379-7f834b04a123",
+  "value": {
+    "rationale": "The generalized-roundness exponent of the canonical odd-cycle Cayley metric is a natural Hilbert-snowflake invariant. The exact n^-2 decay coefficient and controlling Fourier mode quantify a gap that earlier qualitative convergence estimates could not resolve. Comparison against the independently characterized four-point roundness reveals a mathematically substantive n^-1 versus n^-2 distinction in the same metric family; neither is an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
