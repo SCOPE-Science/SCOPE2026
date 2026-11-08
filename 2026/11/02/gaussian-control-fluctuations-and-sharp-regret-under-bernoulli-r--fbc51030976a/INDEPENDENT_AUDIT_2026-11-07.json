@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed T>0 and h=T/N, Bernoulli coefficient perturbation a_h=-1+xi_j (xi_j=±1) induces primitive W_h(t)=∫xi. The pathwise strictly convex L² optimal control is Phi(W_h)=(I+K_W* K_W)^-1 K_W*1, a twice continuously differentiable map of continuous primitive W with uniform Taylor remainder O(||W||∞²). Differentiating the Volterra kernel gives DK_0[W]=∫(phi_r⊗psi_r)W’(r)dr, yielding first variation ∫ G_r xi(r)dr. Hilbert-valued Lindeberg/Rademacher CLT and E||W_h||∞^4=O(h²) give h^-1/2(u_h-u)=>∫G dB with covariance ∫G⊗G; control MSE/h→∫||G||² and deterministic quadratic regret/h→1/2∫<G,HG>. Strict x(r)>0 from positive Dirichlet–Robin Green function and negative tail of HG_r prove G nonzero for all r in (0,T), so constants >0. Independent discretized operator directional derivative at n=40,80 had norm errors ≲1.2e-10. Scope is offline pathwise minimizer, not online control or general matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General functional delta method and Hilbert CLT can yield a first-order Gaussian law once samplewise differentiability is established."
+        ],
+        "reasoning": "The original randomized-splitting paper supplies only upper rates; abstract generic perturbation theory does not evaluate this exact Volterra sensitivity or prove strict positive constants for every T.",
+        "searches": [
+          "randomized time splitting linear quadratic optimal control Gaussian fluctuations sharp regret",
+          "Veldman Zuazua random time splitting control mean-square convergence CLT sharp asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2109.13798",
+        "https://arxiv.org/abs/1912.06734",
+        "Resultary semantic query: randomized time splitting linear quadratic optimal control Gaussian fluctuations sharp regret",
+        "Pinned Git result blob 4f5f9642753ed96cfd24d2d7cd610a8914b0e674"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Veldman–Zuazua arXiv:2109.13798 develops and analyses same randomized splitting mechanism; its convergence upper bound is prior, and it is not equivalent to a matching constant/distributional limit. Na–Anitescu sensitivity bounds concern dynamic programming, not this Brownian optimizer limit."
+        ],
+        "reasoning": "Proof adds the Fréchet-kernel response and sharp Gaussian/moment asymptotics.",
+        "searches": [
+          "randomized time splitting linear quadratic optimal control Gaussian fluctuations sharp regret",
+          "Veldman Zuazua random time splitting control mean-square convergence CLT sharp asymptotic",
+          "https://arxiv.org/abs/2109.13798"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The random differential coefficient is the Bernoulli randomized time-splitting of Veldman–Zuazua; control is optimized offline after observing sampled coefficients. Not standard additive-noise stochastic feedback LQ control."
+        ],
+        "reasoning": "The exact centered Gaussian optimizer limit and explicit positive asymptotic constants are not present in the inspected upper-bound theorem.",
+        "searches": [
+          "randomized time splitting linear quadratic optimal control Gaussian fluctuations sharp regret",
+          "Veldman Zuazua random time splitting control mean-square convergence CLT sharp asymptotic",
+          "https://arxiv.org/abs/2109.13798"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A continuum operator-valued Gaussian limit and asymptotic cost constants are not a database lookup; quadrature computes explicit integral constants but their proved positivity is essential."
+        ],
+        "reasoning": "No exact finite table known that implies the all-T Hilbert statement.",
+        "searches": [
+          "randomized time splitting linear quadratic optimal control Gaussian fluctuations sharp regret",
+          "Veldman Zuazua random time splitting control mean-square convergence CLT sharp asymptotic"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. The exact centered Gaussian optimizer limit and explicit positive asymptotic constants are not present in the inspected upper-bound theorem.",
+      "residual_risks": [
+        "Infinite-dimensional delta method is a classical device; priority of its precise application to this sampled scalar rule remains qualified.",
+        "No causal/adapted policy or general multiple-matrix splitting result is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_METHOD_AND_UPPER_BOUND_NOT_THE_SHARP_LIMIT",
+          "evidence": "Earlier rate bounds are recognized but no claimed Hilbert-valued Gaussian weak law and strictly positive leading error/regret constants in inspected result.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.13798",
+          "material_read": "Accessible published full HTML article (Springer 2022), Sections 2–3, convergence theorem and discussion inspected and searched for central limit",
+          "method": "Full-article HTML theorem/definition comparison",
+          "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+          "trigger": "Same coefficient-sampling rule and offline control, most likely covering paper"
+        },
+        {
+          "assessment": "DISTINCT_SETTING",
+          "evidence": "Sensitivity decay for nonlinear dynamic programs, not a random sampling functional limit of this offline optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.06734",
+          "material_read": "Abstract and cited scope; full article not materially read",
+          "method": "Abstract-level setting comparison",
+          "title": "Exponential Decay in the Sensitivity Analysis of Nonlinear Dynamic Programming",
+          "trigger": "Potential sensitivity theorem dominating exact calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact Gaussian fluctuation law plus sharp positive leading control-error/regret constants for a natural nontrivial stochastic splitting rule improves an upper convergence rate and quantifies distributional uncertainty and optimization cost.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2109.13798",
+    "https://arxiv.org/abs/1912.06734",
+    "Resultary semantic query: randomized time splitting linear quadratic optimal control Gaussian fluctuations sharp regret",
+    "Pinned Git result blob 4f5f9642753ed96cfd24d2d7cd610a8914b0e674"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Infinite-dimensional delta method is a classical device; priority of its precise application to this sampled scalar rule remains qualified.",
+    "No causal/adapted policy or general multiple-matrix splitting result is established."
+  ],
+  "residual_risks": [
+    "Infinite-dimensional delta method is a classical device; priority of its precise application to this sampled scalar rule remains qualified.",
+    "No causal/adapted policy or general multiple-matrix splitting result is established."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS_METHOD_AND_UPPER_BOUND_NOT_THE_SHARP_LIMIT",
+      "evidence": "Earlier rate bounds are recognized but no claimed Hilbert-valued Gaussian weak law and strictly positive leading error/regret constants in inspected result.",
+      "identifier_or_url": "https://arxiv.org/abs/2109.13798",
+      "material_read": "Accessible published full HTML article (Springer 2022), Sections 2–3, convergence theorem and discussion inspected and searched for central limit",
+      "method": "Full-article HTML theorem/definition comparison",
+      "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+      "trigger": "Same coefficient-sampling rule and offline control, most likely covering paper"
+    },
+    {
+      "assessment": "DISTINCT_SETTING",
+      "evidence": "Sensitivity decay for nonlinear dynamic programs, not a random sampling functional limit of this offline optimum.",
+      "identifier_or_url": "https://arxiv.org/abs/1912.06734",
+      "material_read": "Abstract and cited scope; full article not materially read",
+      "method": "Abstract-level setting comparison",
+      "title": "Exponential Decay in the Sensitivity Analysis of Nonlinear Dynamic Programming",
+      "trigger": "Potential sensitivity theorem dominating exact calculation"
+    }
+  ]
+}
