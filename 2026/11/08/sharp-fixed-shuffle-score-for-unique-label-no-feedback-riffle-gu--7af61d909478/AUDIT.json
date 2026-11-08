@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "A valid perfect-matching objective follows from one use per label. The 2025 marginal binomial-mixture identity fixes means and variances. Uniform Fourier lattice local limits and Hoeffding concentration yield each interior column maximum; endpoint binomial peak estimates show removed boundary columns are negligible. A block-interleaved permutation attains the matching coefficient by local limits and Riemann sums. Its integral is evaluated exactly. A standalone standard-library checker passes 61 finite exact-rational/assignment groups; these complement rather than substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krityakierne and Thanatipanonda (2026), arXiv:2611.04339v1, Sections 1, 4, 5: explicitly repeated guesses, row-wise optimality and coefficient 2/sqrt((m-1)pi).",
+        "Kuba and Panholzer (2024), DOI 10.1016/j.aam.2024.102689, Section 2.2: unrestricted optimal one-shuffle sequence 1,2,2,3,3,...; limit law for that score.",
+        "The proof starts from standard lattice local limits and a classical assignment inequality; neither alone provides the coefficient or the feasible matching that attains it."
+      ],
+      "reasoning": "The fixed-k published theorem concerns a more permissive action set, but its optimal value is not an upper bound sharp enough to imply this theorem, and its optimizer repeats labels. General local-CLT and assignment facts are tools; special alignment of marginal component means is needed for a new sharp coefficient.",
+      "searches": [
+        "column-maximum matching upper bound riffle shuffle permutation card guesses round-robin interleaving",
+        "\"no feedback riffle shuffle fixed k repeated guesses expected score\"",
+        "doi:10.1016/j.aam.2024.102689",
+        "arxiv:2308.15782"
+      ]
+    },
+    "checked_sources": [
+      "Krityakierne–Thanatipanonda 2025, doi:10.3934/math.20251075, full relevant PDF.",
+      "Krityakierne–Thanatipanonda 2026, arXiv:2611.04339v1, full HTML.",
+      "Kuba–Panholzer 2024, doi:10.1016/j.aam.2024.102689, arXiv:2308.15782 relevant PDF.",
+      "Ciucu 1998, doi:10.1214/aoap/1028903379, cited and characterized via the two above full-text sources; original full text not directly read.",
+      "Published finding search: permutation covariance and stochastic-dominance assignment records returned, with no directly covering claim."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krityakierne and Thanatipanonda (2025), DOI 10.3934/math.20251075, Section 3: fixed-position binomial-mixture formula; no one-to-one assignment theorem.",
+        "Krityakierne and Thanatipanonda (2026), arXiv:2611.04339v1, Sections 1, 4, 5: explicitly repeated guesses, row-wise optimality and coefficient 2/sqrt((m-1)pi).",
+        "Kuba and Panholzer (2024), DOI 10.1016/j.aam.2024.102689, Section 2.2: unrestricted optimal one-shuffle sequence 1,2,2,3,3,...; limit law for that score.",
+        "The repeated-guess one-shuffle coefficient is 2/sqrt(pi); the claimed unique-guess one-shuffle coefficient is sqrt(2/pi)."
+      ],
+      "reasoning": "Although every bijective strategy is a permissible repeated-guess strategy, knowing the greater unrestricted optimum and a positionwise optimizer does not determine the optimum under matching constraints. The new column-sum upper bound and constructive lower bound are not corollaries of the row-sum optimization. The general GSR marginal formula supplies premises, not the conclusion.",
+      "searches": [
+        "arxiv:2611.04339v1, Theorems 1.1-1.2",
+        "doi:10.3934/math.20251075, Section 3",
+        "arxiv:2308.15782, Section 2.2",
+        "\"no repeated guesses\" \"riffle\" cards"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krityakierne and Thanatipanonda (2025), DOI 10.3934/math.20251075, Section 3: fixed-position binomial-mixture formula; no one-to-one assignment theorem.",
+        "Krityakierne and Thanatipanonda (2026), arXiv:2611.04339v1, Sections 1, 4, 5: explicitly repeated guesses, row-wise optimality and coefficient 2/sqrt((m-1)pi)."
+      ],
+      "reasoning": "Bijective no-feedback guessing equals maximum-weight perfect matching in a GSR marginal matrix, not independent row-wise maxima. The 2025 and 2026 papers formulate the latter, explicitly permitting repetition. Their formulas cannot be reinterpreted as this one-to-one theorem because the leading coefficients disagree even for one shuffle.",
+      "searches": [
+        "unique-label nonrepeating no feedback GSR riffle shuffle card guessing asymptotic assignment sqrt n score",
+        "no feedback riffle shuffle each card guessed exactly once all different labels permutation guessing asymptotic maximum expected matches distinct guesses sqrt n coefficient",
+        "\"permutation\" \"no feedback\" \"riffle\" matching guessing",
+        "doi:10.3934/math.20251075",
+        "arxiv:2611.04339v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results included unrelated random-serial-dictatorship and permutation covariance finding profiles, rather than the unique-label GSR coefficient.",
+        "Small-deck exact rational optimal assignment and margin comparisons are produced by the included checker, not imported from a table."
+      ],
+      "reasoning": "No directly covering exact-score table or prior formula was located. The included finite tables cannot constitute an infinite result, and absence of a search hit is not a proof of novelty.",
+      "searches": [
+        "unique-label nonrepeating no feedback GSR riffle shuffle card guessing asymptotic assignment sqrt n score",
+        "column-maximum matching upper bound riffle shuffle permutation card guesses round-robin interleaving",
+        "no feedback riffle shuffle each card guessed exactly once all different labels permutation guessing asymptotic maximum expected matches distinct guesses sqrt n coefficient",
+        "fixed a-shuffle assignment maximum weight perfect matching column maxima local limit Poisson binomial asymptotics"
+      ]
+    },
+    "rationale": "The motivating 2025 marginal-mixture result and 2026 fixed-shuffle sequel both permit repeated guesses and maximize independently over positions. This theorem uses a bijective strategy constraint and obtains a different asymptotic coefficient via a sharp column-capacity upper bound and a matching constructive assignment. The older one-shuffle limit-law article likewise uses repeat guesses. Available published-result profiles and web searches did not identify a covering equivalent. Priority remains provisional; missing historical coverage is a residual risk.",
+    "residual_risks": [
+      "No search can establish priority; older nonrepeating card-guessing or weighted-assignment papers may contain an equivalent theorem.",
+      "Ciucu (1998) original full text was not independently read; its relevant optimum is described by later primary full texts.",
+      "The 2026-11-03 sequel was checked for overlap but is later than the source eligibility anchor and is not the motivating source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the component representation; repeated guesses are permitted and no unique-label matching asymptotic is stated.",
+        "evidence": [
+          "Published 23 October 2025; DOI 10.3934/math.20251075",
+          "Page 24263, Section 3.2, binomial generating functions; opening rules and discussion of positionwise choices."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/10/PDF/math-10-10-1075.pdf",
+        "material_read": "Article PDF including introduction, game rules, generating-function construction, Section 3 and cited conjecture; page image for Section 3.2 and its displayed formula.",
+        "method": "Readable PDF text and inspected page image",
+        "title": "A generating function framework for the no-feedback card guessing game after riffle shuffles",
+        "trigger": "Primary recent fixed-shuffle marginal-mixture source and problem motivation"
+      },
+      {
+        "assessment": "Repeated guesses explicitly allowed (Section 1); proves row-wise rather than bijective matching optimum; not same claim.",
+        "evidence": [
+          "arXiv v1 dated 3 November 2026",
+          "Theorem 1.2 gives 2sqrt(n/((2^k-1)pi))+O(1) for repeated guesses."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.04339v1",
+        "material_read": "Full HTML: abstract, Sections 1-6 including the two theorems, proofs of optimal strategies and score and limitations.",
+        "method": "Accessible author preprint full text",
+        "title": "Optimal no-feedback card guessing after a fixed number of riffle shuffles",
+        "trigger": "Potential direct follow-up on same objects after the frozen scope boundary"
+      },
+      {
+        "assessment": "Optimizes unrestricted single-position guesses and repeats each interior label twice; does not cover bijective strategy optimum.",
+        "evidence": [
+          "Section 2.2, Proposition 1: sequence 1,2,2,3,3,...",
+          "Published Advances in Applied Mathematics 156 (2024), 102689."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.15782",
+        "material_read": "PDF introduction, GSR model, Section 2.2 optimal-guess sequence and context of the score limit law.",
+        "method": "Readable arXiv PDF text and inspected page image",
+        "title": "On card guessing games: Limit law for no feedback one-time riffle shuffle",
+        "trigger": "Earlier one-shuffle no-feedback limit law potentially subsuming unique-label optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7af61d90-9478-4935-b7c0-2ec7802d055b",
+  "value": {
+    "rationale": "Using every label exactly once is a natural, globally coupled version of no-feedback guessing; the usual repeated-guess row maxima do not solve it. An explicit fixed-k sharp constant and readily implemented matching determine its asymptotic cost. One riffle gives sqrt(2/pi), strictly below 2/sqrt(pi) for unrestricted repeat guesses. This is a structural optimization result rather than a small finite numerical improvement.",
+    "status": "PASS"
+  }
+}
