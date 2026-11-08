@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:57:11.000923Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The loss identity follows from the trace of A^T(I-qq^T)A. For one Gaussian column, diagonalizing C makes T=∑t_j Z_j^2 independent of X^2. At every error threshold strictly inside (mb^2, mb^2+a^2-b^2), the event L<=e is T<=k X^2; conditioning gives a strictly convex function of the spectral weights because chi-square-one survival S has positive second derivative for all positive arguments. Distinct weights give a nondegenerate random linear difference almost surely, so symmetry plus strict convexity proves strict Schur-majorization except permutations. Extremal spectra, exact two endpoint distributions, rank-one mean and correlation-matrix sign-extremizers follow. Applies only to real PSD covariance C with trace m, a>b>0, m>=2, one independent Gaussian leading coordinate, and one test column; not general spectral tails or multiple probes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The covariance-aware RLA primary text gives error bounds and oversampling hypotheses, not a one-column exact CDF.",
+          "Generalized randomized SVD theorem uses different test-column counts/assumptions."
+        ],
+        "reasoning": "General covariance-aware algorithms are broader settings but their displayed performance theorems do not dominate strict all-threshold one-probe stochastic ordering; abstract Schur-convexity remains a risk after specializing.",
+        "searches": [
+          "arXiv:2405.04811 theorem 3.1 Section 3.1.2 Lemma 3.3",
+          "arXiv:2105.13052 general Gaussian sketch bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2405.04811",
+        "https://arxiv.org/abs/2105.13052",
+        "https://doi.org/10.2307/3315257",
+        "Marshall-Proschan JMAA 1965",
+        "Resultary: Resultary: Gaussian randomized range finder rank one residual stochastic ordering majorization covariance weighted chi square correlation optimal",
+        "Resultary: Resultary: rank one randomized SVD Gaussian sketch covariance tail chi square Schur convex residual strict majorization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A strictly convex symmetric expectation of exchangeable summands is a standard majorization corollary.",
+          "The exact trace residual law and independent chi-square ratio identify the nonstandard application-specific statistic, including fixed-marginal correlation matrices."
+        ],
+        "reasoning": "Prior general majorization theorem implies the abstract weight ordering conditional on the exact reduction, but the inspected approximation papers do not supply the reduction plus sharp error-design consequence. This is a genuine priority vulnerability; the audit does not falsely attribute the general convexity lemma as new.",
+        "searches": [
+          "Marshall-Proschan 1965",
+          "Bock et al 1987",
+          "arXiv:2405.04811 Section 3.1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The error event transforms to the expectation of the convex survival of an independent chi-square ratio.",
+          "Bock et al study weighted gamma sums; no inspected paper gives the exact randomized sketch loss event."
+        ],
+        "reasoning": "The abstract general Schur-convex lemma is prior work and itself implies the core spectral inequality once the nontrivial sketch-to-ratio reduction is supplied. The theorem is assessed as a specific stochastic projection-error and fixed-marginal design statement, not as a new universal majorization principle.",
+        "searches": [
+          "Resultary: Gaussian randomized range finder rank one residual stochastic ordering majorization covariance weighted chi square correlation optimal",
+          "Resultary: rank one randomized SVD Gaussian sketch covariance tail chi square Schur convex residual strict majorization",
+          "Marshall-Proschan convex expectation under majorization",
+          "Bock et al weighted gamma sum Schur-convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact one-probe spectral-design CDF/quantile table identified in the checked primary statements or Resultary semantic hits.",
+          "The weighted-gamma references may contain close general inequalities but their accessible abstract alone cannot exclude fuller coverage."
+        ],
+        "reasoning": "No database/table match was established; absence in searches is not proof of historical originality.",
+        "searches": [
+          "Resultary: Gaussian randomized range finder rank one residual stochastic ordering majorization covariance weighted chi square correlation optimal",
+          "Resultary: rank one randomized SVD Gaussian sketch covariance tail chi square Schur convex residual strict majorization",
+          "Bock Diaconis Huffer Perlman 1987",
+          "https://arxiv.org/abs/2405.04811"
+        ]
+      },
+      "rationale": "Qualified PASS: neither the inspected covariance-aware RLA bounds nor oversampled Gaussian sketch analyses state the exact one-probe loss CDF with strict *every-threshold* optimal covariance including fixed unit diagonals. Classical Marshall–Proschan majorization is fully acknowledged as the underlying abstract inequality, not claimed novel. The mapping of this particular loss functional into a strictly convex expectation and fixed-marginal covariance solution is the surviving application result, with residual risk of an equivalent direct corollary or earlier weighted-gamma tail result.",
+      "residual_risks": [
+        "Marshall–Proschan already establishes the central Schur-convex expectation lemma, so application priority depends on whether prior work maps randomized projection loss to that lemma.",
+        "Bock–Diaconis–Huffer–Perlman and Diaconis–Perlman gamma-tail papers were not inspected fully and may contain equivalent integrated gamma/chi-square ratios.",
+        "One-probe one-spike and equal-tail-singular-value assumptions are essential; finite numerical corroboration is not an all-threshold proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives covariance-dependent error bounds and estimates, not a full exact distribution or strict spectral majorization for a single probe",
+          "evidence": "Theorem 3.1/Section 3.1.2; Lemma 3.3 assumes k <= ell-2 in its relevant bound, whereas assigned problem has one test column, no oversampling.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.04811",
+          "material_read": "Primary full PDF: theorem 3.1 and Section 3.1.2, plus page 10 Lemma 3.3 and hypotheses on probe/oversampling",
+          "method": "full text read in publisher-hosted accessible PDF; visual page 10 checked",
+          "title": "A general error analysis for randomized low-rank approximation with application to data assimilation",
+          "trigger": "Same covariance-aware randomized range projection and Frobenius error"
+        },
+        {
+          "assessment": "Nonisotropic Gaussian probes and performance bounds, but not all-threshold one-probe Schur-convex optimization",
+          "evidence": "The compared stated theorem covers an oversampled regime, distinct from the one-column exact squared residual law.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.13052",
+          "material_read": "Primary accessible full text including randomized SVD and theorem on Gaussian covariance",
+          "method": "primary full-text reading",
+          "title": "A generalization of the randomized singular value decomposition",
+          "trigger": "General PSD test covariance could include single-column residual law"
+        },
+        {
+          "assessment": "Material is highly relevant as an abstract exchangeable-gamma Schur-convexity ingredient; complete article not read, possible priority overlap unresolved",
+          "evidence": "The general majorization principle can compare convex expectations of weighted gamma sums; further ratio-to-independent-chi-square and fixed marginal design are not explicit in inspected material.",
+          "identifier_or_url": "https://doi.org/10.2307/3315257",
+          "material_read": "Accessible abstract/metadata and statement-level summary, not full article",
+          "method": "publisher abstract and bibliographic search",
+          "title": "Inequalities for linear combinations of gamma random variables",
+          "trigger": "Weighted squares of normals are gamma summands, potentially stronger majorization result"
+        },
+        {
+          "assessment": "Known general theorem underlying strict Schur-convexity; application-level novelty is qualified",
+          "evidence": "Majorization of exchangeable summands is not asserted new; exact matrix loss representation and design consequence are the assessed claim.",
+          "identifier_or_url": "Marshall and Proschan, J. Math. Anal. Appl. 12 (1965), 87–90",
+          "material_read": "Secondary citation in Bock et al and paper metadata only",
+          "method": "bibliographic/theorem description; no primary full text",
+          "title": "An inequality for convex functions involving majorization",
+          "trigger": "Broad symmetric convex expectation theorem might imply an abstract core lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural design question in randomized rank-one projection is whether correlation in equally noisy trailing probe coordinates helps/hurts, at every error tolerance rather than only mean error. The strict spectrum law gives a complete distributional answer and unique worst and optimal designs (for covariance spectrum and for correlation matrices) with exact endpoint CDFs; the result has independent practical/mathematical use as an exact benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Marshall–Proschan already establishes the central Schur-convex expectation lemma, so application priority depends on whether prior work maps randomized projection loss to that lemma.",
+    "Bock–Diaconis–Huffer–Perlman and Diaconis–Perlman gamma-tail papers were not inspected fully and may contain equivalent integrated gamma/chi-square ratios.",
+    "One-probe one-spike and equal-tail-singular-value assumptions are essential; finite numerical corroboration is not an all-threshold proof.",
+    "Independent numerical/exact finite checks corroborate source mathematics but do not replace general proofs; originality is best-of-knowledge, not an externally certified priority conclusion."
+  ],
+  "schema_version": 1
+}

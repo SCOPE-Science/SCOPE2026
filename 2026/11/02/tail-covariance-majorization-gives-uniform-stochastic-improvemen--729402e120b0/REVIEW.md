@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct orthogonal-projector algebra yields the exact residual, and diagonalizing the trailing covariance gives a weighted chi-square random variable independent of the leading chi-square denominator. The relevant survival function has strictly positive second derivative on every positive argument; exchangeability and strict convexity prove the stated strict Schur-convexity. Rank-one Cauchy and isotropic beta formulas agree with independent quadrature, and the standalone verifier passes 1,264 checks. Boundary support and admissibility of singular covariance are explicitly addressed. The infinite assertions depend on the analytical proof, not numerical tests.
+## correctness
 
-**Originality — PASS, with priority risk.** Full-text comparison of the Gaussian covariance-aware randomized range-finder papers arXiv:2405.04811 and arXiv:2105.13052 distinguishes their oversampled expectation/probability estimates from a sharp all-threshold one-probe covariance-spectrum ordering. Generic gamma majorization and convex-expectation inequalities are clearly acknowledged as the prior mathematical mechanism rather than claimed new; the candidate contribution is a precise algorithm-specific error-law classification and fixed-marginal optimizer. The full 1987/1988 gamma majorization papers were not accessible in this review, so an equivalent formulation there remains a documented risk.
+PASS
 
-**Value — PASS.** Covariance selection is a stated issue in generalized randomized SVD. Here the smallest nontrivial fixed-marginal instance has a complete covariance design and a strict first-order stochastic guarantee stronger than comparing mean errors. This proves that equal marginal variances, total variance, and covariance-trace bounds do not determine the actual one-probe success probabilities; it provides a reproducible sharp benchmark for algorithmic covariance choices.
+The loss identity follows from the trace of A^T(I-qq^T)A. For one Gaussian column, diagonalizing C makes T=∑t_j Z_j^2 independent of X^2. At every error threshold strictly inside (mb^2, mb^2+a^2-b^2), the event L<=e is T<=k X^2; conditioning gives a strictly convex function of the spectral weights because chi-square-one survival S has positive second derivative for all positive arguments. Distinct weights give a nondegenerate random linear difference almost surely, so symmetry plus strict convexity proves strict Schur-majorization except permutations. Extremal spectra, exact two endpoint distributions, rank-one mean and correlation-matrix sign-extremizers follow. Applies only to real PSD covariance C with trace m, a>b>0, m>=2, one independent Gaussian leading coordinate, and one test column; not general spectral tails or multiple probes.
 
-**Closest literature and scope.** The source papers treat general non-standard Gaussian sketches with error bounds, and classic gamma papers treat weighted-sum tail order; neither inspected full text provides this exact range-finder distribution. The result is restricted to one probe, a single leading spike, isotropic tail singular values, exact arithmetic, and independent leading and trailing Gaussian blocks. No extension to multiple sketch columns or arbitrary singular values is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: neither the inspected covariance-aware RLA bounds nor oversampled Gaussian sketch analyses state the exact one-probe loss CDF with strict *every-threshold* optimal covariance including fixed unit diagonals. Classical Marshall–Proschan majorization is fully acknowledged as the underlying abstract inequality, not claimed novel. The mapping of this particular loss functional into a strictly convex expectation and fixed-marginal covariance solution is the surviving application result, with residual risk of an equivalent direct corollary or earlier weighted-gamma tail result.
+
+## value
+
+PASS
+
+A natural design question in randomized rank-one projection is whether correlation in equally noisy trailing probe coordinates helps/hurts, at every error tolerance rather than only mean error. The strict spectrum law gives a complete distributional answer and unique worst and optimal designs (for covariance spectrum and for correlation matrices) with exact endpoint CDFs; the result has independent practical/mathematical use as an exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
