@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every odd \\(b\\ge3\\), the low \\(2b+1\\) multiples \\(L_j=1+j(b-1)\\) have digit sum either \\(1\\) or \\(b\\). CRT chooses \\(P\\) such that \\(P\\) and \\(Q=P-(b-1)\\) have no prime factors at most \\(U=1+2b(b-1)\\), compatibly with \\(P\\equiv1\\pmod b\\) and \\(P\\equiv-1\\pmod{b-1}\\). With \\(K=P-b\\), \\(a=(P+b)/(b-1)\\), and \\(R=K-a\\ge0\\), the separated one-digit sum \\(C\\) has digit sum \\(K\\) and residue \\(2P\\pmod{PQ}\\). Multiplicative-order shifts \\(N=C b^m+1\\) yield digit sums \\(P\\) or \\(Q\\), and the corresponding residues reduce to \\(L_j\\) or \\(L_j+2(b-1)\\), both at most \\(U\\), forcing all gcds to be one. Unlimited choices of \\(m\\) yield distinct starts. Full-integer checks at bases \\(3,5\\) and modular checks at ten bases succeeded; finite experiments are not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ArXiv:2308.05228 Theorem 2.4 constructs arbitrary-length anti-Niven progressions with a difference chosen as a function of length; it does not control a preassigned step.",
+        "ArXiv:2308.05228 Theorem 2.5 requires a prime dividing b-1 but not d; at d=b-1 the hypothesis cannot hold.",
+        "Theorem 3.5 gives an exact even-base result and Theorem 4.2 an odd-prime-base result; neither ranges over odd composites."
+      ],
+      "reasoning": "A stronger variable-difference existence theorem does not imply the specified fixed-difference result. The prime-divisor upper bound is inapplicable by its own condition; the parity and primality hypotheses of closest lower/exact results exclude the new domain.",
+      "searches": [
+        "Web: \"gcd(n,s_b(n))\" \"arithmetic progressions\" fixed difference",
+        "Web: \"relatively prime to their digital sums\" arithmetic progression composite base",
+        "published-finding corpus: Arithmetic progressions anti-Niven numbers odd base even difference sharp length smallest prime p divides b-1 not d"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.05228v1, first public 2023-08-09, full HTML sections 1-4.",
+      "DOI 10.1216/rmj.2026.56.13, journal title/abstract/metadata only.",
+      "Published mathematical-result index: actual searches for anti-Niven, odd composite bases, fixed step b-1, and length 2b+1; no covering close hit.",
+      "Web keyword and quoted-phrase searches for odd composite anti-Niven fixed-step progressions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.2 statement begins \"Let b be an odd prime\" and uses primality to ensure gcd with b of all low residue terms. Composite b invalidates that exact implication.",
+        "Theorem 3.5 statement begins \"Let b be even\". Theorem 2.4 chooses d=b(b^m-1)(m(b-1)+1), not d=b-1.",
+        "The manuscript supplies a new CRT-roughness prefix permitting arbitrary odd b while retaining d=b-1."
+      ],
+      "reasoning": "The new odd-composite assertion is not a corollary or a special case of the cited prior theorems. In particular, a result with an existential difference does not imply the same length at a prescribed difference.",
+      "searches": [
+        "Full text arXiv:2308.05228 sections 2,3,4: Theorems 2.4, 2.5, 3.5, 4.2.",
+        "Web: \"anti-Niven\" \"composite\" \"progressions\" \"b-1\"",
+        "published-finding corpus: All odd bases b, including composite, have infinitely many arithmetic progressions of 2b+1 anti-Niven integers with fixed step b-1; digit-sum gcd and CRT."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No close published-finding corpus result in returned ranked titles/summaries states an anti-Niven fixed-step existence theorem for odd composite bases.",
+        "Blau et al., arXiv:2308.05228, Section 4 Theorem 4.2 explicitly assumes b is an odd prime; Section 3 Theorem 3.5 assumes b is even."
+      ],
+      "reasoning": "Equivalent statements include infinitely many fixed-(b-1) anti-Niven runs of at least 2b+1 terms or a fixed-step maximum >=2b+1; none of the identified published statements covers odd composite b.",
+      "searches": [
+        "published-finding corpus: All odd bases b, including composite, have infinitely many arithmetic progressions of 2b+1 anti-Niven integers with fixed step b-1; digit-sum gcd and CRT.",
+        "published-finding corpus: General arithmetic progression of relatively prime to digit sum, length 2b+1, arbitrary odd composite base b difference b-1.",
+        "Web: \"anti-Niven\" \"b-1\" \"composite\" arithmetic progressions lower bound",
+        "Web: \"anti-Niven\" \"2b+1\" odd base composite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "ArXiv:2308.05228 contains no table or construction covering all odd composite bases for this fixed step; its odd-prime Theorem 4.2 gives a simple finite example.",
+        "Targeted mathematical-index searches did not identify a database table giving this quantified infinite construction."
+      ],
+      "reasoning": "A finite tabulation of small composite bases would not supply infinitely many starts uniformly over every odd composite base. No exact table or database theorem with the requisite quantifiers was found.",
+      "searches": [
+        "Web: \"anti-Niven\" \"odd\" \"(b-1)-AP\" long runs",
+        "Web: \"anti-Niven\" \"2b+1\" \"b-1\" odd",
+        "published-finding corpus: 2b+1 anti-Niven numbers b-1 arithmetic progression composite odd base extension of Blau Harrington Lohrey Sosis Wong."
+      ]
+    },
+    "rationale": "The motivating full arXiv text proves the exact \\(2b+1\\) maximum for even bases and the corresponding lower bound for odd prime bases, but not odd composite bases. Its arbitrary-length result varies the difference, whereas the present result fixes it to \\(b-1\\); its prime-obstruction bound is inapplicable to this step. No published-finding corpus record or targeted literature result supplying the composite case was identified; unindexed coverage and the journal full text remain stated risks.",
+    "residual_risks": [
+      "An unindexed equivalent fixed-step theorem could exist despite targeted searches.",
+      "The 2026 journal full text of the motivating paper was not separately inspected; possible text differences were not ruled out.",
+      "No claim is made that 2b+1 is the maximum in odd bases or that other prescribed steps admit the same construction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The even-base result is exact, the odd-prime result is a lower bound, the arbitrary-length result varies the difference; these do not imply the odd-composite fixed-step claim.",
+        "evidence": [
+          "arXiv:2308.05228, Theorem 3.5: even b and d=b-1.",
+          "arXiv:2308.05228, Theorem 4.2: odd prime b and d=b-1.",
+          "arXiv:2308.05228, Theorem 2.4: arbitrarily long progressions with variable d."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.05228",
+        "material_read": "Accessible full HTML, sections 1-4 with statements and proofs; specifically Theorems 2.4, 2.5, 3.5, 4.2 and concluding conjectures.",
+        "method": "Compare the difference parameter and base quantifiers theorem by theorem; inspect proof where prime b is used.",
+        "title": "Arithmetic Progressions of Integers that are Relatively Prime to their Digital Sums",
+        "trigger": "Same exact anti-Niven object, fixed-step progressions, and target length."
+      },
+      {
+        "assessment": "Unresolved full-text comparison risk, mitigated by accessible full arXiv text; no contradiction established.",
+        "evidence": [
+          "Published metadata: Rocky Mountain Journal of Mathematics 56 (2026), 13-21; doi:10.1216/rmj.2026.56.13."
+        ],
+        "identifier_or_url": "https://doi.org/10.1216/rmj.2026.56.13",
+        "material_read": "Bibliographic metadata and published abstract only; publisher full text not accessible in this check.",
+        "method": "Compared available title, abstract, authors, publication metadata with the accessible arXiv full text; did not infer noncoverage from the journal abstract.",
+        "title": "Arithmetic Progressions of Integers that are Relatively Prime to their Digital Sums, journal version",
+        "trigger": "Same paper later published in Rocky Mountain Journal of Mathematics, a potentially differing revision."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e0d4a4b-2e61-4a3c-9088-838a499f0771",
+  "value": {
+    "rationale": "The fixed difference \\(b-1\\) and length \\(2b+1\\) are exactly the published benchmark: even \\(b\\) has an exact maximum, and odd prime \\(b\\) has the corresponding lower bound. Extension to every odd composite base fills a natural parameter gap which the former prime-only argument could not cover. The new construction proves infinitude through a two-level digital profile and CRT avoidance of all small prime factors, rather than merely listing examples. The odd-base maximum remains undetermined.",
+    "status": "PASS"
+  }
+}
