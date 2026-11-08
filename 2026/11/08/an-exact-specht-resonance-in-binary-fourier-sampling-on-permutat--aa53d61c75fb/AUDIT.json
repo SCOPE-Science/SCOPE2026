@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=7, the binary coordinate dot product equals the number of matching permutation positions modulo 2. The central character eigenvalue is n!/d times the Schur specialization with p1=z and pj=1 for j>=2. The elementary generating series (1+u)exp((z-1)u), the explicitly expanded dual Jacobi--Trudi determinant for lambda conjugate (n-4,3,1), and the hook-length formula prove Theta=(z-1)^{n-3}(z+1)(z^2+(n-4)z+n-1). The irreducible regular multiplicity d^2 yields the rigorous lower nullity bound. For n=7 a complete fifteen-partition exact census gives exactly one zero sector of degree 21, so nullity 441. The extracted standalone checker independently matches all polynomial coefficients for n=7..20, exhaustive sectors at n=4,5,7, and direct modular ranks n=2..5. Finite checks corroborate, not replace, the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical Frobenius Schur specialization and dual Jacobi--Trudi apply to all irreducible characters and yield an algorithm for this multiplier.",
+        "Orellana--Zabrocki arXiv:1510.00438v1 and arXiv:1605.06672 provide broad character methods but do not state the specific factorization/cancellation."
+      ],
+      "reasoning": "A general computational identity is broader in input domain but does not by itself supply the nontrivial stable closed factor, the infinite-family singularity, or the nullity bound without the three-row determinant and its factorization. A published universal factored spectrum for fixed-point weighted Cayley operators could dominate this claim if later found; none was identified in inspected material.",
+      "searches": [
+        "\"convolution f(sigma)=(-1)^fix(sigma) S_n eigenvalue zero representation (n-4,3,1)\"",
+        "\"Frobenius Schur specialization p1=t p_i=1 spectrum permutation agreement kernel t^(fixed points) irreducible partition\"",
+        "arXiv:1510.00438v1 symmetric-group characters symmetric functions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0708.2643v1 (Diaconis--Fulman--Guralnick)",
+      "arXiv:0803.2901v1 (Ku--Wales)",
+      "doi:10.37236/2955 (Harden--Penman)",
+      "arXiv:1510.00438v1 and arXiv:1605.06672 (Orellana--Zabrocki)",
+      "Bounded indexed comparisons against the published symmetric-group standard Fourier-block and conjugacy-class sampling results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The derangement eigenvalue kernel is indicator{fix(g)=0}, not (-1)^{fix(g)}, and an eigenvalue of one arbitrary central kernel does not imply an eigenvalue of the other.",
+        "The fixed-point polynomial P_{S_n}(z) counts unweighted permutations and corresponds only to lambda=(n).",
+        "The present coefficient is an exact nontrivial Specht sector lambda=(3,2,2,1^{n-7}), with d_n^2-dimensional Fourier kernel at z=-1."
+      ],
+      "reasoning": "Prior results contain reusable theory, not an implication whose conclusion includes the claimed stable Specht factor, its unit-circle roots, or its nontrivial all-n nullspace. This is a bounded comparison, not an exhaustive historical proof.",
+      "searches": [
+        "Ku Wales Eigenvalues of the Derangement Graph arXiv:0803.2901",
+        "Harden Penman Fixed Point Polynomials of Permutation Groups",
+        "Orellana Zabrocki symmetric group character symmetric functions",
+        "\"symmetric group central kernel (-1) number fixed points eigenvalue zero spectrum\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The self-restricted Walsh matrix is the central convolution matrix with entries (-1) to the number of common positions; equivalently it is a fixed-point parity central multiplier.",
+        "Ku--Wales arXiv:0803.2901v1 gives spectral formulas for the zero-fixed-point derangement kernel but not this parity kernel."
+      ],
+      "reasoning": "Fixed-point parity, permutation-position agreement and binary matrix Fourier restriction are exactly equivalent here. The closest checked spectral literature has different weights or restricted Fourier blocks, so no checked equivalent formulation asserts the explicit shape-(3,2,2,1^{n-7}) factor.",
+      "searches": [
+        "\"Fourier sampling restricted to permutation matrices symmetric group binary field exact spectrum signed number of fixed points\"",
+        "\"binary Fourier submatrix of permutation matrices kernel Specht module (n-4,3,1) Jacobi Trudi Schur\"",
+        "\"matrix indexed by permutations with kernel z^(number of common positions), determinant rank spectrum\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Harden--Penman (2013), Lemma 3.1 and fixed-point polynomial of the full symmetric group: scalar unsigned fixed-point count only.",
+        "Published results on standard-block sampling of three-cycles and symmetric-group conjugacy classes specify different operators and no exact table for binary permutation-matrix self-restriction."
+      ],
+      "reasoning": "The exact n=7 full rank 4599 was checked via all fifteen partitions, not copied from an indexed matrix table. No exact database or prior table of these multipliers was found. This negative search does not prove absence of unindexed tabulations.",
+      "searches": [
+        "\"permutation agreement matrix (-1) fixed points eigenvalues symmetric group\"",
+        "\"fixed point polynomials of permutation groups eigenvalues characters\"",
+        "\"permutation matrix Walsh Fourier restriction singular rank binary\""
+      ]
+    },
+    "rationale": "The same natural Fourier operator, fixed-point parity weights, stable Specht shape and explicit factor were compared against the closest published character and fixed-point literature. Derangement-graph eigenvalues concern the zero-fixed-point indicator; fixed-point polynomials without character weights are the trivial sector. General character calculus supplies the method but does not explicitly state the new cancellation and quantified Fourier nullspace. Related published symmetric-group Fourier-block results concern distinct kernels, not a statement covering this matrix. Bounded originality only; historical priority cannot be certified.",
+    "residual_risks": [
+      "A general symmetric-group fixed-point association-scheme eigenvalue table may implicitly or explicitly contain this stable shape family.",
+      "The published comparison was bounded, not an exhaustive literature or historical-priority search.",
+      "Indexed summaries do not substitute for full-text inspection of every potentially related indexed item."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies statistics of fixed points under permutation distributions; does not assert the particular nontrivial Specht central multiplier factor for parity-fixed-point Fourier matrices.",
+        "evidence": "Diaconis--Fulman--Guralnick, On Fixed Points of Permutations, arXiv:0708.2643v1.",
+        "identifier_or_url": "arXiv:0708.2643v1; https://arxiv.org/abs/0708.2643",
+        "material_read": "Public first-version full text, title, abstract, introduction and sections on fixed-point statistics; first submission date verified as 2007-08-20.",
+        "method": "Read the PDF text and inspected the rendered opening pages.",
+        "title": "On Fixed Points of Permutations",
+        "trigger": "Motivating literature on permutation fixed-point statistics and their distribution."
+      },
+      {
+        "assessment": "The studied convolution is the indicator of zero fixed points, whereas the present sign kernel weights all fixed-point levels. Character diagonalization is shared, but results about derangement graph eigenvalues do not imply this specific alternating weighted polynomial factor.",
+        "evidence": "Ku--Wales, Eigenvalues of the Derangement Graph, arXiv:0803.2901v1.",
+        "identifier_or_url": "arXiv:0803.2901v1; https://arxiv.org/abs/0803.2901",
+        "material_read": "Full PDF, first pages, main theorem, character-spectrum setup and relevant formulas for the derangement (zero-fixed-point) kernel.",
+        "method": "Read original arXiv PDF text and visually inspected the page containing the principal spectral claim.",
+        "title": "Eigenvalues of the Derangement Graph",
+        "trigger": "Closest general character diagonalization of a central graph kernel selected by fixed-point count."
+      },
+      {
+        "assessment": "Their fixed-point polynomial computes the trivial-representation eigenvalue (unweighted fixed-point generating function). It does not yield nontrivial Specht-sector eigenvalues or the specified cancellation.",
+        "evidence": "Harden--Penman, Fixed Point Polynomials of Permutation Groups, Electronic Journal of Combinatorics 20(2), P26 (2013), Lemma 3.1.",
+        "identifier_or_url": "https://doi.org/10.37236/2955",
+        "material_read": "Published full paper including definitions, symmetric group fixed-point-polynomial statements and Lemma 3.1; rendered pages inspected.",
+        "method": "Read the open-access PDF and compared its scalar enumerator to every relevant nontrivial character-weighted eigenvalue definition.",
+        "title": "Fixed Point Polynomials of Permutation Groups",
+        "trigger": "Exact polynomial generated by counting fixed points, potentially covering eigenvalues at a special character."
+      },
+      {
+        "assessment": "General machinery covers computing symmetric-group character expressions in principle, but no inspected statement supplies this stable shape family, its fully factored eigenvalue, or the resulting binary Fourier singularity.",
+        "evidence": "Orellana--Zabrocki, Symmetric Group Characters as Symmetric Functions, arXiv:1510.00438v1 and arXiv:1605.06672.",
+        "identifier_or_url": "arXiv:1510.00438v1; https://arxiv.org/abs/1510.00438; expanded arXiv:1605.06672",
+        "material_read": "Original and expanded preprints, introductory character constructions, main statements, and parts of the extended text and appendix.",
+        "method": "Read accessible arXiv versions and compared their general symmetric-function results to the explicit fixed-point parity spectral factor.",
+        "title": "Symmetric Group Characters as Symmetric Functions",
+        "trigger": "General symmetric-function methods might subsume the proposed Jacobi--Trudi specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa53d61c-75fb-4657-921b-a703b6adacd2",
+  "value": {
+    "rationale": "The fixed-position permutation matrices form a canonical structured subset of a binary matrix character group. Whether self-Fourier samples reconstruct arbitrary data supported on this set is a natural rank/stability question. The theorem gives a nontrivial, exact polynomially growing isotypic obstruction in every dimension n>=7, a sharp first stable boundary at n=7, and an exact phase-root explanation distinct from general dimension counting. It does not claim full spectra in every dimension or unrelated reconstruction consequences.",
+    "status": "PASS"
+  }
+}

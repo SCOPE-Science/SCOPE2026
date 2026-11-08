@@ -1,0 +1,11 @@
+# Review: exact binary permutation-matrix Fourier resonance
+
+**Correctness.** The Fourier pairing counts common permutation positions, hence is a central fixed-point kernel on the symmetric group. The Frobenius character transform, a three-row dual Jacobi--Trudi determinant, and the hook-length dimension give the all-dimensional polynomial scalar exactly. The unit-circle exclusion is a strict triangle inequality. The \(n=7\) rank follows from a complete fifteen-partition character table, not a sampled determinant. An independent branching checker verified coefficients for fourteen distinct dimensions and directly reconstructed four small matrix operators.
+
+**Originality.** Ku--Wales classify the derangement-graph convolution sector, not alternating parity of all fixed-point counts. Harden--Penman classify the trivial-representation fixed-point polynomial, not the nontrivial family indexed by \((3,2,2,1^{n-7})\). The general Schur-function literature provides machinery for computing the sector, but the exact infinite-dimensional factorization and its binary singularity are not stated in the inspected passages. Related published symmetric-group Fourier-block sampling results do not state the claimed formula. Priority beyond these bounded sources remains uncertain, particularly in permutation-association-scheme tables.
+
+**Value.** The natural interpolation problem is whether Fourier samples on binary permutation matrices determine arbitrary complex data supported on those matrices. The theorem produces a nontrivial obstruction at every \(n\ge7\), with a growing polynomial-dimensional kernel and a sharp rank at the first dimension of the stable family. The unit-circle factorization isolates the special binary resonance. This is stronger than a generic dimension count or a single small-case singular example.
+
+**Limitations.** The full kernel for \(n\ge8\), and complete spectra for odd-order additive characters, remain unresolved by this result. Classical character and symmetric-function identities are foundational and are not asserted to be newly proved. No exhaustive priority search or independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
