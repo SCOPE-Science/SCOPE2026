@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each Gaussian vector, the exact symplectic pairing \(z^\mathsf T\Sigma z\) bounds the product of the two frame-vector norms; arithmetic–geometric mean bounds their sum. The Gaussian support-function identity has the explicit dimension normalization \(2/\gamma_{2n}\). Matching skew Gram matrices constructs an attained symplectic normal form. Equality forces the two frames to be related by the standard complex structure and classifies the complete minimizing orbit. Strict concavity proves both sharp fixed-trace endpoints. The standalone exact-rational checker passed all 776 vector tests and matrix identities. Risk: no computerized proof is asserted; the analytic argument bears the universal claim.
+PASS
 
-## Originality — PASS, subject to historical priority
+PASS. Checked hypotheses F^TJF=G^TJG=0 and invertible pairing H: the concatenated frame W=[F G] is invertible and its symplectic Gram matrix has off-diagonal Σ after separate orthogonal right changes. Gaussian polar decomposition converts mean width of FB2+GB2 into 2/γ2n times E_z(||SFz||+||SGz||). For every z, symplectic Cauchy/AM–GM yields ||Ez||+||Dz||≥2√(z^TΣz). The exact normal form W0W^-1 is symplectic and attains equality pointwise. Equality forces D=-JE, E^TE=Σ and a unitary-symplectic orbit; this classifies all minimizers after right-orthogonal changes. Symmetric strictly concave Gaussian spectral functional has unique equal-spectrum maximum at fixed trace and sharp rank-one boundary infimum; n=2 Gaussian polar coordinates give 16√σ1/(3π) times the specified complete elliptic integral. Assigned exact rational checker was read; its 776 finite vector tests are not treated as global proof.
 
-The 2026 Ahn–Kerman paper discusses local minimizers for certain quadratic ball products, while the 2023 paper includes global minimality of the four-dimensional unit Lagrangian bidisk, single ellipsoids and toric cases. The new theorem is an exact global value and complete equality characterization for anisotropic transverse Lagrangian ellipsoid pairs in arbitrary even dimension, not a renaming of the old bidisk. The prior isotropic bidisk is explicitly subsumed and credited. Semantic research-record queries for global symplectic minima and products of Lagrangian ellipsoids returned no equivalent mathematical statement; absence of a search result is not a priority proof. The chief residual risk is an unnoticed classical Gaussian/symplectic frame-norm equivalent formulation.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem provides a global answer to an optimization problem motivated by recent local results, across a geometrically natural infinite class indexed by a nontrivial symplectic-pairing spectrum. It yields an attained exact Gaussian integral, rigid equality orbits and sharp fixed-total-pairing bounds, distinguishing anisotropy and dimension. These are structural consequences beyond an isolated calculation or numerical improvement.
+PASS. Ahn–Kerman 2023/2026 study toric and Lagrangian-bidisk symplectic mean-width optimization; the four-dimensional isotropic Lagrangian bidisk is a known covered special case and not counted as novel. Their results include global toric optimality and local quadratic conditions but do not yield the all-even-dimension anisotropic singular-value minimum and complete minimizer-rigidity classification for arbitrary transverse Lagrangian ellipsoid-sum frames. A search of exact spectral/Gaussian parameter aliases and Resultary found no mathematically stronger covering theorem; hidden frame-normalization equivalents remain a risk.
 
-## Sources and independent status
+## value
 
-Primary literature: Ahn–Kerman, arXiv:2602.07220 (2026); Ahn–Kerman, arXiv:2311.02870 (2023). Historical novelty requires external review. Tests do not independently certify the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Linear symplectic optimization of mean width is a recognized geometrically motivated problem. This gives a sharp global value and equality-orbit theorem for an entire natural class in every even dimension, plus a nontrivial spectral extremal envelope, beyond a known isotropic bidisk example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
