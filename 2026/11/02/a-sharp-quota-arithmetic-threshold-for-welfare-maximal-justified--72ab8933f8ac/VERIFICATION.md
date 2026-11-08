@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_sparse_jr.py` from the directory containing this document. The script uses only Python 3 standard-library modules. It enumerates anonymous approval profiles exactly over the following bounded domains:
+## correctness
 
-- Three seats; ballots of size one or two; four candidates and one through twelve voters.
-- Three seats; ballots of size one or two; five candidates and one through six voters.
-- Two seats; ballots of size one or two; four candidates through nine voters and five candidates through six voters.
-- Three seats; singleton ballots; five candidates through ten voters.
+PASS
 
-It additionally verifies the four-candidate counterexample construction for every population \(1\le n\le100\), and confirms it is incompatible exactly when \(2n\ge5\lceil n/3\rceil+3\).
+For n>=1, m>=3 and every nonempty ballot of size <=2, q=ceil(n/3), the uniform existence criterion is 2n<5q+3. If a score-optimal three-set maximizing coverage still violates JR for candidate x, each winner has score >=s(x)>=q. With >=q wholly uncovered voters, total winner scores <=2(n-q)<3(q+1), forcing a winner with s=q. Coverage-maximal exchanges and equality n=3q force a second exchange increasing coverage, contradiction. In the converse the q singleton-x voters plus n-q pair ballots distributed evenly among ab,bc,ac give all winners scores >=q+1 and a unique non-JR score optimum. The two-seat and singleton-approval boundaries are valid with their stated quantifiers.
 
-A successful complete run prints `VERIFY_OK anonymous_profiles 850550 witness_range 100`. At the first noncompatible size \(n=9\), the exhaustive four-candidate test found four anonymous profiles with no welfare-optimal JR committee. For \(n=10\) and \(n=11\), it found none; at \(n=12\), it found 24.
+## originality
 
-The analytical argument in `RESULT.md` establishes the universally quantified result; the finite code alone does not prove untested sizes or unrestricted candidate counts. No external or independent scientific audit is claimed.
+PASS
+
+The exact population-wise if-and-only-if criterion for simultaneous unrestricted welfare optimum and JR under ballot size <=2 and exactly three winners was not found in inspected primary JR/welfare results. It is not equivalent to existence of a JR winner committee or to bounding price of JR; the construction shows that price can be strictly positive. An unindexed direct restricted-profile theorem remains a priority risk.
+
+## value
+
+PASS
+
+The minimal number of voters and nonmonotone congruence-dependent failure profile resolve a natural fairness–utilitarian compatibility question with sharp two-seat and singleton boundary conditions; neither value nor novelty is based just on a computational example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

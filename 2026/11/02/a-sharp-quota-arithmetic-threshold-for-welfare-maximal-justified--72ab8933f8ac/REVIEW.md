@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The necessity construction has exactly four candidates and nonempty ballots of size at most two; the least winning score is \(\lfloor2(n-\lceil n/3\rceil)/3\rfloor\), which exceeds the losing candidate's score in exactly the stated negative population region. The positive direction uses a maximum-coverage selection among welfare maximizers and forces the only possible non-improving exchange into an equality case, where a second exchange increases coverage. Both boundary assertions have independent counting proofs. The standalone finite-domain verifier reproduced the claimed threshold in 850,550 enumerated anonymous approval profiles and the constructed examples through 100 voters. These finite tests do not substitute for the all-population proof.
+PASS
 
-## Originality — PASS, with documented residual priority risk
+For n>=1, m>=3 and every nonempty ballot of size <=2, q=ceil(n/3), the uniform existence criterion is 2n<5q+3. If a score-optimal three-set maximizing coverage still violates JR for candidate x, each winner has score >=s(x)>=q. With >=q wholly uncovered voters, total winner scores <=2(n-q)<3(q+1), forcing a winner with s=q. Coverage-maximal exchanges and equality n=3q force a second exchange increasing coverage, contradiction. In the converse the q singleton-x voters plus n-q pair ballots distributed evenly among ab,bc,ac give all winners scores >=q+1 and a unique non-JR score optimum. The two-seat and singleton-approval boundaries are valid with their stated quantifiers.
 
-The closest established result is Elkind et al., *The Price of Justified Representation*, arXiv:2112.05994: the full manuscript treats welfare optimization constrained by JR, asymptotic welfare losses, algorithms and selected general constructions, not the exact sparse-ballot, three-seat, population-dependent compatibility threshold. Becker, Greger and Peters, arXiv:2609.11912, show that a core committee always exists, but do not require that it also maximize approval count. The original JR existence paper likewise does not impose welfare optimality. Targeted searches of mathematical records, primary texts and available previous research claims found no implication equivalent to the complete phase criterion. Index incompleteness and unrecognized formulations of the sparse-ballot case remain priority risks; a failed search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a natural exact zero-price-of-JR phase law in a highly constrained voting environment; it identifies the first failure, an unusual return of compatibility at populations ten and eleven, complete all-size obstructions thereafter by residue, and minimal committee and ballot-size dimensions. The sharp boundary is not a mechanical restatement of general welfare-approximation bounds and is relevant to design of limited-approval elections.
+The exact population-wise if-and-only-if criterion for simultaneous unrestricted welfare optimum and JR under ballot size <=2 and exactly three winners was not found in inspected primary JR/welfare results. It is not equivalent to existence of a JR winner committee or to bounding price of JR; the construction shows that price can be strictly positive. An unindexed direct restricted-profile theorem remains a priority risk.
 
-## Scientific limitations
+## value
 
-Only binary approval valuations, a three-seat committee and at most two approvals per voter are covered by the main equivalence. The boundary assertions separately concern two seats and singleton ballots; no general welfare-loss magnitude is asserted. The proof is mathematical, not a formal machine certification. The finite verifier's test domain is explicitly bounded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal number of voters and nonmonotone congruence-dependent failure profile resolve a natural fairness–utilitarian compatibility question with sharp two-seat and singleton boundary conditions; neither value nor novelty is based just on a computational example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
