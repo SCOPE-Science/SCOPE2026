@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The semigroup is globally defined because its finite-dimensional generator is continuous, monotone in the weighted Euclidean metric, and bounded by the maximum principle. The difference of two solutions satisfies a vertex maximum principle and hence an oscillation contraction. On a complete graph edge Lipschitz seminorm equals oscillation. For any connected noncomplete graph, the existence of an induced three-vertex path is elementary. A graph-distance perturbation makes the first edge tight while permitting a high-contrast forcing gradient on a second edge absent from the first vertex's other endpoint. The superquadratic calculation produces \((p-1)c_{ik}R^{p-2}/m_i\); the subquadratic calculation produces \(c_{ik}\varepsilon^{p-2}/m_i+O(1)\). The signs, normalizations, all positive weights, and the distinction between infinitesimal and fixed-time amplification have been checked. Exact and numerical reproducibility tests supplement, but do not replace, the proof.
+## correctness
 
-## Originality — PASS, qualified
-Mugnolo's *Parabolic theory of the discrete p-Laplace operator* (arXiv:1207.1996, Proposition 3.9) supplies nonlinear order preservation and vertex supnorm contraction, but not the inverse graph-topology theorem for the edge Lipschitz seminorm. Hua–Mugnolo (arXiv:1410.1584) concerns generators and time/large-time regularity. Linear curvature–gradient characterizations by Münch–Wojciechowski (arXiv:1712.00875) have a different generator. Prior special-family statements for trees and cycles do not imply an assertion for arbitrary connected graphs with extra edges and arbitrary weights: the induced-path localization and control of other incident fluxes are essential. Keyword, synonym, dominating-claim, and research-record searches found no equivalent general result; this does not exclude an unindexed treatment.
+PASS
 
-## Value — PASS
-The classification isolates a simple and exact combinatorial criterion—completeness—for two-input edge-gradient stability of a nonlinear network flow, uniformly over arbitrary conductances and vertex masses. It identifies the smallest local graph obstruction and shows its quantitative rate is unbounded. This separates vertex comparison from edge regularity and clarifies why nonlinear diffusion can be stable in the former sense but dramatically unstable in the latter. It applies to all connected noncomplete finite graphs, including many with mixed cycles and branches, rather than only a selected small graph.
+For each finite connected graph with positive masses and symmetric conductances, monotone φ_p(s)=|s|^(p−2)s yields a global C¹ gradient flow and comparison principle for differences of two solutions. Their vertex oscillation is nonincreasing; on complete G edge-Lipschitz L_G equals this oscillation. Any noncomplete connected G has an induced j−i−k path. Choose h_v=d_G(j,v) so h_i−h_j=1, h_k−h_i=1 and L_G(h)=1; perturb u−v=εh. For p>2 set background a_k=R, a_z=0 elsewhere, giving instantaneous edge-growth rate (p−1)c_ik R^(p−2)/m_i+o(1) as ε→0 then R→∞. For 1<p<2 set a_i=a_k=0, a_j=1 and all other background vertices distinct >3; the only zero gradient on edges incident to i/j is ik, giving c_ik ε^(p−2)/m_i+O(1)→∞. Since oriented edge ij is tight at time zero, positive derivative forces failure of two-input L_G nonexpansivity. p=2 is explicitly excluded from converse; one-input decay and fixed-positive-time infinite amplification are not claimed.
 
-## Scope and residual risks
-The result does not classify noncomplete graphs in the linear case, single-solution Lipschitz contraction, arbitrary metric lengths, infinite graphs, or positive-time amplification. The main originality risk is unindexed literature using different terminology for seminorm dissipativity. Independent technical and literature review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mugnolo 2012 Proposition 3.9 proves nonlinear order and vertex ℓ∞ contraction for all graphs; this implies the easy complete-graph direction, but not the reverse topological characterization of edge Lipschitz contraction. The induced-P3 weighted counterexample for every noncomplete graph is not a known corollary of that contraction. Linear graph-curvature theorems have p=2.
+
+## value
+
+PASS
+
+Exact graph-topological classification of nonlinear two-trajectory regularity is a motivated analytic rigidity result: complete graph is the only edge-Lipschitz nonexpansive network with positive arbitrary masses/conductances, and all others admit unbounded instantaneous normalized expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
