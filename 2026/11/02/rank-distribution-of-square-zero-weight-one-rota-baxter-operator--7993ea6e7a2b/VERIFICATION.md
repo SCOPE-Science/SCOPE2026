@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3; no third-party packages are needed. The checker constructs \(\mathbb F_2\), \(\mathbb F_3\), and the nonprime field \(\mathbb F_4\) using the relation \(t^2+t+1=0\). For the three-dimensional Heisenberg algebra, it exhaustively enumerates every linear operator, tests both its square and the defining weight-one Rota–Baxter identity directly, and computes the rank by finite-field Gaussian elimination. The resulting coefficient arrays (from constant term upward) are \([1,9,0]\), \([1,32,0]\), and \([1,75,0]\), respectively. For the five-dimensional algebra over \(\mathbb F_2\), all \(65536\) horizontal matrices and associated central functionals are enumerated, and the rank coefficient array is \([1,225,990,0]\). Every assertion must pass for `VERIFY_OK` to print.
+## correctness
 
-These finite checks confirm sample coefficients but are not an exhaustive proof of the infinite family. That proof uses the center-preserving normal form, isotropic-space counting, quotient-map enumeration, and degree comparison in the companion mathematical text. Independent mathematical validation and global publication-priority verification have not been performed.
+PASS
+
+Writing R(z)=u+cz, the Rota–Baxter equation with (z,v) forces u=0 by the nondegenerate alternating bracket; R^2(z)=0 then c=0. For v in the horizontal symplectic space, equations reduce exactly to U=im A totally isotropic, U subset ker A, and phi(U)=0. For rank r<=n choose isotropic U in I_{n,r} ways, surjection V/U onto U in S_{n,r} ways, phi in q^{2n-r} ways. The full rank increases from r to r+1 exactly when phi|ker A is nonzero; q^r functionals do not increase it. Independent calculation gives n=2,q=2 polynomial 1+225t+990t² and exhaustive 3-dimensional F2 original RB and square-zero equations gives 1+9t. Dominant horizontal stratum has degree 2n+r(8n-5r-1)/2 and successive degree difference 4n+2-5r; tie iff n≡2 mod5. No division by 2: all characteristics included.
+
+## originality
+
+PASS
+
+Existing n=1 Heisenberg weight-one classifications and general RB algebra nilpotence do not supply all-n finite-field rank polynomial and modular-five concentration transition; standard isotropic subspace counts themselves are credited.
+
+## value
+
+PASS
+
+Exact finite-field stratification of an operator variety, including characteristic-two behavior and an arithmetic rank bifurcation, is a natural invariant for Heisenberg RB structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

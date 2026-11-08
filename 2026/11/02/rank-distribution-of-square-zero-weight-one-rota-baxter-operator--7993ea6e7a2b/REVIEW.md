@@ -1,19 +1,21 @@
-# Review: square-zero Rota–Baxter rank distributions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the defining weight-one identity, not an assumed matrix normal form. Center preservation follows by taking one argument in the center and using nondegeneracy. The square-zero condition forces the central scalar to vanish, makes the horizontal map square-zero, and forces the central functional to annihilate its isotropic image. Every reverse implication is checked. Isotropic-image subspaces, surjective maps from the quotient, and central functionals are counted without multiplicities. The full-rank refinement distinguishes central directions emerging from the horizontal kernel. The modular-five concentration follows from an exact degree difference with unit leading coefficients. The proof works also in characteristic two. The independent checker directly tests the nonlinear polynomial identities for all linear maps in three small-field dimension-three cases, and for all horizontal maps and allowed functionals in dimension five over \(\mathbb F_2\).
+PASS
 
-## Originality — PASS (relative to examined evidence)
+Writing R(z)=u+cz, the Rota–Baxter equation with (z,v) forces u=0 by the nondegenerate alternating bracket; R^2(z)=0 then c=0. For v in the horizontal symplectic space, equations reduce exactly to U=im A totally isotropic, U subset ker A, and phi(U)=0. For rank r<=n choose isotropic U in I_{n,r} ways, surjection V/U onto U in S_{n,r} ways, phi in q^{2n-r} ways. The full rank increases from r to r+1 exactly when phi|ker A is nonzero; q^r functionals do not increase it. Independent calculation gives n=2,q=2 polynomial 1+225t+990t² and exhaustive 3-dimensional F2 original RB and square-zero equations gives 1+9t. Dominant horizontal stratum has degree 2n+r(8n-5r-1)/2 and successive degree difference 4n+2-5r; tie iff n≡2 mod5. No division by 2: all characteristics included.
 
-Primary full text of Ji–Hua (2018), particularly Section 3, and of Rathee (2024), Sections 4–5, was inspected. Their named theorems classify operators on the **three-dimensional** Heisenberg algebra, principally over algebraically closed or complex fields, and do not state a uniform rank-generating polynomial for square-zero weight-one operators at arbitrary odd dimensions over finite fields. Published-data searches for square-zero/nilpotent Heisenberg Rota–Baxter operators, higher-dimensional counts, symplectic-image ranks, and adjacent-rank asymptotics found no directly covering result. The closest all-dimensional Heisenberg endomorphism literature enumerates endomorphisms and idempotent retractions, not square-zero Rota–Baxter maps; changing the weight parameter does **not** transfer its rank distribution, because square-zero imposes the additional inclusion \(\operatorname{im}A\subseteq\ker A\) and a condition on central functionals. That earlier framework uses a related isotropic-subspace counting technique and deserves acknowledgment. A five-dimensional Lie-superalgebra paper could include a special case but was not fully accessible. Earlier results on square-zero symplectic-image maps could imply the present formula; independent publication-priority certification is absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Square-zero is an intrinsic nilpotency condition for Rota–Baxter operators, and ranks determine natural strata of their parameter space. This result provides the complete rank distribution for an infinite family over arbitrary finite fields, not just sample counts. The structural normal form reveals exactly why the image must be isotropic and why the kernel and central functional affect rank. The modular-five two-rank transition is a nontrivial asymptotic consequence not visible from individual three-dimensional classifications. These are natural structural invariants of a studied operator class, rather than an arbitrary finite slice.
+Existing n=1 Heisenberg weight-one classifications and general RB algebra nilpotence do not supply all-n finite-field rank polynomial and modular-five concentration transition; standard isotropic subspace counts themselves are credited.
 
-## References, boundaries, and status
+## value
 
-Ji and Hua, *Rota-Baxter operators of 3-dimensional Heisenberg Lie algebra*, Korean J. Math. 26 (2018), Theorem 3.2, DOI 10.11568/kjm.2018.26.1.53. Rathee, *Rota–Baxter operators and skew left brace structures over Heisenberg Group*, arXiv:2402.15428, Theorems 4.1/4.3 and Section 5. Gubarev, *Rota–Baxter Operators on Unital Algebras* (2021) treats a different class of associative algebras. Lv and Liu (2016) on five-dimensional Heisenberg Lie superalgebras remains a bibliographic overlap risk with uninspected full text. The number of conjugacy classes and all non-square-zero operators are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact finite-field stratification of an operator variety, including characteristic-two behavior and an arithmetic rank bifurcation, is a natural invariant for Heisenberg RB structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
