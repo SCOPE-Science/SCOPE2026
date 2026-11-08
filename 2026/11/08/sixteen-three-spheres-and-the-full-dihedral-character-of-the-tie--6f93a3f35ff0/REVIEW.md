@@ -1,0 +1,21 @@
+# Scientific review: Sixteen three-spheres and the full dihedral character of the Tietze matching complex
+
+## Correctness — PASS
+All 1052 possible valid matching faces were exhaustively enumerated independently by bit-mask DP and recursive include/exclude. The specified staged toggling pairs all but 16 three-simplices in the augmented poset; after retaining the singleton from the empty-face pair, there are exactly 517 ordinary pairs, one critical vertex and 16 critical three-cells. Every one of the 3744 ordinary Hasse cover arrows was built and the acyclic orientation topologically sorted all 1051 nodes. Forman discrete Morse yields a CW model with only one 0-cell and sixteen 3-cells, hence an integral wedge of 16 S^3. Independent mod-2/mod-3 chain ranks corroborate. The complete 12-element automorphism group was obtained by exact backtracking; explicit D6 generators reproduce it. Signed Lefschetz chain traces give the class character (16,0,-2,0,-2,0) on rotations, zero on reflections, with integral nonnegative multiplicities 1,1,1,1,3,3. This proves the rational character, not an integral group-lattice decomposition.
+
+The finite proof certificate consists of the explicit edge list, full face reconstruction, complete acyclic discrete-Morse matching and group-action trace computation supplied in `verify_tietze.py`, with output in `verification_output.txt`. Finite-field homology computations are independent corroboration, not a replacement for the integral discrete-Morse proof.
+
+## Originality — PASS (relative to inspected evidence)
+Statement-level comparison was performed for Tietze, J3, cubic flower graphs, line-graph independence complexes, numerical wedge values and symmetry. Three plausible primary texts were materially inspected in full HTML. Forest and outerplanar hypotheses fail for Tietze; perfect-matching enumerations do not determine all partial-matching simplices or their homology, and related-graph classifications are non-implying. No retrieved exact table or theorem was identified that entails either the Tietze integral homotopy or full dihedral character. This is best-knowledge originality with residual publication-priority uncertainty.
+
+The closest primary literature includes Marietti and Testa’s 2007 forest theorem, Fouquet–Thuillier–Vanherpe’s 2010 perfect-matching counts for cubic flower-type graphs and triangular inflation, and Bayer–Jelić Milutinović–Vega’s outerplanar-graph theorem (2024, full text version dated 2026). None has hypotheses or conclusions implying the combined result for the nonplanar Tietze graph. The equivalent independence-complex formulation on the line graph was also searched. Residual risk is unindexed or inaccessible equivalent research, especially any undiscovered general theorem for triangle inflation.
+
+## Mathematical value — PASS
+The Tietze graph is a canonical 12-vertex cubic, nonplanar, almost-Hamiltonian graph, naturally constructed by inflating a Petersen vertex to a triangle. Ordinary matching complexes encode all compatible partial edge choices; their integral homotopy type is not reducible to counting perfect matchings. The full 16-sphere classification, despite nonpure simplices reaching dimension five, supplies a non-obvious exact topological invariant. The complete dihedral character provides a meaningful additional symmetry refinement invisible to Betti numbers and determines the multiplicities of all six rational irreducible representations. Its specificity is justified by the graph’s canonical role and the contrast with the related Petersen construction; no family-level significance is overstated.
+
+The claim concerns one graph, but the graph is canonical; both the exact integral homotopy classification and complete symmetry character are natural invariants not determined by the prior perfect-matching enumeration. No infinite-family theorem or equivariant integral lattice decomposition is claimed.
+
+## Status and limitations
+Full scientific and finite-program verification remains same-model; independent validation and definitive publication-priority assessment have not been performed. Details of the complete finite checks, representation conventions, prior-work implications and residual risks are in the accompanying files.
+
+Self-review: passed. Independent audit: not yet performed.
