@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For any connected symmetric Metzler zero-row-sum generators, the rank-one implicit K/L solves are irreducible positive resolvents and the scalar S step has strictly positive numerator and denominator, proving strict positivity at all steps. For rank two, the exact Galerkin K/L/S basis-invariant equations reduce to rational linear systems of orders 6,6,4 on the displayed 3x3 example; verify.py replays each exact solve, proves -9/100<output[3,3]<-8/100, and confirms the full backward Euler output is positive. No finite experiments are used in place of the universal analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ceruti–Lubich arXiv:2010.02022 describes the forward-time BUG framework, rather than this sign classification.",
+        "Kormann–Nazarov–Wen arXiv:2606.31662 and Wu–Becker–Qiu–Zhang arXiv:2607.26272 develop corrections for Vlasov low-rank numerical solutions; those corrections are not unconditional positivity of an uncorrected BUG step."
+      ],
+      "reasoning": "Earlier general BUG stability/symmetry preservation and postprocessing guarantees do not logically imply positivity of the unmodified reaction-diffusion BUG map; full-rank positivity only applies to a different propagated matrix.",
+      "searches": [
+        "\"positive rank-one dynamical low rank basis update Galerkin integrator preserves positivity heat equation\"",
+        "\"two-dimensional matrix heat equation BUG rank one positive rank two negative symmetric graph Laplacians\"",
+        "Web: \"nonnegativity\" \"dynamical low rank\" integrator BUG",
+        "published-finding corpus nearest: 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.18419v1 (relevant full HTML sections)",
+      "arxiv:2010.02022v1 (full relevant HTML sections)",
+      "arxiv:2606.31662v1 (abstract and indexed introduction)",
+      "arxiv:2607.26272v1 (abstract and indexed excerpts)",
+      "published-finding corpus published-record search (queries listed in checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saha–Yang–Yin arXiv:2610.18419 Thm 3.6 proves unique solvability and mass-lumped L2 contraction, which do not entail componentwise sign preservation.",
+        "Their K/L/S equations permit the independent rational rank-two sign-changing counterexample.",
+        "The Vlasov correction methods apply additional operators, whereas this theorem proves failure without any postprocessor or truncation.",
+        "Ceruti–Lubich arxiv:2010.02022 Thm 3.1 is an exactness result for prescribed exact rank-r trajectories under subspace overlap assumptions, not a componentwise positivity result for backward-Euler substeps."
+      ],
+      "reasoning": "The motivating article supplies the algorithm but not the positivity conclusion, and its weaker norm property does not logically imply one. In contrast the exact signed witness specifically separates the properties and shows why added guarantees are necessary.",
+      "searches": [
+        "\"implicit basis-update Galerkin BUG rank-two diffusion entrywise sign loss without SVD truncation\"",
+        "\"arxiv 2610.18419 low cost non iterative Sylvester solvers positivity BUG rank\"",
+        "Web: \"basis update\" \"Galerkin\" \"positivity preservation\" low rank",
+        "Web: \"BUG\" \"positivity\" \"rank-one\" dynamical low-rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source arXiv:2610.18419 Sec 3.2 Eq (36)-(38) identifies the identical implicit K/L/S Galerkin substeps; no positivity theorem found in searched full HTML.",
+        "Relevant published-finding corpus nearest hits concern full-rank backward Euler / Crank–Nicolson positivity or general nonnegative low-rank corrections, not rank-one BUG positivity."
+      ],
+      "reasoning": "The claim concerns one exact untruncated BUG step on symmetric graph generators; the M-matrix resolvent and rank-two Galerkin sign reversal are not merely a name change for general positivity correction or full-rank backward Euler.",
+      "searches": [
+        "\"rank one implicit BUG integrator positivity preserving Metzler M-matrix tensor reaction diffusion any time step\"",
+        "\"positive rank-one dynamical low rank basis update Galerkin integrator preserves positivity heat equation\"",
+        "\"implicit basis-update Galerkin BUG rank-two diffusion entrywise sign loss without SVD truncation\"",
+        "Web: \"BUG\" \"positivity\" \"rank-one\" dynamical low-rank",
+        "Web: \"BUG\" integrator \"negative values\" diffusion nonnegative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest published records were unrelated positivity thresholds for MINRES, Crank–Nicolson, graph semigroups or other integrators; none stated the supplied exact rational rank-two BUG output or the rank-one universal guarantee.",
+        "No exact instance/table in inspected relevant sections of arXiv:2610.18419."
+      ],
+      "reasoning": "This is an exact finite witness within a structural all-rank boundary; searches found neither an exact match nor a database of the same BUG finite-step configurations. A search absence alone is not a priority proof.",
+      "searches": [
+        "\"low-cost noniterative Sylvester BUG reaction diffusion 2610.18419 positivity rank one\"",
+        "\"two-dimensional matrix heat equation BUG rank one positive rank two negative symmetric graph Laplacians\"",
+        "\"implicit low rank BUG rank two graph diffusion negative output exact rational counterexample\"",
+        "\"arxiv 2610.18419 low cost non iterative Sylvester solvers positivity BUG rank\""
+      ]
+    },
+    "rationale": "The matching 2026 paper derives and analyzes implicit BUG steps but proves L2 norm stability, not an entrywise positivity boundary. Earlier BUG work and postprocessed nonnegative low-rank Vlasov solvers have different statements/implications. Published-record searches by name, aliases, rank and exact sign-loss mechanism found no matching or dominating claim; historical-priority limitations are disclosed.",
+    "residual_risks": [
+      "Unindexed earlier method-specific positivity counterexample or equivalence may exist.",
+      "Universality does not extend to arbitrary high-degree mass-lumped spatial matrices or unsymmetric graph operators.",
+      "Full text of arxiv:2607.26272 not accessible; available abstract/indexed material concerns Vlasov postprocessing rather than this untruncated implicit BUG step."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines BUG method and proves existence and L2 stability, without deriving claimed rank-wise entrywise positivity boundary.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.18419",
+          "Algorithm 1 Eq (36)-(38), Thm 3.6 Eq (47)"
+        ],
+        "identifier_or_url": "arxiv:2610.18419v1",
+        "material_read": "HTML introduction, model and KLS operators, Algorithms 1, equations (36)-(50), Sections 3.2/3.3 and 4.1, plus page-wide positivity keyword check",
+        "method": "Primary source HTML section-by-section and exact statement comparison",
+        "title": "Low-cost non-iterative Sylvester solvers for dynamical low-rank approximation of reaction-diffusion equations",
+        "trigger": "Identical K/L/S method and symmetric diffusion operators"
+      },
+      {
+        "assessment": "Proves forward-time update, exactness for exact fixed-rank matrix trajectories and norm robustness. These do not establish entrywise positivity of the later backward-Euler implicit K/L/S discretization nor exclude the rank-two graph-diffusion sign counterexample.",
+        "evidence": [
+          "https://arxiv.org/abs/2010.02022"
+        ],
+        "identifier_or_url": "arxiv:2010.02022v1",
+        "material_read": "Full arXiv HTML: Sections 1, 2 and 3.1–3.4, including algorithm and exactness/robustness theorems; searched entire document for positivity/nonnegativity",
+        "method": "Primary full-text HTML analysis of original BUG formulation and implication comparison",
+        "title": "An unconventional robust integrator for dynamical low-rank approximation",
+        "trigger": "Original low-rank BUG/unconventional integrator lineage"
+      },
+      {
+        "assessment": "Proposes positivity-constrained corrections for kinetic equations, not the uncorrected implicit BUG graph-diffusion step; full source not inspected.",
+        "evidence": [
+          "https://arxiv.org/abs/2606.31662"
+        ],
+        "identifier_or_url": "arxiv:2606.31662v1",
+        "material_read": "Abstract and accessible indexed introduction excerpt",
+        "method": "Scope and mathematical mechanism comparison",
+        "title": "Positivity-preserving dynamical low-rank methods for the Vlasov equation",
+        "trigger": "Possible stronger positivity preservation for low-rank methods"
+      },
+      {
+        "assessment": "Concerns postprocessing and SVD truncation for Vlasov dynamics; does not establish the specific BUG rank-one preservation or its exact no-truncation rank-two counterexample in material read.",
+        "evidence": [
+          "https://arxiv.org/abs/2607.26272"
+        ],
+        "identifier_or_url": "arxiv:2607.26272v1",
+        "material_read": "Abstract and accessible indexed excerpts on SVD truncation; full body inaccessible",
+        "method": "Mechanism and domain comparison",
+        "title": "Nonnegative Low-Rank Matrix Correction under an Orthogonality Constraint in Conservative Vlasov Simulations",
+        "trigger": "Could cover loss of sign in low-rank schemes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e4e91c6-e64b-4996-bc91-357510ec7245",
+  "value": {
+    "rationale": "For nonnegative diffusing densities, unconditional positivity is a substantive structure-preservation requirement. The proof identifies the exact rank frontier of the universal positivity guarantee (rank one safe, already rank two unsafe), despite each constituent solve and the full backward Euler method being positive and energy stable. The finite witness is integral to a class-wide dichotomy, not an arbitrary numerical table or a generic negative-component check. No external certification or higher-rank classification claimed.",
+    "status": "PASS"
+  }
+}
