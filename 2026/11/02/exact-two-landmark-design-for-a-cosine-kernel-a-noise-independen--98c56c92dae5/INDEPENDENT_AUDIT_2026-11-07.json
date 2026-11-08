@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:49:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent the kernel by (√a,cos x,sin x); diagonalize the two-site Gram matrix by symmetric/antisymmetric vectors. Integrated second moments are 2a²+u and 1−u, giving V=a+1−(2a²+u)/(t+2a+2u)−(1−u)/(t+2−2u), u=cos²(Δ/2). The derivative is −C/(t+2a+2u)²+t/(t+2−2u)², C=t+2a−4a²; its square-root sign witness is strictly increasing, positive at u=1, and has at most one zero. Endpoint sign at 0 yields the exact a_c(t) positive quadratic root. At a=1/2 the optimizer u=1/4; Taylor expansion at t=0 for a<1/2 gives 1−u ∼(a+1)√t/√(2a(1−2a)) and hence the quarter power. The rank-one Moore–Penrose result at exact collision exceeds the distinct-site limit by 1/2. Independent direct unsimplified 2×2 inverse and trigonometric moment checks were run at 30 positive parameter values; they corroborate, not replace, continuous global derivative proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorodetsky–Marzouk §4.2.2 uses a periodic exponential of sin² on a square domain and numerical multi-site designs, not the rank-three circle kernel.",
+          "The 2023 sampling-based Nyström paper gives general randomized subspace approximation rather than this exact positive-t and rank-three angular optimum."
+        ],
+        "reasoning": "No inspected stronger optimization result implies the precise threshold, constant angle and nonanalytic low-noise exponent. The directly adjacent 2014 work was only available abstract-level and remains a substantial caveat.",
+        "searches": [
+          "arXiv:1503.00021 Sections 3-4 periodic kernel",
+          "arXiv:2301.09517 Nyström integrated residual",
+          "Xu Shang 2014 Optimal and Robust Designs trigonometric regression"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1503.00021 §§3–4",
+        "https://arxiv.org/abs/2301.09517 introduction",
+        "https://doi.org/10.1007/s00184-013-0463-7 abstract",
+        "Resultary search on rank-three cosine two-landmark IVAR and noise invariant 120° angle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior periodic example has a different kernel spectrum with infinitely many modes, so its optimizers cannot be substituted for the rank-three model.",
+          "Xu–Shang addresses unregularized trigonometric design criteria in the accessible abstract, not explicitly independent noise with this Bayesian prior."
+        ],
+        "reasoning": "Prior IVAR methodology gives a minimization prescription, not the already solved all-parameter phase diagram; an uninspected full-text special-case theorem would be a genuine possible dominating implication.",
+        "searches": [
+          "arXiv:1503.00021 §4.2.2 periodic design",
+          "doi:10.1007/s00184-013-0463-7 trigonometric regression"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-dimensional feature vector maps IVAR exactly to a Bayesian A-type trace loss with diagonal spectral weights and two noisy samples.",
+          "Gorodetsky–Marzouk develops Mercer-kernel IVAR optimization in a larger Hilbert space."
+        ],
+        "reasoning": "Equivalent Gaussian linear-model and kernel-interpolation formulations were considered; prior general expression of loss does not give the exact global optimizer without specialization.",
+        "searches": [
+          "cosine kernel two landmark integrated posterior variance noise regularization optimum angle 120 degrees fourth root collision",
+          "Bayesian A-optimal two-run trigonometric regression intercept sine cosine nugget",
+          "integrated posterior GP variance design two points cosine kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An all-noise 120° optimum is a continuous parameter identity, not a finite database value; the searched design results did not show an exact tabulation for a,t."
+        ],
+        "reasoning": "Specific exact formula searches were relevant despite lack of a natural finite table; no table comparison implied a coverage finding.",
+        "searches": [
+          "cosine kernel two landmark integrated posterior variance noise regularization optimum angle 120 degrees fourth root collision",
+          "exact trigonometric optimal design two observations 120 degrees cosine constant Fourier ridge parameter"
+        ]
+      },
+      "rationale": "General IVAR/GP design and Nyström integrated residual are established. Gorodetsky–Marzouk 2015 Section 4.2.2 uses a different infinite-rank periodic squared-exponential kernel and numerical multi-site designs; it does not state the inspected rank-three positive-ridge two-site phase boundary. Hayakawa–Oberhauser–Lyons 2023 derives general Nyström bounds but no exact two-site optimum. Classical trigonometric regression design may contain a related equivalence; Xu–Shang 2014 full text was inaccessible and retains genuine priority risk.",
+      "residual_risks": [
+        "Xu–Shang 2014 full text inaccessible; preprint/open access attempt did not resolve, authorized institutional retrieval blocked by disconnected VPN.",
+        "A classical two-observation Bayesian Fourier-design identity might give the same optimum under a reparametrization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general IVAR method and periodic numerical designs present; specific finite-rank two-site theorem not stated in read sections",
+          "evidence": "§4.2.2 explicitly chooses an infinite-rank exp(−2∑sin²/l²) periodic kernel and numerical design for multiple landmarks.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.00021",
+          "material_read": "Full PDF relevant §3–4 equations and §4.2.2 periodic experiments, pages 9–15",
+          "method": "primary PDF text and screenshot",
+          "title": "Mercer Kernels and Integrated Variance Experimental Design: Connections Between Gaussian Process Regression and Polynomial Approximation",
+          "trigger": "same exact integrated variance optimization criterion"
+        },
+        {
+          "assessment": "general Nyström approximation context; no exact two-landmark optimizer identified in material read",
+          "evidence": "Sampling-based operator approximation and quadrature rather than an explicit two-point angle phase diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.09517",
+          "material_read": "PDF title, abstract, introduction and initial problem setup",
+          "method": "primary PDF text and screenshot",
+          "title": "Sampling-based Nyström Approximation and Kernel Quadrature",
+          "trigger": "kernel integrated residual alternative formulation"
+        },
+        {
+          "assessment": "cannot exclude a stronger theorem or equivalence in uninspected pages",
+          "evidence": "Classical trigonometric optimal and robust design criterion; source cannot justify whole-document noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1007/s00184-013-0463-7",
+          "material_read": "abstract only; full article unavailable via open access and authorized Oxford access reported VPN disconnected",
+          "method": "abstract; documented unavailable institutional full text",
+          "title": "Optimal and Robust Designs for Trigonometric Regression Models",
+          "trigger": "closest classical Fourier experiment design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a rank-three periodic kernel, exactly two independently noisy landmarks form the first underdetermined nontrivial spatial design. A parameter-uniform 120° optimum and singular quarter-power collapse sharply distinguish low-noise duplicate observations from noiseless rank loss; a natural exact design and boundary result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a>0 and independent-noise/ridge t>0, exact two-site IVAR minimization for k_a(x,y)=a+cos(x−y) has a unique antipodal/interior phase boundary a_c(t); a=1/2 has noise-independent optimal separation 2π/3 and each fixed 0<a<1/2 has a sharp t^(1/4) near-collision law; at exactly t=0 the pseudoinverse collision jumps by 1/2.",
+  "limitations": [
+    "Xu–Shang 2014 full text inaccessible; preprint/open access attempt did not resolve, authorized institutional retrieval blocked by disconnected VPN.",
+    "A classical two-observation Bayesian Fourier-design identity might give the same optimum under a reparametrization."
+  ],
+  "schema_version": 1
+}
