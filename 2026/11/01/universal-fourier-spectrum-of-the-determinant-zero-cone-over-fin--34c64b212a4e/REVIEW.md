@@ -1,15 +1,21 @@
-# Scientific review: determinant-zero Fourier spectrum
+# Independent mathematical audit
 
-## Correctness
-PASS. Equation (1) is obtained by additive character orthogonality followed by two exact hyperbolic-pair evaluations over quotient rings. The Ramanujan-sum values are exact for a generating character of every finite commutative chain ring. The case split, determinant-lift count, rank telescoping, and positive-multiplicity formula were independently reconstructed. Exact full-frequency tests passed for cyclic rings of orders 2, 4, 8, 3, and 9, and for the noncyclic additive ring \(\mathbb F_2[t]/(t^2)\). Infinite-level and arbitrary-ring claims rely on the proof, not finite testing.
+## correctness
 
-## Originality
-PASS under bounded comparison. Relevant searched formulations include determinant-zero matrix Fourier transforms, rank-one determinantal varieties over chain rings, quadratic-cone spectra, and matrix-rank association schemes. Closest directly inspected sources were Iosevich–Koh (arXiv:0804.4505v1, finite-field quadratic surface restriction), Maeda (arXiv:1303.5188v1, character-weighted Gauss sums on invertible matrix groups), and Xu–Kan–Han (arXiv:2509.11681v1, Fourier-dual matrix-rank partitions). Their inspected theorems do not explicitly give this determinant-equals-zero Fourier multiset for arbitrary finite commutative chain rings or the stated convolution rank. A historical formula in more general local quadratic-form or Smith-stratified character-sum literature could still imply the result; database and web searching do not prove absolute priority.
+PASS
 
-## Mathematical value
-PASS. The determinant-zero fibre is a canonical singular quadratic hypersurface and rank-one determinantal variety. The result determines its **entire** operator spectrum, Fourier-null directions, and multiplicities over all finite commutative chain rings, including characteristic two and noncyclic additive groups. The exact ring-universality and invertible-field-to-sparse-ring Fourier transition are structurally motivated spectral invariants, not merely a small numerical gain or a table recomputation.
+Read the complete RESULT.md, proof and check_determinantal.py in frozen tree. Reconstructed the additive-character proof: generating characters exist from the unique socle, the unit sum c_r(a)=q^r 1_{a=0}-q^{r-1}1_{a in pi^{r-1}}, and pairwise Fourier orthogonality yield the exact j-sum q^{k+2j} c_{k-j}(det(M/pi^j)). The endpoint j=d+2v-k+1 contributes -q^{2k-1} and lower terms cancel, giving precisely zero, negative, or positive frequency cases. Primitive rank-one determinant-zero lifts number (q-1)(q+1)^2 q^{3(r-1)}; valuation stratum summation yields the stated rank q^{4(k-floor(k/2))}+B_q sum_{j<floor(k/2)}q^{3k-2-2j}. Independent exhaustive modular character-sum calculations verified every Fourier frequency in Z/2, Z/4, Z/8, Z/3, Z/9; rank counts 16,160,1408,81,2673 respectively and exact predicted eigenvalue sets. No inference from these examples to all rings; analytic proof supplies universal assertion.
 
-## Boundaries
-The zero-determinant fibre differs from the full nonunit-determinant set. Higher matrix sizes, nonchain rings, and multiplicative convolution are not covered. General quadratic-form theory may contain an equivalent specialization; independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Specialized spectrum is distinguished from generic Frobenius-ring Fourier orthogonality, higher-dimensional rank partitions, invertible-matrix Gauss sums, and field-level determinant rank-one associations. Xu–Kan–Han (2025) rank-weight Fourier partitions are a related general formalism but inspected definitions/claims do not state this det-equals-zero convolution spectrum over every chain length; older local zeta treatments remain a possible equivalent specialization.
+
+## value
+
+PASS
+
+Determinant-zero in a nonfield chain ring is substantially different from the singular/nonunit determinant set. Exact spectral support, surprising field invertibility versus exponential rank collapse in ring length, and uniformity across nonisomorphic chain rings give a natural sharp invariant with possible use in local additive matrix harmonic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

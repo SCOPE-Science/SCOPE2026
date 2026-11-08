@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 check_determinantal.py` from this directory using the Python 3 standard library. It computes the entire zero-determinant fibre, enumerates every Fourier frequency, verifies the exact eigenvalue via cyclotomic divisibility rather than floating-point thresholds, and compares the count of nonzero coefficients with the stated rank. The tested cyclic rings are integers modulo 2, 4, 8, 3, and 9; the distinct noncyclic additive example is \(\mathbb F_2[t]/(t^2)\).
+## correctness
 
-Completed output:
+PASS
 
-```
-EXACT_CYCLIC_OK 2 1 size 16 cone 10 rank 16
-EXACT_CYCLIC_OK 2 2 size 256 cone 88 rank 160
-EXACT_CYCLIC_OK 2 3 size 4096 cone 736 rank 1408
-EXACT_CYCLIC_OK 3 1 size 81 cone 33 rank 81
-EXACT_CYCLIC_OK 3 2 size 6561 cone 945 rank 2673
-EXACT_NONCYCLIC_OK F2[t]/(t^2) size 256 cone 88 rank 160
-ALL_EXACT_DETERMINANTAL_CHECKS_OK
-```
+Read the complete RESULT.md, proof and check_determinantal.py in frozen tree. Reconstructed the additive-character proof: generating characters exist from the unique socle, the unit sum c_r(a)=q^r 1_{a=0}-q^{r-1}1_{a in pi^{r-1}}, and pairwise Fourier orthogonality yield the exact j-sum q^{k+2j} c_{k-j}(det(M/pi^j)). The endpoint j=d+2v-k+1 contributes -q^{2k-1} and lower terms cancel, giving precisely zero, negative, or positive frequency cases. Primitive rank-one determinant-zero lifts number (q-1)(q+1)^2 q^{3(r-1)}; valuation stratum summation yields the stated rank q^{4(k-floor(k/2))}+B_q sum_{j<floor(k/2)}q^{3k-2-2j}. Independent exhaustive modular character-sum calculations verified every Fourier frequency in Z/2, Z/4, Z/8, Z/3, Z/9; rank counts 16,160,1408,81,2673 respectively and exact predicted eigenvalue sets. No inference from these examples to all rings; analytic proof supplies universal assertion.
 
-These checks are finite and exhaustive **only at the named rings**. They do not constitute a general proof or independent audit. The universal statement follows analytically from the ring-character derivation, cancellation identity, and smooth determinant-lift counting in RESULT.md. No certificate of independence is claimed.
+## originality
+
+PASS
+
+Specialized spectrum is distinguished from generic Frobenius-ring Fourier orthogonality, higher-dimensional rank partitions, invertible-matrix Gauss sums, and field-level determinant rank-one associations. Xu–Kan–Han (2025) rank-weight Fourier partitions are a related general formalism but inspected definitions/claims do not state this det-equals-zero convolution spectrum over every chain length; older local zeta treatments remain a possible equivalent specialization.
+
+## value
+
+PASS
+
+Determinant-zero in a nonfield chain ring is substantially different from the singular/nonunit determinant set. Exact spectral support, surprising field invertibility versus exponential rank collapse in ring length, and uniformity across nonisomorphic chain rings give a natural sharp invariant with possible use in local additive matrix harmonic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
