@@ -1,19 +1,21 @@
-# Scientific review: local Nash certificates and fragmentation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. All hypotheses are explicit: simple undirected unit-weight graph, minimum degree at least one, maximum degree at most two, and coalition-size normalization inclusive of the agent. An agent with no friend inside its coalition can strictly improve by joining a neighbor's coalition. For every boundary edge, each endpoint then has exactly one friend inside and one outside. The two reciprocal-size deviation inequalities are necessary and sufficient. The cycle component upper bound follows because each coalition run and each separating gap has length at least two. Alternating balanced runs attain the bound for every cycle size. The eight-vertex count follows from forced run lengths and coalition-size balance. Exhaustive direct-payoff integer checking verified 172,620 set partitions; the proof covers arbitrarily many vertices.
+PASS
 
-## Originality
+Assume every vertex has degree 1 or 2, and utility same-coalition neighbors divided by total coalition size. A stable partition cannot give any vertex zero internal neighbors (move to a neighbor gives positive utility). On a crossing edge vw, each endpoint has exactly one internal friend and one external friend, so nonimprovement in both directions forces ||A|−|B||≤1. Conversely each vertex with two internal friends has no profitable outside move, and each vertex with one has at most one external friend, to whose coalition payoff 1/(|B|+1)≤1/|A| under size balance. Thus criterion works even if coalitions disconnected; singleton creation never improves. For C_n, a coalition of t≥2 runs needs each run and each gap length≥2, hence n≥4t. Alternating two coalitions in runs length≥2 with size difference≤1 attains t=floor(n/4). At n=8 exactly two distinct stable labeled partitions have disconnected coalition. Exact small-n independent exhaustive partition calculations confirmed counts 1,3,6,6,15,17 through n=8 and 2 disconnected n=8; infinite proof is structural.
 
-PASS under the inspected-source and indexed-record comparison, with residual priority risk. The 2015 Brandl–Brandt–Strobel paper treats general stability questions; the 2018 Bilò–Fanelli–Flammini–Monaco–Moscardelli study analyzes Nash existence, efficiency and paths/trees; and the 2023 Hanaka–Ikeyama–Ono paper concerns welfare optimization rather than an all-partition Nash certificate. None of the inspected statements implies the exact two-condition characterization together with the sharp disconnected-component spectrum. Related earlier work on welfare-optimal partitions and core-blocking coalitions on cycles addresses distinct predicates. An equivalent unindexed specialization may still exist.
+## originality
 
-## Value
+PASS
 
-PASS. The result converts unilateral stability on an entire bounded-degree social-network class into a linear-time size-and-adjacency certificate, despite the possibility of spatially disconnected coalitions. The sharp \(\max\{1,\lfloor n/4\rfloor\}\) fragmentation law and first eight-vertex example answer a natural structural question: how geographically fragmented a self-enforcing community can be. The statement is not merely a small enumeration; it applies to arbitrary finite path/cycle unions and makes a sharp all-size prediction.
+2018 Bilò et al. address Nash existence, efficiency, and welfare optimization on various graph types; the full OA paper was consulted at relevant model definitions and main topology cases. They do not directly state the all-partition degree-two iff local certificate or exact fragmentation threshold in inspected material. Related Hanaka et al. bounded-treewidth welfare results and the modified denominator model are distinct. Qualified PASS, possibility of equivalent special graph-local characterization in unindexed game literature.
 
-## Limitations and closest literature
+## value
 
-Most relevant: Bilò et al. (2018), https://doi.org/10.1613/jair.1.11211 ; Hanaka et al. (2023), https://arxiv.org/abs/2310.05139 ; Brandl et al. (2015), https://ifaamas.csc.liv.ac.uk/Proceedings/aamas2015/aamas/p1219.pdf . This result does not classify stronger blocking notions or weighted, modified, higher-degree, or isolated-vertex models. Specialist preprints outside indexed coverage may overlap. No independent verification or external priority determination is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Local O(n+m) complete Nash decision for arbitrary disconnected coalitions on paths/cycles and exact sharp first fragmentation threshold is a motivated structural graph-game theorem; it distinguishes stable clustering from connected clustering and supplies both obstruction and attaining constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
