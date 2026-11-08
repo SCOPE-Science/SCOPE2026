@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed n>=2 mutually orthogonal nonzero columns with unique largest squared norm alpha_1, the same iid standard Gaussian sketch gives independent column sketch squared norms alpha_j*chi_k², by multivariate Gaussian orthogonality. Conditioning on Gamma(k/2,1) for the leading column yields exact integral 1−prod_j F_s(r_j t); at even k=2m, the integer-gamma CDF and inclusion-exclusion give the stated finite rational sum over nonempty competitor subsets and degrees 0..m−1. A competitor j has beta tail I_{alpha_j/(alpha_1+alpha_j)}(k/2,k/2), whose endpoint Laplace expansion gives [4t(1-t)]^{k/2}/[(1−2t)sqrt(2πk)]. When r runners-up have squared norm beta and R=alpha_1/beta>1, simultaneous runner-up exceedances obey Chernoff exponent J_2(R)>J(R), certified by (R−1)²(5R+4)>0; strictly shorter columns have greater J. Therefore P_k ~ r(R+1)/[(R−1)sqrt(2πk)] [4R/(R+1)^2]^(k/2) and the inverse small-risk row bound has the asserted loglog correction. Independently compared three exact k=2 inclusion-exclusion expressions with conditional gamma integration. The infinite-k asymptotic rests on the analytic beta tail and strict exponent comparisons, not simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CQRRPT has structural rank-revelation / sketch embedding bounds and pivoting experiments; Xiao-Gu-Langou use JL high-probability reliability.",
+          "Resultary sharp multistage adaptive pivoting error products analyze different sampling selection and error objective."
+        ],
+        "reasoning": "General rank-revealing/stability guarantees do not derive exact probability for this particular first pivot, finite rational expression or leading tied-runner-up constant.",
+        "searches": [
+          "arxiv:2311.08316 CQRRPT pivot quality and embedding guarantees",
+          "arxiv:1804.05138 randomized QRCP JL bounds",
+          "Resultary randomized adaptive pivoting probability query"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, VERIFICATION.md, AUDIT.json",
+        "Melnichenko et al arxiv:2311.08316 HTML relevant algorithm and pivot sections",
+        "Duersch-Gu arxiv:1509.06820 accessible abstract / scope",
+        "Xiao-Gu-Langou arxiv:1804.05138 relevant HTML context",
+        "Resultary published randomized pivot search",
+        "Three independent exact gamma integral/inclusion-exclusion checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A union bound from beta pair tails yields only an upper bound (n−1)times the worst competitor, without the sharp multiplier r or negligibility of intersections.",
+          "The strict exponent gap J_2(R)>J(R) is needed since the events have a shared random leading denominator."
+        ],
+        "reasoning": "Earlier single-candidate distributions and JL/embedding guarantees are not sufficient to imply the full asymptotic equivalence or rational inclusion-exclusion identity. An older general gamma-order-statistics result could cover the exact special case.",
+        "searches": [
+          "arxiv:2311.08316 CQRRPT first-pivot analysis",
+          "arxiv:1804.05138 JL pivot reliability",
+          "arxiv:1509.06820 sampled chi-square distributions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact first-pivot event is an ordering among independent scaled chi-square variables and equivalently an independent gamma-max event.",
+          "Duersch-Gu study sampled Gaussian column norms and conditioning after pivot choices; these are related marginal and conditional distributions."
+        ],
+        "reasoning": "A gamma-order-statistic identity may rephrase the claim outside QR literature; the distinctive joint many-competitor sharp runner-up asymptotic is not given by pairwise marginal laws alone.",
+        "searches": [
+          "Resultary Gaussian sketch column pivot QR exact first pivot probability gamma chi square runner-up asymptotics",
+          "arxiv:1509.06820 randomized QRCP chi-square truncated norms",
+          "arxiv:2311.08316 sampled pivot CQRRPT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite even-height multi-column rational law appears in reviewed CQRRPT algorithm statements.",
+          "Resultary hits concern pivot-error products and sketching distributions but not the stated gamma ordering table."
+        ],
+        "reasoning": "The exact formula for n=2 reduces to a standard symmetric beta tail; this known special case is not original. No checked multi-competitor exact table with sharp asymptotics found; historical incompleteness retained.",
+        "searches": [
+          "Resultary pivot first-column distribution query",
+          "arxiv:1509.06820 Section 3 sampled columns",
+          "arxiv:2311.08316 exact first pivot formula search"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.",
+      "residual_risks": [
+        "Older general gamma order-statistics/competing chi-square maxima theory may provide an equivalent formula or equivalent large-deviation prefactor.",
+        "Duersch-Gu full body not newly read; source-access limitation must not be misstated as definitive noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS shared Gaussian pivoting framework and quality, not demonstrated complete exact orthogonal-column mis-pivot formula",
+          "evidence": "First-pivot algorithm chooses largest sketch norm, while theorem gives its exact ordering failure on orthogonal input.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+          "material_read": "Accessible HTML §§1.4,2.1–2.3 and algorithm/analysis details relevant to pivoting",
+          "method": "arXiv HTML targeted reading",
+          "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices (CQRRPT)",
+          "trigger": "Direct algorithmic motivation for Gaussian sketch column pivot reliability"
+        },
+        {
+          "assessment": "POSSIBLE partial overlap with independent chi-squared order statistics; direct multi-competitor equality unresolved without full primary text",
+          "evidence": "Source studies Gaussian sampled pivot norms; cannot rule out an equivalent general distribution by abstract alone.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+          "material_read": "Accessible abstract and stated sampled-column marginal/conditional model; full article not retrieved in this run",
+          "method": "arXiv abstract plus prior section descriptions, no full-document noncoverage asserted",
+          "title": "Randomized QR with Column Pivoting",
+          "trigger": "Closest conditional chi-square sampled-pivot distribution source"
+        },
+        {
+          "assessment": "General high-probability bounds not shown to imply exact constant from examined material",
+          "evidence": "A JL upper probability bound does not determine full gamma event or sharp runner-up multiplicity.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.05138",
+          "material_read": "Accessible HTML outline and context of §III-C Johnson–Lindenstrauss guarantee; not exhaustive entire source reread",
+          "method": "arXiv HTML focused algorithm/guarantee comparison",
+          "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations",
+          "trigger": "General randomized QRCP reliability potentially stronger"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sketched pivot selection is a central randomized matrix-factorization decision. The exact first-pivot failure probability on the canonical orthogonal-column test family offers a precise numerical benchmark; its large-k leading constant detects how many columns tie for second rank and proves why shared leading-column fluctuations do not spoil rare-event additivity. This is a natural complete first-decision classification and useful sketch-height calibration, not a claim about later QR pivots or full factorization accuracy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, verify.py, VERIFICATION.md, AUDIT.json",
+    "Melnichenko et al arxiv:2311.08316 HTML relevant algorithm and pivot sections",
+    "Duersch-Gu arxiv:1509.06820 accessible abstract / scope",
+    "Xiao-Gu-Langou arxiv:1804.05138 relevant HTML context",
+    "Resultary published randomized pivot search",
+    "Three independent exact gamma integral/inclusion-exclusion checks"
+  ],
+  "disposition": "passed",
+  "limitations": "Only first maximum-norm QR pivot, fixed candidate count, mutually orthogonal columns, unique largest squared norm, iid real Gaussian shared sketch and exact arithmetic. No conclusion for later pivots, dependent columns, structured sketches, equal longest columns, or n growing with k.",
+  "residual_risks": [
+    "Older general gamma order-statistics/competing chi-square maxima theory may provide an equivalent formula or equivalent large-deviation prefactor.",
+    "Duersch-Gu full body not newly read; source-access limitation must not be misstated as definitive noncoverage."
+  ],
+  "schema_version": 1
+}

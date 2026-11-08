@@ -1,23 +1,21 @@
-# Scientific review: exact Gaussian-sketch first-pivot law and sharp runner-up principle
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gaussian-column-independence reduction requires all input columns to be mutually orthogonal and the sketch to have jointly Gaussian independent rows; these hypotheses are explicit. Conditioning on the leading column's independent chi-squared norm yields the exact gamma integral for all positive sketch heights. Inclusion–exclusion and finite integer-gamma CDF expansions establish the even-height expression, without numerical extrapolation. The single-competitor beta tail has a sharp endpoint-Laplace asymptotic; the common-leading-column dependence is controlled by a two-competitor Chernoff exponent that is strictly larger for every squared-norm ratio above one. Non-runners have strictly larger one-event rates. These points prove the full leading constant, including repeated second-largest columns, and the small-risk sketch-height expansion. The packaged code passed 80 exact, symbolic, integrated, direct-sketch and asymptotic checks. Its finite tests are corroboration, not the proof of infinite claims.
+PASS
 
-## Originality — PASS, with stated publication-priority risk
+For fixed n>=2 mutually orthogonal nonzero columns with unique largest squared norm alpha_1, the same iid standard Gaussian sketch gives independent column sketch squared norms alpha_j*chi_k², by multivariate Gaussian orthogonality. Conditioning on Gamma(k/2,1) for the leading column yields exact integral 1−prod_j F_s(r_j t); at even k=2m, the integer-gamma CDF and inclusion-exclusion give the stated finite rational sum over nonempty competitor subsets and degrees 0..m−1. A competitor j has beta tail I_{alpha_j/(alpha_1+alpha_j)}(k/2,k/2), whose endpoint Laplace expansion gives [4t(1-t)]^{k/2}/[(1−2t)sqrt(2πk)]. When r runners-up have squared norm beta and R=alpha_1/beta>1, simultaneous runner-up exceedances obey Chernoff exponent J_2(R)>J(R), certified by (R−1)²(5R+4)>0; strictly shorter columns have greater J. Therefore P_k ~ r(R+1)/[(R−1)sqrt(2πk)] [4R/(R+1)^2]^(k/2) and the inverse small-risk row bound has the asserted loglog correction. Independently compared three exact k=2 inclusion-exclusion expressions with conditional gamma integration. The infinite-k asymptotic rests on the analytic beta tail and strict exponent comparisons, not simulations.
 
-The relevant established ingredients are independent chi-squared norms under orthogonal Gaussian sketches, the symmetric beta ratio identity, and gamma/order-statistics integration. The narrower assessed statement is their application to the **whole first-pivot event** of a Gaussian-sketched QR factorization with multiple competitors, plus the sharp runner-up multiplicity constant proved despite simultaneous events sharing a random first-column norm. The 2023 CQRRPT primary source studies pivot quality via embedding, structural and stability guarantees and numerical trials; the 2018 randomized QRCP analysis supplies Johnson–Lindenstrauss reliability bounds, not this precise law; the 2015/2017 randomized QRCP analysis studies marginal and conditionally truncated chi-squared norms, not the all-competitor first-pivot identity and runner-up asymptotic. A separate previously known two-candidate fixed-sketch-row calculation is not claimed here as new. Related gamma-order-statistic papers outside the numerical linear algebra literature may contain equivalent formulations; this is a residual publication-priority risk. The supplied work does not claim independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical orthogonal-column model isolates sketch-induced pivot mistakes from genuine column dependence. The exact probability formula is a reproducible benchmark for numerical QR pivot-selection experiments and sketch-size calibration, while the sharp asymptotic replaces the loose dependence on all columns by the top/runner-up norm gap and its multiplicity. The proof explicitly quantifies why dependence through the shared winning norm does not invalidate first-order addition of rare runner-up failures. The sample-complexity correction of order \(\log\log(1/\varepsilon)\) is a further measurable design quantity. These are complete natural rank-selection invariants on a motivated matrix class, not a proposed generic QR error theorem.
+Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.
 
-## Sources and scientific limitations
+## value
 
-- Melnichenko et al., *CholeskyQR with Randomization and Pivoting for Tall Matrices*, arXiv:2311.08316v1 (2023-11-14), Sections 1.4, 2.2–2.3 and 4.
-- Duersch and Gu, *Randomized QR with Column Pivoting*, arXiv:1509.06820v2, Section 3.
-- Xiao, Gu and Langou, *Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations*, arXiv:1804.05138v1, Section III-C.
+PASS
 
-The theorem does not treat later pivots, nonorthogonal inputs, sparse sketches, floating-point effects, growing candidate count or approximation-error guarantees. The external mathematical review has not been performed.
+Sketched pivot selection is a central randomized matrix-factorization decision. The exact first-pivot failure probability on the canonical orthogonal-column test family offers a precise numerical benchmark; its large-k leading constant detects how many columns tie for second rank and proves why shared leading-column fluctuations do not spoil rare-event additivity. This is a natural complete first-decision classification and useful sketch-height calibration, not a claim about later QR pivots or full factorization accuracy.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
