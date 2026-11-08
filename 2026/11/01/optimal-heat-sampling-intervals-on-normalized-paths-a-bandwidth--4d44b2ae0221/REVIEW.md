@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The new theorem specifies the normalized path Laplacian, the low-pass subspace, the endpoint observation, the determinant objective, and the full range of finite and limiting quantifiers. An explicit normalized-Laplacian eigenbasis gives the exact sampling matrix and its Vandermonde determinant. Differentiating the logarithm yields strict concavity for all positive spacings, an interior critical point for every spectral dimension at least three, and the exceptional monotone two-mode case. The continuum equation is obtained by an exact rescaling of discrete eigenvalues, uniform convergence of the rescaled cosine spectral profile, and triangular Riemann sums of an integrand continuously extended to coincident spectral values. The limiting scalar derivative is strictly decreasing, so bracketing its root rigorously proves convergence of finite optimizers. The sparse-band and full-band constants follow from the stated eigenvalue limits. The packaged checker passes 2,198 supplementary assertions but does not replace these infinite proofs.
+## correctness
 
-## Originality
-**PASS relative to the checked evidence, with stated residual risk.** Bulai et al. (arXiv:2609.25472v1, 2026-09-21) establish graph Paley–Wiener dynamical sampling, frame criteria, and numerical path-graph comparisons for selected damping; their relevant Section 4 does not derive a unique D-optimal heat interval or a continuum bandwidth-fraction transition. The published full-spectrum normalized-path endpoint determinant (published-finding corpus record `2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f`) optimizes sensor location, not temporal step, and does not treat the low-pass crossover \(s_\theta\). The published arithmetic-spectrum optimal-horizon theorem (published-finding corpus record `2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739`) has a different confluent two-observable matrix and a different eigenvalue distribution; its limiting integral does not imply the normalized-path family. Classical Vandermonde identities and generic optimal-design theory account for background steps, not for the derived sharp path-specific limit. Equivalent historical formulations remain possible in broader observability and experimental-design literature.
+PASS
 
-## Value
-**PASS.** The motivating recent path-graph study reports very large conditioning variation under different choices of temporal samples but holds its time step fixed. The result identifies the unique information-volume-optimal uniform interval for each finite low-pass path model and supplies a sharp practical scaling rule as path length and bandwidth grow together. The nontrivial crossover from a quadratic low-band spectrum to the full cosine spectrum explains why a single fixed sampling interval cannot remain D-optimal across graph sizes and signal bandwidths. This is not merely a reparameterized rank test: it is an exact design optimum with a new integral limit and a sharp diffusive coefficient.
+Exact normalized path cosine eigenbasis and positive endpoint coordinates give Vandermonde squared Gram determinant. Its half-logarithmic second derivative is strictly negative; first derivative moves from +infinity to -sum_{i<j}lambda_i, strictly negative only for m>=3; m=2 remains positive. Exact rescaled eigenvalue identity r_j=rho_{(m-1)/(N-1)}(j/(m-1)), compact-uniform cosine profile convergence, uniform triangular Riemann sums and monotone root bracketing rigorously yield all theta limits including theta=0 and 1. I independently computed the N=13,m=7 root and verified the direct determinant derivative. The finite test does not prove the asymptotic theorem.
 
-## Scope and residual risks
-D-optimality is not minimization of spectral condition number or maximization of the smallest frame bound. The theorem does not optimize arbitrary sensor placements, general nonuniform observation times, or other noise covariance models. The arithmetic-spectrum result and general exponential-regression literature are credible adjacent areas, and an unindexed mathematically equivalent path-specific calculation cannot be absolutely excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Based on full mathematical comparison, the earlier normalized-path theorem fixes spatial placement and the Bulai paper fixes damping rather than finding this bandwidth-fraction temporal optimum. No broader theorem read entails all s_theta. Priority is best-of-knowledge, not absolute.
+
+## value
+
+PASS
+
+The full bandwidth crossover is a natural design invariant for endpoint heat observation of path graph low-frequency signals, resolving a previously fixed sampling interval in adjacent literature. Distinguishes an exceptional m=2 boundary, identifies unique optimal timing for every m>=3, and gives a sharp diffusive scaling; this is more than a standard rank criterion or trivial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
