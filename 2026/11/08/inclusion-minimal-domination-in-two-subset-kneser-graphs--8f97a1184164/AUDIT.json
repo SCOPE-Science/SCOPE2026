@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The graph/cover criterion is exact for selected and unselected pairs. Cover-one and cover-two classification checks both directions and minimality. For cover-number-three minimal solutions the two-set random-permutation argument proves at most six selected edges; the provided self-contained graph-class enumerator exhausts every isolate-free graph of one through six edges by edge-addition induction, verifies exactly four edge-critical cover-three types, and rules out K3+K2 and K4 for ordinary minimality. Direct exhaustive KG(n,2) checks for n=4..7 give 8,27,203,1029 sets and match every predicted family. Computations are inspected from the current package, and finite searches are not misrepresented as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Couturier et al., Minimal dominating sets in graph classes (2013), abstract and publication metadata, https://pimvanthof.github.io/mds.html",
+        "Kanté et al., On the enumeration of minimal dominating sets and related notions (2014), abstract, https://doi.org/10.1137/120862612",
+        "Gorodezky 2007 thesis, contents and §4.4, https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/OWTU/TC-OWTU-3190.pdf"
+      ],
+      "reasoning": "General enumerability and broad domination-number results do not give the concrete five-class family or cardinality multiplicities. The full 2007 thesis was not exhaustively read, leaving a bounded residual risk, but inspected sections focus on minimum size and design bounds rather than all inclusion-minimal families.",
+      "searches": [
+        "minimal dominating sets in graph classes combinatorial bounds and enumeration Couturier Heggernes van t Hof Kratsch",
+        "On the Enumeration of Minimal Dominating Sets and Related Notions 2014",
+        "dominating sets Kneser graph 2007 Gorodezky thesis chapter 4",
+        "k-tuple domination Kneser graphs arXiv 2308.15603"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.15603, v1 public 2023-08-29; reviewed current accessible full text",
+      "Ivančo–Zelinka, Mathematica Bohemica 118 (1993), Theorem 1 and domatic analysis",
+      "Gorodezky, Waterloo thesis (2007), abstract, contents and Chapter 4 portions",
+      "Kanté et al. (2014), published abstract",
+      "Couturier et al. (2013), publication and abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1993 Theorem 1 identifies minimum ordinary domination triples, but no non-minimum minimal sets.",
+        "2023 Lemma 18 gives membership inequalities, requiring substantial further critical-graph classification for enumeration.",
+        "Minimum paired domination imposes a perfect matching and minimal total domination demands open-neighbor domination, strictly different predicates."
+      ],
+      "reasoning": "Knowing the domination number or just the triple classification does not determine inclusion-minimal star, double-star and five-cycle families or the upper domination number. Total domination includes some cover-three configurations that are not ordinary-minimal and excludes the ordinary-minimal cover-one and cover-two configurations. This is not a corollary of the prior total/paired count.",
+      "searches": [
+        "Domination in Kneser graphs Ivančo Zelinka 1993 Theorem 1 minimum three",
+        "arXiv:2308.15603 Theorem 1 Lemma 18 characterization",
+        "minimal total domination Kneser KG(n,2) cover number three",
+        "paired domination Kneser graph K(n,2) minimal four six"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ivančo–Zelinka 1993, Theorem 1, discusses minimum dominating sets and characterizes triples; https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "Cornet–Torres 2023, Lemma 18 provides incidence inequalities for k-tuple sets; https://arxiv.org/pdf/2308.15603"
+      ],
+      "reasoning": "The equivalent root-graph formulation says each two-vertex cover of the selected-edge graph must itself be a selected edge; this relation is general. The published minimum-set and incidence statements do not classify all inclusion-minimal solutions. Alternative terms searched include upper domination and two-element blocking systems.",
+      "searches": [
+        "minimal dominating sets Kneser graph KG(n,2) upper domination number enumeration polynomial",
+        "upper domination number Kneser graph",
+        "Kneser KG(n,2) ordinary dominating sets families triangle stars 5-cycle matchings double stars",
+        "arXiv:2308.15603, Lemma 18 and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 1 of Ivančo–Zelinka (1993) gives minimum size three and which three-element families dominate, not counts at all inclusion-minimal sizes.",
+        "Cornet–Torres (2023) tables give minimum k-tuple domination numbers, not all-size minimal dominating-set counts."
+      ],
+      "reasoning": "No exact all-cardinality minimal-set table matching the coefficients 1, 12, 15 and 90 on root support classes was identified in searches. A negative database search cannot establish novelty and no claims of exhaustive indexing are made.",
+      "searches": [
+        "domination polynomial Kneser n 2",
+        "minimal dominating sets Kneser graph",
+        "upper domination number KG(n,2) with five types and inclusion-minimal ordinary domination polynomial binomial n choose 3 n choose 5 n choose 6",
+        "Kneser K(n,2) upper domination number vertex cover critical double star"
+      ]
+    },
+    "rationale": "Exact structural comparison: the 1993 result gives domination number three and dominating triples, while the 2023 arXiv primary source gives incidence inequalities and minimum k-tuple domination parameters. Neither asserts the five-family classification of all inclusion-minimal ordinary dominating sets or its all-size polynomial. The cover-number-three critical classification is reused as a mathematical lemma; new ordinary-domination cases include full stars, triangles, and exact proper double stars. General algorithms for enumerating minimal dominating sets do not provide the explicit Kneser count. Search failure does not imply universal priority.",
+    "residual_risks": [
+      "An equivalent published classification may appear using minimal transversals, maximal irredundant families, or edge-cover criticality terminology.",
+      "The 2007 thesis was not exhaustively inspected beyond relevant sections and the external search index is not comprehensive.",
+      "The cover-number-three classification overlaps known critical-edge methodology; substantive contribution assessed as the all-minimal ordinary-domination classification and enumerator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "minimum and multiple domination; no five-family ordinary inclusion-minimal enumerator in inspected relevant statements",
+        "evidence": [
+          "Theorem 1 restates ordinary domination minimum three",
+          "Lemma 18 gives per-pair incidence inequalities",
+          "Section 4 explicitly focuses on k>=2 minimum values"
+        ],
+        "identifier_or_url": "arXiv:2308.15603; https://arxiv.org/pdf/2308.15603",
+        "material_read": "title/abstract, introduction, Section 3 theorem context, Section 4 Lemma 18 and adjacent definitions, discussion, references",
+        "method": "public full-text PDF viewed and searched by section and theorem; examined targeted pages including 1, 9, 11-13, 25",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "primary same-graph incidence and minimum domination results"
+      },
+      {
+        "assessment": "proves minimum dominating number and all minimum triples; does not provide the classification of nonminimum inclusion-minimal dominating sets",
+        "evidence": [
+          "Theorem 1, p.148 gives dominating-triple criterion",
+          "following theorems determine domatic number"
+        ],
+        "identifier_or_url": "Ivančo–Zelinka (1993), https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "material_read": "complete 7-page source text, including its statement of Theorem 1 and the following domatic-number treatment",
+        "method": "public full-text PDF text and rendered page 148",
+        "title": "Domination in Kneser graphs",
+        "trigger": "earliest cited specific result on ordinary domination of KG(n,2)"
+      },
+      {
+        "assessment": "investigates minimum size, total domination and designs; reviewed sections do not cover exact inclusion-minimal polynomial, but the entire thesis was not verified page by page",
+        "evidence": [
+          "Chapter 4 table of contents and Section 4.4 on determining gamma(n:k)"
+        ],
+        "identifier_or_url": "Gorodezky (2007), https://uwspace.uwaterloo.ca/items/162bbbfc-6952-4188-8d4a-e403b81807c4",
+        "material_read": "contents, abstract, Chapter 4 section list and portions of Section 4.4 on the domination number",
+        "method": "publicly retrievable thesis parsed PDF text; screenshot endpoint denied by remote source",
+        "title": "Dominating sets in Kneser graphs",
+        "trigger": "plausible thesis containing detailed Kneser domination variants"
+      },
+      {
+        "assessment": "general enumeration complexity reductions and algorithms; no explicit KG(n,2) family formula in material checked",
+        "evidence": [
+          "abstract discusses Dom-Enum, Trans-Enum and graph-class algorithms"
+        ],
+        "identifier_or_url": "Kanté, Limouzy, Mary, Nourine (2014), https://doi.org/10.1137/120862612",
+        "material_read": "abstract and stated principal algorithmic scope",
+        "method": "publisher webpage text",
+        "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+        "trigger": "possible broad enumeration result implying special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f97a118-4164-4a3a-8ab1-4fa35c7d09d2",
+  "value": {
+    "rationale": "A standard infinite graph family has a natural all-minimal domination question not determined by minimum domination or algorithmic enumeration. The complete structural family, exact labeled polynomial, upper domination number, and growing gaps form a coherent complete invariant. The cover-one/two families require independent structural reasoning and are not subsumed by total domination.",
+    "status": "PASS"
+  }
+}
