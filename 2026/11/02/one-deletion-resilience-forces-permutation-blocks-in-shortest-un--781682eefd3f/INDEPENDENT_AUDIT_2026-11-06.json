@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:59:14.221053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Testing the constant target a^k after deleting an a forces at least k+1 copies of each letter, hence |w|≥q(k+1); k+1 complete permutation blocks attain it. At equality, write a_i for occurrence i. For distinct a,b, delete b_{k+1} and require a^i b^(k-i) for 1≤i≤k-1, forcing a_i<b_(i+1). For i=k, delete a_1 and require a^(k-1)b, forcing a_k<b_(k+1). Interchange a,b; occurrence levels are globally ordered, hence each consecutive block is a permutation. For k=1 every double-multiplicity arrangement survives deletion. Independent literal subsequence tests exhausted multiset words at (q,k)=(2,1..4),(3,1..2), matching counts 6,8,16,32,90,216; infinite result is the occurrence proof, not experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edit-distance papers minimize the number of edits to reach a requested universality index; here the condition quantifies over EVERY possible deletion and classifies optimal hosts."
+        ],
+        "reasoning": "Quantifier swap from existence of an editing sequence to resilience under all single deletions does not follow from the published edit-distance optimization alone.",
+        "searches": [
+          "Fleischmann Kosche Koss Manea Siemer edit distance k-subsequence universality deletion arXiv:2007.09192",
+          "Adamson ranking unranking k-subsequence universal words 2304.04583"
+        ]
+      },
+      "checked_sources": [
+        "Git tree afa273e99c048416226e487c8f5fd97f57a4479c/RESULT.md and verify_deletion_robust.py",
+        "Barker et al. arXiv:2003.04629",
+        "Fleischmann et al. arXiv:2007.09192",
+        "Adamson arXiv:2304.04583 (bibliographic/abstract)",
+        "Resultary search: deletion-resilient subsequence universality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arch factorization produces the sufficiency direction; reverse necessity invokes deleting prescribed occurrences of a and b and cannot be assumed from the arch lemma."
+        ],
+        "reasoning": "Target-quantified deletion inequalities supply new necessity and explicitly separate k=1, so the combined classification is not a direct restatement of either inspected theorem.",
+        "searches": [
+          "Barker Scattered Factor-Universality arch theorem",
+          "Fleischmann et al Edit Distance arXiv:2007.09192 deletion transformation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. arXiv:2003.04629 define k-universality and arch factorization; ordinary (k+1)-universality implies one-deletion resilience but reverse equivalence at minimal length is the claim."
+        ],
+        "reasoning": "The proof makes the minimal robust word structurally equivalent to a word of k+1 complete permutation arches for k≥2; a general ordinary universality characterization alone does not establish this reverse direction.",
+        "searches": [
+          "\"universal subsequence\" deletion robust word permutation blocks",
+          "Resultary shortest subsequence k universal words robust to one deletion permutation blocks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ordinary k-universal word counts do not isolate all deletion-resilient length q(k+1) hosts; at k=1 robustness counts (2q)!/2^q rather than (q!)^2."
+        ],
+        "reasoning": "Counting tables for ordinary universality may imply enumeration for k≥2 once novel structural rigidity is known; they do not themselves establish it.",
+        "searches": [
+          "Adamson counting shortest k-universal words",
+          "Resultary closed-form law for binary subsequence universality"
+        ]
+      },
+      "rationale": "PASS on robustness-to-every-one-position-deletion classification and sharp k=1 exception, with prior arch-factorization and edit-distance algorithms credited. Those results do not by inspected statements give this necessity rigidity; possible hidden easy corollary is a residual historical risk.",
+      "residual_risks": [
+        "A short corollary in a broad arch-factorization or edited-universality paper might give the same rigidity without wording it as resilience.",
+        "Does not classify nonminimal hosts or multiple deletions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies universality characterization and techniques, not the inspected all-deletions minimal-host classification.",
+          "evidence": "Definitions and arch decomposition apply to ordinary universality; no every-single-deletion sharp rigidity theorem identified in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Full arXiv PDF opened; introduction, definitions, arch-factorization portions and relevant theorem statements read.",
+          "method": "primary arXiv PDF and page screenshot",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Same k-subsequence-universality definition and permutation arch factors"
+        },
+        {
+          "assessment": "Determines edit distances to universality index; every-deletion resilient minimizer count not established by inspected claims.",
+          "evidence": "Existential edit-distance quantifiers differ from universal deletion robustness.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.09192",
+          "material_read": "ArXiv full PDF opened; abstract, introduction and deletion-distance problem statements read.",
+          "method": "primary arXiv PDF and page screenshot",
+          "title": "The Edit Distance to k-Subsequence Universality",
+          "trigger": "Potential dominating characterization of all deletion-robust words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One erasure is a canonical robustness perturbation of subsequence universality. The result gives a complete infinite family of minimal resilient hosts and a sharp rigidity boundary at target length two, with exact enumerations rather than just existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree afa273e99c048416226e487c8f5fd97f57a4479c/RESULT.md and verify_deletion_robust.py",
+    "Barker et al. arXiv:2003.04629",
+    "Fleischmann et al. arXiv:2007.09192",
+    "Adamson arXiv:2304.04583 (bibliographic/abstract)",
+    "Resultary search: deletion-resilient subsequence universality"
+  ],
+  "disposition": "passed",
+  "final_claim": "On q≥2 labeled symbols, shortest words remaining k-subsequence-universal under deletion of any single position have length q(k+1). At k≥2 they are exactly concatenations of k+1 alphabet permutations, counted by (q!)^(k+1); for k=1 all double-multiplicity arrangements qualify, counted by (2q)!/2^q.",
+  "limitations": [
+    "Scattered subsequences, one arbitrary deleted position, labeled alphabet; longer hosts not classified."
+  ],
+  "residual_risks": [
+    "A short corollary in a broad arch-factorization or edited-universality paper might give the same rigidity without wording it as resilience.",
+    "Does not classify nonminimal hosts or multiple deletions."
+  ],
+  "schema_version": 1
+}
