@@ -1,0 +1,11 @@
+# Scientific review: Gaussian fluctuations of selected drawdown-duration rank
+
+**Correctness (PASS).** The exact two-boundary gambler's-ruin transform is derived from a recurrence, then analytically expanded near the origin to prove the conditional excursion-duration central limit theorem. The extreme height is tightly logarithmic by its exact geometric tail. Crucially, binomial count concentration is made simultaneous over deterministic duration thresholds before evaluating at the depth-selected random duration; this avoids falsely treating selected durations as independent. The exact Catalan duration law supplies the logarithmic correction. The proof establishes the whole centered joint limit with all constants; the \(424\) finite checks independently test its algebra but are not used as proof of convergence.
+
+**Originality (PASS, bounded-literature judgment).** Wu (arXiv:2610.41990v1) gives the first-order rank exponent and duration ratio, not the centered rank CLT. Perfilev–Wachtel (arXiv:1907.02578v1) provides a conditional limit theorem for a *single* high excursion, a necessary piece of background. Neither inspected source treats the empirical duration rank of the excursion selected as deepest across \(n\) episodes, its sharp adaptive-threshold \(O_{\mathbb P}(1)\) relation, or the joint fluctuation limit. Mathematical-research-record and broader literature searches did not identify a covering statement. The possibility of an earlier general theorem implying the full result remains a residual priority risk.
+
+**Value (PASS).** The original drawdown-rank result determines a power of sample size; this theorem supplies its nontrivial and parameter-explicit second-order probability law, an exact asymptotic rank/selected-duration coupling, and the polynomial-tail correction \(-\tfrac32\log L_{I_n}\). These quantities quantify uncertainty in extremal duration ranking for a natural, nondegenerate random-walk model rather than adding an arbitrary finite calculation.
+
+**Limitations.** The result is restricted to fixed biased two-point increments and the first \(n\) independent nonzero completed excursions; it is not a claim for general increments or deterministic calendar-time windows. Literature priority has not been independently established.
+
+Self-review: passed. Independent audit: not yet performed.

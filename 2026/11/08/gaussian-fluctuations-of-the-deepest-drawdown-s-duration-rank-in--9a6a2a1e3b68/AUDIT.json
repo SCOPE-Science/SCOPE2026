@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The joint bivariate excursion height/duration generating function follows from a two-point gambler-ruin boundary recurrence, with D_h(z)=z(F_h(z)-F_(h-1)(z)). Explicit geometric maximum-height tails imply Hmax=(log n)/alpha+O_P(1). The analytic quasi-power conditional transform gives centered duration variance 8pq/delta^3 per height; mixing at the depth-selected maximum yields variance 8pq/(delta^3 alpha) per log n. The independent Catalan first-return formula gives both strict and weak length tails Theta(t^(-3/2) exp(-beta*t)). Chernoff-uniform empirical tail counts over O(log n) deterministic even thresholds may then be safely evaluated at the depth-selected random duration, yielding the rank expansion and joint normal law. All constants, parity/ties and parameter endpoints are explicitly handled. A standalone checker passed 424 finite algebraic diagnostics; these are not presented as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perfilev–Wachtel, arXiv:1907.02578v1, Theorem 1 and Corollary 2: local and conditional normal laws for the duration of a single excursion of prescribed large height; no sample of n episode-duration ranks.",
+        "Wu, arXiv:2610.41990v1, Theorem 1 and Example 2, §§3-4: first-order rank exponent and duration ratio; no central limit law for centered log rank."
+      ],
+      "reasoning": "Perfilev–Wachtel has a broader increment class for a conditional excursion-duration result, but it does not include ranking and selection across n episodes; its local CLT alone does not imply the uniform empirical-count estimate at an adaptive threshold. Wu has a broader class of light-tailed increments but only first-order logarithmic rank asymptotics. A possible abstract marked-extremes principle not identified remains a risk.",
+      "searches": [
+        "CLT logarithmic duration rank of maximum-depth excursion among iid positive-drift random walk drawdown episodes, biased two-point increments",
+        "rank of deepest drawdown among longest drawdown durations with sqrt log n fluctuations",
+        "biased simple random walk excursion maximum height conditional duration central limit theorem",
+        "random walk drawdown rank duration deepest second order central limit logarithmic rank"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.41990v1, full HTML, sections 1-4 and references",
+      "arxiv:1907.02578v1, original full text and PDF theorem region",
+      "Public mathematical-research abstracts searched by semantic query and formula/alias variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu, arXiv:2610.41990v1, Theorem 1 and Example 2, §§3-4: first-order rank exponent and duration ratio; no central limit law for centered log rank.",
+        "Perfilev–Wachtel, arXiv:1907.02578v1, Theorem 1 and Corollary 2: local and conditional normal laws for the duration of a single excursion of prescribed large height; no sample of n episode-duration ranks."
+      ],
+      "reasoning": "Wu's first-order exponent gives no fluctuation scale or distribution. Perfilev–Wachtel supplies the conditional normal mechanism for one large-height excursion, but the selected height is an extreme of n samples; to obtain the rank law one must establish tight height centering, selected conditional Gaussian fluctuations, an accurate t^(-3/2) length-tail prefactor, and uniform concentration over O(log n) integer thresholds despite adaptive selection. Those steps are supplied and checked in the new proof. Therefore the new full joint statement is not a previously cited corollary without additional work; undiscovered stronger literature remains a priority risk.",
+      "searches": [
+        "CLT logarithmic duration rank of maximum-depth excursion among iid positive-drift random walk drawdown episodes, biased two-point increments",
+        "conditional excursion duration given maximum height and extreme-index ranks logarithmic Gaussian fluctuation",
+        "rank of deepest drawdown among longest drawdown durations with sqrt log n fluctuations",
+        "biased simple random walk excursion maximum height conditional duration central limit theorem",
+        "random walk drawdown rank duration deepest second order central limit logarithmic rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu, arXiv:2610.41990v1, Theorem 1 and Example 2, §§3-4: first-order rank exponent and duration ratio; no central limit law for centered log rank.",
+        "Perfilev–Wachtel, arXiv:1907.02578v1, Theorem 1 and Corollary 2: local and conditional normal laws for the duration of a single excursion of prescribed large height; no sample of n episode-duration ranks."
+      ],
+      "reasoning": "An equivalent statement would give a central limit theorem for the logarithm of the rank (across n regenerative cycles) of the cycle with maximal height, perhaps phrased as a randomly indexed exceedance count, extreme marked-point process, or joint max-height/duration order statistic. The first cited paper gives only n^(1-rho+o_P(1)); the second treats one height-conditioned excursion, not its rank among all n. No equivalent rank law was found in the actual searches.",
+      "searches": [
+        "CLT logarithmic duration rank of maximum-depth excursion among iid positive-drift random walk drawdown episodes, biased two-point increments",
+        "conditional excursion duration given maximum height and extreme-index ranks logarithmic Gaussian fluctuation",
+        "exact generating function for biased Bernoulli Dyck excursion length conditional maximum height",
+        "\"duration rank\" \"central limit theorem\" \"drawdown\"",
+        "\"rank\" \"excursion\" \"maximum\" \"duration\" gaussian fluctuations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wu, arXiv:2610.41990v1, Theorem 1 and Example 2, §§3-4: first-order rank exponent and duration ratio; no central limit law for centered log rank.",
+        "The two-point formulas for alpha, beta and rho in Wu Example 2 are prior and are explicitly credited."
+      ],
+      "reasoning": "No table of exact second-order rank laws for biased two-point drawdowns was identified. The previously published rho constant is not claimed as an original discovery; the new Gaussian variance and logarithmic correction are the objects compared.",
+      "searches": [
+        "exact generating function for biased Bernoulli Dyck excursion length conditional maximum height",
+        "\"duration rank\" \"central limit theorem\" \"drawdown\"",
+        "\"drawdown\" \"rank\" \"sqrt(log n)\" stochastic"
+      ]
+    },
+    "rationale": "A concrete second-order probability law for the deepest episode's empirical duration rank is not stated or shown to follow directly from either closely relevant inspected primary text. Wu (2026) establishes a first-order rank power, while Perfilev–Wachtel (2019) provide conditional single-excursion length normal limits. The new adaptive-threshold empirical-rank identity, lattice Catalan prefactor, explicit variance and joint normal limit require additional nontrivial steps. Actual research-record and literature searches returned no equivalent or stronger covering result. This is a provisional bounded-literature priority assessment, not proof of global uniqueness.",
+    "residual_risks": [
+      "Historical rank-statistic results under different terminology (randomly indexed order-statistic rank / marked-regenerative maximum) may imply the result.",
+      "The 2019 general conditional local limit theorem may allow a more routine derivation of the rank law than this self-contained proof indicates; novelty judgment is provisional.",
+      "No independent scientific audit or exhaustive review of all older drawdown literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports logarithmic rank exponent and first-order duration ratio, not sqrt-log Gaussian fluctuations or log-rank polynomial-tail correction.",
+        "evidence": [
+          "Wu, arXiv:2610.41990v1, Theorem 1 and Example 2, §§3-4: first-order rank exponent and duration ratio; no central limit law for centered log rank.",
+          "Primary MSC 60G50; first public preprint 2026-10-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.41990v1",
+        "material_read": "Full HTML abstract, §2 episode and rank definitions, §3 Theorem 1 and Example 2, §4 proofs, references and conclusion; relevant first-order claims and conditional-height proof compared.",
+        "method": "Direct accessible full-text HTML reading and targeted terms/section matching",
+        "title": "When is the deepest drawdown also the longest?",
+        "trigger": "Exact same depth-selected duration-ranking statistic and two-point example"
+      },
+      {
+        "assessment": "The conditional single-excursion duration CLT is prior; no duration ranking by depth-selected extreme among n episodes is stated.",
+        "evidence": [
+          "Perfilev–Wachtel, arXiv:1907.02578v1, Theorem 1 and Corollary 2: local and conditional normal laws for the duration of a single excursion of prescribed large height; no sample of n episode-duration ranks.",
+          "Original arXiv version dated 2019-07-04; relevant supporting literature."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.02578",
+        "material_read": "Abstract, full arXiv text of introduction, hypotheses, Theorem 1, Corollary 2, and proof outline; page image of the arXiv PDF examined as an independent visual check of the theorem region.",
+        "method": "arXiv full text and PDF page image",
+        "title": "Local tail asymptotics for the joint distribution of length and of maximum of a random walk excursion",
+        "trigger": "Highly plausible prior for conditional Gaussian duration near a large excursion maximum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a6a2a1e-3b68-4985-9c0c-e0e838adee03",
+  "value": {
+    "rationale": "The motivating open rank/duration relationship is naturally quantified beyond its already known power exponent. The exact variance describes a nondegenerate fluctuation regime for the rank of a depth-selected extreme, and the uniform adaptive-threshold estimate explains the polynomial Catalan correction and perfect negative correlation of the joint Gaussian fluctuations. This is mathematically informative for extremal regenerative statistics and not merely a numerical or trivial parameter substitution.",
+    "status": "PASS"
+  }
+}
