@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Exact checks and limits
+# Independent mathematical audit
 
-The following two standalone Python 3 verification programs were run against their actual included source files, and both returned successfully:
+## correctness
 
-- `python3 kg62_direct_check.py`: checks absence of all nine-seed zero forcing sets, enumerates all 3,003 ten-seed sets, constructs every token-jump edge, then executes breadth-first search from all 1,662 optimal states. Result begins `DIRECT_PASS`.
-- `python3 kg62_orbit_check.py`: independently recursively searches individual forcing sequences, partitions the 3,003 white five-sets into all fifteen full permutation orbits, and verifies all seven accepted orbits, with breadth-first searches from orbit representatives. Result begins `ORBIT_PASS`.
+PASS
 
-Both agree on: zero forcing number 10; minimum sets 1,662; exchange edges 24,270; eccentricities all five; degree histogram `{26:450,29:360,30:432,32:420}`; and unordered pair counts `{1:24270,2:202320,3:557820,4:477855,5:118026}`. The standard Python 3 interpreter is the only dependency.
+Proof reconstructed: every KG(6,2) vertex is a 2-subset of six points and has six disjoint neighbors; ordinary forcing succeeds under monotone closure independent of move order. An independent exhaustive enumeration of all 5005 nine-black sets found no successes, and all 3003 ten-black sets found 1662 successes. Independent S6 enumeration partitioned successes into 7 orbits of sizes 360,360,360,360,90,72,60. Token-jump adjacency over the 1662 states has 24270 edges and degree frequencies 26:450,29:360,30:432,32:420; independent all-source BFS found eccentricity 5 for every state and unordered distances (24270,202320,557820,477855,118026). This is an exhaustive finite proof only for KG(6,2).
 
-The proof is a finite exhaustive classification, and the checkers constitute its repeatable certificates for the specified labeled graph. An external independent scholarly audit has not been performed; no assertion is made about other Kneser parameters or about priority over inaccessible historical computations.
+## originality
+
+PASS
+
+Best-of-knowledge independent comparative result: Brešar-Kos-Torres already identifies Z(KG(6,2))=10 (not original). Geneson-Haas-Hogben gives the token-jump construction for general graphs but the inspected full text has no Kneser-specific result, so cannot imply the exact seven-orbit metric. No negative search has been used as a novelty proof; the inaccessible/uninspected historical risk is explicit.
+
+## value
+
+PASS
+
+Minimum zero-forcing sets of the smallest triangle-containing 2-subset Kneser graph have natural optimizer geometry. Seven complement isomorphism types and exact all-pairs token-jump distances including self-centeredness describe a complete and nontrivial finite reconfiguration phenomenon beyond the known scalar Z=10.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

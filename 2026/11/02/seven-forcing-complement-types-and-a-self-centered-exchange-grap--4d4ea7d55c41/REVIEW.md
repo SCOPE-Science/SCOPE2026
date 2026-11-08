@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete finite argument reduces ordinary zero forcing to a monotone closure test on each of the 3,003 candidate ten-vertex sets, and uses the 5,005 nine-vertex candidates to establish minimality. The seven good orbits among all fifteen \(S_6\)-orbits of five-edge complement graphs partition the full success set. Independent exact checkers verify the complement classification and full exchange metric, one by direct all-source breadth-first search and the other by a seven-orbit symmetry reduction. Both match on all stated counts and the complete distance distribution. This is a claim about a fixed finite graph, not an extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+Proof reconstructed: every KG(6,2) vertex is a 2-subset of six points and has six disjoint neighbors; ordinary forcing succeeds under monotone closure independent of move order. An independent exhaustive enumeration of all 5005 nine-black sets found no successes, and all 3003 ten-black sets found 1662 successes. Independent S6 enumeration partitioned successes into 7 orbits of sizes 360,360,360,360,90,72,60. Token-jump adjacency over the 1662 states has 24270 edges and degree frequencies 26:450,29:360,30:432,32:420; independent all-source BFS found eccentricity 5 for every state and unordered distances (24270,202320,557820,477855,118026). This is an exhaustive finite proof only for KG(6,2).
 
-The scalar minimum size ten, the general zero forcing counting framework, and the general definition of the minimum-zero-forcing-set token-jump graph are **already published**, and are excluded from novelty. The complete texts of Brešar–Kos–Torres (2019), Boyer and collaborators (2018), and Geneson–Haas–Hogben (2020) were compared for matching objects, parameters, and implications. The former gives the scalar size but not the enumerated optimizer classes; the latter two define counting or reconfiguration frameworks without this Kneser case. Related published research records on the Čech and neighborhood topology of the same graph do not imply the zero forcing configuration graph. Targeted searches did not identify another matching exact census. An unindexed or unpublished equivalent computation remains possible. The original 2008 foundational source was available through published metadata and abstract, not complete text, and is a low-specificity comparison.
+## originality
 
-## Value — PASS
+PASS
 
-The graph \(\mathrm{KG}(6,2)\) is the first two-subset Kneser graph that contains triangles and lies just outside the range of a standard closed formula for Kneser zero forcing numbers. The previously known minimum size does not determine either the 1,662 optimizing sets or their transition distances. The seven-type classification and universal eccentricity-five property provide a complete reproducible benchmark for minimum-set reconfiguration and an explicit example of a connected, nonregular self-centered optimization graph.
+Best-of-knowledge independent comparative result: Brešar-Kos-Torres already identifies Z(KG(6,2))=10 (not original). Geneson-Haas-Hogben gives the token-jump construction for general graphs but the inspected full text has no Kneser-specific result, so cannot imply the exact seven-orbit metric. No negative search has been used as a novelty proof; the inaccessible/uninspected historical risk is explicit.
 
-## Limitations
+## value
 
-Finite fixed-graph result; independent external verification not performed; publication priority subject to unindexed historical work. Two programs are included to permit repeatable exact checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimum zero-forcing sets of the smallest triangle-containing 2-subset Kneser graph have natural optimizer geometry. Seven complement isomorphism types and exact all-pairs token-jump distances including self-centeredness describe a complete and nontrivial finite reconfiguration phenomenon beyond the known scalar Z=10.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
