@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:01:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a rank-q real matrix error with positive singular values s_i and S=sum s_i, direct reconstruction gives polar-scaled descent E+=U diag(s_i-tS)V^T. Exact nonnegative line search gives t=1/q because <E,D>=lambda*S^2 and ||D||_F^2=lambda^2*S^2*q. Rank one vanishes in one step, rank two gives signed (s1-s2)/2 and its negative, hence equal new singular values and exact second-step cancellation. At rank r>=3 the vector a(1,...,1,r-1) is invariant in positive singular-value proportions with factor (r-2)/r>0, proving an infinite nonterminating ray. Equal-singular-value initialization forces the only potentially universal constant t=1/r; that ray rules out r>=3. The rank-raising example diag(3,1,eps) vs diag(3,1,0) has first-step difference norm tending sqrt(8/3). These are symbolic all-rank arguments, not extrapolation from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jawanpuria, Garai, Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C Proposition 8 and Remark 2; HTML read",
+          "Lau, Long, Su, PolarGrad, arXiv:2505.21799v4, §3.3/Theorem 3.2, comparison from supplied actual package",
+          "Gonon, Muşat, Boumal, Insights on Muon from Simple Quadratics, arXiv:2602.11948v1, differing unscaled model"
+        ],
+        "reasoning": "PolarGrad rank-calibrated convergence and unscaled Muon quadratic analysis cover related updates and asymptotic rates, but neither establishes universal finite termination across ranks for this exact SVD-polar direction.",
+        "searches": [
+          "exact nuclear norm scaled polar gradient finite step termination rank two quadratic equal singular values",
+          "arxiv:2610.27747v1 Appendix C Proposition 8",
+          "arxiv:2505.21799v4 Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Jawanpuria, Garai, Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C Proposition 8 and Remark 2; HTML read",
+        "Lau, Long, Su, PolarGrad, arXiv:2505.21799v4, §3.3/Theorem 3.2, comparison from supplied actual package",
+        "Gonon, Muşat, Boumal, Insights on Muon from Simple Quadratics, arXiv:2602.11948v1, differing unscaled model",
+        "Read-only Resultary semantic search of exact rank-two polar-gradient finite termination (2026-11-06)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jawanpuria, Garai, Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C Proposition 8 and Remark 2; HTML read",
+          "Lau, Long, Su, PolarGrad, arXiv:2505.21799v4, §3.3/Theorem 3.2, comparison from supplied actual package",
+          "Gonon, Muşat, Boumal, Insights on Muon from Simple Quadratics, arXiv:2602.11948v1, differing unscaled model"
+        ],
+        "reasoning": "One-step equal-spectrum termination is a proper special case of present rank-two result. The new all-unequal-rank-two statement and rank-raising discontinuity are not logical consequences of an upper convergence-rate bound.",
+        "searches": [
+          "exact nuclear norm scaled polar gradient finite step termination rank two quadratic equal singular values",
+          "arxiv:2610.27747v1 Appendix C Proposition 8",
+          "arxiv:2505.21799v4 Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jawanpuria, Garai, Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C Proposition 8 and Remark 2; HTML read",
+          "Lau, Long, Su, PolarGrad, arXiv:2505.21799v4, §3.3/Theorem 3.2, comparison from supplied actual package",
+          "Gonon, Muşat, Boumal, Insights on Muon from Simple Quadratics, arXiv:2602.11948v1, differing unscaled model"
+        ],
+        "reasoning": "Equivalent singular-value coordinate description is the centered absolute-value iteration s -> |s-mean(s)|. Jawanpuria et al. use the exact same nuclear-scaled polar update, but their Proposition 8 only covers an equal-singular-value one-step resonance; no theorem located implying arbitrary rank-two two-step termination.",
+        "searches": [
+          "exact nuclear norm scaled polar gradient finite step termination rank two quadratic equal singular values",
+          "arxiv:2610.27747v1 Appendix C Proposition 8",
+          "arxiv:2505.21799v4 Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jawanpuria, Garai, Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C Proposition 8 and Remark 2; HTML read",
+          "Lau, Long, Su, PolarGrad, arXiv:2505.21799v4, §3.3/Theorem 3.2, comparison from supplied actual package",
+          "Gonon, Muşat, Boumal, Insights on Muon from Simple Quadratics, arXiv:2602.11948v1, differing unscaled model"
+        ],
+        "reasoning": "No canonical database/table applies to an exact-line-search infinite-state optimizer. Resultary returned spectral optimizer bounds, not an indexed rank-two termination table; semantic search alone cannot prove novelty.",
+        "searches": [
+          "exact nuclear norm scaled polar gradient finite step termination rank two quadratic equal singular values",
+          "arxiv:2610.27747v1 Appendix C Proposition 8",
+          "arxiv:2505.21799v4 Theorem 3.2"
+        ]
+      },
+      "rationale": "The exact rank-two two-iteration theorem, universal-rank phase boundary, and discontinuous rank-raising limit are distinct from the established linear convergence bounds and equal-spectrum one-step resonance in Jawanpuria–Garai–Mishra 2026. The PolarGrad rank-calibrated method and unscaled polar-optimizer results do not imply finite termination for every rank-two singular-value pair. A general optimization theory might encode the centered-absolute-value map, so best-of-knowledge originality is qualified.",
+      "residual_risks": [
+        "An older exact centered singular-value iteration classification may subsume some cases.",
+        "Exact polar oracle and isotropic quadratic are essential; neither noisy nor anisotropic dynamics covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Convergence identity and equal-active-spectrum resonance; no universal rank-two two-step or rank-discontinuity statement",
+          "evidence": [
+            "Theorem 3/Appendix C Proposition 8; same update, different quantified conclusion"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+          "material_read": "Full accessible HTML including main theorems and Appendix C, especially Theorem 3 and Proposition 8",
+          "method": "Primary arXiv HTML reading",
+          "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+          "trigger": "Exact same nuclear-scaled polar direction on quadratic"
+        },
+        {
+          "assessment": "Potential background convergence, priority uncertainty retained",
+          "evidence": [
+            "Rank-calibrated descent is not the same universal exact finite-termination criterion"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.21799v4",
+          "material_read": "Source package §3.3/Theorem 3.2 discussion plus bibliographic reference; primary full text not independently completed",
+          "method": "Comparative extracted statements, not a full-document exclusion",
+          "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+          "trigger": "Rank-dependent polar update and comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Universal finite termination for exact-line-search polar descent is a natural qualitative algorithmic invariant, not a small numerical improvement. The r=2 versus r>=3 boundary and explicit discontinuity show why limiting rank-two behavior cannot predict the rank-three optimizer; the classification is self-contained and useful for comparing spectral optimizers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jawanpuria, Garai, Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C Proposition 8 and Remark 2; HTML read",
+    "Lau, Long, Su, PolarGrad, arXiv:2505.21799v4, §3.3/Theorem 3.2, comparison from supplied actual package",
+    "Gonon, Muşat, Boumal, Insights on Muon from Simple Quadratics, arXiv:2602.11948v1, differing unscaled model",
+    "Read-only Resultary semantic search of exact rank-two polar-gradient finite termination (2026-11-06)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older exact centered singular-value iteration classification may subsume some cases.",
+    "Exact polar oracle and isotropic quadratic are essential; neither noisy nor anisotropic dynamics covered."
+  ],
+  "residual_risks": [
+    "An older exact centered singular-value iteration classification may subsume some cases.",
+    "Exact polar oracle and isotropic quadratic are essential; neither noisy nor anisotropic dynamics covered."
+  ],
+  "schema_version": 1
+}

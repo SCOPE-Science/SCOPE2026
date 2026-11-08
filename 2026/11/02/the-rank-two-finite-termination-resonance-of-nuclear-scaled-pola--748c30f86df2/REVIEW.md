@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact thin-SVD update is \(E_+=U\operatorname{diag}(s_i-t\sum_j s_j)V^\top\). Differentiating the one-variable quadratic along the nuclear-scaled polar direction gives the exact line-search parameter \(t=1/r\). For rank two this centers two positive singular values and makes their absolute deviations equal, hence the next step is zero; for rank three and above the positive two-level spectrum \((1,\ldots,1,r-1)\) is an invariant geometric ray of factor \((r-2)/r\), never reaching zero. Equal initial singular values force any universally terminating fixed step to use \(t=1/r\). The rank-discontinuity formula follows from two explicit diagonal updates. The rational and dense-matrix checks reproduced from `verify.py` passed (7,401 checks). These checks are finite corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS within the inspected comparison
-Jawanpuria–Garai–Mishra, arXiv:2610.27747v1, prove general nuclear-scaled linear convergence, identify line-search normalization, and give immediate termination only on selected equal-spectrum invariant rays; their Appendix C explicitly leaves general directional dynamics unresolved. Lau–Long–Su, arXiv:2505.21799v4, develop the polar optimizer and its rank-dependent rate bounds; Gonon–Muşat–Boumal, arXiv:2602.11948v1, address unscaled polar updates. None of those inspected materials states or dominates the all-rank finite-termination classification plus the two-step rank-two theorem. Searches for singular-value mean-centering, spectral-norm steepest descent, rank-two termination, and corresponding mathematical research records found related but mathematically different results. An older specialized sign-descent theorem might cover a diagonal analogue, so historical-priority risk is not zero.
+PASS
 
-## Mathematical value — PASS
-The exact line-search choice is natural, not an arbitrarily tuned special case; the result provides a complete rank dichotomy for whether that geometrically motivated descent algorithm uniformly terminates. Rank two exhibits an exact algorithmic speedup from nonlinear spectral equalization; rank three already defeats finite termination despite geometric convergence. The discontinuity quantifies why rank-two behavior cannot be assumed robust under small rank-raising perturbations. This improves understanding of the finite-step behavior beyond general linear-rate guarantees.
+For a rank-q real matrix error with positive singular values s_i and S=sum s_i, direct reconstruction gives polar-scaled descent E+=U diag(s_i-tS)V^T. Exact nonnegative line search gives t=1/q because <E,D>=lambda*S^2 and ||D||_F^2=lambda^2*S^2*q. Rank one vanishes in one step, rank two gives signed (s1-s2)/2 and its negative, hence equal new singular values and exact second-step cancellation. At rank r>=3 the vector a(1,...,1,r-1) is invariant in positive singular-value proportions with factor (r-2)/r>0, proving an infinite nonterminating ray. Equal-singular-value initialization forces the only potentially universal constant t=1/r; that ray rules out r>=3. The rank-raising example diag(3,1,eps) vs diag(3,1,0) has first-step difference norm tending sqrt(8/3). These are symbolic all-rank arguments, not extrapolation from finite tests.
 
-## Remaining limitations
-This is exact-arithmetic isotropic-quadratic science, not a production optimizer guarantee. Possible specialized prior work on \(\ell_\infty\)-steepest descent or nonlinear sign dynamics merits independent checking. No expert or independent mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact rank-two two-iteration theorem, universal-rank phase boundary, and discontinuous rank-raising limit are distinct from the established linear convergence bounds and equal-spectrum one-step resonance in Jawanpuria–Garai–Mishra 2026. The PolarGrad rank-calibrated method and unscaled polar-optimizer results do not imply finite termination for every rank-two singular-value pair. A general optimization theory might encode the centered-absolute-value map, so best-of-knowledge originality is qualified.
+
+## value
+
+PASS
+
+Universal finite termination for exact-line-search polar descent is a natural qualitative algorithmic invariant, not a small numerical improvement. The r=2 versus r>=3 boundary and explicit discontinuity show why limiting rank-two behavior cannot predict the rank-three optimizer; the classification is self-contained and useful for comparing spectral optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
