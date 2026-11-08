@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:01:33.025592Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the 3-agent homogeneous irreversible-infection asynchronous best-response process with 0<a<1 and a/2<tau<min(a,1/2), the first update event and subsequent independent uniform first-appearance races partition all trajectories. Infected initial vertex chosen first (prob 1/3) yields one survivor phase iff tau>=theta1=a/(1+a); otherwise all infected. If a susceptible is chosen first (2/3), next two-label race is fair; one survivor after agent1 update requires tau>=theta0=(sqrt(1+8a)-1)/4 and the remaining susceptible to be updated next (prob 1/3). A further two-race exceptional event requires tau>=theta2=(sqrt(a^2+8a)-a)/4, giving contribution 1/18. Hence P(K=1)=1/3 indicator(tau>=theta1), P(K=2)=1/9 indicator(tau>=theta0)+1/18 indicator(tau>=theta2), and all remaining mass K=3. Equality is safe because infection is strict >tau. Independent rational 17-epoch Markov state propagation checked exact probability enclosures for seven parameter pairs including threshold boundaries, with unresolved tail about 0.001015 each; these are finite-horizon corroboration, not proof of infinite-time convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karmakar–Podder–Roy–Sadhukhan general-n results, Theorems 7–10",
+          "Those results require tau>=1/(n-1) or tau<=a/(n-1), disjoint from a/2<tau<min(a,1/2) for n=3, a<1; thus their broader population parameter does not dominate the target region."
+        ],
+        "reasoning": "Those results require tau>=1/(n-1) or tau<=a/(n-1), disjoint from a/2<tau<min(a,1/2) for n=3, a<1; thus their broader population parameter does not dominate the target region.",
+        "searches": [
+          "Resultary search: epidemic virus game strategic agents three agents best response threshold immunity intermediate regime infection probability",
+          "https://sayarkarmakar.github.io/publications/AAP_revision.pdf",
+          "https://arxiv.org/abs/2303.09771"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and check_three_agent.py Git blobs",
+        "Karmakar et al. (2023) https://arxiv.org/abs/2303.09771",
+        "Karmakar et al. revised full text https://sayarkarmakar.github.io/publications/AAP_revision.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Domain restrictions and included endpoints of strict infection rule",
+          "No specialization of Theorems 7–10 reaches the open middle tau interval; phase probabilities 1/9 and 1/18 and exact equality behaviors require new branch race analysis, rather than parameter substitution."
+        ],
+        "reasoning": "No specialization of Theorems 7–10 reaches the open middle tau interval; phase probabilities 1/9 and 1/18 and exact equality behaviors require new branch race analysis, rather than parameter substitution.",
+        "searches": [
+          "Resultary search: epidemic virus game strategic agents three agents best response threshold immunity intermediate regime infection probability",
+          "https://sayarkarmakar.github.io/publications/AAP_revision.pdf",
+          "https://arxiv.org/abs/2303.09771"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-agent epidemic game with uniform asynchronous best response, infected agents permanent, exposure threshold",
+          "Karmakar et al. exact rule is matched including update-then-infect strict inequality. Larger network epidemic models with stochastic exposure are not equivalent."
+        ],
+        "reasoning": "Karmakar et al. exact rule is matched including update-then-infect strict inequality. Larger network epidemic models with stochastic exposure are not equivalent.",
+        "searches": [
+          "Resultary search: epidemic virus game strategic agents three agents best response threshold immunity intermediate regime infection probability",
+          "https://sayarkarmakar.github.io/publications/AAP_revision.pdf",
+          "https://arxiv.org/abs/2303.09771"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four-stage P(K=1),P(K=2),P(K=3) exact phase table",
+          "Full revised primary paper and Resultary did not reveal a matching intermediate-regime n=3 table; failure to find an earlier exact table does not certify priority."
+        ],
+        "reasoning": "Full revised primary paper and Resultary did not reveal a matching intermediate-regime n=3 table; failure to find an earlier exact table does not certify priority.",
+        "searches": [
+          "Resultary search: epidemic virus game strategic agents three agents best response threshold immunity intermediate regime infection probability",
+          "https://sayarkarmakar.github.io/publications/AAP_revision.pdf",
+          "https://arxiv.org/abs/2303.09771"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Karmakar–Podder–Roy–Sadhukhan define this same game and treat two disjoint threshold domains tau>=1/(n-1) and tau<=a/(n-1) under the relevant a<1 regime, leaving a/(n-1)<tau<1/(n-1) open for this same n=3 model. The exact four-phase three-agent law with boundary atom probabilities and limiting action profiles is not implied by the inspected theorems of their revised primary manuscript.",
+      "residual_risks": [
+        "Earlier unindexed exact 3-agent intermediate-threshold case study could coincide despite absence from the primary paper.",
+        "No universal n>3, heterogeneous agents or other infection-check timing statement is proved.",
+        "Finite-horizon Markov enclosures leave nonzero tail and are not an infinite-time proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_COVERED_INTERMEDIATE_TAU_INTERVAL_NOT_COVERED_BY_THEOREMS_7_TO_10",
+          "evidence": "Theorems 7-8 assume 1/(n-1)<=tau<a; Theorems 9-10 assume tau<=a/(n-1); for n=3 the target a/2<tau<min(a,1/2) lies strictly between.",
+          "identifier_or_url": "https://sayarkarmakar.github.io/publications/AAP_revision.pdf",
+          "material_read": "Full revised primary Sections 2, 3.4 and Appendix B; Theorems 7–10 including update rule and threshold hypotheses; PDF page visuals inspected",
+          "method": "Lawful author-hosted full revised PDF",
+          "title": "S. Karmakar, M. Podder, S. Roy and S. Sadhukhan, The spread of an epidemic: a game-theoretic approach",
+          "trigger": "Exact original model, revised complete primary proof and parameter-domain coverage"
+        },
+        {
+          "assessment": "PREDATES_MODEL_NOT_SUBMITTED_INTERMEDIATE_EXACT_DISTRIBUTION",
+          "evidence": "Original method is credited; new contribution limited to omitted three-agent window, exact boundary probabilities and limiting actions.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.09771",
+          "material_read": "Public preprint and revised-theorem parameter descriptions; full revised author PDF assessed separately",
+          "method": "Public arXiv and author full-text triangulation",
+          "title": "Same authors 2023 preprint and 2025 journal version",
+          "trigger": "Original model date and version comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the original epidemic game's smallest open intermediate-threshold population is naturally motivated; exact infection cardinality and limiting action distribution with sharp three threshold surfaces answer a genuine model question, including equality boundaries that qualitative monotonicity misses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and check_three_agent.py Git blobs",
+    "Karmakar et al. (2023) https://arxiv.org/abs/2303.09771",
+    "Karmakar et al. revised full text https://sayarkarmakar.github.io/publications/AAP_revision.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier unindexed exact 3-agent intermediate-threshold case study could coincide despite absence from the primary paper.",
+    "No universal n>3, heterogeneous agents or other infection-check timing statement is proved.",
+    "Finite-horizon Markov enclosures leave nonzero tail and are not an infinite-time proof."
+  ],
+  "residual_risks": [
+    "Earlier unindexed exact 3-agent intermediate-threshold case study could coincide despite absence from the primary paper.",
+    "No universal n>3, heterogeneous agents or other infection-check timing statement is proved.",
+    "Finite-horizon Markov enclosures leave nonzero tail and are not an infinite-time proof."
+  ],
+  "schema_version": 1
+}
