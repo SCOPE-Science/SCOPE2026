@@ -1,19 +1,17 @@
-# Scientific review
+# Scientific review of corrected quantitative result
 
-## Correctness
+## Correctness — PASS
 
-PASS. For any pure-state/projective representation, branch-vector normalization gives the exact identity between the success deficit and Kneser edge mismatch energy. The inclusion-exclusion filtration proves the complete allowed Kneser eigenvalue list, giving the positive spectral constant \(\theta=c(d-2t)/(d-t)\). Shared-translation symmetrization preserves success and makes all meeting-vertex deviations have equal energy. An extra vertex in Hamming layer \(t-2\) is orthogonally incompatible with the entire layer \(t\), forcing deviation \(h\ge1/(16k^{3/2})\). These steps imply the claimed dimension-independent gap. The actual bundled script ran successfully with 861 finite assertions; those tests do not replace the proof.
+The proved claim is the explicit lower bound on the *relative* gap \(1-\omega_\mathrm Q/\omega_\mathrm{NS}\ge(d-2t)/(512(d-t)\binom dt^3)\) for all \(t\ge2,d>2t\). It follows from the branch-vector score-deficit identity, spectral Poincaré inequality for the Kneser disjointness matrix, translation-covariant deviation control, and a radius-\(t\) sphere containing a vertex in Hamming layer \(t-2\) not in the reference sphere. The key mismatch bound is \(h^2\ge1/(256\binom dt^3)\). Finite numeric tests confirm selected instances but are not the unrestricted proof.
 
-## Originality
+## Originality — PASS for quantitative strengthening only
 
-PASS on the inspected evidence, with residual priority risk. Wang (arXiv:2610.12949v1), Sections 5--7 and Appendix A, proves exact nonattainment but expressly leaves strict separation of the finite-dimensional quantum **supremum** from the no-signalling value unresolved. The new inequality supplies that quantitative separation for all \(t\ge2,d>2t\). Relevant quantum perfect-matching results concern different games and do not imply this benchmark bound. Relevant earlier general rendezvous papers were checked for their scope; the 2026 graph-ensemble work was accessible at abstract level only. Published mathematical research records were compared for the stated implication, not merely keyword overlap. No equivalent statement was identified, but absence of a located match is not a proof of priority.
+Wang's 2026 manuscript proves finite-dimensional nonattainment, but on 12 October 2026 a published formal proof already established the strict **supremum** inequality for the same binary hypercube game. The original qualitative first-separation attribution is therefore withdrawn. That earlier quantitative bound for the relative deficit is \(1/[k^4(4\sqrt2 t+2)^2]\), \(k=\binom dt\). The corrected bound \((d-2t)/[512(d-t)k^3]\) exceeds it for every parameter, with minimum bound ratio \((1320+320\sqrt2)/1536>1\) at \((d,t)=(5,2)\). The stronger coefficient and dependence on \(k\) are not found in the inspected earlier proof. Priority remains best-of-knowledge.
 
-## Value
+## Value — PASS
 
-PASS. The theorem resolves a stated binary scientific question, namely whether exact finite-dimensional nonattainment can nevertheless be approached asymptotically with unlimited entanglement dimension. It produces an explicit positive all-dimension gap and exposes the stability mechanism: near-optimality would force mutually incompatible Hamming-sphere projection vectors to be simultaneously almost orthogonal and almost complete. Neither optimal constants nor a classical-versus-quantum separation is claimed.
+The improvement by one full power of the number of local outputs is a substantive all-parameter quantitative strengthening, explaining a sharper stability mechanism through Kneser expansion and incompatible Hamming layers. No optimal constant or quantum-over-classical separation is claimed.
 
-## Closest literature and risks
+## Sources and limitations
 
-The nearest source is Wang, arXiv:2610.12949v1; the new statement is strictly stronger than its finite-dimensional nonattainment result. Cui et al., *Quantum Perfect Matchings* (2025), treats different win predicates. Viola--Mironowicz (2024) was inspected through its full arXiv PDF; it uses uniform starting vertices and graph-edge updates, not the fixed-distance Hamming-pair game. Tucker et al. (2026) treats graph-ensemble coordination but its full text was inaccessible; a limited residual priority risk remains. The standard Kneser spectrum and projective-measurement purification/dilation are recognized prior tools. The gap constant is conservative and applies only to the stated uniform game.
-
-Self-review: passed. Independent audit: not yet performed.
+Primary sources: Wang, arXiv:2610.12949v1, Theorems 5.5, 6.4 and §7; the public 2026-10-12 formal proof at https://www.trureturing.org/research/wang-2026-hypercube-rendezvous-quantum-gap/ and https://github.com/the-omega-institute/trureturing/commit/e49cc795f9ba7da8af100046ca34dd602be46c05; Cui et al., *Quantum Perfect Matchings*, doi:10.1007/s00023-025-01632-5. The formal prior proof settles the qualitative question and cannot be ignored. The comparative claims were checked by explicit formulas, not titles. Other unidentified quantitative bounds remain a priority risk. Complete historical review evidence remains preserved in the source Git history.

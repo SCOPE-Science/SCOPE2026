@@ -1,181 +1,135 @@
-# A dimension-uniform quantum gap for higher-cardinality hypercube rendezvous
+# An improved dimension-free quantitative gap in balanced hypercube rendezvous
 
-## Finding
+## Final claim and priority boundary
 
-Let \(d\) and \(t\) be integers with \(t\ge 2\) and \(d>2t\). In the uniform balanced rendezvous game on the binary \(d\)-cube, two noncommunicating players receive vertices at Hamming distance \(2t\), each changes exactly \(t\) coordinates, and win when their final vertices coincide. Write \(\omega_{\mathrm Q}(d,t)\) for the supremum of success probabilities over all finite-dimensional entangled strategies and \(\omega_{\mathrm{NS}}(d,t)\) for the no-signalling value. Then
-
-\[
-\boxed{\displaystyle
-\omega_{\mathrm Q}(d,t)\le
-\frac{\binom{2t}{t}}{\binom{d}{t}}
--\frac{\binom{2t}{t}(d-2t)}{512(d-t)\binom{d}{t}^{4}}
-<\omega_{\mathrm{NS}}(d,t)=\frac{\binom{2t}{t}}{\binom{d}{t}}.}
-\]
-
-The positive gap is independent of the local Hilbert-space dimensions. For example, the \((d,t)=(5,2)\) game satisfies \(\omega_{\mathrm Q}(5,2)\le 0.599999609375<\omega_{\mathrm{NS}}(5,2)=0.6\). Thus a previously known obstruction to *attaining* the no-signalling value is strengthened to an obstruction to *approaching* it with finite-dimensional strategies of arbitrarily large dimension.
-
-## Assumptions and scope
-
-Identify vertices with subsets of \([d]=\{1,\ldots,d\}\), let \(\sigma\triangle\tau\) be their symmetric difference, and write \(\Omega_t=\{A\subseteq[d]:|A|=t\}\). The ordered inputs \((\sigma,\tau)\) are uniform over \(|\sigma\triangle\tau|=2t\). Alice outputs \(A\in\Omega_t\), Bob outputs \(B\in\Omega_t\), and success means \(\sigma\triangle A=\tau\triangle B\). Local measurements may depend on the received input. Arbitrary shared finite-dimensional states, POVMs, entanglement dimensions, and shared randomness are allowed. A quantum strategy can be purified and simultaneously Naimark-dilated to a common pure bipartite unit state \(\psi\) and local input-indexed projective measurements. The proof uses only this representation.
-
-Set
+Fix integers \(t\ge2\) and \(d>2t\), and put \(k=\binom dt\), \(c=\binom{d-t}{t}\), and \(\ell=\binom d{2t}\). In the uniform balanced rendezvous game, Alice and Bob receive uniformly distributed ordered cube vertices \(\sigma,\tau\in\{0,1\}^d\) at Hamming distance \(2t\); each changes exactly \(t\) coordinates, and they win when their final vertices agree. Their noncommunicating finite-dimensional entangled strategies can use arbitrary shared states, local POVMs, dimension, and shared randomness. Then
 
 \[
-N=2^d,\qquad k=\binom dt,\qquad c=\binom{d-t}{t},\qquad \ell=\binom d{2t},\qquad
-\theta=\frac{c(d-2t)}{d-t}>0.
+\boxed{\quad\omega_{\mathrm{NS}}(d,t)-\omega_{\mathrm Q}(d,t)
+\ge\frac{\binom{2t}{t}(d-2t)}{512(d-t)\binom dt^4}>0,\qquad
+\omega_{\mathrm{NS}}(d,t)=\frac{\binom{2t}{t}}{\binom dt}.\quad}
 \]
 
-The identity \(c/\ell=\binom{2t}{t}/k\) and the no-signalling benchmark are established by the elementary counting construction in Wang's Lemma 5.1 and Appendix A [1]. We also derive the upper bound directly below.
-
-## Proof
-
-**1. An exact quantum-score deficit identity.** Label a local output by its final vertex \(\zeta\) rather than by the flipped subset. For \(|\sigma\triangle\zeta|=t\), let \(E_{\sigma,\zeta}\) and \(F_{\sigma,\zeta}\) be Alice's and Bob's projectors, with each local \(t\)-sphere of projectors summing to the identity. Define vectors in the **same** bipartite Hilbert space by
-
+**The qualitative strict separation is not new.** An earlier proof, publicly recorded on 12 October 2026 in *HypercubeRendezvousQuantumGap* and *RendezvousVectorSystemGap* [2], already established the same uniform-in-dimension strict quantum/no-signalling inequality for every such \((d,t)\). In fact [2] proves the quantitative relative deficit
 \[
-a_{\sigma,\zeta}=(E_{\sigma,\zeta}\otimes I)\psi,
-\qquad b_{\tau,\zeta}=(I\otimes F_{\tau,\zeta})\psi.
+1-\frac{\omega_{\mathrm Q}}{\omega_{\mathrm{NS}}}\ge
+\frac1{k^4(4\sqrt2\,t+2)^2}.
 \]
-
-Each local family of vectors is orthogonal and sums to \(\psi\); hence its squared norms sum to one. Commutation of the two local projections gives the success-branch probability
-
+The claim made here is **only the stronger quantitative stability estimate**
 \[
-\mathbb P(\zeta,\zeta\mid\sigma,\tau)
-=\langle a_{\sigma,\zeta},b_{\tau,\zeta}\rangle\ge0.
+\boxed{\quad1-\frac{\omega_{\mathrm Q}}{\omega_{\mathrm{NS}}}
+\ge \frac{d-2t}{512(d-t)k^3}.\quad}
 \]
+It improves the known polynomial dependence on \(k\) by one full power, and is stronger numerically for every admissible \(d,t\). It does not claim to be sharp or to solve the quantum-versus-classical advantage problem. The method is a Kneser spectral Poincaré estimate combined with a two-Hamming-layer near-orthogonality contradiction, rather than the earlier exchange-chain bound.
 
-For a fixed meeting vertex \(\zeta\), the admissible successful input pairs are \((\zeta\triangle A,\zeta\triangle B)\) for \(A,B\in\Omega_t\) with \(A\cap B=\varnothing\). Introduce the nonnegative mismatch energy
-
+To compare the two explicit estimates, their ratio (new deficit divided by the previous deficit) is
 \[
-\mathcal E=\sum_{\zeta\subseteq[d]}
-\sum_{\substack{A,B\in\Omega_t\\A\cap B=\varnothing}}
-\big\|a_{\zeta\triangle A,\zeta}-b_{\zeta\triangle B,\zeta}\big\|^2.
+ R(d,t)=\frac{k(d-2t)(4\sqrt2\,t+2)^2}{512(d-t)}.
 \]
+For fixed \(t\), \(\binom dt(d-2t)/(d-t)\) strictly increases with \(d\ge2t+1\). At the minimal \(d=2t+1\), both \(\binom{2t+1}{t}/(t+1)\) and \((4\sqrt2\,t+2)^2\) increase with \(t\ge2\). Thus \(R(d,t)\ge R(5,2)=(1320+320\sqrt2)/1536>1\).
 
-Every local output appears in exactly \(c\) disjoint-pair branches. Expanding all squares, using local normalization and counting the \(N\ell\) ordered input pairs, yields the **exact** identity
+## Proof of the improved bound
 
+Write a cube vertex as a subset of \([d]\), with coordinate addition given by symmetric difference \(\triangle\), and let \(\Omega_t=\{A\subseteq[d]:|A|=t\}\). By simultaneous purification and Naimark dilation, a finite-dimensional strategy is represented by a common unit bipartite vector \(\psi\) and projective measurements \(\{E_{\sigma,\zeta}:|\sigma\triangle\zeta|=t\}\) and \(\{F_{\tau,\zeta}:|\tau\triangle\zeta|=t\}\). Here each output is indexed by the resulting vertex \(\zeta\), and the projectors for each local input sum to the identity. Define vectors in the same bipartite Hilbert space by
 \[
-\boxed{\quad \frac c\ell-\omega=\frac{\mathcal E}{2N\ell}.\quad}\tag{1}
+ a_{\sigma,\zeta}=(E_{\sigma,\zeta}\otimes I)\psi,\qquad
+ b_{\tau,\zeta}=(I\otimes F_{\tau,\zeta})\psi.
 \]
+Their local families are orthogonal and sum to \(\psi\). The probability of a successful branch with common final vertex \(\zeta\) is the real nonnegative inner product \(\langle a_{\sigma,\zeta},b_{\tau,\zeta}\rangle\), because the two local projections commute.
 
-Here \(\omega\) is the success probability of the given strategy. In particular, \(\omega\le c/\ell\) without any separate appeal to the no-signalling theorem. The known no-signalling construction attains \(c/\ell\) [1].
-
-**2. A quantified Kneser-graph consistency estimate.** The Kneser adjacency matrix \(K\) on \(\Omega_t\) has \(K_{A,B}=\mathbf1_{A\cap B=\varnothing}\), and degree \(c\). Its eigenvalues belong to
-
+**Exact score-deficit identity.** Let \(N=2^d\). For each \(\zeta\), successful branches correspond bijectively to ordered disjoint \(A,B\in\Omega_t\), with input pair \((\zeta\triangle A,\zeta\triangle B)\). Define
 \[
-\lambda_j=(-1)^j\binom{d-t-j}{t-j},\qquad 0\le j\le t.
+\mathcal E=\sum_{\zeta}\sum_{A\cap B=\varnothing}
+ \|a_{\zeta\triangle A,\zeta}-b_{\zeta\triangle B,\zeta}\|^2.
 \]
+For a fixed local input and output, exactly \(c\) opposite-side outputs are disjoint. Expanding squared norms and using the completeness relations therefore gives \(\mathcal E=2Nc-2N\ell\,\omega\), where \(\omega\) is the success probability. Hence
+\[
+\boxed{\frac{c}{\ell}-\omega=\frac{\mathcal E}{2N\ell}.}\tag{1}
+\]
+The known no-signalling construction [1, §5 and Appendix A] attains \(c/\ell=\binom{2t}{t}/k\), as follows by extending the complement map on \(t\)-subsets of a prescribed \(2t\)-set to a permutation of \(\Omega_t\) and choosing the first output uniformly.
 
-For completeness, on the subset-incidence functions \(f_S(A)=\mathbf1_{S\subseteq A}\) with \(|S|=j\), inclusion-exclusion gives
-
+**Kneser expansion.** Let \(K\) be the \(k\)-by-\(k\) disjointness adjacency matrix on \(\Omega_t\). Every row has sum \(c\), and its distinct eigenvalues are
+\[
+\lambda_j=(-1)^j\binom{d-t-j}{t-j},\quad 0\le j\le t.
+\]
+One elementary proof uses the incidence functions \(f_S(A)=\mathbf1_{S\subseteq A}\) for \(|S|=j\). Their nested spans are invariant because inclusion-exclusion gives
 \[
 K f_S=\binom{d-t-j}{t-j}\sum_{T\subseteq S}(-1)^{|T|}f_T.
 \]
-
-The nested spans of these functions are \(K\)-invariant and end at the full function space when \(j=t\). Their successive quotients have the displayed scalar eigenvalues. Since \(d>2t\), the constant eigenvalue \(c\) is simple and every other eigenvalue has magnitude at most \(\binom{d-t-1}{t-1}=c-\theta\). Applying this bound to the two-color incidence form gives, for arbitrary Hilbert-space vectors \((x_A),(y_A)\),
-
+Thus the action on the successive quotients is multiplication by \(\lambda_j\); when \(j=t\) these spans cover all functions on \(\Omega_t\). Since \(d>2t\), the eigenvalue \(c\) is simple and every other eigenvalue has absolute value at most
+\(\binom{d-t-1}{t-1}=c-\theta\), with
 \[
-\sum_{A\cap B=\varnothing}\|x_A-y_B\|^2
-\ge\theta\sum_{A\in\Omega_t}
-\big(\|x_A-v\|^2+\|y_A-v\|^2\big),
-\quad v=\frac1{2k}\sum_A(x_A+y_A).\tag{2}
+\theta=c\frac{d-2t}{d-t}>0.
 \]
-
-Indeed, subtract the two means from \(x,y\), use the operator-norm bound on the mean-zero subspace, and note that the remaining mean-difference mode has energy-to-variance ratio \(2c\ge\theta\). Applied independently at each \(\zeta\), (2) bounds \(\mathcal E\) in terms of the deviations from the meeting-vertex mean.
-
-**3. Translation symmetrization and a uniform stability parameter.** Average over simultaneous translations of both inputs and both outputs by uniformly shared \(g\subseteq[d]\). This preserves the score and is a valid finite-dimensional quantum strategy (put \(g\) in correlated classical registers, purify those registers, and use projective measurements controlled by the local register). We may therefore work with a translation-covariant vector representation. Set
-
+Consequently, for arbitrary Hilbert-space vectors \(x_A,y_A\), putting \(v=(2k)^{-1}\sum_A(x_A+y_A)\),
 \[
-v_\zeta=\frac1{2k}\sum_{A\in\Omega_t}
-\big(a_{\zeta\triangle A,\zeta}+b_{\zeta\triangle A,\zeta}\big).
+\sum_{A\cap B=\varnothing}\|x_A-y_B\|^2\ge
+\theta\sum_A\left(\|x_A-v\|^2+\|y_A-v\|^2\right).\tag{2}
 \]
+Indeed, split the two families into their constant means and mean-zero components. The singular norm of \(K\) on mean-zero components is at most \(c-\theta\), giving coefficient \(\theta\) for their variance. The difference-of-means component has energy-to-variance ratio \(2c\ge\theta\), proving (2).
 
-By translation covariance, \(p=\|v_\zeta\|\) is independent of \(\zeta\). Likewise there is an \(h\ge0\) such that, for **every** \(\zeta\) and **every** input \(\sigma\), respectively,
-
+**Symmetrization and common deviation.** Average any strategy over simultaneous translations \(g\in\{0,1\}^d\) of the two inputs and their final vertices. One may implement the average by shared uniform classical registers and then purify those registers. The resulting strategy is finite-dimensional, remains projective, and has the same score. For it, define
+\[
+ v_\zeta=\frac1{2k}\sum_{A\in\Omega_t}\left(a_{\zeta\triangle A,\zeta}+b_{\zeta\triangle A,\zeta}\right).
+\]
+Translation covariance makes \(p=\|v_\zeta\|\) independent of \(\zeta\). It also makes the following two Alice deviation totals equal to a common \(h^2\), independently of \(\zeta\) and \(\sigma\), respectively:
 \[
 \sum_{A\in\Omega_t}\|a_{\zeta\triangle A,\zeta}-v_\zeta\|^2=h^2,
 \qquad
-\sum_{\substack{\zeta:\,|\sigma\triangle\zeta|=t}}
-\|a_{\sigma,\zeta}-v_\zeta\|^2=h^2.\tag{3}
+\sum_{|\sigma\triangle\zeta|=t}\|a_{\sigma,\zeta}-v_\zeta\|^2=h^2.\tag{3}
 \]
-
-Summing (2) over meeting vertices and retaining just Alice's deviations gives
-
+Apply (2) at every meeting vertex \(\zeta\), retaining the Alice terms, to get
 \[
-\mathcal E\ge\theta N h^2.\tag{4}
+\mathcal E\ge N\theta h^2.\tag{4}
 \]
-
-At each input \(\sigma\), the orthogonal local vectors \(a_{\sigma,\zeta}\) have squared norms summing to one. The triangle inequality in the direct sum of the \(k\) output spaces, followed by (3), yields \(\sqrt{k}\,p\ge1-h\). Completeness also yields
-
+For a fixed input \(\sigma\), the orthogonal vectors \(a_{\sigma,\zeta}\) have total squared norm one. The reverse triangle inequality in their \(k\)-fold Hilbert direct sum, with (3), yields
+\(\sqrt{k}\,p\ge1-h\). Also, because \(\sum_\zeta a_{\sigma,\zeta}=\psi\), Cauchy–Schwarz and (3) give
 \[
 \left\|\psi-\sum_{|\sigma\triangle\zeta|=t}v_\zeta\right\|\le\sqrt{k}\,h.\tag{5}
 \]
-
-For any two distinct final vertices \(\zeta,\zeta'\) belonging to a common \(t\)-sphere about \(\sigma\), Alice's corresponding projective branches are orthogonal. Comparing them with the two \(v\)-vectors using (3) gives
-
+For any distinct \(\zeta,\zeta'\) in one radius-\(t\) sphere about some \(\sigma\), their two Alice vectors are orthogonal. Write each as its respective \(v\)-vector plus an error with norm at most \(h\) by (3). It follows that
 \[
 |\langle v_\zeta,v_{\zeta'}\rangle|\le2ph+h^2.\tag{6}
 \]
 
-**4. An extra Hamming layer forces nonzero error.** Fix \(\zeta_0\in\Omega_{t-2}\) and let \(\sigma_0=\varnothing\). Then \(\zeta_0\notin\Omega_t\), the \(t\)-sphere centered at \(\sigma_0\). For every \(\zeta\in\Omega_t\), the distance \(|\zeta_0\triangle\zeta|=2s\) is even and lies between \(2\) and \(2t-2\). To find a common sphere containing \(\zeta_0,\zeta\), choose \(s\) coordinates from their difference and \(t-s\) outside it. This is possible since \(d>2t\), and yields a vertex at distance \(t\) from both. Thus (6) applies to \(v_{\zeta_0}\) and every \(v_\zeta\) with \(\zeta\in\Omega_t\).
-
-Write \(F_\sigma=\sum_{|\sigma\triangle\zeta|=t}v_\zeta\). Using (5)--(6) at \(\sigma_0\) gives
-
+**Incompatible extra layer.** Fix a vertex \(\zeta_0\) of Hamming weight \(t-2\) and let \(\sigma_0=\varnothing\). Then \(\zeta_0\) lies outside the radius-\(t\) sphere about \(\sigma_0\). For any \(\zeta\) of weight \(t\), the distance \(|\zeta\triangle\zeta_0|=2s\) is an even integer between \(2\) and \(2t-2\). Select \(s\) coordinates in this symmetric difference and \(t-s\) outside it. This is possible since \(d>2t\); toggling the chosen \(t\) coordinates from \(\zeta_0\) gives a center at distance \(t\) from both vertices. Thus (6) applies to \(\zeta_0\) and every member of the sphere about \(\sigma_0\). Pairing (5) with \(v_{\zeta_0}\) gives
 \[
 |\langle v_{\zeta_0},\psi\rangle|\le k(2ph+h^2)+p\sqrt{k}\,h.
 \]
-
-Now choose any \(\sigma_1\) at distance \(t\) from \(\zeta_0\); its sphere contains \(\zeta_0\). Using (5)--(6) again gives
-
+Choose now any \(\sigma_1\) at distance \(t\) from \(\zeta_0\), so its radius-\(t\) sphere contains \(\zeta_0\). The analogous estimate separates its own \(v_{\zeta_0}\) term and yields
 \[
 |\langle v_{\zeta_0},\psi\rangle-p^2|
 \le(k-1)(2ph+h^2)+p\sqrt{k}\,h.
 \]
-
-Combining these inequalities,
-
+Their combination is
 \[
 p^2\le(2k-1)(2ph+h^2)+2p\sqrt{k}\,h.\tag{7}
 \]
-
-If \(h\ge1/2\), then already \(h\ge1/(16k^{3/2})\). Otherwise, \(p\ge(1-h)/\sqrt{k}\ge1/(2\sqrt{k})\). Divide (7) by \(p^2\); since \(k\ge\binom52=10\), it follows that
-
+If \(h\ge1/2\), then \(h\ge1/(16k^{3/2})\) trivially, since \(k\ge10\). If \(h<1/2\), our earlier estimate implies \(p\ge1/(2\sqrt{k})\). Divide (7) by \(p^2\) and bound the coefficients to obtain
 \[
 1\le12k^{3/2}h+8k^2h^2.
 \]
-
-For \(h<1/(16k^{3/2})\) the right side is strictly less than \(3/4+1/(32k)<1\), a contradiction. Therefore
-
+If \(h<1/(16k^{3/2})\), the right side is less than \(3/4+1/(32k)<1\), a contradiction. Hence
 \[
-\boxed{\displaystyle h^2\ge\frac1{256k^3}.}\tag{8}
+\boxed{h^2\ge1/(256k^3).}\tag{8}
 \]
-
-**5. Dimension-free conclusion.** Combining (1), (4), and (8) gives
-
+Combining (1), (4), and (8),
 \[
 \frac c\ell-\omega\ge\frac{\theta}{512k^3\ell}
 =\frac{\binom{2t}{t}(d-2t)}{512(d-t)k^4}.
 \]
+This bound holds uniformly for every finite-dimensional quantum strategy and so for their supremum. This proves the improved quantitative theorem. \(\square\)
 
-The estimate holds for every finite-dimensional strategy with the same positive constant, so it holds for their supremum. This is the claimed theorem. \(\square\)
+## Verification and limitations
 
-## Verification
+The companion `verify.py` and `requirements.txt` contain finite diagnostic checks of Kneser spectra, common-sphere geometry, score-deficit identities, and sample strategies; the analytic proof above does not rely on treating those tests as an exhaustive quantum search. Independently reproduced finite checks also cover small Kneser matrices, disjointness identities, and random deterministic strategies. The bound is conservative, not optimal, and the exact quantum value and strict quantum-versus-classical advantage remain open. There is no claim for \(t=1\), \(d=2t\), nonuniform input pairs, or protocols with communication. We assert no external attestation or worldwide priority certification.
 
-The script `verify.py` and its dependency specification `requirements.txt` (Python 3 and NumPy) are included with this result. Install the listed dependency if necessary with `python -m pip install -r requirements.txt`. Running `python verify.py` checks the Kneser spectra and spectral gaps for seven parameter choices, the two-layer common-sphere lemma, integer/binomial identities, and the exact deficit/energy/Poincaré inequalities for forty independent symmetrized deterministic protocols and six noncommuting entangled-qubit protocols. It reports **861 passing finite assertions**. The infinite family and arbitrary quantum dimension are established by the analytic proof, not by finite experimentation. For reproducibility, recompute the displayed combinatorial constants from integer binomial coefficients and follow proof steps (1)--(8).
+## References and comparison
 
-## Relationship to prior work
+[1] C. Wang, *Quantum-assisted rendezvous on hypercubes: a quantum Bernoulli noise approach* (2026), arXiv:2610.12949v1, Theorem 5.5, Theorem 6.4, Section 7, Appendix A; https://arxiv.org/abs/2610.12949 . This paper proves exact finite-dimensional nonattainment and poses the strict-supremum question.
 
-Wang [1], especially Lemma 5.1, Theorem 5.5, Theorem 6.4, and Appendix A, proves the no-signalling benchmark and rules out **exact finite-dimensional attainment** for \(t\ge2\), \(d>2t\), while explicitly leaving strict inequality between the *quantum supremum* and no-signalling value open. The present bound fills precisely that distinction by controlling approximate saturation uniformly across all finite dimensions. Wang's projective-resolution argument and the standard Kneser spectrum are used as antecedents, not claimed as new. The quantum perfect-matching games studied by Cui and collaborators [2] use a different winning predicate and their perfect-strategy results do not determine the value of this uniform hypercube rendezvous game. Earlier mobile-agent rendezvous papers [3,4] motivate entanglement-assisted coordination, but the present quantitative claim concerns the specific fixed-cardinality game and open supremum question in [1].
+[2] *The quantum value of balanced hypercube rendezvous is strictly below its no-signalling value* (public proof recorded 2026-10-12), https://www.trureturing.org/research/wang-2026-hypercube-rendezvous-quantum-gap/ ; formal source `D5/S3/Quantum/Entanglement/HypercubeRendezvousQuantumGap.lean` in https://github.com/the-omega-institute/trureturing/commit/e49cc795f9ba7da8af100046ca34dd602be46c05 . This prior work resolves the qualitative supremum question and establishes the weaker explicit relative bound \(k^{-4}(4\sqrt2\,t+2)^{-2}\). The stricter order-\(k^{-3}\) relative bound above is the present quantitative contribution.
 
-## Limitations
+[3] D. Cui, L. Mančinska, S. S. Nezhadi, D. E. Roberson, *Quantum Perfect Matchings* (2025), https://doi.org/10.1007/s00023-025-01632-5 . It treats other matching-game predicates and does not imply the stated strengthened fixed-distance Hamming-rendezvous estimate.
 
-The constant is explicit but almost certainly not sharp; it is designed to prove a positive separation, not to optimize the true quantum value. The method does not determine whether \(\omega_{\mathrm Q}(d,t)>\omega_{\mathrm C}(d,t)\). It assumes \(t\ge2\), \(d>2t\), uniform ordered input pairs and a single exact-cardinality update. It does not assert the same separation when \(t=1\), \(d=2t\), the input law changes, or communication is allowed. Independent external validation and literature-wide priority certification have not been performed.
-
-## References
-
-[1] C. Wang, *Quantum-assisted rendezvous on hypercubes: a quantum Bernoulli noise approach*, arXiv:2610.12949v1 (public 2026-10-09), https://arxiv.org/html/2610.12949v1 .
-
-[2] D. Cui, L. Mančinska, S. S. Nezhadi, D. E. Roberson, *Quantum Perfect Matchings*, Annales Henri Poincaré (2025), https://doi.org/10.1007/s00023-025-01632-5 .
-
-[3] G. Viola and P. Mironowicz, *Quantum Strategies for Rendezvous and Domination Tasks on Graphs with Mobile Agents*, Physical Review A 109, 042201 (2024), https://arxiv.org/abs/2311.11817 .
-
-[4] J. Tucker et al., *Quantum Nonlocal Games on Graph Ensembles*, arXiv:2606.16784 (2026), https://arxiv.org/abs/2606.16784 .
+[4] G. Viola and P. Mironowicz, *Quantum Strategies for Rendezvous and Domination Tasks on Graphs with Mobile Agents* (2024), https://arxiv.org/abs/2311.11817 . The graph-edge setting differs from this conditioned fixed-cardinality game.
