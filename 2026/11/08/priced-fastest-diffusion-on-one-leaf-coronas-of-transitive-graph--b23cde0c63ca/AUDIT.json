@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Concavity justifies unrestricted symmetry reduction, not an assumption of uniformity. The 2-by-2 block spectrum has a monotone lower branch, and a sharp AM-GM bound yields the exact optimum, with unique invariant equality. A PSD-kernel equality argument across rotations forces every sunlet optimizer to have both first sine/cosine modes as eigenvectors; the leaf equations fix all pendant rates and the complex cycle equation fixes all rim rates. Selected exact symbolic checks and 1263 reproducible numerical/symbolic tests passed; the universal statement rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006) provides the general convex SDP, not a stronger closed-form corona theorem among its specific examples.",
+        "Boyd et al. (2007), theorem 3.1 and sections 2-3, handles a discrete-time SLEM problem on edge-transitive graphs; the enlarged corona is not edge-transitive and the optimization is different.",
+        "Barik et al. (2007), theorem 3.2 and corollary 3.5, describe unweighted corona Laplacian spectra and Fiedler vectors, with no optimization of independent edge conductances."
+      ],
+      "reasoning": "Generic optimization methods and spectral decomposition are inputs to the proof rather than results covering the precise formula. No inspected stronger continuous-time theorem has the same assumptions and conclusion; the sunlet rigidity proof uses equality across two Fourier modes in addition to routine symmetrization.",
+      "searches": [
+        "web: fastest mixing Markov process sunlet graph corona pendant leaves spectral gap optimal weights edge transitive",
+        "https://arxiv.org/pdf/0709.0955 (symmetry reduction and edge-transitive examples)",
+        "https://doi.org/10.1137/S0036144504443821 (generic continuous-time framework)"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao and Diaconis, SIAM Review 48(4), 2006, DOI 10.1137/S0036144504443821",
+      "Barik, Pati and Sarma, SIAM Journal on Discrete Mathematics 21(1), 2007, DOI 10.1137/050624029",
+      "Boyd, Diaconis, Parrilo and Xiao, arXiv:0709.0955, 2007",
+      "Wolfram MathWorld, Sunlet Graph (definition only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barik et al. establish the general unweighted spectral transfer; substituting a fixed weight only gives a spectral gap for a prescribed design, not an unrestricted budget optimum.",
+        "The FMMP SDP guarantees an optimum, and symmetry yields the existence of an invariant optimum, but neither determines the sharp scalar AM-GM cost or all-optimum sunlet rigidity.",
+        "Discrete-time SLEM constraints P>=0 and P1=1 are not equivalent to the unbounded positive continuous-time edge rate budget."
+      ],
+      "reasoning": "The new implication is the explicit value B/(2e/mu+nc+2sqrt(enc/mu)) with strictly positive optimum rates for arbitrary individually adjustable edges and uniqueness for all sunlet rates. The exact eigenvalue formula alone is insufficient; it must be combined with a sharp resource dual inequality and, for uniqueness, a PSD-kernel equality argument.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, sections 1 and 5",
+        "https://doi.org/10.1137/050624029, theorem 3.2 and corollary 3.5",
+        "https://arxiv.org/abs/0709.0955, sections 1-3",
+        "web: fastest mixing Markov process \"sunlet\" cycle pendant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006), section 1, defines the general cost-constrained Laplacian eigenvalue maximization, but sections 5.1-5.3 discuss a small graph, paths and the bare cycle; no leaf corona allocation formula appears in these inspected examples.",
+        "Boyd et al. (2007), arXiv:0709.0955, section 1 defines SLEM for discrete-time P and sections 2-3 reduce the discrete-time stochastic optimization by symmetry. This is a different feasible set and spectral objective."
+      ],
+      "reasoning": "The same graph may admit a discrete-time SLEM optimization, but the present claim fixes a linear rate budget with no stochastic row-sum caps and maximizes the continuous-time generator gap. A discrete-time optimizer therefore does not imply the derived budget law, and the general continuous-time SDP formulation itself does not specify its analytic optimal value or all-optima uniqueness.",
+      "searches": [
+        "web: \"sunlet\" \"algebraic connectivity\" weighted optimized",
+        "web: \"corona\" \"fastest mixing\" \"continuous-time\"",
+        "web: fastest mixing Markov process \"sunlet\" cycle pendant",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf (continuous-time FMMP)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified standard sunlet definition is a cycle with one private leaf per cycle vertex (MathWorld).",
+        "No located numerical table or closed-form database record matches the present weighted continuous-time cost-constrained maximum and its uniqueness conclusion."
+      ],
+      "reasoning": "The theorem is for all core sizes, prices and budgets; it is not a lookup of precomputed unweighted spectrum or a finite table. Searches do not establish uniqueness of a result, so equivalence in unindexed databases remains a residual risk.",
+      "searches": [
+        "web: \"sunlet\" \"fastest mixing\" continuous time",
+        "web: \"corona\" \"algebraic connectivity\" \"optimal\" weights",
+        "web: \"sunlet\" \"algebraic connectivity\" weighted optimized"
+      ]
+    },
+    "rationale": "Compared the explicit continuous-time priced corona formula and the unrestricted sunlet rigidity statement with the published continuous-time FMMP source, the primary corona spectral theorem, and discrete-time symmetry/SLEM research. Their statements give the optimization framework or spectral ingredients, not the final budget law and rigidity. Search incompleteness remains a publication-priority risk.",
+    "residual_risks": [
+      "Unindexed or privately circulated continuous-time fastest-diffusion results could contain an equivalent corona budget formula.",
+      "The theorem does not establish uniqueness for non-cycle vertex-and-edge-transitive cores.",
+      "General SDP and spectral-transfer literature contains key ingredients; novelty is the combined explicit priced optimum and rigidity result, not those ingredients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general problem formulation, SDP and the unaugmented cycle; NOT the exact priced one-leaf corona allocation or all-sunlet-optimizer rigidity.",
+        "evidence": [
+          "PDF pp. 681–683 cost-constrained FMMP; pp. 694–697 examples: small graph, paths, unaugmented cycle. No pendant or sunlet occurrence in full-document search."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full paper search plus introduction, formulation, symmetry discussion and complete examples subsections 5.1 through 5.3 (PDF pages 1–3, 14–17)",
+        "method": "Opened 19-page publicly available full-text PDF; inspected first and selected later page screenshots and line-level section text; located cycle/pendant and examples with full-document search.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Direct primary source for continuous-time rate budget and candidate broader coverage"
+      },
+      {
+        "assessment": "COVERS unweighted corona eigenvalues/Fiedler eigenvectors; does not optimize conductances under a relative-price budget.",
+        "evidence": [
+          "Theorem 3.2 gives the unweighted corona spectral transfer; corollary 3.5 gives the unweighted Fiedler behavior; article describes no price optimization."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220533743_The_Spectrum_of_the_Corona_of_Two_Graphs",
+        "material_read": "Author-posted text of full 10-page article, focusing on definition, theorem 3.2, corollary 3.5 and structural conclusions",
+        "method": "Opened freely accessible author-posted full article text and searched the theorem and its Fiedler corollary; looked for optimization terms.",
+        "title": "The Spectrum of the Corona of Two Graphs",
+        "trigger": "Same graph operation and directly relevant Laplacian spectral theorem"
+      },
+      {
+        "assessment": "COVERS discrete-time SLEM and symmetry reductions; does not present the present continuous-time budget law or its optimizer rigidity.",
+        "evidence": [
+          "Section 1 defines discrete-time SLEM of stochastic P; section 3.1 handles edge-transitive base graphs; no sunlet/pendant text hit."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Introduction, relevant automorphism discussion in section 2 and section 3.1 edge-transitive theorem; targeted full-document searches for sunlet and pendant",
+        "method": "Opened 39-page publicly accessible arXiv v1 PDF; inspected page 1 screenshot and text near automorphism theorem and edge-transitive formulas; whole-text term searches.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Strongly related graph automorphism methods and the discrete-time counterpart"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b23cde0c-63ca-4a5d-bd79-28a498caa4fb",
+  "value": {
+    "rationale": "The statement provides an exact scalable all-weight budget optimum across every connected vertex-and-edge-transitive core and proves global uniqueness on the nontrivial sunlet family. The exact one-over-size optimal funding law for indispensable leaf edges is a useful network resource-design principle, not a computed table or an unmotivated cutoff.",
+    "status": "PASS"
+  }
+}
