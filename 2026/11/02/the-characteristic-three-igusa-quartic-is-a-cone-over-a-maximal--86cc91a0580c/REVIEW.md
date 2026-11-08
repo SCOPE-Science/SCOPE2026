@@ -1,15 +1,21 @@
-# Scientific assessment of the characteristic-three Igusa cone
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated model is the coefficientwise reduction of the symmetric Igusa equation. In characteristic three, the diagonal translation direction lies inside the sum-zero hyperplane and leaves the quartic polynomial unchanged; quotienting produces the displayed quartic surface. The attached exact checker obtains affine Jacobian-scheme lengths \(12\) in every chart, identifies \(15\) reduced \(\mathbb F_3\)-rational singular points from synthemes, and verifies that every local quadratic form has rank three. Normality, the K3 minimal resolution, and the exceptional-conic correction follow. Independent exact projective point enumerations over \(\mathbb F_3\) and \(\mathbb F_9\) give \(25\) and \(145\). Weil-bound equality at \(\mathbb F_9\), followed by the \(\mathbb F_3\) trace, forces the spectrum \((+3)^{21},(-3)^1\), hence all-extension formulas. The verifier was executed from the same files delivered with the finding.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Hunt, arXiv:alg-geom/9503018, §3 and Lemma 3.13, explains the complex Igusa quartic and its fifteen double lines. Rito, arXiv:1310.4071, §5, uses those singular lines to construct quintic threefolds. Dolgachev, arXiv:1906.12295, §§1,5–6, studies complex fifteen-nodal quartic surfaces and their appearance as hyperplane sections of the Igusa quartic. These cover background geometry but do not state or imply the characteristic-three cone specialization or its finite-field zeta functions. Targeted searches for a modulo-three Igusa cone, a fifteen-nodal characteristic-three K3 and its \(\mathbb F_9\)-maximality found no equivalent calculation; a failed search alone is not evidence of absolute priority. The strongest historical risk is an unindexed exceptional-characteristic computation or an arithmetic model implicitly equivalent to this one.
+PASS
 
-## Mathematical value — PASS
-The Igusa threefold connects classical quartic geometry and moduli of principally polarized abelian surfaces. Characteristic three turns its fifteen singular lines into a single-vertex cone, but the projectivized quotient retains precisely fifteen ordinary nodes. The resolved quotient unexpectedly attains the K3 Weil bound over \(\mathbb F_9\). This forces its entire Frobenius spectrum and supplies zeta functions of three naturally linked varieties. This is a nontrivial structural and arithmetic description, not merely a numerical point sample or a restatement of the classical line arrangement.
+The sum-zero hyperplane in characteristic three contains the diagonal vector and translation x_i→x_i+t preserves s2 and s4 since s3=s1³=0; the coefficientwise Igusa quartic is therefore a cone over explicit F(a,b,c,d). Independently computed all four affine Jacobian Gröbner bases over GF3: finite quotient lengths (12,12,12,12), each with twelve simple rational points; their union consists of 15 rational syntheme nodes and local Hessians have rank3. Independent normalized projective evaluations give Q(F3)=25 and Q(F9)=145. Resolution replaces each rational node with P1 and gives Y(F3)=70, Y(F9)=280; a quartic with isolated nodes is normal/geometrically integral, its crepant resolution K3 has b2=22. Deligne Weil absolute values |α|=3 and F9 equality ∑α²=22·9 force each α=±3; F3 trace 60 forces 21 plus and one minus; Lefschetz and the cone count 1+q Q(Fq) yield every extension and both claimed zeta functions. The finite enumeration supports the node/point steps, whereas Weil equality proves the infinite all-extension assertion.
 
-## Limits
-The statement concerns only the specified \(\mathbb F_3\)-integral plane equation, not its characteristic-three modular interpretation or other models. Frobenius is deduced using standard K3 cohomology and Weil bounds; it has not been externally audited. Older unindexed calculations may affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for this exact coefficientwise characteristic-three Igusa degeneration and its F3/F9 point counts, K3 maximality, full Frobenius spectrum and zeta. Classical Igusa equation, fifteen singular lines and complex fifteen-nodal hyperplane sections are prior, not original.
+
+## value
+
+PASS
+
+A classical quartic hypersurface unexpectedly becomes a cone in characteristic three while its quotient is a fifteen-nodal quartic K3. The finite-field maximality forces a complete Frobenius spectrum and explicit zeta functions for three linked varieties. This is a natural arithmetic-geometric specialization with substantial exact information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
