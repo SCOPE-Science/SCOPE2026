@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim includes all integer cycle sizes \(n\ge3\); the degree-two upper bound, two finite obstructions, and explicit at-most-four-change construction cover all cases. A baseline pair-sum argument proves every untouched closed neighbourhood has all three colours. The possible exceptions are restricted to two wrap-adjacent pairs and the neighbourhoods of the four recoloured pairs. The displayed finite boundary templates and the verified 50-row certificate, together with exact invariance under increasing the length by three, complete the infinite proof. The independent-executable small-size enumeration is corroborative rather than an appeal to finite sampling as an infinite proof.
+
+**Originality — PASS (best-knowledge, not independently established).** The closest mathematical sources are Acosta Troncoso–Rivera (2026) on one-set domination of two-token paths; Fabila-Monroy–Gómez-Galicia (2025) on token graphs of stars and complete graphs; Prabhu–Manjula (2019) on one-set domination bounds in double-vertex graphs; and Hartnell–Rall (2025) on a two-player domatic game. None of their inspected statements implies the three-class domatic threshold of two-token cycles. A focused cross-terminology search of both domatic/token-graph and double-vertex/symmetric-square variants located no dominating exact formula. Potentially unindexed older literature remains a priority risk; absence from search is not proof of novelty.
+
+**Mathematical value — PASS.** Two-token graphs have an active domination theory, and the domatic number asks the genuinely different simultaneous partition question. The degree bound suggests at most three classes, but the two nontrivial small obstructions and a universal four-defect modular construction show exactly when the bound is attained. The theorem is a sharp natural infinite-family classification with a compact reusable boundary-repair method, not a routine parameter relabelling or an arbitrary small-case census.
+
+**Limits.** No classification of all three-domatic partitions, of higher token numbers, or of host graphs other than cycles is asserted. The executable checks do not replace the all-lengths proof. Historical priority remains provisional and no independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
