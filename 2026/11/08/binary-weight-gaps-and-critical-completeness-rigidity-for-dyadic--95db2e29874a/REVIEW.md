@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS
+For a scaling strictly between zero and one, the binary-prefix expansion gives the exact identity \(\lfloor2^{n+1}\alpha\rfloor-\sum_{j\le n}\lfloor2^j\alpha\rfloor-1=w_{n+1}-1\). Each open interval between the preceding prefix sum and the next term is unrepresentable, and the intervals are disjoint. The first two nonzero binary digits force permanent gaps; exactly one nonzero digit gives a full power-of-two tail. Every scaling at least one has an initial gap defect at least one and nonnegative digit increments. The exact binomial law follows from uniform binary cylinders; the logarithmic-square canonical-hole law follows from digit-frequency summation and the strong law. The package contains an reproducible exact-integer verifier. There is no extrapolation from finite tests.
+
+## Originality — PASS, with priority uncertainty
+Wu and Ma (2026) establish existence of a good scaling at the critical ratio but do not determine all good scalings, the digit-weight gap identity, binomial laws, or canonical-hole asymptotics. Graham (1971) discusses the strictly subcritical rounded geometric family and poses the two-ray question but does not state the claimed single-ray law in the material inspected. The 2022 Ma--Chen abstract concerns the strict ratio-below-two regime, so its stated positive-measure conclusion does not imply the exact doubling endpoint. Relevant research-record and literature searches did not identify equivalent or stronger coverage. Historical implicit deductions from Brown's 1961 completeness criterion or older literature remain an explicit priority risk; search absence is not a proof of novelty.
+
+## Mathematical value — PASS
+The ratio-two endpoint is the sharp boundary of recent existence and positive-measure theorems for scaled subset-sum sequences. The result gives a complete classification of good scalings for the canonical endpoint example and an exact finite distribution of natural, explicitly missing intervals. Binary digits also yield a nonuniform arithmetic family of quadratic-logarithmic hole coefficients, with \(1/7\) and \(3/7\) differing by a factor of two. These are structural and quantitative conclusions beyond mere existence of one scaling. The result does not settle the difficult two-ray problem and makes no claim on all missing integers.
+
+## Source comparisons and limitations
+The most directly relevant contemporary source was inspected from its eight-page preprint, including statements, the Brown criterion, full proof, and references. Graham's source was inspected at the relevant geometric-sequence discussion and explicit problem statement. The 2022 predecessor's publicly accessible abstract was compared; full text was not accessed. General completeness theory provides techniques but does not state the exact binary Hamming-weight gap distribution. A historical account may contain an equivalent implicit result. The binomial law concerns the canonical intervals only, not a distribution of the entire nonrepresentable set.
+
+Self-review: passed. Independent audit: not yet performed.
