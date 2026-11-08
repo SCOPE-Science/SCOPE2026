@@ -1,15 +1,21 @@
-# Review: mesoscopic sign transition in random involutions
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified random measure is the uniform involution conditional on exactly \(f\) fixed points. Position invariance and the exact rational covariance follow from a fixed-point-weighted descent-set symmetric-function identity plus explicit Burnside counting. A strictly increasing cubic with opposite boundary signs gives a unique threshold. The critical limit follows by rescaling. The accompanying finite, exact arithmetic checks cover 48,920 involutions and 3,743 assertions; they are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, provisional
-Kim (2017) already determines the fixed-point-free pair probabilities, and Chow (2008) provides a stronger *encoding* of all fixed-point-weighted descent sets. The specific fixed-\(f\) covariance-sign transition and its \(n^{2/3}\) limit were not established by statements found in the inspected primary materials or semantically matched literature records. The preexisting full distribution formula is a real priority risk: a more direct prior derivation of the phase classification would supersede the claim. This assessment does not claim publication priority or uniqueness.
+PASS
 
-## Mathematical value — PASS
-A one-crossing dependence transition with a nonstandard mesoscopic boundary is a substantive structural feature of the descent process conditional on cycle structure. Unlike raw joint probabilities or an isolated finite table, the theorem gives an exact all-size sign law and a critical asymptotic profile.
+For all n>=4, f in {0,...,n} with n-f even, and disjoint comparisons j-i>=2, the weighted Littlewood/RSK identity supplies label-independent counts of one and two forced ascents. The two-color Burnside computation gives A2=(I_nf-I_(n-2,f)+I_(n-2,f-2))/2 and 4A22=I_nf-2I_(n-2,f)+3I_(n-4,f)+2I_(n-2,f-2)-2I_(n-4,f-2)+I_(n-4,f-4). Dividing by I_nf and using exact falling-factorial ratios reproduces Cov=-(n-f)B_n(f)/(2n^2(n-3)(n-2)(n-1)^2), B_n(f)=(2n-3)f^3-nf^2+n^2f-n^2(n-2), as an independently factored sympy identity. B_n(0)<0, B_n(n-2)>0, and B_n prime has discriminant 4n^2(10-6n)<0, giving exactly one positive root; f=n is deterministic. Rescale f=cn^(2/3) to obtain n^2 Cov -> (1-2c^3)/2 and root/n^(2/3)->2^(-1/3). Independently recursively generated all involutions n=4..9 (3728 total), checked 24 conditional fixed-point classes with exact Fraction single and disjoint ascent probabilities and covariance, and verified roots numerically at n=4,6,10,50,100,1000,100000. Finite tests are corroborative only.
 
-## Closest literature and limitations
-The main technical input is Chow's fixed-point-weighted descent-set series (2008); Kim (2017) exactly covers the fixed-point-free case. Dukes (2004) discusses multivariate involution statistics, and Kim--Lee (2018) establishes a conjugacy-class central limit theorem and variance asymptotics. The present result does not generalize the entire descent-set distribution, does not address adjacent comparisons, and has not received an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority assessment of the explicit conditional nonadjacent descent covariance sign phase and mesoscopic n^(2/3) threshold, NOT of full descent-set enumeration, fixed-point-free f=0 pair probabilities, or standard RSK/Littlewood machinery. Direct primary source comparisons show extensive prior exact encoding of the entire underlying probability law. The nontrivial extraction/factorization, all-f one-crossing statement and critical window do not appear as stated or as an explicitly worked consequence in the materially inspected primary sources. This is a qualified original derived structural classification, with substantial residual stronger-enumerator implication risk, not a priority certificate.
+
+## value
+
+PASS
+
+The conditioned involution conjugacy class is a standard natural probability model, and disjoint descent correlations are a meaningful local-dependence invariant used in variance/normality analysis. The theorem identifies a complete size-uniform one-crossing positive-to-negative phase diagram and nonobvious mesoscopic scale f~n^(2/3) with explicit scaled profile; neither the sign pattern nor transition scale is visible from a fixed-positive-fraction central limit theorem. The derivation is more than a renaming, raw coefficient table, or trivial finite evaluation, even though it is an exact consequence of classical enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

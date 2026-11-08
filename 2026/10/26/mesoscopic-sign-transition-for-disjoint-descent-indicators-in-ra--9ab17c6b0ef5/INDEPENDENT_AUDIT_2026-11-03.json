@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T18:53:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md SHA 391f9b3bbde43501cd45c133146fa1e3447b660f",
+        "assigned check.py SHA 5b9e5938a39947ada8b757b8800e397afe456c52 (inspected, not executed)",
+        "Chow 2008 Eq.(1), Theorem 3",
+        "independent Python Fraction enumeration and Sympy factorization, 2026-11-03 UTC"
+      ],
+      "rationale": "For all n>=4, f in {0,...,n} with n-f even, and disjoint comparisons j-i>=2, the weighted Littlewood/RSK identity supplies label-independent counts of one and two forced ascents. The two-color Burnside computation gives A2=(I_nf-I_(n-2,f)+I_(n-2,f-2))/2 and 4A22=I_nf-2I_(n-2,f)+3I_(n-4,f)+2I_(n-2,f-2)-2I_(n-4,f-2)+I_(n-4,f-4). Dividing by I_nf and using exact falling-factorial ratios reproduces Cov=-(n-f)B_n(f)/(2n^2(n-3)(n-2)(n-1)^2), B_n(f)=(2n-3)f^3-nf^2+n^2f-n^2(n-2), as an independently factored sympy identity. B_n(0)<0, B_n(n-2)>0, and B_n prime has discriminant 4n^2(10-6n)<0, giving exactly one positive root; f=n is deterministic. Rescale f=cn^(2/3) to obtain n^2 Cov -> (1-2c^3)/2 and root/n^(2/3)->2^(-1/3). Independently recursively generated all involutions n=4..9 (3728 total), checked 24 conditional fixed-point classes with exact Fraction single and disjoint ascent probabilities and covariance, and verified roots numerically at n=4,6,10,50,100,1000,100000. Finite tests are corroborative only.",
+      "residual_risks": [
+        "Finite enumeration through n=9 is not the infinite proof; the universal step uses the cited Littlewood/RSK identity and exact Burnside argument.",
+        "Source RESULT.md contains visibly malformed nested inline KaTeX delimiters within display math; intended polynomial was independently verified against code and algebra, but publication requires formatting repair."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reutenauer (1989/90) and Gessel-Reutenauer (1993) count every cycle-structure conditioned descent set. Chow (2008) explicitly specializes via Eq.(1) and Theorem 3.",
+          "Gessel-Zhuang (2020), Section 5.1, computes the joint distribution of peak number, descent number and fixed points (not local indicators).",
+          "Kim-Lee (2018) gives the total-descent asymptotic variance for conjugacy classes at m_1/n tending to alpha, not the n^(2/3) local sign law."
+        ],
+        "reasoning": "The prior enumerators dominate the underlying event-probability DATA. They do not explicitly establish the factored cubic crossing or its mesoscopic limit; computing them from such a full enumerator requires a separate algebraic analysis of local events and f-dependent sign. This is the central originality risk, disclosed rather than ignored; a published direct corollary or existing phase theorem would overturn PASS.",
+        "searches": [
+          "web slow: site:arxiv.org involutions prescribed fixed points covariance descent indicators adjacent nonadjacent",
+          "web slow: involution fixed point conditioned descent covariance same disjoint sites n 2/3 threshold",
+          "web slow: Gessel Reutenauer fixed cycle type descent-set enumeration 1993 exact conjugacy class formula",
+          "web fast: Chow 2008 On Eulerian enumeration of involutions Theorem 3 fixed points descent set pdf",
+          "web fast: Kim 2017 distribution descents matchings arxiv fixed point free 1710.03896",
+          "web fast: random involutions conditioned number fixed points non adjacent descent indicator covariance sign f n^(2/3)",
+          "Reutenauer 1989/1990 main theorem",
+          "Gessel and Zhuang 2020 Theorem 5.1 and Corollary 5.5",
+          "Kim Lee 2018 Lemma 3.1"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.37236/795",
+        "https://arxiv.org/pdf/1710.03896",
+        "https://arxiv.org/pdf/1803.10457",
+        "https://arxiv.org/pdf/math/0412222",
+        "https://arxiv.org/pdf/2001.00654",
+        "https://www.mat.univie.ac.at/~slc/opapers/sc21reutenauer.pdf",
+        "Resultary current published-finding search, three actual mathematical queries; closest records 6e228e1e9495, c6b28ad6d93d, f6af0a8c3805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chow coefficient extraction with composition blocks of size 2 is enough to derive the conditional one/two site counts; no new enumeration theorem is established.",
+          "Kim (2017) explicitly implies the f=0 probability and thus a boundary specialization of the formula.",
+          "The new mathematical conclusion further establishes strict monotonicity of B_n(f), uniqueness of its crossing in (0,n-2), and root~2^(-1/3)n^(2/3)."
+        ],
+        "reasoning": "The complete probability law is implicit in stronger earlier coefficient formulas; a derived statement cannot be credited as a new joint-law construction. However, the prior cited theorems alone do not contain an explicit one-crossing covariance phase diagram or its critical limit. Treat this as a specific new analytic corollary with a strong broader-coverage risk rather than as a fundamentally new stochastic model.",
+        "searches": [
+          "Chow 2008 pp.4-5 Eq.(1) and Theorem 3",
+          "Gessel-Zhuang 2020 Theorem 5.1, Corollary 5.5",
+          "Kim 2017 Lemma 2.4",
+          "Resultary three semantic queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim 2017 Lemma 2.4 covers the f=0 fixed-point-free disjoint-site joint probability, not novelty here.",
+          "Chow 2008 Eq.(1) counts the complete fixed-point weighted descent-set law, so any conditional pair event is coefficient-extractable.",
+          "Resultary nearest records 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 and 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d are for ordinary permutations and binary fixed-composition runs, not conditioned involution disjoint descent sites."
+        ],
+        "reasoning": "Equivalent descriptions include covariance of nonoverlapping ascent indicators and two-site descent joint probabilities after conditioning on cycle type 1^f2^((n-f)/2). Exact f=0 is covered; no directly equivalent explicit all-f sign/critical-scale result was found. Search absence alone is not proof of novelty.",
+        "searches": [
+          "Resultary query 0: random involutions with prescribed fixed points covariance of two disjoint descent indicators sign transition critical n to two thirds (19 hits)",
+          "Resultary query 1: fixed point weighted descent set generating function involutions correlation disjoint descents conditioned f fixed points (20 hits)",
+          "Resultary query 2: mesoscopic scaling descent correlations random involutions 2/3 fixed points covariance (19 hits)",
+          "Kim 2017 Lemma 2.4, Chow 2008 Eq.(1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kim (2017) positively identifies the known exact f=0 matching probability.",
+          "No independently published table or database of the exact conditioned sign threshold was located by these searches; the failed search is weak negative evidence only."
+        ],
+        "reasoning": "The object is an all-n theorem, not a single finite table entry. The f=0 exact identity is known and excluded from the novelty claim. No evidence was found of an exhaustive table entailing the complete transition classification; search nonhits cannot certify absence.",
+        "searches": [
+          "Resultary all three actual semantic queries above",
+          "web slow: involution fixed point conditioned descent covariance same disjoint sites n 2/3 threshold",
+          "Kim 2017 Lemma 2.4"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority assessment of the explicit conditional nonadjacent descent covariance sign phase and mesoscopic n^(2/3) threshold, NOT of full descent-set enumeration, fixed-point-free f=0 pair probabilities, or standard RSK/Littlewood machinery. Direct primary source comparisons show extensive prior exact encoding of the entire underlying probability law. The nontrivial extraction/factorization, all-f one-crossing statement and critical window do not appear as stated or as an explicitly worked consequence in the materially inspected primary sources. This is a qualified original derived structural classification, with substantial residual stronger-enumerator implication risk, not a priority certificate.",
+      "residual_risks": [
+        "Full fixed-point conditioned descent-set enumeration was proved decades earlier; the new covariance threshold is derived from—not independent of—those results.",
+        "An older implicit derivation in Gessel-Reutenauer, an unindexed thesis, or a different correlation terminology could subsume the phase theorem; no exhaustive historical-priority certificate is possible.",
+        "The Gessel-Zhuang (2020) joint fixed-points and descents formulas broaden numerical coverage but its inspected Section 5.1 does not state the local correlation phase; this comparison remains a genuine scope nuance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equation (1) determines the full fixed-point-conditioned descent-set distribution, so underlying event enumeration is old. No cubic covariance-sign threshold, its unique zero, or n^(2/3) profile occurs in examined text; direct derivability is material residual risk.",
+          "evidence": [
+            "Chow 2008, pp.4-5, Eq.(1) and Theorem 3; web turn636410view0 lines 76-126, turn636410view1 lines 128-142"
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/795",
+          "material_read": "Publisher original PDF, pp.1-5: introduction, RSK odd-column fixed-point condition, Eq.(1), Schur expansion, Theorem 3, and proof of coefficient formula; remaining document checked by targeted terms for covariance/correlation.",
+          "method": "Opened primary publisher PDF, read parsed lines 0-155 and visually inspected pp.3-5 (0-based screenshot pages 2-4)",
+          "title": "On the Eulerian enumeration of involutions",
+          "trigger": "Directly stronger historical fixed-point-weighted descent-set counts"
+        },
+        {
+          "assessment": "Lemma 2.4 establishes the fixed-point-free f=0 disjoint descent joint probability. This subcase is covered and not credited as novel; no fixed f>0 one-crossing statement in inspected Section 2.",
+          "evidence": [
+            "Kim 2017, Lemma 2.4: P(D_i=D_j=1) = m(m-1)/((2m-1)(2m-3)) for size 2m; web turn455870view2 lines 164-168"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.03896",
+          "material_read": "Author preprint original PDF pp.1-5, especially Section 2 Lemmas 2.1, 2.3, 2.4 and Theorem 2.5, checked disjoint-site result for fixed-point-free involutions.",
+          "method": "Read arXiv PDF parsed text and screenshot of p.3 (zero-based p2)",
+          "title": "Distribution of descents in matchings",
+          "trigger": "Exact f=0 disjoint-event probability could cover a boundary case"
+        },
+        {
+          "assessment": "Asymptotic global descent number variance as m_1/n -> alpha; its fixed-alpha regime does not state the local two-indicator covariance transition in f~n^(2/3).",
+          "evidence": [
+            "Kim and Lee 2018, Lemma 3.1, web turn636410view4 lines 400-415; turn992574view2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.10457",
+          "material_read": "Author preprint PDF pp.1-5: introduction, class generating function and Section 3 Lemma 3.1 with variance derivation.",
+          "method": "Read parsed PDF and visually inspected original p.4 (zero-based p3)",
+          "title": "Central limit theorem for descents in conjugacy classes of S_n",
+          "trigger": "Broader conditioning on cycle type including involutions and total descent variance"
+        },
+        {
+          "assessment": "Establishes the classical fixed-point-weighted total-descent framework, not an exact covariance of disjoint descent positions or critical sign threshold.",
+          "evidence": [
+            "Dukes 2004, Eq.(2.2), web turn455870view4 lines 248-286"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0412222",
+          "material_read": "Original 2004 arXiv PDF pp.1-3, Section 2, Eq.(2.2) joint (fix, trans, des, maj) generating function.",
+          "method": "Read parsed text and visually inspected original p.3 (zero-based p2)",
+          "title": "Permutation statistics on involutions",
+          "trigger": "Early fixed-point-descent-major-index generating function and symmetries"
+        },
+        {
+          "assessment": "Theorem 5.1 and Corollary 5.5 encode descent/peak-number distributions jointly with fixed points, but not the two specified nonoverlapping descent positions or their cubic sign-zero law. A broad-data subsumption risk remains.",
+          "evidence": [
+            "Gessel and Zhuang 2020 Theorem 5.1, Corollary 5.5; web turn782741view0 and turn782741view2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.00654",
+          "material_read": "Author preprint PDF pp.1-2 and pp.26-28, Section 5.1 Theorem 5.1 and Corollary 5.5; reviewed joint fixed-point/peak/descent enumerators and absence of sitewise covariance statement in inspected section.",
+          "method": "Read arXiv PDF parsed text; visually inspected pages 26-28 (zero-based 25-27)",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Potential stronger newer generating function covering all involution fixed-point and descent data"
+        },
+        {
+          "assessment": "Establishes complete exact descent-set counts given cycle structure. Does not establish the specialized covariance sign crossing in inspected material; dominates raw counts, not identified as giving critical scaling.",
+          "evidence": [
+            "Reutenauer 1989/1990 pp.99-100, web turn436265view1 lines 0-52 and turn782741view3"
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/opapers/sc21reutenauer.pdf",
+          "material_read": "Original 1989/1990 open-access scanned article pp.99-100, theorem statement and symmetric-function mechanism, plus located proof of theorem 1.",
+          "method": "Read searchable PDF and visually inspected original p.100 (zero-based p1)",
+          "title": "Number of permutations with given descent set and cycle structure",
+          "trigger": "Foundational cycle-type-and-descent-set enumeration, including involutions as a specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md, conditional disjoint ascent counts and monotonicity argument",
+        "Chow 2008 general descent-set enumeration",
+        "Kim-Lee 2018 asymptotic conjugacy-class descent variance"
+      ],
+      "rationale": "The conditioned involution conjugacy class is a standard natural probability model, and disjoint descent correlations are a meaningful local-dependence invariant used in variance/normality analysis. The theorem identifies a complete size-uniform one-crossing positive-to-negative phase diagram and nonobvious mesoscopic scale f~n^(2/3) with explicit scaled profile; neither the sign pattern nor transition scale is visible from a fixed-positive-fraction central limit theorem. The derivation is more than a renaming, raw coefficient table, or trivial finite evaluation, even though it is an exact consequence of classical enumeration.",
+      "residual_risks": [
+        "This result is a sharp structural corollary of existing generating functions, not a wholly new distribution theorem or a CLT.",
+        "No claim about overlapping descent positions or all higher correlations; critical-window covariance is O(n^-2)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proved model is fixed-point-conditioned uniform involutions, not unrestricted random involutions; f and n parity constrained.",
+    "Nonadjacent comparisons only (j-i>=2); adjacent and higher-order event laws are outside the claim.",
+    "The classic exact fixed-point-weighted descent-set enumerator fully covers underlying distribution data; priority belongs only to claimed derived sign/scale property, qualified by relevant sources.",
+    "Source RESULT.md uses malformed nested KaTeX delimiters inside display formulas; intended mathematical polynomial independently reconstructed, but public formatting must be corrected before import.",
+    "Package public METADATA.json and AUDIT.json contain private operational scope_run_id; these must be sanitized preserving existing science before publication."
+  ],
+  "schema_version": 1
+}
