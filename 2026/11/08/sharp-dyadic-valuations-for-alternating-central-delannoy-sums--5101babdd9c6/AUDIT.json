@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact signed-sum/diagonal identity follows from Legendre polynomial telescoping and the displayed coefficient representation, with explicit n>=1 scope. The reciprocal-sum lemma is proved at every 2-adic valuation by odd-denominator pairing and the inverse-square unit sum. The formal exponential expansion has leading term 2n H_odd(n/2) of valuation 3v2(n)-1 at even n and all higher even terms have valuations at least 4v2(n), proving absence of cancellation; odd n have a unique odd leading term. The verifier independently checked all n<=1024 and 64 harmonic cases, but finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo--Zeng arxiv:1008.2894, Theorem 3.2, supplies only an even-n congruence modulo 2n for the alternating weight 2k+1; this is strictly weaker than exact valuation 4v2(n)-1 for n even.",
+        "Sun arxiv:1101.1946, Theorem 1.4, treats odd primes p>3 and does not assert a dyadic all-n valuation law.",
+        "OEIS A142978 discusses p>3 power congruences for the diagonal sequence, not the prime-two sharp exponent."
+      ],
+      "reasoning": "The published uniform congruence establishes at most divisibility by 2n when n is even; it neither forces nor bounds the actual exponent at 4v2(n)-1. The odd-prime statements cannot imply a prime-two identity without an additional theorem not present in the inspected sources.",
+      "searches": [
+        "\"Delannoy\" \"4v_2(n)\"",
+        "\"central Delannoy\" \"alternating\" \"2-adic valuation\" weighted (2k+1)",
+        "arxiv:1008.2894 Theorem 3.2 central Delannoy alternating modulus 2n",
+        "arxiv:1101.1946 Theorem 1.4 alternating Delannoy sums prime p"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A047781",
+      "https://oeis.org/A142978",
+      "https://arxiv.org/pdf/1008.2894",
+      "https://arxiv.org/html/1101.1946v4",
+      "Published number-theory research-record titles on shifted generalized Domb sums, dyadic Thue--Morse valuations and diagonal rational partitions were compared by subject and mathematical implications; they concern different sequences."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo--Zeng proves S(n) congruent to 0 modulo 2n for even n, but no exact v2 exponent is asserted or derived in the inspected Theorem 3.2 section.",
+        "Sun studies sums through odd prime moduli and gives no claim applying to 2-adic valuations for arbitrary even n.",
+        "The OEIS representations are used as starting identities and explicitly excluded from novelty."
+      ],
+      "reasoning": "The exact dyadic valuation is a strict sharpening of a divisibility bound and is not a formal corollary of that weaker bound. The proof contributes a separate sharp odd-harmonic valuation lemma plus strict leading-term domination in the formal exponential expansion. Historical overlap cannot be ruled out globally by search failure.",
+      "searches": [
+        "\"A047781\" \"v_2\" \"n\"",
+        "\"Delannoy\" \"4 v_2(n)\"",
+        "arxiv:1008.2894 Theorem 3.2 and proof, page 5",
+        "arxiv:1101.1946 Theorem 1.4 and proof, odd prime p>3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A047781 explicitly identifies the diagonal binomial sum and the coefficient expression but gives no 2-adic valuation formula.",
+        "The equality A(n)=(D(n)+D(n-1))/4 connects the diagonal-count formulation with the alternating central Delannoy sum; the proof compares the equivalent objects, not merely titles."
+      ],
+      "reasoning": "An equivalent theorem could be expressed as the valuation of OEIS A047781, of a Jacobi polynomial at 3, of the average of two adjacent Delannoy numbers, or of the alternating odd-weight sum. The searches and the full OEIS content address these aliases; no equivalent exact valuation was found.",
+      "searches": [
+        "\"A047781\" \"v_2\" valuation",
+        "\"A047781\" \"2-adic valuation\"",
+        "\"3v_2(n)\" \"cross polytope\"",
+        "Exact 2-adic valuation of A047781 A(n)=sum_{k=0}^{n-1} binomial(n-1,k) binomial(n+k,k) diagonal cross-polytope numbers equals 3v_2(n)-1 for even n and 0 for odd n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A047781 lists values 0,1,4,19,96,501,2668,..., generating functions, and terminating binomial expressions; it does not contain an all-n exact two-adic valuation.",
+        "A142978 describes a diagonal array and conjectured odd-prime congruences; neither entry tabulates the exact valuation law as a formula."
+      ],
+      "reasoning": "The result is not an isolated table entry or re-enumeration: it supplies an all-index valuation theorem and a proof of the sharp exponent. The existing data alone cannot certify its infinite scope.",
+      "searches": [
+        "OEIS:A047781",
+        "OEIS:A142978",
+        "\"A047781\" \"valuation\" \"2\" n"
+      ]
+    },
+    "rationale": "Exact-claim and broader-implication comparisons distinguish the present all-index sharp dyadic valuations from known expressions for OEIS A047781 and the modulo-2n result of Guo and Zeng (arxiv:1008.2894, Theorem 3.2). Sun (arxiv:1101.1946, Theorem 1.4) restricts the related strong weighted congruences to odd primes p>3. Searches of published mathematical research records and indexed primary literature did not reveal the exact exponent. Priority remains qualified because unexamined historical literature may subsume it.",
+    "residual_risks": [
+      "An earlier generalized valuation theorem, hidden under another name, could imply this special case; the literature search cannot exclude all stronger historical coverage.",
+      "No independent mathematician has assessed historical priority or the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact valuations: gives modulo 2n, not equality of the 2-adic valuation to 4v2(n)-1.",
+        "evidence": "Theorem 3.2, equation at printed page 5: for even n, the alternating sum is congruent to zero modulo 2n; no exact power of two stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2894",
+        "material_read": "Entire 14-page arXiv PDF was accessible; the theorem and proof on printed pages 5-6 were read, including the r=0 specialization and the subsequent separate cubic-weight conjecture.",
+        "method": "Readable PDF text checked against rendered page images, especially the theorem on page 6 in zero-based indexing 5.",
+        "title": "New congruences for sums involving Apéry numbers or central Delannoy numbers",
+        "trigger": "An exact alternating weighted sum of central Delannoy numbers occurs in Theorem 3.2."
+      },
+      {
+        "assessment": "NOT_COVERING exact dyadic claim: Theorem 1.4 assumes an odd prime p>3 and computes a congruence involving Bernoulli numbers modulo p powers.",
+        "evidence": "Theorem 1.4 explicitly states p>3 and gives the alternating Delannoy sum over indices k=0,...,p-1 modulo p^5.",
+        "identifier_or_url": "https://arxiv.org/html/1101.1946v4",
+        "material_read": "Full accessible HTML mathematical article, particularly introduction, Theorem 1.4, hypotheses and referenced proof.",
+        "method": "Primary arXiv HTML inspection with term-location check for Delannoy and theorem hypotheses.",
+        "title": "On sums of Apéry polynomials and related congruences",
+        "trigger": "Theorem 1.4 examines the identical alternating factor (2k+1)D_k."
+      },
+      {
+        "assessment": "COVERS definitions, identities, and finite values; does NOT_COVER the all-n exact dyadic valuation claim.",
+        "evidence": "The entry lists the binomial expression and coefficient formula but no valuation theorem.",
+        "identifier_or_url": "https://oeis.org/A047781",
+        "material_read": "Full public sequence entry: definition, 2002 dated diagonal comment, 2004 generating-function formulas, later coefficient identity, comments, formulas and references.",
+        "method": "Primary sequence database entry text inspection, not snippet-only comparison.",
+        "title": "OEIS A047781",
+        "trigger": "Exact binomial diagonal sequence in the claim and its generating function."
+      },
+      {
+        "assessment": "NOT_COVERING prime-two exact valuations: conjectured congruences target primes p>3.",
+        "evidence": "Peter Bala comment dated October 2, 2008, states conjectural p>3 congruences of diagonal A(mp^r).",
+        "identifier_or_url": "https://oeis.org/A142978",
+        "material_read": "Full entry, including original 2008 congruence comments and later array identities.",
+        "method": "Primary sequence database entry text inspection.",
+        "title": "OEIS A142978",
+        "trigger": "The diagonal array for the same sequence discusses arithmetic congruences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5101babd-d9c6-4fe2-8fa6-3f75d92e50a1",
+  "value": {
+    "rationale": "A full sharp divisibility law for the classical alternating central Delannoy weighted sum strengthens the previously published modulo-2n theorem on a natural infinite dyadic family and determines the exact valuation of a separately studied combinatorial diagonal sequence. The exponent 4v2(n)-1, particularly at n=2^t, is mathematically motivated by the known divisibility problem and proved by a structural reciprocal-sum identity, not by arbitrarily slicing a finite table. The result does not claim unrelated higher moments or odd primes.",
+    "status": "PASS"
+  }
+}
