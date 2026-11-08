@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The ordinary standalone checker `verify_tangent.py` ran successfully on the packaged source code. It symbolically checks both dual-chart discriminants and the repeated-root identity, then enumerates all admissible coefficients in thirteen specified prime fields and in finite fields of orders 9, 25, and 49. It computes the tangent map and the quartic's point count independently and verifies both incidence formulas for every tested coefficient. All checks passed, ending in `PLANE_FILLING_TANGENT_DISCRIMINANT_VERIFIER_PASS`. The proof in RESULT.md, not these finite examples, establishes the assertions for all odd prime powers. No external independent audit is reported.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For each rational projective line, substituting the line into C_{q,k} divides by the Fermat factor s^qt−st^q with q+1 simple rational roots; the residual binary quadratic is nonzero. On W=1 and V=1 dual charts its discriminant is 4Delta_k, with the missing line X=0 separately handled. Thus discriminant zero gives exactly one rational flex contact (multiplicity 3); otherwise either zero or two rational order-2 contacts. Independently checked both chart discriminant identities symbolically. The quartic Delta=UW³+V³W−kUVW²−kV⁴−U³V has no singularities at infinity. Singular equations in characteristic 3 exclude finite singularities; in other odd characteristics they correspond exactly to multiple roots of T⁷+kT³−1. A root-free polynomial over F_q is squarefree here because any multiple root is F_q-rational (special case char7 included). Hence D_k smooth genus3. Incidence counts with all q²+q+1 rational points smooth yield N1=#D(Fq), N0=N2=(q²+q+1−#D)/2. Hasse–Weil gives |N2−q²/2|<=3sqrt q.
+
+## originality
+
+PASS
+
+The exact source family, smoothness of all rational points, existence of k and lack of F_q-line components are all established by Asgarli–Ghioca 2023 and credited. The inspected full primary text does not identify the smooth genus-three dual quartic, rational flex/two-contact line classification or Weil-scale count. The two-chart quadratic discriminant and singularity-to-G_k link supply nontrivial geometry not just a trivial substitution. Resultary comparisons returned unrelated quartic singularities and plane dual-degree work.
+
+## value
+
+PASS
+
+The result extracts a smooth, low-genus dual discriminant from a high-degree plane-filling family and gives an exact classification of rational flex and two-contact tangent lines plus a uniform Weil-order error. This is a meaningful geometric statistic for a canonical arithmetic family, and it carefully separates rational-point smoothness from conjectural geometric smoothness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
