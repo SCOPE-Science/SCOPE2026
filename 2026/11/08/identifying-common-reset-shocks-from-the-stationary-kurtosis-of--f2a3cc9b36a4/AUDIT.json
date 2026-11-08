@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "A stationary two-sided Poisson construction and coupling establish a unique invariant process. Five exact generator equations solve the stationary second and fourth moments. The mixed moment loses mass at R+Q-c because the common clock acts only once. An independent two-time Poisson-survival integral verifies the fourth moment; positive differentiation and feasible nonnegative rates prove sharpness and the unique inverse. A standalone SymPy/mpmath checker passed 680 integral/rational checks plus exact generator identities; numerical tests are not used as infinite proofs. The generator identities Lx=-R x, Lomega=-Q omega, and stationary E[x omega]=0 separately prove the entire lagged covariance matrix is diagonal and independent of clock overlap at fixed marginal rates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Santra–Basu–Sabhapandit, arXiv:2205.00549, full text, especially discussion of joint resetting and concluding partial-reset open questions",
+        "Kuśmierz–Gudowska-Nowak, arXiv:1812.08489, full text, subdiffusive CTRW partial-reset protocols",
+        "Zhan–Wang, doi:10.1103/PhysRevE.109.044115, abstract only, diffusivity-correlation ergodicity criterion",
+        "A separate 2024 anisotropic Brownian-particle resetting paper, arXiv:2406.17550, concerns translational and orientational resets rather than squared Brownian volatility with three Poisson clocks.",
+        "Steady-state moments under resetting to a distribution (Phys. Rev. E 108, 044120) covers ordinary Brownian and confined run-and-tumble resetting to spatial distributions, not the present coupled random-diffusivity model in its accessible full-text analysis."
+      ],
+      "reasoning": "General resetting and partial-reset literature was checked for domination by a joint/partial-reset theorem. The source paper fixes the joint rate, CTRW subdiffusion has distinct path memory, and anisotropic-orientation resetting uses an independent orientation variable and different spatial laws. The accessible ergodicity abstract does not state a sharp kurtosis interpolation. A broad unindexed theorem may exist but no decisive overlap was found.",
+      "searches": [
+        "stationary fourth moment of Brownian stochastic volatility with synchronized and asynchronous resetting clocks sharp attainable kurtosis and identifiability of clock overlap",
+        "Two independent Poisson reset clocks of Brownian tracer position and its Brownian stochastic diffusivity square, stationary fourth moment kurtosis; synchronized versus asynchronous clocks",
+        "stochastic resetting diffusivity particle shared reset individual reset analytical kurtosis 2022 2023 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2205.00549 (full text)",
+      "arxiv:1812.08489 (full text)",
+      "doi:10.1103/PhysRevE.109.044115 (abstract only)",
+      "arxiv:2406.17550 (abstract only)",
+      "Research records: 2026/10/4/SCOPE-a-hidden-jacobi-diffusion-in-centered-leibenson-radial-dynamics--e2d2a1f05981",
+      "Research records: 2026/9/21/SCOPE-four-way-interaction-sparre-andersen-persistence--a412ed2dcdb6",
+      "Research records: 2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661",
+      "doi:10.1103/PhysRevE.108.044120 (full journal HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Santra–Basu–Sabhapandit, arXiv:2205.00549, full text, especially discussion of joint resetting and concluding partial-reset open questions",
+        "Kuśmierz–Gudowska-Nowak, arXiv:1812.08489, full text, subdiffusive CTRW partial-reset protocols",
+        "Source 2022 synchronized model permits c=R=Q only, yielding K=42; the new independent-clock comparison uses c=0 and K=21 at the same R,Q."
+      ],
+      "reasoning": "Synchronized-only stationary densities do not determine a separate three-clock family at fixed marginal rates. Equal total rates alone do not encode whether clocks share events; the c=0 contrast is therefore not a corollary of the one-clock model. The new sharp monotone interpolation and exact inference require the mixed-moment reset loss R+Q-c, which was absent from the compared previous claims. The exact full second-order time-lag equivalence between different clock couplings follows here from the coupled reset generator, not merely a known one-time variance formula.",
+      "searches": [
+        "Brownian motion with stochastic diffusion coefficient Santra Basu Sabhapandit simultaneous resetting of position and diffusivity 2022 fourth moment kurtosis independent clocks",
+        "diffusing diffusivity Brownian tracer three independent Poisson clocks position-only diffusivity-only and common reset sharp kurtosis 21 42 at equal total reset rates",
+        "stationary fourth moment of Brownian stochastic volatility with synchronized and asynchronous resetting clocks sharp attainable kurtosis and identifiability of clock overlap",
+        "arxiv:2205.00549 pdf conclusion resetting only position diffusion coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Santra–Basu–Sabhapandit, arXiv:2205.00549, full text, especially discussion of joint resetting and concluding partial-reset open questions",
+        "Kuśmierz–Gudowska-Nowak, arXiv:1812.08489, full text, subdiffusive CTRW partial-reset protocols"
+      ],
+      "reasoning": "The equivalent generator, Gaussian-mixture and fixed-marginal-clock parameterizations were compared. The original synchronized renewal model is the single point c=R=Q, and partially resetting an anomalous CTRW is a different semigroup. Neither implies the dependence on c with R,Q fixed or the three-moment inversion.",
+      "searches": [
+        "Brownian motion with stochastic diffusion coefficient Santra Basu Sabhapandit simultaneous resetting of position and diffusivity 2022 fourth moment kurtosis independent clocks",
+        "diffusing diffusivity Brownian tracer three independent Poisson clocks position-only diffusivity-only and common reset sharp kurtosis 21 42 at equal total reset rates",
+        "Santra Basu Sabhapandit arxiv:2205.00549 position resetting alone diffusion coefficient alone"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest research-record ID 2026/10/4/SCOPE-a-hidden-jacobi-diffusion-in-centered-leibenson-radial-dynamics--e2d2a1f05981: a normalized radial Jacobi diffusion with power-law correlations, not a reset tracer.",
+        "Closest research-record ID 2026/9/21/SCOPE-four-way-interaction-sparre-andersen-persistence--a412ed2dcdb6: fourth-order Rademacher interaction and persistence, not stationary tracer moments.",
+        "Research-record ID 2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661: covariance correction for a stochastic epidemic model, not clock-overlap identifiability."
+      ],
+      "reasoning": "These actual semantic database hits do not contain this process, the triple-clock generator, the rational c-dependent stationary kurtosis or its feasible interval. The search does not certify uniqueness against inaccessible or unindexed records.",
+      "searches": [
+        "diffusing diffusivity Brownian tracer three independent Poisson clocks position-only diffusivity-only and common reset sharp kurtosis 21 42 at equal total reset rates",
+        "stationary fourth moment of Brownian stochastic volatility with synchronized and asynchronous resetting clocks sharp attainable kurtosis and identifiability of clock overlap",
+        "stationary fourth moment of Brownian stochastic volatility with synchronized and asynchronous resetting clocks sharp attainable kurtosis and identifiability of clock overlap"
+      ]
+    },
+    "rationale": "The 2022 original paper supplies the Brownian stochastic-diffusivity process and synchronized-only resetting and explicitly raises partial resetting as an extension. The new claim treats independent and overlapping clocks with the same two marginal reset rates, establishes sharp common-intensity kurtosis dependence and exact inverse identification. Relevant primary texts and database claims compared below do not imply the statement; unpublished/unindexed coverage remains possible. The new indistinguishability statement covers the full two-time second-order covariance, rather than only marginal variances.",
+    "residual_risks": [
+      "General reset-kernel or stochastic-volatility moment literature not indexed in the searched sources might yield equivalent formulas.",
+      "The 2024 general diffusivity ergodicity article was accessible at abstract level only.",
+      "No independent scientific audit or publication-priority validation has been performed.",
+      "A general 2024 random-diffusivity paper was not found as a preprint or full open-access text, and institutional access was not available; only the abstract supports its limited comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the c=R=Q synchronized endpoint and stationary distribution approach, NOT_COVERING the three-clock fixed-marginal kurtosis interpolation or identifiability theorem.",
+        "evidence": "Single common Poisson reset to both variables; conclusion names selective resetting as possible future study.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.00549",
+        "material_read": "Full open-access manuscript: model, stationary renewal description, position laws, asymptotic analyses, and concluding open extensions on position-only/diffusivity-only resetting.",
+        "method": "Primary full text and page images examined and compared with generator assumptions and marginal reset parameters.",
+        "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+        "trigger": "Exact same Brownian stochastic diffusivity and its one-clock simultaneous resetting"
+      },
+      {
+        "assessment": "Different underlying waiting-time CTRW; does not state or entail the stationary mixed-fourth-moment rational law.",
+        "evidence": "Their protocols reset a particle and/or CTRW renewal history, not two independent Brownian drivers with three Poisson clocks.",
+        "identifier_or_url": "https://arxiv.org/abs/1812.08489",
+        "material_read": "Open-access manuscript sections introducing subdiffusive CTRW and renewal/nonrenewal resetting regimes, equations of the different protocols and discussion.",
+        "method": "Primary full text and page images inspected for implications to Brownian-squared stochastic diffusivity and overlapping Poisson clocks.",
+        "title": "On subdiffusive continuous time random walks with stochastic resetting",
+        "trigger": "Potential broader selective-versus-complete-resetting comparison"
+      },
+      {
+        "assessment": "Abstract concerns general diffusivity-correlation and ergodicity; no verified formula for this specific triple-clock law, but full-text coverage is an unresolved priority risk.",
+        "evidence": "Only the general theme and ergodicity criterion could be compared.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.109.044115",
+        "material_read": "Accessible abstract only; the full article was not accessible for comparison.",
+        "method": "Abstract-level topical comparison; not claimed as a full-text exclusion.",
+        "title": "Ergodic criterion of a random diffusivity model",
+        "trigger": "General stochastic diffusivity criteria might subsume moment effects"
+      },
+      {
+        "assessment": "Differently coupled translational and orientational degrees of freedom; no stated squared-Brownian-volatility common-shock kurtosis law.",
+        "evidence": "Abstract enumerates three resetting schemes for orientation and spatial position but not overlapping clocks at fixed marginal rates.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.17550",
+        "material_read": "Open public abstract only; no full-document exclusion claimed.",
+        "method": "Abstract-level object/parameter comparison.",
+        "title": "Anisotropic Brownian particles under resetting",
+        "trigger": "Partially resetting different coupled particle degrees of freedom"
+      },
+      {
+        "assessment": "Does not cover overlapping state-selective clocks: every reset in this article erases full dynamical memory, and its analytic exemplars have a constant diffusion coefficient or run-and-tumble activity, not a second Brownian-volatility component with independent resets.",
+        "evidence": "Exact moments are given for resetting to a distribution in two other models; the accessible abstract does not mention random diffusivity or common clock coupling.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.044120",
+        "material_read": "Accessible full journal HTML, including renewal equations, class of processes, generator moment recursion, Brownian and run-and-tumble models, and conclusions.",
+        "method": "Primary full journal text examined; the renewal derivation assumes complete memory erasure at every reset and a spatial resetting distribution.",
+        "title": "Steady-state moments under resetting to a distribution",
+        "trigger": "Potential broader exact stationary moment formulas under stochastic resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f2a3cc9b-36a4-416c-a82e-1a7650d5bc81",
+  "value": {
+    "rationale": "A natural open selective-resetting extension of the 2022 stochastic-diffusivity model raises whether reset coordination can be recovered when marginal reset rates and second moments agree. The sharp complete interval of stationary kurtosis values and its exact inverse solve that identifiability problem; synchronized versus independent resetting doubles the fourth moment at identical marginal variance. This is a physically meaningful structural distinction rather than an arbitrary parameter slice, while inference precision from finite samples remains open. The stronger conclusion holds even if all two-time second-order data of both physical variables are measured; kurtosis supplies the first demonstrated separating statistic.",
+    "status": "PASS"
+  }
+}
