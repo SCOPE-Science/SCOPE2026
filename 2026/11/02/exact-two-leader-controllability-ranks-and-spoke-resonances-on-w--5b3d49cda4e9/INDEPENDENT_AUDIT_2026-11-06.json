@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:57:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted wheel Laplacian decomposes into constant eigenvalue zero, radial hub-versus-ring eigenvalue (n+1)g, and ring Fourier eigenvalues g+2-2cos(2pi k/n) (paired frequencies real dimension 2 except even alternation). For symmetric L, Lagrange spectral projectors show Kalman span rank=sum rank(P_lambda B). Two-point evaluation on each paired Fourier space has determinant sin(2pi kd/n), rank loss iff n|2kd. Arithmetic count gives (gcd(n,d)-1)/2 generic losses for odd n; gcd(n/2,d)-1 for even. A radial collision only when g=(2-2cos(2pi k/n))/n; merged evaluation columns give one extra rank lost except when angular pair evaluation has opposite signs (n|2kd and n∤kd), or even alternating k=n/2 with odd offset d. These are the printed delta cases. Independent exact SymPy rational Kalman matrix ranks agreed with analytic formula for all offsets at n=3,4,6,8,12 for nonresonant rational g and every rational resonance. Finite tests corroborate all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parlangeli–Notarstefano arXiv:1109.3556, Theorem 4.10",
+          "Yazicioglu–Abbas–Egerstedt arXiv:1608.04309 distance bound",
+          "Liu–Ji DOI:10.1002/rnc.3870 abstract (unread full text)"
+        ],
+        "reasoning": "General equitable partition and distance-vector lower bounds control at most some uncontrollable dimensions independently of g. Such results cannot imply every isolated g resonance or exceptional actuator-spacing cancellation. Liu–Ji cycle-generated generality needs full-text comparison.",
+        "searches": [
+          "weighted wheel two leader controllability Kalman rank resonance uniform spoke weights Fourier",
+          "exact controllability weighted wheel graph two actuated rim vertices hub mode resonance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob be0f49e6c4c37a7c28caf464ed2cdd10dd6b6a65",
+        "Parlangeli–Notarstefano, On the Reachability and Observability of Path and Cycle Graphs, arXiv:1109.3556 (full PDF main results)",
+        "Liu–Ji, Controllability of Multiagent Systems Based on Path and Cycle Graphs, DOI:10.1002/rnc.3870 (abstract only, full text unavailable)",
+        "Yazicioglu–Abbas–Egerstedt Graph Distances and Controllability of Networks, arXiv:1608.04309 (bounds)",
+        "Resultary searches: weighted wheel two leader controllability Kalman rank resonance uniform spoke weights Fourier; exact controllability weighted wheel graph two actuated rim vertices hub mode resonance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parlangeli–Notarstefano arXiv:1109.3556, Theorem 4.10",
+          "Yazicioglu–Abbas–Egerstedt arXiv:1608.04309 distance bound",
+          "Liu–Ji DOI:10.1002/rnc.3870 abstract (unread full text)"
+        ],
+        "reasoning": "Parlangeli–Notarstefano cycle formulas imply the n|2kd Fourier degeneracy but do not yield the radial collision  g=(2-2cos)/n or losses after collision. A more general exact family including wheels would cover this statement; accessible texts did not show one, subject to Liu–Ji fulltext uncertainty.",
+        "searches": [
+          "weighted wheel two leader controllability Kalman rank resonance uniform spoke weights Fourier",
+          "exact controllability weighted wheel graph two actuated rim vertices hub mode resonance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parlangeli–Notarstefano arXiv:1109.3556, Theorem 4.10",
+          "Yazicioglu–Abbas–Egerstedt arXiv:1608.04309 distance bound",
+          "Liu–Ji DOI:10.1002/rnc.3870 abstract (unread full text)"
+        ],
+        "reasoning": "Cycle Fourier modes plus a radial hub component produce a wheel, so bare-cycle reachability is an ingredient. The new threshold depends on exact g-equality of radial and Fourier eigenvalues; these conditions have no analogue in a pure cycle.",
+        "searches": [
+          "weighted wheel two leader controllability Kalman rank resonance uniform spoke weights Fourier",
+          "exact controllability weighted wheel graph two actuated rim vertices hub mode resonance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Parlangeli–Notarstefano arXiv:1109.3556, Theorem 4.10",
+          "Yazicioglu–Abbas–Egerstedt arXiv:1608.04309 distance bound",
+          "Liu–Ji DOI:10.1002/rnc.3870 abstract (unread full text)"
+        ],
+        "reasoning": "This is an all n,d and continuous g classification, not a finite graph-control table. Published record searches showed weighted-wheel polytope or other unrelated control optimizations, not a wheel actuator-rank table.",
+        "searches": [
+          "weighted wheel two leader controllability Kalman rank resonance uniform spoke weights Fourier",
+          "exact controllability weighted wheel graph two actuated rim vertices hub mode resonance"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compared exact claim and possible implications with relevant primary literature and two actual semantic published-record searches; a failed search is not proof of novelty. Parlangeli–Notarstefano cycle formulas imply the n|2kd Fourier degeneracy but do not yield the radial collision  g=(2-2cos)/n or losses after collision. A more general exact family including wheels would cover this statement; accessible texts did not show one, subject to Liu–Ji fulltext uncertainty.",
+      "residual_risks": [
+        "Liu–Ji 2018 specifically treats graphs generated from cycles; its full text/appendices could have a wheel example or stronger formula. Access only publisher abstract; authorized Oxford retrieval returned vpn_disconnected, a priority risk but not automatic O failure.",
+        "Requires TWO independent ring inputs and homogeneous spokes; no inference for hub controls, one shared input, nonuniform graph or energy metrics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cycle results capture evaluation-rank zeros, but lack hub-versus-ring radial mode and its exceptional g collisions",
+          "evidence": "arXiv:1109.3556, cycle reachability sections and Theorem 4.10",
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+          "material_read": "Full primary PDF main cycle theorem and proof sections, inspected relevant theorem pages",
+          "method": "Opened full PDF, queried theorem and inspected screenshots",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Shares Fourier controllability and arithmetic gcd approach"
+        },
+        {
+          "assessment": "Cannot confidently exclude coverage in additional cycle-generated examples. Qualified novelty only and explicit material priority risk.",
+          "evidence": "Int J Robust Nonlinear Control 28 (2018), abstract",
+          "identifier_or_url": "https://doi.org/10.1002/rnc.3870",
+          "material_read": "Publisher abstract and bibliography only, not full text",
+          "method": "Wiley full text access unavailable; authorized Oxford request returned vpn_disconnected (job 2de7454ca3b75a35585325a054ee8cdc)",
+          "title": "Controllability of Multiagent Systems Based on Path and Cycle Graphs",
+          "trigger": "Potential exact broader class of cycle-generated graphs"
+        },
+        {
+          "assessment": "Distance-bound lower estimates do not determine isolated numerical spoke-weight loss events",
+          "evidence": "arXiv:1608.04309 abstract and distance lower bound",
+          "identifier_or_url": "https://arxiv.org/abs/1608.04309",
+          "material_read": "Abstract and cited bound statement; not full source text",
+          "method": "Web bibliographic/theorem descriptions",
+          "title": "Graph Distances and Controllability of Networks",
+          "trigger": "General lower bound in topology-only controllability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula gives exact controllable subspace dimensions and rare spoke-weight resonance failures with cancellation depending on actuator geometry. This is a natural quantitative network-control invariant, not an arbitrary parameter slice: the wheel is a canonical nontrivial augmentation of a cycle.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob be0f49e6c4c37a7c28caf464ed2cdd10dd6b6a65",
+    "Parlangeli–Notarstefano, On the Reachability and Observability of Path and Cycle Graphs, arXiv:1109.3556 (full PDF main results)",
+    "Liu–Ji, Controllability of Multiagent Systems Based on Path and Cycle Graphs, DOI:10.1002/rnc.3870 (abstract only, full text unavailable)",
+    "Yazicioglu–Abbas–Egerstedt Graph Distances and Controllability of Networks, arXiv:1608.04309 (bounds)",
+    "Resultary searches: weighted wheel two leader controllability Kalman rank resonance uniform spoke weights Fourier; exact controllability weighted wheel graph two actuated rim vertices hub mode resonance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No guarantee for heterogeneous weights, hub actuation or single shared input; numerical rank claims assume ideal exact parameters."
+  ],
+  "residual_risks": [
+    "Liu–Ji 2018 specifically treats graphs generated from cycles; its full text/appendices could have a wheel example or stronger formula. Access only publisher abstract; authorized Oxford retrieval returned vpn_disconnected, a priority risk but not automatic O failure.",
+    "Requires TWO independent ring inputs and homogeneous spokes; no inference for hub controls, one shared input, nonuniform graph or energy metrics."
+  ],
+  "schema_version": 1
+}

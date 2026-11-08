@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full Laplacian splits into constant, hub-versus-rim and paired Fourier modes; the only parameter-dependent eigenvalue collisions occur at the precisely stated positive spoke ratios. Two-point evaluation matrices give exact ranks, gcd counting handles every pair frequency, and the merged-eigenspace calculation establishes the parity exceptions. An independent code path for exact rational Krylov ranks and numerical spectral ranks passed 3,286 finite comparisons. The general argument is analytic.
+## correctness
 
-**Originality — PASS, qualified.** The closest inspected full-text mathematical source treats pure paths and cycles (Parlangeli–Notarstefano, arXiv:1109.3556), while Yazicioglu–Abbas–Egerstedt (arXiv:1608.04309) prove weight-independent controllability rank lower bounds rather than the exact weighted-wheel resonance profile. Rahmani–Ji–Mesbahi–Egerstedt (DOI:10.1137/060674909) give general symmetry and equitable-partition conditions. Exact wheel-specific resonant rank formulas were not located in the checked published records or semantic research-record results; indexed search absence cannot prove novelty. The unavailable full text of Liu–Ji (DOI:10.1002/rnc.3870), which includes extensions of path/cycle techniques, remains a material coverage risk.
+PASS
 
-**Mathematical value — PASS.** A normally controllable two-leader wheel can abruptly lose exactly one reachable state at isolated positive hub-spoke weights. Even at a collision, the loss may cancel for particular leader placements. The complete all-parameter rank formula and sharp full-controllability test provide design-relevant placement and weight-avoidance rules rather than just a finite numerical example.
+The weighted wheel Laplacian decomposes into constant eigenvalue zero, radial hub-versus-ring eigenvalue (n+1)g, and ring Fourier eigenvalues g+2-2cos(2pi k/n) (paired frequencies real dimension 2 except even alternation). For symmetric L, Lagrange spectral projectors show Kalman span rank=sum rank(P_lambda B). Two-point evaluation on each paired Fourier space has determinant sin(2pi kd/n), rank loss iff n|2kd. Arithmetic count gives (gcd(n,d)-1)/2 generic losses for odd n; gcd(n/2,d)-1 for even. A radial collision only when g=(2-2cos(2pi k/n))/n; merged evaluation columns give one extra rank lost except when angular pair evaluation has opposite signs (n|2kd and n∤kd), or even alternating k=n/2 with odd offset d. These are the printed delta cases. Independent exact SymPy rational Kalman matrix ranks agreed with analytic formula for all offsets at n=3,4,6,8,12 for nonresonant rational g and every rational resonance. Finite tests corroborate all-n proof.
 
-**Limits.** Two independent rim inputs, uniform positive spoke weights and uniform unit rim weights are required; no independent mathematical certification or complete historical exhaustiveness is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: compared exact claim and possible implications with relevant primary literature and two actual semantic published-record searches; a failed search is not proof of novelty. Parlangeli–Notarstefano cycle formulas imply the n|2kd Fourier degeneracy but do not yield the radial collision  g=(2-2cos)/n or losses after collision. A more general exact family including wheels would cover this statement; accessible texts did not show one, subject to Liu–Ji fulltext uncertainty.
+
+## value
+
+PASS
+
+The formula gives exact controllable subspace dimensions and rare spoke-weight resonance failures with cancellation depending on actuator geometry. This is a natural quantitative network-control invariant, not an arbitrary parameter slice: the wheel is a canonical nontrivial augmentation of a cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
