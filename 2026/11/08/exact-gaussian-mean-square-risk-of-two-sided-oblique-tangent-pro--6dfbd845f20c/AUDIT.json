@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For fixed deterministic orthonormal U,V, oblique sketch projectors Q,R reproduce all tangent matrices. Their difference on F is the sum of three mutually Frobenius-orthogonal blocks driven by the normal component N. Gaussian regression identifies E(A^TA)=r/(ell-r-1) I using the reciprocal chi-square moment with ell-r+1 degrees of freedom. Independence of left and right sketches makes the mixed block have the square of that factor. When ell<=r+1 and N!=0, a nonnegative summand has divergent reciprocal-chi-square mean; at ell=r+1 the first moment remains finite and centered. Exact-rational algebra and 3 seeded Gaussian experiments in VERIFY.py returned VERIFY_OK; infinite assertions rely on the proof, not simulations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carrel–Grigori, arXiv:2607.03402v1, Proposition 4.4 and Section 4.2 analyze equivalence and sensitivity to perpendicular residual under embeddings, but not an exact unconditional second-moment coefficient or the r+1 divergence threshold.",
+        "Halko–Martinsson–Tropp, SIAM Review (2011), Proposition 10.2, gives the expected Frobenius norm of a Gaussian pseudoinverse; this classical one-sided ingredient alone does not assert the two-sided tangent-composition risk formula.",
+        "Niu–Garg–Dereziński–Liao, arXiv:2605.24955v1, Theorem 3.1 proves sampling-based one-sided projection bias/variance; a different ensemble and operator."
+      ],
+      "reasoning": "The principal 2026 source supplies a two-sided deterministic projector and an OSE comparison, not its exact Gaussian expectation. The known Gaussian inverse-Wishart moment combined with a new three-term Frobenius-orthogonal decomposition yields the claimed exact factor, and this calculation is independently demonstrated. The risk that an older general theorem implicitly contains this combination is retained.",
+      "searches": [
+        "Gaussian two-sided oblique low rank tangent projection perpendicular residual high-rank sketch error expectation",
+        "Carrel Grigori Sketch low-rank dynamics orthogonal versus oblique projections July 2026 Gaussian error",
+        "\"oblique projection\" \"normal component\" \"Gaussian\" \"expectation\"",
+        "\"two-sided\" \"oblique\" \"projection\" \"Wishart\" \"low-rank\"",
+        "Halko Martinsson Tropp gaussian pseudoinverse expected Frobenius error sqrt k/(p-1) Proposition 10.2 2011"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.03402",
+      "https://arxiv.org/html/2605.24955v1",
+      "https://arxiv.org/abs/0909.4061",
+      "https://authors.library.caltech.edu/records/hy0mc-xmn26",
+      "2026-11_week1__private research ledger__p0001_g000055.jsonl (recoverable historical claims only)",
+      "published-finding corpus semantic search results from the six recorded queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel–Grigori arXiv:2607.03402v1 Section 4 distinguishes orthogonal and oblique DLRA and gives conditions for agreement, but does not conclude that two independent Gaussian sketches at dimension 2r cause a limiting normalized mean-square error of 3 even for rank-one normal residual.",
+        "Niu et al. arXiv:2605.24955v1 Remark 2.5 identifies inverse-Wishart moments in Gaussian sketching; their Theorem 3.1 concerns sampled rather than Gaussian projectors.",
+        "Halko–Martinsson–Tropp, Proposition 10.2 concerns one pseudoinverse, not the independent product term or mutually orthogonal tangent projection perturbations."
+      ],
+      "reasoning": "Neither a stated broader theorem nor a direct specialization of a single source gives the target formula. The target follows from combining the source projector with distinct Gaussian-regression and product-of-independent-sketch analyses. Its method-specific content is the exact three-term law and the r+1 integrability boundary; priority relative to unlocated combination results is unresolved but not supported by a decisive covering source.",
+      "searches": [
+        "Carrel Grigori Sketch low-rank dynamics orthogonal versus oblique projections July 2026 Gaussian error",
+        "exactly unbiased Gaussian oblique tangent projection with nonvanishing Frobenius risk ratio c",
+        "\"sketch\" \"low-rank dynamics\" \"expected\" \"oblique\" residual",
+        "Halko Martinsson Tropp gaussian pseudoinverse expected Frobenius error sqrt k/(p-1) Proposition 10.2 2011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carrel–Grigori arXiv:2607.03402v1, Lemmas 4.1–4.2, express the same lifted projector QF+FR^T−QFR^T but do not state its Gaussian mean-square normal-error law.",
+        "published-finding corpus semantic searches returned nearby but different projection/normal-residual results such as 2026/10/11/SCOPE-exact-minimax-relaxation-for-the-operatorname-ut-2-projection-me--0a5e4bc2be28 and 2026/10/4/SCOPE-exact-perturbation-angle-law-and-finite-dimensional-positive-sig--466bc404f228."
+      ],
+      "reasoning": "Re-expressed the claim in oblique projectors, tangent-lifted normal residuals, inverse-Wishart degrees of freedom, squared Frobenius error and Gaussian regression language. The closest retrieved formulations target distinct map spaces or noise models; no directly equivalent statement was found. This search result cannot establish uniqueness.",
+      "searches": [
+        "Gaussian sketched dynamical low-rank oblique tangent projection exact mean-squared error normal residual Wishart inverse ell rank r sketch",
+        "Exact expected squared Frobenius oblique tangent projection of normal residual Gaussian sketches r/(s-r-1) squared phase transition",
+        "\"oblique\" \"tangent\" \"Gaussian\" \"inverse Wishart\" \"low rank\" Frobenius",
+        "\"oblique tangent\" \"mean-square\" sketch Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned no exact titled or summarized mean-square tangent-projection formula or table; nearest indexed claims are about unrelated projection operators.",
+        "The accessible current ledger 2026-11_week1__private research ledger__p0001_g000055.jsonl contains results on Gaussian-sketch scalar Ritz laws, SparseStack exact rank, and other numerical methods, but none asserts a two-sided Gaussian tangent-residual error law."
+      ],
+      "reasoning": "The claim is an analytic exact expression rather than a tabulated finite invariant. Neither indexed published claims nor recoverable local historical claims provide its exact coefficient, threshold, or fixed-ratio consequence. This is a deduplication check only, not a proof of novelty.",
+      "searches": [
+        "Gaussian sketched dynamical low-rank oblique tangent projection exact mean-squared error normal residual Wishart inverse ell rank r sketch",
+        "Exact expected squared Frobenius oblique tangent projection of normal residual Gaussian sketches r/(s-r-1) squared phase transition",
+        "two sided oblique tangent projector stochastic mean squared residual Gaussian Wishart threshold oversampling",
+        "\"oblique tangent\" \"mean-square\" sketch Gaussian"
+      ]
+    },
+    "rationale": "published-finding corpus, local historical claims, and named primary-literature comparisons found the 2026 oblique tangent-lift formula and classical Gaussian pseudoinverse moment but not the exact two-sided mean-square normal-residual law, its sharp moment boundary or fixed-ratio nonvanishing limit. This is best-knowledge originality rather than proof of absolute priority. An older implicit combination formula remains a concrete historical risk.",
+    "residual_risks": [
+      "Older Gaussian projector-moment or generalized randomized least-squares literature may already implicitly derive an equivalent two-sided tangent risk formula; the indexed excerpt of the classical 2011 paper was not a full-text noncoverage certification.",
+      "Published search indexes and accessible historical records are incomplete; lack of a match is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same projection and low-rank-compatible equivalence but does not state an exact Gaussian squared-error expectation, its infinite-variance threshold or fixed-ratio limit.",
+        "evidence": [
+          "arxiv:2607.03402v1, lines 45–55, 273–320, 326–370, 435–505 of accessible HTML primary text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.03402",
+        "material_read": "Introduction, equations (10)–(13), Lemma 4.1 and Lemma 4.2, Proposition 4.4 and Section 4.2 discussion, experimental discussion of normal-residual drift.",
+        "method": "Open-access arXiv HTML primary text read by sections; equations and qualitative scope compared.",
+        "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "trigger": "Originating 2026 sketch DLRA method; the exact lifted tangent projection could subsume the candidate."
+      },
+      {
+        "assessment": "Precise sampling-based single-projector variance with debiasing; no direct coverage of independent real Gaussian two-sided tangent lift risk.",
+        "evidence": [
+          "arxiv:2605.24955v1, HTML lines 59–102 and 125–174"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.24955v1",
+        "material_read": "Introduction, related-work comparisons, Remark 2.5, Theorem 3.1 and Section 4 discussion.",
+        "method": "Open-access arXiv HTML primary text read; examined sketch distribution, projector type and claimed moment.",
+        "title": "Debiasing Random Oblique Projections for Subsampled OLS and Fast CUR in High Dimensions",
+        "trigger": "Likely covering bias/variance analysis of oblique projectors."
+      },
+      {
+        "assessment": "Identifies an explicit standard moment ingredient, not a checked proof of noncoverage across the full 2011 paper; older implicit derivations remain a risk.",
+        "evidence": [
+          "Halko–Martinsson–Tropp 2011, Proposition 10.2 as indexed in literature result; arxiv:0909.4061 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+        "material_read": "Bibliographic abstract and indexed Proposition 10.2 excerpt, including the exact inverse-Gaussian Frobenius moment; complete primary text not inspected.",
+        "method": "Open-access bibliographic record plus detailed indexed proposition excerpt.",
+        "title": "Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions",
+        "trigger": "Classical Gaussian pseudoinverse second moment appears in candidate proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6dfbd845-f20c-438a-8693-f6b0ee6d698a",
+  "value": {
+    "rationale": "The exact normal-error coefficient gives an operational local mean-square risk budget for the two-sided oblique projection in sketched dynamical low-rank approximation. It exhibits a genuine integrability phase transition at ell=r+1 and a nonzero limit of 3 for ell=2r as r grows, even on rank-one normal residuals; thus proportional sketch oversampling does not wash out local normal-residual coupling. This sharp boundary clarifies a mathematically motivated numerical-method failure mode that qualitative OSE-based comparisons do not quantify. It is deliberately limited to local projection error, not global solver stability.",
+    "status": "PASS"
+  }
+}
