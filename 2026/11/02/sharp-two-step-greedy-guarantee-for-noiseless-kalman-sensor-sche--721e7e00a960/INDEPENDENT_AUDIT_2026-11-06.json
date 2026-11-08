@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:56:33.461986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct posterior covariance propagation gives J11=(1+a2^2)p2+q2, J12=p2+q1, J21=p1+q2, J22=(1+a1^2)p1+q1. For p1>=p2, greedy G=min(J11,J12) and O=min(G,J21) because J22>=J12. Comparing them gives strict regret iff p1-p2<min(q1-q2,a2^2 p2). If greedy is suboptimal, G/O<=(1+a2^2)p2+q2 over p1+q2 <=1+a2^2, with analogous relabeling. p1=1+delta,p2=1,q1=R+2,q2=delta attains limit 1+R as delta down to zero, R=max a_i^2>0. Independently regenerated 2500 rational schedule tables and exact greedy/optimum expressions, including 360 strict-regret samples. The boundary R=0 gives ratio one; positive process noise means supremum may not be attained.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published hardness and greedy-failure results concern steady-state or different objectives and do not entail the growth-dependent two-step constant."
+        ],
+        "reasoning": "A stronger universal approximation bound could cover a narrower constant, but the cited generic counterexamples lack this exact 2-by-2 cumulative objective.",
+        "searches": [
+          "Kalman greedy sensor scheduling approximation ratio two stages noiseless",
+          "Ye Woodford Roy Sundaram arxiv:2003.11951"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2304.02692",
+        "Resultary scientific semantic search: two-step Kalman greedy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2304.02692 uses general positive-measurement-noise objective; exact ratio requires comparing all four boundary schedules and a limiting sharpness family."
+        ],
+        "reasoning": "General mixed-integer optimization supplies a way to compute small schedules but does not by itself state or evaluate the ratio supremum.",
+        "searches": [
+          "Dutta Wilde Smith A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering 2023",
+          "greedy two-step noiseless Kalman cumulative trace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dutta–Wilde–Smith 2023 optimizes trace schedules via mixed integer programming; this claim gives four noiseless two-step schedule costs and the exact worst ratio."
+        ],
+        "reasoning": "The diagonal/noiseless boundary is a specialization of Kalman covariance recurrences, not identical to general scheduling methods. No inspected source explicitly gives the ratio.",
+        "searches": [
+          "Resultary: two time horizon diagonal exact coordinate observation Kalman greedy trace approximation factor 1 plus squared dynamics",
+          "arxiv:2304.02692",
+          "Jawaid Smith 2015 greedy sensor scheduling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four costs follow by direct matrix propagation, not by lookup; no checked database or table of this exact fixed-A minimax parameter was located."
+        ],
+        "reasoning": "The exact small-instance table is independently derived; failed search does not establish novelty, so implicit enumeration remains risk.",
+        "searches": [
+          "exact two horizon Kalman sensor scheduling four choices greedy approximation factor",
+          "Resultary semantic query two time horizon diagonal Kalman"
+        ]
+      },
+      "rationale": "General finite-horizon Kalman scheduling and greedy nonoptimality are established. The precise four-schedule and sharp two-time boundary is narrower than published general mixed-integer scheduling or longer-horizon hardness. Primary Dutta et al. has positive measurement-noise formulation and does not state the exact noiseless sharp ratio in the inspected methods/results. A special-case corollary of generic greedy results elsewhere is possible.",
+      "residual_risks": [
+        "Exact 2x2 noiseless result might have been implicit in an earlier greedy-scheduling example or generic approximation theorem.",
+        "Does not imply the same factor under nonzero noise, correlated dynamics, or longer horizons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS sensor scheduling with noisy observation and general exact combinatorial approach, not directly this noiseless 2-step sharp loss ratio in inspected text",
+          "evidence": [
+            "arxiv:2304.02692, problem formulation and mixed-integer optimization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.02692",
+          "material_read": "Available primary PDF: inspected problem formulation and early methods, including page 3 (zero-index screenshot 2); not every appendix",
+          "method": "Read paper PDF text and rendered relevant page",
+          "title": "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering",
+          "trigger": "Most relevant general finite-horizon sensor-scheduling primary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the minimal two-state, two-time instance permitting greedy regret, and supplies an exact, stability-dependent approximation ratio and tight witness rather than an arbitrary small simulation. It separates stable factor <=2 from dynamics-uniform unboundedness and explains why positive-noise counterexamples persist by continuity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen SCOPE-Science/SCOPE2026 at fcc247c8b7eb30c50d03abc79e1b79aab81f6226: 2026/11/02/sharp-two-step-greedy-guarantee-for-noiseless-kalman-sensor-sche--721e7e00a960/RESULT.md, Git blob b337719b34e0c55f1a911de0e932a176ef5a52e9",
+    "Assigned source tree SHA 8873bb5f6a008045fefdb18401fef064e129152b (dispatcher identity, not independently reconstructed full Git tree)",
+    "Independent verifier: 2500 rational parameter draws recomputed all four costs, formula, inequality, and 360 strict-regret cases",
+    "https://arxiv.org/abs/2304.02692"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two diagonal Gaussian states, two noiseless coordinate measurements and cumulative posterior trace, the exact greedy-to-optimal worst-case ratio at fixed diagonal dynamics A is 1+max_i a_i^2, with exact four-schedule costs and strict-regret criterion.",
+  "limitations": [
+    "Finite computer checks independently corroborate portions of the proof and do not imply the unrestricted theorem.",
+    "No claim of complete historical-priority certification.",
+    "Publication not ready: public metadata confidentiality not verified or fully sanitized.",
+    "Exact 2x2 noiseless result might have been implicit in an earlier greedy-scheduling example or generic approximation theorem.",
+    "Does not imply the same factor under nonzero noise, correlated dynamics, or longer horizons."
+  ],
+  "residual_risks": [
+    "Exact 2x2 noiseless result might have been implicit in an earlier greedy-scheduling example or generic approximation theorem.",
+    "Does not imply the same factor under nonzero noise, correlated dynamics, or longer horizons."
+  ],
+  "schema_version": 1
+}

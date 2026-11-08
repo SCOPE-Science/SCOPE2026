@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four possible two-time schedules are exhaustively tabulated from independent diagonal covariance propagation and exact coordinate-observation updates. The domination of schedule \(22\) when \(p_1\ge p_2\) is algebraic, giving the exact optimum; the one-step greedy policy follows by direct minimization at each time. The global ratio upper bound and a strictly positive-variance family attaining its supremum are both proved, with a separate zero-dynamics case. The verifier independently checks 20,000 rational examples and several sharpness instances. Risks: incorrect convention for pre/post-measurement covariance would change the statement; these conventions are explicitly fixed. No finite test is taken as a proof.
+PASS
 
-## Originality
+Direct posterior covariance propagation gives J11=(1+a2^2)p2+q2, J12=p2+q1, J21=p1+q2, J22=(1+a1^2)p1+q1. For p1>=p2, greedy G=min(J11,J12) and O=min(G,J21) because J22>=J12. Comparing them gives strict regret iff p1-p2<min(q1-q2,a2^2 p2). If greedy is suboptimal, G/O<=(1+a2^2)p2+q2 over p1+q2 <=1+a2^2, with analogous relabeling. p1=1+delta,p2=1,q1=R+2,q2=delta attains limit 1+R as delta down to zero, R=max a_i^2>0. Independently regenerated 2500 rational schedule tables and exact greedy/optimum expressions, including 360 strict-regret samples. The boundary R=0 gives ratio one; positive process noise means supremum may not be attained.
 
-**PASS, with residual priority risk.** Direct searches on two-step myopic Kalman scheduling, perfect coordinate observations, growth-dependent approximation ratios, and relevant research records found no equivalent explicit \(1+\max\{a_1^2,a_2^2\}\) guarantee or the exact two-time failure criterion. Dutta, Wilde and Smith (2023) solve general finite scheduling instances computationally rather than establish this analytical supremum. Jawaid and Smith (2015) treat terminal covariance and submodularity. Ye and collaborators (2020) show arbitrarily poor greedy steady-state design-time sensor selection; that stronger *negative* statement in a different model does not imply the sharp bound within diagonal two-step scheduling. Han and collaborators (2016) concern infinite-horizon remote scheduling. Risks: classical dynamic programming or adjacent age-based sensing work may contain an equivalent two-time formula; novelty is not certified independently.
+## originality
 
-## Value
+PASS
 
-**PASS.** Sensor scheduling is motivated by strict communication budgets and the widespread use of myopic trace minimization. The finding supplies a sharp quantitative approximation guarantee for the smallest genuinely dynamic problem, identifies exactly when lookahead is beneficial, separates contractive and expansive dynamics, and gives a minimal-dimension and minimal-horizon witness. Its stable-system factor is a natural global performance fact, not simply a computed instance or an arbitrary parameter slice. It may inform analysis of finite-horizon approximations even though it makes no claim about longer horizons.
+General finite-horizon Kalman scheduling and greedy nonoptimality are established. The precise four-schedule and sharp two-time boundary is narrower than published general mixed-integer scheduling or longer-horizon hardness. Primary Dutta et al. has positive measurement-noise formulation and does not state the exact noiseless sharp ratio in the inspected methods/results. A special-case corollary of generic greedy results elsewhere is possible.
 
-## Closest literature and scientific limits
+## value
 
-The 2023 mixed-integer formulation is the closest finite-horizon trace-scheduling benchmark. The 2015 sensor-scheduling submodularity paper addresses related greedy guarantees but a different terminal objective; the 2020 hardness paper has a different static/steady-state domain, and the 2016 independent-process scheduling paper is infinite horizon. Exact-observation and diagonal-independence assumptions are essential to the proof; a small positive observation-noise perturbation preserves strict examples, not the universal bound.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the minimal two-state, two-time instance permitting greedy regret, and supplies an exact, stability-dependent approximation ratio and tight witness rather than an arbitrary small simulation. It separates stable factor <=2 from dynamics-uniform unboundedness and explains why positive-noise counterexamples persist by continuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
