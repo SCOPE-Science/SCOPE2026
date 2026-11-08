@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:54:06.534100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a three-factor Hamming graph with a,b,c≥2, independently read RESULT.md and full actual Git tree (8 blobs). The known Theorem 6 of arXiv:2307.05168 equates total mutual visibility with pairwise avoidance of Hamming distance 2. A maximal set of size k<m=min(a,b,c) misses a symbol in every coordinate, allowing an all-three-different vertex, proving k≥m. A coordinate line along a minimum axis is maximal, proving equality. For a minimum set, at least one projection is bijective, since any three omitted symbols would give an extendible vertex; hence its two remaining coordinate equality partitions coincide (otherwise two selected triples are distance 2). A singleton partition block permits replacing one nonaxis symbol with an unused symbol, yielding a legal new vertex, unless both other projections are surjective; then r=m and a=b=c=m with all singleton blocks, giving the full transversals. If all blocks have sizes≥2, each omitted triple is conflict-adjacent either to its matching-index selected triple (two nonaxis changes) or to a different index in the same block (one nonaxis change), so the families are exactly maximal. Full transversals are similarly maximal by switching to the index matching the mismatched coordinate. Injections of r unordered partition blocks into the two remaining alphabets give S_{≥2}(m,r)(q_j)_{↓r}(q_k)_{↓r}; the chosen minimum-size axis is unique for nonsingletons because r≤m/2<m; exceptional equal-factor transversals have (m!)² representatives. Independent direct exact subset conflict-graph enumeration confirms (2,2,2):16,(2,2,3):12,(2,3,4):12,(3,3,3):63,(3,3,4):24,(4,4,4):1920,(4,4,5):1480, and independently checked all 256 vertex subsets of Q3 using original geodesic definition against the distance-two criterion. These are corroborations, while the partition proof is universal. Boundary m=2 and all equal/non-equal factors are covered; no claim for higher factor count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bujtás–Klavžar–Tian Theorem 1 computes MAXIMUM total mutual-visibility size for 3 factors, not MINIMUM size among inclusion-maximal sets.",
+          "Brešar–Yero Proposition 17 gives lower total mutual-visibility number min(m,n) for 2 factors of orders ≥3, not the 3-factor optimizer count.",
+          "Bujtás–Klavžar–Tian (2024) Proposition 3.5 expresses a general visibility polynomial using the maximal sets themselves; it does not provide those sets or their number in Hamming dimension 3.",
+          "2026 Builder–Blocker paper treats a game and in its Hamming discussion the two-factor mutual-visibility problem, not the claimed invariant."
+        ],
+        "reasoning": "Published maximum, two-factor lower, arbitrary-graph polynomial identities and game values concern different quantifiers or objects; none of their inspected implications evaluates or enumerates all size-minimal maximal total sets in a 3-factor Hamming graph. They do supply the prerequisite definitions and legality criterion.",
+        "searches": [
+          "Resultary semantic search: lower total mutual visibility Hamming graph product of three complete graphs minimum maximal set number enumeration",
+          "Resultary semantic search: total mutual visibility Hamming graphs distance-two forbidden pair minimal cardinality count",
+          "https://arxiv.org/pdf/2307.05168",
+          "https://rodin.uca.es/bitstream/handle/10498/31409/OA_2023_0386.pdf?isAllowed=y&sequence=1",
+          "https://arxiv.org/pdf/2412.03066",
+          "web: Builder-Blocker Mutual-Visibility Game Hamming two-factor 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2307.05168",
+        "https://rodin.uca.es/bitstream/handle/10498/31409/OA_2023_0386.pdf?isAllowed=y&sequence=1",
+        "https://arxiv.org/pdf/2412.03066",
+        "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a/RESULT.md",
+        "https://www.opuscula.agh.edu.pl/om-vol45iss1art5",
+        "https://link.springer.com/article/10.1007/s40840-026-02083-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 in arXiv:2307.05168 gives pairwise Hamming-distance-2 avoidance but no minimum dominating/partition enumeration.",
+          "Proposition 17 of Brešar–Yero is a two-factor cardinality result, not a 3-factor result.",
+          "The new proof needs a surjective minimum-sized axis, common partitions in other projections, a singleton exclusion, and independent labels of no-singleton blocks, yielding N(a,b,c) with an equal-factor all-transversal correction."
+        ],
+        "reasoning": "Existing structural criterion and two-factor minimum do not imply the all-three-factor optimizer classification/count by substitution; a fresh structural domination argument is required. The submission does not claim the reused geodesic equivalence or previous two-factor number as novel.",
+        "searches": [
+          "https://arxiv.org/pdf/2307.05168",
+          "https://rodin.uca.es/bitstream/handle/10498/31409/OA_2023_0386.pdf?isAllowed=y&sequence=1",
+          "https://arxiv.org/pdf/2412.03066",
+          "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a",
+          "Resultary semantic search: lower total mutual visibility Hamming graph product of three complete graphs minimum maximal set number enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bujtás–Klavžar–Tian (2023/2025), Theorem 6: total mutual visibility iff no selected pair is at Hamming distance 2.",
+          "Every inclusion-maximal distance-two-independent set is a dominating independent set of the distance-two conflict graph.",
+          "The three-factor RESULT.md proves minimum cardinality min(a,b,c) and enumerates all its independent dominating sets."
+        ],
+        "reasoning": "The equivalence to independent domination is prior mathematical language. A generic equivalence does not classify or count minimum independent dominating sets, which require the surjective-axis/common-equality-partition argument. No direct distance-two independence-dominating formula was found.",
+        "searches": [
+          "Resultary semantic search: minimum maximal independent dominating sets Hamming distance-two graph K_a Cartesian K_b Cartesian K_c exact classification partition nonsingleton blocks full transversal count",
+          "Resultary semantic search: lower total mutual visibility Hamming graph product of three complete graphs minimum maximal set number enumeration",
+          "https://arxiv.org/pdf/2307.05168",
+          "independent domination number of distance-two Hamming graph",
+          "web: independent domination Hamming graph distance 2 K_a square K_b square K_c maximal independent sets minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/9/30 exact low-distance mutual visibility in hypercubes concerns maximum k-distance pair-visibility with k=2,3, not distance-two-conflict independent domination.",
+          "Resultary 2026/9/19 connected mutual visibility Cartesian high-girth requires connected chosen sets and two high-girth factors, not complete-factor total visibility.",
+          "Independent brute-force enumerations give numbers 16,12,12,63,24,1920,1480 for (2,2,2),(2,2,3),(2,3,4),(3,3,3),(3,3,4),(4,4,4),(4,4,5) respectively; no retrieved prior table supplying their all-parameter restricted-Stirling enumerator."
+        ],
+        "reasoning": "The retrieved tables are for different parameters and no direct three-factor count was identified. Search failure alone cannot exclude an unindexed or older combinatorial classification; this is retained as priority risk.",
+        "searches": [
+          "Resultary semantic search: minimum maximal independent dominating sets Hamming distance-two graph K_a Cartesian K_b Cartesian K_c exact classification partition nonsingleton blocks full transversal count",
+          "Resultary semantic search: lower total mutual visibility Hamming graph product of three complete graphs minimum maximal set number enumeration",
+          "Resultary semantic search: total mutual visibility Hamming graphs distance-two forbidden pair minimal cardinality count",
+          "web: lower total mutual visibility Hamming graphs exact minimal maximal sets number enumeration partitions 2024 2025",
+          "web: independent domination Hamming graph distance 2 K_a square K_b square K_c maximal independent sets minimum",
+          "web: lower total mutual-visibility number Hamming graph K2 K3 product 2024 2025 2026",
+          "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a"
+        ]
+      },
+      "rationale": "The specific lower-total three-factor theorem (all cardinality-minimum inclusion-maximal families and their restricted-Stirling multiplicity) is not contained in the inspected foundational lower-parameter paper or the exact Hamming legality/maximum paper. These establish the notion, the two-factor lower cardinality, and the distance-two characterization; these ingredients are credited as old. A 2024 visibility-polynomial paper gives general inclusion-exclusion over maximal sets but not a three-factor minimum-maximal-set classification from which the numerical answer follows without proving the missing structural lemma. Published Resultary closest findings study k-distance mutual visibility of hypercube selected pairs and connected mutual visibility of high-girth products, neither of which is the total/minimum/maximal invariant here. Direct and stronger coverage was not found in the scoped searches; absence from retrieval alone is not novelty proof. Residual risks: other coding-theory treatments of minimum saturating independent sets in Hamming distance-two graphs or a not-indexed partition-classification preprint.",
+      "residual_risks": [
+        "Older coding-theory or association-scheme literature may give the independent domination number and minimum maximal-set count of the distance-two Hamming conflict graph under different terminology.",
+        "Very recent/unindexed results may duplicate the minimum-family partition enumeration; search absence is not a proof of first publication.",
+        "The 2-factor lower cardinality and the Hamming distance-two legality lemma are established prior art; neither should be marketed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact distance-two criterion and maximum-size values, not minimum inclusion-maximal class or enumerator.",
+          "evidence": [
+            "Theorem 6 iff condition on forbidden distance 2 (arXiv v2 PDF p.5).",
+            "Theorem 1 is μ_t maximum size N−4/N−5/N−6 in 3 factors (pp.3–4)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.05168",
+          "material_read": "17-page arXiv v2 PDF: introduction and Theorems 1–3, section 2 Theorem 6 and proof, adjacent equivalent clique formulation, sections described in abstract; queried full article text for lower/maximal terminology.",
+          "method": "Opened full primary arXiv PDF, searched actual parsed pages, inspected Theorem 6 visual page 5.",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "Same Hamming objects and same total visibility predicate; decisive possible covering result."
+        },
+        {
+          "assessment": "Earlier two-factor lower total formula applies to K_m□K_n for m,n≥3 only, with no three-factor family count.",
+          "evidence": [
+            "Proposition 17, PDF p.10: μ_t^−(K_m□K_n)=min(m,n) for m,n≥3.",
+            "Paper introduction explicitly equates minimum maximal independent sets with independent domination number, and defines lower total visibility."
+          ],
+          "identifier_or_url": "https://rodin.uca.es/bitstream/handle/10498/31409/OA_2023_0386.pdf?isAllowed=y&sequence=1",
+          "material_read": "11-page author lawful-OA PDF: title/definitions, introduction and lower-invariant context, product results and concluding section with Proposition 17; searched complete parsed PDF for products/lower.",
+          "method": "Opened university full PDF and visually inspected first page and last section page 10, read Proposition 17.",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "Introduces the precise lower invariant and complete graph Cartesian products."
+        },
+        {
+          "assessment": "General formula takes the list of maximal visibility sets as an input and does not compute the minimum Hamming-3-factor maximal sets. Universal total-visibility criterion is more general than Hamming characterization, not stronger enough to imply count directly.",
+          "evidence": [
+            "Proposition 3.5 inclusion-exclusion from given maximal sets.",
+            "Theorem 5.2 tests total visibility via distance-2 common neighbors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.03066",
+          "material_read": "19-page arXiv v1 PDF: introduction, Proposition 3.5 in section 3, sections 4–5 including Theorem 5.2, plus keyword searches for maximal/Hamming.",
+          "method": "Opened lawful arXiv full PDF and screenshot of title page; inspected relevant propositions and context.",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Recent same-authors paper on maximal sets, count polynomials, and universal total-visibility criterion."
+        },
+        {
+          "assessment": "Maximum k-distance visibility of pairs, not minimum size among maximal TOTAL sets, hence not implication.",
+          "evidence": [
+            "Finding μ_2(Q_n)=n+1, μ_3(Q_n)=2n−1 for n≥5 with small exceptions; selected-pair geodesic property, not all-vertex total property."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0/RESULT.md",
+          "material_read": "Entire public RESULT.md theorem, proof, assumptions, limits and references.",
+          "method": "Read frozen GitHub public published Resultary file.",
+          "title": "Exact 2- and 3-distance mutual visibility in hypercubes",
+          "trigger": "Nearest published Resultary visibility finding for Hamming objects."
+        },
+        {
+          "assessment": "Connected selected-set variant under high-girth hypotheses, maximum corners, not 3-factor complete total visibility and minimum maximal cardinality.",
+          "evidence": [
+            "Finding μ_c(G□H)=3 for connected factors of girth≥5 with 4|E(G)||E(H)| maximum sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a/RESULT.md",
+          "material_read": "Entire public RESULT.md theorem, proof, limits and references.",
+          "method": "Read frozen GitHub public published Resultary file.",
+          "title": "Connected mutual-visibility in Cartesian products of high-girth graphs",
+          "trigger": "Nearest Resultary Cartesian-product visibility finding."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The lower total mutual-visibility number is an established natural worst-case greedy/maximal-set graph invariant. Complete classification of every minimum optimizer for the first nontrivial three-factor family, plus its exact multiplicity as a restricted-Stirling/falling-factorial sum and a distinct all-bijective exceptional class, is a structural fact that a researcher studying domination or visibility on Hamming graphs can use directly. It is neither a trivial change of name from the known Hamming legality criterion nor a table recomputation: the coincidence of nonaxis partitions and singleton-block obstruction are substantive deductions. The full three-parameter infinite family and its exceptional symmetry are mathematically motivated, while larger Cartesian powers and all maximal sets remain outside scope.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2307.05168",
+    "https://rodin.uca.es/bitstream/handle/10498/31409/OA_2023_0386.pdf?isAllowed=y&sequence=1",
+    "https://arxiv.org/pdf/2412.03066",
+    "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a/RESULT.md",
+    "https://www.opuscula.agh.edu.pl/om-vol45iss1art5",
+    "https://link.springer.com/article/10.1007/s40840-026-02083-9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All graph parameters are integers a,b,c≥2; no k≥4 factor-product result; only cardinality-minimal inclusion-maximal total sets, not every maximal set.",
+    "No formal proof assistant or independent expert attestation; local exact brute force checks do not prove infinite claims.",
+    "The known Hamming graph Theorem 6 and two-factor lower results are prerequisites, not original results.",
+    "Best-of-knowledge literature assessment; no exhaustive global novelty certification."
+  ],
+  "residual_risks": [
+    "Older coding-theory or association-scheme literature may give the independent domination number and minimum maximal-set count of the distance-two Hamming conflict graph under different terminology.",
+    "Very recent/unindexed results may duplicate the minimum-family partition enumeration; search absence is not a proof of first publication.",
+    "The 2-factor lower cardinality and the Hamming distance-two legality lemma are established prior art; neither should be marketed as new."
+  ],
+  "schema_version": 1
+}
