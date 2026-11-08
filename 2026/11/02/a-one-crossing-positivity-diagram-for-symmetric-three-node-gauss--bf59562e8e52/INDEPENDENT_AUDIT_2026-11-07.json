@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:58:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nodes (-a,0,a), 0<a<=1, Lebesgue [-1,1] and exact unaugmented Gaussian kernel k=e^{-ε²(x−y)²}, the 3×3 kernel solve yields endpoint u=(B−qC)/(1−q²)²>0 and center v=[C(1+q⁴)−2qB]/(1−q²)². An integral S_a(t)=∫_0^1 e^{-tx²}(cosh(2ta²)−cosh(2tax))dx has the same sign as v. Its positive [0,a] and negative [a,1] portions satisfy a strict ratio monotonicity: H_t(s)=s coth(ts) obeys 0<H′<1, yielding positive pairwise derivative for 0<x<a<y<1. Small-t S_a(t)/t²→2a²(a²−1/3); large-t v>0, proving unique crossing for a<1/√3 and all-positive otherwise, including equality. Polynomial (1−x²/a²)² witnesses negative quadrature when v<0. Independently solved the linear system/integrals for 25 (a,t) cases and recovered ε*(1/2)=1.07860960325714381286869398262.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior gives at least half of weights positive for one-dimensional totally-positive kernels, and all positive for specific optimal nodes or oversampling."
+        ],
+        "reasoning": "Neither dominated hypothesis covers the arbitrary symmetric triple and exact critical a=1/√3 or unique ε threshold; positivity can fail at non-optimal centers.",
+        "searches": [
+          "Karvonen–Kanagawa–Särkkä full open Springer, positivity theorem",
+          "Glaubitz–Reeger arXiv:2301.12998v1 §5 least squares"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2301.12998v1",
+        "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "Resultary semantic search: Gaussian radial basis kernel quadrature symmetric three nodes positivity central weight shape parameter sign crossing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moment formulas immediately give a 3×3 linear solve, but the sign of its middle weight over all (a,ε) still needs a global one-crossing proof."
+        ],
+        "reasoning": "Neither prior positive-weights theorem implies the classification for arbitrary symmetric nodes; the monotone-integral-ratio proof supplies the missing universal step. Best-of-knowledge PASS with residual specialized-history risk.",
+        "searches": [
+          "Glaubitz–Reeger 2023 §5 and Appendix A",
+          "Karvonen–Kanagawa–Särkkä 2019 positivity results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian interpolation quadrature and Bayesian kernel quadrature share K^{-1} integrated-kernel weights."
+        ],
+        "reasoning": "Despite the equivalent weight definition, published results of positive weights for locally optimal nodes are not statements about all predetermined symmetric node locations.",
+        "searches": [
+          "Karvonen et al. positivity of Bayesian quadrature weights 2019",
+          "Glaubitz–Reeger 2023 Appendix Gaussian moments",
+          "Resultary query Gaussian RBF quadrature symmetric 3 nodes positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Gaussian integral/error-function formula determines B,C, but no matching shape-parameter sign table was found."
+        ],
+        "reasoning": "The numerical example ε*≈1.0786 alone would be too narrow; the valuable novelty is the entire parameter sign diagram proved analytically.",
+        "searches": [
+          "Resultary semantic query three-node Gaussian quadrature center sign threshold",
+          "Glaubitz–Reeger numerical experiments and Gaussian moments"
+        ]
+      },
+      "rationale": "Compared statements and implications against the actual primary-source sections listed below, Resultary semantic retrieval and targeted literature searches. A sampled non-match alone is not proof of novelty; prior general frameworks/derivability are credited with material-specific residual risks.",
+      "residual_risks": [
+        "Older RBF stability papers discuss positivity under additional conditions; a hard-to-find fixed-3-node calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies large-point stability, compact supports, oversampled least squares; Gaussian moment eq (31) matches B,C integration but no fixed three-node one-crossing classification in inspected sections",
+          "evidence": "arXiv:2301.12998v1 Appendix A.1.1 eqs (31)–(32), Corollary 12 in §5.",
+          "identifier_or_url": "https://arxiv.org/html/2301.12998v1",
+          "material_read": "Full indexed arXiv paper §§1–3 and §5, appendix A.1.1 Gaussian moment formula; inspected stability/least-squares propositions",
+          "method": "Primary full-text HTML and equation comparison",
+          "title": "Towards stability results for global radial basis function based quadrature formulas (Glaubitz–Reeger)",
+          "trigger": "Same exact RBF quadrature with Gaussian kernel and positivity questions"
+        },
+        {
+          "assessment": "All weights positive for local posterior-variance optimal nodes and at least half positive under total positivity, but neither hypothesis fixes symmetric (-a,0,a) arbitrary locations nor the one-crossing central sign.",
+          "evidence": "2019 Springer theorem on local design optimality, one-dimensional total positivity.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+          "material_read": "Full open-access Springer HTML, abstract and §§3–4 positivity theorems and assumptions; univariate totally-positive case",
+          "method": "Primary open-access full-text theorem reading",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights (Karvonen–Kanagawa–Särkkä)",
+          "trigger": "Gaussian-kernel positivity theorem for a one-dimensional quadrature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold a=1/√3 and unique shape-parameter sign transition give a sharp, naturally motivated positive-weight frontier for the simplest nontrivial unaugmented Gaussian kernel quadrature. Negative weights destroy positivity preservation despite exact kernel integration; this explicit design criterion is valuable beyond an isolated root calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric three centers, bounded Lebesgue interval, unaugmented Gaussian. No claim of general symmetric/asymmetric quadrature or error-optimal nodes.",
+    "Older RBF stability papers discuss positivity under additional conditions; a hard-to-find fixed-3-node calculation remains possible.",
+    "Operational provenance sanitization blocks publication, not science.",
+    "Best-of-knowledge originality is not proof of global priority or independent external certification."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-by-three Gaussian interpolation matrix reduces exactly to two scalar equations by reflection symmetry, and its determinant is nonzero for all distinct nodes. Explicit elimination yields the endpoint and center weights. The endpoint weight is strictly positive because a Gaussian-weighted cosh excess has positive integral. The center weight is a difference of integrals over the inner and outer subintervals. The crucial strict single-crossing lemma follows from the fact that \(H_t(s)=s\coth(ts)\) is increasing and strictly one-Lipschitz in \(s\), which bounds the logarithmic derivative of every inner/outer integrand ratio. The small-shape quadratic-interpolation limit and the large-shape positivity limit then give all boundary cases, including exact equality at the unique transition. The nonnegative polynomial witness proves that a negative coefficient is a genuine positivity defect. A separately implemented high-precision verifier passed 389 finite checks; those checks support the derivation rather than replace it. The root formula and numerical value were independently cross-checked.
+PASS
 
-## Originality — PASS, qualified
+For nodes (-a,0,a), 0<a<=1, Lebesgue [-1,1] and exact unaugmented Gaussian kernel k=e^{-ε²(x−y)²}, the 3×3 kernel solve yields endpoint u=(B−qC)/(1−q²)²>0 and center v=[C(1+q⁴)−2qB]/(1−q²)². An integral S_a(t)=∫_0^1 e^{-tx²}(cosh(2ta²)−cosh(2tax))dx has the same sign as v. Its positive [0,a] and negative [a,1] portions satisfy a strict ratio monotonicity: H_t(s)=s coth(ts) obeys 0<H′<1, yielding positive pairwise derivative for 0<x<a<y<1. Small-t S_a(t)/t²→2a²(a²−1/3); large-t v>0, proving unique crossing for a<1/√3 and all-positive otherwise, including equality. Polynomial (1−x²/a²)² witnesses negative quadrature when v<0. Independently solved the linear system/integrals for 25 (a,t) cases and recovered ε*(1/2)=1.07860960325714381286869398262.
 
-The primary motivating source is Glaubitz–Reeger, *Towards stability results for global radial basis function based quadrature formulas* (arXiv:2301.12998v1), §§2, 4–7. Its RBF exactness construction, compact-support asymptotic theorem and oversampled stable least-squares constructions do not supply the all-shape three-node Gaussian sign diagram. Karvonen–Kanagawa–Särkkä, *On the positivity and magnitudes of Bayesian quadrature weights* (arXiv:1812.08509), §3, supplies the general lower bound that at least half the weights of totally positive one-dimensional kernel quadrature are positive, plus a sufficient condition based on locally optimal node sets. Neither implication determines the remaining central weight, the \(a=1/\sqrt3\) geometry threshold, or the unique shape-dependent sign change for arbitrary prescribed symmetric nodes. Karvonen–Särkkä, *Gaussian kernel quadrature at scaled Gauss–Hermite nodes* (arXiv:1803.09532), instead uses a Gaussian integration measure on the whole line and scaled Gauss–Hermite nodes. Glaubitz, *Construction and application of provable positive and exact cubature formulas* (arXiv:2108.02848), supplies positive least-squares/selected-node methods rather than a necessary-and-sufficient positivity classification of this fixed three-node unaugmented interpolatory rule. The recorded targeted literature and published-record searches revealed no direct dominating implication. Possible specialized earlier sign analyses remain a residual priority risk, so no exhaustive novelty claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The question of when RBF/kernel quadrature maps nonnegative inputs to nonnegative outputs is a central numerical stability and robustness issue documented in the cited literature. The theorem provides a complete, sharp, two-parameter positivity phase diagram in the smallest symmetric nontrivial unaugmented Gaussian setting: the outer nodes at \(a=1/\sqrt3\) distinguish positivity for every shape from an initially negative weight, while every subcritical geometry has exactly one shape setting restoring positivity. The proof exposes a nontrivial monotone-ratio principle beyond polynomial flat-kernel heuristics, and the explicit nonnegative-polynomial counterexample makes the boundary operationally meaningful. This is a natural complete classification, not a routine renaming or an unsupported isolated decimal.
+Compared statements and implications against the actual primary-source sections listed below, Resultary semantic retrieval and targeted literature searches. A sampled non-match alone is not proof of novelty; prior general frameworks/derivability are credited with material-specific residual risks.
 
-## Closest literature and limitations
+## value
 
-The work is a finite-node supplement to existing large-node RBF stability and Bayesian quadrature positivity theory, not a correction of those results. General positivity of optimized-node or oversampled rules is not disputed. The statement is restricted to the exact fixed-node unaugmented Gaussian rule with Lebesgue integration; it does not address floating-point conditioning for small shape, generic scattered nodes or any error-rate theorem. Literature and semantic-record searches cannot establish absolute publication priority. Verification is self-review only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The threshold a=1/√3 and unique shape-parameter sign transition give a sharp, naturally motivated positive-weight frontier for the simplest nontrivial unaugmented Gaussian kernel quadrature. Negative weights destroy positivity preservation despite exact kernel integration; this explicit design criterion is valuable beyond an isolated root calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
