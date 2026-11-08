@@ -1,0 +1,180 @@
+{
+  "correctness": {
+    "rationale": "The exact laws follow by maximality/private leaves and independent priority-triple/last-job events, with all boundary cases \\(m\\ge1\\) identified. The standalone stdlib-only verify.py uses inductively exhaustive leaf-extension generation with a canonical center encoding, exact rational recurrences, and both bipartition orientations. On 1974 orientations through 12 vertices none has edge advantage; among 2602 thirteen-vertex orientations exactly one, the four-arm spider, has edge-minus-vertex expected size 1/6480. The checker ran successfully from its actual package path; analytic formulas were compared with independent finite DP cases up to \\(m=6\\), and tree isomorphism counts were independently compared with a second generator. Finite checks prove only the finite cutoff; arbitrary m is proved analytically. Direct priority-permutation enumeration independently checks all 9! edge orders at three arms and all 46,080 job/local-neighbor priority profiles at four arms.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arnosti Theorem 1 gives a stochastic dominance statement after averaging random job neighborhoods, not for every fixed tree.",
+        "Arnosti §1.4 reports asymptotic mean comparisons averaged over random labeled trees in Dyer–Frieze–Pittel (1993).",
+        "Dyer–Frieze (1991) analyzes edge-ordered greedy matching on fixed graphs, without a claimed two-algorithm tree comparison in the accessible abstract."
+      ],
+      "reasoning": "Neither an expected inequality averaged over tree shapes nor a worst-case approximation guarantee yields pointwise dominance on all small trees. The witness reverses the averaged direction on a specific input, so it is not a corollary of the averaging theorem. Full coverage by the uninspected 1993 full text remains a specific historical risk.",
+      "searches": [
+        "https://doi.org/10.1287/stsy.2021.0082 (Theorem 1; §1.4)",
+        "random vertex random edge greedy matching on trees forests tree graph counterexample",
+        "Dyer Frieze Pittel 1993 On the average performance of the greedy matching algorithm for finding a matching in a graph",
+        "https://doi.org/10.1145/3614318 (random decision order randomized greedy matching)"
+      ]
+    },
+    "checked_sources": [
+      {
+        "scope": "full accessible primary PDF relevant sections",
+        "title": "Arnosti (2021/2022)",
+        "url": "https://doi.org/10.1287/stsy.2021.0082"
+      },
+      {
+        "scope": "abstract only",
+        "title": "Dyer–Frieze (1991)",
+        "url": "https://doi.org/10.1002/rsa.3240020104"
+      },
+      {
+        "scope": "metadata and secondary citation only",
+        "title": "Dyer–Frieze–Pittel (1993)",
+        "url": "https://doi.org/10.1214/aoap/1177005436"
+      },
+      {
+        "scope": "abstract only",
+        "title": "Aronson et al. (1995)",
+        "url": "https://doi.org/10.1002/rsa.3240060107"
+      },
+      {
+        "scope": "abstract and accessible selected text",
+        "title": "Tang–Wu–Zhang (2023)",
+        "url": "https://doi.org/10.1145/3614318"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arnosti random-vertex samples jobs from one designated bipartition class; Aronson et al. (1995) describe selecting a vertex of a general graph, so the randomization conventions differ.",
+        "Theorem 1 in Arnosti averages over fixed-degree-sequence random bipartite graphs, while the new statement is deterministic-graph specific.",
+        "The exact spider laws show strict first-order stochastic dominance by random-edge when the arm count is at least four, an effect not established by those compared statements."
+      ],
+      "reasoning": "A result on a broader graph universe need not cover a different sampling law or a restricted exceptional minimum. The fixed-graph reversal in Arnosti does cover reversal as a general phenomenon; novelty is explicitly restricted to sharp tree minimum/uniqueness and infinite three-arm mechanism, not to the first existence of any reversal.",
+      "searches": [
+        "Arnosti Greedy Matching Bipartite Random Graphs 2021 deterministic examples RANDOM-VERTEX worse better RANDOM-EDGE graph",
+        "random vertex versus random edge matching trees counterexamples path length 3 arms",
+        "https://doi.org/10.1287/stsy.2021.0082 (Definition 1, Theorem 1, Figure 1, §1.4)",
+        "https://doi.org/10.1002/rsa.3240060107 (publisher abstract)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arnosti Figure 1(b) presents an eight-vertex fixed bipartite counterexample containing cycles; its number of vertices and the fact of a reversal do not certify a tree threshold.",
+        "The new claim fixes a designated job class in a connected tree and provides exact output laws and the unique first tree exception.",
+        "No ranked public mathematical-record result among the examined closest titles asserted the two-point spider formula."
+      ],
+      "reasoning": "Equivalence would require a fixed-tree assertion for both job-side orientations, the 13-vertex minimum or the law with failure probabilities \\(3^{-m}\\) and \\(1/((m+1)2^m)\\). The explicit cyclic fixed-graph reversal is not equivalent; the averaged random-graph theorem has a different quantifier over graphs. Search failure is only limited evidence, not a priority certificate.",
+      "searches": [
+        "two random greedy bipartite matching algorithms RANDOM-EDGE RANDOM-VERTEX on a fixed tree; 13-vertex subdivided four-star first reversal expected matching size",
+        "edge order versus vertex order greedy matching expectation: 3-subdivided star 1/3^m vs 1/((m+1)2^m) stochastic dominance reversal",
+        "random edge random vertex randomized greedy matching tree spider first counterexample",
+        "https://doi.org/10.1287/stsy.2021.0082 (Figure 1, definitions, Theorem 1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Arnosti provides three small deterministic graph comparisons but does not tabulate all nonisomorphic trees through thirteen vertices.",
+        "The newly supplied independent-of-publisher exact checker counts 1,974 job-side orientations through twelve and 2,602 at thirteen, with only one strictly positive edge-minus-vertex difference at thirteen.",
+        "Closest retrieved public record entries concern random greedy maximal independent sets on threshold/chain graphs, matching-complex homotopy, and general matching-order bounds rather than this algorithm pair."
+      ],
+      "reasoning": "An exact graph-case witness without exhaustive tree enumeration cannot imply minimum order or uniqueness among oriented tree classes. No checked table supplied the asserted finite count; absence of hits is not evidence of universal uniqueness beyond the checked record collection.",
+      "searches": [
+        "two random greedy bipartite matching algorithms RANDOM-EDGE RANDOM-VERTEX on a fixed tree; 13-vertex subdivided four-star first reversal expected matching size",
+        "edge order versus vertex order greedy matching expectation: 3-subdivided star 1/3^m vs 1/((m+1)2^m) stochastic dominance reversal",
+        "sharp minimum tree order greedy matching algorithm reversal between random-edge and job-ordered random-vertex",
+        "https://doi.org/10.1287/stsy.2021.0082 (Figure 1)",
+        "public result index: two random greedy bipartite matching algorithms RANDOM-EDGE RANDOM-VERTEX on a fixed tree; 13-vertex subdivided four-star first reversal expected matching size"
+      ]
+    },
+    "rationale": "The claim is narrowly distinct from known random-edge/vertex comparisons: published stochastic dominance is averaged over random graph edges, and the cited fixed-graph reversal contains cycles. The new contribution is the smallest oriented tree exhibiting reversal, uniqueness at 13 vertices, and a closed two-point stochastic-order reversal on an infinite family. The most relevant full accessible article and author-version Figure 1 were inspected. Historical-priority risk remains for inaccessible older articles; absent search results are not treated as proof of universal novelty.",
+    "residual_risks": [
+      "The full text of Dyer–Frieze–Pittel (1993) was not obtained; exact fixed-tree comparisons in uninspected sections cannot be excluded.",
+      "The full texts of Dyer–Frieze (1991) and Aronson et al. (1995) were not examined, although their accessible abstracts define related but distinct problems.",
+      "Public mathematical-record and web searches cannot establish global historical uniqueness; independent priority auditing is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 is over a random edge set; Figure 1 contains fixed graph examples with cycles; the checked material does not state the present tree minimum or arm laws",
+        "evidence": [
+          "Figure 1(b): fixed 8-vertex bipartite graph, 1/4 expected unmatched under random-vertex and 8/33 under random-edge.",
+          "Theorem 1: stochastic dominance after drawing neighborhoods uniformly with prescribed degrees.",
+          "§1.4: prior asymptotic comparisons on random labeled trees."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+        "material_read": "Full journal PDF searched; abstract, introductory comparisons, Figure 1, §1.1, Theorems 1–2, §1.4 and surrounding proof discussion read; second-page figure inspected visually",
+        "method": "Open-access publisher PDF, extracted text and page-image inspection",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Primary precise definition of the two algorithms and source of fixed-graph reversal examples"
+      },
+      {
+        "assessment": "Corroborates definitions and cyclic comparison examples; same underlying work as the journal article, not independent support",
+        "evidence": [
+          "Version cover says April 2021 (not verified as first public release).",
+          "Figure 1(b) depicts cycles; jobs are one designated class."
+        ],
+        "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "material_read": "Cover, introduction, Figure 1 and §1.1 definitions; page containing Figure 1 inspected visually",
+        "method": "Author-hosted open-access preprint text and page screenshot",
+        "title": "Greedy Matching in Bipartite Random Graphs (author-hosted version)",
+        "trigger": "Verify nonadaptive job-order convention and examine figure directly in full primary preprint"
+      },
+      {
+        "assessment": "Accessible abstract gives forest approximation results for random-edge process, no direct two-process first-tree comparison; full text remains a priority risk",
+        "evidence": [
+          "1991 abstract discusses randomized selection of a feasible edge and a tight approximation bound for forests."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and bibliographic metadata; full text was not accessible",
+        "method": "Publisher metadata/abstract",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational uniform-edge process and fixed-forest approximation results"
+      },
+      {
+        "assessment": "Cannot conclude whole-document noncoverage. The described average-over-random-trees statement does not imply this fixed-tree first order, but the inaccessible full text is residual historical-priority risk",
+        "evidence": [
+          "Arnosti §1.4 describes Dyer–Frieze–Pittel comparison for random labeled trees, not fixed-tree exceptional minima."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005436",
+        "material_read": "Bibliographic metadata and Arnosti §1.4 characterization; primary full text not obtained",
+        "method": "Publisher/archive bibliographic and open-access full-text retrieval attempted; complete primary text unavailable",
+        "title": "The average performance of the greedy matching algorithm",
+        "trigger": "Historically relevant average comparisons on random labeled trees cited by Arnosti"
+      },
+      {
+        "assessment": "The publisher abstract describes repeatedly selecting a random vertex of the current graph, unlike the fixed designated job side here; cannot rule out separate relevant results in the unavailable body",
+        "evidence": [
+          "The abstract defines a graph-wide vertex selection process and claims approximation guarantees."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240060107",
+        "material_read": "Publisher abstract and metadata only",
+        "method": "Publisher abstract",
+        "title": "Randomized greedy matching. II",
+        "trigger": "Older random-vertex algorithm for graphs and trees"
+      },
+      {
+        "assessment": "Discusses randomized decision-order approximation guarantees; accessible material does not assert this exact fixed-tree threshold, with residual risk from unchecked full sections",
+        "evidence": [
+          "2023 abstract gives guarantees for random-decision-order and modified randomized greedy matching."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3614318",
+        "material_read": "Publisher full HTML result including abstract and selected text excerpts; not a full section-by-section reading",
+        "method": "Accessible publisher page",
+        "title": "Toward a Better Understanding of Randomized Greedy Matching",
+        "trigger": "More recent broad approximation comparison for randomized greedy matching"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf6fa4bf-4e59-43b2-a570-5042569f3f4a",
+  "value": {
+    "rationale": "The sharp tree threshold answers a motivated question left by averaging theorems: graph-wise dominance can fail even on highly symmetric trees. The closed pair of failure probabilities exposes a nontrivial structural mechanism and proves infinitely many strict stochastic-order reversals, rather than reporting a single numerical anomaly. The complete smallest-order and unique-exception census is a natural boundary test; its exact value and structural explanation are useful independently of a stronger classification of all trees.",
+    "status": "PASS"
+  }
+}
