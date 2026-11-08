@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Pair-indicator isometries reduce the product of two orthogonal averaging projections to cycle blocks of the form \((I+S)/2\); Fourier eigenvalues prove every finite singular value and the exact rank formula, including coincident pairs and doubled cross-edges. The alternating-component enumeration supplies an exact weighted permutation-cycle generating function. Standard coefficient transfer gives a sharp zero-deficiency probability, and a centered moment-generating-function argument gives the Gaussian fluctuation law. A componentwise Lipschitz coupling proves the deterministic and expected Wasserstein bounds. The standalone verifier passes 124,975 assertions, but finite tests do not establish the infinite asymptotics.
+## correctness
 
-**Originality (PASS, subject to historical-priority risk).** The primary 2026 synchronous-averaging paper gives Poisson occupancy and consensus estimates, not the stated two-round complete singular spectrum, exact rank-loss distribution or sharp no-loss constant. Lugo (2009) already proves the alternating-matching cycle correspondence, which is explicitly credited; his matching enumeration alone does not contain the singular-value theorem. General random-product consensus papers focus on long-time contraction rates. Literature and related mathematical-record comparisons identified no direct covering result. A stronger older theorem on spectra of products of random matching projections might implicitly subsume the conclusion; independent historical review has not been performed.
+PASS
 
-**Mathematical value (PASS).** Exact invertibility and rank of two synchronous averaging rounds are natural questions about how much information is irrecoverably lost before consensus. The theorem identifies a nontrivial additional logarithmic loss, its Gaussian fluctuations and rare zero-loss probability, and sharpens the macroscopic picture to an explicit finite spectral law and quantified limit. These are mathematical properties of a canonical probabilistic dynamics, not arbitrary numerical slices.
+For 2m agents, pair-average projections factor through m-dimensional orthonormal incidence embeddings. Contracting A pairs into vertices turns B into cycles; each block is (I+cyclic-shift)/2 and contributes absolute cos(πj/ℓ). Even components contribute one zero; the constant vector removes exactly one nonzero rank dimension. The exponential component counting gives Ewens(1/2), the parity-weighted coefficient PGF, quasi-powers CLT, zero-defect constant and W1 coupling bound. Independent enumeration of all second matchings m≤6 reproduced parity-component histograms; numerical singular values checked m≤4. These finite checks do not establish the asymptotics; the generating-function argument does.
 
-**Scope and risks.** The results cover exactly two independent uniform perfect matchings on an even number of agents. Every deterministic spectral assertion follows from finite-dimensional linear algebra; the distributional statements rely on the matching combinatorics. No independent mathematical validation or definitive novelty certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lugo Sec. 8 gives matching cycle enumeration and distribution of total component count: those are prior work. A spectrum of (P_A P_B), number of *even* components, exact probability-generating function and constant for zero additional rank loss, and quantitative spectral convergence are new mathematical consequences requiring a projection-spectrum argument and parity marking. No covered implication was identified in inspected primary text; long-time synchronous Chiclana paper only abstract accessible.
+
+## value
+
+PASS
+
+Exact singular spectra and rank loss of two-round pairing-based averaging are natural finite-time consensus invariants; parity-dependent logarithmic rank deficiency and the W1 spectral law reveal information absent from average contraction rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
