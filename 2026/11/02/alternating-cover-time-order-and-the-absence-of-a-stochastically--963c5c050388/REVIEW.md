@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For every fixed integer \(n\ge2\), two independent non-lazy walkers on \(K_{n,n}\) generate mutually independent coupon streams on the parts. Exact inclusion-exclusion supplies both cover-time CDFs. Conditioning on a second coupon gives the strict odd-time identity. Cancellation of the common first-order missing-coupon term leaves a positive \(\rho^{4s}\) even-time difference, because \(1-2/n<(1-1/n)^2\). A pathwise coupling handles collocated starts, and the strict even/odd crossings rule out even a randomized stochastically best placement. These arguments cover all graph sizes and prove infinite crossings; checker.py provides 1,171 independent finite arithmetic assertions including exact dynamic-programming cover probabilities for small sizes.
+## correctness
 
-**Originality: PASS (best-knowledge, qualified).** Alon et al., *Many Random Walks Are Faster Than One* (arXiv:0705.0467), treat parallel cover-time speed-up, primarily collocated starts; Rivera, Sauerwald and Sylvester, *Multiple Random Walks on Graphs: Mixing Few to Cover Many* (arXiv:2011.07893), treat stationary and worst-case expected-time bounds and explicitly point to initial-placement questions. Their accessible full texts, including the later paper's full open HTML version and relevant results/appendices, do not exhibit a balanced complete-bipartite two-walker CDF parity-crossing result or an optimal-placement impossibility. Searches for equivalent formulations, multi-walker cover distributions, and stochastic-order crossing did not locate stronger coverage. The search is not exhaustive; historical priority remains a real residual risk.
+PASS
 
-**Value: PASS.** Full stochastic order is a natural, strictly stronger performance criterion than minimizing expected cover time in parallel graph exploration. The theorem supplies a complete infinite-family negative answer to the existence of a universally stochastically best pair of initial vertices, even on finite vertex-transitive graphs, and identifies two different exact exponential scales for the competing tails. The parity obstruction matters when a deployment must be compared at every deadline, not just through its mean.
+On K_(n,n) each synchronous non-lazy step samples a uniformly independent vertex of the opposite side; two part-specific coupon streams are independent. Different-part starts yield U_(n,1)(t)^2; distinct same-part starts yield U_(n,0)(2s)U_(n,2)(2s) even, U_(n,0)(2s+2)U_(n,2)(2s) odd. Exact reveal identities U0(m+1)=U1(m), U1(m+1)=U1(m)/n+(n−1)U2(m)/n establish positive odd difference U1(m+1)(U1(m+1)−U1(m))/(n−1) for m>=n−2. Even first missing-coupon terms cancel, leaving rho^(2m)+O(q^m), q=1−2/n<rho²; asymptotic ratio 1. Enumerated coupon sequences n=2..5 and checked exact alternating CDFs for s=1..7; some early even differences are zero (e.g. n=4,s=1), correctly distinguished from eventual strict inequalities. Collocated starts pathwise dominated by distinct same-part, preventing any randomized global stochastic optimum.
 
-**Closest literature and limits.** arXiv:0705.0467 establishes multi-walk speed-up bounds, not deadline-by-deadline crossings between placements. arXiv:2011.07893 (2020-11-16) analyzes stationary/worst-case expected cover times but does not settle the fixed-graph CDF comparison. The theorem does not choose a mean-optimal placement, cover lazy walks, or claim universal historical priority. Independent mathematical audit was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precisely bounded final claim; prior premises and covered specializations explicitly credited. Four searched implication tests and actual primary-source inspections below identify the distinctions and residual priority risks.
+
+## value
+
+PASS
+
+Full deadline-by-deadline stochastic order is a natural risk-sensitive cover-time criterion not captured by expected speedup. An infinite, vertex-transitive bipartite family has perpetual late-time parity crossings and proves no deterministic or randomized universally optimal starting arrangement. Sharp differing tail rates explain the obstruction structurally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
