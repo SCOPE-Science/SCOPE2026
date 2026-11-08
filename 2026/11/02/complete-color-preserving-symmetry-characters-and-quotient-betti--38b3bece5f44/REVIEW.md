@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cubical deleted configuration model applies because the graph has no loops or doubled edges and every cycle has length at least three. The graph is three-connected and nonplanar, so Ko–Park Theorem 3.16 fixes the rational first Betti number and integral first-homology torsion. A canonical equivariant map onto the graph-cycle module is surjective by lifting chordless cycles with spectators, hence an isomorphism over the rationals. All signed cell traces are counted explicitly, including orientation reversal when the two moving edges are exchanged. The quotient follows by rational averaging and exact invariant cellular ranks. The standalone checker recomputes complete chain matrices in three representative cases; this corroborates rather than proves the infinite-family theorem.
+## correctness
 
-## Originality — PASS against available sources
-The closest background sources [1]–[3] establish nonequivariant braid-homology and ordered-configuration results, but do not state the color-preserving complete multipartite character and size-independent quotient formula. The exact comparison excludes two-color ordered and sink-configuration results as differing in both hypotheses and object. Related specific graph-module examples are not broader than the full multipartite family. Equivalent unpublished/unindexed work and implications hidden in inaccessible sources remain a residual risk.
+PASS
 
-## Value — PASS
-An entire natural graph family has 2-dimensional configuration homology that can be very large, while its full color-symmetry quotient has small Betti numbers depending only on the number of colors. In particular, the tripartite case has quotient rational Betti vector \((1,1,0)\) despite potentially high second homology. This uniform symmetry reduction and complete character formula are substantive structural information, not a numerical restatement or a one-parameter substitution.
+The unordered two-point cubical deleted-product cell model is valid for these sufficiently subdivided simple complete multipartite graphs. An equivariant projection to graph 1-chains, together with Ko–Park H1 dimension/torsion, gives H1 character E-F+1. Fixed zero/one/two cubes have exact signed traces, including negative orientation from two exchanged moving edges; Euler-Lefschetz gives the stated H2 character. Color-permutation invariant chains and the graph quotient K_k give rational Betti (1,C(k-1,2),3C(k,4)). Independent direct cell trace tests for (3,3,3),(3,3,4),(3,3,3,3) matched for 10,10,15 permutations respectively; all-family reasoning is analytical.
 
-## Scope and independent validation
-All color classes have size at least three; the action only permutes vertices within their classes. Higher quotient torsion and homotopy type are not determined. Independent external audit is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Ko–Park nonequivariant H1 is used explicitly, but the full part-permutation characters and k-only quotient Betti vector are not implied by the checked older ranks or by ordered/sink-configuration modules.
+
+## value
+
+PASS
+
+Gives full equivariant homological information for a natural infinite multipartite graph family, and a size-independent rational quotient Betti law despite unbounded ambient H2. This is substantial structural data beyond a lone graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

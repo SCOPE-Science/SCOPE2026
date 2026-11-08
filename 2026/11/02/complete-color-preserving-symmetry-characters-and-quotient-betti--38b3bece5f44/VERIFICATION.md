@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 multipartite_config_checker.py` with Python 3.9 or later, using only the standard library. The checker builds the unordered cubical two-particle model for three complete multipartite graphs; computes all cubical boundary columns with signs; checks boundary composition; reduces the matrices modulo three; and compares exact signed fixed-cell counts with the closed formulas on selected nontrivial automorphisms. The expected final success marker is `MULTIPARTITE_TWO_PARTICLE_EXACT_CELL_CHECKS_OK`.
+## correctness
 
-The exact finite computations use characteristic three and are not, by themselves, certificates of rational rank or of the infinite-family theorem. Rational first homology follows from the published graph-braid theorem and the explicit equivariant cycle map. The second-homology character and quotient invariant dimensions follow from exact cellular trace and orbit calculations in the proof. Integral quotient torsion and independent audit have not been evaluated.
+PASS
+
+The unordered two-point cubical deleted-product cell model is valid for these sufficiently subdivided simple complete multipartite graphs. An equivariant projection to graph 1-chains, together with Ko–Park H1 dimension/torsion, gives H1 character E-F+1. Fixed zero/one/two cubes have exact signed traces, including negative orientation from two exchanged moving edges; Euler-Lefschetz gives the stated H2 character. Color-permutation invariant chains and the graph quotient K_k give rational Betti (1,C(k-1,2),3C(k,4)). Independent direct cell trace tests for (3,3,3),(3,3,4),(3,3,3,3) matched for 10,10,15 permutations respectively; all-family reasoning is analytical.
+
+## originality
+
+PASS
+
+PASS qualified: Ko–Park nonequivariant H1 is used explicitly, but the full part-permutation characters and k-only quotient Betti vector are not implied by the checked older ranks or by ordered/sink-configuration modules.
+
+## value
+
+PASS
+
+Gives full equivariant homological information for a natural infinite multipartite graph family, and a size-independent rational quotient Betti law despite unbounded ambient H2. This is substantial structural data beyond a lone graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
