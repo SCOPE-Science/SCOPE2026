@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:43:54.584844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer n>=3 and circumradius R>0, uniform relative rotation reduces by dihedral symmetry to a uniform folded angle alpha∈[0,k], k=pi/n. The 2n active supporting normals alternate gaps alpha and 2k−alpha (endpoints by continuity), all below pi. Circle-tangent length additivity gives overlap A_n(alpha)=nR²cos²(k)[tan(alpha/2)+tan(k−alpha/2)], strictly decreasing on (0,k). Its max deficit M_n=A(P_n)tan²(k/2)>0. With U=1−alpha/k uniform, exact quantile q_k(U)=tan((1+U)k/2)tan((1−U)k/2)/tan²(k/2), endpoints 1 and 0, decreasing strictly in U. Solving for cos(kU) establishes the CDF with correct support. For fixed U∈(0,1), derivative in k of log q equals [f((1+U)k)+f((1−U)k)−2f(k)]/k with f(z)=z/sin z; direct second derivative f´´(z)=[z(1+cos²z)−sin2z]/sin³z>0 for z∈(0,pi) proves strict Jensen inequality. Because k_n descends with n, q_{k_n}(U)>q_{k_(n+1)}(U), and monotone invertibility implies strict first-order stochastic dominance for every 0<q<1. Uniform tangent Taylor expansion yields q=1−U²+(pi²/(6n²))U²(1−U²)+O(n^-4); E U²(1−U²)=2/15 gives mean 2/3+pi²/(45n²)+O(n^-4); variance→4/45 and n²M_n/R²→pi³/4, proving geometric scaling. Exact expected overlap obtained by integrating tan alpha/2 over [0,k]. n=3, R>0, alpha=0,k, q=0,1 and all integer n boundaries checked. An entirely independent Shapely polygon-intersection implementation verified 1,872 cases n=3..50 with max absolute discrepancy 2.665e−15; SymPy expanded q through k^4 and high-precision quadrature confirmed exact mean for six n. Finite experiments corroborate, not prove, the unbounded n hierarchy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full published Resultary finding: exact E Area(K_m(P)) for any tangential P with fixed side count n and arbitrary m, plus regular shape minimizer; not a first-order stochastic dominance of normalized random loss as n changes.",
+          "Brazitikos–Stavrakakis 2014 available abstract states general estimates for volume and radius of C∩U(C) for symmetric convex bodies; the relevant full article remained inaccessible.",
+          "Buck–Siddon complete 2012 PDF derives tangent side-length and area identities, not rotated random intersections."
+        ],
+        "reasoning": "The published multi-rotation expectation formula yields important supporting means but does not provide the joint all-n coupling nor beta correction; general non-sharp volume/radius bounds do not mechanically imply the precise pointwise ordering. Unread full 2014 source is a material residual risk, not proof of noncoverage.",
+        "searches": [
+          "Resultary search: stochastic ordering normalized overlap area loss two congruent regular polygons random rotation varying number of sides beta distribution",
+          "Resultary search: random rotated regular polygon intersection area distribution asymptotic beta law stochastic dominance side count",
+          "Web: Brazitikos Stavrakakis On the intersection of random rotations of a symmetric convex body pdf arxiv 2014",
+          "Web: On the intersection of random rotations of a symmetric convex body pdf",
+          "Primary: Resultary/2026, 2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053/RESULT.md",
+          "DOI:10.1017/S0305004114000115"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.3438v1 complete PDF (13pp), visually checked p.4–5; https://arxiv.org/pdf/1203.3438",
+        "Resultary/2026 full RESULT.md + SLOGAN.txt: 2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053",
+        "MathOverflow question 221120 complete text, O’Rourke and Zaimi (2015)",
+        "Brazitikos–Stavrakakis 2014 Cambridge publisher abstract and references DOI:10.1017/S0305004114000115",
+        "Three actual current Resultary semantic searches (q1/q2/q3), web full-text/OA searches",
+        "Assigned AUDIT.json self-review citation to archived unequal-order gap law: statement only, unverified independently"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Buck–Siddon p. 4 K=rs and tangent lengths explain geometric formula but contain no random-rotation dominance.",
+          "Published Resultary exact expected-area law at fixed n can determine support expectations for special m, not all thresholds P(Q_n>q) across n.",
+          "MathOverflow formula s(k,n)=(overline{2k,2k−gcd(k,n)}) is a side count, not an area law.",
+          "An earlier same-project archived claim reportedly entails the equal-n marginal CDF, so this review reserves originality for cross-n ordering and sharp asymptotics."
+        ],
+        "reasoning": "The exact quantile representation makes a new comparison possible, but the asserted inequality q_{pi/n}(u)>q_{pi/(n+1)}(u) for every u∈(0,1) is not an implication of any prior theorem actually read; its proof uses a distinct strict convexity argument. The n→∞ beta limit and n^-2 coefficient follow from that quantile and uniform Taylor expansion. Claims of independent novelty for the fixed-n CDF would be improper.",
+        "searches": [
+          "Resultary search: stochastic ordering normalized overlap area loss two congruent regular polygons random rotation varying number of sides beta distribution",
+          "Resultary search: random rotated regular polygon intersection area distribution asymptotic beta law stochastic dominance side count",
+          "Resultary search: tangential regular polygon exact gap overlap law equal order n m rotational intersection",
+          "Full primary PDF arxiv:1203.3438v1",
+          "Full published Resultary/2026 2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053",
+          "Full MathOverflow:221120",
+          "Publisher abstract DOI:10.1017/S0305004114000115"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The final q_k(U) expression is an exact transform of a folded relative uniform angle and can equivalently be expressed as a normalized symmetric-difference area/2.",
+          "The package AUDIT.json acknowledges earlier archived unequal-order tangency-gap CDF; it is not directly retrievable/inspected as full work during this audit.",
+          "Published Resultary 2026 normal-gap expected-area formula compares m independent rotated copies with n fixed, rather than stochastically coupling normalized two-copy overlap losses across all n."
+        ],
+        "reasoning": "Fixed-n marginal distribution and tangent-normal gap formulas are mathematically related, and the support identities are not new in themselves; the claimed cross-n strict quantile ordering requires the separate strict convexity of z/sin z at arguments (1±U)pi/n. Equality/duality via symmetric difference does not turn fixed-n expected area into a theorem comparing the whole laws for all side counts.",
+        "searches": [
+          "Resultary search: stochastic ordering normalized overlap area loss two congruent regular polygons random rotation varying number of sides beta distribution",
+          "Resultary search: random rotated regular polygon intersection area distribution asymptotic beta law stochastic dominance side count",
+          "Resultary search: tangential regular polygon exact gap overlap law equal order n m rotational intersection",
+          "Web: intersection area uniformly rotated regular polygons stochastic ordering beta distribution overlap",
+          "Web: rotating regular polygons intersection area distribution asymptotic beta law stochastic dominance side count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No actual retrieved numerical table or exact database entry contained the strict all-n normalized-overlap stochastic ordering or its second-order expansion.",
+          "MathOverflow 221120 tabulates generic intersection side counts 2k and 2k−gcd(n,k), not areas.",
+          "Published Resultary result concerns expected area, not a lookup table for the full normalized overlap-loss distribution."
+        ],
+        "reasoning": "The claim is a continuously parameterized family of probability distributions and a strict comparison for infinitely many n, so a small-n table would not by itself dominate the all-integer inequality. Absence of a database match is only a bounded search finding.",
+        "searches": [
+          "Resultary search: stochastic ordering normalized overlap area loss two congruent regular polygons random rotation varying number of sides beta distribution",
+          "Resultary search: random rotated regular polygon intersection area distribution asymptotic beta law stochastic dominance side count",
+          "Resultary search: tangential regular polygon exact gap overlap law equal order n m rotational intersection",
+          "Web: overlap area two regular polygons random rotation variance distribution",
+          "Web: exact area intersection two rotated regular polygons uniform angle probability distribution pdf"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the strict all-side-count stochastic hierarchy of the normalized two-congruent-regular-polygon overlap loss, its universal Beta(1,1/2) law Q∞=1−U², and sharp n^-2 quantile correction. The fixed-n tangency area formula, CDF, and elementary mean are not asserted as novel: the package itself reports an archived unequal-order gap-law antecedent, which is not separately accessible as a complete primary document here. Primary 2012 tangent-area formulas and a published 2026 expected-area theorem supply important prior background. The latter fixes n and varies the number m of intersected copies, and does not derive pointwise stochastic order as n varies. The 2015 rotating-polygons question counts vertices. The 2014 random-rotation convex-body paper could not be read beyond its abstract (public PDF timeout; authorized Oxford VPN disconnected), so no categorical historical-priority claim is made. Three actual Resultary searches and targeted external literature searches returned no stronger explicit cross-order theorem; search absence alone is not novelty proof.",
+      "residual_risks": [
+        "The exact equal-order CDF and its mean are already implicit in the formerly reported unequal-order normal-gap area law; only the strict cross-n order, beta limit and second-order correction are assessed as potential new findings. Full archived ancestor not independently available.",
+        "The plausible 2014 Brazitikos–Stavrakakis full article was inaccessible via public author PDF and authorized Oxford VPN; cannot exclude a specialized result, though its abstract has only general-dimensional bounds.",
+        "Search/indexing limits allow earlier unindexed shape-registration or regular-polygon overlap distributions and sharp order inequalities.",
+        "No expert attestation or formal Lean proof; independent computational corroboration is finite."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established tangent geometry supplies an ingredient of the overlap proof but treats prescribed side-length tangent polygons, not random relative rotations, n-dependent stochastic dominance or a beta limit.",
+          "evidence": [
+            "arxiv:1203.3438, page 4: K=sr and adjacent tangent lengths sum to edge lengths; page 5, section 3 generalizes to n-gons.",
+            "No random-rotation variable or stochastic-law theorem in sections 1–5."
+          ],
+          "identifier_or_url": "arXiv:1203.3438v1; https://arxiv.org/pdf/1203.3438",
+          "material_read": "Entire 13-page arXiv PDF text, sections 1–5 including equations K=rs, tangent-length identities, odd/even side-length criteria and references; visually inspected pages 4 and 5.",
+          "method": "Read the full original arXiv PDF, inspected rendered page screenshots and checked for random rotations / stochastic claims.",
+          "title": "The Area of a Polygon with an Inscribed Circle",
+          "trigger": "Primary treatment of tangent-length formulas and area of circle-tangent polygons used by the overlap argument."
+        },
+        {
+          "assessment": "Theorem (1)-(4) gives expected area for m random copies of fixed n, sharp shape extremal and exponential smallest-gap correction as m→∞. It explicitly disclaims stochastic area domination or variance, and does not imply strict normalized loss order as n varies or beta-limit correction. Its tangent-gap identity and mean cover supporting background.",
+          "evidence": [
+            "Published Eq. (1) E A_m(P)=pi+pi ∫ 2 tan(t) sec²(t) p_P(t)^m dt; Eq. (2) regular case at fixed n; Eq. (3) nonregular shape excess rate as m grows.",
+            "Limitations explicitly exclude stochastic area domination and variance formulas; its n-indexed normalized random variables are not compared."
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053/RESULT.md; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-random-rotation-area-order-and-exponential-shape-memory-fo--9cc93a56f053",
+          "material_read": "Full primary RESULT.md including Finding, Assumptions, Proof, Verification, Relationship and Limitations; full SLOGAN.txt.",
+          "method": "Read actual published repository file via authenticated GitHub connector; compared quantifiers n fixed, m number of rotations, expectation vs full CDF/coupled n-comparison.",
+          "title": "Sharp random-rotation area order and exponential shape memory for tangential polygons",
+          "trigger": "Top-three Resultary matches for exact expectations of intersections of uniformly rotated tangential n-gons, a possible dominating result."
+        },
+        {
+          "assessment": "Counts sides of the intersection, not intersection area, overlap-loss CDF, n-dependent stochastic order or beta limit.",
+          "evidence": [
+            "Theorem in accepted 2015 answer gives a 2-valued periodic side-count sequence, with no area-random-variable comparison."
+          ],
+          "identifier_or_url": "Joseph O’Rourke and Gjergji Zaimi, MathOverflow 221120 (2015); https://mathoverflow.net/questions/221120/intersection-of-rotating-regular-polygons",
+          "material_read": "Full question and accepted answer with s(k,n)=(overline{2k,2k-gcd(n,k)}).",
+          "method": "Read entire original discussion and compared the invariant measured.",
+          "title": "Intersection of rotating regular polygons",
+          "trigger": "Same rotating-concentric regular polygon intersection configuration with explicit all-order discrete outcome."
+        },
+        {
+          "assessment": "Abstract describes general high-dimensional volume/radius estimates, not the exact stochastic n-hierarchy. Because full text was not accessible, no whole-document NOT_COVERING conclusion is asserted and special planar content remains a priority risk.",
+          "evidence": [
+            "Publisher abstract: estimates for volume and radius of C ∩ U(C) for symmetric convex C, with emphasis on isotropic position and centroid bodies.",
+            "Access status: author-hosted PDF timed out; Oxford VPN disconnected."
+          ],
+          "identifier_or_url": "Brazitikos and Stavrakakis (2014), DOI 10.1017/S0305004114000115; https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/abs/on-the-intersection-of-random-rotations-of-a-symmetric-convex-body/A28B86A2A3000A1F82159F485F9DEE91",
+          "material_read": "Publisher abstract, bibliographic context and reference list only; author-hosted public PDF https://math.ntua.gr/~apgiannop/Random-Rotations-Oct13.pdf timed out; no corresponding arXiv/OA full-text found; Oxford authorized retrieval returned vpn_disconnected.",
+          "method": "Searched arXiv and public open access, opened publisher abstract and linked author-hosted PDF; attempted authorized institutional access after OA failure without bypass.",
+          "title": "On the intersection of random rotations of a symmetric convex body",
+          "trigger": "Potential general rotating-convex-body result that might contain a stronger planar polygon corollary."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a uniformly misaligned pair of congruent regular polygons approaching a disk, normalized overlap-area loss is a natural dimensionless rotational-registration/geometric-probability invariant. The new point is a nontrivial complete stochastic comparison of the entire distribution as polygon side count changes, not a renaming of the known fixed-n area formula or a few small-n numbers. The sharp universal Beta(1,1/2) limiting law, uniform n^-2 correction and geometric unscaled n² law describe the precise transition to rotational symmetry and provide exact calibration and validation targets. This is a motivated family-wide structural inequality with independent mathematical utility; neither reproducibility nor mere novelty is treated as sufficient on its own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only identical-radius concentric regular planar polygons under uniform relative rotation; no nonuniform angles, translations, unequal side counts, or triple intersections.",
+    "Original supporting fixed-n overlap CDF was acknowledged as implicit in earlier unequal-order gap law, not separately novel; this review accepts strictly the all-n stochastic order, beta law and correction.",
+    "The 2014 broad random-rotation primary paper was accessible only as an abstract; author copy timed out and Oxford VPN disconnected; full-document exclusions or historical priority cannot be certified.",
+    "Finite geometry tests and symbolic checks are corroborative, not a universal proof; source is not Lean or expert-verified.",
+    "Prior historical ledger gaps preserved untouched, including the 10:34 UTC assigned-but-undelivered batch; no prior science verdict fabricated.",
+    "Public-file semantic screen: seven original files contain neutral scientific claims, formulas and bibliographic references; one awkward bibliographic corpus label and a malformed old reference URL are source-provenance imperfections, not disclosure of internal platform details. No public bytes modified."
+  ],
+  "schema_version": 1
+}
