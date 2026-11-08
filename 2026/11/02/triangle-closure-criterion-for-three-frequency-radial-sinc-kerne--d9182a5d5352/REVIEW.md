@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every dimension and positive parameter is quantified. The three-dimensional radial spectral density follows by conditioning independent sphere-vector sums. When the side lengths close a triangle, a concave interval-overlap function forces the exact candidate five-dimensional density to be nonnegative. The three-to-five projection identity, normalization and strict-positive-definite spectral support are proved in the report. In the failing-triangle case, the three-dimensional spectral hole obstructs dimension four; in the closing-triangle case the five-dimensional hole obstructs dimension six. The standalone exact-rational checker verifies fourteen representative parameter regimes and seven Taylor moments, but does not stand in for the universal proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** The main prior transition formula (Golinskii–Malamud–Oridoroga, arXiv:1502.07179, Theorem 3.1) is a general existence criterion. Its two-factor results (Theorems 4.1 and 4.3) and earlier equal-scale power classifications do not explicitly establish the sharp iff triangle criterion for all distinct positive triples; the new calculation supplies the necessary signed-density formula and handles degeneracy. Rösler's arXiv:math/0210137 supplies positive radial-product context for a different kernel class. Residual risk: an equivalent calculation may appear in older spline/Bessel-product or random-flight literature; the absence of a retrieved exact match is not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The classification ties a natural geometric closure condition on three spherical-step lengths to a nontrivial jump of the maximal positive-definite dimension from three to five. It also provides an explicit positive spectral law, a sharp impossibility statement in the next dimension, and strict kernel interpolation for all allowed dimensions. This is not just an equal-scale reparameterization: for arbitrary distinct frequencies two-factor nonextendibility can be reversed by a third factor exactly when the lengths close.
+Three independent uniform 3D spherical vectors give T radial density t/(2ab) on [|a-b|,a+b] and final convolution r h(r)/(4abc). Projecting a uniform 5D sphere to R3 yields conditional radius density 3r²/s³. For the triangle regime L<=c<=U, h=max(0,min(U,r+c)-max(L,|r-c|)) is concave with h(0)=0, so h-rhprime>=0. The proposed explicit nu5 solves the dimension projection identity and integrates to one; its origin gap excludes Phi6. In the nontriangle regime nu3 has origin gap excluding Phi4. Intervals of positive spectral density imply strict PD and dimension nesting completes classification. Independent rational branch integration checked six representative triples for 3D mass=1 and 5D mass=1 in triangle cases, including equality and failure boundaries; full real length result is analytic.
 
-**Scientific limitations.** The result is confined to three sinc factors. Analytic proof is self-contained conditional only on elementary harmonic/Bochner and spherical projection facts explicitly reconstructed in RESULT.md. Independent mathematical audit remains pending. Published bibliography comparisons were bounded rather than an exhaustive global literature census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Golinskii–Malamud–Oridoroga arXiv:1502.07179 full primary text Theorem 3.1 supplies general radial dimension transition and Theorems 4.1/4.3 two-factor unequal and equal-square results. They do not explicitly evaluate arbitrary three-sinc factors or their triangle inequality criterion; the general transition formula is genuine broader machinery, not in its inspected text the specialized inequality classification. Other Bessel convolutions and random-flight formulas could imply this specialization, priority risk.
+
+## value
+
+PASS
+
+The exact dimension frontier and spectral density for all positive triples is a natural sharp closure phenomenon with a geometric triangle criterion; the third factor restores dimension-five positivity despite unequal two-factor nonextension. It is not an arbitrary parameter choice or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
