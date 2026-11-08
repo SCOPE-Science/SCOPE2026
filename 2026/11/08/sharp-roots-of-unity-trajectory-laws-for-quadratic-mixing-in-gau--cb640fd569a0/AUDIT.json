@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact Gaussian transition diagonalizes every centered quadratic mode; Cauchy--Schwarz reduces worst-case autocorrelation to the largest cosine-square expectation. A Fejer-square nonnegativity lower bound is attained by the uniform nontrivial roots-of-unity times at mean pi/2. Equality forces the Fejer zero set, Fourier inversion determines symmetric masses, and antisymmetric mean constraint yields the complete family. Verified code executes exact-rational budgets and 339 deterministic spectral/Fejer check groups; no finite test substitutes for the all-K proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang--Wibisono optimize a deterministic sequence of Chebyshev integration times for Wasserstein mixing over a spectral range.",
+        "Bou-Rabee--Sanz-Serna study random exponential integration times with relaxation estimates.",
+        "Apers et al. treat Gaussian spectral ranges and numerical HMC cost with different performance criteria."
+      ],
+      "reasoning": "Results for broader frequency classes or numerical samplers do not imply this exact budgeted maximum of stationary quadratic IACT on one iid time distribution. Different metrics and admissible time schedules prevent theorem implication. The generic Fejer bound alone lacks the HMC-spectrum interpretation and equality-law/cost classification.",
+      "searches": [
+        "optimal randomized HMC trajectory lengths harmonic oscillator frequencies integer multiples Chebyshev trigonometric moment design",
+        "Fejer kernel positivity bound on stochastic HMC trajectory time law, root of unity support, all minimizers of maximum second Hermite eigenvalues",
+        "Randomized HMC common trajectory duration first K integer frequencies mean pi/2 spectral gap optimization",
+        "https://arxiv.org/abs/2207.02189",
+        "https://arxiv.org/abs/1511.09382"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.12771v1 Section 2.3 and 3, full primary PDF relevant material",
+      "PMLR 130 Hoffman/Radul/Sountsov 2021, primary full PDF relevant material",
+      "arxiv:2207.02189v1, article text and main construction",
+      "arxiv:1511.09382v1, relevant primary PDF material",
+      "Nine targeted semantic literature searches",
+      "Related published numerical-sampling and reversible-chain statements, compared by mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Apers et al., Section 3, Lemma 3.1 constructs a uniform finite time mesh with a probability bound on |cos(omega t)|<=0.9 for a continuous spectral interval; no necessity or exact minimax equality holds in that statement.",
+        "Hoffman et al., Sections 2.1-2.2, use second-moment autocorrelation to tune trajectory lengths but do not prove a finite-dimensional spectral minimax distribution.",
+        "Wang--Wibisono use deterministic nonstationary time choices, so their composition bound does not directly compare stationary one-step second-chaos multipliers."
+      ],
+      "reasoning": "The claimed sharp ratio and full equality classification require simultaneous lower bounds for K modal cosine moments, saturation and a mean-constrained antisymmetric root-grid census. The checked theorem statements do not logically imply these; conversely, this theorem does not imply their TV or Wasserstein complexity bounds. Residual specialized overlap remains possible.",
+      "searches": [
+        "Gaussian Hamiltonian Monte Carlo randomized integration times harmonic frequencies 1 2 3 optimal minimax squared cosine autocorrelation roots of unity discrete uniform times",
+        "exact random trajectory length Gaussian HMC multi-frequency quadratic observable minimax integrated autocorrelation integration budget Fejer kernel",
+        "Fejer kernel positivity bound on stochastic HMC trajectory time law, root of unity support, all minimizers of maximum second Hermite eigenvalues",
+        "minimax integrated autocorrelation Gaussian HMC trajectory length mean constraint optimal discrete roots of unity",
+        "https://arxiv.org/pdf/2209.12771",
+        "https://proceedings.mlr.press/v130/hoffman21a.html",
+        "https://arxiv.org/abs/2207.02189"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact HMC linear oscillator propagator in Apers et al. Section 2.3; its finite random-time design criterion in Section 3 is a bound on moderate modal contraction events, not a sharp stationary second-chaos IACT extremum.",
+        "Hoffman et al. Sections 2.1-2.2 link quadratic moments to HMC duration tuning but use an adaptation heuristic rather than solving the stated all-quadratic minimax problem."
+      ],
+      "reasoning": "Equivalent stationary quadratic formulations reduce to minimizing max_j E cos²(jT) or max_j E cos(2jT). All are explicitly accounted for by the Fejer certificate. The read studies do not supply its sharp fixed-mean value or all equality laws. The classical general Fejer bound is acknowledged as a mathematical ingredient, not claimed original.",
+      "searches": [
+        "Gaussian Hamiltonian Monte Carlo randomized integration times harmonic frequencies 1 2 3 optimal minimax squared cosine autocorrelation roots of unity discrete uniform times",
+        "exact random trajectory length Gaussian HMC multi-frequency quadratic observable minimax integrated autocorrelation integration budget Fejer kernel",
+        "Optimal trajectory length distributions for ideal Gaussian Hamiltonian Monte Carlo stationary quadratic autocorrelation, exact spectral minimax with commensurate integer frequencies",
+        "minimax integrated autocorrelation Gaussian HMC trajectory length mean constraint optimal discrete roots of unity",
+        "https://arxiv.org/pdf/2209.12771",
+        "https://proceedings.mlr.press/v130/hoffman21a.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical records on Fourier roots and Fejer extremals concern other optimization functionals or finite grids; no retrieved record states this HMC quadratic-IACT value.",
+        "The inspected HMC source supplies nonoptimal time-grid bounds, not a table of fixed-mean sharp all-mode IACT constants."
+      ],
+      "reasoning": "All parameter values K>=1 are given by one exact expression and all extremizers by an inverse-DFT classification. Prior spectral or Fourier tables checked are not this equality-parametrized HMC family; no originality claim rests on search absence alone.",
+      "searches": [
+        "Gaussian Hamiltonian Monte Carlo randomized integration times harmonic frequencies 1 2 3 optimal minimax squared cosine autocorrelation roots of unity discrete uniform times",
+        "probability distribution on circle minimizes maximum first n cosine Fourier coefficients at -1/n uniform nontrivial n+1 roots of unity",
+        "Fejer trigonometric polynomial extremal discrete measure minimizes worst cos k theta for k=1 to n",
+        "https://arxiv.org/abs/2209.12771"
+      ]
+    },
+    "rationale": "New assessed scientific statement is the sharp fixed-mean iid-duration HMC minimax for all centered quadratic observables and classification of all equality laws; closest primary papers use random finite time grids for mixing bounds, squared-statistic adaptive heuristics, deterministic Chebyshev schedules, or exponential timing laws. The Fejer kernel identity itself is classical. The inspected published claims and available prior scientific records did not imply this theorem; unindexed historical overlap is an explicit residual risk.",
+    "residual_risks": [
+      "The Fejer moment bound is classical; an unindexed spectral design/HMC theorem could already state the full result in equivalent language.",
+      "No independent survey of all historical HMC or extremal trigonometric probability literature has been completed.",
+      "Other objective functions, nonquadratic HMC observables, general frequencies and cost-normalized numerical integrators are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same exact harmonic kernels, but different random-time criterion and mixing objective; no fixed-mean exact full-quadratic IACT optimum found in inspected sections",
+        "evidence": "Equations (2.1)-(2.2); Section 3 before Lemma 3.1; Lemma 3.1 gives probability contraction bound on uniform finite time grid",
+        "identifier_or_url": "arxiv:2209.12771v1; https://arxiv.org/pdf/2209.12771",
+        "material_read": "Abstract, Sections 1, 2.3, 3 and initial mixing analysis, including harmonic propagator and Lemma 3.1 finite time grid",
+        "method": "Opened primary publicly accessible PDF and inspected relevant pages/equations",
+        "title": "Hamiltonian Monte Carlo for efficient Gaussian sampling: long and random steps",
+        "trigger": "Closest primary Gaussian HMC long random trajectory-time method"
+      },
+      {
+        "assessment": "Quadratic moment mixing is motivated, but no discrete time-law minimax or full equality-family result",
+        "evidence": "ChEES trajectory-length tuning criterion built from squared-state moment autocorrelations; empirical adaptation rather than exact arithmetic-spectrum extremum",
+        "identifier_or_url": "PMLR 130:hoffman21a; https://proceedings.mlr.press/v130/hoffman21a.html",
+        "material_read": "Full available primary conference paper PDF, particularly Sections 2.1-2.2 and quadratic-autocorrelation motivation",
+        "method": "Opened primary OA PDF and reviewed sections and formula context",
+        "title": "An Adaptive-MCMC Scheme for Setting Trajectory Lengths in Hamiltonian Monte Carlo",
+        "trigger": "Second-moment autocorrelation may dominate novelty"
+      },
+      {
+        "assessment": "Non-iid Chebyshev time schedule and Wasserstein contraction, not a law for stationary quadratic IACT at fixed mean",
+        "evidence": "Objective is a sequence of Chebyshev-root times for accelerated Gaussian Wasserstein convergence",
+        "identifier_or_url": "arxiv:2207.02189v1; https://arxiv.org/abs/2207.02189",
+        "material_read": "Primary abstract and main-result/algorithm description in publicly accessible arXiv page and article text",
+        "method": "Opened publicly available arXiv full-text view and examined schedule and objective",
+        "title": "Accelerating Hamiltonian Monte Carlo via Chebyshev Integration Time",
+        "trigger": "Potential stronger optimal time scheduling theorem for Gaussian frequencies"
+      },
+      {
+        "assessment": "Exponential random duration law and broad convergence framework rather than sharp bounded-support probability design and all equality cases",
+        "evidence": "Random duration construction follows exponential event times; no discrete root-time minimax theorem in inspected relevant sections",
+        "identifier_or_url": "arxiv:1511.09382v1; https://arxiv.org/abs/1511.09382",
+        "material_read": "Primary PDF introduction and main construction sections including randomized durations and harmonic examples",
+        "method": "Opened lawful arXiv PDF and inspected initial analysis and relevant stated results",
+        "title": "Randomized Hamiltonian Monte Carlo",
+        "trigger": "Foundational randomized-time HMC with potentially encompassing correlation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb640fd5-69a0-4758-8263-18098485ec36",
+  "value": {
+    "rationale": "The theorem exactly solves a motivated expected-integration-length-budget design problem for HMC covariance-estimation efficiency across all quadratic observables, yields exact finite-dimensional performance (3K-1)/(K+1), classifies all designs, and identifies a nontrivial uniqueness transition from K=3 to K=4. For K>=2 the deterministic duration at the same mean leaves a quadratic frequency resonant forever, making the finite randomized optimum substantive. Scope is deliberately limited to exact ideal HMC and arithmetic frequency spectra.",
+    "status": "PASS"
+  }
+}
