@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `CHECK.py` is self-contained and uses Python's standard library. Execute `python CHECK.py`; it performs 609 finite checks using exact fractions for small activity paths and survival products. Its gamma-function coefficient comparisons and large-size conditional approximation checks are numerical consistency tests, not proofs of limits.
+## correctness
 
-The infinite theorem follows from the complete derivation in `RESULT.md`: conditional hazard and gamma product; exact one- and two-activity histories; asymptotic comparison of a finite mixture; the tail-sum moment criterion; and the conditional Laplace argument. Bercu's already established almost-sure Mittag-Leffler activity limit (arXiv:2203.04196, Lemma 2.1) and the classical Mittag-Leffler large-argument asymptotic are external stated inputs, not independently derived here.
+PASS
 
-No independent audit, external certificate, or human validation is claimed. The fixed-time and macroscopic tail limits are deliberately separate, with no uniform joint scaling assertion.
+The transition P(K_{t+1}=K_t+1 | F_t)=alpha K_t/t is exact for all p,q with p+q=alpha. On the wait-survival event K remains k, yielding the product and gamma ratio. The probability K_n=1 cancels the n-dependent leading gamma coefficient; the disjoint first-success decomposition yields K_n=2 and the second coefficient. For 0<alpha<1, conditional first-class 1/m error is o(m^(-2alpha)), and higher k classes are o(m^(-2alpha)). Tail summation gives the sharp moment cutoff. The joint limit uses the cited, independently established activity limit K_n/n^alpha -> M>0 and a controlled logarithmic expansion with errors O(n^(-alpha)+n^(alpha-1)); classic Mittag-Leffler asymptotics give the macroscopic exponent. Independently checked the first two coefficients for 21 rational finite-n cases. Neither finite arithmetic nor a sampled ML computation proves the cited general a.s. count limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the COMPLETE stated claim: compared logical implications and shared objects, not just titles. Known input results and special cases are explicitly credited. No inspected decisive source establishes the full claim; residual priority risks, including incomplete primary access, remain as stated.
+
+## value
+
+PASS
+
+Waiting to the next actual move is natural for intermittent full-memory dynamics; a deterministic-time heavy-tail invariant coefficient, the explicit correction, infinite finite-n mean and distinct large-observation-time exponent quantify a genuine aging/order-of-limits phenomenon beyond the already-known activity count law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
