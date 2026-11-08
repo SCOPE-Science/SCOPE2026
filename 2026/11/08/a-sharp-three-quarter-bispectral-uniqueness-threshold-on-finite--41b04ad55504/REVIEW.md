@@ -1,0 +1,19 @@
+# Scientific review: sharp bispectral spectral-erasure threshold
+
+## Correctness — PASS
+
+The proof specifies all normalizations, uses reality to identify second correlation with the Fourier power spectrum, and uses exact triple-correlation products to obtain phase multiplicativity on the nonzero support. When the DC coefficient vanishes, adjoining the identity with phase one preserves the partial-character identities, including zero-sum pairs. For each group displacement, two translated copies of the dense support overlap in more than twice the number of excluded points; this yields connected difference graphs and well-defined phase quotients. A triple intersection then proves global multiplicativity. The resulting character is exactly a translation by finite biduality. The sharpness example is verified by exhaustive enumeration of all admissible zero-sum Fourier triples and a strict Fourier-dominance positivity inequality. A standalone dependency-free checker passed 28,604 assertions; the general proof does not depend on finite enumeration. No unproved asymptotic or probabilistic claim is made.
+
+## Originality — PASS relative to inspected evidence
+
+Agulnick–Busick-Warner (arXiv:2604.13310, introduction, Theorems 1.3 and B and related examples) bound the sufficient order of autocorrelation data by support-generation properties but do not state the universal sharp order-three density threshold for arbitrary real signals. Casper–Orozco (arXiv:2503.21022v2, introduction, Main Theorem and basic algorithm) provide order bounds and reconstruction for rational-valued signals based on the group rank; their results do not imply the stated real-valued order-three density theorem or its sharp counterexample. Jaming–Kolountzakis (arXiv:math/0207051, especially Section 3) study triple-correlation reconstruction for indicator functions and particular cyclic group orders. Bendory–Boumal–Ma–Zhao–Singer (arXiv:1705.00641, Proposition II.1) handle band-limited Fourier supports, which do not cover arbitrary-location erased frequencies. Searches for dense partial-character extension, equivalent bispectral identifiability, and the exact one-quarter missing-frequency threshold did not expose stronger covering statements. Existing sparse-spectrum or discrete-Fourier statements concern different hypotheses and measurements. A mathematical equivalence hidden in classical Freiman-extension or phase-retrieval literature remains possible and is not ruled out by search absence alone.
+
+## Value — PASS
+
+The target is a natural inverse problem arising in bispectrum-based phase retrieval with missing Fourier measurements. The theorem identifies the exact *universal* worst-case deterministic erasure fraction supporting third-order uniqueness, independent of the ambient finite abelian group and placement of missing frequencies, and proves sharpness already for strictly positive measurements. This is not a genericity or numerics-only statement; the dense partial-character extension and explicit equality mechanism explain a structural rigidity/breakdown boundary. Product-group counterexamples show the obstruction is not confined to one small group. The theorem addresses identifiability, not noise stability or efficient reconstruction.
+
+## Residual risks and scope
+
+The novelty comparison is limited to inspected primary literature and selected mathematical research records; an equivalent density lemma under additive-combinatorial terminology cannot be categorically excluded. The proof requires exact first-, second-, and third-order ordinary autocorrelation data and real signals. The optimal threshold for prescribed group structure or constrained alphabets, noisy recovery, and computational reconstruction rates are open here. Independent validation of the mathematical claims and publication priority has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

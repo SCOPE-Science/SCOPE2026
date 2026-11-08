@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exact Fourier correlation identities yield a partial character on the nonzero support. Graph connectivity for each \\(N-2r>2r\\) overlap and a nonempty \\(N-3r\\) triple overlap produce an actual character extension, hence a translate. At sharpness, all six unordered zero-sum Fourier triples on \\(\\mathbb Z_8\\) have exact product phase one; DC dominance proves strict positivity. Product families preserve zeros/correlations. Standalone numerical and exact integer checks corroborate but are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agulnick–Busick-Warner Theorem 1.3 needs autocorrelation orders through \\(3v\\) for a support-generation diameter \\(v\\), and Theorem B imposes an index-two support-power condition.",
+        "Casper–Orozco Main Theorem bounds necessary higher autocorrelation orders by finite-group rank for rational-valued signals."
+      ],
+      "reasoning": "Neither cited general theorem supplies order-three uniqueness for all real signals with fewer than one-quarter arbitrary missing frequencies, nor the strict threshold plus positive equality counterexamples. The current phase-graph lemma uses a support-density assumption not subsumed by the cited support-generation theorems.",
+      "searches": [
+        "\"autocorrelation\" \"Fourier support\" \"all but two\" translation uniqueness",
+        "\"Reconstructing gridded data from higher autocorrelations\" Casper Orozco pdf 2025",
+        "arXiv:2604.13310 Theorem 1.3 and Theorem B",
+        "arXiv:2503.21022v2 Main Theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.13310 (2026-04-14)",
+      "arXiv:2503.21022 (2025-03-26)",
+      "arXiv:math/0207051 (2003)",
+      "arXiv:1705.00641 (2017)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General third-order full-spectrum uniqueness is classical (Agulnick–Busick-Warner, Proposition 1.1).",
+        "The new proof includes nonvanishing plus arbitrary sets of up to but excluding one-quarter of frequencies; it proves precise failure at equality even for strictly positive real signals.",
+        "Previously analyzed discrete bispectral phase sampling for antisymmetric half-spectrum signals concerns fourth-order recovery, and cannot imply a >three-quarter-support theorem."
+      ],
+      "reasoning": "The existing full-spectrum claim is a strict special case. Structured-band results do not imply a uniform arbitrary-erasure threshold. Higher-order bounds cannot be reinterpreted as an order-three claim, and the sharp positive equality construction is logically distinct from their sparse-spectrum examples.",
+      "searches": [
+        "\"bispectrum\" \"missing\" \"frequencies\" phase recovery finite cyclic group Fourier",
+        "\"autocorrelation\" \"Fourier support\" \"all but two\" translation uniqueness",
+        "arXiv:2604.13310 Theorem 1.3",
+        "arXiv:1705.00641 Proposition II.1",
+        "arXiv:2503.21022 Main Theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bispectrum equals the Fourier transform of order-three autocorrelation, cf. arXiv:2604.13310 Eq. (2).",
+        "arXiv:1705.00641 Proposition II.1 proves band-supported reconstruction rather than arbitrary nonzero support above three quarters.",
+        "arXiv:math/0207051 Section 3 treats 3-deck of indicator functions and specific cyclic groups."
+      ],
+      "reasoning": "The tested equivalence is phase rigidity of the third-order Fourier product under arbitrary zero pattern of density below one-quarter. The inspected sources have distinct scope: structured Fourier bands or indicator functions, rather than arbitrary real signals on all finite abelian groups. No inspected exact equivalent was identified.",
+      "searches": [
+        "\"bispectrum\" \"missing\" \"frequencies\" phase recovery finite cyclic group Fourier",
+        "\"3-deck\" \"3/4\" Fourier support",
+        "\"higher-order autocorrelation\" \"3/4\" bispectrum reconstruction",
+        "\"partial homomorphism\" \"3/4\" abelian groups",
+        "arXiv:math/0207051 Section 3",
+        "arXiv:1705.00641 Proposition II.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact algebraic counterexample uses \\(\\mathbb Z_8\\) Fourier support \\(\\{0,1,3,4,5,7\\}\\) with noncharacter phase ratio on precisely two missing positions.",
+        "Inspected indicator-reconstruction and rational-data examples do not tabulate or classify this complete real-valued density-threshold statement."
+      ],
+      "reasoning": "The theorem concerns all finite abelian groups, not an unmotivated recomputation of a known finite table; exact eight-point data prove necessity of strict density, and tensorization gives unbounded group sizes. No exact matching table was identified in inspected sources.",
+      "searches": [
+        "\"3-deck\" \"3/4\" Fourier support",
+        "\"higher-order autocorrelation\" \"3/4\" bispectrum reconstruction",
+        "arXiv:math/0207051 Section 3",
+        "arXiv:2503.21022v2 examples",
+        "\"3-deck\" \"three quarters\" Fourier support"
+      ]
+    },
+    "rationale": "The reviewed literature covers full or structured Fourier support, indicator reconstruction, rational signals or high-order autocorrelations; no inspected result implies the strict sharp one-quarter-erasure cutoff for real signals on all finite abelian groups. The exact supporting lemma and positive equality construction distinguish this claim, subject to explicitly listed residual risk.",
+    "residual_risks": [
+      "A stronger old partial-character/Freiman-extension lemma or an equivalent bispectral density theorem under different terminology could imply the uniqueness half; targeted searches cannot establish nonexistence.",
+      "No independent priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides higher-order sufficient bounds but not the strict three-quarter order-three real-signal threshold or positive sharpness construction",
+        "evidence": [
+          "Eq. (2): product formula for Fourier transformed autocorrelations",
+          "Theorem 1.3: orders through 3v under generation assumption",
+          "Theorem B: index-two subgroup assumption"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.13310",
+        "material_read": "Introduction, Proposition 1.1, Theorems 1.3, A and B; Fourier correlation formula; support-zero discussion and examples",
+        "method": "Read lawful arXiv accessible full text, comparing quantifiers, support assumptions and autocorrelation orders",
+        "title": "Higher-Order Autocorrelations on Finite Abelian Groups",
+        "trigger": "Same signal reconstruction problem and 2026 motivating source"
+      },
+      {
+        "assessment": "Provides bounds scaling with rank for rational-valued signals; does not imply a third-order spectral-density criterion for arbitrary real-valued signals",
+        "evidence": [
+          "Main Theorem: order at most 2r+2 or 3r+3 depending on group parity",
+          "Basic Algorithm: higher autocorrelation inputs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.21022",
+        "material_read": "Introduction, Main Theorem, algorithm statement and first reconstruction example; revision header 2026-07-04",
+        "method": "Read lawful arXiv PDF text and inspected page image; compared rationality hypothesis and order dependence",
+        "title": "Reconstructing Rational Functions on Finite Abelian Groups with Higher Autocorrelations",
+        "trigger": "Closest rank-uniform higher autocorrelation reconstruction paper cited by 2026 work"
+      },
+      {
+        "assessment": "Indicator-function and cyclic structural results, not a theorem implying the universal arbitrary-real-function three-quarter support threshold",
+        "evidence": [
+          "Section 3: triple correlation and cyclic reconstruction cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0207051",
+        "material_read": "Introduction and Section 3 treatment of 3-decks on cyclic groups",
+        "method": "Read lawful arXiv PDF text and inspected source page image",
+        "title": "Reconstruction of functions from their triple correlations",
+        "trigger": "Historical direct triple-correlation uniqueness source"
+      },
+      {
+        "assessment": "Fourier-band structural support is materially more restrictive than an arbitrary density condition; no exact one-quarter erasure classification",
+        "evidence": [
+          "Proposition II.1: reconstruction with contiguous symmetric Fourier support"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.00641",
+        "material_read": "Problem setup and Proposition II.1 including band-limited assumption",
+        "method": "Read lawful arXiv HTML excerpt/full relevant proposition",
+        "title": "Bispectrum Inversion with Application to Multireference Alignment",
+        "trigger": "Modern bispectrum inversion guarantees and possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41b04ad5-5504-4a72-b0b0-dffc55a9cd9e",
+  "value": {
+    "rationale": "Third-order bispectrum phase recovery under adversarial Fourier erasures has a natural universal threshold question. The result determines the exact sharp erasure fraction one-quarter across all finite abelian groups, identifies the structural mechanism by a dense partial-character lemma, and exhibits strictly positive sharpness examples for arbitrarily large groups. The identification and exact boundary have direct mathematical significance beyond a finite experiment.",
+    "status": "PASS"
+  }
+}
