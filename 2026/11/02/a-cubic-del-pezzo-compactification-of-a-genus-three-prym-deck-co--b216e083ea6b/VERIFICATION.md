@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Run `python3 verify_quotient.py` with Python 3 and SymPy installed. The checker exits without exception and ends with `PRYM_DECK_CUBIC_QUOTIENT_AND_A3_2A1_PASS`.
+## correctness
 
-The checker verifies the exact \(a,b\)-coordinate conjugacy, the involution squared, invariants, invariant surface equation, source degeneracy divisors and their norm identity, the homogeneous cubic's four partial derivatives, both affine singular points, the unique singular point at infinity, the exact \(A_3\) completing-square identity, doubled boundary substitution and length-four boundary contact identity. It additionally enumerates all admitted coefficient points over \(\mathbb F_7\) and \(\mathbb F_{13}\) and proves directly in these finite enumerations that every invariant fiber has two points. The complete invariant ring, global lack of further singularities, and etale quotient rely on the arguments in `RESULT.md`, not finite-field enumeration.
+PASS
 
-The verification covers the displayed **coefficient-level quotient**. It neither compares all moduli identifications nor constructs a moduli-stack compactification, proves modular uniqueness, or constitutes independent scientific validation. The projective normalization construction is a standard finite-normalization argument rather than a separately implemented normalization algorithm.
+In the specified unordered smooth coefficient chart over C and a+b!=0, u=(a+b)/4, v=(ab+4)/(a+b) transform the supplied involution into (u,v)->(-1/u,-v). Writing q=u-1/u,z=u+1/u,t=v^2,w=vz gives invariant ring C[q,t,w]/(w^2-t(q^2+4)); localization by t-4 and q^2+4-2w+t preserves invariants and removes fixed points. On projectivization W^2 Z=T(Q^2+4Z^2), the four exact partials show only affine q=+/-2i nodes and infinity [0:1:0:0]; completing square gives A3. Setting boundary N=0 yields (w-q^2-4)^2=0, and the contact with t=4 has length four. Symbolically rederived gradient (-2QT,-Q^2-4Z^2,2WZ,W^2-8TZ) and the infinity analytic A3 identity.
+
+## originality
+
+PASS
+
+The coefficient-level degree-two involution exact invariant ring and boundary scheme are different claims from a Prym moduli map or its general compactification.
+
+## value
+
+PASS
+
+The cubic del Pezzo quotient is geometrically motivated by a published degree-two Prym coefficient correspondence. Its ADE singularity basket and doubled boundary with exact contact refine the moduli-geometry picture as an independently meaningful coefficient-level compactification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
