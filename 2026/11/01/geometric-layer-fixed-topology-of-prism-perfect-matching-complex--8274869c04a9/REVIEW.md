@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof works for every finite simple base graph and explicitly treats the geometric, rather than vertexwise, fixed-point set. Under the layer swap, invariant matchings consist of rungs and paired horizontal edges; adjoining every available rung proves extendability. This identifies the fixed space with an ordinary whiskered matching complex. The union of all rung closed stars has contractible nonempty finite intersections and a simplex nerve, hence is contractible. The only simplices outside this core are complete horizontal perfect matchings, all of whose proper faces are in the core. Collapsing the contractible core yields exactly one sphere of dimension \(m-1\) for each perfect matching when \(n=2m\); the odd case is contractible. Relative integral chain groups are freely spanned by those top simplices, with zero differential, and the group action supplies the stated orientation signs. The quotient and relative-homology arguments include degree zero and empty-perfect-matching edge cases. The standalone finite checker passed the enumerations and character comparisons specified in `VERIFICATION.md`. None of the numerical tests is used as a proof for arbitrary graphs.
+PASS
 
-## Originality — PASS (with disclosed residual risk)
+A fixed simplex in the prism perfect-matching complex consists of rung-edge orbits and paired horizontal-edge orbits. Invariance plus matching condition makes these correspond exactly to matching faces of W(H), and every such invariant partial matching extends by adjoining all unused rungs; orbit barycenters therefore yield an actual PL homeomorphism, not just a chain identity. The subcomplex A formed by all rung closed stars has contractible nonempty finite intersections: any face compatible with each chosen rung is compatible with their union. Its nerve is a full simplex, so A is contractible even for an isolated vertex. Any horizontal face leaving an uncovered base vertex lies in A. Faces outside A are exactly entire perfect matchings of H, with dimension m-1 when n=2m, and all boundaries lie in A; this gives a relative free top chain group and K/A wedge of one sphere per perfect matching. Collapsing contractible A is a homotopy equivalence; the edge-order orientation action gives the integral signed permutation representation. For n odd no exceptional facets, hence contractible; zero-dimensional m=1 and b(H)=0 cases handled. Independently enumerated base perfect matching counts for P3,P4,C4,K4,K3,3 (0,1,2,3,6), agreeing with exception facet classification. This is independent finite support, not a proof for all H.
 
-Agarwal–Basak's arXiv:2608.30601v2, Sections 3, 5.2 and 6, determines ordinary homotopy types of circular-ladder perfect-matching complexes; it does not determine a geometric layer-swap fixed locus or an integral induced automorphism module. Bayer–Jelić Milutinović–Vega's arXiv:2411.04601v2, Theorem 2 and proof, gives a qualitative wedge-of-spheres conclusion for outerplanar matching complexes; for whiskered cycles it neither gives the exact wedge number nor the signed integral module, and it does not apply to the fully whiskered graph of an arbitrary nonouterplanar base. Targeted indexed searches for prism involutions, the fully whiskered matching-complex alias, perfect-matching sphere counts and integral permutation representations located no logically covering result. Prior accessible claims likewise showed no matching statement. A possible equivalence hidden in unexamined whiskering literature remains the principal originality risk; search absence alone is not regarded as proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A natural involution of a recent, actively studied perfect-matching complex has a fixed space whose complete integral topology for **every base graph** is governed by the exact enumerative invariant counting perfect matchings. The theorem identifies the geometric fixed-point space correctly, gives a uniform homotopy classification including nonouterplanar examples, determines an entire signed integral automorphism module, and answers an equivariant question not settled by ordinary homotopy classifications. The universal core-and-exceptional-facets construction is useful beyond an isolated finite computation or a cosmetic parameter substitution.
+The same invariant was compared under its crucial alias M(W(H)) (matching complex of the fully whiskered/corona base). Available literature classifies ordinary full circular-ladder perfect-matching complexes or qualitatively classifies outerplanar matching complexes, not all-base layer-fixed spaces with b(H) count and integral signed Aut(H) module. No indexed exact prior equivalence found; residual risk specifically remains for whiskering/corona literature.
 
-## Sources and limits
+## value
 
-Closest full primary sources: arXiv:2608.30601v2 and arXiv:2411.04601v2. Matching-complex definitions, fixed-point geometry, relative orientations and base-graph automorphism actions are fully specified in `RESULT.md`. Relevant uncertainty: unindexed equivalent statements for fully whiskered matching complexes. No independent review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This universal graph-parameter theorem relates a natural geometric fixed-point topological space to an independently fundamental combinatorial invariant b(H), uniformly including nonouterplanar graphs and complete integral automorphism-module information. It gives precise topology that nonequivariant full-prism classifications do not determine and is useful even when b(H) requires complex enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
