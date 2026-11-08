@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific checks
+# Independent mathematical audit
 
-Run `python checker.py` (NumPy required) next to this file. The checker uses a tilted Poisson-time embedded chain: between resets, the Brownian displacement at an independent exponential time has a two-sided exponential law; integration over site Voronoi intervals gives a finite-dimensional tilted transition generator. This is independent of the harmonic-coordinate method in the proof. Its first two eigenvalue derivatives recover the physical drift and asymptotic diffusivity.
+## correctness
 
-Actual result: `PASS: 235 finite checks. Independent tilted-reset-chain and closed form agree.` Tests include six arbitrary/regular positive-gap configurations, exact destination-weight comparisons, row stochasticity, small-rate cubic-gap slopes, fixed-rate disorder reversal, large-rate asymptotics, and 100 seeded Cauchy/normalization comparisons.
+PASS
 
-The main analytic certificate is the derivation in `RESULT.md`: normalized invariant density, distributional forward equation, a C1 piecewise-sinh corrector solving the generator equation, exact bracket integration, ergodic martingale CLT, Taylor expansion and exponential asymptotics. Finite numerical tests do not prove the limiting theorem, strict general inequalities or publication originality.
+The proposed density solves Dp-rp=0 within each gap, integrates to one and its derivative jumps exactly cancel reset-point delta fluxes; stationarity and irreducibility follow. Harmonic coordinate H on Voronoi cells has matching values and first derivatives at midpoints, H(x+L)-H(x)=L, and generator LH=0, giving bounded-corrector martingale and drift zero. Its continuous/jump quadratic variation integrates to E cosh^2=(T+2S)/(3T), E sinh^2=2(S/T-1)/3 and D_eff=rL^2/(4ST); bounded jump size and ergodicity give CLT. Taylor and max-gap estimates yield the stated low/high rate terms. Independent Gaussian/jump-bracket quadrature and numerical unequal-vs-equal reversal checks pass; these are corroboration, not a replacement for the all-gap analytic proof.
 
-There is no independent mathematical audit, no exhaustive bibliographic certification and no assertion about arbitrary clocks or nonperiodic environments.
+## originality
+
+PASS
+
+Best-of-knowledge, scoped novelty for the exact theorem and parameter regime after checking actual primary results and Resultary; prior methods/ingredients and exact overlaps are acknowledged rather than used as evidence of novelty. No decisive stronger theorem covering this precise claim was identified; remaining priority uncertainty is explicit.
+
+## value
+
+PASS
+
+Exact arbitrary-spacing transport coefficients are natural homogenized observables in a physically motivated resetting model; the fixed-rate ordering reversal and largest-spacing bottleneck make a real structural addition to the known rate-optimized regular-array optimum. This is not a renamed regular-grid formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
