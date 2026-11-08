@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:19:24.464781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree b035c6060209947706dd6ea535ac2183225ea143; RESULT.md 418f76f16dce139c0e5db0b12460342fa6921ea1; verify_triangles.py 4ce716c12d9ad1dcfa4fcec72b7ec77fcd96632c",
+        "independent_checks.py: TRIANGLE_OK (11 direct graph triangle instances)"
+      ],
+      "rationale": "Cai–Kiah–Nguyen–Yaakobi Proposition 9 supplies the exactly-two-read Type-A pair edge criterion: opposite alternating phases on a unique first/last difference interval. For three pairwise adjacent words three distinct letters at one position would force contradictory alternating neighbors, so exactly zero or two edge intervals cover each coordinate. Three integral intervals then form a unique long interval and two adjacent disjoint shorter intervals, each length>=2, with cut choices ell-3 and two splice orientations. Counting outside context and symbol pair gives formula and OGF. Independent direct deletion-descendant graph K3 enumeration tested 11 (q,n) cases through binary n=7, ternary n=4, in agreement. Finite checks corroborate, not prove all q,n.",
+      "residual_risks": [
+        "Finite independent calculations do not establish untested infinite cases; unrestricted conclusions rest on proof lemmas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chrisnata et al study binary reconstruction codes, clique-cover bounds, not an exact all-q K3 census in inspected sections. Resultary edge census counts K2 only."
+        ],
+        "reasoning": "Clique cover or total edges cannot determine triangles: different graphs can share clique cover size and edges but have different K3 counts.",
+        "searches": [
+          "Chrisnata–Kiah–Yaakobi arXiv:2004.06032 Section IV",
+          "Resultary exact edge count of finite alphabet two read single deletion graph 737fed325e91"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376",
+        "arXiv:2004.06032",
+        "Resultary:737fed325e91",
+        "Resultary:a53aac659908"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published alternating-interval edge lemma is necessary, but global geometric decomposition of three intervals is extra proof and produces unique splice count."
+        ],
+        "reasoning": "The formula is a new structural consequence after a nontrivial three-way argument, not directly a reprint of pairwise formula.",
+        "searches": [
+          "Cai et al 2020 Proposition 9",
+          "Chrisnata et al 2020 Section IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 9 classifies edges by opposite alternating factors, not triples of pairwise confusable words."
+        ],
+        "reasoning": "Pairwise Type-A criterion is a lemma, not logically the all-parameter triangle spectrum until three intervals are classified.",
+        "searches": [
+          "Resultary two read deletion confusability graph q ary words triangles clique counts opposite alternating type A",
+          "Cai et al arXiv:2001.01376 Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary triangle record is ordinary one-read graph (edge >=1 common deletion), a strict supergraph of the two-read graph; other record is K2 count only."
+        ],
+        "reasoning": "Neither exact table contains the q-ary two-read triangles; numeric coincidences are not equivalences.",
+        "searches": [
+          "Resultary Exact triangle count in the binary single-deletion graph a53aac659908",
+          "Resultary exact edge count finite alphabet two-read 737fed325e91"
+        ]
+      },
+      "rationale": "Published two-read Type-A edge classification and finite-alphabet edge census are explicitly credited. The new all-q triangle count requires consistency of three overlapping edge intervals; the published binary one-read triangle result uses different adjacency and does not imply the two-read q-ary counts. Full relevant source sections were inspected.",
+      "residual_risks": [
+        "An unindexed clique-structure theorem might imply the triangle count; absence of retrieved exact table is not proof of worldwide novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem supplies edge criterion but not full q-ary triangle count",
+          "evidence": [
+            "Proposition 9 identifies >=2 common single-deletion descendants with alternating phase edge intervals."
+          ],
+          "identifier_or_url": "arXiv:2001.01376",
+          "material_read": "Full accessible primary PDF relevant Section III and Proposition 9; page image inspected",
+          "method": "Open preprint PDF, extracted section and page screenshot",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Establishes exactly used Type-A edge characterization"
+        },
+        {
+          "assessment": "No explicit all-alphabet exact three-clique enumeration in material read; coding bounds are distinct",
+          "evidence": [
+            "Section IV relates confusability graphs to independent codes and clique covers."
+          ],
+          "identifier_or_url": "arXiv:2004.06032",
+          "material_read": "Full accessible primary paper relevant Section IV on graph and clique covers, with page image inspected",
+          "method": "Open preprint PDF and section screenshot",
+          "title": "Optimal Reconstruction Codes for Deletion Channels / Correcting Deletions With Multiple Reads",
+          "trigger": "Same two-read binary graph; may imply triangle table"
+        },
+        {
+          "assessment": "Edge count alone does not imply triangle spectrum",
+          "evidence": [
+            "Unique opposite-alternating interval decomposition, edge count q(1-nq^(n-1)+(n-1)q^n)/(2(q-1))."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Resultary published abstract and formula (not full paper)",
+          "method": "Resultary published record summary",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Published same graph exact K2 parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2001.01376",
+        "arXiv:2004.06032",
+        "Resultary:737fed325e91",
+        "Resultary:a53aac659908"
+      ],
+      "rationale": "Exact number and unique normal form of three-way confusable word triples is a natural measure of local ambiguity for multi-read reconstruction coding. Extends pairwise edge geometry to an all-q K3 classification, beyond a routine edge recount.",
+      "residual_risks": [
+        "Does not determine maximum cliques, all reconstruction code sizes or higher cliques."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all q>=2,n>=1, unordered K3 count in graph on q-ary length-n words joined iff >=2 distinct shared length n-1 deletion descendants: T_q(n)=q(q-1)*sum_{ell=4}^n (n-ell+1)(ell-3)q^(n-ell), and OGF q(q-1)z^4/[(1-qz)^2(1-z)^2].",
+  "limitations": [
+    "Does not determine maximum cliques, all reconstruction code sizes or higher cliques.",
+    "An unindexed clique-structure theorem might imply the triangle count; absence of retrieved exact table is not proof of worldwide novelty."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Type-A edge lemma is a published necessary-and-sufficient equivalence (Cai et al., Proposition 9). The novel proof forces two, not three, differing pairs at any position in a triangle; the resulting three intervals must decompose uniquely into one long interval and two adjacent short intervals. This gives a unique counting normal form and a formal rational generating function. Every parameter and boundary is stated (\(q\ge2\), \(n\ge1\), lengths at least four); the same alphabet symbols are allowed in the common outside context. Independently implemented literal deletion-sphere edge tests match interval edges on sixteen families; triangle counts and interval decompositions match nineteen exhaustively enumerated families. The proof, not finite enumeration, establishes all \(q,n\).
+PASS
 
-## Originality — PASS, residual literature risk
+Cai–Kiah–Nguyen–Yaakobi Proposition 9 supplies the exactly-two-read Type-A pair edge criterion: opposite alternating phases on a unique first/last difference interval. For three pairwise adjacent words three distinct letters at one position would force contradictory alternating neighbors, so exactly zero or two edge intervals cover each coordinate. Three integral intervals then form a unique long interval and two adjacent disjoint shorter intervals, each length>=2, with cut choices ell-3 and two splice orientations. Counting outside context and symbol pair gives formula and OGF. Independent direct deletion-descendant graph K3 enumeration tested 11 (q,n) cases through binary n=7, ternary n=4, in agreement. Finite checks corroborate, not prove all q,n.
 
-The strongest direct prior implication, Cai et al.'s Type-A theorem, characterizes pairs but does not enumerate triangles. Chrisnata et al. construct clique covers of the binary two-read graph, but their inspected sections do not state the complete triangle normal form or this all-\(q\), all-\(n\) rational enumeration. The published edge-count record treats only pairwise confusability. The published binary ordinary-deletion triangle formula concerns edges with **one** common descendant and therefore a different graph. Numerical sequence coincidence has no theorem-level implication for the new object. A broader unpublished or unindexed clique formula might nevertheless imply this enumeration; no uniqueness claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-Triangles are the first genuinely three-source obstruction beyond edge counts in multiple-read reconstruction-code conflict graphs. An exact global triangle count, complete triangle structure and universal rational series together give a natural graph invariant potentially usable for independent-set bounds and higher-order clique studies, without claiming those downstream results. The formula holds over every finite alphabet and every blocklength and is not a routine finite census.
+Published two-read Type-A edge classification and finite-alphabet edge census are explicitly credited. The new all-q triangle count requires consistency of three overlapping edge intervals; the published binary one-read triangle result uses different adjacency and does not imply the two-read q-ary counts. Full relevant source sections were inspected.
 
-## Scope and limitations
+## value
 
-This does not solve maximal-clique classification or code-size extremal problems. The proof relies transparently on the established Type-A edge criterion. One unrelated known integer sequence has the same binary coefficients, and unindexed equivalent work remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact number and unique normal form of three-way confusable word triples is a natural measure of local ambiguity for multi-read reconstruction coding. Extends pairwise edge geometry to an all-q K3 classification, beyond a routine edge recount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
