@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-`python3 verify_johnson_character.py` uses only the Python 3 standard library. The run enumerates the full face posets for four Johnson complexes with parameter pairs \((6,3),(7,3),(8,3),(8,4)\), independently computes the signed simplex Lefschetz trace and the proposed permutation/incidence character at every conjugacy-class representative, and compares them. It checks the mod-two homology with exact bit-vector Gaussian elimination, and checks the trivial and sign averages using the exact sizes of conjugacy classes. The required ending is `JOHNSON_ALL_WEIGHT_SYMMETRY_VERIFY_OK 70`. The file `verification_output.txt` records the actual output.
+## correctness
 
-The all-parameter theorem is proved combinatorially in `RESULT.md`; finite computation cannot establish all \(n,k\). The mathematical comparison does not amount to independent publication-priority certification. No independent mathematical audit has been performed.
+PASS
+
+Reconstructed Johnson clique maximal facets: a star for fixed (k-1)-subset or a top for fixed (k+1)-subset, and each triangle belongs to only one. Descending elementary facet collapses give 2-skeleton; the hypersimplex cellular 2-skeleton is simply connected and uses all Johnson edges, yielding only H2. The equivariant signed Euler chain calculation yields the seven-term virtual expression, with oriented-edge sign module E counted twice in facet chains. The trivial component is 3+0-2-1=0; the full sign component vanishes by odd stabilizers, so both S_n and A_n rational orbit homology are reduced-acyclic. Independently checked (8,4) direct full-face signed Lefschetz traces = formula: 181 on identity, 1 on transposition and 3-cycle; not an extrapolation to all n,k.
+
+## originality
+
+PASS
+
+The all-weight S_n-character and alternating-group rational quotient acyclicity refine existing Johnson-graph wedge topology and known weight-three S_n-character; previous homotopy dimensions are not newly claimed.
+
+## value
+
+PASS
+
+Complete coordinate-symmetry character across all weights k>=4, plus rational vanishing for both full and alternating quotients, refines the natural previously known Johnson-graph homotopy type in a way dimensions cannot determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

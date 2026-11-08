@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final theorem concerns exactly the rational \(S_n\)-character of \(\widetilde H_2(\operatorname{Cl}(J(n,k));\mathbb Q)\) for all \(n\ge6\), \(3\le k\le n-3\), together with rational acyclicity of the \(S_n\)- and \(A_n\)-orbit spaces. Every triangle and higher face has a unique star/top maximal facet, and descending coface removals collapse the complex to dimension two. The two-skeleton of the hypersimplex supplies the common simply connected one-skeleton, giving reduced rational homology concentrated in degree two. The signed equivariant Euler calculation yields the stated exact seven-term representation-ring identity, using the two vertex-flag permutation modules and the oriented-edge module. Frobenius reciprocity proves vanishing of both trivial and sign multiplicities; Maschke's theorem and barycentric subdivision then give the orbit-space conclusions. Four finite examples verify signed Lefschetz characters in all 70 tested conjugacy classes and exact mod-two homology, but finite computation is explicitly not the infinite proof. Critical character identity was checked algebraically and its sign convention reconstructed against the reduced equivariant Euler equation.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The all-parameter nonequivariant homotopy equivalence and Betti-number formula are already established in *Sphere-wedge collapse of scale-one Johnson-graph Rips complexes* (public record 2026-10-11); those facts are not claimed as new. *Symmetric-group homology character of constant-weight-three Hamming Rips complexes* (2026-10-11) already covers every \(k=3\) case, which is expressly excluded from the novel contribution. The new contribution is the full all-weight character, including infinitely many \(k\ge4\), and its uniform alternating-group quotient result. Full texts of both closest public RESULT manuscripts were compared at the exact object, parameter, and implication levels. Shuldiner–Oldford's primary manuscript establishes Johnson maximal cliques but not the resulting representation. Adamaszek's primary graph-powers manuscript motivates graph-metric clique complexes but does not imply the representation. The closest hypercube symmetry source concerns the *entire* cube rather than this induced constant-weight layer; only its abstract was accessible, and its full text is a residual risk. Meaning-based published-finding corpus searches, targeted external searches, and the available same-slot ledger claims yielded no dominating all-weight character statement. Search failure does not prove absolute priority.
+PASS
 
-## Mathematical value — PASS
-This determines the complete rational representation on the only nonzero reduced homology group for an infinite two-parameter family of Johnson clique complexes, not merely its previously known dimension. The natural symmetric and alternating permutation quotients are both rationally acyclic despite high-dimensional homology of the original complexes. The independent weight-four example demonstrates genuinely new information beyond the previously established weight-three character. The result is motivated by hypersimplex/Johnson graph topology and the natural full coordinate symmetry, and makes no unsupported assertion about integral quotient homotopy or unexplored scales.
+Reconstructed Johnson clique maximal facets: a star for fixed (k-1)-subset or a top for fixed (k+1)-subset, and each triangle belongs to only one. Descending elementary facet collapses give 2-skeleton; the hypersimplex cellular 2-skeleton is simply connected and uses all Johnson edges, yielding only H2. The equivariant signed Euler chain calculation yields the seven-term virtual expression, with oriented-edge sign module E counted twice in facet chains. The trivial component is 3+0-2-1=0; the full sign component vanishes by odd stabilizers, so both S_n and A_n rational orbit homology are reduced-acyclic. Independently checked (8,4) direct full-face signed Lefschetz traces = formula: 181 on identity, 1 on transposition and 3-cycle; not an extrapolation to all n,k.
 
-## Limits and nearest sources
-The character is given as an exact signed equality in a representation ring, not a positive constituent list. It makes no assertion about integral lattices, torsion, later persistence scales, or quotient contractibility. Full proof and source identifiers are in RESULT.md; executable finite checks and their limitations appear in VERIFICATION.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-weight S_n-character and alternating-group rational quotient acyclicity refine existing Johnson-graph wedge topology and known weight-three S_n-character; previous homotopy dimensions are not newly claimed.
+
+## value
+
+PASS
+
+Complete coordinate-symmetry character across all weights k>=4, plus rational vanishing for both full and alternating quotients, refines the natural previously known Johnson-graph homotopy type in a way dimensions cannot determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
