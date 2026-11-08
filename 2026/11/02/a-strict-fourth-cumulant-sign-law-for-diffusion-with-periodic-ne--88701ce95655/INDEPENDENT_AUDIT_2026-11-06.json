@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:36.994345Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 4ddd2ed741c6a25a5831bc6b23d848f458e75869, RESULT.md blob e24c361bfb0334688abfedc4f81060e364db0fab",
+        "Frozen verify.py blob 7a29ae554fa367cc1f352d412f1c0e39243066e2; independent CASE5_OK"
+      ],
+      "rationale": "The candidate reconstructs a nearest-neighbor renewal walk of actual reset/diffusion path: each completed site-to-site passage time T has stated rational hyperbolic Laplace transform obtained from Brownian killed Green kernel; site increments are symmetric ±ℓ independent of T. Actual position remains within ℓ of embedded site walk so the renewal equation M(k,t)=h_k(t)+cosh(kℓ)∫M(k,t−s)P(T∈ds) gives the same long-time logarithmic exponential rate, with exponentially light T and nonlattice pole ensuring local analyticity. Differentiating φ at zero yields m=2sinh²α/(r coshα) and v=[4sinh²α cosh²α−2α sinhα(sinh²α+2)]/(r²cosh²α). Expanding logφ(ψ)+logcosh(kℓ)=0 gives ψ^(4)(0)=ℓ⁴(3v−2m²)/m³. The remaining H(α) inequality is proved analytically: 2H=Σ_{n≥2}3[9^n+3−(2n+1)4^n] α^(2n+1)/(2n+1)!>0 by base n=2 and induction; the CV²<1 inequality follows from another positive coefficient series, with endpoints 2/3 and 1. Independent symbolic differentiation and 60 numerical parameter checks reproduced exact moments and signs (CASE5_OK), not an infinite substitute. The weak-reset expansion matches H(α)=α⁵/20+O(α⁷). No finite-time cumulant sign or CLT non-Gaussian limit claimed.",
+      "residual_risks": [
+        "Only periodic instantaneous nearest-site Poisson resetting and independent Brownian increments, not biased/finite-speed/irregular reset systems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general renewal SCGF method yields ψ as an implicit function once φ is supplied, but does not automatically certify the special hyperbolic inequality 3v>2m² for every reset rate. Alston–Bertrand publish φ and D_eff."
+        ],
+        "reasoning": "A generic renewal theorem gives the framework, not the sharp all-rate sign; direct symbolic substitution plus positive series is additional mathematical work.",
+        "searches": [
+          "arxiv:2012.09656 full CTRW large-deviations text",
+          "Alston–Bertrand arxiv:2401.12772 full supplement",
+          "Resultary semantic query: diffusion Brownian nearest lattice site Poisson resetting fourth cumulant positive coefficient variation waiting time"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 4ddd2ed741c6a25a5831bc6b23d848f458e75869, RESULT.md blob e24c361bfb0334688abfedc4f81060e364db0fab",
+        "Frozen verify.py blob 7a29ae554fa367cc1f352d412f1c0e39243066e2; independent CASE5_OK",
+        "Alston Bertrand arxiv:2401.12772 lawful primary full text and supplementary equations",
+        "Pacheco-Pozo Sokolov arxiv:2012.09656 primary full text",
+        "Roberts Sezik Lardet arxiv:2405.10698 abstract",
+        "Resultary nearest-site resetting cumulant semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known φ together with standard renewal SCGF allows differentiation to derive ψ^(4) but its positivity for all α requires H(α)>0, which does not follow from generic renewal constraints (many waits have CV²<2/3)."
+        ],
+        "reasoning": "The exact strict sign is not a trivial corollary of existence of SCGF or of effective diffusivity; asymmetric ratchet results do not imply the symmetric nearest-site inequality absent a proven equivalence.",
+        "searches": [
+          "arxiv:2401.12772",
+          "arxiv:2012.09656",
+          "arxiv:2405.10698"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Completed site-to-site renewal walk has φ; its SCGF equation is a standard renewal reward identity, but positivity of ψ^(4)(0) is equivalent to the nontrivial CV²(T)>2/3 property."
+        ],
+        "reasoning": "Compared central-limit diffusivity, continuous-time random walk reward SCGF, waiting-time Fano/CV coefficient, excess kurtosis and cumulant sign in nearest-site resetting.",
+        "searches": [
+          "Resultary semantic query: diffusion Brownian nearest lattice site Poisson resetting fourth cumulant positive coefficient variation waiting time",
+          "Alston–Bertrand arxiv:2401.12772 full text",
+          "Pacheco-Pozo–Sokolov arxiv:2012.09656"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior primary work tabulates first-passage and effective diffusion, not an exact fourth cumulant or CV² interval. The prior expressions are acknowledged and reused."
+        ],
+        "reasoning": "A table of second moments or effective diffusivity is not an exact table of fourth scaled cumulants; no direct pre-existing fourth-cumulant formula found in inspected source.",
+        "searches": [
+          "Resultary semantic query: diffusion Brownian nearest lattice site Poisson resetting fourth cumulant positive coefficient variation waiting time",
+          "Alston–Bertrand Eq.12 Eq.17 and supplementary Eq.S17"
+        ]
+      },
+      "rationale": "Alston–Bertrand 2024/2025 already introduced nearest-site reset model, the first-passage transform and effective diffusion (main Eq.12/17). Their inspected full primary preprint including first-passage appendix does not give a model-specific strict fourth scaled cumulant inequality or open CV corridor. Pacheco-Pozo–Sokolov 2020/2021 supply general renewal/CTRW large deviation machinery and implicit SCGF style, expressly prior. Another 2024 asymmetric ratchet resetting article has different return mechanism and is a residual comparison risk. The new claim is the sharp all-rate sign and CV inequality, not renewal theory or effective diffusivity.",
+      "residual_risks": [
+        "An earlier moment calculation could derive this strict sign as a special case without labeling it as the fourth cumulant; arxiv:2405.10698 asymmetric mechanism was not read in full.",
+        "Renewal pole analyticity relies on exponential-tail and nonlattice passage times; user should not infer positivity of finite-time cumulants or Gaussian-limit failure.",
+        "Only periodic instantaneous nearest-site Poisson resetting and independent Brownian increments, not biased/finite-speed/irregular reset systems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical model first passage and effective diffusivity are covered prior; no strict fourth scaled cumulant or CV²>2/3 theorem in inspected full text.",
+          "evidence": [
+            "Alston–Bertrand (2024/2025), Eq.12 and Eq.17, first-passage supplement"
+          ],
+          "identifier_or_url": "https://thibaultbertrand.com/assets/pdf/2024_arxiv_a.pdf",
+          "material_read": "Full lawful author-hosted primary PDF, main text and supplementary first-passage appendix, especially main Eq.12 and Eq.17 and supplementary Eq.S17",
+          "method": "Full-text PDF reading, exact equation and keyword checks, targeted page screenshots",
+          "title": "Boosting macroscopic diffusion with local resetting",
+          "trigger": "Exact same periodic nearest-site reset mechanism with first-passage transform"
+        },
+        {
+          "assessment": "Generic renewal/CTRW large deviations are prior, but they do not state model-specific hyperbolic moment coefficient inequality.",
+          "evidence": [
+            "Pacheco-Pozo–Sokolov (2020/2021), general continuous-time random-walk large-deviation equations"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09656",
+          "material_read": "Complete accessible primary mathematical PDF including main generalized CTRW rate-function and Laplace transforms",
+          "method": "Full-text PDF reading and section comparison",
+          "title": "Large Deviations in Continuous Time Random Walks",
+          "trigger": "Potential dominating general renewal-reward SCGF result"
+        },
+        {
+          "assessment": "Asymmetric ratchet returns produce directed currents, unlike instantaneous symmetric nearest-site relocation; specific prior fourth-cumulant implication remains an unresolved comparison risk.",
+          "evidence": [
+            "arxiv:2405.10698 abstract and candidate literature comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.10698",
+          "material_read": "ArXiv abstract and mechanism summary; full paper not read in current audit",
+          "method": "Abstract-level comparison, not full-document exclusion",
+          "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+          "trigger": "Related potentially dominating resetting mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git tree 4ddd2ed741c6a25a5831bc6b23d848f458e75869, RESULT.md blob e24c361bfb0334688abfedc4f81060e364db0fab",
+        "Frozen verify.py blob 7a29ae554fa367cc1f352d412f1c0e39243066e2; independent CASE5_OK",
+        "Alston Bertrand arxiv:2401.12772 lawful primary full text and supplementary equations",
+        "Pacheco-Pozo Sokolov arxiv:2012.09656 primary full text",
+        "Roberts Sezik Lardet arxiv:2405.10698 abstract",
+        "Resultary nearest-site resetting cumulant semantic search"
+      ],
+      "rationale": "The fourth-cumulant growth measures non-Gaussian finite-time fluctuations in a common periodic resetting model even though Brownian motion has zero fourth scaled cumulant; the strict positivity and sharp (2/3,1) corridor expose a structural waiting-time mechanism. The exact model-specific sign is independently useful beyond known second-moment effective diffusivity; normalized excess kurtosis still decays as t^-1.",
+      "residual_risks": [
+        "An earlier moment calculation could derive this strict sign as a special case without labeling it as the fourth cumulant; arxiv:2405.10698 asymmetric mechanism was not read in full.",
+        "Renewal pole analyticity relies on exponential-tail and nonlattice passage times; user should not infer positivity of finite-time cumulants or Gaussian-limit failure.",
+        "Only periodic instantaneous nearest-site Poisson resetting and independent Brownian increments, not biased/finite-speed/irregular reset systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 4ddd2ed741c6a25a5831bc6b23d848f458e75869, RESULT.md blob e24c361bfb0334688abfedc4f81060e364db0fab",
+    "Frozen verify.py blob 7a29ae554fa367cc1f352d412f1c0e39243066e2; independent CASE5_OK",
+    "Alston Bertrand arxiv:2401.12772 lawful primary full text and supplementary equations",
+    "Pacheco-Pozo Sokolov arxiv:2012.09656 primary full text",
+    "Roberts Sezik Lardet arxiv:2405.10698 abstract",
+    "Resultary nearest-site resetting cumulant semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An earlier moment calculation could derive this strict sign as a special case without labeling it as the fourth cumulant; arxiv:2405.10698 asymmetric mechanism was not read in full.",
+    "Renewal pole analyticity relies on exponential-tail and nonlattice passage times; user should not infer positivity of finite-time cumulants or Gaussian-limit failure.",
+    "Only periodic instantaneous nearest-site Poisson resetting and independent Brownian increments, not biased/finite-speed/irregular reset systems."
+  ],
+  "schema_version": 1
+}
