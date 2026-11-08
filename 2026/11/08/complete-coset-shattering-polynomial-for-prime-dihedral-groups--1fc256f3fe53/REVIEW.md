@@ -1,0 +1,11 @@
+# Scientific assessment: complete prime-dihedral coset shattering polynomial
+
+**Correctness — PASS.** Every subgroup of the group of order \(2p\) for odd prime \(p\) has order \(1\), \(2\), \(p\), or \(2p\). The proof reconstructs all resulting left cosets, including the fact that each cross-part pair is an order-two subgroup coset. Every pair and every mixed triple is witnessed trace by trace; monochromatic triples and every quadruple are excluded. The coefficient count is therefore exhaustive for all odd primes. An independently constructed group-multiplication and coset checker verifies the formula for four primes without being used as infinite proof.
+
+**Originality — PASS within comparisons.** The closest group-theoretic finite-VC references are Conant–Pillay–Terry (arXiv:1802.04246, introduction and Theorem 3.2) and Conant–Pillay (arXiv:2004.05666, Section 2 and Theorems 2.1–2.2). They concern a fixed subset and its full translate class and structural regularity, not the union of all individual subgroup-coset families for a specified nonabelian group. Search comparisons for dihedral cosets, equivalent complete-bipartite-pair incidence, subgroup-coset hypergraphs, and exact shattering coefficients found no accessible prior covering this complete polynomial. The subgroup listing itself is classical and is not claimed as original. Residual priority risk: an equivalent statement may exist as an exercise or incidence-system classification under a different title.
+
+**Value — PASS.** The family of all single subgroup cosets is a canonical algebraic set system whose static shattering is not specified by general translate-VC regularity theorems. The complete polynomial yields both the precise three-point support geometry and sharp dimension three, contrasting with the cyclic group of the same order, whose subgroup-coset concept family has dimension two. It is a natural first nonabelian benchmark, not merely a numerical experiment. General composite-order dihedral groups remain outside the conclusion.
+
+The scope excludes unions of cosets, all composite dihedral parameters and claims of online-learning rank or general group bounds. Historical priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
