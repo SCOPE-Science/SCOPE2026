@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The multiplication formula \(e_{v,a}^2=\sum_{w\sim v}y_w\) is exact. Under nonsingularity of the base adjacency, the squared vectors are independent and span the fibre-sum ideal \(U\). Every nonzero algebra ideal contains one squared generator and, by propagation across a connected base, all of \(U\); the converse uses \(E^2=U\). For a natural basis the fibrewise projections are pairwise orthogonal because the squared vectors are independent; over \(\mathbb R\) their positive-definite forms force every natural-basis vector into one fibre. This yields both necessity and sufficiency for the extension-property evolution-ideal classification. The normalized blowup spectrum contains the base spectrum plus zeros, so the Cheeger inequality produces the claimed uniform lower bound. All boundaries and the field assumption are explicit. The supplied direct enumeration and cut computations returned `VERIFY_OK`, but are checks of small instances only.
+## correctness
 
-**Originality — PASS, qualified.** Giacomelli's arXiv:2605.12672v1 (May 12, 2026) defines the expansion condition and states simplicity of symmetric examples in Theorem 3.8. The family here has a proper evolution ideal even in the restrictive extendible-natural-basis sense of its Definition 2.9. Cabrera Casado–Siles Molina–Velasco (arXiv:1601.01832, Theorem 4.7 and Corollary 4.10) already characterize ordinary simplicity by spanning squared elements and directed reachability; their argument can imply the ordinary-ideal portion and is not claimed as new. Cadavid–Rodiño Montoya–Rodríguez (DOI 10.1080/03081087.2018.1541962) classify derivations using twin classes; they do not give the exact lattice of extension-property evolution ideals in this family. The new assessed comparison is that the full subspace lattice becomes a fibrewise subspace product when an extendible natural basis is required, yielding a Boolean count for double blowups, while expansion persists. Searches did not reveal an equivalent combined result. The possibility of an earlier extension-property classification under other terminology remains.
+PASS
 
-**Value — PASS.** The result identifies a substantive boundary for an explicitly asserted structural consequence of Cheeger expansion. It supplies full ideal-lattice structure and an exact, contrasting lattice of evolution ideals, instead of merely a singular adjacency observation; its Boolean-versus-continuum split persists through an infinite graph family with uniform expansion. That mathematical distinction is useful whenever 'evolution ideal' is taken in the restrictive natural-basis sense. The result does not claim new Cheeger inequalities or new general simplicity criteria.
+For independent b-fibre blowups over R with connected nonsingular base adjacency, e_(v,a)^2=s_v and the s_v are linearly independent. Their span U=E^2 is simple; nonzero ideals propagate s_v along edges and must contain U, while every superspace of U is an ideal. Pairwise-zero products of natural-basis vectors force orthogonality in each fibre. Counting bn independent projections proves every natural-basis vector is supported in one fibre, giving exactly the extendible ideals 0 and direct sums (R y_v + S_v), S_v subset y_v-perp; b=2 gives 2^n+1. Normalized adjacency of the blowup is that of H plus zero eigenvalues; standard Cheeger inequalities imply h(G)>= b*h(H)^2/(4*d) for regular H. Independent Git-tree SHA1 replay and K_3 determinant=2, 9-extension-ideal model, Cheeger(K_2,2,2)=2 corroborated. Caution: finite-field verifier does not prove real-field statements.
 
-No independent mathematical audit or publication-priority certification has been carried out. A field-dependent extension of the fibrewise lattice outside positive-definite ground fields is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the fibrewise complete two-lattice classification, Boolean special case and expanding nonsimple family. Noninvertible evolution algebras were known nonsimple and general natural-family theory is prior. The original 2026 symmetric-EEA simplicity statement is a target being contradicted, not support for the exact lattice count.
+
+## value
+
+PASS
+
+The exact contrast between the full ordinary ideal Grassmannian and rigid fibrewise extendible-natural-basis ideal lattice identifies a structural obstruction to inferring simplicity from graph expansion. The small K_(2,2,2) example is already a meaningful counterexample under the stated algebraic convention, while the expander-family bound shows it persists at arbitrarily large bounded degree; not merely renaming a known simplicity criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

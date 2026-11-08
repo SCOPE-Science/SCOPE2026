@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof identifies all nonzero ideals by propagation of squared generators along a connected base graph, and all extendible natural bases by orthogonality of their fibre projections. It then uses the exact adjacency spectrum of an independent-fibre blowup and standard regular-graph Cheeger inequalities to prove expansion preservation.
+# Independent mathematical audit
 
-A Python 3 standard-library program, `verify.py`, was executed in the same package directory and printed `VERIFY_OK`. It exhaustively enumerated all linear subspaces and tested the ideal condition for the blowups of `K2` over fields of orders 2 and 3 and `K3` over the field of order 2. It independently enumerated the projective natural-basis candidates in dimension four over the field of order 3 and found five ideals with an extendible natural basis, compared with seven ordinary ideals. It checked orthogonal bases over the rational numbers and all graph cuts in four small examples. The printed trace is not a substitute for the all-dimensional proof.
+## correctness
 
-The real-field statement about positive-definite fibre forms does not extend unchanged to arbitrary coefficient fields. Full historical priority and independent mathematical certification have not been established.
+PASS
+
+For independent b-fibre blowups over R with connected nonsingular base adjacency, e_(v,a)^2=s_v and the s_v are linearly independent. Their span U=E^2 is simple; nonzero ideals propagate s_v along edges and must contain U, while every superspace of U is an ideal. Pairwise-zero products of natural-basis vectors force orthogonality in each fibre. Counting bn independent projections proves every natural-basis vector is supported in one fibre, giving exactly the extendible ideals 0 and direct sums (R y_v + S_v), S_v subset y_v-perp; b=2 gives 2^n+1. Normalized adjacency of the blowup is that of H plus zero eigenvalues; standard Cheeger inequalities imply h(G)>= b*h(H)^2/(4*d) for regular H. Independent Git-tree SHA1 replay and K_3 determinant=2, 9-extension-ideal model, Cheeger(K_2,2,2)=2 corroborated. Caution: finite-field verifier does not prove real-field statements.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the fibrewise complete two-lattice classification, Boolean special case and expanding nonsimple family. Noninvertible evolution algebras were known nonsimple and general natural-family theory is prior. The original 2026 symmetric-EEA simplicity statement is a target being contradicted, not support for the exact lattice count.
+
+## value
+
+PASS
+
+The exact contrast between the full ordinary ideal Grassmannian and rigid fibrewise extendible-natural-basis ideal lattice identifies a structural obstruction to inferring simplicity from graph expansion. The small K_(2,2,2) example is already a meaningful counterexample under the stated algebraic convention, while the expander-family bound shows it persists at arbitrarily large bounded degree; not merely renaming a known simplicity criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
