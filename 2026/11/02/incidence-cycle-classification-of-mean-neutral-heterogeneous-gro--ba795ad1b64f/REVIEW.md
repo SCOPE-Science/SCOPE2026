@@ -1,11 +1,21 @@
-# Scientific review — Incidence-cycle classification of mean-neutral heterogeneous group influence
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact model has nonnegative projected weights and an invertible diagonally dominant \(I+L\); its inverse is a nonnegative row-stochastic operator. Conservation for every innate profile is equivalent to zero column sums of \(L\), which are precisely the per-vertex balances of \(q_{ev}=c_e(k_e\gamma_e(v)-1)\). The per-hyperedge balances follow from positive normalized roles. The oriented incidence-matrix rank gives the cycle dimension, with feasibility characterized by positivity of reconstructed roles. Jensen contraction requires (and obtains) double stochasticity. The four-agent motif resolvent and both comparison polarizations were obtained by symbolic inversion and checked independently by the packaged exact checker; 175 additional rational hypergraphs check the defining equivalences. No finite experiment is used as an all-size proof.
+## correctness
 
-**Originality (PASS, residual uncertainty).** The primary model paper by Xu and Zhang (arXiv:2310.05689v1, Eq. (2), Eq. (4), and Section V) treats asymmetric projection and reports conservation for symmetric influence and examples where directed influence changes opinion sums. It does not state the complete converse for role heterogeneity, cycle-space dimension, forest rigidity, sharp incidence-cycle feasible interval, or a four-agent sign reversal relative to the uniform-role baseline. Chitra and Raphael (2019, PMLR 97, full mathematical material inspected) study edge-dependent hypergraph random walks and stationary distributions, not this equilibrium resolvent. Standard incidence-rank and Jensen tools are acknowledged as prior mathematics; their specialized combination and counterpoint is the proposed contribution. Search results remain incomplete and an equivalent result may exist elsewhere.
+PASS
 
-**Value (PASS).** The distinction between directed and undirected higher-order social influence in the source raises a structural question: exactly which directed, heterogeneous role assignments can preserve aggregate opinion? The theorem answers this over *all finite hypergraphs* through an intrinsic topological invariant; gives a sharp graph-theoretic obstruction (forests); and shows that mean neutrality does not determine relative polarization. Its smallest three-uniform overlap motif supplies a concrete two-directional boundary to interpretations of directed influence. This is a motivated classification, not a mere isolated formula or reparameterization. It neither establishes empirical effects nor generalizes to other opinion dynamics.
+The directed hyperedge projection w_uv=Σ c_e γ_e(v) for u≠v gives L1=0 and I+L a nonsingular M-matrix, so Ω=(I+L)^{-1} is row-stochastic. Preservation of 1^TΩx=1^Tx for every innate x iff 1^TL=0, whose v-th equation equals -Σ_{e∋v}c_e(k_e γ_e(v)-1). Per-edge normalization gives the second zero-sum family; jointly they are exactly the oriented incidence-graph circulation equations. The incidence rank |V|+|E|-b0 proves dimension |I|-|V|-|E|+b0, and small alternating cycle perturbations preserve positivity exactly for |s|<min c_e. A doubly stochastic Ω contracts squared centered norm, strictly on any nonconstant connected component. Independent symbolic inversion of the two overlapping 3-uniform edges yields polarization (18d²±54d+53)/225 and opposite shifts at d=1/6, confirming sharp four-vertex motif.
 
-**Closest literature and limits.** Xu–Zhang, arXiv:2310.05689v1, first public October 9, 2023; Chitra–Raphael, arXiv:1905.08287, ICML 2019; Neuhäuser–Mellor–Lambiotte, PRE 101 (2020), abstract/context only. Reversibility and stationary-distribution results in the latter literature are not equivalent to column stochasticity of the precise Friedkin–Johnsen equilibrium operator. The present proof establishes only its stated deterministic finite setting. A wider equivalent publication is a residual risk; independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparisons of the precise final claim, with material primary reading and relevant Resultary searches. The prior observations do not imply that every conservative nonuniform role assignment is exactly a circulation or that every incidence cycle supports one; these are additional converse and parametrization statements. Inaccessible primary work is named as residual risk rather than declared noncovering.
+
+## value
+
+PASS
+
+Classifies the precise nullspace of conserved heterogeneous group roles for the established higher-order FJ model; graph topology yields a natural cycle-rank dimension, forest rigidity, and an explicit smallest asymmetric motif with two opposite polarization directions. All sizes and weights, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
