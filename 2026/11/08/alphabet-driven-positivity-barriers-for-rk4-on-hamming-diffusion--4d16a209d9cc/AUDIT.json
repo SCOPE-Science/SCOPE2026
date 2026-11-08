@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The Hamming adjacency-distance recurrence yields explicit exact distance-1,2,3,4 coefficients of the degree-four RK4 matrix. Positivity of every diagonal follows from positive definiteness of the even-order exponential Taylor polynomial. Explicit Bernstein-basis coefficients are positive for distance-one and distance-two shells up to the distance-three horizon except d=3,q>=13; there, a unique earlier edge root exists by a one-sign-change Descartes argument. Distance-three entries become strictly negative past the universal horizon. The all-parameter certificate is displayed in RESULT.md; the extracted stdlib verifier returned 6556 exact identities and direct small-graph comparisons, with finite checks used only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb--Shu--Tadmor 2001, Section 3 Proposition 3.1: optimal SSP CFL conditions for linear RK schemes.",
+        "Horváth 2005, Sections 2--4, covers arbitrary-class strict thresholds and invariant cones; full 16-page primary text inspected."
+      ],
+      "reasoning": "A universal SSP/absolute-monotonicity condition is not equivalent to the exact positivity interval for this fixed graph family, and the general theorems do not give the shell-switch at q=13. These results are acknowledged as antecedents, not recast as discoveries.",
+      "searches": [
+        "https://doi.org/10.1137/S003614450036757X",
+        "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "semantic-index query: RK4 Markov stochastic positivity graph heat semigroup Hamming scheme rank 4 polynomial Hamming cube q ary distance 3"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb, Shu & Tadmor 2001, DOI 10.1137/S003614450036757X (open-access PDF pages including section 3)",
+      "Horváth 2005, DOI 10.1016/j.apnum.2004.08.026 (all 16 full-text pages)",
+      "Lóczi & Ketcheson 2013, arXiv:1303.6651 (abstract and first-public metadata)",
+      "Public mathematical-record index hits for [2/2] Padé endpoint positivity (different method) and Hamming association schemes (different invariants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously described RK4 positivity thresholds for regular bipartite graphs concern q=2 hypercubes, whereas this claim assumes q>=3.",
+        "Previous triangular graph RK4 work treats line graphs of complete graphs, not Cartesian powers K_q with d>=3.",
+        "The 2005 Horváth result has no Hamming q-dependent positivity formula in its complete inspected text."
+      ],
+      "reasoning": "Matching RK4 alone does not imply coverage. A graph-family special case is covered if a prior theorem supplies the same sign inequalities or a strictly stronger result; none of the inspected works does so. In particular a uniform bound h<=1/degree or generic sufficient cone bound does not imply the sharp edge-vs-distance-three transition.",
+      "searches": [
+        "semantic-index query: positivity-preserving Runge Kutta graph diffusion exact threshold fourth order regular graph local structure",
+        "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "https://arxiv.org/abs/1303.6651",
+        "Web: \"RK4\" \"Hamming graph\" positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For H(d,q) the graph is a Cartesian product of q-cliques; the row-stochastic RK4 update equals its polynomial functional calculus on the Hamming association scheme.",
+        "No retrieved primary statement on the same d,q end-step positivity interval or q=13 shell switch."
+      ],
+      "reasoning": "Tests alternative names: q-ary Hamming scheme heat kernel, Cartesian powers of complete graphs, graph Laplacian RK4, positive Markov transition polynomial. A general association-scheme diagonalization makes calculations possible but does not itself assert the exact entrywise sign thresholds or the dimension-3 alphabet cutoff.",
+      "searches": [
+        "semantic-index query: Classical fourth order Runge Kutta RK4 positivity exact timestep Hamming graph H(d,q) Cartesian powers of complete graphs distance three edge entry threshold critical alphabet q 13 d 3",
+        "Web: RK4 positivity preservation Hamming graphs graph heat equation finite difference maximum principle",
+        "Web: RK4 \"Hamming graph\" positivity Runge Kutta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved indexed records include the distinct fourth-order [2/2] Padé eight-state positivity barrier and other Hamming-scheme combinatorial records, not an RK4 H(d,q) two-parameter threshold table.",
+        "The exact root for q>=13 is derived from the distance-one polynomial and not copied from a published Hamming numerical table."
+      ],
+      "reasoning": "No exact published or indexed table covering both all dimensions d>=3 and all nonbinary q>=3 was retrieved. This is a bounded negative search, not mathematical uniqueness or global novelty proof.",
+      "searches": [
+        "semantic-index query: Classical fourth order Runge Kutta RK4 positivity exact timestep Hamming graph H(d,q) Cartesian powers of complete graphs distance three edge entry threshold critical alphabet q 13 d 3",
+        "semantic-index query: RK4 positivity triangular graph rook graph Hamming graph spectral stability gap",
+        "Web: Runge Kutta positivity Hamming graphs 3 13 alphabet",
+        "Web: \"RK4\" \"Hamming\" \"positivity\""
+      ]
+    },
+    "rationale": "Actual public-record semantic queries and primary-literature comparisons find no statement implying the full nonbinary H(d,q) classical-RK4 positivity horizon and the sharp q=13 change of controlling Hamming shell in d=3. The 2001 SSP and 2005 general positivity papers give method/problem-class results, not these graph-parameter-specific if-and-only-if entry signs. Earlier related graph families are non-covering. Publication-priority risk remains; lack of a matched index hit alone is not treated as proof of novelty.",
+    "residual_risks": [
+      "No independent specialist publication-priority review has occurred; a nonindexed or differently titled classification may exist.",
+      "The Lóczi--Ketcheson full paper was not obtained; only its abstract was compared, and this limitation is not used as a full-text exclusion.",
+      "Generic algorithmic computation of Hamming scheme entries is already known; originality is claimed only for the explicit sharp full-family sign classification and q=13 shell switch."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves method-level SSP statements and limitations; does not state or imply an explicit H(d,q), q>=3, shell-positivity classification.",
+        "evidence": [
+          "First-page electronic-publication date 2001-02-02",
+          "Section 3, Proposition 3.1 addresses optimal SSP CFL coefficients for linear problems, not Hamming shell signs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+        "material_read": "Open-access publisher-version PDF, first-page publication history and sections 2--3 including pp. 89--95; complete document text available for search",
+        "method": "Primary PDF read and first/section-3 pages visually inspected",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Canonical fourth-order linear Runge--Kutta/SSP theoretical antecedent"
+      },
+      {
+        "assessment": "General IVP-class positivity and cone preservation results are not the fixed Hamming-graph matrix-entry classification or the sharp alphabet transition.",
+        "evidence": [
+          "Publisher page 341: online 2004-10-27; abstract characterizes general RK positivity",
+          "Section 2.4 Proposition 3: problem-class thresholds",
+          "Section 4.4 Theorem 17: positive invariant cones; no q-ary Hamming graph calculation throughout the text"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "All 16 publisher pages (341--356), including full Sections 2--4",
+        "method": "Complete page-extracted primary text inspected, including generic problem sets, strict positivity thresholds and invariant-cone results",
+        "title": "On the positivity step size threshold of Runge--Kutta methods",
+        "trigger": "Most directly plausible broad positivity-threshold result for the same numerical method"
+      },
+      {
+        "assessment": "Studies optimized radii for rational approximants, not fixed-network RK4 Hamming shell signs; limited inspection retained as a risk rather than a full-text exclusion.",
+        "evidence": [
+          "ArXiv abstract focuses rational functions of prescribed approximation order and absolute-monotonicity radii"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "Full public abstract and first-public archive metadata, 2013-03-26; full paper not retrieved",
+        "method": "ArXiv bibliographic and abstract comparison",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Absolute-monotonicity framework relevant to stability-polynomial positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d16a209-d9cc-4c34-88db-70be6ec40721",
+  "value": {
+    "rationale": "The q-ary Cartesian power of complete graphs is a canonical product-diffusion model, and positivity must be controlled separately from spectral stability. The theorem determines the sharp allowable end-step for every d>=3,q>=3, identifies the exact controlling Hamming distance, and reveals the unexpected discrete transition at q=13 for d=3 only. Its algebraic positivity certificate can guide stable and nonnegative numerical heat evolution. It is neither a restatement of universal SSP theory nor an arbitrary small-parameter computation.",
+    "status": "PASS"
+  }
+}
