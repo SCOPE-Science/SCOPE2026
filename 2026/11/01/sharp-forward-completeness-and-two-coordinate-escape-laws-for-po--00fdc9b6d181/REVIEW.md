@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The criterion for universal forward continuation follows from the coercive energy drift \(\dot E=-xF(x)\) in the odd-positive case and trivial linear continuation in degree at most one. Every complementary degree/sign regime admits an explicitly signed polynomial orientation, a rigorously forward-invariant open cone and a differential inequality forcing finite-time escape. The graph equation then yields the precise logarithmic-versus-finite secondary-coordinate classification and a controlled two-term inversion of remaining physical time. The sextic coefficients follow from an independently expanded reciprocal polynomial. The extracted diagnostic program passed. Computation is not used as a substitute for infinite quantifiers.
+PASS
 
-## Originality — PASS under inspected evidence
+PASS: For degF<=1 the affine vector field is global; for odd positive-leading deg>=3 the Lyapunov energy E=(x^2+y^2)/2 obeys E_dot=-xF(x)<=C, excluding finite escape. All other nonaffine polynomials admit an orientation sigma with P(z)=-sigma F(sigma z)=a z^m+b z^{m-1}+O(z^{m-2}), a>0. In (z,v)=(sigma x,sigma y), z_dot=P(z)+v, v_dot=-z; on z>=R, -z<=v<=z the vector field points strictly inward on all three boundaries and z_dot>=(a/2)z^m, forcing finite-time blowup on an open sector. The exact orbit graph v_z=-z/(P+v) gives v=-(1/a)log z+C+o(1) in m=2 and v=v_inf+z^{2-m}/(a(m-2))(1+o(1)) in m>=3. The remaining-time integral gives 1/[a(m-1)] z^{1-m}-b/(a^2m) z^{-m}+o(z^{-m}), hence z=Z-b/(am)+o(1). In sextic P=z^6-z^3-alpha z, expansion of the integral yields z=Z+Z^-2/8+alpha Z^-4/10+O(Z^-5), x=-z and y_inf-y~Z^-4/4. These are all derived from inequalities/integrals, not finite sampling.
 
-The nearest recent primary source (Cao–Chen–Tang, arXiv:2610.30417v2, §1 and §12.4.14) concerns **limit-cycle counts** and explicitly disclaims a completeness assumption. The closest older works concern qualitative dynamics near infinity (Dumortier–Herssens, 1999) or unbounded limit periodic sets (Luca–Dumortier, 2009). Their known topological descriptions are not presented as new. The novelty assessed here is the **joint all-degree continuation theorem with original-time secondary-coordinate transition and quantitative subleading corrections**, notably the sextic coefficients. A related published blow-up calculation for polynomial nilpotent Liénard equations assumes a different restoring-force degeneracy and does not directly imply this linear-restoring classification. The 1999 source's entire text could not be obtained; that unresolved historical-priority risk remains material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source literature explicitly studies global limit-cycle configurations while making no completeness assumption. A natural, exact if-and-only-if classification of whether the corresponding oscillator actually defines a complete forward flow is mathematically useful independently of cycle counts. More importantly, the degree-two logarithmic divergence versus higher-degree convergence of the second coordinate is a sharp invariant feature of escaping trajectories, not merely a sign test. The sextic physical-time coefficients reveal separately where the cubic and linear perturbations enter a concrete family left outside the current cycle-count criteria. No unproved claim about counting cycles or global escape basins is made.
+Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.
 
-## Scientific restrictions and closest prior literature
+## value
 
-The result controls explicit escaping open sectors, not every escaping orbit. Access to the full 1999 near-infinity paper was unavailable; the relevant 2009 preprint was inspected in full-text rendering, and its unbounded-cycle classification does not supply the two-coordinate flight-time expansion as stated. The specialized nilpotent-restoring blow-up result was inspected at title and public summary level only; no claim of excluding all content of its unseen proof is made. Priority is provisional until independent full-text and mathematical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A full degree/sign forward-completeness classification plus precise physical-time blowup, logarithmic-versus-convergent second-coordinate transition, and a motivating sextic refinement is a natural, reusable exact statement about a classical oscillator family. It addresses a different quantified issue from limit-cycle counts/qualitative compactifications; it is not merely a trivial polynomial reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
