@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A polynomial conjugacy transforms the rotating-wave equation into an ordinary quadratic three-cycle with self-consistent sum. Exact dynatomic factorization proves the exhaustive six/three/zero real-wave census; its discriminant establishes the sharp cutoff. At \(a=7/100\), exact algebraic root brackets keep the selected wave in the invariant cube. The full moving-frame characteristic polynomial passes all strict cubic Schur tests by rational enclosures; these imply a genuine three-dimensional hyperbolic sink, not merely stability within the rotating-wave ansatz. The stand-alone reproducibility script passed its exact symbolic and rational assertions. A numerical experiment alone would not prove the result.
+## correctness
 
-## Originality — PASS under the inspected record
-The closest primary study (Lippolis, arXiv:2510.12532) concerns spatially homogeneous equilibria and homogeneous period-two cycles, not nonuniform three-colour period-three rotating waves. Sotelo Herrera and San Martín (arXiv:0802.1700, specifically the traveling-wave perturbation theorem) employ averaging of mapped state values, not the present state-diffusive model; their local persistence theorem cannot supply the exact complete parameter cutoff or certified weak-coupling sink. Shimada and Kikuchi (Physical Review E 62 (2000)) concerns globally coupled logistic maps; the abstract describes period-three cluster attractors but does not establish the claimed three-site state-diffusive formulas. Closest indexed mathematical records describe a two-colour wave on an even ring and a parity-sensitive equilibrium in a different map. No matching implication was located; this is not a proof of universal historical novelty. Incomplete primary full-text access to the 2000 study remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-This solves the natural smallest nontrivial spatially inhomogeneous, primitive-three wave classification of an actively studied coupled chaotic lattice. The algebraic loss-of-existence cutoff and a certified stable wave at only seven-percent diffusive coupling reveal a geometric regime invisible in the known synchronized fixed/period-two analysis and distinct from the strong-coupling two-colour wave. The complete real-wave census is a structural phase-space result, not a routine parameter-table recomputation.
+For F_a(x)_i=(1-a)(2x_i²−1)+(a/2)(x_{i−1}+x_{i+1}), rotating-wave equation F(x)=Px on three sites is equivalent to a scalar quadratic genuine 3-cycle constrained by the coordinate sum. Reconstructed affine conjugacy to u²+c, dynatomic cubic R_s and sum compatibility: two real branches iff 7a²−14a+1≥0, merging at 1−sqrt(6/7); each has three placements, with fixed points excluded by a nonzero resultant. At a=7/100 the larger-sum wave has three coordinates in (−1,−0.9),(0,0.1),(.7,.8), and an exact moving-frame cubic obeying strict Schur inequalities; the full F³ derivative is B³. Independent numerical reconstruction found the three roots approximately −0.9364366,0.0218005,0.7272768 and moving-frame radius 0.9365083<1. The symbolic discriminant and derivative argument, not numerics, support the continuous-a classification.
 
-## Boundaries and residual risks
-Attraction is certified at one rational coupling and on a nearby open interval by continuity, not globally across all real-wave existence parameters. The count is over real vectors, with cube membership certified for the attracting example only. General full-network dynamics and opposite travelling orientation are excluded. A related 2000 globally coupled-map paper was only abstract-accessible, so historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from statement-level comparison of actual primary sources and published mathematical-record search; no inspected accessible stronger theorem states or directly implies the same complete claim. Source-access and historical alias risks retained; nonhits do not establish priority. Lippolis exact same local map has different periodic-state hypotheses
+
+## value
+
+PASS
+
+The first nontrivial three-color primitive spatial wave in the smallest Chebyshev ring acquires an exact existence fold and a provable attracting weak-coupling example. Nonhomogeneous wave existence/stability is a natural motivated dynamical boundary distinct from routine fixed-point calculations; the census and sink certificate can be used to organize later nonlinear lattice bifurcation work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
