@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete result and its proof are in `RESULT.md`. Execute `python3 verify.py` in the directory containing the extracted artifacts; the checker uses only Python standard-library integer arithmetic. It performed **467,463 exact assertions** and printed:
+## correctness
 
-`PASS: 467463 exact integer assertions (n<=75 adjacent, n<=22 all minors, n<=8 independent enumeration)`
+PASS
 
-Specific checks: independent restricted-growth-string enumeration of every partition through eight labels; coefficient-versus-enumeration agreement; all Stirling-number block-count marginals through \(n=75\); every adjacent TP\(_2\) determinant through \(n=75\); and every four-index TP\(_2\) determinant through \(n=22\).
+The formula w_n(k,s)=binom(n,s)A(n−s,k−s) follows by choosing singleton elements. The required Bóna–Mező theorem provides real nonpositive interlacing zeros of nonsingleton-block polynomials P_N; their normalized Poisson-binomial coefficients increase in likelihood-ratio order under increasing Bernoulli parameters. Newton ultra-log-concavity and the Stirling recurrence decompose each normalized adjacent minor into r*a_r^2−(r+1)*a_(r-1)*a_(r+1)+(N−1)*(b_(r−1)*a_r−b_r*a_(r−1)), both nonnegative. Feasible support endpoints shift to the right, so adjacent minors imply all minors even at boundary zeros. Larger K has larger attainable maximal S, yielding strict stochastic order and covariance. Independent exact recurrence checked 81,396 minors for n<=17, but the general claim depends on the analytically read and cited Bóna–Mező interlacing theorem.
 
-Finite checks are not exhaustive over all \(n\). The infinite theorem relies on the proof in `RESULT.md`, especially the full root-interlacing statement in Bóna–Mező (arXiv:0705.2734, Theorem 1), the elementary Bernoulli-convolution inequality, Newton's inequalities, and the exact adjacent-minor recurrence. The claim does not depend on any unpublished computational certificate. Historical priority is qualified, and independent validation has not been performed.
+## originality
+
+PASS
+
+Bóna–Mező real-rootedness/interlacing and Timashev fixed-size-block conditional enumerations are known. The new assertion is all finite-n bivariate TP2/likelihood-ratio order with consequence for every positive block-number tilt, not the known counting recurrence or generic Newton inequality.
+
+## value
+
+PASS
+
+Likelihood-ratio ordering is a stronger, broadly useful comparison than a one-moment sign for singleton abundance in partitions. It gives all increasing-transform positive association and applies to a natural weighted partition ensemble.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
