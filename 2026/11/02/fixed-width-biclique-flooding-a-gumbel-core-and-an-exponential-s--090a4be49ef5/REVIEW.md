@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For each \(K_{a,b}\), independent vertex-call Poisson splitting gives independent edge contact clocks of rate \(1/a+1/b\). The count-state transition rates and exponential first-infection decompositions then follow from the strong Markov property. Both one-seed initializations reach the same \((1,1)\) state, and their differing first-exponential rates give a strict stochastic order and the exact difference \((a-b)/(a+b)\) in expected times. In the fixed-width limit, a designated initially infected small-part vertex infects order \(a^{2/3}\) vertices rapidly, these infect the remaining fixed-sized part by time \(a^{-1/3}\) with exponentially high probability, and all but \(o_{\mathbb P}(a)\) of the large part remain uninfected at that time. Independent residual exponentials yield the centered Gumbel law; the pre-hub stage for all-large-part seeds contributes an independent limiting \(\operatorname{Exp}(k)\) delay. A second-moment domination and exponentially small bad-event bound justify the stated expectation convergence. A reproducible exact-rational recursion and Monte Carlo diagnostic program reports 526 checks. Numerical tests do not establish asymptotic statements; those have analytic proofs.
+PASS
 
-## Originality (O): PASS, qualified
+Each oriented Poisson caller splits into independent edge clocks, and the undirected contact rate is c=1/a+1/b. In state (i,j), transitions to (i+1,j) and (i,j+1) occur at rates (a−i)jc and (b−j)ic. A single B seed and a single A seed have first waits Exp(ac) and Exp(bc), then share the same independent (1,1) residual; strict stochastic dominance and mean gap (a−b)/(a+b) follow. For b,k fixed and a→∞, any initial B seed rapidly informs Θ(a^(2/3)) A vertices then all B in time a^(−1/3), while o(a) A vertices have been informed; residual max of a−o_P(a) independent Exp(1+b/a) gives standard Gumbel after log a. If all seeds are A, the independent initial first B-contact tends to Exp(k), and G+E_k follows; harmonic number means plus exp-small exceptional event bound give expectation limits. Fresh rational Markov recurrences independently confirmed 18 exact mean differences.
 
-Acan et al. (arXiv:1411.0948, 2014) give the independent-edge representation and an exact star analysis; the star case is known and expressly excluded from the claimed novelty. Leskelä and Ngo (arXiv:1806.09568, 2018) prove first-passage and flooding results on sparse configuration models with degree conditions that fail for a fixed-width complete biclique. Doerr and Kostrygin (arXiv:2303.11150, 2023) treat discrete-round epidemic spreading on different graph geometries. Their inspected results do not imply the complete-biclique, degree-normalized, all-fixed-seed Gumbel-versus-convolution classification or the exact finite one-seed source advantage. Searches under push-pull, asynchronous rumor spreading, first-passage percolation, Gumbel flooding, and complete-bipartite synonyms did not identify an equivalent theorem. Search absence is not proof of global priority; uninspected publications remain a residual risk. The one-seed finite ordering shares a general first-jump mechanism with the already-known star case; it is the combination with the new fixed-width limiting source penalty that carries the distinct contribution.
+## originality
 
-## Value (V): PASS
+PASS
 
-Complete bipartite core-periphery graphs are a natural testing ground for degree-normalized epidemic contact and strategic source placement. The result identifies a distribution-level, order-one seed-location penalty that survives even as the graph's total population diverges, plus a sharp universal Gumbel law whenever at least one seed lies in the high-degree core. The finite-size stochastic dominance is valid for all deadlines, not just the mean. This gives a usable deadline-dependent distinction between increasing the number of peripheral seeds and reaching the core. It is not a mere numerical table, relabeling, or renormalization of the sparse-graph logarithmic leading order.
+Edge-contact splitting and exact b=1 star case are known and credited; general sparse random-graph infection limit and synchronous rumor protocols do not specify the complete fixed-b≥2, source-dependent order-one Gumbel versus Gumbel+Exp(k) law for degree-normalized bicliques. Priority remains qualified by other biclique epidemic literature.
 
-## Residual risks and limitations
+## value
 
-The studied asymptotic keeps the core width \(b\ge2\) and seed count \(k\) fixed; no theorem is claimed for growing core width or optimal arbitrary multi-seed placements at finite size. The exact star case predates the present work. Full historical priority awaits an independent literature audit, as does independent mathematical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-width complete bicliques model an extreme but canonical hub/periphery graph. The source-location effect persists as an order-one entire limiting distribution, not just a leading log a term, and finite single-seed stochastic ordering holds at every deadline. This gives a precise mathematical explanation of why reaching the hub class matters more than adding a few peripheral seeds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

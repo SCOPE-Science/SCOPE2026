@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof constructs independent undirected Poisson edge-contact processes of rate \(1/a+1/b\), verifies both first-jump decompositions into the common \((1,1)\) residual law, and separates the fixed-width limit into rapid small-part saturation and a residual maximum of order \(a\) independent exponential waiting times. The proof's exponential-probability bounds and second-moment domination establish mean convergence, not only weak convergence.
+## correctness
 
-Execute `python check.py` using a Python 3 standard-library interpreter. The program checks exact state-recursion identities, exact rational Laplace-transform decompositions and mean ordering, and fixed-seed numerical asymptotic diagnostics using a deterministic random seed. During this review it passed 526 assertions/diagnostics. The program is independent of private files and external services. Code and numerical checks cannot replace proofs of the infinite-width statements.
+PASS
 
-**Scientific limits:** \(b\ge2\) and \(k\ge1\) are fixed in the asymptotic classification, while \(a\to\infty\). The all-deadline source-optimality theorem holds for a single initial seed only. Complete historical novelty cannot be guaranteed by finite searching. Mathematical audit by an independent reviewer has not been performed.
+Each oriented Poisson caller splits into independent edge clocks, and the undirected contact rate is c=1/a+1/b. In state (i,j), transitions to (i+1,j) and (i,j+1) occur at rates (a−i)jc and (b−j)ic. A single B seed and a single A seed have first waits Exp(ac) and Exp(bc), then share the same independent (1,1) residual; strict stochastic dominance and mean gap (a−b)/(a+b) follow. For b,k fixed and a→∞, any initial B seed rapidly informs Θ(a^(2/3)) A vertices then all B in time a^(−1/3), while o(a) A vertices have been informed; residual max of a−o_P(a) independent Exp(1+b/a) gives standard Gumbel after log a. If all seeds are A, the independent initial first B-contact tends to Exp(k), and G+E_k follows; harmonic number means plus exp-small exceptional event bound give expectation limits. Fresh rational Markov recurrences independently confirmed 18 exact mean differences.
+
+## originality
+
+PASS
+
+Edge-contact splitting and exact b=1 star case are known and credited; general sparse random-graph infection limit and synchronous rumor protocols do not specify the complete fixed-b≥2, source-dependent order-one Gumbel versus Gumbel+Exp(k) law for degree-normalized bicliques. Priority remains qualified by other biclique epidemic literature.
+
+## value
+
+PASS
+
+Fixed-width complete bicliques model an extreme but canonical hub/periphery graph. The source-location effect persists as an order-one entire limiting distribution, not just a leading log a term, and finite single-seed stochastic ordering holds at every deadline. This gives a precise mathematical explanation of why reaching the hub class matters more than adding a few peripheral seeds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
