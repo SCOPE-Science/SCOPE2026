@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weight formula follows from the unique one-dimensional angular Fourier sector and gamma-weight radial moment integral. Reflection of the bilateral weights forces \(c_{-k}=-c_k\), and strict log-convexity of the moment sequence forces \(c_k>0\) for positive indices. The second-order large-index expansion gives the sharp \(k^{-2}\) coefficient; multiplicity-two counting gives the sorted singular-value coefficient and exact Schatten threshold. The finite telescope yields the trace norm, and explicit polynomial identities yield the unweighted operator norm. The supplied verifier passed 29,580 finite checks, while the infinite argument is analytic.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+Beta radial moments h_j give orthonormal signed monomial Fourier basis and a genuine bilateral shift T_m e_k=w_k e_(k+m), with three explicit angular regimes. Reflection w_(-m-k)^2=w_k² gives exact +/- commutator diagonal pairing. Strictly increasing moment ratios h_(j+1)/h_j imply positive c_k. Expanding r(k)=h_(k+m)/h_k=1-m(alpha+1)/k+O(k^-2) to the needed second order yields difference m²(alpha+1)/k²+O(k^-3), so the double-counting function gives sorted 4m² coefficient and sharp p=1/2 cutoff. Direct telescoping gives nuclear norm; digamma finite reciprocal sums give strict alpha monotonicity and alpha endpoints. At alpha=0 exact rational forms rise to k=m then decrease, establishing displayed operator norm. I performed independent exact rational tests for four alpha values, m<=8,k<=79, not relying solely on supplied 29,580-check log.
 
-Chbichib–Ghiloufi consider the ambient multiplication–projection commutator, not the compressed Toeplitz self-commutator; their \(n^{-1}\) singular asymptotic does not determine the exact signed \(n^{-2}\) spectrum here. Huang–Wang–Zhao study spectra of the original analytic-polynomial Toeplitz operators, not their selfcommutators. Sadraoui–Halouani (2024, Theorem 2.9) already give qualitative nonnormality of nonconstant analytic Toeplitz symbols on weighted harmonic Bergman space, which is credited rather than claimed new. The closest mathematical research records concern generalized Cesàro self-commutators, harmonic Bergman circle traces, or weighted Bergman commutators on different spaces. Abstract-only older literature and the possibility of a more general unpublished or historical weighted-shift result remain limitations. Failed searches are not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This natural compression of multiplication bridges current harmonic projection-commutator asymptotics with Toeplitz nonnormality. Unlike the ambient projection commutator, the compressed self-commutator has exact ± pairing, trace zero, an explicit new critical ideal boundary, and a finite, strictly weight-monotone nuclear norm. It is a complete parameter-family classification of a canonical test operator rather than an isolated numerical instance.
+Direct full read of the most relevant recent ambient operator result shows a distinct operator on distinct Hilbert space; ordinary Toeplitz spectra and qualitative nonnormality are not a substitute for this signed spectral calculation. Residual specialist-paper risk remains.
 
-## Limits and closest sources
+## value
 
-The classification treats beta-weight harmonic Bergman spaces and monomial symbols only. It does not give a closed operator norm for arbitrary beta weight or general polynomials. Main comparisons: arXiv:2605.24698, arXiv:2610.09638, doi:10.3934/math.2024977 (full text), AIMS Mathematics 2025 doi:10.3934/math.2025770 (abstract only), and JKMS doi:10.4134/JKMS.j240518 (abstract only). Historical equivalent formulations remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete signed spectral and ideal classification of a canonical compressed monomial operator, including the weak-ideal boundary and monotone finite trace norm. Different from known ambient projection commutator n^-1 spectrum and prior qualitative nonnormality, giving a natural precise invariant potentially reusable for weighted harmonic Toeplitz tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
