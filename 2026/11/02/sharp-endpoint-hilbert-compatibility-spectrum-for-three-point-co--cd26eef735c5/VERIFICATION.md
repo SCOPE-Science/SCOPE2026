@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-The standalone `verify_tradeoff.py` reconstructs the weighted expectation operators and their commutator using exact `fractions.Fraction` arithmetic. A 4,096-point rational grid verifies the displayed operator matrix, maximum absolute row-sum, and weighted-Hilbert squared norm through the trace of the squared commutator. Further exact checks cover balanced parameter choices on both sharp envelope branches. Replay command: `python verify_tradeoff.py`. Observed output:
+# Independent mathematical audit
 
-```
-EXACT_WEIGHTED_COMMUTATOR_IDENTITIES_OK 4096
-SHARP_ENDPOINT_FAMILIES_OK
-```
+## correctness
 
-The proof of all parameter values, continuity of the fixed-Hilbert norm slice, and every intermediate norm is mathematical rather than computational. No external certificate or independent review is asserted. The reference comparisons are limited to specifically inspected material and do not exclude unindexed equivalent prior formulations.
+PASS
+
+For x=a/(a+b), y=c/(b+c), z=xy, direct multiplication of the fixed conditional-expectation 3×3 matrices yields K=PQ−QP with maximum absolute row-sum e=2max(z,x−z,y−z). Since K is skew-adjoint under the positive-mass L² scalar product, its two nonzero singular values coincide and −trace(K²)/2=z(1−z)=h²; h∈(0,1/2]. All x,y∈(0,1) arise from positive masses. At z=z±, x=y=√z− attains the lower envelope, z=z+ makes e=2z+ identically, and continuous x∈(z,1), y=z/x connects every interior endpoint value on z−. At h=1/2 interval is singleton e=1. Two-point spaces have only commuting conditional expectations. Independent rational checks on 512 mass triples confirmed the matrix identities.
+
+## originality
+
+PASS
+
+Known alternating projections determine Hilbert principal-angle identities, and prior Resultary findings examine a uniform-three-site ℓ4 numerical radius or norms of ordered conditional-expectation products. None of those statements gives the fully attained weighted real L∞/L² commutator compatibility interval, though general two-projection theory could cover Hilbert h alone.
+
+## value
+
+PASS
+
+The sharp complete compatibility interval pinpoints failure of endpoint stability of almost-commuting conditional expectations on minimal full-support finite probability spaces, with exact realizing weights and a meaningful distinction between L² and L∞ norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

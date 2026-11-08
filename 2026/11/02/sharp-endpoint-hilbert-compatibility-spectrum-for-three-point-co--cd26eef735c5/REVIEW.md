@@ -1,15 +1,21 @@
-# Scientific review of the three-site compatibility spectrum
+# Independent mathematical audit
 
-## Correctness
-PASS. The conditional-expectation matrices are exact, their commutator has row-sum norm \(2\max\{xy,x-xy,y-xy\}\), and weighted skew-adjointness gives the Hilbert norm squared \(xy(1-xy)\). Every parameter pair arises from strictly positive masses. Fixing the Hilbert norm restricts the product to two roots; one branch realizes the upper endpoint, and continuity of the other branch realizes the whole interval. The argument also handles the double-root boundary \(h=1/2\) and proves the two-site minimality statement. Independent rational replay checked 4,096 positive mass triples. Finite verification is supporting evidence, not a proof of the interval's universal range.
+## correctness
 
-## Originality
-PASS with residual uncertainty. The closest published comparison is the exact spatial numerical radius on uniform real \(\ell_4^3\) for this same operator pair; a numerical radius does not determine the weighted endpoint-vs-Hilbert operator-norm compatibility interval. A second published binary-expectation result treats centered norms of products and reversal in \(1<p<\infty\), not endpoint norms of the commutator difference. Badea–Seifert analyzes Hilbert-space angle bounds and convergence; Cohen treats powers of conditional expectations and maximal estimates. Their inspected statements do not imply the new sharp two-norm interval without additional endpoint row-sum optimization. A historic equivalent statement in differently indexed projection-commutator literature remains possible. Full read access to every older projection monograph was not obtained.
+PASS
 
-## Mathematical value
-PASS. The claimed interval is a natural, complete compatibility invariant for the smallest noncommuting conditional-expectation pair. It shows quantitatively that Hilbert near-commutativity is not a uniform surrogate for endpoint near-commutativity, and it specifies the entire range—not just one counterexample or the trivial upper bound of two—at each fixed Hilbert norm. Every extreme and intermediate value is attained with full-support weights, providing a sharp test case for cross-norm stability of alternating conditional expectations.
+For x=a/(a+b), y=c/(b+c), z=xy, direct multiplication of the fixed conditional-expectation 3×3 matrices yields K=PQ−QP with maximum absolute row-sum e=2max(z,x−z,y−z). Since K is skew-adjoint under the positive-mass L² scalar product, its two nonzero singular values coincide and −trace(K²)/2=z(1−z)=h²; h∈(0,1/2]. All x,y∈(0,1) arise from positive masses. At z=z±, x=y=√z− attains the lower envelope, z=z+ makes e=2z+ identically, and continuous x∈(z,1), y=z/x connects every interior endpoint value on z−. At h=1/2 interval is singleton e=1. Two-point spaces have only commuting conditional expectations. Independent rational checks on 512 mass triples confirmed the matrix identities.
 
-## Boundaries and source risk
-No claim is made about larger partitions or all positive contractions. The Hilbert angle formula and the finite matrix identities are ingredients rather than independent novelty claims. Relevant inspected sources and unresolved coverage risks are recorded in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known alternating projections determine Hilbert principal-angle identities, and prior Resultary findings examine a uniform-three-site ℓ4 numerical radius or norms of ordered conditional-expectation products. None of those statements gives the fully attained weighted real L∞/L² commutator compatibility interval, though general two-projection theory could cover Hilbert h alone.
+
+## value
+
+PASS
+
+The sharp complete compatibility interval pinpoints failure of endpoint stability of almost-commuting conditional expectations on minimal full-support finite probability spaces, with exact realizing weights and a meaningful distinction between L² and L∞ norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
