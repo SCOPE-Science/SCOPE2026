@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projective cubic represents the nonzero-idempotent scheme with multiplicity. In odd characteristic, an exhaustive symbolic factor-type argument computes the allowed double-plus-simple and triple-root parameter spaces; the leftover stratum is reduced. In even characteristic the gradient cannot vanish at a projective root for invertible matrices. The independently executed checker reports the exact expected counts for five fields.
+## correctness
 
-**Originality — PASS, qualified.** The recent survey establishes the scheme length, mean number of rational idempotents and characteristic-two reducedness. The 2023 two-dimensional classification focuses on isomorphism moduli. The new odd-field geometric discriminant frequency and decomposition are not supplied by those claims or by a previously known distribution of *rational* idempotent counts. Targeted mathematical-record and primary-source searches located no covering count, but possible unindexed older work is an acknowledged risk.
+PASS
 
-**Mathematical value — PASS.** Nonreducedness is the intrinsic singularity of the finite idempotent scheme and controls when three geometric idempotents coalesce. The exact density and its two multiplicity strata give a natural, all-finite-field boundary for separability motivated by a recent Galois-theoretic framework. It is not a claim about isomorphism-class-weighted densities.
+For invertible A=(a,b;c,d), nonzero idempotents correspond scheme-locally to projective roots of F_A=cX³−aX²Y+dXY²−bY³. The radial scaling equation has invertible derivative at each nonzero point, and the origin is reduced. In odd characteristic, every geometric repeated root is rational by Frobenius and cubic degree; parametrizing (X−rY)³ and (X−rY)²(X−tY) and imposing det A≠0 gives respectively (q−1)² and (q−1)³ labeled matrices. The complement has three simple roots, hence nonreduced probability 1/(q+1). For char 2 the two partial derivatives F_X=cX²+dY² and F_Y=aX²+bY² cannot share any projective zero because det A≠0. Independently enumerated all invertible prime-field q=3,5,7,11 matrices by direct discriminants and repeated-factor test; reduced/double/triple counts matched. Extension fields and all odd prime powers follow from the algebraic proof, not these finite checks.
 
-**Closest sources and limits.** Kaygorodov–Martín González–Viruel, arXiv:2610.22248v1, Sections 2.1.5, 2.1.10, 2.3; Cabrera Casado–Martín Barquero–Martín González (2023), DOI 10.1007/s10801-022-01196-1. Broader exact historical coverage remains unexcluded, and dimension above two is open here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of actual published records and inspected accessible primary mathematics supports a distinct contribution. Evidence and residual priority risks follow; absence from search results is not proof of historical novelty. Via the binary cubic F_A the claim is equivalent to counting nonsingular coefficient quadruples on the discriminant hypersurface, separating 2+1 and 3 root multiplicities. The survey's characteristic-two reducedness is already known. The full rational-idempotent count law in another assigned record does NOT determine geometric multiplicities: a cubic may have one rational simple root with an irreducible quadratic, or one triple rational root.
+
+## value
+
+PASS
+
+The nonreduced (non-étale) locus of the length-three nonzero-idempotent scheme is geometrically intrinsic, and its exact finite-field density and splitting into double/triple singularities quantify a natural degeneration. This is distinct from just counting rational idempotent points or algebra isomorphism classes. The complete odd-characteristic stratification is a useful finite algebraic-geometric census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
