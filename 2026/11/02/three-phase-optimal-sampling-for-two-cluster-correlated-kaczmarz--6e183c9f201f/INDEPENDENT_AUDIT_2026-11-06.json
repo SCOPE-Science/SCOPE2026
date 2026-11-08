@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:12:56.662901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p,q>=2 with p<q, 0<=c<1 and 0<=d<sqrt(ab), minimizing worst-direction conditional squared-error contraction is maximizing λ_min(G^{1/2}diag π G^{1/2}). Concavity and S_p×S_q averaging reduce an optimum to constant within each cluster. The spectrum then consists of p-1 eigenvalues s t/p, q-1 eigenvalues s(1-t)/q and the smaller eigenvalue of H(t), the 2x2 coupled-mode block. The exact determinant certificate det(H(t)-L0 I)=-κ(t-t0)^2 with κ=ab-d², L0=κ/(a+b+2d), t0=(b+d)/(a+b+2d) proves coupled optimum. Comparing it to the declining q-cluster contrast and the sign of qac-qd²-sd proves the uniform/mixed/coupled phases with thresholds d=c and d*=[sqrt(s²+4q²ac)-s]/(2q). PSD averaging equality together with full-support critical eigencoordinates rules out every asymmetric optimum. Independent full Gram eigensolver/scalar optimization checked d=1/4,1/3,2/5 at p=2,q=5,c=3/10, including the middle phase, and symbolic certificate code was inspected. Proof covers all allowed real parameters, finite checks do not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai et al. primary SDP optimizes worst-direction one-step error for arbitrary rows. Agaskar et al. address annealed multi-step MSE exponent, a different objective."
+        ],
+        "reasoning": "General E-optimal design duality could be specialized but inspected statements do not state the d* transition or asymmetric uniqueness; separate closed-form result is not mechanically implied without solving nontrivial eigenvalue inequalities.",
+        "searches": [
+          "Gower Richtarik randomized iterative methods general discrete sampling objective",
+          "Strohmer Vershynin randomized Kaczmarz exponential convergence",
+          "Agaskar Wang Lu exact MSE optimal sampling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1402.2863",
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/math/0702226"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic SDP permits this family but has no explicit threshold d*=(-s+sqrt(s²+4q²ac))/(2q) or uniform/mixed/coupled breakdown in the inspected theorem."
+        ],
+        "reasoning": "A numerical SDP solver or known norm-proportional rule does not entail the exact threshold, unrestricted uniqueness, and exact μ* without further block-spectrum mathematics.",
+        "searches": [
+          "Dai et al. 2014 arxiv:1402.2863 Theorem 2 SDP",
+          "Agaskar Wang Lu 2014 exact MSE optimal sampling probabilities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The E-optimal design form λ_min(Σπ_i u_i u_i^T) is equivalent to the sharp one-step decrease; the two cluster Gram has d-dependent coupled and contrast eigenspaces."
+        ],
+        "reasoning": "Generic SDP equivalence establishes formulation, not the explicit three-piece solution or uniqueness for this constrained matrix family.",
+        "searches": [
+          "Dai Soltanalian Pelckmans 2014 optimal Kaczmarz sampling SDP",
+          "Resultary randomized Kaczmarz two equicorrelated block rows optimal sampling worst direction three phases E optimal design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned Kaczmarz finite horizon, coherence and other sampling problems, not the exact two-block probability phases."
+        ],
+        "reasoning": "No matching exact formula/table found; priority beyond inspected corpus remains uncertain.",
+        "searches": [
+          "Resultary randomized Kaczmarz two equicorrelated block rows optimal sampling worst direction three phases E optimal design",
+          "E optimal design two compound symmetry groups probability weights closed form"
+        ]
+      },
+      "rationale": "The sharp one-step Kaczmarz contraction as an E-optimal probability-sampling SDP is known from Dai–Soltanalian–Pelckmans and Gower–Richtárik; norm-weighted sampling dates to Strohmer–Vershynin. The audited contribution is the explicit two-nontrivial-cluster three-regime optimizer with a distinct middle threshold and uniqueness among unrestricted asymmetric distributions, not the generic SDP.",
+      "residual_risks": [
+        "General E-optimal-design literature may contain a disguised two-block optimality formula or proof.",
+        "Optimizes only stationary iid one-step worst-direction conditional expected squared-error decrease, not exact long-run exponent or adaptive sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SDP_NOT_CLOSED_BLOCK_FORM",
+          "evidence": "General sampling SDP, not the two-cluster three-phase formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2863",
+          "material_read": "Primary full PDF including probability optimization and SDP formulations and Theorem 2, with page screenshots",
+          "method": "ArXiv full-text PDF and page inspection",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Direct prior one-step worst-direction sampling optimization"
+        },
+        {
+          "assessment": "BROADER_FRAMEWORK_ONLY",
+          "evidence": "General discrete-sampling optimization, no identified identical two-cluster explicit formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Primary accessible abstract and source comparison; not entire text",
+          "method": "ArXiv metadata and indexed source",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Broader general sampling/minimum eigenvalue framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural two-population correlated row family, the calculation gives a closed exact probability allocation and two structural phase transitions, useful as analytic benchmarks for E-optimal Kaczmarz experimental design; uniqueness eliminates ambiguity among asymmetric stationary sampling schemes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1402.2863",
+    "https://arxiv.org/abs/1506.03296",
+    "https://arxiv.org/abs/math/0702226"
+  ],
+  "disposition": "passed",
+  "limitations": "p,q>=2,p<q, c>=0, d>=0, positive-definite Gram, static iid selection; no adaptivity or exact annealed exponent.",
+  "residual_risks": [
+    "General E-optimal-design literature may contain a disguised two-block optimality formula or proof.",
+    "Optimizes only stationary iid one-step worst-direction conditional expected squared-error decrease, not exact long-run exponent or adaptive sampling."
+  ],
+  "schema_version": 1
+}

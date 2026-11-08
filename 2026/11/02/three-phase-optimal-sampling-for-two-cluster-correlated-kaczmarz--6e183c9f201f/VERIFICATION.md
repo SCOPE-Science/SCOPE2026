@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python verify.py` in the package directory. It requires Python 3, NumPy, SciPy and SymPy. The script uses deterministic random generation and exits nonzero if an asserted check fails. `verification_output.txt` is the captured successful local result of this actual packaged script.
+# Independent mathematical audit
 
-The symbolic certificate expands and simplifies \(\det(H(t)-L_0 I)=-\kappa(t-t_0)^2\), including precise \(a,b,d\) normalization. Four exact-rational full Gram experiments verify the characteristic polynomials and rates in all branches. A scalar numerical optimizer cross-checks 560 independent parameter/grid cases. Another 13,440 feasible asymmetric row-probability allocations provide numerical comparisons with the optimum. Those tests do not establish the all-parameter theorem: the mathematical argument, including the matrix-inequality argument proving unrestricted uniqueness, is in RESULT.md. No infinite-state or independent verification is claimed.
+## correctness
+
+PASS
+
+For p,q>=2 with p<q, 0<=c<1 and 0<=d<sqrt(ab), minimizing worst-direction conditional squared-error contraction is maximizing λ_min(G^{1/2}diag π G^{1/2}). Concavity and S_p×S_q averaging reduce an optimum to constant within each cluster. The spectrum then consists of p-1 eigenvalues s t/p, q-1 eigenvalues s(1-t)/q and the smaller eigenvalue of H(t), the 2x2 coupled-mode block. The exact determinant certificate det(H(t)-L0 I)=-κ(t-t0)^2 with κ=ab-d², L0=κ/(a+b+2d), t0=(b+d)/(a+b+2d) proves coupled optimum. Comparing it to the declining q-cluster contrast and the sign of qac-qd²-sd proves the uniform/mixed/coupled phases with thresholds d=c and d*=[sqrt(s²+4q²ac)-s]/(2q). PSD averaging equality together with full-support critical eigencoordinates rules out every asymmetric optimum. Independent full Gram eigensolver/scalar optimization checked d=1/4,1/3,2/5 at p=2,q=5,c=3/10, including the middle phase, and symbolic certificate code was inspected. Proof covers all allowed real parameters, finite checks do not.
+
+## originality
+
+PASS
+
+The sharp one-step Kaczmarz contraction as an E-optimal probability-sampling SDP is known from Dai–Soltanalian–Pelckmans and Gower–Richtárik; norm-weighted sampling dates to Strohmer–Vershynin. The audited contribution is the explicit two-nontrivial-cluster three-regime optimizer with a distinct middle threshold and uniqueness among unrestricted asymmetric distributions, not the generic SDP.
+
+## value
+
+PASS
+
+For a natural two-population correlated row family, the calculation gives a closed exact probability allocation and two structural phase transitions, useful as analytic benchmarks for E-optimal Kaczmarz experimental design; uniqueness eliminates ambiguity among asymmetric stationary sampling schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

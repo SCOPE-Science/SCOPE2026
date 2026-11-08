@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unit-row Gram is positive definite for the exact stated domain. Symmetrization of the affine minimum-information eigenvalue restricts existence of an optimum to two cluster masses. The contrast eigenvalues and the coupled \(2\times2\) block give every eigenvalue, and the determinant-square certificate \(\det(H(t)-L_0 I)=-\kappa(t-t_0)^2\) proves the unique coupled-mode peak for all admissible parameters. Evaluating the common block at uniform allocation identifies the first transition \(d=c\), and comparing the coupled peak with the decreasing second-cluster contrast gives the unique second transition \(d=d_*\). Strict positivity and the positive-semidefinite averaging equality argument establish uniqueness even without imposing symmetry. Code reproduces the symbolic determinant identity, 4 exact-rational tests of the full Gram, 560 independently optimized scalar checks and 13,440 asymmetric comparisons. Those finite experiments are corroboration only. The claim explicitly does not concern long-run annealed MSE exponents.
+## correctness
 
-**Originality — PASS, with risk.** Strohmer–Vershynin prove baseline randomized Kaczmarz convergence under normalized row selection. Dai–Soltanalian–Pelckmans and Gower–Richtárik formulate the general max-min eigenvalue sampling optimization as a convex/semidefinite program, but the inspected full material does not state the closed three-branch allocation, sharp two-cluster second threshold or unrestricted uniqueness. Agaskar–Wang–Lu optimize a different exact multi-step annealed target; their statements do not imply the present one-step design. A prior related one-exception-row system has only one transverse cluster, so its different two-regime formula neither contains nor logically implies the two-cluster theorem. Database queries for exact aliases, spectral equivalence and dominating optimization statements did not reveal a matching formula. The remaining risk is unlocated specialized E-optimal-design or Kaczmarz literature; the absence of a match is not absolute proof of priority.
+PASS
 
-**Mathematical value — PASS.** Two correlated groups with unequal populations model heterogeneous, repeated measurement directions and pose the concrete numerical question of how to sample them for strongest worst-direction projection decrease. Both groups possess nontrivial contrast eigenmodes, causing two genuine phase transitions between uniform, balanced contrast/coupled-mode, and free coupled-mode optima. The proof gives exact probabilities, a sharp convergence guarantee and uniqueness against fully nonuniform row-selection strategies. This is not a mere re-expression of a generic SDP or the degenerate one-exception case.
+For p,q>=2 with p<q, 0<=c<1 and 0<=d<sqrt(ab), minimizing worst-direction conditional squared-error contraction is maximizing λ_min(G^{1/2}diag π G^{1/2}). Concavity and S_p×S_q averaging reduce an optimum to constant within each cluster. The spectrum then consists of p-1 eigenvalues s t/p, q-1 eigenvalues s(1-t)/q and the smaller eigenvalue of H(t), the 2x2 coupled-mode block. The exact determinant certificate det(H(t)-L0 I)=-κ(t-t0)^2 with κ=ab-d², L0=κ/(a+b+2d), t0=(b+d)/(a+b+2d) proves coupled optimum. Comparing it to the declining q-cluster contrast and the sign of qac-qd²-sd proves the uniform/mixed/coupled phases with thresholds d=c and d*=[sqrt(s²+4q²ac)-s]/(2q). PSD averaging equality together with full-support critical eigencoordinates rules out every asymmetric optimum. Independent full Gram eigensolver/scalar optimization checked d=1/4,1/3,2/5 at p=2,q=5,c=3/10, including the middle phase, and symbolic certificate code was inspected. Proof covers all allowed real parameters, finite checks do not.
 
-**Limitations and evidence.** Results are for positive correlations, static iid sampling, real full-rank consistent normalized systems and the sharp one-step rate. No claim on adaptive sampling, independent external assessment or absolute publication priority. Full primary texts inspected as listed in AUDIT.json; verification files identify the exact computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp one-step Kaczmarz contraction as an E-optimal probability-sampling SDP is known from Dai–Soltanalian–Pelckmans and Gower–Richtárik; norm-weighted sampling dates to Strohmer–Vershynin. The audited contribution is the explicit two-nontrivial-cluster three-regime optimizer with a distinct middle threshold and uniqueness among unrestricted asymmetric distributions, not the generic SDP.
+
+## value
+
+PASS
+
+For a natural two-population correlated row family, the calculation gives a closed exact probability allocation and two structural phase transitions, useful as analytic benchmarks for E-optimal Kaczmarz experimental design; uniqueness eliminates ambiguity among asymmetric stationary sampling schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
