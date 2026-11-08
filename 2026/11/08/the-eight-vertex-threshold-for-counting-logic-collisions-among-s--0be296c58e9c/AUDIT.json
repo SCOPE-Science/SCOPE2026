@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All split graphs on zero through seven vertices are covered by looping over each clique size and every binary cross-incidence mask. Joint n-round refinement and exhaustive adjacency-preserving bijection tests found 1,1,2,4,9,21,56,164 equivalence groups and zero collisions; positive-order numbers independently agree with Royle (2000), Table 1. The eight-vertex pair has equal equitable quotients (clique size four, independent size four; quotient neighbor counts (3,2) and (2,0)) but nonisomorphic independent-neighborhood multisets (all distinct versus duplicated pairs). Adding t universal vertices preserves splitness, connectedness, logical indistinguishability and nonisomorphism for every t>=0. Source code rerun from the actual package path with terminal PASS. The infinite statement does not rest on finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arvind et al. 2015 PDF pp.4–8, especially Lemma 5 (biregular uniqueness criterion) and Lemma 6 (equitable replacement); these explain candidate changes but do not supply the sharp order seven/eight enumeration.",
+        "Barrus arXiv:1310.1112 PDF introduction and definitions: focuses on degree-sequence fractional realizations, not C2 identification."
+      ],
+      "reasoning": "A general color-refinement test could in principle decide individual cases, but the abstract framework does not imply an asserted specific minimum cutoff without a separate exact enumeration. The separate orbit-refinement threshold is not a stronger theorem about class-relative equivalence.",
+      "searches": [
+        "Graph Isomorphism, Color Refinement, and Compactness arxiv:1502.01255 Lemmas 5-6",
+        "On fractional realizations of graph degree sequences arxiv:1310.1112 split graphs",
+        "first non-refinable split graph has ten vertices four-clique six independent"
+      ]
+    },
+    "checked_sources": [
+      "Royle 2000 article 00.2.6 publisher PDF",
+      "Arvind et al. arXiv:1502.01255v3 (earliest arXiv 2015-02-04)",
+      "Barrus arXiv:1310.1112v1 (2013-10-03)",
+      "Semantic mathematical-record searches for counting logic, split graphs, and fractional isomorphism"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A split-graph orbit-refinement classification concerns the orbits of automorphisms of individual split graphs, not nonisomorphic pairs of split graphs with identical refinement colors.",
+        "A connected-Ferrers-graph C2-identification result is restricted to chain graphs and cannot imply classification of all split graphs.",
+        "Cograph color-refinement iteration-depth thresholds concern numbers of splitting rounds, not same-color histograms on nonisomorphic split graphs."
+      ],
+      "reasoning": "Neither equal within-graph orbit partition and stable colour cells nor fixed iteration depth implies ability to distinguish two different graphs. The n=8 pair explicitly illustrates this separation. The connected Ferrers subclass analysis does not imply the split-class minimum.",
+      "searches": [
+        "block graphs line graphs of trees color refinement two-variable counting logic identifiability",
+        "finite variable logic interval graphs split graphs stable equitable partitions",
+        "first non-refinable split graph has ten vertices four-clique six independent",
+        "C2 identification of connected Ferrers graphs classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arvind et al. arXiv:1502.01255 §§1–3: color refinement equivalent to C2 and stable equitable partitions; no split-specific minimum recorded.",
+        "The distinct order-ten split-graph orbit-refinement threshold concerns one graph and its automorphism group, not between-graph C2 equivalence."
+      ],
+      "reasoning": "The formulation as global color-refinement indistinguishability, fractional isomorphism, and between-graph C2 equivalence was compared. This result asserts a sharp *class-relative* order eight with two nonisomorphic split graphs; orbit refinement in one graph and global amenability among arbitrary graphs are different properties.",
+      "searches": [
+        "split graphs color refinement indistinguishable pair minimum order 8 vertices",
+        "split graphs two-variable counting color refinement minimum eight vertices",
+        "the minimum order of two nonisomorphic split graphs indistinguishable by one dimensional Weisfeiler Leman",
+        "first non-refinable split graph has ten vertices four-clique six independent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Royle, Journal of Integer Sequences 3 (2000), Table 1: 1,2,4,9,21,56,164 unlabelled split graph counts for orders 1–7. These are used as independent count checks, not a prior C2-collision table.",
+        "A bounded semantic scholarly-record search located no entry asserting the sharp class-relative C2 threshold."
+      ],
+      "reasoning": "The known graph-enumeration table alone specifies total isomorphism types, not their partition into C2-equivalence classes; the present code computes the latter. The agreement of these independent counts closes the finite proof but does not make the logical statement an already published table entry.",
+      "searches": [
+        "Counting Set Covers and Split Graphs Gordon Royle 2000 split graph counts",
+        "unlabeled split graphs number sequence 1 2 4 9 21 56 164 557",
+        "split graphs on at most seven vertices color refinement identifies up to isomorphism eight vertex counterexample C2"
+      ]
+    },
+    "rationale": "Claim-level comparisons found no exact class-relative C2 minimum-order split-graph result. Royle's split-graph census determines isomorphism counts but no logical equivalence; Arvind et al. provide general color refinement and biregular replacement rather than the minimum eight split-class collision; Barrus studies different fractional degree-sequence realizations. Historical split-graph orbit-refinement result determines a different invariant and neither contains nor is implied by the between-graph result. Residual risk of an earlier specialized observation is disclosed; negative search is not itself a novelty proof.",
+    "residual_risks": [
+      "The literature search is bounded; unindexed specialized split-graph or fractional-isomorphism tables could predate the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies complete split-graph isomorphism counts but no counting-logic equivalence cutoff",
+        "evidence": "Published 2000-06-06; Table 1 counts 1,2,4,9,21,56,164 through order seven; Section 2 supplies clique/independent characterization.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/ROYLE/royle.pdf",
+        "material_read": "Entire accessible five-page primary article including Theorem 1.1, Sections 2–4, Tables 1–2 and references",
+        "method": "Primary publisher-hosted PDF inspected and table checked visually",
+        "title": "Counting Set Covers and Split Graphs",
+        "trigger": "Exact counts and characterization of all finite split graphs"
+      },
+      {
+        "assessment": "Provides general CR/C2 equivalence and biregular-switch rationale; no exact split graph cutoff located",
+        "evidence": "arXiv:1502.01255 first posted 2015-02-04; Lemma 5 biregular uniqueness criterion; Lemma 6 preserves colors after biregular replacement.",
+        "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+        "material_read": "PDF introduction; Section 2 definitions and common-colour tests; Section 3 Lemmas 5–6; relevant obstruction discussion in subsequent sections, with full-text search for split graphs",
+        "method": "ArXiv primary full-text view, selected PDF pages inspected visually, internal text search",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Logical equivalence and possible stronger amenability results"
+      },
+      {
+        "assessment": "Degree-sequence fractional realization problem differs from color refinement between split graphs; no cutoff found in inspected relevant material",
+        "evidence": "arXiv:1310.1112 first posted 2013-10-03; Section 1 describes degree-sequence polytope rather than C2 equivalence.",
+        "identifier_or_url": "https://arxiv.org/abs/1310.1112",
+        "material_read": "ArXiv PDF abstract, introduction, graph realization definitions and characterization overview",
+        "method": "ArXiv primary PDF text and visual page inspection",
+        "title": "On Fractional Realizations of Graph Degree Sequences",
+        "trigger": "Potentially dominating graph-split/fractional-isomorphism theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0be296c5-8e9c-4477-9bac-018a0a47509f",
+  "value": {
+    "rationale": "First class-relative failure order for C2 is a natural exact invariant of a standard hereditary graph class; minimality is established exhaustively, not guessed from one example. The explicit eight-vertex incidence-cycle obstruction and a connected witness for every n>=8 show a sharp and persistent limitation of colour refinement in a class used for structured graph isomorphism testing. Royle's enumerative counts provide independent validation and the result offers a precise benchmark for stronger logical/algorithmic methods, not an arbitrary slice of a parameter.",
+    "status": "PASS"
+  }
+}
