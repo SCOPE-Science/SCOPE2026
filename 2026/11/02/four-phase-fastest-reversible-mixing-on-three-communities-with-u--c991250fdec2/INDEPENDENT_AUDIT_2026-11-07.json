@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:53:27.334415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered reversible operator norm is convex, and group averaging over within-class permutations and A/B swap preserves all constraints, proving symmetric-flow minimization gives the unrestricted minimum. Explicit invariant eigenspaces give internal u=1-(x+y)/a and v=1-2y/g, antisymmetric w=1-(2x+y)/a, quotient z=1-y/(ag), with feasibility x,y>=0, x+y<=a,2y<=g; m,r>=2 ensure all eigenvalue types appear. For fixed y, max(u,|w|) is bounded by (a-y)/(3a), attained at x=2(a-y)/3. The remaining exact scalar maximum of (1-gt)/3,1-2at,|1-t| on bounded t=y/(ag) yields four analytic branches and canonical flows. Checked the optimizer and thresholds independently by rational LP search for 63 masses and source exact matrix/eigenvector script. The nonnegative aggregate-flow averaging argument supports universal edge absence, but does not imply uniqueness of all nonsymmetric optima.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General reversible SDP formulations handle the biased problem algorithmically but are not exact solved formulae. Jafarizadeh (2010) treats pseudo-distance-regular consecutive-part networks rather than complete 3-part interconnection."
+        ],
+        "reasoning": "Existence of an SDP and a numerical solution procedure is not a theorem implying mass thresholds or optionality of all optimal chains. Neither older explicit objective matches prescribed nonuniform a,a,g.",
+        "searches": [
+          "2004: Fastest Mixing Markov Chain on a Graph, SIAM Rev 46",
+          "2009: Fastest Mixing Markov Chain on Graphs with Symmetries, SIAM J Optim 20",
+          "arXiv:1008.2588"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao 2004 (10.1137/S0036144503423264)",
+        "Boyd–Diaconis–Parrilo–Xiao 2009 (10.1137/070689413)",
+        "arXiv:1008.2588",
+        "Resultary biased tripartite fastest mixing search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current result derives the 4-eigenvalue mass-biased problem and scalar crossings at a=1/6,1/3,2/5; Boyd 2009 only substitutes uniform-symmetric blocks into SDP, analytic special case K_m,n."
+        ],
+        "reasoning": "Methods/spectral blocks are credited. Finite/rational thresholds and all-unrestricted-optimizer support statements require solving a distinct mass-dependent minimax problem and nonnegativity argument.",
+        "searches": [
+          "Boyd–Diaconis–Parrilo–Xiao 2009 pp. 812–813",
+          "Boyd–Diaconis–Xiao 2004 reversible extension",
+          "arXiv:1008.2588 §III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al (2009) provide symmetric P_ij=P_ji complete k-partite blocks at *uniform per-vertex stationary mass* and explicitly solve complete bipartite; present masses a,a,g generally violate that symmetry."
+        ],
+        "reasoning": "Stationary edge-flow parameterization is the same type of convex method, but no bijective rescaling preserves row-stochastic eigenvalues and arbitrary biased masses, so uniform results do not automatically contain the four biased phases.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain complete tripartite graph unequal stationary class masses three communities SLEM",
+          "Boyd–Diaconis–Parrilo–Xiao, 2009, §5.4.2",
+          "Boyd–Diaconis–Xiao, 2004, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest classical tables give exact bipartite uniform solutions, and the general multipartite matrix decomposition but not these rational a-dependent four branches."
+        ],
+        "reasoning": "No relevant exact table of the nonuniform three-class optimal value was located; search non-hit alone is not novelty proof.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain complete tripartite graph unequal stationary class masses three communities SLEM",
+          "Boyd et al 2009 §5.4.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact two-equal-class-mass tripartite phase diagram and universal support thresholds. Convex SDP, symmetry averaging and uniform-stationary complete multipartite block decomposition are prior art, but do not supply these biased class-mass formulas.",
+      "residual_risks": [
+        "A specialist exact nonuniform complete tripartite SDP solution may be absent from the checked publications.",
+        "Statements about every unrestricted optimizer concern aggregate flows, not uniqueness of the full nonsymmetric transition matrix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS method, NOT stated biased three-class formula",
+          "evidence": "Shows symmetric stochastic P_ij=P_ji, k+1 blocks and analytic K_m,n value, no a,a,g phase table.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Complete primary PDF, especially §5.4.2 pp.812–813, statements and derivation of blocks and bipartite solution",
+          "method": "read and visually inspect PDF pp.812–813",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "directly treats complete k-partite spectral blocks"
+        },
+        {
+          "assessment": "COVERS optimization framework; exact formulas not observed",
+          "evidence": "General SDP and Metropolis comparisons, not the parameterized tripartite solved optimization.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+          "material_read": "Primary paper abstract and section descriptors including fixed equilibrium extension",
+          "method": "compare fixed-equilibrium SDP scope",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "foundation of reversible prescribed-distribution SDP"
+        },
+        {
+          "assessment": "DIFFERENT GRAPH SUPPORT; not a complete tripartite biased-stationary formula",
+          "evidence": "§III defines K-PPDR with links only to neighboring classes S_{i-1},S_{i+1}; source graph links every pair of distinct parts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+          "material_read": "Full 19-page arXiv PDF including §III graph definition, Figure 1 and §V context",
+          "method": "read PDF and view pages 1,6",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "plausible same-title specialist phase solution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fastest reversible mixing with a fixed *nonuniform* stationary law is a natural optimization problem. The mass-dependent closed form classifies which spectral constraint is active and gives sharp forbidden/optional/forced intercommunity support transitions, information not supplied by the general SDP formulation. This is a motivated exact phase diagram, not merely a numerical optimizer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Boyd–Diaconis–Xiao 2004 (10.1137/S0036144503423264)",
+    "Boyd–Diaconis–Parrilo–Xiao 2009 (10.1137/070689413)",
+    "arXiv:1008.2588",
+    "Resultary biased tripartite fastest mixing search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact four-phase minimum reversible SLEM for complete tripartite K_{m,m,r} (m,r>=2) with prescribed uniform within-class masses a,a,1-2a; four sharp thresholds at a=1/6,1/3,2/5 plus optional-versus-forced A-B flow boundary a=1/4 and zero C holding for a>=2/5.",
+  "limitations": [
+    "Only reversible SLEM with permitted loops, K_{m,m,r} with m,r>=2 and two identical total masses a.",
+    "Does not classify arbitrary nonsymmetric optimal matrices, allow unequal A/B masses or target exact total-variation mixing time."
+  ],
+  "residual_risks": [
+    "A specialist exact nonuniform complete tripartite SDP solution may be absent from the checked publications.",
+    "Statements about every unrestricted optimizer concern aggregate flows, not uniqueness of the full nonsymmetric transition matrix."
+  ],
+  "schema_version": 1
+}
