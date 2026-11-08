@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:46:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md frozen Git blob a3ef0d185a16afafc4a613b978130ecbe376c1ee",
+        "Assigned verify.py frozen Git blob a5af155cd8da576bc28abcbb52cddc737960909a (inspected, not executed)",
+        "Independent SymPy simplification and 2,891 exact rational cases for n=2..50, r=i/120 (i=1..59)",
+        "Actual Git tree c9904234eb2523e8a505e1d8b5747a624ec7cab1, 7 blobs"
+      ],
+      "rationale": "For a labeled vertex fixed at 0, isolation forbids other iid uniform points in an arc of length 2r; remaining n-1 points stay iid uniform in the single complementary interval L=1-2r. Any circular shortcut outside this interval traverses the removed arc of length 2r>r. Two remaining points thus have edge probability ψ=1-(1-r/L)^2 for r<L, otherwise 1. With I=sum isolation indicators and E the edge count, exchangeability gives Cov(I,E)=nL^(n-1)(binom(n-1,2)ψ-n(n-1)r). Symbolic expansion agrees with the stated low-radius quadratic Q_n and high-radius linear factor. Q_5 has discriminant -15 and Q_n increases with n on (0,1/3); n<=5 negative. Q_6=-4(3r-1)(4r-1), upper root 1/3. For n>=7, Q_n(0)=-4 and Q_n(1/3)=(n-6)/9>0, and its concave quadratic has unique relevant lower root; high branch has unique upper root (n-2)/(2n)>1/3. All assertions hold for every integer n>=2, 0<r<1/2, including n=2 and matching r=1/3. An independent symbolic SymPy identity and 2,891 rational cases verify algebra/signs but are not substitutes for the all-parameter proof.",
+      "residual_risks": [
+        "The finite rational grid does not prove the infinite statement; it is corroboration only.",
+        "No claim for excluded r=0,1/2 or soft/inhomogeneous/higher-dimensional variants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose (2018) Theorems 2.1–2.4 treat asymptotic marginal Poisson/normal approximations of degree counts, component counts, and connected induced subgraph counts; no theorem statement on their finite-size cross-covariance.",
+          "Hirsch et al. (2021/2022), sections 2–4, study Poisson point Gilbert-graph edge-count rare event probabilities and conditional Monte Carlo on a line segment, not mixed isolation-edge moments on a fixed-n torus.",
+          "Wilsher et al. (2020), sections II–V, use Poisson sample size and soft connection laws for connectivity and isolation moments, not fixed-n hard-circle joint edge statistics."
+        ],
+        "reasoning": "A general Poisson-process or inhomogeneous-graph method may be specialized to compute related moments, but the inspected higher-level theorems do not logically imply an explicit finite-n hard-circle covariance formula with six-point threshold. A hidden general mixed-moment identity remains a residual risk.",
+        "searches": [
+          "web: Inhomogeneous random graphs isolated vertices and Poisson approximation Penrose arXiv:1507.07132",
+          "web: one-dimensional random geometric graphs circle isolated vertices number of edges covariance exact joint distribution",
+          "web: random geometric graph covariance edges isolated nodes binomial point process",
+          "web: Hirsch Moka Taimre Kroese Rare Events in Random Geometric Graphs 2021 PDF"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.08044",
+        "arXiv:2007.06301",
+        "arXiv:1507.07132",
+        "doi:10.1007/s11009-021-09857-7",
+        "Resultary:2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+        "Four additional Resultary semantic queries (published records)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 Wilsher paper assumes ||H||_2^2<||H||_1 (excluding 0/1 hard cutoffs), and proves a limit law for isolated count, not covariance with E.",
+          "Penrose (2018) allows fixed-n binomial samples but its cited theorems are limit approximations of one statistic at a time, not exact joint moments or a sign classification.",
+          "The 2021 Hirsch paper studies Poisson edge-count tails under line-segment geometry, with no global isolate count cross-covariance claim.",
+          "Component–triangle covariance in independent percolation is not algebraically convertible to isolate–edge covariance in a geometric point graph."
+        ],
+        "reasoning": "Compared quantifiers, sample-size law, geometry, joint versus marginal statistics, and theorem conclusions. The prior statements do not force r_-(n) and r_+(n) or the sharp n=6 threshold; no inference from merely different wording was made.",
+        "searches": [
+          "Penrose 2018 DOI 10.1017/jpr.2018.9, especially Theorems 2.1–2.4 and section 7",
+          "Wilsher–Dettmann–Ganesh arXiv:2007.06301, sections II–V",
+          "Wilsher–Dettmann–Ganesh arXiv:2202.08044, Theorem 1 and assumptions excluding hard cutoffs",
+          "Hirsch–Moka–Taimre–Kroese DOI 10.1007/s11009-021-09857-7, sections 2–4",
+          "Resultary: 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For uniform iid circular samples the mixed covariance is E[I] times the conditional excess E[E | one labeled vertex isolated]-E[E].",
+          "Wilsher–Dettmann–Ganesh 2022/2023, arXiv:2202.08044, analyzes asymptotic isolation-count Poisson law in a soft Poisson point model, not this joint finite-n identity.",
+          "Resultary published hit 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns component–triangle covariance under independent bond percolation."
+        ],
+        "reasoning": "Compared conditional-edge-excess, isolated-component count, and joint-moment aliases, not just the title. The cited models and observables do not provide the piecewise hard-circle conditional edge probability or exact two sign reversals.",
+        "searches": [
+          "Resultary: isolation edge-count covariance in circular one-dimensional random geometric graph exact finite sample n hard threshold two sign changes",
+          "Resultary: random geometric graphs conditional expected edge count given an isolated vertex covariance isolates edges",
+          "web: \"isolated vertices\" \"edges\" \"covariance\" \"geometric graph\"",
+          "web: random geometric graph count edges and isolated vertices covariance Mecke formula fixed size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top relevant result is component–triangle bond-percolation covariance, not this hard-circle statistic.",
+          "Published Penrose/Wilsher/Hirsch sources have distributional approximations and edge rare-event counts but no exact two-transition table for all n."
+        ],
+        "reasoning": "The asserted result is a closed analytic formula for every n and r rather than a finite OEIS-style count. No checked exact source tabulated or symbolically implied both critical radii; failure to locate one does not prove global absence.",
+        "searches": [
+          "Resultary: fixed n random geometric graph torus correlation isolated vertices edge count",
+          "Resultary: covariance component counts edge counts one-dimensional geometric random graph",
+          "web: \"isolation\" \"edge count\" \"covariance\" circle graph",
+          "web: random geometric graph count edges and isolated vertices covariance Mecke formula fixed size"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact finite-n hard-circle mixed covariance and its two-transition sign theorem. The primary sources inspected treat Poisson approximation of marginal isolation/edge/component counts, soft one-dimensional connection models, or rare edge-count events. In Penrose 2018, Theorems 2.1–2.4 are asymptotic distribution statements for individual graph statistics, not the finite-n isolation–edge covariance. No inspected primary theorem or Resultary record implies the complete two-root sign law; general Palm/Mecke or U-statistic moment formulas remain a plausible source of implicit coverage.",
+      "residual_risks": [
+        "An older general Palm/Mecke or covariance formula for a fixed-n binomial point process, potentially in Penrose Random Geometric Graphs (2003) or another textbook, could recover the result by specialization; complete book text was not inspected.",
+        "Unindexed specialist work could have the same sharp six-point transition under other terminology. A negative literature search is not a novelty proof.",
+        "Do not present marginal Poisson/normal approximation theorems as noncoverage of every possible formula in the source; comparison is to statements and material actually examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not direct coverage: Poisson number of points and isolated-count asymptotics; no exact finite fixed-n mixed E–I sign law found in inspected text.",
+          "evidence": [
+            "https://arxiv.org/abs/2202.08044",
+            "Full text lines 158–225 of publicly reproduced preprint: PPP, torus and soft-law assumption ||H||_2^2<||H||_1, Theorem 1 Poisson approximation."
+          ],
+          "identifier_or_url": "arXiv:2202.08044; https://www.researchgate.net/publication/358655333_The_Distribution_of_the_Number_of_Isolated_Nodes_in_the_1-Dimensional_Soft_Random_Geometric_Graph",
+          "material_read": "Public full preprint text on ResearchGate: introduction, model and scaling assumptions, connection function restriction excluding hard 0/1 cutoffs, Theorem 1 isolation Poisson limit, and searchable remaining text for covariance.",
+          "method": "Read publicly reproduced preprint text and compared exact object/statistic and theorem quantifiers; search in document for covariance.",
+          "title": "The Distribution of the Number of Isolated Nodes in the 1-Dimensional Soft Random Geometric Graph",
+          "trigger": "Same one-dimensional torus and isolation statistic; potential dominating general soft model"
+        },
+        {
+          "assessment": "Isolation mean/variance, uncrossed gaps and connectivity in soft Poisson model; does not directly state finite-n hard-circle isolation–edge covariance.",
+          "evidence": [
+            "https://arxiv.org/abs/2007.06301",
+            "PDF extracted lines 20–75 and 91–161 identify model and analysis targets."
+          ],
+          "identifier_or_url": "arXiv:2007.06301; https://research-information.bris.ac.uk/files/257984627/EU12138.pdf",
+          "material_read": "Institutional full manuscript searchable PDF text: abstract, model sections II–III, introductory summary of analyses in sections IV–V, and restrictions on Poisson process/connection law. The PDF screenshot endpoint returned 403; text access and main claims were available.",
+          "method": "Read primary institutional peer-reviewed manuscript text and inspected model, statements, and isolation versus edge statistic.",
+          "title": "Connectivity in One-Dimensional Soft Random Geometric Graphs",
+          "trigger": "Earlier same-dimensional isolation/mean-variance paper"
+        },
+        {
+          "assessment": "Provides general statistical context and marginal asymptotic approximation; no exact mixed finite-n covariance or sharp six-vertex sign threshold is a stated theorem.",
+          "evidence": [
+            "https://purehost.bath.ac.uk/ws/files/160047024/Rev.pdf",
+            "Theorems 2.1–2.4, main text lines 93–108, 160–265, and section 7 lines 1660–1687."
+          ],
+          "identifier_or_url": "arXiv:1507.07132; doi:10.1017/jpr.2018.9; https://purehost.bath.ac.uk/ws/files/160047024/Rev.pdf",
+          "material_read": "Open institutional accepted manuscript PDF, introduction, Sections 2 and 7 theorem statements: Theorems 2.1–2.4, marginal Poisson/normal approximation for degree, components, edge counts; read text and inspected rendered PDF page.",
+          "method": "Read original primary manuscript and inspected PDF screenshot of first scientific page. Compared theorems and needed specializations.",
+          "title": "Inhomogeneous Random Graphs, Isolated Vertices, and Poisson Approximation",
+          "trigger": "Broad inhomogeneous random graph covering binomial samples and both degree-zero and edge counts"
+        },
+        {
+          "assessment": "Poisson point process on line segment, conditional Monte Carlo for edge-count tails, not covariance with global isolate count on fixed-n circle.",
+          "evidence": [
+            "https://link.springer.com/article/10.1007/s11009-021-09857-7",
+            "Section 2.1 focuses on probabilities of zero or one edges; section 2.3 on missing edges, not a mixed isolation–edge moment."
+          ],
+          "identifier_or_url": "doi:10.1007/s11009-021-09857-7; https://link.springer.com/article/10.1007/s11009-021-09857-7",
+          "material_read": "Publisher open-access HTML: abstract, introduction, section 2 conditional Monte Carlo constructions and selected later-section descriptions; article text searched for isolation and covariance. Not every paragraph was inspected.",
+          "method": "Read primary publisher full HTML article, searching for isolation and covariance terms and comparing models/statistics.",
+          "title": "Rare Events in Random Geometric Graphs",
+          "trigger": "One-dimensional geometric graph edge-count conditional probability results might dominate"
+        },
+        {
+          "assessment": "Bond-percolation component–triangle covariance does not directly imply hard geometric isolate–edge covariance; no whole-document noncoverage is claimed.",
+          "evidence": [
+            "Resultary semantic search hit ID 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Resultary published title and exact claim summary (not full Git paper); compared model, observed graph statistics and implication.",
+          "method": "Semantic published-record search; read returned theorem summary; limited scope of inspection recorded explicitly.",
+          "title": "Three-point connectivity exactly controls component–triangle covariance",
+          "trigger": "Closest semantic published mathematical record using graph-count covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md finding and conditional-geometry proof",
+        "Wilsher–Dettmann–Ganesh 2020/2022 isolation literature",
+        "Penrose 2018 inhomogeneous graph study of degree counts and edges",
+        "Hirsch et al. 2021/2022 edge rare-event article"
+      ],
+      "rationale": "A qualitatively motivated dependence phenomenon: isolation removes the incident edges but confines remaining vertices and can raise their mutual edge count. The exact all-n covariance and sharp n=6 threshold with two explicit radius transitions determine when this effect dominates. This is an infinite-family sign classification of two canonical random-graph statistics, not a mere parameter re-labeling or arbitrary tiny-instance check.",
+      "residual_risks": [
+        "The mechanism is elementary conditional expectation; value lies in the exact classification, not a newly invented general stochastic-geometry method.",
+        "Does not imply the same sign pattern for soft connections, a segment, or arbitrary dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claim only for iid uniform fixed-n sampled points on unit-circle torus with hard distance cutoff; excluded endpoints and unexamined variants not covered.",
+    "Historical priority not certified; broader exact Palm/Mecke mixed moments or earlier textbook computations could imply the claimed formula.",
+    "Public-facing METADATA.json and AUDIT.json contain operational provenance (scope_run_id; original AUDIT.json also contains own-claim-id). Full sanitizing replacements preserving all scientific self-review evidence were not staged. Publication withheld.",
+    "No GitHub writes, dispatcher closeouts, or publications; self-review and finite tests are not independent mathematical certification."
+  ],
+  "schema_version": 1
+}
