@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Two complete intensity arrays yield exact cyclic autocorrelations. Directed Sidon uniqueness isolates one complex pair product at each nonzero shift. The ratio of the two chirp-masked correlations gives an unambiguous \(p\)-th root of unity; inversion of \((r_1-r_0)d\) and of 2 recovers each pair of absolute endpoint indices. For support size at least three, the exact off-diagonal products give every diagonal via a three-index ratio, hence the rank-one vector modulo phase. For two sites, the quadratic magnitude equation has exactly two assignments; for one site all positions are indistinguishable. The translation argument proves one-mask insufficiency, and magnitude swapping proves persistence under arbitrary phase-only masks. The accompanying checker passed 4,983 finite exact-algebra tests. The full theorem is proved analytically, not inferred from this census.
+## correctness
 
-## Originality
-**PASS relative to checked literature and accessible mathematical research.** The motivating 2026 Novikov–Xu paper studies conventional Fourier phase ambiguities and Pauli/background problems, not quadratic chirp-coded intensity recovery. The 2013 Jaganathan–Oymak–Hassibi paper concerns generic/most sparse Fourier retrieval modulo translations/reflections; it neither asserts universal Sidon-class recovery nor determines absolute locations with two deterministic chirps. The 2015 Jaganathan–Eldar–Hassibi work uses nonunimodular zero-containing masks, with different measurements and hypotheses. The closest published finite-cyclic chirp-Gabor tomography and two-sparse STFT findings use full Gabor or STFT data, rather than exactly two Fourier intensity patterns. Searches for aliases and stronger coverage gave no decisive implication, but an unindexed equivalent coded-diffraction result is a residual risk.
+PASS
 
-## Value
-**PASS.** The result determines the exact deterministic mask-complexity threshold on a natural distinct-difference sparse class, gives an explicit algebraic reconstruction, and identifies sharp information-theoretic exceptions for all phase-only masks. Recovering absolute support rather than support modulo time-shift is a meaningful distinction in coded diffraction. The theorem does not claim the same guarantee without Sidon geometry or establish noise stability.
+For each r and cyclic shift d the inverse DFT of intensities equals C_r(d)=Σ_n x_n conjugate(x_{n−d}) ω^{r(n²−(n−d)²)} with normalization 1/p. For d≠0, directed Sidon means precisely one nonzero ordered product P_ab at a−b=d; no cancellation, so D is common and |D|=s(s−1). Ratio C_{r1}(d)/C_{r0}(d)=ω^{(r1−r0)d(a+b)} determines a+b (p odd and distinct masks), hence both ordered endpoints and all P_ab. With s≥3, P_ji P_ik/P_jk=|x_i|² reconstructs the rank-one Hermitian Gram matrix up to global phase; with s=2, energy E and pair product P give the two roots for squared moduli, and swapping moduli gives two classes unless equal; with s=1 all p positions identical. For any phase-only masks, the s=1 site and s=2 magnitude-swap obstructions persist. With one mask, masked-signal translation preserves intensities, translates nonempty proper Sidon support S; p prime makes S+t≠S for nonzero t, so one mask cannot be injective when s≥3 exists (p≥7). Independently checked p=7 {0,1,3} ordered pair decoding and phase-only swap invariance using exact residues. The proof handles all p, not just finite experiments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The relevant aliases are chirp-coded phase retrieval, Sidon-label tomography, quadratic Fourier masks and coded autocorrelation; overlapping unmasked Fourier ambiguity and Gabor tomography are not identical measurement models. None of the more general sounding phase-retrieval theorems implies the exact deterministic minimal two-chirp measurement design; measurement sets and quantifiers differ. The new reconstruction and obstruction claims are strictly more specific than, and do not follow logically from, the checked general phase retrieval results. Best-of-knowledge priority assessment with listed risks, not certification.
+
+## value
+
+PASS
+
+An exact uniform deterministic coded-diffraction fiber theorem on natural Sidon/Golomb-ruler sparse supports, including absolute support recovery, arbitrary complex amplitudes, and sharp information-theoretic one/two-support obstructions. This materially separates all-support phase retrieval from generic recovery and establishes two-mask minimality in the nonvacuous regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

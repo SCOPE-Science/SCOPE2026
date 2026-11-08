@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:14:47.482519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each r and cyclic shift d the inverse DFT of intensities equals C_r(d)=Σ_n x_n conjugate(x_{n−d}) ω^{r(n²−(n−d)²)} with normalization 1/p. For d≠0, directed Sidon means precisely one nonzero ordered product P_ab at a−b=d; no cancellation, so D is common and |D|=s(s−1). Ratio C_{r1}(d)/C_{r0}(d)=ω^{(r1−r0)d(a+b)} determines a+b (p odd and distinct masks), hence both ordered endpoints and all P_ab. With s≥3, P_ji P_ik/P_jk=|x_i|² reconstructs the rank-one Hermitian Gram matrix up to global phase; with s=2, energy E and pair product P give the two roots for squared moduli, and swapping moduli gives two classes unless equal; with s=1 all p positions identical. For any phase-only masks, the s=1 site and s=2 magnitude-swap obstructions persist. With one mask, masked-signal translation preserves intensities, translates nonempty proper Sidon support S; p prime makes S+t≠S for nonzero t, so one mask cannot be injective when s≥3 exists (p≥7). Independently checked p=7 {0,1,3} ordered pair decoding and phase-only swap invariance using exact residues. The proof handles all p, not just finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaganathan–Oymak–Hassibi arXiv:1311.2745 Theorem II.1 gives generic/almost-everywhere zero-padded sparse recovery modulo translation/reflection, not uniform all-complex Sidon support with absolute locations.",
+          "Jaganathan–Eldar–Hassibi 2015 uses different nonunimodular zero-containing masks and oversampled patterns, almost-all recovery, not 2 phase-only quadratic masks for every Sidon support.",
+          "Iwen–Viswanathan–Wang DOI:10.1137/15M1053761 use local correlation measurements with flatness or probabilistic assumptions."
+        ],
+        "reasoning": "None of the more general sounding phase-retrieval theorems implies the exact deterministic minimal two-chirp measurement design; measurement sets and quantifiers differ.",
+        "searches": [
+          "arxiv:1311.2745 sparse phase retrieval uniqueness Jaganathan Oymak Hassibi",
+          "Jaganathan Eldar Hassibi Phase Retrieval with Masks using Convex Optimization 2015",
+          "arxiv:2604.25662 Novikov Xu Fourier phase retrieval",
+          "Iwen Viswanathan Wang local correlation phase retrieval 2016"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.2745 full text",
+        "arXiv:2604.25662 full text",
+        "Jaganathan–Eldar–Hassibi 2015 official publication abstract",
+        "DOI:10.1137/15M1053761 journal abstract",
+        "Resultary 3383b59ee81f",
+        "Resultary 29afd3fc909d",
+        "Resultary def07c3297e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical autocorrelation gives unlabeled differences; it does not alone determine absolute support. Two quadratic masks add the pair-sum labels, invertible in odd prime field.",
+          "Generic sparse uniqueness modulo symmetries cannot imply unconditional on-coefficient absolute-position recovery, and arbitrary many phase-only masks cannot resolve the two-atom magnitude swap as proved."
+        ],
+        "reasoning": "The new reconstruction and obstruction claims are strictly more specific than, and do not follow logically from, the checked general phase retrieval results.",
+        "searches": [
+          "Novikov Xu 2604.25662 Fourier transform phase retrieval Pauli",
+          "Jaganathan Oymak Hassibi 1311.2745 Theorem II.1",
+          "Jaganathan Eldar Hassibi 2015 two masks 2n samples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard identity |DFT(z)|² ↔ cyclic autocorrelation is classical and not the asserted novelty; the two chirps LABEL each unique Sidon difference with an endpoint sum, allowing absolute-support decoding.",
+          "Resultary prime-order ambiguous four-atom Fourier fibers 3383b59ee81f concern single unmasked binary-sign magnitudes modulo shift/reflection, not two deterministic chirps and arbitrary complex support."
+        ],
+        "reasoning": "The relevant aliases are chirp-coded phase retrieval, Sidon-label tomography, quadratic Fourier masks and coded autocorrelation; overlapping unmasked Fourier ambiguity and Gabor tomography are not identical measurement models.",
+        "searches": [
+          "Resultary: two quadratic Fourier phase masks cyclic prime Sidon support sparse phase retrieval uniqueness pair ambiguity",
+          "finite cyclic Sidon set phase retrieval two quadratic masks chirp correlations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary phase-only-four-sparse-uncertainty def07c3297e4 and exact-nonvanishing-STFT-fibers 29afd3fc909d analyze Fourier zero counts and STFT windows, not these masks.",
+          "Finite exact CHECK.py enumerates some primes and Sidon supports but is not a historical database of the universal fiber theorem."
+        ],
+        "reasoning": "No compared exact dataset or theorem table lists the phase-class counts p, 2 or 1 for the specified two chirps and all Sidon-supported coefficients.",
+        "searches": [
+          "Resultary: two quadratic Fourier phase masks cyclic prime Sidon support sparse phase retrieval uniqueness pair ambiguity",
+          "quadratic modulation two masks Sidon support table fiber counts"
+        ]
+      },
+      "rationale": "The relevant aliases are chirp-coded phase retrieval, Sidon-label tomography, quadratic Fourier masks and coded autocorrelation; overlapping unmasked Fourier ambiguity and Gabor tomography are not identical measurement models. None of the more general sounding phase-retrieval theorems implies the exact deterministic minimal two-chirp measurement design; measurement sets and quantifiers differ. The new reconstruction and obstruction claims are strictly more specific than, and do not follow logically from, the checked general phase retrieval results. Best-of-knowledge priority assessment with listed risks, not certification.",
+      "residual_risks": [
+        "Bounded literature search and non-indexed historical works leave residual priority risk; search absence is not proof of novelty.",
+        "Narrow competitor class: statements fail without Sidon restriction, and s≥3 is nonvacuous only at sufficiently large p (first p=7).",
+        "Possible overlooked coded-diffraction phase-only Sidon theorem under discrete chirp tomography aliases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Generic zero-padded Fourier uniqueness modulo translation/reflection, no two deterministic quadratic masks on prime-cyclic Sidon supports.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.2745",
+          "material_read": "Full 19-page accessible paper including Theorem II.1 and hypotheses",
+          "method": "web PDF parsed text and screenshot",
+          "title": "Sparse Phase Retrieval: Uniqueness Guarantees and Recovery Algorithms",
+          "trigger": "sparse phase retrieval uniqueness with unknown support"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Ordinary Fourier/Pauli partners and backgrounds, not complete two-chirp full-array intensity recovery.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25662",
+          "material_read": "Full available 2026 paper including main nonuniqueness theorems",
+          "method": "web PDF text and screenshot",
+          "title": "On phase retrieval for continuous and discrete Fourier transforms",
+          "trigger": "recent discrete Fourier ambiguities"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Two specific masks with 2n samples each or 5 masks with n, almost-all recovery via convex relaxation; does not assert 2 phase-only chirps all-Sidon uniform.",
+          "identifier_or_url": "https://weizmann.elsevierpure.com/en/publications/phase-retrieval-with-masks-using-convex-optimization/",
+          "material_read": "Conference abstract and explicit measurement-count/mask model",
+          "method": "web peer-publication metadata/abstract",
+          "title": "Phase Retrieval with Masks using Convex Optimization",
+          "trigger": "two-mask published theorem could dominate claim"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Measurements use local correlation with flatness or random assumptions, rather than exactly two diagonal chirp masks.",
+          "identifier_or_url": "https://doi.org/10.1137/15M1053761",
+          "material_read": "Official journal abstract and measurement assumptions",
+          "method": "web publisher abstract",
+          "title": "Fast Phase Retrieval from Local Correlation Measurements",
+          "trigger": "potential broader deterministic local-correlation recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact uniform deterministic coded-diffraction fiber theorem on natural Sidon/Golomb-ruler sparse supports, including absolute support recovery, arbitrary complex amplitudes, and sharp information-theoretic one/two-support obstructions. This materially separates all-support phase retrieval from generic recovery and establishes two-mask minimality in the nonvacuous regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only Sidon-supported competitors, odd primes, full Fourier intensity per chirp, no robustness.",
+    "Single-mask insufficiency for support≥3 is meaningful when that class exists; p=3,5 give vacuous class."
+  ],
+  "schema_version": 1
+}
