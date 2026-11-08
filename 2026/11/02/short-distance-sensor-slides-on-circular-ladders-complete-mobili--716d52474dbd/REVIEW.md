@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The allowed configurations follow from Girish and Somasundaram's proved distance-at-most-three prism lemma, while the absence of a one-vertex power dominating set is checked directly. The exact six-type adjacency table follows by testing at most six physical slides from each representative. Its entries imply the degree polynomial, bipartition and constructive connectivity. The four-cycle count follows by the exact common-neighbor identity and locally uniform six-type enumeration; the accompanying independent direct and symbolic programs agree for every tested length. The finite programs are checks, not substitutes for the uniform local argument.
+## correctness
 
-**Originality — PASS (qualified).** The complete *set of feasible pairs* is already characterized in Girish and Somasundaram (2024), Lemma 2; the original power-domination number and the derived feasible-pair count are not asserted to be new. The inspected 2026 power-domination reconfiguration article discusses token sliding in an introductory example but develops other reconfiguration operations; it does not establish the circular-ladder classification, bipartition or exact number of four-cycles. Targeted literature and research-record queries found no matching theorem for these additional invariants. The strongest priority risk is an equivalent result under an alternative name for short-range two-token configurations.
+PASS
 
-**Value — PASS.** Adjacent-token relocation is the strict physical movement model for redeploying a fixed optimal set of sensors without any intermediate loss of observability. The six-type mobility classification determines the available local options for every optimal placement in an infinite family, connectedness guarantees feasible relocation, and the exact \(19n\) four-cycle count measures distinct two-slide routes between the same configurations. Bipartiteness persists even when the underlying cylinder is nonbipartite, giving a nontrivial structural restriction on the motion state graph.
+For P_n=C_n square K_2, n>=8, use the published prism lemma that exactly vertex pairs at base graph distance <=3 power dominate; no singleton dominates. Those unordered pairs split into S1,S2,S3,O0,O1,O2 with state multiplicities (2,2,2,1,2,2)*n. Explicitly applying the physical one-edge token slide and verifying the result remains distance<=3 gives degrees (4,6,2,4,6,4), total 11n states, 24n edges and degree polynomial 2nt^2+5nt^4+4nt^6. Moves change distance parity, establishing bipartiteness, and constructive S-type/O-type routes show connectedness. The common-neighbor identity for four-cycles gives per-type square incidences (8,7,1,8,12,6); their weighted sum is 76n, hence 19n unoriented squares. The local types remain stable for n>=8 including wraparound threshold; independent power-domination propagation and reconfiguration enumeration over n=8..12 checked counts, square totals, connectivity and degree spectrum. These finite n checks do not replace the uniform local-type argument.
 
-The result does not address all-pairs distance or token-jumping, and possible older terminology remains a priority risk. The computational checks use independently generated states and movement rules; neither is an infinite-enumeration proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Girish–Somasundaram (2024), Lemma 2, already gives the exact 2-vertex static criterion, and hence 11n viable configurations; that numerical state count is not original. Bjorkman et al. (2026) distinguish TS from TAR/TJ and illustrate TS, but the inspected primary HTML focuses TAR/TJ and does not provide the prism six-type adjacent-slide classification, connected bipartition, or 19n four-cycle theorem. The added dynamic invariants are distinct from the static theorem.
+
+## value
+
+PASS
+
+Keeping power domination after each physically adjacent token slide models local sensor relocation without temporary loss of observability. The complete six-type movement table describes feasible moves in every optimal placement; connectivity and bipartiteness describe reachability and parity; 19n squares count alternative two-step relocation loops. These are motivated intrinsic invariants of a natural graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

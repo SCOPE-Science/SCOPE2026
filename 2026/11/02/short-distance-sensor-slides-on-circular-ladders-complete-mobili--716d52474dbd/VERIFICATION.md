@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Both attached programs were run from their delivered contents. `verify_direct.py` constructs the prism and reproduces the power-domination rule without using the cited pair characterization. It checks all one-vertex starting placements and all two-vertex starting placements, builds every adjacent valid slide, and checks exact degrees, connectivity, bipartiteness, and four-cycle totals for lengths 8 through 20.
+## correctness
 
-`verify_symbolic.py` separately constructs the six families of pairs without simulating power-domination and verifies the neighbor and square-incidence table using the common-neighbor identity at lengths 8 through 17, 19, 23, and 31. Both checks passed.
+PASS
 
-The numerical ranges are finite. Infinite validity rests on the cited exact pair criterion and the proof that the six local move and four-cycle templates are stable for every length at least eight. No expert, formal-prover, or independent external audit was performed.
+For P_n=C_n square K_2, n>=8, use the published prism lemma that exactly vertex pairs at base graph distance <=3 power dominate; no singleton dominates. Those unordered pairs split into S1,S2,S3,O0,O1,O2 with state multiplicities (2,2,2,1,2,2)*n. Explicitly applying the physical one-edge token slide and verifying the result remains distance<=3 gives degrees (4,6,2,4,6,4), total 11n states, 24n edges and degree polynomial 2nt^2+5nt^4+4nt^6. Moves change distance parity, establishing bipartiteness, and constructive S-type/O-type routes show connectedness. The common-neighbor identity for four-cycles gives per-type square incidences (8,7,1,8,12,6); their weighted sum is 76n, hence 19n unoriented squares. The local types remain stable for n>=8 including wraparound threshold; independent power-domination propagation and reconfiguration enumeration over n=8..12 checked counts, square totals, connectivity and degree spectrum. These finite n checks do not replace the uniform local-type argument.
+
+## originality
+
+PASS
+
+Girish–Somasundaram (2024), Lemma 2, already gives the exact 2-vertex static criterion, and hence 11n viable configurations; that numerical state count is not original. Bjorkman et al. (2026) distinguish TS from TAR/TJ and illustrate TS, but the inspected primary HTML focuses TAR/TJ and does not provide the prism six-type adjacent-slide classification, connected bipartition, or 19n four-cycle theorem. The added dynamic invariants are distinct from the static theorem.
+
+## value
+
+PASS
+
+Keeping power domination after each physically adjacent token slide models local sensor relocation without temporary loss of observability. The complete six-type movement table describes feasible moves in every optimal placement; connectivity and bipartiteness describe reachability and parity; 19n squares count alternative two-step relocation loops. These are motivated intrinsic invariants of a natural graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
