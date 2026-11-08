@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible mathematical verification
 
-Use Python 3 with its standard library. Place `verify.py`, `order13.txt`, and `order14.txt` in one directory and run `python3 verify.py`.
+# Independent mathematical audit
 
-The verifier reconstructs all three-cut facets of \(C_n^3\) for \(9\le n\le14\) from induced-subgraph connectivity, with no external tables. For \(n=9,10,11,12\), it constructs all simplicial faces and exact \(\mathbb F_2\)-boundary maps, computes ranks, and confirms the only nonzero reduced mod-two Betti numbers are respectively \((3,1),(4,11),(5,1),(7,2)\), where each pair denotes degree and rank.
+## correctness
 
-For \(n=13\), the shelling order has \(169\) facet rows and exactly one spanning facet. For \(n=14\), it has \(238\) rows and eight spanning facets. Every row is checked to encode an actual facet and every facet must appear exactly once. The shelling attachment criterion checks each preceding facet against every new facet. A separate direct maximal-intersection calculation (not required for package replay) also checked all attachment steps and found every maximal old intersection to have codimension one.
+PASS
 
-The executed checker concluded with `ALL_VERIFY_OK`. These finite computations do not prove the published infinite-range theorem; the latter is invoked explicitly as an external published mathematical premise. Independent audit has not been performed.
+Independently reconstructed disconnected induced triples at n=9..14 from cycle distances. Exact GF(2) face-chain ranks independently yield reduced Betti: n=9 H_3=1; 10 H_4=11; 11 H_5=1; 12 H_7=2, all subtop. Independently read all order13.txt (169 distinct complete facets) and order14.txt (238); each order satisfies the old-ridge pure-shelling intersection criterion; spanning counts 1 and 8. Published Chauhan--Shukla theorem supplies the n>=15 tail, not a finite extrapolation. No independent integral low-range classification asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
+
+## value
+
+PASS
+
+Settles a natural sharp 3-cut shellability cutoff at a fixed graph power: two explicit missing boundary shellings complete the published n>=15 regime, with exact subtop homological obstructions below. A precise finite resolution of a conjectured cutoff is meaningful independent of a general p theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

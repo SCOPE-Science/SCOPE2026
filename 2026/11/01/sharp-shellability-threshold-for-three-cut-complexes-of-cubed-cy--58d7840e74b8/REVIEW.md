@@ -1,15 +1,21 @@
-# Scientific review: sharp cubed-cycle three-cut threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the ordinary three-cut complex and pure shellability, with the vertex, edge and facet conventions stated explicitly. For \(3\le n\le8\) every triple is connected. For \(9\le n\le12\), exact complete mod-two face-chain enumeration yields nonzero homology strictly below the top facet dimension; this rigorously obstructs shellability. For \(n=13,14\), every facet appears exactly once in the embedded order, and every shelling attachment meets the previous union in a nonempty pure codimension-one subcomplex. The exact maximal-intersection check independently verifies this criterion. Spanning facet counts give integral sphere-wedge ranks \(1\) and \(8\), respectively. Theorem 1.4 of Chauhan–Shukla supplies the \(n\ge15\) range. The code and certificates are complete independent local inputs, with no unstated tables.
+## correctness
 
-## Originality — PASS (residual bibliographic uncertainty)
-The principal source, Chauhan–Shukla, arXiv:2603.23155v1 (2026-03-24), proves only \(n\ge6p-3\), so for \(p=3\) it starts at \(n=15\), and expressly discusses the conjectural \(4p+1\) cutoff. Its inspected theorem and conclusion neither contain the proposed \(n=13,14\) shelling orders nor imply the sharp threshold. The squared-cycle paper concerns \(p=2\); the nearest published cycle-power three-cut representation results likewise assume \(n\ge15\) for \(p=3\). Topological claims are compared by parameter and implication, not merely titles. Searches for cubed-cycle shellings, exact threshold, and lower homology did not locate covering results; incomplete indexing leaves residual risk of equivalent work.
+PASS
 
-## Mathematical value — PASS
-The lower edge of a conjectured shellability interval is a mathematically motivated boundary: this proves the full \(p=3\) instance of the proposed \(4p+1\) threshold, closes two open finite shellability instances, and supplies explicit reproducible shellings and topological wedge ranks. The lower finite computations establish a sharp obstruction, rather than an arbitrary list of facet counts. The correct large-parameter theorem is transparently cited instead of claimed as new.
+Independently reconstructed disconnected induced triples at n=9..14 from cycle distances. Exact GF(2) face-chain ranks independently yield reduced Betti: n=9 H_3=1; 10 H_4=11; 11 H_5=1; 12 H_7=2, all subtop. Independently read all order13.txt (169 distinct complete facets) and order14.txt (238); each order satisfies the old-ridge pure-shelling intersection criterion; spanning counts 1 and 8. Published Chauhan--Shukla theorem supplies the n>=15 tail, not a finite extrapolation. No independent integral low-range classification asserted.
 
-## Scope and audit limits
-The numerical checks certify only the finite boundary values; the infinite tail is a cited theorem. Bibliographic completeness cannot be guaranteed without a comprehensive independent literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
+
+## value
+
+PASS
+
+Settles a natural sharp 3-cut shellability cutoff at a fixed graph power: two explicit missing boundary shellings complete the published n>=15 regime, with exact subtop homological obstructions below. A precise finite resolution of a conjectured cutoff is meaningful independent of a general p theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
