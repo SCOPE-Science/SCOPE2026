@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact stationary balance identity and independent pairwise matrix Bernstein with \\(O(n)\\) variance yield \\(O_{\\mathbb P}(\\sqrt{n\\log n})\\) operator control. Remainder Euclidean norm is \\(O_{\\mathbb P}(\\sqrt{\\log n}/n^{3/2})\\), so exchangeability kills each fixed-coordinate scaled error; independent external-edge sums give the joint Gaussian law. Shared-edge covariance of squared imbalance is \\(\\operatorname{Var}((X-X^{\\prime})^2)=O(1)\\), proving the global \\(L^2\\) law. The original standalone program directly checked 96 stationary systems, residuals and exact perturbation relations. No finite test was used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bordenave--Caputo--Chafaï 2014 Section 1.3 Theorem 1.7 and Section 6 address invariant-measure proximity to uniform under independent single-edge rates.",
+        "Calvert 2026 treats pair-correlated rates and proves Boltzmann-like occupation but does not state the Gaussian fluctuation or global chi-squared susceptibility constants."
+      ],
+      "reasoning": "The earlier perturbation/spectral framework is substantially broader in some parameters, but the published claims inspected establish uniform occupation bounds rather than a distributional second-order limit. Independent-edge special cases of the present theorem lie within those ensembles; their general uniformity bounds do not imply the precise Gaussian distribution or quadratic limit.",
+      "searches": [
+        "stationary distribution random complete directed weighted graph iid exchangeable edge pairs central limit theorem N^3/2 variance Xij-Xji",
+        "random Markov generator stationary measure quadratic susceptibility N^2 sum (pi_i-1/N)^2 antisymmetric flux",
+        "Spectrum of Markov generators on sparse random graphs arXiv 1202.0644 Theorem 1.7 Section 6",
+        "\"stationary distribution\" \"central limit\" \"random Markov matrix\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2606.14542v2",
+      "https://arxiv.org/abs/2606.14542",
+      "https://arxiv.org/abs/2505.01608",
+      "https://arxiv.org/abs/1202.0644",
+      "https://arxiv.org/abs/0808.1502",
+      "https://arxiv.org/abs/1004.4389"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qualitative comparison of antisymmetric and symmetric perturbations appears already in Fig. 1b of Calvert 2026; it is acknowledged, not claimed new.",
+        "First-order asymptotic uniformity and finite decay rates cannot distinguish the exact susceptibility constants 0, 1/2, and 1 for identical one-edge marginals.",
+        "Tropp 2012 supplies the known matrix concentration inequality used in the proof, not an occupation theorem."
+      ],
+      "reasoning": "The new limit is a second-order theorem; it needs the explicit full-generator imbalance, a negligible resolvent remainder at order n-to-the-minus-three-halves per coordinate, and a global second-moment law. These are not logical consequences of the stated prior bounds alone, although some other unlocated general stationary-eigenvector theorem might subsume it.",
+      "searches": [
+        "Calvert Boltzmann-like occupation nonequilibrium steady states dense disordered networks finite N Gaussian fluctuations stationary probabilities antisymmetric edge weights",
+        "stationary distribution random complete directed weighted graph iid exchangeable edge pairs central limit theorem N^3/2 variance Xij-Xji",
+        "random generator stationary measure quadratic susceptibility N^2 sum (pi_i-1/N)^2 antisymmetric flux",
+        "Calvert arXiv 2606.14542 Eq (6) Fig 1b Appendix C",
+        "Calvert et al arXiv 2505.01608 Thm 1.1",
+        "Bordenave et al arXiv 1202.0644 Thm 1.7 and Sec 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Calvert 2026 Eq. (6) and Appendix C give max relative error o(1) and O(n^-c), but no asymptotic distribution of the n-to-three-halves rescaled stationary error.",
+        "Calvert et al 2025 Theorem 1.1 gives L1 or total-variation convergence toward uniform and an exit-rate proxy, not a pair-correlation-sensitive CLT."
+      ],
+      "reasoning": "The perturbation formula relates local occupation fluctuations to incoming-minus-outgoing rate sums. This is not equivalent to first-order uniformity or to the exit-rate-only proxy, since the vertex inflow term is also present at the same fluctuation scale.",
+      "searches": [
+        "Calvert Boltzmann-like occupation nonequilibrium steady states dense disordered networks finite N Gaussian fluctuations stationary probabilities antisymmetric edge weights",
+        "stationary distribution random complete directed weighted graph iid exchangeable edge pairs central limit theorem N^3/2 variance Xij-Xji",
+        "Calvert 2026 arXiv 2606.14542 Sections III and Appendix C; Calvert et al 2025 arXiv 2505.01608 Theorem 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary papers report first-order stationary uniformity, not a numerical table of the n-to-three-halves local Gaussian law or exact limiting chi-squared susceptibility.",
+        "A distinct known deterministic perturbation framework for finite Markov chains concerns local response, which does not by itself establish a random-network distributional asymptotic."
+      ],
+      "reasoning": "No matching exact table or existing claimed asymptotic invariant was found in the checked records; this is a bounded search, not an exhaustive novelty certificate.",
+      "searches": [
+        "Calvert Boltzmann-like occupation nonequilibrium steady states dense disordered networks finite N Gaussian fluctuations stationary probabilities antisymmetric edge weights",
+        "random generator stationary measure quadratic susceptibility N^2 sum (pi_i-1/N)^2 antisymmetric flux",
+        "\"stationary distribution\" \"central limit\" \"random Markov matrix\"",
+        "Calvert 2026 arXiv 2606.14542 exact finite-size stationary susceptibility table"
+      ]
+    },
+    "rationale": "The principal 2026 source proves uniform leading occupation and plots qualitative edge-disorder effects but does not state the precise joint scaled Gaussian, empirical Gaussian law, or exact global susceptibility. The 2025 i.i.d. theorem and the 2014 random-generator invariant-measure theorem give first-order convergence bounds. Statement-level comparisons with relevant primary literature did not find a stronger covering theorem. Risk remains of an unlocated general stationary-eigenvector CLT.",
+    "residual_risks": [
+      "A potentially broader random stationary-eigenvector CLT might imply the second-order laws and was not located or exhaustively excluded.",
+      "The 2008 circular-law paper was inspected at abstract level only and is not used as whole-text negative evidence.",
+      "The theorem assumes bounded positive exchangeable edge pairs; unbounded heavy-tailed generalizations remain unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes first-order uniform Boltzmann occupation with rate, and qualitative fluctuation plots; not a stated second-order Gaussian/empirical/susceptibility theorem",
+        "evidence": [
+          "Section II edge-pair exchangeability, Eq. (6), Fig. 1b, Appendix C Eq. (62)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.14542v2",
+        "material_read": "Model definition Section II, Sections III.1--III.2, Fig. 1 and its text, Appendix B and Appendix C",
+        "method": "Read public HTML equations (1)--(13), (46)--(64), and figure captions; compared rates, scaling, claims and proof targets",
+        "title": "Boltzmann-like occupation of nonequilibrium steady states on dense disordered networks",
+        "trigger": "Same model and main motivating source, potential exact finite-size overlap"
+      },
+      {
+        "assessment": "Total-variation asymptotic uniformity, not second-order Gaussian joint fluctuations; special i.i.d. case covered only at first order",
+        "evidence": [
+          "Theorem 1.1 and Corollary 1.2; introductory Fig. 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.01608",
+        "material_read": "Full accessible parsed HTML introduction, Theorem 1.1, discussion and proof organization",
+        "method": "Compared stationary law and exit-rate proxy to first-order perturbation and paired-edge CLT",
+        "title": "A note on the asymptotic uniformity of Markov chains with random rates",
+        "trigger": "Same continuous-time random-rate generator in independent directed-edge case"
+      },
+      {
+        "assessment": "Bounds convergence to uniform of invariant measure; perturbative resolvent technique is related but no exact joint coordinate CLT or paired-edge susceptibility limit is stated",
+        "evidence": [
+          "Section 1.3 Theorem 1.7, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.0644",
+        "material_read": "Full accessible parsed article introduction, Theorem 1.7, Section 6, Section 5 spectral estimates",
+        "method": "Inspected invariant-measure theorem, resolvent proof and parameter assumptions",
+        "title": "Spectrum of Markov generators on sparse random graphs",
+        "trigger": "Potential stronger stationary-vector theorem for random dense/sparse generator"
+      },
+      {
+        "assessment": "Spectral circular law in row-normalized iid matrices; whole-text noncoverage was not inferred from abstract",
+        "evidence": [
+          "Abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0808.1502",
+        "material_read": "Abstract and metadata only",
+        "method": "Compared object class and abstract stated theorems",
+        "title": "Circular Law Theorem for Random Markov Matrices",
+        "trigger": "Earlier random Markov matrix spectral comparison"
+      },
+      {
+        "assessment": "Provides a standard proof ingredient, not stationary occupation law",
+        "evidence": [
+          "Abstract states rectangular norm bounds as corollary"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.4389",
+        "material_read": "Abstract and bibliographic theorem description",
+        "method": "Checked applicable independent bounded rectangular-summand concentration setting",
+        "title": "User-friendly tail bounds for sums of random matrices",
+        "trigger": "Source of rectangular matrix Bernstein inequality used in proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6189fb3-d60e-47f6-b7d0-c3cca524ce54",
+  "value": {
+    "rationale": "Calvert 2026 motivates why large dense nonequilibrium networks can look equilibrium-like in static occupation; an exact and measurable next-order diagnostic is needed. The local Gaussian law and global susceptibility identify only antisymmetric edge-current disorder. Three distinct edge-pair couplings with identical one-edge marginals have exact limiting susceptibility 0, 1/2 and 1, distinguishing balance, uncorrelated nonequilibrium and maximally anticorrelated disorder. This is a structural second-order classification, not merely a numerical invariant or restatement of uniformity.",
+    "status": "PASS"
+  }
+}
