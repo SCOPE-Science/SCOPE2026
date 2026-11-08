@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:49:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the complete pinned RESULT.md, verify.py, exact source tree and package metadata. Monomial orthogonality and independent gamma(|alpha_i|+1,1) radial powers give block beta(k+ell,m-k+d-ell) tail = Bin(m+d-1,tau) CDF at k+ell-1. Block weak compositions reproduce w_{m,k} and sum to dim H_m. Reconstructed uniform left-tail method-of-types sandwich exp[-NI]/(N+1)<=CDF<=exp[-NI] for j/N<=tau, CDF>=1/(N+1) otherwise; changing j/N to k/m costs O(log m) uniformly by endpoint entropy continuity. Uniform binomial polynomial multiplicity expansion and bounded-variation Riemann sum give m^d integral with claimed O(m^(d-1)log m), not a finite extrapolation. Independent exact beta/binomial checks 1,215 index cases and symbolic d=3,ell=2,tau=1/2 integral log2/6-5/48 agree. m=0 handled separately by exact eigenvalues; n,m growing only at fixed d,ell,tau.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Charles-Estienne arXiv:1803.03149 Theorem 1.1 controls eigenvalue windows away from zero; the determinant is singular log and receives m^d from left-tail probabilities. Byun-Park arXiv:2405.00386 studies 2D spherical Coulomb gas gap probabilities, not d>=3 homogeneous Fock sectors."
+        ],
+        "reasoning": "General positive smooth-symbol Toeplitz traces and spectral-window asymptotics do not automatically dominate the singular logarithm at exponentially small eigenvalues. Broader determinantal-ensemble LDPs could encode the same rate, hence explicit priority risk.",
+        "searches": [
+          "Resultary semantic: coordinate split cap homogeneous Fock space Toeplitz determinant eigenvalues binomial tail large deviation",
+          "Resultary semantic: spectral determinant homogeneous Fock space coordinate cap large deviations binomial Toeplitz",
+          "https://arxiv.org/abs/1803.03149",
+          "https://arxiv.org/abs/2405.00386",
+          "https://arxiv.org/abs/1606.07379"
+        ]
+      },
+      "checked_sources": [
+        "Charles and Estienne (2018), arXiv:1803.03149",
+        "Byun and Park (2024), arXiv:2405.00386",
+        "Quiroga-Barranco and Sánchez-Nungaray (2016), arXiv:1606.07379",
+        "González-Flores et al. (2023), doi:10.3390/axioms12121080",
+        "Resultary exact symmetric-Fock and smooth radial Fock records: /2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526, /2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 invariant-symbol Fock decomposition supplies structural diagonalization, but not the binomial large-deviation determinant rate. Charles-Estienne 2018 spectral windows and Byun-Park 2024 gap probabilities have different dimensions/observables."
+        ],
+        "reasoning": "Known monomial reduction + Chernoff estimate are tools, and the combined explicit weighted logarithmic tail is not a corollary of cited bounded-window theorems. Some general large-deviation result might subsume it and remains uncategorically excluded.",
+        "searches": [
+          "Resultary semantic: coordinate split cap homogeneous Fock space Toeplitz determinant eigenvalues binomial tail large deviation",
+          "Resultary semantic: spectral determinant homogeneous Fock space coordinate cap large deviations binomial Toeplitz",
+          "https://arxiv.org/abs/1803.03149",
+          "https://arxiv.org/abs/2405.00386",
+          "https://arxiv.org/abs/1606.07379"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quiroga-Barranco and Sánchez-Nungaray 2016 treat torus-invariant projective-space Toeplitz diagonalization; Charles-Estienne 2018 treat bounded-window spectra. Resultary smooth radial Fock filter 2026 is a different symbol and observable."
+        ],
+        "reasoning": "Equivalence under degree-m projective/Berezin quantization could reproduce the beta blocks; no examined source states or directly computes the order-m^d negative log of this cap determinant. A smooth trace or diagonalization without exponentially small eigenvalues is not an exact equivalent.",
+        "searches": [
+          "Resultary semantic: coordinate split cap homogeneous Fock space Toeplitz determinant eigenvalues binomial tail large deviation",
+          "Resultary semantic: spectral determinant homogeneous Fock space coordinate cap large deviations binomial Toeplitz",
+          "https://arxiv.org/abs/1803.03149",
+          "https://arxiv.org/abs/2405.00386",
+          "https://arxiv.org/abs/1606.07379"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches for split Fock cap logdet returned neighboring Fock/Töplitz spectra but no exact table; the cap rate involves a continuous positive entropy integral, not a tabulated low-degree spectrum."
+        ],
+        "reasoning": "No exact finite database/table implication identified; finite spectrum multiplicity is reconstructed rather than inferred from samples. Lack of matching indexed result is not novelty proof.",
+        "searches": [
+          "Resultary semantic: coordinate split cap homogeneous Fock space Toeplitz determinant eigenvalues binomial tail large deviation",
+          "Resultary semantic: spectral determinant homogeneous Fock space coordinate cap large deviations binomial Toeplitz",
+          "https://arxiv.org/abs/1803.03149",
+          "https://arxiv.org/abs/2405.00386",
+          "https://arxiv.org/abs/1606.07379"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the particular fixed-degree two-block cap singular logdet law; prior monomial diagonalization and general Toeplitz spectral windows are credited, not claimed novel. Compared statements and mechanisms, not just titles; residual possibility of implicit general large-deviation coverage remains.",
+      "residual_risks": [
+        "A higher-dimensional determinantal point-process/gap large-deviation theorem could imply this exact rate under an unpublished reduction; whole-literature completeness not certified.",
+        "Error O(m^(d-1)log m) may not be sharp; varying tau or d not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING on the inspected theorem: spectral window away from 0, no exponentially small sector cap logdet m^d term",
+          "evidence": "Spectral windows [a,b] with positive a; singular log at e^{-cm} is outside control.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.03149",
+          "material_read": "Full accessible arXiv HTML, introduction, theorem on spectral concentration, regular trace/asymptotic window",
+          "method": "Read complete relevant source and compared spectral quantifiers",
+          "title": "Entanglement entropy and Berezin-Toeplitz operators",
+          "trigger": "Potential higher-level trace and discontinuous-symbol coverage"
+        },
+        {
+          "assessment": "DIFFERENT MODEL, complex Riemann sphere ensemble rather than split angular caps on degree-m C^d Fock sector",
+          "evidence": "Two-dimensional point-charge spherical ensemble; not projective multivariate d>=3 block determinant.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.00386",
+          "material_read": "Full accessible arXiv HTML and main theorems/model",
+          "method": "Read source models, dimension and asymptotic result",
+          "title": "Large gap probabilities of complex and symplectic spherical ensembles with point charges",
+          "trigger": "Possible large-deviation corollary"
+        },
+        {
+          "assessment": "POTENTIALLY RELATED; abstract does not settle singular logdet coverage",
+          "evidence": "Exact invariant Toeplitz decomposition, no verified positive entropy determinant asymptotic from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.07379",
+          "material_read": "Accessible abstract and bibliographic material; no full derivations asserted",
+          "method": "Read abstract and compare definitions only",
+          "title": "Separately radial and radial Toeplitz operators on the projective space and representation theory",
+          "trigger": "Toric/projective exact diagonalization equivalent guise"
+        },
+        {
+          "assessment": "Related exact operator decomposition; no directly documented large-deviation cap logdet law",
+          "evidence": "Circle-invariant symbol decomposition is broader algebraic premise, not determinant asymptotic.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms12121080",
+          "material_read": "Source paper identified via citation and accessible summary; no claim of full inspection",
+          "method": "Compare theorem-level description with actual record spectrum",
+          "title": "Toeplitz Operators on Fock Space over Cn with Invariant Symbols under the Action of the Unit Circle",
+          "trigger": "Underlying invariant Fock operator decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The negative log determinant measures global concentration of a natural finite homogeneous Fock sector on a toric angular cap. Exact small-eigenvalue tails encode information not captured by regular Toeplitz trace laws; the explicit positive weighted relative-entropy rate and error are useful for angular concentration and gap probabilities, beyond routine diagonalization. A natural observable, not arbitrary special numeric gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Charles and Estienne (2018), arXiv:1803.03149",
+    "Byun and Park (2024), arXiv:2405.00386",
+    "Quiroga-Barranco and Sánchez-Nungaray (2016), arXiv:1606.07379",
+    "González-Flores et al. (2023), doi:10.3390/axioms12121080",
+    "Resultary exact symmetric-Fock and smooth radial Fock records: /2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526, /2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5"
+  ],
+  "disposition": "passed",
+  "final_claim": "For homogeneous degree-m Fock Toeplitz compression of the two-coordinate-block angular cap in C^d (fixed d>=3, 1<=ell<d, 0<tau<1), exact binomial-CDF eigenvalues with stars-and-bars multiplicities imply a positive explicit order-m^d relative-entropy negative log-determinant rate and O(m^(d-1) log(m+2)) remainder.",
+  "limitations": [
+    "Fixed d,ell,tau; homogeneous degree-m sector only, not entire infinite Fock space; tau neither 0 nor 1.",
+    "Numerical asymptotic convergence not a proof of uniform all-degree error; no optimal remainder claimed."
+  ],
+  "residual_risks": [
+    "A higher-dimensional determinantal point-process/gap large-deviation theorem could imply this exact rate under an unpublished reduction; whole-literature completeness not certified.",
+    "Error O(m^(d-1)log m) may not be sharp; varying tau or d not covered."
+  ],
+  "schema_version": 1
+}
