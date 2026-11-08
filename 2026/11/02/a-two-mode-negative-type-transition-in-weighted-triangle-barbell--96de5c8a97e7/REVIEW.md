@@ -1,15 +1,21 @@
-# Scientific assessment: weighted triangle-barbell two-mode transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The zero-sum powered-distance quadratic form splits **exactly** into two peripheral contrasts, an independent radial direction, and a two-dimensional antisymmetric block. The signs of \(W_t\) and \(Z_t\) are necessary and sufficient. The radial margin decreases strictly for \(t\ge1\) and \(1\le p\le2\), and both endpoints are computed exactly. The outward rational-exponent certificates at \(t=1\) and \(t=10\), combined with concavity at the first endpoint and downward heredity at the second, rigorously establish opposite signs of \(Z_t(p_W(t))\). Continuity gives a common zero. The decomposition proves two independent equality directions there and exactly three strictly negative dimensions on the zero-sum space. A separately executable Python checker confirms exact rational identities on 640 cases and outward integer-power sign bounds; none of its exploratory floating-point root values is treated as proof.
+## correctness
 
-## Originality — PASS, subject to literature-index risk
-The closest explicit graph-family literature, Aalipour et al. (arXiv:1509.01196, Section 5), evaluates *ordinary unweighted distance-matrix* determinants and inertia, not the powered metric's negative-type endpoint under a continuously variable bridge length. The Li–Weston (arXiv:0901.0695) strict-downward theorem and Sánchez (arXiv:1108.0451) general matrix criterion are applicable frameworks, not statements implying the evaluated mode-crossing existence theorem without additional analysis. Relevant mathematical search queries and claim-based comparisons did not identify the simultaneous zero-kernel transition. The unit-bridge case alone cannot dominate the variable-weight two-mode existence conclusion. Unknown unindexed equivalent coverage remains possible; independent publication-priority verification is still needed.
+PASS
 
-## Mathematical value — PASS
-The obstruction to Euclidean snowflake embeddings changes **type** under a natural continuous edge-length deformation. An intermediate bridge length necessarily produces a codimension-two endpoint and a two-dimensional rather than one-dimensional drop in the zero-sum powered-distance form. This is a structural phase transition, not simply a numerical instance or parameter substitution. The proof gives complete necessary-and-sufficient margin inequalities for every real exponent in the negative-type range and interprets their simultaneous degeneracy geometrically.
+Zero-sum quadratic form exactly splits into two strictly negative peripheral contrasts, -W w² and a (u,z) block whose upper-left=-2 t^p and determinant=2Z; thus both inequalities are necessary and sufficient. T(p)=double integral p(p-1)(t+r+s)^(p-2) strictly increases on p in[1,2] for t>=1; W has one zero from 3/2 to -1/2. Exact outward rational-power integer enclosures from source verify t=1,p=47/25: W<0,Z>0 and t=10,p=48/25:W>0,Z<0. Concavity of Z_1 as a function of 2^p proves it positive up to 47/25; at t=10 negative type interval heredity forces Z first. Continuity of H(t)=Z_t(p_W(t)) gives joint critical zero. Exactly two null directions in the five-dimensional zero-sum space yield rank three; strict downward p-negative type ensures rank five below. Independent full-distance quadratic check for 3 t, two integer p and 3^5 coefficient profiles plus separate high-precision sign corroboration.
 
-## Scope and risks
-Only six-vertex triangle barbells with unit intra-triangle edges and one bridge of length at least one are classified. The number or uniqueness of simultaneous critical bridge lengths, their decimal values, and arbitrary clique-size generalizations are not determined. Finite computations are supporting checks, not infinite proofs. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for explicit powered-distance two-margin criterion and existence of a variable bridge length where TWO independent negative-type modes become singular simultaneously. Li–Weston is a general downward-heredity theorem; Sánchez gives a determinant method but no evaluated weighted triangle-barbell crossing. Aalipour et al §5 computes unweighted ordinary distance spectra of (generalized) barbell/lollipop graphs, not the variable t powered-distance negative-type simultaneous-degeneracy result.
+
+## value
+
+PASS
+
+The first obstruction to Euclidean snowflake embedding changes representation type under a natural edge-length deformation and forces a codimension-two critical point and dimension jump 5 to 3. This is an exact geometric structural phase transition over a continuous parameter, rather than arbitrary small-graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
