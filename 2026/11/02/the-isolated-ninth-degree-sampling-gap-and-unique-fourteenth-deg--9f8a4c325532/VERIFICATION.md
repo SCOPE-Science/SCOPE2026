@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact standalone Python 3 checker is `rhombicuboctahedron_harmonic_certificate.py`. Run `python3 rhombicuboctahedron_harmonic_certificate.py` in a directory containing that file. It constructs all twelve antipodal representatives, three signed relations, six explicit invariant vectors, a universal residual quadratic identity in formal Legendre coordinates, and all degree-wise assertions for \(0\le k\le199\) in the exact field \(\mathbb Q(\sqrt2)\). Its terminal sentinel is `RHOMBICUBOCTAHEDRON_SAMPLING_CERTIFICATE_OK 200 exact degrees`.
+## correctness
 
-The all-degree conclusion rests additionally on the analytic Bernstein–Gershgorin argument for \(k\ge200\), proved in RESULT.md; the finite checker does not attempt or imply exhaustive testing of infinite degrees. The exact maximum is taken only over full-rank twelve-by-twelve Gram matrices. The certificate supports a reproducible self-review, not any independent audit, machine-checked foundational certification, or publication priority determination.
+PASS
+
+Twelve antipodal representatives give Gram entries with just three signed off-diagonal cosines in Q(√2). The frozen checker explicitly constructs the integer relation matrices, their independent 1+2+3+6 sectors, and verifies the quadratic minimal-polynomial identity in independent u,v,w using ten unisolvent evaluations. Its exact Q(√2) recurrence and sign tests cover degrees 0..199, proving the isolated degree-nine two-dimensional null sector, positivity otherwise, and the exact k14 extreme eigenvalues L,U. For all k≥200, Bernstein–Szegő and |dot|<3/4 give Gershgorin lower bound >1/50, controlling rank and condition number; finite exact bounds separate k13 and k14 and show all other full-rank degrees have κ<3600. Independent floating numerical Gram ranks 0..15 and k14 tiny eigenvalue ≈1.63924×10^-5 match, but are only corroboration.
+
+## originality
+
+PASS
+
+The exact claimed statement and implications were compared, not merely titles. The Legendre Gram spectrum is the exact-degree harmonic sampling spectrum on antipodal classes, not the cumulative-degree matrix for a spherical design. The k14 condition extremum is not a restatement of a rank gap or a design-strength parameter. General spherical-design conditioning and harmonic-index design theory provide tools but not the exact k14 all-degree spectral extremizer for this specific 24-point orbit. Results for other Archimedean solids have different dot-product schemes and do not imply this spectrum. An–Chen–Sloan–Womersley discuss well-conditioned cumulative-degree spherical designs; Bannai–Okuda–Tagami harmonic-index designs concern annihilation. The present exact fixed-orbit all-degree k14 extremum is distinct from those inspected statements. The searches and inspected sections support a bounded best-of-knowledge judgment, not an exhaustive novelty certificate.
+
+## value
+
+PASS
+
+A sharply isolated degree-fourteen conditioning spike above 9.4×10^4, despite permanent full rank from degree ten onward, is practically relevant to harmonic sampling and exposes a nontrivial distinction between rank and numerical stability for a natural symmetric polyhedron.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
