@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:17:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 7bb6e0fbf1831708866d83cf56c5ee29add9656f",
+        "Checker source blob df34c5af27a6bae5c73459a32a777269a97b5160",
+        "Independent direct comparison of all nested chord intervals for n=4..19",
+        "Endpoint Q_n(1,n) numerical residual after (π²/4−2)n²+2πζ(−1/2)√n at n=100,400,1600,6400,16000: approx 1.679,1.914,2.147,2.379,2.532",
+        "Proof reconstruction of strict convexity, KKT, clamped voltage variance and analytic boundary Euler power-sum"
+      ],
+      "rationale": "Connected weighted Laplacians give J=sum_{u<v}R_uv=tr(W L^-1), strictly convex in distinct positive edge conductances; connected boundary divergence and budget scaling produce a unique minimizer. For t=0, series path J=sum Aℓ/cℓ, optimal cℓ^0=B sqrt(Aℓ)/H, Lagrange multiplier H²/B². A unit chord current produces potential z_k clamped between cumulative resistances h_i,h_j. Differentiating total resistance under adding the chord gives -lambda times pairwise potential dispersion Q=n∑(z_k−mean)^2. KKT and strict convexity establish zero-chord optimum iff q>=Q, including boundary equality, while direct t>0 perturbation improves q<Q. Nondecreasing clipped profiles and positive covariance prove strict nesting of chord intervals. Riemann sums of h→2 arcsin sqrt(s) yield explicit clipped-arcsine variance. An exact double sum Q=n−1+2Σ_j b(j/n)Σ_{i<j}a(i/n) combined with square-root power sums and weighted trapezoid errors gives endpoint (π²/4−2)n²+2πζ(−1/2)√n+O(log n). Independent finite-difference and variance checks support the analytic steps; independently calculated endpoint residuals after two leading terms for n=100,400,1600,6400,16000 stay small and log-like, but are not an asymptotic proof.",
+      "residual_risks": [
+        "The O(log n) error depends on uniform endpoint power-sum/trapezoidal estimates, not established by numerical residuals; source provides a weighted error bound requiring legitimate singular-endpoint handling.",
+        "Only one optional chord, unit path-edge prices, connected networks, Kirchhoff index (not resistance diameter or spectral gap)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), primary full article: general convex resistance minimization, derivatives/KKT and optimal tree weights; no specific quoted two-term zeta boundary law.",
+          "Bhoite et al., Network Design and Effective Resistance: An Edge Augmentation Problem, arxiv:2609.29790: fixed-base graph discrete edge augmentation setup, differing from joint conductance price allocation. Full original manuscript unavailable.",
+          "For endpoint chord, source exact Q is a discrete variance of resistance-potential path, and expansion contains 2πζ(−1/2)√n, a coefficient not supplied by generic convexity."
+        ],
+        "reasoning": "The general Ghosh–Boyd–Saberi framework covers convexity/KKT, credited fully. No inspected primary result directly states the exact clipped-arcsine all-chord kernel or endpoint n²+√n law; broader unspecified network algorithms are not proofs of those constants.",
+        "searches": [
+          "resistance optimal weighted path conductance budget priced optional chord exact Kirchhoff index threshold",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph optimal tree weighting",
+          "network design effective resistance edge augmentation Bhoite 2026",
+          "zeta minus one half boundary correction optimally weighted path closing edge"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi SIAM Review 50 (2008) full PDF",
+        "arxiv:2609.29790 abstract/formulation",
+        "Resultary Kirchhoff index path chord query",
+        "GitHub repo search Kirchhoff path chord",
+        "Direct numerical evaluation of Q_n endpoint and all proper nested interval comparisons for n=4..19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), primary full article: general convex resistance minimization, derivatives/KKT and optimal tree weights; no specific quoted two-term zeta boundary law.",
+          "Bhoite et al., Network Design and Effective Resistance: An Edge Augmentation Problem, arxiv:2609.29790: fixed-base graph discrete edge augmentation setup, differing from joint conductance price allocation. Full original manuscript unavailable.",
+          "For endpoint chord, source exact Q is a discrete variance of resistance-potential path, and expansion contains 2πζ(−1/2)√n, a coefficient not supplied by generic convexity."
+        ],
+        "reasoning": "Convexity and known optimal weighted tree are sufficient ingredients for initial KKT setup but do not themselves give the threshold function, strict nesting or endpoint zeta asymptotic. Those latter facts follow from path-specific potential sums and endpoint analysis in the package.",
+        "searches": [
+          "resistance optimal weighted path conductance budget priced optional chord exact Kirchhoff index threshold",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph optimal tree weighting",
+          "network design effective resistance edge augmentation Bhoite 2026",
+          "zeta minus one half boundary correction optimally weighted path closing edge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), primary full article: general convex resistance minimization, derivatives/KKT and optimal tree weights; no specific quoted two-term zeta boundary law.",
+          "Bhoite et al., Network Design and Effective Resistance: An Edge Augmentation Problem, arxiv:2609.29790: fixed-base graph discrete edge augmentation setup, differing from joint conductance price allocation. Full original manuscript unavailable.",
+          "For endpoint chord, source exact Q is a discrete variance of resistance-potential path, and expansion contains 2πζ(−1/2)√n, a coefficient not supplied by generic convexity."
+        ],
+        "reasoning": "Compared A-optimal Laplacian trace design, Kirchhoff-index sensitivity, rank-one chord insertion, and tree potential profiles. General rank-one derivatives are equivalent to first-order screening method, but evaluated all-index threshold and zeta expansion are additional calculations.",
+        "searches": [
+          "resistance optimal weighted path conductance budget priced optional chord exact Kirchhoff index threshold",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph optimal tree weighting",
+          "network design effective resistance edge augmentation Bhoite 2026",
+          "zeta minus one half boundary correction optimally weighted path closing edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact evaluation from source formula yields Q_n(i,j) at any n with varying chord interval, not a fixed small table.",
+          "Resultary semantic lookup located other graph resistance/optimization invariants, not the priced path chord threshold."
+        ],
+        "reasoning": "The all-integer formula, continuum kernel and subleading constant are not a small known-table recomputation; no applicable exact table was found.",
+        "searches": [
+          "optimal weighted path chord index exact discrete variance threshold Q_n(i,j)",
+          "2026 published Resultary Kirchhoff index resistance optimal path chord screening",
+          "resistance path ring edge addition zeta (-1/2) asymptotic"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.",
+      "residual_risks": [
+        "Other optimized-network specialist results may contain the variance kernel implicitly, perhaps as a corollary of stronger formulas.",
+        "The relevant Bhoite et al. 2026 primary full text could not be fully inspected.",
+        "The Euler summation uniform remainder estimate is mathematically substantive and merits independent analytic proofreading despite numerical checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general optimization/KKT; not identified as giving path-specific zeta boundary layer",
+          "evidence": "General edge sensitivity and weighted tree solution are credited.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Full 30-page primary paper, including strict convexity/KKT derivatives and tree-weighting discussion",
+          "method": "read PDF full body and screenshot proof pages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "same objective and adjustable conductance budget"
+        },
+        {
+          "assessment": "SCOPE_DIFFERS fixed-base edge augmentation/cardinality; cannot exclude specialized theorem without full text",
+          "evidence": "No whole-document NOT_COVERING inference from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29790",
+          "material_read": "Abstract and formulation accessible; primary full text retrieval failed",
+          "method": "abstract and source scope, explicitly limited",
+          "title": "Network Design and Effective Resistance: An Edge Augmentation Problem",
+          "trigger": "potential broader chord-addition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact chord-price screening and a zeta boundary layer in resistance-optimal paths",
+        "Frozen RESULT.md at actual verified Git tree 2cb518b7f2646f5df821ef655841ad8e82dccf07"
+      ],
+      "rationale": "The pricing model is a natural convex network design problem: the exact all-chord screening kernel, strict nested-interval order and explicit macroscopic arcsine law are usable sensitivity results. The negative zeta square-root correction is a nontrivial discrete boundary layer beyond general KKT or tree Cauchy–Schwarz and answers a motivated second-order asymptotic question.",
+      "residual_risks": [
+        "Conceptual KKT derivative is standard prior work; novelty and value are evaluated specific all-chord variance and two-term endpoint constants, not generic optimization sensitivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The O(log n) error depends on uniform endpoint power-sum/trapezoidal estimates, not established by numerical residuals; source provides a weighted error bound requiring legitimate singular-endpoint handling.",
+    "Only one optional chord, unit path-edge prices, connected networks, Kirchhoff index (not resistance diameter or spectral gap).",
+    "Other optimized-network specialist results may contain the variance kernel implicitly, perhaps as a corollary of stronger formulas.",
+    "The relevant Bhoite et al. 2026 primary full text could not be fully inspected.",
+    "The Euler summation uniform remainder estimate is mathematically substantive and merits independent analytic proofreading despite numerical checks."
+  ]
+}
