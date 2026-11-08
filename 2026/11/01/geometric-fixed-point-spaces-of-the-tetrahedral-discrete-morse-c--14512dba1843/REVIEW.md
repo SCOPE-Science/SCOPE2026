@@ -1,15 +1,21 @@
-# Review: geometric fixed-point spaces of the tetrahedral Morse complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed orbit-triangulation is a direct consequence of barycentric-coordinate invariance. Its finite input comprises fifteen tetrahedral faces and twenty-eight cover relations, not an approximate sampling. `verification.py` enumerates every orbit subset for all four cycle types, compares two independent acyclicity tests, checks sixty actual simplicial free-face deletions to an octahedral sphere for a transposition, and identifies two separate four-cycles, a full two-simplex, and the empty complex in the remaining classes. Exhaustive all-permutation checks and the previously published signed fixed-simplex counts agree. The four asserted geometric fixed-locus homotopy types follow, with no appeal to unverified infinite patterns.
+## correctness
 
-## Originality — PASS
-Scoville's primary paper determines the full tetrahedral Morse complex's nonequivariant homotopy type; Lin–Scoville determines its symmetry group. The closest same-object published calculations determine the complete rational symmetry character and the setwise-invariant face totals, but neither computes the geometric fixed-locus homotopy types. Those prior data imply only Euler characteristics, not the two-sphere collapse or the double-transposition fixed locus's two connected components. Actual semantic searches for the exact four-class table, acyclic orbit matchings and alternative names found no covering statement. Residual uncertainty remains for unindexed equivalents and the automorphism paper's unread full text.
+PASS
 
-## Value — PASS
-This completes the fixed-locus homotopy classification for all nonidentity symmetries of the first full tetrahedral Morse matching complex with complicated higher homology. It exhibits qualitatively different isotropy topologies (sphere, disconnected circle pair, point, empty set), all invisible to rank and rational character alone. A certified sixty-pair collapse gives an explicit geometric explanation in place of a numerical homology table.
+Geometric fixed points under <g> are not the set of originally fixed vertices: in barycentric realization the fixed coordinates are constant on every g-orbit of Hasse-cover vertices. Collapsing each admissible cover-edge orbit to a barycentric orbit vertex defines a PL homeomorphism between geometric fixed locus and exactly enumerated orbit complex F_g, including the empty cases. The underlying 15 nonempty tetrahedral faces have exactly 28 Hasse cover relations; every possible orbit subset is checked for matching condition and reversed-Hasse acyclicity. An independent fresh enumeration confirms face vectors (10,36,56,36,8) for transposition, (8,8) for double transposition, (3,3,1) for three-cycle, and empty for four-cycle. A new greedy free-face sequence, independent of the 60-pair provided certificate, collapses the first complex by 60 valid elementary pairs onto the full 6-vertex octahedron boundary S2. Double transposition consists of exactly two independent 4-cycles S1⊔S1; three-cycle is a filled triangle and thus contractible. The provided complete certificate and checker establish each case and all 24 group elements. Identity full homotopy ∨99 S4 is prior work, not reproved or claimed new.
 
-## Closest literature and limits
-The central source is N. A. Scoville, arXiv:2604.18172v1, Theorem 20 and Tables 1–2; the closest complete rational symmetry computations are the publicly available published-finding corpus works *The complete S4-character on tetrahedral discrete Morse matching homology* and *The S4-character of tetrahedral Morse-complex homology* (2026-10-11). The proof applies only to the full ordinary tetrahedral Morse complex, and does not settle higher-dimensional or equivariant restriction-map questions. Literature checking cannot prove uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scoville arXiv:2604.18172v1 Theorem 20 computes nonequivariant ∨99 S4; Lin–Scoville arXiv:1904.10907 concerns automorphisms. Available 2026 symmetry character and fixed-simplex-count citations provide only Euler/Lefschetz values (2,0,1,0), which cannot imply a transposition sphere S2 nor two disconnected circles for double transposition. The geometric fixed-point orbit-complex result is a strictly finer topological invariant; Resultary indexed search did not locate the same collapse/fixed-locus theorem. Actual public full texts of cited character records could not be opened from attempted paths and remain an explicitly recorded priority risk.
+
+## value
+
+PASS
+
+Complete geometric fixed-point homotopy types for all nontrivial conjugacy classes of the smallest nontrivial tetrahedral discrete-Morse matching complex are a natural equivariant-topological classification. This separates actual fixed-space topology and disconnectedness from previously known Lefschetz/Euler characters and supplies explicit combinatorial collapse certificates. The four-case finite exact classification is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
