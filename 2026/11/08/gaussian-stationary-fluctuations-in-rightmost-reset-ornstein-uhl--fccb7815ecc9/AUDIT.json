@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: ## Proof, steps 1-4; exact beta identities and martingale-array argument",
+      "verify_group_reset.py; 52 exact/numerical/seeded checks passed",
+      "Analytical N=2 limits: c_2=sqrt(D/2)/k and V_2=3D/(4k)"
+    ],
+    "rationale": "For every fixed integer N>=2 and k,D,r>0, exact OU Gaussian propagators yield iid affine coefficients A=exp(-kE/r), B=sqrt(D(1-A^2)/k) times the maximum of N unit Gaussians. E log A=-k/r<0 proves existence and uniqueness of the stationary perpetuity. Beta integrals reconstruct its exact mean and variance; rescaling centered innovations produces H=sqrt(2DE)M_N-kc_N E with mean zero and variance 2D(nu_N-pi*mu_N^2/4). Predictable martingale quadratic variation converges to this variance/(2k), uniformly bounded fourth moments give Lindeberg, and the perpetuity tail is exponentially small in an index cutoff proportional to r. The stationary age is exponential and particle departures from the last reset coordinate are O_P(r^-1/2), yielding the diagonal Gaussian law. N=2 identities and 52 independent finite checks in verify_group_reset.py were replayed. The proof does not use finite testing as a substitute for an infinite limit.",
+    "residual_risks": [
+      "No quantitative convergence rate established; the stated limit is fixed-N and does not imply large deviations."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galla arxiv:2602.21635v1 derives common-noise approximations for random proportional resets x to (1-s(1+z))x with reset frequency lambda/s",
+        "Lee et al. arxiv:2412.02524v3 derives renewal kernel for rightmost resetting but gives no general theorem for the critical r^-1/2 shock scaling",
+        "Majumdar et al. arxiv:1509.04516 concerns a single lattice walker resetting to its historical maximum rather than a finite harmonic Gaussian group"
+      ],
+      "reasoning": "Galla’s theorem has a distinct local multiplicative reset map and fixed-mean O(1/r) changes; our maximum selection produces random O(r^-1/2) increments, a mean diverging as sqrt(r), and correlated random clock-amplitude fluctuations. Generic martingale-array CLTs are credited as proof technology and do not by themselves supply the exact model coefficient. The historical-maximum and fixed-origin theories do not contain this model.",
+      "searches": [
+        "frequent weak resetting diffusion approximation correlated particles nonlinear selection maximum Ornstein Uhlenbeck",
+        "arxiv:2602.21635v1 full Appendix A.4 and B",
+        "arxiv:2412.02524v3 full §§II–IV",
+        "arxiv:1509.04516"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2412.02524v3, full HTML",
+      "arxiv:2604.24406v2, full HTML; earliest dated version 2026-04-27",
+      "arxiv:2602.21635v1, full HTML",
+      "arxiv:1509.04516, abstract",
+      "arxiv:2211.00563, abstract",
+      "published-finding corpus semantic queries listed in four named checks",
+      "Accessible prior mathematical claims about resetting, inspected for implication overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arxiv:2412.02524v3 eq (5), the known ordinary-time mean of the Gumbel-kernel model equals the present exact reset-epoch mean multiplied by r/(r+k) after substituting a large-N approximation for mu_N",
+        "arxiv:2412.02524v3 Appendix C supplies a squared-coefficient-of-variation expression, whereas this result evaluates a fixed-N weak-limit distribution and distinguishes the clock-induced contribution (1-pi/4)*mu_N^2",
+        "arxiv:2604.24406v2 §III treats absorption and heterogeneous group arrival, not a statement about the unabsorbed stationary joint distribution"
+      ],
+      "reasoning": "The mean shift is known in approximation, so novelty is not attributed to its sqrt(r) growth or to renewal theory. The new content is the full fixed-N Gaussian limit, the limiting constant variance and whole-group diagonal convergence, all proved from the exact max-order-statistic kernel. Although an implicit renewal equation contains all possible consequences formally, it does not supply an already established asymptotic theorem or a stronger statement implying this limit without new analysis.",
+      "searches": [
+        "arxiv:2412.02524v3 §III eq (5), Appendix C eq (C1)",
+        "arxiv:2604.24406v2 §II–III and Appendix C",
+        "Poisson collective reset all Brownian particles to rightmost stationarity Gaussian variance frequent resetting 2412.02524 2604.24406",
+        "frequent weak resetting diffusion approximation correlated particles nonlinear selection maximum Ornstein Uhlenbeck"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lee et al. arxiv:2412.02524v3, §§II–IV, Appendix C: renewal equation and first two stationary moments; no high-rate normal limiting distribution or finite-N clock-corrected variance",
+        "Search arxiv:2604.24406v2, §III and appendices: group first-passage distributions, not unabsorbed invariant law"
+      ],
+      "reasoning": "Neither the available kernel representation nor the numerical stationary shape is the explicitly evaluated, normalized fixed-group Gaussian weak limit. The latter requires an additional triangular-martingale argument and exact maximum moments. Search nonreturn is not claimed to certify novelty.",
+      "searches": [
+        "extreme value group resetting Brownian Ornstein Uhlenbeck high frequency Gaussian stationary center CLT maximum normal particles",
+        "Poisson collective reset all Brownian particles to rightmost stationarity Gaussian variance frequent resetting 2412.02524 2604.24406",
+        "group resetting central limit rightmost Brownian particles extreme value",
+        "extreme-value group resetting Gaussian high rate stationary law",
+        "arxiv:2412.02524v3 §III Appendix C"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest result 2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db concerns extrema of Gaussian alpha-Wiener bridges, not rightmost Poisson group resetting",
+        "published-finding corpus nearest result 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4 concerns random projections of a slowing OU mode, not reset-epoch central-limit laws",
+        "A previously recorded Brownian-gas claim studies partial resetting of uniformly random particle subsets to a fixed reference, not selection of the current rightmost particle"
+      ],
+      "reasoning": "No searched published indexed result or accessible claim gives the N-dependent variance D(nu_N-pi*mu_N^2/4)/k, the diagonal stationary Gaussian law or its exact N=2 coefficient. These are substantive implication comparisons rather than relying on title or parameter mismatch alone.",
+      "searches": [
+        "extreme value group resetting Brownian Ornstein Uhlenbeck high frequency Gaussian stationary center CLT maximum normal particles",
+        "Poisson collective reset all Brownian particles to rightmost stationarity Gaussian variance frequent resetting 2412.02524 2604.24406",
+        "2026 Ising Potts antiferromagnet hard core lattice gas partition zeros finite systems",
+        "stationary rightmost group resetting Gaussian distribution high rate sqrt r variance OU Levy center"
+      ]
+    },
+    "rationale": "Full-text comparison with the 2024/2026 foundational rightmost-selection model identifies a renewal kernel and stationary means/SCV but no fixed-N high-rate Gaussian law with its Poisson clock correction. The April 2026 continuation addresses absorbing hitting times. A further February 2026 diffusion-approximation article considers partial proportional resetting of order r^-1, not collective maximum resets with increments of order r^-1/2 and a diverging stationary center. Distinct fixed-origin reset gases and historical-maximum resetting do not imply the exact coefficient. Relevant indexed research results and accessible earlier scientific claims did not cover the statement; this is a best-knowledge novelty judgment, not a mathematical uniqueness certificate.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier study of the same rightmost selection recurrence might already state the same high-rate Gaussian law.",
+      "The April 2026 source has an absorbing variant; the proved law is only the unabsorbed stationary reference, not a direct result about rare first-passage probabilities.",
+      "Generic martingale convergence theory is prior methodology; originality is confined to model-specific normalization, clock variance and joint particle limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR MODEL AND MOMENTS; NO EXPLICIT FULL FIXED-N GAUSSIAN LIMIT",
+        "evidence": "The work uses large-N Gumbel approximation and presents mean, SCV and numerical stationary shapes; its Appendix C is not a distributional central-limit theorem.",
+        "identifier_or_url": "https://arxiv.org/html/2412.02524v3",
+        "material_read": "§§II–IV including reset kernel and stationary mean/variance, Appendix A (maximum kernel), Appendix B (simulation convention), Appendix C (SCV formula)",
+        "method": "Read arXiv HTML scientific sections and relevant appendices, compared stated conclusions and exact formulas",
+        "title": "General Theory for Group Resetting with Application to Avoidance",
+        "trigger": "Exact same rightmost reset map in an OU potential"
+      },
+      {
+        "assessment": "MOTIVATION AND ABSORBING FIRST-PASSAGE RESULTS; NO UNABSORBED GAUSSIAN STATIONARY LAW",
+        "evidence": "§II includes absorbing boundary and reset to rightmost, §III and Appendix C quantify group-hitting distributions and means, distinct from the stationary unabsorbed reference.",
+        "identifier_or_url": "https://arxiv.org/html/2604.24406v2",
+        "material_read": "§II model, §III resetting and quasi-stationarity results, Appendices A–C including renewal equation and first-group-hitting-time asymptotic",
+        "method": "Read arXiv HTML model, main results and relevant appendix calculations",
+        "title": "Beyond average: heterogeneous first-passage dynamics in many-particle systems with resetting",
+        "trigger": "Recent same group-selection model with absorbing target"
+      },
+      {
+        "assessment": "DIFFERENT RESET GEOMETRY AND RATE-SIZE SCALING; DOES NOT SUPPLY EXACT EXTREME-VALUE COEFFICIENT",
+        "evidence": "Main eqs (4),(6) and Appendix A.4 take x to (1-s(1+z))x with rate lambda/s, unlike max-selective shared resets.",
+        "identifier_or_url": "https://arxiv.org/html/2602.21635",
+        "material_read": "Main treatment of weak resetting and multi-particle diffusion, Appendix A.4 random amplitude, Appendix B multi-particle derivation and supplemental §S1.2",
+        "method": "Read arXiv HTML main equations and relevant supplement on random amplitudes and multiparticle dynamics",
+        "title": "A diffusion approximation for systems with frequent weak resetting",
+        "trigger": "Possible stronger high-frequency Gaussian approximation covering the claim"
+      },
+      {
+        "assessment": "DISTINCT HISTORICAL MAXIMUM RANDOM WALK, NOT COLLECTIVE HARMONIC OU RESETTING",
+        "evidence": "Abstract states single nearest-neighbor random walker resets to its previously visited maximum and grows ballistically.",
+        "identifier_or_url": "https://arxiv.org/abs/1509.04516",
+        "material_read": "Public abstract and model description",
+        "method": "arXiv abstract compared, not entire paper because time-historical single-lattice-walker model differs substantially",
+        "title": "Random walk with random resetting to the maximum",
+        "trigger": "Similar maximum-reset terminology"
+      },
+      {
+        "assessment": "DISTINCT FIXED-ORIGIN GROUP RESETTING",
+        "evidence": "Abstract states all walkers reset simultaneously to the origin, not the current maximum.",
+        "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+        "material_read": "Public abstract and stated model",
+        "method": "arXiv abstract compared; full text not necessary because reset point fixed at origin",
+        "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+        "trigger": "Several Brownian particles subject to a common reset clock"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fccb7815-ecc9-48da-ba00-3f42f73798a5",
+  "value": {
+    "evidence": [
+      "arxiv:2412.02524v3 §III and Figure 4 motivate need for stationary distribution shape rather than just mean/SCV",
+      "arxiv:2604.24406v2 Introduction and Model explain rightmost collective reset and avoidance",
+      "RESULT.md gives exact limiting distribution, variance decomposition and whole-group convergence"
+    ],
+    "rationale": "Extreme-value group resetting was developed for biological selection and avoidance, and its initiating papers expressly show that detailed stationary spatial distributions matter beyond average positions or scaled variances. The result supplies the full and fixed-size high-frequency central law of precisely that stationary reference, with explicit order-statistic integrals, a nonvanishing variance and quantiles. It isolates a positive Poisson-clock variance contribution invisible to fixed-duration replacement, and establishes that the entire reset group shares a single asymptotic Gaussian displacement. The natural N=2 example has the exact variance 3D/(4k). This is a motivated classification of fluctuations, not an arbitrary numerical parameter point.",
+    "residual_risks": [
+      "Gaussian central approximation alone cannot yield exponentially small fixed-boundary avoidance probabilities or a first-passage time theorem."
+    ],
+    "status": "PASS"
+  }
+}
