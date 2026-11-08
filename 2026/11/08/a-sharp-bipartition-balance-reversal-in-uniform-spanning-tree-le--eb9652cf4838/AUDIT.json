@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes all integer quantifiers and extracts probabilities from a degree-generating weighted spanning-tree polynomial. A Kirchhoff unit-current construction proves the effective resistance (1/x1+1/x2)/Y, and the rank-one matrix-tree update gives Z1=P X^(b-1) Y^(a-2)(Y+x1+x2). Degree-one coefficients yield the stated expectation difference. Strict monotonicity in b and comparisons at b=a-1,a prove the exact sign for all a>=3; a=2 and b=1 are handled explicitly. A pure-Python exact-arithmetic checker passed 14416 assertions, including Kirchhoff cofactor identities, exhaustive small labeled tree enumerations and rational sign tests. The infinite claim rests on algebraic proof, not on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klee–Stamps (2019), arXiv:1903.03575v1, Section 2 Theorem 3: weighted spanning-tree enumerator of complete multipartite graphs, credited to Clark (2003).",
+        "Rapoport (2023), arXiv:2312.14992v1, finite-graph degree/cumulant formulas and examples (Sections 3–4): broad transfer-current framework."
+      ],
+      "reasoning": "Clark/Klee–Stamps and general matrix-tree or degree-determinantal frameworks can in principle be specialized to the new graph, but do not explicitly evaluate its weighted polynomial after adding the missing edge or the corresponding all-integer sign. The new proof derives this specialization rather than treating a broad theorem as newly invented; potential previously published specialization remains a residual risk.",
+      "searches": [
+        "edge addition to complete bipartite K_{a,b} weighted spanning-tree degree-one vertices polynomial leaf probabilities",
+        "arXiv:1903.03575v1 Theorem 3",
+        "arXiv:2312.14992v1 finite graph degree distribution"
+      ]
+    },
+    "checked_sources": [
+      "Klee–Stamps (2019), arXiv:1903.03575v1, Section 2 Theorem 3: weighted spanning-tree enumerator of complete multipartite graphs, credited to Clark (2003).",
+      "Dong–Ge (2021), arXiv:2103.05294v1, Theorem 4: prescribed existing spanning-forest inclusion in the unaltered complete bipartite graph.",
+      "Rapoport (2023), arXiv:2312.14992v1, finite-graph degree/cumulant formulas and examples (Sections 3–4): broad transfer-current framework.",
+      "published-finding corpus 2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4 concerns asymmetry of spanning-tree polytopes, not random-tree leaves.",
+      "published-finding corpus 2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65 counts tree isomorphism types, not expected leaves under an added edge.",
+      "published-finding corpus 2026/10/11/SCOPE-exact-spanning-tree-complexity-and-a-two-binomial-degree-law-for--9236b8494fff concerns a distinct graph and its root-degree law.",
+      "An existing-edge conductance tilt changes the weight of a cross-part edge already present in the biclique; unlike the present construction, it does not add a missing intra-part edge."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klee–Stamps (2019), arXiv:1903.03575v1, Section 2 Theorem 3: weighted spanning-tree enumerator of complete multipartite graphs, credited to Clark (2003).",
+        "Dong–Ge (2021), arXiv:2103.05294v1, Theorem 4: prescribed existing spanning-forest inclusion in the unaltered complete bipartite graph.",
+        "Rapoport (2023), arXiv:2312.14992v1, finite-graph degree/cumulant formulas and examples (Sections 3–4): broad transfer-current framework.",
+        "An existing-edge conductance tilt changes the weight of a cross-part edge already present in the biclique; unlike the present construction, it does not add a missing intra-part edge."
+      ],
+      "reasoning": "Klee–Stamps supplies the base polynomial Z0; an additional effective-resistance computation and exact coefficient extraction produce Z1 and the new delta. Dong–Ge handles forests made entirely of edges already in K_{a,b}, whereas the added edge lies inside one part and is absent from the original. Rapoport gives generic degree-correlator machinery. No inspected statement directly implies the evaluated sharp threshold without substantial extra specialization; generic computability is acknowledged as antecedent, not misreported as absence of stronger methods.",
+      "searches": [
+        "uniform spanning tree complete bipartite graph single added edge within one partition changes expected leaf count sign threshold at equal part sizes",
+        "nonmonotone expected number of leaves uniform spanning tree under graph edge addition exact K_{a,b}",
+        "arXiv:2103.05294v1 Theorem 4",
+        "arXiv:1903.03575v1 Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klee–Stamps (2019), arXiv:1903.03575v1, Section 2 Theorem 3: weighted spanning-tree enumerator of complete multipartite graphs, credited to Clark (2003).",
+        "Dong–Ge (2021), arXiv:2103.05294v1, Theorem 4: prescribed existing spanning-forest inclusion in the unaltered complete bipartite graph.",
+        "An existing-edge conductance tilt changes the weight of a cross-part edge already present in the biclique; unlike the present construction, it does not add a missing intra-part edge."
+      ],
+      "reasoning": "Equivalents include degree-one indicator expectation changes, random-tree leaf sensitivity, and rank-one perturbations of weighted tree enumerators. The classical weighted enumerator is evaluated only before the within-part edge addition; the existing-edge tilt changes conductance on an already-present cross-part edge. Neither states the same perturbed mean-leaf difference or sign classification.",
+      "searches": [
+        "\"K_{a,b}\" \"extra edge\" \"leaf\" \"uniform spanning tree\" probability increases if b≥a",
+        "complete bipartite added intra-part edge expected number of leaves uniform random spanning tree threshold",
+        "single-edge augmentation changes expected leaves in uniform spanning trees non-monotone",
+        "uniform spanning tree complete bipartite graph single added edge within one partition changes expected leaf count sign threshold at equal part sizes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4 concerns asymmetry of spanning-tree polytopes, not random-tree leaves.",
+        "published-finding corpus 2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65 counts tree isomorphism types, not expected leaves under an added edge.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-spanning-tree-complexity-and-a-two-binomial-degree-law-for--9236b8494fff concerns a distinct graph and its root-degree law."
+      ],
+      "reasoning": "The nearest retrieved mathematical-record summaries concern spanning-tree polytopes, graph isomorphism-type counts, or root degree laws on other graphs. None is a database/table of the added-edge expected leaf response or sign threshold. Further degree-one/leaf and edge-augmentation aliases did not identify a previously evaluated version of this response.",
+      "searches": [
+        "complete bipartite added intra-part edge expected number of leaves uniform random spanning tree threshold",
+        "weighted Kirchhoff enumerator of K_{a,b} plus a chord and sharp leaf response",
+        "edge augmentation leaf count spanning tree complete bipartite a b",
+        "\"K_{a,b}\" \"extra edge\" \"leaf\" \"uniform spanning tree\" probability increases if b≥a"
+      ]
+    },
+    "rationale": "Prior literature establishes the unperturbed weighted enumerator, general finite-graph degree methods and fixed-forest counts, but in inspected material does not provide the new within-part-edge perturbation response or its all-integer balance threshold. Existing-edge weight tilts are distinct from adding an absent same-part edge. Explicit overlap search covered aliases and expected-leaf terminology as well as stronger general enumeration principles. Historical priority is qualified, not certified.",
+    "residual_risks": [
+      "A specialized earlier calculation for the almost-bipartite graph may not be indexed under the searched aliases.",
+      "The general weighted matrix-tree identity and rank-one update imply the formula with additional calculation, so this is a sharp specialized structural application rather than a novel general determinant technique.",
+      "No independent mathematical audit or comprehensive global priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BASE_ENUMERATOR_KNOWN; NEW_EDGE_RESPONSE_NOT_STATED",
+        "evidence": [
+          "Klee–Stamps (2019), arXiv:1903.03575v1, Section 2 Theorem 3: weighted spanning-tree enumerator of complete multipartite graphs, credited to Clark (2003).",
+          "Theorem 3 assumes the complete multipartite graph, not a graph with one extra same-part edge."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.03575",
+        "material_read": "Full openly available parsed text, particularly Section 2, the weighted matrix-tree theorem, determinant lemma, Theorem 3 and its proof on complete multipartite graphs.",
+        "method": "Direct examination of published arXiv full text and comparison of Theorem 3 with the new graph and leaf-response statement.",
+        "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+        "trigger": "The known complete multipartite vertex-weighted enumerator could subsume the new claim."
+      },
+      {
+        "assessment": "DOES_NOT_STATE_EDGE_AUGMENTATION_LEAF_THRESHOLD",
+        "evidence": [
+          "Dong–Ge (2021), arXiv:2103.05294v1, Theorem 4: prescribed existing spanning-forest inclusion in the unaltered complete bipartite graph.",
+          "Its forest F consists of original K_{m,n} edges, while the perturbing edge has both endpoints in one part."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+        "material_read": "Openly available parsed full text, Theorem 4, proof in Section 5, and Section 6 scope and open problems.",
+        "method": "Comparison of forest-inclusion hypotheses to a new edge absent in the original biclique.",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "A fixed-forest count could cover forced uses of one added edge."
+      },
+      {
+        "assessment": "GENERIC_DEGREE_METHOD; NO_SAME_SHARP_EVALUATION_IDENTIFIED",
+        "evidence": [
+          "Rapoport (2023), arXiv:2312.14992v1, finite-graph degree/cumulant formulas and examples (Sections 3–4): broad transfer-current framework."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.14992",
+        "material_read": "Full available arXiv HTML; finite-graph degree and leaf-event formulas in Sections 3–4, including Section 4.1 and complete-graph discussion.",
+        "method": "Compare general transfer-current/degree representation to evaluated leaf response and bipartition threshold.",
+        "title": "Correlations in uniform spanning trees: a fermionic approach",
+        "trigger": "General UST degree-one formulas are potential stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb9652cf-4838-4700-803f-6919c7eadb00",
+  "value": {
+    "rationale": "The natural structural question is whether adding a previously missing edge to a highly symmetric connected graph increases or decreases mean UST leaves. The exact formula establishes both signs infinitely often and identifies the unique, dimension-free balance threshold for every integer a>=2,b>=1, with a single equality exception. This is a motivated complete classification of a stochastic structural sensitivity, not an arbitrary finite slice or an unquantified counterexample.",
+    "status": "PASS"
+  }
+}
