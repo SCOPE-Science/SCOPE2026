@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every connected nonregular graph, the exact edge-degree identity gives u dot w=sum_edges (d_i-d_j)^2/(d_i d_j)>0, ensuring defined s in (0,1]. Reversing neighbor sums gives n*g=w dot a. Centering and unit normalization identify h=Corr(delta,a). Orthogonal projection and Cauchy-Schwarz yield the tight interval, with explicit y_+ and y_- extremizers for every x. The strict sign boundary follows by squaring nonnegative terms only when x>=0; negative x handled separately. All cases s=1, x=+-1, x=rho, n=3 and n>=4 are treated. Positive affine transforms give [0,1]-valued assignments. Paw arithmetic exact; verify.py checks 752 small nonregular connected labeled graphs, but universal proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evtushenko and Kleinberg, arXiv:2406.10423, main-text attribute-based singular sign rule: evaluates sign for a given attribute from Corr(delta,a). Constrained range of this correlation when Corr(d,a) is prescribed is not evaluated.",
+        "Jo, Lee and Eom, arXiv:2107.05838, abstract describes correlated-edge attribute copula and approximate GFP statistics, not universal fixed-graph optimization."
+      ],
+      "reasoning": "Weighted generalizations contain the fixed unweighted model as a special case but their sign criteria do not contain the quantified optimization as an explicit theorem or stated sharp inequality. A generic Gram inequality is a proof ingredient, not evidence that the graph-named exact bound was previously reported.",
+      "searches": [
+        "Evtushenko Kleinberg node-based generalized friendship paradox fixed graph exact rho_G largest degree-attribute correlation allowing negative singular gap",
+        "Generalized friendship paradox sharp feasible region of Pearson degree-attribute correlation and normalized singular gap, degree-delta correlation, exact elliptical boundary",
+        "Fixed graph sharp Pearson correlation feasibility envelope between degree d, reciprocal-neighbor delta and attributes a; three correlations of singular GFP",
+        "arXiv:2406.10423, singular attribute-based friendship paradox and weighted extension",
+        "arXiv:2107.05838, correlated attributes and GFP"
+      ]
+    },
+    "checked_sources": [
+      "Evtushenko and Kleinberg, arXiv:2110.11821 (2021-10-22), open-access main text",
+      "Evtushenko and Kleinberg, arXiv:2406.10423 (2024-06-14), open-access main-text material",
+      "Jo, Lee and Eom, arXiv:2107.05838, abstract and bibliographic description",
+      "Published mathematical findings on ordinal recodings, degree-distance correlations and friendship graph invariants (noncovering different objects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Evtushenko and Kleinberg, arXiv:2110.11821, main-text discussion of rho_G (PMC9902489, Each path to 1 section) and optimization of r_G^(high) (Pro-SGFP topologies are not common section): defines sharp boundary but gives existence and finite-margin numeric lower bound, not exact topology formula or fixed-correlation envelope.",
+        "Evtushenko and Kleinberg, arXiv:2406.10423, main-text attribute-based singular sign rule: evaluates sign for a given attribute from Corr(delta,a). Constrained range of this correlation when Corr(d,a) is prescribed is not evaluated.",
+        "The 2021 result Corr(d,delta)=1 iff pro-SGFP is exactly recovered as rho_G=0, but does not imply the positive value rho_G for the anti-SGFP case without an additional optimization.",
+        "The 2024 pointwise sign identity makes h=Corr(delta,a) the right variable but leaves its attainable values at fixed Corr(d,a) open."
+      ],
+      "reasoning": "The new quantified statement is strictly more informative: a sharp two-sided function of every x plus explicit attainment, strict iff negative-gap threshold, and a topology-specific exact number. Existing sign and type criteria alone do not state the constrained range or the supremum; they supply natural inputs for its new proof.",
+      "searches": [
+        "Exact maximal positive degree-attribute correlation for which singular generalized friendship paradox fails on a fixed graph in terms of cosine or degree-neighbor reciprocal-degree correlation",
+        "Evtushenko Kleinberg node-based generalized friendship paradox fixed graph exact rho_G largest degree-attribute correlation allowing negative singular gap",
+        "Node-based generalized friendship paradox supremum correlation r_d,a negative gap equals sqrt(1-r_d,delta squared) exact topology rho_G",
+        "arXiv:2110.11821, Each path to 1 goes to infinity in the number of nodes",
+        "arXiv:2110.11821, Differentiating between pro- and anti-SGFP graphs",
+        "arXiv:2406.10423, singular attribute-based case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evtushenko and Kleinberg, arXiv:2110.11821, main-text discussion of rho_G (PMC9902489, Each path to 1 section) and optimization of r_G^(high) (Pro-SGFP topologies are not common section): defines sharp boundary but gives existence and finite-margin numeric lower bound, not exact topology formula or fixed-correlation envelope.",
+        "Evtushenko and Kleinberg, arXiv:2406.10423, main-text attribute-based singular sign rule: evaluates sign for a given attribute from Corr(delta,a). Constrained range of this correlation when Corr(d,a) is prescribed is not evaluated.",
+        "A retrieved mathematical result about the sharp correlation floor for two increasing ordinal recodings concerns a different object and does not imply the graph-specific SGFP bound."
+      ],
+      "reasoning": "The same invariant could be written as the norm of the projection of the centered degree vector onto the hyperplane orthogonal to centered delta, or the sine of their angle. The 2021 source characterizes only zero versus positive threshold; the 2024 sign rule does not itself evaluate the constrained extremum. No mathematically equivalent explicit envelope was found.",
+      "searches": [
+        "Exact maximal positive degree-attribute correlation for which singular generalized friendship paradox fails on a fixed graph in terms of cosine or degree-neighbor reciprocal-degree correlation",
+        "Sharp graph-specific threshold rho_G singular generalized friendship paradox Pearson degree delta correlation sqrt(1-r^2) geometric projection 2021 Evtushenko Kleinberg",
+        "Node-based generalized friendship paradox supremum correlation r_d,a negative gap equals sqrt(1-r_d,delta squared) exact topology rho_G",
+        "arXiv:2110.11821, terms varrho_G, maximum, correlation, gap",
+        "arXiv:2406.10423, terms degree-delta and correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 table calls r_G^(high) a high, not maximal, negative-gap correlation and computes under finite negative-gap margin; it does not tabulate the sharp exact rho_G.",
+        "Searches for the exact sqrt(1-correlation-squared) threshold found no directly covering published result."
+      ],
+      "reasoning": "The derived paw threshold squared 2/27 and all-size formula are neither entries of the cited numerical table nor consequences of treating approximate high-correlation values as exact.",
+      "searches": [
+        "Closed form correlation threshold for SGFP positive degree attribute correlation and negative neighbor-average attribute gap",
+        "Node-based generalized friendship paradox supremum correlation r_d,a negative gap equals sqrt(1-r_d,delta squared) exact topology rho_G",
+        "arXiv:2110.11821, Table 1 r_G^(high) and r_d,delta"
+      ]
+    },
+    "rationale": "The closest 2021 paper defines the same topology threshold without exact value and computes approximate lower-bound high correlations, whereas this gives the exact formula and the stronger complete fixed-correlation gap envelope. The 2024 generalization supplies the pointwise sign rule but not the required all-attribute constrained optimization. No equivalent/dominating statement was located in actual literature and record searches; inaccessible supplementary material remains an identified priority risk.",
+    "residual_risks": [
+      "Supplementary information PDF to the 2021 source could not be fully inspected; it might contain related optimization.",
+      "A different indexing or standard multivariate-correlation lemma might have previously been applied to this exact invariant.",
+      "No independent referee audit or all-publication priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same gap and abstract boundary, but its finite-margin numerical estimates do not exactly solve the supremum or the fixed-x gap envelope.",
+        "evidence": [
+          "2021 work gives nonconstructive rho_G<1 and defines its infimum in section Each path to 1.",
+          "Optimization section explicitly describes r_G^(high) as lower-bound/high, not maximal, using gap<=-0.001; numerical Table 1."
+        ],
+        "identifier_or_url": "arXiv:2110.11821v1; https://pmc.ncbi.nlm.nih.gov/articles/PMC9902489/",
+        "material_read": "Full accessible main-text statements and proofs about the SGFP gap, failure constructions, finite-topology boundary, pro/anti characterization, high-correlation optimization and Table 1; supplementary PDF not fully accessible.",
+        "method": "Open-access main text (PMC HTML) read and searched for varrho_G, r_G^(high), degree-delta correlation and exact supremum.",
+        "title": "Node-based generalized friendship paradox fails",
+        "trigger": "Same mathematical object, same SGFP gap and topological correlation-bound invariant."
+      },
+      {
+        "assessment": "Contains the single-attribute correlation sign rule, but not the feasible envelope at a separately constrained degree correlation.",
+        "evidence": [
+          "The sign rule identifies Corr(delta,a), while graph-specific threshold requires optimizing it at prescribed Corr(d,a)."
+        ],
+        "identifier_or_url": "arXiv:2406.10423v1; https://pmc.ncbi.nlm.nih.gov/articles/PMC11178832/",
+        "material_read": "Accessible full arXiv HTML main-text sections on attribute-based and singular weighted/unweighted cases, sign rules and simulations; no supplementary assertion claimed.",
+        "method": "Open-access arXiv HTML earlier in the research review, with full main-text implication comparison.",
+        "title": "A comprehensive generalization of the Friendship Paradox to weights and attributes",
+        "trigger": "Strongest plausible generalization of the singular gap and degree-delta correlation method."
+      },
+      {
+        "assessment": "Different ensemble/copula and mean/median/fraction questions; cannot assert whole-document exclusion from an abstract alone.",
+        "evidence": [
+          "Its documented focus is approximation under neighboring-attribute dependence, not sharp fixed-topology degree-vs-delta correlation feasibility."
+        ],
+        "identifier_or_url": "arXiv:2107.05838; https://arxiv.org/abs/2107.05838",
+        "material_read": "Abstract and indexed publisher/arXiv descriptions, not full paper.",
+        "method": "Bibliographic and abstract comparison.",
+        "title": "Analytical approach to the generalized friendship paradox in networks with correlated attributes",
+        "trigger": "Earlier analyses of attribute correlations in generalized friendship paradox models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e61cac8-9fec-44b7-a420-d1ca5175f7d8",
+  "value": {
+    "rationale": "The initiating publication explicitly defines the natural graph-dependent supremum of SGFP-failing degree–attribute correlations, then substitutes numerical finite-gap approximations. Computing this previously unspecified named invariant exactly for every connected nonregular graph resolves the mathematically motivated question. The stronger gap envelope identifies all possible normalized outcomes for a given observed degree correlation; the paw exact 2/27 certificate demonstrates strictness and practical nonidentity with a numerical cutoff. It is a motivated graph-invariant classification rather than an arbitrary finite computation, while claiming neither empirical generality nor a broad theorem beyond the stated object.",
+    "status": "PASS"
+  }
+}
