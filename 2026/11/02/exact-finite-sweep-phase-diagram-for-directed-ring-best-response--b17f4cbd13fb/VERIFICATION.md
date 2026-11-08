@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact formulas for the individual responses and scalar return map were derived in the proof in `RESULT.md`, including all gain and parity cases. Run `python3 VERIFY.py` from the extracted package with Python 3 and its standard library only. The deterministic check prints:
+## correctness
 
-```
-PASS: 53550 exact composition comparisons, 510 critical checks, 6480 supercritical orbit checks, 4 exact examples
-```
+PASS
 
-The checker uses rational numbers throughout, comparing direct sequential best responses with the proposed clipped-affine return map. It additionally compares the squared map at unit gain, tests finite entry into a fixed point of the increasing return under supercritical gain, and checks homogeneous exact examples at unit and double weights. The finite counts are checks of derived identities and examples, not exhaustive enumeration of all real parameters or a substitute for the mathematical proof.
+Composition of decreasing clipped affine maps yields exactly T(z)=clip(B+(-1)^nWz;L,H), with endpoints L,H following the stated min/max recurrences and all intermediate actions recovered from z. For W<1 Banach contraction applies. For even W=1, T is a translated projection, absorbed at an endpoint or instantly fixed. For even W>1, the interior of an expanding clipped-affine map pushes every nonfixed point to a fixed endpoint plateau in finitely many steps; there are at most three fixed points. Odd cycles have decreasing T, whose exact square is increasing clipped affine of slope W^2, giving critical idempotence or supercritical finite plateau capture; uniqueness of T fixed point leaves at most one 2-cycle. Endpoint and r=-b/(a-1) cases accounted for. Independent exact-rational compositions include heterogeneity; source VERIFY.py inspected. Finite checks corroborate but do not prove universal iteration.
 
-No human review, formal proof assistant, or independent validation is represented by these checks. The stated scientific limits and publication-priority risk remain applicable.
+## originality
+
+PASS
+
+Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. The subcritical clause is a corollary of existing spectral theory, but finite supercritical absorption and odd-ring cycle uniqueness do not follow from the cited weaker premises.
+
+## value
+
+PASS
+
+Identifies the exact parity/gain boundaries for all starting states and heterogeneous local substitutabilities, including finite-time capture and unique-primitive-cycle constraint beyond standard contraction tests. This is an informative phase diagram of directed strategic substitutes, not merely one oscillating example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:13:59.656436Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Composition of decreasing clipped affine maps yields exactly T(z)=clip(B+(-1)^nWz;L,H), with endpoints L,H following the stated min/max recurrences and all intermediate actions recovered from z. For W<1 Banach contraction applies. For even W=1, T is a translated projection, absorbed at an endpoint or instantly fixed. For even W>1, the interior of an expanding clipped-affine map pushes every nonfixed point to a fixed endpoint plateau in finitely many steps; there are at most three fixed points. Odd cycles have decreasing T, whose exact square is increasing clipped affine of slope W^2, giving critical idempotence or supercritical finite plateau capture; uniqueness of T fixed point leaves at most one 2-cycle. Endpoint and r=-b/(a-1) cases accounted for. Independent exact-rational compositions include heterogeneity; source VERIFY.py inspected. Finite checks corroborate but do not prove universal iteration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted interaction spectral-radius criterion <1 covers the W<1 convergence clause (overlap credited).",
+          "General monotone-iteration convergence does not imply finite-step plateau capture for an expansive W>1 map."
+        ],
+        "reasoning": "The new contribution survives known subcritical coverage because prior criteria do not meet hypotheses at W>=1; even W=1 admits a continuum of equilibria/two-cycles.",
+        "searches": [
+          "arXiv:2101.03863 Bayer Kozics Szoke Theorem 5.5",
+          "Olszewski 2022 convergence of iterations DOI:10.1287/moor.2021.1210",
+          "directed cycle game sequential best response clipped affine gain product finite time convergence two-cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-finite-sweep-phase-diagram-for-directed-ring-best-response--b17f4cbd13fb/RESULT.md",
+        "arXiv:2101.03863 (full text relevant sections)",
+        "doi:10.1287/moor.2021.1210 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.5 supplies global convergence under strict spectral radius below one, which for the ring equals W^(1/n)<1. Example 3.2 establishes a cycling witness on an odd directed ring.",
+          "The submitted theorem requires the clipping plateaus and the expanding map lemma to control EVERY initial profile at W>=1."
+        ],
+        "reasoning": "The subcritical clause is a corollary of existing spectral theory, but finite supercritical absorption and odd-ring cycle uniqueness do not follow from the cited weaker premises.",
+        "searches": [
+          "arXiv:2101.03863 Example 3.2 and Theorem 5.5",
+          "Olszewski 2022 fixed point dynamics",
+          "directed cycle game sequential best response clipped affine gain product finite time convergence two-cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer–Kozics–Szőke discuss directed network best responses with both convergence and cycling examples. Their weak-influence theorem and isolated cycle example are not an exact all-initial clipped-map classification."
+        ],
+        "reasoning": "Using a fixed cyclic Gauss–Seidel order narrows the dynamics; the new return map directly classifies its whole orbit structure rather than claiming robustness to arbitrary schedules.",
+        "searches": [
+          "directed cycle game sequential best response clipped affine gain product finite time convergence two-cycle",
+          "arXiv:2101.03863 best-response dynamics in directed network games cyclic revision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits concern different quantized affine dynamics or optimizer iteration, not one-predecessor best-response game sweeping."
+        ],
+        "reasoning": "No relevant exact database/table was found; the classification is an unbounded-parameter dynamical theorem, not a finite table, and search absence is only a risk-qualified observation.",
+        "searches": [
+          "directed cycle game sequential best response clipped affine gain product finite time convergence two-cycle",
+          "Resultary exact best response ring clipping phase diagram"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. The subcritical clause is a corollary of existing spectral theory, but finite supercritical absorption and odd-ring cycle uniqueness do not follow from the cited weaker premises.",
+      "residual_risks": [
+        "Theorem restricted to fixed repeated update order; arbitrary fair/asynchronous revisions need not satisfy it.",
+        "Unlocated specialist clipped-map dynamical classification could restate plateau argument.",
+        "The weak-gain convergence component is covered by older spectral-radius results and is not counted as novel by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: subcritical spectral criterion and example, not supercritical all-gains phase diagram",
+          "evidence": "Convergence for spectral radius <1; explicit odd cycle example, no all-gains full-sweep clipping theorem in inspected parts.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.03863",
+          "material_read": "Accessible full alternative text inspected, relevant game model, cycle example and convergence theorem (arXiv/TSE versions)",
+          "method": "Primary open full-text reading",
+          "title": "Best-response dynamics in directed network games",
+          "trigger": "Direct same-model game and prior theorem"
+        },
+        {
+          "assessment": "Strong C for fixed cyclic order",
+          "evidence": "T(z)=clip(B+(-1)^nWz;L,H); expanding plateau lemma and T².",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-finite-sweep-phase-diagram-for-directed-ring-best-response--b17f4cbd13fb/RESULT.md",
+          "material_read": "Complete RESULT.md, proof, VERIFY.py and exact recursions",
+          "method": "Immutable Git source read and independent exact-rational composition",
+          "title": "Exact finite-sweep phase diagram for directed-ring best responses",
+          "trigger": "Frozen audited theorem"
+        },
+        {
+          "assessment": "Not asserted whole-document NOT_COVERING; priority risk remains",
+          "evidence": "General convergence is not by itself an exact finite-settling or unique-two-cycle theorem.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.2021.1210",
+          "material_read": "Publisher abstract and relevant metadata; no verified full theorem text",
+          "method": "Abstract/metadata inspection",
+          "title": "A Result on Convergence of Sequences of Iterations with Applications to Best-Response Dynamics",
+          "trigger": "Potential broadly dominating monotone convergence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies the exact parity/gain boundaries for all starting states and heterogeneous local substitutabilities, including finite-time capture and unique-primitive-cycle constraint beyond standard contraction tests. This is an informative phase diagram of directed strategic substitutes, not merely one oscillating example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only strict 0<t_i<u_i, w_i>0, exact cyclic update order, n>=3, finite action caps.",
+    "Finite capture time is profile- and parameter-dependent, with no uniform bound claimed."
+  ],
+  "schema_version": 1
+}
