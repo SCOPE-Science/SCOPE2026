@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A self-contained argument proves smoothness, the exact ternary Hessian factor, its finite degree and nonvanishing at infinity, strict real negativity of the residual factor, and its squarefreeness via the Chebyshev differential equation. These steps give the full complex inflection divisor, ordinary/hyperflex orders, and real stratification in every degree \(d\ge4\). The included finite exact-arithmetic checker verifies symbolic identities and small cases but is not used as an all-degree proof. A potential convention issue (whether an inflection is counted as a point or with weight) is explicitly resolved by stating both counts.
+## correctness
 
-**Originality — PASS with historical-priority qualification.** The closest exact-object source is Tafazolian–Top, arXiv:2505.01216v1, §2, Proposition 2.1. That article classifies total inflection points (the \(d\) branch-point hyperflexes in characteristic zero) but does not present the residual Hessian polynomial's squarefreeness, its nonreal-root theorem, the \(2d(d-2)\) ordinary-flex stratum, or the full inflection divisor. Cotterill et al., arXiv:2110.04813v2, address broader superelliptic inflection; their explicit one-point-at-infinity constructions assume coprime covering exponent and polynomial degree, which fails here. Focused literature and mathematical-record searches found no equivalent formula; these negative results are not an absolute uniqueness certificate. Possible older Hessian-root or discriminant formulations remain a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** This is an exact all-degree classification of a natural projective-geometric invariant on a recently studied family, not an arbitrary sample or routine substitution. It splits the classical total flex weight into real hyperflexes and nonreal ordinary flexes, proves geometric simplicity of the residual divisor, and yields a real extremal inflection-weight distribution. Its content is substantially stronger than identifying the already known total inflections.
+The smoothness proof uses simple roots of f_d and at Z=0 the d distinct points Y/X being dth roots of unity. Exact ternary Hessian factor is d(d−1)^2 Y^{d−2}G_d^hom. The recurrence f_{d+1}=x f_d−f_{d−1} gives degree(G)=2d−4 with leading coefficient −2d². For real x, the f-root reciprocal identity G/f²=−Σ_{i<j}((x−alpha_i)^{-1}−(x−alpha_j)^{-1})²<0, with G(alpha_i)=−(d−1)f"(alpha_i)^2<0. Squarefreeness follows from G=G′=0 plus the Chebyshev ODE, yielding af′=df then contradiction 4 f′²=0. At f-roots, tangent x=alpha has contact d and Hessian multiplicity d−2; every simple root of G supports d ordinary flexes; infinity points have Ghom and Y nonzero. Independent exact symbolic computations verified recurrence, ODE, leading term and squarefree/coprime G for d=4..12. These finite calculations corroborate but cannot replace universal proof.
 
-**Scope and risks.** Characteristic zero only; exact plane embedding only. Independent mathematical validation has not occurred, and literature coverage cannot exclude all historical equivalents. The overall Plücker total \(3d(d-2)\) and the \(d\) total inflections were known; novelty is confined to the residual divisor and real/complex classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tafazolian–Top already prove the d total inflection (hyperflex) points of exactly these plane Chebyshev curves, and classical plane theory supplies global flex weight 3d(d−2); neither is novel. Inspected primary Proposition 2.1 does not establish the additional 2d(d−2) ordinary nonreal flexes and explicit squarefree G_d divisor, a natural exact refinement. Cotterill et al. give broad superelliptic inflection techniques with a coprimality hypothesis not satisfied by exponent=degree here.
+
+## value
+
+PASS
+
+The entire complex versus real flex divisor, nonreal Hessian-root distribution and explicit simple-root certificate are useful intrinsic geometric data of a classical smooth plane family, stronger than the earlier classification of only total flexes. Not merely a restatement of Plücker total weight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

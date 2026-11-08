@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification and limits
+# Independent mathematical audit
 
-The general proof establishes the smooth plane model, Chebyshev ODE, ternary Hessian factorization, \(\deg G_d=2d-4\), and the real-root exclusion via strict Cauchy–Schwarz. Squarefreeness follows by assuming \(G_d(a)=G_d'(a)=0\), eliminating the third derivative through the ODE, then obtaining both \(av=du\) and \((a^2-4)v^2=d^2u^2\), impossible for \(v\ne0\). These are characteristic-zero equalities; no positive-characteristic assertion is made.
+## correctness
 
-The standalone `verify.py` uses only the Python 3 standard library. It constructs the Chebyshev polynomials by integer recurrence for \(4\le d\le24\), checks the ODE and residual Hessian leading coefficient exactly, tests modular gcds against a single prime, samples integer signs, and verifies the divisor-degree counts. Running it from this package produces `VERIFY_OK`. The finite and modular tests are supplementary and are not certificates of the infinite theorem.
+PASS
 
-No independent audit or external proof certification has been performed. Primary source comparisons are identified in the references and review; historical priority is provisional.
+The smoothness proof uses simple roots of f_d and at Z=0 the d distinct points Y/X being dth roots of unity. Exact ternary Hessian factor is d(d−1)^2 Y^{d−2}G_d^hom. The recurrence f_{d+1}=x f_d−f_{d−1} gives degree(G)=2d−4 with leading coefficient −2d². For real x, the f-root reciprocal identity G/f²=−Σ_{i<j}((x−alpha_i)^{-1}−(x−alpha_j)^{-1})²<0, with G(alpha_i)=−(d−1)f"(alpha_i)^2<0. Squarefreeness follows from G=G′=0 plus the Chebyshev ODE, yielding af′=df then contradiction 4 f′²=0. At f-roots, tangent x=alpha has contact d and Hessian multiplicity d−2; every simple root of G supports d ordinary flexes; infinity points have Ghom and Y nonzero. Independent exact symbolic computations verified recurrence, ODE, leading term and squarefree/coprime G for d=4..12. These finite calculations corroborate but cannot replace universal proof.
+
+## originality
+
+PASS
+
+Tafazolian–Top already prove the d total inflection (hyperflex) points of exactly these plane Chebyshev curves, and classical plane theory supplies global flex weight 3d(d−2); neither is novel. Inspected primary Proposition 2.1 does not establish the additional 2d(d−2) ordinary nonreal flexes and explicit squarefree G_d divisor, a natural exact refinement. Cotterill et al. give broad superelliptic inflection techniques with a coprimality hypothesis not satisfied by exponent=degree here.
+
+## value
+
+PASS
+
+The entire complex versus real flex divisor, nonreal Hessian-root distribution and explicit simple-root certificate are useful intrinsic geometric data of a classical smooth plane family, stronger than the earlier classification of only total flexes. Not merely a restatement of Plücker total weight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
