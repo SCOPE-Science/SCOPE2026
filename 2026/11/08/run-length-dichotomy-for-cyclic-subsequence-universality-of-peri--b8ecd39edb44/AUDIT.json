@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The proof gives an elementary equivalence between greedy arch counts and universality, an exact endpoint-run recurrence, and the complete half-open window test. With all run lengths at least two, endpoints advance q-1 run indices per arch. With a singleton, a bounded deficiency variable proves exactly k arches for every phase, including the boundary equality case. The standalone checker passed 9,671 parameter/repetition cases, 105,476 phase-index comparisons and 678 full-spectrum cross-checks; finite tests do not prove the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barker et al. (2020) gives universal one-step circular-index bounds and a sufficient circular-gain condition for powers.",
+        "Fleischmann et al. (2021) provides eventual periodicity for general powers, with preprocessing for index queries.",
+        "Schnoebelen–Veron (2023) bounds conjugate indices and supplies a general algorithm for the circular maximum."
+      ],
+      "reasoning": "These are stronger in generality of input words but weaker in explicit structure for this constrained family: none of the inspected statements identifies the all-phase dichotomy or proves the p-q maximizing-phase count. The present theorem is a new closed-form structural extraction, not a claim of a faster general algorithm.",
+      "searches": [
+        "arxiv:2003.04629v1 §4 Lemma 20 and Theorem 22",
+        "arxiv:2104.09063v1 §§3–4 Theorem 21, Propositions 22–23",
+        "arxiv:2304.11932v1 §§3–4 Lemma 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629v1",
+      "arxiv:2104.09063v1",
+      "arxiv:2304.11932v1",
+      "arxiv:2108.13968v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For q≥3 the period U itself has iota(U)=zeta(U)=1; therefore Barker et al. Theorem 22, whose premise requires a one-unit circular gain, does not directly give the displayed all-power formula for U.",
+        "Theorem 23 of Barker et al. is binary-specific and excluded from the q≥3 scope.",
+        "The 2021 general eventual-periodicity theorem specifies existence and a bound, not the exact period q-1 and zero transient in the all-nonsingleton case or the singleton suppression.",
+        "The 2023 algorithm computes maximum values for arbitrary input but does not state exact phase multiplicities for all k."
+      ],
+      "reasoning": "General algorithms could evaluate each finite instance, and general periodicity results help motivate the proof; neither implication alone subsumes the new formulas and optimizing-phase characterization without doing the family-specific run analysis. This is the remaining distinguishing content.",
+      "searches": [
+        "arxiv:2003.04629v1 Lemma 20, Theorems 22–23",
+        "arxiv:2104.09063v1 Theorem 21/Proposition 23",
+        "arxiv:2304.11932v1 Lemma 4.1/Corollary 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fleischmann–Germann–Nowotka (2021), Theorem 21/Proposition 22: eventual periodicity of growth, but not explicit cyclic-run phase strata.",
+        "Schnoebelen–Veron (2023), §4 Lemma 4.1: efficient computation of maximum over conjugates, not enumeration of all maximizing phases."
+      ],
+      "reasoning": "The claim is equivalent to a precise arch-jump itinerary through run classes plus a half-open phase cutoff. Existing searched text supplies general arch tools, not the explicit itinerary and phase-count criterion; literature search absence is not a proof of novelty.",
+      "searches": [
+        "Web: \"run\" \"circular universality\" powers cyclic blocks distinct letters",
+        "Web: \"subsequence universality\" \"runs\" powers \"circular\"",
+        "arxiv:2104.09063v1, arxiv:2304.11932v1, arxiv:2003.04629v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary literature supplies general universality bounds and algorithms, not a direct phase-by-phase table for this natural run family.",
+        "No matching closed-form circular run-power classification was identified in the searched scientific literature."
+      ],
+      "reasoning": "The finding is an all-parameter symbolic classification, not a finite database entry. Failed searches alone do not establish novelty.",
+      "searches": [
+        "Web: \"scattered factor universality\" \"permutation\" repeated runs"
+      ]
+    },
+    "rationale": "The inspected general universality-growth and arch-jumping results do not state the all-phase formula, singleton-run rigidity, or exact maximizing-phase census for powers of distinct-letter cyclic-run words. Published algorithms apply broadly but do not alone provide this closed-form structural specialization. Searches of the relevant primary literature did not reveal an equivalent statement; priority beyond the inspected corpus remains a risk.",
+    "residual_risks": [
+      "A specialized unindexed treatment of periodic words may give an equivalent formula.",
+      "General arch-jumping algorithms compute individual instances; bibliographic comparison cannot exclude a previously implicit equivalent structural lemma.",
+      "No independent literature-priority validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and bounds the invariant but does not state the complete q-ary run-phase formula. Binary theorem not applicable to q≥3.",
+        "evidence": [
+          "Lemma 20 bounds circular universality by one above ordinary index.",
+          "Theorem 22 requires ζ(w)=ι(w)+1; Theorem 23 treats binary powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "PDF introduction, §4 discussion of circular universality, Lemma 20 and Theorems 22–23 (pp. 1–4 and 12–15), with text and page-image inspection.",
+        "method": "Opened primary arXiv PDF; searched and read exact relevant numbered statements and neighboring arguments.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Original definition of circular universality and strong potential prior coverage for repeated words."
+      },
+      {
+        "assessment": "General eventual periodicity and query algorithms; no exact run-length singleton bifurcation or maximizing rotation census found in inspected portions.",
+        "evidence": [
+          "Theorem 21 establishes eventual periodicity of universality-growth increments.",
+          "Proposition 22 expresses long-power indices using early repetitions; Proposition 23 gives constant-time queries after preprocessing."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Primary PDF introductory discussion, §§3–4, particularly pp. 3–12, Theorem 21, Propositions 22–23 and remainder-chain discussion; text and page-image excerpts.",
+        "method": "Opened original arXiv PDF, inspected exact recurrence-periodicity statements and nearby proofs.",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Highest-risk coverage for index growth under powers."
+      },
+      {
+        "assessment": "General algorithmic and bounding result but not complete all-phase count for this family.",
+        "evidence": [
+          "§3 arch-jumping formula for universality.",
+          "Lemma 4.1 restricts candidate phases needed for the circular maximum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+        "material_read": "Full 14-page arXiv PDF accessed; studied introduction, §§2–4, arch-jump formulas, Corollary 3.5 and Lemma 4.1, with page-image inspection.",
+        "method": "Text extraction/view of primary arXiv PDF and relevant page screenshot.",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "General treatment of arch jumps and circular phase maxima."
+      },
+      {
+        "assessment": "Provides broad subsequence-absence framework but no inspected all-phase cyclic-run power formula.",
+        "evidence": [
+          "Definition 2.3 introduces arch factorization.",
+          "Theorem 3.4 characterizes shortest absent subsequences relative to arches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Primary 42-page PDF introduction, §2 definitions and §3 main statements, including Theorem 3.4, with page-image inspection.",
+        "method": "Opened source arXiv PDF, followed numbered definitions and theorem text.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "General characterization of shortest absent subsequences and arch foundations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b8ecd39e-db44-40bd-9ce3-f4ff16f7e8b2",
+  "value": {
+    "rationale": "Subsequence universality and its circular analogue are established invariants. This theorem classifies every cyclic starting position of a full-period power, identifies a sharp singleton-run rigidity threshold, proves a run-length-independent floor law for longer runs, and gives the exact count of optimum phases. Such all-parameter phase spectra and a q-1-period growth law are structural data not supplied by an instance-wise algorithm or general eventual-periodicity bound.",
+    "status": "PASS"
+  }
+}
