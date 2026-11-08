@@ -1,0 +1,15 @@
+# Scientific review: sharp sixth moments on real orthogonal frames
+
+## Correctness
+**PASS.** The claim is for every integer \(n\ge3\), \(1\le k\le n\) and all nonzero real \(n\times k\) matrices. The proof reconstructs the exact sixth moment from the inverse of the 15-pairing orthogonal Gram matrix, confirms the second-moment normalization and supplies two exact identities with strictly positive coefficients on the probability simplex. The first vanishes precisely on rank-one matrices, the second precisely on equal singular squares. The \(k=1\) endpoint coincidence and all boundary cases are addressed. The Euclidean distance is proved by averaging quadratic forms under independent orthogonal row and column transformations. SymPy and an independent conditional-sphere integration corroborate critical algebra; neither finite numerical sampling nor program execution is used as an all-dimensions proof.
+
+## Originality
+**PASS, with bibliographic risk.** The most relevant original papers are Gorin (2001), arXiv:math-ph/0112012, and Collins–Śniady (2004), arXiv:math-ph/0402073. Gorin's equation (33) already computes the diagonal sixth-monomial pairing coefficient, and Collins–Śniady supply the complete integration calculus; therefore the moment polynomial is only a known-method deduction. Their examined results do not state the sharp two-sided sixth-moment coefficient-space optimization, equality families, two positive spectral-deficit decompositions or optimal Banach–Mazur distance. Nearby fourth-moment problems on \(\mathrm{SO}(4)\), signed-permutation groups, Grassmannian coefficients and Gaussian chaos do not imply the sixth-moment statement for the full orthogonal Stiefel family. An unindexed equivalent optimization remains a possible risk.
+
+## Mathematical value
+**PASS.** The norm geometry of the complete real \(nk\)-dimensional first matrix-coefficient space on each orthogonal Stiefel manifold is a natural functional-analytic invariant, not an arbitrarily selected numerical case. At sixth order the moment polynomial has competing negative quadratic and positive cubic spectral terms, so optimizing it is not a direct application of ordinary convexity. The two exact deficit formulas prove global spectral rigidity despite this competition, and characterize the optimal Euclidean ellipsoid across every frame size. These conclusions can be used as benchmarks for matrix-coefficient norm estimates and higher-moment comparisons. The results do not purport to advance the already-established orthogonal integration algorithms.
+
+## Limitations and closest literature
+The theorem is limited to real coefficients and sixth moments with full \(\mathrm O(n)\) Haar measure in dimensions at least three; other compact groups and exponents may behave differently. Gorin's monomial recursion and Collins–Śniady's Weingarten calculus are stronger as methods for arbitrary polynomial integration, but they do not state or imply the sharp optimization without further argument. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
