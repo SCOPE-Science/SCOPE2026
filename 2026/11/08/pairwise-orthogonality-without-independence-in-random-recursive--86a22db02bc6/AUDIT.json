@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\ge2\\) and \\(1\\le i<j\\le n\\), the conditional product update is \\((1+2/k)S_i(k)S_j(k)+A S_j(k)/k\\). Since \\(\\mathbb P(A)=1/i\\) and \\(\\mathbb E[A S_j(k)]=k/(ij)\\), induction from \\(k=j\\) gives \\(\\mathbb E[S_i(n)S_j(n)]=n^2/(ij)\\). The positive diagonal variances follow from a beta-binomial Pólya urn, and telescoping parent exclusions gives strict negative leaf-indicator covariance for every \\(2\\le i<j<n\\). Complete exact enumeration of orders two through nine was separately replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuba–Panholzer (2006) treats general increasing-tree models but only a single birth-label descendant count.",
+        "Feng–Mahmoud (2010), doi:10.1239/jap/1269610825, counts shapes on the fringe rather than subtree sizes for two specified labels."
+      ],
+      "reasoning": "A general multivariate urn theorem could, in principle, imply the covariance cancellation. However the inspected stated results are univariate or count unlabeled patterns; their all-size assertions do not supply an already-stated cross moment. Uninspected broader multivariate treatments remain the main historical risk.",
+      "searches": [
+        "joint moments sizes of rooted subtrees of two fixed vertices random recursive tree",
+        "\"random recursive tree\" \"joint distribution\" \"subtree\" \"sizes\" fixed vertices",
+        "\"recursive trees\" \"two nodes\" \"descendants\" joint moments"
+      ]
+    },
+    "checked_sources": [
+      "Kuba and Panholzer (2006), doi:10.37236/1034, full text",
+      "Feng and Mahmoud (2010), doi:10.1239/jap/1269610825, full text",
+      "Mahmoud and Smythe (1991), doi:10.1214/aoap/1177005874, abstract only",
+      "Addario-Berry et al. (2025), doi:10.1002/rsa.70023, abstract/indexed subsection only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full text of Kuba–Panholzer (2006), sections 1, 5 and 6: single-label descendants.",
+        "Full text of Feng–Mahmoud (2010), sections 2, 4 and 5: fringe-shape frequencies and a random subtree rooted at label 2.",
+        "The classical two-color urn law proves only Var(S_i), not Cov(S_i,S_j)."
+      ],
+      "reasoning": "The new mixed moment requires a joint step that tracks ancestry of j under i. Pairwise zero covariances and negative joint leaf-event covariances follow from this step; the classical one-point laws and aggregate path-length variance alone do not contain the needed implication. The public original works do give the known model and enough building blocks to independently derive it, so potential implicit priority is recorded.",
+      "searches": [
+        "zero covariance labelled vertex subtree sizes random recursive tree opposite ancestor and competition cancellation",
+        "joint descendant counts fixed labels random recursive tree",
+        "\"random recursive tree\" \"subtree size\" \"covariance\" \"nodes\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuba–Panholzer (2006), doi:10.37236/1034: univariate descendant-size probability generating function and factorial moments; no joint fixed-label moment in the paper.",
+        "Mahmoud–Smythe (1991), doi:10.1214/aoap/1177005874: a single rooted subtree is the stated object."
+      ],
+      "reasoning": "Alternative wording includes sizes of two rooted descendant clusters, birth-label fringe sizes, joint Pólya urn moments and orthogonal descendant statistics. A univariate beta-binomial law cannot determine covariance of two overlapping random subtrees; no directly matching theorem was found.",
+      "searches": [
+        "uniform random recursive tree descendant subtree sizes different vertex labels covariance zero pairwise uncorrelated Pólya urn",
+        "\"recursive tree\" \"subtree sizes\" \"uncorrelated\" vertices",
+        "\"random recursive tree\" \"uncorrelated\" \"subtrees\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kuba–Panholzer, the full 14-page 2006 text, gives explicit one-node tables/formulas (theorem on marginal probabilities and factorial moments), not two-node covariance tables.",
+        "Related published results on direct-degree/subtree covariance and specified subtree size/aggregate fringe-count covariance concern different pairs of statistics."
+      ],
+      "reasoning": "Neither the marginal probability table, the total path-length variance identity, nor the most closely related scientific covariance results contains the joint all-label covariance matrix. Summing all covariances to recover total variance cannot establish that each vanishes.",
+      "searches": [
+        "random recursive trees subtree size covariance descendant counts pairwise orthogonal 1/i expectation",
+        "all sizes of descendant fringe subtrees of distinct birth-labelled vertices are pairwise uncorrelated but dependent in random recursive trees; variance total path length decomposes",
+        "\"recursive trees\" \"descendant sizes\" \"independent\" \"correlation\""
+      ]
+    },
+    "rationale": "The assessed claim is the entire pairwise birth-label descendant-size covariance matrix, together with the proof of dependence of each nonconstant pair; classical marginal laws and total path-length variance are explicitly not new. Inspected one-label and unlabeled-fringe primary works do not state or directly imply these zero cross-covariances. The historical-priority assessment is best-knowledge and not uniqueness certification.",
+    "residual_risks": [
+      "Older joint Pólya-urn or multivariate descendant-size formulas could implicitly entail the theorem without matching wording.",
+      "The 1991 same-model paper and 2025 related paper were not inspected in full; no whole-document exclusion is claimed.",
+      "The one-point laws and path-length variance are previously known and explicitly excluded from claims of independent originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives marginal law and all univariate factorial moments; does not present mixed covariance for two different specified labels",
+        "evidence": [
+          "EJC 13 (2006) R8, pp. 2, 8–10, explicit one-label variable D_{n,j}; published 2006-01-25"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r8/pdf/",
+        "material_read": "Full 14-page text, including introduction, model and generating functions, Theorem 1, sections 5–6, references; checked for covariance and joint/two-node results",
+        "method": "Lawful open-access article PDF, full text and page images",
+        "title": "Descendants in Increasing Trees",
+        "trigger": "Direct same object: number of descendants of specified birth label"
+      },
+      {
+        "assessment": "Different statistics: number of unlabeled fringe copies of a prescribed shape, not pairwise fixed birth-label subtree sizes",
+        "evidence": [
+          "J. Appl. Prob. 47 (2010), 191–200, section 4 formula for aggregate shape count and section 5 moments"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BF796C423230F49705548FC5A487F003/S0021900200006483a.pdf/on-the-variety-of-shapes-on-the-fringe-of-a-random-recursive-tree.pdf",
+        "material_read": "Full accessible journal PDF, definitions and sections 2–5 including exact shape-count moments and special vertex-2 decomposition",
+        "method": "Open full-text PDF and page-image inspection",
+        "title": "On the Variety of Shapes on the Fringe of a Random Recursive Tree",
+        "trigger": "Potentially stronger fringe-subtree second-moment analysis"
+      },
+      {
+        "assessment": "Abstract treats size, leaf count and internal count for one fixed subtree; full-text unavailability limits ability to exclude auxiliary two-label formulas",
+        "evidence": [
+          "Ann. Appl. Probab. 1 (1991), 406–418; available abstract specifies one marked subtree"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+        "material_read": "Bibliographic abstract and cited description, full text not accessible from tested open link",
+        "method": "Lawful publisher abstract and attempted open-access primary full text",
+        "title": "On the Distribution of Leaves in Rooted Subtrees of Recursive Trees",
+        "trigger": "Earlier same basic one-label subtree model and Pólya urn"
+      },
+      {
+        "assessment": "Investigates root inference and unlabeled positional zones, not explicitly the claimed birth-label covariance. No whole-document exclusion is inferred.",
+        "evidence": [
+          "Random Structures & Algorithms 67 (2025), e70023; same growth law but a different labelled/positional index"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70023",
+        "material_read": "Available abstract and indexed subsection on Ulam–Harris zone subtree sizes; full PDF not read",
+        "method": "Publisher abstract and indexed snippet",
+        "title": "Leaf Stripping on Uniform Attachment Trees",
+        "trigger": "Later use of joint rooted-subtree sizes and Pólya structure in uniform attachment trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86a22db0-2bc6-468e-95fa-4d6d6f750c3f",
+  "value": {
+    "rationale": "A full zero-off-diagonal covariance structure for all specified birth labels is surprising because subtree sets overlap when ancestry holds and compete when disjoint. The statement is stronger than an isolated one-point variance or zero-covariance example, establishes strict dependence of every nonconstant pair through leaf events, and supplies a structural orthogonal decomposition of total-depth fluctuations; the exact natural statistic motivates the result.",
+    "status": "PASS"
+  }
+}
