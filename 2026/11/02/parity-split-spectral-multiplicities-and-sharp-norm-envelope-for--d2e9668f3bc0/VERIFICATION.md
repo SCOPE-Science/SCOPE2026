@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-The analytic proof uses the normalized Laurent monomial basis, exact shift-weight differences, a two-root collision identity, and an exact monotonicity argument. The following supplementary checks were executed from the packaged standalone program:
+# Independent mathematical audit
 
-```
-python3 check_annulus.py
-PASS: 67264 exact rational checks and tail comparisons
-```
+## correctness
 
-The checks use Python's rational `fractions.Fraction` for eigenvalues, reflection pairings, sharp extremal parameters, and periodic index reparametrization. The trace tail comparison uses numerical conversion only for a finite, explicitly bounded truncation; trace-class membership and the infinite telescoping trace are proved symbolically in `RESULT.md`. A finite experiment is not a proof of general parameter claims. No independent audit or validation has been performed.
+PASS
+
+In the Laurent ONB e_n=z^n/sqrt(1+beta Q^n), M_z has squared weights (1+beta Q^(n+1))/(1+beta Q^n), so C=M* M-MM* is diagonal with positive eigenvalues (1-Q)^2 beta Q^(n-1)/[(1+beta Q^(n-1))(1+beta Q^n)]. Both tails decay geometrically, giving compact injective C in every Schatten S_p (p>0) and trace telescoping to 1-Q. Equality of F_Q(t) and F_Q(s) factors as (t-s)(1-Qts)=0, hence all collisions occur iff beta=q^k; even k all eigenvalues double, odd k exactly peak simple and others double. Unimodal F_Q maximizes at t=1/q, with sharp norm between (1-Q)^2/(2(1+Q)) for even k and (1-q)^2 for odd k. The prior kernel-zero criterion at beta=q^(2j+1) coincides with the norm peak. Exact rational tests independently checked eigenvalue-vs-shift differences, reflection pairs, extrema for 3 rational q and k=-5..5.
+
+## originality
+
+PASS
+
+The weighted annular Laurent norms and odd-power Szego kernel-zero theorem are explicitly known (Katori–Shirai; Gafai–Murid–Wahid Theorem 3); no originality claimed for them or the generic weighted-shift diagonalization. The exact collision trichotomy, log-periodic sharp global norm envelope and bridge to the known kernel-zero phase are the claimed refinements; searches did not establish a prior equivalent theorem. Their elementary derivability warrants priority qualification.
+
+## value
+
+PASS
+
+Natural operator invariant for a standard weighted annular Hardy space: full compact commutator spectrum, degeneracy phases and sharp extremal norm as a boundary-mass parameter varies, with a cross-invariant Szego-zero resonance. The exact phase envelope and multiplicity classes are precise, motivated spectral data, even though computations start from known shift weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

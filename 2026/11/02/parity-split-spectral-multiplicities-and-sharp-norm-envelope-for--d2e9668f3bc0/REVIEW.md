@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes the annulus, boundary-mass normalization, multiplier, commutator sign and both infinite index tails. The normalized-basis calculation gives exact eigenvalues; a factorized equality test classifies every multiplicity, and one-variable strict unimodality proves the sharp global norm range and equality sets. Positivity, compactness and trace-class claims follow from geometric decay; the exact trace is telescoping. The standalone checker passed 67,264 supplemental assertions and is explicitly not used to extrapolate a finite result to infinity.
+## correctness
 
-**Originality — PASS, priority provisional.** Gafai–Murid–Wahid (arXiv:2202.09114, Section 5 Theorem 3) gives the independent prior criterion for a zero of the same weighted Szegő kernel precisely at odd annular-radius powers; it does not classify the selfcommutator. The newly identified correspondence between that criterion and maximum commutator norm with an unpaired top eigenvalue supplies a useful cross-invariant statement. Katori–Shirai (arXiv:2008.04177) supplies the underlying annular weighted Szegő kernel and Laurent monomial norms but investigates Gaussian analytic zeros and their correlations. Douglas–Kim (arXiv:0902.1794, especially Sections 3–4) classifies reducing subspaces of annular multiplication shifts, not the positive selfcommutator's spectral pairings or global sharp norm envelope. Tattersall's 2015 thesis studies real-symbol Toeplitz spectra; inspected pages do not formulate this selfcommutator phase law. The novelty assessment concerns the *complete multiplicity trichotomy and sharp log-periodic norm range*, not the elementary prior norm input. Source generality means indirect coverage by a stronger shift-theoretic result remains possible.
+PASS
 
-**Mathematical value — PASS.** This natural family is the coordinate multiplier on the standard annular Hardy spaces with arbitrary positive relative mass on the two boundary circles. Its commutator measures nonnormality: a fixed trace \(1-q^2\) coexists with variable largest eigenvalue. The all-simple/all-double/one-unpaired parity law, its exact coincidence with previously known Szegő kernel zero parameters, and the two attained sharp norm extrema constitute a complete quantitative spectral classification, clarifying which aspects of the operator are geometrically fixed and which depend sharply on boundary weighting. This is more than the known basis formula or a routine finite numerical exercise.
+In the Laurent ONB e_n=z^n/sqrt(1+beta Q^n), M_z has squared weights (1+beta Q^(n+1))/(1+beta Q^n), so C=M* M-MM* is diagonal with positive eigenvalues (1-Q)^2 beta Q^(n-1)/[(1+beta Q^(n-1))(1+beta Q^n)]. Both tails decay geometrically, giving compact injective C in every Schatten S_p (p>0) and trace telescoping to 1-Q. Equality of F_Q(t) and F_Q(s) factors as (t-s)(1-Qts)=0, hence all collisions occur iff beta=q^k; even k all eigenvalues double, odd k exactly peak simple and others double. Unimodal F_Q maximizes at t=1/q, with sharp norm between (1-Q)^2/(2(1+Q)) for even k and (1-q)^2 for odd k. The prior kernel-zero criterion at beta=q^(2j+1) coincides with the norm peak. Exact rational tests independently checked eigenvalue-vs-shift differences, reflection pairs, extrema for 3 rational q and k=-5..5.
 
-**Limitations and residual priority risk.** Only constant positive boundary weights on round annuli are included. Published monomial norms make the computations accessible; a textbook or uninspected general weighted-shift theorem could contain equivalent conclusions. No assertion of independence or independent verification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted annular Laurent norms and odd-power Szego kernel-zero theorem are explicitly known (Katori–Shirai; Gafai–Murid–Wahid Theorem 3); no originality claimed for them or the generic weighted-shift diagonalization. The exact collision trichotomy, log-periodic sharp global norm envelope and bridge to the known kernel-zero phase are the claimed refinements; searches did not establish a prior equivalent theorem. Their elementary derivability warrants priority qualification.
+
+## value
+
+PASS
+
+Natural operator invariant for a standard weighted annular Hardy space: full compact commutator spectrum, degeneracy phases and sharp extremal norm as a boundary-mass parameter varies, with a cross-invariant Szego-zero resonance. The exact phase envelope and multiplicity classes are precise, motivated spectral data, even though computations start from known shift weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
