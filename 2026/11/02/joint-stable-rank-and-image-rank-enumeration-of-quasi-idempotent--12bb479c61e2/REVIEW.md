@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each monotone map satisfying \(f^3=f^2\), the fibers of the order-preserving idempotent \(f^2\) are rooted intervals fixed by \(f\), each carrying two independently collapsing monotone sides. The side count \(\binom{a}{2j}\) is established with an explicit terminal-value decomposition and a Vandermonde identity. The ordered sequence of rooted intervals has generating function \(1/(1-uvzL(z,v)^2)\) with \(L(z,v)=(1-z)/((1-z)^2-vz^2)\), whose exact coefficient is the product of two binomial factors. This proves the statement for all \(n\ge1\). Complete direct enumeration for \(n\le10\), including a check that \(f^4=f^2\iff f^3=f^2\), reproduces every coefficient; side maps through length nine independently check the critical local lemma. These finite tests do not replace the proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For any order-preserving f with f^3=f^2, the idempotent e=f^2 has contiguous fibers rooted at its fixed points; f preserves each fiber and each root. On a one-sided rooted interval of length a, monotone g with g²=0 and j nonzero image values has exactly C(a,2j) choices by first choosing the maximal image and applying Vandermonde. Rooted intervals contribute uv z[(1-z)/((1-z)^2-vz²)]², and taking the geometric series yields F(z;u,v) as claimed. Extracting coefficients proves C(k+r-1,r-k)C(n+k-1,2r-1), zero off support; r=k means idempotence. A monotone map has no cycles longer than one, so f^4=f² is equivalent to f³=f². Independently enumerated all nondecreasing functions through n=8; totals 1,3,10,33,108,352,1145,3721 and strict n=5=53 confirm low-rank boundaries.
 
-The 2023 Imam–Ibrahim–Garba–Usman–Idris journal article studies precisely the same strict quasi-idempotent class and proves a nonstationary-block characterization plus generating-set results, but does not enumerate by the pair \((\operatorname{rank}f^2,\operatorname{rank}f)\). The 2025 Eze–Olaiya–Pokalas Tal–Kasim full text studies stabilization and presents a finite table and cubic interpolation for four small sizes, not an all-parameter two-rank result. Direct enumeration finds 53 instead of its reported 52 at size five, while its other listed values agree. OEIS A060557 already contains the univariate total sequence and is explicitly acknowledged. OEIS A060556 is a different triangle; the idempotent diagonal is also known. Semantic comparison with published mathematical research records yielded no equivalent joint enumerator. A stronger unlocated general enumerator remains a publication-priority risk; no independent priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pair of ranks distinguishes the stable image from the one-step image and separates the known idempotent stratum from all strict quasi-idempotent strata within a standard finite transformation semigroup. The exact closed formula for every permissible pair and the rational generating function supply a natural infinite-family invariant and quantify a published finite-table discrepancy. The result does not rely on an arbitrary size cutoff or claim a novel univariate sequence.
+The univariate count and generating function already appear in OEIS A060557. Imam et al. (2023) characterized quasi-idempotent order-preserving transformations structurally; Eze et al. (2025) tabulate strict counts, including an apparent 52 versus directly verified 53 at n=5. The specific bivariate stable-image/image-rank count and trivariate generating function are not stated in the inspected primary works and do not follow from the univariate sum without extra joint information. A general older transformation semigroup generating-function identity might subsume it.
 
-## Sources and limits
+## value
 
-Primary: Imam et al., Algebra and Discrete Mathematics 35 (2023), DOI 10.12958/adm1846, full journal text. Subsequent: Eze et al., Journal of Mathematics and Artificial Intelligence 1(2) (2025), author-supplied full text. Databases: OEIS A060557, A060556, A144224. The result concerns total order-preserving self-maps, not partial transformations or larger transient depths. All publication-priority statements remain provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stable rank and transient image rank are intrinsic independent semigroup invariants. The complete two-rank distribution determines far more than known total counts, while correcting a natural five-point enumerative anomaly. This is a motivated uniform family classification, not merely the single 52→53 correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
