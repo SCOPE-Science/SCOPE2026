@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_hyperbola.py` from the package root. The verifier constructs the specified quotient-polynomial field representations independently, enumerates graph points and complete twofold and threefold sumsets, and checks the theorem over each tested field of order at least thirteen. It also checks that \((1,6)\) is absent in the eleven-element field. Exact integer operations and field-table lookup are used; no probabilistic tests or external dependencies are required.
+## correctness
 
-The script was executed successfully before package assembly. It covers all prime fields with primes \(2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73\), and extensions of orders \(4,8,16,32,9,27,25,49\). These tests are a finite check, not a proof for arbitrary prime powers.
+PASS
 
-The proof of the infinite classification checks projective boundary points, all affine singular possibilities, the two exceptional product parameters, and each case where the target has a zero coordinate. Its only non-elementary ingredient is the classical Hasse bound for smooth plane cubics. Historical novelty is assessed from the inspected sources, not certified independently.
+For axis targets explicit one-parameter nonzero triples avoid finitely many t values. For nonzero coordinates use the multiplicative automorphism to normalize target (1,w), realize as an affine cubic Cw cut by e1=1,e2=w e3. Its projective completion has exactly six disallowed rational points (three infinity, three distinct zero-coordinate affine), and is nonsingular genus one except w=1 or w=9; these singular values have direct triple witnesses. Hasse q+1-2sqrt(q)>6 for q>=13 forces a valid rational point for every other nonzero w. Origin criterion e1=e2=0 becomes either characteristic 3 or split third roots of unity. Explicit exhaustive F11 check excludes (1,6). Independent exact prime-field enumeration q=11,13,17,19,23,29,31 agrees, but proof supplies all prime powers.
+
+## originality
+
+PASS
+
+Bower et al 2012 prove scalar coordinate sums with fixed multiplicative product; Khan et al 2013 study modular hyperbola geometry; a published Resultary result handles the nonsplit norm-one torus of size q+1 rather than split inverse graph size q-1. None of these statements implies the two-coordinate triple sum and q=11 sharp threshold via the inspected theorem comparisons. Priority risk persists for unindexed finite-field rational-point covering.
+
+## value
+
+PASS
+
+A sharp exact covering radius/threefold additive support theorem for the canonical split 1-dimensional algebraic torus is a natural finite-field combinatorial geometry question; its genus-one reduction, cube-root zero obstruction and sharp small-field threshold give independently useful structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
