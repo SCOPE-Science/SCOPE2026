@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact closed-form iteration and strict contraction for nonzero A establish the conditional limit. The positive origin density makes E|A|^{-2} infinite without a floor; for a positive floor finite-time factor cancellation controls it. For real noise, scaling A by t^{-1/2} gives a dominated-convergence integral exactly 2 sqrt(pi)(2-sqrt(2)); for circular complex noise, polar integration gives pi f_A(0) log t. Independence supplies the beta factor; the target cross term is lower-order by Cauchy–Schwarz. Companion script checks 30 finite iterates, 14 no-floor factors and 12 numerical quadratures, not the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergou et al. (2023), Theorem 3.1, condition on the observed noisy operator through its pseudoinverse.",
+        "Elfving (2024), Sec. 3.1, derives the right-hand-side noise propagator with the iteration matrix fixed."
+      ],
+      "reasoning": "Higher-dimensional/general noisy-system bounds could subsume a scalar special case only if they quantify unconditional Gaussian rare-near-zero operators and give matching lower/asymptotic constants. The inspected general bounds retain random observed singular-value factors or assume fixed A, so they cannot supply the full integrated theorem. This is a comparison of implications, not simply wording.",
+      "searches": [
+        "\"Landweber\" \"noisy operator\" \"Gaussian\" mean squared error inverse",
+        "arXiv:2308.16904 observed pseudoinverse general doubly noisy Kaczmarz",
+        "Elfving 2024 Noise propagation in linear stationary iterations Eq. 13"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.13552, Lee and Choi (2026), relevant full-text methods, theorem and experiments",
+      "arXiv:2308.16904, Bergou et al. (2023), perturbation, main results and numerical sections",
+      "doi:10.1007/s11075-024-01890-0, Elfving (2024), Sec. 1, Sec. 3.1 and conclusion",
+      "arXiv:2006.01246, Ma and Molitor (2020), tensor and Fourier algorithm"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lee–Choi explicitly state that analytical error estimates use fixed perturbations whereas experiments use Gaussian perturbations.",
+        "Lee–Choi Eq. (4.9) gives a strictly positive floor but offers no unconditional ensemble-asymptotic rate.",
+        "Bergou et al. analyze convergence relative to noisy least-squares solutions with observed pseudoinverse quantities."
+      ],
+      "reasoning": "The exact recurrence follows by specializing the published algorithm; the substantive conclusion integrates a random denominator over a Gaussian operator distribution. A fixed-realization inequality cannot bound this ensemble uniformly when small observed singular values have positive density, nor yield the sharp sqrt(t)/log(t) growth.",
+      "searches": [
+        "arXiv:2607.13552 Theorem 4.2 conditional expected recursion",
+        "arXiv:2607.13552 Eq. 4.9 positive floor and Gaussian numerical experiments",
+        "arXiv:2308.16904 Theorem 3.1 observed inverse singular values",
+        "arXiv:2006.01246 tensor Fourier algorithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lee–Choi (2026), Eq. (4.2), Eq. (4.9), Algorithm 1 use the same scalar update specialization.",
+        "Classical scalar geometric-series filter ¹: X_t=(B/A)(1-r(A)^t); its rare-denominator integral is evaluated analytically in RESULT.md."
+      ],
+      "reasoning": "Equivalent formulations include a fixed-operator scalar Landweber filter with data-dependent steps, a geometric spectral filter of an errors-in-variables inverse, and Fourier DC/interior modes. The conditional pointwise limits and standard inverse moments are ingredients, not the proved dimension-sensitive finite-time sharp Gaussian asymptotic. No checked statement implies both rates/constants, subject to residual older-literature risk.",
+      "searches": [
+        "Gaussian observed scalar operator with positive density at zero, damped Kaczmarz finite-time inverse risk sqrt(iterations)",
+        "circular complex Gaussian Fourier-mode damped Kaczmarz reciprocal mean-square log(iterations)",
+        "\"damped Kaczmarz\" \"square root\" \"logarithm\" Gaussian noisy coefficient inverse",
+        "arXiv:2607.13552 Eq. 4.9 and Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct numerical values of Gaussian integrals in verify.py support, but do not prove, the exact constants.",
+        "No exact table or database identity was identified in the inspected relevant primary texts and published-record searches."
+      ],
+      "reasoning": "The objects are continuous Gaussian-ensemble iteration risk curves, not a finite lookup-table invariant. A generic tabulated Gaussian integral could imply the constant, so negative search evidence is not taken as proof of priority; the critical novelty comparison is the complete fixed-data filtering law and its two real dimensions.",
+      "searches": [
+        "\"randomized Kaczmarz\" \"infinite variance\" Gaussian noise perturbation operator",
+        "\"damped Kaczmarz\" \"square root\" \"logarithm\" Gaussian noisy coefficient inverse",
+        "\"tensor randomized Kaczmarz\" noise \"Fourier\" risk infinite Gaussian",
+        "circular complex Gaussian Fourier-mode damped Kaczmarz reciprocal mean-square log(iterations)"
+      ]
+    },
+    "rationale": "Directly motivated by arXiv:2607.13552 (2026), the theorem turns its fixed-realization tensor Fourier update into a fully unconditional sharp Gaussian small-denominator risk law, with a qualitative real/complex frequency difference absent from the inspected original, matrix precursor and fixed-operator noise analyses. Historical priority is qualified, especially generic scalar inverse-filter literature.",
+    "residual_risks": [
+      "Some older general errors-in-variables or spectral-filter risk results might implicitly yield the scalar integral asymptotics, although no matched statement was found.",
+      "The dimension-dependent rates are proved for the minimal scalar Fourier mode, not claimed globally for general tensor algorithms.",
+      "Mathematical priority and proof have not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The conditional bounds concern a fixed realized operator; neither the real sqrt(iterations) nor complex log(iterations) Gaussian ensemble asymptotics and constants are stated.",
+        "evidence": [
+          "arXiv:2607.13552, Sec. 4.1 theorem 4.2, Sec. 4.2 Algorithm 1 and Eq. (4.9), line stating fixed perturbations with Gaussian experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.13552",
+        "material_read": "Accessible full-text HTML: Sect. 3–5, Theorem 4.2, Eq. (4.2), Eq. (4.9), Algorithm 1, fixed-perturbation analysis statement and experiments.",
+        "method": "Compared conditional random-row recursion and practical positive damping floor to unconditional once-sampled Gaussian-operator risks.",
+        "title": "A Spectrally Damped Tensor Randomized Kaczmarz Method for Doubly Noisy Tensor Systems",
+        "trigger": "Identical spectral damped tensor-row update and slice-scaled floor; first public 2026-07-15."
+      },
+      {
+        "assessment": "Observational pseudoinverse and expected row-selection bounds do not give the floor-dependent sharp asymptotic constants or real/complex frequency discrepancy.",
+        "evidence": [
+          "arXiv:2308.16904, Theorem 3.1 and the additive/multiplicative noise analyses."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.16904",
+        "material_read": "Accessible full-text HTML: introduction, perturbation section, main Theorem 3.1 and numerical results Sec. 4.",
+        "method": "Compared observed-system conditional pseudoinverse bounds to fixed-noise regularized scalar iterates integrated over Gaussian operator realizations.",
+        "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Direct precursor for doubly-noisy Kaczmarz and observed pseudoinverse sensitivity."
+      },
+      {
+        "assessment": "The noise recursion fixes the coefficient operator and varies the right-hand-side data; it does not integrate over random near-zero operator modes.",
+        "evidence": [
+          "Elfving (2024), Eq. (12)–(14), with fixed iteration matrix Q; Sec. 3.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-024-01890-0",
+        "material_read": "Accessible full-text journal HTML: Sec. 1, Sec. 3.1, BA iteration and conclusion; online publication 2024-07-23.",
+        "method": "Compared assumptions on right-hand-side noise with random-coefficient Gaussian denominators and a data-dependent damping floor.",
+        "title": "Noise propagation in linear stationary iterations",
+        "trigger": "Broad classical convergence and noise-propagation theory including Kaczmarz and Landweber."
+      },
+      {
+        "assessment": "The foundational TRK algorithm does not analyze the Gaussian operator ensemble or regularized noisy iteration risk.",
+        "evidence": [
+          "arXiv:2006.01246, Sections 3 and 5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.01246",
+        "material_read": "Accessible full-text HTML: introduction, tensor RK section, Fourier algorithm and convergence framework.",
+        "method": "Compared noiseless consistent tensor convergence to fixed doubly-noisy scalar spectral risk.",
+        "title": "Randomized Kaczmarz for Tensor Linear Systems",
+        "trigger": "Foundational tensor t-product formulation and Fourier slice equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88471e78-cbde-4e6b-95f8-85a31760bd3b",
+  "value": {
+    "rationale": "The positive spectral damping floor in the 2026 algorithm specifically addresses weak Fourier slices. The sharp theorem identifies a substantive limitation: fixed-realization convergence and finite-t ensemble stability do not imply uniformly bounded ensemble risk. The exact sqrt(t) versus log(t) contrast is a natural Fourier noise-dimensional consequence and gives actionable rationale for stopping iterations rather than tuning only the scale coefficient tau. It is a structural numerical boundary, not a routine reparametrization.",
+    "status": "PASS"
+  }
+}
