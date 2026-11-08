@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact three-statistic update gives a martingale innovation with a finite-size correction 2W/[n(n+1)] in the centered recursion. Every transition identity and conditional variance identity was checked by complete exact-rational enumeration of recursive trees through eight vertices. The self-contained proof establishes L2 concentration of leaf fraction, L2 convergence of empirical depth variance divided by log n using Welford recursion and summable martingale noise, L2 control of C/n, predictable quadratic variation limit 1/12, conditional Lindeberg via exponential depth height bounds, and the final delta normalization giving variance 1/3. Finite checks do not constitute a proof of the CLT.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grübel-Kabluchko (2015), random-recursive-tree formula (55): sqrt(n/log n) times the remaining internal path-length martingale tail has an N(0,1) limit.",
+        "Gałązka-Wdowicka (2026), arXiv:2610.00614, concerns global internal path length of weighted recursive trees; leaf averages are not part of its abstracted claim."
+      ],
+      "reasoning": "A stronger Gaussian result for the internal path-length martingale still leaves the leaf-depth functional and its coupled denominator uncontrolled; its variance constant 1 cannot be substituted for 1/3. The 2026 first-order leaf-depth theorem provides no rate that implies the present CLT.",
+      "searches": [
+        "external path length random recursive tree central limit leaves average depth",
+        "A functional central limit theorem for branching random walks, almost sure weak convergence and applications to random trees 1410.0469",
+        "total path length power weight recursive trees 2610.00614"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.AofA.2026.2 (Theorem 6, Lemma 14 and sections 5-6)",
+      "arXiv:1410.0469 (Sections 5.5.1-5.5.2)",
+      "arXiv:2610.00614 (abstract only)",
+      "Published root-attachment/path-length and root-degree/leaf covariance summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source theorem: the gap converges to 1/2 in probability and its first two raw moments tend to 1/2 and 1/4; these do not determine the fluctuation scaling or limiting law.",
+        "Source Lemma 14 gives leading n^2 and n^4 moments of an unnormalized mixed path-length expression; it does not resolve the subleading n log n variance needed here.",
+        "2015 branching random walk theorem isolates internal path-length martingale approximation error, not the simultaneous leaf indicators."
+      ],
+      "reasoning": "The present CLT implies the earlier convergence in probability, but the converse fails: a vanishing variance without its precise rate cannot fix a sharp Gaussian constant. The earlier broad martingale theorem is applied to a distinct process and lacks the leaf-conditional innovation, so coverage is not established by statement implication.",
+      "searches": [
+        "Lundblad Wagner Path Length and External Path Length Random Trees 2026 Theorem 6 Lemma 14",
+        "random recursive tree external internal path length ratio CLT n log n leaves depth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lundblad and Wagner 2026 Theorem 6 treats the same variable: mean depth of actual leaves minus mean depth of all vertices; its limiting value in the uniform case is 1/2.",
+        "Grübel and Kabluchko 2015 Section 5.5.2 proves a CLT for the tail of the total-path-length martingale and does not state a mean-leaf-depth gap CLT."
+      ],
+      "reasoning": "The statistic is exactly an external/internal mean-depth difference, equivalently (nE-LP)/(nL). The new assertion is the second-order Gaussian law for this ratio, not merely its known convergence in probability. A CLT for total path length relative to its limiting martingale is a different function of the tree and does not imply the ratio fluctuation statement.",
+      "searches": [
+        "2026 path length external path length recursive trees average leaf depth minus average node depth central limit Gaussian variance",
+        "leaf depth mean minus all vertex depth fluctuation 1/3 n log n random recursive tree",
+        "external internal path length difference leaf proportion recursive tree asymptotic normal",
+        "random recursive tree joint internal external path length Gaussian central limit variance log n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The verified relevant published findings concern marked-root attachment covariance with total path length and root-degree/leaf count, not the leaf-average-minus-vertex-average statistic.",
+        "No exact tabulated value for the Gaussian variance coefficient of this statistic was found in the performed targeted searches."
+      ],
+      "reasoning": "A local covariance table for marked-root statistics cannot automatically imply this global ratio limit; no matching exact-statistic entry was identified. Negative search evidence is treated as risk-limited rather than a uniqueness proof.",
+      "searches": [
+        "leaf depth mean minus all vertex depth fluctuation 1/3 n log n random recursive tree",
+        "external internal path length difference leaf proportion recursive tree asymptotic normal"
+      ]
+    },
+    "rationale": "The closest primary 2026 source gives only first-order convergence of the exact mean-depth gap and its two leading moments. The exact sqrt(n/log n) Gaussian fluctuation and constant 1/3 are not stated there; existing internal path-length martingale fluctuation theorems analyze a different random variable. Multiple semantic literature queries and seven targeted mathematical research queries produced no directly covering statement; nevertheless complete historical priority remains provisional.",
+    "residual_risks": [
+      "Broader historical priority is not decisively established; potentially covering prior joint-profile or functional martingale theorems may exist.",
+      "Full text of arXiv:2610.00614 was not checked; only abstract-level comparison was available.",
+      "No independent mathematical review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct first-order source, but no sqrt(n/log n) fluctuation or Gaussian 1/3 result in the examined statements and argument.",
+        "evidence": [
+          "Theorem 6 for alpha=0 gives gap convergence in probability to 1/2 and leading first two moments.",
+          "Lemma 14 calculates leading orders for (n E-L P) moments only."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol381-aofa2026/LIPIcs.AofA.2026.2/LIPIcs.AofA.2026.2.pdf",
+        "material_read": "Theorem 6 on PDF page 6 (printed 2:6), proof outline page 7, Lemma 14 and generating-function analysis on printed 2:12 through 2:15; bibliography and section 6 extensions.",
+        "method": "Full open-access PDF opened and section-level text inspected, with page image visual check.",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "Exact same statistic for random recursive trees"
+      },
+      {
+        "assessment": "The random-recursive central limit concerns the internal path-length martingale tail. The external-node theorem concerns binary search trees and uses a different leaf definition.",
+        "evidence": [
+          "Random recursive formulas (53)-(56) normalize the tail of internal path-length martingale; no leaf-ratio object appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1410.0469",
+        "material_read": "Abstract and introduction; Sections 5.5.1 and 5.5.2, particularly formulas (53)-(56) in PDF pages 21-22.",
+        "method": "Open-access arXiv full PDF opened, relevant text inspected and page image checked.",
+        "title": "A Functional Central Limit Theorem for Branching Random Walks, Almost Sure Weak Convergence, and Applications to Random Trees",
+        "trigger": "Plausible stronger normal limit for random recursive path lengths"
+      },
+      {
+        "assessment": "No full-text not-covering claim; abstract only concerns total internal path length, and remaining full-text coverage is a priority risk.",
+        "evidence": [
+          "Power-weight results describe limiting normalized total internal path length; no coupled leaf indicator statistic in abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+        "material_read": "Abstract and displayed statement summary only.",
+        "method": "Public arXiv abstract search result.",
+        "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+        "trigger": "Recent wider weighted-recursive-tree path-length fluctuations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b6cfcc92-dbd6-405e-b8bb-e0ec81f5add2",
+  "value": {
+    "rationale": "The motivating 2026 work isolates the mean depth of actual leaves relative to all vertices as a natural statistic, but only gives its deterministic first-order limit. The sharp fluctuation rate and explicit variance reveal how overlapping global path-length randomness cancels while local leaf-conditioned depth noise remains. The n/log n scaling is not a routine consequence of the established first two limits and supplies a precise asymptotic uncertainty law for a genuine random-tree shape invariant.",
+    "status": "PASS"
+  }
+}
