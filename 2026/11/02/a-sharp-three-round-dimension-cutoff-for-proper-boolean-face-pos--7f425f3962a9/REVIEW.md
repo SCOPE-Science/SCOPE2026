@@ -1,19 +1,21 @@
-# Scientific review of the proper Boolean face-poset cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full three-round game invariant is proved with a threshold-eight Venn-cell splitting strategy. It explicitly ensures that responding subsets are nonempty and proper, and that the final zero-cell pattern preserves equality and inclusion. Exact finite Hintikka types are computed from four Venn-cell counts; a second, independently coded direct-bitset computation verifies the same seven classes for dimensions two through nine. The finite type recurrence is complete for all three moves, with repeated points included. This is not infinite extrapolation.
+PASS
 
-## Originality — PASS, qualified
+For n,m>=8 the three-round EF duplicator maintains sizes of all Venn cells either equal below 2^r or both >=2^r, preserving nonempty proper status and all atomic inclusion comparisons at r=0. For n=2..8, the nested extension-type sets B(x,y), U(x), H_n exactly encode the three-round EF game; permutation symmetry reduces x to each cardinality and all y,z are checked. An independently written brute-force bitset enumeration recomputed H_n at 2<=n<=8, finding 1,2,3,4,5,6,7 distinct pointed-type spectra respectively, hence seven mutually unequal classes. The finite computation is exhaustive only through n=8; EF induction proves the unbounded stable class. Rank-two pointed relation profiles distinguish n=2,3 and n>=4.
 
-Primary prior work on proper Boolean lattices and their spherical order complexes, finite-poset model checking, and quantifier hierarchies was compared by statement, not title alone. A previously recorded theorem for **full** Boolean inclusion posets gives a rank-three cutoff six, but its structures include endpoints; removing these endpoints requires an additional quantifier-resource-sensitive argument and changes the exact answer to eight. No inspected primary source or indexed finding covers this precise seven-class proper-poset theorem. Residual priority risk remains from unindexed finite-model-theoretic treatments or broad interpretations whose bounds are not stated in searchable abstracts. No claim of exhaustive priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Proper Boolean posets are canonical simplicial-sphere face posets rather than arbitrary induced subposets. The theorem gives a complete sharp logical classification for their entire unbounded dimension family, shows a significant difference between ranks two and three, and isolates the effect of deleting endpoints from the full Boolean lattice: stable cutoff eight rather than six. This supplies a concrete resource-sensitive boundary in a natural ordered topological family, not a numerical table without motivation.
+Published Resultary theorem for full Boolean-algebra language implies stable equivalence from eight atoms by the quantifier-free interpretation excluding 0 and 1, but lower-size inequivalence in richer Boolean language does not imply pure inclusion-reduct distinguishability. Published full Boolean inclusion poset has a different cutoff with endpoints. Armstrong–Hersh concern topology and a Boolean-to-Bruhat map. Exact seven-class proper-subset order-reduct classification therefore survives those comparisons; historical low-rank EF classifications may still overlap.
 
-## Scientific limitations
+## value
 
-The result covers only the indicated relational signature and first-order rank three. Its exact finite certificate has not received independent human validation; historical-priority checking is bounded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact finite model-theoretic rank-3 classification of a canonical family of simplex boundary face posets, identifying a sharp minimal stable finite representative (254 faces). Comparing with Boolean-algebra and full-poset thresholds isolates effect of deleting endpoints and forgetting operations, beyond a routine textbook EF bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
