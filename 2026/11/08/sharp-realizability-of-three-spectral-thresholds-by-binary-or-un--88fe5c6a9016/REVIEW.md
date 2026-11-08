@@ -1,0 +1,19 @@
+# Scientific assessment: spectral thresholds for binary-or-unary trees
+
+## Correctness — PASS
+
+The theorem covers exactly \(0\le a\le c\le b\le1\), \(b>0\). The explicit mechanical-word construction is well-defined because its editing intervals do not overlap. The proof separates three growth quantities that need not coincide: extremal descendant windows, root-to-level descendants, and the radial approximate-point profile. The upper/lower extrema are justified uniformly using sublinear boundary counts and long pure blocks; the point-spectrum boundary is excluded by the stronger \(o(\log n)\) root discrepancy. The Cauchy--Schwarz necessity for all eigenvectors prevents incorrectly inferring full point spectrum from a special radial eigenvector alone. The radial reducing subspace proves the adjoint approximate-point annulus; the explicit right inverse and the spectral-radius argument exclude its complement. Infinite multiplicity is supported by disjoint eigenvectors living on side branches. Finite exact checks (46,378 assertions) confirm basic arithmetic and coefficient identities but are not used to infer the infinite claims.
+
+## Originality — PASS, with priority limits
+
+Buckley--Seco, arXiv:2610.40089v1 (2026), Theorem 1 gives \(|\lambda|<R_-\) universal/surjective and \(r(S)=R_+\), and expressly leaves intermediate-annulus spectral behavior as a question. Their regular binary example has equal inner/outer radii; it does not imply a three-radius realization. Jabłoński--Jung--Stochel (arXiv:0911.3821, Section 3.3) establish circularity, not these exact intervals. Chavan--Trivedi (arXiv:1510.03075, Theorem 5.1) already establish spectral disks and inclusions for adjoints of left-invertible tree shifts, and study finite branching index; our construction has unbounded branching depths and specifies three exact radii with surjectivity and multiplicity. Budzyński--Dymek--Planeta--Ptak (arXiv:1702.00765) provide balanced-tree Wold-type decompositions, potentially facilitating a different derivation of the radial ingredient; their statements do not include the prescribed-radii construction. D'Aniello--Maiuriello (arXiv:2210.01510) cover classical one-dimensional weighted shifts, not this full tree spectral triple. Targeted mathematical-record searches found no equivalent realization claim. Novelty is a best-knowledge conclusion, not proof of historical priority; older weighted-shift spectral theorems may subsume individual lemmas.
+
+## Value — PASS
+
+The initiating paper points explicitly to the annulus between descendant-growth radii as an unclassified spectral region. The theorem identifies every spectral stratum for an explicit, naturally defined infinite-branching subclass and realizes every feasible ordered triple of normalized growth exponents using only unary/binary branching. An especially informative example has an open annulus of infinite-multiplicity eigenvalues for which the translated shift fails surjectivity, separating Rota universality from eigenvalue multiplicity. This is more than a routine boundary estimate: the logarithmically sparse edits independently tune a root exponent and two uniform window exponents, thereby solving an exact structural realizability problem.
+
+## Closest literature and limits
+
+The general spectral disk and radial weighted-shift ingredients are prior material, and the proof credits them. The novelty claimed is their exact, simultaneous realization on unweighted spherically homogeneous trees, not those underlying classical facts. The construction does not classify nonhomogeneous directed trees, does not assert minimal branching complexity, and does not identify the approximate-point spectrum of the backward shift itself. Older general spectral mapping or decomposition results could offer shorter proofs; the exact construction's priority requires external scholarly verification.
+
+Self-review: passed. Independent audit: not yet performed.
