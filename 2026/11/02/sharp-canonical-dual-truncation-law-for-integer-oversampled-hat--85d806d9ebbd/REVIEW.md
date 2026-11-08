@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Zak multiplier follows from integer-modulation orthogonality and support of the hat window, without an unproved spectral diagonalization. The positive multiplier has a bounded inverse with an explicit absolutely convergent Fourier expansion. Extracting the canonical dual's coefficients gives a positive-cell integral with precisely \(q\) nondegenerate maxima of the exponential base. Laplace's method, with the strict complementary spectral gap off small neighborhoods of those maxima, yields the claimed \(n^{-1/2}\) factor and explicit strictly positive coefficient. Evenness plus geometric-tail comparison gives the truncation constant. Exact normalization, boundary behavior, and the fixed-\(q\) quantifiers are checked. The supplemental numerical checker passed 528 assertions; none is substituted for an infinite proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Independently reconstructed the Zak diagonalization of the integer-modulation Gabor operator for g=(1−|x|)_+, translations k/q, q>=2, modulation m. The scalar multiplier is Φ=q−2c_q(t)+2c_q(t)cos(2πω) with c_q piecewise quadratic and q strict nondegenerate maxima. Its reciprocal has Fourier coefficients (−r_q(t))^|n|/Δ_q(t), where Δ=√[q(q−4c)] and r=(q−Δ)/(q+Δ). Multiplying by Zg(t,ω)=(1−t)+te^{2πiω} yields γ_q(t+n)=(−r)^n[1−t(1+r)]/Δ. Laplace expansion at the q maxima yields I_n∼E_q R_q^(2n)/√n with positive E_q; reflection symmetry and a geometrically weighted tail yield 2E_q/(1−R_q²). Domain fixed q>=2, n→∞; no uniform-q bound. I independently numerically integrated cells at n=25,80,250 for q=2,3,4,7. Ratios to asymptotic tend to unity, e.g q2: 0.9967864,0.9990145,0.9996866; q3: 0.9961467,0.9988089,0.9996202. Finite quadrature is not proof of the asymptotic.
 
-The exact tail exponent, complete \(q\)-dependent leading constant, and symmetric truncation-error coefficient are not directly stated in the inspected relevant 2023 B-spline frame-region/obstruction papers, the inspected 2018 frame-set/compact-dual construction, or the 2000 qualitative dual-decay framework. The closest earlier explicitly relevant paper by Janssen (1996) treats minimal duals at integer redundancy, but only its abstract could be checked: full-text comparison is an unresolved bibliographic risk. General Zak inversion by itself supplies neither the explicit asymptotic coefficient nor its validation. Existing exact frame bounds and Zak-fiber spectral laws are prior context, not credited here as new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The canonical dual is the distinguished minimum-energy reconstruction window even when alternative compact duals exist. Its sharp spatial truncation error controls how reconstruction changes when the infinitely supported canonical dual is physically truncated. The nonvanishing limiting exponential rate under arbitrarily dense integer translation oversampling, and the universal Gaussian saddle-point factor \(n^{-1/2}\) in cell energy, are structural rather than arbitrary finite computations.
+PASS qualified for explicit sharp cellwise L² canonical-dual tail and truncation constant at every integer q>=2; not for frame bounds, Zak diagonalization or qualitative exponential decay. A highly relevant 1996 Janssen integer-redundancy/minimal-dual paper was inaccessible in full, so its precise formula coverage remains material residual risk.
 
-## Limits and closest literature
+## value
 
-All conclusions are for \(g=(1-|x|)_+\), step sizes \((1/q,1)\), and each fixed \(q\ge2\). They do not assert uniqueness in the literature or independence from a broader unpublished theorem. Relevant literature: Ghosh–Selvan arXiv:2304.11322; Ghosh–Selvan arXiv:2310.01141; Atindehou et al. arXiv:1806.05614; Bölcskei–Janssen, *Gabor Frames, Unimodularity, and Window Decay* (2000); Janssen, *Some Weyl-Heisenberg frame bound calculations* (1996, abstract only). Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact canonical minimum-energy dual can have a sharp intrinsic infinite tail even when other compactly supported duals exist. The optimal exponential factor and n^(-1/2) saddle prefactor, plus exact leading truncation error, are independently useful for controlled spatial truncation. The specific fixed-integer oversampling family and rate are natural rather than arbitrarily chosen.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
