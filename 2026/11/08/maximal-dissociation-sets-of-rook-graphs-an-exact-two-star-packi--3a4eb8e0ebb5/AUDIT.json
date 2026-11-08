@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Every selected rook cell is an edge of \\(K_{m,n}\\); maximum induced degree one forces and is forced by vertex-disjoint components \\(K_{1,1}\\), \\(K_{1,2}\\), or \\(K_{2,1}\\). With component counts \\(a,b,c\\), the used row/column counts are \\(r=a+b+2c\\) and \\(s=a+2b+c\\). An exhaustive one-cell-addition analysis proves maximality if and only if both sides are fully used or no isolated component exists and at least one side is fully used. Labeled slot partitioning gives the exact factorial coefficient stated in the proof. For \\(n\\ge2m\\) algebra forces \\(a=0\\) and \\(r=m\\), yielding the rectangular expression. Direct bitmask testing of 1,419,214 subsets in 17 instances matches every coefficient; finite testing alone is not treated as the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tu, Li and Du, arXiv:2103.01402v1, Theorems 1.1, 1.2, 5.1 and 5.2 give global extremal total counts by graph order, rather than a rook-graph cardinality polynomial.",
+        "Tian and Tu (2024), DOI 10.1016/j.amc.2024.128711, report state-matrix enumeration for grid, cyclic grid and cylindrical grid graphs; full text unavailable.",
+        "Ordinary general-position sets of rook graphs can contain three selected cells in the same row, while such a set is not a dissociation set."
+      ],
+      "reasoning": "General graph counting bounds and algorithms do not determine a fixed rook-graph size distribution. Grid graphs built from path/cycle factors are not K_m square K_n for m,n at least three. Published results on different rook-graph vertex properties do not imply dissociation enumeration because the predicates differ; a general-position counting polynomial is not a joint statistic that singles out degree-at-most-one subsets. Unread full text remains a residual risk.",
+      "searches": [
+        "\"maximal and maximum dissociation sets in general and triangle-free graphs\" arxiv",
+        "\"Enumerating maximal dissociation sets in three classes of grid graphs\"",
+        "\"dissociation\" \"Cartesian product\" \"complete graphs\"",
+        "\"rook graphs\" \"dissociation\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2103.01402v1",
+      "doi:10.1016/j.dam.2011.04.023",
+      "doi:10.1016/j.amc.2024.128711",
+      "Published descriptions of dissociation polynomials for generalized windmills and complete multipartite graphs",
+      "Accessible rook-graph descriptions of general-position and induced-forest enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Orlovich et al. (2011), Theorem 7 and Corollary 5 identify maximum dissociation cardinality in line graphs of graphs with a Hamiltonian path; K_{m,m} has such a path and that special maximum size is already known.",
+        "Tu, Li and Du (2021), arXiv:2103.01402v1, prove global extremal bounds, not exact fixed-graph polynomials.",
+        "Tian and Tu (2024) full text was not accessible; the abstract covers path/cycle-based grids."
+      ],
+      "reasoning": "The previously known Hamiltonian-path maximum-cardinality result is explicitly excluded from novelty. Neither a scalar maximum nor a universal bound entails the complete polynomial, the all-maximal support predicate, or the sparse-rectangle even-cardinality spectrum. Accessible material contains no decisive broader implication; the unavailable 2024 source remains a documented risk.",
+      "searches": [
+        "\"The complexity of dissociation set problems in graphs\" line graphs Hamiltonian path theorem 7",
+        "\"maximal dissociation sets\" \"line graph of complete bipartite\"",
+        "\"Enumerating maximal dissociation sets in three classes of grid graphs\" rook"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graphs are the line graphs L(K_{m,n}); selected dissociation sets correspond to vertex-disjoint edge/P3 star components in K_{m,n}.",
+        "Orlovich et al., Discrete Applied Mathematics 159 (2011), DOI 10.1016/j.dam.2011.04.023, analyze dissociation problems on line graphs but not the size-refined maximal rook-graph family."
+      ],
+      "reasoning": "The graph-to-line-graph equivalence was treated as a potentially covering reformulation. The inspected primary article studies complexity and maximum cardinalities; no stated classification or polynomial counts all inclusion-maximal configurations for arbitrary m,n. Searches for P3-star packing equivalents did not find a dominating enumeration theorem; this is not proof of uniqueness.",
+      "searches": [
+        "\"maximal dissociation\" \"rook graph\"",
+        "\"dissociation\" \"line graph\" \"complete bipartite\"",
+        "\"maximal P3-free sets\" \"rook graph\"",
+        "\"maximal 2-star packings\" \"complete bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches did not identify a published exact table or catalogue of size-refined maximal dissociation sets of arbitrary rook graphs.",
+        "The present checker independently enumerates all subsets for 17 small labelled instances, including R_{2,2}, R_{3,3}, R_{3,5}, and R_{4,4}."
+      ],
+      "reasoning": "No exact matching coefficient table was verified. The finite checker is a reproducibility test, not a novelty argument; an unindexed table or equivalent formula may exist.",
+      "searches": [
+        "\"rook graphs\" \"dissociation\"",
+        "\"dissociation polynomial rook graph maximal 2-independent sets rectangle\"",
+        "\"dissociation number\" \"K_m square K_n\"",
+        "\"maximal dissociation\" \"Cartesian product of two complete graphs\""
+      ]
+    },
+    "rationale": "Compared precise implication coverage of the foundational 2021 Tu–Li–Du counting theorems, the 2011 Orlovich et al. line-graph maximum-size theorem, and the 2024 Tian–Tu grid enumerations; no inspected theorem yields the complete maximal dissociation cardinality polynomial of every rook graph. Known balanced-case maximum size is expressly excluded from priority. Targeted semantic research-record searches found dissociation polynomials of other families and rook-graph results for different subset predicates, without equivalent coverage. Residual full-text and indexing risk remains.",
+    "residual_risks": [
+      "Tian and Tu 2024 full article not accessed; only abstract and metadata available.",
+      "An equivalent formula might be in an unindexed source or formulated as a maximal disjoint K1,1/K1,2 star-packing result.",
+      "Historical mathematical records are used for statement-level overlap comparisons only and do not certify literature-wide uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Global extremal bounds and equality families do not give the fixed rook-graph coefficient polynomial.",
+        "evidence": [
+          "arXiv:2103.01402v1 pp. 1–3 and 14–15; Theorems 1.1–1.5, 5.1–5.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.01402",
+        "material_read": "Introduction, Theorems 1.1–1.5, proof organization, Lemmas 2.1–2.4, Section 5 extremal counting theorems, bibliography, and selected proof sections.",
+        "method": "Accessible 16-page arXiv preprint text and a visual page inspection.",
+        "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+        "trigger": "Foundational maximal-dissociation counting paper in middle cohort."
+      },
+      {
+        "assessment": "Known maximum size for line graphs of Hamiltonian-path graphs, including balanced cases, but no complete maximal rook-graph size polynomial.",
+        "evidence": [
+          "Orlovich et al., Discrete Applied Mathematics 159 (2011), 1352–1366; Theorem 7 and Corollary 5."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+        "material_read": "Extended openly available article text covering Introduction, Section 2, Theorem 7 and Corollary 5 in later sections, and Conclusion.",
+        "method": "Publisher-indexed full-text excerpts available in web retrieval; direct re-open returned an access error.",
+        "title": "The complexity of dissociation set problems in graphs",
+        "trigger": "Line-graph reformulation could imply the new maximum or stronger statement."
+      },
+      {
+        "assessment": "The described grids are distinct from complete-factor rook graphs, but the unread body could contain related comparisons; this is unresolved publication-priority risk.",
+        "evidence": [
+          "Tian and Tu, Applied Mathematics and Computation 474 (2024), article 128711, published abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128711",
+        "material_read": "Published abstract, bibliographic metadata and reported graph families only; full article was unavailable.",
+        "method": "Journal abstract and bibliographic cross-check; a lawful institutional-access attempt required interactive authorization and could not proceed.",
+        "title": "Enumerating maximal dissociation sets in three classes of grid graphs",
+        "trigger": "Same maximality invariant and enumeration on Cartesian-product-like graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a4eb8e0-ebb5-45bb-b647-8a8931982df6",
+  "value": {
+    "rationale": "The theorem enumerates all inclusion-maximal induced-degree-one vertex subsets with their exact size distribution for a natural two-parameter graph family. The coverage/saturation characterization exposes structure that maximum-size theorems omit. For all \\(n\\ge2m\\) it gives a closed single sum, exactly the even cardinalities from \\(2\\lceil m/2\\rceil\\) through \\(2m\\), and an arbitrarily large lower-to-upper maximal-cardinality difference. This is a complete natural classification rather than a scalar exercise or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
