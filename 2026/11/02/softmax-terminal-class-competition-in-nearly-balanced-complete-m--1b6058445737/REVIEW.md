@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** An exact conditional coupon-stream construction separates within-part labels from a finite class Markov chain. Its stationary law is verified by detailed balance; for at least three parts, a uniform two-step Doeblin minorization bounds variance of class visits by the time horizon. The standard missing-coupon factorial-moment limit combines with these clock estimates to prove the joint Gumbel law. The softmax follows from the exponential representation. Mean-value comparison of deterministic coupon clocks proves dominance above the critical imbalance window. The standalone exact-state and stochastic checker passed all its assertions. Finite checks corroborate, but do not replace, the asymptotic proof.
+## correctness
 
-## Originality
-**PASS, qualified.** The relevant 2021 random-regular-graph paper studies global cover-time distributions, and the 2022 last-new-vertex paper proves a uniformity characterization, not the multipartite terminal-class softmax. The 2015 Chang–Xu multipartite paper concerns hitting-time formulas according to its available abstract; its full text was not accessible. A previous complete-bipartite two-part logistic law cannot imply the nonbipartite Markov-clock competition or attenuation by \(1/(k-1)\). Targeted research-record and external searches found no equivalent or stronger statement. Residual historical-priority risk remains, particularly from inaccessible full text and potentially uncatalogued results.
+PASS
 
-## Value
-**PASS.** The last discovered community of a cover tour is a natural localized extreme statistic. In complete multipartite graphs, class visit frequencies change with part sizes and oppose the straightforward coupon-load effect. Their exact competition produces a nontrivial scale \(n/\log n\) and a parameter-free sensitivity coefficient \(1/(k-1)\), quantitatively distinguishing nonbipartite from bipartite cover tours. The joint limit also determines all joint late-cover exceedance probabilities, not just an expectation or a scalar cover time.
+For fixed k>=3, the embedded part chain has P(i,j)=m_j/(N-m_i), reversible stationary pi_i=m_i(N-m_i)/(N^2-sum_j m_j^2). A two-step Doeblin lower bound is uniform for nearly equal parts and yields E V_i(t)=pi_i t+O(1), Var V_i(t)=O(t); at t=O(n log n), clocks deviate o_p(n). Independent uniform coupon streams are an exact within-part construction; the preseen initial vertex affects completion with probability <=1/m_i. Coupon missing-count factorial moments imply independent Gumbel limits. Expanding pi_i to 1/log n, and centering at kn(log n + (k-2)Theta/[k(k-1)]), gives shifted G_i+theta_i/(k-1) jointly. The exponential-race identity gives softmax exp(theta_i/(k-1)); S(log x)/(N-x) mean-value derivative gives the one-sided unique-part domination when all pairwise size gaps are >>n/log n. Checks of formula normalization and finite exact-state package checker show no boundary mismatch; finite simulations do not prove convergence.
 
-## Closest literature and limitations
-Tishby–Biham–Katzav, arXiv:2110.13592; Buchanan–Horn–Rombach, arXiv:2209.08079; Chang–Xu, DOI:10.4310/PAMQ.2015.v11.n3.a1 (abstract only); Rivera–Sauerwald–Sylvester, DOI:10.4230/LIPIcs.ICALP.2021.107 (abstract only). The result assumes fixed \(k\), nearly balanced part sizes, and simple random walk. Broader heterogeneity, quantitative rates, and historical priority beyond the inspected material remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new joint part-labeled near-balance Gumbel limit and softmax law for fixed nonbipartite complete multipartite walks. Existing global cover-time and exact hitting-time results are weaker/different; fixed k>=3 prevents direct use of known bipartite logistic law.
+
+## value
+
+PASS
+
+The part label of the final unseen vertex is a natural localized cover-time extreme statistic. The theorem identifies the critical n/log n imbalance, joint fluctuations and a k-dependent sensitivity distinct from the bipartite alternating process; these are quantitative, reusable facts not implied by a scalar cover-time law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

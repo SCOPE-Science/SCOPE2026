@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:57:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed k>=3, the embedded part chain has P(i,j)=m_j/(N-m_i), reversible stationary pi_i=m_i(N-m_i)/(N^2-sum_j m_j^2). A two-step Doeblin lower bound is uniform for nearly equal parts and yields E V_i(t)=pi_i t+O(1), Var V_i(t)=O(t); at t=O(n log n), clocks deviate o_p(n). Independent uniform coupon streams are an exact within-part construction; the preseen initial vertex affects completion with probability <=1/m_i. Coupon missing-count factorial moments imply independent Gumbel limits. Expanding pi_i to 1/log n, and centering at kn(log n + (k-2)Theta/[k(k-1)]), gives shifted G_i+theta_i/(k-1) jointly. The exponential-race identity gives softmax exp(theta_i/(k-1)); S(log x)/(N-x) mean-value derivative gives the one-sided unique-part domination when all pairwise size gaps are >>n/log n. Checks of formula normalization and finite exact-state package checker show no boundary mismatch; finite simulations do not prove convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Random regular-graph cover-time Gumbel analyses treat global (not marked-class joint) cover time; Chang-Xu derive finite multipartite hitting-time identities."
+        ],
+        "reasoning": "A general fast-mixing coupon collector can suggest a Gumbel, but no inspected stated result implies both independent marked-class shifts and the 1/(k-1) sensitivity. Unindexed generalized cover-time extremes remain a risk.",
+        "searches": [
+          "Resultary: random walk complete multipartite graph cover time last visited part Gumbel coupon collector asymmetric class sizes softmax",
+          "Tishby Biham Katzav arXiv:2110.13592",
+          "Chang Xu DOI:10.4310/PAMQ.2015.v11.n3.a1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/REVIEW.md/check.py and Git tree decb410e9a4cb91e853cb281878ba8a93c74b1ef",
+        "Chang & Xu (2015), DOI:10.4310/PAMQ.2015.v11.n3.a1",
+        "Tishby et al., arXiv:2110.13592",
+        "Buchanan et al., arXiv:2209.08079",
+        "Resultary: random walk complete multipartite graph cover time last visited part Gumbel coupon collector asymmetric class sizes softmax"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hitting-time formulas can feed first-moment class-clock estimates but do not determine joint extreme laws; a complete-bipartite two-class law has alternating part dynamics and different sensitivity."
+        ],
+        "reasoning": "The present marked joint limit implies a cover-time marginal and terminal-class probabilities, whereas the identified prior claims give neither this joint limit nor the specific nonbipartite weights.",
+        "searches": [
+          "Resultary: random walk complete multipartite graph cover time last visited part Gumbel coupon collector asymmetric class sizes softmax",
+          "Chang Xu 2015 Thm3.4-3.5",
+          "arXiv:2110.13592",
+          "arXiv:2209.08079"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full Chang-Xu accessible published text Sections 1-3 and Thms 3.4-3.5 treat expected hitting times and symmetry, not simultaneous completion clocks/partwise last-vertex probabilities.",
+          "Last-new-vertex uniformity criteria are exact finite directed-graph properties, not this nonuniform multipartite weak-limit law."
+        ],
+        "reasoning": "Last-class softmax probabilities may be viewed as an exponential race of class coupon clocks; neither hitting-time equalities nor uniform terminal-vertex criteria supply their nontrivial near-balance weights.",
+        "searches": [
+          "Resultary: random walk complete multipartite graph cover time last visited part Gumbel coupon collector asymmetric class sizes softmax",
+          "Chang Xu (2015) DOI:10.4310/PAMQ.2015.v11.n3.a1",
+          "Buchanan Horn Rombach arXiv:2209.08079"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed multipartite records concern domination/graph combinatorics, not terminal-class coupon competition."
+        ],
+        "reasoning": "The claim is an asymptotic distribution theorem rather than an existing finite table; searched for a dominating exact hitting/cover table or alias, no such coverage identified.",
+        "searches": [
+          "Resultary: random walk complete multipartite graph cover time last visited part Gumbel coupon collector asymmetric class sizes softmax",
+          "Resultary published multipartite and cover-time records",
+          "arXiv:2209.08079"
+        ]
+      },
+      "rationale": "Best-of-knowledge new joint part-labeled near-balance Gumbel limit and softmax law for fixed nonbipartite complete multipartite walks. Existing global cover-time and exact hitting-time results are weaker/different; fixed k>=3 prevents direct use of known bipartite logistic law.",
+      "residual_risks": [
+        "Generic coupon-extreme results for strongly mixing chains might imply the marked-class joint convergence; an unindexed specialization could affect priority.",
+        "Fixed k and near-equal part sizes only; no rates of convergence or growing-k extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the Gumbel joint part completion or terminal-class softmax",
+          "evidence": "The inspected exact formulas address expected hitting-time symmetry and hitting-time calculations.",
+          "identifier_or_url": "doi:10.4310/PAMQ.2015.v11.n3.a1",
+          "material_read": "Published OA article text Sections 1-3, full available mathematical statements including Theorems 3.4 and 3.5",
+          "method": "Read published PDF text and compared the theorems' variables and quantifiers",
+          "title": "Random walks on complete multipartite graphs",
+          "trigger": "Identical graph family and random-walk observable"
+        },
+        {
+          "assessment": "Different uniformity characterization; does not give parameter-dependent multipartite softmax",
+          "evidence": "Current result assigns nonuniform limiting masses after an O(n/log n) part-size perturbation.",
+          "identifier_or_url": "arXiv:2209.08079",
+          "material_read": "Abstract and stated characterization of uniform last-new-vertex probabilities",
+          "method": "Accessible article abstract/stated theorem comparison",
+          "title": "On the Last New Vertex Visited by a Random Walk in a Directed Graph",
+          "trigger": "Last-new-vertex terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The part label of the final unseen vertex is a natural localized cover-time extreme statistic. The theorem identifies the critical n/log n imbalance, joint fluctuations and a k-dependent sensitivity distinct from the bipartite alternating process; these are quantitative, reusable facts not implied by a scalar cover-time law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/REVIEW.md/check.py and Git tree decb410e9a4cb91e853cb281878ba8a93c74b1ef",
+    "Chang & Xu (2015), DOI:10.4310/PAMQ.2015.v11.n3.a1",
+    "Tishby et al., arXiv:2110.13592",
+    "Buchanan et al., arXiv:2209.08079",
+    "Resultary: random walk complete multipartite graph cover time last visited part Gumbel coupon collector asymmetric class sizes softmax"
+  ],
+  "disposition": "passed",
+  "limitations": "Generic coupon-extreme results for strongly mixing chains might imply the marked-class joint convergence; an unindexed specialization could affect priority.; Fixed k and near-equal part sizes only; no rates of convergence or growing-k extension.",
+  "residual_risks": [
+    "Generic coupon-extreme results for strongly mixing chains might imply the marked-class joint convergence; an unindexed specialization could affect priority.",
+    "Fixed k and near-equal part sizes only; no rates of convergence or growing-k extension."
+  ],
+  "schema_version": 1
+}
