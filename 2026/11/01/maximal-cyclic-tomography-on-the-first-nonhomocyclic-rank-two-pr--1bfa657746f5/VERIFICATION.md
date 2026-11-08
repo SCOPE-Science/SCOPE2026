@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 CHECK.py` using Python 3's standard library. The code exhaustively constructs all nontrivial cyclic subgroups, selects those maximal by inclusion, builds the complete set of coset rows, multiplies them as an exact integer Gram matrix, compares every Gram entry against its subgroup-incidence formula, enumerates all character-annihilator eigenvalues, and checks exclusive direction witnesses. It runs for primes \(2,3,5,7\).
+# Independent mathematical audit
 
-Expected final message: `VERIFY_OK four_primes=PASS direct_coset_Gram=PASS exact_abelian_Fourier=PASS witnesses=PASS weighted_spectrum=PASS`.
+## correctness
 
-Observed output included dimensions \(8,27,125,343\), respectively, row counts \(12,36,150,392\), and the precise eigenvalue multiplicities stated in RESULT.md. The weighted-spectrum check uses the special positive weighting \(\alpha_t=p^{-2}\), \(\beta_s=p^{-1}\), which makes unique-direction Fourier eigenvalues equal to one and the exceptional \(p-1\)-dimensional sector equal to \(p\). The symbolic proof covers arbitrary positive real weights.
+PASS
 
-Finite computational checks do not establish the universal case; exact character orthogonality and the inequality in RESULT.md do. This reproduction is not an independent mathematical audit.
+Cyclic subgroups with unit first coordinate normalize to p distinct order-p^2 H_t=<1,t>; those of order p not contained in one of them are precisely p K_s=<ps,1>, making 2p maximal directions. For character (k,l), the annihilator tests are H_t iff k+p*l*t=0 mod p^2, and K_s iff k*s+l=0 mod p. The Gram of unnormalized line sums has eigenvalue sum_{annihilators}|H|, giving exactly the three stated spectral levels and multiplicities p^2(p-1),p^2-1,1. For every H_t and K_s, a frequency annihilated by no other maximal direction proves indispensable. With direction weights define u_s=p beta_s, v_t=p^2 alpha_t; the nonzero mean-zero energies are {u_s},{v_t} and sum_s u_s. Positivity implies max/min >=p with equality iff every u_s=m and each v_t in [m,pm]; this gives sqrt(p). Independently counted exact annihilators and spectra for p=2,3,5,7, including every direction exclusive witness. Counting normalization and constant frequency were checked separately.
+
+## originality
+
+PASS
+
+No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. 
+
+## value
+
+PASS
+
+The first nonhomocyclic rank-two prime-power torus is a natural minimal test of line-sum tomography beyond equal invariant factors. It separates two different maximal cyclic orders, proves irredundancy, and quantifies an unavoidable scalar-acquisition conditioning loss. The full all-prime spectrum and weight equality class are exact structural information rather than incidental finite ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

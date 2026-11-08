@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact group \(C_{p^2}\times C_p\), counting inner products, unnormalized coset sums, and all \(p\ge2\) prime are fixed. All maximal cyclic subgroups are enumerated by an elementary order argument; character triviality gives an exhaustive three-case spectral partition, positive full rank, and explicit exclusive witnesses for all \(2p\) direction families. A positive-sum inequality and its equality conditions prove the weighted optimum for every positive direction-weight assignment. The standalone exact-integer checker separately constructs every coset and normal Gram matrix for primes \(2,3,5,7\). No finite test is used as an infinite-parameter proof.
+## correctness
 
-## Originality — PASS with bounded-search risk
-Ilmavirta's original paper describes maximal Radon transforms and the elementary abelian square \(C_p^2\), but does not state the present nonhomocyclic spectral and optimal-conditioning theorem; its relevant Section 7.3 was read. The published square cyclic-grid scalar-view theorem covers \((\mathbb Z/N)^2\), not \(C_{p^2}\times C_p\), and its full public result was inspected. Kingston and Svalbe's 2005 projective Fourier-slice paper addresses square arrays; only publication metadata and abstract were available. Kumar's 2020 paper counts maximal cyclic rank-two subgroups, with only accessible abstract metadata examined; its Radon consequences, if any, are not resolved by full-text inspection. Focused searches for group aliases, prime-power cases, maximal cyclic transforms, and exact spectra found no statement implying all the present conclusions. An overlooked equivalent formulation remains possible; search failure alone is not a proof of novelty.
+PASS
 
-## Value — PASS
-This is a natural next structural case after elementary abelian prime grids in maximal-cyclic finite tomography: the smallest nonelementary rank-two abelian prime-power group. The theorem simultaneously resolves whether every maximal direction is needed, the complete nonconstant singular spectrum, and whether scalar reweighting can remove the conditioning obstruction. The inseparable \(p-1\)-dimensional Fourier sector gives a sharp \(\sqrt p\) barrier, relevant to acquisition stability. The statement is not claimed for other prime-power ranks, fewer cosets, or arbitrary frequency-dependent preconditioners.
+Cyclic subgroups with unit first coordinate normalize to p distinct order-p^2 H_t=<1,t>; those of order p not contained in one of them are precisely p K_s=<ps,1>, making 2p maximal directions. For character (k,l), the annihilator tests are H_t iff k+p*l*t=0 mod p^2, and K_s iff k*s+l=0 mod p. The Gram of unnormalized line sums has eigenvalue sum_{annihilators}|H|, giving exactly the three stated spectral levels and multiplicities p^2(p-1),p^2-1,1. For every H_t and K_s, a frequency annihilated by no other maximal direction proves indispensable. With direction weights define u_s=p beta_s, v_t=p^2 alpha_t; the nonzero mean-zero energies are {u_s},{v_t} and sum_s u_s. Positivity implies max/min >=p with equality iff every u_s=m and each v_t in [m,pm]; this gives sqrt(p). Independently counted exact annihilators and spectra for p=2,3,5,7, including every direction exclusive witness. Counting normalization and constant frequency were checked separately.
 
-## Limitations and verification status
-The sources provide background definitions and neighboring results, not independent verification of this theorem. The exact code tests finitely many primes; the all-prime proof is analytic. Published-priority review is bounded and independent auditing remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. 
+
+## value
+
+PASS
+
+The first nonhomocyclic rank-two prime-power torus is a natural minimal test of line-sum tomography beyond equal invariant factors. It separates two different maximal cyclic orders, proves irredundancy, and quantifies an unavoidable scalar-acquisition conditioning loss. The full all-prime spectrum and weight equality class are exact structural information rather than incidental finite ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
