@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The accompanying reproducible file `verify.py` was executed with Python 3 using only its standard library and returned:
+# Independent mathematical audit
 
-`PASS: 13352 deterministic exact/numerical consistency checks`
+## correctness
 
-Checks include 151 exact Fraction identities for the symmetric overlap branches; direct convex-polygon clipping compared with area inclusion–exclusion for 4,500 randomized translations; 6,500 randomized global upper-bound comparisons for translates missing their test points; 1,200 explicit nearly optimal excluded translations evaluated by clipping; and 998 sampled level-set/area equations. The program also checks several critical endpoints exactly. These are finite consistency tests: they do not establish exhaustive global optimization, which instead relies on Brunn–Minkowski concavity and the exact cap formula in the proof. The strict-exclusion supremum is verified analytically by a limiting argument. Historical priority is not independently certified. No independent mathematical audit was performed.
+PASS
+
+Parametrize every -S translation by barycentric upper caps b_i with sum 2; fixed-cap Brunn–Minkowski concavity of overlap^(1/2) and swapping the other caps proves the symmetric global optimizer. The exact overlap inclusion–exclusion in the uniform simplex yields F(s)=2s−3s²/2 for 0≤s≤1 and (2−s)²/2 for 1≤s≤2, maximized at 2/3 with F=2/3. Exclusion is a strict b_i<λ_i(y) inequality, whose supremum equals the boundary value by continuity. Since max λ_i≥1/3, maximizing over excluded caps yields d(y)=1−2t+3t²/2, t=min(max λ_i,2/3) for ALL plane points. The level halfspaces reflect S around its centroid; inclusion in S starts at u=1/2 (depth 3/8), while the Dirichlet simplex law gives both survival branches and a mass-1/3 atom at depth 1/3. Independently verified 201 rational cap-integral identities and endpoint thresholds; finite checks are supplementary.
+
+## originality
+
+PASS
+
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
+
+## value
+
+PASS
+
+An exact all-query depth profile, complete family of level shapes, sharp support contact and a genuine atom solve a nontrivial natural first example of reversed-orientation translate depth in the recently defined geometry. These are independently useful distributional and convexity benchmarks, not a repackaged known unconstrained maximum-overlap constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
