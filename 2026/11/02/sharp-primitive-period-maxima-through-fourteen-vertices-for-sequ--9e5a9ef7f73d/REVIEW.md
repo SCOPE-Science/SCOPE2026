@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update uses the closed-neighborhood \((1,3)\) convention, with a current one preserved exactly when at least two *other* neighbors are one. The proof reduces scan-order variability by the established cycle-equivalence theorem for tree sequential dynamical systems. The exhaustive leaf-augmentation generator supplies every unlabelled tree through order \(14\), with AHU canonical deduplication and class counts \((1,1,1,2,3,6,11,23,47,106,235,551,1301,3159)\). The exact functional-graph traversal checks every one of the \(2^n\) configurations for all \(5447\) trees. The maximal-period table is crosschecked by an alternative Python indegree-pruning algorithm through order \(12\), a separate tree-generator comparison at order \(14\), and an independent direct \(106\)-step witness replay. No claim is made about order greater than \(14\). Remaining risks: finite-search implementation defects, mitigated by algorithmic and code-level crosschecks; the imported published click-equivalence result must be interpreted for fixed local rules.
+PASS
 
-## Originality — PASS, qualified
+For closed-neighborhood Boolean update (up,down)=(1,3), a permutation order induces an acyclic orientation; the Macauley–Mortveit cycle-equivalence theorem and single click-equivalence class on trees allow one canonical order per tree. The leaf-augmentation generator with AHU rooted-center canonical tree codes exhausts every unlabeled tree. The C++ code builds every one-sweep successor for every one of 2^n masks and traverses functional graph cycles without skipping transient components; its class counts agree with known unlabeled-tree numbers. Crucially, an independently implemented exhaustive NetworkX nonisomorphic-tree generator and separate C++ state-sweep analysis reproduced for all n=1..14 all 5,447 isomorphism classes, all 65,293,454 finite states, maxima (1,1,1,1,2,3,6,10,14,22,42,58,86,106), maximizing class counts, and orbit counts. The 14-vertex witness states are also given in the inspected trace and witness replay script. Thus the bounded theorem is exhaustive, not sample extrapolation.
 
-Macauley–Mortveit (arXiv:0802.4412) provides order-equivalence of periodic behavior, not maximal period over all tree shapes. Kuhlman–Mortveit–Murrugarra–Kumar (arXiv:1108.2974) exhibits long cycles using structured tree families, including an explicit \(3p-2\)-vertex realization, but does not prove the present minimal-order and bounded-tree-maximality results. Later GDSCalc work (2015) examines certain designated tree families. Targeted research-record and literature searches found no matching table or stronger result implying it. Residual risk: independently reported equivalent finite tables in unindexed literature or data sets.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The maximum least period over all fixed-order trees is the natural extremal answer to the earlier large-period-existence question. Exhaustive optimality at fourteen vertices, a primitive \(106\)-orbit on a concrete small tree, and exact minimum-size thresholds for several long periods are substantial nontrivial finite dynamical facts. This is not a generic enumeration of arbitrary slices: tree order, period, and the fixed bi-threshold rule are the canonical parameters in the cited problem, and the new optimum sharpens the size required by a known explicit construction.
+Macauley–Mortveit already prove cycle-equivalence under sequential update orders; Kuhlman et al. construct long (1,3) cycles on special trees with 3p-2 vertices, explicitly without minimality. Neither inspected primary source states global least-period maxima over all unlabeled trees up to n=14 or uniquely classifies the 106-orbit maximizer. Qualified best-of-knowledge exact finite classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A comprehensive exact finite cutoff of 14 vertices and minimum tree sizes for periods 10,42,58,86,106 are natural, previously unknown graph dynamics invariants; an independent full exhaustive census provides motivated mathematical results even without an all-n formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
