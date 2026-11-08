@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run the included file using `python3 verify.py`; only Python's standard library is required. The program uses exact `fractions.Fraction` arithmetic, not floating-point simulations.
+## correctness
 
-The first method constructs all \(2^{\ell+1}\) labelled red/blue configurations of the original parent-selection/neighbor-replacement chain for each \(2\le\ell\le5\), retaining self-transitions. It solves the full transient linear equations for the probability of reaching all-red fixation and for the truncated first time moment \(\mathbb E[\tau\mathbf1_{\mathrm{fix}}]\). For each size it tests six exact fitness values \(1/2,1,6/5,3/2,2,3\) against the analytical fixation probability and conditional duration.
+PASS
 
-The second method independently verifies the absorbing embedded-chain harmonic probabilities, conditional occupation balance and exact three-coefficient holding-time sums for \(2\le\ell\le6\). The combined run completed **128 exact assertions**. These bounded calculations are consistency checks only; the proof in `RESULT.md` supplies the quantified all-size/all-real-parameter theorem.
+Transition probabilities are correctly normalized by F_A=r(l-k+1)+k and F_B=k+1+r(l-k), with null steps retained. Deleting holding yields an r-independent jump chain; S(h,k)=h+l k is a bounded martingale, so its absorbing value gives h(A0)=1/(l^2+1). Conditional occupancy is Doob h-transform of the transient fundamental matrix and geometric holding times sum to A_l r+B_l+C_l/r. Because C_l-A_l=l/(l+1)(l H_{l-1}-(l-1))>0, the derivative vanishes uniquely at r>1 and second derivative 2C_l/r^3>0. I independently built the complete labeled-state rational transition matrix and solved absorption and first-moment systems for l=2,3,4 at r=1/2,1,3/2,2, all 12 cases exactly agreeing with the all-parameter formulas.
 
-The public data contain no experimental measurements. Mathematical limitations, matching assumptions and distinctions between full updates and genuine state-changing jumps are specified in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+The environmental habitat-matching birth–death process and selection-independent fixation probability for properly two-coloured graphs are prior in Maciejewski–Puleo (2013). Their Section 4 considers different three-colour timing examples. Prior star-process speed and constant-mutant-fitness studies do not yield the exact proper-two-colour, hub-start, all-size conditional time function or unique r*>1. Generic finite Markov recurrences are acknowledged as methods. Priority of an unindexed specialized speed computation remains open.
+
+## value
+
+PASS
+
+The parameter changes the duration of a successful fixation trajectory while leaving its probability unchanged, isolating stochastic holding-time effects from jump geometry. The exact all-l harmonic function and strict nonneutral optimum make a natural mathematically testable benchmark beyond a one-off small chain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
