@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For the exact squared-norm embedding on K_{m+1}, the compressed self-adjoint distortion has norm at most epsilon. The Kantorovich angle inequality for every complex vector is sharp with constant 2sqrt(kappa)/(kappa+1). Consequently every nonzero y has Re(y*Gy)>0 and y*Fy>0, proving nonsingularity of G and positive real part of every eigenvalue of G^-1 F. The explicit two-dimensional SPD example has G=2kappa-epsilon sqrt(kappa)(kappa+1) and F=kappa(kappa+1-2epsilon sqrt(kappa))>0, giving a singular pencil at equality and a negative value immediately above. The kappa=1 boundary is treated separately. The reproducible NumPy script passed 783 supplementary checks; the proof, not the tests, establishes all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.10354v2 Section 5.3 assumes positive real A and requires epsilon ||A^-1|| < rho, reducing to epsilon<1/kappa for SPD A.",
+        "arXiv:2302.07466v3 Proposition 3.1 uses epsilon<=kappa^-1/2 for a different quasi-optimality guarantee, not a sharp all-harmonic-Ritz positivity radius.",
+        "arXiv:2512.15455v1 describes randomized FOM/GMRES and Rayleigh-Ritz but not the sharp harmonic-pencil criterion."
+      ],
+      "reasoning": "The source has a broader matrix class but only a weaker SPD sufficient condition; broad domain alone does not logically cover this sharp SPD converse and construction. The earlier quasi-optimality bound concerns a different conclusion and does not imply the claimed exact harmonic Ritz condition.",
+      "searches": [
+        "sketched harmonic Arnoldi Ritz values right half plane positivity with subspace embedding positive definite matrix spectral condition number sharp distortion 2 sqrt kappa/(kappa+1)",
+        "sketched harmonic Arnoldi source 2607.10354 positive real eigenvalue epsilon condition number square root improvement",
+        "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers Proposition 3.1",
+        "arXiv:2302.07466v3 Section 3.1",
+        "arXiv:2512.15455v1 Sections 5-7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.10354v2, Section 5.3 and Theorem 9",
+      "arXiv:2302.07466v3, Proposition 3.1",
+      "arXiv:2512.15455v1, Sections 5–7",
+      "arXiv:2208.11447v3, Section 3 and Remark 3.7",
+      "DOI:10.1137/26M1841641, accessible abstract only",
+      "Published mathematical records and an accessible earlier Gaussian scalar harmonic Ritz claim, checked for implication rather than just matching parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.10354v2 gives positivity if epsilon<1/kappa for SPD, with a distinct restart contraction requirement.",
+        "arXiv:2208.11447v3 Remark 3.7 distinguishes sketched GMRES from harmonic Arnoldi approximants.",
+        "The accessible earlier scalar Gaussian result already gives the exact distribution of a randomly sketched one-step Ritz sign; no such probabilistic statement is included in this finding."
+      ],
+      "reasoning": "A theorem ensuring positivity on the smaller epsilon<1/kappa range cannot imply exact safety through 2sqrt(kappa)/(kappa+1), nor the sharp failure for larger epsilon. A quasi-optimal approximation guarantee does not classify Ritz eigenvalue signs. The Gaussian result is mathematically adjacent and uses the same extremal angle, but its randomized measure does not cover every admissible embedding, and it has no multi-step statement. The new statement retains only the independent deterministic radius classification.",
+      "searches": [
+        "arXiv:2607.10354v2 Section 5.3 equations (24) and the sufficient epsilon condition",
+        "sketched GMRES harmonic Ritz negative sketched SPD positive real condition sketch distortion",
+        "Gaussian sketch SPD matrix harmonic Rayleigh quotient sign failure probability condition number sample complexity linear kappa",
+        "arXiv:2208.11447v3 Remark 3.7 and Section 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classical Kantorovich/antieigenvalue angle bound states min Re(x*Ax)/(||Ax||||x||)=2sqrt(kappa)/(kappa+1) for SPD A.",
+        "The source defines harmonic Ritz values through F=(SAB)^*(SAB), G=(SAB)^*(SB) and proves a different sufficient bound; the exact threshold and boundary examples are not there."
+      ],
+      "reasoning": "The sharp cosine is an input, not the new claim. What is classified here is the universal embedding perturbation radius for the nonsymmetric harmonic pencil at every Krylov dimension, with a two-dimensional sign-changing witness. Random-sketch one-step sign distributions do not yield the all-sketch deterministic all-dimension guarantee.",
+      "searches": [
+        "sketched harmonic Ritz positivity Kantorovich positive definite embedding condition number",
+        "antieigenvalue Kantorovich angle sketched harmonic Ritz spectral positivity generalized matrix pencil norm preserving embedding",
+        "Kantorovich angle bound sketched GMRES Ritz values right half plane",
+        "arXiv:2607.10354v2 Section 5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical summaries returned mostly unrelated unsketched GMRES, positivity and angle results.",
+        "Closest unsketched GMRES record proves a Euclidean solution-error spike bound; it does not have a sketch Gram perturbation or a harmonic generalized eigenvalue pencil.",
+        "An accessible earlier one-step Gaussian sketched Ritz law supplies random marginal probabilities, not a deterministic worst-case embedding threshold."
+      ],
+      "reasoning": "No exact table or published record with the same sketched harmonic matrix pencil and strict distortion frontier was identified. Absence of a matching indexed record is not a uniqueness proof; historical priority remains a risk.",
+      "searches": [
+        "sketched harmonic Ritz values epsilon condition number positivity",
+        "harmonic Ritz 2 sqrt kappa sketch",
+        "sketched harmonic Ritz values positive real sharp",
+        "exact deterministic embedding distortion sketched harmonic Ritz positivity",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "rationale": "The closest primary 2026 source derives an epsilon<1/kappa sufficient criterion for SPD but does not give the sharp embedding tolerance 2sqrt(kappa)/(kappa+1) valid for every Krylov dimension, nor the converse sign-changing witness. The 2023 and 2025 related works treat quasi-optimality or distinct randomized projections. The classical angular inequality and earlier one-step Gaussian sign laws are acknowledged as prior facts and not claimed as novel. Full-text comparisons and targeted mathematical-record searches found no covering theorem, subject to stated historical risks.",
+    "residual_risks": [
+      "An unindexed classical antieigenvalue or harmonic projection paper may explicitly apply the sharp angular inequality to the same embedding problem.",
+      "The full text of DOI:10.1137/26M1841641 was inaccessible; abstract evidence alone cannot establish lack of coverage.",
+      "A previously derived one-step Gaussian sign law shares the extremizing angle, though not the deterministic all-Krylov guarantee.",
+      "Finite numerical testing and literature searches cannot independently certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides epsilon<1/kappa for SPD as sufficient, no sharp kappa-dependent necessary boundary or two-state negative pencil witness.",
+        "evidence": [
+          "Section 5.3: G=(SAB)^*(SB), F=(SAB)^*(SAB), epsilon||A^-1||<rho.",
+          "Theorem 9 separately assumes Ritz values in the open right half-plane and contraction-factor control."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.10354v2",
+        "material_read": "Full public HTML, definitions in Section 2.2, convergence Theorem 9 in Section 5.2, and complete Section 5.3, equations (24) and final sufficient condition.",
+        "method": "Primary full-text HTML reading and mathematical implication comparison.",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Directly defines sketched harmonic pencils and the positivity assumption for restarted Stieltjes approximation."
+      },
+      {
+        "assessment": "Proves a different quasi-optimality bound under a sufficient epsilon<kappa^-1/2; does not give sharp harmonic Ritz positivity or the all-eigenvalue threshold.",
+        "evidence": [
+          "Proposition 3.1 and equation (12) concern A-norm solution error.",
+          "The named harmonic pencil G^-1 F does not appear as a positivity classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+        "material_read": "Full public HTML with Section 3.1, Proposition 3.1, proof, discussion of condition-number-dependent sketch sizes and Section 5 experimental scope.",
+        "method": "Primary full-text theorem/assumption/conclusion comparison.",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Older SPD sketched Petrov-Galerkin projections could imply an embedding positivity theorem."
+      },
+      {
+        "assessment": "Provides general randomized sketch tools and Ritz discussions, not the particular harmonic pencil threshold or sharpness witness.",
+        "evidence": [
+          "Section 5.2.1 randomized GMRES compares sketched residual minimizers.",
+          "Section 6 randomized Rayleigh–Ritz treats eigenvalue problems rather than the Section 5.3 sHmArn harmonic pencil."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.15455v1",
+        "material_read": "Public HTML Sections 5–7, including randomized GMRES/FOM and randomized Ritz computations; relevant definitions and claims.",
+        "method": "Full-text indexed sections and direct definition comparisons.",
+        "title": "Randomized orthogonalization and Krylov subspace methods: principles and algorithms",
+        "trigger": "Broad review of randomized Krylov and sketched eigenvalue approximations."
+      },
+      {
+        "assessment": "Analyzes sketched FOM and GMRES, and explicitly distinguishes sGMRES from harmonic Arnoldi; does not classify sHmArn harmonic Ritz positivity.",
+        "evidence": [
+          "Remark 3.7 says the sketched GMRES approximant need not coincide with harmonic Arnoldi even at identity sketch.",
+          "Section 3.1 treats sketched GMRES convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.11447v3",
+        "material_read": "Public full-text HTML Section 3 and Remark 3.7, including the Stieltjes convergence discussion.",
+        "method": "Primary full-text sections and conclusion comparison.",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Predecessor from the same research area could subsume harmonic restarting positivity."
+      },
+      {
+        "assessment": "Abstract concerns randomized Arnoldi similarity restoration; unresolved full-text risk if harmonic positivity is covered inside.",
+        "evidence": [
+          "Published abstract discusses similarity and matrix functions, without stating a sharp sHmArn embedding-distortion theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/26M1841641",
+        "material_read": "Available public abstract and metadata; complete journal text was not accessible.",
+        "method": "Metadata and abstract comparison only; no full-document negative conclusion.",
+        "title": "Restoring Similarity in Randomized Krylov Methods with Applications to Eigenvalue Problems and Matrix Functions",
+        "trigger": "Related current research on sketched Krylov eigenvalue stability and potential stronger spectral coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b981e76e-ad6b-4ee6-abc7-e335cd624042",
+  "value": {
+    "rationale": "The motivating restarted sketched harmonic method explicitly needs right-half-plane harmonic Ritz values. Replacing its SPD epsilon<1/kappa sufficient bound by the exact epsilon<2sqrt(kappa)/(kappa+1) criterion changes the allowed distortion scale from O(kappa^-1) to Theta(kappa^-1/2). Sharp failure directly at the critical threshold shows this numerical safeguard is optimally calibrated, not merely a weak sufficient bound. This is a natural all-dimension matrix pencil robustness classification with a concrete two-state witness. It does not assert overall restarted convergence or an independent sketch-size theorem.",
+    "status": "PASS"
+  }
+}
