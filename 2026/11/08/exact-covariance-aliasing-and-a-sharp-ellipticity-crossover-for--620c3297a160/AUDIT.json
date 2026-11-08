@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact transforming-factor stages reduce to composite trapezoidal/Simpson positive quadratures of a rotating rank-one projector. A finite complex geometric sum yields both spectral formulas, a positive-weight spanning argument gives the precise singular sets, and elementary cosine sign analysis gives the sharp crossover. The fixed-N expansions follow algebraically from Taylor series. A standalone original-stage implementation passed 2940 numerical checks; these do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Grant–Isherwood, arXiv:1708.02595, analyzes SSP integrating-factor methods and convex stability rather than the rank and eigenvalues of numerical controllability Gramians.",
+        "Grundel–Himpe–Saak, “On Empirical System Gramians” (2019), DOI:10.1002/pamm.201900006, discusses reachability/observability and empirical Gramian approximation, not these exact step-resonance eigenvalue formulas.",
+        "Zhang–Lan–Jing (2026) proves positive semidefiniteness of both schemes, a weaker property than the exact strict-PD and crossover result."
+      ],
+      "reasoning": "The source’s general semidefinite guarantee applies to the present systems, but it does not logically imply strict positivity: rank-one semidefinite approximations meet that guarantee. General SSP theory likewise does not imply one method’s minimum eigenvalue dominates the other for selected mesh phases. Classical Gramian theory gives the continuous-time full-rank comparator, not its sampled method spectra.",
+      "searches": [
+        "quadrature Gramian rank deficiency Simpson midpoint versus trapezoidal endpoint sampling",
+        "covariance Gramian trapezoidal Simpson rotation rank resonance time stepping",
+        "SSPRK3 differential Lyapunov positivity rank strict positive definite process noise controllability"
+      ]
+    },
+    "checked_sources": [
+      "W. Zhang, R. Lan, X. Jing, arXiv:2606.15703v1 (2026-06-14), full accessible method/proof/numerical/conclusion text",
+      "S. Gottlieb, Z. J. Grant, L. Isherwood, arXiv:1708.02595, accessible full relevant sections",
+      "S. Grundel, C. Himpe, J. Saak, DOI:10.1002/pamm.201900006, abstract/introduction only",
+      "J. Gillis, M. Diehl, DOI:10.1109/CDC.2013.6761121, abstract only",
+      "Published mathematical-record title and summary comparisons about exact fourth-moment Fourier sampling, numerical quadrature, covariance and Lyapunov equations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source supplies the schemes and nonnegative-semidefinite invariant; it does not assert strict positivity for arbitrary rank-one sources or compare minimal eigenvalues across steps.",
+        "The source’s rigorous second-order error estimate concerns a norm convergence guarantee, not a pointwise lower covariance eigenvalue or a second/third-order spectral ordering for a rotating rank-one input.",
+        "The mathematical proof itself derives a sharp one-step Simpson-versus-trapezoid frequency symbol and all-step eigenvalue formulas, rather than merely restating positivity preservation."
+      ],
+      "reasoning": "For a rotating rank-one source the two sampled matrices are semidefinite by the prior theorem. Their eigenvalues could nevertheless be zero or positive in any pattern consistent with semidefiniteness, so the rank-loss sets and ordering do not follow as statements from that theorem. Conversely, the present specialized formulas do not subsume the primary all-matrices semidefinite result or the earlier all-source Loewner characterization. The stage formulas make the new specialized theorem derivable, as normal for a mathematical extension; derivability does not itself establish published priority.",
+      "searches": [
+        "2606.15703 first submission June 2026 Zhang Lan Jing IF SSPRK differential Lyapunov",
+        "Zhang Lan Jing 2606.15703 differential Lyapunov IF SSPRK2 IF SSPRK3 strict positive definite rank-one noise rotational drift",
+        "integrating factor Runge Kutta differential Lyapunov matrix covariance rank positive definite sampled controllability aliasing oscillatory matrix exponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang, Lan, Jing, arXiv:2606.15703v1: published IF-SSPRK2/3 stage maps and positive-semidefiniteness proof, without a planar strict-PD resonance classification in inspected text.",
+        "Gillis–Diehl (2013), DOI:10.1109/CDC.2013.6761121, describes a positive-definiteness-preserving PDPLD collocation construction, not the two IF-SSPRK stage maps (only the abstract accessible).",
+        "The published mathematical record “Exact arithmetic aliasing and prime-optimal time quadrature for quadratic Fourier flows” concerns exact fourth Fourier moments, not the anisotropy eigenvalues of rotating rank-one covariance matrices."
+      ],
+      "reasoning": "The new statement is equivalent to a sharp pair of trigonometric aliasing filter formulas for composite trapezoidal and Simpson sampling of a rotating projector. That equivalence was explicitly queried. General sampled-data aliasing does not alone determine the two integrators’ unique rank-loss sets and their exact cosine crossover. An equivalent general weighted-Gramian theorem could exist beyond the indexed results.",
+      "searches": [
+        "IF SSPRK2 IF SSPRK3 rotating rank-one source exact covariance eigenvalues trapezoidal Simpson comparison cos omega h minus one half resonance positive definite",
+        "strict positive definiteness reachability Gramian under integrating factor SSP Runge Kutta steps rank-one noise skew symmetric oscillator",
+        "integrating factor Runge Kutta differential Lyapunov matrix covariance rank positive definite sampled controllability aliasing oscillatory matrix exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records returned method-adjacent items on Simpson-rule curvature envelopes, fourth-moment Fourier sampling and Lyapunov covariance geometry; their actual summary claims concern different functionals or matrices.",
+        "The primary paper arXiv:2606.15703v1 tabulates numerical convergence and semidefiniteness but does not tabulate the all-step minimal eigenvalue phase boundary in the inspected sections."
+      ],
+      "reasoning": "No exact table or database hit containing the pair of universal eigenvalue expressions, the half-turn/full-turn singularity classification and the cosine crossover was located. Similar words, numerical data, or a Fourier sampling theorem were not treated as sufficient evidence of noncoverage or novelty by themselves.",
+      "searches": [
+        "IF SSPRK2 IF SSPRK3 Lyapunov 2x2 rotation rank-one forcing exact eigenvalues trapezoid Simpson quadrature aliasing positive definiteness",
+        "exact eigenvalues of numerical covariance quadrature on 2x2 harmonic oscillator and sample alias frequency",
+        "Simpson versus trapezoid quadrature oscillator covariance gramian rank loss phase transition cos step -1/2",
+        "quadrature Gramian rank deficiency Simpson midpoint versus trapezoidal endpoint sampling"
+      ]
+    },
+    "rationale": "The motivating 2026 paper introduces both Lyapunov IF-SSPRK methods and proves preservation of symmetry and nonnegative semidefiniteness. Its inspected method equations, numerical section, and conclusions do not give exact oscillator covariance spectra, strict-PD rank-loss sets, or the signed second-versus-third-order minimum-eigenvalue crossover. Earlier integrating-factor and positivity-preserving methods supply tools and distinct guarantees. The older algebra of finite trigonometric sums is not claimed new; the combination is a method-specific spectral and ellipticity classification. Detailed searches found no matching theorem, but priority risk from unindexed sampling/Gramian literature remains.",
+    "residual_risks": [
+      "A classical quadrature-theoretic or sampled-data controllability lemma might imply this exact frequency crossover under different terminology; failure to locate one is not a uniqueness certificate.",
+      "The full 2013 PDPLD article and some general Gramian references were inaccessible, so no full-document noncoverage conclusion is asserted for them.",
+      "Priority assessment is same-model only and has not received external mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Methods are the same, and generic nonnegative-semidefiniteness is prior; no matching exact half-turn/full-turn eigenvalue classification or sharp inter-method phase crossover appeared in the inspected text",
+        "evidence": "The source derives W-prime as transformed Q and specifies two-/three-stage Shu–Osher maps; its positivity theorem is semidefiniteness and reported tests evaluate convergence and PSD.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+        "material_read": "Complete accessible arXiv HTML method exposition and lengthy openly readable full text including the stage recurrences, positivity proof, numerical experiments and conclusion",
+        "method": "Read the source text and compare exact original stages, theorem hypotheses, numerical sections, and conclusion against the new two-by-two eigenvalue and strict-PD statements",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Exact originating IF-SSPRK2 and IF-SSPRK3 definitions and the semidefiniteness theorem"
+      },
+      {
+        "assessment": "Supplies a general algorithmic framework but no matching Lyapunov oscillator exact eigenvalue/aliasing theorem in the relevant text",
+        "evidence": "Its SSP results concern convex/nonlinear stability under stage abscissa conditions and examples, not the rank of one-source covariance Gramians.",
+        "identifier_or_url": "https://arxiv.org/abs/1708.02595",
+        "material_read": "Accessible full preprint sections treating SSP integrating-factor schemes, stage times and numerical tests",
+        "method": "Inspect general SSP hypothesis and results and look for Lyapunov covariance, Gramian strict rank or Simpson/trapezoid spectral comparisons",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods",
+        "trigger": "Older general integrating-factor SSP theory could dominate a method-specific positivity statement"
+      },
+      {
+        "assessment": "No direct exact rank-deficiency/phase crossover theorem in the examined material; full-document noncoverage not claimed",
+        "evidence": "The paper describes state-space reachability/observability and empirical Gramians as reduced modeling quantities.",
+        "identifier_or_url": "https://doi.org/10.1002/pamm.201900006",
+        "material_read": "Abstract and available introductory material, not all full-text details",
+        "method": "Compare stated empirical-Gramian objectives and applications with exact IF SSPRK covariance eigenvalues",
+        "title": "On Empirical System Gramians",
+        "trigger": "Reachability-Gramian theory and numerical quadrature could entail the new claim by general specialization"
+      },
+      {
+        "assessment": "Different stated method; cannot fully exclude hidden general Gramian comparisons in inaccessible full text",
+        "evidence": "Abstract describes positive-semidefiniteness preservation in periodic direct-collocation Lyapunov discretization.",
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2013.6761121",
+        "material_read": "Publisher abstract and bibliographic record only; no complete article text",
+        "method": "Compare the named PDPLD collocation method with the specific IF-SSPRK2 and IF-SSPRK3 discretizations",
+        "title": "A positive definiteness preserving discretization method for Lyapunov differential equations",
+        "trigger": "Earlier explicit positivity-preserving Lyapunov discretization could supply a stronger implicit theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "620c3297-a160-46da-af30-5c5062c88a4b",
+  "value": {
+    "rationale": "Strict covariance ellipticity is necessary to invert a numerical reachability Gramian for control energy or covariance-based inference. The exact theorem exhibits false rank deficiency of an otherwise positive-definite continuous Gramian, proves that extra Simpson stages repair all odd-half-turn failures, and identifies when a higher-order method unexpectedly has a smaller minimal eigenvalue than a lower-order one. These are motivated numerical stability boundaries rather than arbitrary parameter substitutions; no broad statement beyond the proved two-dimensional case is claimed.",
+    "status": "PASS"
+  }
+}
