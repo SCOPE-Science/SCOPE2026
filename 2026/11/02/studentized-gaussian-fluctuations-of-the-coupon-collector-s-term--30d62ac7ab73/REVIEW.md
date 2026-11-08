@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact conditional law is reconstructed from independent rate-one Poisson processes and the unique maximal first-arrival time, including the independent truncated-positive Poisson counts of the other types. The conditional mean is \(1+(n-1)m/(e^m-1)\), and the conditional variance is \((n-1)p(m)(1-p(m))\). Uniform compact-window estimates give both the normal limit and an \(O_K((\log n)^{-1/2})\) conditional Kolmogorov bound. Joint asymptotic independence follows by tightness and uniform conditional characteristic functions. The independent merged-clock construction gives an exact \(L^2\) de-Poissonization identity; its error is negligible on the \(\sqrt{\log n}\) scale. The packaged standalone program independently checks 90 exact finite assertions, without treating them as infinite proofs.
+PASS
 
-## Originality (O): PASS, with residual historical risk
+PASS. Under merged independent rate-one Poisson coupon clocks, conditioning on maximum first-arrival M=m leaves the last type singleton and the others independent positive-truncated Poisson counts, hence U|M=m=1+Bin(n-1,m/(exp(m)-1)). For m=log n+O(1) its conditional mean/variance are log n exp(-(m-log n))+O(1), yielding a uniform window Berry-Esseen estimate and a Gaussian residual asymptotically independent of the Gumbel first-arrival extreme. For the original discrete completion count, E(M-T/n)^2=H_n/n and log n times its scale error is o_p(sqrt(log n)), giving the claimed observed-time studentization. Independently checked 35 exact rational pmf entries using distinct absorbing chain and integrated Poisson identities for n=2..8; finite checks are not evidence for infinite n alone.
 
-The nearest directly inspected works establish leading exponential asymptotics, stochastic ordering, and other features of the same sibling-collector model: Ilienko, arXiv:2002.00650 and 2026 publication, Theorems 1--3; Papanicolaou--Doumas, arXiv:2005.05270, the first sibling exponential limit; and Long, arXiv:2606.29635, Theorems 4--5. Their stated and inspected conclusions do not determine the centered \(\sqrt{\log n}\)-scale residual or its joint independent Gaussian/Gumbel limit. A leading-scale limit cannot by itself force a second-order conditional limit. The general Poisson and central-limit ingredients are classical and not attributed as novel. No implication-equivalent public claim was identified in the targeted searches, but broad older occupancy theory may contain a relevant equivalent formulation; definitive priority is not certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-The central probabilistic issue is to separate a global extreme-value source of order-\(\log n\) variability from the remaining conditional occupancy noise. The theorem supplies a natural observable-time normalization that turns the residual into an asymptotically independent pivot; the exact conditional binomial law and uniform Gaussian bound explain precisely why this happens. This is a structural second-order extension of an established stochastic model and not a numerical recomputation or arbitrary parameter slice.
+PASS, qualified best-of-knowledge. Ilienko, Papanicolaou–Doumas and Long establish first-order singleton/sibling exponential limits and shared Gumbel completion extremes. Their inspected principal results do not give the observed-completion-time-centered sqrt(log n) Gaussian residual jointly independent of the Gumbel variable with a uniform conditional binomial CLT. The first-order exponential limit and Poisson thinning tools are credited. Older occupancy CLTs at random stopping times may subsume the second-order assertion.
 
-## Limits and sources
+## value
 
-Only uniform iid sampling and the first sibling are covered. The exact conditional binomial statement concerns the Poisson embedding's physical stopping time, not the discrete stopping count. Primary scientific comparisons: Ilienko (arXiv:2002.00650; later doi:10.15559/26-VMSTA306); Papanicolaou and Doumas (arXiv:2005.05270); Doumas and Papanicolaou (arXiv:1412.4346); Long (arXiv:2606.29635). Holst's 1986 occupancy survey is a residual generality risk. Finite computation does not imply an infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A precise second-order Gaussian law conditional on the observed completion extreme complements established first-order exponential fluctuations, gives an exact finite shifted-binomial representation, and answers a natural distributional refinement of the coupon collector; no more general siblings/weights are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
