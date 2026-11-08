@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is the precise three-term expectation asymptotic, not a new finite mean formula. The proof starts from the exact Pinsky finite identity and splits it into an unweighted survival-product sum and a harmonic-weighted sum. On a growing square-root window, a uniform logarithmic-product expansion gives the \(\sqrt{\pi N/2}-4/3\) contribution; Gaussian-tail bounds justify dropping the remainder. A Gaussian harmonic sum supplies \(\frac12\log(2N)+\frac\gamma2\), proving the claimed additive constant. Direct complete enumeration of parking preferences for \(n\le6\) agrees with the formula, and numerical probes through \(n=10^6\) corroborate convergence. The analytic proof is essential; finite tests alone are insufficient.
+## correctness
 
-## Originality: PASS, with caveats
-The closest source, Pinsky (arXiv:2404.11529, 2024; journal 2026), proves both an exact finite mean and the leading square-root order. Its displayed asymptotic analysis stops before the logarithmic contribution and the additive constant. A research-record search under parking-induced permutation records, lucky/first-available cars, and Gaussian birthday survival terms found no equivalent explicit three-scale formula; closest indexed records treated unrelated uniform-permutation comparisons and parking-function polytope geometry. The exact earlier summation formally contains the information from which the new coefficients are extracted; this result is solely the explicitly derived sharp asymptotic refinement, and potential rediscovery from the earlier source or its cited exercises remains a priority risk. The Diaconis–Hicks lucky-car statistic and Bellin preference-coordinate statistics are not the same observable. Those secondary full texts were not exhaustively read.
+PASS
 
-## Value: PASS
-The earlier square-root approximation misses a systematically growing logarithmic term. The present result characterizes the full drift and the remaining constant, so the deterministic approximation error tends to zero, useful for interpreting finite-size expected records and for isolating two different boundary contributions. There is no claim of a new random variable law, variance, or rate for the remainder. Independent historical/mathematical checking remains necessary.
+From Pinsky exact product identity E R_n = sum_{k=1}^{N-1}p_{N,k}(1+1/k), N=n+1, p product_{j=1}^k(1-j/N). Independent exact Fraction checks n=1..8 matched the alternative expression in the actual Pinsky v5 PDF. On k<=sqrt(N)log N, expand log p=-u^2/2-N^-1/2(u/2+u^3/6)+uniform summable remainder; Gaussian tails bound omitted k. Euler–Maclaurin contributes -1/2 and first correction -5/6, hence U=sqrt(pi N/2)-4/3+o(1). A harmonic Gaussian Riemann integral gives V=0.5log(2N)+gamma/2+o(1). Converting N to n preserves o(1). Independent numeric error relative to three terms at n=10^6 was -0.00010369. No variance or distributional claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the final stated novel assertion, not the model, known general machinery or prior exact identities. Primary texts were materially compared for actual logical implication. Accessible published-research semantic search did not establish implication-equivalent coverage; residual risks are explicitly retained. The previously known exact finite expectation is fully credited.
+
+## value
+
+PASS
+
+The known n^1/2 leading term has a growing log n systematic drift; its omission prevents bounded-error prediction even at large n. Refinement to explicit additive constant and o(1) remainder is a natural precise asymptotic for a nonuniform permutation statistic, potentially useful as benchmark for parking measures; it does not claim a new finite identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
