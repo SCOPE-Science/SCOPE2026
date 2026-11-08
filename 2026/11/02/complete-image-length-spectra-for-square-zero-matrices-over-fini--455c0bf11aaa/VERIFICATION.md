@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Use Python 3 with no third-party dependencies. Run `python3 check_spectrum.py` in this directory. The checker constructs the finite rings explicitly, exhausts every \(2\times2\) matrix in each chosen ring, evaluates all four entries of its square, and enumerates the additive image set directly for every square-zero matrix. The observed image-cardinality logarithm is compared with the theorem's complete finite sum for each rank, not merely with the total and maximal-rank formulas.
+## correctness
 
-The checker covers twelve complete test configurations: \(\mathbb F_2[t]/(t^n)\) for \(1\le n\le4\), \(\mathbb F_3[t]/(t^n)\) for \(1\le n\le2\), \(\mathbb F_4[t]/(t^n)\) for \(1\le n\le2\), and the mixed-characteristic rings \(\mathbb Z/2^n\mathbb Z\) for \(2\le n\le4\) and \(\mathbb Z/9\mathbb Z\). The length-one cases are harmless checks of the formula beyond its stated \(n\ge2\) scope.
+PASS
 
-Recorded success marker: `SQUAREZERO_TWO_BLOCK_CHAIN_CENSUS_OK 12`. The theorem is an infinite-family statement established by the proof; finite experiments cannot establish its general quantifiers. Independent review of the mathematical proof and historical priority has not occurred.
+The low-valuation primitive square-zero matrices over R/(pi^e) form the GL2 conjugacy class of a single Jordan block, of size P_e=(q^2-1)q^(2e-2). For k<ceil(n/2), reduction modulo pi^(n-2k) and q^(4k) lifts yield constant (q^2-1)q^(2n-2) layer; determinant takes every permitted value with equal q^(3k) fiber and Smith forms yield the explicit image-length terms. High valuation cone pi^ceil(n/2) M2(R) is automatically square zero, its full rank-by-determinant valuation census gives final terms. Independent exhaustive matrices over Z/4, Z/8, Z/9 produced histograms (1,9,18), (1,9,30,72), (1,32,120) at image lengths 0..n, matching formulas. Corollary Cent(J_n⊕J_n)=M2(Fq[t]/t^n) correctly identifies Fq-linear square-zero Jordan type (2^r,1^(2n-2r)). Pure ring statement covers all commutative finite chain rings n>=2 incl mixed characteristic, not general local rings or larger matrices.
+
+## originality
+
+PASS
+
+Oblak, Britnell–Wildon and Bogdanić et al. study nilpotent commuting-matrix compatible Jordan types, especially for centralizer of two equal blocks. Their prior results are qualitative existence / orbit types, not the exact multiplicity of each square-zero Fq-linear Jordan shape, nor universal finite chain ring image-length distribution. Older Bollman–Ramírez finite ring nilpotent counting and Brawley Drazin index enumeration remain plausible aliases but accessible evidence does not establish domination of this joint refined census.
+
+## value
+
+PASS
+
+Exact image-length distribution, valuation equidistribution, and q,n-universality across ramification are natural fine invariants of square-zero matrices. The commuting equal-block centralizer interpretation gives precise multiplicities in a classical classification problem, beyond mere existence of shapes; total and maximal-image counts are meaningful corollaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

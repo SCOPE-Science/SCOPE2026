@@ -1,11 +1,21 @@
-# Self-review of the image-length spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** Primitive square-zero matrices have a single conjugacy orbit over every finite chain-ring quotient, with stabilizer \(\{\left(\begin{smallmatrix}a&b\\0&a\end{smallmatrix}\right):a\text{ unit}\}\); its exact orbit count supplies the nonautomatic layers. The determinant of a primitive lift is uniform over the appropriate ideal because a unit cofactor provides an invertible coefficient. Smith invariants convert determinant valuations into image lengths. The automatic high-valuation cone is enumerated independently by residue rank and determinant valuation. Algebraic summation yields the full spectrum and both displayed totals. The packaged checker independently calculates image sets and verifies all formulas in twelve complete finite configurations (including a degree-two extension field and mixed-characteristic examples). Limits: finite testing is not a substitute for the general argument.
+## correctness
 
-**Originality — PASS subject to historical-priority risk.** Oblak 2007 and Britnell–Wildon 2010 study existence of commuting nilpotent Jordan types, rather than the number of square-zero centralizer elements of each type. Bogdanić et al. 2022 give a complete list of *possible* Jordan forms for the same equal-block centralizer, not the uniform finite-field count. Ekhad–Zeilberger 1996 count upper-triangular square-zero matrices rather than square-zero matrices in the centralizer of two equal Jordan blocks. Available bibliographic and abstract evidence for Bollman–Ramírez 1969 and Brawley 1982 concerns nilpotent matrices or Drazin indices in finite rings, but the historical full texts were not both available in complete searchable form; possible implication from a stronger unpublished/exhaustive count remains a residual risk. published-finding corpus similarity searches and the accessible prior-item ledger did not return an implication covering the complete claim, and that failure of retrieval alone does not certify priority.
+PASS
 
-**Value — PASS.** The problem is intrinsic to the representation of \(\mathbb F_q[t]/(t^n)\) as a module with two equal indecomposable summands: the complete square-zero Jordan-type distribution measures how all index-two nilpotents meet the centralizer, sharpening qualitative orbit-existence results. Across *every* finite chain ring, the identical formula depends only on two numerical parameters despite different ramification; its exact equinumerosity of nonautomatic valuation layers and uniform maximal-image contribution are structural features, not isolated small-field data. The complete spectrum has a natural use as an exact counting benchmark for nilpotent commuting pairs and local-ring matrix identities.
+The low-valuation primitive square-zero matrices over R/(pi^e) form the GL2 conjugacy class of a single Jordan block, of size P_e=(q^2-1)q^(2e-2). For k<ceil(n/2), reduction modulo pi^(n-2k) and q^(4k) lifts yield constant (q^2-1)q^(2n-2) layer; determinant takes every permitted value with equal q^(3k) fiber and Smith forms yield the explicit image-length terms. High valuation cone pi^ceil(n/2) M2(R) is automatically square zero, its full rank-by-determinant valuation census gives final terms. Independent exhaustive matrices over Z/4, Z/8, Z/9 produced histograms (1,9,18), (1,9,30,72), (1,32,120) at image lengths 0..n, matching formulas. Corollary Cent(J_n⊕J_n)=M2(Fq[t]/t^n) correctly identifies Fq-linear square-zero Jordan type (2^r,1^(2n-2r)). Pure ring statement covers all commutative finite chain rings n>=2 incl mixed characteristic, not general local rings or larger matrices.
 
-**Remaining uncertainty.** An equivalent formula could be a specialization of older finite-ring matrix enumeration or a later unindexed Hall-polynomial calculation. Neither independent audit nor a comprehensive historical priority examination has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Oblak, Britnell–Wildon and Bogdanić et al. study nilpotent commuting-matrix compatible Jordan types, especially for centralizer of two equal blocks. Their prior results are qualitative existence / orbit types, not the exact multiplicity of each square-zero Fq-linear Jordan shape, nor universal finite chain ring image-length distribution. Older Bollman–Ramírez finite ring nilpotent counting and Brawley Drazin index enumeration remain plausible aliases but accessible evidence does not establish domination of this joint refined census.
+
+## value
+
+PASS
+
+Exact image-length distribution, valuation equidistribution, and q,n-universality across ramification are natural fine invariants of square-zero matrices. The commuting equal-block centralizer interpretation gives precise multiplicities in a classical classification problem, beyond mere existence of shapes; total and maximal-image counts are meaningful corollaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
