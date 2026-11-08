@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For smooth coefficient parameters \(a^2\ne4\), the genus calculation follows from degree-nine squarefreeness and Riemann--Hurwitz. A direct exact coefficient extraction for \(F_a^5\) produces the stated Cartier matrix, with two nonzero rank-one blocks for all \(a\). An independent polynomial multiplication verifies the universal identity \(MM^{(11)}=G T\), and the two rank-one blocks of \(T\) are everywhere nonzero. Hence stable Frobenius rank is zero exactly on \(G=0\), and two elsewhere; \(a\)-number is two everywhere. Squarefreeness of \(G\), its avoidance of \(\pm2\), and gcd checks against enhanced-group parameters are algebraic, not based on finite sampling. The published geometric automorphism and isomorphism theorem then yields seven exact-\(Q_8\) geometric classes and one enhanced class. Both new standalone scripts were executed successfully.
+
+## Originality — PASS, with residual historical-priority risk
+Primary full texts were compared, not just titles. The Ohashi--Kudo 2023 work develops superspecial enumeration for genus-four extra-involution curves. The Taniguchi--Ohashi--Takagi 2025 work treats precisely the normal-form family, supplies its general Cartier coefficients and complete automorphism/isomorphism groups, and enumerates curves with *vanishing Cartier matrix* (superspeciality). Its theorems do not state the stable Frobenius-rank stratification \(G=0\), the exact 45 rank-zero parameters, or the seven nonsuperspecial rank-zero exact-\(Q_8\) classes. Its general coefficient formula is not itself a statement that a nonzero Cartier matrix has semilinear square zero. Targeted literature, mathematical-record, and accessible historical-claim comparisons found no implication covering the combined result. The general normal form and quotient groups are expressly credited and not presented as new. Residual risk: an older p-rank paper under another parameterization could have established an equivalent count; independent priority certification remains unperformed.
+
+## Mathematical value — PASS
+The characteristic-eleven 45-point rank-zero locus is a natural arithmetic divisor in a well-studied one-dimensional quaternionic moduli family, and a semilinear rank transition not seen by superspecial enumeration. The complete classification of geometric isomorphism classes establishes seven exact-quaternion rank-zero cases in a characteristic with no superspecial quaternion curves. This is a meaningful parameter-space and moduli invariant rather than an isolated small example or a restatement of the known automorphism theorem.
+
+## Scope and remaining risks
+Only geometric \(11\)-rank and \(a\)-number are proved. Complete Newton polygons and additional p-torsion strata are not asserted. Exact p-rank-zero coefficients are all over an algebraic closure, not claimed rational over the prime field. An older unpublished or differently parametrized computation could affect historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
