@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is proved analytically using conditional independence of two exterior half-lines, an exact intervention at the intermediate site, the linear one-sided shielding ODE and a strictly convex auxiliary function. The proof gives every quantifier and the \(0<t\le1\), \(0<\alpha<1\) parameter boundary. The claim is independent of and stronger than the finite numerical tests.
+## correctness
 
-`checker.py` was replayed from the actual package directory with `python checker.py` and returned `PASS 8859 independent rational/numerical assertions`. It independently enumerates random-order attempts and independent colours using exact rational arithmetic on finite paths of length 5, 7 and 9, checks the second-neighbor joint probability and one-point density against the infinite formula, compares the one-point density with the publicly available 2023 result, and checks symbolic-identity-based closed forms and strict sign on a broad parameter grid. Errors on truncated paths are boundary effects and were not treated as exact equalities.
+PASS
 
-Limits: The checker explores finitely many paths and parameter points; the infinite proof uses the factorial decay of decreasing-time ancestor chains and a pointwise analytic positivity argument. Independent external mathematical review is not recorded.
+Conditioning on proposed A endpoint arrival times u,v, exterior one-sided shielding probabilities independently factor h_A(u)h_A(v). The intervening B proposal obstructs iff it arrives before min(u,v), so the exact central factor is 1-beta min(u,v). The Volterra shielding equations h_A'=-beta h_B,h_B'=-alpha h_A solve in cosh/sinh. For f(s)=h_A(s)²+beta s, f''(s)=2 beta² h_B²+2 alpha beta h_A²>0; endpoint bound f(1)<1 implies h_A(s)²<1-beta s. This makes the double-integral covariance density strictly positive. Decreasing-time nearest-neighbor ancestor chains have factorial tails, justifying infinite-volume limit. Independent numerical quadrature checked 9 parameter-time choices and the balanced closed form; finite tests do not prove infinite strict sign.
+
+## originality
+
+PASS
+
+Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.
+
+## value
+
+PASS
+
+The first nonconsecutive same-colour correlation is a natural measure of interaction between separate adsorbed clusters that one-site density and consecutive-run counts cannot give. Its universal strictly positive sign despite color antagonism is a nontrivial structural property across all biases and positive times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

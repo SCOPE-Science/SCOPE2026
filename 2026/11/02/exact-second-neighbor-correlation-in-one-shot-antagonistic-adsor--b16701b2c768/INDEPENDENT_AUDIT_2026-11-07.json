@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:54:55.304864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on proposed A endpoint arrival times u,v, exterior one-sided shielding probabilities independently factor h_A(u)h_A(v). The intervening B proposal obstructs iff it arrives before min(u,v), so the exact central factor is 1-beta min(u,v). The Volterra shielding equations h_A'=-beta h_B,h_B'=-alpha h_A solve in cosh/sinh. For f(s)=h_A(s)²+beta s, f''(s)=2 beta² h_B²+2 alpha beta h_A²>0; endpoint bound f(1)<1 implies h_A(s)²<1-beta s. This makes the double-integral covariance density strictly positive. Decreasing-time nearest-neighbor ancestor chains have factorial tails, justifying infinite-volume limit. Independent numerical quadrature checked 9 parameter-time choices and the balanced closed form; finite tests do not prove infinite strict sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 do Amaral--dos Santos source has one-colour nearest-neighbor exclusion (hard core), unlike two-colour antagonistic acceptance.",
+          "Martins--Dickman--Ziff 2022/23 treats repeated two-dimensional deposits/percolation, unlike one-shot one-dimensional process."
+        ],
+        "reasoning": "The related hard-core pair law cannot specialize to an A/B model that permits same-colour neighbors. Same-process one-site densities are insufficient to infer two-site joint law.",
+        "searches": [
+          "Resultary: AB one deposition per site antagonistic adsorption distance two two point covariance nearest neighbors do Amaral dos Santos",
+          "AB random sequential adsorption 1D two-point correlation 2023 do Amaral",
+          "arxiv:2210.05627 density correlation adsorption"
+        ]
+      },
+      "checked_sources": [
+        "Do Amaral--dos Santos arXiv:2306.09786 entire primary preprint",
+        "Do Amaral--dos Santos arXiv:2210.05627 model and correlation theorem",
+        "Martins--Dickman--Ziff arXiv:2211.04622 scope",
+        "Frozen RESULT.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model source provides alpha J_A(t) and Volterra shielding recursion but not central 1-beta min(u,v) correction.",
+          "Single-colour occupancy model prohibits same-colour adjacent occupancy, while AB allows it."
+        ],
+        "reasoning": "One-site density and contiguous monochromatic block counts cannot determine the pair separated by one site; conditioning on the intervening site's blocking time is a new necessary calculation. No inspected stronger theorem implies the universal strict sign.",
+        "searches": [
+          "Resultary: AB one deposition per site antagonistic adsorption distance two two point covariance nearest neighbors do Amaral dos Santos",
+          "arxiv:2306.09786 single-site density recursion AB RSA",
+          "arxiv:2210.05627 single colour nearest neighbour occupation correlation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Do Amaral--dos Santos arXiv:2306.09786v1 treats identical one-attempt AB model but solves one-site densities.",
+          "The A-X-A probability and nonconsecutive pair joint probability are related by subtracting an A-A-A cluster event, but neither is given by one-site density alone."
+        ],
+        "reasoning": "Gap-two same-type correlation, two-cluster gap and A-X-A frequency are equivalent diagnostics only after additional three-site conditioning, not directly stated prior one-point observables.",
+        "searches": [
+          "Resultary: AB one deposition per site antagonistic adsorption distance two two point covariance nearest neighbors do Amaral dos Santos",
+          "A empty A one-shot AB adsorption second-neighbor pair correlations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query nearest inspected indexed records concerned other random spatial processes; no formula involving 1-2t e^{-t}-e^{-2t} was identified.",
+          "No finite tabulated distance-two two-color pair table found in inspected primary sources."
+        ],
+        "reasoning": "The continuum t,alpha law is analytic, not a known enumerative table. Absence of matching database hit is not novelty proof.",
+        "searches": [
+          "Resultary: AB one deposition per site antagonistic adsorption distance two two point covariance nearest neighbors do Amaral dos Santos",
+          "distance two one-shot antagonistic AB RSA pair covariance exact formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.",
+      "residual_risks": [
+        "An unindexed same-model two-cluster or pair-correlation calculation could provide the formula under different terminology.",
+        "Only second neighbor has been classified; no general field association follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers single-site densities and shielding structure; not identified distance-two pair covariance",
+          "evidence": [
+            "One attempt per site with AB antagonism; derived observable is one-site accepted-colour density."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09786",
+          "material_read": "Complete accessible 12-page primary PDF, model, one-sided recursion, one-site density and conclusions",
+          "method": "arXiv PDF full text and page-image inspection",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Same exact stochastic process, direct potential coverage"
+        },
+        {
+          "assessment": "Different single-species hard-core constraint; correlation formulas do not transfer to AB permissive same-colour adjacencies",
+          "evidence": [
+            "In hard-core model any adjacent occupied sites forbidden; in antagonistic A/B model same colour adjacent sites allowed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.05627",
+          "material_read": "Public article model description and its correlation statements",
+          "method": "arXiv original full text review",
+          "title": "Density and correlation in a random sequential adsorption model",
+          "trigger": "Plausible more general correlation in nearest-neighbor deposition"
+        },
+        {
+          "assessment": "Two-dimensional repeated-proposal percolation, not exact one-shot line pair probability",
+          "evidence": [
+            "Repeated proposals and two-dimensional geometry change the probability space."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.04622",
+          "material_read": "Public title, abstract and model setting",
+          "method": "arXiv scope comparison",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Same two-colour blocking language but different dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nonconsecutive same-colour correlation is a natural measure of interaction between separate adsorbed clusters that one-site density and consecutive-run counts cannot give. Its universal strictly positive sign despite color antagonism is a nontrivial structural property across all biases and positive times.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Do Amaral--dos Santos arXiv:2306.09786 entire primary preprint",
+    "Do Amaral--dos Santos arXiv:2210.05627 model and correlation theorem",
+    "Martins--Dickman--Ziff arXiv:2211.04622 scope",
+    "Frozen RESULT.md and checker.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "On Z, one-attempt uniform-time two-colour adsorption with alpha∈(0,1), beta=1-alpha, t∈(0,1] has P(A_i=A_{i+2}=1)=alpha²(H_A(t)²-beta M_A(t)), Cov=alpha²(H_A²-beta M_A-J_A²)>0, with balanced closed form (1-2t e^-t-e^-2t)/4 and an A-empty-A frequency.",
+  "limitations": [
+    "One-dimensional nearest-neighbor, one-shot, t∈(0,1], 0<alpha<1; no arbitrary separation or positive association theorem.",
+    "No formal proof assistant or external expert audit asserted; unindexed pair-correlation priority remains."
+  ],
+  "residual_risks": [
+    "An unindexed same-model two-cluster or pair-correlation calculation could provide the formula under different terminology.",
+    "Only second neighbor has been classified; no general field association follows."
+  ],
+  "schema_version": 1
+}
