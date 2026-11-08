@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run the bundled `VERIFY.py` with Python 3 standard library: `python3 VERIFY.py`.
+## correctness
 
-The program uses exact rational arithmetic in \(\mathbb Q(\sqrt5)\) for the explicitly displayed two-patch witness. It independently evaluates the common-marginal, fixed-point, isolated-capacity and optimal rank-one identities. In 245 further randomly selected rational-parameter cases with two through eight patches, 65-decimal-digit arithmetic compares the symbolic envelope formula against a separate bisection-based marginal-allocation calculation at five population scales and tests convergence over 120 generations. Fixed deterministic seeds make the checks reproducible. Executing the file produced `PASS: 2701 independent exact/algebraic and high precision comparisons`.
+PASS
 
-For the infinite-parameter result, reproduction consists of checking the six analytic steps in `RESULT.md`: uniqueness of the strictly concave maximizer; monotonicity of its scalar envelope and strict decrease of the envelope/population ratio; the exact balancing identity at \(K_*\); induction controlling all adaptive paths; global convergence of the rank-one policy; and the marginal derivative and strong-concavity arguments. Numerical samples alone do not certify an infinite claim. No independent external audit has been performed.
+For all m≥2, r_i>1,c_i>0, the scalar envelope H(N)=max_{z_i≥0,sum z_i=N}sum r_i z_i/(1+c_i z_i) is strictly increasing, strictly concave along rays and H(N)/N strictly decreasing. With A=sum(r_i+1)/c_i, B=sum sqrt(r_i)/c_i, C=sum 1/c_i, q+1/q=A/B, the vector y_i*=(sqrt(r_i)/q−1)/c_i is positive and has equal marginal derivatives q²; direct algebra gives H(K*)=K*, K*=B/q−C. For every history-dependent column-stochastic redistribution N_(t+1)≤H(N_t), yielding limsup≤K*. Rank-one D=p1^T, p=y*/K*, achieves K* from any nonzero state. Strict concavity proves K* equals sum isolated K_i iff all r_i are equal and gives quadratic rigidity of the allocation when N_t→K*. Independently evaluated exact two-patch r=(4,9), c=(1,1): q=(3−sqrt5)/2, K*=(11+5sqrt5)/2>11, equal marginal derivatives and exact growth balance. All-patch assertion is under unrestricted conservative complete redistribution only.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for explicit unrestricted adaptive all-policy ceiling, stationary attainment in arbitrary finite m, heterogeneity equality characterization and limiting allocation rigidity. The perfect-mixing mechanism and qualitative benefits of asymmetric dispersal are prior work; the major 2026 general-patch paper is a priority risk.
+
+## value
+
+PASS
+
+An optimal-control-style extremal theorem for a natural heterogeneous patch ecology model, rather than just a sample equilibrium. The sharp all-policy bound and rigidity show what any dynamic dispersal strategy can or cannot improve; the exact K* and strict-gain condition are scientifically interpretable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

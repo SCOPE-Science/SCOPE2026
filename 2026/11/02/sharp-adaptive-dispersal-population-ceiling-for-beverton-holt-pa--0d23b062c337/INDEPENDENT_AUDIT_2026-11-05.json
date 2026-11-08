@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:42:01.858284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all m≥2, r_i>1,c_i>0, the scalar envelope H(N)=max_{z_i≥0,sum z_i=N}sum r_i z_i/(1+c_i z_i) is strictly increasing, strictly concave along rays and H(N)/N strictly decreasing. With A=sum(r_i+1)/c_i, B=sum sqrt(r_i)/c_i, C=sum 1/c_i, q+1/q=A/B, the vector y_i*=(sqrt(r_i)/q−1)/c_i is positive and has equal marginal derivatives q²; direct algebra gives H(K*)=K*, K*=B/q−C. For every history-dependent column-stochastic redistribution N_(t+1)≤H(N_t), yielding limsup≤K*. Rank-one D=p1^T, p=y*/K*, achieves K* from any nonzero state. Strict concavity proves K* equals sum isolated K_i iff all r_i are equal and gives quadratic rigidity of the allocation when N_t→K*. Independently evaluated exact two-patch r=(4,9), c=(1,1): q=(3−sqrt5)/2, K*=(11+5sqrt5)/2>11, equal marginal derivatives and exact growth balance. All-patch assertion is under unrestricted conservative complete redistribution only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 full article studies two-patch constant symmetric dispersal in discrete/continuous time, and identifies gains under dispersal.",
+          "The 2026 paper proves global stability for constant migration and analyses fast-dispersal reduced models."
+        ],
+        "reasoning": "All-policy envelope inequality N_(t+1)≤H(N_t) is a stronger quantification over controls, not an immediate corollary of equilibrium stability for a fixed matrix; exact K* handles all patch counts.",
+        "searches": [
+          "Beverton Holt patch population optimum adaptive dispersal conserved column stochastic migration",
+          "Grumbach Reurik Segura Franco Hilker Journal of Mathematical Biology 2023 87 60",
+          "Bravo de la Parra 2026 general asymmetric dispersal all patches"
+        ]
+      },
+      "checked_sources": [
+        "Bravo de la Parra Mathematics 14(19) 3624 2026 abstract and conclusions",
+        "Grumbach et al Journal of Mathematical Biology 87 60 2023 OA text",
+        "Resultary query Beverton Holt patch population optimum adaptive dispersal conserved column stochastic migration",
+        "assigned RESULT.md SHA 26cf3d9bdccdd0a20d3a6ee8563868b29293d4cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact KKT solution equalizes f_i prime(y_i*)=q², and the iteration comparison N_(t+1)≤H(N_t) proves every adaptive policy is bounded.",
+          "Bravo de la Parra discusses fixed asymmetric matrices and an explicit two-patch gain criterion."
+        ],
+        "reasoning": "The known perfect-mixing equilibrium is an antecedent; the proof must additionally optimize allocations at each total and compare all time-varying trajectories. This implication does not follow from a fixed-policy equilibrium theorem alone.",
+        "searches": [
+          "Beverton Holt patch population optimum adaptive dispersal conserved column stochastic migration",
+          "Grumbach et al 2023 Section 3 discrete Beverton Holt two patches",
+          "Bravo de la Parra 2026 §6 Conclusions and perfect mixing",
+          "variational envelope KKT Beverton Holt resource allocation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bravo de la Parra studies a general constant dispersal model with unique positive equilibrium and perfect-mixing limit; the conclusions emphasize an explicit TWO-patch BH criterion for constant asymmetric migration.",
+          "The assigned claim optimizes over every time-varying, history-dependent column-stochastic matrix, with an exact all-m bound attained by one rank-one constant matrix."
+        ],
+        "reasoning": "The paper shares the species/model setting but its fixed-migration equilibrium claims do not directly imply that no adaptive sequence can exceed the sharp scalar envelope. Exact higher-dimensional optimization may be hidden in broader statements; comparison remains qualified.",
+        "searches": [
+          "Beverton Holt patch population optimum adaptive dispersal conserved column stochastic migration",
+          "Bravo de la Parra 2026 Dispersal and Total Population Size in Discrete-Time Metapopulation Models",
+          "Beverton Holt perfect mixing optimal population size adaptive policy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned heterogeneous population equations and persistence results but no indexed exact K*=B/q−C all-policy optimum.",
+          "Earlier two-patch tables/phase regions reflect fixed dispersal and do not solve all-m adaptive optimization."
+        ],
+        "reasoning": "No checked database/table supplies the claimed universal control bound. This does not establish historical novelty; all-patch optimization literature remains a risk.",
+        "searches": [
+          "Beverton Holt patch population optimum adaptive dispersal conserved column stochastic migration",
+          "Resultary semantic search Beverton Holt patch population optimum adaptive dispersal conserved column stochastic migration",
+          "Beverton Holt all patches total population optimal ceiling rank one exact formula",
+          "Bravo de la Parra 2026 two-patch explicit thresholds"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for explicit unrestricted adaptive all-policy ceiling, stationary attainment in arbitrary finite m, heterogeneity equality characterization and limiting allocation rigidity. The perfect-mixing mechanism and qualitative benefits of asymmetric dispersal are prior work; the major 2026 general-patch paper is a priority risk.",
+      "residual_risks": [
+        "The full 2026 Bravo de la Parra article could include an unexamined mathematically equivalent all-policy envelope statement; publisher 429 limited direct reading.",
+        "The control admissibility allows arbitrary full redistribution without migration network/cost; stronger physically constrained claims do not follow."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps heavily in ecology, constant migration, and perfect mixing; no inspected all-policy adaptive pathwise sharp closed-form K* theorem.",
+          "evidence": "Published 2026-10-07, Mathematics 14(19), 3624; conclusion states fixed-migration and two-patch BH criteria.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/14/19/3624",
+          "material_read": "Read publisher full indexing of abstract and Section 6 Conclusions (explicit two-patch Beverton–Holt thresholds, perfect mixing, constant dispersal), and accessible indexed internal statements. Direct full HTML was rate limited; full-body noncoverage is NOT asserted.",
+          "method": "Publisher article indexed text; direct open returned HTTP 429",
+          "title": "Dispersal and Total Population Size in Discrete-Time Metapopulation Models",
+          "trigger": "closest same-patch type general constant-asymmetric source"
+        },
+        {
+          "assessment": "Known migration-induced gain is prior work, but this two-patch model does not state all-m adaptive global optimization.",
+          "evidence": "Journal of Mathematical Biology 87, 60 (2023), two-patch symmetric dispersal.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10514157/",
+          "material_read": "Examined accessible full indexed primary exposition of two-patch constant symmetric migration and population-size comparisons; fresh live PMC view gave a browser challenge, so no additional page-by-page comparison was possible.",
+          "method": "Open-access PMC indexed primary material",
+          "title": "The effect of dispersal on asymptotic total population size in discrete- and continuous-time two-patch models",
+          "trigger": "same BH patch system and growth advantage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An optimal-control-style extremal theorem for a natural heterogeneous patch ecology model, rather than just a sample equilibrium. The sharp all-policy bound and rigidity show what any dynamic dispersal strategy can or cannot improve; the exact K* and strict-gain condition are scientifically interpretable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent numerical check is a 2-patch corroboration; unrestricted m follows from concavity and envelope reasoning.",
+    "Primary 2026 overlap risk is explicitly retained; no full-body NOT_COVERING claim."
+  ],
+  "schema_version": 1
+}

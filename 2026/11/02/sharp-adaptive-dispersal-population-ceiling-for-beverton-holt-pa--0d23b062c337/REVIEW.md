@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analytic proof constructs the scalar concave optimal-reproduction envelope, proves its unique positive fixed point, calculates that fixed point from the common marginal derivative, dominates every possible time-varying conservative migration by its monotone iteration, and gives a fixed rank-one migration attaining it globally. Strict improvement over isolated equilibrium follows by comparing marginal derivatives; allocation rigidity follows from a uniform strong-concavity inequality. Every parameter and time quantifier is explicit, including arbitrary pathwise adaptive matrices. The bundled verifier checks the symbolic and arithmetic identities but is not misrepresented as proof of the quantified all-patch claim.
+PASS
 
-## Originality — PASS (qualified)
+For all m≥2, r_i>1,c_i>0, the scalar envelope H(N)=max_{z_i≥0,sum z_i=N}sum r_i z_i/(1+c_i z_i) is strictly increasing, strictly concave along rays and H(N)/N strictly decreasing. With A=sum(r_i+1)/c_i, B=sum sqrt(r_i)/c_i, C=sum 1/c_i, q+1/q=A/B, the vector y_i*=(sqrt(r_i)/q−1)/c_i is positive and has equal marginal derivatives q²; direct algebra gives H(K*)=K*, K*=B/q−C. For every history-dependent column-stochastic redistribution N_(t+1)≤H(N_t), yielding limsup≤K*. Rank-one D=p1^T, p=y*/K*, achieves K* from any nonzero state. Strict concavity proves K* equals sum isolated K_i iff all r_i are equal and gives quadratic rigidity of the allocation when N_t→K*. Independently evaluated exact two-patch r=(4,9), c=(1,1): q=(3−sqrt5)/2, K*=(11+5sqrt5)/2>11, equal marginal derivatives and exact growth balance. All-patch assertion is under unrestricted conservative complete redistribution only.
 
-The 2023 two-patch paper classifies symmetric fixed-dispersal responses, not an unrestricted optimizer for arbitrary numbers of patches and all history-dependent controls. The more directly related 2026 asymmetric multi-patch study treats constant dispersal and explicit two-patch enhancement conditions, already describing special rank-one redistribution; those constituent facts are excluded from the novelty claim. The supplied theorem proves the uniform pathwise ceiling against *all* adaptive policies, gives a closed-form all-patch optimizer and a quantitative necessity result. Semantic literature and prior-claim searches did not surface an implication that dominates this complete conjunction. The specialist 2026 source was available as extensive indexed sections but not a fully navigable article; a hidden stronger theorem in that text is the main residual priority risk. General concave resource-allocation principles are classical and are not claimed as novel in themselves.
+## originality
 
-## Value — PASS
+PASS
 
-The environmental-management question is whether adaptive intervention can sustain more total population than a fixed transport strategy. This theorem resolves it exactly within a natural unrestricted benchmark, giving a sharp achievable population ceiling, a surprisingly simple fixed optimal intervention, a strict-gain criterion and stability of near-optimal spatial allocations. The result goes beyond rephrasing a two-patch threshold or an isolated numerical example; its mathematical object and bounds remain meaningful at every finite number of patches.
+Best-of-knowledge PASS for explicit unrestricted adaptive all-policy ceiling, stationary attainment in arbitrary finite m, heterogeneity equality characterization and limiting allocation rigidity. The perfect-mixing mechanism and qualitative benefits of asymmetric dispersal are prior work; the major 2026 general-patch paper is a priority risk.
 
-## Scope and source limitations
+## value
 
-Results are for conservative, unconstrained dispersal and Beverton–Holt reproduction with strictly positive self-growth and competition parameters. They do not imply equal attainable limits under prescribed spatial corridors, dispersal costs, stochastic agent dynamics or time-varying demographic rates. The 2026 close article's full text was unavailable through the normal access route, but indexed sections materially cover its methods and results. Independent review of priority, including any alternative resource-allocation formulation, remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An optimal-control-style extremal theorem for a natural heterogeneous patch ecology model, rather than just a sample equilibrium. The sharp all-policy bound and rigidity show what any dynamic dispersal strategy can or cannot improve; the exact K* and strict-gain condition are scientifically interpretable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
