@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:53:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact same-model characteristic transform of Boyer–Majumdar is an explicit prior input. For z near 0, its slow Kummer branch has exponent a_-(z)=λ_-(z)/(r+λ_-(z)) and analytic amplitude c_- (r+λ_-)^{-a_-}/Γ(1-a_-). The second branch has a strictly greater positive real decay exponent near 0, so locally uniform Kummer asymptotics permit four derivatives by Cauchy formula. Writing x=(vz/γ)², expand -a_-(z)=x/(2p)+(2-p)x²/(8p²)+…, and the analytic log-amplitude to x². The fourth derivative yields coefficient 3(2-p)L/p² and constant (15p²−12γ_E p−24−2π²+24γ_E)/(4p²) in v⁴/γ⁴ units. At p=2 this is (18−π²)/8>0; variance is v²/γ²[(L+γ_E)/p−1/2]+o(1), giving the claimed normalized 1/log² law. Independent SymPy expansion checked the fourth coefficient and the residual. No finite-time sign statement or uniform p→2 joint limit is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boci–Mailler covers quenched large deviations at logarithmic scale but not the order-one fourth cumulant when the leading log term cancels.",
+          "Boyer–Evans–Majumdar studies Brownian preferential memory resetting, not paired telegraph velocity."
+        ],
+        "reasoning": "An LDP or Brownian variance theorem does not entail the positive critical fourth-cumulant constant; an undiscovered uniform mod-Gaussian theorem might.",
+        "searches": [
+          "Resultary: preferential resetting telegraph active particle memory fourth cumulant kurtosis critical resetting rate",
+          "Boci–Mailler arXiv:2105.02633 Theorem 1.4",
+          "Boyer–Evans–Majumdar arXiv:1611.06743"
+        ]
+      },
+      "checked_sources": [
+        "Git snapshot RESULT.md blob b3319b72d53b9ac48e8e09cf07bfaae7475fbed3 and CHECK.py",
+        "Boyer–Majumdar arXiv:2312.13439v1 exact Fourier/Kummer formula and complete HTML",
+        "Boyer–Evans–Majumdar arXiv:1611.06743",
+        "Boci–Mailler arXiv:2105.02633",
+        "Resultary Resultary: preferential resetting telegraph active particle memory fourth cumulant kurtosis critical resetting rate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Fourier transform implies κ4 algorithmically by taking four derivatives; the limiting constant is hidden in the nonleading Kummer amplitude.",
+          "At p=2 the fourth coefficient of the extensive log-time exponent is zero, so the source leading LDP cannot yield the surviving constant."
+        ],
+        "reasoning": "The stronger exact representation implies computability but does not directly state or evaluate this asymptotic. The extra uniform analytic expansion and finite-part extraction are the contribution; claiming a new exact distribution would be covered.",
+        "searches": [
+          "Boyer–Majumdar arXiv:2312.13439v1 equations (9)–(12) and appendix",
+          "Resultary: preferential resetting telegraph active particle memory fourth cumulant kurtosis critical resetting rate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full exact Kummer characteristic formula in Boyer–Majumdar mathematically determines all moments, and the current calculation begins from it.",
+          "Inspected source states variance and LDP but not κ4 finite limit (18−π²)/8 at p=2."
+        ],
+        "reasoning": "Equivalent Fourier/Kummer descriptions are a stronger implicit representation, credited. The evaluated singular cumulant and log-squared standardized rate are not a quoted theorem from that source; real logical dependence and priority risk remain.",
+        "searches": [
+          "Resultary: preferential resetting telegraph active particle memory fourth cumulant kurtosis critical resetting rate",
+          "Boyer–Majumdar arXiv:2312.13439v1 equations (9)–(14), (78)–(81)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated fourth-moment and resetting investigations, not this telegraph cumulant threshold.",
+          "The same-model paper’s displayed formula is not an evaluated κ4 table."
+        ],
+        "reasoning": "No exact public tabulation of the fourth-cumulant phase transition found; searches cannot prove global priority.",
+        "searches": [
+          "Resultary: preferential resetting telegraph active particle memory fourth cumulant kurtosis critical resetting rate",
+          "critical kurtosis active telegraph resetting memory r=2 gamma 18 pi squared"
+        ]
+      },
+      "rationale": "The 2023/24 Boyer–Majumdar primary paper gives the full exact characteristic function and hence implicitly determines every finite-time cumulant; this strong dependence is explicitly credited. Its inspected main results and appendix state variance and logarithmic large-deviation scaling, but not the evaluated fourth-order critical constant. Computing a finite residue after a leading exponent cancellation needs a fourth-order expansion of an analytic prefactor. Broader generic mod-Gaussian/cumulant theory could subsume it. Qualified best-of-knowledge PASS, not claim that the original transform itself is new.",
+      "residual_risks": [
+        "Strong implicit prior coverage: original same-model exact characteristic function can be differentiated to recover every cumulant. The evaluated critical limit is novel only insofar as this nontrivial asymptotic evaluation was absent.",
+        "A broad mod-Gaussian/Kummer asymptotics theorem or supplementary calculation could contain the constant or immediately imply it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_MODEL_INPUT_KNOWN_REFINEMENT_UNSTATED",
+          "evidence": "Exact Kummer transform is previous work; no evaluated p=2 fourth-cumulant finite residue appeared in inspected results.",
+          "identifier_or_url": "https://arxiv.org/html/2312.13439v1",
+          "material_read": "Full accessible HTML mathematics: model, Sections II–IV, characteristic transform equations 9–14, large-time variance, large-deviation analysis and appendix; searched for explicit fourth cumulant/kurtosis",
+          "method": "Primary full-text reading and exact equation comparison",
+          "title": "An active particle in one dimension subjected to resetting with memory",
+          "trigger": "Exact same process and stronger known characteristic function"
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICS",
+          "evidence": "Brownian diffusion without telegraph velocity does not provide the paired-memory telegraph κ4 constant.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.06743",
+          "material_read": "Accessible abstract and relevant Brownian diffusion setup/results",
+          "method": "Primary preprint relevant scope reading",
+          "title": "Long time scaling behaviour for diffusion with resetting and memory",
+          "trigger": "Preferential memory-reset universality"
+        },
+        {
+          "assessment": "LDP_INSUFFICIENT_FOR_ORDER_ONE_CUMULANT",
+          "evidence": "Logarithmic rate asymptotics do not evaluate the nonleading fourth cumulant residue at a cancellation point.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.02633",
+          "material_read": "Accessible theorem 1.4 and associated scaling hypotheses",
+          "method": "Primary preprint theorem comparison",
+          "title": "Large deviations principle for a stochastic process with random reinforced relocations",
+          "trigger": "Possible broad coverage by LDP"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cancellation of the logarithmic fourth-cumulant growth at an identifiable physical reset/flip rate gives a distinct and measurable log-squared Gaussianization speed and a positive finite part. The prefactor calculation is a motivated finer asymptotic, not a simple restatement of a variance or LDP theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git snapshot RESULT.md blob b3319b72d53b9ac48e8e09cf07bfaae7475fbed3 and CHECK.py",
+    "Boyer–Majumdar arXiv:2312.13439v1 exact Fourier/Kummer formula and complete HTML",
+    "Boyer–Evans–Majumdar arXiv:1611.06743",
+    "Boci–Mailler arXiv:2105.02633",
+    "Resultary Resultary: preferential resetting telegraph active particle memory fourth cumulant kurtosis critical resetting rate"
+  ],
+  "disposition": "passed",
+  "final_claim": "For symmetrically initialized telegraph motion that uniformly resets both position and velocity to a previously visited state, the leading fourth cumulant changes sign at p=r/γ=2. At p=2, its log-time term vanishes and the unscaled fourth cumulant converges to v⁴(18−π²)/(8γ⁴), with standardized excess kurtosis asymptotic to (18−π²)/(2log²(rt)).",
+  "limitations": [
+    "Requires symmetric initial velocity, uniform historical resetting of both position and velocity, positive fixed v,r,γ.",
+    "Only long-time fixed-parameter κ4 and variance, not all-order Gaussian rates, finite-time sign changes, or a uniform near-critical window."
+  ],
+  "residual_risks": [
+    "Strong implicit prior coverage: original same-model exact characteristic function can be differentiated to recover every cumulant. The evaluated critical limit is novel only insofar as this nontrivial asymptotic evaluation was absent.",
+    "A broad mod-Gaussian/Kummer asymptotics theorem or supplementary calculation could contain the constant or immediately imply it."
+  ],
+  "schema_version": 1
+}

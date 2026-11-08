@@ -1,15 +1,21 @@
-# Scientific review: critical fourth-cumulant cancellation
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns a symmetrically initialized one-dimensional telegraph process with uniform historical resetting of both position and velocity. The exact characteristic function of Boyer–Majumdar (arXiv:2312.13439, equations (9)–(12)) is an established input. The slowly decaying Kummer branch has an analytic prefactor; the fast branch is suppressed by a strictly positive power of time near zero Fourier parameter. The local analytic expansion therefore controls derivatives through fourth order. Direct expansion yields a leading fourth-cumulant coefficient \(3(2-p)/p^2\) multiplying \(\log(rt)\), and at \(p=2\) gives the positive constant \((18-\pi^2)/8\) after scaling by \(v^4/\gamma^4\). The full Taylor coefficients and an independent finite-time moment hierarchy are checked by `CHECK.py`. Numerical verification is finite and does not prove asymptotics by itself; the proof relies on uniform Kummer asymptotics plus analytic coefficient extraction.
+## correctness
 
-## Originality — PASS, subject to residual risk
-Primary source arXiv:2312.13439 supplies the complete exact Fourier transform and a logarithmic large-deviation principle; its variance expansion and the full characteristic law are not new and could in principle be differentiated. The separately assessed refinement is the precise nontrivial fourth-cumulant cancellation and its **order-one** residual constant at \(r/\gamma=2\), which the source's leading large-deviation exponent and its displayed second-moment calculation do not resolve. Review of the source's introduction, Fourier-transform derivation, variance section, large-deviation discussion and appendix found no stated fourth-cumulant critical classification. Boci–Mailler arXiv:2105.02633 concerns general quenched large deviations, not the needed order-one annealed cumulant at a degenerate rate. Boyer–Evans–Majumdar arXiv:1611.06743 covers Brownian memory resetting and logarithmic variances, not this velocity-pair telegraph threshold. Semantic published-finding corpus queries for source/title, quartic cumulant and critical rate found no matching evaluated result; titles or absent hits do not prove priority. Residual risk: the closed-form generating function already implicitly contains this asymptotic, and broader mod-Gaussian or special-function results may cover it; final independent priority review remains needed.
+PASS
 
-## Mathematical value — PASS
-The threshold distinguishes two signs of the leading non-Gaussian fourth-cumulant correction in a physically motivated persistent active process with memory. Precisely at the boundary, the first asymptotic correction vanishes but a nonzero positive cumulant survives; its normalized decay is one logarithmic power faster, a quantitatively distinct Gaussianization regime not settled by the previously available variance or large-deviation leading rate. The finite constant separates genuine cancellation from an identically Gaussian fourth-order law. The scope is a single natural model and its fourth cumulant; no broader theorem or all-time sign classification is asserted.
+The exact same-model characteristic transform of Boyer–Majumdar is an explicit prior input. For z near 0, its slow Kummer branch has exponent a_-(z)=λ_-(z)/(r+λ_-(z)) and analytic amplitude c_- (r+λ_-)^{-a_-}/Γ(1-a_-). The second branch has a strictly greater positive real decay exponent near 0, so locally uniform Kummer asymptotics permit four derivatives by Cauchy formula. Writing x=(vz/γ)², expand -a_-(z)=x/(2p)+(2-p)x²/(8p²)+…, and the analytic log-amplitude to x². The fourth derivative yields coefficient 3(2-p)L/p² and constant (15p²−12γ_E p−24−2π²+24γ_E)/(4p²) in v⁴/γ⁴ units. At p=2 this is (18−π²)/8>0; variance is v²/γ²[(L+γ_E)/p−1/2]+o(1), giving the claimed normalized 1/log² law. Independent SymPy expansion checked the fourth coefficient and the residual. No finite-time sign statement or uniform p→2 joint limit is proved.
 
-## Closest literature and limitations
-Boyer–Majumdar arXiv:2312.13439 is the closest, same mathematical model exact characteristic-function result; it is cited prominently and its stronger all-time transform is explicitly acknowledged. Boyer–Evans–Majumdar arXiv:1611.06743 and Boci–Mailler arXiv:2105.02633 provide broader memory-relocation context. The theorem is for fixed strictly positive parameters, asymptotically large times, uniform past-time choice, reset of both coordinates of the active state, and symmetric velocity. A uniform crossover scaling in the critical window, multiple-time claims, operational error bounds and broader reset protocols remain unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023/24 Boyer–Majumdar primary paper gives the full exact characteristic function and hence implicitly determines every finite-time cumulant; this strong dependence is explicitly credited. Its inspected main results and appendix state variance and logarithmic large-deviation scaling, but not the evaluated fourth-order critical constant. Computing a finite residue after a leading exponent cancellation needs a fourth-order expansion of an analytic prefactor. Broader generic mod-Gaussian/cumulant theory could subsume it. Qualified best-of-knowledge PASS, not claim that the original transform itself is new.
+
+## value
+
+PASS
+
+The exact cancellation of the logarithmic fourth-cumulant growth at an identifiable physical reset/flip rate gives a distinct and measurable log-squared Gaussianization speed and a positive finite part. The prefactor calculation is a motivated finer asymptotic, not a simple restatement of a variance or LDP theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
