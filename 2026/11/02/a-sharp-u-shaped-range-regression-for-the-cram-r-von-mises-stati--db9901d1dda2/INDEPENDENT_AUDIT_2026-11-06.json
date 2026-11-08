@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:15:39.020380Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid uniform[0,1] sample of n>=2, W=n∫(F_n-t)^2 dt = n/3+Σ U_i^2-(1/n)Σ_{i,j}max(U_i,U_j), with normalized classical one-sample CvM. Conditional on extrema (A=a,B=a+r), n-2 unordered interiors are iid uniform(a,a+r); direct pair-category counting gives E[W|A=a,R=r]=n[a²+a(r-1)+(1-r)²/3]+r²/3-r/6. A|R=r is uniform(0,1-r), giving E[W|R=r]=[n(1-r)²+2r²-r]/6. Second derivative (n+2)/3>0 and derivative zero at (2n+1)/[2(n+2)], interior crossing r=(n-1)/(n+2). R~Beta(n-1,2), and independent Sympy moment algebra reconfirmed EW=1/6 and Cov(R,W)=-(n-1)/[(n+1)(n+2)(n+3)]. The variance decomposition from centered empirical bridges yields Var W=(4n-3)/(180n), Var R=2(n-1)/[(n+1)^2(n+2)], hence exact Pearson correlation and -sqrt(45/2)/n rate. The source exact Dirichlet moment checker n=2..7 is corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper derives marginal statistic distribution approximations; the inspected formulations do not condition on the sample range.",
+          "Goodness-of-fit calibration for estimated extreme-value distribution parameters, not joint uniform sample range/CvM regression."
+        ],
+        "reasoning": "Csörgő/Faraway 1996 compute marginal exact/asymptotic distributions of classical CvM and Watson variants; their main results are in the W coordinate alone. Laio 2004 treats goodness-of-fit with fitted parameters and EDF tests. Neither inspected work supplies all-r conditional range regression or its joint covariance law.",
+        "searches": [
+          "Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "doi:10.1111/j.2517-6161.1996.tb02077.x",
+          "doi:10.1029/2004WR003204",
+          "doi:10.1002/cjs.11224",
+          "Resultary semantic search Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "broader general sources versus special-case implication"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1111/j.2517-6161.1996.tb02077.x",
+        "doi:10.1029/2004WR003204",
+        "doi:10.1002/cjs.11224",
+        "Resultary semantic search Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper derives marginal statistic distribution approximations; the inspected formulations do not condition on the sample range.",
+          "Goodness-of-fit calibration for estimated extreme-value distribution parameters, not joint uniform sample range/CvM regression."
+        ],
+        "reasoning": "Even a full exact marginal distribution of W and the beta law of R do not determine joint dependence. The new conditional-extrema calculation is needed for the U shape and negative covariance. Therefore the earlier marginal result does not imply the claim.",
+        "searches": [
+          "Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "doi:10.1111/j.2517-6161.1996.tb02077.x",
+          "doi:10.1029/2004WR003204",
+          "doi:10.1002/cjs.11224",
+          "Resultary semantic search Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "compare claim hypothesis and conclusion against prior theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary related hits: sample range–variance for exponential samples, discrete range correlation (not CvM uniform-range conditional mean).",
+          "The paper derives marginal statistic distribution approximations; the inspected formulations do not condition on the sample range."
+        ],
+        "reasoning": "The regression can equivalently be expressed in joint order-statistic moments of range and the CvM quadratic EDF functional. Classical marginal CvM representations and beta range law alone do not identify the conditional quadratic; direct conditioning and pair maxima are needed.",
+        "searches": [
+          "Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "doi:10.1111/j.2517-6161.1996.tb02077.x",
+          "doi:10.1029/2004WR003204",
+          "doi:10.1002/cjs.11224",
+          "Resultary semantic search Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "equivalence/duality of theorem parameters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related hits: sample range–variance for exponential samples, discrete range correlation (not CvM uniform-range conditional mean).",
+          "Actual Git source RESULT.md theorem and verification boundary inspected."
+        ],
+        "reasoning": "Not a database or finite tabulation question: the polynomial gives every n>=2 and real 0<r<1. The inspected historical small-n exact distribution algorithms do not provide a conditional expectation across the continuum of ranges.",
+        "searches": [
+          "Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "doi:10.1111/j.2517-6161.1996.tb02077.x",
+          "doi:10.1029/2004WR003204",
+          "doi:10.1002/cjs.11224",
+          "Resultary semantic search Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance",
+          "table/database equivalent exact invariant"
+        ]
+      },
+      "rationale": "The normalized classical CvM statistic, marginal distribution, order-statistic representation, and uniform range beta law are prior art. The conditional mean as an explicitly U-shaped quadratic jointly with its exact negative mixed covariance and Pearson correlation was not shown in the inspected marginal-distribution and fitted-parameter testing papers. Historical order-statistics literature may already contain an equivalent conditional moment.",
+      "residual_risks": [
+        "Equivalent formulas may be buried in older nonindexed exact order-statistics/mixed-moment work.",
+        "Only fully specified uniform null and conditional MEAN, not full conditional distribution, fitted-null or Watson statistic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_LAWS_NOT_RANGE_REGRESSION",
+          "evidence": "The paper derives marginal statistic distribution approximations; the inspected formulations do not condition on the sample range.",
+          "identifier_or_url": "doi:10.1111/j.2517-6161.1996.tb02077.x; https://people.bath.ac.uk/jjf23/papers/cramer.pdf",
+          "material_read": "Authorized author-hosted full PDF accessible; abstract, Sections 1–3 on marginal distribution of CvM/Watson and exact small-sample approximations reviewed",
+          "method": "Lawful author-hosted primary PDF plus first-page screenshot",
+          "title": "The Exact and Asymptotic Distributions of Cramér–Von Mises Statistics",
+          "trigger": "Potential encompassing classical exact-distribution result"
+        },
+        {
+          "assessment": "DIFFERENT_FITTED_GOODNESS_OF_FIT",
+          "evidence": "Goodness-of-fit calibration for estimated extreme-value distribution parameters, not joint uniform sample range/CvM regression.",
+          "identifier_or_url": "doi:10.1029/2004WR003204",
+          "material_read": "Public full-text discussion of test statistics, fitted parameter versions and results in Sections 2–4",
+          "method": "accessible journal text/sections",
+          "title": "Cramer-von Mises and Anderson-Darling goodness of fit tests for extreme value distributions with unknown parameters",
+          "trigger": "Potential EDF test conditioning literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Range and CvM measure complementary extremes of spread and goodness-of-fit. A strictly U-shaped conditional expectation coexisting with negative covariance is an interpretable finite-sample dependence phenomenon; its exact turning point, sign crossing and vanishing correlation have statistical relevance without requiring a new test or general theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1111/j.2517-6161.1996.tb02077.x",
+    "doi:10.1029/2004WR003204",
+    "doi:10.1002/cjs.11224",
+    "Resultary semantic search Cramér von Mises statistic conditional expectation given sample range uniform U shaped regression covariance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent formulas may be buried in older nonindexed exact order-statistics/mixed-moment work.",
+    "Only fully specified uniform null and conditional MEAN, not full conditional distribution, fitted-null or Watson statistic.",
+    "Frozen Git tree aacc3e5a260101794ad211aab92dc9cd48b77c1a matched fetched tree; RESULT.md and checked verifier inspected at commit cee6a8611931dc24cf27d27764642f895841c83e. No GitHub writes or external attestation."
+  ],
+  "schema_version": 1
+}
