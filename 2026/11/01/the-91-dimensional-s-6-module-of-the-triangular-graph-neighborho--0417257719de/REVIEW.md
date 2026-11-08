@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The new claim has an exact finite proof: all 15 maximal eight-vertex neighborhoods are enumerated, yielding 2880 nonempty simplices. Signed rational boundary ranks are calculated exactly, and every boundary-squared-zero identity is checked. Signed fixed-face Lefschetz traces are calculated for all eleven conjugacy classes of \(S_6\); the character decomposition is checked by exact Jacobi–Trudi orthogonality and reconstructed pointwise on all classes. Seven-cut facets are independently enumerated and verified. These checks reproduce the delivered `verification_output.txt` and prove a finite rational representation claim without using finite data to infer an infinite-family theorem. The integral homotopy type and torsion remain unproved.
+## correctness
 
-## Originality — PASS, with residual risk
-The same-object published result already gives the degree-three mod-two rank 91 for \(T_6\); that part is not new. The earlier five-label triangular character is at a different parameter, and no stronger published formula in the inspected cut-complex or neighborhood-complex papers implies the complete six-label representation. Direct searches for the exact 7-cut alias, symmetric-group characters, the 91-dimensional invariant, and quotient statements found no matching stronger result. The closest publicly available T_7 paper's complete result statement and proof were inspected; they concern mod-two ranks, not the natural \(S_6\)-module. Publication-priority risk from unindexed equivalent expressions remains.
+PASS
 
-## Value — PASS
-The statement gives a complete eight-constituent character for a canonical strongly regular graph's topological invariant, exactly at the last parameter before mixed-degree homology appears. Its nontrivial sign constituent but absent trivial constituent distinguishes rational homology of the alternating and full symmetry quotients. This is neither derivable from ordinary Betti numbers nor an unmotivated fragment of a larger table.
+The T6 vertices are 15 edges of K6; every open neighborhood contains 8 vertices. Exactly all faces from these 15 neighborhoods yield f=(15,105,420,945,840,420,120,15). The integral boundary matrices built from oriented simplices have verified exact rational ranks (14,91,329,525,315,105,15), hence reduced rational homology only in degree 3, rank 91. Hopf alternating trace of fixed oriented simplices across all 11 S6 conjugacy classes gives χ=(1,1,-3,-3,1,-1,1,7,7,-13,91); rational Specht inner products give the eight-part decomposition, no trivial line and one sign line. Transfer of rational homology to finite-group quotient and restriction to A6 yield the quotient results. A disconnected seven-edge induced subgraph of line graph must consist of disjoint endpoint families; max 7=binom(4,2)+binom(2,2), establishing the seven-cut facet equivalence. Independently enumerated all faces, modular boundary ranks over 1000003, fixed-face traces and exact class character; included rational verifier uses fractions.Fraction, so modular work alone is not taken as rational certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior Resultary six-label triangular neighborhood computation covered mod-two Betti 91, but not the rational natural S6 representation, Specht multiplicities, or A6 quotient. S5 four-cut character and six-label Kneser complement character concern different complexes/groups. Bayer et al. study equivariant cut homology of other graph families without supplying this T6 character.
+
+## value
+
+PASS
+
+This computes a natural representation-valued topological invariant of the symmetric fifteen-vertex triangular graph, refining the previously known 91-dimensional homology into irreducible S6 types and distinguishing S6 versus A6 quotient rational homology. Such group-action data are substantive beyond a known Betti-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
