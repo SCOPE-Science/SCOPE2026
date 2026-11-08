@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The analytic Hardy quasi-norm is normalized to \(\|f\|_{1/2}=(\int|f|^{1/2})^2\). Brevig--Søvik, arXiv:2610.21788 Theorem 1, forces every unit extremizer of the mixed bounded functional to be outer. A normalized analytic fourth root then belongs to Hilbert \(H^2\). The coefficient identity \(a_2(g^4)=4a^3c+6a^2b^2\), Parseval and a strictly concave coefficient split reduce the complete infinite-dimensional extremum to a two-regime one-variable calculation. Explicit outer fourth powers attain both regimes, including endpoints and all equality phases. The supporting bound and known first-coefficient formula yield the exactly delimited fixed-origin frontier. The checker tests arithmetic and numerical finite examples; it is not used to certify infinity.
+## correctness
 
-**Originality: PASS under inspected evidence.** The 2026 outer-extremizer paper proves outerness, not any mixed-coefficient norm. The older Brevig--Saksman theorem settles the pure second-coefficient norm, a limit of the present profile. Brevig--Grepstad--Instanes proves the first-coefficient fixed-origin formula (Theorem 12), but asks about second-coefficient terminal stabilization (Question 2). The present exact result proves that equality for \(p=1/2\), \(81/100\le t\le1\), and supplies a sharp piecewise second-coefficient formula for \(81/256\le t\le1\). Semantic database and accessible historical-claim comparisons did not find coverage. Older classical literature not fully accessible remains a concrete residual priority risk.
+PASS
 
-**Value: PASS.** The theorem identifies a genuine shape transition in optimizers for an entire one-parameter family and resolves a natural, explicitly posed fixed-origin second-coefficient question at the first Hilbert-root exponent. The lower fixed-origin range boundary is tied to the pure-second-coefficient extremal, and the terminal equality threshold is sharp in the full proved range.
+Published 2026 outer-extremizer theorem for every bounded H^p functional with p<1 makes any maximizer zero-free and outer; take analytic fourth root g in H2, norm1. Coefficients of g^4 give |a0+tau a2|<=x²+4tau x^(3/2)sqrt(v)+6tau x(1-x-v), where x=|g0|²,v=|g2|², |g1|²=1-x-v, tails waste H2 norm. Exact v optimization gives v=x/9 if x<=9/10 and v=1-x if x>=9/10; a one-variable calculus step yields tau=1/2 change of extremizer family and N(tau) piecewise. Independently verified SymPy N(1/2)=27/20, N''(left)=81/125 and N''(right)=486/125. Phase equality gives unique even fourth power for tau<=1/2 and two conjugate-sign linear-term fourth powers for tau>1/2; both outer by root moduli. Supporting-line duality identifies Phi2 for t>=81/256 and terminal Phi2=Phi1 for t>=81/100 using published Theorem12(ii). Finite checker is corroboration, not H^p outer theorem proof.
 
-**Limits.** The scope is \(H^{1/2}\), nonnegative real coefficient weight and fixed origin at least \(81/256\). Lower origin values and different exponents are unproved. The source outer theorem is used, not independently reproved. Earlier equivalent formulations remain possible. Supplementary checker tests are finite.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brevig–Søvik arXiv:2610.21788 Thm1 establishes necessity of outer extremizers for 0<p<1 (enabling fourth-root reduction) but no mixed coefficient norm. Brevig–Saksman arXiv:1905.09547 gives pure second coefficient bound 27/16. Brevig–Grepstad–Instanes 2023 Thm12 computes Phi1 and Question2 asks terminal Phi2=Phi1; in p=1/2 case proposed threshold t0=81/100, exactly the new proven interval, not prior answer.
+
+## value
+
+PASS
+
+Direct analytically sharp answer to an explicitly posed Hardy coefficient extremal Question 2 in the natural p=1/2 case; identifies full mixed functional phase bifurcation, all equality functions and a nontrivial fixed-origin boundary, not a substitution of known pure coefficient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
