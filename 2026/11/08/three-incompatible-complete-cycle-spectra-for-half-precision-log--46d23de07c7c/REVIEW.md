@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The domain and rounding semantics are fully specified (including subnormals, tie breaking, and the single-round reference). The conversion from each binary16 code to an exact integer scaled by \(2^{24}\), the rational nearest-even routine, and the finite functional-graph traversal provide a complete proof for every state. The standalone `verify.py` recomputes all \(46,083\) arrows, cycle lengths, basin sums, maximal entry times and edge-array digests. A separate NumPy half-precision implementation agreed on every arrow in each of the three maps. The certificate is exhaustive rather than an extrapolation from trajectories. The claims do not apply to other arithmetic semantics or to continuum dynamics.
+
+## Originality — PASS within inspected sources
+The relevant pre-existing half-precision forty-cycle and its \(10,267\)-point basin are explicitly credited to Corless, *Floats for Philosophers* (2024), slide 60. Klöwer et al. (2023) study floating-point logistic cycles and sample random initial states but do not state this three-graph complete basin classification. Krulikovskyi et al. (2024) compare arithmetic orderings in double precision, rather than exhaustive binary16 staging and single-round basins. Research-record searches for full graph and expanded and correctly rounded aliases found no equivalent statement; closest indexed entries concern different logistic smoothing or quantized affine contractions. The original novelty claim is the combined complete comparison, especially the explicit expanded and once-rounded graph spectra and basin sizes, not the generic fact that floating-point logistic orbits are eventually periodic. Unindexed numerical results remain a publication-priority risk.
+
+## Value — PASS
+Binary16 is a standard practical format, and the fully chaotic parameter \(4\) is the standard logistic benchmark. The observed catastrophic dependence on a *small choice of algebraically equivalent evaluation graphs* matters for reproducibility and exact finite dynamical classification. In particular, the single-round reference captures only \(117\) states in a nonfixed cycle, versus \(8,657\) in the expanded graph; this is not a routine perturbation or a chosen arbitrary slice of the parameter space. Enumerating **all** initial encodings and basins resolves the mathematical question missed by sampling. The result remains finite-precision and is not a hardware guarantee for reassociating compilers.
+
+## Closest literature and limitations
+Corless (August 2024), slide 60, covers the factored forty-cycle. Klöwer et al. (Scientific Reports 2023) supply low-precision dynamical motivation and Monte Carlo methodology; Krulikovskyi et al. (SISIOT 2024) show formula-order sensitivity in double precision. The three complete graphs are reproducible from exact rational arithmetic with a finite certificate, but no independently audited implementation is claimed. Further variants of arithmetic graphs and other precisions remain outside the claim.
+
+Self-review: passed. Independent audit: not yet performed.
