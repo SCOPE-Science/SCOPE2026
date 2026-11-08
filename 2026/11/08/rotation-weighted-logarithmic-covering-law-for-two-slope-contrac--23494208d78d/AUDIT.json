@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each occupied n-atom its Sturmian word has k=n rho+O(1), so its full product equals lambda^n mu^k = e^{-chi n} times a factor in [exp(-|log mu|),exp(|log mu|)]. An atom is at most that long. Distinct n-atoms have different last symbols after deleting their maximal common suffix; their initial gap g remains separated under the common suffix by at least g exp(-|log mu|) exp(-chi(n-1)). The source guarantees n+1 occupied atoms; these upper/lower atom scales yield N_K(epsilon)=log(1/epsilon)/chi+O(1). Verified finite mechanical factors, numeric gaps and products from the current standalone package; only proof handles all scales.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.3 of Calderón–Villar-Sepúlveda asserts dimension zero and entropy zero, which give no sharp logarithmic cover coefficient.",
+        "Theorem 5.5 of Gaivão–Laurent–Nogueira establishes a Cantor rotation semiconjugacy but does not quantify interval cover counts."
+      ],
+      "reasoning": "Zero dimension allows many non-equivalent logarithmic covering functions. Known eventual affine word complexity alone gives an upper bound using maximum contraction; lower separation at the frequency-weighted rate needs a new word-product argument. Neither inspected theorem logically implies the two-sided asymptotic without this step.",
+      "searches": [
+        "piecewise contracting interval maps attractor zero Hausdorff dimension exact logarithmic covering growth Sturmian word complexity",
+        "piecewise contracting affine map varying contraction ratios Sturmian logarithmic Minkowski content covering n interval atom slope",
+        "https://arxiv.org/abs/2309.09154 §3–4",
+        "https://link.springer.com/article/10.1007/s00010-024-01064-2 §5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.09154",
+      "arxiv:2212.10944; doi:10.1007/s00010-024-01064-2",
+      "doi:10.3934/jmd.2021002",
+      "arxiv:1702.03599; doi:10.1017/etds.2018.34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Historical equal-slope findings require common lambda, yielding a coefficient independent of rho; present formula is 1/(-(1-rho)log(lambda)-rho log(lambda mu)).",
+        "At unequal mu, coefficient changes with rho (e.g., two computed irrational rates and lambda=0.8, mu=0.875 give chi=0.30567049 versus 0.27845407).",
+        "The new argument uses balanced factors to transfer a sharp lower gap bound through variable-slope common suffixes."
+      ],
+      "reasoning": "Setting mu=1 gives the known special case; the new unequal-slope statement does not follow from the equal-slope result as a substitution, since branch products depend on individual symbolic frequencies, which require a separate bounded-discrepancy and separation proof. The geometry is not determined by zero Hausdorff dimension or the mere p(n)=n+1 statement.",
+      "searches": [
+        "For two-interval injective piecewise affine contracting maps with two different slopes lambda and lambda mu and irrational rotation rho, minimum interval-cover number of Cantor attractor is log(1/epsilon) / (-(1-rho)log lambda -rho log(lambda mu)) plus bounded additive error, uniform Sturmian factor diameter and separation",
+        "own ledger 88bbb24b-6bcc-4988-a864-8a9f0229d155",
+        "own ledger aee6e2e9-fe64-477b-9193-8abe4a83273a",
+        "https://arxiv.org/abs/2309.09154 Lemma 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 two-interval map has rotation/Cantor coding but no stated metric-cover law; 2023 interval contraction work obtains dimension zero.",
+        "An equal-slope historical result has formula with fixed contraction but no two-slope frequency dependence."
+      ],
+      "reasoning": "Searched variable-slope Sturmian, logarithmic Minkowski, equivalent weighted Lyapunov and geometric covering aliases. One related Sturmian regularity result concerns cohomological oscillation, not Euclidean geometry of the image Cantor set. No equivalent relation was found in inspected material; nonindexed priority remains possible.",
+      "searches": [
+        "contracted rotation Sturmian attractor logarithmic covering number Minkowski logarithmic gauge dimension irrational rotation piecewise affine contraction",
+        "Sturmian minimal Cantor attractor of two piecewise affine contractions unequal slopes lambda0 lambda1 logarithmic Euclidean covering number weighted Lyapunov mean coefficient rotation frequency",
+        "For two-interval injective piecewise affine contracting maps with two different slopes lambda and lambda mu and irrational rotation rho, minimum interval-cover number of Cantor attractor is log(1/epsilon) / (-(1-rho)log lambda -rho log(lambda mu)) plus bounded additive error, uniform Sturmian factor diameter and separation",
+        "published-finding corpus ids: 2026/10/11/SCOPE-sharp-logarithmic-regularity-spectrum-of-sturmian-cohomological--7cfa66c7e69e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned relevant Sturmian cohomology regularity and nonmatching geometric fractal theorems, no exact two-slope logarithmic cover table.",
+        "The 2018/2020 injective-interval complexity article describes eventually affine p(n), not a metric covering table in the material inspected."
+      ],
+      "reasoning": "The claim is an infinite-parameter exact asymptotic, not a finite table. Published data and published-finding corpus similarity results examined did not contain matching coefficient; absence of a database hit is not proof of novelty.",
+      "searches": [
+        "Sturmian minimal Cantor attractor of two piecewise affine contractions unequal slopes lambda0 lambda1 logarithmic Euclidean covering number weighted Lyapunov mean coefficient rotation frequency",
+        "For two-interval injective piecewise affine contracting maps with two different slopes lambda and lambda mu and irrational rotation rho, minimum interval-cover number of Cantor attractor is log(1/epsilon) / (-(1-rho)log lambda -rho log(lambda mu)) plus bounded additive error, uniform Sturmian factor diameter and separation",
+        "\"piecewise contracting\" \"different slopes\" \"box-counting\" attractor",
+        "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/abs/complexity-of-injective-piecewise-contracting-interval-maps/699F2183B53A7CEE1D004EC950880D77"
+      ]
+    },
+    "rationale": "The primary 2023 paper gives vanishing Hausdorff dimension and entropy and atom complexity; the 2022/2024 two-slope paper gives Sturmian Cantor dynamics. Neither states the sharp rotation-weighted Euclidean logarithmic cover coefficient. Accessible own ledger gives only constant-slope cases. Multiple actual published-finding corpus and literature searches found no implication-equivalent source; residual nonindexed and incompletely read-source risks remain.",
+    "residual_risks": [
+      "The full text of the 2021 Laurent–Nogueira paper and 2018 complexity paper was not separately read; strongest related 2024 and 2023 full texts were inspected.",
+      "A generalized covering identity may exist under logarithmic gauge or Sturmian fractal terminology in unindexed mathematics literature.",
+      "The claim is conditional on the stated separated irrational/Sturmian branch dynamics; it does not assert genericity over all parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes atom/word identity and zero dimension, but no stated leading weighted log-covering coefficient or variable-branch product gap bound.",
+        "evidence": [
+          "https://arxiv.org/abs/2309.09154, Theorem 1.3, Lemma 3.2, Lemma 3.4, Lemma 4.1; arxiv full HTML read"
+        ],
+        "identifier_or_url": "arxiv:2309.09154",
+        "material_read": "Full arXiv HTML introduction, assumptions, sections 2–4 through Lemmas 3.2, 3.4, 4.1 and theorem 1.3",
+        "method": "Read and compared definitions of separation, atoms and the dimension argument with the claimed weighted logarithmic cover",
+        "title": "Piecewise contracting maps on the interval: Hausdorff dimension, entropy and attractors",
+        "trigger": "Primary exact class, Euclidean covering functional, atom complexity and zero dimension"
+      },
+      {
+        "assessment": "Provides irrational Cantor and explicit rotation semiconjugacy but not a Euclidean interval-covering law with weighted exponent.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00010-024-01064-2, Definition 2.1, Theorems 5.2 and 5.5, §8.3"
+        ],
+        "identifier_or_url": "arxiv:2212.10944; doi:10.1007/s00010-024-01064-2",
+        "material_read": "Full open-access journal HTML: introduction, Definition 2.1, Theorem 5.2 and Theorem 5.5, section 8.3 proof and bibliography",
+        "method": "Checked precise two affine branch forms, strict image gap inequality and rotation coding; searched full text for covering and dimension",
+        "title": "Rotation number of 2-interval piecewise affine maps",
+        "trigger": "Exact unequal-slope map and irrational Cantor/Sturmian semiconjugacy"
+      },
+      {
+        "assessment": "Accessible material treats rotation-number classification and dynamics; complete original full proof not individually inspected, so no full-text absence assertion for this source.",
+        "evidence": [
+          "https://www.aimsciences.org/article/doi/10.3934/jmd.2021002, abstract and figure 4; 2024 source §8.3 cites its Theorem 6"
+        ],
+        "identifier_or_url": "doi:10.3934/jmd.2021002",
+        "material_read": "Publisher HTML abstract, declared primary MSC classifications, figures and full reference list; original theorem details cross-checked through the 2024 full journal account",
+        "method": "Compared scope on rotation number and semiconjugacy against the new metric cover formula",
+        "title": "Dynamics of 2-interval piecewise affine maps and Hecke-Mahler series",
+        "trigger": "The earlier specific two-different-slopes model and Sturmian parameter formulas"
+      },
+      {
+        "assessment": "Covers Sturmian complexity n+1 but not, on inspected material, an unequal-slope sharp Euclidean logarithmic covering coefficient; full-document NOT_COVERING not asserted.",
+        "evidence": [
+          "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/abs/complexity-of-injective-piecewise-contracting-interval-maps/699F2183B53A7CEE1D004EC950880D77",
+          "https://arxiv.org/abs/2309.09154, Theorem 3.1"
+        ],
+        "identifier_or_url": "arxiv:1702.03599; doi:10.1017/etds.2018.34",
+        "material_read": "Published Cambridge abstract and the reproduced exact theorem/lemma in the 2023 primary source; original complete proof not separately read",
+        "method": "Matched its eventual affine word-complexity statement against new metric separation and weighted exponent",
+        "title": "Complexity of injective piecewise contracting interval maps",
+        "trigger": "Closest known symbolic complexity statement that could dominate the atom count portion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23494208-d78d-4c0e-a961-620d24f476b8",
+  "value": {
+    "rationale": "The logarithmic cover coefficient is a natural geometric size invariant for Cantor attractors whose dimension is zero; it changes with the irrational rotation frequency under unequal branch slopes. The exact bounded additive error and both-sided metric gap are structural, not an arbitrary numerical increment. It distinguishes dynamically different attractors that the prior dimension-zero result could not distinguish.",
+    "status": "PASS"
+  }
+}
