@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional tree coupling shows moving the parent of arrival j changes total path length by S_{j,n} times the depth change, and E S_{j,n}=n/j independently of all earlier choices. This gives the individual contribution n(H_{i-1}+1-H_{j-1})/[j(j-1)], and telescoping proves the exact total. The partial-sum increments have one sign change and its infinite limit is strictly negative by inverse-square integral comparison. Harmonic and inverse-square expansions prove the 2 i^2 log i threshold. A standalone checker independently enumerated all recursive trees through n=9 and confirmed 120 exact-analytic and numerical threshold assertions; finite computations are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus root-attachment proof establishes its path-shortening effect only when the forced parent is the root, including global root-degree covariance.",
+        "Lodewijks gives distributions of degree and depth at a fixed finite set of labels, not covariance of a fixed degree with an n-term total-depth sum.",
+        "Lundblad–Wagner study aggregate external path length and average depths, without a specified outdegree or transition in observation horizon."
+      ],
+      "reasoning": "General multivariate depth laws or generating functions may potentially yield mixed moments after nontrivial extra summation. The candidate adds an all-label exact identity and a unique nonroot sign transition with quadratic-logarithmic birth-label scale, none stated in the inspected sources.",
+      "searches": [
+        "random recursive tree total path length internal path length versus number of leaves covariance exact finite n asymptotic leaf depth",
+        "covariance degree of labeled vertex in random recursive tree and total path length sign reversal birth index horizon n ~ 2 i^2 log i",
+        "https://arxiv.org/pdf/2204.09032",
+        "https://doi.org/10.4230/LIPIcs.AofA.2026.2"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S0963548399003855",
+      "arxiv:2204.09032",
+      "doi:10.4230/LIPIcs.AofA.2026.2",
+      "doi:10.1002/rsa.20046",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously published root-attachment statement is recovered exactly by setting i=1, but provides no nonroot positive phase.",
+        "Lodewijks studies joint marked degree and marked depth of finitely many vertices, not n-vertex aggregate path length.",
+        "The 1999 article characterizes total-path-length moments and limit distributions but not covariances with marked outdegrees."
+      ],
+      "reasoning": "Setting i=1 yields covered root results, which are explicitly not claimed as new. For i>=2 the local sign can be positive, the global sign reverses exactly once, and the threshold has a new asymptotic scale; these assertions are neither restatements nor immediate special cases of the compared statements.",
+      "searches": [
+        "2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "arxiv:2204.09032",
+        "doi:10.1017/S0963548399003855",
+        "random recursive tree outdegree D_i covariance with total path length T_n exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The parent-choice representation expresses the same quantity as n times an arrival-time sum; the second equality in (1) telescopes it to harmonic numbers.",
+        "The inspected 1999 total-path-length paper develops marginal moments, while the 2022 marked-vertex paper treats degree/depth at finitely many labels. Neither states an equivalent sign threshold."
+      ],
+      "reasoning": "A labeled outdegree is the sum of indicators that later arrivals choose that specific parent. Its covariance with the sum of all depths is not the joint degree/depth of that same vertex, or the covariance of degree counts. No matching equation or dual formulation of the nonroot horizon transition was found.",
+      "searches": [
+        "covariance degree of labeled vertex in random recursive tree and total path length sign reversal birth index horizon n ~ 2 i^2 log i",
+        "random recursive tree outdegree D_i covariance with total path length T_n exact",
+        "https://arxiv.org/pdf/2204.09032",
+        "doi:10.1017/S0963548399003855"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record searches returned a root attachment theorem, a root-degree/leaf theorem, and unrelated covariances; no matching nonroot indexed threshold or exhaustive table.",
+        "The checked owned mathematical records include marked-degree/leaf and marked-degree/subtree-size statements, but no marked-degree/total-path-length horizon classification."
+      ],
+      "reasoning": "The proof and checker yield a closed family for all natural label/horizon pairs; the value does not rest on recomputing a known finite table. No searched exact table covered the proposed sign threshold.",
+      "searches": [
+        "covariance degree of labeled vertex in random recursive tree and total path length sign reversal birth index horizon n ~ 2 i^2 log i",
+        "random recursive tree outdegree D_i covariance with total path length T_n exact",
+        "nonroot attachment path length positive then negative random recursive tree",
+        "random recursive tree birth label outdegree total path length joint covariance"
+      ]
+    },
+    "rationale": "The candidate is the exact covariance of one specified nonroot birth-label outdegree with all-node total path length and a unique positive-to-negative sign transition at the sharp horizon n~2i^2 log i. Prior published and indexed root-attachment theorems provide only label one; known joint degree/depth laws for finitely many marked vertices do not cover sum of depths of all vertices or the sign threshold. Targeted searches and material inspections found no equivalent or stronger claim; implicit broader-framework derivability remains an explicitly identified risk.",
+    "residual_risks": [
+      "The root-specific covariance proof suggests a general parent-reparenting technique; unlocated literature could apply that technique to all labels.",
+      "Finite-vertex marked degree/depth results might imply related global moments after a nontrivial growing-dimensional summation.",
+      "Some broader increasing-tree generating-function analyses might encode the exact covariance without displaying the sharp unique-threshold theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the independent-parent model and total path-length law; no labeled outdegree mixed covariance or nonroot horizon threshold",
+        "evidence": [
+          "Sections 1–3 give total-path-length moments and weak/Lp limits, but do not mark a vertex outdegree"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+        "material_read": "Entire 17-page full text, including definitions, recurrences, proofs and references",
+        "method": "Full-text journal PDF inspection",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Same total path length, uniform recursive-tree model, and complete moments"
+      },
+      {
+        "assessment": "Covers the root case i=1; lacks nonroot positive phase and transition scale",
+        "evidence": [
+          "Local root attachment covariance -n(H_{j-1}-1)/(j(j-1)); sum gives negative root degree covariance"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "material_read": "Complete RESULT.md theorem, proof, limitations and references",
+        "method": "Full original mathematical result document inspection",
+        "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+        "trigger": "Closest result, root degree versus path length"
+      },
+      {
+        "assessment": "Concerns degree–leaf dependence rather than degree–total path length",
+        "evidence": [
+          "Root attachment/leaf count has positive covariance 1/[2(n-1)] for individual later arrivals"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "material_read": "Complete RESULT.md theorem, proof and references",
+        "method": "Full original mathematical result document inspection",
+        "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+        "trigger": "Same tree, degree statistic, different global response"
+      },
+      {
+        "assessment": "Joint distributions of degree, depth and distance for finitely many marked vertices, not the n-term total path length nor its covariance threshold",
+        "evidence": [
+          "Introduction describes arbitrary fixed number of vertices and distributional limits; no path-length theorem found in targeted text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+        "material_read": "Main abstract, introduction, listed theorems and targeted search for total path length within accessible 41-page PDF",
+        "method": "Primary arXiv PDF inspection",
+        "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+        "trigger": "Plausibly stronger joint marked degree/depth theorem"
+      },
+      {
+        "assessment": "Studies total/external path length and leaf averages; does not mark degree of individual birth label or derive crossover",
+        "evidence": [
+          "Theorem 6 gives limiting difference in normalized leaf and vertex average depth, not marked-degree covariance"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+        "material_read": "Main theorem, introduction, recursive-tree generating-function section and related cited results in 20-page open PDF",
+        "method": "Primary PDF targeted full-text inspection",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "Same random tree and total path length; broader aggregate leaf-depth joint treatment"
+      },
+      {
+        "assessment": "Studies empirical counts of outdegrees and their asymptotic covariances, not birth-labelled outdegree/path-length covariance",
+        "evidence": [
+          "Publisher abstract explicitly concerns numbers of vertices of specified outdegree"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Publisher abstract and bibliographic description",
+        "method": "Abstract-level scope comparison (full text not inspected)",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Natural degree-covariance predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c28ecf5e-aa3f-4486-aa38-d6af9b5d9406",
+  "value": {
+    "rationale": "For a labeled nonroot vertex, the very same local outdegree measure switches from positive to negative dependence on total root search cost as the time horizon grows; the root has only the negative regime. The unique crossing and sharp quadratic-logarithmic threshold provide a natural age-dependent structural phase diagram, not a mere small parameter extension or known table recomputation.",
+    "status": "PASS"
+  }
+}
