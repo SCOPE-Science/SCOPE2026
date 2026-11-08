@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Finite exact certificates
+# Independent mathematical audit
 
-`verify_direct.py` independently constructs the binary-vector Fano plane, checks all \(\binom{21}{3}=1330\) candidate flag triples and all \(\binom{21}{4}=5985\) possible four-flag sets. It constructs the exchange graph by deleting and adding exactly one flag, performs all \(84\) full breadth-first searches, and verifies every distance and excess-move pair.
+## correctness
 
-`verify_cyclic.py` uses an independent cyclic \((7,3,1)\) difference-set construction, generates the exchange graph from all \(84\) compatible two-flag pairs, counts their three completions, independently enumerates the \(168\) collineations, and derives all distances from one representative of each collineation orbit. No external library or network access is required.
+PASS
 
-Both programs were executed from the packaged source files. Observed terminal markers:
+For Fano lines {a,b,a xor b} and the 21 flags, compatible flags are exactly mutually nonincident flags. An independently written exhaustive enumerator checked all 1330 three-flag subsets and 5985 four-flag subsets: exactly 84 compatible triples and no four compatible flags. It built adjacency by two-flag overlap, not using stored verification_output, and found 252 edges, 84 triangles, 84 six-valent vertices, types (collinear/concurrent) of sizes 28,28,28, pairwise BFS distances (252,840,1442,840,112), centrality 28 and detour counts (2492,882,112). The proof in RESULT.md analytically establishes the 3-edge maximum, type counts, and triangles by three completions of each compatible pair. The BFS certificate covers this entire fixed finite graph; it is not an infinite projective-plane claim.
 
-```text
-DIRECT_FANO_FLAG_EXCHANGE_PASS
-CYCLIC_FLAG_PAIR_AND_AUTOMORPHISM_PASS
-```
+## originality
 
-These exhaustive finite calculations establish the numerical statements for the unique Fano incidence graph; they are not a proof for larger projective planes. The statement of \(\nu_s(H)=3\) is independently justified by the four-point tangent-line obstruction. Historical priority and independent scholarly validation were not certified by these programs.
+PASS
+
+The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.
+
+## value
+
+PASS
+
+The one-flag exchange geometry and exact route excess are intrinsic to the 84 optimal incidence configurations; they determine connectivity, triangular local moves, and the sharp extra move cost. This is a motivated natural finite classification and distance invariant, not merely re-counting the previously known 84 systems. It is distinct from strong edge-colouring partition swaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
