@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The complete row-plus-column sweep is derived exactly as a positive Möbius map. Its determinant equals Ba(1-a)(1-δ²)², giving one positive and one negative fixed point with exact eigenvalue-ratio conjugacy. Under b=a+κδ the map equals the Euler step of the stated Riccati field to uniform O(δ²) locally, and iterates and ODE stay in a common compact positive region; discrete Gronwall yields global O_T(δ). The rate follows by a uniform discriminant expansion and logarithmic Taylor remainder. The offdiagonal and marginal-residual formulas are exact. All 1692 finite checks pass; the limit relies on analytic proof, not on sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deb et al. (2023), Theorem 1.5: smooth-density Wasserstein flow with different scaling.",
+        "Brossard–Leuridan (2016), Theorem 1: exact-zero support compatibility.",
+        "Chen et al. (2022), Theorem 1.1: changing the regularization schedule."
+      ],
+      "reasoning": "The smooth-continuum flow excludes discrete atomic marginals; fixed zero-support and changed-schedule frameworks do not directly cover the unrelaxed near-positive-support family. These broader results therefore do not imply the stated universal critical two-atom trajectory under their published hypotheses.",
+      "searches": [
+        "two by two entropic Sinkhorn alternating row column marginal scaling critical crossover when regularization vanishes marginal mismatch boundary ODE",
+        "small temperature near balanced marginals Sinkhorn convergence iteration count critical window hyperbolic tangent",
+        "Sinkhorn 2x2 near reducible matrix scaling small off diagonal critical marginal imbalance Riccati time rescaling limit",
+        "iterative proportional fitting 2 by 2 nearly decomposable kernel boundary layer ODE vanishing entry"
+      ]
+    },
+    "checked_sources": [
+      "Knight (2008), https://strathprints.strath.ac.uk/19685/1/skapp.pdf, Theorem 4.5",
+      "Lehmann et al. (2020), https://arxiv.org/abs/2012.12562, equation (3) and Theorem 1",
+      "Brossard–Leuridan (2016), https://arxiv.org/html/1606.09126v2, support criteria",
+      "Chen et al. (2022), https://arxiv.org/abs/2207.00736, Theorem 1.1",
+      "Deb et al. (2023), https://arxiv.org/abs/2307.16421, Theorem 1.5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knight (2008) Theorem 4.5 determines a fixed-kernel local contraction factor.",
+        "Lehmann et al. (2020) Theorem 1 determines overrelaxed fixed-kernel rates.",
+        "Deb et al. (2023) Theorem 1.5 assumes a regularity class not satisfied by two atoms."
+      ],
+      "reasoning": "The first two sources imply a rate once the exact scaled operator is calculated, so no novelty credit is assigned to a bare eigenvalue ratio. They do not state a uniform limit of all iterates with nδ fixed or the limiting normalized cross-flux/residual. The remaining prior result is inapplicable by hypotheses and timescale.",
+      "searches": [
+        "two by two entropic Sinkhorn alternating row column marginal scaling critical crossover when regularization vanishes marginal mismatch boundary ODE",
+        "positive 2x2 matrix scaling Sinkhorn Möbius iteration cross ratio exact critical boundary layer mismatch kernel offdiagonal",
+        "Sinkhorn 2x2 near reducible matrix scaling small off diagonal critical marginal imbalance Riccati time rescaling limit",
+        "exact Möbius conjugacy 2x2 Sinkhorn matrix balancing near degenerate support two scalings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact two-atom map is a fractional-linear transformation; its static conjugacy is classical algebra.",
+        "Knight (2008) Theorem 4.5 and Lehmann et al. (2020) equation (3) cover general local spectral convergence."
+      ],
+      "reasoning": "Classical Möbius dynamics and the known local Sinkhorn spectrum imply geometric convergence at fixed parameters. The assessed claim is not limited to that reduction: it includes a two-parameter singular perturbation, uniform trajectories and normalized physical row fluxes. No inspected equivalence supplied the coupled limit and its coefficient.",
+      "searches": [
+        "positive 2x2 matrix scaling Sinkhorn Möbius iteration cross ratio exact critical boundary layer mismatch kernel offdiagonal",
+        "exact Möbius conjugacy 2x2 Sinkhorn matrix balancing near degenerate support two scalings",
+        "two by two iterative proportional fitting Riccati differential equation small cross diagonal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No precise two-atom \\(n\\delta\\) Riccati flux table or exact boundary-layer statement was located among the reviewed full-text sources and mathematical record hits.",
+        "Original proof gives a parameter-uniform analytic derivation instead of relying on numerical tables."
+      ],
+      "reasoning": "The answer is an infinite-parameter exact limit, not a recomputation of a finite known table. Incomplete database coverage is not used as a proof of originality.",
+      "searches": [
+        "two by two Sinkhorn marginal perturbations order epsilon near diagonal transition scaling iteration count n epsilon",
+        "Sinkhorn algorithm 2x2 matrix nearly diagonal boundary layer ODE Riccati scaling convergence",
+        "matrix scaling near reducible positive matrix 2x2 asymptotic iteration small entries rate"
+      ]
+    },
+    "rationale": "Source-level implication comparison distinguishes classical fixed-kernel local spectral convergence and generalized smooth Sinkhorn flows from the present uniform singular-kernel/marginal-imbalance Riccati trajectory, flux and sharp iteration law. Relevant primary full texts examined, mathematical equivalences searched, and remaining risk acknowledged; independent review is not claimed.",
+    "residual_risks": [
+      "A more obscure historical two-atom iterative proportional fitting calculation or general Möbius-to-Riccati scaling theorem may give an equivalent or stronger result.",
+      "The statement is a motivated exact special-case boundary-layer theorem, not a claim to have invented Möbius projective convergence or general Sinkhorn flows.",
+      "A human independent literature comparison remains necessary before publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general local convergence factor for fixed matrices, so the isolated eigenvalue-ratio claim is prior knowledge; does not establish the joint kernel/marginal singular perturbation with entire rescaled state and flux trajectories.",
+        "evidence": [
+          "Theorem 4.5: asymptotic convergence factor is the square of the second singular value of the scaled matrix.",
+          "Section 2: basic row/column scaling and projective convergence estimates."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/19685/1/skapp.pdf",
+        "material_read": "Primary preprint sections 2–4 including Theorem 4.5 and selected numerical discussion in section 6; page 4 visually inspected.",
+        "method": "Full primary PDF text and page-image inspection.",
+        "title": "The Sinkhorn-Knopp algorithm: convergence and applications",
+        "trigger": "Exact general fixed-kernel asymptotic convergence factor could subsume the projective-rate claim."
+      },
+      {
+        "assessment": "Fixed-kernel local linearization and overrelaxed variants are covered; the uniform unrelaxed two-atom critical trajectory and row flux residual limit are not stated or implied without additional singular asymptotic analysis.",
+        "evidence": [
+          "Equation (3) gives the local linearized operator.",
+          "Theorem 1 optimizes relaxation for a given fixed-kernel local spectral quantity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.12562",
+        "material_read": "Primary full-text introduction, explicit linearization and local-rate Theorem 1; mathematical setup compared term for term.",
+        "method": "Primary arXiv full HTML and preprint reading.",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm",
+        "trigger": "The motivating 2020 source explicitly linearizes Sinkhorn and discusses small regularization."
+      },
+      {
+        "assessment": "Describes the exact-zero support cases and convergence at a fixed initial matrix, but not a rate-uniform family of positive matrices with marginal gap shrinking together with its off-diagonal weights.",
+        "evidence": [
+          "Theorem 1 distinguishes support-incompatible and support-critical cases.",
+          "Theorems address eventual convergence/divergence for a fixed starting nonnegative matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.09126v2",
+        "material_read": "Primary full-text abstract, introduction, section 2 principal support-feasibility and convergence theorems, proof structure.",
+        "method": "Primary arXiv HTML reading.",
+        "title": "Iterated proportional fitting procedure and infinite products of stochastic matrices",
+        "trigger": "Support degeneracy and marginal compatibility may dominate the singular-kernel claim."
+      },
+      {
+        "assessment": "Rates use modified schedules in high-dimensional discrete OT and do not imply the exact finite-sweep unmodified two-atom flux profile.",
+        "evidence": [
+          "Theorem 1.1 uses adaptive periodic changes to the regularization parameter."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.00736",
+        "material_read": "Primary introduction, algorithmic main results and comparison with regular unmodified Sinkhorn.",
+        "method": "Primary arXiv full HTML reading.",
+        "title": "Exponential Convergence of Sinkhorn Under Regularization Scheduling",
+        "trigger": "A stronger complexity bound for small-regularization optimal transport might dominate our iteration law."
+      },
+      {
+        "assessment": "The theorem concerns smooth density marginals on Euclidean space, scaling n times the entropic-regularization parameter; neither its smoothness assumptions nor scaling contain the atomic near-diagonal kernel weight limit here.",
+        "evidence": [
+          "Theorem 1.5 gives a Wasserstein limit with iteration number of order inverse entropic regularization; smooth-density and geometric Hessian assumptions are central."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.16421",
+        "material_read": "Primary introduction, informal Theorem 1.5, corresponding assumptions and smooth-density derivation of the Wasserstein flow.",
+        "method": "Primary arXiv full HTML reading.",
+        "title": "Wasserstein Mirror Gradient Flow as the Limit of the Sinkhorn Algorithm",
+        "trigger": "A named Sinkhorn flow may already entail our proposed ODE limit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c84f6d3-44ba-40b1-a697-29f7a80b264d",
+  "value": {
+    "rationale": "Near-disconnected Sinkhorn scaling becomes numerically delicate when the marginal discrepancy is commensurate with off-support transport mass. The stated uniform Riccati/flux trajectories and exact projective iteration constant solve a natural and diagnostically useful singular boundary-layer problem, identifying the actual residual profile, not just a previously known local eigenvalue. Its narrow dimension is intrinsic to the precise flux mechanism, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
