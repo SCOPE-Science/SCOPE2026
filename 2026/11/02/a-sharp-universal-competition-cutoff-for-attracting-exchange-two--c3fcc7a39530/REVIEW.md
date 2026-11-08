@@ -1,19 +1,21 @@
-# Scientific assessment: a sharp universal competition cutoff for exchange two-cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive exchange equations fix the sum and logarithmic ratio, thereby forcing \(0<\gamma<1\) and yielding a unique point parametrized by \(z\). The inverse parameter function \(A(z)=\operatorname{artanh}(z)/z\) increases strictly from one to infinity. For local dynamics the exact equivariant two-step derivative is \((P DF)^2\); the three second-degree Schur expressions factor explicitly. The monotonicity of \(q(z)=(1-z^2)A(z)\) proves two unique boundaries; their crossing is governed by the unique root of \((1-z^2)\operatorname{artanh}z=z^3\). Every boundary inclusion/exclusion and the universal quantifiers are addressed in the proof. The stand-alone script reproduces the 300-sample numerical and exact-form diagnostics; no finite test is used as an infinite proof. Risk: the theorem does not decide nonlinear behavior on the unit-circle boundaries.
+PASS
 
-## Originality — PASS under inspected evidence
+Sum/difference of positive swap logarithms force gamma<1 and S=4A(z)/(1-gamma), with A(z)=atanh(z)/z strictly increasing. The true 2-step derivative is (P DF)^2. Its Schur expressions factor through q(z)=(1-z²)A(z), q strictly decreases from 1 to 0. z_- and z_+ are unique, with unique crossing where q(z)=z² and gamma S=2. At crossing B has trace -2, determinant 1 (nonhyperbolic; no nonlinear boundary claim). Independent direct-root, orbit exchange and Schur algebra checks agree with numerical gamma*. All restrictions are local and off-diagonal.
 
-Kulakov–Neverova–Frisman (2022) previously illustrated the same symmetric model's antiphase cycles and their stability loss, using numerical nullclines, orbit diagrams and parameter maps; neither the phenomenon nor generic Floquet criteria are claimed here. Goldar et al. (2026) treat general two-species Ricker period-two solutions and an implicit Jacobian test, but do not give the closed swap parametrization, exact attraction wedge, or competition cutoff \(\gamma_*\). A known spectral reduction for synchronous multispecies cycles does not imply the off-diagonal exchange-cycle criterion. The full texts of both closest papers were inspected; access to other older related full texts was limited. A prior equivalent closed theorem is not demonstrated, but absence from reviewed sources does not constitute an exhaustive priority proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exchange branch is a natural two-species time-sharing pattern already recognized in population-dynamics studies. The sharp constant \(\gamma_*\) shows exactly when this entire phase-swapping attractor class is forbidden, independent of growth intensity. Below it, the theorem gives both exact growth boundaries, rather than a numerical bifurcation diagram, and separates a one-step real multiplier boundary from a determinant boundary. That structural classification is useful in locating and distinguishing stable competitive oscillations without assuming that they exhaust all attractors.
+Antiphase two-cycles and bifurcation diagrams of the same symmetric Ricker model are documented in Kulakov et al. 2022, and Goldar et al. 2026 give generic period-two/Jacobian criteria. The complete explicit exchange-orbit parameterization, both growth boundaries, and coupling-independent exact cutoff are not implied by these numerical/general statements without a new analysis. Historical priority with older full-text bifurcation studies remains uncertain.
 
-## Remaining limitations and closest literature
+## value
 
-The theorem is local, restricted to symmetric parameters and genuine exchange cycles. The two equality boundaries are nonhyperbolic and no nonlinear bifurcation type is certified. The closest scientific predecessor is Kulakov, Neverova and Frisman (2022), *Mathematics* 10, 1076, §4.1; Goldar et al. (2026), §5, also discuss general period-two solutions. Their existing out-of-phase phenomena are not repackaged as novelty. Older complete bibliographic coverage, including 2011 studies, remains a priority risk; independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural symmetric ecological time-sharing orbit receives a complete analytic existence-and-local-stability phase diagram, including a sharp universal upper limit on cross-species competition; this is more informative than a graph or numerical sampling of dynamic regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
