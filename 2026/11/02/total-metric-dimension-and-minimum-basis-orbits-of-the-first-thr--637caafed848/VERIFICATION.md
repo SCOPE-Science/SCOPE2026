@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite hypercube certificate
+# Independent mathematical audit
 
-The attached `verify_total_hypercubes.cpp` is a self-contained C++17 program. Build using `g++ -O3 -std=c++17 -Wall -Wextra -pedantic verify_total_hypercubes.cpp -o verify_total_hypercubes` and execute `./verify_total_hypercubes`. Its enumerations are exhaustive over the explicitly bounded domains:
+## correctness
 
-- All even-distance pairs in \(Q_4,Q_5,Q_6\) (\(56,240,992\) distinct constraints). Odd-distance pairs are proved automatically separated by every nonendpoint vertex.
-- All five-element subsets containing zero in each cube (\(1365,31465,595665\) candidates), with zero total-resolving instances.
-- The three explicit six-element witnesses, each tested against every required pair.
-- All \(8008\) six-element subsets of \(Q_4\), giving exactly \(1600\) valid bases.
-- The complete \(16\cdot24\) translation-permutation automorphism action on eleven representative bases, yielding disjoint orbits of sizes \(32,32,96,96,192,192,192,192,192,192,192\) whose union equals all \(1600\) bases.
+PASS
 
-Observed final output includes `ALL_CHECKS_PASSED`. This is a complete finite-domain certificate, not an infinite-dimensional proof. The program uses `assert`; do not compile with `-DNDEBUG`. No independent external verification has been performed.
+Finite proof: for each even-distance vertex pair, compute all third-vertex Hamming separators. Odd pairs are automatically separated by any other third vertex. Normalize any 5-candidate set by XOR translation to include 0: exhaustive counts C(15,4)=1365, C(31,4)=31465, C(63,4)=595665 all have zero valid 5sets; explicit valid six-witnesses give upper bounds. All C(16,6)=8008 Q4 sixsets yield 1600 valid, whose automorphism orbits under XOR translations and four coordinate permutations partition into 11 specified sizes. Original C++ code fully inspected and independently reimplemented and run with exact loops, not only a logged VERIFY_OK.
+
+## originality
+
+PASS
+
+Qualified PASS: the 2020 originators of total metric dimension explicitly left hypercubes above Q3 as Question 7. The current exact Q4–Q6 determination and Q4 symmetry-orbit count resolve three natural first cases. Ordinary/edge/weak total metric dimensions do not imply this third-landmark invariant. Later synonymous hypercube computation could cover finite values; such possibility remains a qualified priority risk.
+
+## value
+
+PASS
+
+The definition of total resolution forces a landmark other than both endpoints; exact first three hypercube cases directly answer a named open question, while Q4 orbit distribution refines minimum size with complete geometric structure. The finite certificate is exhaustive and the dimensions are motivated, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

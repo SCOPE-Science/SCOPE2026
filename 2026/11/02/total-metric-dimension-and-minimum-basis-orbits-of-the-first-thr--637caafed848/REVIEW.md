@@ -1,19 +1,21 @@
-# Self-review of total metric dimension in the first three open hypercubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The *third-landmark* requirement is applied literally: witnesses at either pair endpoint are excluded. Odd Hamming distance makes every third vertex a separator; even-pair separator masks suffice because all tested sets have at least five members. XOR translation reduces any hypothetical five-landmark solution to one containing zero. Complete enumeration eliminates every such solution in each of three dimensions; six-element witnesses satisfy every even-distance constraint. In the four-cube, all \(8008\) six-sets are explicitly classified, and eleven pairwise-disjoint automorphism orbits exhaust all \(1600\) valid bases. The standalone finite program was compiled and run successfully; source loops and exact exhaustion, not mere logs, support the finite proof.
+PASS
 
-## Originality — PASS
+Finite proof: for each even-distance vertex pair, compute all third-vertex Hamming separators. Odd pairs are automatically separated by any other third vertex. Normalize any 5-candidate set by XOR translation to include 0: exhaustive counts C(15,4)=1365, C(31,4)=31465, C(63,4)=595665 all have zero valid 5sets; explicit valid six-witnesses give upper bounds. All C(16,6)=8008 Q4 sixsets yield 1600 valid, whose automorphism orbits under XOR translations and four coordinate permutations partition into 11 specified sizes. Original C++ code fully inspected and independently reimplemented and run with exact loops, not only a logged VERIFY_OK.
 
-Hedetniemi, Laskar, and Mulder (2020), *New resolvability parameters of graphs*, DOI:10.1016/j.akcej.2019.12.021, explicitly pose the total metric dimensions of \(Q_d\) for \(d>3\) as an open problem (Question 7). Kelenc et al. (2021), arXiv:2102.10916, analyze different hypercube metric invariants. The weak-total resolving terminology of Casel et al. (2016) imposes a weaker condition. Statement-level searches of mathematical records and available historical claims found no result implying the finite six-landmark plateau or the eleven-orbit census. An inaccessible or differently named earlier result remains possible; search failure is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves the first three consecutive finite cases of a natural explicitly published open problem. The stable value \(6\) is nontrivial as cube dimension grows, and the complete minimum-base count and automorphism-orbit decomposition for the first open dimension sharpen the dimension result into a full extremizer classification. The scope is a complete finite cutoff, not a conjectural formula for all dimensions. Only a self-review has been carried out.
+Qualified PASS: the 2020 originators of total metric dimension explicitly left hypercubes above Q3 as Question 7. The current exact Q4–Q6 determination and Q4 symmetry-orbit count resolve three natural first cases. Ordinary/edge/weak total metric dimensions do not imply this third-landmark invariant. Later synonymous hypercube computation could cover finite values; such possibility remains a qualified priority risk.
 
-## Residual limitations
+## value
 
-No general result for \(d\ge7\); no independently audited execution or literature search; incomplete global publication-priority coverage. Exact finite exhaustive computations are valid for the stated graphs only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The definition of total resolution forces a landmark other than both endpoints; exact first three hypercube cases directly answer a named open question, while Q4 orbit distribution refines minimum size with complete geometric structure. The finite certificate is exhaustive and the dimensions are motivated, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
