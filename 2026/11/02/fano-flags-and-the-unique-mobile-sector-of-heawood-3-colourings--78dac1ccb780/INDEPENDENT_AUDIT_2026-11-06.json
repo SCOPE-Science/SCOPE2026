@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:42:06.209518Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly generated all 3^7 point assignments and allowable line choices using Fano difference set (0,1,3); independently constructed the 2106-state recolouring graph, exactly 6804 edges, 126 degree-zero states and the full degree polynomial 126t^4+420t^5+504t^6+588t^8+252t^9+84t^11+6t^14. All-root BFS, one root for each of 1980 mobile states, returned eccentricity 21 for every vertex. Flag bijection derives from sum_i binom(n_i,2)=7 and pair uniqueness; 3-point-colour extension forces the 126 flag states, whereas at most two point colours permit integral heights. The exact monotone height-transform lemma of Cereceda–van den Heuvel–Johnson (2007 preprint Lemma 5) supplies connectedness and the geodesic upper bound; exhaustive BFS supplies sharp metric independent of that lemma.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 characterizes 3-mixing of arbitrary connected bipartite graphs via cycle weights and pinching to C6.",
+          "Lemma 5 connects all height-admitting colourings and supplies a monotone path."
+        ],
+        "reasoning": "The published general result implies how to connect height-admitting states, but not the Fano-specific lift dichotomy, component size, degrees or exact metric.",
+        "searches": [
+          "Cereceda–van den Heuvel–Johnson 2007 PDF §§2-3, Theorem 4, Lemma 5",
+          "Wiley DOI:10.1002/jgt.20514 abstract"
+        ]
+      },
+      "checked_sources": [
+        "2007 Cereceda–van den Heuvel–Johnson PDF §3 Lemma 5, Theorem 4",
+        "Resultary Heawood-to-C5 record (summary only)",
+        "Wiley DOI:10.1002/jgt.20514 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published SCOPE record 2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82 concerns Hom(H,C5), not Hom(H,K3).",
+          "The 2007 Lemma 5 plus checked new Fano incidence census is needed for the exact claim."
+        ],
+        "reasoning": "C5 is triangle-free, hence no map K3->C5 gives coverage by the related Hom(H,C5) result. General height theory does not imply the exact finite numerical conclusions.",
+        "searches": [
+          "Resultary: Heawood-to-C5 Hom complex a circle 3300, diameter 35",
+          "Resultary: proper 3-colourings Heawood Fano graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Heawood graph is the Fano Levi graph; signed-cycle winding and heights are alternate notation for C3(H) connectedness.",
+          "General 2007 paper Section 3 Lemma 5 proves zero-winding connectivity."
+        ],
+        "reasoning": "Equivalent Hom(H,K3)/Fano flag and winding terminology is accounted for. None of the inspected general theorems counts the 126 frozen flags or gives exact radius/diameter 21.",
+        "searches": [
+          "Resultary: Recolouring graph of proper 3-colorings of Heawood incidence graph Fano plane frozen 126 flag colourings single mobile component diameter 21",
+          "Web: Heawood frozen recolouring three colors",
+          "Cereceda–van den Heuvel–Johnson, Mixing 3-Colourings in Bipartite Graphs DOI 10.1016/j.ejc.2009.03.011"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching component-and-distance table returned from targeted searches; the 2106 chromatic-polynomial value is not claimed new."
+        ],
+        "reasoning": "Even a known total colouring count alone is insufficient to deduce frozen orbit, one large component and radius 21; historical unindexed tables remain possible.",
+        "searches": [
+          "Web: Heawood graph 2106 colourings 126 frozen 1980",
+          "Resultary exact Heawood three-colouring component census"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.",
+      "residual_risks": [
+        "Older unindexed Heawood colour-reconfiguration enumeration may already contain the exact 126/1980/21 census.",
+        "Full 2011 path paper not inspected; algorithmic generality alone does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general height lemma; neither Fano nor Heawood present in indexed paper text, so no specific census identified.",
+          "evidence": "Theorem 4 and Lemma 5, pp.4-5; explicit full-text search found no Heawood/Fano.",
+          "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2007-06.pdf",
+          "material_read": "Full parsed 18-page 2007 manuscript; §§1–3, Theorem 4 and Lemma 5 in detail; page 4 PDF image examined, searched entire parsed text for Fano and Heawood.",
+          "method": "Web PDF text + mandatory page screenshot",
+          "title": "Mixing 3-Colourings in Bipartite Graphs",
+          "trigger": "Same recolouring model and height technique"
+        },
+        {
+          "assessment": "General path algorithm; exact Heawood metric still unverified in full body.",
+          "evidence": "Abstract and publication date 2010-12-16.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20514",
+          "material_read": "Publisher title, bibliographic metadata and available abstract, not full body.",
+          "method": "Wiley landing and abstract",
+          "title": "Finding paths between 3-colorings",
+          "trigger": "Possible broader shortest-path theorem"
+        },
+        {
+          "assessment": "Distinct homomorphism target C5; cannot logically imply a K3 colouring census by target map.",
+          "evidence": "Summary identifies 3300 homomorphisms to C5 and diameter 35.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82",
+          "material_read": "Resultary title and substantive theorem summary only, not full linked files.",
+          "method": "Resultary semantic hit",
+          "title": "The Heawood-to-C5 Hom complex is a circle",
+          "trigger": "Related Heawood reconfiguration record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural finite reconfiguration classification for the smallest cubic symmetric cage: exact geometric characterization of all 126 ergodicity obstructions and a sharp 21-move metric for the sole mobile sector. It can benchmark finite-state reconfiguration and colouring dynamics, not merely count proper colourings.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2007 Cereceda–van den Heuvel–Johnson PDF §3 Lemma 5, Theorem 4",
+    "Resultary Heawood-to-C5 record (summary only)",
+    "Wiley DOI:10.1002/jgt.20514 (abstract only)"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exactly 2106 named proper three-colourings of the Heawood graph form 126 isolated flag colourings and a 1980-state connected component with 6804 edges, degree enumerator as displayed and radius=diameter=21.",
+  "limitations": [
+    "Older unindexed Heawood colour-reconfiguration enumeration may already contain the exact 126/1980/21 census.",
+    "Full 2011 path paper not inspected; algorithmic generality alone does not certify priority."
+  ],
+  "residual_risks": [
+    "Older unindexed Heawood colour-reconfiguration enumeration may already contain the exact 126/1980/21 census.",
+    "Full 2011 path paper not inspected; algorithmic generality alone does not certify priority."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers general height lemma; neither Fano nor Heawood present in indexed paper text, so no specific census identified.",
+      "evidence": "Theorem 4 and Lemma 5, pp.4-5; explicit full-text search found no Heawood/Fano.",
+      "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2007-06.pdf",
+      "material_read": "Full parsed 18-page 2007 manuscript; §§1–3, Theorem 4 and Lemma 5 in detail; page 4 PDF image examined, searched entire parsed text for Fano and Heawood.",
+      "method": "Web PDF text + mandatory page screenshot",
+      "title": "Mixing 3-Colourings in Bipartite Graphs",
+      "trigger": "Same recolouring model and height technique"
+    },
+    {
+      "assessment": "General path algorithm; exact Heawood metric still unverified in full body.",
+      "evidence": "Abstract and publication date 2010-12-16.",
+      "identifier_or_url": "https://doi.org/10.1002/jgt.20514",
+      "material_read": "Publisher title, bibliographic metadata and available abstract, not full body.",
+      "method": "Wiley landing and abstract",
+      "title": "Finding paths between 3-colorings",
+      "trigger": "Possible broader shortest-path theorem"
+    },
+    {
+      "assessment": "Distinct homomorphism target C5; cannot logically imply a K3 colouring census by target map.",
+      "evidence": "Summary identifies 3300 homomorphisms to C5 and diameter 35.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82",
+      "material_read": "Resultary title and substantive theorem summary only, not full linked files.",
+      "method": "Resultary semantic hit",
+      "title": "The Heawood-to-C5 Hom complex is a circle",
+      "trigger": "Related Heawood reconfiguration record"
+    }
+  ]
+}

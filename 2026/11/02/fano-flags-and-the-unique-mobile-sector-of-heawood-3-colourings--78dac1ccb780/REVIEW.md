@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all named proper three-colourings of the point–line incidence graph of the Fano plane, with exactly one vertex changing colour per edge. The flag classification is derived analytically from the Fano pair-count identity, the uniqueness of a line through two points, and direct checking of the resulting incidence colouring. The count \(2106\) is recovered by independent recursive and point-assignments-with-line-extensions enumerations. The height-lift dichotomy also has a structural proof: three point colours force a frozen flag, whereas at most two point colours admit explicit integer heights. The \(2187\) point assignments and all computed height constraints independently check that dichotomy. The previously published height-function lemma connects the remaining states. An independently implemented all-root breadth-first metric computation and an all-pairs integral-height metric calculation both yield radius and diameter \(21\). The programs' loops exhaust the finite domains and contain assertions checking these totals; the scripts are included in this package. The result is not a claim about a general graph family.
+## correctness
 
-## Originality — PASS, with historical qualification
-The general recolouring model, winding obstruction, height-function connectivity lemma, and height metric are known from the work of Cereceda, van den Heuvel and Johnson. Their inspected February 2007 manuscript treats the general problem, general theorems and planar examples; it does not give the Heawood Fano-flag identification or the full Heawood three-colouring component census and exact metric. The published general lemma alone does not determine which Heawood colourings have consistent heights. The closest identified research record about Heawood-to-five-cycle homomorphisms concerns a genuinely different target and does not imply the three-colouring graph. Accessible earlier calculations on Heawood identifying codes, Hamiltonian-path backbites and Fano-plane line-bichromatic colourings also concern different configuration spaces. Searches under frozen, flag, locally-surjective, winding and exact numeric aliases did not identify a covering statement. This is evidence for novelty of the **complete classification**, not a proof of priority. Unindexed older computations and unknown historical formulations remain risks.
+PASS
 
-## Value — PASS
-The first cubic cage of girth six supplies a natural test case for zero-temperature single-site colouring dynamics. The theorem isolates the entire obstruction to irreducibility: exactly \(126\) frozen states, all explained by a geometric flag construction, while the remaining \(1980\) states form one connected, sharply quantified sector. The exact \(21\)-step diameter and explicit extremal pair give a finite benchmark for reconfiguration algorithms and sampling on an especially symmetric bipartite graph. This is a complete natural finite classification, not a merely renamed existing theorem or an arbitrary numerical slice.
+Directly generated all 3^7 point assignments and allowable line choices using Fano difference set (0,1,3); independently constructed the 2106-state recolouring graph, exactly 6804 edges, 126 degree-zero states and the full degree polynomial 126t^4+420t^5+504t^6+588t^8+252t^9+84t^11+6t^14. All-root BFS, one root for each of 1980 mobile states, returned eccentricity 21 for every vertex. Flag bijection derives from sum_i binom(n_i,2)=7 and pair uniqueness; 3-point-colour extension forces the 126 flag states, whereas at most two point colours permit integral heights. The exact monotone height-transform lemma of Cereceda–van den Heuvel–Johnson (2007 preprint Lemma 5) supplies connectedness and the geodesic upper bound; exhaustive BFS supplies sharp metric independent of that lemma.
 
-## Closest literature and limitations
-The central prior source is *Mixing 3-colourings in bipartite graphs* (Cereceda, van den Heuvel and Johnson, 2009; February 2007 author manuscript). It supplies the signed-cycle and height machinery but not this instance's detailed count or Fano flag structure. Their 2011 *Finding paths between 3-colorings* studies shortest-path algorithms in general; it likewise does not state the present finite classification in its accessible description. A recorded result on Heawood-to-\(C_5\) homomorphisms has a different target and neither covers nor contradicts this \(K_3\)-target result. The precise historical first-release day of the older February 2007 manuscript is not independently established: the metadata uses a day-verified public conference-article deposit date (2009-10-28), not an invented day within that earlier month. No independent scholarly audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.
+
+## value
+
+PASS
+
+A complete natural finite reconfiguration classification for the smallest cubic symmetric cage: exact geometric characterization of all 126 ergodicity obstructions and a sharp 21-move metric for the sole mobile sector. It can benchmark finite-state reconfiguration and colouring dynamics, not merely count proper colourings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
