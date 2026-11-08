@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:43:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Alternating host length 4k−1 covers every balanced binary target via greedy embedding and repeated-adjacent-pair bound. For k<=8, an exact prefix-completion DP tracks for each target the longest greedily embeddable prefix, branches over both appended bits and prunes only when current progress plus remaining host positions is below 2k. This necessary condition cannot remove a solution. Independent C implementation performed exhaustive full prefix-state enumeration at lengths 4k−2 and 4k−1 for k<=7, matching counts [2,10,44,190,800,3266,13018], palindromes and arch-index histograms; for k=8 length30 it searched 30,965,979 prefix nodes and found no host. Reversal/complement Burnside with odd host length gives orbit counts. Thus proof is a justified finite exhaustive computation, not extrapolation beyond k8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary k-subsequence universality is stronger host coverage than antisquare-only universality, but a shortest-host theorem for the stronger requirement does not imply the exact restricted minimum-host counts."
+        ],
+        "reasoning": "General SCS NP-completeness and full-language universality methods leave the antisquare-only exact finite spectra undetermined.",
+        "searches": [
+          "arxiv:2304.04583 Sections 2-3",
+          "arxiv:2209.09223",
+          "Resultary semantic: shortest common supersequence for all binary antisquares x complement x scattered subsequences finite counts"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2209.09223 full accessible PDF",
+        "arxiv:2304.04583 primary PDF Sections 2-3",
+        "Resultary semantic: shortest common supersequence for all binary antisquares x complement x scattered subsequences finite counts",
+        "Resultary binary subsequence universality record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The universal word arch characterization determines an auxiliary statistic once a host is known; it does not select which host contains each x complement(x) subsequence."
+        ],
+        "reasoning": "Direct exhaustive DP and counting modulo reversal/complement are essential extra work for the claimed exact table.",
+        "searches": [
+          "arxiv:2304.04583 Sections 2-3",
+          "arxiv:2209.09223"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Antisquares here are x complement(x) but required as scattered subsequences, not factors."
+        ],
+        "reasoning": "Checked language inclusion/embedding relation: factor avoidance is not equivalent to restricted subsequence coverage.",
+        "searches": [
+          "arxiv:2209.09223",
+          "arxiv:2304.04583",
+          "Resultary semantic: shortest common supersequence for all binary antisquares x complement x scattered subsequences finite counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary general subsequence-universality-index law counts all words by arch count, not shortest hosts covering just order-k antisquares."
+        ],
+        "reasoning": "A related known distribution is used to label an index but does not recreate the antisquare-filtered table; previously tabulated restricted hosts remain a risk.",
+        "searches": [
+          "Resultary semantic: shortest common supersequence for all binary antisquares x complement x scattered subsequences finite counts",
+          "Resultary 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "rationale": "Baranwal et al study contiguous antisquares as factors, whereas these are subsequence covers. Adamson covers hosts universal for ALL length-k words and gives the arch characterization; it does not count hosts for only complement-paired targets. Resultary contains broader binary subsequence-universality findings but no matching antisquare-restricted table in examined hits.",
+      "residual_risks": [
+        "Unindexed specialist finite supersequence tables or an implicit restricted-language theorem may already include the k<=8 results.",
+        "The shortest length claim is bounded to k<=8; counts only through k<=7; no general-order theorem is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contiguous factor occurrence/avoidance, not scattered host coverage",
+          "evidence": "Defines antisquare as x complement(x) and studies avoidability/critical exponent.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.09223",
+          "material_read": "Full primary PDF background and theorem statements; screenshot first page",
+          "method": "Full-text PDF reading and page screenshot",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Same antisquare language name"
+        },
+        {
+          "assessment": "Full-language k-universality and arch method prior, not the restricted antisquare covering census",
+          "evidence": "The arch decomposition supplies the universality index of a host, not antisquare host enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "Primary PDF Sections 2-3, arch theorem and page-image inspection",
+          "method": "PDF reading and screenshot",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Nearest subsequence-coverage machinery and arch invariant"
+        },
+        {
+          "assessment": "All-word index distribution not antisquare-selected spectrum",
+          "evidence": "Published generating function (1+z)/(1-z-2uz²) counts general index classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Published finding title and full summary",
+          "method": "Resultary published-results comparison",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Potential table of indexed host universality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite complete spectrum solves a natural restricted-language supersequence problem where the target family has 2^k structured words; the k8 sharp cutoff and k1..7 symmetry/arch census are useful exact algorithmic-combinatorial benchmarks rather than arbitrary single instances.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2209.09223 full accessible PDF",
+    "arxiv:2304.04583 primary PDF Sections 2-3",
+    "Resultary semantic: shortest common supersequence for all binary antisquares x complement x scattered subsequences finite counts",
+    "Resultary binary subsequence universality record"
+  ],
+  "disposition": "passed",
+  "final_claim": "For order k=1..8 antisquare language {x complement(x):|x|=k}, shortest binary scattered-subsequence covering host has length exactly 4k−1. For k<=7 there is a complete minimum-host count, palindrome/orbit census, and subsequence-universality-index distribution; order8 no count of minimum-length hosts claimed.",
+  "limitations": [
+    "Originality is a qualified best-of-knowledge mathematical judgment, not global priority or external certification.",
+    "Source-tree SHA independently retrieved at Git API; individual RESULT.md and critical computation source blobs checked.",
+    "All public-intended metadata requires privacy clearance before publication."
+  ],
+  "residual_risks": [
+    "Unindexed specialist finite supersequence tables or an implicit restricted-language theorem may already include the k<=8 results.",
+    "The shortest length claim is bounded to k<=8; counts only through k<=7; no general-order theorem is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Contiguous factor occurrence/avoidance, not scattered host coverage",
+      "evidence": "Defines antisquare as x complement(x) and studies avoidability/critical exponent.",
+      "identifier_or_url": "https://arxiv.org/abs/2209.09223",
+      "material_read": "Full primary PDF background and theorem statements; screenshot first page",
+      "method": "Full-text PDF reading and page screenshot",
+      "title": "Antisquares and Critical Exponents",
+      "trigger": "Same antisquare language name"
+    },
+    {
+      "assessment": "Full-language k-universality and arch method prior, not the restricted antisquare covering census",
+      "evidence": "The arch decomposition supplies the universality index of a host, not antisquare host enumeration.",
+      "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+      "material_read": "Primary PDF Sections 2-3, arch theorem and page-image inspection",
+      "method": "PDF reading and screenshot",
+      "title": "Ranking and Unranking k-Subsequence Universal Words",
+      "trigger": "Nearest subsequence-coverage machinery and arch invariant"
+    },
+    {
+      "assessment": "All-word index distribution not antisquare-selected spectrum",
+      "evidence": "Published generating function (1+z)/(1-z-2uz²) counts general index classes.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "material_read": "Published finding title and full summary",
+      "method": "Resultary published-results comparison",
+      "title": "Closed-form law for binary subsequence universality",
+      "trigger": "Potential table of indexed host universality"
+    }
+  ]
+}
