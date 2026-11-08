@@ -1,15 +1,21 @@
-# Review of nine-leaf entropy obstruction
+# Independent mathematical audit
 
-## Correctness
-PASS. The finding has a self-contained all-tree upper-bound proof: a 36-hypothesis family would require two 16-hypothesis branches, limiting the first vertex query to three leaf-size partitions. A direct-product bound rules out the \((3,6)\) partition, and an eight-concept disjoint-path lemma rules out the \((4,5)\) and \((1,2,6)\) partitions. The finite caterpillar lower bounds use explicit full adaptive trees with independent breadth-first replay and separate exact recurrence checks. The VC statement follows by unique-path geometry and four leaf witnesses. The counts are not extrapolated to larger leaf numbers.
+## correctness
 
-## Originality
-PASS under inspected evidence, with historical-priority risk. Walker's 2022 paper proves abstract tree-dimension/Sauer–Shelah statements, not the extremal incidence rank of leaf-pair paths in a fixed tree. Fox–Pach–Suk (2021) analyze sunflowers and a rooted one-endpoint path class rather than the present two-leaf endpoint class. Targeted literature and research-index searches for alternative wording, and comparisons with earlier results on rooted combs and phylogenetic quartet queries, did not reveal an implication establishing the nine-leaf deficiency. Related split-system terminology remains a residual search risk; absence of a hit is not a uniqueness certificate.
+PASS
 
-## Value
-PASS. The result identifies the first sharp failure of the basic entropy bound in a graph-geometric concept class defined for every possible host tree, distinguishes nine leaves from both smaller counts and ten leaves, and supplies a structural reason why a superficially sufficient 36 hypotheses cannot be arranged into a depth-five mistake tree. It also fixes VC dimension across the family. This is a meaningful boundary rather than an arbitrary numerical slice.
+For finite trees with exactly m>=2 original leaves and all unordered distinct leaf-pair geodesics as vertex-subset concepts, the trivial Ldim <= floor(log2 binom(m,2)) is correct and query responses are vertex-membership. Every depth-five shattering tree on m=9 must begin with >=16 positive and negative hypotheses; enumerating all integer partitions of nine leaves gives only (3,6),(4,5),(1,2,6). The (3,6) cross-path positive version space factors as two rooted leaf-path concept classes on disjoint sides, giving Ldim<=floor(log2 3)+floor(log2 6)=3. The other two partitions force a 16-concept negative branch and an 8+8 second split; the resulting six 4-leaf pair paths plus two disjoint singleton paths cannot split 4+4 into two depth-two branches (eight-hypothesis lemma), so depth five is impossible for ANY subdivided nine-leaf tree. I independently retrieved and parsed the complete certificates.json from the exact Git blob, reconstructed every witness path and branch decision, and confirmed 0 violations, full distinct witnesses for depths 0..5 and 32 distinct witnesses for m=10. Combining certificates and universal bounds gives U(2..10)=(0,1,2,3,3,4,4,4,5). The three-point path Helly-style incidence obstruction and four leaf choices establish VC=0/1/2 for m=2/3/>=4. The proof makes no unjustified infinite-size inference from finite certificates.
 
-## Limitations
-The extremal table stops at ten leaves; all-tree extremizer classification is not attempted. Independent external mathematical review and exhaustive historical priority have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified acceptance for the first unattainable entropy ceiling at nine leaves in the fixed-host tree leaf-pair path incidence class; standard general Littlestone results and one-endpoint rooted-path results are prior work.
+
+## value
+
+PASS
+
+The 9-leaf obstruction is a sharp, universal first failure of the information-theoretic hypothesis-count bound for a geometrically natural online-learning class; the bound becomes attainable again at ten. The mathematical reason is a three-partition first-query bottleneck and an eight-hypothesis path lemma, not a brute-force scan of arbitrarily many finite trees. This first cutoff and accompanying VC separation form a useful self-contained structural benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

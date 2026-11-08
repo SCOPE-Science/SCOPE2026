@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:45:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite trees with exactly m>=2 original leaves and all unordered distinct leaf-pair geodesics as vertex-subset concepts, the trivial Ldim <= floor(log2 binom(m,2)) is correct and query responses are vertex-membership. Every depth-five shattering tree on m=9 must begin with >=16 positive and negative hypotheses; enumerating all integer partitions of nine leaves gives only (3,6),(4,5),(1,2,6). The (3,6) cross-path positive version space factors as two rooted leaf-path concept classes on disjoint sides, giving Ldim<=floor(log2 3)+floor(log2 6)=3. The other two partitions force a 16-concept negative branch and an 8+8 second split; the resulting six 4-leaf pair paths plus two disjoint singleton paths cannot split 4+4 into two depth-two branches (eight-hypothesis lemma), so depth five is impossible for ANY subdivided nine-leaf tree. I independently retrieved and parsed the complete certificates.json from the exact Git blob, reconstructed every witness path and branch decision, and confirmed 0 violations, full distinct witnesses for depths 0..5 and 32 distinct witnesses for m=10. Combining certificates and universal bounds gives U(2..10)=(0,1,2,3,3,4,4,4,5). The three-point path Helly-style incidence obstruction and four leaf choices establish VC=0/1/2 for m=2/3/>=4. The proof makes no unjustified infinite-size inference from finite certificates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic cardinality bound yields <=floor(log2 36)=5 at m=9, not the sharp <=4.",
+          "General sunflower statements bound dimension-sensitive set systems but do not force the 3 admissible leaf partition case split."
+        ],
+        "reasoning": "The target is a sharper geometric exception to the generic bound and requires the new first-query partition lemma.",
+        "searches": [
+          "online learning Littlestone dimension vertex incidence paths joining leaves in trees nine leaves entropy upper bound",
+          "Walker 2022 Tree Dimension and the Sauer–Shelah Dichotomy Corollary 1.10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.12211 (primary paper)",
+        "arXiv:2103.10497 (primary paper)",
+        "Resultary semantic search online learning Littlestone dimension vertex incidence paths joining leaves in trees nine leaves entropy upper bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Walker treats abstract branch sets with a different host/query tree, not vertex incidence of leaf pairs in a fixed tree.",
+          "Fox–Pach–Suk general sunflower and rooted single-endpoint results do not imply impossibility of depth-five shattering at nine leaves."
+        ],
+        "reasoning": "The count 36 permits rank five generally; only tree-specific component splits and disjoint-path geometry yield the deficit.",
+        "searches": [
+          "online learning Littlestone dimension vertex incidence paths joining leaves in trees nine leaves entropy upper bound",
+          "arXiv:2203.12211",
+          "arXiv:2103.10497"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walker defines general tree dimension and maximality of adaptive concept families.",
+          "Fox–Pach–Suk uses root-to-leaf paths as a VC-one construction, not all pairwise geodesics of fixed host tree."
+        ],
+        "reasoning": "Different endpoint restrictions yield different concept classes and therefore no direct equivalence of online shattering dimensions.",
+        "searches": [
+          "online learning Littlestone dimension vertex incidence paths joining leaves in trees nine leaves entropy upper bound",
+          "arXiv:2203.12211",
+          "arXiv:2103.10497"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches concern other tree invariants, not a U(m) online shattering spectrum.",
+          "The inspected Git certificate gives the complete row m=2..10 for explicit caterpillars, not an already published external table."
+        ],
+        "reasoning": "No previously published exact m<=10 leaf-pair Ldim table was located; this is only negative search evidence.",
+        "searches": [
+          "online learning Littlestone dimension vertex incidence paths joining leaves in trees nine leaves entropy upper bound",
+          "online shattering leaf-to-leaf tree paths maximum m leaves 9",
+          "Resultary:2026/10/4/SCOPE-oriented-tree-general-position-as-a-greene-kleitman-two-family--6e5c41bfd474"
+        ]
+      },
+      "rationale": "Qualified acceptance for the first unattainable entropy ceiling at nine leaves in the fixed-host tree leaf-pair path incidence class; standard general Littlestone results and one-endpoint rooted-path results are prior work.",
+      "residual_risks": [
+        "Prior phylogenetic split-system, tree-geodesic incidence or online learning terminology may contain equivalent results under other names.",
+        "Only m<=10 classified; no claim for larger leaf counts or all extremizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_DIFFERENT_CONCEPT_CLASS",
+          "evidence": [
+            "General tree-dimension of arbitrary families does not fix leaf-pair geodesic incidence of a host tree."
+          ],
+          "identifier_or_url": "arXiv:2203.12211",
+          "material_read": "Open nine-page paper: general definitions, Definition 1.9, Corollary 1.10, main statements, and visual page inspection.",
+          "method": "Primary PDF reading/search and screenshot",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Might give maximality obstruction for nine-leaf path concepts"
+        },
+        {
+          "assessment": "ROOTED_PATH_SPECIAL_CASE_NOT_COVERING",
+          "evidence": [
+            "Root-to-leaf example has one fixed endpoint, versus unrestricted pairs of distinct leaves here."
+          ],
+          "identifier_or_url": "arXiv:2103.10497",
+          "material_read": "Open primary paper introduction including path example, Theorem 4 and searched path/tree passages; screenshot of third page.",
+          "method": "Primary PDF reading with page inspection",
+          "title": "Sunflowers in Set Systems of Bounded Dimension",
+          "trigger": "Has bounded Littlestone classes and a tree path example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 9-leaf obstruction is a sharp, universal first failure of the information-theoretic hypothesis-count bound for a geometrically natural online-learning class; the bound becomes attainable again at ten. The mathematical reason is a three-partition first-query bottleneck and an eight-hypothesis path lemma, not a brute-force scan of arbitrarily many finite trees. This first cutoff and accompanying VC separation form a useful self-contained structural benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Maximum U(m) only established through m=10, not an all-m classification.",
+    "Certificates prove explicit examples; universal m9 impossibility comes from geometric reasoning, not finite host enumeration."
+  ],
+  "schema_version": 1
+}
