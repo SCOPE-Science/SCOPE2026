@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The exact antichain vertex set is given by two coordinate cubes meeting at the origin. A positive probability design with per-subset weights binom(m+1,k)/binom(2m+1,m) has mean t*1 and covariance Q/(2m). Projector algebra proves an exact ellipsoid boundary identity for every vertex and every m>=1. For any containing ellipsoid (center a, positive shape S), taking design expectations gives tr(S^{-1}Q)/(2m)+(a-t1)^T S^{-1}(a-t1)<=1; determinant AM-GM proves det S>=det Q and equality forces center and shape uniqueness. All coefficients are positive for m>=1. Exact rational standalone script in the actual package verified contact and moments for m=1..8 and is not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete public RESULT.md of the balanced two-layer John-ellipsoid record explicitly calls its ellipsoid the unique maximum-volume *contained* ellipsoid and says it is not the circumscribed Löwner ellipsoid (ID 2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7).",
+        "The complete public RESULT.md of the unbalanced two-layer John-ellipsoid record again optimizes contained ellipsoid volume and expressly excludes balanced sizes (ID 2026/10/11/SCOPE-exact-john-ellipsoid-of-unbalanced-two-layer-chain-and-order-pol--c200d8f4f023).",
+        "Generic minimum-volume enclosing ellipsoid algorithms of Mittal-Hanasusanto (arxiv:1807.07507) give optimization and approximation methods, not this evaluated family."
+      ],
+      "reasoning": "The inscribed John ellipsoid of the original polytope does not determine the enclosing Löwner ellipsoid of that same polytope. Polarity relates Löwner(P) to John(P°) after centering, not John(P). General algorithms without a specialized evaluated solution do not dominate the explicit hypergeometric certificate.",
+      "searches": [
+        "dual John ellipsoid of polar of balanced two-level order polytope, three spectral eigenspaces, anisotropy 2m+1",
+        "John Löwner ellipsoid of complete bipartite poset chain polytope stable set polytope of complete bipartite graph exact semiaxes",
+        "\"Löwner ellipsoid\" \"chain polytopes\" \"complete\"",
+        "\"minimum-volume enclosing ellipsoid\" \"chain polytope\" poset"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.01626 (Ahmad, Fourier, Joswig; full PDF materially read)",
+      "arxiv:2312.13890 (Freij-Hollanti, Lundström; full PDF materially read)",
+      "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7/RESULT.md (full public result materially read)",
+      "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/2026/10/11/SCOPE-exact-john-ellipsoid-of-unbalanced-two-layer-chain-and-order-pol--c200d8f4f023/RESULT.md (full public result materially read)",
+      "arxiv:1807.07507 (Mittal, Hanasusanto; abstract only)",
+      "Stanley, Two poset polytopes (1986): foundational antichain vertex theorem, quoted in inspected primary papers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ahmad-Fourier-Joswig (arxiv:2309.01626, pp.1-3 and Theorem 4.1) prove f-vector monotonicity and characterize faces of maximal ranked poset chain-order polytopes.",
+        "Freij-Hollanti-Lundström (arxiv:2312.13890, pp.3-4 and Theorem 1) explicitly express the ordinal-sum chain polytope as the subdirect sum of its factors and prove f-vector inequalities.",
+        "The full evaluated balanced and unbalanced John records provide inner ellipsoid shapes via facet-support contact theorems, not outer-vertex contact designs."
+      ],
+      "reasoning": "The prior combinatorial inequalities specify vertices/facets but not the minimizing determinant under the enclosing constraints. The new proposition supplies a positive probability measure with covariance Q/(2m) and a global AM-GM argument, neither entailed by an f-vector or by the facet-contact theorem for John(P).",
+      "searches": [
+        "Löwner ellipsoid of the 2m-dimensional chain polytope of ordinal sum of two m-element antichains, all 2^(m+1)-1 vertices contact, center (m+1)/(2(2m+1))",
+        "dual John ellipsoid of polar of balanced two-level order polytope, three spectral eigenspaces, anisotropy 2m+1",
+        "arxiv:2309.01626",
+        "arxiv:2312.13890",
+        "2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7",
+        "2026/10/11/SCOPE-exact-john-ellipsoid-of-unbalanced-two-layer-chain-and-order-pol--c200d8f4f023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two equal antichains give the stable-set polytope of K_{m,m}, equivalently the origin-glued free sum of two unit cubes, by the antichain-vertex theorem (arxiv:2312.13890, pp.3-4).",
+        "The associated two-rank order polytope is Euclidean-isometric under reflection of the upper block; the formula therefore applies to both presentations.",
+        "No matching evaluated outer-ellipsoid statement was recovered in those searches."
+      ],
+      "reasoning": "Changing to the order, complete-bipartite stable-set, subdirect-sum, orthogonal-cube-join or positive-design language leaves the new shape and all-vertex contact claim unchanged. The inspected closest source papers have different mathematical conclusions, rather than merely different titles.",
+      "searches": [
+        "Löwner ellipsoid of the 2m-dimensional chain polytope of ordinal sum of two m-element antichains, all 2^(m+1)-1 vertices contact, center (m+1)/(2(2m+1))",
+        "minimum volume enclosing ellipsoid for stable set polytope of balanced complete bipartite graph K_{m,m}, hypergeometric vertex contact design",
+        "subdirect sum of two unit hypercubes, minimum ellipsoid, Vandermonde binomial contact weights",
+        "\"minimum volume enclosing ellipsoid\" \"stable set polytope\" complete bipartite",
+        "\"Löwner ellipsoid\" \"convex hull\" \"two cubes\" orthogonal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public record search returned titles about the John ellipsoid of two-layer order/chain polytopes, but no exact table or specialized formula for the outer ellipsoid with m-dependent binomial weights.",
+        "Related table of rank-selected Boolean-polytope Löwner ellipsoids concerns full permutation-invariant Hamming-weight layer selection, whereas the present vertex set is a union of two coordinate-subcube orbits, not such a rank-selected Boolean polytope."
+      ],
+      "reasoning": "There was no retrieved table that evaluated this infinite family or gave the proposed semiaxis eigenvalues, center, and all-vertex contacts. This is a bounded novelty check, not a claim of exhaustive database completeness.",
+      "searches": [
+        "Löwner ellipsoid of the 2m-dimensional chain polytope of ordinal sum of two m-element antichains, all 2^(m+1)-1 vertices contact, center (m+1)/(2(2m+1))",
+        "minimum volume enclosing ellipsoid for stable set polytope of balanced complete bipartite graph K_{m,m}, hypergeometric vertex contact design",
+        "minimum-volume enclosing ellipsoid Löwner complete bipartite stable set polytope chain polytope ordinal sum of antichains"
+      ]
+    },
+    "rationale": "The two most directly relevant published maximal-ranked-poset/ordinal-sum sources treat antichain vertices, cube-join structure, and face-vector comparisons, not evaluated minimum-volume enclosing ellipsoids. Two closest directly inspected published research records provide the opposite optimization problem: maximum-volume *inscribed* John ellipsoids. Their statements do not imply the present Löwner (minimum-volume containing) ellipsoid or its positive hypergeometric full-vertex contact certificate. Searches explicitly included Löwner/Loewner, stable-set, order/chain, polar dual, free-sum, and experimental-design aliases. Originality is assessed against retrieved sources and may have residual historical-priority risk.",
+    "residual_risks": [
+      "An equivalent minimum-volume enclosing ellipsoid may appear in older optimal experimental design or cubical free-sum literature not retrieved by title or semantic search.",
+      "General-purpose outer-ellipsoid algorithm papers were not all read in full; no identified source provided the specialized evaluated law.",
+      "The result does not extend automatically to unequal part sizes or other metrics; no such extension is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNDERLYING_FAMILY_NOT_OUTER_ELLIPSOID",
+        "evidence": "Page 2 identifies all levels comparable and the P_tau family; page 3 gives chain-polytope faces. Theorem 4.1 compares face counts; no enclosing-ellipsoid equation or contact certificate appears.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.01626",
+        "material_read": "16-page accessible primary PDF: introduction, definitions/chain facets in §§1-3, Theorem 4.1, proof/face enumeration overview, computational section, references.",
+        "method": "Read extracted text and visually inspected pages 2 and 3 as source-page images.",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Original maximal-ranked-poset paper defining the present two equal layers."
+      },
+      {
+        "assessment": "FREE_SUM_PRESENT_OUTER_ELLIPSOID_NOT_COVERED",
+        "evidence": "Page 4 identifies C(A<B) with convex hull of C(A)×0 and 0×C(B). Theorem 1 addresses f-vector inequalities, not minimum determinant or all-vertex ellipsoid contacts.",
+        "identifier_or_url": "https://arxiv.org/pdf/2312.13890",
+        "material_read": "16-page primary PDF: pp.1-4 definitions and subdirect-sum vertex formula, §4 construction, Theorem 1 and proof, references.",
+        "method": "Read extracted text and visually inspected pages 3 and 4 as source-page images.",
+        "title": "f-vector inequalities for order and chain polytopes",
+        "trigger": "Closest primary subdirect-sum construction for ordinal sums of antichains."
+      },
+      {
+        "assessment": "JOHN_INSCRIBED_DISTINCT_FROM_LOEWNER_ENCLOSING",
+        "evidence": "Its main theorem explicitly maximizes volume inside the polytope; assumptions distinguish its John ellipsoid from the circumscribed Löwner ellipsoid. No outer shape or vertex design is stated.",
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-balanced-two-layer-order-polytopes--8659155ecca7/RESULT.md",
+        "material_read": "Full 7,602-character primary RESULT.md: finding, assumptions, support-certificate proof, verification, relationship to prior work, limitations, references.",
+        "method": "Read full public primary Markdown through authorized repository access.",
+        "title": "Exact John ellipsoid of balanced two-layer order polytopes",
+        "trigger": "Same full two-layer balanced objects, potential polarity/duality coverage."
+      },
+      {
+        "assessment": "JOHN_INSCRIBED_UNBALANCED_NOT_COVERING",
+        "evidence": "The theorem assumes unequal sizes and determines the *maximum-volume contained* ellipsoid via facet contacts. It expressly excludes the balanced case and does not evaluate a circumscribed Löwner ellipsoid.",
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-unbalanced-two-layer-chain-and-order-pol--c200d8f4f023/RESULT.md",
+        "material_read": "Full 9,100-character primary RESULT.md: domain, full proof, verification, relationship and limitations.",
+        "method": "Read full public primary Markdown through authorized repository access.",
+        "title": "Exact John ellipsoid of unbalanced two-layer chain and order polytopes",
+        "trigger": "Same class of complete two-layer chain polytopes, complementary parameter regime."
+      },
+      {
+        "assessment": "METHOD_BACKGROUND_NO_IDENTIFIED_SPECIALIZED_RESULT",
+        "evidence": "The source develops copositive-program formulations and approximations to outer ellipsoids; no exact formula for glued cubes is visible in inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/1807.07507",
+        "material_read": "Abstract and results synopsis; complete paper not inspected.",
+        "method": "Read public abstract and DOI-linked publication summary.",
+        "title": "Finding Minimum Volume Circumscribing Ellipsoids Using Generalized Copositive Programming",
+        "trigger": "General outer-ellipsoid optimization theory may subsume specialized result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f8245d9b-11e4-4a07-a431-4d3e312a6f05",
+  "value": {
+    "rationale": "The Löwner ellipsoid is a canonical affine-geometric invariant of natural poset polytopes. The theorem gives its unique center, three exact squared-semiaxis classes, exact volume, and a full contact classification for an infinite family; the explicit positive binomial/hypergeometric measure is a structural certificate rather than a computational fit. Although the number of vertices grows exponentially, all remain contacts, while anisotropy grows linearly as 2m+1. These are non-implied geometric facts useful for metric comparisons of chain/order polytopes, not mere normalizations or generic exercises.",
+    "status": "PASS"
+  }
+}
