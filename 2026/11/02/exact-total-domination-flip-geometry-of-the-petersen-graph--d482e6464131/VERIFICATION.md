@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,35 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-All checks use Python 3.10 or later and its standard library only. Execute from the directory containing both included files:
+## correctness
 
-```sh
-python3 verify_petersen_direct.py
-python3 verify_triangle_orbits.py
-```
+PASS
 
-The first verifier defines the Petersen graph directly by disjoint two-subsets of a five-element set. It tests the open-neighborhood total-domination condition on all \(1024\) masks, creates every cap-specific add/delete adjacency, checks the sharp connectivity transition, and performs exact breadth-first search from every one of the \(332\) cap-seven states. The second independently enumerates triangle-free five-vertex graphs by forbidden triangle masks, constructs all \(120\) ground-label permutations, verifies ten complete orbit classes, and obtains all-pairs distance counts from ten orbit representatives.
+Represent a Petersen vertex by an edge of K5. A selected edge set D totally dominates iff no 2-subset covers D, equivalently α(K5,D)≤2, equivalent to triangle-freeness of F=K5−D. The cardinality cap 7 corresponds to |E(F)|≥3 and edge-toggling is preserved. All 2^10=1024 bitmasks were independently tested for Petersen open-neighborhood total domination. The exact 332-state graph was constructed and BFS from EACH of 332 sources covered all states; histogram (980,3210,7070,11585,13170,10970,5810,1875,270,6), eccentricities and 735 Hamming defects reproduced. All-lower-cap components follow from maximal triangle-free graphs K2,3, C5, star and direct bitmask layers. This is an exhaustive finite proof, not sampling; component threshold beyond cap7 follows deletions to ≤7.
 
-Actual run output includes:
+## originality
 
-```text
-MINIMAL_TDS 4:10 5:12 6:5
-CAP_4 states=10 components=10 largest=1
-CAP_5 states=82 components=22 largest=7
-CAP_6 states=222 components=6 largest=217
-CAP_7 states=332 components=1 largest=332
-DIRECT_DISTANCE_PASS states=332 edges=980 radius=8 diameter=10
-ECC 8:100 9:220 10:12
-UNORDERED_DISTANCE_HISTOGRAM 980 3210 7070 11585 13170 10970 5810 1875 270 6
-HAMMING_DEFECT 0:54211 2:735
-COMPLEMENTARY_C5_DIAMETRAL_PAIRS 6
-DIRECT_PETERSEN_TDS_CERTIFICATE_PASS
-ORBIT_COUNT 10 S5_SIZE=120
-ORBIT_CERTIFICATE_PASS states=332 edges=980 radius=8 diameter=10
-DIAMETRAL_PAIRS_ARE_SIX_COMPLEMENTARY_C5_PAIRS
-TRIANGLE_ORBIT_CERTIFICATE_PASS
-```
+PASS
 
-A full ten-row orbit certificate, including degree, eccentricity and every distance shell, is printed by the second program. The first program does not assume the triangle-free reduction; the second does not call the Petersen total-domination predicate. This independent formulation guards against a shared modelling error, but does not constitute independent scholarly review. Exact finite enumeration proves the stated finite conclusions only because the search domain and successor relation are exhaustive. It neither proves uniqueness in the historical literature nor establishes a theorem for larger graphs.
+Earlier k-total dominating graph literature defines the move, proves general connectivity bounds and exact path/cycle cases. The 388 labeled triangle-free five-vertex count and resulting 332 qualifying states are known. The complete Petersen-specific metric, eccentricity, sharp connectivity cap and precise pairwise Hamming defect were not found in inspected primary sources or Resultary.
+
+## value
+
+PASS
+
+A complete reconfiguration-geometric classification in a canonical symmetric graph, beyond raw state counting: exact threshold, full path-length distribution and localization of all extremal distance pairs. The finite size is mathematically motivated by the Petersen/triangle-free complement equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

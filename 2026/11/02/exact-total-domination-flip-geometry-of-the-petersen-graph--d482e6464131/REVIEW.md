@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Petersen vertex-to-edge identification makes total domination equivalent to absence of a triangle in the complementary five-vertex graph. The cardinality floor and one-move adjacency follow exactly. Both included, separately structured finite verifiers exhaustively cover all \(1024\) edge subsets and reproduce the 332-state graph, the ten symmetry classes, complete shortest-path distances, the six diametral pairs, and the 735 two-step geodesic defects. The breadth-first-search invariant is explicitly justified, and no finite calculation is extrapolated to an infinite family.
+## correctness
 
-## Originality — PASS, qualified
-Haas–Seyffarth (2012) concerns ordinary domination; Alikhani–Fatehi–Mynhardt (2017/2019) defines total-dominating reconfiguration and establishes general bounds, but does not determine these Petersen-specific distances or threshold. The known count of 388 labelled triangle-free five-vertex graphs (OEIS A213434) already covers the raw 332 eligible-state count; that count and the ten small graph types are not claimed as new. Comparisons with targeted mathematical research-record searches found no prior result implying the complete metric or sharp Petersen threshold. Unindexed historical computations remain a nonzero priority risk; exhaustive discovery and independent priority adjudication are not claimed.
+PASS
 
-## Value — PASS
-A canonical ten-vertex cubic graph exhibits a sharp, nontrivial connectivity transition from five frozen configurations at the preceding cap to a connected graph with explicitly classified center and periphery. Its complement identifies total-domination changes with constrained triangle-free graph flips. The exact shortest-path metric has a sharp two-step deviation from the ambient Hamming cube, and precisely six antipodal pairs account for its diameter. These are natural intrinsic transformation invariants, not arbitrary numerical slices or consequences of the published count of configurations.
+Represent a Petersen vertex by an edge of K5. A selected edge set D totally dominates iff no 2-subset covers D, equivalently α(K5,D)≤2, equivalent to triangle-freeness of F=K5−D. The cardinality cap 7 corresponds to |E(F)|≥3 and edge-toggling is preserved. All 2^10=1024 bitmasks were independently tested for Petersen open-neighborhood total domination. The exact 332-state graph was constructed and BFS from EACH of 332 sources covered all states; histogram (980,3210,7070,11585,13170,10970,5810,1875,270,6), eccentricities and 735 Hamming defects reproduced. All-lower-cap components follow from maximal triangle-free graphs K2,3, C5, star and direct bitmask layers. This is an exhaustive finite proof, not sampling; component threshold beyond cap7 follows deletions to ≤7.
 
-## Scope and limitations
-The result is exact only for the Petersen graph and addition/deletion moves, not for unrestricted Kneser graphs or other reconfiguration operations. The metric certificate is finite and exhaustive; its published-program semantics and complete stated domain are part of the proof. Existing knowledge may contain an unindexed equivalent. No external or independent validation was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier k-total dominating graph literature defines the move, proves general connectivity bounds and exact path/cycle cases. The 388 labeled triangle-free five-vertex count and resulting 332 qualifying states are known. The complete Petersen-specific metric, eccentricity, sharp connectivity cap and precise pairwise Hamming defect were not found in inspected primary sources or Resultary.
+
+## value
+
+PASS
+
+A complete reconfiguration-geometric classification in a canonical symmetric graph, beyond raw state counting: exact threshold, full path-length distribution and localization of all extremal distance pairs. The finite size is mathematically motivated by the Petersen/triangle-free complement equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

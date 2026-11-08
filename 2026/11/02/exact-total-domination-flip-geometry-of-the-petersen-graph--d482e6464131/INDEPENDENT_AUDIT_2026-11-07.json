@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:41:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent a Petersen vertex by an edge of K5. A selected edge set D totally dominates iff no 2-subset covers D, equivalently α(K5,D)≤2, equivalent to triangle-freeness of F=K5−D. The cardinality cap 7 corresponds to |E(F)|≥3 and edge-toggling is preserved. All 2^10=1024 bitmasks were independently tested for Petersen open-neighborhood total domination. The exact 332-state graph was constructed and BFS from EACH of 332 sources covered all states; histogram (980,3210,7070,11585,13170,10970,5810,1875,270,6), eccentricities and 735 Hamming defects reproduced. All-lower-cap components follow from maximal triangle-free graphs K2,3, C5, star and direct bitmask layers. This is an exhaustive finite proof, not sampling; component threshold beyond cap7 follows deletions to ≤7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General d0(G) bounds and path/cycle values, but no Petersen-specific radius/diameter histogram in inspected parts."
+        ],
+        "reasoning": "Broad graph reconfiguration theorems do not determine this small graph’s global metric, which is computed exhaustively.",
+        "searches": [
+          "On k-Total Dominating Graphs Alikhani Fatehi Mynhardt 2019",
+          "Reconfiguration of Colourings and Dominating Sets in Graphs survey 2020"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.04363; Australasian J. Combinatorics 73(2) (2019) 313–333",
+        "https://oeis.org/A213434",
+        "arXiv:2003.05956v1",
+        "Resultary published findings semantic search: Petersen graph k total dominating reconfiguration distance diameter connected threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem bounds connected cap but does not determine cap7 for Petersen or its distance histogram."
+        ],
+        "reasoning": "Explicit complementary graph criterion and exhaustive BFS are required to get the numerical metric; earlier total-domination and triangle-free definitions do not themselves imply the enumerated distances.",
+        "searches": [
+          "Alikhani Fatehi Mynhardt 2019 bounds Γ_t≤d0≤n",
+          "Petersen 332-state BFS metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier k-total dominating graph notion is exactly the same add/delete model; open-neighborhood criterion converts it to triangle-free toggles in the Petersen case."
+        ],
+        "reasoning": "General definitions and inequalities are prior. The explicit 332-state finite reconfiguration metric is not a corollary of mere general connectivity inequalities.",
+        "searches": [
+          "Petersen graph k total dominating reconfiguration distance diameter connected threshold",
+          "Alikhani Fatehi Mynhardt arXiv:1711.04363",
+          "Petersen KG(5,2) complement triangle-free graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known labeled triangle-free graph count at n=5 is 388; deleting 0,1,2-edge graphs gives 332."
+        ],
+        "reasoning": "The raw 332-state count is a known-table corollary, not novel. The proposed new tables count pair distances, eccentricities, and the 735 non-Hamming pairs, not identical to A213434.",
+        "searches": [
+          "Petersen graph k total dominating reconfiguration distance diameter connected threshold",
+          "OEIS A213434 labeled triangle-free graph counts",
+          "Petersen total dominating configurations 332"
+        ]
+      },
+      "rationale": "Earlier k-total dominating graph literature defines the move, proves general connectivity bounds and exact path/cycle cases. The 388 labeled triangle-free five-vertex count and resulting 332 qualifying states are known. The complete Petersen-specific metric, eccentricity, sharp connectivity cap and precise pairwise Hamming defect were not found in inspected primary sources or Resultary.",
+      "residual_risks": [
+        "An unindexed finite Petersen total-domination reconfiguration table might predate this computation.",
+        "No extension claimed to all generalized Petersen or all Kneser graphs; the exhaustive 1024-mask finite certificate is specific to KG(5,2)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers framework and bounds; no matching complete Petersen metric found",
+          "evidence": "Defines D_k^t(G), connectivity threshold d0 and studies paths/cycles, not the claimed 332-state distance tables.",
+          "identifier_or_url": "arXiv:1711.04363; Australasian J. Combinatorics 73(2) (2019) 313–333",
+          "material_read": "Accessible original full-text PDF extracted, introduction, general threshold theorem and path/cycle special families; image render attempt unavailable",
+          "method": "Read theorem statements and search text for Petersen-specific result",
+          "title": "On k-Total Dominating Graphs",
+          "trigger": "Primary same reconfiguration definition and bounds"
+        },
+        {
+          "assessment": "Covers raw state number, not graph edge or pair-distance spectrum",
+          "evidence": "388−56=332, which is not itself original.",
+          "identifier_or_url": "https://oeis.org/A213434",
+          "material_read": "OEIS sequence and n=5 value as recorded in primary package",
+          "method": "Compare known 388 count with filter 1+10+45=56",
+          "title": "A213434 labeled triangle-free graph sequence",
+          "trigger": "Exact state-number database"
+        },
+        {
+          "assessment": "Background framework, no identified precise Petersen metric",
+          "evidence": "General reconfiguration families rather than 332-state complete distance census.",
+          "identifier_or_url": "arXiv:2003.05956v1",
+          "material_read": "Accessible survey introduction and definitions, selected reconfiguration discussion",
+          "method": "Match token-add/delete total domination to surveyed models",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "Broader graph reconfiguration terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete reconfiguration-geometric classification in a canonical symmetric graph, beyond raw state counting: exact threshold, full path-length distribution and localization of all extremal distance pairs. The finite size is mathematically motivated by the Petersen/triangle-free complement equivalence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1711.04363; Australasian J. Combinatorics 73(2) (2019) 313–333",
+    "https://oeis.org/A213434",
+    "arXiv:2003.05956v1",
+    "Resultary published findings semantic search: Petersen graph k total dominating reconfiguration distance diameter connected threshold"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Petersen P=KG(5,2), the first connected one-add/delete total-domination cap is 7, where the reconfiguration graph has 332 vertices and 980 edges, radius 8, diameter 10, eccentricities 8:100, 9:220, 10:12, and 6 complementary-five-cycle diametral pairs; among 54,946 unordered pairs exactly 735 require Hamming distance +2 rather than Hamming distance.",
+  "limitations": [
+    "An unindexed finite Petersen total-domination reconfiguration table might predate this computation.",
+    "No extension claimed to all generalized Petersen or all Kneser graphs; the exhaustive 1024-mask finite certificate is specific to KG(5,2).",
+    "Checks reproduce finite cases and identities, not infinite-dimensional/unbounded-domain proofs where applicable.",
+    "Public metadata contains provenance fields and is not approved for import without full sanitized replacement."
+  ],
+  "residual_risks": [
+    "An unindexed finite Petersen total-domination reconfiguration table might predate this computation.",
+    "No extension claimed to all generalized Petersen or all Kneser graphs; the exhaustive 1024-mask finite certificate is specific to KG(5,2)."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers framework and bounds; no matching complete Petersen metric found",
+      "evidence": "Defines D_k^t(G), connectivity threshold d0 and studies paths/cycles, not the claimed 332-state distance tables.",
+      "identifier_or_url": "arXiv:1711.04363; Australasian J. Combinatorics 73(2) (2019) 313–333",
+      "material_read": "Accessible original full-text PDF extracted, introduction, general threshold theorem and path/cycle special families; image render attempt unavailable",
+      "method": "Read theorem statements and search text for Petersen-specific result",
+      "title": "On k-Total Dominating Graphs",
+      "trigger": "Primary same reconfiguration definition and bounds"
+    },
+    {
+      "assessment": "Covers raw state number, not graph edge or pair-distance spectrum",
+      "evidence": "388−56=332, which is not itself original.",
+      "identifier_or_url": "https://oeis.org/A213434",
+      "material_read": "OEIS sequence and n=5 value as recorded in primary package",
+      "method": "Compare known 388 count with filter 1+10+45=56",
+      "title": "A213434 labeled triangle-free graph sequence",
+      "trigger": "Exact state-number database"
+    },
+    {
+      "assessment": "Background framework, no identified precise Petersen metric",
+      "evidence": "General reconfiguration families rather than 332-state complete distance census.",
+      "identifier_or_url": "arXiv:2003.05956v1",
+      "material_read": "Accessible survey introduction and definitions, selected reconfiguration discussion",
+      "method": "Match token-add/delete total domination to surveyed models",
+      "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+      "trigger": "Broader graph reconfiguration terminology"
+    }
+  ]
+}
