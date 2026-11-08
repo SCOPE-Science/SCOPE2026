@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The padded-bit parity change gives an unrestricted upper bound on the VC dimension, and the explicit disjoint paired-coordinate gadgets realize all labels at the matching rank. The independent-set shift bijection gives the exact concept count. An all-positive online branch bounds Littlestone dimension by the cardinality of any concept, and disjoint threshold blocks furnish the stated online lower bound. The fixed-defect asymptotic is squeezed between explicit bounds with the same leading term. Endpoint cases were handled explicitly. The attached checker independently tests all support subsets through length fourteen and exact finite online recursion through length thirteen; it is corroboration, not a substitute for the unrestricted proof.
+
+## Originality
+**PASS within the accessible comparisons.** Dyer–Müller (arXiv:1808.09853, sections 3.3–3.4) counts fixed-size independent sets in cocomparability graphs but does not address shattering or online trees. Adler–Benediktsson–Macpherson (arXiv:2007.16042, sections 2–4) studies adjacency-neighborhood VC in Johnson/Hamming graphs, not coordinate membership by fixed-size independent sets of a path. Ghazi–Golowich–Kumar–Manurangsi (PMLR 132, 2021, sections 2–3) treats general online closure bounds rather than the present exact rank and sharp fixed-defect asymptotic. Munaro (arXiv:1302.6500, introduction) observes the rank for *all* independent sets, not the fixed-cardinality layer. An earlier isolated three-matching example on an eight-vertex path gives the special case \(n=7,k=3\) and is not claimed as new; its finite computation does not imply the present all-parameter and fixed-defect theorems. Related exact-adjacent-change binary-word classes and maximal-independent-set path classes have distinct hypothesis families; their results do not imply the present fixed-cardinality theorem. A differently indexed fixed-weight Fibonacci-word or hard-core-model treatment remains the principal historical priority risk.
+
+## Mathematical value
+**PASS.** Exact-cardinality layers of independent sets are a standard and natural refinement of graph independence systems. The theorem identifies the exact VC capacity throughout the packing range and a phase transition from full rank to defect-limited rank near maximum packing. In the latter regime it gives the exact logarithmic leading coefficient of online complexity, a provable and unbounded adaptive/nonadaptive separation using a specific structured family rather than an arbitrary concept system. The conclusions are not merely counting independent sets or repackaging a one-parameter threshold exercise.
+
+## Limitations
+The full shattered-support polynomial and the exact Littlestone dimension for arbitrary \((n,k)\) are open within this analysis. Historical priority remains subject to further searches, notably terminology involving fixed-weight hard-core configurations, path stable-set layers, and Fibonacci strings. The work has not received an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.

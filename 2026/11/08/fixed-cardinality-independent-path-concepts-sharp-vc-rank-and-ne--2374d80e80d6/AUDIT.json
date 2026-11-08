@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The padded-word parity transform has exactly r=n-2k+1 flips; a size-r+1 prescribed alternating trace with fixed endpoints needs r+2 flips, proving the defect upper bound, while cardinality gives the k bound. Explicit pairs at q_i=3i-2 with spaced fillers realize every labeling of t=min(k,r) queries. The standard shift bijection counts the class as binomial(k+r,r); leaf counting and the all-positive branch yield its online upper bounds. Separating r blocks of size 2b_i by zero positions realizes a direct product of b_i+1-point threshold families, giving the online lower bound and the exact r=1/r>=k boundaries. For fixed r the bounds agree in coefficient r of log2 k. The separate checker exhaustively verifies VC for 70 (n,k) cases through n=14, every gadget labeling through n=21, and recursively computes Ldim through n=13; infinite statements are proved, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson arXiv:2007.16042 §§2–4: VC of graph edge-neighborhood relation, upper bound four on Johnson graphs.",
+        "Ghazi et al., PMLR 132 (2021), §2 Proposition 3: aggregation closure upper bound O(kd log k)."
+      ],
+      "reasoning": "Neither prior graph-neighborhood relation nor arbitrary Boolean aggregation upper bound is the coordinate-membership family of exactly k mutually nonadjacent path vertices; their conclusions cannot instantiate the sharp formulas here.",
+      "searches": [
+        "arXiv:2007.16042 Johnson Hamming VC density neighborhoods",
+        "PMLR:132:ghazi21a Littlestone threshold dimension closure bounds",
+        "\"VC dimension\" graph independent sets path prescribed cardinality 2018"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.09853 §§2,3.3–3.4",
+      "arXiv:2007.16042 §§1–3",
+      "PMLR:132:ghazi21a §§2–3",
+      "arXiv:1302.6500 Introduction",
+      "OEIS/web searches for fixed-weight Fibonacci shattering and exact min(k,n-2k+1) formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dyer–Müller Theorem 13 counts sets but does not establish coordinate shattering.",
+        "Munaro remarks VC=alpha for all independent sets; this fails to give the fixed-cardinality formula (e.g. maximum independent-set layer of an odd path is a singleton).",
+        "Johnson graph Theorem 3.7 concerns neighborhoods among k-subset vertices, not original-coordinate membership.",
+        "General closure bounds do not supply an exact coefficient of fixed-slack online growth.",
+        "An earlier isolated fixed-cardinality three-matching computation on an eight-vertex path has VC=2 and Ldim=3, the (n,k)=(7,3) instance of this theorem; its result is acknowledged as a special case, not independently claimed as new."
+      ],
+      "reasoning": "The exact-size restriction prevents the unrestricted-independent-set formula from dominating the claim. The fixed-count counting algorithm and adjacency-neighborhood VC bound do not imply labeled-coordinate trace realizability. Distinct previous binary exact-switch and maximal-independent path families neither contain nor canonically reduce to these exactly-k nonconsecutive-one concepts with a theorem preserving both dimensions. The isolated eight-vertex-path three-matching computation is a specific instance; the present result strictly extends it in parameter domain and asymptotic form, so the former does not dominate the latter.",
+      "searches": [
+        "arXiv:1808.09853 §3.3 exact-size independent-set recurrence",
+        "arXiv:1302.6500 Introduction induced independent-set VC",
+        "arXiv:2007.16042 Theorems 3.6–3.7",
+        "PMLR:132:ghazi21a §2 Proposition 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1808.09853: exact-size independent sets are counted, not shattered.",
+        "arXiv:1302.6500: unrestricted independent-subgraph VC equals independence number.",
+        "Direct comparison of fixed-weight, Fibonacci-word, and independent k-set descriptions gave no matching exact rank."
+      ],
+      "reasoning": "The candidate was rephrased as a fixed-weight Fibonacci-word slice, as exact-k independent sets of the path, and as the coordinate incidence concept class. The located results treat counting or unrestricted subgraphs, not the claimed all-parameter VC/Ldim pair.",
+      "searches": [
+        "\"VC dimension\" \"Fibonacci\" \"constant weight\" binary",
+        "\"VC dimension\" \"independent sets\" \"path\" \"fixed\" k",
+        "\"Littlestone dimension\" \"Fibonacci words\"",
+        "semantic literature query: exact VC dimension of coordinate class of binary words with exactly k nonconsecutive ones"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The standard number of independent size-k sets is binomial(n-k+1,k), used here only as an upper-bound input.",
+        "No searched table or database yielded a VC rank for fixed-cardinality path independent-set concepts."
+      ],
+      "reasoning": "Counting the underlying concepts is not counting the shattered supports, and a known binomial enumeration does not determine the VC/Littlestone conclusion. Negative table searches establish only a bounded evidence check, not uniqueness.",
+      "searches": [
+        "\"min(k,n-2*k+1)\" \"VC\"",
+        "OEIS binomial n-k+1 k independent sets path number no consecutive ones",
+        "\"fixed-cardinality\" \"independent sets\" \"shattering\""
+      ]
+    },
+    "rationale": "The closest inspected works concern enumeration of fixed-size independent sets, adjacency-neighborhood VC in Johnson/Hamming graphs, general Littlestone closure, and unrestricted independent-set shattering. None of the inspected material gives the exact rank min(k,n-2k+1) of the cardinality slice or the leading r log2 k online growth. A previously computed isolated matching example on an eight-vertex path is equivalent to the case (n,k)=(7,3) here; that finite case does not imply this all-parameter rank theorem or the fixed-defect online asymptotic. Other prior exact-switch binary-language and maximal-independent-set path findings concern different hypothesis systems. Searches found no direct dominating theorem. Alternative nomenclature remains a priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent formula may occur under hard-core configurations, finite-state words, fixed-weight Fibonacci strings, or threshold-product terminology outside indexed sources.",
+      "No general exact finite Littlestone formula or full shattering polynomial is claimed.",
+      "Independent mathematical validation and comprehensive historical priority certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts the underlying objects; not a coordinate VC or online dimension theorem.",
+        "evidence": "Theorem 13 O(k(n+m*)) counting of k-independent sets; section 3.3, manuscript page 7.",
+        "identifier_or_url": "arXiv:1808.09853; https://eprints.whiterose.ac.uk/id/eprint/135990/7/Dyer%20et%20al%20%20Inf%20Proc%20Lett%202018.pdf",
+        "material_read": "Full-text accepted manuscript introduction, sections 2 and 3.3, especially Theorem 13 on size-k independent-set counting, and section 3.4 heading.",
+        "method": "Read publisher-accepted OA manuscript text and inspected its page image.",
+        "title": "Counting Independent Sets in Cocomparability Graphs",
+        "trigger": "Exact-cardinality independent-set counting could dominate a proposed formula."
+      },
+      {
+        "assessment": "Studies VC of graph adjacency neighborhoods among k-subsets, not of coordinate incidence by independent k-subsets of a path.",
+        "evidence": "Theorem 3.7 VC=4 for Johnson adjacency under stated conditions; definition of N(w) in section 3.",
+        "identifier_or_url": "arXiv:2007.16042",
+        "material_read": "Full-text arXiv HTML: Introduction, definitions, Section 3 and Theorems 3.6–3.7 with proofs, plus main results.",
+        "method": "Read complete arXiv HTML theorem statements and corresponding proof passages.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "All k-subsets occur as Johnson graph vertices, so a VC theorem could subsume the cardinality layer."
+      },
+      {
+        "assessment": "Generic closure inequalities rather than the fixed-size path hypothesis class or sharp coefficient.",
+        "evidence": "Proposition 3 of section 2 has O(k d log k) generic aggregation bound.",
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "PDF page 3: Littlestone definition and Proposition 3; section 3: threshold dimension definition and related theorem context.",
+        "method": "Read original PMLR PDF and inspected page image.",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Broad online dimension and threshold-product theorems could already imply the sharp online result."
+      },
+      {
+        "assessment": "Allows all independent subsets, not one prescribed cardinality.",
+        "evidence": "Section 1: VC dimension for induced independent-subgraph set systems equals graph independence number.",
+        "identifier_or_url": "arXiv:1302.6500",
+        "material_read": "Full-text arXiv HTML introduction, definitions and statement that all independent induced subgraphs yield VC equal to independence number.",
+        "method": "Read original arXiv full-text introduction and theorem scope.",
+        "title": "The VC-Dimension of Graphs with Respect to k-Connected Subgraphs",
+        "trigger": "A graph-theoretic shattering paper explicitly mentions independence sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2374d80e-80d6-4361-b6de-ed35aa136605",
+  "value": {
+    "rationale": "The exact-cardinality independence model is naturally motivated by graph independent-set enumeration and constrained binary words. Its VC capacity changes at the near-maximum-packing defect r and is exactly min(k,r) for all parameters; this is not a textbook rank for unrestricted independent sets. The same family has online dimension growing as r log2 k with sharp leading coefficient at each fixed positive defect, despite constant VC dimension, and the one-defect and high-slack endpoints have exact online formulas. This supplies a substantive structural learning-theoretic separation for a canonical constrained set family, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
