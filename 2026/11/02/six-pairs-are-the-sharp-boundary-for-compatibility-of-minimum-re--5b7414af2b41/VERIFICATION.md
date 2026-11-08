@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The universal statement through five pairs is certified by the paper's rank-incidence proof. No finite profile enumeration is being interpreted as a universal proof of that portion.
+## correctness
 
-The specified six-pair preference profile can be reproduced by running the bundled Python 3 scripts in one directory, with no third-party dependencies:
+PASS
 
-```sh
-python verify_witness.py
-python verify_independent.py
-python verify_small.py
-```
+Each unmatched man–woman pair contributes at most one rank-before-match incidence, else it blocks, so Σ(r_a-1)≤n(n−1), hence L≤floor((n+1)/2). For n≤4, L≤2; at n=5 any stable matching with L=3 has all ten ranks 3 and is simultaneously gap- and regret-optimal (a hypothetical all-ranks≤2 stable matching would block it). Otherwise choose among min-regret matchings a min-gap one with R=q; all others have R≥q+1 and L≤2, hence gap≥q−1≥chosen gap. An independently written direct checker enumerated all 720 perfect matchings of supplied six-pair witness, exactly seven stable, with unique min gap (2,5) identity and unique min regret (3,4) matching (1,0,2,3,4,5). Complete universal n≤5 follows from incidence proof, not the 720-case check. Read verify_independent.py and RESULT.md frozen blobs.
 
-The first script checks all 720 six-pair perfect matchings by direct preference-position comparisons, obtains the exact seven stable matchings, computes all twelve partner ranks per stable matching, and asserts the unique disjoint optima. The second independently computes blocking preference masks and the rank scores from inverse-position maps over the same 720 matchings. The third checks the simultaneous-optimum property for all 46,656 complete strict three-pair preference profiles; it is only an additional regression.
+## originality
 
-These scripts were executed successfully from their current source files before packaging, and each printed `PASS`. The independent scientific audit status is not performed. The exact data are one explicit instance, not a census of all six-pair instances.
+PASS
+
+Best-of-knowledge: claim-specific mathematical comparisons of exactly defined source objects against established primary results; no matching stronger implication identified in actual searched and materially read sources. Neither a polynomial algorithm for each objective nor related profile/sex-equal compatibility results implies existence of a common optimizer for n≤5 or failure at n=6; the incidence inequality proves the cutoff.
+
+## value
+
+PASS
+
+The exact smallest market size separating two natural stable-marriage fairness objectives gives a meaningful universal boundary and an explicit minimal witness, useful for comparing algorithmic fairness guarantees; finite obstruction itself is accompanied by an all-profile proof for n≤5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
