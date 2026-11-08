@@ -1,0 +1,21 @@
+# Scientific review: exact symmetric Legendre quadrature positivity
+
+## Correctness — PASS
+
+The exact predictor uses the three-feature kernel \(k=a_0+a_1xy+a_2P_2(x)P_2(y)\), uniform target, positive coefficients, and \(\eta>0\). Symmetric nodes make the odd feature orthogonal to both the constant and even feature. Two rank-one inversions give the weight numerator \(\eta-a_2(z_iS_1-S_2)\) with a rigorously positive denominator. The sharp symmetric-design optimization is global: each reflected partner contributes zero, a completed square bounds all other contributions, and the sole unpaired odd-design zero node accounts for the parity distinction. Both equality branches have realizable Legendre values. Matrix inverse monotonicity proves the uniform constant-function bias bound. These proofs cover all allowed real nodes and all \(n\ge2\), not only tested instances.
+
+An independent exact-rational checker passed 269 checks: all sharp witness configurations from \(n=2\) through \(n=50\), signs at/above/below the boundary, and 220 direct Gram-system comparisons on seeded symmetric rational designs. Finite checks supplement but do not replace the general proof. There is no assertion about nonlocal nonsymmetric configurations, higher features, or convergence of the source's full adaptive quadrature scheme.
+
+## Originality — PASS, with residual priority risk
+
+Zhu–Li, *Scalable Bayesian Quadrature via Operator-Adapted Features* (arXiv:2610.38212v1, 2026-10-28), Sections 2.2 and 5.2, define the regularized operator-Legendre finite-feature estimator and analyze statistical error and uncertainty. They do not state this exact all-symmetric-design sign frontier or the universal-nugget bias obstruction. Karvonen–Kanagawa–Särkkä, *On the positivity and magnitudes of Bayesian quadrature weights* (doi:10.1007/s11222-019-09901-0, 2019), Sections 3–4, derive positivity for locally optimal points with totally positive kernels and magnitude bounds, not a corresponding universal ridge threshold for this three-feature finite-rank kernel. Hayakawa, *Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature* (arXiv:2605.05705v1, 2026-05-07), Sections 2–5, constrains weights to the probability simplex, so its rates do not imply automatic positivity of the unconstrained ridge posterior mean. These comparisons were made at the level of hypotheses and implications, not title matching; a bounded literature and published-result search cannot prove historical uniqueness.
+
+## Value — PASS
+
+The positivity of numerical quadrature weights is an established stability and monotonicity concern, while finite-feature regularization introduces a new tuning knob. This exact all-node sharp frontier is a structural classification rather than a single numerical counterexample: it works at every sample size, exhibits a nontrivial odd/even phase transition, and identifies explicit extremal designs. The corollary quantifies a precise incompatibility: uniformly preventing negative weights by tuning the nugget alone necessarily destroys even constant-function consistency for the unmodified rule. This provides actionable reasons to distinguish node-adapted tuning, forced normalization, and positivity-constrained methods from unconstrained ridge regularization. It makes no claim of a new general rate theorem.
+
+## Closest literature and limitations
+
+Sources and material inspected: arXiv:2610.38212v1 (abstract, introduction, estimator Section 2.2, Legendre Section 5.2, discussion), open-access Karvonen–Kanagawa–Särkkä (introduction and Section 3 including Theorem 1/Corollary 1), and arXiv:2605.05705v1 (introduction, related work, Sections 2–3 and positivity-constrained setup). Searches also checked the Legendre/ridge/positivity combination against publicly indexed mathematical research. Residual risks: an unindexed historical calculation for this three-feature model may exist; the symmetric multiset condition is narrower than arbitrary-node quadrature; the source's padded-domain hypotheses are not met by the full-interval Legendre model; and normalized weights or explicit simplex constraints evade the bias statement. No independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
