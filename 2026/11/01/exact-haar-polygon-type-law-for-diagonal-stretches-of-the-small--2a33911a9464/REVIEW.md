@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact signed-permutation vertex presentation has 24 vertices and 48 edges in two explicit 24-edge families. For every generic ordered positive transformed normal, the four possible sign-changing expressions lead to six feasible chambers. Their exhaustive 48-edge sign counts reduce to \(N=8+4\mathbf1_{rb-a+c>0}\). The eight-vertex event is a union of six explicitly described simplicial normal cones in each octant. Their exact spherical solid angles evaluate to the given arctangent formula and normalize by \(4\pi\). The regular case and expected side count follow algebraically. A self-contained checker with exact \(\mathbb Q(\sqrt2)\) signs and independent numerical integrations supports, but does not replace, the geometric proof. Residual correctness risk: transcription or omission in the finite edge-family classification; exact edge construction and chamber-by-chamber verification limit that risk.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Material read includes the arXiv full text of Birkemeyer et al. (2026, arXiv:2609.16195), Brandenburg et al. (2026, arXiv:2603.25643), Brandenburg et al. (2023, arXiv:2304.14239), and the small-rhombicuboctahedron geometric reference. These give central section reconstruction, general slice computation methods, and the classical vertex geometry, respectively, not an evaluated random central 8/12-section distribution for this solid over all coordinate stretches. Title and formulation searches also covered central-slice laws, Archimedean solids and the dual deltoidal-icositetrahedron shadow interpretation. No located statement implied the probability coefficient without the new complete chamber computation. A matching older stereology or crystallography calculation remains possible; database searches are not a proof of global publication priority.
+PASS
 
-## Mathematical value — PASS
-The 26-faced Archimedean small rhombicuboctahedron is a natural benchmark whose central section face-number distribution is not determined by its face vector. A complete discrete distribution and simple sharp orientation inequality, uniformly over all three diagonal deformation parameters, quantify an otherwise non-obvious geometric effect. Explicit six-cone spherical probabilities also give a testbed for algorithmic section enumeration and dual shadow predictions. The theorem is not a generic algorithm or an arbitrary finite enumeration; its natural object, exact full-domain distribution, and continuously deformed version make the precise invariant useful. No noncentral or area-distribution extension is asserted.
+The frozen proof lists all 24 vertices and 48 edges as 24 axial-square plus 24 swap edges, invariant under positive diagonal stretch; ordered absolute weighted normal components a>b>c>0 are exhaustive by symmetry. Six feasible sign patterns of A=rb-a-c,B=rb-a+c,C=rc-a-b,D=rc-a+b all give N=8+4 1_{B>0}. Direct independent sampled edge-crossing classifications agreed with the exact 8 iff a>rb+c law. For each of six orderings, the cone with rays (e_i,re_i+pe_j,(r+1)e_i+pe_j+qe_k) has spherical solid angle 2 arctan(pq/denominator). Eight sign octants over area 4pi give the stated 2/pi coefficient. The source verifier uses exact Q(sqrt2) edge and chamber tests; its Haar simulation is diagnostic, not the infinite-direction proof.
 
-The standard solid-angle formula and full numerical diagnostics are not claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the complete evaluated claim: An equivalent polar shadow statistic is plausible but neither identified published result gives these six cones or exact stretch-parameter probabilities. General slice reconstruction and parameterization do not subsume the explicit 8/12 law and six evaluated solid angles as direct consequences. The probability requires both complete edge-chamber analysis and solid-angle integration, beyond direct use of generic section reconstruction theorems. Residual source-access and priority risks are explicit.
+
+## value
+
+PASS
+
+The complete three-parameter law extends a natural Archimedean-solid section problem to all positive diagonal deformations and gives a sharp 8/12 phase boundary and explicit evaluated solid angles, suitable for stereology and polytope geometry; it is not simply a restatement of the polyhedron face vector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
