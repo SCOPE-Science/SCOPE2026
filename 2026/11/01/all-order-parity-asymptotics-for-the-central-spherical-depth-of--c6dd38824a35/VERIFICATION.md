@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof is analytic and self-contained in `RESULT.md`. Its critical checks are (i) normalization of angular density, (ii) exact Fourier integral signs, (iii) the uniform-in-frequency order \(n^{-6}k^{-2}\) remainder, (iv) squaring and summing with the additional \(1/k\) weight, and (v) the exact beta-value identities. The absolute convergence of the Fourier expression holds because the coefficient of mode \(k\) is \(O_n(k^{-2})\).
+## correctness
 
-`python verify.py` was executed successfully from this package using NumPy and SciPy. It compares angle-density FFT autocorrelation against quadrature of the Fourier coefficients at seven odd polygon orders, tests four even orders, checks the equilateral triangle's known exact value, and displays the scaled fifth- and seventh-order approximation. No exhaustive or machine-formal proof is asserted. All sampled outcomes passed within the tolerances shown in the checker.
+PASS
 
-The full all-orders asymptotic is only for odd \(n\to\infty\), with remainder constants allowed to depend on truncation order. It does not claim a global finite-\(n\) error inequality, asymptotic convergence for fixed \(n\), or external audit.
+Checked polar sec² angular density normalized on each facet-normal period and the exact Fourier depth formula, with sine parity. Uniform two-integration-by-parts control yields b_{k,n}=(-1)^k[2/(k²n²)+(2π²/k²-16/k⁴)/n⁴+O(k^-2 n^-6)]. Squaring and summing with Dirichlet beta(5), beta(7) gives 5π⁴/192 and 7π⁶/720 at orders n^-5 and n^-7, confirmed independently by exact rational beta arithmetic and high-precision integral Fourier values n=5,9,15,21 with shrinking n^-9 errors. Analytic even-power Taylor coefficients with summable k^-2 remainders justify arbitrary fixed-order odd inverse-power expansions. Even n is centrally symmetric and exactly 1/2.
+
+## originality
+
+PASS
+
+An exact Fourier formula and mod-four sign for regular polygon depth were already present in 2025, and triangle formulas are known; here the original quantitative contribution is the rigorously uniform-in-mode all-orders odd-n asymptotic hierarchy with first two nonzero exact coefficients.
+
+## value
+
+PASS
+
+Central spherical depth measures a natural geometric containment probability. The fifth-order cancellation rate and exact higher coefficient series provide sharp large-n benchmarks distinct from the earlier Fourier expression and parity sign alone; uniform-in-mode analysis is the substantive work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
