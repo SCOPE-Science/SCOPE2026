@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:05:49.878769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Path Neumann Laplacian has eigenvalues 4omega sin²(k pi/(2N)), orthonormal midpoint-cosine eigenvectors. Central start kills odd modes; the near-uniform missing-endpoint start has coefficients -phi_k(N)/(N-1). Consequently H_I=sum_{even k} e^(-2lambda_k t) and H_II=(N-1)^(-2)sum_{k>=1}cos²(k pi/(2N))e^(-2lambda_k t). After multiplying the difference by e^(2lambda_1t), pair each even k with k+1; the ratio (lambda_{k+1}-lambda_1)/(lambda_k-lambda_1)<=8/3 and epsilon<=1/16 enforce every paired contribution strictly decreasing. Opposite endpoint signs prove exactly one quadratic crossing. k=2 vs k=1 balancing gives T_N and an additive -1/(6pi²omega) with controlled higher-mode tails. Cubic Fourier overlap <cos² x cos 2x>=1/4 yields KL difference -N^(-5)(1+o(1)) at s_N, derivative -2(lambda2-lambda1)a² and local unique KL shift -N^(-1/3)/(6pi²omega). Finite eigenvalue and root tests corroborate only finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Raz provides general slow-mode spectral explanation of Mpemba inversions, and Longhi provides photonic-context simulations/model.",
+          "The exact path eigenbasis gives a tractable special family but not an immediate corollary from general eigenmode projection: paired-mode derivative signs and cubic Fourier terms are additionally needed."
+        ],
+        "reasoning": "General Markov spectral frameworks motivate a crossing but do not entail its uniqueness or the additive O(1) and N^(-1/3) corrections. Preserve Longhi supplemental-file priority risk.",
+        "searches": [
+          "photonic Mpemba effect odd reflecting path central vs near uniform initial laws crossing times entropy asymptotic log N",
+          "arxiv:2408.03296",
+          "arxiv:1609.05271"
+        ]
+      },
+      "checked_sources": [
+        "S. Longhi, Photonic Mpemba effect, arXiv:2408.03296v1 (full primary preprint including reflecting-path setup and plotted crossings)",
+        "Z. Lu and O. Raz, Nonequilibrium thermodynamics of the Markovian Mpemba effect and its inverse, arXiv:1609.05271",
+        "Resultary semantic-search query: photonic Mpemba effect odd reflecting path central vs near uniform initial laws crossing times entropy asymptotic log N"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive frequency k=2 term and negative k=1 term give leading N²logN crossing; the proof also pairs all remaining eigenmodes to obtain uniqueness.",
+          "The relative-entropy displacement depends on the cubic mixed moment of the first two Fourier modes, not on quadratic spectral distances alone."
+        ],
+        "reasoning": "The physical source poses/motivates this comparison; the stronger exact monotonic crossing and KL correction require additional argument not present in inspected primary main-text sections.",
+        "searches": [
+          "photonic Mpemba effect odd reflecting path central vs near uniform initial laws crossing times entropy asymptotic log N",
+          "arxiv:2408.03296v1",
+          "arxiv:1609.05271"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longhi arXiv:2408.03296, primary paper, studies precisely the photonic model and initial populations whose incoherent limit is a reflecting random walk.",
+          "The present comparison is exact classical path-semigroup norms, with the claim s_N=T_N-1/(6pi^2 omega)+o(1) and local KL displacement."
+        ],
+        "reasoning": "The physical Mpemba phenomenon is prior and the same data configuration already occurs in Longhi. The novelty claim is restricted to rigorous uniqueness, sharp size/time constant and entropy-vs-quadratic displacement; no inspected passage explicitly provides that theorem.",
+        "searches": [
+          "photonic Mpemba effect odd reflecting path central vs near uniform initial laws crossing times entropy asymptotic log N",
+          "Photonic Mpemba effect Longhi center localized empty endpoint path 2024",
+          "diffusion chain crossings Hilbert Schmidt relative entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Longhi has graphical size-dependent numerical demonstrations, not a table proven to exhaust all odd N.",
+          "The result is a uniform odd-N infinite-family and local-large-N theorem."
+        ],
+        "reasoning": "A finite numerical plot of crossings cannot imply sharp asymptotic constants or uniqueness for every N; no exact table covering them was found.",
+        "searches": [
+          "photonic Mpemba effect odd reflecting path central vs near uniform initial laws crossing times entropy asymptotic log N",
+          "Longhi 2024 Mpemba photonic N crossings figures"
+        ]
+      },
+      "rationale": "PASS (best of knowledge). Longhi already supplies the physical chain and initial comparison. Restricted to additional quantitative/rigorous odd-N statements not obtained from inspected older Markovian Mpemba papers. Unread Longhi supplement is explicitly a material residual risk, not claimed absent.",
+      "residual_risks": [
+        "Longhi 2024 separately hosted supplemental information was not fully examined and might contain further quantitative data.",
+        "Only classical incoherent chain and local KL zero for large odd N; no global KL uniqueness or finite-dephasing quantum theorem.",
+        "The Fourier-tail differentiated estimates were reconstructed as analytical scale bounds, not independently formalized for arbitrary size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and qualitative phenomenon; no same all-odd-N spectral uniqueness and sharp KL shift found in main text.",
+          "evidence": "Main text describes rapidly delayed crossings as length increases, but no rigorous s_N-T_N constant or local KL correction presented.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03296",
+          "material_read": "Accessible primary arXiv PDF: physical photonic-dephasing model, reflecting-path limit, initial states, Mpemba crossing discussion, principal numerical plots and paper conclusion. Supplemental file separately hosted was not materially read.",
+          "method": "Read relevant sections and inspected PDF page image; compare explicit mathematical asymptotics and unique-zero assertions.",
+          "title": "Photonic Mpemba effect",
+          "trigger": "Same photonic setup, same initial states, risk of prior coverage"
+        },
+        {
+          "assessment": "General explanatory background, not an exact path-chain theorem.",
+          "evidence": "Markov-mode decomposition is prior; the claimed model-specific sign pairing is a separate calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.05271",
+          "material_read": "Accessible bibliographic/abstract material and broad spectral mechanism; not a complete full-text exclusion.",
+          "method": "Semantic and source comparison only.",
+          "title": "Nonequilibrium thermodynamics of the Markovian Mpemba effect and its inverse",
+          "trigger": "Earlier Markovian spectral Mpemba theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This exact spectral crossing classification strengthens the earlier physical qualitative result with a universal odd-chain existence/uniqueness theorem, sharp macroscopic time and observable-dependent KL correction; resolving two different relaxation metrics is mathematically motivated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic statements require odd N -> infinity with fixed omega; local KL crossing need not exclude earlier crossings.",
+    "Best-of-knowledge originality assessment, not proof of global absence of earlier coverage."
+  ],
+  "schema_version": 1
+}
