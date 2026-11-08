@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The graph is constructed explicitly from the \(24\) signed coordinate roots; each graph edge lies in exactly one of eight induced octahedra. Every octahedron has pair sums \(a,b,c\in\{-2,0,2\}\) and exact local minimum \(ab+ac+bc=-4\), achieved exactly by opposite homogeneous pairs of both signs. The sum gives the global bound \(-32J\), and three explicit matched-support constructions attain it. A complete finite census of all \(2^{24}\) spin configurations determines the integer magnetization coefficients. Two independent methods, direct Gray-code energy updates and local octahedron condition testing, agree; the verifier also checks all \(276\) unordered vertex pairs and a published independent-set census. The computed coefficients are finite exact integers, not estimates of infinite systems.
+
+## Originality — PASS on inspected evidence, residual priority risk
+The nearest *same-graph binary-invariant* comparison is the published 2026 independence-complex calculation of the very same \(24\)-cell graph; its independent-set counts \((1,24,180,488,474,216,84,24,3)\) are acknowledged as prior work, including the count of three independent eight-sets. Those numbers are not the complete zero-field Ising ground-state multiplicities; ground configurations at magnetizations \(0,\pm2,\pm4,\pm6\) have internal aligned edges and are not independent sets. Yu (2015) studies frustrated Ising models on other lattice graphs. Saito and Yamamura (2022) study a physically different preferred-twist, continuous-spin system on the same polytope; the abstract was inspected, but the full paper could not be read. No examined source provides the eight-octahedron coexistence characterization or the magnetization-resolved \(2922\)-state polynomial. The residual risk is a specialist graph-polynomial or maximum-cut table not indexed by the searches used; the absence of a search hit is not itself a novelty proof.
+
+## Mathematical value — PASS
+The regular \(24\)-cell provides a canonical four-dimensional frustrated Ising graph. The exact local satisfaction condition explains how geometric frustration is shared among eight octahedra, whereas the magnetization polynomial resolves the degenerate zero-temperature states by their physical order parameter and yields a precise finite residual entropy and extreme-magnetization multiplicities. These quantities form a nontrivial, reusable exact finite benchmark beyond the ordinary independence-set enumerator; neither an infinite-volume theorem nor a phase-transition claim is needed for the specific result.
+
+## Scope and outstanding limits
+This is a complete finite-graph zero-field theorem for uniform antiferromagnetic couplings, not a statement about quantum spin dynamics, arbitrary fields, other root polytopes or the thermodynamic limit. The exact coefficient calculation is supplied as exhaustive integer C++17 source. No external independent audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
