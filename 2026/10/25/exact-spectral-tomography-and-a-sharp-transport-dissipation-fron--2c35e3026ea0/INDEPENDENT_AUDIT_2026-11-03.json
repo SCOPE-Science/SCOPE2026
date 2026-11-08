@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:53:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual assigned RESULT.md Git blob 67a96f339d8b6d7c27796a5ef67f0f4f308c72b9, all sections reconstructed.",
+        "Actual assigned verify.py Git blob 9fa594a2f82d572e3a419ad86c16e9ae2d906484, inspected independent of saved verification log.",
+        "Actual assigned SLOGAN.txt, METADATA.json, AUDIT.json, REVIEW.md, VERIFICATION.md, all seven Git blob SHA IDs independently tree-hashed.",
+        "Independent exact Fourier arithmetic, deterministic time quadrature and direct SDE finite simulation performed 2026-11-03 UTC.",
+        "Zhang–Garcia-Millan arXiv:2209.09721 Eq. (9) confirms entropy normalization."
+      ],
+      "rationale": "For the exact final claim, two real lifts solve dX=−V'(X−Y)dt+sqrt(2D1)dW1, dY=−V'(X−Y)dt+sqrt(2D2)dW2 with independent W and independent uniform stationary initial torus point, L,D1,D2>0, real V∈C²(T_L). Relative R=X−Y mod L is Brownian with generator (D1+D2)∂², so A_t=∫F(R_s)ds with F=−V' is the common drift. Conditioning on the full Brownian increment paths and averaging the independent Haar R0 gives E[A_t|W1,W2]=0; this justifies zero drift-noise cross terms, not merely stationary marginal independence. The heat semigroup gives K(s)=Σ_{n≠0}k_n²|Vhat_n|²e^{−(D1+D2)k_n²s}; C(t)=2∫_0^t(t−s)K(s)ds and the whole covariance matrix has diagonal 2D_i t+C and off-diagonal C. Since V∈C², Σ k_n²|Vhat_n|² is finite, so C''(t)=2K(t) also at 0+; stationary currents give σ=(D1⁻¹+D2⁻¹)C''(0)/2 and C(t)/(2t)→Var_Haar(V)/(D1+D2). Distinct strictly increasing λ_n for n≥1 and positive summable coefficients give unique ideal Laplace inversion of every Fourier power, not its phase. At fixed σ>0, h_t(λ)=∫_0^t(t−s)e^{−λs}ds strictly decreases for t>0 and λ>0, forcing all nonzero Fourier mass to |n|=1 for sharp finite-time and long-time bounds; only fundamental sinusoids with amplitude²=2σ/(c k1²) attain equality. σ=0 means V constant. Independently reconstructed Git tree 13cfe87... from all 7 actual Git blob IDs. Separately computed sample D1=.7, D2=1.3, L=2π, V=cos z+.4cos(2z+.37): C(1.5)=.6224468285341, σ=1.8021978021978, ΔD=.29, Kubo trapezoid .6224469723; bounded direct SDE MC of 12k paths, 500 steps gave .65913, a noisy consistency check only.",
+      "residual_risks": [
+        "Exact inverse identification requires ideal all-positive-time noiseless C and known D1,D2,L; exponentially ill-conditioned under noisy data. No phases identified.",
+        "No multi-particle, nonstationary, multiplicative-noise, independent differential-drift or arbitrary potential outside the exact two-force family.",
+        "Monte Carlo/trapezoid checks are finite diagnostics, not proofs of the general result; original verify.py was inspected and its deterministic normalization tested independently, not blindly trusted.",
+        "Entropic convention is microscopic pathwise steady EPR under unit mobility, not coarse-grained observed EPR."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guérin–Dean give a general Kubo formula valid for arbitrary periodic drifts and even obstacles (2015, abstract; Eqs. (10), (16) and (35)). This implies a method for computing this pair covariance, not a stated sharp entropy optimization or phase-blind inverse theorem.",
+          "Benois et al. study reduced two-body relative motion and late effective tracer diffusivity; the target statement uses exact whole-time cross-increment covariance and a fixed entropy tradeoff.",
+          "Jiménez-Urias–Haine arXiv:2101.05406 studies passive-scalar plane-shear PDE, exact Mathieu expansion and closure (Eq. 2.1, Eq. 3.24), not the stationary chase-and-run pair or entropy-constrained waveform optimization."
+        ],
+        "reasoning": "Prior general periodic dispersion covers a substantial ingredient and could be specialized to rederive C(t). It does not transparently give the inverse identification and sharp fixed-σ equality characterization; investigated this implication explicitly. Any stronger unpublished or differently described fixed-energy optimal-shear theorem is a residual risk.",
+        "searches": [
+          "Web: Guérin Dean time dependent dispersion periodic systems exact diffusion tensor 2015",
+          "arXiv:1509.02733 §II time-dependent dispersion σij(t), §III derivation",
+          "arXiv:2307.05408 Sec. VI and Appendix D",
+          "arXiv:2101.05406 §§2–3 passive scalar by sinusoidal shear",
+          "Resultary: Green Kubo diffusion periodic shear exact spectral covariance eigenmodes fixed dissipation sharp first Fourier harmonic"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches (3 actual queries; no close published SCOPE/Resultary theorem among returned hits)",
+        "https://arxiv.org/pdf/2209.09721",
+        "https://arxiv.org/pdf/2307.05408",
+        "https://arxiv.org/pdf/1509.02733",
+        "https://arxiv.org/pdf/2101.05406",
+        "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.062103"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 paper directly proves the exact EPR formula and uniform stationary state; these are prior and cannot sustain novelty on their own.",
+          "The 2015 general Kubo formula is strong enough in principle to specialize to this joint covariance; this component is not claimed as new in isolation.",
+          "The 2023 reduced two-body work addresses effective diffusion (primarily long-time), but it does not state inversion of all Fourier powers from a continuum covariance curve or a universal fixed-σ optimal potential and equality case.",
+          "Sharp fixed-σ bound follows after deriving C(t) by positivity, strict spectral ordering and conditioning on the actual joint noise structure."
+        ],
+        "reasoning": "Separated assumptions/results: existing Kubo/EPR/long-time ingredients collectively furnish much of the background, while the precise inverse tomography and entropy-budget first-harmonic optimizer are additional conclusions requiring spectral identifiability and a constrained modal ordering argument. These conclusions could be algebraically implicit in earlier general theory and thus retain a specific historical-priority risk; there is no decisive documented prior domination of the complete final claim.",
+        "searches": [
+          "arXiv:2209.09721 Sec. chase-and-run and Eq. (9)",
+          "arXiv:2307.05408 Eq. (9), Sec. VI and Appendix D",
+          "arXiv:1509.02733 Eq. (10) and §§III–IV",
+          "arXiv:2101.05406 Eq. (2.1), Eqs. (3.22)–(3.24)",
+          "Resultary: periodic nonreciprocal Brownian pair chase run cross displacement covariance Fourier inversion fixed entropy production fundamental sinusoidal optimal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guérin–Dean, arXiv:1509.02733, Eqs. (10), (35)–(43), formulates the unwrapped displacement covariance tensor in a periodic medium with general periodic drift and diffusivity; the pair model is within that operator class on a two-torus.",
+          "In the chase-and-run subfamily, R=X−Y is free circular Brownian motion and both absolute displacements have a common drift integral; this maps to a shear/Taylor dispersion model.",
+          "Zhang–Garcia-Millan, arXiv:2209.09721, Eq. (9), exactly gives the same stationary entropy budget, and the scalar force correlator is a Laplace transform of Fourier-power weights."
+        ],
+        "reasoning": "The general periodic Kubo tensor and Taylor-shear reduction may cover the covariance structural formula, so the latter alone is not asserted original. Their inspected theorems do not also identify Fourier power and solve the full entropy-constrained all-time potential extremization with the equality class; those additional statements were compared as a conjunction, not merely via matching titles.",
+        "searches": [
+          "Resultary: periodic nonreciprocal Brownian pair chase run cross displacement covariance Fourier inversion fixed entropy production fundamental sinusoidal optimal",
+          "Resultary: Green Kubo diffusion periodic shear exact spectral covariance eigenmodes fixed dissipation sharp first Fourier harmonic",
+          "Web: Brownian particles nonreciprocal chasing running inverse potential Fourier cross covariance entropy production optimal sinusoidal",
+          "arXiv:1509.02733 §§II–III, general periodic diffusion Kubo formula",
+          "arXiv:2209.09721 §§II–III and Eq. (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is a continuum map for all real C² periodic potentials and all observation times, not a finite tabulation. Published Eq. (9) is the EPR budget; Benois has explicit diffusion integrals but no exact inverse/fixed-budget extremizer table for this setting."
+        ],
+        "reasoning": "No exact finite parameter database/table is intrinsically relevant. Checked published quantitative formulas for whether a tabulated special case dominated the continuous theorem; did not locate one. Database nonappearance is not used as affirmative novelty proof.",
+        "searches": [
+          "Resultary: active matter nonreciprocal pair entropy production transport diffusion covariance optimization",
+          "Web: Brownian particles nonreciprocal chasing running inverse potential Fourier cross covariance entropy production optimal sinusoidal",
+          "arXiv:2209.09721 Eq. (9); arXiv:2307.05408 Sec. VI and Appendix D"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the all-time cross-displacement covariance itself is an application of established periodic Kubo/Green–Kubo dispersion theory, in particular the general time-dependent tensor formula of Guérin–Dean (arXiv:1509.02733, §§II–III). The chase-and-run uniform stationary distribution and exact entropy-production rate are expressly prior (Zhang–Garcia-Millan, arXiv:2209.09721, Eq. 9), and Benois et al. (arXiv:2307.05408, Sec. VI) provide overlapping long-time tracer diffusion. The assessed final claim additionally combines full ideal covariance-to-Fourier-power identification, σ=(c/2)C''(0), a sharp all-time fixed-σ waveform bound and a unique (up to phase/additive constant) fundamental sinusoid equality class. These additional coupled inverse/variational conclusions were not established in the relevant primary material inspected. Their Fourier-semigroup proof is short and classical in technique, so possible implicit priority in general inverse Taylor-dispersion or optimization literature remains a real risk. No failed search is treated as proof of novelty.",
+      "residual_risks": [
+        "A broad Guérin–Dean 2015 Kubo theorem already covers the formal covariance computation; originality must rest on the inverse and entropy-constrained sharp optimizer, not on time-dependent covariance per se.",
+        "The entropy formula and chase-and-run stationary model are direct prior results of Zhang–Garcia-Millan (2022/2023), and long-time diffusivity overlaps Benois et al. (2023).",
+        "Fourier identification from an ideal Laplace mixture and mode-one optimization are classical arguments; unindexed optimal-shear or spectral-identification variants could imply the combined result.",
+        "Oxford publisher route for Guérin–Dean returned vpn_disconnected; lawful arXiv full PDF was accessible and the relevant mathematical sections were directly inspected, so no further institution access is needed for that article.",
+        "Best-of-knowledge priority does not certify global novelty; uninspected appendices and other published/unpublished sources remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT COVERAGE of stationary measure and σ; no stated full C(t) Fourier power tomography or fixed-EPR all-time optimal waveform in inspected relevant sections.",
+          "evidence": [
+            "arXiv:2209.09721 PDF page 3, Eq. (9), ẊS=N(1/D1+1/D2)L^-1∫(V')²; text following Eq. (8)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09721",
+          "material_read": "arXiv PDF pages 1–4, especially model Eqs. (1)–(3), chase-and-run text and Eqs. (8)–(9); sampled supplemental entropy derivation around page 7. Read rendered page 3 for Eq. (9).",
+          "method": "Read source PDF text and rendered page; checked sign convention, uniform density, EPR normalization and whether displacement-covariance inversion/optimization appears.",
+          "title": "Entropy production of non-reciprocal interactions",
+          "trigger": "Exact same chase-and-run model, stationary distribution, entropy rate"
+        },
+        {
+          "assessment": "OVERLAPS reduced two-body mechanism and long-time tracer diffusivity, but does not state the complete claimed inverse-and-frontier theorem.",
+          "evidence": [
+            "arXiv:2307.05408 Sec. VI Eq. (9) center/relative generator; discussion explicitly focuses on long-time effective diffusion and pair dynamics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.05408",
+          "material_read": "arXiv PDF abstract, main Sections V–VII (especially Sec. VI page 5, Eq. (9)) and Appendix D pages 7–9 including generalized tracer dynamics and diffusion formulas; rendered page 5.",
+          "method": "Compare exact stochastic objects, effective diffusion asymptotics and reduced relative/center equations against the target all-time cross-covariance and fixed-σ extremizer.",
+          "title": "Enhanced diffusion of tracer particles in nonreciprocal mixtures",
+          "trigger": "Two-body reduction and possible strong coverage of long-time diffusion"
+        },
+        {
+          "assessment": "STRONG PRIOR COVERAGE of the general time-dependent covariance method, not an explicit prior theorem for spectral tomography plus fixed-entropy extremal first-harmonic potential in the specific pair.",
+          "evidence": [
+            "arXiv:1509.02733 §II and §III, Eq. (10) general time-dependent σij(t); Eqs. (35)–(36) define displacement covariance; Eq. (16) effective tensor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.02733",
+          "material_read": "arXiv PDF Sections I–III, especially general setup, summary Eqs. (10), (16)–(19), and §III Eqs. (35)–(43); parts of Section V; rendered pages 4–5.",
+          "method": "Matched target two-coordinate periodic drift-diffusion to prior general process; separated a formula giving C(t) from inverse spectral identification and constrained optimization.",
+          "title": "Kubo formulas for dispersion in heterogeneous periodic non-equilibrium systems",
+          "trigger": "A general prior theorem for time-dependent dispersion tensors of periodic diffusions may imply the covariance portion."
+        },
+        {
+          "assessment": "RELATED shear dispersion but no identified general arbitrary-potential Fourier power inversion or fixed-EPR optimizer in material inspected; did not claim every appendix was inspected.",
+          "evidence": [
+            "arXiv:2101.05406 Eq. (2.1), sinusoidal passive-scalar shear; Eq. (3.24), Taylor effective diffusivity in small-q limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.05406",
+          "material_read": "arXiv PDF title, abstract, Sections 1–2 including Eq. (2.1), Section 3 expansion around Eqs. (3.22)–(3.24); rendered page 2.",
+          "method": "Compared passive-scalar PDE, Mathieu eigenvalue closure and its sinusoidal shear parameter with target arbitrary interaction Fourier powers and thermodynamic constraint.",
+          "title": "An exact solution to dispersion of a passive scalar by a periodic shear flow",
+          "trigger": "Potentially equivalent Taylor-shear spectral solution and optimal lowest-harmonic relation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md proof Sections 2–5 and exact final scope.",
+        "Zhang–Garcia-Millan arXiv:2209.09721 microscopic entropy and chase-and-run model.",
+        "Benois et al. arXiv:2307.05408 finite-density and two-body diffusion context.",
+        "Guérin–Dean arXiv:1509.02733 general periodic Kubo method and diffusion tensor."
+      ],
+      "rationale": "The same naturally observable stationary joint unwrapped displacement curve encodes the complete phase-blind interaction power spectrum and total pathwise entropy cost in an exactly solvable nonreciprocal chase-and-run model. Its sharp, attainable spectral first-harmonic transport–dissipation frontier holds at every positive observation time and has an explicit equality class, not merely a long-time diffusion coefficient or a numerically selected waveform. The object/invariant are physically and mathematically motivated by active-matter transport, response/covariance-based inverse problems and optimal energy allocation across Fourier modes. Though the Fourier inequalities are elementary after exact reduction, the full inverse and all-time optimization classification answers specific natural questions beyond a normalization check; no general mixtures or robust inverse theorem is asserted.",
+      "residual_risks": [
+        "Only a very special exactly solvable 2-particle system; broad active mixtures and noisy data cannot use the same exact inverse statement without new analysis.",
+        "The spectral inversion and modal ordering are short once the semigroup formula is known; significance comes from the precise joint inverse-and-dissipation formulation, not invention of a new technique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not a claim of external expert attestation, independent formal proof, published status or general robust tomography.",
+    "The rate σ is the full microscopic stationary irreversible entropy-production convention, and V phase information is not recovered.",
+    "Relevant general Kubo paper inspected via arXiv preprint PDF after authorized publisher Oxford access returned vpn_disconnected; no human auth bypass attempted.",
+    "Source contains an operational scope_run_id in public METADATA.json and AUDIT.json; full sanitized replacements with exact guards not staged, so publication withheld."
+  ],
+  "schema_version": 1
+}
