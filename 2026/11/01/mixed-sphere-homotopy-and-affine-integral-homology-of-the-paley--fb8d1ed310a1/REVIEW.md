@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two mathematically equivalent but algorithmically independent face predicates agree on all 8192 subsets. The exhaustive 312-face matching has 149 pairs, 897 Hasse incidences and an acyclic directed matching graph. Unit-pivot integral cancellation yields the displayed exact six-by-seven boundary, whose rank is five and which has a determinant-minus-one five-by-five minor. The attaching maps are governed by \(\pi_2(\bigvee^6 S^2)\cong\mathbb Z^6\), giving the claimed sphere wedge. Unsimplified simplicial boundary ranks independently confirm the free Betti numbers in four characteristics. The group is the natural 78-element affine group; signed Lefschetz traces determine the two integral modules using the finite-order restrictions on ranks one and two. No finite experiment is used as a proof of a statement for infinitely many graphs.
+PASS
 
-## Originality — PASS, with residual risks
+The Paley(13) graph is the quadratic-residue graph on F13 with residues {1,3,4,9,10,12}, degree 6. Ind_2(P13) comprises subsets with induced degrees <=1, equivalent to avoiding all two-neighbor triples and to first forest-filtration stage F1(P13). Independently verified 312 nonempty faces, f=(13,78,143,78), 78 top-dimensional facets, 149 acyclic matched pairs and 897 oriented Hasse incidences. Independently reconstructed 6x7 integral critical Morse boundary rank five and a 5x5 unimodular minor (-1); hence the simply connected Morse model is S2 wedge two S3. The exact signed 78-element affine Lefschetz computation and rank restrictions show translations act trivially, multiplier 4 acts by sign on H2 and a rank-one Eisenstein lattice on H3. Therefore positive-degree rational homology has no affine-invariant vectors, which gives rational acyclicity of the finite quotient, not integral acyclicity.
 
-Checked the equivalent descriptions 'two-independence', 'dissociation', 'forbidden two-neighbor triples', and first forest-filtration complex. The closest primary full texts are Deshpande–Singh (arXiv:2001.05448) and Carnero Bravo (arXiv:2307.13271): they treat the same construction but classify other graph families, without the Paley-thirteen affine module. Conant–Thistlethwaite (arXiv:0808.0739) supplied the older hypergraph-complex framework; its abstract is readable, but its full text was not available from attempted public endpoints, so its entire contents are not asserted to be negative evidence. Indexed Paley graph findings involve distinct ordinary independence, neighborhood, flag or tournament constructions. Searching by mathematical equivalence and group characters found no result that implies the combined theorem. A nonindexed equivalent calculation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The thirteen-vertex Paley graph is the smallest prime-order Paley graph beyond the pentagon and is a distinguished toroidal strongly regular graph with a full affine automorphism group. The first higher-independence stage on this canonical graph is pure but non-shellable, and has homology in two adjacent dimensions rather than a single equidimensional wedge. Its two groups carry different nontrivial integral symmetry types (sign and Eisenstein), a distinction not inferable from face counts or ordinary independence data. This gives a well-motivated exact benchmark for higher-independence and forest-filtration topology, not an arbitrary induced subcase.
+Searched dissociation/2-independence, forbidden-two-neighbor-triples and Carnero Bravo first forest-filtration F1 equivalents. The complete primary text of Deshpande–Singh and Carnero Bravo does not include the Paley-13 affine module or mixed wedge. Published Paley tournament, ordinary independence or Vietoris-Rips modules are for different graph/complex definitions. No covering source was found, with explicit priority uncertainty.
 
-## Scope and verification status
+## value
 
-Only the thirteen-vertex graph, parameter two, and the natural affine group are classified. No integral quotient homology or higher-order Paley family formula is claimed. The certificate and replay output are included, with independent mathematical assessment still outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Paley13 is the first prime Paley graph beyond five vertices and has a distinguished 78-element affine symmetry. Its natural first forest-filtration/2-independence complex is pure but non-shellable because H2 and H3 both survive; the integral wedge and inequivalent sign/Eisenstein lattice actions resolve a canonical equivariant invariant that cannot be inferred from ordinary face counts. This supplies an exact benchmark and a rational quotient consequence, without claiming a general Paley-order classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
