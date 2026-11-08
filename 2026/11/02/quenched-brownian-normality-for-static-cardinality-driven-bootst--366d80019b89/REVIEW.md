@@ -1,15 +1,21 @@
-# Scientific review: quenched Brownian normality for static cardinality bootstrap walks
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies every coefficient and driving-sign distribution, including the initial bootstrap convention. Lucas parity identifies Boolean submask products; a proved downset-distance bound yields a summable sparse-subsequence second-moment estimate, then bounded interpolation provides a spatial strong law. Independent geometric holding times and a weighted Kolmogorov strong law transfer it to the conditional time-average bracket. The bounded martingale functional central limit theorem gives the independent Brownian limit for almost every static environment. The supplied exact rational checker reproduces 4,376 finite assertions. These computations are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest exact-source statement, Hamza–Tournier (2026) Corollary 12, proves the annealed result under the same time-invariant, elliptic cardinality model; the introduction explicitly treats its quenched counterpart as unresolved. The general bootstrap martingale criterion of Collevecchio et al. (2022) requires a further almost-sure bracket analysis, supplied here. Independence across time would simplify the model but is not an assumption in this claim. Prior results for temporally refreshed coefficient arrays, including fair Pascal sceneries, are not covering because the present coefficient is reused at every time and may have nonconstant elliptic bias. No directly covering primary result was identified in accessible full-text and scientific semantic comparisons. Residual priority risk includes broad classical theorems on biased Boolean transforms.
+PASS
 
-## Mathematical value — PASS
-The original paper states a natural, precisely formulated unresolved upgrade from annealed to quenched normality. The theorem resolves its entire time-static, uniformly elliptic model rather than an arbitrary parameter slice, by proving a reusable strong law for biased Pascal-submask signs. It identifies a substantive mechanism—spatial decorrelation plus renewal occupation—not available from mere expectation convergence. There are no convergence-rate or more general dependent-environment claims.
+Lucas parity turns f(s) into product of independent biased signs over the Boolean downset D(s), size 2^popcount(s). For s≠t the symmetric difference contains at least 2^min(popcount(s),popcount(t)) coefficients. Uniform |1−2p_k|≤q<1 bounds scenery correlations by q^distance. Few low-popcount indices imply E|m^-1Σ_(s<m)f(s)|²=O(m^-δ), δ=1/(8log2)>1/12; on m_j=ceil(j^12) Chebyshev sums, Borel–Cantelli, and m_(j+1)/m_j→1 give a.e. spatial Cesàro zero. Independent geometric holding times at every visited state transfer this to almost-sure conditional time averages f(S_n). Then bounded martingale differences (ξ_j,ζ_(j−1)ξ_j) have normalized predictable covariance diag(1,1) and cross bracket N^-1Σζ_(j−1)→0 uniformly in t, so functional martingale CLT gives independent two-dimensional Brownian motion. Independently checked downset symmetric differences for all 8128 unequal pairs 0≤s<t<128; finite checks cannot prove the strong law.
 
-## Principal limitations and references
-Hamza and Tournier (2026), arXiv:2610.01658v1, Proposition 11 and Corollary 12; Collevecchio et al. (2022), arXiv:2010.16000; Lucas' parity theorem and the classical martingale invariance principle. Historical-priority assessment remains qualified pending independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hamza–Tournier 2026 Corollary 12 is directly about the same static cardinality model but reported an annealed independent-Brownian limit, not a quenched one; other cited coefficient models assume fresh time randomness. The new all-environments-a.e. conditional statement needs the specific static Pascal-scenery strong law, not merely existing martingale machinery. Resultary semantic search returned no directly covering record. Full recent primary text was not accessible despite OA attempts and institutional service responded vpn_disconnected; PASS is qualified by that access risk and possible older generalized Boolean-product theorems.
+
+## value
+
+PASS
+
+A nontrivial conditional/quenched strengthening of a known annealed limit in the whole natural uniformly elliptic time-static cardinality environment. The reusable Pascal-downset decorrelation and renewal occupation mechanism fill a mathematically motivated gap and are not implied by a finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
