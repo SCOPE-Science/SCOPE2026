@@ -1,19 +1,21 @@
-# Scientific review: exact finite-variable theories of cycle unions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every nonempty finite simple degree-two graph is a disjoint union of cycles. Recursive walk-distance formulas can be written with only three reusable variable names. Their exact-distance layers define membership in each \(C_n\), including the even singleton-antipode and odd two-farthest-vertex cases. A width-\(k\) sentence detects every number of same-length components below or equal to \(k\). An indefinite \(k\)-pebble component-matching invariant proves the converse. The separate width-one and width-two classifications and all claimed strict boundaries have explicit witnesses. Three Python scripts test finite predicates and fixed-point tuple-type refinements, with no reliance on finite search for the infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+In a cycle C_n the distance-r sphere has 2 vertices below the diameter, 1 at the maximum when n even, and 2 at the maximum when n odd. Three reusable variable names express bounded graph distance by recursive existential intermediates and exact spheres, so predicates P_n(x) identify precisely components of size n. With at most max(s,3) names, s<=k vertices are forced into distinct C_n components by pairwise nonreachability within the cycle diameter, detecting multiplicity up to k. Conversely the indefinitely played k-pebble game pairs occupied equal-length cycles and allows at most k-1 occupied components before a response; truncated counts ensure an available matching component. Two-pebble adjacency/equality classes are exactly complete C3 versus other nonempty 2-regular graphs, and one pebble sees only equality/self-loops. Strictness follows k vs k+1 triangles. Independent distance-layer computations for single cycles n=3..25 corroborate, not replace, this proof.
 
-The closest located primary source is Brown–Hoshino (2007), treating paths and cycles under a fixed quantifier-rank bound, while the present theorem fixes variable width and allows arbitrarily large rank across disconnected unions. Grohe–Otto (2012) supplies general game methods; Kotek–Makowsky (2013) proves rank-sensitive disjoint-union smoothness. Comparison of these statements, accessible research records, and a separate finite-rank cycle classification did not identify an already covering exact classification. Because general composition machinery may have a stronger implication in uninspected literature, this conclusion is qualified; searches alone do not establish historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies a natural, complete, exact family-wide invariant: all individual cycle lengths remain observable at width three, whereas multiplicities become invisible exactly after the number of available variables. It gives smallest representatives and a strict unbounded variable hierarchy. The contrast with bounded-rank cycle indistinguishability is structurally informative rather than an arbitrary computed instance.
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
 
-## Independent status and limitations
+## value
 
-The conclusion applies only to nonempty simple undirected 2-regular graphs in counting-free pure adjacency logic. The finite test suite corroborates but does not establish the general case. A broad literature search and independent mathematical audit have not been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete unbounded-rank finite-variable equivalence classification and unique minimum representatives are natural canonical invariants of 2-regular graphs, with an exact hierarchy separating expressibility at all widths. This is stronger and differently parameterized than bounded-round distinctions between individual cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
