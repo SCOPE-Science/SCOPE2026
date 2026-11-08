@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rectangular quotient is modeled through deck translations of a convex Euclidean strip. The only distance candidates are the nearest even and nearest odd translates. The proposed coupling conditionally reflects one independent, symmetric transverse coordinate and therefore preserves cylinder-uniform sampling while selecting one of the Möbius distance branches. The angular-horizontal squared-length gap is rigorously uniform on a compact interval; the transverse difference has the product law of two uniform variables. Integrating this law gives both exact branches of the squared-distance defect, with direct verification of their equality at the boundary. Positive derivatives of the normalized integrand establish strict aspect-ratio monotonicity, and a local product-density expansion yields the fourth-order nonsmooth onset. The independent original-distance quadrature and seeded sampling corroborate the analytic formulas, but are not used to extrapolate an infinite claim.
+## correctness
 
-## Originality — PASS, provisional priority
-The accessible 2018-10-23 Mémoli–Needham preprint record establishes the general metric-measure distance-histogram framework but does not itself establish this explicit comparison in its accessible abstract. Its full text could not be obtained; this prevents a definitive priority assertion and is a named residual risk. Schwartz's inspected 16-page arXiv manuscript establishes an extrinsic aspect-ratio inequality and treats related twisted cylinders; its geometric optimization theorems do not imply the random-distance stochastic order or exact energy defect. Cui et al. (ICLR 2024, Appendix A, p.15) already write the **same flat Möbius distance formula**. That input is prior knowledge, not the contribution claimed here. Its stated application is multi-agent swarming, not a geometric distribution comparison or nonanalytic defect formula. Meaning-level searches and accessible prior research claims identified no theorem with the same quantified conclusion, but failed searches do not constitute uniqueness proof. The exact unsimplified distance formula is stronger as an input representation, yet extracting the new distributional order, logarithmic branch and sharp fourth-derivative jump requires the independent coupling and integration argument documented in RESULT.md.
+PASS
 
-## Mathematical value — PASS
-The same rectangular local metric yields globally distinct random intrinsic distances under an orientation-reversing identification. The finding classifies the sign of the entire probability-law difference rather than only a sample statistic, computes its natural mean-square cost for every aspect ratio, and identifies a sharp nonanalytic boundary between two geometrically different interaction regimes. The exact three-quarter limiting deficit quantifies the effect at extreme widths. This is a natural comparison between orientable and nonorientable flat surfaces, not an arbitrary numerical slice or a reformulation of a previously known table.
+The convex universal covering strip has two relevant deck-image parities: D_M²=min(a²+(Y1−Y2)²,(L−a)²+(Y1+Y2)²), while cylinder horizontal displacement is min(a,L−a). A sign reflection of Y2 conditional on a>L/2 preserves its independent symmetric uniform law and couples D_M≤D_C; strictly smaller on a positive-measure set. Folding a=|X1−X2| yields horizontal squared-gap Ξ=2L|a−L/2| uniform on [0,L²]; vertical branch difference is 4Y1Y2. Thus D_C²−D_M² has law (H²Z1Z2−Ξ)_+ with Zi uniform [−1,1]. Integrate product-positive density −log z against F(s) to obtain Δ=H⁴/(36L²) for H≤L and Δ=H²/8−L²/4+11L⁴/(72H²)+L⁴log(H/L)/(6H²) otherwise. Independently verified the exact logarithmic integral and Taylor coefficient −1/3 of h⁴/L², proving fourth derivative jump −8/L²; derivative of F(sz)/(1+2s) is positive on either branch, yielding monotonic relative defect and limiting 3/4. This holds for all L,H>0, not an extrinsic embedding metric.
 
-## Closest sources, risks and limitations
-Mémoli–Needham, arXiv:1810.09646 (2018; published 2022), supplies the general histogram framework but the full text was inaccessible by the attempted lawful routes. Schwartz, arXiv:2308.12641v12, §1–3, was inspected as the most directly related flat-Möbius geometry source. Cui–Hauck–Fabian–Koeppl, ICLR 2024, Appendix A, specifies the quotient metric already used by the claim and was inspected in the full accessible PDF. Residual risks: older unindexed stochastic-geometry treatments or a hidden example in unavailable full text; no formal independent priority validation. Scope is limited to intrinsic flat quotients and uniform samples. Finite computations are validation checks, not replacements for the all-aspect-ratio proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published metric-measure distance-distribution theory provides representation/inverse problem concepts, while geometric Möbius-band papers address extrinsic embeddings; the ICLR model already uses the intrinsic forward metric. The new all-threshold stochastic coupling and fourth-order defect are not consequences of the compared assertions as read. Possible alternative known flat quotient probability calculations remain.
+
+## value
+
+PASS
+
+The twisted-versus-untwisted flat quotient pair-distance law is a natural metric-measure observable; a pointwise monotone coupling yields comparisons for every moment, stronger than merely computing a second moment. The exact analytic aspect-ratio threshold and smoothness loss at H=L provide a meaningful geometric transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
