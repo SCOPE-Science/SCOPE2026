@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim's exact and asymptotic assertions are proved from the explicit randomized diagonal propagation, a binomial generating-function identity, strict scalar monotonicity, an invertible scaling law at small time steps, and a Poisson limit. The positive limiting mean-square error follows from nonconstant Poisson randomness, not merely from floating-point calculation. The full verification script, extracted from the same package, performs 819 finite independent comparisons. This is finite corroboration; the general conclusion relies on the written proof. The scaling \(p_h\sim\kappa h\) is not assumed, but derived.
+PASS
 
-## Originality
+The exact binomial propagator gives E||X_n||²=|x1|²q_a^n+|x2|²q_b^n. F_c(u)=u(1-e^{-c/u}) is strictly increasing; thus q_a decreases and q_b increases in p, their crossing uniquely minimizes the max, and at p=1/2 the faster mode q_a<q_b. The rare-event scaling follows by monotone inversion p_h/h->kappa; Bin(n_h,p_h) converges to Poisson(kappa T), whose nonconstant fast multiplier gives positive nonconsistency error. Uniform fixed-p LLN recovers deterministic limit. Large-h crossing expansion checked separately. Independent small-h grid and explicit finite switching-word checks corroborated but do not prove the all-real assertions.
 
-**PASS with publication-priority limitations.** The closest source, Veldman–Zuazua (2021 preprint; 2022 published), contains the same basic reciprocal-probability randomized generator and general diagonal two-block model in Example 3, but optimizes the operator variance of the generator, not the worst mean-square energy of the exact random subflow. Its probability \(a/(a+b)>1/2\) differs strictly from the unique energy optimizer \(p_h<1/2\). The singular mesh-dependent choice \(p_h\sim\kappa h\), the resulting nondegenerate Poisson terminal state and the exact positive consistency defect are not implied by their fixed-probability convergence bounds. Eisenmann–Stillfjord's separate randomized backward-Euler analysis and classic coordinate-descent probability optimization have different step maps and different objectives. Actual research-record searches found closest randomized Gauss–Seidel, two-coordinate PAGE and diagonal coordinate sampling results, none with this exact model/statement. The accessible record is not a proof of unique publication priority; specialized older stochastic-semigroup literature could contain a related formulation.
+## originality
 
-## Value
+PASS
 
-**PASS.** This classification resolves a practical conflict between designing a randomized propagator for fast energy damping and using it as an accurate numerical solution. It proves an exact boundary where optimizing one natural stability metric makes the method inconsistent even though its worst-case energy reaches the true semigroup rate. The opposition to the source's generator-variance optimizer and its exact Poisson mechanism give a structural design warning, not merely a special-case routine computation.
+The precise minimax *expected squared propagated energy* is different from earlier generator-variance optimization: Veldman–Zuazua Example 3 gives p_var=a/(a+b)>1/2 for the same two-block generator, whereas the present h-dependent optimum has p_h<1/2 and p_h~kappa h. Their fixed-probability convergence estimates do not imply the rare-event Poisson-jump error. Eisenmann–Stillfjord use a different implicit randomized update. Resultary inverse-positive coordinate-sampling result optimizes discrete coordinate-descent energy for a different map, not these exact subflows.
 
-## Scope and limitations
+## value
 
-Only independent exact subflows of two commuting unequal dissipative modes are covered; no claim is made for noncommuting splittings, a general solver, optimal approximation error, or cost-normalized work. The mathematical claims are analytic; the finite verifier is supplementary. A complete exhaustive historical priority search and independent validation are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete motivated counterexample to identifying optimal expected energy decay with approximation accuracy: even matching the exact semigroup worst-mode decay yields nonconvergence of individual state trajectories. Opposite probabilities for variance and contraction and an explicit rare-event process identify the mechanism rather than a numerical artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
