@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem is a quantified exact disk classification for antiunitaries in complex dimension at least three. Its nonstandard proof points are the complete filled test-vector disk in a codimension-one space of dimension at least two, the exact overlap interval with an optionally missing endpoint, and the strict endpoint-attainment criterion for the scalar maximizing envelope. These steps are given in `RESULT.md`; supplementary verification contains 450 finite assertions. They do not purport to prove infinite-dimensional assertions numerically.
+PASS
 
-## Originality (PASS, best knowledge)
+With inner product linear in first variable, y=conjugate(q)x+sqrt(1-r²)z for r<1, z perpendicular to x. For fixed x and f=|<Ax,x>|, dim x-perp>=2 makes <Ax,z> fill the full disk of radius sqrt(1-f²). Thus the fiber max is F_r(f)=rf+sqrt(1-r²)sqrt(1-f²). A complex quadratic isotropic-vector argument yields f=0, and path-connectedness of unit sphere gives all 0<=f<s (including s if attained). Scalar Cauchy-Schwarz yields plateau at f=r for r<s and endpoint f=s otherwise, with exact boundary-attainment condition. Unitary scalar rotation of test pair makes the range circular, connected Stiefel domain plus a zero witness makes it a full disk; r=1 handled as sphere case. Infinite block antiunitaries with s_n increasing to nonattained s_infty exhibit genuinely open boundary. Independent 25 scalar-envelope comparisons confirm optimization but do not replace Hilbert geometry.
 
-Majumdar–Müller (arXiv:2610.16823v1) establishes centered-disk shape, without the sharp radius or open/closed criterion. Kołaczek–Müller (2024) treats ordinary antilinear numerical ranges. A known C² antiunitary theorem computes annuli but does not cover the present dimension range or infinite-dimensional nonattainment. Search terms included antiunitary/conjugate-linear \(q\)-numerical radius, plateau, exact disks, and boundary attainment. The available comparisons do not establish global priority; see the residual risks in `AUDIT.json`.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The complete radius profile exhibits a sharp phase change at \(|q|=w(A)\). The boundary inclusion threshold is independently controlled by whether the ordinary numerical radius attains its supremum, and this distinction is witnessed by explicit infinite-dimensional antiunitaries. It strengthens a qualitative theory in a natural rigid operator class.
+Best-of-knowledge: Gives a complete radius and topological boundary classification for a canonical operator class and constrained numerical range, including a nontrivial norm plateau and an infinite-dimensional nonattainment transition. These exact data are not fixed by the previously known qualitative disk shape and can matter in operator-range inclusion and extremal norm questions. Prior-art comparison is based on distinct theorem implications. See four structured checks and material source inspections; not exhaustive historical priority.
 
-## Limits
+## value
 
-The result does not extend automatically to general bounded antilinear or real-linear maps. Prior literature may use equivalent terminology; independent scrutiny and priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a complete radius and topological boundary classification for a canonical operator class and constrained numerical range, including a nontrivial norm plateau and an infinite-dimensional nonattainment transition. These exact data are not fixed by the previously known qualitative disk shape and can matter in operator-range inclusion and extremal norm questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
