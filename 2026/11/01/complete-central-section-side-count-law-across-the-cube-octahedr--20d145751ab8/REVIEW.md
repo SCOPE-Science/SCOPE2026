@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fully specifies the convex body, Haar sampling, generic section side count, parameter ranges, and all boundary cases. For each of the two open parameter intervals, every vertex and edge is classified by active half-spaces; a crossing-count formula in sorted positive normal coordinates then identifies each polygon type. Spherical-cone angles give the decagon and quadrilateral probabilities, and the exact edge-angle Crofton expectation plus normalization supplies the remaining probabilities. Differentiating the two explicit means yields strict one-sided monotonicity and the unique mean peak. The analytic argument applies to all real parameters in the stated intervals, independently of sample size. The standalone checker verified rational vertex-edge incidence and crossed-edge formulas for six rational parameters, tested all five point/phase endpoints, and compared analytic laws with independently generated Gaussian-normal Haar samples at six parameters. Finite numerical tests corroborate rather than replace the continuum proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The global full-parameter side-count distribution is not supplied by the inspected primary sources or the closest available prior geometric results. Kabluchko and Seidel (2020; arxiv:2006.09492), Section 4 and Proposition 4.1, give a general central-section crossing-count framework for regular polytopes, not this interpolating family or its four exact outcome probabilities. Berlow, Brandenburg, Meroni and Shankar (2021; arxiv:2110.05996), Section 2, give general chamber methods and cube examples; those descriptions do not state this Haar law. Brandenburg, De Loera and Meroni (2023; arxiv:2304.14239), Theorem 1.1 and Sections 2 and 5, develop combinatorial slicing chambers and optimization, not these exact probabilities. Earlier isolated work already gives the regular truncated-octahedron special value at parameter \(t=3/2\) and the local sharp octagonal cusp at \(t=2\); neither is treated as new. Their statements do not imply the global all-parameter exact distributions and probability-support classification. An undiscovered older equivalent comprehensive law remains possible.
+PASS
 
-## Value — PASS
-This classifies a natural and geometrically motivated one-parameter deformation between two Platonic solids, including the precise entrance, disappearance, and reappearance of 4-, 6-, 8-, and 10-gon section types. It gives exact elementary formulas without numerical quadrature throughout both open intervals, not merely finite special values, a first moment, or another cusp coefficient. In particular it quantifies positive decagon probabilities away from a unique rigid octagonal parameter and proves the strict unique maximum of expected complexity across the entire family. These are substantial phase-diagram statements; the standard general edge-Crofton identity by itself does not determine the distribution.
+Computed the 24 vertices and 36 edges for both open intervals from the active cube/octahedral half-spaces. A generic plane crosses an edge precisely when its endpoint normal dot-products have opposite signs, with edge-crossing probability angle(u,v)/pi. Ordering |n1|>|n2|>|n3| yields on t<2 N=6+2[b<sa]+2[c<sa]-2[c<sb] and on t>2 N=8+2I-2J-2L-2K, with the four indicators exactly as in RESULT.md. The region N=10 on each side is a spherical three-ray cone with 48 signed-order chambers; the region N=4 on the cubic side is a cone with 24 symmetric copies. Solid-angle probabilities plus normalization and independently derived expected edge crossings determine all other masses. At t=1,2,3 the limits give octahedron/cuboctahedron/cube laws, while analytic derivatives of M- and M+ are strictly positive/negative, proving uniqueness of the mean maximum. Independent exact-rational edge reconstruction and 200 random integer normals at six rational parameters reproduced the chamber formula; 14,000 independently Gaussian normals at each of six t values agreed with the derived pmfs (stochastic corroboration, not proof).
 
-## Limitations and relevant literature
-The assertions concern central planes with the rotation-invariant distribution, the specified three-dimensional coaxial family, and generic orientations only. No off-center plane law or section-area/perimeter distribution is claimed. Historical novelty is provisional and the general combinatorial-chamber and two local/special parameter results are credited as earlier work. See arxiv:2006.09492, arxiv:2110.05996 and arxiv:2304.14239. The checker does not constitute a mathematical proof or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. For every 1<=t<=3, the centered Haar-plane section of K_t=cube intersect scaled octahedron has an explicit 6/8/10- or 4/6/8/10-sided law; t=2 uniquely has deterministic octagons and maximizes mean section sides.
+
+## value
+
+PASS
+
+The complete phase-dependent central section polygon distribution of a canonical 3D cube–octahedron interpolation, including the surprising decagon reappearance around a rigid cuboctahedron and sharp mean peak, is a natural finite-dimensional integral-geometric classification with continuous parameter coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

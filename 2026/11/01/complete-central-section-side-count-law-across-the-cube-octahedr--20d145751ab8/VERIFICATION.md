@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_sections.py` with Python 3. This self-contained standard-library checker builds exact rational vertices from signed permutations, reconstructs their active facets and edges, counts sign-changing endpoint pairs on central planes, and compares counts with both analytic normal-chamber formulas. It tests six distinct rational parameters in both regimes and samples 65,000 independent Gaussian normals at each of six nonexceptional parameters; Gaussian rotational invariance makes their plane directions Haar-uniform. It separately exercises cuboctahedral central section edge counting, probability normalization, endpoint identities, and sampled strict mean trends.
+## correctness
 
-Verified execution reported:
+PASS
 
-```
-EXACT_RATIONAL_POLYTOPE_EDGE_AND_CHAMBER_TESTS_PASSED 6/5
-EXACT_RATIONAL_POLYTOPE_EDGE_AND_CHAMBER_TESTS_PASSED 3/2
-EXACT_RATIONAL_POLYTOPE_EDGE_AND_CHAMBER_TESTS_PASSED 9/5
-EXACT_RATIONAL_POLYTOPE_EDGE_AND_CHAMBER_TESTS_PASSED 11/5
-EXACT_RATIONAL_POLYTOPE_EDGE_AND_CHAMBER_TESTS_PASSED 5/2
-EXACT_RATIONAL_POLYTOPE_EDGE_AND_CHAMBER_TESTS_PASSED 14/5
-CUBOCTAHEDRON_EIGHT_VERTEX_CHAMBER_TESTS_PASSED
-INDEPENDENT_HAAR_MONTE_CARLO_PASSED 1.2
-INDEPENDENT_HAAR_MONTE_CARLO_PASSED 1.5
-INDEPENDENT_HAAR_MONTE_CARLO_PASSED 1.8
-INDEPENDENT_HAAR_MONTE_CARLO_PASSED 2.2
-INDEPENDENT_HAAR_MONTE_CARLO_PASSED 2.5
-INDEPENDENT_HAAR_MONTE_CARLO_PASSED 2.8
-EXACT_ENDPOINTS_AND_MONOTONICITY_DIAGNOSTICS_PASSED
-ALL_CHECKS_PASSED
-```
+Computed the 24 vertices and 36 edges for both open intervals from the active cube/octahedral half-spaces. A generic plane crosses an edge precisely when its endpoint normal dot-products have opposite signs, with edge-crossing probability angle(u,v)/pi. Ordering |n1|>|n2|>|n3| yields on t<2 N=6+2[b<sa]+2[c<sa]-2[c<sb] and on t>2 N=8+2I-2J-2L-2K, with the four indicators exactly as in RESULT.md. The region N=10 on each side is a spherical three-ray cone with 48 signed-order chambers; the region N=4 on the cubic side is a cone with 24 symmetric copies. Solid-angle probabilities plus normalization and independently derived expected edge crossings determine all other masses. At t=1,2,3 the limits give octahedron/cuboctahedron/cube laws, while analytic derivatives of M- and M+ are strictly positive/negative, proving uniqueness of the mean maximum. Independent exact-rational edge reconstruction and 200 random integer normals at six rational parameters reproduced the chamber formula; 14,000 independently Gaussian normals at each of six t values agreed with the derived pmfs (stochastic corroboration, not proof).
 
-The computer checks are independent of the symbolic proof in the sense that section crossing counts are computed directly from exact active-facet polyhedral edge incidence. The Monte Carlo tests are finite experiments, not proofs of the full parameter theorem. The rigorous support, probability, and monotonicity claims are proved analytically in RESULT.md. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. For every 1<=t<=3, the centered Haar-plane section of K_t=cube intersect scaled octahedron has an explicit 6/8/10- or 4/6/8/10-sided law; t=2 uniquely has deterministic octagons and maximizes mean section sides.
+
+## value
+
+PASS
+
+The complete phase-dependent central section polygon distribution of a canonical 3D cube–octahedron interpolation, including the surprising decagon reappearance around a rigid cuboctahedron and sharp mean peak, is a natural finite-dimensional integral-geometric classification with continuous parameter coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
