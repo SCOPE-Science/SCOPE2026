@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the two-error threshold
+# Independent mathematical audit
 
-Run `python3 verify.py`; it needs only Python 3 standard-library combinatorics and integer arithmetic. The executable checks the new finite portion of the theorem rather than attempting to replace the cited infinite-dimensional theorem.
+## correctness
 
-The script computes the maximum of \(|N_4(I_M)|-(2^{n-1}+M)\) over **every** integer \(1\le M\le2^{n-2}\) without enumerating the vectors. The proof justifies its lexicographic block recurrence: a listed subset is assigned weight \(\binom{\min X}{4}-1\), and lexicographic sublists split according to their largest coordinate. Exact maximum-prefix sums of nested finite lists yield the maximum over all admissible class sizes.
+PASS
 
-The arithmetic checks are: positive maximum \(329481574\) at \(k=35\) and \(M=15771159390\); negative maximum \(-452256184\) at \(k=36\); strictly negative maxima for every \(k=36,\ldots,65\); and direct reconstruction of the 35-bit neighborhood count \(50460379332\). An independent brute-force set-of-neighbors algorithm checks **every** smaller-class size for ambient dimensions \(n=6,\ldots,11\) and agrees with the recurrence. Its exact expected terminal line is `CERTIFICATE_OK`.
+PASS qualified on published isoperimetric criterion. For injective non-systematic binary length k+1 maps and unequal function outputs, condition reduces via Rajput–Jagatti–Rajan Thm3 to |N4(I_M)|<=2^k+M, 1<=M<=2^(k-1). Source proof establishes lex-earliest j-support extension counting as sum binom(min X,4), and a recursive partition of lex j-subsets by maximal coordinate computes exact maximal prefix excess. Independently implemented alternate exact-integer DP and exhausted every k=36..65; G(35)=329481574>0 and G(36)=-452256184, with all 36..65 negative including G(65)=-9158393403190660545. Claimed prior Thm4 covers all k>=66 analytically (no finite extrapolation). Source original full text of Rajput paper inaccessible due institutional VPN, so precise matching of its theorem assumptions is a residual access risk, not fabricated verification.
 
-The theorem's infinite range \(k\ge66\) uses Theorem 4 of Rajput–Jagatti–Rajan (arXiv:2610.09011v1), not finite extrapolation. The Harper–Räty radius-four minimization principle is also externally established and explicitly used in the source Theorem 3. No full machine-formal proof or independent external mathematical audit is claimed.
+## originality
+
+PASS
+
+PASS best-of-knowledge with access risk. Primary 2026 Rajput–Jagatti–Rajan abstract and cited theorem summary establish a general upper bound 66 and identify exact t>=2 thresholds as unknown; this independently re-derived finite certificate gives exact κ_1(2)=36 and sharp k35 obstruction. No stronger equivalent prior result found via Resultary and targeted literature, but primary full proof inaccessible.
+
+## value
+
+PASS
+
+PASS. Universal arbitrary Boolean function coding with one redundant coordinate and two bit flips is a natural exact feasibility threshold; the sharp interval [36,65] is closed by exact exhaustive integer dynamic programming and a k=35 counterexample. Nontrivial 30-dimensional bounded classification, not a tiny toy number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
