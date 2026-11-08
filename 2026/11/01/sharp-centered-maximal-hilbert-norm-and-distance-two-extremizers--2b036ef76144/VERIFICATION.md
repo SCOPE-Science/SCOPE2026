@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Scientific verification
-The standalone file `verification/triangular_prism_verify.py` uses only the Python standard library. It reconstructs all radii from the actual graph edges and enumerates exactly \(3^6=729\) possible centered-ball selectors. The integer matrix \(1044I-5T^{\mathsf T}T\) is checked by fraction-free leading-minor elimination against the threshold \(29/20\); exactly \(723\) selectors are certified strictly below it and exactly six exceptions are found. The exception list equals the automorphism orbit of \((0,1,2,1,0,2)\), one for each distance-two pair.
+# Independent mathematical audit
 
-For the exceptional integer Gram matrix \(T^{\mathsf T}T\), exact Faddeev–LeVerrier characteristic coefficients agree with \(x^2(x-144)(x-18)(x^2-246x+7488)\). Dividing eigenvalues by \(144\) gives the radical squared norm. The proof independently derives the positive eigenvector from \(34a^2+73a-17=0\) and verifies all strict maximizing-radius comparisons analytically for \(0<a<1\). Numerical comparisons in the code are consistency tests only.
+## correctness
 
-Run: `python3 verification/triangular_prism_verify.py`.
-Expected first line: `CERTIFICATE_OK selections=729 strict=723 exceptional=6 distance_two_pairs=6 characteristic=exact`.
+PASS
 
-No general graph-family assertion, alternative exponent, or independent scientific certification is inferred from the finite check.
+For nonnegative x, the row-wise centered-ball maximal operator equals one of exactly 3^6 linear averaging matrices B_c; each is nonnegative, so its ℓ² operator norm is obtained on a nonnegative Perron eigenvector. With T_c=12B_c and F_c=1044I-5T_c^T T_c, exact leading-minor Sylvester testing proves 723 selectors have squared operator norm <29/20. The remaining six selectors form one automorphism orbit with high entries at graph distance two. For representative c=(0,1,2,1,0,2), exact characteristic polynomial λ²(λ-1)(8λ-1)(72λ²-123λ+26)/576 gives top λ=(123+sqrt7641)/144. Its eigenvector (1,a,a,a,1,a), a=(sqrt7641-73)/68>0, has strictly active chosen radii; simple top eigenvalue implies all extremizers exactly automorphic profiles with arbitrary signs. The actual verifier’s exact Bareiss/Sylvester and Faddeev–LeVerrier source was inspected, and an independent full enumeration of 729 floating-point eigenvalues reproduced exactly six exceptional selectors with λ≈1.46120009518. The global proof relies on finite exhaustive exact certificates and analytical radical equations, not the floating-point sample.
+
+## originality
+
+PASS
+
+Graph Hardy–Littlewood strong norm on the natural smallest nonbipartite cubic Cartesian prism is not given by general p≤1 graph bounds or the published complete-graph/star exact ℓ² calculations. The exact constant plus all distance-two equality profiles is the assessed claim, not general theory of graph maximal operators.
+
+## value
+
+PASS
+
+The triangular prism is a canonical connected six-vertex cubic graph, and its centered ball maximal ℓ² norm is a natural sharp graph-analysis invariant. The complete equality orbit reveals distance-two geometry of maximizers and an exact algebraic contrast with complete graph/star cases. The finite classification is exhaustive and mathematically motivated, not an arbitrarily sliced benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
