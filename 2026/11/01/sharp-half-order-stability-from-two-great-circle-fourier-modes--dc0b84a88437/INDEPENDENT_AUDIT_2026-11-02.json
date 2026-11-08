@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T08:57:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/11/01/sharp-half-order-stability-from-two-great-circle-fourier-modes--dc0b84a88437/RESULT.md at commit 3216b56cf13f3458b5353d1e118761f975adbcd9 blob 760089b71986b4a7caae52973a0b572fb8480873",
+        "frozen 2026/11/01/sharp-half-order-stability-from-two-great-circle-fourier-modes--dc0b84a88437/check_spectral_recovery.py at commit 3216b56cf13f3458b5353d1e118761f975adbcd9 blob 37e7e31100ebc81985da8837340bee64df1fb8ab"
+      ],
+      "rationale": "The rotated equatorial Fourier coefficient defines a bounded L2(S2)->L2(SO3) operator by Jensen/Fubini. Peter-Weyl/Schur orthogonality diagonalizes it on H_ell; parity leaves order2 for even ell and order3 for odd ell. Exact associated-Legendre values at zero yield lambda_even and lambda_odd. Independently evaluated symbolic associated Legendre with factorial prefactors for every ell=2..16 and m=2,3: all exact eigenvalues agree, including parity zeros. With a_k=binom(2k,k)/4^k, W_k=(2k+1)a_k^2 decreases strictly to 2/pi, and (ell+1)lambda_ell>W_k. Therefore sum observations >= (2/pi) sum_{ell>=2} ||f_ell||^2/(ell+1); equality only low degrees, and pure high-harmonic test functions yield sharp constant. Smooth convex support perturbations 1+epsilon Y_ell show no stronger H^s estimate for s>-1/2, with epsilon allowed ell-dependent. Finite exact checks do not replace infinite Schur orthogonality/Wallis asymptotics.",
+      "residual_risks": [
+        "Verification is limited to the exact finite or symbolic checks described; universal claims depend on reconstructed analytic proofs and stated hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Myroshnychenko et al. Theorem 1.4: vanishing order ±2 and ±3 on every circle implies constant plus linear.",
+          "Hielscher Theorem 4.4: arc-integral singular values are of order n^-1/2; the data functional has different Fourier weights."
+        ],
+        "reasoning": "Known injectivity only establishes absence of kernel and does not imply quantitative sharp inverse norm; the general SVD yields possible route but not the numerical best constant or nonattainment directly.",
+        "searches": [
+          "S. Myroshnychenko, D. Ryabogin, C. Saroglou, On convex bodies with rotationally symmetric planar projections, arXiv:2609.27192v1, Theorem 1.4 (2026-09-23)",
+          "R. Hielscher, D. Potts, M. Quellmalz, An SVD in Spherical Surface Wave Tomography, arXiv:1706.05284 (2017), Theorems 3.3, 4.3, 4.4",
+          "great circle Fourier order two three spherical harmonics spectral singular values half order"
+        ]
+      },
+      "checked_sources": [
+        "S. Myroshnychenko, D. Ryabogin, C. Saroglou, On convex bodies with rotationally symmetric planar projections, arXiv:2609.27192v1, Theorem 1.4 (2026-09-23)",
+        "R. Hielscher, D. Potts, M. Quellmalz, An SVD in Spherical Surface Wave Tomography, arXiv:1706.05284 (2017), Theorems 3.3, 4.3, 4.4",
+        "Resultary semantic mathematical research database, five claim-specific queries run 2026-11-02 UTC; relevant hits inspected by title+summary",
+        "Frozen RESULT.md blob 760089b71986b4a7caae52973a0b572fb8480873; check_spectral_recovery.py blob 37e7e31100ebc81985da8837340bee64df1fb8ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.4 is qualitative, while the new E(f) has an exact diagonal energy identity and sharp lower D(f).",
+          "Hielscher weights circle arcs via sin(j psi)/j, versus this data selecting precisely j=2 and j=3 with equal squared weights."
+        ],
+        "reasoning": "The new inequality follows from harmonic machinery plus an exact Wallis comparison; this is a quantitative refinement rather than a claim to invent Wigner diagonalization. Prior material does not itself state its sharp 2/pi constant.",
+        "searches": [
+          "S. Myroshnychenko, D. Ryabogin, C. Saroglou, On convex bodies with rotationally symmetric planar projections, arXiv:2609.27192v1, Theorem 1.4 (2026-09-23)",
+          "R. Hielscher, D. Potts, M. Quellmalz, An SVD in Spherical Surface Wave Tomography, arXiv:1706.05284 (2017), Theorems 3.3, 4.3, 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new operator is the direct sum of two order-specific Fourier-coefficient observations, with one positive sign each and normalized Haar measures.",
+          "Hielscher Theorem 3.3 gives the SVD for the integrated-all-arcs transform, with weights over every azimuthal order."
+        ],
+        "reasoning": "Prior general harmonic formulas imply the single-order eigenvalues with standard Wigner orthogonality, but the exact pairwise parity selection and optimized weighted inequality are not their stated theorem.",
+        "searches": [
+          "great circle Fourier order two three spherical harmonics spectral singular values half order",
+          "great circle Wigner harmonic Fourier coefficients order 2 order 3 sharp Wallis lower bound",
+          "R. Hielscher, D. Potts, M. Quellmalz, An SVD in Spherical Surface Wave Tomography, arXiv:1706.05284 (2017), Theorems 3.3, 4.3, 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hielscher primary equations (15)-(18) give Wigner/Legendre spectral building blocks for all azimuthal modes.",
+          "Exact independent symbolic match for ell 2..16 checks the claimed specialized sequence, not that it was previously untabulated."
+        ],
+        "reasoning": "General SVD tables might be specialized to yield the coefficients, but no inspected prior exact two-mode best-constant table was located.",
+        "searches": [
+          "great circle Fourier order two three spherical harmonics spectral singular values half order",
+          "Legendre at equator two mode 2 3 2/pi sharp singular value tables"
+        ]
+      },
+      "rationale": "Myroshnychenko et al. Theorem 1.4 proves exactly the zero-kernel assertion for continuous functions; that is acknowledged prior work. Hielscher et al. provide general arc-transform Wigner SVD and n^{-1/2} decay, but their integrated arc transform differs from the two selected Fourier moments, and the inspected Theorems 3.3/4.3/4.4 do not state the best 2/pi constant for the joint two-order observable. A specialization of their machinery plus new Wallis optimization is required; originality best of knowledge.",
+      "residual_risks": [
+        "The sharp two-mode inequality may be an unindexed explicit corollary of earlier general arc-spectrum formulas; full priority cannot be guaranteed.",
+        "All constants use probability Haar/sphere measures and one positive Fourier order; changing normalization changes 2/pi.",
+        "No positive Sobolev exponent stronger than -1/2 is claimed; the geometric consequence controls a negative regularity norm, not Hausdorff distance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already proves qualitative nullspace. No quantitative sharp spectral norm in read pages; do not assert whole-paper exclusion.",
+          "evidence": "Theorem 1.4 specifies vanishing +/-2 and +/-3 on EVERY great circle.",
+          "identifier_or_url": "arXiv:2609.27192v1",
+          "material_read": "Full text pages 1-7; Theorem 1.4 page 2 and Fourier cancellation/rotation-invariance setup pages 4-7.",
+          "method": "Authorized Oxford extraction after failed arXiv/OA; read the indicated pages.",
+          "title": "On convex bodies with rotationally symmetric planar projections",
+          "trigger": "Exactly matching Fourier orders 2 and 3 and kernel"
+        },
+        {
+          "assessment": "Its arc-integral operator differs from two fixed equatorial Fourier orders; provides machinery and n^-1/2 scaling, not the exact stated joint sharp inequality.",
+          "evidence": "Theorem 3.3 sum over all azimuthal indices with 1/j^2 weights, Theorem 4.3 with fixed arc length; not two selected modes alone.",
+          "identifier_or_url": "https://www-user.tu-chemnitz.de/~potts/paper/SVDSphericalWave.pdf",
+          "material_read": "Full extracted text of Sections 2-4, Theorems 3.3, 4.3, 4.4 and formulas (15)-(18),(21)-(23); graphical screenshot of p.10 Theorem 3.3.",
+          "method": "Publisher-author OA PDF via web indexed extraction, find, and mandatory PDF screenshot.",
+          "title": "An SVD in Spherical Surface Wave Tomography",
+          "trigger": "Same spherical harmonic/Wigner algebra and a possibly dominating inverse theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "S. Myroshnychenko, D. Ryabogin, C. Saroglou, On convex bodies with rotationally symmetric planar projections, arXiv:2609.27192v1, Theorem 1.4 (2026-09-23)",
+        "R. Hielscher, D. Potts, M. Quellmalz, An SVD in Spherical Surface Wave Tomography, arXiv:1706.05284 (2017), Theorems 3.3, 4.3, 4.4",
+        "Resultary semantic mathematical research database, five claim-specific queries run 2026-11-02 UTC; relevant hits inspected by title+summary",
+        "Frozen RESULT.md blob 760089b71986b4a7caae52973a0b572fb8480873; check_spectral_recovery.py blob 37e7e31100ebc81985da8837340bee64df1fb8ab"
+      ],
+      "rationale": "This gives an exact stable quantitative version of an existing all-circle ball-rigidity test, with optimal inversion exponent and nonattained sharp constant; the inverse problem and two-mode observable are naturally motivated.",
+      "residual_risks": [
+        "Value is confined to the exact mathematical question and claimed domain; no broader theorem, historical certification, or external endorsement is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "S. Myroshnychenko, D. Ryabogin, C. Saroglou, On convex bodies with rotationally symmetric planar projections, arXiv:2609.27192v1, Theorem 1.4 (2026-09-23)",
+    "R. Hielscher, D. Potts, M. Quellmalz, An SVD in Spherical Surface Wave Tomography, arXiv:1706.05284 (2017), Theorems 3.3, 4.3, 4.4",
+    "Resultary semantic mathematical research database, five claim-specific queries run 2026-11-02 UTC; relevant hits inspected by title+summary",
+    "Frozen RESULT.md blob 760089b71986b4a7caae52973a0b572fb8480873; check_spectral_recovery.py blob 37e7e31100ebc81985da8837340bee64df1fb8ab"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The sharp two-mode inequality may be an unindexed explicit corollary of earlier general arc-spectrum formulas; full priority cannot be guaranteed.",
+    "All constants use probability Haar/sphere measures and one positive Fourier order; changing normalization changes 2/pi.",
+    "No positive Sobolev exponent stronger than -1/2 is claimed; the geometric consequence controls a negative regularity norm, not Hausdorff distance."
+  ]
+}

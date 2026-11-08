@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the two-mode stability calculation
+# Independent mathematical audit
 
-Running `python3 check_spectral_recovery.py` using only the Python standard library produced:
+## correctness
 
-`SPECTRAL_CHECK_OK: 1042 exact/finite checks; ell<=22 and k<=500`
+PASS
 
-The checker expands Legendre polynomials by exact rational coefficients, computes exact rotated-zonal Fourier energies using the rational moment \(\mathbb E(1-T^2)^j=4^j(j!)^2/(2j+1)!\), and compares them with factorial/double-factorial eigenvalues and the claimed central-binomial forms. The rotation-normalization identity is verified through degree \(22\) for both measured frequencies and both parity cases. The checker additionally establishes, for the first \(500\) values of \(k\), the strict rational Wallis recurrence and rational comparison between \((\ell+1)\lambda_\ell\) and \(W_k\). The analytical Wallis limit, representation-theoretic orthogonality, and infinite-dimensional inequality are proved in `RESULT.md`; no finite test substitutes for these steps.
+The rotated equatorial Fourier coefficient defines a bounded L2(S2)->L2(SO3) operator by Jensen/Fubini. Peter-Weyl/Schur orthogonality diagonalizes it on H_ell; parity leaves order2 for even ell and order3 for odd ell. Exact associated-Legendre values at zero yield lambda_even and lambda_odd. Independently evaluated symbolic associated Legendre with factorial prefactors for every ell=2..16 and m=2,3: all exact eigenvalues agree, including parity zeros. With a_k=binom(2k,k)/4^k, W_k=(2k+1)a_k^2 decreases strictly to 2/pi, and (ell+1)lambda_ell>W_k. Therefore sum observations >= (2/pi) sum_{ell>=2} ||f_ell||^2/(ell+1); equality only low degrees, and pure high-harmonic test functions yield sharp constant. Smooth convex support perturbations 1+epsilon Y_ell show no stronger H^s estimate for s>-1/2, with epsilon allowed ell-dependent. Finite exact checks do not replace infinite Schur orthogonality/Wallis asymptotics.
 
-In particular, the first nonzero eigenvalues are \(\lambda_2=3/8\), \(\lambda_3=5/16\), \(\lambda_4=5/32\) and \(\lambda_5=35/256\). No external or independent mathematical audit has been performed. Normalizations in the accompanying proof are probability spherical area, probability Haar rotations and the single positive Fourier coefficient for each of orders \(2,3\).
+## originality
+
+PASS
+
+Myroshnychenko et al. Theorem 1.4 proves exactly the zero-kernel assertion for continuous functions; that is acknowledged prior work. Hielscher et al. provide general arc-transform Wigner SVD and n^{-1/2} decay, but their integrated arc transform differs from the two selected Fourier moments, and the inspected Theorems 3.3/4.3/4.4 do not state the best 2/pi constant for the joint two-order observable. A specialization of their machinery plus new Wallis optimization is required; originality best of knowledge.
+
+## value
+
+PASS
+
+This gives an exact stable quantitative version of an existing all-circle ball-rigidity test, with optimal inversion exponent and nonattained sharp constant; the inverse problem and two-mode observable are naturally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
