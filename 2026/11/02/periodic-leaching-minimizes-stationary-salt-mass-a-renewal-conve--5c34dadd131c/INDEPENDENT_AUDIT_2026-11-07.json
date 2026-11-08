@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob cad9165b5fcd9c0cf6327aba5e468da30e2094e8",
+        "CHECK.py blob db7f626c252864f6f6459261b697272fa79cecad",
+        "Independent exact Fraction renewal second/third moment checks for 3 two-point distributions",
+        "Renewal-reward equilibrium-age identity and convex Jensen argument reconstructed"
+      ],
+      "rationale": "The stationary event-epoch affine recursion Y_n=r(e^(−bL_n)Y_{n−1}+(a/b)(1−e^(−bL_n))) contracts by at most r<1; for b=0, Y=a∑_{j≥1}r^j L_{−j}, a.s. finite by finite mean. Renewal equilibrium time age A has tail P(A>t)=E[(L−t)_+]/μ and is independent of past complete intervals/Y. For b>0, EY=(ra/b)(1−q)/(1−rq), E exp(−bA)=(1−q)/(bμ), giving E M=(a/b)[1−(1−r)(1−q)/(bμ(1−rq))]. Subtracting periodic q0=exp(−bμ) gives positive factor a(1−r)^2(q−q0)/(b²μ(1−rq)(1−rq0)); Jensen strictly minimizes q at deterministic L=μ. At b=0, M=a(A+S) with S=∑r^j L_{−j} independent of A, ES=rμ/(1−r); the equilibrium age A stochastically dominates U∼Uniform(0,μ) because of Jensen on (L−t)_+. Conditional Jensen in S and monotonicity in A then establish the increasing-convex inequality for EVERY nondecreasing convex φ in extended expectation. E A=EL²/(2μ) yields mean a[rμ/(1−r)+EL²/(2μ)] and exact excess a Var(L)/(2μ), including infinite second moment. The two-point L∈{1/2,3/2} has random stationary mass below 1 and above 2 with positive probability, proving no first-order dominance: four short preceding gaps give S<=9/16, age<1/4; four long preceding gaps give S>=23/16 once the >=1/2 lower bound on ALL remaining gaps contributes 1/32, and age>3/4. Independently derived exact mean/variance for three two-point laws; for equal (1/2,3/2), mean=13/8, excess 1/8, stationary variance 53/192. All-renewal claims rest on renewal identities, not simulations.",
+      "residual_risks": [
+        "Only fixed retention r in (0,1), iid positive gaps independent of state, one-compartment linear drift; no coupled soil physics or state-adaptive policy.",
+        "In b>0 only mean optimality is proved; all-convex order is restricted to b=0.",
+        "No first-order stochastic dominance; important that bounds in two-point counterexample include geometric tails beyond the first four intervals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suweis treats Poisson precipitation/leaching; Mau et al explicitly use Poisson jump times and exponential marks, which are one renewal law but not a uniform all-distribution extremum.",
+          "Related Resultary stationary renewal age/residual dependence describes different observables."
+        ],
+        "reasoning": "The general renewal-age Jensen principle is known and may support the result, but the inspected publications do not assert the full present fixed-retention salt-state order.",
+        "searches": [
+          "Suweis et al Stochastic modeling of soil salinity 2010 full text",
+          "Mau Feng Porporato Multiplicative jump processes leaching salt 2014 author manuscript",
+          "Stochastic convex order renewal reset stationary inventory periodic intervals"
+        ]
+      },
+      "checked_sources": [
+        "Suweis et al 2010 doi:10.1029/2010GL042495",
+        "Mau et al 2014 doi:10.1103/PhysRevE.90.052128 full author PDF",
+        "Mau--Porporato 2015 doi:10.1016/j.advwatres.2015.05.010",
+        "Resultary stationary renewal age/residual correlations semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poisson-specific formulas do not compare to deterministic intervals of equal mean and do not logically establish a strict optimum across all iid gaps.",
+          "The known equilibrium age is stochastically larger than periodic age; the proof still needs the independent post-event accumulated salt S and conditional Jensen to compare risks."
+        ],
+        "reasoning": "No general theorem from accessed sources was shown to immediately imply the exact b>0 gap plus b=0 convex order; a broad stochastic-reset result could remain a priority risk.",
+        "searches": [
+          "Mau et al 2014 marked Poisson equations (1)–(4)",
+          "Suweis et al 2010 Poisson stationary density",
+          "renewal age P(A>t)=E(L−t)+/μ"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is a regenerative affine jump/shot-noise inventory with constant deposition, fixed multiplicative retention, state-independent renewal events.",
+          "Classical stationary age order alone does not directly give the weighted-past-state convex ordering unless one adds independence/Jensen."
+        ],
+        "reasoning": "Compared renewal stationarity, periodic irrigation and generic stochastic reset formulations. The assessed claim is a distribution-free functional comparison, not just a solved Poisson stationary law.",
+        "searches": [
+          "stationary fluid inventory partial-reset renewal leaching convex order equal mean interarrival",
+          "stochastic soil salinity marked Poisson partial reset model",
+          "Resultary: renewal partial reset deterministic periodic leaching stationary mean convex order fixed mean interarrival salt mass"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest primary numerical salinity tables are Poisson model moments, not a table determining all iid interarrival laws or an exactly sharp minimizer.",
+          "No pre-existing all-convex-risk theorem observed in the retrieved Resultary summaries."
+        ],
+        "reasoning": "This claim is an all-law inequality, not a finite number; negative table searches are secondary to the logical comparison.",
+        "searches": [
+          "renewal leaching deterministic stochastic stationary mass variance interarrival closed form",
+          "soil salinity periodic leaching fixed-frequency convex risk",
+          "Resultary sharp unequal power correlation stationary renewal age residual"
+        ]
+      },
+      "rationale": "The underlying deposition/partial-leaching physical process and Poisson jump moment equations are established in Suweis et al. and Mau--Feng--Porporato. The main new mathematical comparison quantifies deterministic optimality uniformly over *all iid renewal interval laws with fixed mean* and its sharp zero-uptake increasing-convex order, plus a counterexample forbidding universal fixed-threshold comparison. The inspected primary salinity studies use Poisson/marked Poisson timing or coupled deterministic physicochemistry, and do not supply the all-renewal functional comparison. General renewal age stochastic order is a known ingredient; a more general reset-process convex-order theorem could imply this as a corollary, so novelty is qualified.",
+      "residual_risks": [
+        "A general theorem on convex stochastic ordering of partially-reset regenerative fluid processes might dominate this result under an application-neutral title.",
+        "van der Zee et al periodical drought full text inaccessible, do not infer whole-document noncoverage.",
+        "Finite ranked literature search does not certify global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PARTIAL_COVERAGE",
+          "evidence": "Uses Poisson times and exponential marks; provides moment and threshold calculations but not quantified fixed-mean all-iid-renewal schedule comparison.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.90.052128",
+          "material_read": "Full lawful author manuscript model, jump specification, equations (1)–(4), moments and conclusion, examined as PDF and rendered model page",
+          "method": "Public full author PDF inspection with image/rendered page review",
+          "title": "Multiplicative jump processes and applications to leaching of salt and contaminants in the soil",
+          "trigger": "Closest model with salt drift/uptake and multiplicative leaching"
+        },
+        {
+          "assessment": "POISSON_SPECIAL_CASE",
+          "evidence": "Establishes stochastic soil-salinity model, no arbitrary fixed-mean renewal convex ordering observed.",
+          "identifier_or_url": "https://doi.org/10.1029/2010GL042495",
+          "material_read": "Accessible introduction, model equations, Poisson forcing, stationary density and consequences",
+          "method": "Read primary journal full-text material and indexed sections",
+          "title": "Stochastic modeling of soil salinity",
+          "trigger": "Foundational same soil salt accumulation under precipitation leaching"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Coupled deterministic salinity–sodicity system, no iid renewal schedule law in inspected sections.",
+          "identifier_or_url": "https://doi.org/10.1016/j.advwatres.2015.05.010",
+          "material_read": "Lawful author abstract/model/trajectory and conclusion material",
+          "method": "Author-public manuscript relevant sections",
+          "title": "A dynamical system approach to soil salinity and sodicity",
+          "trigger": "Could include periodic leaching controls"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_RISK",
+          "evidence": "Different coupled cation-exchange model per abstract; do not assert whole document lacks stronger comparisons.",
+          "identifier_or_url": "https://doi.org/10.1016/j.agwat.2009.08.009",
+          "material_read": "Public publisher indexed abstract and bibliographic metadata only; full text not read",
+          "method": "Abstract and lawful OA full-text search",
+          "title": "Soil sodicity as a result of periodical drought",
+          "trigger": "Plausibly overlapping periodic soil chemistry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob cad9165b5fcd9c0cf6327aba5e468da30e2094e8",
+        "Suweis et al 2010 doi:10.1029/2010GL042495",
+        "Mau et al 2014 doi:10.1103/PhysRevE.90.052128 full author PDF"
+      ],
+      "rationale": "At equal average treatment frequency, the timing distribution controls long-run salt burden: periodic renewal inputs sharply minimize mean for every nonnegative linear uptake coefficient, with an exact distribution-free penalty at zero uptake. The stronger increasing-convex risk comparison and explicit failure of threshold-wise stochastic dominance distinguish usable robust risk advice from an incorrect inference. This is a natural, motivated renewal theorem for a physical partial-reset process, not one arbitrary numerical irrigation schedule. No empirical crop-yield/optimization benefit beyond the model is claimed.",
+      "residual_risks": [
+        "The model is stylized and holds at fixed removal fraction; nonlinear chemistry, correlated rain and policy costs remain outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only fixed retention r in (0,1), iid positive gaps independent of state, one-compartment linear drift; no coupled soil physics or state-adaptive policy.",
+    "In b>0 only mean optimality is proved; all-convex order is restricted to b=0.",
+    "No first-order stochastic dominance; important that bounds in two-point counterexample include geometric tails beyond the first four intervals.",
+    "A general theorem on convex stochastic ordering of partially-reset regenerative fluid processes might dominate this result under an application-neutral title.",
+    "van der Zee et al periodical drought full text inaccessible, do not infer whole-document noncoverage.",
+    "Finite ranked literature search does not certify global novelty."
+  ]
+}
