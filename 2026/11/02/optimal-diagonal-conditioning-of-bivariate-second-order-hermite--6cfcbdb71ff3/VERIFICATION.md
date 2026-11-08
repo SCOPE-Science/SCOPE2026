@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and analytic verification
+# Independent mathematical audit
 
-The standalone file `VERIFY.py` was executed against the identities in `RESULT.md` using SymPy and NumPy. It reported PASS for the three exact eigenvector identities, exact Gram determinant, exact unit-diagonal Gram reconstruction, even-subspace eigenvalue identities, and the symbolic limit of the Jacobi-to-optimal conditioning ratio, \(9/8\). A seeded supplementary sweep checked \(3,200\) positive diagonal scales across eight nondegenerate correlations, confirming the candidate's condition numbers and never finding a sample below the claimed optimum.
+## correctness
 
-The tested calculations do not establish the universal minimization over infinitely many positive diagonal matrices. That statement and uniqueness are proved analytically using equal squared coordinate moduli of the two extremal eigenvectors and Rayleigh–Ritz. The source full texts were checked for the mathematical definitions and the distinction between the known Gram matrix and the new proposed diagonal optimum. The numerical sweep is not a certificate of historical novelty.
+PASS
 
-To reproduce: `python VERIFY.py` (Python 3, NumPy and SymPy). The result concerns only positive diagonal congruence scaling, not arbitrary basis transformations or polynomial chaos degrees other than two.
+For Y=Sigma_rho^{-1}xi and a=(1-rho^2)^(-1), b=-rho*a, Wick fourth moments give the displayed 3x3 degree-two density-derivative Hermite Gram. D*=diag(1,sqrt(2),1) gives exact eigenvectors (1,±sqrt(2),1)/2 and (1,0,-1)/sqrt(2), eigenvalues 2/(1+rho)^2, 2/(1-rho)^2, 2/(1-rho^2). Since the two extreme eigenvectors have identical coordinatewise squares, every positive diagonal alternative T has equal denominators ||T^(-1)v_ext||^2, forcing kappa(TBG T)>=kappa(B); equality forces T scalar because both extreme eigenvectors have no zero entries. At rho=0 B=2I makes uniqueness immediate. Jacobi-normalized even-block eigenvalue product and odd eigenvalue show the sharp ratio 9/8 as |rho| rises to 1. Independently evaluated representative spectra at rho=-.9,-.4,0,.25,.72; samples are corroboration and the global proof is the Rayleigh argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.
+
+## value
+
+PASS
+
+The first nontrivial bivariate correlated degree-two Hermite mass block is an actual Galerkin/chaos input. A unique covariance-independent all-parameter best positive diagonal scale is a natural exact conditioning invariant; its full analytic curve and quantitative 9/8 loss of standard Jacobi scaling are useful benchmarks. This is not presented as generic PDE improvement and is more than a recomputed moment matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

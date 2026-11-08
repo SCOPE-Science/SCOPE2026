@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The precise unnormalized Gaussian-Hermite definitions imply the displayed Gram matrix by fourth moments. Three explicit orthonormal vectors give the entire scaled spectrum. A common-denominator Rayleigh argument, exploiting identical coordinate magnitudes of the extreme eigenvectors, proves the global lower bound over all positive diagonals and its equality case. The Jacobi spectrum gives the exact asymptotic coefficient. The accompanying symbolic and numerical checker passed, but the global theorem depends on the proof, not finite sampling.
+PASS
 
-## Originality
+For Y=Sigma_rho^{-1}xi and a=(1-rho^2)^(-1), b=-rho*a, Wick fourth moments give the displayed 3x3 degree-two density-derivative Hermite Gram. D*=diag(1,sqrt(2),1) gives exact eigenvectors (1,±sqrt(2),1)/2 and (1,0,-1)/sqrt(2), eigenvalues 2/(1+rho)^2, 2/(1-rho)^2, 2/(1-rho^2). Since the two extreme eigenvectors have identical coordinatewise squares, every positive diagonal alternative T has equal denominators ||T^(-1)v_ext||^2, forcing kappa(TBG T)>=kappa(B); equality forces T scalar because both extreme eigenvectors have no zero entries. At rho=0 B=2I makes uniqueness immediate. Jacobi-normalized even-block eigenvalue product and odd eigenvalue show the sharp ratio 9/8 as |rho| rises to 1. Independently evaluated representative spectra at rho=-.9,-.4,0,.25,.72; samples are corroboration and the global proof is the Rayleigh argument.
 
-**PASS within historical-priority limits.** The raw covariance-dependent Gram entries are not new: they occur explicitly in the prior full-text source by Lyman (2026) and follow from Rahman (2017) and Lyman–Iaccarino (2021). The claimed new fact is the *global diagonal-congruence condition-number optimum* (unique, independent of correlation) together with the exact \(9/8\) near-degeneracy gap over variance-normalization. General optimal diagonal-scaling algorithms, including Qu et al. (2022), solve a larger class procedurally but the inspected material does not already state this closed-form special-family optimum. The residual possibility that symmetric-square literature implies the formula by another name remains.
+## originality
 
-## Value
+PASS
 
-**PASS.** A weakly orthogonal correlated-chaos mass block is an actual finite subsystem in stochastic Galerkin coefficient recovery. The best attainable diagonal conditioning is a natural sharp invariant; the covariance-independent \(\sqrt2\) scale provides an exact benchmark and shows the standard unit-variance normalization is not universally optimal. The result is a meaningful closed classification of the minimal nontrivial degree-two block, not a gain claimed for generic full PDE solvers.
+Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.
 
-## Closest sources and limits
+## value
 
-Rahman (2017), Lyman–Iaccarino (2021), and Lyman (2026) give definitions and moment identities; Qu et al. (2022) supplies general diagonal optimality machinery. The result neither rediscovers these moments as new nor claims better conditioning than dense whitening. It is restricted to two correlated standard Gaussian inputs, the degree-two block, and positive diagonal congruences. A specialized historical equivalence remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial bivariate correlated degree-two Hermite mass block is an actual Galerkin/chaos input. A unique covariance-independent all-parameter best positive diagonal scale is a natural exact conditioning invariant; its full analytic curve and quantitative 9/8 loss of standard Jacobi scaling are useful benchmarks. This is not presented as generic PDE improvement and is more than a recomputed moment matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

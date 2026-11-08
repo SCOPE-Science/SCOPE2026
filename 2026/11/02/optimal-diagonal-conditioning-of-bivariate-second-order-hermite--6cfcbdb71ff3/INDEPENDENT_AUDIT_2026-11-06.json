@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:13:29.974797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Y=Sigma_rho^{-1}xi and a=(1-rho^2)^(-1), b=-rho*a, Wick fourth moments give the displayed 3x3 degree-two density-derivative Hermite Gram. D*=diag(1,sqrt(2),1) gives exact eigenvectors (1,±sqrt(2),1)/2 and (1,0,-1)/sqrt(2), eigenvalues 2/(1+rho)^2, 2/(1-rho)^2, 2/(1-rho^2). Since the two extreme eigenvectors have identical coordinatewise squares, every positive diagonal alternative T has equal denominators ||T^(-1)v_ext||^2, forcing kappa(TBG T)>=kappa(B); equality forces T scalar because both extreme eigenvectors have no zero entries. At rho=0 B=2I makes uniqueness immediate. Jacobi-normalized even-block eigenvalue product and odd eigenvalue show the sharp ratio 9/8 as |rho| rises to 1. Independently evaluated representative spectra at rho=-.9,-.4,0,.25,.72; samples are corroboration and the global proof is the Rayleigh argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qu et al., arXiv:2209.00809v2, Sections 1–3 develop general quasi-convex optimization and SDP algorithms for optimal diagonal preconditioning of full-rank matrices.",
+          "Neither the general optimization formulation nor correlated-chaos moment framework supplies the explicit constant diag(1,sqrt2,1), the all-rho condition curve, and 9/8 Jacobi ratio without a separate specialty computation."
+        ],
+        "reasoning": "General SDP optimization can in principle compute the answer instance-by-instance, so the novelty is an analytic closed-form special-case theorem, not invention of diagonal optimization; a universal formula directly implying the case would cover it, but none was identified in inspected relevant theorems.",
+        "searches": [
+          "exact optimal diagonal spectral conditioning bivariate second-order correlated Hermite Gram Jacobi variance",
+          "Qu Gao Hinder Ye Zhou 2209.00809 optimal diagonal preconditioning SDP",
+          "Rahman 1704.07912 multivariate Hermite correlated Gaussian"
+        ]
+      },
+      "checked_sources": [
+        "Lyman 2026 arXiv:2610.30204 (reflowed full text sections on correlated Gram)",
+        "Qu et al. arXiv:2209.00809v2 (PDF Introduction and general SDP sections)",
+        "Rahman arXiv:1704.07912 (abstract)",
+        "Resultary query: exact optimal diagonal spectral conditioning bivariate second-order correlated Hermite Gram Jacobi variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Optimal diagonal scaling algorithm applied to this 3x3 input could yield its optimum computationally.",
+          "The claimed proof uses a structural equal-squared-extremal-eigenvector certificate to obtain the unique formula for every rho; prior moment identity alone cannot imply that optimality."
+        ],
+        "reasoning": "Neither the broader generic SDP characterization nor existing Gaussian product formulas state the closed parametric optimizer as an immediate corollary; however specialist symmetric-square scaling literature may imply it and is retained as risk.",
+        "searches": [
+          "Qu et al. 2209.00809 one-sided SDP",
+          "Lyman 2610.30204 Section 5 Hermite Gram"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lyman 2026 Sections 4–7 and degree-two matrix provide the same preexisting Gaussian moments, not the exact optimum over arbitrary positive diagonal matrices.",
+          "Equal-magnitude extremal eigenvectors give a global condition-number lower bound and unique equality case."
+        ],
+        "reasoning": "A known covariance/Hermite Gram matrix is not automatically a known optimal-congruence classification; numerical linear-algebra aliases (symmetric-square, balancing, matrix scaling) remain a priority risk.",
+        "searches": [
+          "exact optimal diagonal spectral conditioning bivariate second-order correlated Hermite Gram Jacobi variance",
+          "Lyman 2026 Hermite double-product degree-two Gram, Rahman 2017 correlated Hermite",
+          "optimal diagonal congruence scaling symmetric-square Gram eigenvectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned Gaussian dependence and Gauss-Seidel conditioning records, none a table of this Hermite-block diagonal optimum.",
+          "Lyman contains the exact input Gram matrix but does not tabulate its global diagonal condition optimum or relative Jacobi limit in the inspected sections."
+        ],
+        "reasoning": "A known input matrix is not an exact output table; no matching exact invariant table found. This is not proof that no unindexed table exists.",
+        "searches": [
+          "exact optimal diagonal spectral conditioning bivariate second-order correlated Hermite Gram Jacobi variance",
+          "Resultary published mathematical records search Gaussian Hermite diagonal optimal Gram",
+          "Lyman 2026 degree-two X(2) matrix"
+        ]
+      },
+      "rationale": "Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.",
+      "residual_risks": [
+        "Specialized earlier symmetric-square or diagonal equilibration theorem may state or imply this 3x3 optimum.",
+        "No claim about higher-degree chaos or arbitrary invertible dense transformations; whitening trivializes full similarity conditioning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers Gram inputs/moment formulas, not the inspected specialty optimal diagonal conditioning formula",
+          "evidence": "Lyman 2026 Section 5 degree-two Gram X^(2); no closed global diagonal condition-number optimum in inspected material",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30204",
+          "material_read": "reflowed full public HTML article, focus definitions, Sections 4–7 and degree-two Gram presentation",
+          "method": "lawful reflowed full text",
+          "title": "Triple Products of Correlated Multivariate Hermite Polynomials",
+          "trigger": "same objects and exact known degree-two Gram"
+        },
+        {
+          "assessment": "covers general optimization procedure but not special-family explicit symbolic optimality curve",
+          "evidence": "Qu et al. 2022/2024 Sections 1–3: bisection, SDP, optimal scaling algorithms",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.00809",
+          "material_read": "full PDF available; abstract, Introduction, Sections 1–3 on SDP and quasi-convex algorithms examined",
+          "method": "open arXiv PDF, text and page images",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "stronger generic optimizer for all matrices"
+        },
+        {
+          "assessment": "background correlated Gaussian Hermite framework; possible notation equivalences",
+          "evidence": "Rahman 2017, arXiv:1704.07912",
+          "identifier_or_url": "https://arxiv.org/abs/1704.07912",
+          "material_read": "public title, abstract, and citation context; detailed full-text comparison not completed",
+          "method": "arXiv bibliographic/abstract",
+          "title": "Wiener–Hermite polynomial expansion for multivariate Gaussian probability measures",
+          "trigger": "basis and normalization background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nontrivial bivariate correlated degree-two Hermite mass block is an actual Galerkin/chaos input. A unique covariance-independent all-parameter best positive diagonal scale is a natural exact conditioning invariant; its full analytic curve and quantitative 9/8 loss of standard Jacobi scaling are useful benchmarks. This is not presented as generic PDE improvement and is more than a recomputed moment matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "rho in (-1,1), positive diagonal congruence only, homogeneous quadratic three-mode block; no dense changes.",
+    "Historical coincidence with general diagonal-scaling results remains a best-of-knowledge risk.",
+    "Specialized earlier symmetric-square or diagonal equilibration theorem may state or imply this 3x3 optimum.",
+    "No claim about higher-degree chaos or arbitrary invertible dense transformations; whitening trivializes full similarity conditioning."
+  ],
+  "schema_version": 1
+}
