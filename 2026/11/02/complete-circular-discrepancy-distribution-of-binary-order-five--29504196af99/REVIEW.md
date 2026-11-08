@@ -1,19 +1,21 @@
-# Scientific review: circular discrepancy of binary order-five de Bruijn cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed population has an exhaustive shift-register parametrization by all \(2^{16}\) possible bijective feedback truth tables; a full orbit from the unique all-zero block corresponds bijectively to a cycle modulo rotation. Independently, Euler circuits of the four-bit de Bruijn graph enumerate the same objects. Both complete enumerations return exactly \(2048\) identical canonical words, and the independently implemented prefix-range and direct cyclic-substring discrepancy calculations agree on every word. The four class sizes add to \(2048\). The embedded standard-library checker reproduces the exact certificate and is not used to extrapolate beyond order five.
+PASS
 
-## Originality — PASS (qualified)
+The cyclic de Bruijn condition is bijective to full-period shift-register feedback tables on 16 four-bit tails; every cycle has one 00000 root. Every balanced circular-substring sum is a difference of prefix sums, so discrepancy equals prefix range. The other Eulerian representation also exhausts exactly all 2048 cycles. In a fresh independent 65536-table enumeration, 2048 yielded complete orbits and discrepancies 5:224, 6:688, 7:912, 8:224, matching the stated histogram and mean 839/128. The claim is exactly finite order five only.
 
-Cooper–Heitsch's 2009 preprint examines the lex-least cycle, not the population's cyclic-discrepancy distribution. Gabric–Sawada's 2020/2021 work examines several constructions and explicitly names the all-cycle discrepancy distribution as future research (Section 7, item 6). The 2024 Álvarez–Becher–Mereb–Pajor–Soto theorem already gives the general binary minimum \(n\); no novelty is claimed for that bound. The full multiplicity vector \((224,688,912,224)\) is a strictly more specific population statement than those results. Comparisons of the actual statements and searches for equivalent feedback-register, Eulerian and cyclic-discrepancy tables found no covering source, but unindexed historical enumerations remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is the concrete local-balance property studied for pseudorandom and constructed de Bruijn sequences, and its full distribution was expressly proposed in prior research. The order-five case classifies the first \(2048\)-cycle population at a manageable yet substantive size, quantifies the prevalence of all balance classes, and verifies the proposed maximum at that order without claiming the all-order conjecture. This is not merely a single extremal witness or a recomputation of an established table.
+PASS with priority risk: full order-five circular-discrepancy multiplicities, unlike already-known all-order minimum and single-cycle/construction-specific estimates, are a new statement not implied by inspected sources.
 
-## Limitations and closest literature
+## value
 
-This is a finite order-five classification, not a general distribution theorem. The minimum value is known in all binary orders. The special-case maximum does not settle the Gabric–Sawada conjecture. References: Cooper–Heitsch (2009), https://arxiv.org/abs/0903.3753; Gabric–Sawada (2020), https://arxiv.org/abs/2005.01638, Section 7; Álvarez et al. (2024), https://arxiv.org/abs/2407.17367. The earliest publicly verified source underlying the discrepancy direction is the 2009 Cooper–Heitsch preprint, while later sources are scientific comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete 2048-cycle distribution answers a concretely proposed discrepancy-frequency problem for a natural binary pseudorandom-sequence class, quantifies how common each exact balance level is, and is not a random unmotivated small slice. The count is a finite benchmark, not an all-order law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
