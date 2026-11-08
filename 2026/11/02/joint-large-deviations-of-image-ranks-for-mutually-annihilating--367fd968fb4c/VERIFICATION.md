@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 and no third-party packages. The script independently enumerates every pair of functions on one, two, three and four points, calculates both compositions and the image cardinalities, and compares each resulting rank-pair tally with the inclusion–exclusion formula in the theorem. It also checks the recurrence \(F_{N+1}(k)=(k+1)F_N(k)+kF_N(k-1)\), the empty-color boundary and symmetry at a wider finite range.
+## correctness
 
-The exact joint counts from exhaustive enumeration have totals \(1,6,63,976\) in dimensions one through four. Passing the executable produces `VERIFY_OK`.
+PASS
 
-The exhaustive enumeration is limited to these finite domains. The LDP, its tails and its rate function require the mathematical uniform bounds and optimization supplied in `RESULT.md`; computational evidence does not substitute for this proof. Independent mathematical audit has not been performed.
+For each ordered pair f,g with fg=gf=e_a, the constant root a is fixed by both maps. Choosing their nonroot image sets independently, even with overlap, gives n*C(n-1,r)*C(n-1,s)*F_(n-s-1)(r)*F_(n-r-1)(s); actual bijection and inclusion-exclusion survive r=s=0, n=1 and r+s>n-1. The occupancy inequality k! (k+1)^(N-k)<=F_N(k)<=(k+1)^N supplies uniform O(k) logarithmic error. On ranks n/log(n)^2..n/sqrt(log n) it yields log weight=2n(logn-loglogn)+n(logx-x+logy-y)+o(n); the optimized complement bounds force exponential tightness at speed n. The normalized rate I=(x-1-logx)+(y-1-logy) (infinite at axes) is good; proving the bound for all closed sets requires these complementary tail estimates, not merely finite enumeration. Independent exhaustive n=1..4 yielded totals 1,6,63,976.
+
+## originality
+
+PASS
+
+Earlier authors already recognized mutually constant compositions as a large commuting-pair subfamily and anticipated the n/logn rank scale and scalar exponent. The genuinely assessed claim is the exact TWO-image-rank finite census and the full two-dimensional GOOD LDP with additive rate, which the inspected null-semigroup results and Taranovsky discussion do not state or imply. An unlocated historical occupancy/joint-map enumeration remains a priority risk.
+
+## value
+
+PASS
+
+Exact rank correlations and large deviations of a natural conditional commuting transformation ensemble have independent enumerative and probabilistic interest. The coupled equations produce non-obvious exponential-scale separability and a complete joint rare-event phase law; this is not just recomputation of the scalar commuting-pair probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

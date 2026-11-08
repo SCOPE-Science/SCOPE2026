@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:11:32.663521Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://mathoverflow.net/questions/143058/what-is-the-probability-two-random-maps-on-n-symbols-commute"
+      ],
+      "rationale": "For each ordered pair f,g with fg=gf=e_a, the constant root a is fixed by both maps. Choosing their nonroot image sets independently, even with overlap, gives n*C(n-1,r)*C(n-1,s)*F_(n-s-1)(r)*F_(n-r-1)(s); actual bijection and inclusion-exclusion survive r=s=0, n=1 and r+s>n-1. The occupancy inequality k! (k+1)^(N-k)<=F_N(k)<=(k+1)^N supplies uniform O(k) logarithmic error. On ranks n/log(n)^2..n/sqrt(log n) it yields log weight=2n(logn-loglogn)+n(logx-x+logy-y)+o(n); the optimized complement bounds force exponential tightness at speed n. The normalized rate I=(x-1-logx)+(y-1-logy) (infinite at axes) is good; proving the bound for all closed sets requires these complementary tail estimates, not merely finite enumeration. Independent exhaustive n=1..4 yielded totals 1,6,63,976.",
+      "residual_risks": [
+        "Finite checks do not establish all dimensions; the domain-wide conclusion rests on the reconstructed mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al. Theorem 4.4 null subsemigroup extremal sizes",
+          "Cain–Malheiro–Paulista commutative nilpotent transformation semigroups"
+        ],
+        "reasoning": "Those classifications optimize whole null subsemigroups, not the rank-resolved random ordered pair law; neither theorem specializes to the stated LDP without further asymptotic analysis.",
+        "searches": [
+          "arXiv:2110.09701",
+          "arXiv:2310.08481"
+        ]
+      },
+      "checked_sources": [
+        "https://mathoverflow.net/questions/143058/what-is-the-probability-two-random-maps-on-n-symbols-commute",
+        "https://arxiv.org/pdf/2110.09701",
+        "https://arxiv.org/abs/2310.08481",
+        "https://oeis.org/A181162",
+        "Resultary:mutually annihilating transformations joint image rank large deviations distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known leading scalar exponent and typical rank n/logn",
+          "New exact Z_n(r,s) and speed-n I(x,y)"
+        ],
+        "reasoning": "A scalar exponential total and typical rank do not logically determine the joint speed-n rare-event probabilities, and null-semigroup size bounds leave them free.",
+        "searches": [
+          "MathOverflow 143058",
+          "arXiv:2110.09701"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taranovsky July 2022 constant-composition mechanism and fixed common root; present conditional two-image-rank random vector"
+        ],
+        "reasoning": "Conditional pair counting is not the same as uniform commuting pairs, and no equivalent joint LDP was found in the inspected actual answer.",
+        "searches": [
+          "mutually annihilating transformations joint image rank large deviations distribution",
+          "MathOverflow 143058 commuting random maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A181162 enumerates all commuting ordered pairs",
+          "Actual n=1..4 conditional counts 1,6,63,976"
+        ],
+        "reasoning": "The database counts a larger commuting-pair set and has no two-rank conditional table in the examined entry; it cannot be used as an exact coverage certificate.",
+        "searches": [
+          "OEIS:A181162",
+          "mutually annihilating transformations joint image rank large deviations distribution"
+        ]
+      },
+      "rationale": "Earlier authors already recognized mutually constant compositions as a large commuting-pair subfamily and anticipated the n/logn rank scale and scalar exponent. The genuinely assessed claim is the exact TWO-image-rank finite census and the full two-dimensional GOOD LDP with additive rate, which the inspected null-semigroup results and Taranovsky discussion do not state or imply. An unlocated historical occupancy/joint-map enumeration remains a priority risk.",
+      "residual_risks": [
+        "Historical exact joint occupancy formula under alternate semigroup terminology could predate the reported census.",
+        "The full literature of counting mutually annihilating transformations is not exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar asymptotic heuristic and typical scale, not shown to provide the rank-resolved good LDP",
+          "evidence": "Common constant composition lower bound; scalar exponent only",
+          "identifier_or_url": "https://mathoverflow.net/questions/143058/what-is-the-probability-two-random-maps-on-n-symbols-commute",
+          "material_read": "July 2022 answer and its asymptotic constant-composition discussion",
+          "method": "Full available HTML answer text",
+          "title": "What is the probability two random maps on n symbols commute? — Taranovsky answer",
+          "trigger": "same mutual-annihilation mechanism"
+        },
+        {
+          "assessment": "Classification of null semigroups, not rank-resolved conditional ordered-pair LDP",
+          "evidence": "Theorem 4.4 extremal null-subsemigroup classification",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.09701",
+          "material_read": "Introduction, null-semigroup results Sections 4.1–4.2 and Theorem 4.4",
+          "method": "Full open-access PDF, examined theorem and context",
+          "title": "Minimum degrees of finite rectangular bands, null semigroups, and variants of full transformation semigroups",
+          "trigger": "null transformation semigroup overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md root/image enumeration and speed-n LDP",
+        "Taranovsky known scalar/rank baseline"
+      ],
+      "rationale": "Exact rank correlations and large deviations of a natural conditional commuting transformation ensemble have independent enumerative and probabilistic interest. The coupled equations produce non-obvious exponential-scale separability and a complete joint rare-event phase law; this is not just recomputation of the scalar commuting-pair probability.",
+      "residual_risks": [
+        "Usefulness is for the specified exact invariant/classification; no stronger downstream theorem is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only pairs of full selfmaps with both compositions the same constant; LDP at speed n, not a CLT or full all-commuting-pair law.",
+    "Historical exact joint occupancy formula under alternate semigroup terminology could predate the reported census.",
+    "The full literature of counting mutually annihilating transformations is not exhausted.",
+    "The claim is best-knowledge originality, not a historical-priority or external expert certificate."
+  ],
+  "schema_version": 1
+}

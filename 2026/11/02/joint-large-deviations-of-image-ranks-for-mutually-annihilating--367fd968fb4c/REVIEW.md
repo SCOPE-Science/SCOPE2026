@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact rank census is a bijective count by the unique common constant, two chosen image subsets, and independent surjective-colorings of the remaining domains. The occupancy bounds are explicitly uniform in the expanding central band; optimization of the complementary weights supplies the needed superexponential tail estimate. These estimates prove all LDP quantifiers, the normalization and the finite local rate. Direct enumeration of all ordered transformation pairs through four points and an independent occupancy recurrence corroborate the exact finite identity, not the infinite proof.
+## correctness
 
-**Originality — PASS, relative to checked evidence.** The closest source is Taranovsky's 2022 MathOverflow discussion of annihilating maps: it already recognizes the \(n/\log n\) range scale and leading scalar exponent; both are removed from the novelty claim. Cain–Malheiro–Paulista 2023 and Cameron et al. 2021 give structural extremal theorems on null transformation semigroups. The inspected statements do not entail either exact rank-pair multiplicities or a full good LDP with explicit additive two-variable rate. published-finding corpus searches for mutually annihilating total maps, conditional image ranks, two-variable large deviations, aliases and the named source did not return a dominating result; semantic search is not exhaustive. Residual risk: a rank-resolved occupancy theorem elsewhere may be equivalent, and the previously known dominant-mechanism argument may permit a straightforward reconstruction of parts of the new statement. An independent literature review is advisable.
+PASS
 
-**Value — PASS.** The full transformation monoid is canonical in finite semigroup theory; its constant-product commuting subensemble is the asymptotically dominant mechanism identified in earlier work. A two-variable large-deviation principle distinguishes exponentially unlikely rank-imbalance patterns and identifies their separate costs—information absent from a scalar commuting probability or an order-of-magnitude typical-rank statement. The exact finite formula enables reproduction and study of the entire joint spectrum, not only one selected small case.
+For each ordered pair f,g with fg=gf=e_a, the constant root a is fixed by both maps. Choosing their nonroot image sets independently, even with overlap, gives n*C(n-1,r)*C(n-1,s)*F_(n-s-1)(r)*F_(n-r-1)(s); actual bijection and inclusion-exclusion survive r=s=0, n=1 and r+s>n-1. The occupancy inequality k! (k+1)^(N-k)<=F_N(k)<=(k+1)^N supplies uniform O(k) logarithmic error. On ranks n/log(n)^2..n/sqrt(log n) it yields log weight=2n(logn-loglogn)+n(logx-x+logy-y)+o(n); the optimized complement bounds force exponential tightness at speed n. The normalized rate I=(x-1-logx)+(y-1-logy) (infinite at axes) is good; proving the bound for all closed sets requires these complementary tail estimates, not merely finite enumeration. Independent exhaustive n=1..4 yielded totals 1,6,63,976.
 
-The result is conditional on both compositions being the same constant. No claim is made about a limit distribution over all commuting transformations or any sharp subexponential constant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier authors already recognized mutually constant compositions as a large commuting-pair subfamily and anticipated the n/logn rank scale and scalar exponent. The genuinely assessed claim is the exact TWO-image-rank finite census and the full two-dimensional GOOD LDP with additive rate, which the inspected null-semigroup results and Taranovsky discussion do not state or imply. An unlocated historical occupancy/joint-map enumeration remains a priority risk.
+
+## value
+
+PASS
+
+Exact rank correlations and large deviations of a natural conditional commuting transformation ensemble have independent enumerative and probabilistic interest. The coupled equations produce non-obvious exponential-scale separability and a complete joint rare-event phase law; this is not just recomputation of the scalar commuting-pair probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
