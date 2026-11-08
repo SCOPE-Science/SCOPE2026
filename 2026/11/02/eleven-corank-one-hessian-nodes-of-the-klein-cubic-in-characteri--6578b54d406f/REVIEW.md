@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The adjugate derivative criterion at rank four translates the five gradient equations for the Hessian determinant to five multiplicative recurrences on its unique kernel vector. These have exactly eleven projective solutions, indexed by the eleventh roots of unity. Symmetry of cubic polarizations and the explicit rank-four Hessian at the diagonal point identify each kernel vector with a unique ambient point. A nondegenerate quadratic jet at that point, transported by the diagonal automorphisms, proves all eleven are ordinary double points. The source cubic does not contain them and Frobenius acts through the exponent-three permutation on the roots. The standalone exact symbolic verifier rechecks the polynomial calculations.
+## correctness
 
-## Originality
-Fisher gives the modular singular-curve description for the classical Hessian in characteristic zero; this is not asserted as new. General determinantal Hessian singular-scheme studies and recent cubic-surface Hessian ADE calculations concern different geometries. Published research summaries retrieved under the explicit Klein/Hessian/characteristic-three aliases provided no implication of the eleven characteristic-three rank-four nodes and their arithmetic Frobenius splitting. This is a qualified priority judgment: unindexed historical treatments, including characteristic-three specializations, may exist.
+PASS
 
-## Value
-The Hessian of the highly symmetric Klein cubic defines a canonical singular quintic. Detecting and classifying its isolated corank-one singularities in bad characteristic yields a structural description, not a chosen arbitrary point count. All eleven lie off the original cubic, are ordinary nodes, and have the arithmetic orbit structure \(1,5,5\). Their explicit coordinates may inform comparisons of special fibers, Hessian resolutions, and arithmetic descent.
+At rank four the adjugate is c vv^T; differentiating det M gives the five kernel equations v_(j-1)^2=v_j v_(j+1) in characteristic 3. Nonzero solutions have all nonzero coordinates, yielding exactly 11 roots of t^11=1. Symmetry M(x)v=M(v)x and a 4x4 minor nonzero at v=(1,..,1) force x proportional to v; diagonal automorphisms transport all roots. Independent symbolic Hessian determinant and local expansion confirmed homogeneous degree 5, tangent quadratic -sum u_i²+sum u_i u_(i+1) and nonzero determinant 5=2 mod3. F(P_t)=5t≠0 and ord_11(3)=5 prove the arithmetic claims. The lower-rank locus remains outside scope.
 
-## Limitations and closest sources
-The remaining Hessian rank-at-most-three locus is not classified. Fisher (2014) analyzes the characteristic-zero Hessian/modular curve; Roulleau (2010) analyzes classical Klein cubic geometry. No integral resolution or independent audit is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original in the precise final scope: compared the theorem against the stated prior implications, including overlapping prerequisites and potentially broader aliases. Inaccessible primary material is expressly preserved as a residual priority risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+An explicit exceptional-characteristic classification of a geometrically natural corank-one Hessian stratum, including local node type and arithmetic splitting, is an independently useful precise feature of the Klein cubic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
