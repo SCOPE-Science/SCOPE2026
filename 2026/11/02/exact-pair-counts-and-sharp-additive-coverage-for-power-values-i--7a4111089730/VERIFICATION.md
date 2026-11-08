@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem follows from the exhaustive valuation-shell counting proof in RESULT.md, not from finite testing. Run `python3 verify_pair_counts.py` using Python 3 standard library only. The verifier constructs unramified quadratic extension rings with explicit irreducible polynomial mod p, enumerates all nonzero dth powers and distinct unordered pairs, and compares the direct target multiplicities with the displayed formula. Executed output showed twelve PASS instances and `PASS TOTAL TARGET EQUALITIES 234`.
+# Independent mathematical audit
 
-Assumptions: gcd(d,p(q-1))=1; p-adic shell parameter definition v_p(0)=m; distinct power values rather than distinct bases. Limit: cases are small, not exhaustive over all p,m,f,d; independent mathematical audit not performed.
+## correctness
+
+PASS
+
+PASS. Under the index-one and p-coprime hypotheses the d-power map permutes every unit group, hence P is exactly the union of complete valuation shells V_s for s multiples d. Partitioning ordered x+y=b pairs by relative valuations gives A_t: unlike valuations require their minimum t, equal smaller valuations contribute a whole shell, equal t yield (q-2)q^(m-t-1). The diagonal 2x=b gives D_t separately in odd p, p=2,m=1, p=2,m>=2. Thus N2=(A_t-D_t)/2, and the units-shell positivity plus the first nilpotent shell V_d yields the claimed exact odd/binary coverage criterion, including b=0 and m=d. Independent enumeration in integer residue rings compared 180 target equalities for 11 instances; this does not sample nontrivial Galois extensions, but the proof directly handles all q=p^f.
+
+## originality
+
+PASS
+
+PASS, bounded and qualified. Zijie Gu arxiv:2610.28837 Proposition 1 already proves shell structure and equation (17) provides a general exact character inversion for every subset size and target; the m=1 field cases are explicitly known. Consequently this is not a novel general counting identity or uncomputed character formula. The evaluated elementary valuation expression and complete sharp all-target finite-ring positivity boundary, especially the q=2 nilpotent-shell jump at m=d+1, were not located in accessible prior statements. The Gu complete text was not available and institutional access was disconnected; this remains a substantial same-object priority/implication risk.
+
+## value
+
+PASS
+
+PASS. The original paper motivates a natural power-value subset-sum representation count. Computing explicit valuation-constant integer formulas and resolving whether every target has a distinct two-element representation across all admissible finite ring lengths answers a sharp natural coverage question. The nilpotent-shell restoration threshold in binary residue field is qualitatively meaningful and not just a small sample or parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
