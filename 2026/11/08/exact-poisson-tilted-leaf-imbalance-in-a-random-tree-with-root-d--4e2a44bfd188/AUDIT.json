@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For the root-doubling process after the deterministic first event, the three generator transitions are (s,i,d)->(2s+1,2i-1,d+1) at rate 1, (s+1,i-1,d) at rate (s+i)/2, and (s+1,i+1,d) at rate (s-2-i)/2. Exact generator computations give G(i)=-2, G(i^2)=i^2-6i+s, G(s)=2s, G(d)=1, and G(i z^d)=[2(z-1)i-(z+1)]z^d. With initial (3,1,0), the resulting closed ODE for the mixed transform is solved exactly; differentiation and the second-moment ODE give the covariance and variance. Nonexplosion follows from finitely many root Poisson events and nonexplosive Yule evolution between them; second moments are finite by the quadratic size-generator estimate. A self-contained Python standard-library verifier passed 10,263 exact generator and Taylor checks through order eight. Checks supplement, rather than replace, the infinite analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bjornberg--Mailler Theorem 1.3: limiting proportions of child counts; Proposition 2.3: doubling-count CLT; continuous-time embedding described in Section 4.3",
+        "Mahmoud--Smythe 1992: joint asymptotic normality for outdegrees of ordinary random recursive trees, DOI 10.1002/rsa.3240030305"
+      ],
+      "reasoning": "The limiting child-count frequencies do not determine a finite-time mixed moment with a Poisson count. The ordinary recursive-tree outdegree CLT does not cover the root shock that duplicates the entire existing tree. The source model definition enables the computation but is not itself a theorem evaluating this statistic.",
+      "searches": [
+        "published-finding corpus: root doubling random recursive tree time embedded size leaf fluctuations",
+        "web: Bjornberg Mailler random recursive tree doubling events 2025 leaf count fluctuations martingale",
+        "web: probability \"branching\" \"global doubling\" leaf count poisson root process conditional moments"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2501.18466 (full arXiv HTML)",
+      "doi:10.1016/j.spa.2025.104790 (journal record corroborates identity; arXiv supplies full text)",
+      "doi:10.1002/rsa.3240030305 (bibliographic and secondary metadata)",
+      "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bjornberg--Mailler: a degree-frequency law, size moments, and doubling-count statistics; available full text inspected",
+        "Mahmoud--Smythe 1992: ordinary non-doubling recursive-tree outdegree CLT, from available metadata"
+      ],
+      "reasoning": "None of these stated conclusions implies the exact finite-t formula E[(2L_t-N_t)z^{D_t}] without a new calculation using the joint leaf/clock generator. The case z=1 and variance are consequences of the new joint calculation, not separate novelty claims. Historical full-text coverage of classical sources remains a residual risk.",
+      "searches": [
+        "published-finding corpus: random recursive trees with doubling events joint leaf counts root doubling source 2501.18466",
+        "web: Mahmoud Smythe asymptotic joint normality outdegrees nodes random recursive trees 1992"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2501.18466 full accessible HTML, Sections 1, 3, and 4.3, contains degree-proportion results and a root Poisson embedding, but no displayed joint imbalance transform or covariance",
+        "published-finding corpus semantic searches returned general recursive-tree covariance claims, not a same-model leaf-imbalance/Poisson-count formula"
+      ],
+      "reasoning": "An equivalent claim would express the root-doubling Poisson joint first-moment transform or all conditional means of 2L-N at fixed continuous time. No inspected statement has these simultaneous variables. A generator identity alone, without its worked exact solution, is not a previously published result of the same strength in the inspected source.",
+      "searches": [
+        "published-finding corpus: Bjornberg Mailler doubling tree leaves imbalance 2 leaves minus size exact continuous-time variance martingale",
+        "published-finding corpus: random recursive tree doubling events leaf count covariance joint second moment and generator",
+        "web: \"random recursive tree\" \"doubling events\" \"leaf count\" variance",
+        "web: \"doubling events\" \"imbalance\" \"leaves\" tree",
+        "published-finding corpus: \"Poisson-tilted leaf imbalance\" \"random recursive tree\" root doubling covariance",
+        "published-finding corpus: \"2L-N\" \"root doubling\" covariance -t^2 continuous time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f (uniform recursive tree without doubling)",
+        "Final exact-formula published-finding corpus search returned no indexed joint root-doubling leaf-imbalance match; nearest unrelated covariance result 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "reasoning": "Neither the retrieved indexed titles/summaries nor the related prior claim tabulates the joint moment of leaf imbalance and Poisson root-doubling count. No exhaustive database uniqueness is claimed.",
+      "searches": [
+        "published-finding corpus: Bjornberg Mailler doubling tree leaves imbalance 2 leaves minus size exact continuous-time variance martingale",
+        "published-finding corpus: random recursive tree doubling events leaf count covariance joint second moment and generator",
+        "web: \"Björnberg\" \"Mailler\" \"leaves\" covariance doubling tree",
+        "published-finding corpus: Bjornberg Mailler doubling tree exact root Poisson count leaf imbalance moment generating function"
+      ]
+    },
+    "rationale": "The central novelty tested is the finite-time mixed generating identity for 2L-N and root-doubling count. The full accessible arXiv text of Bjornberg and Mailler (arxiv:2501.18466, sections 1-4) develops the same tree model, limiting degree frequencies, size moments, root-doubling CLT, and continuous-time embedding, but not this mixed transform or its covariance and variance. Classical recursive-tree outdegree results do not allow global root doublings. The recorded published-finding corpus and literature searches found no directly covering theorem. Searches do not establish unique priority; the residual risk is acknowledged.",
+    "residual_risks": [
+      "Searches and accessible published-finding corpus rankings do not prove exhaustive historical uniqueness",
+      "The older random-recursive-tree outdegree article's full text was not available in the inspected material",
+      "A more abstract Markov-generator result may implicitly subsume this finite-time identity; no such decisive result was located"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_MODEL_AND_BACKGROUND_NOT_IDENTIFIED_AS_COVERING_EXACT_CLAIM",
+        "evidence": [
+          "arxiv:2501.18466, Theorem 1.3, Proposition 2.3, and Section 4.3; first preprint 2025-01-30"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.18466",
+        "material_read": "Full accessible HTML primary text, with detailed examination of Sections 1.1, 1.2, 2.2, 3, and 4.3 (model, degree evolution, doubling count, Poisson clock embedding)",
+        "method": "Direct reading and term searches for leaves, variance, covariance, generating function, and Poisson process",
+        "title": "A random recursive tree model with doubling events",
+        "trigger": "Identical random-tree model and plausible coverage of leaf and Poisson doubling statistics"
+      },
+      {
+        "assessment": "ORDINARY_RECURSIVE_TREES;_FULL_TEXT_PRIORITY_RISK_REMAINS",
+        "evidence": [
+          "1992 Random Structures & Algorithms 3:255-266, no global doubling in the stated model"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240030305",
+        "material_read": "Bibliographic metadata and available secondary description only; no primary full text verified",
+        "method": "Web search and bibliographic comparison of stated objects",
+        "title": "Asymptotic joint normality of outdegrees of nodes in random recursive trees",
+        "trigger": "Possible general older degree fluctuation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e2a44bf-d188-493e-8434-1be0eb1d8a66",
+  "value": {
+    "rationale": "The natural leaf/size imbalance 2L-N removes the first-order degree-frequency effect and exposes a new dimension of fluctuations in a root-doubling growth process. A single exact Poisson-tilted transform simultaneously gives all doubling-count-conditional first moments, sharp negative finite-time covariance -t^2, and an exponentially growing explicit imbalance variance. These facts quantify the effect of global doubling shocks, an observable not treated by the motivating degree-frequency/height work. The invariant is canonical rather than an arbitrarily sliced parameter; a complete conditional law or further asymptotic theory is not necessary for the exact structural finite-time result to be useful.",
+    "status": "PASS"
+  }
+}
