@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof constructs independent exponential first-hit clocks through Poisson thinning; checks finite telescoping and cyclotomic product exactly; defines the two-sided Bernoulli series with sum of probabilities one; couples a deterministic doubling window to the original draw-indexed window via Chebyshev, rate λ(u)≤5/u and Markov to get O(n^{-1/3}) total variation. The known fixed-n expectation estimate follows from a uniform dyadic sum bound. The standalone checker passed 120 grouped exact-algebraic, exact-rational and numerical checks; finite tests do not establish the infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Derbazi et al., 2023, explicitly exclude geometric frequencies from Poisson record asymptotics (full-text lines 120–122)",
+        "Barbour–Gnedin 2009 covers bounded small-count laws rather than first-hit increments in doubling time windows"
+      ],
+      "reasoning": "A broad Poisson record theorem requires divergent small-count expectations, which fails here. Prior one-time occupancy variance and multiplicity-count studies do not furnish the exact temporal first-hit distribution or TV transfer.",
+      "searches": [
+        "geometric urn probability p_j=(1-q)q^(j-1) rth occupancy record point process logarithmic time limit non-Poisson infinite Bernoulli convolution",
+        "geometric occupancy first record times in multiplicative interval 2t phase dependent non Poisson Poisson binomial limit",
+        "Gnedin Stark 2023 record poissonization scale theta t occupancy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.01739v1; ALEA 21 (2024) full text",
+      "arxiv:math/0609498; full primary PDF",
+      "arxiv:0809.4387; full primary PDF",
+      "arxiv:1804.10248; checked abstract for residual-allocation nonlattice scope",
+      "published-finding corpus semantic queries recorded under named comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior variance identity yields the mean, not the probability of no first hit; an equality of means does not determine probability mass at zero",
+        "The 2023 source assumes Φ_r(t)→∞ and states geometric frequencies fall outside its scope",
+        "The 2009 source discusses occupancy multiplicities at one time rather than overlapping first-hit counts"
+      ],
+      "reasoning": "New claim is the exact product for first-hit absence and resulting non-Poisson, uniform fixed-sample phase law. It does not follow solely from any primary theorem inspected; the common Poisson-binomial representation is credited as standard rather than novel.",
+      "searches": [
+        "dyadic geometric infinite occupancy p_j=2^-j discovery count after n through 2n void probability 1/3",
+        "new distinct types from n to 2n samples geometric frequencies Bernoulli sum limits",
+        "geometric occupancy first record times in multiplicative interval 2t phase dependent non Poisson Poisson binomial limit",
+        "probability no new occupied boxes doubling time telescoping product geometric frequencies",
+        "geometric occupancy doubling interval exactly one third probability no new occupied urn records",
+        "geometric frequencies coupon discovery dyadic block no new symbols 1/3 zero probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bogachev et al. Example 2.2 identifies the identical sum as variance V(t) but contains no zero-discovery product or Bernoulli-sum law",
+        "published-finding corpus closest records include uniform-occupancy indicator precision and rare Bernoulli limit classification, neither implies a geometric doubling-window void law"
+      ],
+      "reasoning": "The new zero-event probability is an infinite product over first-hit avoidance, not determined by the already known sum V(t) or total occupancy variance; no exact equivalent statement was located.",
+      "searches": [
+        "dyadic geometric infinite occupancy p_j=2^-j discovery count after n through 2n void probability 1/3",
+        "geometric occupancy first record times in multiplicative interval 2t phase dependent non Poisson Poisson binomial limit",
+        "geometric occupancy doubling interval exactly one third probability no new occupied urn records",
+        "\"one third\" \"geometric\" \"occupancy\" \"records\" boxes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus IDs 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 and 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b concern different models",
+        "Bogachev et al. 2008 Example 2.2 records the exact first-hit expectation V(t)=1−e^{-t}, duly credited"
+      ],
+      "reasoning": "No located exact table/database asserts fixed-sample limit 1/3 or the phase-indexed Bernoulli-sum family. The already tabulated expectation is omitted from the novelty assertion.",
+      "searches": [
+        "dyadic geometric infinite occupancy p_j=2^-j discovery count after n through 2n void probability 1/3",
+        "new distinct types from n to 2n samples geometric frequencies Bernoulli sum limits",
+        "probability no new occupied boxes doubling time telescoping product geometric frequencies",
+        "geometric frequencies coupon discovery dyadic block no new symbols 1/3 zero probability",
+        "dyadic coupon collector probability no new distinct symbols doubling window limit 1/3"
+      ]
+    },
+    "rationale": "Direct full-text comparison with the 2023 record theorem and geometric occupancy references distinguishes known Poissonized mean/variance identity from the new exact first-hit void product and uniform fixed-sample phase approximation. published-finding corpus semantic and web alias searches found no same/stronger result. An indexed-search negative is not a uniqueness certificate; the older geometric-occupancy literature is a residual priority risk.",
+    "residual_risks": [
+      "The cyclotomic infinite product identity could appear in older informal or unindexed dyadic coupon-collector literature not located by searches; no independent historical-priority judgment is asserted.",
+      "The result is specialized to exactly doubling observation windows and dyadic probabilities; a stronger general first-hit theorem might imply it indirectly if located later."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source explicitly excludes geometric box frequencies because its divergence condition on small occupancy counts fails, and defers bounded-count contraction-scale record laws; its Poisson conclusion does not imply this theorem",
+        "evidence": [
+          "Derbazi–Gnedin–Marynych, lines 120–122 in ALEA full text: the bounded r-ton regime and geometric probabilities are excluded; Section 4 assumes Φ_r(t)→∞"
+        ],
+        "identifier_or_url": "https://alea.impa.br/articles/v21/21-55.pdf",
+        "material_read": "Introduction and mathematical definitions, Sections 3–4 on record processes and limit theorem, assumptions near pages 1478–1479, later scope discussion",
+        "method": "Read searchable primary full text and page images, comparing assumptions and conclusions",
+        "title": "Records in the Infinite Occupancy Scheme",
+        "trigger": "Directly studies the same first-hit records and Poisson approximation; geometric masses could violate premises"
+      },
+      {
+        "assessment": "Example 2.2 already derives V(t)=Σ_j(e^{-tp_j}−e^{-2tp_j})=1−e^{-t}, so the mean-of-new-discoveries identity is prior, not new. The paper analyzes single-time occupancy variance, not zero-new-discovery product or total-variation phase law",
+        "evidence": [
+          "Example 2.2, PDF page 10: exact V(t)=1−e^{-t} for p_j=2^{-j}",
+          "Section 2.3 gives fixed-n Poissonization inequalities but not temporal doubling-block distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+        "material_read": "Full primary text sections 1.2, 2.1–2.3 and the explicit geometric example on PDF page 10",
+        "method": "Read primary PDF text, inspected page image for Example 2.2 and formulas 2.12–2.13",
+        "title": "On the Variance of the Number of Occupied Boxes",
+        "trigger": "Exact dyadic cancellation in the same geometric occupancy model might already imply the new formula"
+      },
+      {
+        "assessment": "Concerns counts of boxes with each occupancy multiplicity at a single time and Gaussian approximation failure for geometric tails, not a no-first-hit temporal event or exact dyadic product",
+        "evidence": [
+          "Introduction, PDF page 1: geometric frequencies have bounded/oscillatory small-count behavior",
+          "Section 4 discusses bounded Φ_r and geometric ratio q, not doubling-window first-hit void distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+        "material_read": "Full text introduction and Sections 4–5 including bounded-frequency classifications and geometric examples",
+        "method": "Read mathematical definitions, probability results and discussions of geometric-frequency small counts",
+        "title": "Small Counts in the Infinite Occupancy Scheme",
+        "trigger": "A study of bounded occupancy fluctuations under geometric probabilities could dominate the claimed temporal law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b58f3809-90e9-422b-8ead-d2a121f49b49",
+  "value": {
+    "rationale": "The motivating 2023 first-hit record theorem expressly excludes geometric box probabilities; the uncovered multiplicative observation scale has bounded expected new discoveries and is not governed by a Poisson limit. The exact non-Poisson zero-event constant 1/3 for the natural doubling interval and the uniform phase-indexed fixed-sample law characterize a meaningful boundary behavior and supply an exact benchmark beyond known mean/variance calculations. This is not a parameter substitution or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
