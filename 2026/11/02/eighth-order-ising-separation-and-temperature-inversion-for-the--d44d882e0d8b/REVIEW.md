@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 25-vertex adjacency matrices are specified explicitly through two Latin squares. The induced-edge encoding of the uniform-field Ising Hamiltonian is an algebraic identity. Two independent exhaustive algorithms traverse all 33,554,432 spin-negative subsets for **each** graph, comparing every cell of the two-variable induced-edge histogram. Integer binomial moments certify exact vanishing of orders zero through five, fourth- and second-order vanishing at unit fugacity in orders six and seven, and coefficient \(-24576\) at order eight. The resulting high-temperature coefficient is \(-48\,2^{25}J^8\) for all fixed real fields. Sharp induced-edge occupancy bounds, explicit achieving witnesses, and exact multiplicities give the lower-temperature ordering and an intermediate-value crossing. The compiled standalone checker from this package returned its required exact success markers.
+PASS
 
-## Originality — PASS on the inspected evidence, provisional
+For the two explicit order-5 Latin-square graphs of 25 cells, both have 150 edges and strongly regular (25,12,5,6). Negative-spin subset S with k vertices and e induced edges has H=J(150−24k+4e)−h(25−2k). Hence exact partition function equals prefactor times P_G(y,z)=Σ_S y^k z^{e(S)} evaluated at y=exp(β(24J−2h)), z=exp(−4βJ). Independent complete 2×2^25 Gray-code enumeration (not sample) and source second recursive-row method show ΔP(y,1+t)=Σ_r A_r(y)t^r with A0..A5 identically zero, A6=−4y⁴(y−1)⁴(y+1)¹³, A7=−24y⁵(y−1)²(y+1)¹¹(17y³−15y²−3y+3) and A8(1)=−24576. Therefore all β^j,j≤7 cancel for any fixed real field h and ΔZ=−48·2^25·J^8·β^8+O(β^9) for nonzero real J. Independently exact enumeration shows both maxcuts 90, with ground-state multiplicities 35260 and 35172, yielding positive ΔZ~88exp(30βJ) as β→∞ for J>0,h=0. By continuity at least one positive-temperature crossing, not uniqueness. Exact enumeration over fixed finite pair justifies all-field analytic expansions through polynomial algebra, not an infinite graph-class claim.
 
-The graph pair and their chromatic distinction were already studied (Paulus–Rozenfeld classification and Besharati et al.). Egan–Wanless, *Indivisible partitions of latin squares* (2011), Table 2, **already gives** the 15/3 transversal and 130/30 2-plex counts, which are not discoveries here. Vinci et al., *Hearing the Shape of the Ising Model* (arXiv:1307.1114), supplies the general bivariate-polynomial framework. The inspected full primary texts, graph catalogue, research record searches and accessible prior claim titles do not give or imply the precise eighth-order difference or the ensuing inversion for this 25-vertex graph pair. Search absence does **not** prove uniqueness or priority. A specialized Ising/Tutte table or unlocated older graph-series comparison remains the primary risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pair is a natural small cospectral strongly regular contrast, rather than a graph chosen to force a prescribed coefficient. It exhibits an exact finite high-temperature indistinguishability depth, the first distinguishing even-subgraph count, and a rigorous temperature-induced reversal of relative equilibrium partition functions. These quantities test whether spectra and previously tabulated low-energy Latin-square invariants control thermodynamic observables. The exact field independence of the first discrepancy has relevance beyond one chosen zero-field numerical evaluation. The result is finite but complete and stands on its own.
+Vinci et al 2014 establish the general bivariate Ising-polynomial graph framework and discuss spectral refinements, not this 25-vertex Latin-square pair or exact order-eight separation. Egan–Wanless already enumerate particular Latin-square plex invariants and Brouwer catalogs the two nonisomorphic strongly regular graphs; those do not determine exact Eulerian eight-edge subset differences or antiferromagnetic ground-state degeneracies. The prior Ising polynomial is the tool, not the new coefficient. A specialized precomputed Ising/Tutte polynomial table might cover the exact pair; disclosed as residual risk.
 
-## Scope and residual risks
+## value
 
-The statement is about one pair of 25-site Ising systems, not a general theorem for all strongly regular graphs. The finite-temperature crossing is proved to exist, not classified or unique. Early Latin-square plex counts are known and credited. A published graph polynomial/even-subgraph table not recovered in this review might dominate the new coefficient. Independent external evaluation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two nonisomorphic order-five Latin-square graphs are highly natural cospectral strongly regular examples. Their identical Ising coefficients through seventh order but first difference of precisely −48 Eulerian eight-edge edge-subsets is an exact thermodynamic discriminator with arbitrary uniform field. Reversed low-temperature order produces a mathematically forced temperature crossing in a finite system, a meaningful finite invariant beyond ordinary adjacency spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

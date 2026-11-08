@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:05:06.675339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the two explicit order-5 Latin-square graphs of 25 cells, both have 150 edges and strongly regular (25,12,5,6). Negative-spin subset S with k vertices and e induced edges has H=J(150−24k+4e)−h(25−2k). Hence exact partition function equals prefactor times P_G(y,z)=Σ_S y^k z^{e(S)} evaluated at y=exp(β(24J−2h)), z=exp(−4βJ). Independent complete 2×2^25 Gray-code enumeration (not sample) and source second recursive-row method show ΔP(y,1+t)=Σ_r A_r(y)t^r with A0..A5 identically zero, A6=−4y⁴(y−1)⁴(y+1)¹³, A7=−24y⁵(y−1)²(y+1)¹¹(17y³−15y²−3y+3) and A8(1)=−24576. Therefore all β^j,j≤7 cancel for any fixed real field h and ΔZ=−48·2^25·J^8·β^8+O(β^9) for nonzero real J. Independently exact enumeration shows both maxcuts 90, with ground-state multiplicities 35260 and 35172, yielding positive ΔZ~88exp(30βJ) as β→∞ for J>0,h=0. By continuity at least one positive-temperature crossing, not uniqueness. Exact enumeration over fixed finite pair justifies all-field analytic expansions through polynomial algebra, not an infinite graph-class claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vinci et al construct general graph spectral refinements and experiments on other graph instances.",
+          "A general bivariate polynomial exists for any finite graph; without its explicit values for the two 25-site Latin graphs it does not imply their order-eight difference."
+        ],
+        "reasoning": "No checked primary broad theorem gives a uniform coefficient equality/difference classification for this specific nonisomorphic pair; generic graph invariants do not automatically evaluate the counts.",
+        "searches": [
+          "Vinci Markstrom et al arxiv:1307.1114",
+          "Andrén Markström The bivariate Ising polynomial of a graph 2009",
+          "order five Latin square graphs Paley non-group 25 vertices Ising partition Eulerian 8 edge subsets temperature crossing"
+        ]
+      },
+      "checked_sources": [
+        "Fetched full RESULT.md and full standalone verify.cpp at frozen commit; inspected complete-subset Gray and row-recursive algorithms.",
+        "Independent C++ enumerated all 2^25 spin masks for both graphs and compared every binomial coefficient through degree 8; CAS checked A6/A7 factorizations and maxcut degeneracies.",
+        "Vinci et al arxiv:1307.1114 full primary paper; Brouwer P25 table.",
+        "Resultary semantic query: order five Latin square graphs Paley non-group 25 vertices Ising partition Eulerian 8 edge subsets temperature crossing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cospectral/strongly regular parameters imply equal low-order local counts, not necessarily all β coefficients through seven.",
+          "High-temperature sign is negative at eighth order; ground-state asymptotic sign positive for J>0, h=0."
+        ],
+        "reasoning": "The source framework cannot derive the exact sign reversal without finite induced-edge distribution or an equivalent counting theorem. Our exhaustive count independently supplies the missing pair-specific data.",
+        "searches": [
+          "Vinci et al 2014 paper full text",
+          "Brouwer Paulus Rozenfeld graph catalog",
+          "order five Latin square graphs Paley non-group 25 vertices Ising partition Eulerian 8 edge subsets temperature crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bivariate Ising polynomial encodes the partition function for every real uniform J,h via a change of variables.",
+          "The equivalent edge-subset expansion counts all even-degree subgraphs, not just simple cycles, and the first difference is at size eight."
+        ],
+        "reasoning": "General Ising polynomial formalism is prior and equivalent as representation, but does not specify this pair’s first nonzero coefficient or low-temperature reversal.",
+        "searches": [
+          "arxiv:1307.1114 bivariate Ising polynomial",
+          "order five Latin square graphs Paley non-group 25 vertices Ising partition Eulerian 8 edge subsets temperature crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two graphs are known catalogued order-five Latin-square strongly regular species; their K4 and plex counts are previous facts.",
+          "The explicit new integer delta of Eulerian eight-edge subsets is −48 and ground-state degeneracy delta is +88, reproduced by full independent enumeration."
+        ],
+        "reasoning": "A graph identification table and plex-count table cannot be taken as an Ising polynomial coefficient table; searched no explicit published Eulerian-eight or full Ising histogram for this pair.",
+        "searches": [
+          "order five Latin square graphs Paley non-group 25 vertices Ising partition Eulerian 8 edge subsets temperature crossing",
+          "A. E. Brouwer Paulus Rozenfeld P25.12 P25.15",
+          "Egan Wanless order-five Latin-square plex table"
+        ]
+      },
+      "rationale": "Vinci et al 2014 establish the general bivariate Ising-polynomial graph framework and discuss spectral refinements, not this 25-vertex Latin-square pair or exact order-eight separation. Egan–Wanless already enumerate particular Latin-square plex invariants and Brouwer catalogs the two nonisomorphic strongly regular graphs; those do not determine exact Eulerian eight-edge subset differences or antiferromagnetic ground-state degeneracies. The prior Ising polynomial is the tool, not the new coefficient. A specialized precomputed Ising/Tutte polynomial table might cover the exact pair; disclosed as residual risk.",
+      "residual_risks": [
+        "A historical bivariate Ising or Tutte polynomial table on these exact strongly regular graphs could subsume the first separating coefficient.",
+        "Low-temperature crossing proved for antiferromagnetic J>0 and h=0, not J<0, arbitrary field, unique crossing, or thermodynamic limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides Ising-polynomial framework but not the exact two order-five Latin-square graphs or eighth-order coefficient and crossing.",
+          "evidence": [
+            "Paper derives bivariate Ising invariant generally and treats distinct experimental graph examples."
+          ],
+          "identifier_or_url": "Vinci, Markström et al. (2014), arxiv:1307.1114, doi:10.1038/srep05703",
+          "material_read": "Full freely available primary research PDF including definition of bivariate Ising polynomial, examples, methods and graph sizes; figures and discussion checked.",
+          "method": "Original PDF full text with visual PDF page inspection, supplemented published Nature open article.",
+          "title": "Hearing the Shape of the Ising Model with a Programmable Superconducting-Flux Annealer",
+          "trigger": "Same general Ising polynomial and possible covering invariant."
+        },
+        {
+          "assessment": "Catalogues the graph species, not the specific Eulerian eight-edge or zero-temperature Ising discriminators.",
+          "evidence": [
+            "Both order-five Latin square species occur as 25-vertex SRGs, already known."
+          ],
+          "identifier_or_url": "A. E. Brouwer https://aeb.win.tue.nl/graphs/Paulus.html",
+          "material_read": "Relevant P25.12 and P25.15 graph-entry descriptions and known parameters.",
+          "method": "Original author database table inspection.",
+          "title": "Paulus–Rozenfeld graphs",
+          "trigger": "Exact preexisting strongly regular graph database/table."
+        },
+        {
+          "assessment": "POTENTIAL COVERAGE RISK: no whole-text noncoverage judgment from a snippet.",
+          "evidence": [
+            "Broad bivariate-Ising setting means an implicit or explicit pair-specific table cannot be excluded."
+          ],
+          "identifier_or_url": "Andrén and Markström (2009), publication title search",
+          "material_read": "Search-indexed citation and summary; full primary paper not obtained or inspected.",
+          "method": "Bibliographic/source-index inspection only.",
+          "title": "The bivariate Ising polynomial of a graph",
+          "trigger": "Potentially general prior table or closed polynomial."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two nonisomorphic order-five Latin-square graphs are highly natural cospectral strongly regular examples. Their identical Ising coefficients through seventh order but first difference of precisely −48 Eulerian eight-edge edge-subsets is an exact thermodynamic discriminator with arbitrary uniform field. Reversed low-temperature order produces a mathematically forced temperature crossing in a finite system, a meaningful finite invariant beyond ordinary adjacency spectrum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fetched full RESULT.md and full standalone verify.cpp at frozen commit; inspected complete-subset Gray and row-recursive algorithms.",
+    "Independent C++ enumerated all 2^25 spin masks for both graphs and compared every binomial coefficient through degree 8; CAS checked A6/A7 factorizations and maxcut degeneracies.",
+    "Vinci et al arxiv:1307.1114 full primary paper; Brouwer P25 table.",
+    "Resultary semantic query: order five Latin square graphs Paley non-group 25 vertices Ising partition Eulerian 8 edge subsets temperature crossing"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to two explicitly named 25-site graphs, uniform coupling J and field h, high-temperature β→0 at fixed J,h; zero-field low-T inversion requires J>0.",
+    "Historical specialized polynomial tables not exhausted.",
+    "A historical bivariate Ising or Tutte polynomial table on these exact strongly regular graphs could subsume the first separating coefficient.",
+    "Low-temperature crossing proved for antiferromagnetic J>0 and h=0, not J<0, arbitrary field, unique crossing, or thermodynamic limit.",
+    "Public metadata confidentiality guard blocks publication; research text unchanged."
+  ],
+  "schema_version": 1
+}
