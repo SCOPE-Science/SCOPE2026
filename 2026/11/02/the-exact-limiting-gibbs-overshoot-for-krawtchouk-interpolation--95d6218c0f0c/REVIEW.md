@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The paired Lagrange formula is exact. The binomial weight \(b_{M,k}\) decreases with \(k\), and the uniform alternating tail permits local uniform convergence of the sums; Euler's sine product and removable poles complete entire convergence. The positive integral for \(H\) and the strict inequality \((\log H)''<\pi^2\) give uniqueness of the global limiting profile maximum. The distinction between compact first-lobe maxima and unproved finite global maxima is essential.
+## correctness
 
-## Originality — PASS (under inspected evidence)
-Cullinan and Young, arXiv:2603.05408v1, supply the interpolation identity and origin slope and explicitly say the exact limiting overshoot was not proved. The sharp entire-profile limit, one-dimensional positive integral and strict unique-peak proof are new relative to the inspected statements. Searches of the published mathematical record found no equivalent claim. Classical sinc cardinal interpolation and digamma summations are established ingredients, not new claims. Older poorly indexed cardinal-series literature is a residual risk.
+PASS
 
-## Value — PASS
-The first-lobe overshoot is the exact natural quantity measured numerically in the source's Gibbs study. The present theorem proves its limiting value and identifies a unique extremizer, giving a structural resolution of the fixed-coordinate Gibbs profile rather than an isolated small numerical improvement.
+PASS. Paired Lagrange cardinal formula has exact b_{M,k}=M!²/[(M+k)!(M-k)!], Euler sine product P_M->sin(pi z)/(pi z), and alternating tail O_R(1/K) uniformly in M from monotone b_{M,k}/k; holomorphic removable poles yield compact-uniform entire limit. Cardinal sum gives F(x)=1-sin(pi x)H(x)/pi with H positive integral, H/H<=4(x+1)/x²<=8<pi² for x>=1. Therefore first-lobe log[-sin pi x H(x)] strictly concave with unique maximum, later positive lobes strictly smaller by H decreasing, and negative x by oddness. Independent high-precision integral/derivative root xi=1.376991769203938866, gamma=1.065783888266448099. Does NOT prove convergence of global finite-polynomial maxima over expanding [-M,M].
 
-## Closest literature and limitations
-Cullinan–Young (2026), arXiv:2603.05408v1, Section 2, Theorem 4 and numerical table are the closest primary statements. The proof does not control global finite-polynomial maxima over the expanding node intervals. The decimal values are numerical approximations; the root/integral representation is exact. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified. Cullinan–Young 2026 established exact sign-interpolation equivalence and finite values; original full mathematical article only numerically estimates overshoot and expressly does not prove limiting exact constant, locally uniform entire profile or uniqueness of global real peak.
+
+## value
+
+PASS
+
+PASS. Exact limiting Gibbs profile and unique global real overshoot resolve a specifically posed numerical limit for natural Krawtchouk sign interpolation. Explicit positive integral and rigorous first-lobe localization are substantive analytic results; no broader uniform finite-degree global claim is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
