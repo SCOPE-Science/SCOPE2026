@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain and ordered eight-coordinate observation are explicit. A profile is feasible if and only if its directed order-two de Bruijn edge multigraph has connected nonzero support and zero or single-source/single-sink imbalance. The displayed flow parametrization follows by solving vertex balances. The exact symbolic support decomposition exhausts all \(255\) nonempty masks and \(13\) imbalance patterns, and all positive/zero edge conditions are enforced. The rational certificate is computed with integer polynomial arithmetic; its numerator and denominator reconstruct the displayed all-length theorem. Direct word enumeration through length \(14\) and a separate integer-flow method through length \(87\) agree. Risks: implementation bugs are reduced but not eliminated without a separate human examination of the symbolic calculation. Finite tests alone would not establish the theorem; here they are additional checks.
+PASS
 
-## Originality — PASS, with qualification
+Every binary word of n≥3 determines an Euler trail in the binary order-two de Bruijn digraph, and conversely every nonnegative 8-vector of edge counts with nonempty weakly connected support and admissible zero or +1/−1 vertex imbalance admits a word trail. Source proof parametrizes edge flows by three free multiplicities and two loop variables. The actual verify_threegram.py was read: it enumerates each of 255 nonempty support masks, all 13 allowed imbalance patterns, applies exact connectivity and positivity constraints, and sums geometric tails as an integer polynomial identity; algebraically reduced numerator and denominator agree with displayed GF, not merely interpolation of finite coefficients. Pole structure gives order five at z=1 and uncancelled primitive 3rd, 4th and −1 roots, proving degree4 period12. The displayed numerator evaluates to 13 at z=1, so leading coefficient 13/288. Independently generated all 2^n words n=3..16, finding exactly the expected 14 profile counts (T_15=1880,T_16=2449). The finite checks alone do not prove all lengths.
 
-Closest primary text: Alanko–Pérez-López, arXiv:2509.22885 (originally public 2025-09-26), studies distinct k-mers in a single input graph; its objects and complexity results do not count all realizable multiplicity histograms. Tesler, arXiv:1708.03654 (2017), treats uniform fixed multiplicity of every k-mer and counts realizing words, not unrestricted histogram classes. The closest indexed adjacent-pair multispectrum count has observation length two; the present case has observation length three and quartic, rather than quadratic, profile growth. Searches for aliases, known tables, stronger statements and the leading coefficients found no covering source. Residual priority risk: unpublished or unindexed general-profile counts could cover the precise formula. This is a best-knowledge assessment, not a uniqueness certification.
+## originality
 
-## Value — PASS
+PASS
 
-Genome-assembly and sequence-reconstruction algorithms naturally observe k-mer count vectors. The first overlapping-window case beyond bigrams is a motivated benchmark, not an arbitrary small finite slice. A closed rational series valid for every word length, the least period \(12\), and the asymptotic constant \(13/288\) quantify the exact number of distinguishable observations. The result also separates unordered presence spectra and uniform-multiplicity constructions from unrestricted profile enumeration.
+Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact all-length binary three-gram multispectrum capacity. No failed search is represented as a proof of novelty.
 
-## Verification and limits
+## value
 
-Replay both included source programs and compare the recorded outputs. The symbolic computation is exact algebra for all lengths, not a polynomial fit. No individual ambiguity-class distribution and no wider-window generalization is claimed. Independent mathematical auditing remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact number of possible observation vectors is the optimal cardinality of a k-mer multiplicity-reconstruction code, an intrinsic information-capacity problem. Completing all lengths, quasipolynomial period and leading constant for the first nontrivial k=3 case adds a natural enumeration beyond k=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

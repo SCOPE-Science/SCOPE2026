@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every binary word of n≥3 determines an Euler trail in the binary order-two de Bruijn digraph, and conversely every nonnegative 8-vector of edge counts with nonempty weakly connected support and admissible zero or +1/−1 vertex imbalance admits a word trail. Source proof parametrizes edge flows by three free multiplicities and two loop variables. The actual verify_threegram.py was read: it enumerates each of 255 nonempty support masks, all 13 allowed imbalance patterns, applies exact connectivity and positivity constraints, and sums geometric tails as an integer polynomial identity; algebraically reduced numerator and denominator agree with displayed GF, not merely interpolation of finite coefficients. Pole structure gives order five at z=1 and uncancelled primitive 3rd, 4th and −1 roots, proving degree4 period12. The displayed numerator evaluates to 13 at z=1, so leading coefficient 13/288. Independently generated all 2^n words n=3..16, finding exactly the expected 14 profile counts (T_15=1880,T_16=2449). The finite checks alone do not prove all lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tesler enumerates realizations under fixed prescribed equal multi-de-Bruijn multiplicities rather than enumerating all feasible multiplicity vectors.",
+          "Alanko–Pérez-López counts k-mer strings present in walks of input graphs, not every attainable vector as words vary."
+        ],
+        "reasoning": "Euler circuit and digraph flow theory supplies a criterion but not automatically a rational function with all 255 supports integrated. No broader cited theorem directly specializes to displayed GF.",
+        "searches": [
+          "Tesler Multi de Bruijn Sequences arXiv:1708.03654",
+          "Alanko–Pérez-López Computing k-mers in Graphs arXiv:2509.22885v2",
+          "Resultary exact binary two-multispectrum code size"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 actual RESULT.md and verify_threegram.py at frozen tree b842f3ef1dcf0ad7f785bc13e8a1c2460a2fd073",
+        "Alanko–Pérez-López arXiv:2509.22885v2 full HTML",
+        "Tesler arXiv:1708.03654 abstract",
+        "Resultary published 2026 binary two-multispectrum finding",
+        "Independent_checks.py brute binary words n=3..16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The optimal codebook size is exactly number of distinct multiplicity vectors; this follows as interpretation once the new enumeration is proved, not a separately novel coding theorem.",
+          "The k=2 count does not give k=3 by substitution; the flow support combinatorics changes."
+        ],
+        "reasoning": "Previous Euler trail criterion is used and credited, while closed numerator, least period and leading coefficient require complete finite support algebra not implied by prior stated results.",
+        "searches": [
+          "Alanko–Pérez-López arXiv:2509.22885v2 Sections 2–7",
+          "Tesler arXiv:1708.03654 abstract and scope",
+          "Resultary 2026 binary two-multispectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "k=2 two-multispectrum counts edge vectors on a 2-vertex digraph, not eight length-3 profiles.",
+          "Substrings present as a set or as distinct graph labels differ from the multiplicity vector."
+        ],
+        "reasoning": "Checked aliases k-abelian equivalence, multiset of k-factors, k-mer composition spectrum and Eulerian de Bruijn flows. None inspected gives this exact ternary-window denominator and full all-n count.",
+        "searches": [
+          "Resultary semantic: number of binary words distinct length 3 substring occurrence count vectors k-mer spectra enumeration rational generating function",
+          "Resultary exact binary two-multispectrum code size and singleton classification",
+          "Alanko–Pérez-López arXiv:2509.22885"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently enumerated first 14 T_n values, confirming n=3..16; no inspected prior all-length sequence/table was identified."
+        ],
+        "reasoning": "Compared natural finite data and possible k-abelian tables; absence of a located table is a residual novelty risk, not a proof.",
+        "searches": [
+          "Resultary query: all binary three-gram multiplicity profiles length enumerator",
+          "Tesler 2017 multi-de Bruijn tables and graphs",
+          "ArXiv k-abelian equivalence class counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact all-length binary three-gram multispectrum capacity. No failed search is represented as a proof of novelty.",
+      "residual_risks": [
+        "Earlier k-abelian or Parikh-vector generating functions may encode the same count under different nomenclature.",
+        "Tesler primary full body not read; direct identical all-spectrum coverage unlikely on stated scope but cannot be excluded absolutely."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts strings readable on walks of a fixed input labeled graph; no exact all-length count of multiplicity 8-vectors",
+          "evidence": "Definition of graph k-mer occurrence and de Bruijn algorithm describes distinct strings, not the 8-coordinate multiplicity spectrum.",
+          "identifier_or_url": "https://arxiv.org/html/2509.22885v2",
+          "material_read": "Full HTML text including problem setup, Section 2 definitions and Sections 3–7 graph-walk k-mer occurrence computations",
+          "method": "Read lawful arXiv HTML and compare exact counted objects",
+          "title": "Computing k-mers in Graphs",
+          "trigger": "Same k-mer vocabulary could hide stronger enumeration"
+        },
+        {
+          "assessment": "Enumerates words under uniform fixed k-mer multiplicities, which is distinct; no full-text noncoverage claim",
+          "evidence": "Fixed multi-de-Bruijn multiplicity profiles versus all feasible profiles of variable length.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+          "material_read": "Public arXiv abstract and bibliographic synopsis; full text unavailable on attempted mirrors",
+          "method": "Public metadata and abstract, statement-object comparison",
+          "title": "Multi de Bruijn Sequences",
+          "trigger": "Potential counting formulas for k-mer multiplicity vectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number of possible observation vectors is the optimal cardinality of a k-mer multiplicity-reconstruction code, an intrinsic information-capacity problem. Completing all lengths, quasipolynomial period and leading constant for the first nontrivial k=3 case adds a natural enumeration beyond k=2.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 actual RESULT.md and verify_threegram.py at frozen tree b842f3ef1dcf0ad7f785bc13e8a1c2460a2fd073",
+    "Alanko–Pérez-López arXiv:2509.22885v2 full HTML",
+    "Tesler arXiv:1708.03654 abstract",
+    "Resultary published 2026 binary two-multispectrum finding",
+    "Independent_checks.py brute binary words n=3..16"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all lengths n≥3 of binary linear words, the number of distinct ordered 8-vector contiguous 3-gram multiplicity profiles has rational generating function z³(8−9z+7z²−3z³+6z⁴+5z⁵−z⁶+2z⁷−5z⁸+3z⁹)/((1−z)^5(1+z)(1+z²)(1+z+z²)); T_n is degree-four quasipolynomial with least period 12 and leading coefficient 13/288.",
+  "limitations": [
+    "Binary linear words only, contiguous 3-grams including overlap and full ordered multiplicity vector; not cyclic, unordered presence sets or higher k/alphabet.",
+    "All-length theorem rests on explicit integer generating-series decomposition, not the finite brute-force counts."
+  ],
+  "residual_risks": [
+    "Earlier k-abelian or Parikh-vector generating functions may encode the same count under different nomenclature.",
+    "Tesler primary full body not read; direct identical all-spectrum coverage unlikely on stated scope but cannot be excluded absolutely."
+  ],
+  "schema_version": 1
+}

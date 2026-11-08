@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The result is an algebraically exact computation over all binary three-gram supports, not an extrapolation from finite samples. The complete proof reduction appears in `RESULT.md`.
+## correctness
 
-Run `python3 verify_threegram.py`. It enumerates all support masks and imbalance cases, evaluates geometric sums with integer polynomial division, verifies the numerator and denominator exactly, and checks every binary input word through length \(14\). Run `g++ -O2 -std=c++17 verify_threegram_independent.cpp -o verify_threegram_independent` followed by `./verify_threegram_independent 85` to independently enumerate nonnegative balanced integer flows for all lengths \(3\) through \(87\). Its output is supplied in `threegram_independent_results.txt`. Both were executed and matched the rational formula; recorded checks appear in `verification_output.txt`.
+PASS
 
-The C++ test uses 64-bit integers and was run only in the stated finite range. It does not purport to prove an all-length identity independently. The separate exact support-and-geometric-sums calculation does establish the formal generating function for all lengths, conditional on its transparent Euler-trail reduction and checkable implementation. There is no human independent audit.
+Every binary word of n≥3 determines an Euler trail in the binary order-two de Bruijn digraph, and conversely every nonnegative 8-vector of edge counts with nonempty weakly connected support and admissible zero or +1/−1 vertex imbalance admits a word trail. Source proof parametrizes edge flows by three free multiplicities and two loop variables. The actual verify_threegram.py was read: it enumerates each of 255 nonempty support masks, all 13 allowed imbalance patterns, applies exact connectivity and positivity constraints, and sums geometric tails as an integer polynomial identity; algebraically reduced numerator and denominator agree with displayed GF, not merely interpolation of finite coefficients. Pole structure gives order five at z=1 and uncancelled primitive 3rd, 4th and −1 roots, proving degree4 period12. The displayed numerator evaluates to 13 at z=1, so leading coefficient 13/288. Independently generated all 2^n words n=3..16, finding exactly the expected 14 profile counts (T_15=1880,T_16=2449). The finite checks alone do not prove all lengths.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact all-length binary three-gram multispectrum capacity. No failed search is represented as a proof of novelty.
+
+## value
+
+PASS
+
+The exact number of possible observation vectors is the optimal cardinality of a k-mer multiplicity-reconstruction code, an intrinsic information-capacity problem. Completing all lengths, quasipolynomial period and leading constant for the first nontrivial k=3 case adds a natural enumeration beyond k=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
