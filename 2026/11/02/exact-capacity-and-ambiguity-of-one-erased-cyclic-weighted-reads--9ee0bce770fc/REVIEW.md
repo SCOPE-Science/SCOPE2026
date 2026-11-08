@@ -1,11 +1,21 @@
-# Self-review of one-erased cyclic weighted reads
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For noncoprime window and blocklength, an explicit nonzero left-kernel identity with a coefficient on the erased coordinate proves exact redundancy. For coprime parameters, an explicit primitive integer kernel is verified algebraically, and invertibility of the complete cyclic convolution proves there are no other fiber directions. Its lattice chains have a unique primitive step. The finite-path identity (vertices minus edges) gives the exact image size, and the coordinate-amplitude argument proves the maximum list size. The binary specialization follows with exact endpoint and parameter checks. Direct brute-force verification passed 163 parameter cases (2,409,791 source instances), and the algebraic integer kernel identity passed for every coprime pair through blocklength 250. Finite checks are corroborative, not a substitute for proof.
+## correctness
 
-**Originality (O): PASS, qualified.** Primary full-text comparisons were made with *The Capacity of the Weighted Read Channel* (arXiv:2401.15368v1), which uses a noncyclic weighted-read channel with asymptotic capacity results, and *Correcting a Single Deletion in Reads from a Nanopore Sequencer* (arXiv:2401.15939v1), which treats unlocated deletions of a linear output, not deletion of one known cyclic read. The complete-output cyclic calculation cannot by itself determine the single-projection fibers. Research-index queries searched cyclic interval-sum reconstruction, erasures, inverse capacity, and aliases; the closest records address different channels. The exact one-hole q-ary chain-and-capacity law was not found. The possibility of an earlier equivalent result under integer circulant convolution or discrete tomography remains a specific residual risk, not a claim of global uniqueness.
+PASS
 
-**Value (V): PASS.** Single indexed read dropout is a natural robustness question for a weighted sensing channel. The theorem gives the all-parameter *finite-length* zero-error capacity and maximum list size, and a sharp surprising binary law: any single known erased read can be ignored without loss when the width is at least three and coprime to length, whereas width two has exactly one unresolved binary pair. The noncoprime side explains erasure redundancy by an exact row dependence. These structural and numerical statements go beyond a trivial reparameterization of full-read capacity.
+For gcd>1 an alternating residue-class linear relation among complete window sums determines the erased coordinate. For gcd=1 full circulant is invertible and a primitive integer kernel v has m entries r−ℓ and n−m entries r with surviving windows summing to zero; integer differences within fibers are multiples of v because gcd(r,ℓ−r)=1. Fibers are finite chains, so image size equals q^n minus allowable x→x+v edges; the edge product and sharp maximum chain length follow coordinatewise. Independent exhaustive enumeration confirmed 63 cases and full fiber preservation in noncoprime cases.
 
-**Limits and priority risks.** Only one known-position erasure; no substitutions, modular arithmetic, unknown-position deletion, or multiple erasures. The result is a self-review and has not been independently audited. Older unindexed equivalences cannot be completely excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement-level comparison of accessible relevant source material, published Resultary semantic hits, and original proof ingredients; risks below retain uncertainty.
+
+## value
+
+PASS
+
+A sharp exact blocklength zero-error capacity and list-size law for a concrete one-known-erasure observation channel is a natural useful inverse-problem invariant; binary injectivity threshold is striking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

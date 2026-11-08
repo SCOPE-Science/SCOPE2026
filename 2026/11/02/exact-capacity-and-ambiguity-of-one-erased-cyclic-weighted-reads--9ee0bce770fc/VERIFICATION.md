@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible check
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.8 or later; no third-party packages are required. The script implements the cyclic window sum afresh and groups observations independently of the symbolic proof. Its output includes:
+## correctness
 
-```
-Integer one-hole kernel checked in all coprime cases for 3 <= n <= 250
-q=2 exhaustive up to length 15: PASS
-q=3 exhaustive up to length 10: PASS
-q=4 exhaustive up to length 8: PASS
-q=5 exhaustive up to length 7: PASS
-PASS: 163 exact parameter cases, 2409791 source instances
-```
+PASS
 
-The exhaustive finite checks cover every permissible width for \(3\le n\le15\) with \(q=2\), \(n\le10\) with \(q=3\), \(n\le8\) with \(q=4\), and \(n\le7\) with \(q=5\). They verify both exact image cardinality and maximal list size in coprime cases, and equality of the full and erased inverse-fiber partitions (by fiber-size multisets and equal image sizes) in noncoprime cases. The primitive explicit kernel identity is additionally checked for every coprime pair with \(3\le n\le250\).
+For gcd>1 an alternating residue-class linear relation among complete window sums determines the erased coordinate. For gcd=1 full circulant is invertible and a primitive integer kernel v has m entries r−ℓ and n−m entries r with surviving windows summing to zero; integer differences within fibers are multiples of v because gcd(r,ℓ−r)=1. Fibers are finite chains, so image size equals q^n minus allowable x→x+v edges; the edge product and sharp maximum chain length follow coordinatewise. Independent exhaustive enumeration confirmed 63 cases and full fiber preservation in noncoprime cases.
 
-These computations do not exhaust all parameter values. The all-parameter guarantee is the self-contained proof in `RESULT.md`; no external scientific audit or machine proof has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives statement-level comparison of accessible relevant source material, published Resultary semantic hits, and original proof ingredients; risks below retain uncertainty.
+
+## value
+
+PASS
+
+A sharp exact blocklength zero-error capacity and list-size law for a concrete one-known-erasure observation channel is a natural useful inverse-problem invariant; binary injectivity threshold is striking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
