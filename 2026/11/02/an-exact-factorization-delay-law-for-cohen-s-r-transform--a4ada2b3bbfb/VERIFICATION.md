@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the factorization-delay law
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and SymPy. The verifier completely enumerates all monic irreducible inputs for nine tested pairs \((q,n)\) over prime fields, factors their Cohen transforms, checks that the two factors have the predicted degrees and are distinct, and verifies both branches' valuation-stage transitions. All \(315\) tested irreducibles agree with the Möbius count histogram; no Monte Carlo sampling is used in these checks. It also checks the exact integer formulas on \(144\) further parameter pairs for proper prime powers \(q\), without claiming to factor polynomials over those extension fields.
+## correctness
 
-Actual output includes:
+PASS
 
-```
-p=3,n=2,e=3,irreducibles=3,counts_by_splits=[2, 1, 0, 0],mean=1/3
-p=3,n=3,e=1,irreducibles=8,counts_by_splits=[4, 4],mean=8/8
-p=3,n=4,e=4,irreducibles=18,counts_by_splits=[10, 4, 2, 1, 1],mean=16/18
-p=5,n=3,e=2,irreducibles=40,counts_by_splits=[20, 10, 10],mean=40/40
-CHECK_OK total_irreducibles=315, complete_finite_field_polynomial_factorizations=1, random_branch_transition_certificates=1
-PRIME_POWER_ARITHMETIC_OK parameter_pairs= 144
-```
+Cohen R-transform on monic degree-n irreducible f, n≥2 over odd q, takes roots via θ(x)=(x+x^(-1))/2; Möbius ψ(x)=(x+1)/(x-1) conjugates θ to squaring. For a root β of exact degree n, y=ψ(β) lies in F_{q^n}*, and square/non-square preimages yield exactly two distinct n-degree irreducibles or irreducible degree 2n. In cyclic multiplicative group q^n−1=2^e o, v=v2(ord y): v=e gives J=0; 1≤v<e produces J=e−v; v=0 leads to a 1/2 geometric number of repeated odd-order branches and J=e+Z, Z>=0 geom P(Z=j)=2^(-j-1). Frobenius-exact-degree Möbius inversion of valuation-level counts w_v(d) gives integer C_v and PGF [Σ_{v≥1} C_v z^(e−v)+C_0 z^e/(2−z)]/N; exact tail C0/(N2^t) for t>=0. Mean is divisor sum Σμ(n/d)(q^d−1)(e−e_d+1)/Σμ(n/d)q^d; e_d=e for odd n gives 1, and the strictly positive exact-degree count in even n makes it <1. Original program factorized small fields, and independently the valuation counts and mean parity were confirmed via exact integers for q∈{3,5,7,9,25}, n=2..13; this does not prove all q,n. No guarantee after first successful doubling is claimed.
 
-The program is a finite corroboration, not an exhaustive proof over all field sizes. The unrestricted assertions follow from cyclic-group structure, finite-field Frobenius orbit counting, and exact divisor sums in `RESULT.md`. No independent mathematical audit or external certification has been performed.
+## originality
+
+PASS
+
+PASS qualified: the conjugacy to squaring, preimage factor dichotomy, valuation-tree depths and deterministic finite escape are all established by Ugolini and successors, and not independently claimed. The tested new statement is a uniform exact-degree irreducible input ensemble with independent coin choices, full Möbius-weighted probability generating function and sharp odd/even exact mean. Inspected theorems do not state this distribution; older specialized randomized algorithm analyses could already implicitly derive it.
+
+## value
+
+PASS
+
+A constructive irreducible-polynomial procedure uses factorization until its first doubling. The random seed and fair factor policy define a canonical average-case model, whose exact full delay distribution and odd/even mean reveal performance beyond deterministic escape bounds. This precise arithmetic-probability statistic is independently useful, not an arbitrary tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

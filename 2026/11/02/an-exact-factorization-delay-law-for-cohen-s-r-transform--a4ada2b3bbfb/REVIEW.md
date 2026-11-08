@@ -1,19 +1,21 @@
-# Review: exact factorization-delay law for Cohen's R-transform
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The change of coordinates \(\psi(x)=(x+1)/(x-1)\) conjugates the root-preimage map to squaring, so each irreducible input polynomial has a well-defined two-adic order level. For degree at least two, the preimages either form an irreducible degree-doubling transform or two distinct irreducible factors of the original degree. Their valuation evolution is deterministic off the periodic level, where a fair branch choice creates an exact geometric number of retries. Möbius inversion yields the exact-degree counts, and the field-level expected-value sum yields the mean formula. The odd/even distinction follows from valuations of odd powers and a strictly positive exact-degree count. Independent small-field polynomial factorization and prime-power integer checks corroborate each step; enumeration is not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+Cohen R-transform on monic degree-n irreducible f, n≥2 over odd q, takes roots via θ(x)=(x+x^(-1))/2; Möbius ψ(x)=(x+1)/(x-1) conjugates θ to squaring. For a root β of exact degree n, y=ψ(β) lies in F_{q^n}*, and square/non-square preimages yield exactly two distinct n-degree irreducibles or irreducible degree 2n. In cyclic multiplicative group q^n−1=2^e o, v=v2(ord y): v=e gives J=0; 1≤v<e produces J=e−v; v=0 leads to a 1/2 geometric number of repeated odd-order branches and J=e+Z, Z>=0 geom P(Z=j)=2^(-j-1). Frobenius-exact-degree Möbius inversion of valuation-level counts w_v(d) gives integer C_v and PGF [Σ_{v≥1} C_v z^(e−v)+C_0 z^e/(2−z)]/N; exact tail C0/(N2^t) for t>=0. Mean is divisor sum Σμ(n/d)(q^d−1)(e−e_d+1)/Σμ(n/d)q^d; e_d=e for odd n gives 1, and the strictly positive exact-degree count in even n makes it <1. Original program factorized small fields, and independently the valuation counts and mean parity were confirmed via exact integers for q∈{3,5,7,9,25}, n=2..13; this does not prove all q,n. No guarantee after first successful doubling is claimed.
 
-Ugolini (arXiv:1207.6959v1, Theorems 2.8 and 3.1) already provides the factorization dichotomy and a deterministic construction; Ugolini (arXiv:1304.3283v1, Theorem 2.6) gives the full-field reversed-tree depth counts. Bassa and Menares (arXiv:1909.02608v1) develop the power-map conjugacy more generally. None of the inspected material states the uniform exact-degree, independently randomized branching law, its probability generating function, or the exact odd/even expectation dichotomy. The claimed novelty is this ensemble-specific arithmetic distribution, **not** the graph structure or the basic transform. A prior implicit specialization or unlocated stochastic application remains a residual priority risk; semantic searches do not prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of factorizations before the first doubled-degree irreducible polynomial is a direct measure of the overhead of a standard constructive finite-field procedure. Its complete distribution across the canonical uniform irreducible input ensemble and a declared fair branch policy is a natural arithmetic-probabilistic statistic. The finite divisor formula and exact parity-dependent expectation supply a quantitative average-case complement to the older worst-case depth bounds. This is more informative than a routine change of notation or a small computation.
+PASS qualified: the conjugacy to squaring, preimage factor dichotomy, valuation-tree depths and deterministic finite escape are all established by Ugolini and successors, and not independently claimed. The tested new statement is a uniform exact-degree irreducible input ensemble with independent coin choices, full Möbius-weighted probability generating function and sharp odd/even exact mean. Inspected theorems do not state this distribution; older specialized randomized algorithm analyses could already implicitly derive it.
 
-## Checks and limits
+## value
 
-Relevant full-text sections of the two Ugolini arXiv preprints were inspected, including the factorization theorem and the reversed-tree theorem. The Bassa–Menares preprint and accessible publisher text were compared for stronger transformations. No source located a direct distributional result; specialist literature could still contain equivalent formulas. The factorization verifier covers nine prime-field parameter pairs and exact arithmetic over additional proper prime-power fields; no infinite claim rests on the finite sample. The result does not concern software timing or infinite stability after first doubling.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A constructive irreducible-polynomial procedure uses factorization until its first doubling. The random seed and fair factor policy define a canonical average-case model, whose exact full delay distribution and odd/even mean reveal performance beyond deterministic escape bounds. This precise arithmetic-probability statistic is independently useful, not an arbitrary tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cohen R-transform on monic degree-n irreducible f, n≥2 over odd q, takes roots via θ(x)=(x+x^(-1))/2; Möbius ψ(x)=(x+1)/(x-1) conjugates θ to squaring. For a root β of exact degree n, y=ψ(β) lies in F_{q^n}*, and square/non-square preimages yield exactly two distinct n-degree irreducibles or irreducible degree 2n. In cyclic multiplicative group q^n−1=2^e o, v=v2(ord y): v=e gives J=0; 1≤v<e produces J=e−v; v=0 leads to a 1/2 geometric number of repeated odd-order branches and J=e+Z, Z>=0 geom P(Z=j)=2^(-j-1). Frobenius-exact-degree Möbius inversion of valuation-level counts w_v(d) gives integer C_v and PGF [Σ_{v≥1} C_v z^(e−v)+C_0 z^e/(2−z)]/N; exact tail C0/(N2^t) for t>=0. Mean is divisor sum Σμ(n/d)(q^d−1)(e−e_d+1)/Σμ(n/d)q^d; e_d=e for odd n gives 1, and the strictly positive exact-degree count in even n makes it <1. Original program factorized small fields, and independently the valuation counts and mean parity were confirmed via exact integers for q∈{3,5,7,9,25}, n=2..13; this does not prove all q,n. No guarantee after first successful doubling is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.6 has level k multiplicities 2^(k−1); Theorem 3.1 bounds attempts to escape components."
+        ],
+        "reasoning": "The tree geometry supplies a necessary foundation, but neither theorem gives uniform exact Frobenius-degree weighting nor the geometric branch delay distribution and its parity expectation. Those require Möbius inversion and averaging.",
+        "searches": [
+          "Cohen R-transform factoring delay distribution uniform irreducible input random choice factor odd even degree expected number",
+          "arXiv:1304.3283 Theorem 2.6",
+          "arXiv:1207.6959 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.6959, Theorems 2.8 and 3.1",
+        "arXiv:1304.3283, Theorem 2.6",
+        "arXiv:1909.02608, general power-map conjugacy cited (abstract only)",
+        "Resultary R-transform delay search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known factor splitting + reversed binary trees imply conditional deterministic v>0 and geometric v=0 dynamics, if an independent fair coin is imposed."
+        ],
+        "reasoning": "The new contribution is the explicitly specified randomization, Frobenius-orbit ensemble distribution via C_v and exact parity mean, not the underlying conjugacy itself. These are elementary consequences of prior structure once the ensemble is introduced; this is a narrow originality rather than a new dynamical theorem.",
+        "searches": [
+          "Cohen R-transform factoring delay distribution uniform irreducible input random choice factor odd even degree expected number",
+          "arXiv:1207.6959 Theorem 2.8",
+          "arXiv:1304.3283 Theorem 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen R-transforms are conjugate under ψ to squaring, and Ugolini already gives inverse binary trees with depth by v2(order)."
+        ],
+        "reasoning": "Compared graph-theoretic inverse-depth distributions, random preimage walks and factoring irreducibles. The exact present random variable is number of split transforms of a uniformly selected degree-n polynomial under a fresh fair choice, not deterministic depth of one graph vertex.",
+        "searches": [
+          "Cohen R-transform factoring delay distribution uniform irreducible input random choice factor odd even degree expected number",
+          "arXiv:1207.6959 Thm2.8/3.1",
+          "arXiv:1304.3283 Thm2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary articles contain finite graph illustrations and deterministic escape counts; the published-index top hits concern other random iteration delays, with no exact-degree PGF or parity table."
+        ],
+        "reasoning": "Graph pictures over individual F_q do not automatically give probabilities for uniform degree-n irreducibles. Lack of indexed exact table is bounded originality evidence only.",
+        "searches": [
+          "Cohen R-transform factoring delay distribution uniform irreducible input random choice factor odd even degree expected number",
+          "Resultary Cohen R-transform factoring probability search",
+          "arXiv:1304.3283 tree level examples"
+        ]
+      },
+      "rationale": "PASS qualified: the conjugacy to squaring, preimage factor dichotomy, valuation-tree depths and deterministic finite escape are all established by Ugolini and successors, and not independently claimed. The tested new statement is a uniform exact-degree irreducible input ensemble with independent coin choices, full Möbius-weighted probability generating function and sharp odd/even exact mean. Inspected theorems do not state this distribution; older specialized randomized algorithm analyses could already implicitly derive it.",
+      "residual_risks": [
+        "An earlier exact-degree weighting of known finite-field graph levels or a randomized factorization analysis might imply the same PGF, despite no located explicit statement.",
+        "Only odd finite q, n>=2, fair independent choices and first doubling; not a bit-complexity or worst-case theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Factor dichotomy and deterministic finite escape fully credited; no randomized probability law",
+          "evidence": "Theorem 2.8: irreducible degree2n or two degree-n factors; Theorem 3.1 and Remark3.2: finite factorization strategy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.6959",
+          "material_read": "Theorem 2.8 and Theorem 3.1 with proofs and Remark 3.2, full 10-page primary PDF relevant parts; page 5 screenshot",
+          "method": "OA arXiv primary PDF inspected",
+          "title": "Sequences of irreducible polynomials without prescribed coefficients over odd prime fields",
+          "trigger": "Same Cohen R-transform splitting and finite initial phase"
+        },
+        {
+          "assessment": "All-field inverse tree level counts are already known, but the fair-coin exact-degree PGF not found in the inspected theorem",
+          "evidence": "Theorem 2.6 gives reversed binary trees of depth e with 2^(k-1) vertices at levels 1...e; no input-polynomial probability.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.3283",
+          "material_read": "Section 2 and Theorem 2.6, tree examples and proof in 27-page primary PDF; page 5 screenshot",
+          "method": "OA arXiv primary PDF pertinent sections read",
+          "title": "On the iterations of certain maps x to k(x+x^-1) over finite fields of odd characteristic",
+          "trigger": "Same conjugate functional digraph and inverse tree-depth lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A constructive irreducible-polynomial procedure uses factorization until its first doubling. The random seed and fair factor policy define a canonical average-case model, whose exact full delay distribution and odd/even mean reveal performance beyond deterministic escape bounds. This precise arithmetic-probability statistic is independently useful, not an arbitrary tiny numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier exact-degree weighting of known finite-field graph levels or a randomized factorization analysis might imply the same PGF, despite no located explicit statement.",
+    "Only odd finite q, n>=2, fair independent choices and first doubling; not a bit-complexity or worst-case theorem."
+  ],
+  "schema_version": 1
+}
