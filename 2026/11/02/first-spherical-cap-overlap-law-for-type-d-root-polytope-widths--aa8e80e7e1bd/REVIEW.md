@@ -1,18 +1,21 @@
-# Scientific review: first-overlap width law for type-\(D\) root polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The unit-normal width is exactly twice the sum of the two largest absolute coordinates, hence a union of the \(2n(n-1)\) root-centered spherical caps. The minimum angular root separation is \(\pi/3\), and every root has exactly \(4(n-2)\) nearest neighbours. At the first pair contact, all other cap centers have a strict cosine margin, ensuring that only double lenses contribute sufficiently near the threshold. The local Euclidean lens integration gives the exact \(n/2\) exponent and (3) in RESULT.md. The separate three-dimensional Voronoi-cell integral gives a complete elementary CDF, continuous at both internal transitions. The independent numerical checker from the included package completed 13 direct sphere-cell quadratures, a 3000-point monotonicity check, upper-tail comparisons, and \(n=3,4\) asymptotic coefficient checks. These checks corroborate, but do not replace, the proof. Limits: each \(n\) is fixed, and only the upper interval is evaluated exactly for \(n>3\).
+## correctness
 
-## Originality — PASS with residual priority risk
-Actual semantic searches were made in published-finding corpus for type-\(D\) width tails, cuboctahedral widths, near-touching spherical caps and higher-dimensional two-sparse root polytopes; comparisons were made at the level of statements. The nearest published records give analogous cube and octahedron width laws and simplex-centered cap intersections. Those use different center configurations and do not assert the type-\(D\) root neighbor multiplicity, formula (3), or the three-dimensional three-branch CDF (4). The accessible Finch 2011 full text treats the regular tetrahedron and cube, not these bodies. Mészáros 2009 concerns type-\(D\) root algebra rather than directional-width probability. Abas 2026 gives a general three-dimensional coarea framework that can in principle calculate particular polytope densities, but the accessible abstract names no cuboctahedron or higher-dimensional type-\(D\) threshold constant. Its complete text remained inaccessible: possible unrecognized stronger coverage is explicitly a historical-priority risk. Novelty is therefore best-knowledge and needs independent historical assessment. None of the named sources found asserts or implies the \(n\ge4\) threshold constant by object identity, affine equivalence, or a known stronger closed family result.
+PASS
 
-## Value — PASS
-These are canonical root polytopes, including the regular cuboctahedron in three dimensions and the 24-cell in four. Width is a natural projection invariant, while first spherical-cap overlap is a quantitative relation between support geometry and spherical root-code contact. The result supplies an exact sharp transition, a dimension-dependent onset exponent and a nontrivial explicit constant for every fixed dimension; the complete elementary cuboctahedral law also resolves all interior width regimes for the smallest model. This is more than recomputing a previously published numerical benchmark or a formal change of variables. It provides reusable exact probabilities for stereological orientation sampling and comparison with other root-system polytopes.
+For every n>=3 the support width is twice the sum of two largest absolute coordinates. The 2n(n-1) signed roots have minimal normalized center dot product 1/2 for distinct neighboring centers, hence caps are disjoint for w>=sqrt(6). Each root has 4(n-2) nearest neighbors, producing E=4n(n-1)(n-2) unordered first-contact pairs. At contact the other roots have strict smaller dot product, preventing simultaneous third intersections close to threshold. Tangent-coordinate lens inequality s|x|+c|y|^2/2<=epsilon gives precise power (sqrt6-w)^(n/2) and coefficient C_n=4sqrt3(n-1)(n-2)/pi*(2/3)^(n/4); the excess must enter the CDF with a positive sign. For n=3 a Voronoi-cell angular integral gives all stated piecewise CDF branches at 4/sqrt3 and sqrt6, including upper density 3/sqrt2. Independent 48-point cuboctahedral spherical-cell numerical quadrature matched formula to ~3.2e-10 absolute error; numerical checks supplement the analytic all-n argument. CDF is only fully given for n=3; n>3 claims upper exact interval and one-sided onset.
 
-## Closest literature and limits
-- Steven R. Finch, *Width Distributions for Convex Regular Polyhedra* (2011), arXiv:1110.0671; full-text sections on tetrahedron and cube inspected.
-- Karola Mészáros, *Root polytopes, triangulations, and the subdivision algebra, II* (2009), arXiv:0904.3339; public abstract inspected.
-- Omri Abas, *Random Width and Brightness* (2026), arXiv:2609.26202; public abstract inspected, complete full text unavailable.
-- Published mathematical records on cube width's first cap transition, octahedral width and simplex cap multiple-overlap; semantic summaries inspected, full hosted files unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cap unions, small-lens integration and classical regular-polytope width methods are established. The contribution is the exact type-D center-contact count and dimension-dependent onset coefficient, together with the complete cuboctahedral piecewise law. Published cube/octagon width laws have different support functions and center families. A 2026 general polyhedral coarea framework may imply this by explicit specialized integration, but no ready-made equation or matching constant was found in accessible inspected material; full original text is a residual risk.
+
+## value
+
+PASS
+
+Type-D root polytopes are canonical highly symmetric convex bodies, with cuboctahedron as D3; exact random directional width laws and singular transition exponents are meaningful geometric probability invariants, and the all-dimensional onset constant captures the contact graph. The cuboctahedral full distribution is an informative low-dimensional closed benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

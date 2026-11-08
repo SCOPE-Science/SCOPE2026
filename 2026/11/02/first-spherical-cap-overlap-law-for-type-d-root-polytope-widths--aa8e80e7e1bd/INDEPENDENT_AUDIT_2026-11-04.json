@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:07:29.903982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3 the support width is twice the sum of two largest absolute coordinates. The 2n(n-1) signed roots have minimal normalized center dot product 1/2 for distinct neighboring centers, hence caps are disjoint for w>=sqrt(6). Each root has 4(n-2) nearest neighbors, producing E=4n(n-1)(n-2) unordered first-contact pairs. At contact the other roots have strict smaller dot product, preventing simultaneous third intersections close to threshold. Tangent-coordinate lens inequality s|x|+c|y|^2/2<=epsilon gives precise power (sqrt6-w)^(n/2) and coefficient C_n=4sqrt3(n-1)(n-2)/pi*(2/3)^(n/4); the excess must enter the CDF with a positive sign. For n=3 a Voronoi-cell angular integral gives all stated piecewise CDF branches at 4/sqrt3 and sqrt6, including upper density 3/sqrt2. Independent 48-point cuboctahedral spherical-cell numerical quadrature matched formula to ~3.2e-10 absolute error; numerical checks supplement the analytic all-n argument. CDF is only fully given for n=3; n>3 claims upper exact interval and one-sided onset.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas general polyhedral width coarea framework is broader as a method but the accessible synopsis names tetrahedron and truncated-octahedron evaluations rather than this D-family coefficient.",
+          "General regular-polytope projection moment machinery implies distribution via all moments abstractly, not this closed finite-dimensional formula and first-overlap coefficient."
+        ],
+        "reasoning": "A general integral representation does not by itself present the evaluated sharp transition; however broader coverage in an unread primary proof/appendix is a live risk.",
+        "searches": [
+          "type D_n root polytope random directional width spherical caps first overlap cuboctahedron distribution",
+          "arXiv:2609.26202 Abas",
+          "arXiv:1511.08479"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob a45325bb2761967cb1ccafe407d201286cf29699",
+        "verify_width.py blob f7319d2da7d2d6943b9795e5facbcc226bc159a5",
+        "https://arxiv.org/abs/1110.0671",
+        "https://arxiv.org/abs/2609.26202",
+        "Resultary width reports for cube and octahedron",
+        "Resultary semantic query: type D_n root polytope random directional width spherical caps first overlap cuboctahedron distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cube width is sum of all |U_i|; octahedron width is scaled max |U_i|; type-D width is 2(top two |U_i|).",
+          "First D_n contact angle is pi/3, cube diagonal face-crossing angle differs, so prior constants do not imply C_n by substitution."
+        ],
+        "reasoning": "Classical coarea/inclusion-exclusion steps motivate the calculation but require separate D_n center incidence and local lens normalization; stronger explicit evaluation not found.",
+        "searches": [
+          "arXiv:1110.0671",
+          "Resultary octahedron width RESULT",
+          "Resultary cube width RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch computes cube/tetrahedron related widths, not the D_n top-two-absolute-coordinates distribution.",
+          "Published cube result has diagonal cap centers, not D_n roots. Octahedron has max coordinate support, unlike D3 sum of two top absolute coordinates."
+        ],
+        "reasoning": "Different polytope support functions, normalizations, and contact graphs prevent any mere scaling or polarity equivalence to prior width formulas.",
+        "searches": [
+          "type D_n root polytope random directional width spherical caps first overlap cuboctahedron distribution",
+          "arXiv:1110.0671",
+          "arXiv:2609.26202",
+          "Resultary cube width",
+          "Resultary octahedron width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither prior exact table specifies n(n-1) cap tail and C_n for D_n, nor D3 cuboctahedron 3-branch law."
+        ],
+        "reasoning": "No identical exact table was located in the checked published-results subset; no claim of exhaustive novelty based on search absence.",
+        "searches": [
+          "type D_n root polytope random directional width spherical caps first overlap cuboctahedron distribution",
+          "Resultary published octahedral width report",
+          "Resultary published cube first-transition report"
+        ]
+      },
+      "rationale": "Cap unions, small-lens integration and classical regular-polytope width methods are established. The contribution is the exact type-D center-contact count and dimension-dependent onset coefficient, together with the complete cuboctahedral piecewise law. Published cube/octagon width laws have different support functions and center families. A 2026 general polyhedral coarea framework may imply this by explicit specialized integration, but no ready-made equation or matching constant was found in accessible inspected material; full original text is a residual risk.",
+      "residual_risks": [
+        "The full 2026 general polyhedral density manuscript could contain an equivalent specialization.",
+        "Older caliper-width or cuboctahedron stereological formulas under alternative naming may be unindexed.",
+        "Full CDF proven only for D3, higher-dimensional statement is local and upper-tail only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies classical 3D width context, not the explicit cuboctahedral CDF or D_n family contact law.",
+          "evidence": [
+            "Finch arXiv:1110.0671, polyhedral width examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "Accessible Finch PDF, introduction and relevant tetrahedral/cubic moment and distribution sections with rendered page inspection.",
+          "method": "PDF reading and claims comparison",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Polyhedral directional-width prior art"
+        },
+        {
+          "assessment": "Its width equals sqrt(2) max_i |U_i| and has a different one-transition CDF, not the D3 cuboctahedral law.",
+          "evidence": [
+            "RESULT.md blob 904e83f92336b4004ba564968002d397b7b06975."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-width-distribution-of-the-unit-edge-regular-octahedron--953206d3d8c4/RESULT.md",
+          "material_read": "Entire available RESULT.md including theorem, cap proof, and limitations.",
+          "method": "Read frozen public GitHub result body",
+          "title": "Exact width distribution of the unit-edge regular octahedron",
+          "trigger": "Nearby exact polyhedral width example"
+        },
+        {
+          "assessment": "General framework might imply some laws after integration, but its exact D_n/cuboctahedral evaluation was not verified.",
+          "evidence": [
+            "arXiv:2609.26202 abstract; full text unread."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26202",
+          "material_read": "Accessible abstract/metadata only; complete original manuscript unavailable in this session.",
+          "method": "ArXiv search metadata; no full-text negative inference",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Potential dominating arbitrary-polytope coarea theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Type-D root polytopes are canonical highly symmetric convex bodies, with cuboctahedron as D3; exact random directional width laws and singular transition exponents are meaningful geometric probability invariants, and the all-dimensional onset constant captures the contact graph. The cuboctahedral full distribution is an informative low-dimensional closed benchmark.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob a45325bb2761967cb1ccafe407d201286cf29699",
+    "verify_width.py blob f7319d2da7d2d6943b9795e5facbcc226bc159a5",
+    "https://arxiv.org/abs/1110.0671",
+    "https://arxiv.org/abs/2609.26202",
+    "Resultary width reports for cube and octahedron",
+    "Resultary semantic query: type D_n root polytope random directional width spherical caps first overlap cuboctahedron distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full 2026 general polyhedral density manuscript could contain an equivalent specialization.",
+    "Older caliper-width or cuboctahedron stereological formulas under alternative naming may be unindexed.",
+    "Full CDF proven only for D3, higher-dimensional statement is local and upper-tail only."
+  ],
+  "schema_version": 1
+}
