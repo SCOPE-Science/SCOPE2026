@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The cubic trace/harmonic decomposition is algebraic and orthogonal. The sixth sphere moment has six trace-free cross-pairings; Haar columns are orthogonal pointwise and each has a uniform sphere marginal, yielding the claimed exact mean and second moment without assuming column independence. Completing the squared-risk quadratic proves the signed unique radius and equality boundaries. The global strong-convexity witness follows from an explicit Hessian lower bound. The standalone verifier passed 1967 exact rational assertions for direct symmetric finite differences and moment/risk formulas. No finite computation is used to prove the universal dimension claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feng--Wang, arXiv:2205.14737, Sections 3.1--3.2: variance and bias upper bounds for general smooth functions.",
+        "Kozak et al., arXiv:2107.03941, Sections 2--3: random-frame forward differences and objective convergence assumptions.",
+        "Rando et al., arXiv:2206.05124, abstract, Sections 2--4: stochastic structured forward differences and iteration rates.",
+        "Yu et al., NeurIPS 2024 / arXiv:2406.19617, Algorithm 1 and Theorem 4.1 (proceedings PDF pages 5 and 8): independent spherical samples with anisotropic transform, absolute bias and covariance trace bounds; not a Haar-orthogonal Stiefel-frame exact cubic identity."
+      ],
+      "reasoning": "A stronger exact risk theorem for all cubics would dominate the proposed identity, but the inspected closest work instead supplies bounds, convergence conclusions, or differently normalized forward steps. The known general estimator itself and underlying moments do not by their stated results settle the sharp radius sign transition. The possibility of uninspected specialized literature remains a residual risk.",
+      "searches": [
+        "arXiv:2205.14737 Theorem 1 variance gradient estimator",
+        "arXiv:2107.03941 stochastic subspace random orthogonal directions",
+        "arXiv:2206.05124 stochastic zeroth order structured directions cubic",
+        "Stiefel orthogonal finite difference cubic trace free gradient estimator variance exact",
+        "arXiv:2406.19617 Theorem 4.1 spherical sampling gradient estimator bias variance 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.14737 (Feng--Wang; first public 2022-05-29)",
+      "arXiv:2107.03941 (Kozak et al.; first public 2021-07-08)",
+      "arXiv:2206.05124 (Rando et al.; 2022)",
+      "published-finding corpus:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "published-finding corpus:2026/10/4/SCOPE-sharp-cubic-harmonic-curvature-bound-and-the-exact-positive-wign--4457396bffc8",
+      "arXiv:2406.19617 (Yu et al. 2024; NeurIPS 2024 proceedings Algorithm 1 and Theorem 4.1, inspected PDF)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Feng--Wang arXiv:2205.14737 Section 3 uses pointwise orthogonality and Stiefel marginals; this supplies the second-moment starting identity but not its specific degree-six harmonic contraction.",
+        "The proposed nonzero-radius sharpness depends on the signed mixed term of the cubic trace vector and true gradient. The existing upper bounds do not retain the sign needed to derive an if-and-only-if optimizer.",
+        "Earlier numerical research on Haar finite-difference descent concerns quadratic objectives and one-sided sampling; the exact cubic centered estimator and risk are not implied by those claims.",
+        "Yu et al. 2024 Theorem 4.1 gives a noise-dependent variance upper bound and a derivative regularity bias bound for iid sphere directions; its estimator samples independently, so it does not imply the orthonormal cross-term collapse or exact harmonic cubic optimal-radius classification."
+      ],
+      "reasoning": "The claimed result is not merely a change of name, grid, or parameter within a published theorem. Deriving it requires the harmonic/radial contraction of all spherical sixth moments and minimization of the resulting exact signed risk. Some steps are algebraic specializations of familiar tools, a residual risk explicitly acknowledged, but the source results checked do not themselves give a stronger formula or radius rule.",
+      "searches": [
+        "Exact cubic-order mean squared gradient risk for Haar Stiefel orthogonal random-direction centered finite differences trace harmonic tensor and optimal positive finite difference radius",
+        "Nonzero optimal smoothing perturbation in noiseless orthogonal zeroth order gradient estimation when derivative and cubic trace oppose",
+        "arXiv:2205.14737 exact variance bounds central finite differences",
+        "arXiv:2107.03941 finite difference smoothing random orthogonal Hessian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feng--Wang 2022 arXiv:2205.14737, Eq. (1), Section 3 and Appendix A: identical estimator, spherical-moment basis; general variance bound and bias bounds, not the exact harmonic cubic decomposition.",
+        "Exact cubic risk is equivalently an exact order-six spherical moment evaluation; the theorem includes a signed optimal radius and zero-variance rigidity that the inspected source does not state."
+      ],
+      "reasoning": "Rewriting a cubic as harmonic plus radial changes the known estimator analysis into two orthogonal variance components. These exact components and the radius phase criterion are not equivalent to a published general bound. General sphere moment identities are established background, not claimed new.",
+      "searches": [
+        "Exact cubic-order mean squared gradient risk for Haar Stiefel orthogonal random-direction centered finite differences trace harmonic tensor and optimal positive finite difference radius",
+        "Feng Wang 2205.14737 cubic directional derivative sixth spherical moments equality",
+        "\"cubic\" \"Stiefel\" \"finite difference\" variance tensor",
+        "\"harmonic\" \"orthogonal\" \"finite difference\" gradient variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus result 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248: sharp Haar projector second moments and stationarity rates for sparse SSD, not a central finite-difference cubic gradient MSE table.",
+        "Published arXiv:2205.14737 Section 5 provides empirical errors for a smooth test function, not an exact table of cubic tensor risk thresholds."
+      ],
+      "reasoning": "The actual database and literature searches did not find an exact table or stored theorem with the asserted cubic-jet risk and optimal-radius classifications. This absence does not establish uniqueness, and the nearest Haar-moment study has an output (stationarity rate) that cannot imply the exact cubic central-difference radius law.",
+      "searches": [
+        "Exact cubic-order mean squared gradient risk for Haar Stiefel orthogonal random-direction centered finite differences trace harmonic tensor and optimal positive finite difference radius",
+        "Nonzero optimal smoothing perturbation in noiseless orthogonal zeroth order gradient estimation when derivative and cubic trace oppose",
+        "published-finding corpus: Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+        "\"finite difference\" \"positive\" \"radius\" \"noiseless\" \"zeroth order\" gradient variance"
+      ]
+    },
+    "rationale": "Feng--Wang (arXiv:2205.14737) supplies the same Haar-Stiefel central-difference estimator and general bias/variance bounds. Its inspected Theorem 1, Theorem 2, proof and numerical/appendix sections do not state the exact cubic trace/harmonic risk identity, full variance-zero classification or signed finite-radius optimality theorem. Kozak et al. (arXiv:2107.03941) and Rando et al. (arXiv:2206.05124) analyze convergence of random orthogonal directional descent with forward differences. General sphere pairing moments and the generic second-moment identity are acknowledged prior art. Matching published published-finding corpus hits treated as closest scientific comparison include exact Haar moments for sparse subspace descent, but that result concerns stationarity rates rather than cubic finite-difference gradient risk. A highly specialized older derivation could exist; noncoverage is a best-knowledge claim, not formal proof of originality.",
+    "residual_risks": [
+      "Classical harmonic projection and spherical sixth-moment contractions make the exact identity accessible from prior estimator formulas; a specialized already-published cubic version may have escaped search.",
+      "Some arXiv PDF portions and earlier specialist literature were not exhaustively examined. No search or partition can prove global novelty.",
+      "The optimal radius depends on unknown true derivatives; practical parameter estimation is not established.",
+      "The 2024 sharp iid spherical bias/variance bounds cover related smoothness but not the orthonormal-frame cubic identity; more specialized exact tensor calculations could still exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identical estimator and moment ingredients are prior; inspected theorems bound rather than classify exact cubic risk, zero variance, or finite-radius optimum.",
+        "evidence": [
+          "arXiv:2205.14737 Eq. (1), Theorem 1, Theorem 2, Sections 3 and 5, Appendix A."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.14737",
+        "material_read": "Full accessible arXiv HTML article with relevant introduction, Section 3 variance/bias theorems and proof, empirical Section 5, discussion Section 7, and Appendix A spherical-moment proofs, with extracted mathematical statements where available",
+        "method": "Full-text HTML/section examination via arXiv; PDF endpoint also attempted but unavailable",
+        "title": "Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+        "trigger": "Identical central Stiefel gradient estimator; strongest likely overlap"
+      },
+      {
+        "assessment": "Forward difference and descent-rate results differ from exact centered cubic trace/harmonic gradient risk; less relevant uninspected parts remain a limitation.",
+        "evidence": [
+          "arXiv:2107.03941 page 3 Eq. (2.1) and Example 2.2, convergence introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.03941",
+        "material_read": "Abstract, introduction, algorithm and random-frame examples in PDF pages 1--3, relevant convergence conclusions and variance keyword locations",
+        "method": "Opened PDF text and page screenshot for formula/normalization confirmation",
+        "title": "Zeroth order optimization with orthogonal random directions",
+        "trigger": "Core source on Haar orthogonal directional finite differences"
+      },
+      {
+        "assessment": "Forward-difference stochastic optimization convergence analysis, not the exact centered cubic single-estimate risk or signed optimal-radius rule.",
+        "evidence": [
+          "arXiv:2206.05124 abstract primary MSC 90C56, pages 1--3 Assumptions 1--2, Section 4, Appendix D."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.05124",
+        "material_read": "Abstract, theorem motivation, algorithm and assumptions (PDF pages 1--3), convergence-rate section and selected Appendix D comparison/limitations",
+        "method": "Opened PDF text and screenshot of assumptions, searched the full parsed PDF for cubic/central and variance material",
+        "title": "Stochastic Zeroth Order Descent with Structured Directions",
+        "trigger": "Published methods using multiple orthogonal directions and variance assumptions"
+      },
+      {
+        "assessment": "Its independent spherical samples, ellipsoid transformation, stochastic observation noise, and universal bias/variance upper bounds do not imply the exact harmonic cubic risk of a single Haar-orthogonal frame or the noise-free sign-dependent positive-radius minimizer.",
+        "evidence": [
+          "NeurIPS 2024 proceedings PDF, Algorithm 1 and Theorem 4.1, page 5: sample each direction independently, covariance trace inequality (3) and bias inequality (2).",
+          "Proceedings PDF, Section 4.2 page 8: derivation of general spherical estimator bias bound."
+        ],
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2024/file/b444ad72520a5f5c467343be88e352ed-Paper-Conference.pdf",
+        "material_read": "Full-text PDF introduction/related work (pages 1--3), Algorithm 1 and Theorem 4.1 on page 5, and the beginning of its proof of Theorem 4.1 on page 8; source screenshots visually inspected.",
+        "method": "Compare sampling law, estimator normalization, the assumptions, theorems, error quantities and implication directions.",
+        "title": "Stochastic Zeroth-Order Optimization under Strongly Convexity and Lipschitz Hessian: Minimax Sample Complexity",
+        "trigger": "Its 2024 abstract advertises sharp spherical gradient-estimator bias/variance under high-order smoothness, a plausible stronger comparator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34ddbe84-f4e1-4465-aafe-bb77cfdc75c4",
+  "value": {
+    "rationale": "Cubic terms are the first nonzero local truncation error of centered differences. The result gives the exact geometric split of full-frame stochastic error and the complete zero-variance cases; most importantly, it reveals and quantifies a strict, noiseless, positive-radius MSE optimum for undercomplete orthogonal frames. The sharp \\(d/k\\) improvement is achieved on a globally strongly convex polynomial, so the phenomenon is relevant to safe derivative-free gradient estimation rather than a degeneracy of an ill-posed objective. The result supplies interpretable structural and finite-sample benchmarks even without a downstream convergence theorem.",
+    "status": "PASS"
+  }
+}

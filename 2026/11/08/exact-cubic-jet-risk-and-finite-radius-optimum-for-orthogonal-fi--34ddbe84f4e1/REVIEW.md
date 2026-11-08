@@ -1,0 +1,19 @@
+# Scientific review: cubic-jet risk of orthogonal finite differences
+
+## Correctness — PASS
+
+The claim uses the centered \(d/k\)-normalized Haar \(k\)-frame gradient estimator and an odd cubic plus any even differentiable function. The proof gives the exact cubic trace/harmonic tensor decomposition, sphere fourth/sixth moments, and the orthonormal-column identity that kills all pair cross terms. The gradient mean, variance and Euclidean mean-square error follow with no limit or missing stochastic independence assumption. The risk is a positive-coefficient quadratic in \(h^2\) when the cubic is nonzero, proving the strict if-and-only-if threshold and optimizer. The strong-convexity lower bound for the example is explicit. \(1967\) exact-rational assertions in the standalone checker cover direct stencil values, tensor identities, exact sphere moments and radius-optimality examples. Finite checks supplement, not replace, the universal analytic proof. Boundary cases \(k=d\), zero tensor and zero trace are explicitly handled.
+
+## Originality — PASS (with residual publication-priority risk)
+
+Feng and Wang (arXiv:2205.14737) introduce the exact Stiefel-centered estimator, establish general variance and bias bounds, and provide basic spherical-moment facts. Those facts are acknowledged as prior art. Their inspected gradient variance and bias theorems, proof and experimental/appendix material do not state the exact harmonic/trace cubic risk decomposition, complete zero-variance classification or beneficial nonzero-radius criterion. Kozak et al. (arXiv:2107.03941) and Rando et al. (arXiv:2206.05124) study random orthogonal directions and convergence using forward finite differences; their relevant sections do not provide this exact centered cubic moment/radius classification. Yu et al. (arXiv:2406.19617), Algorithm 1 and Theorem 4.1, analyze bias and covariance bounds for independent spherical or ellipsoidal direction samples, not the exact risk under a Haar-orthonormal frame. Previously known exact Haar-frame numerical examples concern different objectives and sampling updates. The claim is not that Haar moment integration itself is novel, but the sharp, signed bias-versus-random-subspace-risk tradeoff and its convex witness. The underlying general variance identity makes specialization mathematically accessible; an older specialized derivation remains possible.
+
+## Value — PASS
+
+Cubic derivatives are the first nonvanishing local truncation terms for centered differences. The exact tensor law supplies a geometric explanation for residual randomness at a complete orthonormal frame, including its rigidity and dependence only on the harmonic cubic component. More unexpectedly, reducing the perturbation radius to zero can increase mean-square error for an undercomplete frame even with zero evaluation noise, and the improvement can be exactly a factor \(d/k\) on a globally strongly convex objective. This is a meaningful boundary for how derivative-free variance and finite-difference bias interact, not a minor rearrangement of a finite example.
+
+## Sources, limits, and integrity
+
+Primary motivation and closest comparator: https://arxiv.org/abs/2205.14737 (first public 2022-05-29). Supporting comparisons: https://arxiv.org/abs/2107.03941, https://arxiv.org/abs/2206.05124 and https://arxiv.org/abs/2406.19617. Classical sphere pairing and tensor-trace identities are not claimed as independent contributions. Risk is a one-point Euclidean, noise-free quantity, and the optimum radius requires unavailable oracle derivative information in a black-box setting. Generic higher odd terms, iterative convergence and noisy evaluations are not covered. A specialist historical source could contain a mathematically equivalent formula. No external independent verification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
