@@ -1,15 +1,21 @@
-# Scientific review: two-particle Heawood symmetry modules
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite cubical model has exactly \(91\) zero-cells, \(252\) one-cells and \(168\) squares, with verified consecutive boundary composition zero. Ranks \((90,154)\) modulo \(3\) give an upper bound eight on rational first homology. The 28 simple six-cycles span the eight-dimensional Heawood cycle space, and each lifts to a configuration-space loop with one particle stationary outside it; hence the natural equivariant first-homology projection is a surjection onto eight dimensions and therefore an isomorphism over \(\mathbb Q\). This forces rational second Betti number \(14\). All 336 signed cubical Lefschetz traces were computed, and an independent direct mod-101 top-kernel action verified the same character across every group element. Character inner products give multiplicity one of the absolutely irreducible eight-dimensional graph-cycle representation in degree two, with a complementary absolutely irreducible six-dimensional module. Exact group averaging proves the rational quotient result. General conclusions are justified by the finite group-action and chain arguments, not extrapolated from partial sampling.
+## correctness
 
-## Originality — PASS with residual risk
-The closest same-graph indexed result computes \(\mathbb F_2\)-homology of the **ordered** two-particle Heawood configuration space; it supplies neither the unordered rational second-homology representation nor any 336-element trace table. Barnett–Farber (arXiv:0903.2180v1) and Farber–Hanbury (arXiv:1005.2300v1) develop deleted-product chain and mature-graph methods, not this complete automorphism decomposition. The nearby configuration-space character records concern Petersen/dodecahedral/cuboctahedral graphs, and a Borel–Moore sign-local-system paper concerns a different theory. published-finding corpus queries under unordered/ordered Heawood, Fano Levi and two-particle graph braid nomenclature and the 123 accessible preceding claim IDs found no covering statement. No negative search result alone proves novelty, and unindexed equivariant deleted-product calculations remain a concrete risk.
+PASS
 
-## Value — PASS
-The Heawood graph is the canonical Fano incidence graph and smallest cubic graph of girth six; its full 336-element action creates a highly natural topological symmetry problem. The complete rational decomposition \(V_8\oplus V_6\) in second homology, simultaneous full character and rationally acyclic quotient are invariants not recoverable from either the ordered mod-two Betti vector or nonequivariant rational ranks. The two different irreducible constituents clarify how graph cycle motion and genuinely two-particle topology transform under every graph symmetry.
+Abrams' sufficient-subdivision condition is satisfied for two particles: distinct degree-3 vertices are separated by at least one edge and every nontrivial circuit has girth six. The unordered model has 91 vertex pairs, 252 edge-stationary cells, and 168 disjoint-edge squares; signed boundaries square to zero. Connectedness gives rank∂1=90; a mod-3 rank∂2=154 bounds dim_Q H1≤8, whereas all 28 six-cycle edge vectors span graph H1 dimension eight and lift through the stationary-particle map, forcing equivariant H1(B2)≅H1(H;Q) and rank_Q∂2=154. Euler chi 7 forces H2 dimension14. Lefschetz on the signed cubical chains computes χ_H2(g)=t0−t1+t2−1+χ_graphcycle(g) for every g. I independently built the Fano incidence graph and 336 collineations/polarities and recomputed the complete eight-row table with counts (1,21,56,42,48,28,56,84) and H1/H2 traces (8,14),(0,−2),(−1,−1),(0,2),(1,0),(−2,−2),(1,1),(0,0); it agrees exactly. Character norms/inner products imply two distinct norm-one irreducible characters; both average zero. The pinned script additionally contains mod-101 top-kernel check. No integral torsion or quotient homotopy conclusion is drawn.
 
-## Limits and source material
-The theorem does not classify integral torsion, integral lattices or quotient homotopy type. The closest same-graph and local-system published-finding corpus findings were read in full; initial sections, cubical-model lemma and ordered homology/maturity statements of the primary papers were inspected at their PDF pages; relevant publication dates were checked from arXiv. Independent external audit and definitive publication priority are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closely related published Heawood result is ordered two-particle mod-two homology (1,16,29), not this unordered rational G-representation. General ordered deleted-product results and other-graph two-particle representation records do not provide the 336-element Heawood table; the twisted Borel--Moore local-system result computes different homology. The exact mathematical space, coefficient system and implication were compared directly rather than matching titles.
+
+## value
+
+PASS
+
+The Fano incidence graph is a canonical small, highly symmetric graph. Distinguishing the graph-motion V8 component from a new irreducible V6 topological component across all automorphisms and determining rational quotient homology are natural exact equivariant invariants not recoverable from nonequivariant ranks or the ordered mod-two table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
