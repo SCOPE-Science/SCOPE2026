@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cylindrical field, global radial and axial bounds, reciprocal-radius divergence identity, saddle/sink Jacobians, and power-weight optimum are proved from algebraic formulas. The endpoint allows divergence to vanish on a line only, preserving strict negativity of its area integral. Boundedness, planar Poincaré–Bendixson theory and exclusion of the unique possible saddle loop establish an exhaustive omega-limit classification; the exact angular derivative and invariant-measure recurrence then give the three measures and physical basin distinction. Exact symbolic identities were independently recomputed from the manuscript's vector field using the included verification program. The global topological proof relies on standard phase-plane and stable-manifold theorems, not on finite sampling.
+## correctness
 
-## Originality — PASS (evidence-limited)
-The original arXiv:2610.09176v1 Lemma 1 establishes two hyperbolic circles and an unweighted-divergence no-cycle condition only for \(\mu\leq588/6575\). Its numerical illustration already describes a saddle basin boundary for one specific parameter; no novelty is claimed for this picture. An earlier same-family analysis establishes the parameter conjugacy and exact isochron, but not the inverse-radius cutoff, all-orbit theorem, or invariant-measure simplex. Literature and mathematical record searches, including aliases and implications, found no stronger same-object assertion. Historical priority is provisional, not independently certified.
+PASS
 
-## Mathematical value — PASS
-The certificate applies to a natural, recently published three-dimensional polynomial vector field that has an attracting equilibrium and a second attracting periodic orbit. The exact 26.24% extension of a no-hidden-cycle parameter interval, optimality among simple radial power multipliers, and globally complete limit and statistical picture address meaningful quantitative and structural gaps. No general theorem for arbitrary polynomial flows, actual sharp bifurcation location, or everywhere-Hurwitz property over the enlarged interval is claimed.
+In r=sqrt(x²+y²), cylindrical field is rdot=-(mu r/21)P(r,z), zdot=-z-r²/10, thetadot=1+e(z+r²/10), P=21r^4-125r²+400z²+100. P nonnegative for r²>=5 gives a forward radial bound; explicit variation of constants bounds z, hence global flow. The exact reciprocal-radius multiplier B=1/r has divergence [((15625mu-1764)/1764)-4mu(r²-125/84)²]/r, strictly negative a.e. on r>0 for mu<=1764/15625, excluding every periodic orbit and closed saddle separatrix via Green/Bendixson-Dulac. Reduced equilibria (r,z)=(1,-1/10) saddle, (2,-2/5) sink and (0,0) origin sink; bounded planar Poincare–Bendixson with unique saddle excludes other omega limit configurations. Hyperbolic convergence makes phase drift integrable; exact d/dt(theta+e z)=1 gives asymptotic phase. By Poincare recurrence every invariant Borel probability is carried on origin and two circles, and the saddle circle has a zero-volume stable manifold, giving exactly two physical ergodic measures. For general r^alpha multiplier, alpha<-1 gives divergence positive as |z|->infinity and for alpha>=-1 the minimized bracket is strictly decreasing in alpha, proving optimality at alpha=-1. Independent exact symbolic divergence, quadratic completion and Jacobian reconstructed; all orbits theorem uses actual topological proof, not finite simulation.
 
-## Sources, overlaps and risks
-Primary source: Á. Castañeda and S. Rebollo-Perdomo, *A family of Hurwitz polynomial vector fields in R3 having non-constant periodic orbits*, arXiv:2610.09176v1 (2026-10-06), Sections 2–4. Related nilpotent-Jacobian study: arXiv:2209.06986 (abstract checked, different class). Closest searches of mathematical research records concerned different flows; the accessible earlier same-family claim concerns an exact conjugacy and isochron, not the new parameter/domain and statistical theorem. The original paper already establishes the local periodic orbit types, and the Poincaré–Bendixson/Bendixson–Dulac methods are classical. Nonindexed exact-bound results cannot be excluded, and the bound beyond the power multiplier class is open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact underlying polynomial flow, two circles, their local stability and an unweighted-Dulac no-cycle bound mu<=588/6575 belong to Castañeda–Rebollo-Perdomo 2026; at mu=1/1000 their qualitative basin separator is also prior. The surviving new content is strengthened uniform parameter interval to 1764/15625 (factor 789/625), sharpness among radial powers, exhaustive all-forward-orbits convergence and all invariant/physical measures. General Bendixson–Dulac and Poincare–Bendixson principles are textbook tools; specific sign certificate and threshold are not in inspected older paper. No published Resultary entry for same field/threshold. Potential unseen same-family improvement remains.
+
+## value
+
+PASS
+
+The enlarged certified global parameter regime and complete invariant probability simplex meaningfully resolve qualitative three-dimensional dynamics of a published counterexample family; inverse-radius optimization has explicit structural motivation, rather than an unmotivated tiny numerical improvement. Does not claim actual no-cycle threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
