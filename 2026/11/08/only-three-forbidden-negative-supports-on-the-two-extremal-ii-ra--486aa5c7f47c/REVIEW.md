@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** Miranda--Persson's primary classification gives the fiber types and trivial section groups; adjunction and \(K_X=-F\) exclude all other negative curves. The \(II^*\) fiber matrix has affine \(E_8\) radical; the section intersects its multiplicity-one tip. The explicit Schur-complement values isolate precisely one additional singular nine-curve support. A standalone two-method exhaustive integer/rational check verifies the complete ten-curve subset classification, but the general geometric argument—not the finite program—justifies completeness.
+
+**Originality — PASS, provisional priority.** The primary 1986 classification determines the surfaces, not their chamber stratification. The 2009 chamber-support theorem determines how to count once all negative curves and their intersection matrix are supplied; it does not state the three-exception result or either surface's chamber count. The 2012 counting paper studies different examples and gives no \(II^*\) census. Targeted mathematical-literature and published mathematical-result searches found no identical or stronger theorem. Unindexed specialist computations of affine \(E_8\) supports remain possible.
+
+**Mathematical value — PASS.** This is a complete natural classification for two classically distinguished extremal elliptic surfaces, not an arbitrary numerical slice. The result isolates three forbidden supports among \(1024\), determines the entire support-size distribution and maximal negative support, and shows the classification is shared by isotrivial and non-isotrivial extremal examples because only the marked affine \(E_8\) configuration matters. It supplies an exact benchmark for big-divisor Zariski decompositions on rational elliptic surfaces; it is not offered as a general classification of other fiber types.
+
+Self-review: passed. Independent audit: not yet performed.
