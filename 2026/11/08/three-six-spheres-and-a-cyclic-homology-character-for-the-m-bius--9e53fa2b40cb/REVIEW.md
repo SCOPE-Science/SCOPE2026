@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The graph, the face predicate and the canonical rotation are all fully defined and verified directly. Two independent exhaustive methods find 6,813 faces including the empty face. A deterministic discrete-Morse matching has precisely one critical vertex and three critical six-simplices, with all 35,104 ordinary Hasse incidences exhaustively topologically sorted to prove acyclicity. Forman's CW theorem therefore gives the claimed integral wedge, with no unattested attaching-map step. Signed fixed-face Lefschetz traces for each of the eight rotations compute the rational sixth-homology character; an exact modular-two chain-rank computation corroborates the homology. The included `verify.py` and `verification_output.txt` reproduce all numeric assertions. Limits: finite exact computation establishes this graph only.
+
+## Originality — PASS on inspected evidence
+The closest prior studies concern the ordinary independence complex of the Möbius–Kantor graph (one-independence), its matching complex, the cyclic symmetry of its ordinary independence homology, and two-independence of the *different* Petersen graph. The result statements of the three closest entries were inspected in full and compared by definition and parameter, rather than by graph title. The full accessible primary Deshpande–Singh paper covers complete multipartite graphs, whiskered graphs, cycles and perfect rooted trees, and does not supply a formula for this nonchordal generalized Petersen graph. The general chordal theorem of Deshpande–Shukla–Singh does not apply. The new homotopy type and cyclic rational character are not logical consequences of any inspected result. Residual risks: unindexed equivalent calculations and limited full-text access to some graph-specific publications; independent priority assessment has not been performed.
+
+## Mathematical value — PASS
+The Möbius–Kantor graph is a canonical highly symmetric 16-vertex incidence graph, and two-independence is the next natural stage after its studied ordinary independence complex. The complex is nonpure and seven-dimensional but collapses homotopically to exactly three six-spheres; additionally the natural cyclic rotation has no rational fixed homology, a structural distinction invisible to Betti numbers. This answers two mathematically linked questions for a natural object, not a freely selected parameter slice or merely a face-count exercise.
+
+Self-review: passed. Independent audit: not yet performed.
