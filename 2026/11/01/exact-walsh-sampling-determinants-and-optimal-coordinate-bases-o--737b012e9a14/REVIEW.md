@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Edge-pair probabilities, the exact normalized covariance projection, Schur/Sylvester determinant identity, unsigned incidence Cauchy–Binet expansion, and odd-unicyclic determinant \(\pm2\) are proved algebraically in RESULT.md. Maximizers follow by component-size constraints; the counts on 3–5 vertices are fully classified. The independent checker reconstructs the sample Gram matrices rather than reusing the projection calculation. Its finite cases are corroboration, not the all-order proof. The \(N\ge6\) condition ensures the pair-disjoint probability and denominators are defined.
+## correctness
 
-**Originality — PASS under bounded literature review.** The exact uniform-matching edge-indicator Gram rank and spectrum and the incidence-minor/TU facts have precursors; these are explicitly not claimed novel. The inspected Godsil–Meagher and Lindzey papers give full first-band matching representation ranks but not all coordinate Gram determinants and the D-optimal labeled basis classification. The inspected Behrend and Zhang–Zhang papers establish general unsigned-incidence and odd-cycle determinant ingredients but do not address the matching harmonic-sampling design problem or its optimizer counts. The combination could be subsumed by an unlocated prior matroid-design treatment; this residual risk is disclosed.
+PASS
 
-**Mathematical value — PASS.** Uniform perfect matchings are a natural finite homogeneous sampling space, and loss of information under coordinate selection is a concrete harmonic-reconstruction question. The theorem determines all principal Gram determinants, exact independence boundaries, maximum-size independent coordinate sets, every positive maximal-basis determinant level, and all optimizing designs with labeled counts for infinitely many orders. This is stronger than the previously available first-band rank or isolated signless-graph determinant identity and informs exact volume-optimal coordinate acquisition.
+For all even N>=6, p=1/(N-1), the three possible indicator covariance entries agree with C=c_N P, where P=I-B^T(BB^T)^(-1)B is the orthogonal projection onto the kernel of the unsigned incidence matrix. Eliminating the constant from the Walsh Gram, Sylvester gives its principal determinant as (4c_N)^|S| det(B_F B_F^T)/D_N. Cauchy–Binet, unsigned odd-cycle determinants ±2, and componentwise nonbipartiteness prove the full sum and rank criterion. At |F|=N each component must be odd-unicyclic, yielding 4^b, 1<=b<=floor(N/3); 3/4/5-vertex labeled component counts 1/12/162 give exactly the three factorial optimizer formulas, including 10 at N=6 and 14112 at N=8. Empty S and N=6 boundary hold. Analytic proof extends to all allowed N, not from a finite census.
 
-The analytic result does not imply any condition-number optimality, nonlinear recovery result, or new signless-incidence determinant lemma. The strongest possible prior coverage remains incompletely knowable under bounded searches; independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge contribution is the all-subsets probability-normalized Walsh sampling determinant plus complete maximal-volume coordinate-basis topology and labeled counts, not the underlying signless Laplacian theorem or matching incidence spectrum. General unsigned incidence rank, spanning odd-unicyclic TU subgraph formulas and first-band matching spectrum are explicit prior ingredients; a full combined D-optimal sampling-design theorem was not located, but existing matroid basis literature might recast it.
+
+## value
+
+PASS
+
+Uniform perfect matchings on K_N are a natural homogeneous probability model. Which edge coordinates reconstruct all first-degree Walsh information, and which maximal independent selections maximize sampling determinant, are canonical exact design questions. The result gives every subset minor, all independence boundaries, all determinant levels and all labeled D-optimal bases for infinitely many N; not merely a renaming of known edge rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
