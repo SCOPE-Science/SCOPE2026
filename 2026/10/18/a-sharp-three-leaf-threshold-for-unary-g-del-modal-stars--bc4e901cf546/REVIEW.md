@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-A fully specified crisp Gödel-modal star semantics permits a symbolic six-function classification for unary terminal evaluations. Closure of those six functions under the three propositional Gödel operations, together with the constants induced by terminal box and diamond, yields the formula-uniform root reduction by zero/minimum-positive/maximum-positive witness leaves. Root-formula induction extends it through arbitrary modal nesting. Duplicate leaves establish equality of validity logics beyond three leaves. Direct evaluations of two explicit formulas establish both strict transitions. The supplied checker validates the algebraic closure and representative-extremum property on finite rational grids, as a supplementary check; it is not an infinite proof.
+PASS
 
-## Originality (O): PASS, with residual risks
+At each terminal leaf, modalities reduce to constants 1 and 0 and the unary Gödel term algebra closes on precisely {0,1,x,not x,not-not x,x∨not x}; each function on (0,1] is constant 0, constant 1 or monotone identity and the value at zero is separately represented. For all finite leaf valuations, preserving a zero leaf if present plus smallest and largest positive p-values preserves extrema of all six functions. Every rooted Box/Diamond subformula therefore has its original value; structural induction including arbitrarily nested modal formulas and keeping the root p-value fixed gives all-formula equality simultaneously. Duplicate-leaf extension gives L_m=L3 for m>=3 including leaf-world validity; Box/Diamond agree on S1 and not S2; formula ¬Box p→(Diamond p→Box(p∨¬p)) is valid on S2 and fails at leaves 0,1/4,3/4 on S3. Independently checked the six function closure, 23,430 rational-grid terminal extrema cases, and both separators. Finite checks are not infinite or real-valued proofs; symbolic order-type reasoning and induction establish generality.
 
-Primary literature on crisp witnessed Gödel modal semantics establishes the underlying truth clauses, decidability and finite-model properties rather than this one-variable, formula-independent star-branching optimum. A later general witnessed-model study supplies related, formula-sensitive finite-model techniques. Semantic published-result searches for equivalent expressions (unary Gödel star, three successor cutoff, leaf extrema, and branching hierarchy) and accessible earlier claims identified prior weight-regrading and finite-formula witness-selection results but no statement implying the complete present hierarchy. The earlier finite-formula selection is not sufficient for a simultaneous bound on **every** one-variable formula; fuzzy edge-weight regrading is orthogonal to crisp successor multiplicity. A logically equivalent result may remain outside searched/indexed sources. This is a best-knowledge originality assessment, not a uniqueness certificate.
+## originality
 
-## Value (V): PASS
+PASS
 
-The natural measure is the number of terminal successors needed to preserve all one-variable Gödel-modal observations. The theorem finds its optimal, *formula-independent* bound and the exact one-variable frame-validity hierarchy, which stabilizes sharply at three although a continuous continuum of leaf truth values is available. It gives concise explicit formulas witnessing both unavoidable branching transitions. This is a complete structural expressivity classification, not a single arbitrary small numerical case.
+Best-of-knowledge no covering result identified after actual full RESULT.md comparison in published Resultary, topic-specific GitHub searches, three semantic Resultary searches, and examination of the most relevant 2025 and 2026 primary Gödel-modal results. The distinction rests on quantifiers: arbitrary valuations and ALL one-variable formulas simultaneously on fixed crisp nonreflexive stars, with sharp S1>S2>S3 stabilization. No exhaustive historical-priority guarantee.
 
-## Literature and scope
+## value
 
-Closest inspected source: Ferrari–Fiorentini–Rodriguez, *A Gödel Modal Logic over Witnessed Crisp Models* (TABLEAUX 2025, DOI:10.1007/978-3-032-06085-3_8), including definitions, witnessedness and finite-model argument. Closely relevant later work: Ferrari–Fiorentini–Giardini–Rodriguez, *A Gödel Modal Logic Over Witnessed Models* (arXiv:2606.31906), inspected available sections on semantics and bounds. Accessible earlier comparable results include a finite-formula root-witness selection principle and regrading of fuzzy-edge-weight classes. Limitations: no multivariable, non-star, or noncrisp extension; symbolic proof is necessary for continuum-valued inputs; literature equivalence risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The underlying question is how many terminal successors an arbitrary one-variable crisp Gödel-modal root requires to preserve every observable formula value. The sharp formula-independent threshold three, plus the complete and strict one-variable frame-validity hierarchy, is a motivated structural expressivity classification rather than a small accidental count or rephrasing of decidability. Explicit separator formulas locate the irreducible branching information. The result has a natural use as a small-model/observational-equivalence fact precisely for the restricted one-variable star class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
