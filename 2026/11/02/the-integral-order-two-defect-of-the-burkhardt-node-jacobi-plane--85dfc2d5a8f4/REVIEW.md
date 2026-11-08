@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed invariant is explicitly defined on the geometric node and Jacobi-plane sets of the characteristic-two symmetric Burkhardt model. The singularity classification reduces to at most three coordinate values; an exhaustive exact field computation enumerates the 45 nodes and 40 nine-node planes and proves the quartic vanishes identically on every plane. The strong-regularity identity gives rational rank 25, binary row reduction gives rank 15, and an explicit integer maximal minor of determinant \(-2^{10}\) forces exactly ten Smith factors equal to two and fifteen units. The finite computation is exhaustive within the proved geometric reduction; it is not being extrapolated to an infinite theorem.
+## correctness
 
-**Originality — PASS, qualified.** The 45 nodes, 40 Jacobi planes, explicit plane equations, Frobenius splitting, rational intersection theory, and classical incidence counts are known. The specific integral Smith factors and order-two saturation defect are not stated in the inspected primary sources (Cheltsov–Przyjalkowski–Shramov, arXiv:1606.04372, Section 2; Bruin–Nasserden, arXiv:1705.09006, Sections 3–5; Szemberg–Szpond, arXiv:2606.30772, Sections 3–7; and the relevant geometric portion of the Selecta Mathematica treatment). The recent Pascal-construction paper provides extensive underlying incidence data, so it poses residual priority risk, but not a directly stated result or an immediate rank-only implication. An inaccessible historical 1990 paper is another residual risk. No direct equivalent appeared in targeted literature and mathematical-record searches; this absence alone is not treated as proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The node–plane incidence module is canonical for a distinguished 45-node quartic threefold with level-three modular geometry. Its nontrivial integral saturation defect is mathematically different from the classical 45/40 incidence counts and rational span, and can inform the study of integral cycle and relation lattices without purporting to identify a divisor class group. The explicit finite certificate allows further comparison with equivariant lattice structures.
+The 45-node characteristic-two configuration consists of fifteen two-support points and thirty paired-root points over F4. An independent exact F4 six-coordinate generator obtained those 45, enumerated all 13,950 noncollinear node triples, extracted precisely forty 9-node plane spans, and independently reconstructed the 45×40 integer incidence. Exact SymPy Smith form returned fifteen unit and ten factor-two entries, with rational rank 25 and mod2 rank 15. The source proof also establishes every nine-node plane lies on σ4=0 using coefficientwise polynomial expansion and identifies all geometric singular nodes via gradient case split and nondegenerate quadrics. Gram MMᵀ=8I+2A for SRG(45,32,22,24) gives rational rank25; explicit 25×25 minor of determinant -1024 and binary rank15 force exactly ten 2-torsion factors. Finite F4 enumeration is geometrically exhaustive because all node types and planes are separately algebraically classified, not because arbitrary point sampling suffices.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bruin–Nasserden and Cheltsov–Przyjalkowski–Shramov identify the 45 nodes, 40 Jacobi planes and geometric incidence, but those source statements and rational intersection-matrix ranks do not by themselves identify the integer 45×40 node-plane incidence Smith factors. Primary 2024/2025 geometry confirms 9 nodes per plane but no complete Smith form was located. The 1990 and 2026 full primary treatments may contain the equivalent integer calculation and remain important priority risks.
+
+## value
+
+PASS
+
+Integral saturation defects and exact torsion of canonical incidence lattices are natural invariants of this highly symmetric quartic. The ten order-two classes are invisible to the rational incidence rank; they provide exact arithmetic structure beyond known node and plane counts, without conflating incidence cokernel with Picard or divisor-class torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
