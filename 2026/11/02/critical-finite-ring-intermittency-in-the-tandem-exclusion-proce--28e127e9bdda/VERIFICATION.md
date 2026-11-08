@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The file `verify.py` is a self-contained Python 3 script using only the standard library. Execute `python verify.py` from the same directory.
+## correctness
 
-The reference execution passed 2,239 finite assertions. For rings of small sizes it checks exact cyclic run-count multiplicities and normalized stationary weights, compares five conditional moments against exhaustive configuration enumeration, and checks **every** finite-state global balance equation with rational rates on a family of fixed-composition rings. For larger sizes it evaluates stable run-count sums and compares the scaled mean and intensity variance with their analytical limits.
+PASS
 
-For \(\alpha=1.7\), \(\rho=0.37\), \(\lambda=2.5\), the verifier reported:
+For a cyclic configuration with c occupied runs the exact count is N/c*C(K-1,c-1)*C(N-K-1,c-1), Gibbs weight q^(K-c); q~lambda*N^2 yields tight Bessel run-count limit. Uniform positive compositions give E[A|c]=c(K-c)/(K-1), E[B|c]=c(c-1)/(N-K-1), and kth falling factorial moments O(N^-k); this implies E j->alpha*rho, j->0 in probability, Var(j)/N->alpha^2 lambda rho, higher scaled moments and rare-event threshold. Independently recomputed finite weighted balance equations and small-N run counts. The infinite statement follows analytic dominated convergence not finite checks.
 
-| \(N\) | \(\mathbb E[C(C-1)]\) | \(\mathbb E[j_N]\) | \(\operatorname{Var}(j_N)/N\) | \(N\mathbb E[B_N]\) |
-|---:|---:|---:|---:|---:|
-| 500 | 0.0924054103 | 0.6289081223 | 2.6577632717 | 0.1471423732 |
-| 2000 | 0.0930309515 | 0.6289770680 | 2.6693752630 | 0.1477854670 |
-| 8000 | 0.0931877128 | 0.6289942693 | 2.6722811231 | 0.1479463588 |
+## originality
 
-The analytical targets are \(\mathbb E[C(C-1)]\to0.09324\), \(\mathbb E[j_N]\to0.629\), \(\operatorname{Var}(j_N)/N\to2.67325\) and \(N\mathbb E[B_N]\to0.148\).
+PASS
 
-The infinite-size theorem comes from the explicit analytic combinatorics and dominated-convergence proof in `RESULT.md`. Finite enumeration and numerical convergence do not independently certify infinite-size asymptotics. The observable is a one-time conditional jump intensity, not the time-integrated current, temporal covariance or shot noise. Independent audit has not been performed.
+The static block law is an Ising-type known phenomenon and canonical Gibbs stationary process already published. Novelty assessed solely for joint high-rate scaling q/N^2, rare instantaneous intensity and anomalous configuration-level moments. No comparable result identified in searched sources, although primary original model text could contain overlapping kinetic analysis.
+
+## value
+
+PASS
+
+Explains rare high-rate stationary configurations generating finite mean and unbounded variance despite typical zero current, a mathematically distinctive scaling phenomenon for a physically established exclusion process, with explicit observables and thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
