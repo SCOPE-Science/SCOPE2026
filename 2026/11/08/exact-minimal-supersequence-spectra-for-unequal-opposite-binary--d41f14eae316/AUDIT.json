@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Every coordinate is essential for one of the two inputs, giving exact zero/one caps; sharing both symbols contradicts the opposite orders, and simultaneous cap equality violates essentiality. The remaining full-zero or full-one case forces a unique central run and two boundary-constrained outside words. Every construction is deletion-minimal, and binomial-squared counting is exact. A separately structured brute-force single-deletion checker agrees with all 16 small parameter pairs, plus four interleaving-based larger asymmetric checks; infinite proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sopp et al. proves enumeration with O(n) delay, not exact output class distribution.",
+        "Sun–Ge bounds primitive insertion-layer cardinalities and decomposes common-supersequence sets.",
+        "Lin gives fixed-length upper bounds, not exact two-run counts.",
+        "Alon et al. 2022 arXiv total-count inequality is incompatible, read literally, with 24 directly enumerated minimal supersequences for inputs 00111 and 11100, against a bound of 6."
+      ],
+      "reasoning": "All four sources study more general strings or transformations, but algorithmic generality and upper bounds do not supply the exact stated counts. The 2022 inequality cannot dominate a contradicted exact instance; the discrepancy is documented without asserting a resolved publication erratum. The accessible general results are not a covering theorem.",
+      "searches": [
+        "arXiv:2603.22591 Theorem 5.4",
+        "arXiv:2606.25822 Lemma 5.3 and Lemma 5.5",
+        "arXiv:2609.26650 Lemma 3.1",
+        "arXiv:2209.11882 Lemma 8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.22591",
+      "https://arxiv.org/abs/2606.25822",
+      "https://arxiv.org/html/2609.26650v1",
+      "https://arxiv.org/abs/2209.11882",
+      "https://doi.org/10.1007/3-540-58094-8_16",
+      "https://doi.org/10.1006/INCO.1996.0011"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equal-run diagonal gives two shortest solutions; unequal-run theorem gives exactly one.",
+        "Sopp general algorithms would enumerate words but do not assert the central shared-run decomposition.",
+        "Sun–Ge primitive layers bound a single length without evaluating the precise binomial-square sum.",
+        "Fraser–Irving 1994/1996 plausible primary source is bibliographically identified but full text inaccessible."
+      ],
+      "reasoning": "An exact unequal-run classification is neither a corollary of the published equal-run slice nor a special case of a published exact formula found in the accessible corpus. A general algorithm is not a theorem with an identical enumerative implication absent a separate analysis. Historical inaccessible material remains a genuine residual novelty risk.",
+      "searches": [
+        "Minimal common supersequences of opposite binary runs 0^a 1^b and 1^b 0^a: exactly two families, central shared run, generating polynomial sum of binomial squares and maximum length 2(a+b)-1",
+        "Longest minimal common supersequence of two reversed two-run binary strings and exact number of maximum-length words",
+        "arXiv:2603.22591 complete full text",
+        "arXiv:2606.25822 complete full text",
+        "arXiv:2209.11882 section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Accessible older equal-run formula counts only a=b; the new result explicitly assumes a≠b.",
+        "Sopp et al. (2026) Section 5 gives a general enumeration algorithm but no displayed opposite-two-run formula.",
+        "Sun and Ge (2026) Section 5 identifies primitive insertion layers, not the explicit two-run spectrum."
+      ],
+      "reasoning": "The equivalent objects are inclusion-minimal common supersequences, primitive insertion layers and shortest-excess length classes. General enumeration methods imply computational calculability but not the two-parameter closed-form characterization and one-branch transition without additional derivation. The equal-run formula does not imply the unequal-run law, especially the unique shortest word.",
+      "searches": [
+        "Minimal common supersequences of opposite binary runs 0^a 1^b and 1^b 0^a: exactly two families, central shared run, generating polynomial sum of binomial squares and maximum length 2(a+b)-1",
+        "Exact number and complete classification of minimal common supersequences for two binary monotone strings 0^a1^b, 1^b0^a, binomial-square length distribution",
+        "\"minimal common supersequences\" \"two runs\" exact count",
+        "\"minimal common supersequences\" \"binomial\" \"squared\" two strings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact asymmetric binomial-square table identified among returned published records.",
+        "Direct computation confirms the small asymmetric \\(a=2,b=3\\) length profile \\(1,5,18\\), distinct from previously considered symmetric cases."
+      ],
+      "reasoning": "No matching database or formal table surfaced; this negative search alone does not prove priority. The formula defines an infinite exact profile rather than an extension of one numerical row.",
+      "searches": [
+        "Exact number and complete classification of minimal common supersequences for two binary monotone strings 0^a1^b, 1^b0^a, binomial-square length distribution",
+        "minimal common supersequences two words opposite runs 0^a1^b 1^b0^a exact enumeration",
+        "published-finding corpus semantic opposite runs exact minimal common supersequences"
+      ]
+    },
+    "rationale": "The newly claimed domain a≠b gives a full unequal-run spectrum, one-versus-two family transition and unique shortest word. The previously considered symmetric diagonal does not entail this. Full-text general enumeration, fixed-length upper bounds and primitive-layer analyses do not explicitly derive the exact formula. Inaccessible 1994/1996 primary literature and possible corrected legacy counts remain residual priority risks. The contradicted 2022 arXiv inequality is not used as positive novelty evidence.",
+    "residual_risks": [
+      "Full text of Fraser–Irving 1994 and Fraser–Irving–Middendorf 1996 was not accessible; an implicit or explicit matching two-run result might exist.",
+      "The 2022 Alon et al. arXiv total-count lemma appears inconsistent with direct examples; a corrected archival version was not checked.",
+      "Unindexed computational tables or dissertations may contain the same spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General computation and enumeration; exact opposite-run two-parameter classification not present",
+        "evidence": [
+          "arXiv:2603.22591, sections 3 and 5, theorem 5.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.22591",
+        "material_read": "Complete publicly available HTML paper, with Sections 3–5 and Section 5 algorithm/proof compared",
+        "method": "Open full arXiv HTML and examine lemmas, algorithms and theorem statements",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Same definitions and 2026 algorithms for minimal common supersequence enumeration"
+      },
+      {
+        "assessment": "General primitive-layer bounds and decomposition; no exact opposite-run formula",
+        "evidence": [
+          "arXiv:2606.25822, Section 5, Lemma 5.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.25822",
+        "material_read": "Complete publicly available HTML, with main bounds and Section 5 definitions/lemmas examined",
+        "method": "Open full arXiv HTML; inspect Section 5 definition 5.1 and lemmas 5.3/5.5",
+        "title": "Extremal Deletion-Ball Intersections under Run-Count and Lower-Order Deletion-Ball Intersection Constraints",
+        "trigger": "Section 5 treats minimal common supersequences as primitive insertion layers"
+      },
+      {
+        "assessment": "Only general upper bound by excess length; no exact unequal-run distribution",
+        "evidence": [
+          "arXiv:2609.26650, Lemma 3.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.26650v1",
+        "material_read": "Full accessible HTML, especially Section 3 Lemma 3.1 and its proof",
+        "method": "Open full arXiv HTML, compare parameters and exact-versus-upper-bound statement",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Directly bounds counts of minimal common supersequences by length"
+      },
+      {
+        "assessment": "The literal v1 total bound conflicts with direct asymmetric enumeration; not logically covering as written",
+        "evidence": [
+          "arXiv:2209.11882, Lemma 8",
+          "For 00111 and 11100, shortest length 7; direct counts 1,5,18 at lengths 7,8,9"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11882",
+        "material_read": "Full accessible arXiv HTML, Section 3 Lemma 8 and proof",
+        "method": "Open full arXiv HTML, compare exact parameters and test smallest asymmetric instance",
+        "title": "Logarithmically Larger Deletion Codes of All Distances",
+        "trigger": "Published general total-count inequality for minimal common supersequences"
+      },
+      {
+        "assessment": "Cannot rule out an earlier exact special-family enumeration",
+        "evidence": [
+          "Irving and Fraser, CPM 1994, LNCS 807, pp.173–183"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/3-540-58094-8_16",
+        "material_read": "Abstract and bibliographic metadata only; full text not accessible",
+        "method": "Search OA/arXiv alternatives; attempt institutional access (unavailable)",
+        "title": "Maximal Common Subsequences and Minimal Common Supersequences (CPM 1994)",
+        "trigger": "Historically closest maximal-length minimal-supersequence work"
+      },
+      {
+        "assessment": "Possible priority risk for a specialized exact family; no same claim established",
+        "evidence": [
+          "Fraser, Irving and Middendorf, Information and Computation 124 (1996) 145–153"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/INCO.1996.0011",
+        "material_read": "Bibliographic abstract and references only; full text not accessible",
+        "method": "Search publisher and public metadata",
+        "title": "Maximal Common Subsequences and Minimal Common Supersequences (Information and Computation 1996)",
+        "trigger": "Expanded archival journal treatment of minimal common supersequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d41f14ea-e316-4839-8aad-968f8ba46b2e",
+  "value": {
+    "rationale": "A natural infinite two-parameter subclass of minimal merge/enumeration inputs receives a complete exact output-length spectrum and constructive bijection. Unlike the previously known diagonal specialization, unequal run lengths force exactly one shortest output and a sharp bifurcation between one-branch and two-branch length classes, an algorithmically relevant output-size profile.",
+    "status": "PASS"
+  }
+}
