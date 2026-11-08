@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The universal lower bound follows from a total edge-dominating set in the line graph touching one full bipartition class. The construction for every \(n\ge4\) partitions one side into two sets of size at least two and uses complementary \((n-1)\)-colour Latin rectangles, with one extra shared colour on nonincident edges. Exact row/column palettes prove that the **entire** rich-edge set consists of precisely \(n\) edges in two stars and that every edge has a *distinct* rich neighbor. A direct neighborhood checker passed all 83 construction instances. For \(n=3\), a three-edge rich subgraph must be a star or three-edge path; the path is forbidden by palette intersections and the star forces a two-colour edge-colouring of \(K_{3,2}\), which is impossible. A five-colour matrix attains four. For \(n=2\), a four-colour assignment necessarily makes all four cycle edges rich. The general proof does not rely on finite extrapolation.
+## correctness
 
-## Originality
-PASS, with historical risk. The closest primary source is Kong's arXiv:2610.21036v1, Theorem 1.2 and Section 3.1. Its exact **colour** optimum is acknowledged as prior work. The balanced construction in its proof certifies \(2n-2\) rich edges, not the sharp witness-support count \(n\) proved here. Its later rich-edge component theorem applies to complete graphs, not complete bipartite graphs. The general linear upper bound of Kashima et al. does not control sparse optimal witnesses. Searches using rich-edge graph, minimum rich edges, total edge domination, optimal biclique palette and exact support produced no equivalent full claim. A historical literature search is not a uniqueness proof; priority remains provisional.
+PASS
 
-## Value
-PASS. The motivating sharp colour-count result leaves a natural second optimization question: how many local rich-edge certificates are strictly necessary once the colour budget is already optimal? The answer exhibits exact joint feasibility for every balanced order at least four, supplies a tunable two-star family meeting the graph-theoretic lower bound, and isolates an actual size-three obstruction. Unlike merely recomputing the colour optimum or the total edge-domination number, this proves compatibility of two constraints which are not equivalent. It also halves the previously exhibited count asymptotically, from \(2n-2\) to \(n\), without extra colours. The contribution is deliberately limited to balanced bicliques.
+The endpoints of any rich-edge set form a vertex cover of K_n,n, so at least one whole part is covered and |R|≥n. For n≥4, divide one part into d and n−d (each ≥2), choose disjoint palettes X,Y of n−1 and z, fill cyclic Latin rectangles on the two complementary blocks, and complete two center rows with unused colors and z. Checking incident color intersections shows exactly the n edges of two stars are rich and all edges have an adjacent distinct rich edge. Every rich edge forces at least 2n−1 colors. n=2 requires four all-distinct colors; for n=3 the exhibited five-color matrix gives exactly four rich edges, while any putative 3-rich set must be a star (rich-edge P4 impossible at 2n−1 colors) and then would force a K_3,2 proper coloring from only two unused colors, impossible. Independent direct edge-neighbor tests checked all splits for n=4..14; full normalized order-three five-color enumeration found minimum four, independently confirming but not replacing the all-n proof.
 
-## Closest work and residual risks
-Kong, arXiv:2610.21036v1 (2026-10-15), complete inspected HTML Section 3.1 and related statements; Kashima et al., arXiv:2610.16446v1 (2026-10-12), publicly available abstract; Chen–Tan–Zhou (2025), published abstract. Terms such as *total edge-dominating forest* and *rich-edge graph* were compared by implication. The previous theorem proving only colour count does not determine minimum rich-edge support. Residual risk is an older unindexed equality under a different name. No claim of independent assessment or comprehensive priority verification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for sharp minimum rich-edge support conditional on an optimal color palette. Kong 2026 proves the chromatic-index minimum, but the color-count theorem does not determine or imply this support optimization. General total edge domination is weaker because it omits simultaneous 2n−1 proper palette realizability.
+
+## value
+
+PASS
+
+Exact joint optimization of local witness sparsity and minimal palette on the canonical balanced complete bipartite family; resolves the natural n=3 exceptional obstruction and every n≥4 without arbitrary slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

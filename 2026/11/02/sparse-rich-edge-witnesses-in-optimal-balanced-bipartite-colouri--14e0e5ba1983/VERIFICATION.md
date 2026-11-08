@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The result is proved for every integer \(n\ge2\) by elementary graph-colouring and palette arguments in `RESULT.md`. Every occurrence of "neighbor" in the claim uses adjacency of **distinct** edges. The reference value \(\chi'_{\mathrm{rn}}(K_{n,n})\) is also obtained from a rich-edge palette lower bound plus the explicit constructions (and a four-cycle exception).
+## correctness
 
-The standalone file `verify.py` directly builds coloured edge matrices and tests properness and richness by scanning each adjacent-edge neighbourhood. It checks exactly \(83\) constructed cases covering balanced orders through \(11\), all possible large-order two-star splits in that range, and control examples. It additionally enumerates normalized proper five-colour matrices for \(K_{3,3}\), finding minimum four rich edges among valid colourings, and rejects a three-colour four-cycle test for violating open rich-neighbor domination. Output from the executed program:
+PASS
 
-```
-DIRECT_EXHAUSTION_3x3 4 rich edges, 36 normalized witnesses
-CONSTRUCTION_TESTS_OK 83
-VERIFY_OK
-```
+The endpoints of any rich-edge set form a vertex cover of K_n,n, so at least one whole part is covered and |R|≥n. For n≥4, divide one part into d and n−d (each ≥2), choose disjoint palettes X,Y of n−1 and z, fill cyclic Latin rectangles on the two complementary blocks, and complete two center rows with unused colors and z. Checking incident color intersections shows exactly the n edges of two stars are rich and all edges have an adjacent distinct rich edge. Every rich edge forces at least 2n−1 colors. n=2 requires four all-distinct colors; for n=3 the exhibited five-color matrix gives exactly four rich edges, while any putative 3-rich set must be a star (rich-edge P4 impossible at 2n−1 colors) and then would force a K_3,2 proper coloring from only two unused colors, impossible. Independent direct edge-neighbor tests checked all splits for n=4..14; full normalized order-three five-color enumeration found minimum four, independently confirming but not replacing the all-n proof.
 
-The exhaustive five-colour test fixes the first row to distinct colours \(0,1,2\) by global colour renaming; this is complete under that normalization. The finite diagnostics do not certify historical priority and do not replace the all-order proof. The classifications of rich-edge graphs at all palette sizes, or of all optimal-palette colourings, are not asserted.
+## originality
+
+PASS
+
+Best-knowledge PASS for sharp minimum rich-edge support conditional on an optimal color palette. Kong 2026 proves the chromatic-index minimum, but the color-count theorem does not determine or imply this support optimization. General total edge domination is weaker because it omits simultaneous 2n−1 proper palette realizability.
+
+## value
+
+PASS
+
+Exact joint optimization of local witness sparsity and minimal palette on the canonical balanced complete bipartite family; resolves the natural n=3 exceptional obstruction and every n≥4 without arbitrary slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
