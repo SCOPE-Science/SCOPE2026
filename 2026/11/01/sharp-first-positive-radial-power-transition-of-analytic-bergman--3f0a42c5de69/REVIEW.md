@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact normalized monomial moments imply the displayed rational kernel. All five reciprocal resultants and the degree-five discriminant are symbolic polynomial identities, replayed by the standalone checker. The only possible boundary event for origin exponent \(eta\ge0\) and integer boundary order \(m\le4\) is \(m=4,eta=1\). Critical factorization gives two distinct unit roots and three exterior roots; the strictly negative root-modulus derivative and exclusion of all further boundary events prove the global root-count claims. The proof is analytic and exact; sample finite roots are only auxiliary checks.
+## correctness
 
-**Originality — PASS, provisional.** Perälä's general radial-weight zero constructions and Ghiloufi–Snoun's closely related weighted kernels were compared at theorem and formula level. The latter principally uses punctured-disk spaces with negative-index Laurent basis elements, whereas the claim is about holomorphic functions on the whole disk with strictly nonnegative monomial indices. A 2020 negative-origin-power numerical threshold is expressly excluded from novelty claims. Semantic published-result checks find nearby different radial weight families and jet kernels, not this positive-power phase diagram. Remaining risk: priority hidden in other analytic-weighted Bergman literature and summary-only inspection of several less-direct results.
+PASS
 
-**Value — PASS.** The result determines a natural precise Lu Qi-Keng phase transition and root-count classification for the first five integral boundary orders of a ubiquitous beta-product radial weight. The critical derivative quantifies the two-root onset and supplies information not implied by the normalized moment formula alone. The statement does not extend to real noninteger boundary exponents or punctured-disk meromorphic spaces.
+The whole-disk holomorphic space has basis z^n for n>=0, monomial norms B(n+b,m+1)/B(b,m+1) with b=beta+1>=1, so K is a positive scalar times P_{m,b}(s)/(1-s)^(m+2). Applying Euler derivative to rising factorial generating functions independently reconstructed all five exact resultant polynomials Res_s(P,s^(m+1)P(1/s)); for m<=3 they never vanish at b>=1; for m=4 the only possible boundary value is b=2. All P_{m,1} are constants (m+1)!, hence zero-free up to the crossing. At b=2, independent symbolic factoring obtained -120(s-2)(s^2-3s+3)(s^2-s+1), two simple critical roots e^{±iπ/3}, and implicit differentiation gave d|s|^2/db=-49/360: both enter for b>2. For b>2 no further resultant zeros; nonzero discriminant certifies two simple interior zeros. Counts of scalar zeros correspond to two-variable zero fibres for |s|<1. The restriction to integer boundary m=0..4, origin beta>=0, and whole-disk (NOT punctured Laurent space) is essential; numerical samples are not proof.
 
-**Closest literature:** A. Perälä, *Vanishing Bergman kernels on the disk* (arXiv:1703.05976); N. Ghiloufi and S. Snoun, *Zeros of new Bergman kernels* (arXiv:2009.04307); Y. E. Zeytuncu, *Weighted Bergman projections and kernels: \(L^p\) regularity and zeros* (arXiv:1009.2806). See AUDIT.json for exact scope comparisons and residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: original claim adds the mathematically distinct sharp classification/quantitative invariant described in the four actual prior-implication checks; no dominating statement was identified in checked primary literature, with listed specific residual risks.
+
+## value
+
+PASS
+
+A complete zero-free/zeros phase diagram for the first five integer boundary exponents and every positive origin exponent is a natural initial classification in the Lu Qi-Keng problem. First nontrivial m=4 transition, exactly two simple zeros and a quantitative transversal crossing provide a precise nonmechanical structural fact, beyond mere moment formulas or isolated parameter examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
