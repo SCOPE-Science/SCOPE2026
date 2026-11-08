@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_noncrossing.py` using Python 3.10 or newer, without external dependencies. The program independently constructs Catalan noncrossing matchings; for every all-positive-feasible chord support of cardinality at most the number of matching edges through \(n=6\), it compares all labeling projections with the face-activity predicate. It separately checks a cyclic rotation of every noncrossing perfect matching through \(n=7\) is edge-disjoint from the original, and computes exact adaptive dimension recursively for \(n\le5\). `verification_output.txt` stores the exact output of an executed run.
+## correctness
 
-The finite verification comprises 4,786 all-positive-feasible chord supports for \(n\le6\), 624 cyclic rotations for \(2\le n\le7\), and dynamic-programming dimensions for \(1\le n\le5\). Supports that cannot be extended to a positive-labeling perfect matching are rejected directly by the analytical necessity in Step 1; the enumeration also constructs all such candidates from the union of actual matching edges. These checks are finite and do not constitute an infinite proof. The unrestricted result uses the face-completion and cyclic-rotation arguments in `RESULT.md`. Independent mathematical validation has not been performed.
+PASS
+
+For all n>=1 and 2n strictly convex cyclic vertices, an all-positive support can extend to a noncrossing perfect matching iff its chords are disjoint noncrossing and each chord face has an even number of unused vertices. If a selected chord has no unused vertices on either adjacent face, deleting it while fixing all others yields a forced forbidden edge; this proves necessity of face activity. Conversely, choose a full completion M, and for any prescribed positive subset P rotate M one vertex in each P-face with >=4 free vertices; rotation is noncrossing and edge-disjoint from M, while two-free-vertex faces cannot contain a forbidden edge by activity. This realizes all Boolean labelings. The all-positive argument bounds VCdim<=n-1, a boundary-edge construction attains n-1; an online algorithm makes at most n-1 mistakes by identifying n-1 positive edges, proving Ldim=n-1. The face-dual tree and single active face show maximal supports have n-1 adjacent boundary chords and correspond bijectively to n² opposite-parity pairs of free vertices. Independent exhaustive Boolean-projection enumeration confirmed the entire shattered support table for n<=6, including n=6 [1,36,318,860,567,36,0] across 3,876 compatible supports; universal proof is not finite enumeration.
+
+## originality
+
+PASS
+
+Mantas–Savić–Schrezenmaier give single-chord feasible parity and geometric matching optimization, which does not decide all positive/negative patterns of a fixed multi-chord query support. Milich–Mütze–Pergel analyze flips/degree/connectedness and Aichholzer–Asinowski–Miltzow disjoint compatibility of whole matchings, different predicates. Matching-edge incidence concepts are not matroid bases, so matroid VC/Ldim theorems do not imply this classification. Resultary shattering search found no directly comparable record. Old Catalan matching combinatorics remain a priority risk.
+
+## value
+
+PASS
+
+A complete local geometric feasibility theorem for all shattered edge-query supports in a canonical Catalan concept family, plus exact offline and adaptive dimensions and maximum-support multiplicity, is a motivated structural combinatorics and learning-theory classification. It detects obstructions beyond noncrossing and even face parity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

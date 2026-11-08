@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:55:11.617749Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/face-activity-characterization-of-shattered-chord-supports-in-no--1a75a2c4be87/RESULT.md",
+        "same Git tree verifier file and VERIFIED Git blob maps"
+      ],
+      "rationale": "For all n>=1 and 2n strictly convex cyclic vertices, an all-positive support can extend to a noncrossing perfect matching iff its chords are disjoint noncrossing and each chord face has an even number of unused vertices. If a selected chord has no unused vertices on either adjacent face, deleting it while fixing all others yields a forced forbidden edge; this proves necessity of face activity. Conversely, choose a full completion M, and for any prescribed positive subset P rotate M one vertex in each P-face with >=4 free vertices; rotation is noncrossing and edge-disjoint from M, while two-free-vertex faces cannot contain a forbidden edge by activity. This realizes all Boolean labelings. The all-positive argument bounds VCdim<=n-1, a boundary-edge construction attains n-1; an online algorithm makes at most n-1 mistakes by identifying n-1 positive edges, proving Ldim=n-1. The face-dual tree and single active face show maximal supports have n-1 adjacent boundary chords and correspond bijectively to n² opposite-parity pairs of free vertices. Independent exhaustive Boolean-projection enumeration confirmed the entire shattered support table for n<=6, including n=6 [1,36,318,860,567,36,0] across 3,876 compatible supports; universal proof is not finite enumeration.",
+      "residual_risks": [
+        "Strict convex position, straight noncrossing perfect matchings, queried unordered chords; n>=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distinct matchings cannot exchange a single edge to yield another matching, so the concept family fails general matroid basis exchange.",
+          "Catalan enumeration gives number of concepts, not geometry of shattered arbitrary fixed support sets."
+        ],
+        "reasoning": "Broad bounds and Catalan counts do not imply the exact iff face-activity test or n² extremal support count.",
+        "searches": [
+          "matroid bases Littlestone VC dimension general results",
+          "noncrossing perfect matching Catalan enumeration",
+          "arxiv:1403.5546 full matching compatibility"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: VC dimension Littlestone dimension noncrossing perfect matching shattering chord supports face activity Catalan",
+        "arxiv:2001.03252 New variants of Perfect Non-crossing Matchings feasible chord lemma",
+        "arxiv:2002.02290 On flips in planar matchings",
+        "arxiv:1403.5546 Disjoint compatibility graph of noncrossing matchings",
+        "noncrossing matching chord support shattering VC dimension Littlestone Catalan"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-chord feasibility is necessary for S to be shattered, not sufficient for all Boolean labelings.",
+          "Connectivity of matching flip graphs or existence of disjoint whole matchings does not force a matching with every prescribed query pattern."
+        ],
+        "reasoning": "The precise forbidden-edge local-face criterion and its sufficiency require a separate argument, as does the n² maximum-support classification.",
+        "searches": [
+          "Mantas Savić Schrezenmaier arxiv:2001.03252 Lemma 1",
+          "Milich Mütze Pergel arxiv:2002.02290",
+          "Aichholzer Asinowski Miltzow arxiv:1403.5546"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single queried edge is extendible under parity constraints, but simultaneous positive/negative assignments need the new face-activity obstruction.",
+          "Flip and disjointness of complete matchings are not realization of all labelings on a fixed chord support."
+        ],
+        "reasoning": "The conjunction of all-positive extension and local removability is distinct from any one-edge parity or flip characterization; the current theorem also derives an exact capacity/count.",
+        "searches": [
+          "arxiv:2001.03252 single-chord feasibility",
+          "arxiv:2002.02290 flip graphs",
+          "arxiv:1403.5546 disjoint compatibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted exhaustive small-n count is checked independently, not asserted as new by itself.",
+          "No inspected primary database lists a complete all-n criterion or n² supports; Catalan total counts alone are insufficient."
+        ],
+        "reasoning": "The claim is the all-n structural classification; finite enumeration neither proves it nor alone supplies its value. A historical table might overlap small-n cases.",
+        "searches": [
+          "noncrossing perfect matching VC shattering supports finite tables",
+          "noncrossing matching Catalan distribution n=6 shattered 36 318 860 567 36",
+          "Resultary combinatorial VC matchings"
+        ]
+      },
+      "rationale": "Mantas–Savić–Schrezenmaier give single-chord feasible parity and geometric matching optimization, which does not decide all positive/negative patterns of a fixed multi-chord query support. Milich–Mütze–Pergel analyze flips/degree/connectedness and Aichholzer–Asinowski–Miltzow disjoint compatibility of whole matchings, different predicates. Matching-edge incidence concepts are not matroid bases, so matroid VC/Ldim theorems do not imply this classification. Resultary shattering search found no directly comparable record. Old Catalan matching combinatorics remain a priority risk.",
+      "residual_risks": [
+        "An old Catalan matching deletion/rotation theorem may imply part of the face-activity condition under different language.",
+        "Full 2015 disjoint compatibility paper and historical learning-theory sources not exhaustively inspected.",
+        "Intermediate-size support counts known only for n<=6 computationally; no general exact distribution claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS individual chord feasibility, not inspected fixed-support shattering iff",
+          "evidence": "feasible edge lemma",
+          "identifier_or_url": "https://arxiv.org/abs/2001.03252",
+          "material_read": "abstract, geometry model and feasible-single-edge lemma",
+          "method": "arXiv HTML primary text and section inspection",
+          "title": "New variants of Perfect Non-crossing Matchings",
+          "trigger": "identical noncrossing perfect matching family and feasible chord parity"
+        },
+        {
+          "assessment": "RELATED matching graph; no all-labelings fixed-support theorem in inspected sections",
+          "evidence": "flip graph/degree statements",
+          "identifier_or_url": "https://arxiv.org/abs/2002.02290",
+          "material_read": "abstract, introduction and theorems on flip graph",
+          "method": "arXiv PDF text and screenshot",
+          "title": "On flips in planar matchings",
+          "trigger": "noncrossing matching flip connectivity and local exchanges"
+        },
+        {
+          "assessment": "COVERS pairwise matching disjoint compatibility, distinct from chord-support VC shattering",
+          "evidence": "global compatibility graph and connected components",
+          "identifier_or_url": "https://arxiv.org/abs/1403.5546",
+          "material_read": "abstract, introduction and targeted component theorems; 46-page full text not exhaustively read",
+          "method": "arXiv primary PDF selected pages and screenshot",
+          "title": "Disjoint compatibility graph of non-crossing matchings of points in convex position",
+          "trigger": "whole-matching disjointness could mimic negative-query condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: VC dimension Littlestone dimension noncrossing perfect matching shattering chord supports face activity Catalan",
+        "arxiv:2001.03252 New variants of Perfect Non-crossing Matchings feasible chord lemma",
+        "arxiv:2002.02290 On flips in planar matchings",
+        "arxiv:1403.5546 Disjoint compatibility graph of noncrossing matchings",
+        "noncrossing matching chord support shattering VC dimension Littlestone Catalan"
+      ],
+      "rationale": "A complete local geometric feasibility theorem for all shattered edge-query supports in a canonical Catalan concept family, plus exact offline and adaptive dimensions and maximum-support multiplicity, is a motivated structural combinatorics and learning-theory classification. It detects obstructions beyond noncrossing and even face parity.",
+      "residual_risks": [
+        "An old Catalan matching deletion/rotation theorem may imply part of the face-activity condition under different language."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict convex position, straight noncrossing perfect matchings, queried unordered chords; n>=1.",
+    "No all-n intermediate support-count formula."
+  ],
+  "schema_version": 1
+}
