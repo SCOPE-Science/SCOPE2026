@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and evidence
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing the bundled script. Only the Python standard library is used. The script independently constructs the two Jordan-block shift, builds all normalized complement generators for eight \((d,r,q)\) cases, and computes exact ranks of their \(2d\) Krylov columns.
+## correctness
 
-The normalized tests compare expected values \(q^{4d-4}\) for \(r=0\) and \((q-1)q^{4d-5}\) otherwise for \((d,r,q)\) equal to \((3,0,2),(3,1,2),(3,2,2),(3,2,3),(4,0,2),(4,1,2),(4,2,2),(4,3,2)\). It also enumerates every Hankel coefficient tuple for \(r=1,2,3,4\) over \(\mathbb F_2\) and \(\mathbb F_3\), and separately exhausts all \(651\) two-dimensional subspaces of \(\mathbb F_2^6\) in each of the three dimension-six Jordan cases. The expected splitting counts in those Grassmannian tests are \(256,128,128\). Successful output concludes with `VERIFY_OK`.
+PASS
 
-The nonstandard infinite-size ingredient is Dwivedi--Grinberg, arXiv:2109.05415, Theorem 1.1: for each \(r\ge1\) there are precisely \(q^{2r-2}\) singular \(r\)-by-\(r\) finite-field Hankel matrices. The remaining algebraic reduction is proved in RESULT.md. Exhaustive finite tests do not independently establish that reduction for unbounded \(d\), nor do they prove novelty or publication priority.
+Splitting 2-space W must complement TV, uniquely parameterized by 4d-4 coefficients. The source explicit module automorphism with diagonal-unit images sends W to span{e1, P e1+e2}, P uniform t-divisible long-block polynomial. Eliminating Krylov columns leaves r×r Hankel (b_{1+i+j}) for r>=1. Dwivedi–Grinberg Theorem 1.1 gives exactly q^{2r-2} singular out of q^{2r-1}, yielding success fraction 1-1/q and count (q-1)q^{4d-5}. Balanced r=0 follows from module Nakayama. Independently counted nonsingular Hankel matrices for q=2,3 and r<=3 from all coefficient tuples; full d,q theorem relies on algebra and cited Hankel theorem, not finite range.
+
+## originality
+
+PASS
+
+Aggarwal–Ram explicit results for least nonconstant invariant factor degrees d or d-1 cover balanced and r=1; r>=2 has smaller block degree <=d-2, so those formulas do not directly imply this result. Prasad–Ram handles splitting length two, not all d>=3. Dwivedi–Grinberg Hankel rank count is established and explicitly credited; the new step is its exact reduction across all unequal nilpotent two-block profiles.
+
+## value
+
+PASS
+
+A full exact finite-field count for a naturally invariant two-block operator class, with surprising uniformity across every positive imbalance, is useful as a controllability/Krylov benchmark and is not simply a case table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

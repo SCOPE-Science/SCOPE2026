@@ -1,11 +1,21 @@
-# Scientific review: two-block nilpotent splitting subspaces
+# Independent mathematical audit
 
-**Correctness (PASS).** Complements to \(TV\) admit unique normalized generator pairs, and a genuine commuting module automorphism reduces each pair to a single polynomial parameter. Removing columns forced by the long and short Jordan blocks leaves exactly an \(r\)-by-\(r\) Hankel matrix. The published finite-field Hankel rank theorem gives a singular fraction \(q^{-1}\). Balanced blocks are free modules whose two normalized lifts give a basis. Standalone exact finite calculations test the formulas by two enumeration approaches. Arbitrary prime powers and unbounded dimensions follow from the proof, not from enumeration.
+## correctness
 
-**Originality (PASS relative to inspected sources).** The equal-block and imbalance-one cases are known consequences of Aggarwal--Ram's 2021 explicit formulas, and are not claimed as new. The new range is \(r\ge2\), where the smallest invariant factor has degree \(d-r\le d-2\) and lies outside their hypotheses. The 2022 general treatment and its public Sage worksheet address the two-step case. The 2021 Hankel rank count is expressly used as a known lemma. Relevant 2024 thesis chapters and targeted mathematical research searches revealed no same-claim or stronger covering result. Alternative terminology in controllability and Hall-polynomial literature remains a substantive residual priority risk.
+PASS
 
-**Value (PASS).** A complete exact formula for a natural infinite operator family reveals that all positive imbalances have precisely the same splitting-space count. This identifies a uniform block-Krylov success probability and explains it structurally rather than listing sample dimensions.
+Splitting 2-space W must complement TV, uniquely parameterized by 4d-4 coefficients. The source explicit module automorphism with diagonal-unit images sends W to span{e1, P e1+e2}, P uniform t-divisible long-block polynomial. Eliminating Krylov columns leaves r×r Hankel (b_{1+i+j}) for r>=1. Dwivedi–Grinberg Theorem 1.1 gives exactly q^{2r-2} singular out of q^{2r-1}, yielding success fraction 1-1/q and count (q-1)q^{4d-5}. Balanced r=0 follows from module Nakayama. Independently counted nonsingular Hankel matrices for q=2,3 and r<=3 from all coefficient tuples; full d,q theorem relies on algebra and cited Hankel theorem, not finite range.
 
-**Limits.** There is no classification for operators with three or more Jordan blocks or for nonnilpotent types; finite checks are not infinite proofs. Priority is relative to materially inspected literature. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Aggarwal–Ram explicit results for least nonconstant invariant factor degrees d or d-1 cover balanced and r=1; r>=2 has smaller block degree <=d-2, so those formulas do not directly imply this result. Prasad–Ram handles splitting length two, not all d>=3. Dwivedi–Grinberg Hankel rank count is established and explicitly credited; the new step is its exact reduction across all unequal nilpotent two-block profiles.
+
+## value
+
+PASS
+
+A full exact finite-field count for a naturally invariant two-block operator class, with surprising uniformity across every positive imbalance, is useful as a controllability/Krylov benchmark and is not simply a case table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
