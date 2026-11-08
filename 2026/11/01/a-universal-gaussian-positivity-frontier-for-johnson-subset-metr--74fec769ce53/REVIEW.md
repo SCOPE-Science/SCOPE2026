@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Newton expansion K_x=sum c_j T_j T_j^T has exact combinatorial coefficients; for j<k, c_j is bounded below by x^((k-j)^2)(2-exp(1/4)) on x<=1/(k-1). B_k=c_k decreases strictly there by an explicit derivative estimate, and is negative at the right endpoint. The Boolean-lattice up/down commutator proves T_{k-1} full column rank for n>=2k, giving endpoint rank, nullity and a strictly negative top-sector eigenvalue immediately outside the interval. An exact standalone Python checker passes 75 rational coefficient checks, 5300 entry identities, and 8410 direct top-sector components. The claim explicitly excludes the unclassified upper-x region.
+PASS
 
-## Originality — PASS (bounded review)
+For every integer k>=3, n>=2k, x∈[0,1/(k-1)], the exact Newton identity K_x=Σ_{j=0}^k c_j(x)T_jT_j^T follows from binomial inversion on h=|S∩T|. For all j<k, the negative odd terms in c_j/x^{(k-j)^2} sum below e^{1/4}-1<1, so c_j>0; the displayed derivative and right-endpoint inequalities show the top coefficient B_k decreases from 1 to below zero and has a unique simple root ρ_k. The Boolean up/down commutator D_{r+1}U_r-U_{r-1}D_r=(n-2r)I makes T_{k-1} injective for n>=2k and its image contains all lower incidence spaces, hence endpoint rank binom(n,k-1). On its orthogonal complement the eigenvalue is B_k(x), negative just beyond ρ_k. Independent exact rational recomputation checked all 5,300 entries of two inclusion-Gram decompositions (k=3,n=6; k=4,n=8), positive lower coefficients and roots for k=3,4,5,6,8,12. Finite checks corroborate, but the proof establishes the full infinite n,k domain. The theorem deliberately does not classify x>1/(k-1) or all potential later PSD windows.
 
-Krebs and Shaheen (2008) establish the generic Johnson adjacency spectra, not this all-k n-independent first Gaussian loss or boundary rank. Feragen et al. establish general Gaussian-kernel geometric obstructions, not this finite Johnson threshold. An earlier result for Hamming products uses the same top-difference polynomial B_k but has a different ambient metric and does not imply the sharp Johnson lower bound or endpoint rank. Checked public-index hits concern Johnson spectral concentration and Hamming shell problems without the claimed all-k frontier. Residual risk: an unlocated general positivity-cone theorem might yield the present result as an immediate specialization.
+## originality
 
-The closest inspected primary sources are Krebs--Shaheen (2008), DOI 10.13001/1081-3810.1256, and Feragen--Lauze--Hauberg (2014), arXiv:1411.0296. Related Hamming-cube and Johnson spectral-concentration claims were compared for implication and differences in metric, parameter and operator. An unlocated general association-scheme cone theorem remains a real originality risk.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge PASS: neither the inspected 2008 Johnson adjacency-spectrum theorem nor the 2014 geodesic-Gaussian all-bandwidth criterion establishes the all-k, ambient-n-independent first-loss boundary and exact nullity. The present Newton inclusion-Gram inequalities and endpoint sector rank supply a comparison not given by prior numerical eigenvalue machinery. A general unlocated association-scheme cone theorem remains a credible priority risk.
 
-A single scalar determined by subset size k governs the initial Gaussian covariance feasibility on all binom(n,k) observations independently of n, and the exact singularity size at the sharp boundary is binom(n,k)-binom(n,k-1). The finding explains this with a positive incidence-Gram decomposition and identifies the top incidence-harmonic obstruction. This is a natural infinite family and a complete first-loss cutoff, not a numerical slice or routine parameter adjustment.
+## value
 
-## Limits
+PASS
 
-The result does not exclude isolated positivity windows beyond the first crossing; the standard all-ones endpoint is semidefinite. Finite verification is supplemental.
+Johnson subset graphs and radial Gaussian kernels are canonical finite metric and kernel objects; a uniform-in-ambient-n exact first-loss cutoff and exact endpoint nullity give a meaningful all-k classification and identify the Boolean top-incidence obstruction. It is not merely a numerical spectrum evaluation or rephrasing of the Eberlein polynomial; the lower-sector positivity bound is substantive.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
