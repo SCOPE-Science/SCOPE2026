@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The included `census.py` is self-contained Python 3 standard-library code. Run `python3 census.py` in the directory containing it; the asserted output starts with `VERIFY_OK`. The companion `census_output.txt` records one actual completed run.
+## correctness
 
-The code enumerates all \(3^9=19683\) matrices, identifies the \(11232\) invertible ones with both a determinant test and rank elimination, solves the quadratic idempotent equations in two ways (all \(27\) vectors and seven nonempty support indicators), and checks simplicity by two independent graph-reachability methods. Orbit counts are checked both by stabilizer/Burnside weights and by explicit disjoint orbit enumeration for the full \(48\)-element monomial basis-change group. The checker confirms the four histograms, representative matrices, and the mean-one consistency identity. Exact integer arithmetic is used throughout.
+PASS
 
-This is a finite exhaustive certificate, not an infinite general proof, a formal proof-assistant certificate, or independent validation. The literature search cannot exclude an unindexed or implicitly stronger earlier theorem; the manuscript identifies the known unstratified orbit total separately.
+For F3 every nonzero coordinate has square one; for any subset S of three basis positions the idempotent equation forces x_j=sum_{i∈S}w_ij. Checking exactly the support constraint bijects nonempty supports with nonzero idempotents. Exhaustive finite domain contains 3^9=19683 matrices and 11232 invertible. Independently evaluated all 27 candidate vectors on each invertible W and independently BFS-tested strong connectivity: labeled histogram 3600,5056,1800,600,120,48,0,8 (k=0..7) and simple 3408,3256,768,72; independently partitioned invertible matrices into all orbits under the exact 48-element S3×(F3*)^3 action, yielding class spectra 78,111,40,15,3,1,0,1 and simple 74,73,17,2. The source census.py separately checks stabilizers and direct orbits, and 249 is attributed to known work. Finite enumeration is complete for the specified field/dimension; not an extrapolation.
+
+## originality
+
+PASS
+
+Wei–Zou 2023 full text Theorem 5.1 gives the unstratified 249-orbit total and monomial action; those are prior and excluded from novelty. Kaygorodov–Martín González–Viruel 2026 full survey gives mean one and open distributions, not the ternary finite histogram. Hu 2026 complex full-support study is not the same F3 invariant. Exhaustive exact table supplies unknown finer natural strata but unindexed tables may conceal it.
+
+## value
+
+PASS
+
+A complete intrinsic class-by-class and labeled distribution for a natural small odd prime field addresses a specific random-idempotent counting question; absent value six, simple threshold three, and exact zero-idempotent frequency are not deducible from the mean-one law or total orbit count. Finite dimension-specific classification is a worthwhile reusable exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

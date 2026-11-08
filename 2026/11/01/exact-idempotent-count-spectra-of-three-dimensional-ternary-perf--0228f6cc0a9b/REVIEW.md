@@ -1,11 +1,21 @@
-# Scientific review: ternary evolution-algebra idempotent spectra
+# Independent mathematical audit
 
-**Correctness — PASS.** Over \(\mathbb F_3\), a vector's square coordinates are the indicator of its support. For every nonempty support there is precisely one candidate idempotent, determined by the corresponding row sum of the structure matrix. This bijection and exhaustive evaluation over all \(3^9\) matrices prove the complete finite histograms. The checker uses independent determinant/rank, idempotent and graph-connectivity algorithms. Its class counts agree when computed separately by stabilizer-weighted Burnside and by disjoint orbit enumeration. Every table total is consistent with \(|\operatorname{GL}_3(\mathbb F_3)|=11232\), and the first moment reproduces the known mean-one identity.
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** Wei and Zou's complete 2023 work determines the unstratified isomorphism-class total and supplies the orbit principle but does not tabulate the number of nonzero idempotents per class or the simple/non-simple split. The 2026 survey of Kaygorodov, Martín González and Viruel gives a general mean and open asymptotic questions, not these complete finite-field distributions. Hu's 2026 full-support rigidity theorem concerns a different invariant over the complex field. Actual published-finding corpus queries for idempotent distributions, ternary matrices, fixed supports, and exact parameter aliases found no equivalent published claim; the nearest results address dimension two, other algebra structures, or general isomorphism counts. The exact total of 249 is explicitly attributed to prior work, not independently claimed. Earlier low-dimensional classification tables may allow indirect derivations; absolute priority is unverified.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete small-field test case for the recent distribution and generic-Galois questions: three is the first dimension with seven potential nonzero idempotents, and the ternary field is the smallest odd prime field where the squaring equations are genuinely nonlinear. The previously unknown refined spectra reveal the absent value six, a sharp simple-algebra upper bound of three, and the fact that 3408 of 7504 simple labeled matrices are idempotent-free. The isomorphism-class split distinguishes mere basis multiplicity from intrinsic algebra types, making the precise counts reusable benchmarks for structural and asymptotic work. The scope is deliberately finite; no broader generalization is claimed.
+For F3 every nonzero coordinate has square one; for any subset S of three basis positions the idempotent equation forces x_j=sum_{i∈S}w_ij. Checking exactly the support constraint bijects nonempty supports with nonzero idempotents. Exhaustive finite domain contains 3^9=19683 matrices and 11232 invertible. Independently evaluated all 27 candidate vectors on each invertible W and independently BFS-tested strong connectivity: labeled histogram 3600,5056,1800,600,120,48,0,8 (k=0..7) and simple 3408,3256,768,72; independently partitioned invertible matrices into all orbits under the exact 48-element S3×(F3*)^3 action, yielding class spectra 78,111,40,15,3,1,0,1 and simple 74,73,17,2. The source census.py separately checks stabilizers and direct orbits, and 249 is attributed to known work. Finite enumeration is complete for the specified field/dimension; not an extrapolation.
 
-**Closest literature and limits.** Primary sources checked: arXiv:2610.22248 (2026; random-algebra and generic-Galois questions), arXiv:2310.12368 (2023; all perfect-isomorphism-class totals) and Preprints.org 202610.1039 (2026; complex full-support locus). All three are accessible in full text. The new finite table does not prove any asymptotic theorem or independent publication priority. The sole accepted claim is the complete ternary three-dimensional perfect and simple idempotent-count distribution and its isomorphism-class stratification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wei–Zou 2023 full text Theorem 5.1 gives the unstratified 249-orbit total and monomial action; those are prior and excluded from novelty. Kaygorodov–Martín González–Viruel 2026 full survey gives mean one and open distributions, not the ternary finite histogram. Hu 2026 complex full-support study is not the same F3 invariant. Exhaustive exact table supplies unknown finer natural strata but unindexed tables may conceal it.
+
+## value
+
+PASS
+
+A complete intrinsic class-by-class and labeled distribution for a natural small odd prime field addresses a specific random-idempotent counting question; absent value six, simple threshold three, and exact zero-idempotent frequency are not deducible from the mean-one law or total orbit count. Finite dimension-specific classification is a worthwhile reusable exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
