@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact periodic matrix was independently instantiated from its displayed exponential entries. For each tested period, the sign groups were split and the minimum Gram eigenvalue was compared to one minus the largest singular value of the cross group. An explicit phase formula verified the positive Hilbert-corner entries; the finite Hilbert comparison was checked numerically with a tolerance allowing accumulated floating-point roundoff.
+## correctness
 
-Run `python checker.py` with NumPy installed. The standalone checker passed 343 assertions on 49 periods: all integers from 4 through 48, then 64, 72, 96, and 128. It depends on no external files. It does not perform exhaustive pattern enumeration, and numeric success is not a proof for all periods.
+PASS
 
-The analytical proof consists of a finite geometric-sum identity, diagonal phase factorization, positivity/entrywise comparison, Gram-block spectral identity, and the known de Bruijn–Wilf Hilbert-matrix eigenvalue asymptotic. The independent audit has not been performed.
+For p>=4, in the balanced + then - sign sequence at frequency shifts ±1/4, same-sign columns are exactly orthonormal. The Gram spectrum gives A_blk=1-||C||. A reversed L-by-L cross corner (L=floor(p/2)) has frequencies j+k+1/2; its geometric-sum phases factor into row and column phases and its positive magnitude K_{jk}=1/[p sin(pi(j+k+1/2)/p)]>=H_L(j,k)/pi. Perron positive eigenvector bounds ||C||>=lambda_max(H_L)/pi. All sign Fourier frequencies are distinct mod p, so A_p>0. De Bruijn–Wilf asymptotic pi-lambda_max(H_L)~pi^5/(2 log(L)^2) yields the stated limsup <= pi^4/2. Independent direct numerical eigenspectra for periods 4,5,6,8,12,24,48 all obey finite bound; finite experiments do not prove asymptotic.
+
+## originality
+
+PASS
+
+A finite Hankel-corner comparison plus known Hilbert largest-eigenvalue asymptotic yields a concrete one-sided rate for the same critical periodic shifted-sinc problem. The closest 2026 preprint abstract describes finite matrix formulation and step-pattern vanishing but does not explicitly give logarithmic rate. Full paper inaccessible here, hence priority risk stated rather than inferred negative coverage.
+
+## value
+
+PASS
+
+One-sided quantitative resolution of the critical periodic shifted-sinc degeneration: explicit sharp-form finite comparison to a classical spectral model and O((log p)^-2) rate; a motivated mathematical boundary theorem rather than a trivial numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

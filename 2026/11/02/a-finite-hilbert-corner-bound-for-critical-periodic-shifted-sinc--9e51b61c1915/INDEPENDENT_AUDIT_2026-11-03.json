@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:12:36.329667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof 1–4",
+        "checker.py geometric-sum Gram norm program",
+        "de Bruijn–Wilf 1962 Hilbert matrix eigenvalue asymptotic",
+        "independent direct FFT Vandermonde Gram eigenvalue checks"
+      ],
+      "rationale": "For p>=4, in the balanced + then - sign sequence at frequency shifts ±1/4, same-sign columns are exactly orthonormal. The Gram spectrum gives A_blk=1-||C||. A reversed L-by-L cross corner (L=floor(p/2)) has frequencies j+k+1/2; its geometric-sum phases factor into row and column phases and its positive magnitude K_{jk}=1/[p sin(pi(j+k+1/2)/p)]>=H_L(j,k)/pi. Perron positive eigenvector bounds ||C||>=lambda_max(H_L)/pi. All sign Fourier frequencies are distinct mod p, so A_p>0. De Bruijn–Wilf asymptotic pi-lambda_max(H_L)~pi^5/(2 log(L)^2) yields the stated limsup <= pi^4/2. Independent direct numerical eigenspectra for periods 4,5,6,8,12,24,48 all obey finite bound; finite experiments do not prove asymptotic.",
+      "residual_risks": [
+        "Hilbert asymptotic is an indispensable cited published theorem, not proved anew.",
+        "Only the auxiliary binary model, not unrestricted perturbation Gram matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abstract of prior 2026 source proves vanishing and finite matrix reduction; classical Hilbert eigenvalue asymptotic supplies the needed spectral coefficient."
+        ],
+        "reasoning": "The log-squared estimate is derived only after constructing and comparing a *specific corner*. An accessible abstract alone cannot exclude hidden broader coverage; source is recorded as residual risk.",
+        "searches": [
+          "arxiv:2610.31956 periodic shifted-sinc operator abstract",
+          "de Bruijn Wilf 1962 finite Hilbert largest eigenvalue",
+          "Preissmann Lévêque 2013 Hilbert eigenvalue asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.31956v1 (abstract only)",
+        "doi:10.1090/S0002-9904-1962-10726-5",
+        "arxiv:1303.1085",
+        "Resultary query critical quarter shifted sinc finite periodic Gram lower frame bound Hilbert matrix logarithmic asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract prior finite matrix criterion and known Hilbert limit do not on their own yield ||C||>=lambda_max(H_L)/pi: the phase removable corner and entrywise positive domination are required."
+        ],
+        "reasoning": "No proof of the one-sided rate found in accessible primary material; uncertainty remains until complete relevant preprint read.",
+        "searches": [
+          "arxiv:2610.31956 finite Vandermonde reduction abstract",
+          "de Bruijn Wilf 1962 asymptotic formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At δ=1/4 the auxiliary periodic binary Gram is exactly finite phase matrix; the cross-sign block has half-shifted Hilbert-like entries."
+        ],
+        "reasoning": "Different models of nonperiodic Riesz bounds or genuine general perturbation Gram matrices cannot be substituted; the claim is the finite-period one-sided quantitative comparison.",
+        "searches": [
+          "critical quarter shifted sinc finite periodic Gram lower frame bound Hilbert matrix logarithmic asymptotic",
+          "Vellucci–Samad arxiv:2610.31956 quarter shift periodic Vandermonde",
+          "Preissmann–Lévêque arxiv:1303.1085 weighted Hilbert eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby finite-section/Gabor hits concern different windows or systems; no same quarter-shift periodic Hilbert-corner table identified."
+        ],
+        "reasoning": "Search is bounded and nonexhaustive; lack of exact match not novelty proof.",
+        "searches": [
+          "critical quarter shifted sinc finite periodic Gram lower frame bound Hilbert matrix logarithmic asymptotic",
+          "Resultary hits 2026/10/11/SCOPE-sharp-logarithmic-asymptotics-of-critical-gaussian-gabor-biortho--9a4e258e09c2"
+        ]
+      },
+      "rationale": "A finite Hankel-corner comparison plus known Hilbert largest-eigenvalue asymptotic yields a concrete one-sided rate for the same critical periodic shifted-sinc problem. The closest 2026 preprint abstract describes finite matrix formulation and step-pattern vanishing but does not explicitly give logarithmic rate. Full paper inaccessible here, hence priority risk stated rather than inferred negative coverage.",
+      "residual_risks": [
+        "Highly relevant Vellucci–Samad full preprint remained inaccessible via arXiv/OA and authorized Oxford connection; same paper could implicitly state or prove the rate.",
+        "Classic finite Cauchy–Vandermonde Hilbert-corner comparisons may predate this observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIALLY_RELEVANT_UNREAD_FULL_TEXT",
+          "evidence": "Abstract identifies exact finite matrix reductions, step half-shifted Hilbert behavior, and vanishing lower bound but no explicit log-squared rate; cannot adjudicate entire manuscript.",
+          "identifier_or_url": "arxiv:2610.31956v1",
+          "material_read": "ArXiv metadata and complete abstract only; full manuscript not accessed",
+          "method": "ArXiv/OA searches followed by authorized Oxford retrieval, which returned VPN disconnected",
+          "title": "Perturbed Exponential Systems, Pattern-Dependent Shifted-Sinc Operators, and Matrix Symbols on Finite Unions of Intervals",
+          "trigger": "Exactly same periodic binary auxiliary model, potential conjecture covering bound"
+        },
+        {
+          "assessment": "ESTABLISHED_CLASSICAL_INPUT",
+          "evidence": "pi-lambda_max(H_L) asymptotic pi^5/(2 log^2 L) cited; not original claim.",
+          "identifier_or_url": "doi:10.1090/S0002-9904-1962-10726-5",
+          "material_read": "Publication metadata and asymptotic statement cross-checked with secondary source, not complete original proof",
+          "method": "Bibliographic search and comparison to Preissmann–Lévêque 2013",
+          "title": "On Hilbert's inequality in n dimensions",
+          "trigger": "Classical sharp largest-eigenvalue asymptotic needed for rate constant"
+        },
+        {
+          "assessment": "BACKGROUND_FOR_ASYMPTOTIC",
+          "evidence": "Studies norm/eigenvalues of generalized Hilbert matrices, not exact binary Fourier sign pattern.",
+          "identifier_or_url": "arxiv:1303.1085; doi:10.2140/pjm.2013.265.199",
+          "material_read": "Abstract and cited 2013 Section 2.1 asymptotic summary",
+          "method": "OA search and source comparison",
+          "title": "On generalized weighted Hilbert matrices",
+          "trigger": "Secondary rigorous source for finite Hilbert asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "finite Hilbert spectral comparison",
+        "original critical quarter-shift problem and stated conjecture"
+      ],
+      "rationale": "One-sided quantitative resolution of the critical periodic shifted-sinc degeneration: explicit sharp-form finite comparison to a classical spectral model and O((log p)^-2) rate; a motivated mathematical boundary theorem rather than a trivial numerical slice.",
+      "residual_risks": [
+        "No matching lower bound, equality, exact asymptotic, or balanced extremality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Oxford VPN disconnected for most relevant 2026 full text; abstract not a whole-document noncoverage finding."
+  ],
+  "schema_version": 1
+}
