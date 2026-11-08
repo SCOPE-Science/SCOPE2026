@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The cyclic-run upper bound covers every source. Even lengths split into pure alternating with exactly two outputs and other words with at most n-2 runs. Odd lengths with n-1 runs have forced 00(10)^{m-1}1 form and two disjoint deletion collisions for m>=4; others have <=n-3 runs. The two-defect family 0^a(10)^t1^b has exactly 2(t+1) distinct run-deletion classes by unique anchored long-run profiles, providing sharp witnesses. Small exceptions are checked directly. A separate finite checker exhausts 4,807 necklace sources through length 15 and witnesses through 300.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liron–Langberg, arXiv:1202.1644, Sections I–II, develops general t-deletion extremizers for linear strings, but source/output are indexed linear words.",
+        "Burudgunte–Valiant–Wang, arXiv:2512.02412 and DOI 10.4230/LIPIcs.ITCS.2026.30, Sections 1–2, develops statistical distinguishability of traces after random deletions and random rotations."
+      ],
+      "reasoning": "Neither higher-t linear-string bounds nor random circular sample-complexity theorems determine a support maximum for exactly one deletion and output rotation equivalence.",
+      "searches": [
+        "circular word one bead removal descendants rotation classes parity obstruction",
+        "single deletion ball on circular words quotient by rotations",
+        "circular deletion channel one deletion reconstruction codes necklaces",
+        "arxiv:2512.02412 circular trace reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0207197",
+      "https://arxiv.org/html/math/0207197v1",
+      "https://arxiv.org/abs/1202.1644",
+      "https://arxiv.org/abs/2512.02412",
+      "https://doi.org/10.4230/LIPIcs.ITCS.2026.30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane records |D_1(u)|=r(u) for linear words and a linear maximum n at alternating words. Under cyclic identification alternating words instead have exactly two outcomes.",
+        "A published exact edge count for a two-read deletion reconstruction graph counts pairwise confusability edges, not the maximum one-step outdegree after quotienting by rotation.",
+        "The circular trace reconstruction paper deals with a probabilistic channel and recovery of sources; it does not prove the one-deletion outdegree formula."
+      ],
+      "reasoning": "The proposed sharp bound neither follows by specializing a published stronger theorem found in the inspected sources nor by a direct relabeling of their parameters; the cyclic quotient imposes a separate extremal parity obstruction.",
+      "searches": [
+        "arxiv:math/0207197 Section 5 number descendants vector",
+        "arxiv:1202.1644 run-sensitive deletion descendants",
+        "arxiv:2512.02412 circular deletion channel distribution",
+        "binary necklace single deletion outdegree maximum n-2 even n-3 odd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane, arXiv:math/0207197, Section 5, treats labeled linear deletion descendants; its formula is the ordinary run number, not cyclic output classes.",
+        "The quotient necklace deletion graph has outdegree distinct from the linear deletion graph, e.g. the alternating even source has only two necklace descendants rather than n linear descendants."
+      ],
+      "reasoning": "The change of both domain and codomain by cyclic rotation fundamentally alters the extremal source and maximum; ordinary linear descendant results do not imply the parity-dependent statement.",
+      "searches": [
+        "binary necklace single deletion outdegree maximum n-2 even n-3 odd",
+        "subsequence order Hasse diagram binary necklace covering relation maximum degree",
+        "necklace poset delete one bead cover degree maximum binary necklaces",
+        "circular word one bead removal descendants rotation classes parity obstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Literal full census of binary source necklaces through length 15 was constructed directly in verify.py, not obtained from a pre-existing table.",
+        "Relevant published search results concerned finite code sizes, linear deletion confusability triangles/edges and necklace symmetry, not this maximum for all n."
+      ],
+      "reasoning": "No identified database or table supplied the complete all-length formula or the structural proof. Negative search evidence alone is not a uniqueness guarantee.",
+      "searches": [
+        "maximum number of distinct rotation classes obtained by deleting one symbol from a binary necklace, cyclic one-deletion sphere size",
+        "cyclic deletion sphere maximal descendant number modulo rotation run-length n-2",
+        "deletion descendants of circular binary words up to rotation, maximal sphere",
+        "exact necklace single deletion outdegree n-2 n-3 sequence"
+      ]
+    },
+    "rationale": "Against the three material primary-source inspections and actual searches for equivalent quotient formulations, no covering claim was found. The linear one-deletion run maximum n becomes two for a purely alternating necklace; the sharp cyclic outdegree n-2 or n-3 and odd parity obstruction require a new argument. Residual priority uncertainty for unindexed necklace subsequence-order work is explicit.",
+    "residual_risks": [
+      "Older or unindexed articles on deletion order of necklaces might state an equivalent maximum.",
+      "Search ranking and partial indexing do not establish absence of all equivalent results.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Linear-word count and maximum; no exact one-deletion binary necklace outdegree bound in inspected sections",
+        "evidence": [
+          "Section 5 states |D_1(u)| equals ordinary number of runs; Section 3 mentions necklaces in a different code-enumeration identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Section 5 (Theorems 5.1–5.3 and associated discussion), relevant necklace passage in Section 3 and references",
+        "method": "Public HTML full-text examination and targeted text searches",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Classical formula for one-deletion descendant counts and potential necklace discussion"
+      },
+      {
+        "assessment": "Linear indexed string descendants, not source/output rotation-quotient descendants",
+        "evidence": [
+          "Defines D_t(X) for binary linear X, identifies balanced and unbalanced r-run extremizers; no circular equivalence model appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+        "material_read": "Introduction and Sections I–II with definitions, extremizers and run operations",
+        "method": "Accessible full-text HTML examination, including text search for circular model",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Closest run-sensitive extremal theory across deletion counts"
+      },
+      {
+        "assessment": "Probabilistic reconstruction from arbitrarily many random-deletion traces, not support of a single deletion",
+        "evidence": [
+          "The circular deletion channel independently deletes each symbol with a fixed probability and randomly cyclically rotates the remaining trace; results bound number of traces for reconstruction."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.30/LIPIcs.ITCS.2026.30.html",
+        "material_read": "Full HTML article structure and Sections 1–2 definitions, circular channel and main theorems; searched for one-deletion and maximum statements",
+        "method": "Official open-access HTML reading and within-page search",
+        "title": "New Bounds for Circular Trace Reconstruction",
+        "trigger": "Directly uses circular binary deletion channels, hence plausible dominating results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2341722f-ce11-42c9-a678-4be47c6e73d2",
+  "value": {
+    "rationale": "The all-length exact maximum is the natural outdegree of the binary circular single-deletion observation graph. It quantitatively distinguishes cyclic from linear support, exhibits a nontrivial odd-length obstruction and gives explicit extremal families. This is an unlimited-parameter sharp theorem, not an arbitrary finite slice or recomputation of a known table.",
+    "status": "PASS"
+  }
+}
