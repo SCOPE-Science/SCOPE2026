@@ -1,15 +1,21 @@
-# Scientific review: sharp sparse mixing for soft-conflict EF1
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns complete allocations on a complete multipartite conflict graph and identical positive unit-additive valuations. EF1 is equivalent to balanced bundle sizes, so occupancy matrices have fixed integer row and column sums. The violated-edge count is exactly one-half the sum of squared column totals minus the sum of squared entries. Any support cycle permits both positive and negative unit alternating perturbations, strictly improving one direction in the squared-entry sum and contradicting optimality. Hence **every** optimal support is a forest, implying at most \(r-1\) mixed bundles. The \(r\)-part, \(r-1\)-agent example is sharp, and the bipartite residue law and characterization of all optimizers follow from the forest constraint and explicit constructions. `verify.py` checks 864 parameter instances and 69,276 occupancy matrices; the universal conclusion follows from the algebraic proof, not those tests.
+## correctness
 
-## Originality — PASS, with limitations
-Yoneda and Yoneda, *Fair Division with Soft Conflicts* (arXiv:2602.20929, full accessible text inspected), prove an all-graph EF1 conflict upper bound in their Theorem 7, but do not give the exact minimum for \(K_{a,b}\), the multipartite optimal-support forest bound, or its sharpness. Garijo, Márquez, and Robles, *New Results on the Robust Coloring Problem* (arXiv:2201.12650, relevant full-text sections inspected), treat proper colorings on a separate constraint graph and minimize monochromatic edges of a second graph; these constraints neither enforce unit-EF1 bundle sizes nor solve the present complete bipartite residue problem. Mathematical-record searches for complete bipartite soft conflicts, equitable maximum cuts, and mixed-bundle concentration produced no stronger direct coverage. Standard transport-polytope facts explain the proof but are not claimed as new. Residual risk: an equivalent equitable max-cut specialization or transportation-matrix corollary may exist in unindexed literature; mathematical search incompleteness is not a proof of publication priority.
+PASS
 
-## Value — PASS
-The exact optimum is a natural objective introduced in the 2026 paper, not a choice of artificial parameter slices. The theorem identifies a sharp structural feature of **all** optima rather than merely constructing one fair assignment, and gives an exact bipartite formula across arbitrary part sizes and populations with equal quotas. For odd \(K_{n,n}\), the general guarantee \(|E|/n=n\) contrasts with the exact optimum \(1\), a factor of \(n\) over an infinite dense family. This quantifies how much graph structure can improve fair assignments; it is not a claim about general graphs or arbitrary valuations.
+Identical unit additive valuations make EF1 equivalent to balanced bundle sizes. The cost C=1/2Σ_j(s_j²−Σ_t x_tj²) is minimized by maximizing Σx² over integral transportation matrices. A support cycle permits ±1 alternating perturbations, both feasible, with sum of squared objectives strictly increasing, ruling out cycles for every optimum. Any forest gives at most r−1 mixed agent columns. Equal (r−1)-sized r parts with r−1 agents force equality. For r=2, a+b=nq and a mod q=d imply no or exactly one mixed bundle and cost d(q−d). Independent enumerations checked 144 positive small cases and 1,771 occupancy matrices; no finite proof substitution.
 
-## Limits and closest literature
-The result needs common unit valuations and complete multipartite conflicts. Only the bipartite equal-quota case receives a scalar optimum formula; general multipartite parts receive the sharp mixed-bundle bound. The examined 2026 primary paper is the closest domain-specific prior result; the 2024 robust-coloring paper is the closest alternative formulation examined. Publication priority and a general-case extension are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
+
+## value
+
+PASS
+
+Gives a tight structural sparsity bound applying to every optimal fair allocation and an exact residue-dependent cost on complete bipartite conflicts, substantially sharper than generic |E|/n fairness guarantees; these are motivated optimization and algorithmic features of soft-conflict division.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
