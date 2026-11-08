@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The supplied `proof_check.py` is a standard-library-only diagnostic. Running `python3 proof_check.py` checks 120 prime pairs with both primes at most 53, and 38,212 smooth multiplier cases with exponent ranges zero through seventeen. It checks the exact fixed-point characterization on 70,000 bounded positive cases and examines bounded trajectories. It also gives a nonsmooth counterexample to extending the threshold lemma to unrestricted multipliers.
+## correctness
 
-The expected successful output is
+PASS
 
-`VERIFY_OK prime_pairs=120 smooth_threshold_cases=38212 fixed_tests=70000 repeated_fixed_orbits=646 nonsmooth_boundary=7_to_2`
+For arbitrary distinct primes p,q and positive integer n, every positive periodic orbit of D(n)=n(ν_p(n)/p+ν_q(n)/q) has positive multipliers U_i=qν_p(n_i)+pν_q(n_i) whose cyclic product is (pq)^L. Thus each U_i is p,q-smooth and satisfies U_next=U-(p+q)+qν_p(U)+pν_q(U). If U>pq and smooth, the three cases U=p^a q^b with both a,b>=1, only p power, or only q power all force U_next>pq. If any cyclic U_i were above pq all would be above, contradicting product (pq)^L. All U_i<=pq with product equality forces U_i=pq and every orbit term is fixed. The Diophantine equation qa+pb=pq yields only (a,b)=(p,0) or (0,q), so fixed n=p^p m or q^q m with gcd(m,pq)=1. Independently checked the prime-smooth threshold on 1227 cases for 21 prime pairs; finite check corroborates but is not the arbitrary-prime proof. Checked source proof and standard-library diagnostic script.
 
-These checks were executed from the exact script included with this result. The universal theorem is proved separately by an exact cyclic multiplier product, prime-smoothness, and the three-case forward-threshold lemma. No attempt is made to equate finite trajectory observations with an infinite aperiodicity proof. No external independent validation has been performed.
+## originality
+
+PASS
+
+The closest published Resultary finding proves no positive nontrivial cycles only for {2,3}; its full RESULT.md was read, and its proof explicitly says it does not immediately extend to arbitrary distinct primes. The present theorem strictly subsumes it via a uniform p,q-smooth invariant-threshold proof. Talukdar–Saikia studies arithmetic subderivative fixed points for general finite prime sets, which is not the assertion that no higher cycles occur. Best of knowledge the universal two-prime aperiodicity is additional.
+
+## value
+
+PASS
+
+The natural dynamical question for arithmetic subderivatives is whether nontrivial positive periodic orbits exist. This infinite sharp classification for *all* two-prime supports resolves a materially broader case than the known {2,3} result and explains the rigidity by an invariant multiplicative threshold; useful before attacking three or more prime supports.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
