@@ -1,15 +1,21 @@
-# Review of the icosahedral two-independence classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and all simplices are specified by a 30-edge list and two independent exhaustive membership predicates. The verifier counts 323 nonempty faces with face vector (12,66,140,105), constructs 149 matched pairs with one critical vertex, two critical 2-cells and twenty-two critical 3-cells, and proves acyclicity by topologically sorting all 972 covering arrows. The complete signed integer Morse differential is provided in RESULT.md, and two columns give determinant +1. The 2-skeleton is a wedge of two 2-spheres; the Hurewicz theorem identifies its 3-cell attaching maps with integer vectors, so the primitive rank-two matrix cancels the two 2-cells and leaves exactly twenty 3-spheres. The quotient result follows from exact signed Lefschetz characters on all 120 automorphisms and rational finite-group invariants. Three independent finite-field simplicial boundary-rank computations give corroborating reduced Betti numbers. The finite checker and its saved output have been replayed with exact agreement. Remaining correctness risk: the argument invokes standard discrete Morse and CW attaching-map theory; no independent external validation was performed.
+## correctness
 
-## Originality — PASS, qualified by the documented searches
-The earliest verified public direction source, Conant–Thistlethwaite arXiv:0808.0739 (August 5, 2008), introduces hypergraph independence and duality. Its forbidden-hyperedge formulation applies but does not determine the eighty-triple icosahedral instance. Deshpande–Singh arXiv:2001.05448 introduces explicit higher-independence classifications for other graph families. The original primary PDF texts and their claims/class lists were inspected; neither contains an icosahedral theorem. The closest indexed material concerns icosahedral ordinary independence, matching, neighborhood, distance-neighborhood and cut complexes. These define different simplices; their homotopy types and symmetry characters do not imply the present 2-independence theorem. The accessible prior research ledger likewise contains different graphs or different complexes, not the present 20-sphere classification with its icosahedral representation. Searches included graph/complex synonyms, implication aliases and full-group character queries. Some indexed record full texts were not accessible; unindexed equivalent work remains a genuine residual publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The icosahedral graph is the smallest Platonic triangulated sphere with five neighbors per vertex and a full 120-element automorphism group. Its first higher-independence (dissociation) complex is a natural, intrinsically defined object. The homotopy equivalence gives an exact integral classification, while the complete decomposition \((\mathbf1\oplus V_4\oplus2V_5)^+\oplus V_5^-\) is finer than Betti numbers and identifies a nonzero invariant degree-three class in the full symmetry quotient. In particular the central inversion splits the 20-dimensional homology asymmetrically (15 plus, 5 minus), a structural feature that general graph-class wedge results do not predict. This is a natural finite exact classification, not a claim about a general family or a routine re-labeling of a known object.
+From the exact 30-edge icosahedral graph, independently enumerated all 4096 subsets under induced maximum degree <=1: 323 nonempty faces with f=(12,66,140,105). Lexicographic matching gave 149 pairs and critical cells (1,0,2,22), and topological sort verified all 972 Hasse arcs acyclic. Independently eliminated each paired 2/3-cell by signed integer pivots, reproducing all 22 Morse boundary columns and a determinant-one 2x2 minor, giving integral wedge of 20 S3 by Hurewicz and cancellation. Generated the full 120-symmetry group from two explicit graph permutations, used signed simplicial Lefschetz traces, obtained central-inversion +/− ranks 15/5 and full-group invariant dimension 1. The rational quotient claim follows by invariant rational chains after subdivision, not integral quotient equivalence.
 
-## Scope and residual limitations
-The theorem is specific to the twelve-vertex icosahedral graph and parameter two. It does not establish integral equivariant homotopy equivalence, the full integral automorphism lattice or integral quotient homology. Literature novelty is assessed to the extent of inspected documents and accessible indexed records. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hypergraph independence dualities and published higher-independence calculations for paths, cycles, multipartite and rooted-tree families do not include the icosahedral graph. Ordinary icosahedral matching/neighborhood/cut complexes have different forbidden subsets and hence do not imply this theorem. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
+
+## value
+
+PASS
+
+The icosahedral dissociation complex is a natural higher-independence invariant of a maximally symmetric Platonic graph. Integral homotopy and the full A5×C2 representation are exact structural data, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
