@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The line-graph cluster equivalence forces root components to be stars or triangles. The proof checks every possible one-edge addition, excluding 2-edge stars and all unused-base-vertex configurations except one isolated vertex with triangles. Each admissible labeled root-component partition is unique; the exponential formula and spectrum arguments are exact. Exhaustive direct induced-subgraph tests for n=3..7 agree with the independent recurrence on 545 maximal subsets and 2,131,016 total examined subsets. Unbounded n is handled by proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao, arXiv:2004.09885, Theorem 1.1 establishes a polynomial-delay algorithm for maximal induced cluster graphs of arbitrary input graphs; Section 5 cluster graph proof concerns hereditary-class enumeration.",
+        "Brosse et al., arXiv:2007.01031, abstract and Table 1 consider maximal induced split, cograph and threshold classes.",
+        "Tsur, arXiv:1901.07609, Theorem and Sections 1–2 develop fixed-parameter optimization, not a closed counting formula."
+      ],
+      "reasoning": "An algorithm that enumerates solutions can of course be executed on each T_n, but is not a stronger exact structural classification or explicit all-n cardinality polynomial. Rook graph L(K_{m,n}) is not an enclosing family of triangular graphs L(K_n), as the latter has root triangles. No inspected general statement implies the new purity criterion n in {3,5}.",
+      "searches": [
+        "Literature search: 2021 2022 2023 enumeration minimal cluster vertex deletion sets maximal induced cluster graphs paper arxiv",
+        "Literature search: enumeration maximal induced cluster subgraphs triangular graphs exact count",
+        "Literature search: maximal induced cluster graphs cluster vertex deletion minimal P3 transversals enumeration labeled triangular rook"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2004.09885",
+      "https://arxiv.org/pdf/1901.07609",
+      "https://arxiv.org/pdf/2007.01031",
+      "https://arxiv.org/abs/2004.09885",
+      "https://arxiv.org/abs/1901.07609",
+      "https://arxiv.org/abs/2007.01031"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cao, arXiv:2004.09885, Theorem 1.1 asserts enumeration for a class of hereditary properties on arbitrary graphs, not coefficient formulas for fixed triangular graphs.",
+        "Brosse et al., arXiv:2007.01031, Table 1 covers split/cograph/threshold class algorithms.",
+        "Tsur, arXiv:1901.07609, presents optimization complexity and P3-free characterization."
+      ],
+      "reasoning": "The exact classification includes a distinctive exceptional family with one unused original vertex and only triangular root components. Neither a general P3-hitting algorithm nor the previously known cluster graph definition gives its cardinality contribution without a new all-cases argument. No stronger inspected theorem was found. A differently formulated exact line-graph partition theorem remains possible.",
+      "searches": [
+        "Literature search: line graph cluster vertex deletion complete graphs triangles stars",
+        "Literature search: line graph maximal induced cluster graph exact characterization",
+        "Literature search: 2020 2021 maximal induced cluster subgraph enumeration maximal P3 free vertex subsets research",
+        "Literature search: cluster deletion facets Johnson graph J(n,2) maximal induced P3-free sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tsur, arXiv:1901.07609, Section 1: cluster graph iff no induced 3-vertex path; cluster deletion is equivalent to hitting all such paths.",
+        "Cao, arXiv:2004.09885, introduction: maximal induced P-subgraphs are complements of minimal vertex deletion sets."
+      ],
+      "reasoning": "The complement of each maximal cluster-inducing vertex subset is a minimal induced-P3 transversal; the proposed polynomial thus counts minimal cluster vertex deletions by complementary size. The general equivalence does not give the triangular graph component-partition coefficients. The search results did not reveal an exact covering statement; absence is not a uniqueness proof.",
+      "searches": [
+        "Literature search: minimal vertex deletion sets to make the triangular graph J(n,2) P3-free cluster graphs exact count generating function",
+        "Literature search: complete graph edges maximal disjoint collection of stars and triangles no induced P3 in line graph labeled partitions",
+        "Literature search: minimal cluster vertex deletion set triangular graph complete line graph stars triangles",
+        "Literature search: triangular graphs cluster vertex deletion minimal exact counting induced cluster"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent verified small-order counts from the root-component formula are 1,11,15,91,427 at n=3,4,5,6,7 respectively.",
+        "No exact matching table or all-n coefficient source was returned by these specific searches."
+      ],
+      "reasoning": "Small count coincidence alone would not cover the all-parameter structural result; a table with an equivalent formula would. The searches did not find such a source, but coverage outside indexed sources remains a residual risk.",
+      "searches": [
+        "Literature search: OEIS 1 11 15 91 427 maximal cluster triangular line graph",
+        "Literature search: triangular graph minimal P3 transversal count 11 15 91 427",
+        "Literature search: triangular graph maximal induced cluster subgraphs polynomial",
+        "Literature search: maximal induced cluster vertex subsets of triangular graph L(K_n) stars triangles component partition enumerator"
+      ]
+    },
+    "rationale": "Comparisons of mathematical implications find general cluster-deletion and general maximal induced hereditary-subgraph algorithms, but no full triangular-graph facet classification, cardinality polynomial, or exact purity exception in the inspected material. Related known line-graph results for bipartite complete roots cannot imply the claim for K_n because their root graphs have no triangles. Priority remains provisional.",
+    "residual_risks": [
+      "Unindexed published formulas for maximal P3-free edge families of complete graphs may be equivalent despite different terminology.",
+      "Only relevant sections of the complete primary texts were inspected; no exhaustive citation-chasing or claim of absolute novelty is made.",
+      "Small numerical count sequences may appear in a table that the queried indexes do not reveal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General enumeration algorithms and hereditary property class, not triangular graph cardinality polynomial or all-order purity.",
+        "evidence": [
+          "Theorem 1.1 lists cluster graphs among classes enumerable with polynomial delay.",
+          "Corollary 5.4 and adjoining proof address a graph-class enumeration property, not an explicit T_n count."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.09885",
+        "material_read": "Full paper made available; examined abstract, introduction and Theorem 1.1 (PDF pages 1–3), detailed cluster-graph section near Corollary 5.4 (PDF page 35), and terminology matches across document text.",
+        "method": "Open PDF text, direct page-image inspection, and in-document text searches for cluster graphs, triangular graphs, Johnson.",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "Directly studies maximal cluster-inducing induced subgraphs in arbitrary host graphs."
+      },
+      {
+        "assessment": "General optimization and hitting-set viewpoint; no line graph K_n facet enumerator in inspected sections.",
+        "evidence": [
+          "Section 1 proves cluster graphs correspond to absence of induced three-vertex paths.",
+          "The central result gives an improved fixed-parameter running time, not counts of all minimal transversals."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07609",
+        "material_read": "Read abstract, Introduction, Section 2 definitions and opening algorithm setup (PDF pages 1–3).",
+        "method": "Open PDF, inspect first page image and source text for stated mathematical scope.",
+        "title": "Faster parameterized algorithm for Cluster Vertex Deletion",
+        "trigger": "Exact equivalent minimal deletion problem for P3-free induced subgraphs."
+      },
+      {
+        "assessment": "Algorithms for split, cograph and threshold properties, but no explicit triangular-cluster partition enumerator in material read.",
+        "evidence": [
+          "Abstract and Table 1 list studied classes, none corresponding to a triangular graph all-size cluster polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.01031",
+        "material_read": "Read abstract, introduction, Table 1 and algorithms summary (PDF pages 1–3); document text searched for triangular graph and Johnson.",
+        "method": "Open PDF text, inspect page image, use targeted full-document find.",
+        "title": "Efficient enumeration of maximal split subgraphs and induced sub-cographs and related classes",
+        "trigger": "Related general maximal induced hereditary class enumeration; threshold line graphs are a plausible overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68bb3fc9-b806-410c-918e-77b2d750609b",
+  "value": {
+    "rationale": "Cluster vertex deletion is a motivated hereditary graph modification problem; the finding describes every facet of the cluster-inducing complex on a classical Johnson graph, gives a closed cardinality EGF and exact size spectrum, and identifies the exceptional pure order n=5. The distinction between triangle components, 2-edge stars, and the isolated-vertex exception is structurally necessary and not an arbitrary parameter substitution. It supplies more than minimum cardinality or routine finite enumeration.",
+    "status": "PASS"
+  }
+}
