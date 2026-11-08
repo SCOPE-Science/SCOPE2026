@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated object is a three-reaction network with both source and target complexes of total molecularity at most four. The balance-matrix identity reduces the exact rank-two positive-flux test to a single primitive integer cross product. The proof establishes that the geometric fold condition forces independence of the first two balance rows; thus no candidate omitted by this reduction can satisfy the theorem. The finite loop visits every unordered triple of directed nonidentity reactions exactly once. Integer moment tests, not numerical approximations, produce 350 admissible fold triples at degree four and exactly nine with positive slow trace. A separate analytic calculation confirms the displayed network for all positive rates. Executing the packaged checker and comparing its generated TSV with the archived table reproduced every count. The table is exhaustively finite, not an extrapolation to arbitrary degree.
+## correctness
 
-## Originality — PASS under inspected evidence
-The 19 October 2026 classification by Beldiman and Halanay supplies the general canard-flux test and degree-three classification; it reports no positively traced rank-two three-reaction examples at that degree. These ingredients are explicitly credited. The new assertion is the complete next-degree count of nine and the exact two-network trimolecular-reactant subfamily, with an explicit all-positive-rate representative and full list. The related Banaji–Boros–Hofbauer three-reaction classification has bimolecular reactant sources and studies Hopf bifurcations and periodic orbits, not the present positive-trace codimension-zero fold. The 2026 dual-equation fold/cusp criteria do not state the nine-network census. Semantic searches for unstable codimension-zero rank-two canards, aliases of three-reaction tetramolecular folds, and the exhibited reaction mechanism found no equivalent prior published record. Residual risk: a historical or unindexed enumeration may already contain the nine-network classification.
+PASS
 
-## Mathematical value — PASS
-The degree-three theory left an exact qualitative boundary: every rank-two three-reaction geometric canard fold in that universe has nonpositive slow trace. The present classification identifies the first molecularity at which a repelling version exists and gives its entire finite labelled population, not merely an arbitrary numerical example. It distinguishes a meaningful dynamical mechanism (repelling pinned canard-fold equilibria) from actual singular Hopf unfolding and provides two especially low-reactant-degree witnesses relevant to reaction-network design. An exact standalone census of a sharply motivated first-degree boundary is a substantive complete classification, despite not proving any limit-cycle existence.
+For three distinct directed two-species reactions with source and product total molecularity <=4 and strictly positive rate constants, writing N=product-X minus reactant-X, M analogously for Y, and U=N times reactant-X order, the rank-two positive-flux fold condition reduces to an all-same-strict-sign cross product N x U and M dot (N x U)=0. The integer moments n20, n01, m10, m01 impose n20 !=0, n01*m10<0, m01>0; arbitrary positive null flux can be realized at a chosen positive (x,y) by rates k_r=v_r/(x^a y^b). A separately written exact enumeration over unordered reaction triples independently reproduced the source counts: degree 2 0, degree 3 82 positive-null/16 fold/11 negative/5 zero/0 positive and degree 4 1590 positive-null/350 fold/278 negative/63 zero/9 positive, with 210 directed reactions and 1,521,520 triples at degree 4. Archived nine-row data were inspected; witness equilibrium x*=beta/(2 gamma y*), y*=(beta^2/(4 alpha gamma))^(1/3), Jacobian trace eps*alpha*y*>0 and determinant 3eps*alpha*beta*y*>0 for all positive rates. Complete finite classification is for labelled reaction sets, NOT a theorem about all canard dynamics.
 
-## Relationship to primary literature and limits
-Beldiman and Halanay, arXiv:2610.27188v1, Sections 2–4 and 8–9 (general criterion and classification through molecularity three), are closest and are not claimed as new. Banaji, Boros and Hofbauer, arXiv:2304.02303, treat three-reaction quadratic-sourced Hopf and oscillation, which does not imply the fixed rank-two positive-slow-trace fold census here. Banaji, arXiv:2609.07265v1, provides dual-equation fold/cusp methods without the proposed sign or cardinality assertion. This result counts labelled networks, not equivalence classes. It does not assert canard explosions, bifurcation under varying rate constants, higher-molecularity classification or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior Beldiman–Halanay classification supplies the flux and rank criteria and all degree-three examples, finding no positive slow trace. The nine positive-trace degree-four labelled networks, their table and minimal reactant-degree distinction are a new bounded extension relative to the inspected primary sections. Banaji–Boros–Hofbauer quadratic-sourced Hopf examples do not imply these rank-two pinned folds. Best-of-knowledge only; a separately indexed degree-four census could exist.
+
+## value
+
+PASS
+
+A sharp first molecularity threshold and complete finite classification of minimal three-reaction planar mass-action pinned folds gives a structural boundary for network design, with explicit positive-trace witnesses. The nine count is motivated by the natural degree-four frontier beyond a published complete degree-three classification and is not presented as a Hopf bifurcation result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
