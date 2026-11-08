@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The code mechanism and every random weight are specified, including the zero-derivative absorbing branch. Independent sibling subtrees give the exact positive second-moment renewal equations. Their Riccati first integral yields an explicit double-pole solution and an integrated first-order pole for the actual initial-coordinate estimator. The rate optimization has a single interior maximum. The positive-tree construction supports monotone truncations and rules out moment reentry after singularity. The independent code verifier performs numerical ODE integration and 80,000 direct tree draws; it is supplementary to, not a substitute for, the proof.
+PASS
 
-## Originality — PASS, qualified
+The original coding-tree mechanism has deterministic child-code maps Id→(f), f→(f,f'), f'→(f,f''), f''→(f,0), 0→(f,0), with independent Exp(λ) lifetimes and positive weights. Tonelli on nonnegative finite-generation expansions gives second-moment ODE I'=λI+F/λ, F'=λF+FC/λ, C'=λC+4e^{λt}F/λ, I(0)=a²,F(0)=a⁴,C(0)=4a². Transform x=(e^{λt}-1)/λ² and F=e^{λt} Fhat,C=e^{λt} Chat to get Fhat_x=Fhat Chat, Chat_x=4Fhat and invariant Chat²-8Fhat=8a⁴. Explicit solution using b=2√2 a², R=(3-2√2)e^{bx} is Chat=b(1+R)/(1-R), Fhat=b²R/[2(1-R)²]. Blowup x*=κ/a², κ=log(3+2√2)/(2√2), corresponds to t2(λ)=(1/λ)log[1+κλ²/a²]. Near x*, Fhat~1/[2(x*-x)²], so the integral for I blows up λ/{2e^{λt2}(t2-t)}; Tonelli rules out revival of finite second moment after t2. First-moment renewal still gives a/(1-at) for t<1/a. Optimize t2 by z=1+κ(λ/a)²; derivative sign 2(1-1/z)-log z has one root z*>2, yielding optimal rate≈2.508456434a and max horizon≈0.6353007524/a. Independent integration of the unreduced three-moment ODE agreed with explicit formulas at 70% of t2 for three parameter pairs; direct bisection checked the unique rate optimum. Finite ODE checks do not prove boundary integrability.
 
-The original coding-tree mechanism, expectation representation and small-time Riccati experiment belong to Penent–Privault, arXiv:2201.05998; the only new claim is a sharp L2 horizon and its constant-rate optimum. Its Section 4 gives sufficient L1 conditions, not the squared-weight moment threshold derived here. Huang–Privault, arXiv:2404.05969, also studies second moments but for a separate random-tree-size algorithm without exponential branching clocks; the variance-bound optimization there does not cover this exact estimator. Henry-Labordère et al., arXiv:1603.01727, establish general branching diffusion representations and maturity restrictions for semilinear PDEs, not this exact scalar marked-code moment system. Semantic record searches with equivalent and numerical formulations found no direct equivalent among retrieved records, not a proof of global novelty. Specialized classical marked branching literature remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The estimator is used to numerically represent ODE solutions, and variance determines whether ordinary sample averages admit the usual finite-variance Monte Carlo error analysis. Establishing a strict, optimal clock-rate horizon disambiguates mean integrability from numerical uncertainty: at positive times where the Riccati solution is smooth and the expected tree size is finite, every constant-rate exponential coding-tree estimator still has infinite variance. The exact pole also quantifies how rapidly the uncertainty deteriorates on approach to the horizon.
+Penent–Privault introduce exactly this exponential-time derivative-code estimator and its first-moment representation, including Riccati examples at time 1/2. Their inspected source does not determine second-moment divergence and unique optimal constant-rate finite-variance horizon. Different Butcher tree-size sampling is not this clock law.
 
-## Limitations and nearest literature
+## value
 
-The global optimization is only over fixed exponential clock rates, not general lifetime distributions, other tree sampling algorithms, or general nonlinear ODEs. Rare-event simulations cannot establish failure of L2 integrability. Earliest underlying source is the January 16, 2022 arXiv posting of Penent–Privault. Exact priority beyond the inspected papers is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise, natural practical reliability question for an established unbiased Monte Carlo integrator is answered: the finite-mean regime contains a nontrivial unavoidable infinite-variance interval for every constant clock rate, with an optimized sharp numerical threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:01:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original coding-tree mechanism has deterministic child-code maps Id→(f), f→(f,f'), f'→(f,f''), f''→(f,0), 0→(f,0), with independent Exp(λ) lifetimes and positive weights. Tonelli on nonnegative finite-generation expansions gives second-moment ODE I'=λI+F/λ, F'=λF+FC/λ, C'=λC+4e^{λt}F/λ, I(0)=a²,F(0)=a⁴,C(0)=4a². Transform x=(e^{λt}-1)/λ² and F=e^{λt} Fhat,C=e^{λt} Chat to get Fhat_x=Fhat Chat, Chat_x=4Fhat and invariant Chat²-8Fhat=8a⁴. Explicit solution using b=2√2 a², R=(3-2√2)e^{bx} is Chat=b(1+R)/(1-R), Fhat=b²R/[2(1-R)²]. Blowup x*=κ/a², κ=log(3+2√2)/(2√2), corresponds to t2(λ)=(1/λ)log[1+κλ²/a²]. Near x*, Fhat~1/[2(x*-x)²], so the integral for I blows up λ/{2e^{λt2}(t2-t)}; Tonelli rules out revival of finite second moment after t2. First-moment renewal still gives a/(1-at) for t<1/a. Optimize t2 by z=1+κ(λ/a)²; derivative sign 2(1-1/z)-log z has one root z*>2, yielding optimal rate≈2.508456434a and max horizon≈0.6353007524/a. Independent integration of the unreduced three-moment ODE agreed with explicit formulas at 70% of t2 for three parameter pairs; direct bisection checked the unique rate optimum. Finite ODE checks do not prove boundary integrability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Privault arxiv:2404.05969",
+          "Henry-Labordère et al. arxiv:1603.01727"
+        ],
+        "reasoning": "Compare other branching Monte Carlo integrability and random Butcher-tree size laws for stronger coverage. Tree-size weighting and semilinear PDE branching concern distinct sampling laws; general sufficient moment bounds do not yield this exact clock-specific least horizon without further calculation.",
+        "searches": [
+          "Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate",
+          "Huang–Privault arxiv:2404.05969",
+          "Henry-Labordère et al. arxiv:1603.01727"
+        ]
+      },
+      "checked_sources": [
+        "Penent and Privault (2022), Numerical evaluation of ODE solutions by Monte Carlo enumeration of Butcher series, arXiv:2201.05998 §4, §7 (full relevant text read)",
+        "Huang and Privault (2024), On the random generation of Butcher trees, arXiv:2404.05969",
+        "Henry-Labordère et al. (2016), Branching diffusion representation of semilinear PDEs and Monte Carlo approximation, arXiv:1603.01727",
+        "Resultary search: Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Penent–Privault arxiv:2201.05998 §7, §4"
+        ],
+        "reasoning": "Compare source Riccati numerical regime and sufficient mean integrability with exact L² pole. An unbiased estimator with correct mean at t=.5 can have an infinite second moment, so its numerical use and mean theorem do not imply finite variance; t2(1)=.484415..., and the claimed formula supplies a new quantitative obstruction.",
+        "searches": [
+          "Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate",
+          "Penent–Privault arxiv:2201.05998 §7, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Penent–Privault arxiv:2201.05998 Definition 4.1, Proposition 4.3, §7"
+        ],
+        "reasoning": "Search second moments of derivative-coded Galton-Watson/Butcher-series Monte Carlo trees and branching ODE blowup as Riccati singularities. The original positive coding-tree law and first moments are prior, while the exact second-moment nonlinear system, pole, and optimal constant exponential rate are additional statements.",
+        "searches": [
+          "Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate",
+          "Penent–Privault arxiv:2201.05998 Definition 4.1, Proposition 4.3, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query: Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate"
+        ],
+        "reasoning": "Search published Resultary for exact Riccati coding-tree second-moment horizon, λ optimization and the κ=log(3+2√2)/(2√2) constant. Returned neighboring nonlinear and variance records do not contain this named estimator/horizon; negative search is not a novelty proof.",
+        "searches": [
+          "Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate",
+          "Resultary query: Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate"
+        ]
+      },
+      "rationale": "Penent–Privault introduce exactly this exponential-time derivative-code estimator and its first-moment representation, including Riccati examples at time 1/2. Their inspected source does not determine second-moment divergence and unique optimal constant-rate finite-variance horizon. Different Butcher tree-size sampling is not this clock law.",
+      "residual_risks": [
+        "A specialized earlier marked-branching second-moment Riccati calculation may contain the same pole and optimizing rate.",
+        "Only the exactly specified scalar independent constant-rate exponential lifetime estimator; not an impossibility for adaptive/unbiased alternatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The estimator and first moment are established; no matching exact Riccati second-moment pole or λ-optimization in inspected sections.",
+          "evidence": [
+            "Definition 4.1",
+            "Theorem 4.2",
+            "Proposition 4.3",
+            "Section 7"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.05998",
+          "material_read": "Primary arXiv full HTML, inspected Definition 4.1, Theorem 4.2, Proposition 4.3 and §7 Riccati example and assumptions",
+          "method": "public arXiv HTML",
+          "title": "Numerical evaluation of ODE solutions by Monte Carlo enumeration of Butcher series",
+          "trigger": "same exact derivative-code exponential-lifetime tree estimator, Riccati example"
+        },
+        {
+          "assessment": "Different generation law; cannot claim comprehensive noncoverage from abstract alone.",
+          "evidence": [
+            "arxiv:2404.05969"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.05969",
+          "material_read": "Bibliographic abstract and source description of tree-size probability mechanism; full article not independently read",
+          "method": "bibliographic comparison",
+          "title": "On the random generation of Butcher trees",
+          "trigger": "possible alternative tree variance bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precise, natural practical reliability question for an established unbiased Monte Carlo integrator is answered: the finite-mean regime contains a nontrivial unavoidable infinite-variance interval for every constant clock rate, with an optimized sharp numerical threshold.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Penent and Privault (2022), Numerical evaluation of ODE solutions by Monte Carlo enumeration of Butcher series, arXiv:2201.05998 §4, §7 (full relevant text read)",
+    "Huang and Privault (2024), On the random generation of Butcher trees, arXiv:2404.05969",
+    "Henry-Labordère et al. (2016), Branching diffusion representation of semilinear PDEs and Monte Carlo approximation, arXiv:1603.01727",
+    "Resultary search: Riccati ODE coding tree Monte Carlo second moment infinite variance exponential clocks optimal rate"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar y'=y², y(0)=a>0, independent exponential clocks with one constant λ>0 and stated child-code rules.",
+    "Mean formula only before t=1/a; sampled trees cannot certify high moments.",
+    "Finite numerical integration validates formulas below blow-up, not exact divergence.",
+    "Frozen public AUDIT.json and METADATA.json contain operational scope_run_id in each package. Complete confidentiality-safe replacement UTF-8 bytes with exact source Git blob guards and SHA-256 content hashes were not staged; publication must be withheld."
+  ],
+  "residual_risks": [
+    "A specialized earlier marked-branching second-moment Riccati calculation may contain the same pole and optimizing rate.",
+    "Only the exactly specified scalar independent constant-rate exponential lifetime estimator; not an impossibility for adaptive/unbiased alternatives."
+  ],
+  "schema_version": 1
+}
