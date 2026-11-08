@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact renewal reduces the mean to a single-attempt Laplace success probability. The mixed-boundary resolvent and Doob transform are explicit. The stopped Girsanov expression converts velocity noise into an integral whose conditional Gaussian moments vanish on the strongly accelerated first-hit path; exceptional long and reflected paths are exponentially suppressed. The uniform limit, convex inequalities and boundary/equality cases are shown for all fixed positive parameters and all bounded reset laws. The exact constant-drift limit and numerical reference-path sampling were checked. The conservative error bound is not claimed sharp. Remaining concern: the stopped Gaussian exponential-moment localization deserves an independent technical check.
+## correctness
 
-## Originality
-PASS, qualified best-knowledge. The September 2026 originating study examines weak activity and simulated fixed velocities, not high-rate uniform velocity-law design. Its renewal identity and background first-passage formulas are not claimed. Earlier active Brownian first-passage and active OU stationary-resetting papers were compared at the levels of objects, parameter limits, and conclusions. No directly dominating high-rate OU reset-law theorem was located in available literature or semantic research records. Possible implicit coverage through general short-time diffusion first-passage theorems remains a priority risk; lack of a matching search result is not proof of novelty.
+PASS
 
-## Value
-PASS. This provides a nonperturbative and sharp optimization of the reset-velocity **law**, not merely of one reset rate or a fixed speed, and isolates a surviving velocity memory factor while temporal OU parameters disappear from leading order. The exact two-point optimum under a mean and bounded-support constraint supplies a physically interpretable experimental protocol and a rigorous boundary to finite-rate claims.
+Renewal gives M=(1-q)/(r q) for full-state independent resetting. The passive reflected Brownian Laplace resolvent is cosh((L-d)sqrt(r/D))/cosh(L sqrt(r/D)); its Doob tilt localizes hitting time at d/(2 sqrt(D r)) with O(r^-3/2) variance and exponentially suppresses upper-wall encounters. Stopped spatial Girsanov plus X_T=0 and zero cross variation with the OU noise yields exactly exp(-d v/(2D)) times an OU short-time exponential remainder. Bounded X and compact initial velocities control Gaussian moments on T<=r^-1/3, and discounted tails give the claimed uniform O(r^-1/4) relative error. Jensen and strict chord inequality for exp(-d v/(2D)) give sharp unique mean-constrained designs; endpoints m=a,b reduce to the same Dirac law. Independently checked the exact constant-drift Laplace ratio in log space at r=100,10000,1000000 for v=-1.5,-0.4,0,1.7, approaching exp(-dv/(2D)); independently computed mean-zero endpoint gain cosh(0.5) on [-1,1]. The source finite checker does not prove the stopped-Girsanov localization, and its delicate uniform tail bound remains a residual technical risk.
 
-## Limits
-Requires passive diffusion \(D>0\), instantaneous full-state resetting, compact reset-law support, and fixed positive physical parameters. No result is claimed for position-only resetting, \(D=0\), or finite-rate convex ordering. No independent validation or priority certification is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identical AOUP finite reflecting interval appears in Georgiou–Bressloff–Bertrand (arXiv:2609.21124), with Poisson renewal and sensitivity to velocity resetting; accessible abstract describes weak-activity perturbations and rates rather than the singular high-reset distributional convex-order optimization. Baouche–Kurzthaler (arXiv:2504.02466v1) full primary HTML treats 2D constant-speed active Brownian orientation and low-Péclet resetting, not OU velocity distribution on a finite interval. A general small-time diffusion theorem might encompass the asymptotic; no direct dominating statement was verified. The AOUP paper was inaccessible in full and remains a material priority risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+Sharp high-reset velocity-law optimization supplies an experimentally motivated control parameter (distribution of propulsion at each reset), a nonperturbative leading MFPT and a unique two-point extremizer at fixed mean; isolates the parameter dependence that survives strong resetting. This is neither an ordinary renewal identity nor an arbitrary finite numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
