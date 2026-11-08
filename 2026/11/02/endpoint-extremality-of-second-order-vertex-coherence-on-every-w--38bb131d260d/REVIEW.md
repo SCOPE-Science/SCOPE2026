@@ -1,11 +1,21 @@
-# Supported self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The centered Laplacian-pseudoinverse columns have explicit consecutive differences equal to centered two-level step functions. Their pairwise inner products are strictly positive for every positive conductance vector. Telescoping and the zero-column-sum identity express an interior column as a positive left increment sum minus a positive right increment sum. On either side of the path midpoint, one of the endpoint columns replaces the smaller increment coefficients by larger ones and reverses the cross-term sign. The exact norm expansions prove strict dominance at one endpoint. All quantifiers, normalization and boundary cases \(n\ge3\) are treated analytically. Earlier randomized full-matrix checks of 26,000 paths corroborated but did not establish the statement.
+## correctness
 
-**Originality — PASS, with residual risk.** The inspected 2014 Sun–Ding–Zhang–Chen material computes inverse-square *spectral sums* for specific recursive trees, while the theorem here is a maximum of individual inverse-square diagonals on all independently weighted paths. Summers and colleagues and Ghosh–Boyd–Saberi address trace- or resistance-based global objectives. A later abstract about approximating second-order vertex coherence demonstrates that vertex diagonals are relevant but does not state the claimed endpoint inequality. Searches for biharmonic vertex-centrality endpoint ordering and published research records did not identify an exact equivalent, although specialized prior work could exist.
+PASS
 
-**Value — PASS.** A sharp all-weights, all-path-orders location theorem eliminates the need to test interior vertices to identify the worst second-order noise exposure. The proof is not a spectral average or a simple substitution into first-order formulas; it reveals a positive-cone property of inverse-Laplacian column increments and yields an equivalent extremal property for average squared biharmonic distances. The location statement is a meaningful structural lemma even without solving a separate edge-weight design problem.
+Let z_v=L^dagger e_v and s_k=z_{k+1}-z_k. Because L s_k=e_{k+1}-e_k and s_k has mean zero, s_k is the centered step potential with value -(n-k)/(n w_k) to the left and k/(n w_k) to the right. Direct coordinate multiplication gives the strictly positive Gram entry min(i,j)*(n-max(i,j))/(n w_i w_j). Column-sum zero then gives z_v=P_v-Q_v with positive left/right edge sums, z_1=-(V_v+Q_v), z_n=P_v+U_v. For v<=mid the left endpoint has V_v>=P_v coefficient-wise, making ||z_1||^2-||z_v||^2=||V||^2-||P||^2+2<V+P,Q> strictly positive. For v>=mid the right endpoint gives the reflected strict comparison. n>=3 makes both edge sets nonempty at every interior vertex. Spectral decomposition verifies (L^2)^dagger=(L^dagger)^2, independent of eigenvalue degeneracies.
 
-**Limitations.** The graph must remain an undirected connected path with strictly positive conductances; no statement about arbitrary noise covariances or other graph families is made. The later vertex-coherence paper was inspected at abstract level only, and residual specialist-priority risk remains. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared trace network coherence on prescribed tree families with local second-order vertex-coherence algorithms and biharmonic distance. The local diagonal quantity itself is prior, but the strict endpoint location for every order and every conductance vector is not implied by inspected trace formulas or local numerical approximation algorithms. The most relevant local-diagonal algorithm paper full text remained inaccessible; priority risk preserved.
+
+## value
+
+PASS
+
+A natural individual second-order coherence statistic measures noisy-consensus vulnerability or mean squared biharmonic eccentricity. The structural location theorem reduces an arbitrary heterogeneous path worst-node scan to its endpoints and requires an all-weights positive cone argument, not a trace computation or routine first-order effective resistance formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

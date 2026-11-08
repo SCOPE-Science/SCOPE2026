@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` is a direct, finite algebraic argument at each arbitrary \(n\ge3\), and does not require an external solver, enumeration, or numeric certificate. Reproduction consists of deriving the two-valued centered potential \(s_k\), checking \(Ls_k=e_{k+1}-e_k\), multiplying the two step functions to obtain the strictly positive inner product, telescoping centered Green columns, and using the exact squared-norm differences (6)–(7).
+## correctness
 
-Before acceptance, numerical experiments formed full pseudoinverse-square diagonals for 26,000 randomly weighted paths of orders three through fifteen and found every maximal vertex at an endpoint. Tests of neighboring-diagonal second differences also demonstrated that ordinary global convexity is not a proof method. The randomized results are not exhaustive and are not offered as substitutes for the algebraic proof. The result does not assert any optimal edge-conductance allocation or independent certification.
+PASS
 
-Scientific comparisons distinguish local squared-pseudoinverse diagonals from total first-order resistance, network-average first- and second-order coherence and generic biharmonic approximations. An obscure prior characterization could remain undiscovered. Independent audit is not performed.
+Let z_v=L^dagger e_v and s_k=z_{k+1}-z_k. Because L s_k=e_{k+1}-e_k and s_k has mean zero, s_k is the centered step potential with value -(n-k)/(n w_k) to the left and k/(n w_k) to the right. Direct coordinate multiplication gives the strictly positive Gram entry min(i,j)*(n-max(i,j))/(n w_i w_j). Column-sum zero then gives z_v=P_v-Q_v with positive left/right edge sums, z_1=-(V_v+Q_v), z_n=P_v+U_v. For v<=mid the left endpoint has V_v>=P_v coefficient-wise, making ||z_1||^2-||z_v||^2=||V||^2-||P||^2+2<V+P,Q> strictly positive. For v>=mid the right endpoint gives the reflected strict comparison. n>=3 makes both edge sets nonempty at every interior vertex. Spectral decomposition verifies (L^2)^dagger=(L^dagger)^2, independent of eigenvalue degeneracies.
+
+## originality
+
+PASS
+
+Compared trace network coherence on prescribed tree families with local second-order vertex-coherence algorithms and biharmonic distance. The local diagonal quantity itself is prior, but the strict endpoint location for every order and every conductance vector is not implied by inspected trace formulas or local numerical approximation algorithms. The most relevant local-diagonal algorithm paper full text remained inaccessible; priority risk preserved.
+
+## value
+
+PASS
+
+A natural individual second-order coherence statistic measures noisy-consensus vulnerability or mean squared biharmonic eccentricity. The structural location theorem reduces an arbitrary heterogeneous path worst-node scan to its endpoints and requires an all-weights positive cone argument, not a trace computation or routine first-order effective resistance formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

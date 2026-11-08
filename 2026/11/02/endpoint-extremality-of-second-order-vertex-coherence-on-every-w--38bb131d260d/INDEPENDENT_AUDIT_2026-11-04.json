@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:10:52.464001Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let z_v=L^dagger e_v and s_k=z_{k+1}-z_k. Because L s_k=e_{k+1}-e_k and s_k has mean zero, s_k is the centered step potential with value -(n-k)/(n w_k) to the left and k/(n w_k) to the right. Direct coordinate multiplication gives the strictly positive Gram entry min(i,j)*(n-max(i,j))/(n w_i w_j). Column-sum zero then gives z_v=P_v-Q_v with positive left/right edge sums, z_1=-(V_v+Q_v), z_n=P_v+U_v. For v<=mid the left endpoint has V_v>=P_v coefficient-wise, making ||z_1||^2-||z_v||^2=||V||^2-||P||^2+2<V+P,Q> strictly positive. For v>=mid the right endpoint gives the reflected strict comparison. n>=3 makes both edge sets nonempty at every interior vertex. Spectral decomposition verifies (L^2)^dagger=(L^dagger)^2, independent of eigenvalue degeneracies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. Sections II--IV use network-average inverse-square eigenvalue sums for one generative family, not each diagonal for every weighted path.",
+          "The Zhang et al. abstract proves scalable approximations to all vertex diagonals with error bounds, not an analytic endpoint location theorem; full text not available."
+        ],
+        "reasoning": "Trace/coherence approximation coverage alone does not dominate exact max location for all conductance vectors. No strong covering implication from accessible sections; unresolved specialist-priority risk explicitly retained.",
+        "searches": [
+          "Coherence in a family of tree networks with an application of Laplacian spectrum DOI 10.1063/1.4897568",
+          "Fast Approximation of Coherence for Second-Order Noisy Consensus Networks DOI 10.1109/TCYB.2020.2965586",
+          "Topology Design for Optimal Network Coherence arXiv:1411.4884"
+        ]
+      },
+      "checked_sources": [
+        "Sun et al., Chaos 24 (2014), author-uploaded text through network-coherence sections",
+        "DOI:10.1109/TCYB.2020.2965586, abstract only; Oxford authorized source vpn_disconnected",
+        "arXiv:1411.4884 accessible overview",
+        "Resultary semantic query: biharmonic vertex coherence squared Laplacian pseudoinverse diagonal weighted path maximum endpoint leaves"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-order effective resistance is a quadratic form of L^dagger; second-order local coherence is a diagonal of (L^dagger)^2, a distinct operator.",
+          "The cut-potential Gram kernel is strictly positive, and the proof uses sign-sensitive squared-norm comparisons not implied by network trace."
+        ],
+        "reasoning": "Source algorithms/trace formulas may compute individual examples but do not logically supply strict endpoint location without extra analysis. A stronger full-text proposition remains possible.",
+        "searches": [
+          "biharmonic vertex coherence squared Laplacian pseudoinverse diagonal weighted path maximum endpoint leaves",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance graph tree",
+          "Zhang Xu Yi Zhang fast approximation second-order noisy consensus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H^2=(L^2)^dagger and squared biharmonic mean distance differ from F(v) by vertex-independent correction.",
+          "Zhang et al., DOI:10.1109/TCYB.2020.2965586 defines local coherence via (L^2)^dagger diagonal but abstract gives a nearly-linear-time approximation algorithm."
+        ],
+        "reasoning": "Equivalence to maximal mean-squared biharmonic distance was explicitly tested. Identical invariant definitions in prior art do not entail vertex extremality for arbitrary positive conductances.",
+        "searches": [
+          "biharmonic vertex coherence squared Laplacian pseudoinverse diagonal weighted path maximum endpoint leaves",
+          "path graph biharmonic centrality leaves endpoints weighted Laplacian pseudoinverse squared",
+          "second-order vertex coherence path weighted worst vertex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim quantifies over all positive real conductances and n, so a finite table of ordinary paths cannot establish its universal strict assertion.",
+          "Resultary semantic query surfaced dynamical-sampling endpoint determinants and Green kernels for other settings, not this squared-pseudoinverse location theorem."
+        ],
+        "reasoning": "A tabulated low-n pattern would not cover all n and arbitrary weights; no strong existing closed-form catalogue established.",
+        "searches": [
+          "biharmonic vertex coherence squared Laplacian pseudoinverse diagonal weighted path maximum endpoint leaves",
+          "biharmonic vertex coherence paths weights endpoint table",
+          "biharmonic distance centrality weighted path diagonal database"
+        ]
+      },
+      "rationale": "Compared trace network coherence on prescribed tree families with local second-order vertex-coherence algorithms and biharmonic distance. The local diagonal quantity itself is prior, but the strict endpoint location for every order and every conductance vector is not implied by inspected trace formulas or local numerical approximation algorithms. The most relevant local-diagonal algorithm paper full text remained inaccessible; priority risk preserved.",
+      "residual_risks": [
+        "Full Zhang--Xu--Yi--Zhang 2020 article is inaccessible because institutional VPN disconnected; a hidden result about path worst-node locations may overlap.",
+        "Other earlier weighted-path biharmonic eccentricity or second-order vertex centrality formulae could imply the claim.",
+        "No claim is made for general trees, cycles, directed edges, or third and higher inverse powers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Network mean trace of L^-2 for special trees, not a theorem locating the largest individual diagonal on arbitrary weighted paths",
+          "evidence": [
+            "Equations for second-order network coherence sum inverse squares of nonzero Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/270342891_Coherence_in_a_family_of_tree_networks_with_an_application_of_Laplacian_spectrum",
+          "material_read": "Author-uploaded full-text rendering, including Sections I--IV: network definitions (equations 1--2) and spectral recursion of prescribed tree family",
+          "method": "Read publicly accessible research text and compared objective and graph class",
+          "title": "Coherence in a family of tree networks with an application of Laplacian spectrum",
+          "trigger": "Strong older second-order network coherence on trees"
+        },
+        {
+          "assessment": "Publication does compute the same local diagonal numerically, but inaccessible full text cannot support whole-document negative coverage",
+          "evidence": [
+            "Abstract: a nearly linear-time algorithm approximates all diagonal entries of pseudoinverse of squared Laplacian, with error guarantees."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TCYB.2020.2965586",
+          "material_read": "PubMed and OpenAlex abstract, authors and bibliography; an indexed Academia page showed unrelated embedded 2016 electronics article, so no reliable full text was inspected",
+          "method": "Tried arXiv exact-title search and open OA author-hosted pages first, then Oxford authorized DOI retrieval; Oxford returned vpn_disconnected; no bypass",
+          "title": "Fast Approximation of Coherence for Second-Order Noisy Consensus Networks",
+          "trigger": "Most directly relevant identical local invariant"
+        },
+        {
+          "assessment": "No implication of exact local vertex location from trace objective",
+          "evidence": [
+            "Network design optimizes aggregate Laplacian-pseudoinverse coherence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.4884",
+          "material_read": "Preprint abstract and trace-oriented network-coherence theorem overview; no unsupported whole-document conclusion",
+          "method": "Compared objective as trace rather than maximum diagonal",
+          "title": "Topology Design for Optimal Network Coherence",
+          "trigger": "Possible broader optimization of local coherence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural individual second-order coherence statistic measures noisy-consensus vulnerability or mean squared biharmonic eccentricity. The structural location theorem reduces an arbitrary heterogeneous path worst-node scan to its endpoints and requires an all-weights positive cone argument, not a trace computation or routine first-order effective resistance formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Undirected connected simple path, positive conductances, symmetric unnormalized combinatorial Laplacian, second inverse power only; no conductance optimization.",
+  "schema_version": 1
+}
