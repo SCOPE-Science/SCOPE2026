@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and evidentiary limits
 
-Run `python verify.py` with an unmodified Python 3 standard library. The script recomputes every proposed codeword's literal one-deletion shadow for \(n=2,\ldots,200\), compares the code size with the claimed formula, checks all shadow collisions, and separately constructs the complete weight-two confusability graph for \(n=2,\ldots,10\) to determine the maximum independent-set size via exact branch-and-bound. It returned:
+# Independent mathematical audit
 
-`VERIFY_OK constructed_n=2..200 distinct_outputs=54152 exact_MIS_n=2..10 branch_nodes=75`
+## correctness
 
-The proof's crucial facts are independently inspectable by elementary combinatorics: weight-one shadows consume one or two positions per codeword; adjacent-one words at successive starts cannot coexist; the construction pairs unused odd positions and separates its zero-deletion output shapes. The code tests finite parameter cases only. It does not establish originality or provide independent scientific certification. The source publication date is the publisher's December 6, 2019 first-publication date for DOI:10.3390/e21121202.
+PASS
+
+For every length n>=2, index words by 0<=a<=b<n−1 with ones at a,b+1. Deleting a one yields distinct weight-one outputs at a,b, except a=b; disjoint shadows force L+2E<=n−1 for L loop/adjacent-one words and E nonloops. Two loops at consecutive indices have a common weight-two deletion output, so L<=ceil((n−1)/2). Consequently |C|<=floor((3n−2)/4). The construction chooses even-index loops and disjoint odd-index nonloops (4t+1,4t+3); its weight-one outputs are disjoint by index parity and its weight-two outputs have gaps 1 for loops and 2 or 3 for nonloops, with distinct first coordinates across nonloops. Attains the bound for all n, including n=2. Independently enumerated deletion balls and exact maximum independent sets n=2..9 (1,1,2,3,4,4,5,6) and collision-free construction through n=89; the all-n proof is the packing argument.
+
+## originality
+
+PASS
+
+Equivalent statement alpha(L_{1,n,2})=floor((3n−2)/4) for weight-two one-deletion confusability graph. Cullina–Kulkarni–Kiyavash's 2012 fixed-weight graph theorem gives CHROMATIC number, not independence number; authors distinguish the objectives. No 2019 MILP method targets unrestricted binary codes with numerical bounds. Published Resultary small-instance deletion-code tables solve different alphabets/weights/noise models. A historical all-n elementary special case could still cover this.
+
+## value
+
+PASS
+
+Exactly solves the natural smallest nontrivial constant-weight family of single-deletion error-correcting codes for every length, with matching simple constructive codes and tight packing bound. The invariant is a genuine code capacity / graph independence number, not an arbitrarily selected toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
