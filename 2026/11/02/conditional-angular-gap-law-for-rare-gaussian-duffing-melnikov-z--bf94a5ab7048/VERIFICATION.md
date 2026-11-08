@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. It checks the exact normalized harmonic weights, the geometric bound on the aggregate higher harmonics, and the finite-frequency one-harmonic conditional CDF. Fixed-seed Gaussian experiments compare nine gap probabilities with their analytical values. These are finite checks, not substitutes for the proof of uniform-in-degree convergence.
+## correctness
 
-## Analytic checks
+PASS
 
-1. The exact first-harmonic zero event is \(|\delta|<tR\); rotational symmetry gives \(\mathbb P(|\delta|\le sR)=s/\sqrt{1+s^2}\).
-2. Higher-harmonic sup and derivative tails obey the explicit series majorants \((1+q^2)\sum_{k\ge2}kq^{k-1}R_k\) and \((1+q^2)\sum_{k\ge2}k^2q^{k-1}R_k\), with expectations \(O(q)\).
-3. Conditional interval integration gives a joint total-variation error \(O(q+t^2)\) for the first-harmonic amplitude, normalized offset and phase. The limiting amplitude is Maxwell, the offset fraction is uniform, and the phase angle is uniform and independent.
-4. Conditional \(C^1\) tail control and transverse-root stability transfer the latent-variable law to the short gap. Stationarity of independent Gaussian Fourier pairs proves exact midpoint uniformity.
+The independent Gaussian constant δ and isotropic first harmonic give |δ|<=tR for two zeros and short gap Δ=2 arccos(|δ|/(tR)). Uniform random direction in R^3 gives exact finite N=1 CDF 1−cos(d/2)*sqrt(1+t²)/sqrt(1+t²cos²(d/2)). For ω→∞, the normalized higher-harmonic amplitude and derivative sums S+D have uniformly-in-N moments O(q), q=e^(−πω/2), because wk/w1<=(1+q²)kq^(k−1). Conditioning on the rare zero-event δ/t in an interval of length ≈2R produces size-bias of Rayleigh R to Maxwell density sqrt(2/π)r²e^(−r²/2) and independent uniform normalized offset V∈[−1,1], uniform first phase, in total variation O(q+t²). C1 stability of simple sinusoidal zeros then transfers to P(Z=2|Z>=1)→1 and CDF(Δ)→1−cos(d/2), uniformly in every finite N(ω). Exact stationarity under phase rotations makes the shorter-arc midpoint uniform and gap-independent on Z=2. I checked all conditional normalizations and C1 tail estimates against the actual proof; the package verify.py checks finite examples but cannot prove the uniform all-N assertion.
 
-## Limits
+## originality
 
-No independent scientific audit or nonlinear Duffing separatrix validation was performed. The numerical simulation is finite. The proof is valid for all finite cutoff integers and fixed independent standard Gaussian coefficients, in the high-frequency limit; the full historical priority search is not exhaustive.
+PASS
+
+Ittayem–Lundberg 2026 gives precisely this Gaussian Melnikov function and establishes zero counts/high-frequency zero-event probabilities; those do not determine conditional angular zero locations. The added exact one-harmonic CDF, rare-event Maxwell amplitude selection, all-degree high-frequency short-gap law and exact independent midpoint constitute distinct statements. Older Qualls work on stationary Gaussian trigonometric zeros was only bibliographically available, so historical priority is qualified. Relevant Resultary search did not identify a preexisting conditional gap result.
+
+## value
+
+PASS
+
+The law resolves conditional geometry of rare crossings, not merely whether crossings occur; its universal gap CDF and Maxwell size-bias explain what the overwhelmingly rare detected pair looks like. The uniform-in-N statement and exact finite-frequency Haar midpoint provide motivated mathematically useful additional information. It is explicitly a Melnikov-function theorem, not a nonlinear fixed-perturbation separation claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

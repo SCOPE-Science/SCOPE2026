@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization is the exact published Gaussian Melnikov polynomial (equation (3.1)). The first-harmonic conditional CDF follows from the spherical symmetry of three independent standard Gaussians and the exact geometry of two sinusoidal zeros. The uniform-in-degree extension is proved by summable \(C^1\) harmonic tails, the interval representation of the zero event conditioned on coefficients, a uniform total-variation estimate for the coefficient law after conditioning, and simple-root continuity. Exact rotational invariance yields independent uniform midpoint for all finite parameters. The critical boundary events have probability zero because an independent Gaussian offset avoids finite critical-value sets. The packaged verifier independently checks the elementary formulas and several finite numerical samples; it is not the proof of the infinite claim.
+PASS
 
-## Originality — PASS, with explicit residual priority risk
+The independent Gaussian constant δ and isotropic first harmonic give |δ|<=tR for two zeros and short gap Δ=2 arccos(|δ|/(tR)). Uniform random direction in R^3 gives exact finite N=1 CDF 1−cos(d/2)*sqrt(1+t²)/sqrt(1+t²cos²(d/2)). For ω→∞, the normalized higher-harmonic amplitude and derivative sums S+D have uniformly-in-N moments O(q), q=e^(−πω/2), because wk/w1<=(1+q²)kq^(k−1). Conditioning on the rare zero-event δ/t in an interval of length ≈2R produces size-bias of Rayleigh R to Maxwell density sqrt(2/π)r²e^(−r²/2) and independent uniform normalized offset V∈[−1,1], uniform first phase, in total variation O(q+t²). C1 stability of simple sinusoidal zeros then transfers to P(Z=2|Z>=1)→1 and CDF(Δ)→1−cos(d/2), uniformly in every finite N(ω). Exact stationarity under phase rotations makes the shorter-arc midpoint uniform and gap-independent on Z=2. I checked all conditional normalizations and C1 tail estimates against the actual proof; the package verify.py checks finite examples but cannot prove the uniform all-N assertion.
 
-The originating Ittayem–Lundberg full-text equations and Theorems 3.1, 4.1, 4.2 concern zero counts and event probabilities, not conditional phase locations. A prior exact zero-count estimate on the identical ensemble yields no information about how the two zeros are separated. Related Gaussian-polynomial and cardinal-sine literature examines zero counts or zero-free interval asymptotics in different regimes. Targeted queries for conditional Duffing-Melnikov phase gaps, rare first-harmonic-dominated zero spacing, and Gaussian trigonometric zero separation yielded no explicit matching theorem. Qualls' 1970 paper and other older specialized sources were only available at abstract/metadata level: priority is not established exhaustively.
+## originality
 
-## Value — PASS
+PASS
 
-A zero-count probability cannot locate a pair of homoclinic splitting phases. This result gives a natural observable—the shorter angular separation between the two transverse Melnikov crossings—with an explicit full conditional distribution, a nontrivial Maxwell amplitude-selection mechanism, and an exact phase-uniformity law, all remaining valid when the forcing Fourier cutoff grows arbitrarily fast. It is a structural rare-event geometric law, not a mere re-evaluation of the already known count probability. It does not infer corresponding nonlinear intersection positions at fixed forcing amplitude.
+Ittayem–Lundberg 2026 gives precisely this Gaussian Melnikov function and establishes zero counts/high-frequency zero-event probabilities; those do not determine conditional angular zero locations. The added exact one-harmonic CDF, rare-event Maxwell amplitude selection, all-degree high-frequency short-gap law and exact independent midpoint constitute distinct statements. Older Qualls work on stationary Gaussian trigonometric zeros was only bibliographically available, so historical priority is qualified. Relevant Resultary search did not identify a preexisting conditional gap result.
 
-## Independent validation and limitations
+## value
 
-Full independent audit is outstanding. The finite checker checks identities and sampling consistency only; asymptotic uniformity rests on the proof. Historical comparison is limited by inaccessible complete older specialist texts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The law resolves conditional geometry of rare crossings, not merely whether crossings occur; its universal gap CDF and Maxwell size-bias explain what the overwhelmingly rare detected pair looks like. The uniform-in-N statement and exact finite-frequency Haar midpoint provide motivated mathematically useful additional information. It is explicitly a Melnikov-function theorem, not a nonlinear fixed-perturbation separation claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
