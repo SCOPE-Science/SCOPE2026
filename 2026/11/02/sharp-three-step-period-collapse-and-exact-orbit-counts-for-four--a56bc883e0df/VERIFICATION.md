@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The supplied `verify.py` is a standalone Python standard-library script. Its finite quotient enumerates every ordered triple of nonempty subsets of four colors, namely all \(3375\) states, tracks each initially present color separately, and confirms the identity \(F^7=F^3\) for all representatives. The proof in `RESULT.md` explains why this finite check covers graphs with arbitrary positive shore sizes. The program checks the 20 cardinality coefficient entries (four fixed plus sixteen primitive-four-cycle), independently counts support cycles, and directly simulates original labelled graph dynamics on nine triples, totalling \(173376\) distinct configurations. It verifies all stated formulas on those test graphs and checks the exact four-cycle/orbit normalization.
+## correctness
 
-The recorded output ends with `CCA4_TRIPARTITE_VERIFY_OK`. `support_classes.tsv` provides the complete finite representative-class record. All source files are supplied as plain text; no external packages are required.
+PASS
 
-The microscopic examples alone are finite cross-checks, not a substitute for the exact finite-support reduction. The computer-assisted classification may be independently reviewed or proved by a hand-derived smaller case analysis. Novelty and mathematical value were assessed from the cited sources and explicit scientific comparisons; their independent external review remains unperformed.
+On a complete tripartite graph the dynamics depend only on three nonempty four-color support sets and individual initial color representatives; 15^3=3375 exhaustive decorated cases prove F7=F3 for arbitrarily large shore sizes. Recurrent microscopic periods are exactly 1 and 4, with sharp three-step entry witnessed on K112. Surjections weighted by shore cardinality provide the full 16-term coefficient formula; independent exhaustive quotient matched 54 fixed and 619 4-period supports.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.
+
+## value
+
+PASS
+
+The bounded complete-color support quotient gives a natural complete orbit classification for every finite K_{a,b,c}, including sharp preperiod and all periodic orbit populations. It contrasts qualitatively with other shore counts and colors and is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
