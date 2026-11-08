@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph has precisely \(N=d2^d\) vertices and degree \(2(d-1)\). The cut identity and discrete convexity give an exact upper bound. The parity-defined initial half-set has no selected lateral edge; balanced occupancy in each word clique is maintained under deleting a vertex from the most populated clique. This supplies equality for every sector, not merely observed small dimensions. The piecewise-affine sector energies yield all positive field thresholds and all coexisting magnetizations. Exact C++ enumeration at \(d=3\) was performed twice, independently; a separate graph/witness checker verifies \(d=3\) through \(d=8\), including the polyhedral realization. The counts reported for \(d=3\) match both exhaustive recurrences.
+PASS
 
-## Originality — PASS (examined evidence; historical priority provisional)
+For d>=3 the graph has vertices (i,s), i<d, s in F_2^d, with word-fibre K_d edges and layer bit-flip edges along j!=i; degree 2(d-1), N=d 2^d vertices, N(d-1) edges. For a spin-up set S of size r<=N/2, |boundary S|=2(d-1)r-2e(S) and e(S)>=sum_s binom(a_s,2). Convex exchange shows minimum for a_s=q or q+1 with q=floor(r/2^d), giving B_d(r)=2(d-1-q)r+2^d q(q+1). Assign each layer a binary parity target with nearly equal class sizes; select vertices (i,s) with parity(s)=target_i. This selects N/2 sites with no internal lateral edges and balanced occupancies; removing a site from any fullest fibre preserves properties, proving equality for every 0<=r<=N/2 without finite extrapolation. Spin inversion covers all r. Hamiltonian exchange minimum J[N(d-1)-2B_d((N-|M|)/2)] follows. Minimizing the resulting convex piecewise linear function at positive field gives exactly h_q=2J(d-1-q), 0<=q<=floor((d-1)/2), including truncated terminal sector for odd d. At d=3 the coordinate representation produces the 24-site rhombicuboctahedron, and a complete independently written 2^24-state cut count gives the exact half-sector multiplicities and coexistence totals 1392 at h=2J and 13875 at h=4J; plateau M=8 has 234. The finite census certifies only d=3 multiplicities; all-d sector maxima are analytical.
 
-The 2005 Schmidt–Richter–Schnack and 2007 Rousochatzakis–Läuchli–Mila articles were materially inspected in their accessible arXiv article text, including model definitions, explored clusters, field discussions, and the 2007 Ising-point appendix. They treat the cuboctahedron or icosidodecahedron, rather than the 24-site rhombicuboctahedron or the described dimension-scalable graph family. Retrieved public summaries about rhombicuboctahedral independence and Rips complexes concern topology rather than its Ising all-sector cut function. Different Ising models on triangle-expanded cubic graphs, biregular-bipartite line graphs and circular prisms have different adjacency structures and their formulas do not directly give the new result. The convex occupancy method is standard and not claimed. An unknown more general graph theorem may still subsume the claimed special family.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family grows exponentially in dimension and contains a canonical frustrated Archimedean polyhedron at dimension three. A single sharp clique-occupancy certificate yields all sector minima and every field transition, replacing exponential magnetic-state enumeration. Odd and even dimensions have different low-field magnetization structure; in the 24-site physical benchmark both transition fields and all critical coexistence multiplicities are exact. The result is a motivated soluble frustrated-spin benchmark and a structural theorem, rather than a table-only computation.
+The all-dimension exact fixed-magnetization maximum cut and critical-field staircase for the specific clique-fiber Boolean-cube graphs are additional to standard Ising/max-cut conversion and convex occupancy. Primary spin-cluster papers Schmidt–Richter–Schnack 2005 and Rousochatzakis–Läuchli–Mila 2007 treat 12-site cuboctahedron and 30-site icosidodecahedron (quantum Heisenberg plus Ising-limit analyses), not the present 24-site rhombicuboctahedron and all-dimension family. Published research on the latter graph’s independence/Rips complexes concerns topology and does not imply cut counts. A broader unknown graph optimization theorem might cover this construction; the conclusion is best-knowledge qualified.
 
-## Limits and closest literature
+## value
 
-The result is classical, uniform-coupling, finite-graph and zero-temperature; higher-dimensional degeneracies are not enumerated. The two primary papers discuss different polyhedra and mostly quantum Heisenberg effects, so the comparison does not guarantee exhaustive priority. The primary-text scientific comparisons are recorded in `AUDIT.json`; reproducible computations are in `verify.py` and `census_independent.cpp`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 24-vertex rhombicuboctahedral antiferromagnet is a canonical naturally frustrated finite spin cluster, and its higher-dimensional coordinate-clique family is a systematic geometrically motivated extension. All-sector exact ground energies, all critical fields and a parity-driven odd/even effect solve a complete natural optimization question over exponentially many configurations; the independent exact finite labelled-degeneracy census supports benchmarking. Not mere textbook Ising-to-cut reduction or an arbitrary small finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
