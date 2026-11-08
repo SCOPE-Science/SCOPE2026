@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The Hardy reproducing kernel gives the exact Berezin transform. For every nonzero kernel radius, the argument winds all the way around the target circle because the monomial degree is at least two; elementary circle algebra yields its real center, imaginary radius and the precise optimizing phases. Differentiation in the logarithmic radius gives a strictly monotone inverse-\(\operatorname{arctanh}\) equation with a unique root for \(0<|a|<1\). At \(|a|=1\) it proves strict nonattainment and supplies the limiting value. Uniform small-coefficient convergence and a Taylor expansion of the critical equation prove the exact endpoint constants. The classification of all escaping extremizers follows from the local denominator expansion and equality uniqueness in the scalar function \(\beta/(\alpha^2+\beta^2)\). The independent supplementary numerical checks exercise these formulas but are not infinite-dimensional proof.
+## correctness
 
-## Originality (O): PASS, subject to explicitly recorded priority risk
-The closest accessible primary results of Cowen–Felder (2021) concern automorphisms and qualitative convexity, not nonlinear monomial strip widths; Augustine–Garayev–Shankar (2023) treat linear Hardy symbols and Bergman variants. The 2026 Bourdon–Le–Thompson preprint is closer in topic, but accessible bibliographic material describes range shape, symmetry, boundary properties and linear-symbol convexity; its inaccessible full text may contain a dominating quantitative result. Exact-claim searches of mathematical records and literature did not surface the displayed hyperbolic width equation, sharp square-root constant or full endpoint-kernel classification. Negative search evidence does not prove novelty; residual risks are retained in the structured audit.
+PASS
 
-## Value (V): PASS
-The imaginary projection supplies the **least possible horizontal strip** containing a naturally non-real Berezin range; unlike the usual Berezin-number bound (which is always one here), it strictly recovers the modulus of the nonlinear monomial coefficient at fixed degree and strictly orders the degrees at fixed nonzero modulus. The exact optimizer and multiplicity yield a complete norming-kernel geometry. The half-power degeneration quantifies the singular transition from compact composition operators to isometric monomial operators, with a sharp boundary-layer scale and a converse classification of extremizing sequences. These are structural and natural geometric invariants, not arbitrary sampled parameters.
+The H² normalized-kernel identity yields f(w)=(1-|w|²)/(1-a w^m conjugate(w)); at |w|²=t, its circular fiber has center (1-t)/(1-q² t^(m+1)) and radius (1-t) q t^((m+1)/2)/(1-q²t^(m+1)). For q<1 logarithmic radius u=-log t gives R=(1-e^-u)/(2sinh(eta+alpha u)), and differentiation reduces its unique positive maximum to the strictly increasing function F(u)=atanh[alpha(e^u-1)]-alpha u=eta. At q=1, R decreases from 1/(m+1), unachieved in the disk. Fiber phase equation yields exactly m-1 attaining kernels per imaginary sign for q<1. For small q a uniform maximizing-limit calculation yields the q coefficient; near q=1 expansion F(u)=alpha u²/2+O(u³) gives square-root width deficit 1/(sqrt2 alpha^(3/2)). Finally expansion f~u/(alpha u-i psi) proves the iff angular/radial ratio at all extremizing sequences. Strict q- and m-monotonicity follows from radius comparison, whereas ordinary Berezin number is 1.
 
-## Scope and limitations
-The theorem does not determine the whole planar Berezin range. The contemporaneous 2026 full text was unavailable; priority certainty is not claimed. Verification is analytic with supplementary finite checks; there is no independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the full theorem, not just its title: The circular-fiber observation and using radial optimization are fully prior art and cannot be claimed as new. The submitted novel candidate is the evaluated all-m,q sharp vertical half-width, strict root uniqueness, full attaining-kernel count, square-root q->1 defect, and limiting angles. Those formulae were not stated in the inspected prior text; derivability from Prop 3.7 plus elementary optimization is an important residual V/O risk. The previously published theorem makes the starting reduction immediate; the submitted full sharp formulas are not quoted consequences in the actual inspected source. Assessment regards these evaluated sharp endpoint laws as a surviving mathematical contribution, with a substantial routine-corollary risk.
+
+## value
+
+PASS
+
+The exact strip width supplies a quantitative boundary invariant recovering |a| when the usual Berezin number stays identically 1; its unique maximizers and square-root q->1 transition are complete natural shape data for a canonical monomial family. Although the circle method is known, the all-degree boundary-layer law is useful as a precise extremal benchmark, not merely a single finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
