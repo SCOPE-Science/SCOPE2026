@@ -1,0 +1,15 @@
+# Scientific review: two optimal rates for non-Gaussian inertial displacement
+
+## Correctness — PASS
+The precise claim is for the position integral of a scalar Ornstein–Uhlenbeck velocity with independent positive-rate Poisson resets of velocity alone. Conditional on reset times, the displacement is Gaussian; its exact conditional variance is the sum of the interval rewards. The fourth cumulant therefore equals three times the variance of that reward sum. The centered renewal-reward variance law gives its linear-in-time limit. Exact exponential integration yields the displayed rational formulas. Their derivatives factor into positive denominators and two polynomials each with exactly one positive root by Descartes' rule; exact rational brackets separate those roots. The accompanying independent generator-Laplace moment checks agree at three rates. These finite checks corroborate identities but do not replace the analytic all-parameter proof.
+
+## Originality — PASS, qualified
+The scientific object, propagator framework and second-moment transport coefficient are already treated by Olsen and Löwen (2024), arXiv:2401.12685. The equivalent integrated-reset-Ornstein–Uhlenbeck model and a more general renewal generating-function treatment were published by Meylahn, Sabhapandit and Touchette (2015), arXiv:1510.02431; the present theorem does not claim that framework or model. Smith and Majumdar (2022), arXiv:2202.03546, handle a drift-free Gaussian limit and its cumulants, not the finite-friction optimization. Inspection of the relevant primary texts did not disclose the displayed two distinct exact global optimization results. They are nevertheless derivable in principle from older formalism, and an unlocated explicit prior statement remains a material risk. Comparison has been made at the level of models and logical implication, not merely matching titles.
+
+## Mathematical value — PASS
+There are two natural but inequivalent diagnostics of transport non-Gaussianity: raw fourth-cumulant growth and standardized excess kurtosis. They have exact, universal, strongly separated optima even though the propagator's leading long-time profile is diffusive. This provides a concrete criterion for choosing an experiment's reset rate depending on which fourth-order signal matters; the exact sixth-degree root classifications resolve a continuous-parameter question. No claim of experimental superiority, novel renewal machinery, or a major general theorem is required for this narrower value assessment.
+
+## Scope and limits
+Assumptions are positive damping, positive Brownian noise, velocity resetting to zero at an independent constant Poisson rate, and an unreset position. The result is asymptotic in observation time. All underlying reset-OU and general renewal machinery must be credited to earlier work; possible implicit or explicit earlier coverage remains the chief priority risk. Verification is computational plus analytic, without independent scientific validation.
+
+Self-review: passed. Independent audit: not yet performed.
