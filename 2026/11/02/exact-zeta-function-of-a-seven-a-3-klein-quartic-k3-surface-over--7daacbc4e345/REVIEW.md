@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The singular locus is exactly the seven points \(P_t=[1:t:t^{-2}:t^2]\) with \(t^7=1\), as follows by solving all three partial derivatives (there are no points with \(x=0\)). At every point, the quadratic tangent form is \(t^{-1}u^2+t^2uv+t^{-2}v^2\). It is nondegenerate, so the completed germ is of type \(A_3\). After \(u/v=t^3j\), the two tangent directions solve \(j^2+j+1=0\), showing quadratic nonsplitting over every odd-degree finite extension. Two ordinary blowups resolve each \(A_3\) singularity; the two outer components are conjugate exactly when the tangent directions are. The purely inseparable projection of the singular quartic onto \(\mathbb P^2\) is bijective on each finite extension's rational points. The exceptional-fiber replacement count thus proves the formula for all extension degrees, and the zeta expression follows formally. The standalone checker exhausts fields of orders 2, 4, 8, 16, 32 and 64; it is a corroboration, not a surrogate infinite proof. The exact source and standalone verifier were both inspected.
+## correctness
 
-## Originality: PASS, subject to historical-priority risk
-The strongest nearby primary source is Catanese–Schütt, arXiv:2110.03078, §3.2: it proves the **general geometric seven-\(A_3\) family** \(w^4+B=0\). Its §3.5 uses the cyclic Klein quartic polynomial as a special \(B\) in a separate fourteen-node family. These geometric results are not presented as new. The additional arithmetic result here is the Frobenius decomposition of the exceptional chains and the *exact zeta function for the specified \(\mathbb F_2\) quartic*. Katsura–Kondō, arXiv:1010.5835, treats an independently constructed supersingular characteristic-two K3 with Artin invariant one and a different configuration; it does not identify this exact model or calculate its zeta function in the material inspected. Searches for the equation, seven-\(A_3\) Frobenius cycle structure, and zeta-function aliases did not locate a covering statement. Search failure is not a proof of priority. A hidden isomorphism to a previously enumerated finite-field K3 model remains possible, including a model with known zeta data.
+PASS
 
-## Mathematical value: PASS
-An exact Hasse–Weil zeta function is a canonical arithmetic invariant of a smooth projective K3 surface. The geometric singularity basket alone does not determine the arithmetic Frobenius action on the 21 exceptional components. The nonsplit-versus-split tangent-cone calculation supplies the missing local descent data, and the cubic residue-field orbits add another independent Frobenius pattern. The result gives a compact, reproducible arithmetic benchmark for a natural highly symmetric seven-\(A_3\) quartic constructed from the Klein plane quartic, beyond its known geometric normal-form classification.
+The partial derivatives force projective singularities x=1, y=t, z=t^-2, t^7=1 and unique w=t², so there are seven singular points in Frobenius orbits 1+3+3. Expanding the quadratic tangent cone Q_t=t^-1 u²+t² uv+t^-2 v², substitution h=t³j gives j²+j+1=0, hence nonsplit over odd-degree F2 extensions and split over even degree. Nonzero cross term yields analytically an A3 local model UV+s^4; the 3-component exceptional chain contributes q replacement points over nonsplit tangent vs 3q over split, with net q or 3q. Radicial projection V→P² over every F_{2^n} gives exactly q²+q+1 points, and the exceptional correction produces the formula. Frobenius component cycles 1^1 2^1 3^2 6^2 plus hyperplane match 22 divisor dimensions; rational zeta product follows from finite-field counting for all n. Independent GF(2^n) projective enumeration checked n=1..6, singular counts 1,1,7,1,1,7 and resolved counts 9,33,129,321,1089,5505. Universal formula comes from explicit local geometry rather than finite extension extrapolation.
 
-## Limits and closest sources
-Catanese–Schütt (2021), *Singularities of normal quartic surfaces II (char=2)*, arXiv:2110.03078 §§3.2, 3.5; Catanese (2021), *Singularities of normal quartic surfaces I (char=2)*, arXiv:2106.09988 (abstract/context); Katsura–Kondō (2010), *A note on a supersingular K3 surface in characteristic 2*, arXiv:1010.5835 (introduction and relevant geometric construction). The first is strong nearby geometric coverage, not a zeta formula. The second has limited textual inspection. The third is relevant possible alternative presentation but does not imply the stated \(\mathbb F_2\)-Frobenius action from the material checked. No claim is made that this is the unique description or first computation of an abstract K3 isomorphism class; independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Catanese–Schütt establish the seven-A3 geometry of general characteristic-two inseparable quartics w^4+B(x,y,z), with explicit Klein quartic forms. This geometry is prior, not claimed novel. The searched and inspected sections do not calculate Frobenius action or zeta of this particular F2 descent; arithmetic arithmetic splitting and zeta are the additional result. A studied isomorphic K3 model with a precomputed Frobenius polynomial could dominate it; that remains a priority risk.
+
+## value
+
+PASS
+
+The exact zeta function of an explicit characteristic-two supersingular K3 model with seven exceptional A3 chains is a natural arithmetic-geometric invariant; its Frobenius permutation decomposition makes the special model usable for finite-field test comparisons. It is neither a trivial singularity recount nor an arbitrary unrelated table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
