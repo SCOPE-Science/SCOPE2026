@@ -1,0 +1,15 @@
+# Review of the claimed sparse-rank Johnson norm law
+
+## Correctness — PASS
+The projected subspace and normalized counting inner product are explicit. Covariance on the zero-sum coefficient hyperplane gives the reproducing kernel (5). The hypergeometric telescoping relation gives the exact finite norm (1), including integral-mean boundary cases. Distinct asymptotic regimes use a valid Poisson factorial-moment limit with uniform integrability and a four-cell Stirling approximation whose smallest factorial argument diverges whenever the hypergeometric variance diverges. A strictly negative convergent logarithmic series controls every Poisson peak, and a subsequence argument forces all maximizing ranks to the unique root-sized limit. Exact rational tests and small-case projector idempotence corroborate, but do not replace, the universal proof. The optimal integer rank at a fixed finite dimension is not classified.
+
+## Originality — PASS, qualified
+The original harmonic slice work and finite homogeneous-space framework establish the underlying representations, while a 2026 mean-absolute-deviation result already covers the one-point hypergeometric collapse. That finite identity is explicitly conceded as prior and is not the novelty claim. Full inspection of a nearest published degree-two Johnson projector theorem shows its different quadratic kernel, endpoint order and hypotheses. The two recovered related historical Johnson claims concern concentration under coordinate-star restrictions and a sixth moment on one middle slice, not maximization of the first projector norm over all ranks. The new claim is specifically the global coefficient, the unique limiting root-rank maximizer and the complete cross-scale limits. The full 2026 deviation manuscript was inaccessible: a hidden treatment of joint-margin optimization remains a significant priority risk, and no unsupported full-document noncoverage assertion is made.
+
+## Mathematical value — PASS
+This natural entire-family operator stability invariant is dominated by the sparse root-scale, not the symmetric central slice. The difference between the universal optimum \(\sqrt{2/e}\) and the Gaussian dense-slice coefficient \(\sqrt{2/\pi}\) reflects a meaningful extremal phase selection. The complete sharp coefficient and rigidity of all optimizing rank sequences provide intrinsic mathematical information beyond reformulating a known absolute-deviation identity.
+
+## Sources and limitations
+Scarabotti–Tolli (arXiv:math/0701533) and Filmus (arXiv:1406.0142) were read in relevant primary full-text sections. The public degree-two Johnson `RESULT.md` was read completely. Elezović (arXiv:2608.06232) was accessible only by abstract; its established scalar identity is credited. The theorem concerns real canonical first-level projection on uniform finite slices, with no assertion about exact finite optimizing ranks, other levels or arbitrary measures. The present verification is not independent.
+
+Self-review: passed. Independent audit: not yet performed.
