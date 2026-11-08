@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:00:08.878039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Grounded Laplacian for two-rail ladder is inverted in symmetric/antisymmetric modes; antisymmetric Green function (H+2I)^-1 produces rung row sum R_k=1+2(2Gkk-G1k-Gnk) and rail row sum T_k=2-(G1k-G1,k+1)+(Gnk-Gn,k+1)<2. Hyperbolic Green kernel proves central rung maximization; small cases n<=4 settled exactly. Recurrences follow from cosh recurrence t_{m+2}=4t_{m+1}-t_m and both parity branches increase to 1+2/sqrt3; the first M_n>2 is n=5. Independent exact rational incidence-projection matrices n=2..10 matched all maxima/edge winners and recurrence values, not extrapolated as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Projection norm general bound <= sqrt(E), not exact ladder-dependent norm",
+          "Full earlier finite rung kernel has no rail rows"
+        ],
+        "reasoning": "General bound permits far larger values and does not dominate sharp 1+2/sqrt3 envelope.",
+        "searches": [
+          "Kelner Maymounkov 0909.2859 electrical routing operator induced norms",
+          "Resultary 647fc3f7ee8c finite ladder rung kernel"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0909.2859 full PDF Theorem 1.2, Appendix A",
+        "Resultary 647fc3f7ee8c full RESULT.md",
+        "Resultary ladder-search hits",
+        "Web exact ladder l_infty projection search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projection existence and rung kernel established",
+          "Global l_infty norm requires absolute-value sums over all rail rows"
+        ],
+        "reasoning": "Known transfer-impedance is a premise, but the max-edge statement and parity-sensitive asymptotics are additional conclusions.",
+        "searches": [
+          "Kelner-Maymounkov Theorem 1.2 / Appendix A",
+          "Resultary 647fc3f7ee8c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published SCOPE 647fc3f7ee8c full RESULTS finite rung-only kernel",
+          "Kelner-Maymounkov 0909.2859 section and appendix general projection bounds"
+        ],
+        "reasoning": "Prior rung kernel is the antisymmetric subblock, which does not bound rail rows or identify global induced infinity norm. Thus a complete row-competition theorem is not an immediate corollary of that statement.",
+        "searches": [
+          "Resultary: ladder electrical transfer-current orthogonal edge gradient projection infinity norm central rung",
+          "Web: ladder graph electrical projection infinity norm central rung 1+2/sqrt3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact rung inclusion data and boundary limit only",
+          "Independent rational rows n=2..10"
+        ],
+        "reasoning": "Finite-rung tables cannot establish full all-edge n-uniform extremizer recurrence.",
+        "searches": [
+          "Resultary: exact norm finite ladder edge gradient projection",
+          "Web: ladder transfer current projection rows"
+        ]
+      },
+      "rationale": "The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.",
+      "residual_risks": [
+        "Older specialist circuit literature may express exact edge-row norm through transfer-current formulas without l_infty terminology.",
+        "Published SCOPE rung kernel is explicit prior work; novelty confined to full edge norm and extremizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines general graph transfer projection and norm bounds; not the exact finite-ladder row maximizers",
+          "evidence": "Theorem 1.2 / Lemma A.1; no ladder-specialized formula found",
+          "identifier_or_url": "https://arxiv.org/pdf/0909.2859",
+          "material_read": "Pages 1–2 and sections defining edge projection; Appendix A Theorem 1.2 and Lemma A.1 (page 14)",
+          "method": "Full PDF text and visual page 1 inspection",
+          "title": "Electric routing and concurrent flow cutting",
+          "trigger": "Original edge projection and norm framework"
+        },
+        {
+          "assessment": "Provides rung-to-rung determinantal kernel but not rail-row absolute sums nor the complete edge projection norm",
+          "evidence": "K^{(n)}_{ij} kernel and boundary-to-center monotonicity",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c/RESULT.md",
+          "material_read": "Full published RESULT.md: theorem, Green function proof, finite checks, references",
+          "method": "Primary repository full-text read",
+          "title": "Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees",
+          "trigger": "Same finite ladder rung transfer Green function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact operator norm of the edge-gradient projection is a natural quantity in electrical routing and graph norm estimates. The theorem determines all maximizing edge types, sharp amplification onset, exact recurrence and parity-dependent approach to the envelope on every finite unweighted ladder.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0909.2859 full PDF Theorem 1.2, Appendix A",
+    "Resultary 647fc3f7ee8c full RESULT.md",
+    "Resultary ladder-search hits",
+    "Web exact ladder l_infty projection search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unit conductance finite P_n x K_2 ladder, real projection; no weighted or cylindrical extension.",
+    "Independent exact n=2..10 check supports but does not prove all n."
+  ],
+  "residual_risks": [
+    "Older specialist circuit literature may express exact edge-row norm through transfer-current formulas without l_infty terminology.",
+    "Published SCOPE rung kernel is explicit prior work; novelty confined to full edge norm and extremizers."
+  ],
+  "schema_version": 1
+}

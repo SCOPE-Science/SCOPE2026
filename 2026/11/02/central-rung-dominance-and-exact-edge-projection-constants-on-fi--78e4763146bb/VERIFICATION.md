@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof is in `RESULT.md`. The independent-from-the-proof finite implementation `verify_ladder.py` uses rational inversion of the grounded full-graph Laplacian and computes every edge current for all \(2\le n\le14\). It verifies every rung and rail absolute row-sum formula, central-rung maximizers, the full induced norm recurrence, and exact projection symmetry and idempotence for \(2\le n\le9\). It separately checks the hyperbolic closed forms for \(2\le n\le30\) in double precision.
+# Independent mathematical audit
 
-Replay command: `python3 verify_ladder.py` (Python 3 standard library only). Observed output ends in `VERIFY_OK exact and hyperbolic checks: 4448`.
+## correctness
 
-Representative exact norms: \(M_3=9/5\), \(M_4=27/14\), \(M_5=39/19\), \(M_6=163/78\). These checks establish finite consistency, not all-size correctness, novelty, or independent certification. The all-size conclusions are based on the Green-function, cut-balance, row-domination and recurrence proof.
+PASS
+
+Grounded Laplacian for two-rail ladder is inverted in symmetric/antisymmetric modes; antisymmetric Green function (H+2I)^-1 produces rung row sum R_k=1+2(2Gkk-G1k-Gnk) and rail row sum T_k=2-(G1k-G1,k+1)+(Gnk-Gn,k+1)<2. Hyperbolic Green kernel proves central rung maximization; small cases n<=4 settled exactly. Recurrences follow from cosh recurrence t_{m+2}=4t_{m+1}-t_m and both parity branches increase to 1+2/sqrt3; the first M_n>2 is n=5. Independent exact rational incidence-projection matrices n=2..10 matched all maxima/edge winners and recurrence values, not extrapolated as the proof.
+
+## originality
+
+PASS
+
+The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+The exact operator norm of the edge-gradient projection is a natural quantity in electrical routing and graph norm estimates. The theorem determines all maximizing edge types, sharp amplification onset, exact recurrence and parity-dependent approach to the envelope on every finite unweighted ladder.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
