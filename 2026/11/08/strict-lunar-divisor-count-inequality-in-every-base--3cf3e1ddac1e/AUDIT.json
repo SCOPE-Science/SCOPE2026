@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all positive factors, product length is the sum of lengths minus one. Any divisor is a positive integer not exceeding its digitwise-maximum sum. For n>=b a same-length candidate with units digit toggled to zero or one lies in the interval up to the sum and cannot factor n, because the cofactor must have one digit and then preserves that candidate units digit. One-digit factorization gives equality only for n=1. The finite checker corroborates all 1019 tested n across bases 2..10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gross, arXiv:1908.05220, full manuscript and 2020 journal abstract: proofs concern maximal lunar divisor counts and additive divisors.",
+        "Applegate--LeBrun--Sloane, arXiv:1107.1130, Theorem 20: n<=sigma_b(n)<=b^k-1 and sigma_b(n)=n iff n has largest units digit."
+      ],
+      "reasoning": "An extremal number-of-divisors theorem over fixed lengths does not imply a pointwise comparison with a digitwise divisor sum; neither it nor the earlier bounds imply the explicit missing-integer witness for every n.",
+      "searches": [
+        "Gal Gross Maximally Additively Reducible Subsets of the Integers arXiv:1908.05220",
+        "dismal arithmetic conjecture 5 proved strict divisor sum inequality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1107.1130, full text, Section 7 and definitions",
+      "arXiv:1908.05220, manuscript, statements and abstract",
+      "Journal of Integer Sequences 23 (2020), 20.10.5, abstract",
+      "OEIS A186442",
+      "OEIS A188548"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Theorem 20 proves only a bound on sigma, and immediately poses the count comparison as Conjecture 5.",
+        "Gross states the proven results are the separate maximal divisor-count conjectures, not the strict pointwise inequality."
+      ],
+      "reasoning": "The original theorem supplies an upper bound on sigma and a characterization of sigma=n, which cannot bound d by sigma. The later extremal results compare counts across inputs of fixed length, not counts to individual sums. The present theorem proves the previously missing comparison.",
+      "searches": [
+        "arXiv:1107.1130 Section 7 Theorem 20 Conjecture 5",
+        "arXiv:1908.05220 maximal lunar divisors Conjectures 2 3 4",
+        "lunar divisor count strictly smaller than lunar sum for all bases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Applegate--LeBrun--Sloane, arXiv:1107.1130, Section 7, lines containing Conjecture 5: d_10(n)<sigma_10(n).",
+        "OEIS A186442 records binary excess data, without an unrestricted published proof."
+      ],
+      "reasoning": "The equivalent formulations use dismal/lunar terminology, replace decimal by general base, and express the difference as divisor-sum-minus-count. The original statement asks only base ten; the proof covers all bases. Neither record examined gives a covering theorem.",
+      "searches": [
+        "dismal arithmetic Conjecture 5 d_10(n) sigma_10(n) proved",
+        "lunar arithmetic d_b(n) sigma_b(n) number of lunar divisors inequality for all n",
+        "lunar arithmetic number of divisors less than lunar sum of divisors proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A186442: base-two excess sequence, data entry.",
+        "OEIS A188548: base-two lunar sum-of-divisors values and conditional identity when n is odd."
+      ],
+      "reasoning": "Finite sequence tables are compatible with but do not give a universal all-base theorem. No exact table entails the unbounded assertion.",
+      "searches": [
+        "OEIS A186442 lunar sum divisor count excess",
+        "OEIS A188548 lunar sum divisors",
+        "dismal sum of divisors number of dismal divisors conjecture proof"
+      ]
+    },
+    "rationale": "The explicitly stated 2011 Conjecture 5 is established and generalized to every base. Original full text gives sum bounds (Theorem 20) but no count-versus-sum proof; Gross 2019/2020 resolves disjoint maximal-divisor-count conjectures. An unlocated subsequent equivalent remains a priority risk.",
+    "residual_risks": [
+      "Historical priority is provisional: a subsequent paper or informal proof not indexed by the searches may establish the same inequality.",
+      "The independent mathematical review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Formulates decimal strict inequality as a conjecture; gives only sum bounds, no proof of the strict count comparison.",
+        "evidence": [
+          "Section 7, Theorem 20 and Conjecture 5; introduction and final paragraph of conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.1130",
+        "material_read": "Full arXiv HTML rendering, especially definitions in Sections 1-2, digit-length fact and Section 7 through Conjecture 5 and conclusion.",
+        "method": "Read searchable full-text arXiv rendering and compare exact statements and proofs.",
+        "title": "Dismal Arithmetic",
+        "trigger": "Identical arithmetic, original definitions and explicitly numbered conjecture"
+      },
+      {
+        "assessment": "Addresses maximal divisor-count problems (the original Conjectures 2-4); no pointwise comparison with lunar sum of divisors is stated.",
+        "evidence": [
+          "Abstract and theorems on maxima of numbers of lunar divisors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.05220",
+        "material_read": "Full manuscript text and selected page rendering, plus 2020 Journal of Integer Sequences abstract.",
+        "method": "Read full-text mathematical statements and search the article for the count-sum conjecture.",
+        "title": "Maximally Additively Reducible Subsets of the Integers",
+        "trigger": "Later work explicitly claims proofs of several earlier lunar-divisor conjectures"
+      },
+      {
+        "assessment": "A finite-data sequence record, not an unrestricted proof.",
+        "evidence": [
+          "Binary excess values."
+        ],
+        "identifier_or_url": "https://oeis.org/A186442",
+        "material_read": "Sequence description and mathematical comments visible on the accessible entry.",
+        "method": "Inspect sequence page.",
+        "title": "OEIS A186442",
+        "trigger": "Referenced by original Conjecture 5 as count/sum excess data"
+      },
+      {
+        "assessment": "Describes divisor sums, not the general count-versus-sum inequality.",
+        "evidence": [
+          "The binary divisor-sum definition and examples."
+        ],
+        "identifier_or_url": "https://oeis.org/A188548",
+        "material_read": "Sequence description, example and comments.",
+        "method": "Inspect sequence page.",
+        "title": "OEIS A188548",
+        "trigger": "Exact lunar divisor sum function in binary case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3cf3e1dd-ac1e-4ad3-a7b1-81d7649d582a",
+  "value": {
+    "rationale": "The result proves the original 2011 published Conjecture 5, a natural arithmetic-function comparison, and extends it to every base with a structural missing-witness argument. Both the exact equality boundary and uniform quantification over the entire number domain are established, not merely data for chosen inputs.",
+    "status": "PASS"
+  }
+}
