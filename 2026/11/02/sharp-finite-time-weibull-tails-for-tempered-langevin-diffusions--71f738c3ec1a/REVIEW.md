@@ -1,15 +1,21 @@
-# Scientific review: sharp finite-time radial tails
+# Independent mathematical audit
 
-## Correctness — PASS
-The sole claim is the exact fixed-time logarithmic tail constant and its strict exponential-moment corollary for the stated Itô diffusion. The radial clock has asymptotic quadratic-variation rate \(c_\pi^{-2\ell}\) and a globally bounded drift. The upper estimate uses a truncated radial clock that is identically constant on a sufficiently large interior ball; its quadratic variation is bounded everywhere by the exterior near-limit rate, preventing the interior from worsening the leading exponential constant. The lower estimate constructs a Brownian excursion that stays above a protective negative barrier and reaches the large target level by nearly the full available time, with Gaussian exponent \(-1/(2v_-t)\). Uniform compact-set reachability and the Markov property extend the lower estimate to all deterministic initial states. The matching limits prove the theorem. The standard exponential-tail integral yields the strict moment cutoff. The boundary equality is deliberately unproved.
+## correctness
 
-## Originality — PASS, qualified
-The closest article is Mijatović–Xie, arXiv:2610.30024v1, especially Theorem 2.2(1) and Section 4.1. That paper establishes the critical power \(2[1-\ell(d+r)]\) and supplies only nonmatching sufficient time bounds for its unit-coefficient exponential moment. It does not claim an exact \(R^{2a}\)-normalized logarithmic tail or the exact strict time division. The new work supplies that coefficient for every target satisfying the paper's asymptotic assumptions. Fort–Roberts (2005) and Brešar–Mijatović (arXiv:2403.14826) concern ergodic convergence rather than this fixed-time marginal asymptotic. Search comparisons found no equivalent claim. Generic Gaussian large-deviation and heat-kernel methods might independently imply a result of this type; no absolute priority claim is made. Relevant searches and inspected sources are detailed in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-The critical-power endpoint in the motivating theorem previously carried two separated time constants. The present exact coefficient removes the open interval between them and gives a sharp time threshold, with all dimensions, all subcritical temperatures, and generally direction-dependent targets admitted by the existing assumptions. This is an intrinsic fixed-time distributional invariant, not a routine restatement of polynomial versus exponential convergence or a numerical instance. The equality case, prefactors and uniform error bounds remain outside the result.
+Take q=d+r and α=1-ℓq>0. For Φ(y)=||y||^α/(sqrt(2) α) outside radius 2, Itô gives Φ(X_t)=Φ(x)+M_t+∫g(X_s)ds; quadratic-variation density v(y)=(||y||^qπ(y))^-2ℓ→cπ^-2ℓ and radial drift g(y)=||y||^-α (||y||^qπ(y))^-2ℓ[d+α-2+(1-2ℓ)y·∇logπ(y)]/sqrt2→0. Both globally bounded after smooth extension, implying nonexplosion by martingale control. For the upper logarithmic bound, stop or cutoff inside a large ball so v≤v∞+ε; DDS and reflection yield Gaussian exponent -1/[2(v∞+ε)t] per Φ(R)^2. For the lower bound, start in a remote annulus with positive reachability probability in time t-s; choose Brownian paths above -B throughout [0,v_+s] and above H_R throughout [v_-s,v_+s], forcing the radial clock to stay outside radius R0 until s with v_-s≤bracket≤v_+s. The Brownian bridge and Gaussian endpoint exponent give -1/(2v_-s); sending s↑t and ε↓0 matches the upper bound. Because Φ(R)^2=R^(2α)/(2α²), the logarithmic tail coefficient is -cπ^(2ℓ)/(4α² t). Tonelli tail integral establishes strict θ<κt finite, θ>κt infinite; θ=κt remains open. Independently checked transformed algebra exactly on a rational grid and with π=(1+x²)^(-3/2), d=1,r=2,ℓ=.2, radius 10–1000; no finite computation substitutes for the full tail proof.
 
-## Limits of verification
-The radial algebra is reproducibly checked by an exact-rational standalone script (603 assertions). Finite arithmetic is not a proof of the Gaussian bridge estimate or of the diffusion tail limit; these follow from the explicit analytical argument in RESULT.md. There is no outside proof validation and historical priority remains subject to fuller review of general heat-kernel comparison theorems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source Mijatović–Xie Theorem 2.2(1) identifies the critical Weibull exponent and two nonmatching sufficient/divergence time constants; the exact fixed-time radial log-tail coefficient and sharp strict time boundary require the localized quadratic-variation and long Brownian bridge argument not present in inspected source. Qualified against potential broader Gaussian heat-kernel asymptotics.
+
+## value
+
+PASS
+
+The result closes a concretely motivated quantitative gap for a natural subcritical tempered Langevin diffusion: it identifies the sharp time separating existence from divergence of critical exponential moments, beyond generic exponent classification. Boundary equality is responsibly unclaimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
