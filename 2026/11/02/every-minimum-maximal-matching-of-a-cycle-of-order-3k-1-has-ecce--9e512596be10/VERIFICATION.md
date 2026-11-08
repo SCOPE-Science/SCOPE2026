@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying files `verify_direct.py` and `verify_two_token.py` run under ordinary Python 3 with no third-party libraries. Both programs were executed and completed without assertion failures.
+## correctness
 
-The direct cycle-edge enumerator checked all minimum maximal matching configurations, all replacement edges, the bracelet-coordinate bijection and all eccentricities for cycle orders \(7,10,13,16,19,22\); the last line was `CYCLE_MATCHING_DIRECT_ALL_PASS`.
+PASS
 
-The independent separated-pair implementation checked every vertex's eccentricity and each explicit farthest-configuration witness for the cycle orders \(3k+1\) with \(2\le k\le20\); its final line was `TWO_TOKEN_ALL_ECCENTRICITIES_PASS`. For the tested orders at most 25 it additionally compared distances against a more general circular-transportation formula, but no unproved infinite assertion of this formula is included.
+For n=3k+1≥7 and h=k+1, every minimum maximal matching has h selected cycle edges with exactly two gaps of size 2 among gaps otherwise 3. The published bracelet exchange coordinate maps under multiplication by −k mod n to two unlabeled particles at separation between h and n−h, each legal exchange moving one point ±1. Upper bound floor(n/2) follows by exhaustive circular-order cases: same point, four alternating points, or grouped points, with inward interleaving respecting separation. For arbitrary start {0,d}, a target {u,d+w} with u+w=floor(n/2) gives unrestricted assignment travel lower bound floor(n/2); reconfiguration cannot beat individual circular travel, so all vertices attain it. New independent BFS from direct separated-particle construction for k=2..10 confirmed each distance and complete connectivity; finite BFS is corroboration, not infinite proof.
 
-The proof in `RESULT.md` establishes the infinite theorem by a complete three-case upper-bound construction and a universal transportation lower-bound witness. The computations provide reproducible finite checks, not an independent scholarly audit or a formal proof certificate.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the final exact statement, with actual published-result comparisons rather than title matching; no inspected source mathematically implies the full stated result. Inaccessible closely related texts are explicitly retained as priority risks; failed search is not novelty proof.
+
+## value
+
+PASS
+
+Exact reconfiguration eccentricity for EVERY optimal matching, rather than only diameter, is a natural metric invariant; constructs farthest configurations and proves self-centeredness despite nonuniform local degrees. Stronger than known vertex/edge enumeration and Hamiltonicity, with an infinite family and canonical constraint-preserving moves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
