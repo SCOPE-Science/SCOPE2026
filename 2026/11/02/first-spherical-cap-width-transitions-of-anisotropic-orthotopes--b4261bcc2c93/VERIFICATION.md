@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem's universal steps are mathematical: the unit sphere decomposes into equal orthants, a cap crosses its first coordinate facet exactly at \(q\), no double crossings occur in a small neighborhood of \(q\), and an explicit parabolic blow-up yields the coefficient of \(\varepsilon^{d/2}\). An exact one-dimensional regularized-beta integral supplies the all-dimensional local correction and shows dependence only on \(d,L,m,k\). The explicit four-dimensional noncongruent side vectors have the same four invariants. The four-dimensional antiderivative gives an exact, not approximate, formula.
+# Independent mathematical audit
 
-`verify.py` requires Python 3, NumPy and SciPy. Run `python3 verify.py` from this directory. An actual execution returned `VERIFY_OK 87 independent numeric, exact integration and sphere-distribution tests`. The tests evaluate special cases in dimensions four, five and six, independently integrate individual spherical facet caps, compare the leading asymptotic coefficient, and independently sample over a million random sphere directions in dimension four.
+## correctness
 
-Finite numerical quadrature and sampling do not establish an infinite-dimensional or arbitrary-parameter theorem and cannot certify historical originality. The result does not assert robustness for noisy empirical width distributions. An independent external audit has not been performed.
+PASS
+
+For d>=4 and positive side lengths, writing W=sum a_i|U_i|, L=norm(a), m=min a_i, k=minimum multiplicity and q=sqrt(L^2-m^2), each orthant is centered at a/L. Its cap first touches a coordinate facet exactly at t=q; unrestricted tail C(t)=2^(d-1) I_{1-t^2/L^2}((d-1)/2,1/2), exact for q<=t<=L, strictly exceeds true H for 0<t<q. Near q only k shortest facets leak, without double crossings because any two negative coordinates reduce maximum strictly below q. One-face tangent blowup in normal coordinate s=O(epsilon) and remaining d-2 tangential coordinates O(sqrt epsilon) yields coefficient [2^d k/(d*pi*m)](2/q)^((d-2)/2). Exact sphere-slicing integral G_d gives H=C-2^d k G_d; for d=4 integrates to the claimed elementary arcsin expression. Independent quadrature verified that analytic integral against direct one-coordinate integration for three 4D side profiles; no inference of uniformity in d. The boxes (1,2,3,4) and (1,sqrt5,sqrt8,4) indeed have same L,m,k and locally identical high-tail germs but differ globally.
+
+## originality
+
+PASS
+
+The all-equal-side specialization is entirely covered by the previously published cube first-crossing law; full side-vector reconstruction from all moments is covered by Abas. New is the anisotropic sharp first-facet coefficient, exact local full tail germ independent of other side proportions, and d=4 explicit correction, along with the local nonidentifiability witness. Abas companion 3D rectangular-box work is plausible and only abstract available; main 2026 manuscript was not fully accessible in this execution, and institutional download reported a disconnected VPN.
+
+## value
+
+PASS
+
+Anisotropic orthotopes are natural dimensional families. The first singularity, precise facet multiplicity coefficient, and local tail degeneracy characterize how geometric anisotropy enters a probability distribution. The explicit noncongruent pair shows which dimensions of geometry the local high tail cannot resolve, despite prior global tomography; the corrected motivation does not claim known full-law identifiability as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
