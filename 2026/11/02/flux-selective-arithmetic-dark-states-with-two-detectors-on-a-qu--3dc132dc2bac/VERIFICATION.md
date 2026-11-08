@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-The full exact finite-ring checker is embedded alongside this file as `quantum_ring_dark_check.py`. Run `python quantum_ring_dark_check.py` using Python 3 with NumPy and SciPy. The checker was executed from its actual package source and returned:
+## correctness
 
-`PASS 32975 exact-arithmetic/Fourier, absorbing and projective evolution checks`
+PASS
 
-All ring lengths from \(3\) through \(36\), all distinct monitor spacings and localized starts, and both special fluxes are covered by direct arithmetic/Fourier assertions. Selected cases were also tested by independently exponentiating the non-Hermitian absorption generator and by projecting a discrete unitary evolution for 4,000 steps. This is not exhaustive for unbounded ring sizes and does not establish statements about sampling resonances. The mathematical proof is contained in `RESULT.md`; no independent scientific audit has been performed.
+Plane waves on N-cycle with flux φ have E_k=−2J cos[(2πk+φ)/N]. Degeneracy of distinct k occurs only at φ=0,π; paired indices l≡−q−k at φ=qπ. A dark vector in each paired eigenspace is (|k>−|l>)/√2, and its second-detector cancellation is equivalent to N|d(2k+q). Counting solutions excluding fixed pairs gives D_0=(gcd(N,2d)−gcd(N,2))/2; at π, if N/gcd(N,d) even none, else the stated odd/even N dimensions. The character-sum overlap (1/2N)∑_{k∈Ωq}(1−cos(2π(2k+q)j/N)) yields every site weight and the nonmonotone flux switching. A dissipative generator has purely imaginary eigenmodes precisely in the reducing dark space; nonresonant projective sampling has no extra unimodular eigenvectors. Thus both survival limits are dark-projector weights; coprimality iff no dark at any flux. Independently evaluated Fourier sums for all N=3..28, every spacing d, both fluxes, every j: 15366 checks.
+
+## originality
+
+PASS
+
+The general dark/bright spectral-projection mechanism and single-site magnetic-ring analysis are known; new claimed content is the explicit two-simultaneous-detector arithmetic kernel/weights, opposite half-flux switching and all-flux coprime criterion. No directly matching two-detector classification seen in inspected literature; a broader graph observability theorem may imply the result and remains risk.
+
+## value
+
+PASS
+
+Detector spacing and magnetic flux are natural design controls in coherent quantum searches. This gives exact dark-space dimension, every localized missed-detection probability, and an iff all-flux no-dark placement rule for every ring size, including opposed half-flux switching. It supplies specific arithmetic data beyond the general detection-projection theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
