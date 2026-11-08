@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Lucas theorem gives parity from containment of binary one-bits. For even \\(n\\), the two binomial factors for odd \\(k\\) require a subset of the common one-bit set of \\(n\\) and \\(n-1\\), giving \\(2^{s_2(n)-1}\\) odd-position hits; symmetry doubles. For odd \\(n\\), successive Lucas subsets occur in \\(2^{s_2(n)-t}\\) blocks of length \\(2^t\\), each with \\(2^t-1\\) adjacent pairs. Dyadic histograms count unrestricted higher bits, and their geometric sums yield \\(\\frac{5\\cdot3^{L-1}-3}{2}\\) for all \\(L\\). Direct checker passes all rows through 128 and seven complete dyadic blocks; no inference from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eu, Liu, Yeh, On the Congruences of Some Combinatorial Numbers (first public 2005-12-20), doi:10.1111/j.1467-9590.2006.00337.x; public abstract addresses Lucas congruences for several other enumerations.",
+        "The inspected 2005 bibliographic abstract lists Delannoy and Apéry-like numbers and an automaton, but not Narayana odd-row spectrum."
+      ],
+      "reasoning": "The broader Lucas-congruence method is a possible source of overlapping implications; the original full paper could not be read, so the conclusion is explicitly a qualified best-knowledge comparison.",
+      "searches": [
+        "Narayana triangle parity pattern density row multiplicity odd Narayana 2006 Eu Liu Yeh",
+        "On the Congruences of Some Combinatorial Numbers Eu Liu Yeh arxiv",
+        "On the Congruences of Some Combinatorial Numbers pdf Eu Liu Yeh free access"
+      ]
+    },
+    "checked_sources": [
+      "Eu, Liu, Yeh, On the Congruences of Some Combinatorial Numbers (first public 2005-12-20), doi:10.1111/j.1467-9590.2006.00337.x; public abstract addresses Lucas congruences for several other enumerations.",
+      "OEIS A335965 (https://oeis.org/A335965), entry inspected, contains initial values, direct counting code and the special \\(A(n)=n\\) case, not the complete all-n / dyadic-spectrum formula.",
+      "Narayana number identities, https://en.wikipedia.org/wiki/Narayana_number"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eu, Liu, Yeh, On the Congruences of Some Combinatorial Numbers (first public 2005-12-20), doi:10.1111/j.1467-9590.2006.00337.x; public abstract addresses Lucas congruences for several other enumerations.",
+        "OEIS A335965 (https://oeis.org/A335965), entry inspected, contains initial values, direct counting code and the special \\(A(n)=n\\) case, not the complete all-n / dyadic-spectrum formula."
+      ],
+      "reasoning": "Lucas theorem plus the Narayana identity suffice to prove the present result, but the checked bibliographic abstract and the complete publicly displayed database entry do not state the resulting all-row classification. Methodological overlap is acknowledged, and a direct implication from the uninspected article remains a documented residual priority risk.",
+      "searches": [
+        "Narayana number parity Lucas formula number odd entries every row",
+        "Narayana triangle number odd entries row n formula even odd trailing ones",
+        "OEIS A335965 exact odd entries count formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A335965 (https://oeis.org/A335965), entry inspected, contains initial values, direct counting code and the special \\(A(n)=n\\) case, not the complete all-n / dyadic-spectrum formula."
+      ],
+      "reasoning": "Looked for counts of parity-one Narayana entries, adjacent Lucas-subsets and terminal-run formulas. None appeared in the accessible entry; a re-expression of an earlier count would nonetheless cover this claim.",
+      "searches": [
+        "exact binary digit formula number of odd Narayana numbers in each row of Narayana triangle A335965",
+        "all Narayana numbers odd row count 2-adic valuation carry automaton bitmatrix product",
+        "Narayana triangle number odd entries row n formula even odd trailing ones"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A335965 (https://oeis.org/A335965), entry inspected, contains initial values, direct counting code and the special \\(A(n)=n\\) case, not the complete all-n / dyadic-spectrum formula."
+      ],
+      "reasoning": "The table and direct executable sum specify individual values, not an explicit formula for all n or multiplicities within arbitrary dyadic blocks. A finite list alone does not imply the unrestricted claim.",
+      "searches": [
+        "A335965 OEIS",
+        "A335965 formula binary",
+        "number of odd numbers in the n-th row Narayana triangle OEIS"
+      ]
+    },
+    "rationale": "A335965 provides a natural tabulated parity statistic but its inspected text does not supply either the all-row terminal-one-run formula or the complete spectrum and total over each dyadic block. The closest pre-2016 congruence paper has a relevant method but its accessible abstract lacks the exact claim. Searches and accessible prior statements do not give an implication covering the combined result. Priority is qualified by the uninspected primary full text.",
+    "residual_risks": [
+      "Full text of Eu–Liu–Yeh (2005/2006), cited by the target OEIS entry, was not accessible; hidden stronger coverage remains possible.",
+      "An unindexed parity formula or direct consequence elsewhere may predate the result; searches do not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected public entry",
+        "evidence": "The listing gives values for n=1..82, \\(A(n)=n\\) equality, and brute-force code, but no all-n terminal-run formula or complete dyadic histogram.",
+        "identifier_or_url": "https://oeis.org/A335965",
+        "material_read": "Complete accessible entry: definition, initial values, comments, links and computational formulas",
+        "method": "HTML page full text",
+        "title": "Number of odd numbers in the n-th row of the Narayana triangle",
+        "trigger": "Exact target counting sequence and closest published table"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY_RISK",
+        "evidence": "Abstract lists several combinatorial sequences and Lucas congruences, without a statement of the Narayana row-spectrum theorem; absence from abstract cannot exclude it from the full body.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+        "material_read": "Public abstract and bibliographic descriptions only; full primary article inaccessible",
+        "method": "Publisher abstract, publisher references and repository bibliographic record",
+        "title": "On the Congruences of Some Combinatorial Numbers",
+        "trigger": "Cited directly by OEIS A335965; shares Lucas congruence method"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "The classical product binomial expression and row symmetry are starting identities; they do not by themselves state row-parity census.",
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Narayana_number",
+        "material_read": "Definition and binomial identities in accessible mathematical reference",
+        "method": "HTML text",
+        "title": "Narayana number",
+        "trigger": "Classical triangle identity and symmetry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43e2ca61-b9f3-40ee-9873-181352c4fb26",
+  "value": {
+    "rationale": "Exact complete all-index classification of a naturally recorded Narayana parity invariant and a full multiplicity-spectrum law across every dyadic row block replace the finite published census. The odd-row terminal-one-run factor reveals a structural dichotomy absent from the initial table, enabling exact distribution and cumulative counts for arbitrarily large ranges. The contribution is elementary and limited to parity, but a complete previously unreported natural invariant rather than an arbitrary slice or finite computation.",
+    "status": "PASS"
+  }
+}
