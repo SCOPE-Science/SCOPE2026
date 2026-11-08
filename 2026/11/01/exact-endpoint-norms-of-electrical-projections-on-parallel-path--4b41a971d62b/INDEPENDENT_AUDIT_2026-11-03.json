@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:04:17.014771Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite simple unweighted two-terminal internally disjoint paths, edge gradients are exactly edge vectors whose path sums agree. Orthogonal least squares forces a common corrected path sum weighted by 1/ell_i; the explicitly derived matrix has negative same-path off-diagonal entries and positive cross-path entries. Its maximal absolute row sum is max_i[2-2/ell_i +(2+(r-2)ell_i)/(ell_i^2 sum_j 1/ell_j)], attained by the signs of a row. Cauchy--Schwarz sum_{j != i}1/ell_j >= (r-1)^2/(N-ell_i) gives an all-profile upper bound 3+0.5 sqrt(N/s); one path of length s plus balanced long paths gives 1/(2sqrt(s)) in the limit for every sufficiently large edge count. Independently reconstructed exact rational incidence-Gram projections for (1,2),(1,2,3),(2,2,3),(1,3,4,5),(2,4,5), agreeing with the formula. Code and finite samples corroborate; they are not the proof of the asymptotic quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 and Appendix A derive O(sqrt(m)) electrical routing congestion and a one-shortcut parallel-path lower witness.",
+          "The 2026 work treats averages and absolute-matrix spectral bounds, not the exact worst row for the restricted family."
+        ],
+        "reasoning": "General order estimates and existence constructions do not yield equality in a sharp fixed-s restricted extremal problem.",
+        "searches": [
+          "Kelner--Maymounkov Theorem 1.2 Appendix A, 2009",
+          "Gurel-Gurevich--Nachmias--Sachdeva arXiv:2605.24130"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob c30e5db51b312316760049003148b1b0b18bca1d",
+        "Assigned verify_theta.py blob ff73a8e92031cd81aa0ad7ba721ccbfc6dccd502",
+        "arXiv:0909.2859 Theorem 1.2 and Appendix A",
+        "arXiv:1708.01632 Example 1.1",
+        "arXiv:2605.24130 Theorems 1.1--1.3",
+        "Resultary semantic search 2026-11-03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior short-edge examples can imply some particular lower bounds, notably s=1; they do not establish a uniform sharp upper constant or all s.",
+          "The new proof uses exact row sign structure and global balancing to supply these missing implications."
+        ],
+        "reasoning": "Credited the already known shortcut construction rather than treating its repeated computation as new; the all-profile exact norm plus complete minimum-length hierarchy is the evaluated final claim.",
+        "searches": [
+          "arXiv:0909.2859 Appendix A",
+          "arXiv:1708.01632 Example 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The edge-gradient projector is the transfer-current (electrical-routing) projection; its induced infinity norm equals a maximum absolute transfer-current row sum.",
+          "The result gives row-by-row exact dependence on all path lengths, rather than a generic transfer-current norm order."
+        ],
+        "reasoning": "Identified the standard electrical-flow/transfer-current alias and compared quantities, not merely titles; no inspected exact row-profile equality supplied the stated all-s and all-profile constants.",
+        "searches": [
+          "electrical projection transfer current parallel theta graph exact infinity norm fixed minimum path length sharp square root coefficient",
+          "Kelner--Maymounkov arXiv:0909.2859",
+          "Schild--Rao--Srivastava arXiv:1708.01632"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That published SCOPE result studies a minimum enclosing ball of directed edge polytopes, rather than the electrical Hilbert projection.",
+          "No table of all path-length-profile electrical projection endpoint norms was located in inspected sources."
+        ],
+        "reasoning": "The comparable parallel-path object has a different invariant; a failed table search is only a residual priority limitation, not proof of novelty.",
+        "searches": [
+          "electrical projection transfer current parallel theta graph exact infinity norm fixed minimum path length sharp square root coefficient",
+          "Resultary parallel-path screening and directed edge polytope result, 2026-10-11"
+        ]
+      },
+      "rationale": "The known general square-root electrical routing bound and shortcut example establish growth order but do not imply the complete rational profile formula nor the sharp coefficient for every fixed minimum path length s. A different transfer-current average or spectral bound does not determine the maximum absolute row sum exactly. The mathematical statement is a new sharp, natural restriction-family classification on the sources inspected.",
+      "residual_risks": [
+        "A hidden equivalent exact formula in transfer-current or electrical-routing literature could predate this statement; the search does not certify historical priority.",
+        "The profile formula assumes unweighted simple internally disjoint paths and does not extend directly to weighted/overlapping or arbitrary graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: square-root order and shortcut lower construction, not the stated complete sharp s hierarchy",
+          "evidence": "Theorem 1.2; Appendix A on many long parallel paths with a direct shortcut.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.2859",
+          "material_read": "Theorem 1.2 and Appendix A, including their lower-bound graph; source PDF and screenshots at pp.3 and 14",
+          "method": "Full primary PDF targeted theorem/appendix reading",
+          "title": "Electric routing and concurrent flow cutting",
+          "trigger": "Same electrical-routing norm and shortcut parallel-path example"
+        },
+        {
+          "assessment": "Related invariant and constructions; exact family-wide norm comparison retains priority risk",
+          "evidence": "Example 1.1 uses balanced shortcut routing.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.01632",
+          "material_read": "Abstract, stated Example 1.1 and relevant introductory description; whole PDF not read",
+          "method": "Citation-oriented comparison, not whole-document noncoverage assertion",
+          "title": "Localization of Electrical Flows",
+          "trigger": "Transfer-current column norm on balanced shortcut graphs"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: transportation space basis-suppression constants on cactus cycles, not edge-gradient transfer-current endpoint on parallel paths",
+          "evidence": "Indexed result describes weighted two-part cut calculation for cactus cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+          "material_read": "Title and indexed summary, not full paper",
+          "method": "Semantic index summary comparison",
+          "title": "Sharp coordinate-projection norms for edge bases of cactus transportation spaces",
+          "trigger": "Resultary semantic search produced nearby projection norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum-row transfer-current amplification is a natural and previously studied electrical routing invariant; exactly optimizing it over parallel-path profiles separates a direct shortcut s=1 from every s>=2 and gives sharp constants, not a mere reproduction of the already known sqrt(N) order.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob c30e5db51b312316760049003148b1b0b18bca1d",
+    "Assigned verify_theta.py blob ff73a8e92031cd81aa0ad7ba721ccbfc6dccd502",
+    "arXiv:0909.2859 Theorem 1.2 and Appendix A",
+    "arXiv:1708.01632 Example 1.1",
+    "arXiv:2605.24130 Theorems 1.1--1.3",
+    "Resultary semantic search 2026-11-03"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A hidden equivalent exact formula in transfer-current or electrical-routing literature could predate this statement; the search does not certify historical priority.",
+    "The profile formula assumes unweighted simple internally disjoint paths and does not extend directly to weighted/overlapping or arbitrary graphs.",
+    "Scientific PASS is best-of-knowledge and not external attestation; no Git publication was performed.",
+    "Publication plan remains not_ready because public-bound source provenance was detected and no guarded sanitized replacement bytes were supplied."
+  ],
+  "schema_version": 1
+}
