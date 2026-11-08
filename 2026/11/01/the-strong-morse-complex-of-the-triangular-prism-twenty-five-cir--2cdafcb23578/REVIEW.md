@@ -1,15 +1,21 @@
-# Scientific review: strong Morse complex of the triangular prism
+# Independent mathematical audit
 
-## Correctness — PASS
-For the unfilled one-dimensional prism, the descending link of each vertex in a total order is a discrete set. It is a simplicial cone exactly when the vertex has one earlier neighbor, which converts the published definition of a strong gradient to the explicit arc-selection algorithm. All 720 orders are enumerated. The generated inclusion-maximal faces agree **as sets** with the union of three explicitly listed, disjoint, twelve-element prism-symmetry orbits. The resulting face vector is \((18,66,24)\). Each of the twenty-four triangles has its own edge incident to no other triangle, permitting twenty-four genuine elementary collapses. The remaining 18-vertex, 42-edge graph is connected, establishing the integral wedge of twenty-five circles. Exact signed fixed-simplex traces and the Lefschetz identity establish the full rational representation statement. Every nonstandard finite premise is asserted by the accompanying, executed standard-library checker.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Knudson and Owens–White, arXiv:2609.06844v1 (2026-09-06), Sections 3–4, give the exact definition; their subsequent graph families include paths, cycles, stars, simplices, and their boundaries but no prism classification. Fernández, arXiv:2504.15729v1, supplies the prior strong-gradient theory. A published indexed calculation for the **ordinary**, not strong, Morse complex of the triangular prism determines a mod-two degree-four Betti number of 64. Its full RESULT was examined and neither states nor logically entails the present full strong-complex homotopy and \(S_3\times C_2\) representation. Searches for aliases involving `strong discrete Morse`, `triangular prism`, `Morse matching complex`, `25 circles`, and `S_3 times C_2` produced no directly covering statement; this negative search is not by itself a novelty proof. The greatest residual risk is another unindexed or differently phrased calculation of this finite strong complex.
+PASS
 
-## Mathematical value — PASS
-The prism is the smallest triangular-prism graph and a natural first three-regular graph beyond the path/cycle/star families emphasized in the foundational paper. Its full strong Morse complex has an exact integral graph-spine classification, while the published ordinary Morse complex of the same graph has mod-two homology in degree four. More than an isolated Betti computation, the result determines an explicit sequence of simplicial collapses and a nontrivial complete prism-symmetry character, including regular representation summands and a sign summand. The exact example is a useful comparative test for strong versus ordinary gradient restrictions; no generalized theorem for other prisms is claimed.
+PASS. The input triangular prism is the UNFILLED one-dimensional graph C3□K2; every strong gradient from a six-vertex total filtration includes an oriented arc u→v precisely when u has exactly one earlier neighbor v (descending graph link is a single-vertex cone). Independently enumerated all 720 vertex orders and found exactly 85 distinct gradients, 36 maximal facets in three 12-element S3×C2 symmetry orbits, and face counts (18 vertices,66 edges,24 triangles). The downward closure is essential and was included. The 24 triangle faces each admit distinct unique free edges, allowing 24 actual elementary simplicial collapses to a connected graph with 18 vertices,42 edges and free H1 rank 42-18+1=25. Independently checked every collapse and reachability. Computed signed fixed-simplex chains for all 12 graph automorphisms; since connected and H_j=0 for j>=2, H1 trace=1-trC0+trC1-trC2 gives 25 at identity and sign(π) elsewhere, matching 2 regular Q[S3×C2] plus the one-dimensional S3 sign character over Q. The layer-swap trace 1 gives eigenspace dimensions 13,12. No integral representation splitting is claimed.
 
-## Closest sources and limitations
-Primary definition and scope: Knudson–Owens–White, arXiv:2609.06844v1. Strong-gradient background: Fernández, arXiv:2504.15729v1. Closest same-graph mathematical result: public calculation of the **ordinary** triangular-prism Morse complex, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-triangular-prism-morse-complex--4af8059de6d1 . This classification is limited to the unfilled prism and the rational automorphism module; integral representation splitting, equivariant homotopy splitting and general prism families are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge subject to a named primary-access limitation. Knudson–Owens-White introduce full and pure strong Morse complexes and classify paths, stars, simplices/boundaries and cycles in accessible abstract; the specific unfilled triangular prism, its full strong-complex wedge rank 25 and the G=S3×C2 character are not among stated results. Their complete 2026 primary full text was not accessible after open/preprint and authorized institutional attempts, so additional covered material in its sections/appendices cannot be ruled out. Indexed Resultary triangular-prism ordinary Morse complex computes mod-2 H4 rank64 for the much larger ordinary complex, not the full strong subcomplex; other pure strong-cycle representations use different graphs and variants.
+
+## value
+
+PASS
+
+PASS. The triangular prism is a canonical small cubic graph with both cycles and strong symmetries, offering a substantive first nontrivial full strong-gradient example beyond the basic classified families. A complete 24-collapse graph-spine classification gives integral homotopy rather than mere finite rank, and the exact rational full automorphism character exhibits representation content absent from ordinary Morse-complex homology. Both exact invariants are natural and independently usable without extrapolating to all prism graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
