@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T01:07:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed five transitive C2×C2 orbit types, sizes 1,2,2,2,4: each contributes z^d/d, giving F(z)=exp(z+3z²/2+z⁴/4). The independent Poisson sampler conditioned on total size n is exactly uniform. For saddle r>0 solving r+3r²+r⁴=n, variance V=r+6r²+4r⁴. Fourier inversion has a unique unsuppressed peak for total size (t=π suppressed by e^-2r and t=±π/2 by e^-3r²) and two peaks for the even-support sum excluding singleton type. Hence P(S=n)~1/sqrt(2πV) and P(N1=0|S=n)=0 for odd n, ~2e^-r for even n. Union bounding Poisson lower tails divided by P(S=n) gives O_q(sqrt(n)r^(q-1)e^-r) for some type count <q. A q-round EF orbit-by-orbit strategy in the total-unary-functions signature yields the uniform rank-q zero-one law. Each orbit type T has a quantifier-free unary identifier and the rank-q formula requiring q pairwise-disjoint T orbits, proving 11q minimality. Independent complete permutation enumeration n<=7 and direct polynomial convolution match OEIS, and high precision ratio at n=1600 is 0.99540962878. Finite numerics do not prove the local limits. Computed Git tree SHA from seven actual blob identities matches f28464bda051eb5dd1bf4f7e707e6bff02cefab9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lugo Theorem 3.1 treats S-restricted permutations and conjugacy/cycle counts and section 4 treats independently chosen involutions; no commutativity conditioning.",
+          "Abdesselam Theorems 1.1–1.3 treat log-concavity and p→∞ for unrestricted commuting p-tuples at fixed n.",
+          "Ahlman–Koponen arXiv:1305.3097 concerns finite relational structures whose automorphism groups contain prescribed groups, with nontrivial rational limit laws, not uniformly sampled maps (f,g).",
+          "Diaconis–Fulman–Guralnick Theorem 1.3 concerns fixed points of single random permutations in transitive group actions."
+        ],
+        "reasoning": "General composition/Poisson/FO principles motivate but do not alone state the quantified special-case constants. A general finite-group representation or saddle-point theorem could yield a derivation, and that unresolved possibility is explicitly retained.",
+        "searches": [
+          "Lugo, arXiv:0911.3604, full HTML Sections 1,3,4 and theorem statements",
+          "Abdesselam, DOI:10.1007/s00026-024-00724-z open HTML Introduction, Theorems 1.1–1.3, Section 2",
+          "Ahlman–Koponen arXiv:1305.3097 full HTML introduction and main scope",
+          "Diaconis–Fulman–Guralnick arXiv:0708.2643v1 full HTML Introduction and Theorem 1.3",
+          "Schlage-Puchta 2011 homomorphisms finite groups into wreath products, UGent bibliographic abstract; full PDF not read",
+          "Web queries random homomorphisms finite group symmetric group zero-one law; random G-sets FO; commuting involutions common fixed point asymptotics (2026-11-04)"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A362819 (2023), full entry https://oeis.org/A362819",
+        "Lugo arXiv:0911.3604 (full text relevant sections)",
+        "Abdesselam DOI:10.1007/s00026-024-00724-z (open full HTML main results)",
+        "Ahlman–Koponen arXiv:1305.3097 (intro and theorem scope)",
+        "Diaconis–Fulman–Guralnick arXiv:0708.2643 (full HTML intro and theorem)",
+        "Schlage-Puchta 2011 UGent bibliography (abstract only)",
+        "Resultary query: First-order zero-one law for two uniformly random commuting involutions, random Klein-four permutation representations, five orbit types, optimal rank-q model 11q (19 hits; 2026-11-04)",
+        "Resultary query: probability uniformly selected commuting involutions no common fixed point parity factor two exp(-n^(1/4)); EGF exp(z+3z²/2+z⁴/4) (19 hits; 2026-11-04)",
+        "GitHub code search SCOPE-Science/SCOPE2026: commuting involutions zero one law (no results, 2026-11-04)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS A362819 gives 1,1,4,10,52,196,1216,5944,... and the identical EGF exp(x+3x²/2+x⁴/4), May 5 2023; enumeration and EGF therefore preexisting.",
+          "OEIS EGF directly gives the entire counting law but not by itself the optimal FO rank-q model or sharp conditioned parity asymptotic without further proof.",
+          "Lugo restricted-cycle transfer (Theorem 3.1) concerns coefficients of exp(sum_{s∈S}z^s/s), not multi-type C2×C2 actions; saddle ideas are related but normalizations differ.",
+          "Ahlman–Koponen logical laws involve random relational expansions with automorphism subgroups, not C2×C2-homomorphisms."
+        ],
+        "reasoning": "Counting/EGF portion is fully covered; prior results examined do not directly imply the remaining combined specific theorem. It may nevertheless be an accessible deduction from general analytic-combinatorics and finite-model methods; no exclusive priority claim is made.",
+        "searches": [
+          "Lugo, arXiv:0911.3604, full HTML Sections 1,3,4 and theorem statements",
+          "Abdesselam, DOI:10.1007/s00026-024-00724-z open HTML Introduction, Theorems 1.1–1.3, Section 2",
+          "Ahlman–Koponen arXiv:1305.3097 full HTML introduction and main scope",
+          "Diaconis–Fulman–Guralnick arXiv:0708.2643v1 full HTML Introduction and Theorem 1.3",
+          "OEIS A362819 full entry and exact EGF (Howroyd, 2023)",
+          "Web queries random homomorphisms finite group symmetric group zero-one law; random G-sets FO; commuting involutions common fixed point asymptotics (2026-11-04)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Commuting involution pairs correspond bijectively to homomorphisms (C2)^2→S_n, i.e., labeled finite Klein-four sets with 5 transitive orbit types.",
+          "Resultary searches returned orbit-profile and generic involution items, not this uniform labeled action FO/parity statement.",
+          "OEIS A362819 gives 1,1,4,10,52,196,1216,5944,... and the identical EGF exp(x+3x²/2+x⁴/4), May 5 2023; enumeration and EGF therefore preexisting."
+        ],
+        "reasoning": "Equivalent formulation as random Klein-four-set does not alter the mathematical claim. Existing enumeration itself is covered, but the inspected sources do not assert the combined logical rank-q and parity correction theorem.",
+        "searches": [
+          "Resultary query: First-order zero-one law for two uniformly random commuting involutions, random Klein-four permutation representations, five orbit types, optimal rank-q model 11q (19 hits; 2026-11-04)",
+          "Resultary query: probability uniformly selected commuting involutions no common fixed point parity factor two exp(-n^(1/4)); EGF exp(z+3z²/2+z⁴/4) (19 hits; 2026-11-04)",
+          "Web queries random homomorphisms finite group symmetric group zero-one law; random G-sets FO; commuting involutions common fixed point asymptotics (2026-11-04)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A362819 gives 1,1,4,10,52,196,1216,5944,... and the identical EGF exp(x+3x²/2+x⁴/4), May 5 2023; enumeration and EGF therefore preexisting.",
+          "OEIS A362825 similarly counts commuting triples; no cited parity-sensitive FO law in the inspected A362819 entry.",
+          "Finite numerical counts through seven labels agree with OEIS values."
+        ],
+        "reasoning": "The EGF and whole enumeration are exactly previously tabulated, so those cannot support novelty. The complete rank-q logical representative and parity-sharp no-common-fixed point asymptotic are not tabulated in those exact entries; failed database search is not itself a novelty proof.",
+        "searches": [
+          "OEIS A362819 full entry and exact EGF (Howroyd, 2023)",
+          "Resultary query: First-order zero-one law for two uniformly random commuting involutions, random Klein-four permutation representations, five orbit types, optimal rank-q model 11q (19 hits; 2026-11-04)",
+          "Resultary query: probability uniformly selected commuting involutions no common fixed point parity factor two exp(-n^(1/4)); EGF exp(z+3z²/2+z⁴/4) (19 hits; 2026-11-04)",
+          "GitHub code search SCOPE-Science/SCOPE2026: commuting involutions zero one law (no results, 2026-11-04)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality applies only to the combined effective fixed-rank law with sharp 11q minimum and parity-corrected 2 exp(-r_n) rare-event term. The exact EGF/enumeration was published at least by OEIS A362819 in 2023 and must not be claimed new. Available primary results are different conditioning/models or weaker conclusions; an unseen general finite G-action theorem remains a priority risk.",
+      "residual_risks": [
+        "OEIS A362819 already publishes the exact EGF and enumeration: no newness claim for those components.",
+        "A sufficiently general asymptotic theorem for random representations of finite groups or weighted assemblies could imply the parity-corrected coefficient; a general FO finite-union theorem could yield rank q equivalence. Their possible combination is a priority risk.",
+        "The Schlage-Puchta wreath-product paper full text was not inspected; its abstract-only status cannot justify global noncoverage.",
+        "Resultary and GitHub search indexes are incomplete and failure to match cannot certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS EGF and all pair counts exactly, NOT a recorded first-order/perfect-parity theorem",
+          "evidence": "OEIS A362819 gives 1,1,4,10,52,196,1216,5944,... and the identical EGF exp(x+3x²/2+x⁴/4), May 5 2023; enumeration and EGF therefore preexisting.",
+          "identifier_or_url": "https://oeis.org/A362819",
+          "material_read": "Complete entry including formula, generating function, sequence and 2023 attribution",
+          "method": "OEIS full HTML entry",
+          "title": "A362819 — Number of ordered pairs of involutions on [n] that commute",
+          "trigger": "Exact same combinatorial object, strongest database coverage"
+        },
+        {
+          "assessment": "Different model: independently sampled involutions without commuting requirement; S-permutation saddle-point principle relevant but no identical final statement",
+          "evidence": "Theorem 3.1 analyzes S-restricted permutations; Section 4 uses colored graph union of any involution pair; theorem statements describe n^(1/2) cycles not the five bounded-orbit Klein-four model.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.3604",
+          "material_read": "arXiv cached full HTML, Introduction, Theorem 3.1 and Section 4 graph decomposition",
+          "method": "arXiv full-text HTML",
+          "title": "The cycle structure of compositions of random involutions",
+          "trigger": "Very similar model: two random involutions and analytic-combinatorial asymptotics"
+        },
+        {
+          "assessment": "Not covering the selected order-two pair law; p→infinity at fixed n, orbit-count log-concavity",
+          "evidence": "Theorems 1.1 and 1.2 concern A(p,n,k) and p→∞; no quantifier-rank representative or even-n singleton coefficient.",
+          "identifier_or_url": "https://doi.org/10.1007/s00026-024-00724-z",
+          "material_read": "Open Springer HTML abstract, Introduction, Theorems 1.1–1.3, discussion and Section 2 results",
+          "method": "Lawful open-access publisher full HTML",
+          "title": "Log-Concavity with Respect to the Number of Orbits for Infinite Tuples of Commuting Permutations",
+          "trigger": "Same commuting predicate with potentially stronger unrestricted model"
+        },
+        {
+          "assessment": "Relational structures constrained by automorphism groups; not the uniform labeled Klein-four action distribution",
+          "evidence": "Introduction explicitly works with finite relational vocabulary including a relation of arity ≥2, and a nontrivial rational limit spectrum; present model is two unary functions.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.3097",
+          "material_read": "Accessible full HTML Introduction, theorem scope and examples",
+          "method": "arXiv full-text HTML",
+          "title": "Limit laws and automorphism groups of random nonrigid structures",
+          "trigger": "General first-order limit laws with finite group structures"
+        },
+        {
+          "assessment": "Single uniform permutations acting on various coset spaces, not uniform commuting involution pairs",
+          "evidence": "Introduction and Thm 1.3 analyze fixed points of uniformly random w in one permutation group G; not random homomorphisms from Klein four.",
+          "identifier_or_url": "https://arxiv.org/html/0708.2643v1",
+          "material_read": "Accessible full HTML Introduction, Theorem 1.3 and action model in Sections 1–2",
+          "method": "arXiv full-text HTML",
+          "title": "On fixed points of permutations",
+          "trigger": "Could dominate exact fixed-point event"
+        },
+        {
+          "assessment": "Unresolved only as literature coverage risk; abstract concerns induced abelian projection distribution in wreath products",
+          "evidence": "Abstract states near-uniform distribution of induced map to finite abelian A and Weyl group type D_n enumeration; not enough full text to reject all implications.",
+          "identifier_or_url": "https://biblio.ugent.be/publication/1848757",
+          "material_read": "Bibliographic abstract and scope; full open PDF not read",
+          "method": "UGent abstract metadata",
+          "title": "Homomorphisms from a finite group into wreath products",
+          "trigger": "Same finite group homomorphism perspective, potentially stronger general statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditioning two natural random involutions to commute yields a random action with five finite orbit types and qualitative behavior sharply different from unconstrained involutions. The minimum 11q size of a finite rank-q representative, the simultaneous explicit logical error bound, and the parity-corrected probability for absence of a common fixed point are interpretable structural/probabilistic facts that a researcher studying random finite group actions can use. Does not require a new general method; the already known EGF alone would not support value or originality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS A362819 (2023), full entry https://oeis.org/A362819",
+    "Lugo arXiv:0911.3604 (full text relevant sections)",
+    "Abdesselam DOI:10.1007/s00026-024-00724-z (open full HTML main results)",
+    "Ahlman–Koponen arXiv:1305.3097 (intro and theorem scope)",
+    "Diaconis–Fulman–Guralnick arXiv:0708.2643 (full HTML intro and theorem)",
+    "Schlage-Puchta 2011 UGent bibliography (abstract only)",
+    "Resultary query: First-order zero-one law for two uniformly random commuting involutions, random Klein-four permutation representations, five orbit types, optimal rank-q model 11q (19 hits; 2026-11-04)",
+    "Resultary query: probability uniformly selected commuting involutions no common fixed point parity factor two exp(-n^(1/4)); EGF exp(z+3z²/2+z⁴/4) (19 hits; 2026-11-04)",
+    "GitHub code search SCOPE-Science/SCOPE2026: commuting involutions zero one law (no results, 2026-11-04)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed q and first-order logic with two total commuting involutive unary functions and equality; not arbitrary independent involutions, MSO, counting/ordering, or q increasing with n.",
+    "O is best of knowledge; preexisting exact EGF and possible stronger general group-action results are acknowledged.",
+    "The publication barrier is operational public-file provenance, not a scientific C/O/V failure."
+  ],
+  "residual_risks": [
+    "OEIS A362819 already publishes the exact EGF and enumeration: no newness claim for those components.",
+    "A sufficiently general asymptotic theorem for random representations of finite groups or weighted assemblies could imply the parity-corrected coefficient; a general FO finite-union theorem could yield rank q equivalence. Their possible combination is a priority risk.",
+    "The Schlage-Puchta wreath-product paper full text was not inspected; its abstract-only status cannot justify global noncoverage.",
+    "Resultary and GitHub search indexes are incomplete and failure to match cannot certify novelty."
+  ],
+  "schema_version": 1
+}

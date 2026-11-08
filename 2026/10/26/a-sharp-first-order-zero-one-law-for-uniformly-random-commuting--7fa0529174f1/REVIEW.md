@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The labelled action model, five transitive orbit types, and exponential formula were reconstructed from the stabilizers of the Klein-four group. Conditional independent-Poisson orbit counts follow coefficient-by-coefficient, not approximately. With \(r_n+3r_n^2+r_n^4=n\), Fourier inversion has a unique unsuppressed span-one peak for total size and exactly two span-two peaks when singleton components are excluded. The second peak contributes the factor two for even domain sizes; odd sizes are obstructed exactly. The fixed-rank EF strategy preserves whole orbits and all unary-function terms, and rank-\(q\) formulas force \(q\) distinct copies of each type, proving minimality of \(11q\). Exact enumeration through seven labels and coefficient-ratio numerics independently check finite identities, not the asymptotic proof. Limitations: \(q\) fixed, no counting or second-order logic.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+Independently reconstructed five transitive C2×C2 orbit types, sizes 1,2,2,2,4: each contributes z^d/d, giving F(z)=exp(z+3z²/2+z⁴/4). The independent Poisson sampler conditioned on total size n is exactly uniform. For saddle r>0 solving r+3r²+r⁴=n, variance V=r+6r²+4r⁴. Fourier inversion has a unique unsuppressed peak for total size (t=π suppressed by e^-2r and t=±π/2 by e^-3r²) and two peaks for the even-support sum excluding singleton type. Hence P(S=n)~1/sqrt(2πV) and P(N1=0|S=n)=0 for odd n, ~2e^-r for even n. Union bounding Poisson lower tails divided by P(S=n) gives O_q(sqrt(n)r^(q-1)e^-r) for some type count <q. A q-round EF orbit-by-orbit strategy in the total-unary-functions signature yields the uniform rank-q zero-one law. Each orbit type T has a quantifier-free unary identifier and the rank-q formula requiring q pairwise-disjoint T orbits, proving 11q minimality. Independent complete permutation enumeration n<=7 and direct polynomial convolution match OEIS, and high precision ratio at n=1600 is 0.99540962878. Finite numerics do not prove the local limits. Computed Git tree SHA from seven actual blob identities matches f28464bda051eb5dd1bf4f7e707e6bff02cefab9.
 
-published-finding corpus searches for the commuting-involution zero-one law, parity-corrected common-fixed-point asymptotic, and \(C_2\times C_2\)-action generating function found no matching indexed statement. Accessible earlier results treated independent involutions, not commuting pairs; this distinction changes the logical limit from a rich spectrum to a zero-one law. Full-text comparison with Mirabi–Shelah (2026) distinguishes component-pruned random graphs and percolated tori. Full-text Abdesselam (2024/25) treats unrestricted commuting permutation tuples, with log-concavity across orbit counts for a growing number of permutations. Diaconis–Fulman–Guralnick treats permutation fixed-point distributions, not the specific conditioned pair. The five-orbit enumeration, Poisson conditioning, and EF method are acknowledged as known techniques; the narrow claim is their sharp combined specialization. No exhaustive theorem-implication search of all general assembly/saddle-point and finite-group-action results was possible; a dominating earlier general theorem remains a named residual risk, not a disproved possibility.
+## originality
 
-## Value — PASS
+PASS
 
-The problem has natural mathematical motivation: conditioning two random involutions to commute changes the random functional structure from long alternating components to only five possible bounded components. The answer includes a logically optimal **finite** rank representative, a quantitative stretched-exponential logical law, and an exact parity correction to the most basic rare-event observable. The \(11q\) optimum and factor-two asymptotic are precise parameters with logical and probabilistic meaning rather than arbitrary numerical slices. This does not claim a new general logical-method theorem.
+Best-of-knowledge originality applies only to the combined effective fixed-rank law with sharp 11q minimum and parity-corrected 2 exp(-r_n) rare-event term. The exact EGF/enumeration was published at least by OEIS A362819 in 2023 and must not be claimed new. Available primary results are different conditioning/models or weaker conclusions; an unseen general finite G-action theorem remains a priority risk.
 
-## Verification and limits
+## value
 
-The delivered `CHECK.py` is the exact executable used for the finite checks. It confirms the five orbit types, coefficient recurrences, and the approach of the even-index ratio to one. This is self-review only; there is no external certification or independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conditioning two natural random involutions to commute yields a random action with five finite orbit types and qualitative behavior sharply different from unconstrained involutions. The minimum 11q size of a finite rank-q representative, the simultaneous explicit logical error bound, and the parity-corrected probability for absence of a common fixed point are interpretable structural/probabilistic facts that a researcher studying random finite group actions can use. Does not require a new general method; the already known EGF alone would not support value or originality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
