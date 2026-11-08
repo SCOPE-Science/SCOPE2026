@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:53:14.282154Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one positions p<q<r, patterns with two ones recover L=2p+q and T=r−p; one-one patterns recover Q=p²+q²+r². At fixed n the complete deck is equivalent to (L,T,Q). With q=L−2p and r=p+T, Q is quadratic 6p²+(2T−4L)p+L²+T², permitting at most two p; the mate is p+(a−b)/3 and interchanges positive gaps a,b. Requiring integer in-bounds distinct mate gives a−b divisible by 3 and a != b. Orient a=b+3h, h>=1; pair count U(n)=Σ_{b,h>=1}max(0,n−2b−4h). Summing geometric series yields z³/(1−z)^4−z⁷/((1−z)²(1−z²)(1−z⁴)). New literal triple-deck grouping and formula checks exhaustively agree at each n=3..18. Infinite theorem follows from quadratic and sum, not from finite instances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chrisnata et al Corollary 28 proves Θ(n³) for fixed weight; Nilforoushan–Parvaresh arXiv:2609.23106 total 3-deck growth Θ(n⁹) concerns all weights."
+        ],
+        "reasoning": "Knowing total-deck asymptotic and a fixed-weight growth order does not determine exact rational series or individual pair fibers.",
+        "searches": [
+          "binary weight-three length-three scattered subsequence deck gap swap generating function Chrisnata Conjecture 1",
+          "Nilforoushan Parvaresh 2026 number of distinct k decks total Theta n^9"
+        ]
+      },
+      "checked_sources": [
+        "Chrisnata et al §5.3 Conjecture 1, DOI:10.3934/amc.2021032",
+        "Rigo–Salimov (2013), ORBi 2268/149313",
+        "arXiv:2609.23106",
+        "Resultary semantic query binary weight-three length-three scattered subsequence deck gap swap generating function Chrisnata Conjecture 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chrisnata et al §5.3, Theorem 27, Corollary 28 and Conjecture 1; Rigo–Salimov 2013."
+        ],
+        "reasoning": "A conjecture states exactly the desired count but does not establish truth, while a Θ-bound gives no all-length identity. Explicit quadratic involution and pair sum are new implications checked independently.",
+        "searches": [
+          "binary weight-three length-three scattered subsequence deck gap swap generating function Chrisnata Conjecture 1",
+          "Chrisnata Kiah Karingula Vardy Yaakobi Yao Conjecture 1 Corollary 28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chrisnata et al, On the Number of Distinct k-Decks, §5.3 defines D_{3,3}(n) and explicitly labels Conjecture 1 with the same generating function. Rigo–Salimov 2013 defines general binomial equivalence."
+        ],
+        "reasoning": "A full three-deck equality is the relevant fixed-weight 3-binomial equivalence; both vocabularies were compared. A conjectured formula is prior prediction, not a proved theorem or fiber classification.",
+        "searches": [
+          "binary weight-three length-three scattered subsequence deck gap swap generating function Chrisnata Conjecture 1",
+          "three-binomial equivalence of weight three binary words length n gap swap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chrisnata et al public full PDF p17 reports 20 finite coefficients agreeing with conjecture. Resultary top hit on n,n−3,3 binary deletion reconstruction compares trace ambiguity, a different invariant."
+        ],
+        "reasoning": "Finite entries were known but do not imply the infinite formula; the present count derives from all n valid gap-swap pairs.",
+        "searches": [
+          "binary weight-three length-three scattered subsequence deck gap swap generating function Chrisnata Conjecture 1",
+          "Conjecture 1 first 20 coefficients D_3,3 n three-decks"
+        ]
+      },
+      "rationale": "Chrisnata et al explicitly proposed exactly this generating function as Conjecture 1, based on initial twenty coefficients, and established only Θ(n³). The present algebraic gap-swap and all-length fiber classification prove that conjecture. Related 2026 total-deck asymptotics address all weights, not this exact fixed-weight formula.",
+      "residual_risks": [
+        "A later separate proof of Conjecture 1 could exist outside inspected sources.",
+        "The rational function is an earlier conjecture, not a newly guessed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONFIRMS exact displayed formula is published conjecture with initial coefficients, no complete proof in inspected section",
+          "evidence": "Conjecture 1 and 20-coefficient empirical verification; Corollary 28 Θ(n³)",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+          "material_read": "Full author-hosted PDF; in particular §5.3 and page 17 Conjecture 1, Theorem 27 and Corollary 28",
+          "method": "read PDF text, inspect screenshot of relevant page",
+          "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+          "trigger": "precise conjectured same invariant and generating function"
+        },
+        {
+          "assessment": "FOUNDATIONAL definitions, not this fixed-weight enumeration",
+          "evidence": "Definitions of binomial subword equivalence",
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "Introductory definitions and infinite-word complexity focus",
+          "method": "read public author material and bibliographic descriptions",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "equivalent 3-binomial terminology"
+        },
+        {
+          "assessment": "General growth exponent not the same exact fixed-weight formula",
+          "evidence": "All-weight Θ(n⁹) claim for k=3",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23106",
+          "material_read": "Publicly available HTML opening/main contribution and all-weights growth framework",
+          "method": "read accessible main text and inspect fixed-weight overlap",
+          "title": "Number of Distinct k-Decks",
+          "trigger": "2026 potentially stronger total deck enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a named published exact enumeration conjecture and classifies every ambiguity fiber in a natural deletion/subsequence reconstruction channel, yielding an explicit optimal zero-error code size at each length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chrisnata et al §5.3 Conjecture 1, DOI:10.3934/amc.2021032",
+    "Rigo–Salimov (2013), ORBi 2268/149313",
+    "arXiv:2609.23106",
+    "Resultary semantic query binary weight-three length-three scattered subsequence deck gap swap generating function Chrisnata Conjecture 1"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every binary linear weight-three word has at most one distinct identical complete three-subsequence deck mate; a specific gap swap characterizes exactly all pairs and yields the exact conjectured rational generating function.",
+  "limitations": [
+    "Binary linear words with exactly three ones and full exact 3-subsequence multiplicities; not other weights or noisy channels.",
+    "This is a best-of-knowledge scientific assessment; not independent expert, formal Lean, or external certification."
+  ],
+  "residual_risks": [
+    "A later separate proof of Conjecture 1 could exist outside inspected sources.",
+    "The rational function is an earlier conjecture, not a newly guessed formula."
+  ],
+  "schema_version": 1
+}
