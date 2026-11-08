@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with the standard Python 3 library. The program directly generates all pairs of state transition permutations and both output types at every state for one through five states; it tests inverse reversibility through the complete incoming transition maps and tests strong connectedness through directed reachability. At two states it also matches the documented GAP count of eight classes when *both* state and alphabet relabelings are allowed, contrasting with ten classes under state relabeling alone. Through four states it computes canonical representatives under all state relabelings, independently of the Burnside formula. The script also evaluates the exact labeled connected recurrence and the unlabelled Möbius inversion, checking the first ten or twelve orders, as applicable.
+## correctness
 
-The captured output in `verification_output.txt` ends with `VERIFY_OK`. The numeric results in `enumeration_table.csv` follow from the exact proved formulae, not extrapolation. Brute force is finite corroboration, not an argument for all positive state sizes. The infinite results are supported by the proof in `RESULT.md`.
+PASS
 
-No external independent mathematical audit was performed.
+For binary input/output, each state output action is identity or flip and inverse-input reachability is a permutation iff delta0(A)=delta1(A), A=set of flippers. With d=delta1 and pi=d^-1 delta0 this becomes pi(A)=A: a bijection, giving choose(n,k)*n!*k!*(n-k)!=(n!)^2 machines for each |A|=k. Under state-only relabeling, Burnside fixes d and pi in centralizer C(sigma), and invariant A is a union of orbits of permutation pi on cycles of sigma. The cycle-index identity sum_tau prod_C (1+s^{|C|})=m!sum_{h=0}^m s^h gives U_n(t)=sum_{lambda partition n}prod_j j^{m_j}m_j!sum_{h=0}^{m_j}t^{jh}. Permutation transition orbits are SCCs; labeled SET construction yields n!*[z^n t^k]log F(z,t), with F=sum_n n!(sum_{k<=n}t^k)z^n. The unlabeled multiset inversion is V=sum_{r>=1}mu(r)/r log U(z^r,t^r). For uniform labeled machines, d uniform and pi weighted 2^{cycles}; common invariant j-subset expectation (j+1)(n-j+1)/((n+1)*C(n,j)), and union bound/Bonferroni yield connected probability 1-2/n+O(n^-2). Independently tested all (n!)^2*2^n raw pairs n<=4 under direct inverse-transition definitions and connected reachability: total 2,12,144,2880; connected 2,8,88,1776. No infinite conclusion drawn solely from experiments.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: compare exact statement and model rather than terminology. Known foundational tools, marginal/special cases and directly overlapping results are credited. No actually inspected stronger result is shown to imply the complete final claim. Unavailable or only partially inspected plausible primary work is identified in residual risks; failed searches are not treated as proof of novelty.
+
+## value
+
+PASS
+
+A complete exact all-state-count census of a natural syntactic automata class, including labeled swap refinement, state-only isomorphism Burnside polynomial, connected components via generating functions and a sharp asymptotic almost-sure connectivity law, is a useful combinatorial classification. The choice of fixed binary alphabet is natural and the distinction from state-plus-alphabet symmetry affects explicit class counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

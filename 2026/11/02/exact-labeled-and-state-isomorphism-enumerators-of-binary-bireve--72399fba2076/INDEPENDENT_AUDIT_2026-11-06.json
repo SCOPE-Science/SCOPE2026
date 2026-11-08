@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:14:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob adc06526babb03776ee2b7c65d39100238edfdfd",
+        "verify.py blob 465ff63566eac4eb2a7620030c1ad3ea56cea3ef",
+        "enumeration_table.csv blob 00b9ba749071824ef200fd22e17a41e006c970ee",
+        "Independent direct all-label transition/swap enumeration n=1..4 and exact closed formula"
+      ],
+      "rationale": "For binary input/output, each state output action is identity or flip and inverse-input reachability is a permutation iff delta0(A)=delta1(A), A=set of flippers. With d=delta1 and pi=d^-1 delta0 this becomes pi(A)=A: a bijection, giving choose(n,k)*n!*k!*(n-k)!=(n!)^2 machines for each |A|=k. Under state-only relabeling, Burnside fixes d and pi in centralizer C(sigma), and invariant A is a union of orbits of permutation pi on cycles of sigma. The cycle-index identity sum_tau prod_C (1+s^{|C|})=m!sum_{h=0}^m s^h gives U_n(t)=sum_{lambda partition n}prod_j j^{m_j}m_j!sum_{h=0}^{m_j}t^{jh}. Permutation transition orbits are SCCs; labeled SET construction yields n!*[z^n t^k]log F(z,t), with F=sum_n n!(sum_{k<=n}t^k)z^n. The unlabeled multiset inversion is V=sum_{r>=1}mu(r)/r log U(z^r,t^r). For uniform labeled machines, d uniform and pi weighted 2^{cycles}; common invariant j-subset expectation (j+1)(n-j+1)/((n+1)*C(n,j)), and union bound/Bonferroni yield connected probability 1-2/n+O(n^-2). Independently tested all (n!)^2*2^n raw pairs n<=4 under direct inverse-transition definitions and connected reachability: total 2,12,144,2880; connected 2,8,88,1776. No infinite conclusion drawn solely from experiments.",
+      "residual_risks": [
+        "Only alphabet fixed/ordered, unpointed states and state-only isomorphism; alphabet swaps change class count.",
+        "Connected means strong connectivity of state transition graph, not generated automaton-group transitivity.",
+        "The asymptotic is for uniform labeled transducers, not uniform isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Curtin–Savchuk general structural theorems cover all alphabets but provide no inspected exact count/equivalent generating function for binary state-only isomorphism or connectivity.",
+          "Woryna two-state / variable-alphabet classification and Godin–Klimann group properties do not dominate the arbitrary-state fixed-binary census."
+        ],
+        "reasoning": "Comparison of broader statements and model hypotheses: The structural cooperative-pair bijection of the primary 2026 paper may imply the normal form after specializing to binary letters; the actual Burnside centralizer enumeration, multiset connected decomposition, and 1-2/n limit require further counting and are not stated/derived as displayed in that work. Same-topic full primary material was inspected; structural overlap is acknowledged rather than claimed new.",
+        "searches": [
+          "Resultary semantic query: binary bireversible Mealy automata two letters labeled counts state isomorphism connected enumerator",
+          "Curtin Savchuk arXiv:2607.26013 Theorem 5.15 Theorem 7.12 enumeration",
+          "binary bireversible Mealy labeled count isomorphism generating function centralizer partition",
+          "GAP FR binary two-state bireversible test count 12",
+          "https://arxiv.org/abs/2607.26013"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.26013",
+        "https://doi.org/10.1016/j.jcss.2017.01.004",
+        "https://arxiv.org/abs/1604.03270",
+        "https://fossies.org/linux/gap/pkg/fr/tst/chapter-5-b.tst",
+        "Resultary semantic query: binary bireversible Mealy automata two letters labeled counts state isomorphism connected enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General bireversible automata correspond to matched cooperative matrices by Curtin–Savchuk; the binary specialization is parametrized by (d,pi,A) with pi(A)=A.",
+          "State relabeling is a subgroup of the broader isotopy actions, not the same equivalence relation.",
+          "Curtin–Savchuk general structural theorems cover all alphabets but provide no inspected exact count/equivalent generating function for binary state-only isomorphism or connectivity.",
+          "Woryna two-state / variable-alphabet classification and Godin–Klimann group properties do not dominate the arbitrary-state fixed-binary census."
+        ],
+        "reasoning": "Direct implication test: The structural cooperative-pair bijection of the primary 2026 paper may imply the normal form after specializing to binary letters; the actual Burnside centralizer enumeration, multiset connected decomposition, and 1-2/n limit require further counting and are not stated/derived as displayed in that work. Same-topic full primary material was inspected; structural overlap is acknowledged rather than claimed new.",
+        "searches": [
+          "Resultary semantic query: binary bireversible Mealy automata two letters labeled counts state isomorphism connected enumerator",
+          "Curtin Savchuk arXiv:2607.26013 Theorem 5.15 Theorem 7.12 enumeration",
+          "binary bireversible Mealy labeled count isomorphism generating function centralizer partition",
+          "GAP FR binary two-state bireversible test count 12",
+          "https://arxiv.org/abs/2607.26013",
+          "https://doi.org/10.1016/j.jcss.2017.01.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General bireversible automata correspond to matched cooperative matrices by Curtin–Savchuk; the binary specialization is parametrized by (d,pi,A) with pi(A)=A.",
+          "State relabeling is a subgroup of the broader isotopy actions, not the same equivalence relation."
+        ],
+        "reasoning": "Equivalent and dual parameterizations were considered. The structural cooperative-pair bijection of the primary 2026 paper may imply the normal form after specializing to binary letters; the actual Burnside centralizer enumeration, multiset connected decomposition, and 1-2/n limit require further counting and are not stated/derived as displayed in that work. Same-topic full primary material was inspected; structural overlap is acknowledged rather than claimed new.",
+        "searches": [
+          "Resultary semantic query: binary bireversible Mealy automata two letters labeled counts state isomorphism connected enumerator",
+          "Curtin Savchuk arXiv:2607.26013 Theorem 5.15 Theorem 7.12 enumeration",
+          "binary bireversible Mealy labeled count isomorphism generating function centralizer partition",
+          "GAP FR binary two-state bireversible test count 12",
+          "https://arxiv.org/abs/2607.26013"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "GAP FR n=2 tables show twelve labeled bireversible and eight under larger alphabet/state symmetry.",
+          "Current theorem gives ten state-only n=2 classes and explicit all-n U_n(t), connected numbers; a small table cannot determine all-n formula."
+        ],
+        "reasoning": "An existing marginal/small-instance table is credited and not mistaken for a complete exact joint/all-size classification. The structural cooperative-pair bijection of the primary 2026 paper may imply the normal form after specializing to binary letters; the actual Burnside centralizer enumeration, multiset connected decomposition, and 1-2/n limit require further counting and are not stated/derived as displayed in that work. Same-topic full primary material was inspected; structural overlap is acknowledged rather than claimed new.",
+        "searches": [
+          "Resultary semantic query: binary bireversible Mealy automata two letters labeled counts state isomorphism connected enumerator",
+          "Curtin Savchuk arXiv:2607.26013 Theorem 5.15 Theorem 7.12 enumeration",
+          "binary bireversible Mealy labeled count isomorphism generating function centralizer partition",
+          "GAP FR binary two-state bireversible test count 12",
+          "https://fossies.org/linux/gap/pkg/fr/tst/chapter-5-b.tst"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compare exact statement and model rather than terminology. Known foundational tools, marginal/special cases and directly overlapping results are credited. No actually inspected stronger result is shown to imply the complete final claim. Unavailable or only partially inspected plausible primary work is identified in residual risks; failed searches are not treated as proof of novelty.",
+      "residual_risks": [
+        "Curtin–Savchuk structural equivalence directly overlaps the normal-form ingredient; novelty of that ingredient alone is not claimed.",
+        "Other enumerations under alternative state/alphabet equivalences could be transformed into this count, though no matching full all-n formula found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_STRUCTURAL_BACKGROUND_NOT_EXACT_CENSUS",
+          "evidence": "Theorem 5.15 gives general bireversible/orthogonal-matrix characterization and 7.12 identifies state renaming; article states such connections may produce NEW enumeration methods. It does not state the displayed all-n binary partition polynomial or connectedness formula in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.26013",
+          "material_read": "Full 4383-line accessible HTML rendering, Sections 2–7, especially Theorem 5.15 cooperative-pair equivalences and Theorem 7.12 isotopy/state relabeling; inspected introductory enumeration direction",
+          "method": "direct primary full-text rendering",
+          "title": "Combinatorial structures connecting Latin squares and bireversible automata (Curtin and Savchuk)",
+          "trigger": "Most directly related 57-page structural primary preprint on same objects"
+        },
+        {
+          "assessment": "DIFFERENT_N_VERSUS_ALPHABET_PARAMETER",
+          "evidence": "Two states across variable alphabet is distinct from arbitrary states over exactly two fixed letters, and concerns generated automaton groups rather than all machine labels.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jcss.2017.01.004",
+          "material_read": "Bibliographic title and abstract-level scope inspected; full text not independently obtained",
+          "method": "bibliographic/abstract primary source",
+          "title": "On groups generated by bi-reversible automata: the two-state case over a changing alphabet (Woryna)",
+          "trigger": "Possible specialized bireversible classification"
+        },
+        {
+          "assessment": "RELATED_GROUP_THEORETIC_PROPERTY",
+          "evidence": "Does not provide the state-only orbit polynomial or asymptotic of random labeled binary bireversible machines.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.03270",
+          "material_read": "Primary abstract and theorem context for prime-size group action, not all-size census",
+          "method": "arXiv abstract and cited theorem context",
+          "title": "Connected reversible Mealy automata of prime size cannot generate infinite Burnside groups (Godin and Klimann)",
+          "trigger": "Potential broader connected automata result"
+        },
+        {
+          "assessment": "KNOWN_SMALL_N_SUBCASE",
+          "evidence": "Twelve labeled binary 2-state machines agree with formula; eight classes after state+alphabet symmetry differ from ten under state-only relabeling.",
+          "identifier_or_url": "https://fossies.org/linux/gap/pkg/fr/tst/chapter-5-b.tst",
+          "material_read": "Documented small two-state total and symmetry comparison inspected in record; full test source not read in this execution",
+          "method": "published package test listing and original record comparison",
+          "title": "GAP FR package, binary two-state bireversible test census",
+          "trigger": "Known exact n=2 database/table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "All-n Burnside isomorphism polynomial and connected plethystic logarithm",
+        "Independent direct n<=4 model-count verification",
+        "Connected asymptotic 1-2/n with meaningful graph orbit interpretation"
+      ],
+      "rationale": "A complete exact all-state-count census of a natural syntactic automata class, including labeled swap refinement, state-only isomorphism Burnside polynomial, connected components via generating functions and a sharp asymptotic almost-sure connectivity law, is a useful combinatorial classification. The choice of fixed binary alphabet is natural and the distinction from state-plus-alphabet symmetry affects explicit class counts.",
+      "residual_risks": [
+        "Does not classify generated groups, reduced automata, or larger alphabets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only alphabet fixed/ordered, unpointed states and state-only isomorphism; alphabet swaps change class count.",
+    "Connected means strong connectivity of state transition graph, not generated automaton-group transitivity.",
+    "The asymptotic is for uniform labeled transducers, not uniform isomorphism classes.",
+    "Does not classify generated groups, reduced automata, or larger alphabets.",
+    "Curtin–Savchuk structural equivalence directly overlaps the normal-form ingredient; novelty of that ingredient alone is not claimed.",
+    "Other enumerations under alternative state/alphabet equivalences could be transformed into this count, though no matching full all-n formula found."
+  ]
+}
