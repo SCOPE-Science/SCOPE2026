@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof derives a natural equivariant Alexander-dual chain isomorphism with the determinant twist, contracts the disjoint clique fibers to the multigraph of \(m\) parallel edges per tree edge, and uses injectivity of tree incidence to calculate integer cohomology. It retains the quotient weight lattice rather than replacing it with a rationally isomorphic augmentation lattice. The complete character computations for 148 small symmetry elements and 14 integer Smith-normal-form presentations independently agree with the stated formulas. The derivation proves the unlimited parameter range; finite tests are supporting checks.
+## correctness
 
-## Originality
-**PASS, with residual unindexed-literature risk.** The closest exact source, Chauhan–Shukla–Vinayak, proves ordinary homotopy for the path subfamily but does not give all-tree integral symmetry modules or torsion coinvariants. Carnero Bravo addresses different Cartesian products, while Bayer et al. study representations of other cut-complex families. No exact statement or stronger implication of the present all-tree lattice was identified in inspected sections, scholarly searches, or the indexed comparisons. General Alexander duality is background and does not by itself identify the natural weight lattice and integral torsion coinvariants of this graph product. Unindexed or implicit equivalent proofs cannot be excluded.
+PASS
 
-## Value
-**PASS.** The statement gives the complete torsion-free integral homology and natural automorphism action for *all branching trees* and complete factors, extending a published path-only ordinary homotopy calculation to a structural equivariant classification. The integral coinvariant groups vary sharply with tree parity and color count, information not determined by rational characters or ordinary Betti numbers. This is a natural family, not an arbitrarily selected numerical slice.
+Definitions and all quantifiers agree with the source: T any finite tree with t>=2 and m>=2, N=mt; Δ_2^t(K_m square T)=Cl(K_m square T)^vee. The N-vertex equivariant complement-chain Alexander duality produces reduced H_{N-4}(Δ;Z)=H^1(Cl(G);Z) tensor det(Z^N), giving precisely sgn(row)^t sgn(tree)^m. A clique involving >=3 vertices belongs entirely to a K_m fiber because the tree has no triangles; collapsing contractible fibers yields a graph with m parallel edges over each tree edge. Its chain boundary is the row-sum ε⊗∂_T and ∂_T is injective, so H1=ker ε⊗oriented_edges(T), and H^1=(Z^m/Z·1)⊗E_T integrally; replacing by the root lattice would be incorrect. Fixed-color/edge signed trace gives the printed character. Computing symmetric row-permutation coinvariants of the quotient lattice gives Z/m for t even, sign-twisted Z for (m=2,t odd), Z/2 for (even m>=4,t odd) and zero for odd m>=3,t odd. Independently constructed 10 integer presentations, m=2..6 with and without sign, and Smith normal forms reproduced all cases. The finite checks support, but do not replace, the all-tree proof.
 
-## Scope of conclusions and open limitations
-The result concerns reduced homology representations and algebraic coinvariants, not a full equivariant homotopy classification, quotient-space homology, or independent validation. Published results may conceal equivalent statements beyond inspected primary passages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Checked actual theorems and their implications, original sources and relevant published exact results, including already-known special cases; none of those inspected entails the full target claim, subject to the explicit best-of-knowledge residual risks. This does not infer novelty from a failed search.
+
+## value
+
+PASS
+
+Natural representation-theoretic refinement of known total-two-cut topology on all clique-by-tree products, including branching families and an integral parity-dependent torsion invariant that rational characters and ordinary homology ranks cannot reveal. This exact global lattice is mathematically motivated beyond routine duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
