@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:59:48.167348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The finite height-two lattice hook is explicitly tabulated: 0->y=1, 1->y=y, and a->y=1 iff y=1 or y=a, otherwise a^perp. For fixed atomic p0=a, a transfer matrix over surviving atomic states has K_full=J+I-P, K_atom=J-P (P complements atoms). Three pairwise orthogonal idempotents U=J/m, V=(I-P)/2, S=(I+P)/2-U yield exactly computable diagonal entries and row sums after d steps, subtract the returning-to-a case, and multiply by m starting atoms. Scaling the exact ratios gives exp(-2t) versus exp(-t), with separate t=infinity bounds and m=2 Boolean boundary. Independent direct enumeration of all complete/atom valuations for m=2,4,6,8 and d=1..4 reproduced both formulas, without using the transfer matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked sources address validity/implication inference, semantics and currying counterexamples, not number of failed labeled valuations over horizontal sums at growing d."
+        ],
+        "reasoning": "Logical nonvalidity is existential; it does not imply the exact count functions or double scaling. General orthomodular semantics alone cannot automatically determine the transfer spectra.",
+        "searches": [
+          "Tokuo 2026 A Lambda Calculus Based on Quantum Logic Section 5.5",
+          "Coecke–Smets 2001 Sasaki Hook dynamic semantic interpretation",
+          "Aguilera–Massas 2026 Conditionals and Modalities in Constructive Quantum Logics"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md SHA 46e68657d61d689e1ae12c1abe85fd846aad4489",
+        "checker.py SHA ca3fdc2f488557684c8bcb730aa805639ba80efc",
+        "Independent direct enumeration 16 even-width/depth configurations m=2,4,6,8 and d=1..4",
+        "Tokuo 2026 arXiv:2610.34266v1 §§2.1,5.5",
+        "Coecke–Smets arXiv:quant-ph/0111076",
+        "Aguilera–Massas arXiv:2606.31853",
+        "Resultary semantic query nested Sasaki weakening"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior shows currying p→(q→p) is not universally valid; the present formulas give m=4,d=1 exactly eight full and eight atomic failing valuations, plus all larger widths/depths."
+        ],
+        "reasoning": "Countermodel existence is strictly weaker than a complete count. For fixed d, failure probability tends 1 with width, while fixed m and increasing depth tends 0; neither behavior follows from just existence of a finite countermodel.",
+        "searches": [
+          "Tokuo arXiv:2610.34266v1 Section 5.5",
+          "Coecke–Smets arXiv:quant-ph/0111076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One failure term is right-associated p0→(p1→...(pd→p0)); the known 6-element countermodel corresponds to a specific depth-one valuation and not a full transfer-matrix count."
+        ],
+        "reasoning": "Compared the usual failure of currying, term-function model-counting and horizontal sums of Boolean blocks. They overlap at one small instance, but the all-even m, all-d census and asymptotic transition require a new analysis.",
+        "searches": [
+          "Resultary query Sasaki implication nested weakening orthomodular horizontal sum height two failure counts",
+          "Tokuo arXiv:2610.34266v1 Definition 2.1 and Section 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A single explicit O6 valuation is supplied, not the sequence m,d and e^-2t/e^-t scaling."
+        ],
+        "reasoning": "The term-evaluation family is natural but no exact all-width/all-depth table was found in checked relevant sources. Indexed absence is not proof of priority.",
+        "searches": [
+          "Resultary quantum-logic term evaluation and failure counts search",
+          "Tokuo 2026 Section 5.5 six-element lattice counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge separate statement/implication comparison supports survival of the claimed exact classification; priority is bounded by named inspected sources. Unavailable/abstract-only sections are explicitly reserved as risks, not treated as proof of novelty.",
+      "residual_risks": [
+        "Possible equivalent transfer-matrix identity in unindexed algebraic quantum-logic/term-function literature.",
+        "Uniform valuation frequencies are combinatorial counts only, not physical quantum-state probabilities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COUNTEREXAMPLE_NOT_CENSUS",
+          "evidence": "Definition of Sasaki hook matches. Section 5.5 exhibits failure of ordinary currying but not the all-m,d valuation counts or scaling limits.",
+          "identifier_or_url": "https://arxiv.org/html/2610.34266v1",
+          "material_read": "Full original HTML paper, especially Definition 2.1 and Section 5.5 with countermodel",
+          "method": "Primary arXiv HTML, relevant formal definitions and failure-of-currying section",
+          "title": "A Lambda Calculus Based on Quantum Logic",
+          "trigger": "Original depth-one Sasaki currying counterexample and exact same operation"
+        },
+        {
+          "assessment": "CONCEPTUAL_PRIOR_ONLY",
+          "evidence": "Dynamic versus static implication interpretation contains no confirmed exact uniform horizontal-sum valuation census in material read.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0111076",
+          "material_read": "Original preprint abstract and semantic motivation",
+          "method": "ArXiv abstract/selected semantic description",
+          "title": "The Sasaki Hook is not a [Static] Implicative Connective",
+          "trigger": "Wider quantum-logic interpretation under alternative hook terminology"
+        },
+        {
+          "assessment": "NO_DIRECT_COUNT_IN_INSPECTED_MATERIAL",
+          "evidence": "General constructive implication axiomatics, not finite horizontal-sum enumeration; complete treatment not exhaustively excluded.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31853",
+          "material_read": "Abstract and named logical axiom-system contributions",
+          "method": "arXiv abstract",
+          "title": "Conditionals and Modalities in Constructive Quantum Logics",
+          "trigger": "Potential axiomatization with same hook"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact all-width/all-depth syntactic failure census and width-depth critical transition quantify a concrete logical law of the Sasaki hook, substantially refining an individual six-element currying counterexample. Counting all labeled valuations and contrasting atomic versus full models are natural semantic questions; they are not physical quantum-measurement probabilities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md SHA 46e68657d61d689e1ae12c1abe85fd846aad4489",
+    "checker.py SHA ca3fdc2f488557684c8bcb730aa805639ba80efc",
+    "Independent direct enumeration 16 even-width/depth configurations m=2,4,6,8 and d=1..4",
+    "Tokuo 2026 arXiv:2610.34266v1 §§2.1,5.5",
+    "Coecke–Smets arXiv:quant-ph/0111076",
+    "Aguilera–Massas arXiv:2606.31853",
+    "Resultary semantic query nested Sasaki weakening"
+  ],
+  "disposition": "passed",
+  "final_claim": "On height-two orthomodular horizontal sums with even m>=2 atoms, nested Sasaki weakening depth d>=1 has full-valuation failure count m^(d+1)-m^d-m*2^(d-1) and atomic count (m-1)^(d+1)+(-1)^d-(m/2)(1+(-1)^d); with d/m->t these independent uniform failure proportions tend to exp(-2t) and exp(-t).",
+  "limitations": [
+    "Horizontal sums with even m>=2 atoms, right-associated one-family nested weakening, d>=1, uniform independent labeled valuations.",
+    "Independent finite checks m<=8,d<=4 corroborate but do not prove infinite-width and depth formulas.",
+    "Possible equivalent transfer-matrix identity in unindexed algebraic quantum-logic/term-function literature.",
+    "Uniform valuation frequencies are combinatorial counts only, not physical quantum-state probabilities."
+  ],
+  "schema_version": 1
+}
