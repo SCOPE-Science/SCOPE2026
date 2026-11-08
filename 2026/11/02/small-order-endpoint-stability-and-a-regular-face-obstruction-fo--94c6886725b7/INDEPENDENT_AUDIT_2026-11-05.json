@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:52:16.948316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7/RESULT.md",
+        "Git blob 849b16ad819c4cdd385da82e2386b77a8f92e8b6 (RESULT.md)",
+        "Git tree e8ec47cd243daf13ec033c28e1796d71aae12a79",
+        "independent_checks.py BIRKHOFF2/3/4 and BIRKHOFF12"
+      ],
+      "rationale": "Every face of the Birkhoff polytope has a totally supported bipartite edge support E and its local Frobenius projector is the orthogonal projection onto row/column-zero matrices supported on E. Polyhedral piecewise affinity and a strict-complementarity point realize each projector row norm by finite input pairs. Double centering gives full-face 4(1-1/n)^2. Fresh exhaustive enumeration of all 3, 49 and 7,443 totally supported labeled edge sets at n=2,3,4 found 2,6,42 row/column orbits and exact max norms 1,16/9,9/4, uniquely full support. Exact independent incidence-Gram inversion of the 72-edge cyclic n=12 support S={0,2,3,6,8,9} gives row absolute sum 41/12, strictly exceeding 121/36 by 1/18. Results require real unrestricted inputs, Frobenius nearest-point projection, entrywise maximum perturbation norm. Checks reconstruct critical finite certificates, not extrapolation to all higher n.",
+      "residual_risks": [
+        "The n=12 result is only a lower bound, not the exact L_12 or first failing dimension.",
+        "Finite n<=4 exhaustive support enumeration is exact because the face reduction is mathematical; high n is not exhausted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Sun–Toh general semismooth projection framework; Bai–Chu–Tan adds a prescribed entry; Zass–Shashua constrain symmetry."
+        ],
+        "reasoning": "The general Jacobian theorem covers *how to compute* derivatives but lacks this global endpoint-norm optimization. Prescribed-entry/symmetric domains are different and do not dominate unrestricted B_n.",
+        "searches": [
+          "Birkhoff polytope projection generalized Jacobian Li Sun Toh maximum norm Lipschitz 2017",
+          "doi:10.1137/050639831",
+          "neurips:2006/4fa177df22864518b2d7818d4db5db2d"
+        ]
+      },
+      "checked_sources": [
+        "Git blob 849b16ad819c4cdd385da82e2386b77a8f92e8b6 (RESULT.md)",
+        "Git tree e8ec47cd243daf13ec033c28e1796d71aae12a79",
+        "independent_checks.py BIRKHOFF2/3/4 and BIRKHOFF12",
+        "Li–Sun–Toh arxiv:1702.05934",
+        "Resultary projection search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General formula for projection derivative implies each local R_E can be calculated; does not assert maximum among supports or twelve-dimensional counterexample."
+        ],
+        "reasoning": "The present statement is not the automatic substitution of a parameter into the broader theorem; nontrivial enumeration and cyclic certificate remain.",
+        "searches": [
+          "Birkhoff polytope projection generalized Jacobian Li Sun Toh maximum norm Lipschitz 2017",
+          "arxiv:1702.05934",
+          "doi:10.1137/050639831"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Sun–Toh generalized Jacobian formula Theorem 1 and Proposition 2 uses active constraints and Moore–Penrose inverses (arxiv 1702.05934 PDF p5)."
+        ],
+        "reasoning": "Active-face orthoprojectors are compatible with general Jacobian calculus; no inspected explicit n=2..4 max-row sums or n=12 cyclic witness. An unindexed projection-norm study could be equivalent.",
+        "searches": [
+          "Euclidean projection onto Birkhoff polytope entrywise maximum norm Lipschitz constant exact orders 2 3 4 non-full face 12",
+          "Birkhoff polytope projection generalized Jacobian Li Sun Toh maximum norm Lipschitz 2017",
+          "arxiv:1702.05934"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary related polytope projection results concern cross-polytopes/simplex or other geometries, not the exact Birkhoff active-support table.",
+          "Explicit exhaustive orbit values n=2,3,4 reproduced independently."
+        ],
+        "reasoning": "No matching published exact Birkhoff table was located; negative search is not proof of priority.",
+        "searches": [
+          "Euclidean projection onto Birkhoff polytope entrywise maximum norm Lipschitz constant exact orders 2 3 4 non-full face 12",
+          "Resultary search: projection Lipschitz and Birkhoff"
+        ]
+      },
+      "rationale": "The Li–Sun–Toh generalized-Jacobian formula is a broader calculus framework, but the relevant result does not state or mechanically determine the l_infinity operator row norms for all n<=4 or the explicit cyclic n=12 obstruction without substantial new support optimization. The affine full-support norm is routine and not itself new; the meaningful claims are small-order optimality and a higher-order counterexample.",
+      "residual_risks": [
+        "Possible prior exact operator-norm calculation embedded in general Birkhoff projection literature.",
+        "Bai–Chu–Tan full manuscript not examined; no whole-document NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derivation of generalized Jacobian/active constraint formula, not a published exact l_max endpoint-norm table or chosen 12-face witness in inspected material",
+          "evidence": [
+            "turn367918view2",
+            "turn424590view7",
+            "turn424590view4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.05934",
+          "material_read": "abstract, definitions, Theorem 1 and Proposition 2 on PDF pp.0–5; discussion of piecewise affinity around p8",
+          "method": "primary PDF text plus page-5 screenshot",
+          "title": "On the efficient computation of a generalized Jacobian of the projector over the Birkhoff polytope",
+          "trigger": "same projection and generalized derivatives"
+        },
+        {
+          "assessment": "Different feasible polytope; no whole-document exclusion justified",
+          "evidence": [
+            "package RESULT.md refs",
+            "doi:10.1137/050639831"
+          ],
+          "identifier_or_url": "doi:10.1137/050639831",
+          "material_read": "metadata and comparative description, not complete manuscript",
+          "method": "search metadata and source bibliography",
+          "title": "Computing the Nearest Doubly Stochastic Matrix with A Prescribed Entry",
+          "trigger": "closest Euclidean projection variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7/RESULT.md",
+        "Li–Sun–Toh arxiv:1702.05934",
+        "Resultary projection search"
+      ],
+      "rationale": "A sharp nonlinear projection stability question is determined at every n<=4 and a highly symmetric six-regular face demonstrates that nonnegativity can increase the endpoint Lipschitz modulus at n=12. This is a motivated structural obstruction, not a routine rephrasing of double centering. The exact finite values and false universal extrapolation are independently useful.",
+      "residual_risks": [
+        "Does not classify optimal supports at any n>=5 except the explicit witness; value concerns a natural counterexample and finite exact cutoff rather than a full dimension classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Frobenius projection, entrywise max norm, full nonnegative doubly stochastic polytope.",
+    "n=12 only lower bound, no minimal counterexample dimension."
+  ]
+}
