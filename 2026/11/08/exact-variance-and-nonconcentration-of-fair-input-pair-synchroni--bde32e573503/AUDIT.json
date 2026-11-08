@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Direct pair-state transitions and first-step equations yield an exact second-moment finite difference system for every odd n>=3; explicit telescoping gives the polynomial. An independent direct unordered-pair Markov solver checks n=3,5,7,9,11 and symbolic algebra checks the general polynomial identity. The Markov-geometric fourth moment bound proves nonconcentration, not merely an informal inference from variance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gonze–Jungers arXiv:1410.4034 treats optimal synchronizing probability functions and deterministic triple rendezvous; no iid fair-letter first-passage variance theorem is stated.",
+        "Gusev arXiv:1404.6731 treats all Bernoulli letter probabilities for the mean, not the variance."
+      ],
+      "reasoning": "A general hitting-time moment theorem could in principle subsume the formula after specialization, but none was located in the inspected relevant primary sources. Generic linear-system moment recurrences do not supply the evaluated closed polynomial or nonconcentration theorem without the nontrivial solution.",
+      "searches": [
+        "Černý automata C_n random input pair expected merging time variance fair Bernoulli second moment",
+        "Gusev synchronizing automata with random inputs 2014 Theorem 3 worst pair expectation second moment",
+        "arxiv:1410.4034 synchronizing probability function triple rendezvous"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1404.6731",
+      "https://arxiv.org/abs/1410.4034",
+      "published-finding corpus published findings on Černý avoiding thresholds, deterministic triple merging, and stochastic restart dispersion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.1 of Gusev gives exactly the earlier mean; a mean does not determine a variance.",
+        "The synchronizing probability function and triple rendezvous do not determine the iid stopping-time second moment.",
+        "The variance formula follows here from new second-moment arc sums and an exact polynomial telescoping identity."
+      ],
+      "reasoning": "The result is not a relabeling of the known cubic mean, nor a special case of the deterministic pair-avoiding and triple-merging thresholds. The nonconcentration conclusion further needs a fourth-moment uniform-integrability argument, which the inspected prior results do not supply.",
+      "searches": [
+        "arxiv:1404.6731 Theorem 3.1 entire Section 3 and conclusion",
+        "arxiv:1410.4034 Sections 1–3",
+        "Černý automata C_n random input pair expected merging time variance fair Bernoulli second moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev arXiv:1404.6731 Section 3, Theorem 3.1 gives first moment for the identical distinguished pair and Bernoulli source. The inspected argument and conclusion contain no variance or second-moment identity."
+      ],
+      "reasoning": "Equivalences through absorption times, pair Markov-chain first-passage moments, and random-input synchronization were searched. The first moment is prior art, not an equivalent second-moment assertion; no source found explicitly implying the polynomial variance.",
+      "searches": [
+        "Cerny automaton random input pair synchronization hitting time second moment variance distribution cubic",
+        "variance of time to synchronize Černý automata under random letters Bernoulli input",
+        "Černý pair automaton first passage variance moments polynomial",
+        "\"Synchronizing Automata with Random Inputs\" variance second moment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-record search returned nearby deterministic Černý avoiding threshold and triple-rendezvous claims, not the fair iid pair variance. No matching sequence, formula, or table located in the consulted indexed sources."
+      ],
+      "reasoning": "The assertion is an all-odd-parameter explicit polynomial identity, not a claim of a new small-n table. Finite numerical checks are independent computational evidence, not a database-novelty certificate.",
+      "searches": [
+        "odd n Cerny automata variance coalescence waiting time random reset",
+        "finite automaton random pair first passage distribution variance",
+        "\"Cerny\" \"variance\" \"pair\" \"random inputs\" automata"
+      ]
+    },
+    "rationale": "The identical model in Gusev 2014 proves the mean, which is credited and excluded from originality; its inspected Section 3 has no second moment. A separately inspected Gonze–Jungers 2014 paper studies game/optimization and deterministic triple rendezvous, not this stochastic variance. Targeted semantic database and published literature searches found no implication or duplicate; unindexed equivalents remain a genuine risk.",
+    "residual_risks": [
+      "A relevant unindexed paper or stronger later theorem could imply the closed-form variance; historical priority is not certified.",
+      "Full scaling limit law is not established; only the variance and nonconcentration are proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS mean for general p,q and thus fair case; does not establish the variance or nonconcentration",
+        "evidence": [
+          "Theorem 3.1 contains first moment formula for the pair and p,q; Section 3 derives only linear equations for means, conclusion reports cubic expected time."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+        "material_read": "Entire primary HTML/full-text transcription, particularly Section 3, Theorem 3.1 and proof, and Section 4 conclusion; inspected actual formulas, not just abstract or download",
+        "method": "Read full-text arXiv HTML rendering, examine transition table, theorem and proof; search for variance and second moment",
+        "title": "Synchronizing automata with random inputs",
+        "trigger": "Same automaton, same initial pair, same iid Bernoulli input; highest-priority coverage candidate"
+      },
+      {
+        "assessment": "NOT_COVERING: minimax synchronization probabilities and shortest triple-merging words are different quantities",
+        "evidence": [
+          "The abstract and central results concern a two-player LP and deterministic triple rendezvous, rather than second moments of iid first-passage time."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.4034",
+        "material_read": "Primary arXiv full HTML text, introduction, definitions, probability-function game formulation, triple-rendezvous theorems and conclusions",
+        "method": "Compared operators, input distributions, quantifiers, output statistics and theorems to fair iid pair absorption time",
+        "title": "On the synchronizing probability function and the triple rendezvous time for synchronizing automata",
+        "trigger": "Plausible stronger work on synchronization probability and time"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bde32e57-3503-43c2-90c5-28e040ede6bf",
+  "value": {
+    "rationale": "The exact sixth-degree variance of a natural classical random synchronization hitting time gives a substantive risk statistic missing from the known cubic mean. It proves an order-one relative dispersion and, with a uniform-integrability argument, genuine nonconcentration across infinitely many automata. This has clear relevance to recovery-time uncertainty and prospective scaling-limit studies, beyond routine finite computations.",
+    "status": "PASS"
+  }
+}
