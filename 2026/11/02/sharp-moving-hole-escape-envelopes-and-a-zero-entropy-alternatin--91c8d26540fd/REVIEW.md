@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The binary-cylinder transfer matrices are exact, and row-vector updates prove both universal finite-horizon bounds and their equality cases. Tail-sum evaluation yields the expected first-hit interval. Periodic products give the entropy and escape formulas, while Perron measures and dyadic cylinders give Hausdorff dimension. Opposite-hole products are unipotent; repeated-hole blocks and operator-norm estimates separate the three cyclic regimes. `CHECK.py` corroborates the combinatorial and matrix identities with 1023 exact brute-force cases and 2046 finite spectral cases, but the infinite assertions are proved analytically.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest papers are Cheriyath–Agarwal (arXiv:1905.11767, fixed binary cylinder holes), Livorati et al. (arXiv:1312.7030, different time-varying geometric holes), Atnip et al. (arXiv:2103.04712, general random open pressure) and Agarwal et al. (arXiv:2401.05118, fixed Markov-measure holes). These were compared to the actual extremal *all-schedule* statement, not to the title. Published semantic-index comparisons also found nearby static survivor/zeta results, not the proposed sharp two-matrix moving-hole classification. Existing nonnegative-matrix theory might recover parts implicitly; comprehensive priority confirmation remains outstanding.
+PASS
 
-## Mathematical value — PASS
-Switching between equal-length holes makes the escape problem intrinsic rather than an artifact of hole size. The exact ordering at every finite horizon and the countable-versus-positive-dimension periodic phase boundary provide meaningful dynamical information beyond standard fixed-hole escape rates.
+PASS: Encode x as fair binary digits; avoiding hole 00 or 11 at step j forbids the pair s_js_j. Exact survivor count is C_n=(1,1)∏M_{s_j}(1,1)^T with M0=((0,1),(1,1)), M1=((1,1),(1,0)). Updating a positive integer row increases total by at least 1 and by exactly 1 at every alternating step, giving n+2 and equality. The larger entry after each step equals previous total, so C_{n+1}<=C_n+C_{n-1} with (2,3) initial values and equality precisely upon repeating symbols, yielding F_{n+3}. Tail sums produce exact 3<=E[L]<=5 with unique alternating/constant infinite schedules. For periodic s, Perron growth of Q_s gives entropy log rho(Q_s)/r and escape log2-entropy; uniform cylinders yield dimension entropy/log2. Alternating period product is unipotent with rho=1 and countable survivors. Mixed-symbol norm is strictly <phi^r by ||M0M1||2=1+sqrt2<phi²; any period with repeated adjacent symbols has rho>1 because other length-two blocks dominate identity. Thus all strict periodic cases are covered. Independent brute binary-prefix checks passed 1023 schedule cases; infinite claims rest on matrix inequalities.
 
-## Limitations
-Only the two complementary binary two-digit holes are studied, starting from Lebesgue measure. No general aperiodic dimension classification or higher-symbol optimization is claimed. Finite computation does not certify the infinite assertions. Independent scientific validation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.
+
+## value
+
+PASS
+
+PASS: Computes exact all-schedule finite-horizon escape envelopes, unique extremizers, mean first-hit bounds and a zero-entropy versus positive-entropy periodic classification; these are natural nonautonomous symbolic-dynamics questions rather than routine static-hole formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

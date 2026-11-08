@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:47:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Sections 1–5 and CHECK.py",
+        "Exact 2×2 transfer matrices from binary coding"
+      ],
+      "rationale": "PASS: Encode x as fair binary digits; avoiding hole 00 or 11 at step j forbids the pair s_js_j. Exact survivor count is C_n=(1,1)∏M_{s_j}(1,1)^T with M0=((0,1),(1,1)), M1=((1,1),(1,0)). Updating a positive integer row increases total by at least 1 and by exactly 1 at every alternating step, giving n+2 and equality. The larger entry after each step equals previous total, so C_{n+1}<=C_n+C_{n-1} with (2,3) initial values and equality precisely upon repeating symbols, yielding F_{n+3}. Tail sums produce exact 3<=E[L]<=5 with unique alternating/constant infinite schedules. For periodic s, Perron growth of Q_s gives entropy log rho(Q_s)/r and escape log2-entropy; uniform cylinders yield dimension entropy/log2. Alternating period product is unipotent with rho=1 and countable survivors. Mixed-symbol norm is strictly <phi^r by ||M0M1||2=1+sqrt2<phi²; any period with repeated adjacent symbols has rho>1 because other length-two blocks dominate identity. Thus all strict periodic cases are covered. Independent brute binary-prefix checks passed 1023 schedule cases; infinite claims rest on matrix inequalities.",
+      "residual_risks": [
+        "Graph-directed dimension invokes standard mass distribution/Perron reasoning; this holds for fixed periodic schedules and not arbitrary aperiodic ones."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Random interval maps with holes have thermodynamic formalism giving general pressure/escape descriptions."
+        ],
+        "reasoning": "General thermodynamic formalism permits transfer-matrix analysis but does not state the exact Fibonacci upper and linear lower envelope for each deterministic switching word or iff equality classes.",
+        "searches": [
+          "Resultary query: moving holes doubling map 00 11 alternating schedules survivor entropy zero Fibonacci escape rates",
+          "arXiv:2103.04712"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.11767",
+        "arXiv:1312.7030",
+        "arXiv:2103.04712",
+        "arXiv:2401.05118",
+        "Resultary published findings semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cheriyath–Agarwal analyze fixed cylinder exclusions; Livorati et al use moving/oscillating hole geometry but not the stated equal-size 00/11 switching matrices."
+        ],
+        "reasoning": "Neither prior result directly yields all-horizon extrema plus strict periodic trichotomy for the independent exogenous schedule without further computation. The elementary matrix identities here supply that result.",
+        "searches": [
+          "Resultary query: moving holes doubling map 00 11 alternating schedules survivor entropy zero Fibonacci escape rates",
+          "Cheriyath–Agarwal arXiv:1905.11767; Livorati et al arXiv:1312.7030"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary-shift survivor language forbids 00 or 11 depending on time; C_n is a product of two golden-mean transfer matrices."
+        ],
+        "reasoning": "Static subshift-of-finite-type zeta/escape results study a fixed forbidden language; the current time-dependent product is nonautonomous and periodic scheduling is a separate equivalence.",
+        "searches": [
+          "Resultary query: moving holes doubling map 00 11 alternating schedules survivor entropy zero Fibonacci escape rates",
+          "arXiv:1905.11767; arXiv:1312.7030"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned static negative-doubling holes, other geometric escapes, and zero-entropy phenomena, not the specified two-matrix all-schedule extremizers."
+        ],
+        "reasoning": "No identified exact database/table covers all 2^n schedules or this all-periodic spectral comparison. Searches are bounded and are not proof of novelty.",
+        "searches": [
+          "Resultary query: moving holes doubling map 00 11 alternating schedules survivor entropy zero Fibonacci escape rates",
+          "Resultary semantic published findings index"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.",
+      "residual_risks": [
+        "Nonnegative matrix-product extremal word results could imply the exact switching inequalities as a special case.",
+        "The time-dependent-hole paper was not inspected in its entirety."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_STATIC_NOT_DIRECT_COVER",
+          "evidence": "Fixed exclusions and escape exponents, not a uniformly varying 00/11 choice at every j.",
+          "identifier_or_url": "arXiv:1905.11767",
+          "material_read": "Primary PDF theorem/correlation polynomial formulas and table including fixed-cylinder cases",
+          "method": "PDF with page screenshots",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "Same doubling-symbolic holes and escape rate"
+        },
+        {
+          "assessment": "RELATED_NOT_EXCLUDED_FULL_TEXT",
+          "evidence": "Oscillating and breathing geometries; no full-document noncoverage claim.",
+          "identifier_or_url": "arXiv:1312.7030",
+          "material_read": "Title, abstract and indexed contextual material",
+          "method": "arXiv abstract/indexed excerpts",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same doubling map with nonautonomous holes"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND",
+          "evidence": "General pressure/thermodynamic treatment not the exact two specific switching matrices.",
+          "identifier_or_url": "arXiv:2103.04712",
+          "material_read": "Accessible abstract and summary of general operators",
+          "method": "abstract/indexed theorem metadata",
+          "title": "Thermodynamic Formalism for Random Interval Maps with Holes",
+          "trigger": "Potential more general random holes formalism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cheriyath–Agarwal arXiv:1905.11767",
+        "Livorati et al arXiv:1312.7030"
+      ],
+      "rationale": "PASS: Computes exact all-schedule finite-horizon escape envelopes, unique extremizers, mean first-hit bounds and a zero-entropy versus positive-entropy periodic classification; these are natural nonautonomous symbolic-dynamics questions rather than routine static-hole formulas.",
+      "residual_risks": [
+        "Special complementary length-two holes make the proof elementary; value is the sharp complete schedule comparison, not a claim about general holes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific correctness is based on the reconstructed mathematical proof, not finite regression counts.",
+    "Originality is a qualified best-of-knowledge assessment, not an exhaustive priority certification.",
+    "No public file updates issued."
+  ],
+  "schema_version": 1
+}
