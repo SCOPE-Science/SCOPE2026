@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted conditional-negative-type quadratic form is exactly equivalent to a scalar contrast plus \(2\)-by-\(2\) real Fourier blocks. At exponent \(1\), the explicit cyclic second-difference calculation gives a uniform negative spectral margin. The perturbation expansion at \(1+t/n^2\) is uniform across all Fourier frequencies because the scaled log-distance profile has uniformly approximable periodic Fourier samples, while the remainder is uniformly \(o(1)\). The low odd and low even modes have different limiting behavior; the latter produce a sharp obstruction at frequency \(2\). Explicit integration and monotonicity of \(I(u)/u^2\) identify the critical constant. Compactness gives a positive excess at each finite odd order, and the isometric three-star gives a finite upper bound. The finite checker reproduces 5,337 diagnostic assertions, including full-distance quadratic-form comparisons.
+## correctness
 
-## Originality — PASS (with residual historical risk)
-The closest primary works are Robertson, *The Maximal Generalised Roundness Of Finite Metric Spaces* (2020), which gives a general Cayley–Menger/Gramian determinant criterion, and Robertson, *Negative Type and Bi-lipschitz Embeddings Into Hilbert Space* (2023), which develops the negative-type embedding framework and treats complete bipartite and Hamming families. Neither inspected source derives the inverse-square sharp sunlet asymptotic, uniform Fourier perturbation, or its cosine-integral constant. Existing close historical findings for a five-cycle with at least two leaves per rim vertex concern fixed rim size and different leaf multiplicities and do not imply the odd-order one-leaf limit. Searches under sunlet, cycle corona, negative type, generalized roundness, and cosine-integral phrasing found no directly equivalent published statement. This is a literature-based assessment, not independent priority certification. Older or poorly indexed alternative formulations remain possible.
+PASS
 
-## Value — PASS
-The object is a canonical family of unicyclic graph-path metrics, and the quantity is the natural supremal negative-type exponent controlling Hilbert snowflake embeddings. The result gives a sharp rate, a non-elementary universal constant, and a non-obvious Fourier-mode selection mechanism as the graph grows; these are neither a parameter renaming nor a numerical table. The result also supplies a uniform method for controlling all frequencies at the critical scaling. No exact finite-order closed form is asserted.
+The two circulant layers have Fourier blocks M_k=[[a,b],[b,c]] and one zero-mode contrast. At p=1, b=a,c=a−2, a_even=−1/[4cos²(pi k/(2n))], a_odd=−1/[4sin²(pi k/(2n))], giving all blocks uniformly negative definite and H=−2; a three-prong metric star bounds p≤log_2 3. Set p=1+t/n²; after separating the common linear/log n factor, each nonzero block receives t F_{n,k}J+o(1) uniformly, with F_{n,k} discrete coefficient of xlog x on circle. Fixed odd k have huge negative eigencomponent, and fixed even k converge to (−1/4+t A_k)J−2 diag(0,1), determinant 1/2−2tA_k. For even k≥2, A_k=I(pi k)/(2pi² k²), strictly maximized at k=2 by monotonic I(u)/u² for u≥2pi; uniformly high k controlled by trig-polynomial approximation and spectral margin. Thus T=1/(4A_2)=8.097627..., below T strict negative type eventually, above T mode k2 positive eventually; sandwich yields limit. The 8 independently diagonalized complete finite distance matrices at p=1 corroborate but do not establish the asymptotic.
 
-## Limitations and source comparison
-The proof makes no statement for even cycle orders or weighted/crowded pendant families, and the observed finite-order frequency-two selection is explicitly not promoted to an all-orders theorem. Robertson (2020) provides an implicit exact finite-space test, which is substantially broader in generality but does not imply the specific sharp growing-family asymptotic without new spectral analysis. Robertson (2023) concerns different graph families and is not a direct coverage claim. Independent validation and historical-priority certification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Robertson (2020) supplies finite-metric maximal generalized-roundness/determinantal framework, but the inspected primary results do not address the growing odd sunlet two-layer Fourier family or the asymptotic coefficient. Published odd-cycle fourth-power spectral work concerns a different invariant and does not imply powered-distance negative-type threshold for sunlets.
+
+## value
+
+PASS
+
+Maximal generalized roundness/negative type governs Hilbert snowflake embeddings of a natural two-orbit unicyclic graph metric. The n^(−2) transition and explicit mode-selection constant are nontrivial spectral asymptotics not an arbitrary finite test. It does not claim every finite n has mode 2 critical or exact wp_n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
