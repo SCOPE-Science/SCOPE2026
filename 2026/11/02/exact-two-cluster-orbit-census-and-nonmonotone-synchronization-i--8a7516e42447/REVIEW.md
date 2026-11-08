@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is confined to the explicitly defined parallel, nominal-snapshot, flash-entry rule. The exact half-quorum reduction uses the fact that \(m-1\) of \(2m-1\) same-group neighbors are insufficient for acceleration and that all neighbors flash once the other equal-sized group does. The derived difference events have only two active ranges; their overlap yields exactly the explicitly listed mutually accelerated waves. The coasting states cannot be entered from outside, and the two extra preimages of each accelerated wave have no predecessors. These facts prove the complete cycle and basin census for all admissible integer clock lengths, independent of enumeration. The separately implemented `verification/check_firefly.py` passed exact comparisons for 2,553 parameter pairs through \(C=72\), 6,779,342 phase states, and 81,330 agent-level reductions. Finite testing checks but does not certify the infinite family.
+PASS
 
-## Originality — PASS, with stated priority limits
+For two equal pre-synchronized groups in a complete loopless graph, strict majority of 2m−1 neighbors nominally flashing is equivalent to the other cluster flashing, yielding the exact pair map F_Cw. On the diagonal, the clock skips its entry phase once per cycle giving primitive C−1. For differences w≤d≤C−w there is no trigger and each neutral difference gives one C-cycle, J=max(0,C−2w+1). In overlap, entry triggers alternate on waves indexed C−w+2≤k≤w−1, giving K=max(0,2w−C−2) primitive C−1 cycles, each with exactly two indegree-zero predecessors, so basin size C+1. Other differences move toward synchrony and no other cycles remain. Synchrony basin B=C²−CJ−(C+1)K. Independent exhaustive functional graph traversals verified every state and basin for all 4≤C≤25, 1≤w<C, including nonmonotone C=10 fractions 50/100,1,34/100.
 
-The closest primary reference is Aust–Zhang–Reina–Hamann (arXiv:2605.17206v1), whose complete HTML main text, main figures' explanations, model and Algorithm 1 were inspected. It reports multimodal synchrony and locked clusters, but does not establish the present exact two-clock cycle/basin formulas. Crucially, its prose suggests an entry-trigger rule while the printed implementation tests one phase later in a sequential loop: **this theorem fixes the parallel entry-trigger convention and does not purport to cover that printed algorithm**. The inhibitory finite-state oscillator of Lyu (arXiv:1407.1103) and the aggregation model of O’Keeffe–Krapivsky–Strogatz (arXiv:1501.04115) have different update laws. Searches for equivalent subgroup, periodic orbit, phase-width, and exact-basin statements identified no dominating result. Residual risks are specialized unindexed literature and inaccessible supplementary code; no uninspected document is described as fully reviewed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A two-equal-cluster sector is a distinguished invariant symmetry reduction of an all-to-all pulse network, not an arbitrary numeric slice. Its exact coasting/accelerated boundary, all-parameter synchrony basin, and full zeta function provide an explicit mechanism for nonmonotone performance as flash width increases, a mechanism the motivating study primarily explores through simulation. The result is about exact phase consensus, unlike an amplitude-overlap success score, and neither establishes results for unconditioned random clocks nor claims any robustness under asynchrony or noise.
+Compared exact statements, hypotheses and consequences against indexed published findings and primary literature, without treating unsuccessful searches as proof of priority.  Best-of-knowledge originality survives because the observed prior results do not entail the entire exact claim.
 
-## Limitations and closest comparisons
+## value
 
-Only noiseless simultaneous nominal-snapshot updates, flash-entry triggering, half-quorum, complete graphs, and the equal-two-cluster invariant sector are covered. In particular the 2026 paper's printed sequential, after-entry implementation is distinct. Priority comparisons are best knowledge, not an independent historical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-parameter primitive-period, zeta and basin census reveals an analytically sharp coexistence and a nonmonotone flash-duration transition in a natural finite oscillator interaction. Unlike a single simulation, this yields a complete two-cluster phase diagram, while clearly delimiting the update convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
