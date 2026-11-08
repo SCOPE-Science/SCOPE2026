@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproducible check
+# Independent mathematical audit
 
-Run `python3 verify_sierpinski2_limited.py` with standard Python 3. No external packages or data files are required.
+## correctness
 
-Observed successful output:
+PASS
 
-`VERIFY_OK exhaustive_graph_cases=6 matrix_sizes=2..6 exact_counts=[(2, {1: 2}), (3, {1: 4, 2: 4}), (4, {1: 10, 2: 18, 3: 10}), (5, {1: 26, 2: 112, 3: 112, 4: 26}), (6, {1: 76, 2: 820, 3: 1760, 4: 820, 5: 76})]`
+Checked the exact S(2,m) adjacency (m-vertex clique in each row, cross-link (i,j)-(j,i) for i!=j). Any nonempty row forces >=m-k selected entries from its internal clique, while diagonal (i,i) ensures each row nonempty. A symmetric constant-row-sum-r matrix exists from cyclic near-neighbor shifts and optional diagonal. Equality forces all rows have size r and each chosen cross-link endpoint also chosen or it exceeds the neighbor cap k, hence symmetry; conversely every such matrix is feasible. Product (1+x_i)*prod(1+x_ix_j) counts diagonal and unordered offdiagonal decisions. Complement maps row r to m-r. Row r=1 represents involutions, row r=2 gives cycles and loop-ended paths. Independently enumerated full minimum subsets for m=3,4 and each k, agreeing with exact matrix counts 4,4 and 10,18,10. Universal proof handles all m and admissible k.
 
-The program constructs the adjacency lists directly from the labelled graph definition. For every \(2\le m\le4\), and every \(1\le k<m\), it exhausts all vertex subsets of claimed minimum size and checks equality with all symmetric binary matrices of the prescribed row sum. For \(2\le m\le6\), it separately enumerates symmetric matrices, tests their domination constraints and validates the complementary-capacity, involution and row-sum-two formulas.
+## originality
 
-Finite enumeration does not prove an infinite claim. The general result follows instead from the rowwise lower bound, the explicit cyclic-offset constructions, and equality saturation at linking edges established in `RESULT.md`.
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. The source result is stronger on gamma values, weaker on enumerator; no scientific passing is claimed for novelty of gamma alone.
+
+## value
+
+PASS
+
+A complete, labelled classification and exact enumeration of EVERY minimum configuration for a nontrivial constrained domination parameter on depth-two Sierpiński graphs. Even when the cardinality is previously known, the symmetric-matrix bijection, complement duality and rich row-sum-2 path/cycle EGF give independently useful combinatorial information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

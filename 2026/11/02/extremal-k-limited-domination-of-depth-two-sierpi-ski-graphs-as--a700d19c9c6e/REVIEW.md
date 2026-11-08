@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every admissible pair of integers, a diagonal vertex with no linking neighbour forces its row to contain a selected vertex. Any selected vertex in a row of occupancy \(t\) already has \(m-t\) unselected neighbours in its clique, proving occupancy at least \(m-k\). Symmetric cyclic-offset incidence matrices attain this bound simultaneously in every row. At equality, every selected vertex saturates its allowed unselected row neighbours, hence all selected off-diagonal linking endpoints must occur in symmetric pairs. The reverse implication is immediate; exact product and component enumerations follow. The proof covers all boundary values. Direct graph-subset and independent matrix-enumeration tests corroborate it through orders displayed in `VERIFICATION.md`.
+PASS
 
-## Originality — PASS (qualified historical priority)
+Checked the exact S(2,m) adjacency (m-vertex clique in each row, cross-link (i,j)-(j,i) for i!=j). Any nonempty row forces >=m-k selected entries from its internal clique, while diagonal (i,i) ensures each row nonempty. A symmetric constant-row-sum-r matrix exists from cyclic near-neighbor shifts and optional diagonal. Equality forces all rows have size r and each chosen cross-link endpoint also chosen or it exceeds the neighbor cap k, hence symmetry; conversely every such matrix is feasible. Product (1+x_i)*prod(1+x_ix_j) counts diagonal and unordered offdiagonal decisions. Complement maps row r to m-r. Row r=1 represents involutions, row r=2 gives cycles and loop-ended paths. Independently enumerated full minimum subsets for m=3,4 and each k, agreeing with exact matrix counts 4,4 and 10,18,10. Universal proof handles all m and admissible k.
 
-The main 2026 primary paper, arXiv:2610.01584v1, Section 5, already establishes the \(k=1\) **minimum size** for every depth and the alphabet-three family. Its Conjecture 12 proposes the general minimum-size expression, but it does not state the depth-two equality classification or the exact number of optimizers. The present theorem proves the cardinality at all other admissible capacities for depth two and enumerates optimum sets at all capacities by a symmetric-matrix bijection. The foundational article arXiv:2606.22422 introduces the invariant and its alternative domination formulations but does not cover this family in its accessible full text. Ordinary Sierpiński domination is a different problem. Targeted mathematical-record searches for the parameters, aliases, coefficient enumeration, and involutions did not find equivalent coverage; negative search results are not uniqueness proofs. Residual risk: uninspected older \((0,k)\)-pitchfork or \((1,t)\)-domination literature could contain a stronger formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A newly stated conjecture asks for the extremal cardinality throughout the Sierpiński family. The theorem closes all capacities for a natural nontrivial depth-two subfamily and, more importantly, gives a complete *structural* equality characterization and exact count of every optimum set. The symmetric binary row-sum model provides usable counting techniques: complementary capacity duality, involutions at the endpoints, and a labelled-path/cycle exponential generating function at row sum two. These are natural, motivated extremal invariants, not arbitrary finite census slices.
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. The source result is stronger on gamma values, weaker on enumerator; no scientific passing is claimed for novelty of gamma alone.
 
-## Limitations and external verification
+## value
 
-Depths above two and nonminimum sets are not covered. The coefficient expression need not simplify for intermediate capacities. The relevant prior paper contains a conjectured formula, not a proof for the stated unproved cases; no claim of having resolved the full conjecture is made. Historical priority is qualified; independent mathematical assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete, labelled classification and exact enumeration of EVERY minimum configuration for a nontrivial constrained domination parameter on depth-two Sierpiński graphs. Even when the cardinality is previously known, the symmetric-matrix bijection, complement duality and rich row-sum-2 path/cycle EGF give independently useful combinatorial information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
