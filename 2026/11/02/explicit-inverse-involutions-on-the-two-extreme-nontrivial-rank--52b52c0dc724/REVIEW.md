@@ -1,19 +1,21 @@
-# Review: explicit inverse involutions on two rank classes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement precisely fixes the chain length \(n\ge3\), the two rank classes, and the semigroup-inverse identities. Each rank-two transformation has one unique cut and ordered pair of image values, and each rank-\((n-1)\) transformation has one adjacent merged kernel pair and one omitted image element. The cross-transversal lemma is necessary and sufficient: maps of equal rank invert each other exactly when each one's ordered image is a transversal of the other's ordered kernel partition. The displayed three-case formulas in each class map admissible parameters to admissible ones, satisfy both cross-transversal tests, and pair the non-idempotents with reverse cases. The fixed cases are exactly the maps whose image is a transversal of their own kernel, hence exactly the idempotents. The cardinalities and numbers of two-cycles follow by elementary counts. The proof covers the coincident classes when \(n=3\). `verify.py` explicitly constructs all relevant isotone maps for \(2\le n\le18\), tests both sandwich identities and involutivity, and prints `VERIFY_OK`. This is finite corroboration only; the all-\(n\) result rests on the proof.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed each parametric map and the iff cross-transversal criterion: equal-rank isotone transformations are semigroup inverses exactly when their ordered images hit corresponding blocks of the other kernel. For rank two the three cases (cut a, image b<c) pair a<b<c with (c-1;a,b) and b<c<=a with (b;c,a+1), fixing b<=a<c. For rank n-1 the unique adjacent double kernel block a and omitted image b pair b<a with (b;a+1), and b>a+1 with (b-1;a), fixing b=a,a+1. These piecewise maps satisfy the two sandwich equations, invert themselves and fix exactly idempotents. Counts follow: fixed binom(n+1,3), swaps binom(n,3), respectively 2(n-1) and binom(n-1,2); n=3 overlapping classes checked. Reimplemented exact composition and exhausted all parameter tuples independently n=3..8; proof covers all n.
 
-Higgins, *Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings*, arXiv:2610.01912v1 (2026), proves in Theorem B only the existence of a **permutation** matching on the entire order-preserving transformation monoid via balanced incidence weights; its Section 3 gives the image/kernel transversal framework but not these explicit rank-specific order-two matching maps or their fixed-point/two-cycle profiles. Its introduction explicitly distinguishes the canonical involution for the larger orientation-preserving monoid and notes that this map does not restrict to the order-preserving submonoid. Higgins (2019) proves the larger orientation-preserving involution result, not these formulas for the restricted monoid. Higgins (2024) distinguishes permutation and involution matchings and posed the permutation question solved in 2026; Higgins (2014) supplies general matching theory. A separately available calculation of the maximum inverse-neighborhood size and the total number of inverse pairs within each rank uses the same kernel/image transversals; neither such enumeration implies the existence of an involutive selection of the inverse relation, let alone these piecewise maps and their cycle counts. Specific title, aliases, inverse-transversal, fixed-idempotent cycle-spectrum, and two extreme-rank searches in published research records found no competing same implication. This does not establish historical uniqueness: earlier literature on low-rank transformation semigroups and incidence matchings may derive the formulas without matching the present phrasing. No whole-monoid involution theorem is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new 2026 global permutation-existence result leaves involutive (order-two) inverse matchings unaddressed. An explicit structural construction on both first nontrivial and highest nontrivial Green rank classes is a natural first step in strengthening that result: it shows that the stronger constraint can be met in infinite families and precisely measures which elements pair versus stay fixed. The formulas use all chain sizes rather than isolated examples, and identify a tractable boundary for investigation of intermediate ranks. The result is a motivated structural lemma, not a solution to the all-rank involution problem; no independent expert validation or paper-scale impact is claimed.
+Higgins 2026 Theorem B supplies a permutation inverse matching for the entire monoid, not an involution or explicit rankwise two-cycles. The 2019 involution for the larger orientation-preserving monoid does not automatically restrict to isotone maps. The two explicit extreme-rank involutions and fixed-point spectrum survive as a narrower stronger structural statement, with priority risk from earlier inverse incidence studies.
 
-## Evidence and residual limits
+## value
 
-Evidence: the complete 2026 arXiv paper (abstract, Theorem B, crossed-square criterion and Section 3, read); relevant statements in Higgins's 2014, 2019 and 2024 papers; targeted research-record and published-literature searches; symbolic proof; and exact finite checker in `verify.py` with output `verification_output.txt`. A stronger historical result about all-rank involutions could subsume the statement, although none was located by the recorded comparisons. There is no external mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The strongest already-known all-monoid result leaves order-two inverse matchings structurally unresolved. Exact involutive pairings of the two natural extreme nontrivial Green classes at every n, with idempotents fixed and explicit pair-count spectrum, form a useful boundary theorem for the remaining intermediate ranks; no claim of whole-monoid solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
