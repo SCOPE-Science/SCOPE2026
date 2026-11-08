@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:16:04.132129Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In Yule–Harding–Kingman leaf-splitting distribution with n>=2 leaves, cherry count C and total cophenetic index Phi satisfy C=C_k+C_(n-k) for n>=3 and Phi=Phi_k+Phi_(n-k)+binom(k,2)+binom(n-k,2) under uniform root size k=1,...,n−1 and conditionally independent daughters. Means c_1=0,c_2=1,c_n=n/3 (n>=3), and p_n=n(n−1)−2n(H_n−1). Law of total covariance yields K_n=(2/(n−1))sum_{k<n}K_k+Cov_k(c_k+c_(n-k), p_k+p_(n-k)+binom(k,2)+binom(n−k,2)). Only k=1,2,n−2,n−1 cause the nonconstant cherry correction, so forcing is 2[2H_(n−2)−3n+7]/[3(n−1)], and the harmonic terms cancel in the induction, giving K_n=−(n−3)(5n−8)/(9(n−1)), K_2=0. With established VarC~2n/45, VarPhi~n⁴/12, n^(3/2)Corr→−5sqrt(30)/3. Independently recalculated the split mixed-moment recurrence exactly through n=100; finite check supplements induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cophenetic variance and Sackin–Phi covariance give a different bivariate law.",
+          "Cherry-pitchfork distribution supplies local subtree counts only."
+        ],
+        "reasoning": "The needed cherry/Phi joint moment is not mathematically determined by a Phi marginal, a cherry marginal, or the Sackin/Phi pair; no primary theorem read dominates the exact cross-moment.",
+        "searches": [
+          "arxiv:1202.6573 Yule variance of total cophenetic index and covariance with Sackin",
+          "arxiv:1508.03139 joint subtree distributions under evolutionary models"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1202.6573 primary HTML full text (definitions and covariance section)",
+        "arxiv:1508.03139 primary abstract/manuscript key results",
+        "Resultary random recursive-tree and Yule/BST neighbors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cardona et al. reports different index pairs; the nonlocal Phi is not an affine function of leaf-depth Sackin over Yule shapes.",
+          "Cherry-pitchfork statistics do not determine total pair-depth."
+        ],
+        "reasoning": "The reviewed formula is not a stated corollary of the two primary results: calculating it requires a new mixed-moment root-split calculation.",
+        "searches": [
+          "Cardona Mir Rosselló 2012 covariance Sackin and cophenetic",
+          "Wu Choi 2015 cherry pitchfork distributions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cardona–Mir–Rosselló 2012 identifies Phi as sum of pairwise common-ancestor depths; contrasts with Sackin total leaf-depth.",
+          "Wu–Choi 2015 counts cherries and pitchforks (local motifs), not Phi."
+        ],
+        "reasoning": "Searched both phylogenetic and binary-search-tree vocabulary; no matching mixed covariance was found. Sackin-related statistics cannot be substituted for cophenetic sum without extra tree-shape data.",
+        "searches": [
+          "Resultary: Yule tree cherry total cophenetic index covariance correlation joint moments",
+          "web: Yule cherry count ancestral depth pair sum covariances",
+          "Yule BST cherry path-length cophenetic aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published records concern recursive-tree root degree/leaves, and random-BST imbalance/path length, which are distinct observables.",
+          "Exact n=2..100 cross-moments recomputed from root-split recurrence, not transcribed from a table."
+        ],
+        "reasoning": "No prior exact table of this joint moment identified, but general recurrence methods make priority evaluation particularly sensitive to old Yule statistical literature.",
+        "searches": [
+          "Resultary Yule cherry cophenetic covariance",
+          "Yule cherry total cophenetic index exact joint moments table"
+        ]
+      },
+      "rationale": "Cardona–Mir–Rosselló 2012 calculates cophenetic moments and Sackin–cophenetic covariance; Wu–Choi 2015 examines cherry–pitchfork joint counts. Neither produces the cherry–cophenetic cross-moment directly. The cherry count and nonlocal pair-LCA index are not determined by one another or by Sackin. The exact covariance and n^(-3/2) decorrelation are assessed as new relative to inspected literature.",
+      "residual_risks": [
+        "Unlocated Yule multivariate index moment literature could imply the same formula; cherry/Sackin/BST identities require care.",
+        "Correlation constant imports published marginal variance normalization and is valid for exactly the stated root-depth convention.",
+        "Best-of-knowledge priority only: database and web searches do not prove worldwide absence of equivalent or stronger earlier work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Phi marginal and Sackin/Phi cross-moment, not cherry/Phi in read sections",
+          "evidence": "Cardona–Mir–Rosselló 2012, Section 8 covariance",
+          "identifier_or_url": "https://arxiv.org/abs/1202.6573",
+          "material_read": "Full accessible HTML text, definitions and covariance section including Sackin–cophenetic; inspected primary passages",
+          "method": "arXiv HTML full-text, targeted sections",
+          "title": "Exact formulas for the variance of several balance indices under the Yule model",
+          "trigger": "Primary strongest cophenetic moments and joint-index paper"
+        },
+        {
+          "assessment": "Nearby Yule cherry-pitchfork law, but no confident negative claim for uninspected portions",
+          "evidence": "Wu and Choi 2015, cherry/pitchfork joint distribution",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03139",
+          "material_read": "Abstract and accessible manuscript introduction/key results on cherry/pitchfork; complete text not exhaustively inspected in this execution",
+          "method": "arXiv primary abstract plus accessible manuscript snippets",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Closest joint cherry Yule distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural cross-statistic of tree balance and pair ancestry is exactly evaluated for every n, including sign and unusually rapid correlation decay. It gives a reusable joint-moment benchmark rather than merely another marginal variance or arbitrary small-n numerical value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1202.6573 primary HTML full text (definitions and covariance section)",
+    "arxiv:1508.03139 primary abstract/manuscript key results",
+    "Resultary random recursive-tree and Yule/BST neighbors"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only standard rooted Yule leaf-splitting, not uniform Catalan/topology or conditioned birth–death distributions.",
+    "Exact split recurrence checked finitely; induction supplies all n.",
+    "Unlocated Yule multivariate index moment literature could imply the same formula; cherry/Sackin/BST identities require care.",
+    "Correlation constant imports published marginal variance normalization and is valid for exactly the stated root-depth convention.",
+    "Best-of-knowledge priority only: database and web searches do not prove worldwide absence of equivalent or stronger earlier work."
+  ],
+  "schema_version": 1
+}
