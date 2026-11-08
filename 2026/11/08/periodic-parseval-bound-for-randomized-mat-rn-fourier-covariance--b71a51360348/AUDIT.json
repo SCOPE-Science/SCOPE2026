@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The Matérn Fourier coefficients obey the explicit power envelope in RESULT.md, and Parseval bounds the squared truncation error on the difference cube by a constant multiple of the squared spectral-coefficient tail for mesh width at most one. The published half-space lemma at transformed smoothness parameter \\(2\\nu+d/2\\) yields the claimed exponent; boundedness of the difference-density produces the all-density mean-square estimate. The exact matrix diagonal correction comes from entry counting. A bounded-differences inequality with per-sample influence \\(2M^2/N\\) proves finite-sample concentration and the almost-sure limit. The fixed-parameter scope, aliasing conditions and range boundaries were checked. The included supplementary checker passed 171 finite assertions; no finite computation is claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1905.13522 abstract: periodization-based Gaussian random field sampling, smooth truncation, and spectral/eigenvalue decay.",
+        "arxiv:2305.11065v1: Theorem 5 proves uniform kernel error with exponent 2nu, not the stronger iid covariance RMS exponent."
+      ],
+      "reasoning": "The older periodization paper studies random field sampling and eigenvalues, not the stated iid non-grid covariance-matrix error. A general abstract Fourier-periodization theorem might imply the result but none was identified in the inspected accessible material; this risk remains explicit.",
+      "searches": [
+        "\"Matérn\" \"Frobenius\" \"Fourier\" \"random\" \"truncation\" covariance 2024 2025",
+        "arxiv:1905.13522 Unified Analysis of Periodization-Based Sampling Methods for Matérn Covariances",
+        "\"Conjecture 9\" \"Matérn\" \"Barnett\" 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2305.11065v1",
+      "https://arxiv.org/html/2210.10210v2",
+      "https://arxiv.org/abs/1905.13522",
+      "https://doi.org/10.1016/j.acha.2024.101640"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper establishes a pointwise alias-plus-tail decomposition and a power-law lattice sum, but labels the improved RMS exponent conjectural.",
+        "The 2022–2023 algorithm paper derives deterministic Frobenius error from the uniform sup error; its bounds retain the slower exponent."
+      ],
+      "reasoning": "The new step is localizing the Fourier tail squared norm on the observation-difference cube by full-period Parseval when \\(h\\le1\\). This produces a squared-spectral-tail sum with exponent \\(4\\nu+d\\) instead of a sum of absolute coefficients. The source deterministic sup error cannot yield this exponent. The exact diagonal correction and bounded-differences probability bound independently resolve the missing finite-sample aspect.",
+      "searches": [
+        "arxiv:2305.11065v1 Lemma 4, Theorem 5 and Conjecture 9",
+        "arxiv:2210.10210v2 Proposition 9",
+        "arxiv:1905.13522 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2305.11065v1: Conjecture 9 and equations (40)–(42) give the same desired rate as a heuristic, explicitly unproved.",
+        "arxiv:2210.10210v2: Section 4.2 gives the improved numerical rate as a heuristic rather than a bound."
+      ],
+      "reasoning": "The same rate appears as a conjecture, not a proof. The new theorem provides an unconditional bounded-density L2 bound and finite-N concentration with explicit constants; the prior heuristic does not logically imply it.",
+      "searches": [
+        "\"Uniform approximation of common Gaussian process kernels\" \"Conjecture 9\" proved resolved",
+        "Fourier grids Matérn covariance matrix Frobenius error periodic Parseval random iid high probability bound 2024 2025",
+        "arxiv:2305.11065v1 Section 4 equations (40)–(42)",
+        "arxiv:2210.10210v2 Section 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2305.11065v1 Figure 2 and Remark 10 report numerical estimates and fitted constants for uniform site density, not a certified all-density bound.",
+        "arxiv:2210.10210v2 Section 4.2 reports a numerical heuristic for parameter selection."
+      ],
+      "reasoning": "No finite database or table can imply the all-dimensional analytic inequality and concentration theorem. The prior numerical plots approximate, rather than exactly determine, the proposed constants.",
+      "searches": [
+        "Barnett Greengard Rachh conjecture 9 covariance matrix Frobenius norm proof periodization",
+        "arxiv:2305.11065v1 Figure 2 and Remark 10",
+        "arxiv:2210.10210v2 Table 2 and Section 4.2"
+      ]
+    },
+    "rationale": "The target source arXiv:2305.11065v1 Section 4 explicitly states the bounded-density iid Matérn Frobenius exponent as Conjecture 9, with a heuristic involving Fourier autocorrelation and no proof. The present claim proves that exponent for all bounded densities using one-period Parseval and gives a finite-sample concentration inequality. arXiv:2210.10210v2 describes the same numerical method and only a heuristic RMS grid rule, not this theorem. Searches for later solutions and analogous formulations did not yield a decisive stronger source; this is evidence for originality, not proof of uniqueness.",
+    "residual_risks": [
+      "The older periodization-related primary full text was not inspected in full; an abstract or general principle may hide an equivalent proof.",
+      "Specialist literature after the 2023 conjecture could independently derive the same periodic L2 inequality; available searches are not a novelty guarantee.",
+      "The arXiv preprint and publication versions may differ in details not exposed in the accessible preprint."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as proof: improved RMS rate expressly conjectural, while uniform tail estimates and lattice bounds are proved and reused.",
+        "evidence": [
+          "Section 4 lines corresponding to Conjecture 9, its heuristic, and the explicit statement that proof is open.",
+          "Section 3.2 Lemma 4 proves the half-space sum reused in the new argument."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.11065v1",
+        "material_read": "Full accessible arXiv HTML, notably definitions in Sections 2–3, Lemma 4, Theorem 5, Section 4 Conjecture 9, equations (40)–(42), and accompanying explanation.",
+        "method": "Primary full-text HTML reading and direct equation/implication comparison.",
+        "title": "Uniform approximation of common Gaussian process kernels using equispaced Fourier grids",
+        "trigger": "Explicit Conjecture 9 states the targeted stronger random-site Frobenius error rate."
+      },
+      {
+        "assessment": "NOT_COVERING: deterministic uniform-kernel errors and empirically motivated truncation-size rule, not the proved iid bounded-density RMS exponent.",
+        "evidence": [
+          "Section 4.2 identifies the improved error scaling as a heuristic; Proposition 9 bounds matrix Frobenius norm using the pointwise uniform error."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.10210v2",
+        "material_read": "Accessible arXiv HTML, Sections 3, 4.1, 4.2, 4.3 and their theorems/heuristics; also computational experiments and scope.",
+        "method": "Primary full-text HTML comparison of approximation model, guaranteed errors and heuristic RMS claims.",
+        "title": "Equispaced Fourier representations for efficient Gaussian process regression from a billion data points",
+        "trigger": "Same Fourier kernel approximation and prior empirical RMS grid prescriptions."
+      },
+      {
+        "assessment": "UNRESOLVED_PRECEDENCE_RISK: title and abstract focus on random-field sampling periodization and eigenvalue rates; deeper equivalent implication not ruled out.",
+        "evidence": [
+          "Abstract states smooth/nonsmooth Matérn periodization and eigenvalue-decay results, not a random-site finite-N covariance Frobenius bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.13522",
+        "material_read": "Accessible arXiv abstract and primary result descriptions; a full-text HTML attempt was unsuccessful.",
+        "method": "Abstract-level scope comparison only, not full-document exclusion.",
+        "title": "Unified Analysis of Periodization-Based Sampling Methods for Matérn Covariances",
+        "trigger": "Potential stronger coverage via Fourier periodization, Gaussian random fields, and spectral decay."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b71a5136-0348-4ae5-83ac-828160159bf3",
+  "value": {
+    "rationale": "The explicitly stated Matérn covariance-matrix Conjecture 9 concerns a real numerical rank-selection bottleneck in equispaced Fourier Gaussian process regression. The present bound proves the previously heuristic stronger cutoff exponent \\(2\\nu+d/2\\) for all bounded densities with an explicit constant. The localization and finite-sample diagonal/concentration control identify the validity of the statistical gain rather than merely rephrasing a uniform kernel bound. No extension to arbitrary site laws, moving-parameter arrays or a sharp constant is asserted.",
+    "status": "PASS"
+  }
+}
