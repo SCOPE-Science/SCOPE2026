@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/RESULT.md (Git blob 4eb105b6b9a5dfa2043c5fff370fd000856e60dd)",
+        "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/verification/check.py (Git blob e6d9879ede52f7cdd0bb2e603b1c2a1170f76915)",
+        "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/METADATA.json (Git blob 0ea6c1fb2d92e7a10a17fe6e65669067aac41a94)",
+        "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/AUDIT.json (Git blob 7d005801bf4156cddb6337a1c63246a61c6fc46f)",
+        "Independent source-code-external checks: /mnt/data/scope_worker03_20261106T0838Z/independent_checks_output.txt"
+      ],
+      "rationale": "Each positive best response to effort s is sqrt(s/a)−s in its interior region, giving F_c(y)=sqrt((sqrt y-y)/c)−(sqrt y-y), positive analytic near the stated equilibrium. F_c derivative at y*=−(c−1)²/(4c), crossing −1 at c*. The actual source verification/check.py uses rational pairs Q(sqrt2) to check full order-five Taylor coefficients and composition (degrees 2,3,4 vanish), coefficient K positive by exact reciprocal (99+70sqrt2)/512. The iterated normal form z→z−Kz^5+O(z^6) gives k^(1/4) z_k→signed(4K)^(-1/4) via telescoped inverse fourth powers. For δ>0, dividing the nontrivial fixed-point equation of F_c² by z gives alpha δ−Kz^4 plus controlled error, and analytic zero counting plus scaling identifies exactly 2 real and 2 nonreal nearby zeros. The real two are exchanged by F and attract with the stated multiplier; δ<0 has no nearby nonzero real period-two root. Independent high-precision derivatives and composition matched the quintic coefficient. Finite orbit samples only corroborate the analytic zero argument.",
+      "residual_risks": [
+        "The result concerns locally positive best-response branches; zero-effort convention and global basins are out of scope.",
+        "The 1/4 exponent requires the exact all-order-five cancellation, not just numerical near −1 slopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general linearized criterion is inconclusive at multiplier −1; broader global 2-cycle existence results require additional computation to derive the singular cancellation and leading constants."
+        ],
+        "reasoning": "Neither a linear stability criterion nor an orbit-existence statement dominates a fifth-order nonlinear local theorem.",
+        "searches": [
+          "asymmetric Tullock lottery contest alternating best response critical flip quintic fourth root cycle",
+          "Milchtaich–Zahojay 2023 alternating-response stability appendix",
+          "Ghosh–Goldberg 2023 convergence/nonconvergence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2305.10881",
+        "https://arxiv.org/abs/2310.03528",
+        "https://econ.biu.ac.il/sites/econ/files/shared/staff/u36/papers/Tullock.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sharp convergence boundaries can locate c* and possibly existence of 2-cycles, but do not determine whether cubic flip coefficient vanishes or whether rate is k^(-1/4) rather than k^(-1/2)."
+        ],
+        "reasoning": "A new quintic computation, not a routine substitution into the previously supplied threshold, is essential.",
+        "searches": [
+          "asymmetric Tullock lottery contest alternating best response critical flip quintic fourth root cycle",
+          "arXiv:2305.10881v1 Theorem/§3",
+          "arXiv:2310.03528v2",
+          "Milchtaich–Zahojay (2023)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 Ghosh–Goldberg paper gives the same alternating best-response map and asymmetric nonconvergence examples. It does not, in the inspected sections, give the fifth-order critical normal-form coefficient and the fourth-root amplitude."
+        ],
+        "reasoning": "The sharp critical nonlinear scaling is not equivalent to merely identifying a flip multiplier or existence of a 2-cycle.",
+        "searches": [
+          "asymmetric Tullock lottery contest alternating best response critical flip quintic fourth root cycle",
+          "Ghosh–Goldberg arXiv:2305.10881v1 §§2-4,7",
+          "Ghosh arXiv:2310.03528v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest semantic Resultary hit was a different replicator-map two-cycle; simulations and numerical tables are not exact all-local-parameter asymptotic coefficients."
+        ],
+        "reasoning": "No exact table or database supplies the universal all-small-delta expansion in inspected sources.",
+        "searches": [
+          "asymmetric Tullock lottery contest alternating best response critical flip quintic fourth root cycle",
+          "Resultary two-player Tullock/lottery semantic search",
+          "SCOPE2016 lottery ratio comparison search",
+          "Ghosh–Goldberg 2023 numerical plots"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. A new quintic computation, not a routine substitution into the previously supplied threshold, is essential.",
+      "residual_risks": [
+        "An older codimension-two flip-bifurcation analysis specialized to Tullock maps could contain an equivalent quintic normal form.",
+        "Broader contest references not all materially read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME MODEL, PRIOR THRESHOLD BUT NOT ASYMPTOTIC QUINTIC LAW",
+          "evidence": "Prior work shows homogeneous convergence and nonconvergence for certain asymmetric costs; no displayed fifth-order cancellation, k^(-1/4) relaxation or δ^(1/4) orbit amplitude.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.10881",
+          "material_read": "Full primary PDF available, especially best-response derivation and asymmetric examples in §3, conclusion and sections reporting nonconvergence",
+          "method": "primary full text opened and relevant statements/proofs read",
+          "title": "Best-Response Dynamics in Lottery Contests",
+          "trigger": "same two-player asymmetric linear-cost alternating best responses"
+        },
+        {
+          "assessment": "RELATED FRAMEWORK, UNCERTAIN PRIORITY",
+          "evidence": "General convex-cost convergence differs from the exact local fifth-order linear-cost degeneracy.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.03528",
+          "material_read": "Abstract, scope and literature pointers; complete appendix not materially inspected in this audit",
+          "method": "abstract and referenced statements; no whole-document noncoverage claim",
+          "title": "Best-Response Dynamics in Tullock Contests with Convex Costs",
+          "trigger": "broader best-response dynamics and asymmetric periodic examples"
+        },
+        {
+          "assessment": "PRIOR GENERAL LINEARIZATION, PRIORITY RISK",
+          "evidence": "A multiplier −1 is a boundary case where linear criterion is inconclusive.",
+          "identifier_or_url": "https://econ.biu.ac.il/sites/econ/files/shared/staff/u36/papers/Tullock.pdf",
+          "material_read": "Relevant published Appendix stability criterion as cited in full research package; full paper not independently material-read",
+          "method": "reported relevant result compared with critical normal form, no whole-paper noncoverage claim",
+          "title": "Altruism and Spite in Tullock Contest",
+          "trigger": "alternating-response linearized criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2305.10881",
+        "https://arxiv.org/abs/2310.03528",
+        "https://econ.biu.ac.il/sites/econ/files/shared/staff/u36/papers/Tullock.pdf"
+      ],
+      "rationale": "This is a structurally meaningful degenerate flip bifurcation of an economically motivated exactly solvable map. The unusual fourth-root cycle onset and 1/4 power critical relaxation (with exact constants) distinguish it from generic cubic flips and can guide local dynamical analysis; the result is not merely another known boundary threshold.",
+      "residual_risks": [
+        "No global basins or other competition mechanisms are characterized."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/RESULT.md (Git blob 4eb105b6b9a5dfa2043c5fff370fd000856e60dd)",
+    "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/verification/check.py (Git blob e6d9879ede52f7cdd0bb2e603b1c2a1170f76915)",
+    "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/METADATA.json (Git blob 0ea6c1fb2d92e7a10a17fe6e65669067aac41a94)",
+    "2026/11/02/quintic-critical-slowdown-and-fourth-root-cycle-onset-in-two-pla--90cde7f1749c/AUDIT.json (Git blob 7d005801bf4156cddb6337a1c63246a61c6fc46f)",
+    "Independent source-code-external checks: /mnt/data/scope_worker03_20261106T0838Z/independent_checks_output.txt",
+    "https://arxiv.org/pdf/2305.10881",
+    "https://arxiv.org/abs/2310.03528",
+    "https://econ.biu.ac.il/sites/econ/files/shared/staff/u36/papers/Tullock.pdf"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The result concerns locally positive best-response branches; zero-effort convention and global basins are out of scope.",
+    "The 1/4 exponent requires the exact all-order-five cancellation, not just numerical near −1 slopes.",
+    "An older codimension-two flip-bifurcation analysis specialized to Tullock maps could contain an equivalent quintic normal form.",
+    "Broader contest references not all materially read in full.",
+    "No global basins or other competition mechanisms are characterized."
+  ],
+  "schema_version": 1
+}

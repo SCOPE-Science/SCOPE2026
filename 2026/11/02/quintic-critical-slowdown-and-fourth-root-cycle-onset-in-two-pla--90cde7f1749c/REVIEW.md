@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The best-response rule is derived from strict payoff concavity on the positive branch and substituted into one round's return map. At the cost boundary \(c_*=3-2\sqrt2\), an exact symbolic computation over \(\mathbb Q(\sqrt2)\) verifies cancellation of quadratic, cubic, and quartic terms in the two-round map, with first nonlinear term \(-Kz^5\), where \(K=50688-35840\sqrt2>0\). A local monotone contraction in magnitude, together with fourth-power reciprocal increments, establishes the signed \(k^{-1/4}\) relaxation. Analytic perturbation and four-zero counting establish precisely one nearby primitive two-cycle below the boundary, the \(\delta^{1/4}\) displacement and its leading multiplier. The bundled exact checker and numerical branch tests executed successfully; finite tests are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-Ghosh and Goldberg, *Best-Response Dynamics in Lottery Contests* (arXiv:2305.10881v1), introduces the same response model and asymmetric behavior. Ghosh, *Best-Response Dynamics in Tullock Contests with Convex Costs* (arXiv:2310.03528v2), proves results in more general payoff classes but not the present nonlinear scaling. Milchtaich and Zahojay's 2023 stability test is linear and neutral at the boundary. Critically, an accessible earlier exact result on this identical map already proves the global convergence threshold and nearby period-two existence; **the present novelty claim does not include those facts**, which do not imply the quintic coefficient, critical rate constant or cycle amplitude. Four concrete semantic published-finding searches and previously recorded mathematical claims were compared with exact implications. Different nomenclature or unindexed specialist results remain a genuine priority risk.
+PASS
 
-## Value — PASS
-The critical return-map degeneracy is a mathematically meaningful exception to generic cubic-flip behavior. The exact local rate, fractional-power amplitude and multiplier quantify a transition whose location was already known but whose transient scaling was not. Such rates matter for the number of alternating response rounds required near equilibrium. This is a local result only, not an assertion about arbitrary starting positions or off-model costs.
+Each positive best response to effort s is sqrt(s/a)−s in its interior region, giving F_c(y)=sqrt((sqrt y-y)/c)−(sqrt y-y), positive analytic near the stated equilibrium. F_c derivative at y*=−(c−1)²/(4c), crossing −1 at c*. The actual source verification/check.py uses rational pairs Q(sqrt2) to check full order-five Taylor coefficients and composition (degrees 2,3,4 vanish), coefficient K positive by exact reciprocal (99+70sqrt2)/512. The iterated normal form z→z−Kz^5+O(z^6) gives k^(1/4) z_k→signed(4K)^(-1/4) via telescoped inverse fourth powers. For δ>0, dividing the nontrivial fixed-point equation of F_c² by z gives alpha δ−Kz^4 plus controlled error, and analytic zero counting plus scaling identifies exactly 2 real and 2 nonreal nearby zeros. The real two are exchanged by F and attract with the stated multiplier; δ<0 has no nearby nonzero real period-two root. Independent high-precision derivatives and composition matched the quintic coefficient. Finite orbit samples only corroborate the analytic zero argument.
 
-## Limits and sources
-The claimed rate is for two-round iterates; each two-round iterate is four individual best-response moves. Local positivity is essential. No global basin estimate, other-period census or independent priority certification is supplied. Primary sources are arXiv:2305.10881v1, arXiv:2310.03528v2 and the 2023 Milchtaich–Zahojay Tullock manuscript. Detailed implication comparisons, source inspections and outstanding risks appear in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. A new quintic computation, not a routine substitution into the previously supplied threshold, is essential.
+
+## value
+
+PASS
+
+This is a structurally meaningful degenerate flip bifurcation of an economically motivated exactly solvable map. The unusual fourth-root cycle onset and 1/4 power critical relaxation (with exact constants) distinguish it from generic cubic flips and can guide local dynamical analysis; the result is not merely another known boundary threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
