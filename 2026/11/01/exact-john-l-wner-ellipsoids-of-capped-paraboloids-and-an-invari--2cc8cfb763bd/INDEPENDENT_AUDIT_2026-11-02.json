@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:10:56.099595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For all integers d>=2, from frozen RESULT.md 607879e derived identity z-a_J^2(1-(z-c_J)^2/b_J^2)=((d+1)^2/4)(z-z0)^2, z0=(d-1)/(d+1), hence John candidate lies inside capped quadratic epigraph and touches one pole and a rim sphere. Under ball normalization the pole plus rim measure with weights 1/(d+1),d/(d+1) has mean 0 and covariance I/d, so the John contact theorem proves global maximality. For L candidate A=d/sqrt(d^2-1), B=C=d/(d+1), the quadratic enclosure g(z)=z/A^2+(z-C)^2/B^2 satisfies g(0)=g(1)=1 and g(z)-1=((d+1)^2/d^2)z(z-1)<=0; normalized bottom-vertex/top-rim contacts have the same moment certificate and also belong to the strict subset cone, proving identical unique Löwner ellipsoid. Checked symbolic identities in dimension parameter and volume semiaxis ratio yielding ((d+1)/2)((d+1)/(d-1))^((d-1)/2), asymptotic e*d/2. Numerical optimization in supplied verify.py is supplementary only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güler–Gürtuna gives general John/Löwner contact criteria and solutions for slabs, second-order cones, cylinders; introduction explicitly leaves the latter class inscribed ellipsoid unsolved."
+        ],
+        "reasoning": "Contact criteria are tools, not evaluations; the source does not assert a dominating all-quadratic-cap classification, so no direct implication to both exact K_d ellipsoids.",
+        "searches": [
+          "arXiv:0709.0707 Sections 5-8",
+          "Search Resultary: John and Löwner ellipsoid capped paraboloid truncated quadratic epigraph cone envelope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "arXiv:0709.0707 full section 8 and overview",
+        "arXiv:1207.7246",
+        "Resultary exact ellipsoid query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cone C_d has known outer characterization under affine normalization; K_d strictly contains C_d, so monotonicity yields L(C_d) subset? (No general set inclusion of ellipsoids); certainly prior cone minimality does not prove K_d subset L(C_d).",
+          "The new convex-chord g(z)<=1 proves K_d lies in the cone-optimal ellipsoid and the two-contact certificate applies to both. Prior cone result alone is insufficient for coincidence and does not prove the paraboloid John formula."
+        ],
+        "reasoning": "Implication requires explicit additional containment and contact work, rather than merely quoting a precomputed cone result.",
+        "searches": [
+          "arXiv:0709.0707 Theorem 8.1",
+          "Search Resultary: John and Löwner ellipsoid capped paraboloid truncated quadratic epigraph cone envelope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güler–Gürtuna Theorem 8.1 treats truncated second-order cones and ellipsoidal cylinders, not quadratic epigraph cap K_d.",
+          "Affine equivariance allows normalized cones but cannot send a nonlinear paraboloid wall to a cone face."
+        ],
+        "reasoning": "Known cone Löwner calculation is recognized; the paraboloid John ellipsoid and coincidence of the cone and strictly larger cap require distinct statements/containment certificates.",
+        "searches": [
+          "Search Resultary: John and Löwner ellipsoid capped paraboloid truncated quadratic epigraph cone envelope",
+          "Güler–Gürtuna arXiv:0709.0707 Section 8",
+          "Gruber–Schuster arXiv:1207.7246"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved exact extents involve capped cubes or permutohedra, with different boundary geometry and contact orbits."
+        ],
+        "reasoning": "No inspected source/tables supply these K_d formulas; an all-d contact classification is not a finite table lookup.",
+        "searches": [
+          "Search Resultary: John and Löwner ellipsoid capped paraboloid truncated quadratic epigraph cone envelope",
+          "Resultary published three-phase John ellipsoid of a capped hypercube",
+          "Resultary Löwner partial permutohedra hits"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge for the paraboloid's complete John/Löwner pair and the exact equality of the larger cap's Löwner ellipsoid with its smaller cone. Güler–Gürtuna explicitly solve truncated-cone outer ellipsoids; this covers cone-only geometry but cannot logically imply the larger quadratic cap shares that enclosure without an additional containment proof; their discussion expressly omits inscribed ellipsoid for the second class.",
+      "residual_risks": [
+        "Potential older/unindexed explicit epigraph-cap extremal formula not found; absolute priority not certified.",
+        "Affine images covered, but arbitrary quadratic/truncated epigraph intersections not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides known truncated-cone circumscribed formulas/contact theorem, not the quadratic K_d John or equality for strict containing cap",
+          "evidence": "Section 8 defines linear-sided truncated cone K={||B(x-c)||<=x1,a<=x1<=b}, and introduction states inscribed ellipsoid in second class not solved.",
+          "identifier_or_url": "arXiv:0709.0707",
+          "material_read": "Full OA 36-page PDF, introduction, sections on slabs and 8 on truncated cones including Theorem 8.1 and screenshot p31",
+          "method": "arXiv PDF primary full-text section reading plus page screenshot",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "Most plausibly dominating cone/cap extremal ellipsoid source"
+        },
+        {
+          "assessment": "Source for classic optimality conditions, not this special body",
+          "evidence": "Normalized mean-zero, covariance identity are the special certifying calculations.",
+          "identifier_or_url": "arXiv:1207.7246",
+          "material_read": "Accessible abstract and contact-theorem statement (not full proof re-read)",
+          "method": "OA bibliographic/abstract inspection",
+          "title": "An arithmetic proof of John’s ellipsoid theorem",
+          "trigger": "General contact certificates used"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A canonical all-dimensional compact quadratic epigraph and its strictly contained cone having an identical sharp enclosing ellipsoid is a structural extremal-geometric phenomenon. The complementary John contact geometry and exact all-dimensional volume-ratio limit give a reusable benchmark for convex optimization and affine geometry, not an arbitrary computational slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py",
+    "arXiv:0709.0707 full section 8 and overview",
+    "arXiv:1207.7246",
+    "Resultary exact ellipsoid query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "d integer>=2 only; quadratic circular cap and affine images, not arbitrary bodies.",
+    "Prior cone outer ellipsoid is correctly credited."
+  ],
+  "schema_version": 1
+}

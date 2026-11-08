@@ -1,11 +1,21 @@
-# Scientific review: capped-paraboloid extremal ellipsoids
+# Independent mathematical audit
 
-**Correctness — PASS.** The candidate John ellipsoid has vertical endpoints \(z_0^2\) and \(1\) and obeys the exact nonnegative squared-radius gap \(\frac{(d+1)^2}{4}(z-z_0)^2\). The upper enclosing ellipsoid's quadratic form is bounded by a strictly convex scalar function equal to one at both endpoints, proving full-body containment. In normalized coordinates the top pole and curved contact latitude, respectively bottom apex and upper rim, admit positive centered isotropic measures with covariance \(I_d/d\). John–Löwner's characterization therefore establishes global optimality and uniqueness without restricting competitors to rotationally symmetric ellipsoids. The exact volume ratio follows by semiaxis multiplication. Ten-dimensional numerical sweeps and eight separately solved three-parameter optimization problems corroborate calculations but are not substituted for the proof.
+## correctness
 
-**Originality — PASS under the checked literature, with a priority risk.** Direct statement and equivalence searches of mathematical research records and published primary literature were checked for quadratic-epigraph caps, rotations and affine normalizations, both ellipsoids, cone equality and exact ratio. Güler–Gürtuna's 2007 primary paper develops general optimality conditions, inscribed ellipsoids of ellipsoidal cuts and enclosing ellipsoids of truncated second-order cones. Its cone result covers the smaller cone's outer ellipsoid, but not the strictly larger capped paraboloid or its inner extremal ellipsoid. Its sphere-slab calculations do not become a quadratic epigraph by an affine change of coordinates. No checked claim dominates the combined theorem. Historical priority cannot be conclusively excluded by finite searches, and independent review remains needed.
+PASS
 
-**Value — PASS.** Bounded quadratic epigraphs are canonical convex bodies in geometric optimization. The surprising enclosure invariance under replacement by a genuinely smaller cone is an exact structural assertion: a nontrivial bulge in every intermediate horizontal section leaves the outer extremal ellipsoid fixed. The full two-sided ellipsoid classification, minimal contact orbits and exact dimension-growth law are natural geometric invariants rather than arbitrary numeric parameters.
+PASS: For all integers d>=2, from frozen RESULT.md 607879e derived identity z-a_J^2(1-(z-c_J)^2/b_J^2)=((d+1)^2/4)(z-z0)^2, z0=(d-1)/(d+1), hence John candidate lies inside capped quadratic epigraph and touches one pole and a rim sphere. Under ball normalization the pole plus rim measure with weights 1/(d+1),d/(d+1) has mean 0 and covariance I/d, so the John contact theorem proves global maximality. For L candidate A=d/sqrt(d^2-1), B=C=d/(d+1), the quadratic enclosure g(z)=z/A^2+(z-C)^2/B^2 satisfies g(0)=g(1)=1 and g(z)-1=((d+1)^2/d^2)z(z-1)<=0; normalized bottom-vertex/top-rim contacts have the same moment certificate and also belong to the strict subset cone, proving identical unique Löwner ellipsoid. Checked symbolic identities in dimension parameter and volume semiaxis ratio yielding ((d+1)/2)((d+1)/(d-1))^((d-1)/2), asymptotic e*d/2. Numerical optimization in supplied verify.py is supplementary only.
 
-The primary references and scientific limitations appear in RESULT.md. The standalone checker reproduces numerical corroboration and is not an external or infinite proof certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge for the paraboloid's complete John/Löwner pair and the exact equality of the larger cap's Löwner ellipsoid with its smaller cone. Güler–Gürtuna explicitly solve truncated-cone outer ellipsoids; this covers cone-only geometry but cannot logically imply the larger quadratic cap shares that enclosure without an additional containment proof; their discussion expressly omits inscribed ellipsoid for the second class.
+
+## value
+
+PASS
+
+PASS: A canonical all-dimensional compact quadratic epigraph and its strictly contained cone having an identical sharp enclosing ellipsoid is a structural extremal-geometric phenomenon. The complementary John contact geometry and exact all-dimensional volume-ratio limit give a reusable benchmark for convex optimization and affine geometry, not an arbitrary computational slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
