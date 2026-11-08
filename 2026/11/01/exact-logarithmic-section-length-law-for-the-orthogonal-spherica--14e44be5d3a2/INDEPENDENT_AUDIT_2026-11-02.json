@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:10:56.099606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The frozen result defines Haar-uniform unoriented great circles and the orthogonal spherical lune W={x>=0,y>=0}. With normal (a,b,c), endpoints at the two boundary meridians yield cos L=ab/sqrt((a^2+c^2)(b^2+c^2)); null exceptional normals excluded. |a| is uniform (0,1), azimuth of (b,c) uniform and independent. For 0<t<pi/2 conditional P(L<t||a|=u)=arctan(u tan t)/pi; integration gives F(t)=[t+cot(t)log(cos t)]/pi. Sign reflection extends to pi/2<t<pi with log|cos|; differentiation yields density -log|cos t|/(pi sin^2 t). Analytic symmetry, series in z=sin^2t, and midpoint expansion prove mean/median pi/2, strictly unimodal log cusp and central-band asymptotic. Independently integrated the conditional distribution at five t and checked reflection and derivative; density singularity is integrable, no mass. Geodesic intrinsic arc, not straight Euclidean chord or length-biased sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 wedge paper analyzes random-polytope facets, not the unconditional random great-circle angle CDF; the 2020 random spherical-convex sections paper focuses on proper convex bodies and a cap model, whereas W contains antipodal poles."
+        ],
+        "reasoning": "Neither inspected result includes a stronger exact universal great-circle length law that could specialize to this logarithmic CDF; generic geometric parametrization remains a priority caveat.",
+        "searches": [
+          "arXiv:2203.07916 Sections 3-4",
+          "arXiv:2007.07297 spherical convex-body random sections",
+          "Search Resultary: Random great-circle geodesic arc length orthogonal spherical lune logarithmic chord section distribution"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_chord.py",
+        "arXiv:2203.07916 full PDF sections 3-4",
+        "arXiv:2007.07297",
+        "Gille 2005 bibliographic material",
+        "Resultary published search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wedge normal-angle map is an ingredient, but no evaluated t+cot(t)log|cos t| Haar integral was located in the inspected sections.",
+          "The differentiation and midpoint expansion are derivable from the newly evaluated CDF, and are not separately claimed as historically independent innovations."
+        ],
+        "reasoning": "The exact law requires integrating the section-angle map against the specified Haar distribution; this was performed and checked, and the related 2022 source does not explicitly assert this pushforward result in the sections read.",
+        "searches": [
+          "Besau et al. Lemma 4.1 arXiv:2203.07916",
+          "Moseeva et al arXiv:2007.07297",
+          "Search Resultary: Random great-circle geodesic arc length orthogonal spherical lune logarithmic chord section distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Besau et al. parameterize an intersection wedge with angle beta (tan beta=tan phi/cos psi), which is geometrically related to arc length L.",
+          "The current result computes Haar pushforward CDF and log density, not merely the angle at a fixed normal."
+        ],
+        "reasoning": "The angle parameterization is credited as precursor, but a section-angle formula without Haar integration does not state the exact law; different sampling of normals changes probability law.",
+        "searches": [
+          "Search Resultary: Random great-circle geodesic arc length orthogonal spherical lune logarithmic chord section distribution",
+          "Besau et al arXiv:2203.07916 Section 4 Lemma 4.1",
+          "Moseeva et al arXiv:2007.07297"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits involve Euclidean octahedron, polygons, or affine sections rather than a spherical right lune. Gille chord tables concern Euclidean 3D solids rather than intrinsic geodesic arcs."
+        ],
+        "reasoning": "The model/measure mismatch prevents known Euclidean chord databases from covering this explicit spherical probability density.",
+        "searches": [
+          "Search Resultary: Random great-circle geodesic arc length orthogonal spherical lune logarithmic chord section distribution",
+          "Resultary exact Haar diameter for random octahedron",
+          "Gille 2005 hemisphere/wedge chord length references"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge for the exact Haar section-length distribution and its logarithmic density of this natural spherical wedge. Besau et al. study precisely the orthogonal spherical-wedge model and parameterize section angles, but their original result is random-polytope facet asymptotics, not the pushforward law under Haar-uniform planes. Its angle formula is a substantive geometric precursor; priority risk concerns an unindexed consequence or earlier integral-geometry treatment.",
+      "residual_risks": [
+        "Section-angle formula already in Besau et al; an unstated but straightforward Haar integration could be considered implicitly covered in broader integral-geometry literature.",
+        "Only right-angle unit sphere and central unoriented Haar great circles; no arbitrary lune angle or length-biased chords."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Section-angle geometry overlaps; primary problem is expected facet count of random-point convex hulls, not one-plane length distribution",
+          "evidence": "Lemma 4.1 describes angle beta of wedge section with tan beta=tan phi/cos psi.",
+          "identifier_or_url": "arXiv:2203.07916",
+          "material_read": "Full OA PDF introduction and Sections 3-4, Lemma 4.1 and downstream facet integrals; inspected page screenshot and section text",
+          "method": "ArXiv original full text and page rendering",
+          "title": "Spherical convex hull of random points on a wedge",
+          "trigger": "Exact same right spherical wedge geometry"
+        },
+        {
+          "assessment": "Paper studies random spherical sections, cap case; difference of proper spherical convexity from antipodal W is relevant, but incomplete full inspection remains a risk",
+          "evidence": "Sphere-lune W contains two antipodal poles and is not the spherical cap examined there.",
+          "identifier_or_url": "arXiv:2007.07297",
+          "material_read": "OA abstract/introduction and identified spherical-cap setup; no entire full-text noncoverage claim",
+          "method": "arXiv primary abstract/accessible introductory material",
+          "title": "Random sections of spherical convex bodies",
+          "trigger": "Closest random spherical chord laws"
+        },
+        {
+          "assessment": "Physical Euclidean hemisphere chord model, not Haar central spherical arc",
+          "evidence": "Do not infer whole-document noncoverage solely from title; residual check possible.",
+          "identifier_or_url": "doi:10.3844/jmssp.2005.24.28",
+          "material_read": "Bibliographic/abstract description only",
+          "method": "OA bibliographic search",
+          "title": "Chord Length Distributions of the Hemisphere",
+          "trigger": "Plausible chord table prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A fully normalized probability law for random intrinsic sections of an antipodal spherical lune resolves a natural tractable integral-geometric distribution; the logarithmic median singularity, symmetry and exact small-band probability are nontrivial analytic features. The result is not a reparameterized Euclidean solid-chord table or a tiny numerical estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify_chord.py",
+    "arXiv:2203.07916 full PDF sections 3-4",
+    "arXiv:2007.07297",
+    "Gille 2005 bibliographic material",
+    "Resultary published search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full pdf of all historical spherical-chord law literature not exhausted.",
+    "Central Haar great circles only; no endpoint-pair length sampling."
+  ],
+  "schema_version": 1
+}
