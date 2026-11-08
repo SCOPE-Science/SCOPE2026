@@ -1,15 +1,21 @@
-# Scientific review: two-site capture on the truncated icosahedron
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim is restricted to the 60-vertex unweighted truncated-icosahedral graph, coherent hopping \(J>0\), two distinct positive-rate absorbers, and asymptotic one-particle absorption. The loss law follows by a complete invariant-subspace argument, including exclusion of non-decaying eigenmodes in the bright space. A degree-15 annihilating polynomial is checked exactly on all basis vectors. The 120 explicit symmetry permutations partition all 1770 pairs into 23 orbits, and each representative rank is computed over \(\mathbb Q\). Direct geometry checks establish the stated placement rule. No finite-time or disordered conclusion is drawn. Residual correctness risk is implementation error in the finite checker, addressed by reproducible code, a visible certificate, and independent analytical upper bounds.
+## correctness
 
-## Originality (O): PASS on inspected evidence, historically provisional
-The closest conceptual results are the general quantum-hitting and dark-space mechanisms of Varbanov--Krovi--Brun (2008) and Le--Donati--Severini--Caruso (2017), and the general strong-cospectrality characterization of Coutinho (2016). Bougroura--Aissaoui--Chancellor--Kendon (2016) study the **same fullerene graph** but a coined discrete-time walk, while Dhamapurkar--Dahlsten (2023) analyze closed fullerene walks and thermalization. None of the inspected material states the exact four-level pair-rank distribution or implies it without additional graph-specific calculation. Prior-known inversion symmetry and cyclic-space principles are explicitly excluded from the novelty claim. Historical priority remains provisional because a differently indexed calculation could exist.
+PASS
 
-## Value (V): PASS
-The graph is the molecularly motivated 60-site fullerene network. A complete placement rule, rather than a single computed number, distinguishes a fully redundant second sink from generic near-doubling of the capture fraction and two intermediate special families. The sharp maximum \(29/60\) and exact multiplicities provide design and benchmark data for coherent transport on finite molecular graphs. The result is a natural complete classification, not merely the reapplication of the general formula to an arbitrarily selected initial state.
+The source constructs the 60-vertex cubic truncated-icosahedral graph explicitly from oriented flags of the icosahedron, giving 90 edges. It verifies degree-15 annihilating polynomial P(A)=0 on each of 60 basis vectors and 120 symmetry permutations partitioning 1770 unordered vertex pairs into 23 orbits. Exact rational elimination of 60×30 Krylov blocks produces 15:30,27:60,28:120,29:1560 and checks intrinsic antipode/spoke/distance-five path-multiplicity if-and-only-if rules. Independently built the graph and diagonalized its real symmetric adjacency; evaluated all 1770 two-vertex eigenspace cyclic spans to recover precisely the four rank multiplicities (numerical diagnostic independent of integer rational elimination). The analytic invariant-subspace argument excludes nondecaying modes in the bright space for every J,γ_s,γ_t>0 and implies P_abs(ρ)=tr(Πbright ρ) for all density matrices, not finite-time capture rates.
 
-## Limitations and source comparisons
-The 2008 work uses Poissonian measurement to define hitting time, so its dynamical protocol differs from constant non-Hermitian sinks. The 2016 fullerene study uses a discrete-time coined walk; its plotted arrival curves do not give this finite exact rank table. Coutinho's walk-module and strong-cospectrality lemmas provide vocabulary and implications but do not instantiate the 23 fullerene placement classes. The 2017 dark-space article provides the general mechanism and different biological-network applications. The 2023 fullerene study has no local absorbing terms. Unindexed equivalent computations remain a historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the exact statement in Complete two-absorber capture classification on the C60 graph; previously established general mechanisms/base results are credited. Actual fresh semantic query and primary-text comparisons found no implication covering the precise result. This is qualified historical priority, not proof of absolute novelty.
+
+## value
+
+PASS
+
+The C60 fullerene is a molecularly motivated 60-site network. Complete pair-placement sensitivity, exact four-level rank distribution, fully redundant antipodes and sharp near-doubling generic capture fraction are natural spectral-transport invariants and useful benchmarks for coherent capture design. This is not merely renaming the known general bright-space theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
