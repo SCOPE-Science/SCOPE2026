@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The cube-graph Morse complex is defined by compatible directed vertex-edge pairings. The finite enumeration is exhaustive (23,624 nonempty faces). A deterministic arc-pivot acyclic matching leaves, after releasing one augmented empty-face match, a single vertex, 50 five-cells and 185 six-cells; all 124,200 directed Hasse incidences were checked to exclude matching cycles. The signed critical-cell boundary is computed by integral path elimination, has rank 46, and has 46 unit Smith factors, also backed by a determinant-one full-rank minor. The resulting CW complex has no cells except in dimensions zero, five and six, so its degree matrix classifies all attaching maps. Integral elementary cell slides yield precisely four five-spheres and 139 six-spheres. Independent edge-oriented enumeration and mod-two boundaries confirm the earlier field-homology benchmark. Risks: reproducibility requires the included exhaustive programs and SymPy; an independent mathematics audit is pending.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest exact-object published result gives only reduced mod-two homology, explicitly leaving integral homology and homotopy uncomputed; this weaker statement cannot imply the sphere-wedge theorem. Chari--Joswig supply definitions and graph rooted-forest interpretations, Kozlov supplies the reduction formalism, and Scoville--Zaremsky give connectivity bounds rather than the precise cube homotopy type. The cube *matching* complex is a different construction. The full text of Kennedy Courtney's 2020 thesis *The Directed Forest Complex of Cayley Graphs* was inaccessible after trying the institutional PDF, and its abstract is too broad to exclude equivalent coverage. No complete novelty certification is claimed.
+PASS
 
-## Value — PASS
-The three-dimensional cube is the first non-cycle member of the natural hypercube family. Its previously known mod-two homology occurs in two adjacent high degrees, for which torsion and integral attaching maps cannot be inferred from rank data. An explicit integral sphere-wedge equivalence resolves that meaningful topological gap at the canonical first case and provides a full reproducible degree-matrix certificate, not just a routine field computation or a slight numerical improvement. The method also supplies a concrete benchmark for future hypercube Morse-complex calculations without asserting such future results.
+For Q3, an acyclic gradient pairing is precisely a directed rooted forest with outdegree at most one. Independent 4^8 tail-state enumeration gives the entire face vector (24,240,1296,4080,7488,7424,3072). Reconstructed 24-arc ordered greedy matching yields exactly 11695 pairs and 50 critical dimension-5 and 185 critical dimension-6 faces. A full 23625-node, 124200-incidence directed Hasse topological sort verifies acyclicity, not a sample. Independently rebuilt signed integer discrete-Morse matrix is 50x185 with 366 entries ±1; exact rational rank 46 and integer Smith factors all one (46). This leaves H5=Z^4 and H6=Z^139 with no torsion. Because cells occur only in degrees 0,5,6, their attaching maps are integer-degree maps into a wedge of 5-spheres and unit Smith transformations cancel 46 pairs, proving the advertised sphere-wedge homotopy equivalence. Empty-face release and no extraneous dimension are checked. Finite exhaustive proof applies only to Q3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novel integral homotopy upgrade for exactly the cube graph. Exact same-object prior full result establishes only mod-two homology; it explicitly leaves integral torsion and attaching degrees undetermined. The new unit Smith-form and high-connectivity CW argument are strictly stronger information. Relevant primary literature provides general definitions, connectivity bounds, and other graph families; no inspected theorem implies this classification. The closely relevant Cayley-graph directed-forest thesis could not be read in full and is a specific priority risk, not an automatic rejection.
+
+## value
+
+PASS
+
+The cube is the first hypercube whose graph is not a cycle; the exact integral homotopy type resolves a natural previously published coefficient/homotopy gap and gives the smallest explicit mixed-dimensional cube-gradient-field example. Determining whether the known mod-two ranks lift without torsion and all attachments vanish is a structural homotopy question, not a routine restatement or a cosmetic small count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
