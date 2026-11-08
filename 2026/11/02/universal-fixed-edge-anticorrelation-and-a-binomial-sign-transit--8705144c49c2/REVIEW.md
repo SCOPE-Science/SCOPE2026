@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof partitions ordered three-vertex subsets by shared edge set (identical, one common graph edge, or disjoint graph edge sets), includes all hypergeometric absent-edge terms, and simplifies to a closed numerator whose sign is fixed for every integer edge level in the specified range. The binomial calculation similarly reduces to the one-edge-overlap covariance. A bundled exact-rational verifier enumerates 33,856 graphs and checks 21,497 identities, including all \(n\) up to 40 for algebraic equality and sign. Exhaustive small sizes do not constitute an infinite proof; the indicator algebra and factorization are decisive.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The closest inspected published result concerns connected components versus triangles, and primary sources treat independent-edge triangle large deviations, wedge-sampling estimators, signed triangle tests, or sampling uncertainty of fixed graph motifs. A closed wedge includes triangle configurations in a way an *induced* open wedge does not. The reviewed comparisons do not imply the exact fixed-edge strict sign and independent-edge transition without additional work. Uninspected general motif moment tables could contain equivalent results; this remains a genuine limitation.
+PASS
 
-**Mathematical value — PASS.** Triangles and open wedges are two complementary transitivity statistics. Their anticorrelation under conditioning on the exact edge total, versus a positive covariance in sparse independent-edge graphs, identifies a material change in how combined statistics should be calibrated. Exact strictness, degeneracy endpoints, and density threshold are substantive features rather than merely a finite enumeration.
+For n>=4, with T counting triangles and W counting *induced open* wedges on unordered triples, split ordered pairs of three-label supports into equal, shared-edge (exactly two common vertices), or edge-disjoint (at most one common vertex) classes. Equal supports contribute E[I_A J_A]=0, shared-edge supports give 2(q4-q5), and disjoint ones give 3(q5-q6), where qj=(m)_j/(N)_j and qj=0 for m<j. There are 3(n-3) shared-edge supports per triangle and B-1-3(n-3) disjoint supports. Subtract 3 B^2 q3(q2-q3) to obtain exact covariance; common-denominator factorization yields negative numerator -48 B q3 (N-m)(N-m-1)[m(n^2-3n-8)+(n-1)(n^2-n-4)] divided by product (n+1)(n+2)(n^2-n-10)(n^2-n-8)(n^2-n-4). All denominator factors positive n>=4; final bracket positive in 3<=m<=N-2 including n=4, and all other levels vanish by deterministic/absent triangle cases. Under G(n,p) disjoint edge supports independent, same-triple covariance -3p^5(1-p), shared-edge covariance p^4(1-p)(2-3p), giving 3Bp^4(1-p)[(n-3)(2-3p)-p] with threshold 2(n-3)/(3n-8). Independently recomputed exact factor for EVERY n=4..40 and m, with direct exhaustive 64+1024 graph counts for n=4,5; checked the submitted n=6 enumeration algorithm from actual verify.py. Finite checks corroborate, symbolic support-orbit proof covers all n,m,p; equality at p threshold is not statistical independence.
 
-The result assumes \(n\ge4\), a homogeneous random graph, and precisely defined induced three-vertex paths. It does not extend to inhomogeneous or fixed-degree models without separate proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novelty lies in the sharp sign contrast between induced open wedge and triangles for all fixed-edge graph levels and the exact G(n,p) crossing. Existing wedge-sampling work defines open versus closed wedges for estimation, while Chatterjee–Varadhan studies triangle large deviations and Klusowski–Wu studies sampling motifs from fixed graphs. None of the materially inspected relevant primary text states this precise joint covariance law. Broader subgraph-count moment formulas could imply it after specialization, so originality remains best-knowledge and not a negative claim about uninspected texts.
+
+## value
+
+PASS
+
+Triangle and induced open-wedge counts are complementary triadic closure statistics. Their joint covariance calibrates tests/uncertainty for fixed-edge vs independent-edge nulls. A universal strict anticorrelation in G(n,m), versus a positive sparse-regime covariance and a sharp binomial threshold, is a natural structural contrast not given by marginal moments or a routine known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
