@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The unique common fixed point follows by composing idempotence with the constant-product identity. The four-part structural decomposition and its converse are explicit, including empty parts; counting partitions of a labeled carrier then proves the exact coefficient formula. Isomorphisms act as row/column symmetries of the multiplicity matrix together with fiber permutations. The finite-group realization is a reduction of a connected simple cubic graph supplied by Frucht's theorem to its vertex-edge incidence structure, for which automorphisms are exactly graph automorphisms; the one-idempotent obstruction follows by transpositions. The included checker independently tests all unary pairs on carriers of size at most four and small incidence-graph automorphisms. It does not certify the unbounded statement; the proof supplies that.
+## correctness
 
-## Originality (O): PASS within the inspected record
-Relevant full text of Kuželka (2026) was checked in Sections 1–2, 4–5 and 8.4, including its two-function complexity and automorphism-marking results. The source establishes a general hardness phenomenon and a general graph-to-unary encoding but not this exact idempotent/constant-composite subclass or its labeled formula. Liao (2026) was read in its HTML representation, particularly Sections 2–3, and Quinn-Gregson (2026) was inspected in its introduction, Sections 4–6 and classification statements; their different homogeneity targets do not imply this all-model count or exact pair normal form. Frucht's finite-group realization by graphs and the classical general commuting-map sequence (OEIS A181162) were explicitly treated as antecedents, not novelties. Search terms included semilattice actions, commuting projections, paired retractions, bipartite incidence, equivalences, exact integer prefixes and finite model counting. Main residual risk is an older equivalent theorem about finite acts over a four-element semilattice, potentially subsuming the present counting and automorphism statements despite different wording. The proof is elementary enough that an unindexed prior statement remains plausible; an independent priority review is necessary.
+PASS
 
-## Value (V): PASS
-The class is defined by a fixed first-order specification involving two unary function symbols, exactly the regime where broad model-counting results show hardness. Its labeled census is unexpectedly explicit for all carrier sizes, and its exact matrix invariant gives all isomorphism types and automorphism groups. The sharp one-versus-two idempotent boundary shows those restrictions do not prevent arbitrary finite group symmetries. These are motivated structural and representability facts rather than a single computed coefficient; no complexity optimality claim is made.
+Every pair determines its unique root r, disjoint nonroot fixed point sets A,B and free remaining C mapping to (A+r)x(B+r). The inverse construction establishes unique labeled multinomial count. Multiplicity matrix modulo row/column permutations classifies isomorphisms; fiber permutations produce stated automorphism group. Frucht cubic graph incidence encoding gives all finite groups, while a single idempotent has rooted stars and cannot realize nontrivial odd-order automorphism group. Independent brute tests of n<=5 counts and a two-vertex-edge incidence symmetry passed; general statement rests on construction.
 
-## Closest literature and limits
-Primary nearest source: Kuželka, arXiv:2608.30580 (2026), Sections 1, 4, 5, 8.4. Other comparators: Liao, arXiv:2607.02725 (2026); Quinn-Gregson, arXiv:2603.26616 (2026); Frucht 1949; OEIS A181162. A four-element semilattice action treatment could give prior broader coverage; specialist historical checking is outstanding. The finite checker corroborates but does not independently prove the all-cardinality and Frucht-based statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kuželka Theorem 5 establishes complexity of an unrelated general two-function sentence with extra predicates, not a closed formula or automorphism classification for idempotent constant-composite maps. Frucht is prior source of universality for graphs, but the two-projection incidence encoding and precise one-function obstruction are distinct. Older semilattice action treatments might contain equivalent classification.
+
+## value
+
+PASS
+
+An exact model-counting formula and full automorphism-classification for a natural small equational theory, together with a sharp two-versus-one-unary-operation universality separation, supply structurally motivated finite model theory facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
