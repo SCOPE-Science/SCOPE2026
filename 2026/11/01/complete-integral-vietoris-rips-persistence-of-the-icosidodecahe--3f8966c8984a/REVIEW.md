@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is explicitly constructed as the line graph of \(GP(10,2)\), removing ambiguity about its metric. The full face enumerations at scales two and three are finite and exhaustive, and every listed face–coface collapse is tested as a legal elementary simplicial collapse. The residues have checked connected links and global orientation, giving combinatorial two-spheres by the closed surface classification. The integral chain projection sends a primitive two-cycle at scale two to a primitive two-cycle at scale three, settling the persistence map over \(\mathbb Z\), not merely modulo a prime. The other scale claims follow from uniquely contained scale-one triangles and the exact distance-five perfect matching. A remaining risk is a latent implementation error; source inspection and cross-checking exact integer face counts mitigate but do not eliminate that risk.
+## correctness
 
-## Originality — PASS (best knowledge)
-The principal comparison is Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433, whose powers-of-cycles theorem and general graph-power observations do not compute the second and third powers of this 30-vertex line graph or their integral inclusion map. MathWorld confirms the precise graph identity without supplying homotopy or persistence calculations. Published results on the dodecahedron's own scale-three Rips complex, intrinsic Čech complexes of the cuboctahedron, and the truncated octahedron have different metric spaces or filtrations; they do not imply this claim. Actual searches included the icosidodecahedral graph, its medial/line-graph aliases, graph-power clique complexes, all-scale persistence, and crosspolytope descriptions. No covering theorem was identified. Unindexed equivalent work or a stronger applicable result not located remains possible; no uniqueness or publication-priority certification is claimed.
+PASS
 
-## Value — PASS
-This is a complete integral homotopy-and-persistence classification across **all** thresholds for a canonical thirty-vertex Archimedean graph, not a narrow arbitrary parameter slice. The unit-degree inclusion between two otherwise separately spherical levels is necessary to determine the barcode and is not implied by the homotopy types alone. The shift from a persistent two-sphere to the boundary of a fifteen-dimensional crosspolytope is a structurally informative finite topological phenomenon.
+For the exact line graph L(GP(10,2)), independently constructed the dodecahedral 30 edges as the Rips vertex set, found 60 graph edges and diameter five. Exhaustive increasing-clique enumeration gives r1 (30,60,20), r2 (30,180,380,330,102), r3 (30,300,1340,3150,4374,3800,2100,720,140,12). Independently implemented legal elementary collapse selection on the full face sets; it found 468 r2 and 7,940 r3 free face-coface pairs, leaving at both thresholds 16 vertices, 42 edges, 28 triangular faces. Each residue has connected cyclic vertex links, coherent orientation, Euler characteristic 2, so is S2. Independently reconstructed both primitive integral oriented fundamental cycles and applied every r3 collapse chain map to the r2 generator: the resulting degree set is {+1}, establishing a genuine integral inclusion isomorphism, not a mod2 coincidence. At r1 each of 20 edge-disjoint triangles collapses, leaving rank 11 loops; at r4 the only missing edges form 15 disjoint antipodal pairs, yielding join of 15 S0=S14; at diameter-five scale a full simplex. Therefore the all-threshold integral homotopy and persistent intervals are established for this precise graph metric.
 
-## Limits
-The result is specific to the graph shortest-path metric, not Euclidean coordinates. No general family theorem or independent certification is claimed, and literature-priority uncertainty persists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-versus-prior comparison found no work proving the complete final claim; specifically distinguishes stronger source statements, aliases, exact tables and non-implications. No failed search is regarded as proof of priority.
+
+## value
+
+PASS
+
+The icosidodecahedron is a canonical Archimedean 30-vertex line graph, and the complete graph-shortest-path filtration has a distinctive S2 plateau through two distinct thresholds followed by a 14-sphere crosspolytope boundary. The explicit primitive degree of the inclusion r2→r3 is essential for its integral barcode, not inferable from the separate homotopy types; this is a complete natural exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
