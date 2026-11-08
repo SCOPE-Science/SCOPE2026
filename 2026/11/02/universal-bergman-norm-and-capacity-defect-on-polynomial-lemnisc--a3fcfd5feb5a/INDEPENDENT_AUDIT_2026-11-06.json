@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:12:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For monic P of degree d and k>=1, P'P^(k-1)/d is monic of degree dk-1. For every f of degree <=dk-2, Green gives the inner product as level-boundary integrals proportional to ∮ f/P^k dz; the residue sum vanishes because f/P^k=O(z^-2) at infinity. Approximation by regular levels handles critical values. The area formula for a d-sheeted polynomial map gives ||P' P^(k-1)/d||²=pi(R^(2k)-r^(2k))/(dk). Differentiation of monic polynomials and cap(P^-1(disk_R))=R^(1/d) yield b_{dk}=sqrt(R^(2k)-r^(2k)) and normalized defect sqrt(1-(r/R)^(2k)); uniqueness follows positive definiteness of area Gram matrix. No assumption of simply connected filled set or regular boundary is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ransford Theorem 1.1 bounds b_n(K)<=cap(K)^n for arbitrary K, but it does not identify sharp equality/defect on all polynomial shells.",
+          "Simanek Theorem 1.6 and Corollary 1.7 establish shift and ratio asymptotics for filled lemniscates, not an exact finite-k shell identity.",
+          "Saff–Stahl–Stylianopoulos–Totik show asymptotic insensitivity under removed interior lakes."
+        ],
+        "reasoning": "Broad inequality and limiting ratio are mathematically weaker than explicit finite-degree shell identities, even on a specially structured subfamily.",
+        "searches": [
+          "arXiv:2610.24702 Ransford least squares capacity theorem",
+          "arXiv:1307.1941 Theorem 1.6 Corollary 1.7",
+          "arXiv:1403.6456 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Ransford arXiv:2610.24702 primary full HTML",
+        "Gustafsson–Putinar–Saff–Stylianopoulos arXiv:0811.1715 Proposition 7.2 PDF",
+        "Simanek arXiv:1307.1941 full text: Theorems 1.3,1.6, Corollary 1.7",
+        "Saff–Stahl–Stylianopoulos–Totik arXiv:1403.6456 Theorem 2.1 (prior comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior filled special case supplies P'P^(k-1)/d at one P and no removed inner levels.",
+          "Simanek discusses ratios as n->infinity for filled lemniscates, while exact norm here holds at each k on nonconcentric multiply connected shells.",
+          "Ransford capacity inequality only bounds extremal norms, not exact norm deficit."
+        ],
+        "reasoning": "The new residue argument and d-sheet area pushforward are additional mathematical steps; no inspected earlier statement entails the boxed shell ratio for all P,r,R,k.",
+        "searches": [
+          "arXiv:0811.1715 Proposition 7.2",
+          "arXiv:1307.1941 Theorem 1.6 and Corollary 1.7",
+          "arXiv:2610.24702 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gustafsson–Putinar–Saff–Stylianopoulos provide an exact filled polynomial case P=z^m-1, inner radius zero.",
+          "Simanek studies Bergman shift on filled polynomial lemniscates and asymptotic leading coefficient relations; the asserted exact arbitrary-P shell norm was not found in inspected theorems."
+        ],
+        "reasoning": "Equivalent presentation via weighted polynomial pullback and shell orthogonal subsequences was checked; known special filled examples do not imply exact arbitrary polynomial outer and inner boundary dependence.",
+        "searches": [
+          "polynomial lemniscate annulus Bergman orthogonal polynomials P'(z) P(z)^(k-1) capacity norm Ransford",
+          "arXiv:0811.1715 Proposition 7.2",
+          "arXiv:1307.1941"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned published-finding semantic hits concern mostly Hartogs domains, Bergman kernel zeros and other lemniscate problems, not this finite-degree monic extremal norm.",
+          "Classic explicit filled-case table concerns |z^m-1| level, not arbitrary P and inner shell."
+        ],
+        "reasoning": "A family-wide exact formula independent of P is not a known single table entry; search nonmatches alone are not proof of publication priority.",
+        "searches": [
+          "exact Bergman norms polynomial lemniscate shell P prime P power polynomial database",
+          "Resultary: polynomial lemniscate annulus Bergman orthogonal polynomials P prime capacity norm Ransford"
+        ]
+      },
+      "rationale": "Exact all-monic-polynomial Bergman extremal subsequence and two-radius shell capacity deficit extend a previously documented special filled polynomial and asymptotic lake-removal results. Full-text inspection of close Simanek paper in this run shows asymptotic shift/ratio theorems, not the exact two-radius formula; residual possibility of historical unindexed identity remains.",
+      "residual_risks": [
+        "An equivalent polynomial-pullback norm identity in other Bergman literature could predate the current record despite searches.",
+        "The result is restricted to degrees dk-1 and nested modulus shells, not arbitrary holes or intermediate polynomial degrees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general upper bound only, no two-radius polynomial shell identity in inspected theorem",
+          "evidence": "Theorem 1.1 supplies b_n<=cap^n, whereas exact shell ratio requires identifying P'P^(k-1)/d",
+          "identifier_or_url": "arXiv:2610.24702",
+          "material_read": "Full available arXiv HTML: theorem statements and capacity inequality, equality/asymptotic discussion",
+          "method": "read primary HTML; compare theorem hypotheses and output",
+          "title": "A least-squares lower bound for capacity",
+          "trigger": "general capacity inequality may subsume exact norm"
+        },
+        {
+          "assessment": "covers special P=z^m-1 and r=0, not the full asserted two-radius arbitrary-P statement",
+          "evidence": "Exact explicit polynomial in a special rotationally symmetric filled family is credited",
+          "identifier_or_url": "arXiv:0811.1715",
+          "material_read": "Full accessible arXiv PDF: Proposition 7.2 and corresponding model setup",
+          "method": "read primary PDF, inspect Proposition 7.2",
+          "title": "Bergman polynomials on an archipelago: Estimates, zeros and shape reconstruction",
+          "trigger": "filled polynomial lemniscate exact orthogonality case"
+        },
+        {
+          "assessment": "ratio asymptotics and shift operator for filled levels; no explicit exact finite-k polynomial shell norm in compared theorem statements",
+          "evidence": "Theorem 1.6 concerns support in |P|<=r and shift convergence; Section 2 proves asymptotic coefficient conclusions; example uses |z^q-1|",
+          "identifier_or_url": "arXiv:1307.1941",
+          "material_read": "Full arXiv text, introduction, Theorems 1.3 and 1.6, Corollary 1.7, Sections 2–4 and examples inspected",
+          "method": "read original arXiv HTML with exact theorem search",
+          "title": "The Bergman Shift Operator on Polynomial Lemniscates",
+          "trigger": "very close topic and older possible dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact monic Bergman minimizers and norm ratios on all polynomial lemniscate shells turn qualitative hole-insensitivity and general capacity bounds into a sharp geometry-independent finite-degree law. Such exact subsequences and deficits are natural extremal invariants, not arbitrary numerical slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n=dk degree subsequence; critical modulus levels allowed by approximation; unnormalized planar area.",
+    "Raw Git tree object not exposed by repository connector: source tree SHA is assigned guard, not independently recomputed."
+  ],
+  "schema_version": 1
+}
