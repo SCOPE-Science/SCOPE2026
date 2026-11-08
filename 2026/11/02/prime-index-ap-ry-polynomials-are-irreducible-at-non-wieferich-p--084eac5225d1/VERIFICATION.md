@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Execute `python3 verify_apery.py` using an ordinary Python 3 interpreter (standard library only). The script independently constructs the original Apéry-family coefficients and the complete translated coefficients by integer binomial convolution; it tests every coefficient modulo the prime, the constant coefficient modulo its square, and five independent integer-value identities.
+## correctness
 
-Observed output:
+PASS
 
-`CHECK_OK cases=189 coefficients=4350 evaluation_identities=945 Wieferich_boundary_1093=confirmed`
+Let q=2^s. For odd prime p, every intermediate coefficient binom(p,k)^r is divisible by p^2 since r>=2. Using binom(2p,p)=2 prod(1+p/j) and reciprocal pairing gives binom(2p,p)=2 mod p^2. Translated H(Y)=q^p B((Y-1)/q) has H(Y)=qY^p mod p, with leading p-unit. Its constant term is q(2^(s(p-1))-1) mod p^2; the non-Wieferich hypothesis v_p(2^(p-1)-1)=1 together with p not dividing s makes this divisible by p but not p^2. Eisenstein applies and invertible affine transformation preserves irreducibility. No inference about Wieferich primes, p=2, composite index or infinitely many non-Wieferich primes. Independently tested 105 Eisenstein polynomials and 1620 coefficients.
 
-The independent integer-value comparisons detect coefficient-translation errors. The prime-1093 test only confirms one explicitly excluded arithmetic boundary; it is not an assertion that the theorem fails there. Exact finite checks cannot establish universal irreducibility: the full proof uses divisibility of all intermediate binomial coefficients, an exact central-binomial congruence modulo a prime square, and the Eisenstein criterion. The eligibility of a prime must be established separately by computing the Fermat quotient; infinitude of eligible primes is not assumed.
+## originality
 
-No independent mathematical audit has been performed.
+PASS
+
+Sun, Guo-Zeng and Pan study Apéry polynomial congruences, and OEIS records the stronger conjecture of irreducibility for every n. This work proves a stated subset indexed by non-Wieferich prime n, not the conjecture in full. The shift-Eisenstein method is transparent but nontrivial to discover; a broad irreducibility theorem in polynomial literature might subsume this family and remains a historical-priority risk.
+
+## value
+
+PASS
+
+The source conjectures irreducibility for two classical Apéry polynomial families at all indices. A proven arithmetic subfamily of both is a mathematically motivated partial advance; the general (r,s) extension and explicit affine Eisenstein shift provide a reusable proof principle. No unsupported infinitude claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
