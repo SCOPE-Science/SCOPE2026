@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Analytically checked assumptions and quantifiers: fixed geometric parameter, fixed exponent, multinomial samples, weighted duality, Gaussian finite-dimensional limit with summable tail, degenerate Pearson kernel and diagonal bound in the logarithmic critical regime, Poisson cell limit with two uniform tail estimates, and finite-n infinite-moment calculation. No independent validation or automated infinite theorem certification has occurred.
+## correctness
 
-Run `python checker.py` with NumPy installed. The finite script checks exact dual-norm identities by rational arithmetic, exact second moments of binomial Pearson terms, and indexing equivalence of Poisson phase endpoints. With NumPy's fixed random seed it also prints finite simulations at two sample sizes. `checker-output.txt` captures its completed output. All 1,478 assertions passed; the simulation's broad heavy-tail scatter is expected and does not refute convergence in probability of the central regime.
+PASS
 
-Limitations: numerical trials cannot prove asymptotic statements or originality. Primary textual references are listed in RESULT.md; a broader historical-priority audit may uncover equivalent results.
+Weighted Lq duality gives Δ^r=Σ_j p_j|N_j/(np_j)−1|^r, finite a.s. For 1<r<2, finite-dimensional multinomial CLT with tail bound Σ_{j>J}p_j^{1−r/2} proves Gaussian weighted ℓ^r limit after sqrt(n). At r=2 the large-intensity core Pearson statistic has expectation J+O(1) and variance O(J) via a degenerate two-sample kernel, while O(sqrt(log n)) fringe and no-rare-hit tail are negligible; nΔ²/log n→1/|logρ| in probability. For r>2, moving indices K_n+k converge to independent Poisson(τρ^k), and high-intensity centered-binomial moment and rare-hit low-intensity bounds make both bi-infinite tails tight, proving the log-lattice subsequential limit. Tonelli gives EΔ^r=∞ for r≥2 at every n. Finite checker assertions do not prove these weak limits.
+
+## originality
+
+PASS
+
+Bartel–Morgan (arXiv:2610.29880) studies qualitative simultaneous strong law over countable probability spaces and provides no fluctuation rates. Garza–Wang (arXiv:2412.02160) gives FCLTs for linear occupancy statistics with polynomial sampling tails rather than nonlinear Lq dual discrepancy under exact geometric masses. Iksanov–Kotelnikova studies LIL of small occupancy counts, not the operator norm; Resultary searches for geometric occupancy norms found no same law. A general infinite-dimensional empirical-process/chi-square theorem could nevertheless subsume components and is a priority risk.
+
+## value
+
+PASS
+
+Natural quantitative sharpening of qualitative uniform empirical convergence: sharp q=2 threshold, critical log factor, explicit Gaussian vs phase-dependent bi-infinite Poisson limits, and proof that moment-based estimates fail since the norm powers have infinite expectation. Fixed geometric alphabet and fixed q limitations explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

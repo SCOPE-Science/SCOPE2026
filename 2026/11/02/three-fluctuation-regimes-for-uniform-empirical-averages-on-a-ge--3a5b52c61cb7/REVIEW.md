@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact weighted duality reduces the uniform functional discrepancy to a multinomial coordinate norm. For \(q>2\), the fixed-coordinate multinomial central limit theorem and a summable concavity tail bound give the Gaussian-series law. For \(q=2\), a degenerate order-two kernel yields an \(O(K)\) bound on the variance of the bulk Pearson statistic; Markov and a no-tail-hit event dispose of the remaining bands and give the exact coefficient \(1/|\log\rho|\). For \(1<q<2\), fixed windows converge to independent Poisson counts; centered binomial moment bounds dispose of the high-intensity side, and a rare-hit estimate handles the low-intensity side. Separate Tonelli arguments establish infinite moments. Exact checker calculations validate finite identities but are not substituted for infinite proofs. Scope is exactly geometric iid sampling.
+PASS
 
-## Originality — PASS, qualified
+Weighted Lq duality gives Δ^r=Σ_j p_j|N_j/(np_j)−1|^r, finite a.s. For 1<r<2, finite-dimensional multinomial CLT with tail bound Σ_{j>J}p_j^{1−r/2} proves Gaussian weighted ℓ^r limit after sqrt(n). At r=2 the large-intensity core Pearson statistic has expectation J+O(1) and variance O(J) via a degenerate two-sample kernel, while O(sqrt(log n)) fringe and no-rare-hit tail are negligible; nΔ²/log n→1/|logρ| in probability. For r>2, moving indices K_n+k converge to independent Poisson(τρ^k), and high-intensity centered-binomial moment and rare-hit low-intensity bounds make both bi-infinite tails tight, proving the log-lattice subsequential limit. Tonelli gives EΔ^r=∞ for r≥2 at every n. Finite checker assertions do not prove these weak limits.
 
-The motivating Bartel–Morgan theorem (arXiv:2610.29880v1, Theorem 1.2 and Section 2 read) is qualitative: it determines when an entire \(L^q\) class obeys a simultaneous strong law. It does not give empirical-operator-norm fluctuation scales. Garza–Wang (arXiv:2412.02160v1, abstract, Section 1 and theorem context read) treats linear count-occupancy statistics under polynomial-decay sampling; that theorem neither implies the present nonlinear norm nor covers geometric sampling hypotheses. Iksanov–Kotelnikova (DOI:10.15559/24-VMSTA248, abstract and main-results sections read) studies small occupancy-count LILs rather than the present norm. Targeted searches of mathematical research records for geometric-alphabet empirical norms, Gaussian/Poisson phase transitions, and log-periodic occupancy limits did not identify an equivalent claim. This is best-knowledge originality, not proof of historical exclusivity. Possible implicit coverage in general Banach-valued empirical-process results remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating paper provides only qualitative simultaneous convergence. The exact empirical-operator norm is the natural worst-case sampling error over the entire admissible function ball. The new work identifies a genuine threshold \(q=2\), resolves three distinct normalizations including a critical log penalty and an explicit constant, and determines the finite-sample infinite-moment obstacle to expectation-based bounds. A bi-infinite Poisson limit describes atypical low-probability coordinates, supplying structural information for finite-sample approximation beyond a routine scalar law of large numbers.
+Bartel–Morgan (arXiv:2610.29880) studies qualitative simultaneous strong law over countable probability spaces and provides no fluctuation rates. Garza–Wang (arXiv:2412.02160) gives FCLTs for linear occupancy statistics with polynomial sampling tails rather than nonlinear Lq dual discrepancy under exact geometric masses. Iksanov–Kotelnikova studies LIL of small occupancy counts, not the operator norm; Resultary searches for geometric occupancy norms found no same law. A general infinite-dimensional empirical-process/chi-square theorem could nevertheless subsume components and is a priority risk.
 
-## Closest literature and limitations
+## value
 
-The full sources above were examined at relevant theorem/assumption sections; no absolute claim of novelty is made. Broad functional limit results beyond the inspected references may cover parts of the theorem. The scope is geometric tails, fixed \(q\), and iid observations; no general tail-family extension or phase injectivity is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural quantitative sharpening of qualitative uniform empirical convergence: sharp q=2 threshold, critical log factor, explicit Gaussian vs phase-dependent bi-infinite Poisson limits, and proof that moment-based estimates fail since the norm powers have infinite expectation. Fixed geometric alphabet and fixed q limitations explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
