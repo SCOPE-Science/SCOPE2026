@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:22:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For a>b>0, exact rank-one Nyström quotient ab(1+z)/(b+az), oracle scaling c=m(b+az)/(b(1+a)+a(1+b)z), and trace/determinant reduce comparison kappa(B)>(1+a)/(1+b) to -Q(z)>0. Independently sympy-factored the full rational sign identity to zero; Q has coefficient signs ++--, Q(0)>0 and Q(1)=-b(a+b+2)^2<0 so exactly one crossing in (0,1). Squared independent Gaussian coordinate ratio is Cauchy-squared, proving each probability, and coefficient limit Q/a^2=z[(1+b)-bz-(1+b)z^2] gives the asymptotics. Scope only rank one, dimension two, oracle m=1+b, exact Gaussian models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frangella–Tropp–Udell randomized Nyström PCG uses different scaling/probabilistic guarantees; Daužickaitė et al exact operational covariance is only approximate."
+        ],
+        "reasoning": "Broad method theorems address numerical bounds or convergence, not the exact stochastic condition-number worsening event for specified oracle scaling.",
+        "searches": [
+          "arxiv:2110.02820 randomized Nyström preconditioning",
+          "arxiv:2205.13355 single pass Nyström error",
+          "arxiv:2605.23571 informed Gaussian preconditioning"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23571v2 §§3.1–3.2.3 (read full mathematical sections)",
+        "arXiv:2205.13355 (abstract/summary)",
+        "arXiv:2110.02820 (summary)",
+        "Resultary semantic search Gaussian Nyström rank one two eigenvalues probability worse condition number spectral preconditioning informed covariance A+A²"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In arXiv:2605.23571 Proposition 1 approximate covariance is A+A^2; substituting it into a rank-one 2x2 Nyström map requires fresh cubic algebra; no theorem provides both exact tails."
+        ],
+        "reasoning": "Specific cubic/probability formulas do not follow by substituting parameters in the reported generic error bounds.",
+        "searches": [
+          "arxiv:2605.23571 equations for sketch covariance",
+          "arxiv:2205.13355 bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2605.23571 §3.2.3 and Algorithm 3.1 supply generic Nyström and oracle-like scaling; trace-determinant cubic specific to 2x2 not stated."
+        ],
+        "reasoning": "General eigenpair correction or Rayleigh-based two-mode models are not equivalent to harmonic single-pass Nyström eigenvalue and two positive eigenmodes.",
+        "searches": [
+          "Resultary semantic: Gaussian Nyström rank one two eigenvalues probability worse condition number spectral preconditioning informed covariance A+A²",
+          "Giraud and Gratton spectral preconditioner perturbation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact two-mode crossing table found; published source contains simulations not this cubic law."
+        ],
+        "reasoning": "The event has continuous Gaussian probability and exact root; no database/table entry located giving identical quantifiers. Search absence is not a uniqueness certificate.",
+        "searches": [
+          "Resultary semantic: Gaussian Nyström rank one two eigenvalues probability worse condition number spectral preconditioning informed covariance A+A²",
+          "two-mode spectral condition number worsening Cauchy formula"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge). The input EDA covariance, Nyström eigenvalue and spectral LMP are published; the sharp two-mode probability cubic and exponents p_iso~a^-1 versus p_informed~a^-2 are additional exact stochastic statements, not implied by existing matrix error or eigenpair sensitivity estimates.",
+      "residual_risks": [
+        "Historical sensitivity papers not all inspected full text.",
+        "The informed covariance is an imposed exact Gaussian model and approximates rather than validates real EDA differences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides constructions and approximate covariance; does not directly state two-dimensional exact deterioration cubic",
+          "evidence": "Proposition 1; §3.2.3, Algorithm 3.1",
+          "identifier_or_url": "https://arxiv.org/html/2605.23571v2",
+          "material_read": "Full mathematical HTML: Proposition 1, §§3.1–3.2.3, Algorithm 3.1 and numerical discussion",
+          "method": "author original HTML/PDF inspection",
+          "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+          "trigger": "Same Nyström construction, EDA-informed sketch covariance"
+        },
+        {
+          "assessment": "Conservative risk: full paper may contain related conditioning implications but is not established non-coverage",
+          "evidence": "arXiv:2205.13355 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2205.13355",
+          "material_read": "Abstract and selected result summary, not complete paper",
+          "method": "public abstract/result inspection",
+          "title": "Single-Pass Nyström Approximation in Mixed Precision",
+          "trigger": "Broader Nyström error bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Gives a precise harmful-preconditioning event with exact failure probability and contrasts isotropic versus informed sketches. The two-mode benchmark is mathematically motivated by preconditioner safety; neither finite checks nor claimed field performance are used to infer a wider theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical sensitivity papers not all inspected full text.",
+    "The informed covariance is an imposed exact Gaussian model and approximates rather than validates real EDA differences."
+  ],
+  "schema_version": 1
+}
