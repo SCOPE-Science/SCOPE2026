@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Computational and symbolic verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` provides the general algebraic argument. Independently, `verify.cpp` implements the multiplication table \(e_i e_j=e_{2j-i\bmod 2p}\) directly, enumerates coefficient vectors, and tests all \(2p\) coordinates of \(x^2=x\). It does not implement Fourier transforms, Frobenius orbits, or a predetermined family of idempotents. Compile and run with `c++ -O3 -std=c++17 verify.cpp -o verify && ./verify`.
+## correctness
 
-Actual complete enumeration results:
+PASS
 
-| Prime \(p\) | Field order \(q\) | Enumerated count | Predicted count |
-| ---: | ---: | ---: | ---: |
-| 3 | 3 | 28 | 28 |
-| 3 | 5 | 96 | 96 |
-| 3 | 7 | 176 | 176 |
-| 5 | 3 | 184 | 184 |
-| 5 | 5 | 626 | 626 |
-| 7 | 3 | 760 | 760 |
+The algebra section s(e_j)=(e_j+e_{j+p})/2 splits the cover; W=ker pi is a right annihilator, reducing fibers to fixed vectors of T_Y(Z)=iota(Z)Y on F_q[u]/(u^p-1). In nonmodular characteristic, Fourier B_k=B_{-k}B_{2k}, opposite-frequency reciprocality and 2-orbits yield 1 inactive or d active choices for each Frobenius coset and dimension b+Lft of the fixed space. In modular char p, the augmentation-zero leading J-adic term forces zero, while truncated log/exp for augmentation-one solutions gives h free coefficients; Y iota(Y)=1 and T_Y conjugate to inversion supply fixed dimension (p+1)/2. The equations cover the zero idempotent and all odd finite fields. Independently re-enumerated direct multiplication in F_q[R_{2p}] for (p,q)=(3,3),(3,5),(5,3), obtaining 28,96,184. These finite checks are not the unrestricted proof.
 
-The checker prints `VERIFY_OK`. These enumerations are exhaustive for their finite domains; they do not certify the infinite parameter family. Necessary algebraic steps for the unrestricted proof are: verification of the algebra section and right-annihilator kernel; identification of lift eigenspaces with \(Z\mapsto\iota(Z)Y\); reciprocal Fourier-pair propagation and Frobenius descent; in modular characteristic, the nilpotent-local-group-ring argument and conjugation of the involution. Field-extension dimension preservation is standard for vector spaces defined by linear equations over \(\mathbb F_q\).
+## originality
 
-Independent audit has not been performed. No external formal proof certificate is claimed.
+PASS
+
+The closest 2026 integral quandle algebra literature and the published base R_3 characteristic-three enumeration are expressly not new; the present result adds the nonlatin 2p cover, exact finite-field fiber dimensions, Frobenius product and characteristic-dividing-p transition. Checked primary abstracts/scope and Resultary findings, with priority risks for unindexed finite-field quandle rings.
+
+## value
+
+PASS
+
+The 2p→p surjection introduces nontrivial right-annihilator fibers absent in latin odd-order calculations. The exact field-arithmetic counts and modular jump resolve a natural first nonlatin family and give reproducible structural formulas, beyond a parameter substitution or a bare small-table census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
