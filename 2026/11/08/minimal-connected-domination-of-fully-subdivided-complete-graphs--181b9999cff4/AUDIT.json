@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 a CDS has at least n-1 original vertices, since two omissions force an isolated subdivision vertex. All-original selections fail inclusion-minimality by deleting a selected cycle subdivision vertex or a leaf original vertex of a spanning tree. With exactly one omission v, minimality forces a spanning tree among remaining originals and exactly one subdivided incident edge to dominate v. Every constructed set is minimal against all proper CDS subsets because each remaining original and each selected subdivision vertex is forced by connectivity or domination. Cayley counts (n-1)^(n-3) spanning trees, giving n(n-1)^(n-2) configurations of size 2n-2. Brute-force verification covers 2,131,004 nonempty subsets for n=3..6; all generated n=7 examples pass direct checks. Finite tests corroborate but do not prove the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abu-Khzam et al., arXiv:2205.00086 (full-text HTML, 2022), and ESA 2022 DOI:10.4230/LIPIcs.ESA.2022.1 (15-page PDF): general exact exponential-time enumeration of minimal CDS on all graphs and 2-degenerate graphs.",
+        "The 2022 arXiv paper provides lower-bound constructions based on a hub linked to bipartite gadgets, not S(K_n)."
+      ],
+      "reasoning": "The existence of a general algorithm enumerating unknown configurations is not a symbolic complete classification or exact closed-form cardinality polynomial for this graph family; no inspected theorem has stronger explicit coverage of this claim.",
+      "searches": [
+        "\"subdivision graph\" \"minimal connected dominating\" \"spanning trees\"",
+        "\"Enumerating Connected Dominating Sets\" arXiv:2205.00086 sections 1-7",
+        "\"New classification of graphs in view of the domination number of central graphs\" arXiv:2204.10292 sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.10292",
+      "arXiv:2205.00086",
+      "DOI:10.4230/LIPIcs.ESA.2022.1",
+      "Kazemnejad–Pahlavsay, Domination Number of Central Graphs, Theorem 2.2 (accessible excerpt)",
+      "MathWorld: Minimal Connected Dominating Set (definitions and finite GraphData functionality)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kazemnejad and Pahlavsay, Domination Number of Central Graphs, Theorem 2.2: ordinary gamma(C(K_n))=n-1, which is distinct from connected gamma_c(C(K_n))=2n-2 proved here.",
+        "Fujita et al., arXiv:2204.10292, Theorem 3.1 and Section 4 concern gamma(C(G)), not gamma_c or the all-minimal-CDS enumerator.",
+        "The general enumeration theorem of Abu-Khzam et al. supplies an algorithm but no Cayley bijection or central-complete-graph specific count."
+      ],
+      "reasoning": "The new claim neither renames the ordinary domination result nor follows as a stated special case of a stronger published exact theorem in the inspected sources. It uses classical labelled-tree counting after a new-to-these-sources structural reduction.",
+      "searches": [
+        "\"Domination number of central graphs\" \"K_n\" theorem 2.2",
+        "\"connected domination number\" \"central graph\" \"K_n\"",
+        "\"Enumerating Connected Dominating Sets\" 2205.00086 lower-bound theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fujita et al., arXiv:2204.10292, Definition 1.1 identifies C(K_n) with S(K_n); the paper concerns ordinary domination number gamma(C(G)).",
+        "No connected-domination formula occurs in the inspected central-graph article sections or its searchable full-text HTML."
+      ],
+      "reasoning": "The central-graph and incidence-graph aliases were explicitly included in the comparison; their ordinary-domination statements are not equivalent to enumerating all inclusion-minimal connected dominating sets.",
+      "searches": [
+        "\"minimal connected dominating sets\" \"subdivision\" complete graph",
+        "\"minimal connected dominating\" \"central graph\" \"complete\"",
+        "\"minimal connected dominating sets\" \"incidence graph\" \"complete graph\"",
+        "\"central graph\" \"minimal connected dominating\" Kn"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld, Minimal Connected Dominating Set, describes GraphData functionality that can compute counts for named finite graphs, but no formula for S(K_n) is supplied there.",
+        "Targeted exact formula, central-graph and subdivision searches did not locate a table giving the all-n classification."
+      ],
+      "reasoning": "A general finite-graph database query interface does not imply the explicit all-order classification or closed formula; absence of a hit is only limited evidence and not proof of novelty.",
+      "searches": [
+        "\"minimal connected dominating sets\" \"(n-1)^(n-2)\"",
+        "\"minimal connected dominating sets\" \"C(K_n)\"",
+        "\"minimal connected domination polynomial\" subdivision complete",
+        "\"connected domination\" \"subdivision of complete graphs\" \"2n-2\""
+      ]
+    },
+    "rationale": "The exact all-minimal-CDS theorem for C(K_n)=S(K_n) was compared with ordinary domination on central graphs and general minimal-CDS enumeration algorithms. The inspected primary texts do not state the classification indexed by an omitted old vertex, an incident selected edge subdivision, and a spanning tree, or its n(n-1)^(n-2) size distribution. The Cayley step is classical and is not claimed as original. Residual priority risk is a differently named or unindexed equivalent.",
+    "residual_risks": [
+      "An independent priority review may locate a differently named graph family or historical exact count.",
+      "Complete text of the earlier ordinary-domination preprint was not inspected; excerpt establishes a different parameter.",
+      "The inspected general enumeration papers are not a proof that no stronger exact specialization exists elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary domination and vertex covers only; not the minimal connected dominating family.",
+        "evidence": [
+          "Definition 1.1: C(G) is edge subdivision plus nonedges of original G; hence C(K_n)=S(K_n).",
+          "Theorems 3.1 and 4.1–4.9 analyze ordinary domination, with no full minimal connected CDS classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.10292",
+        "material_read": "Full-text HTML sections 1–4, including definitions, theorems about central graphs and results on graph families; full-text searches for connected dominating and spanning tree.",
+        "method": "Direct reading and comparison of definitions/claims",
+        "title": "New classification of graphs in view of the domination number of central graphs",
+        "trigger": "Same graph under central-graph alias"
+      },
+      {
+        "assessment": "General-purpose enumeration and unrelated extremal constructions, no exact S(K_n) family formula found.",
+        "evidence": [
+          "Section 3 enumerates minimal CDS on 2-degenerate graphs in exponential time.",
+          "Section 6 gadget lower-bound constructions do not coincide with S(K_n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.00086v1",
+        "material_read": "Accessible full-text HTML: introduction, definitions, algorithmic theorems, lower-bound section, conclusions and references; searches for subdivision and complete graph.",
+        "method": "Section-by-section primary-claim comparison",
+        "title": "Enumerating Connected Dominating Sets",
+        "trigger": "Same minimal connected domination object and potentially stronger general theorem"
+      },
+      {
+        "assessment": "No exact formula for central graphs of complete graphs in inspected material.",
+        "evidence": [
+          "ESA 2022 Theorem 4.1 gives general O(1.9896^n) enumeration, not a closed formula.",
+          "The full-version reference is arXiv:2205.00086."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol244-esa2022/LIPIcs.ESA.2022.1/LIPIcs.ESA.2022.1.pdf",
+        "material_read": "15-page PDF: abstract, definitions, algorithmic theorem, hardness and lower bounds, cross-checked with its longer arXiv version.",
+        "method": "PDF page text and page-image inspection",
+        "title": "Enumerating Minimal Connected Dominating Sets",
+        "trigger": "Peer-reviewed conference version of central enumeration work"
+      },
+      {
+        "assessment": "Theorem 2.2 computes ordinary gamma(C(K_n))=n-1; insufficient to determine minimal connected dominating sets.",
+        "evidence": [
+          "Theorem 2.2 concerns domination number n-1, which is much smaller than the connected domination number here."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/357394959_DOMINATION_NUMBER_OF_CENTRAL_GRAPHS",
+        "material_read": "Accessible repository text including abstract and Theorem 2.2, not the complete PDF.",
+        "method": "Read relevant displayed theorem, identify parameter",
+        "title": "Domination Number of Central Graphs",
+        "trigger": "Same graph C(K_n), explicit ordinary domination theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "181b9999-cff4-4370-bbaa-a46d0e6af878",
+  "value": {
+    "rationale": "A natural infinite family, simultaneously full once-subdivisions and central graphs of complete graphs, receives a complete all-minimal-solution classification, exact Cayley-type enumeration and equality of lower/upper connected domination. The bijection with a deleted vertex, selected incident edge and arbitrary labelled spanning tree makes the solution space explicit rather than merely reporting a minimum size. This exact classification is mathematically motivated by hard general minimal-CDS enumeration and is not an arbitrary finite slice or a textbook parameter substitution.",
+    "status": "PASS"
+  }
+}
