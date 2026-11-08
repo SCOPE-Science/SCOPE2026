@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:04:55.582832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For every integer n≥6 and 1≤k≤n−3, the unit-circle Löwner contact criterion is equivalent to nonnegative Fourier moment weights with first two harmonics zero. Reflecting across the deletion-block bisector reduces to E(c)=0, E(c²)=1/2 with extreme cosine values −B and C=cos(π(k+1)/n). The elementary inequality E(c²)≤BC proves impossibility for 3(k+1)>n; conversely the parity-dependent B·C≥1/2 bound and a low-variance adjacent-node distribution bracketing c=0 yield convexly interpolated nonnegative contact weights. This proves global affine-ellipse optimality, not merely circular optimality; every n,k boundary is covered. I independently checked the parity endpoint inequality through n=400 (all passing pairs) and inspected the complete mathematical proof; this finite check corroborates but is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rublev–Petunin (1998) section 4 treats isosceles trapezoids and section 6 finite-polygon algorithm.",
+          "Güler–Gürtuna (2007) Section 2 gives generalized Löwner contact conditions."
+        ],
+        "reasoning": "The general optimality characterization and arbitrary-instance algorithm do not mathematically imply the explicit all-regular-grid 1/3 threshold without new evaluation; their broader computational scope is fully credited.",
+        "searches": [
+          "Rublev Petunin Minimum-Area Ellipse Containing a Finite Set of Points II 1998",
+          "arxiv:0709.0707 circumscribed ellipsoid contact theorem",
+          "minimum enclosing ellipse regular polygon delete consecutive vertices"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-one-third-erasure-threshold-for-the-l-wner-ellipse-of-a-re--14b6d47df448/RESULT.md",
+        "arXiv:0709.0707 (Güler–Gürtuna), Section 2",
+        "Rublev–Petunin, Ukrainian Mathematical Journal 50(8) (1998), sections 4 and 6",
+        "arXiv:1001.2451 (Peherstorfer)",
+        "Resultary searched for regular polygon vertex deletion/Löwner ellipse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The contact equations and trapezoid BC condition follow from older methods.",
+          "The sharp parity-sensitive formula C=cos(π(k+1)/n), B∈{1,cos(π/n)}, together with BC threshold interpolation, proves the uniform n,k conclusion."
+        ],
+        "reasoning": "Prior establishes a general test and special configurations; its stated claims do not directly entail that every and only contiguous deletion obeying n≥3(k+1) preserves the circle.",
+        "searches": [
+          "Rublev–Petunin 1998 section 4 trapezoid circle condition",
+          "arxiv:1001.2451 quadrature prescribed nodes",
+          "arxiv:0709.0707 optimality contact criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güler–Gürtuna arXiv:0709.0707 supplies isotropic contact characterization; Peherstorfer arXiv:1001.2451 supplies positive trigonometric quadrature, but not a displayed all-grid deletion cutoff.",
+          "The exact reflection form reduces this special case to feasible first and second cosine moments."
+        ],
+        "reasoning": "Equivalent moment/optimal-design language was checked; it is an enabling reformulation, not an already-determined n,k iff condition in the inspected sources.",
+        "searches": [
+          "regular polygon consecutive vertex deletion Löwner minimum enclosing ellipse disk contact weights erasure threshold one third",
+          "Löwner ellipse consecutive vertex erasures regular polygon Fourier isotropic design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned related regular-polygon ellipsoid and polygon-geometry entries but no exact regular-grid erasure table or cutoff.",
+          "Rublev–Petunin gives a finite-polygon construction, not a stated infinite pair census."
+        ],
+        "reasoning": "No exact database or n,k table found with stronger certified all-order coverage; absence remains a finite-search limitation.",
+        "searches": [
+          "regular n-gon erased consecutive k vertices minimum area ellipse contact support table",
+          "Resultary search regular polygon consecutive vertex deletion Löwner minimum enclosing ellipse disk contact weights erasure threshold one third"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): The general circumscribed-ellipse optimality theorem and finite-polygon algorithms are acknowledged. Rublev–Petunin gives a related trapezoid circle condition and an arbitrary-polygon method; no inspected theorem directly provides the single-arc all-n iff 3(k+1)≤n classification or positive-contact support bound. A method capable of deciding each fixed polygon does not itself state the sharp uniform grid threshold. Search misses are not novelty proof; older optimal-design and trigonometric-quadrature results remain a priority risk.",
+      "residual_risks": [
+        "Older optimal-design/trigonometric quadrature or computational geometry literature could embed an equivalent 1/3 rule.",
+        "The independent finite parameter check through n=400 is diagnostic, not the infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_COMPLETE_CLASSIFICATION",
+          "evidence": "Section 4 uses a related isosceles trapezoid product condition; section 6 algorithm is per polygon, not a uniform consecutive deletion theorem.",
+          "identifier_or_url": "https://www.mit.edu/~hlb/ellipse-paper.pdf",
+          "material_read": "1998 full PDF relevant sections 4 and 6, their circle-optimality condition and polygon algorithm; mathematical propositions examined",
+          "method": "lawful publicly available original PDF, sections inspected",
+          "title": "Minimum-Area Ellipse Containing a Finite Set of Points. II",
+          "trigger": "Close arbitrary-polygon algorithm and trapezoid circle characterization"
+        },
+        {
+          "assessment": "SUPPLIES_FOUNDATIONAL_CRITERION",
+          "evidence": "Section 2 (pp. 5–7) gives positive contact multipliers, balanced centroid, isotropic covariance; polygon erasure parameters absent.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0707",
+          "material_read": "Abstract, introduction, section 2 contact decomposition and theorem context",
+          "method": "arXiv original PDF full-text targeted read plus page image",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "Löwner–John sufficiency necessity is central proof premise"
+        },
+        {
+          "assessment": "GENERAL_MOMENT_FRAMEWORK_PRIORITY_RISK",
+          "evidence": "Prescribed-node positive quadrature supports moment feasibility; no documented exact consecutive-block threshold among inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.2451",
+          "material_read": "Abstract and mathematical result descriptions, not a complete independent derivation of all the paper",
+          "method": "arXiv abstract/targeted accessible content",
+          "title": "Positive Trigonometric Quadrature Formulas and Quadrature on the Unit Circle",
+          "trigger": "Potential disguised two-harmonic moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact tolerance of the original minimum-area ellipse under a natural contiguous vertex-erasure perturbation of regular polygons is a structural stability boundary. The universal 1/3 threshold, strict failure outside it, and sparse optimality certificates are a useful closed classification, rather than checking a few polygons or just restating John’s criterion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-one-third-erasure-threshold-for-the-l-wner-ellipse-of-a-re--14b6d47df448/RESULT.md",
+    "arXiv:0709.0707 (Güler–Gürtuna), Section 2",
+    "Rublev–Petunin, Ukrainian Mathematical Journal 50(8) (1998), sections 4 and 6",
+    "arXiv:1001.2451 (Peherstorfer)",
+    "Resultary searched for regular polygon vertex deletion/Löwner ellipse"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only single consecutive erased vertex block, n≥6, at least three retained vertices.",
+    "No claim of optimizer shape beyond threshold.",
+    "No external or formal Lean certification.",
+    "Older optimal-design/trigonometric quadrature or computational geometry literature could embed an equivalent 1/3 rule.",
+    "The independent finite parameter check through n=400 is diagnostic, not the infinite proof."
+  ],
+  "schema_version": 1
+}

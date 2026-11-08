@@ -1,15 +1,21 @@
-# Scientific review: sharp one-third erasure threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete statement includes every integer \(n\ge6\) and \(1\le k\le n-3\). Rotational normalization, reflection symmetrization and the extremal cosine bounds reduce the disk's exact Löwner contact criterion to \(\mathbb Ec=0\) and \(\mathbb Ec^2=1/2\). The necessity proof uses \((c+B)(C-c)\ge0\); sufficiency constructs two zero-mean positive distributions straddling the target second moment, then symmetrizes. The even-parity endpoint inequality and strict area conclusion are included in the proof. The 60,375-case finite verifier computationally corroborates 20,010 constructive cases; finite computation is not substituted for proof.
+## correctness
 
-## Originality — PASS, qualified
-Meaningful overlap checks compared the exact same objects and implications against published results. Rublev–Petunin (1998) treats *arbitrary* polygon ellipses algorithmically and includes an inscribed trapezoid test, but the inspected theorem and algorithm do not present a closed, dimensionless exact cutoff for erasing arbitrary contiguous blocks from regular polygons. Güler–Gürtuna (2007) supplies the general necessary-and-sufficient contact theorem, not the specific threshold. Peherstorfer (2010) and Kutyniok–Okoudjou–Philipp (2013) supply Fourier-moment and frame-scaling frameworks without the claimed regular-polygon erasure classification. Published mathematical-result comparisons did not yield a statement implying the sharp \(3(k+1)\le n\) iff classification. The possibility of an older equivalent specialization, particularly in quadrature or optimal-design literature, is a genuine outstanding priority risk rather than an assertion of proved novelty.
+PASS
 
-## Value — PASS
-The result answers a natural **robustness question** for Löwner ellipses under loss of consecutive extreme points: the original area-minimizing ellipse is invariant under erasure of almost one third of its generating vertices, but not beyond the exact threshold. It gives both the sharp finite-size cutoff and explicit sparse isotropic witnesses, making it useful in convex-hull geometry and positive low-order circular cubature. This is a parameter-uniform structural classification, not a mere recomputation of one regular polygon or a selected small numerical sample.
+PASS: For every integer n≥6 and 1≤k≤n−3, the unit-circle Löwner contact criterion is equivalent to nonnegative Fourier moment weights with first two harmonics zero. Reflecting across the deletion-block bisector reduces to E(c)=0, E(c²)=1/2 with extreme cosine values −B and C=cos(π(k+1)/n). The elementary inequality E(c²)≤BC proves impossibility for 3(k+1)>n; conversely the parity-dependent B·C≥1/2 bound and a low-variance adjacent-node distribution bracketing c=0 yield convexly interpolated nonnegative contact weights. This proves global affine-ellipse optimality, not merely circular optimality; every n,k boundary is covered. I independently checked the parity endpoint inequality through n=400 (all passing pairs) and inspected the complete mathematical proof; this finite check corroborates but is not the proof.
 
-## Limitations and closest work
-The theorem does not determine the ellipse after the threshold, nor scattered-deletion tolerance. Existing general polygon-ellipse methods can recover individual cases, and prior equivalent results might exist under other formulations. The recorded publication dates distinguish first-posted arXiv dates from a 1998 source whose precise public day was not verified. No external independent examination was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): The general circumscribed-ellipse optimality theorem and finite-polygon algorithms are acknowledged. Rublev–Petunin gives a related trapezoid circle condition and an arbitrary-polygon method; no inspected theorem directly provides the single-arc all-n iff 3(k+1)≤n classification or positive-contact support bound. A method capable of deciding each fixed polygon does not itself state the sharp uniform grid threshold. Search misses are not novelty proof; older optimal-design and trigonometric-quadrature results remain a priority risk.
+
+## value
+
+PASS
+
+PASS: Exact tolerance of the original minimum-area ellipse under a natural contiguous vertex-erasure perturbation of regular polygons is a structural stability boundary. The universal 1/3 threshold, strict failure outside it, and sparse optimality certificates are a useful closed classification, rather than checking a few polygons or just restating John’s criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
