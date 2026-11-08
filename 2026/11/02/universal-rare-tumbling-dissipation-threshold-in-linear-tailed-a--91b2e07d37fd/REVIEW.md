@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is quantified for fixed \(b,T,v>0\), any fixed potential with bounded interior force and symmetric exact linear tails, and the limit \(r\downarrow0\). The stationary Foster–Lyapunov eigenvalue \(\Lambda_r(\theta)=-b\theta+T\theta^2-r+\sqrt{r^2+v^2\theta^2}\) is negative for sufficiently small positive \(\theta\), so every positive \(r\) has an integrable stationary law. The entropy-current identity is reconstructed from the stationary continuity equations. Uniform confinement below \(v=b\) gives frozen Gibbs limits; the absence of finite invariant frozen-orientation measures at and above threshold forces compact escape. The regularized-absolute-value stationarity test then gives the exact tail polarization \(b/v\) and hence the universal entropy formula. This is an analytical proof, not an extrapolation from finite computation. The independent verifier passed 99 assertions for exact single-cusp formulas and discretized generators for several distinct interiors.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+For every fixed r>0, a positive two-component exponential Lyapunov function on each exact linear tail has principal exponent -b*theta+T*theta^2-r+sqrt(r^2+v^2*theta^2), which is negative for small theta, ensuring a unique stationary law with adequate moments. The stationary current and symmetric flip balance imply E_r=(v/T)(v+E[f(X)S]). If v<b, a rate-uniform exponential Lyapunov test yields tightness; subsequential limits of each orientation solve a frozen diffusion and are the two normalized tilted Gibbs laws, each with mass 1/2, so E[fS]->-v and E_r->0. If v>=b, any vague limit is a finite invariant measure of a frozen diffusion with a nonintegrable restoring-opposed tail, hence must be zero. Smooth |x| generator testing and compact escape force E[S sgn X]->b/v, so E[fS]->-b^2/v, giving (v^2-b^2)/T including critical v=b. Assumptions require fixed positive T and symmetric exactly linear tails outside a compact. Independent small-rate cusp calculation at b=1,T=.7,v=1.5,r=.00032 gave 1.7865666 versus limit 1.7857143; numerical convergence is not a proof.
 
-The 2026 bistable study establishes the model and the steady-state entropy-flow integrals; the 2025 single-cusp study establishes the exact two-mode formula for one particular interior. Both were read in their available full arXiv HTML text. The 2022 study gives an antecedent frozen-orientation viewpoint; an accessible abstract, but not complete article text, was examined. Published exact formulas can imply the single-cusp limit on further analysis, so the single-cusp limit is explicitly **not** presented as the new content. The actual claim is the joint arbitrary-interior universality, location escape criterion, and sharp positive residual entropy beyond the active-force threshold. No identical or stronger such theorem was found in the primary full text, relevant web searches, accessible historical claims, or targeted mathematical research results. An inaccessible potentially related full text and unindexed publications remain residual priority risks, not proofs of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result exposes a qualitative physical boundary invisible from an assumption that rare tumbling always equilibrates: if a fixed active orientation cannot be trapped by either asymptotic wall slope, stationary particles escape to arbitrarily distant regions as tumbling slows, while dissipation remains strictly positive. The exact threshold is *independent* of every compact deformation of the confining potential, including how many wells it has, giving a robust structural classification rather than an arbitrary finite calculation. It distinguishes stationary existence for every positive flipping rate from singular loss of spatial tightness in the zero-rate limit, with a definite thermodynamic observable.
+Existing exact cusp and bistable run-and-tumble entropy calculations, and general entropy-current identities, cover special potentials and techniques. This claim quantifies every compact interior deformation with equal exact linear restoring tails, identifies non-tightness at and above the speed threshold and computes their universal stationary entropy limit. The single-cusp specialization is already algebraically accessible from older results and is not separately novel. Full arXiv cusp text was inspected, bistable arXiv abstract/summary and Frydel abstract only; inaccessible relevant source remains a named priority risk. Resultary search found no direct dominating claim but absence is not a novelty proof.
 
-## References and residual risks
+## value
 
-- Singh and Aghion, arXiv:2610.08029v1, sections 2–3 and 7 (full relevant text inspected): exact bistable stationary equations and entropy current.
-- Singh and Farago, arXiv:2506.02645v1, sections 2 and 5 (full relevant text inspected): single-cusp modes and their exact entropy expression.
-- Frydel, Phys. Rev. E 105, 034113 (2022): abstract inspected, general no-tumble and harmonic context, possible implicit stronger coverage remains unverified.
-- Paoluzzi, Puglisi and Angelani, Entropy 26, 443 (2024): abstract/selected indexed excerpts, not full-text-inspected because publisher access was restricted. General current method is prior art.
-- No sharp error estimate in \(r\) or simultaneous vanishing-\(T\) law is claimed; independent mathematical and priority evaluation are not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rare-flip regime has a genuine singular physical boundary: below v=b frozen distributions remain normalizable and entropy dissipates to zero; at v>=b probability escapes all compacts although a stationary law exists for each r>0, and above it residual entropy is positive. Independence from arbitrary compact trap geometry is a substantive universal structural result, rather than merely one-cusp arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
