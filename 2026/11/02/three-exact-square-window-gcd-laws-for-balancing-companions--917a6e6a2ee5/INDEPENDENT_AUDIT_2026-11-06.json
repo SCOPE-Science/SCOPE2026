@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:09:04.552086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three sequences B,C,c satisfy X_{n+2}=6X_{n+1}-X_n with specified initial values. Classical identities C_n^2=8B_n^2+1 and c_n^2=(C_{2n-1}-1)/2 give first-window sums, and telescoping gives window differences B_k B_{2n+k+2}, 8B_k B_{2n+k+2}, and 8B_k B_{2n+k+1}. Strong-divisibility gcd(B_a,B_b)=B_gcd(a,b) reduces the infinite gcd to explicit gcd of initial sum and a multiple of B_k. Proof then splits primes 2 (B_k and k share exact 2-adic valuation; mod16 normalization), 3 (B_2m has nu3=nu3(2m)+1 and extra 3 for odd multiple of 3 only c), and other odd primes. Thus D_C=gcd(k,B_k); D_B=h/2 for even k otherwise h; D_c=3h if k=3 mod6 otherwise h for every k>=1. Independent exact arithmetic checked all three against 20 actual windows for k=1..59; finite checks corroborate, infinite follows from valuation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 generalized Fibonacci GCD proof belongs to different family; 2024 periods do not state this square-window gcd result."
+        ],
+        "reasoning": "Strong-divisibility and recurrence techniques are common, but broad recurrence methods do not supply the exact all-k 2-adic/3-adic correction law by immediate specialization.",
+        "searches": [
+          "Mbirika–Spilker 2022 arXiv:2204.12626",
+          "Fiebig–Mbirika–Spilker 2024 Lucas period and entry points",
+          "Mbirika–Schrader–Spilker 2023"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md and balancing_square_gcd_checker.py at frozen Git tree 4b39a6580100b8835ab62381e5bec3aed8615fd9",
+        "Mbirika–Schrader–Spilker 2023 full primary PDF Question30",
+        "Mbirika–Spilker 2022 arXiv record",
+        "Independent exact 59 k x 3 cases x 20 windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 30 explicitly marks formulas as unresolved and experiment-based.",
+          "The proved divisibility and valuation identities settle three families for arbitrary k."
+        ],
+        "reasoning": "Prior conjectured numerical proportionalities are acknowledged and not claimed as discovered here; the mathematical contribution is the proof and complete h(k) determination.",
+        "searches": [
+          "Mbirika et al. 2023 exact statement Question 30",
+          "Source proof with window-difference GCD and p-adic analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2023 article experimentally observes D_C, D_B and D_c proportionalities but explicitly asks for proofs/formulas.",
+          "2022 formulas involve recurrence parameter 1, not coefficient 6 sequences and mixed companions."
+        ],
+        "reasoning": "The 2023 question overlaps the formulas but conjectural observations do not constitute established theorem; new claimed proof and h(k) formula are not covered by inspected theorem.",
+        "searches": [
+          "Resultary query: balancing Lucas balancing Lucas cobalancing squares sums consecutive gcd k 2023",
+          "Mbirika–Schrader–Spilker 2023 Question 30",
+          "Mbirika–Spilker 2022 generalized Fibonacci square-window gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original paper includes finite experimentally observed proportionalities, not D_C(k)=gcd(k,B_k) as all-index theorem; independent checks n<=59 support formula only finitely."
+        ],
+        "reasoning": "A finite sequence table does not prove equality for all positive k. Unlocated later exact table remains a residual risk.",
+        "searches": [
+          "Resultary query: balancing Lucas balancing Lucas cobalancing squares sums consecutive gcd k 2023",
+          "Mbirika et al. 2023 Question 30 numerical observations",
+          "Source balancing_square_gcd_checker.py"
+        ]
+      },
+      "rationale": "Mbirika–Schrader–Spilker 2023 Question 30 explicitly states the proportionality conjectures from experiments but not a proof, nor the common explicit index gcd D_C(k)=gcd(k,B_k). The adjacent 2022 generalized Fibonacci case has different recurrence and initial conditions. The three statements as proven are a partial resolution of open published question. A later unpublished/in-preparation followup is concrete priority risk.",
+      "residual_risks": [
+        "Authors of 2023 question mention work in preparation; a subsequent unindexed followup could establish the same full formulas.",
+        "Fourth cobalancing square-window family remains outside the claimed three-family theorem; h(k) remains index GCD, not factorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_CONJECTURES_NOT_THEOREMS",
+          "evidence": [
+            "Question 30 asks to prove observed relations and find square-window GCDs; no all-k proven D_C(k)=gcd(k,B_k)."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+          "material_read": "Complete primary 2023 Journal of Integer Sequences PDF, especially Definitions 6–7 and Question 30 (page 22)",
+          "method": "Full PDF reading plus rendered page inspection",
+          "title": "Pell and associated Pell braid sequences as GCDs of sums of k consecutive Pell, balancing, and related numbers",
+          "trigger": "Direct same mathematical sequences and identical square-window question"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_RECURRENCE",
+          "evidence": [
+            "Generalized Fibonacci recurrence not the balancing coefficient-six/cobalancing triples; no direct implication established."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "ArXiv abstract and published bibliographic descriptions, not complete primary full-text proof",
+          "method": "ArXiv/scholarly indexing",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Nearby square-window gcd method that might imply claimed balancing results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Theorem resolves three of four natural infinite-window gcd sequences requested in a named published question, reducing infinitely many start indices to one finite gcd of k and the balancing number and identifying parity/3-mod6 effects; substantive exact number-theoretic result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source RESULT.md and balancing_square_gcd_checker.py at frozen Git tree 4b39a6580100b8835ab62381e5bec3aed8615fd9",
+    "Mbirika–Schrader–Spilker 2023 full primary PDF Question30",
+    "Mbirika–Spilker 2022 arXiv record",
+    "Independent exact 59 k x 3 cases x 20 windows"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Authors of 2023 question mention work in preparation; a subsequent unindexed followup could establish the same full formulas.",
+    "Fourth cobalancing square-window family remains outside the claimed three-family theorem; h(k) remains index GCD, not factorized."
+  ],
+  "schema_version": 1
+}
