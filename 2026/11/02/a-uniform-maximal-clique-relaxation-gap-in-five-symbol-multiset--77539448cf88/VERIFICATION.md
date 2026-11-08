@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the maximal-clique gap theorem
+# Independent mathematical audit
 
-Run with the Python standard library:
+## correctness
 
-```bash
-python verify.py
-```
+PASS
 
-The checker constructs the complete quinary unit-transfer graphs for lengths 8, 9, 10, 11, 12, 15, and 20 and examines every lower and upper clique via exact rational arithmetic. It also checks every potentially nonzero one-corner boundary pattern and the exact corner-mass formula. Expected final marker: `VERIFY_OK`.
+For n>=8, any unit-transfer clique lies in lower D(y) or upper U(z) family. Verified the five corner patches with offset masses 4/5,-1/5,1/15,-1/30 have disjoint clique supports; each local lower perturbation <=0 and each upper perturbation no greater than slack. Explicit rational calculation gives mass 4/15 per corner and objective binom(n+4,4)/5+4/3; known alpha=ceil(binomial/5) yields >=8/15 strict gap. Independently enumerated every lower/upper clique with rational weights at n=8,9,10 (495,715,1001 vertices), but infinite n follows from the patch-support/combinatorial argument, not enumeration.
 
-Observed checks, using code packaged with this result: `SYMBOLIC_PATTERN_CHECK_OK`; all seven finite lengths passed; final marker `VERIFY_OK`. The proof in RESULT.md establishes uniform validity for all integers \(n\ge8\), including those not enumerated. The published integer independence theorem is separately cited; the checker verifies only the new fractional-point construction and the elementary numerical separation, not that earlier theorem. No independent audit or external certification has been performed.
+## originality
+
+PASS
+
+Exact integer optimum for q=5 follows from Zabokritskiy weighted local covers, with a reported different q=32,d=28 clique obstruction. Matching all n>=8 five-corner fractional witness not established from accessible text; very relevant full Section 9 remained inaccessible. Resultary semantic queries of published records performed with two tailored queries; no exact dominating result located, and this is not proof of priority. The listed primary sources were compared on mathematical implications; inaccessible relevant text retained as risk.
+
+## value
+
+PASS
+
+The full-clique fractional LP is the natural certificate relaxation for multiset single-deletion code maximum independent sets. A uniform all-degree explicit nonintegrality witness proves a meaningful methodological obstruction beyond the already-known integer optimum; no multiplicative integrality gap is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

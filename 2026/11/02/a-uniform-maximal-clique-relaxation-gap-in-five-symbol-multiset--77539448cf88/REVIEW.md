@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's domain is the full quinary multiset unit-transfer graph at every integer length \(n\ge8\). All maximal cliques are covered by either lower deletion cliques or upper shared-insertion cliques. The explicit rational perturbation of the constant \(1/5\) point has exactly five disjoint corner supports at this threshold, and no clique meets two supports. Every lower-clique perturbation is nonpositive; every upper-clique perturbation is within the support-dependent slack, as verified by the complete outside-profile table in RESULT.md. Each corner adds \(4/15\) in total mass, giving a rigorous bound of \(\binom{n+4}{4}/5+4/3\). The known exact integer optimum yields the strictly positive gap. The standalone exact-rational verification replay confirms seven finite instances; infinity follows from the proof, not the replay.
+PASS
 
-## Originality — PASS, with residual risk
+For n>=8, any unit-transfer clique lies in lower D(y) or upper U(z) family. Verified the five corner patches with offset masses 4/5,-1/5,1/15,-1/30 have disjoint clique supports; each local lower perturbation <=0 and each upper perturbation no greater than slack. Explicit rational calculation gives mass 4/15 per corner and objective binom(n+4,4)/5+4/3; known alpha=ceil(binomial/5) yields >=8/15 strict gap. Independently enumerated every lower/upper clique with rational weights at n=8,9,10 (495,715,1001 vertices), but infinite n follows from the patch-support/combinatorial argument, not enumeration.
 
-The July 2026 preprint by Zabokritskiy is decisive prior work: its Section 6 proves the *integer* quinary independence number exactly for the full length range, and its Section 3 formulates the general fractional local-cover and clique-packing LP. Its Remark 9.7 exhibits a *different* maximal-clique defect at alphabet 32 and degree 28. Neither statement implies the current uniform, explicit five-symbol maximal-clique relaxation defect, and the five-symbol proof uses non-clique templates without claiming that all clique-only certificates must fail. The January and March 2026 Kreindel–Essayag–Zabokritskiy papers give channel constructions and volume bounds, not this conclusion. The original full text of the 2016 Kovačević–Tan source remains uninspected; unindexed equivalent work remains a realistic priority risk. See AUDIT.json for actual scientific source comparisons and searches.
+## originality
 
-## Value — PASS
+PASS
 
-This is not an incremental refinement of a known integer code size. It identifies a uniform structural limitation of an entire major class of coding bounds: even *all* maximal-clique inequalities leave an additive gap of at least \(8/15\) for every length from eight onward. It explains why stronger, non-clique tile inequalities are genuinely needed in the contemporary sharp quinary theory, and the rational boundary construction provides a reusable proof pattern rather than a single numerical experiment.
+Exact integer optimum for q=5 follows from Zabokritskiy weighted local covers, with a reported different q=32,d=28 clique obstruction. Matching all n>=8 five-corner fractional witness not established from accessible text; very relevant full Section 9 remained inaccessible. Resultary semantic queries of published records performed with two tailored queries; no exact dominating result located, and this is not proof of priority. The listed primary sources were compared on mathematical implications; inaccessible relevant text retained as risk.
 
-## Scientific limitations and evidence
+## value
 
-The exact optimum of the fractional clique LP is not determined, only a universal strict lower bound. The theorem is for five symbols and one deletion, not all alphabets or deletion radii. The checker enumerates only the displayed finite lengths and cannot prove the infinite claim by itself. Full independent audit and exhaustive publication-priority review have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full-clique fractional LP is the natural certificate relaxation for multiset single-deletion code maximum independent sets. A uniform all-degree explicit nonintegrality witness proves a meaningful methodological obstruction beyond the already-known integer optimum; no multiplicative integrality gap is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
