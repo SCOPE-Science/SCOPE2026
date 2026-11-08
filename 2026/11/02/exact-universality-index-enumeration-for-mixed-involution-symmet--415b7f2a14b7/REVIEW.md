@@ -1,19 +1,21 @@
-# Scientific review of the mixed-involution universality enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A greedy arch is the shortest prefix seeing all symbols; terminal missing-letter witnesses show its count is the exact subsequence-universality index. For a word fixed by an involutive antimorphism, opposite greedy-arch families leave a central remainder; the presence or absence of all letters there determines whether the full index is odd or even. For mixed involutions, the even center must already contain every fixed letter, while the odd center can supply one omitted fixed letter. Enumerating proper-support remainder alphabets with those two conditions yields the explicit series \(E\) and \(O\), and summing arch counts proves the claimed rational function. Least-degree coefficients give the stated extremal lengths and numbers. Two standalone, independently structured exhaustive programs passed; their tests do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+For θ=π∘reverse with f≥1 fixed letters and d≥1 transposition pairs, every symmetric word is Hθ(H) or Hcθ(H) for c fixed. The unique greedy arch decomposition of H gives t complete arches and proper-support S, with full word index exactly 2t or 2t+1 according to whether support(S)∪π(support(S)) (plus c for odd words) covers the alphabet. I verified the exact-support surjection series B_j(y), the independent S support sums R,E,O for each allowed number of doubled transposition pairs, and the geometric arch factor 1/(1−u²A(z²)). This yields the displayed bivariate formal GF. Its lowest-degree odd/even coefficients give minimum lengths L_2m=2mq and L_(2m+1)=(2m+1)q+f−1 and multiplicities (q!)^m and (q!)^m f2^d(f+d−1)!; no inference from finite word lengths is needed.
 
-Barker et al. (arXiv:2003.04629, Proposition 15) provide ordinary-palindrome universality criteria and arch machinery. Adamson (arXiv:2304.04583) counts unrestricted universal words algorithmically. Mahalingam et al. (DOI:10.1016/j.ic.2021.104863) investigate Watson–Crick palindrome conjugates rather than the subsequence-universality distribution. Existing exact descriptions of the two pure involution cases are acknowledged as prior coverage and excluded from the new theorem's parameter domain. The mixed case has both fixed letters and transposed pairs, producing new explicit support polynomials and all-length coefficients not implied by simply specializing either pure case. A more general unpublished or unindexed formula could still cover this case; no negative novelty claim is inferred merely from failed searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The orbit structure of involutions has three natural regimes: identity, fixed-point-free, and mixed. This closes the mixed regime with a complete length/index distribution, not a single numerical example. The odd-center effect creates a sharp \(f-1\) excess for the shortest odd-order universal word and an exact number of extremizers. These facts matter for constructing and enumerating symmetric subsequence-rich words when some alphabet letters are self-complementary and other letters occur in complementary pairs. The work does not assert an error-correcting code or biochemical stability.
+Qualified PASS for the explicit complete mixed fixed+swapped orbit rational bivariate enumeration and all-index minimal coefficients. Barker et al. already established the arch decomposition and symmetry/midpoint properties in significant generality, so those steps are prior ingredients, not independent novelty. The mixed f/d support enumeration was not identified in inspected primary statements.
 
-## Residual limitations
+## value
 
-The comparison does not establish absolute priority against every unindexed source. The result counts indexed finite words under a specified involution; cyclic, unlabeled, and physical-molecular versions are different questions. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Mixed involutions (both fixed and paired letters) occur naturally in formal word symmetries and differ sharply from the known all-fixed and all-paired endpoint types. The exact length-by-universality-index rational GF and shortest witness multiplicities answer a complete natural enumeration question, with nontrivial parity and support-covering interactions; these data can be used without needing a further general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

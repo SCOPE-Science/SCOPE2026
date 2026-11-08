@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is a full combinatorial derivation using unique greedy-arch decompositions, the symmetric-midpoint lemma, and exact support enumeration. The generating-function identity is formal and valid for all integers \(f,d\ge1\), all word lengths, and all universality indices.
+# Independent mathematical audit
 
-To repeat finite tests, run `python3 verify_mixed_gf.py` and `python3 verify_symmetry.py` from the directory containing these files. Both scripts use only Python's standard library and print `VERIFY_OK` on successful completion. The former checks six mixed involution types, comparing exact convolution coefficients with exhaustive self-symmetric words through specified small lengths; the latter checks shortest-length statements and counts with exhaustive smaller-alphabet enumeration, including absence of shorter universal symmetric words.
+## correctness
 
-These finite tests are consistency checks, not proofs of an unrestricted infinite identity. The infinite result is justified by the six proof steps in `RESULT.md`. Prior published formulas cover the pure identity and fixed-point-free involution cases; the mixed type is the new domain assessed here. Independent external verification has not been performed.
+PASS
+
+For θ=π∘reverse with f≥1 fixed letters and d≥1 transposition pairs, every symmetric word is Hθ(H) or Hcθ(H) for c fixed. The unique greedy arch decomposition of H gives t complete arches and proper-support S, with full word index exactly 2t or 2t+1 according to whether support(S)∪π(support(S)) (plus c for odd words) covers the alphabet. I verified the exact-support surjection series B_j(y), the independent S support sums R,E,O for each allowed number of doubled transposition pairs, and the geometric arch factor 1/(1−u²A(z²)). This yields the displayed bivariate formal GF. Its lowest-degree odd/even coefficients give minimum lengths L_2m=2mq and L_(2m+1)=(2m+1)q+f−1 and multiplicities (q!)^m and (q!)^m f2^d(f+d−1)!; no inference from finite word lengths is needed.
+
+## originality
+
+PASS
+
+Qualified PASS for the explicit complete mixed fixed+swapped orbit rational bivariate enumeration and all-index minimal coefficients. Barker et al. already established the arch decomposition and symmetry/midpoint properties in significant generality, so those steps are prior ingredients, not independent novelty. The mixed f/d support enumeration was not identified in inspected primary statements.
+
+## value
+
+PASS
+
+Mixed involutions (both fixed and paired letters) occur naturally in formal word symmetries and differ sharply from the known all-fixed and all-paired endpoint types. The exact length-by-universality-index rational GF and shortest witness multiplicities answer a complete natural enumeration question, with nontrivial parity and support-covering interactions; these data can be used without needing a further general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:46:58.610793Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and two actual verifier scripts, blob ecf7e593249253fb9bdb3362a4493d95e0c80099",
+        "Independent exact θ-word enumeration for (f,d)=(1,1) through length 12 and (2,1) through length 10, checking minimal even/odd 1-,2-,3-universality within the tested range."
+      ],
+      "rationale": "For θ=π∘reverse with f≥1 fixed letters and d≥1 transposition pairs, every symmetric word is Hθ(H) or Hcθ(H) for c fixed. The unique greedy arch decomposition of H gives t complete arches and proper-support S, with full word index exactly 2t or 2t+1 according to whether support(S)∪π(support(S)) (plus c for odd words) covers the alphabet. I verified the exact-support surjection series B_j(y), the independent S support sums R,E,O for each allowed number of doubled transposition pairs, and the geometric arch factor 1/(1−u²A(z²)). This yields the displayed bivariate formal GF. Its lowest-degree odd/even coefficients give minimum lengths L_2m=2mq and L_(2m+1)=(2m+1)q+f−1 and multiplicities (q!)^m and (q!)^m f2^d(f+d−1)!; no inference from finite word lengths is needed.",
+      "residual_risks": [
+        "The symmetric midpoint arch lemma is related to established scattered-factor universality theory, so its original status is not asserted.",
+        "Pure-orbit endpoints f=0 or d=0 and cyclic or unlabeled words are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barker et al. prove general arch/factor-universality statements; Adamson gives algorithms for unrestricted universal word enumeration, not symmetry-restricted closed bivariate distributions."
+        ],
+        "reasoning": "A general algorithm could calculate each coefficient in principle, and Barker gives essential structural results, but neither inspected statement provides the uniform rational GF across both nonzero f and d or its exact odd-index minima.",
+        "searches": [
+          "Barker Fleischmann Harwardt Manea Nowotka Scattered Factor-Universality of Words propositions 15 18",
+          "Adamson Ranking Unranking k-Subsequence Universal Words arxiv 2304.04583",
+          "Mahalingam Maity Pandoh Watson Crick palindromes conjugates"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2003.04629",
+        "arxiv:2304.04583",
+        "doi:10.1016/j.ic.2021.104863",
+        "Resultary query mixed-involution universal subsequences"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barker primary work supplies greedy arch framework and central symmetry analysis; the new series uses explicit support covering constraints E/O for fixed and two-cycle letters."
+        ],
+        "reasoning": "Prior midpoint arguments make the criterion plausible, but new all-index coefficient counts require evaluating every proper support according to orbit structure and parity, which is not a stated prior closed form in examined material.",
+        "searches": [
+          "Barker et al. Section on palindromes Proposition 15 and letter permutation Proposition 18",
+          "Watson Crick palindromic word enumeration support fixed letters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. arXiv:2003.04629 study palindromic scattered universality with arch machinery and discuss letter permutations; Resultary binary universality generating function is unrestricted and q=2."
+        ],
+        "reasoning": "Reversal + alphabet involution equals a θ-palindrome/reverse-complement symmetry. The old midpoint criterion may be reused, but a complete mixed-orbit indexed-word generating function depends on the f fixed and d paired support weighted counts not furnished by an unrestricted binary law.",
+        "searches": [
+          "Resultary: Subsequence universality index generating function reverse complement palindrome involution fixed letters and swapped pairs",
+          "arxiv 2003.04629 palindrome scattered factor universality Proposition 15 18",
+          "Watson Crick reverse complement k universal words involution fixed points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary binary index series (1+z)/(1−z−2uz²) counts unrestricted words over binary alphabet; f+d mixed θ case has q≥3 and symmetry restricted."
+        ],
+        "reasoning": "The q=2 published series cannot be substituted into the mixed involution formula; special f=0/d=0 endpoints do not determine mixed coefficients by interpolation without additional proof.",
+        "searches": [
+          "Resultary closed-form binary subsequence universality generating function",
+          "mixed palindrome subsequence index bivariate generating function f fixed points d swaps"
+        ]
+      },
+      "rationale": "Qualified PASS for the explicit complete mixed fixed+swapped orbit rational bivariate enumeration and all-index minimal coefficients. Barker et al. already established the arch decomposition and symmetry/midpoint properties in significant generality, so those steps are prior ingredients, not independent novelty. The mixed f/d support enumeration was not identified in inspected primary statements.",
+      "residual_risks": [
+        "Barker et al. symmetry statements may allow routine derivation of some midpoint formulas, hence novelty is limited to the mixed support-count series and minima.",
+        "A specialized existing θ-palindromic universal-word enumerator may have escaped search; no exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPORTANT_PRIOR_STRUCTURE_NOT_EVALUATED_MIXED_GF",
+          "evidence": "Existing symmetry and arch theory is credited; no inspected explicit mixed-f,d bivariate coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Primary conference-paper full text, arch definitions and relevant palindrome/letter-permutation Propositions 15 and 18",
+          "method": "Inspected lawful full-text PDF and relevant page screenshot, compared exact hypotheses",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Direct same index/greedy arch symmetry predecessor"
+        },
+        {
+          "assessment": "GENERAL_ALGORITHMIC_METHOD_NOT_EXACT_MIXED_FORMULA",
+          "evidence": "Unrestricted ranking/unranking does not assert the mixed θ-fixed symbolic generating function.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "Open preprint abstract and algorithmic counting objective",
+          "method": "Read accessible arXiv publication description",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Potential more general enumerator"
+        },
+        {
+          "assessment": "ADJACENT_SYMMETRY_MODEL",
+          "evidence": "Relevant reverse-complement structure, but no identified subsequence universality bivariate distribution.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ic.2021.104863",
+          "material_read": "Primary bibliographic abstract and scope of Watson–Crick conjugates",
+          "method": "Compared accessible publication material",
+          "title": "Counting (Watson-Crick) palindromes in Watson-Crick conjugates",
+          "trigger": "Involution palindromes and orbit constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual generating-function proof and source scripts",
+        "Barker et al. established greedy universal arch setting"
+      ],
+      "rationale": "Mixed involutions (both fixed and paired letters) occur naturally in formal word symmetries and differ sharply from the known all-fixed and all-paired endpoint types. The exact length-by-universality-index rational GF and shortest witness multiplicities answer a complete natural enumeration question, with nontrivial parity and support-covering interactions; these data can be used without needing a further general theorem.",
+      "residual_risks": [
+        "This is not a claim for cyclic/unlabeled words or physical nucleic-acid sequence properties."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Both fixed and transposed letter orbits are mandatory (f,d≥1); labeled indexed linear words only.",
+    "The broad palindrome arch and midpoint logic are prior work, limiting the assessed originality to mixed-type coefficient evaluation."
+  ],
+  "schema_version": 1
+}
