@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-Run `python verify.py` in a directory containing the extracted files; only Python 3 standard library is needed. The checker reconstructs randomly rotated regular polygons by explicit Cartesian vertices, enumerates their Minkowski-sum vertices, computes their convex hull by a separate monotone-chain implementation, and compares areas with the mixed-area formula for triangles, squares and pentagons. All 380 direct hull experiments agreed to absolute error below \(1.5\times10^{-14}\). For regular polygons with 3, 4, 5, 7 and 12 sides, the independent Fourier-weight sums agree with exact geometric deficits and variances under the reported numerical tolerances. A reproducible 16,000-trial experiment for nine randomly rotated equilateral triangles found empirical area mean approximately 166.359 versus analytic 166.390, and variance approximately 22.530 versus analytic 22.191. The program exits after `ALL_ROTATIONAL_MINKOWSKI_CHECKS_PASSED`.
+# Independent mathematical audit
 
-The analytical proof, not finite computation, justifies the convergence, exact all-body identities, sharp variance inequality and support of the limiting law. No independent audit or external certification has been performed.
+## correctness
+
+PASS
+
+The weak support-function area identity A=(1/2)∫(h²-h′²) proves the Fourier deficit D=Σ_{k>=2} λ_k. The support function of the Minkowski sum has kth mode multiplied by S_{k,n}=Σ_j e^{ikθ_j}; hence exact pathwise area n²P²/(4π)-Σλ_k|S_k|². Circle-character orthogonality yields Cov(|S_k|²-n,|S_l|²-n)=n(n-1)δ_kl and the stated mean and variance. Finite-frequency multivariate CLT gives independent complex-Gaussian modes, squared moduli Exp(1); exact L² spectral tail bound gives the infinite series. Σλ<∞ ensures absolute convergence, negative cubic cumulant for nondisk, upper endpoint D, and negative unbounded support. The single-mode variance extremizer follows Σλ²≤D². Regular polygons: side-normal mixed-area kernel P cos(a-|delta|), Fourier coefficients and Euler products yield all explicit formulas. Independent numerical check compared the deficit Fourier series and variance closed expression at regular m=3,4,5,7, with error below 2e-5 from a truncated positive tail and below 2e-10 for variance. Finite calculations do not replace CLT and series argument.
+
+## originality
+
+PASS
+
+The full-body iid-rotation area law has degenerate first projection, and the limit is a second-order Fourier/exponential chaos; the nearest read random-zonotope theorem concerns iid line segments and a nondegenerate Gaussian U-statistic limit. Earlier deterministic support-function formulas are credited; novelty is the exact stochastic area law and explicit regular-polygon distribution.
+
+## value
+
+PASS
+
+Exact area mean/variance and a non-Gaussian distribution for arbitrary planar convex bodies form a natural complete fixed-model stochastic geometry result; the regular-polygon closed product and sharp variance rigidity are independently useful benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

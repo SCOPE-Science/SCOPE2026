@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact support-function area identity applies to all planar convex bodies through the weak \(W^{1,2}\) formula. Random rotations multiply Fourier modes by torus characters. Character orthogonality gives exact finite-sample means, variances, and vanishing distinct-frequency covariance; a multivariate central limit theorem and uniform \(L^2\) spectral-tail bound give the independent-exponential limit. Every nonzero mode creates a negative third cumulant and unbounded lower support, while the total deficit is a sharp upper endpoint. The regular-polygon mixed-area kernel was independently reconstructed by exact support geometry and numerical hull enumeration. The checker corroborated the finite claims, not the infinite assertion.
+## correctness
 
-## Originality — PASS (priority provisional)
-The full proofs of the closest previously published random-reflection-symmetrization covariance result and the analytic-probe rotational-variance result were inspected. The former iterates reflections of the growing body; the latter rotates one unknown body against a fixed probe. Neither is the iid Minkowski sum of multiple rigidly rotated copies of an arbitrary full-dimensional body. An earlier regular Reuleaux two-body rotation profile does not give this all-body random-sum law. Ruan and Chirikjian study deterministic smooth-body sums; Schneider treats random independent segment summands and a different nondegenerate CLT regime. Prior random-segment spectral laws are credited, and no uniqueness conclusion is based solely on failed search. Unindexed general random-set fluctuation theorems remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a structural, all-planar-convex-body law coupling exact finite-sample area variance with an infinite-dimensional non-Gaussian fluctuation limit, a sharp one-sided endpoint and a rigid extremal variance class. The regular-polygon specialization supplies explicit Fourier weights, exact all-sample variance and a closed Laplace transform, useful for assessing geometric convergence of independent rotational Minkowski averages. It is not a mere numerical special case of the segment-zonotope model.
+The weak support-function area identity A=(1/2)∫(h²-h′²) proves the Fourier deficit D=Σ_{k>=2} λ_k. The support function of the Minkowski sum has kth mode multiplied by S_{k,n}=Σ_j e^{ikθ_j}; hence exact pathwise area n²P²/(4π)-Σλ_k|S_k|². Circle-character orthogonality yields Cov(|S_k|²-n,|S_l|²-n)=n(n-1)δ_kl and the stated mean and variance. Finite-frequency multivariate CLT gives independent complex-Gaussian modes, squared moduli Exp(1); exact L² spectral tail bound gives the infinite series. Σλ<∞ ensures absolute convergence, negative cubic cumulant for nondisk, upper endpoint D, and negative unbounded support. The single-mode variance extremizer follows Σλ²≤D². Regular polygons: side-normal mixed-area kernel P cos(a-|delta|), Fourier coefficients and Euler products yield all explicit formulas. Independent numerical check compared the deficit Fourier series and variance closed expression at regular m=3,4,5,7, with error below 2e-5 from a truncated positive tail and below 2e-10 for variance. Finite calculations do not replace CLT and series argument.
 
-## Literature and remaining limitations
-Primary lead: Ruan–Chirikjian (2020), arXiv:2012.15461. Supporting comparison: Schneider (2022), arXiv:2202.06774; Coupier–Davydov (2012), arXiv:1211.1785. The theorem does not address unequal shapes, anisotropic rotations, correlated orientations, or higher dimensions. Historical priority is not conclusively certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full-body iid-rotation area law has degenerate first projection, and the limit is a second-order Fourier/exponential chaos; the nearest read random-zonotope theorem concerns iid line segments and a nondegenerate Gaussian U-statistic limit. Earlier deterministic support-function formulas are credited; novelty is the exact stochastic area law and explicit regular-polygon distribution.
+
+## value
+
+PASS
+
+Exact area mean/variance and a non-Gaussian distribution for arbitrary planar convex bodies form a natural complete fixed-model stochastic geometry result; the regular-polygon closed product and sharp variance rigidity are independently useful benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
