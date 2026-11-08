@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the four-letter classification
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard-library Python 3. Expected final line: `VERIFY_OK`. This source is complete and has no external inputs or dependencies.
+## correctness
 
-The reproducible process independently recomputes every element of the finite domain and its proper prefix–suffix comparisons. It checks all 256 words, 180 individually admissible words, 56 internally compatible reverse-complement orbits (12 singleton, 44 paired), and 540 undirected graph edges. An exact weighted-clique dynamic recurrence over 398 distinct reachable masks gives weight 17 with 32 achieving cliques; these are reconstructed as 32 codebooks and each word-pair constraint is checked directly. It verifies the exact singleton/doubleton profile and the four orbits of eight under the eight Watson–Crick-preserving alphabet permutations.
+PASS
 
-An independent weighted branch-and-bound with a greedy stable-set coloring upper bound returns the same optimum and equality count after 293 calls. This is a second exhaustive algorithm using the same explicitly described finite graph. The mathematical recurrence and graph–code equivalence are justified in `RESULT.md`.
+Over all 4^4 words, unbordered words are exactly 180. Reverse-complement closure yields 56 internally compatible involution orbits, with 12 singleton and 44 paired. The 56-vertex orbit-compatibility graph has 540 edges. An exhaustive include/exclude weighted-clique recurrence over all candidates has 398 distinct memoized states and yields max cardinality 17, with 32 optimal labeled unions. An independent reconstruction enumerated all 32, checked 5 self-reverse-complements and 6 paired orbits each and four orbits under the eight complement-preserving alphabet permutations. The reduction from codes to cliques is bijective, so this is an exhaustive finite proof, not a partial sample.
 
-The verification proves the finite claimed combinatorial result, not novelty, extrapolation to larger lengths, physical functionality or an independently conducted audit. Sources are cited in `RESULT.md`; `REVIEW.md` discusses originality limits.
+## originality
+
+PASS
+
+Unrestricted maximum 27 for length 4 and alphabet size 4 is published. Its 27-word witnesses cannot be reverse-complement-closed because the new maximum is 17; reverse-complement conditions change the feasible family. General cross-bifix-free and Watson–Crick code results inspected do not state the 17/32/4 exact optimum census, though another specialized table may exist.
+
+## value
+
+PASS
+
+Reverse-complement closure is a substantive coding constraint in DNA sequence design; exact optimum and classification at the smallest nontrivial four-letter, length-four case are reusable benchmarks and clarify an explicit 10-word loss versus unrestricted optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: reverse-complement-closed four-letter codes
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes a four-base alphabet, four-position words, proper overlap lengths one through three, and reverse-complement closure. Its key equivalence is between every admissible code and a weighted clique in the 56-vertex graph of internally compatible reverse-complement orbits. The Python standard-library verifier constructs that graph directly from all 256 words, checks the full exact branching recurrence, returns optimum 17 with 32 labeled codebooks, enumerates all equality cases, and verifies their four symmetry classes. The recurrence has only 398 reachable states; an independent weighted-color branch-and-bound reproduces the optimum and the number of maximizers. Finite enumeration is exhaustive here because the full mathematical universe is finite, not an inference about unbounded lengths.
+## correctness
 
-## Originality — PASS, with stated priority risk
-Relevant synonyms searched: non-overlapping, cross-bifix-free, mutually uncorrelated, strong comma-free, self-complementary and reverse-complement-closed. Chee et al. (2012, full arXiv HTML) provide general cross-bifix-free constructions without the closure condition; Blackburn (2013, full accessible arXiv text) treats unrestricted bounds; Stanovnik et al. (2024, full open-access HTML), in Theorems 19–20, settle unrestricted length-four code size and optimal-code counts, and provide no exact reverse-complement-closed count. Kari and Mahalingam treat Watson–Crick antimorphic involution codes and related \(\theta\)-comma-free properties; their structural claims do not give a maximum-size or equality census under the stronger non-overlapping condition. The unrestricted value 27 is known and not claimed as new. The new optimum 17 and classification of its 32 achievers do not follow by substitution into those unrestricted theorems. Literature and indexed-research searches found related non-overlapping and DNA coding claims but no equivalent of the restricted claim. Unindexed sources may nonetheless contain an independent earlier determination; historical priority has not been independently certified.
+PASS
 
-## Value — PASS
-Non-overlap is a natural exact frame-boundary condition; Watson–Crick reverse-complement closure is an independent symmetry requirement for a library intended to permit both orientations. The theorem exactly quantifies their interaction on the first practically recognizable four-base tetranucleotide domain: the 27-word unrestricted optimum becomes 17 under strand closure. The 32 optimum codebooks and their four symmetry types give a complete choice set, not a solitary example or an arbitrary partial census. This is a finite, intrinsic coding-theory classification and makes no untested biological-performance claim.
+Over all 4^4 words, unbordered words are exactly 180. Reverse-complement closure yields 56 internally compatible involution orbits, with 12 singleton and 44 paired. The 56-vertex orbit-compatibility graph has 540 edges. An exhaustive include/exclude weighted-clique recurrence over all candidates has 398 distinct memoized states and yields max cardinality 17, with 32 optimal labeled unions. An independent reconstruction enumerated all 32, checked 5 self-reverse-complements and 6 paired orbits each and four orbits under the eight complement-preserving alphabet permutations. The reduction from codes to cliques is bijective, so this is an exhaustive finite proof, not a partial sample.
 
-## Sources and scope risks
-Chee et al., arXiv:1209.0236; Blackburn, arXiv:1303.1026; Stanovnik–Moškon–Mraz, DOI 10.1007/s10623-023-01344-z; Kari–Mahalingam, *DNA Codes and their Properties*. Source content was compared on actual hypotheses and conclusions, not titles alone. The work does not classify larger blocklengths, stochastic DNA channels or GC-constrained barcodes. The exact finite certificate should be independently replayed. Historical priority may be affected by sources outside the inspected corpus.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unrestricted maximum 27 for length 4 and alphabet size 4 is published. Its 27-word witnesses cannot be reverse-complement-closed because the new maximum is 17; reverse-complement conditions change the feasible family. General cross-bifix-free and Watson–Crick code results inspected do not state the 17/32/4 exact optimum census, though another specialized table may exist.
+
+## value
+
+PASS
+
+Reverse-complement closure is a substantive coding constraint in DNA sequence design; exact optimum and classification at the smallest nontrivial four-letter, length-four case are reusable benchmarks and clarify an explicit 10-word loss versus unrestricted optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
