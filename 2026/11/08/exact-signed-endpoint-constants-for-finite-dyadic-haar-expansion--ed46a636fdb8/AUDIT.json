@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The integral Haar kernel has an exact row partition by first diverging dyadic ancestor, yielding R_d=sum (1-sigma_j b_j)/2+|b_d| with b_{j+1}=(b_j+sigma_j)/2, b_0=1 and |b_j|≤1. A global Bellman induction F_h(b)=a_h+c_h|b| solves the recurrence for every h; 0≤c_h≤1 verifies the maximizing branch and the closed expression. Kernel-row sign inputs prove attainment. The included standalone exact checker executed: 8191 exhaustive paths, 2016 independently built full kernel rows, 170 Bellman grid checks. Finite checks supplement rather than replace the proof; d=0 and d=1 handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi (1992), DOI 10.2307/2153920, concerns Lp unconditional basis constants for finite p, uniformly over lengths; indexed text does not state the finite-depth p=∞ norm.",
+        "Astashkin et al. (2022), arXiv:2202.07154, Theorem 1 and Corollary 17 deal with infinite-horizon rearrangement and optimal symmetric ranges."
+      ],
+      "reasoning": "Uniform Lp estimates and symmetric-range characterizations are not dominating quantitative estimates for the exact fixed finite truncation in L∞. Choi full text inaccessible, so implicit coverage is retained as risk rather than asserted absent.",
+      "searches": [
+        "published-finding corpus: n-step signed dyadic martingale difference transform from L infinity to itself, sharp norm exact two thirds times n, Haar basis unconditional constant finite subspace",
+        "Web: finite Haar system unconditional constant L infinity n generations exact value",
+        "Web: \"Choi\" \"A sharp inequality for martingale transforms\" full text pdf 1992"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2013/646012",
+      "https://www.math.uni.wroc.pl/~pms/files/36.1/Article/36.1.11.pdf",
+      "arxiv:2202.07154",
+      "doi:10.2307/2153920 (indexed only)",
+      "published-finding corpus semantic queries (five actual search strings recorded)",
+      "Accessible own complete running ledger p0001_g000133 (titles/IDs only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Osękowski (2013), Theorems 1-2, involve restricted weak-type estimates for 1≤p<∞ and not sup-norms of finite signed transforms.",
+        "Osękowski (2016), Theorem 1.1 and Section 4, concern endpoint weak L1 and one-sided martingale-tail bounds rather than fixed-depth L∞ matrix row norms.",
+        "Astashkin et al. (2022), Theorem 1/16 and Corollary 17, compare infinite horizon distribution functions with a Calderón operator and range spaces; the constants are not the finite-level exact expression."
+      ],
+      "reasoning": "All prior results use different quantifiers or functional norms. They imply qualitative behavior but do not establish exact fixed-d Bellman decisions, parity correction, or sign-path maximizers.",
+      "searches": [
+        "Full text: https://onlinelibrary.wiley.com/doi/10.1155/2013/646012",
+        "Full text: https://www.math.uni.wroc.pl/~pms/files/36.1/Article/36.1.11.pdf",
+        "Full text: https://arxiv.org/html/2202.07154v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate is equivalently a maximum absolute Haar-kernel row sum, or a finite-horizon Bellman envelope at initial state b=1.",
+        "The 2013 Osękowski paper DOI 10.1155/2013/646012 establishes restricted weak-type Lp bounds, not this row-sum closed form."
+      ],
+      "reasoning": "Aliases involving martingale transform, Haar signed unconditionality, finite-level Haar multiplier, dyadic endpoint, and exact Bellman norm were compared. In particular, a qualitative L∞ failure does not give the finite value 2d/3+5/9+4(-1/2)^d/9.",
+      "searches": [
+        "published-finding corpus: Exact unconditional basis constant of the first n complete generations of dyadic Haar functions acting on L infinity, all martingale transforms with ±1 node signs: formula 2n/3 + 5/9 + 4(-1/2)^n/9",
+        "published-finding corpus: Sharp operator norm of finite horizon dyadic martingale transform L infinity equals 2d/3 plus bounded correction, extremal alternating predictable sign sequence",
+        "Web: exact norm of finite Haar martingale transform on L∞ as function depth",
+        "Web: \"2n/3\" \"Haar\" \"projection\" \"norm\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Top retrieved published-finding corpus entries include calibrated dyadic square-function sharpness (76b65c21f30b), Hamming Lipschitz-free Walsh projections (6d24f15eba8d), and Cantor Lipschitz-free block projections (101e308c06be); their objects and implications differ.",
+        "Accessible own ledger p0001_g000133 scientific titles/IDs were searched, with closest examples f368e4c5 and 42034a36, whose target spaces and invariants differ."
+      ],
+      "reasoning": "No table or exact coefficient sequence with the stated finite-Haar-domain interpretation was identified. Negative search alone is not priority proof; the stronger-source comparisons above carry the assessment.",
+      "searches": [
+        "published-finding corpus: Sharp L-infinity operator norms, minimal projections, and unconditionality for finite-level triadic Haar wavelet systems under nonuniform weights, especially endpoint behavior",
+        "published-finding corpus: Exact unconditional basis constant of the first n complete generations of dyadic Haar functions acting on L infinity, all martingale transforms with ±1 node signs: formula 2n/3 + 5/9 + 4(-1/2)^n/9",
+        "published-finding corpus: finite-level Haar unconditionality Lebesgue projection constant on dyadic interval, sharp endpoint",
+        "Web: \"2n/3\" \"Haar\" \"projection\" \"norm\""
+      ]
+    },
+    "rationale": "Four independent comparison modes, accessible prior-claim ledger and five targeted published-finding corpus semantic searches yielded no theorem implying the exact finite-depth signed Haar L-infinity identity or its optimizer rule. The 2013 and 2016 closest primary papers address weak-type/Lp inequalities; a 2022 full HTML source addresses infinite rearrangement ranges. The claim is qualified by residual unindexed/older-paper priority risk.",
+    "residual_risks": [
+      "Choi (1992) full text could not be accessed; a hidden specialized finite-depth lemma may exist there although indexed main results are finite p.",
+      "No search or partition establishes global novelty; unindexed Haar-martingale and finite-tree literature could contain the exact recurrence.",
+      "The result concerns signs ±1; literature using 0/1 coefficient suppression has a different sharp constant and must not be conflated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact finite-depth signed L∞ norm; gives different p<∞ restricted weak-type inequalities",
+        "evidence": [
+          "Theorem 1 and Theorem 2 use 1≤p<∞ and restricted weak-type norms; article first published 2013-12-05."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2013/646012",
+        "material_read": "Full public HTML: introduction, Theorems 1-2, sharpness Section 2.5, and applications; web extracted lines 75-130 and subsequent sections",
+        "method": "Direct HTML section and statement comparison",
+        "title": "Sharp Inequalities for the Haar System and Fourier Multipliers",
+        "trigger": "Same Haar and martingale-transform operator family, sharp inequality title"
+      },
+      {
+        "assessment": "NOT_COVERING finite-depth signed L∞; its main results are sharp weak L1 and one-sided tail inequalities",
+        "evidence": [
+          "Pages 147-164; abstract states weak-type analog for p=1; Theorem 1.1 is a weak-tail Bellman function."
+        ],
+        "identifier_or_url": "https://www.math.uni.wroc.pl/~pms/files/36.1/Article/36.1.11.pdf",
+        "material_read": "PDF parsed introduction, main Bellman theorem 1.1, Section 4 statements Theorems 4.1-4.3, references; page 1 inspected as screenshot",
+        "method": "Direct PDF theorem/definition inspection and visual page inspection",
+        "title": "Sharp inequalities for the Haar system and martingale transforms",
+        "trigger": "Same Haar transform family with sharp inequalities"
+      },
+      {
+        "assessment": "NOT_COVERING fixed depth; results concern infinite-horizon rearrangements and optimal symmetric Banach ranges",
+        "evidence": [
+          "arXiv 2202.07154 submitted 2022-02-15; Theorem 1 compares rearrangements with Calderón operator."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.07154v1",
+        "material_read": "Public HTML: abstract/introduction, Theorem 1, Section 4.1 Theorem 16 and Corollary 17, range comparison and cited object definitions",
+        "method": "Direct HTML theorem comparison",
+        "title": "Optimal range of Haar martingale transforms and its applications",
+        "trigger": "Potential broader optimality for dyadic Haar transforms"
+      },
+      {
+        "assessment": "UNCERTAIN_IMPLICIT_COVERAGE; indexed statement treats finite p and unbounded horizon, so no direct implication of the stated finite-d p=∞ closed form",
+        "evidence": [
+          "K. P. Choi, Trans. Amer. Math. Soc. 330 (1992), 509-529; the indexed bound is Lp for 1<p<∞."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/2153920",
+        "material_read": "Bibliographic metadata and indexed summary only; full text not obtained after web open-access search and authorized institutional retrieval attempt",
+        "method": "Source-title, indexed abstract and quantifier comparison with explicit access limitation",
+        "title": "A sharp inequality for martingale transforms and the unconditional basis constant of a monotone basis in Lp(0,1)",
+        "trigger": "Plausible stronger antecedent explicitly mentioning unconditional basis constant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ed46a636-fdb8-427f-9a99-3b25fc28a8da",
+  "value": {
+    "rationale": "For the canonical complete finite Haar filtration, the signed endpoint constant is a natural finite-dimensional invariant quantifying the precise failure of unconditionality at L∞. The exact 2d/3 growth, alternating finite-depth defect, all-depth sign optimizer classification and norming-input construction answer a motivated quantitative question beyond qualitative endpoint unboundedness, rather than an arbitrary finite-slice computation.",
+    "status": "PASS"
+  }
+}
