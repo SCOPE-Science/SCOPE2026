@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The Binet expansions and sum formulas imply a monic integer order-three recurrence, reducing the gcd to the first three windows. The evaluation matrix determinant is 432, so at all primes >=5 the gcd valuation is min(vp(B),vp(k)). Direct congruences show exact v2=min(v2(k),3) for both sequences. A 3-adic binomial congruence for k divisible by three gives companion valuation v3(k) and Jacobsthal valuation v3(k)-1; for other k, both 3-parts vanish. Independent exact-integer recurrence-based calculation checked 1400 (length,sequence) cases, each taking 12 shifts; code is corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mbirika–Spilker (2022), Definition 2.1, restricts generalized Fibonacci numbers to recurrence G_n=G_{n-1}+G_{n-2}, not Jacobsthal G_n=G_{n-1}+2G_{n-2}: https://arxiv.org/pdf/2204.12626",
+        "Mbirika–Schrader–Spilker (2023) studies Pell, associated Pell, balancing and related sequences rather than Jacobsthal: https://arxiv.org/pdf/2301.05758",
+        "Čerin (2007) treats identities for even/odd Jacobsthal-square sums: https://cs.uwaterloo.ca/journals/JIS/VOL10/Cerin/cerin45.pdf"
+      ],
+      "reasoning": "Known broader or adjacent Lucas-family results were assessed by their actual recurrence parameters and claimed invariants, rather than title similarity. In the inspected major results, neither the same recurrence with the all-shift gcd nor a theorem covering arbitrary second-order Lucas recurrences was found.",
+      "searches": [
+        "arXiv:2204.12626 generalized Fibonacci gcd consecutive squares",
+        "arXiv:2301.05758 Pell balancing sums squared gcd",
+        "sliding gcd powers of Lucas sequences Pell fourth powers prime-adic valuations",
+        "consecutive squares of binary split Lucas Jacobsthal gcd divisibility"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2204.12626",
+      "https://arxiv.org/pdf/2301.05758",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL10/Cerin/cerin45.pdf",
+      "https://www.preprints.org/manuscript/202002.0352",
+      "https://www.linkedin.com/in/janeeschrader",
+      "https://mail.sciencetechindonesia.com/index.php/jsti/article/view/1338",
+      "https://oeis.org/A014491",
+      "https://journalajarr.com/index.php/AJARR/article/download/179/357/357"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Čerin 2007 gives sum identities of odd/even Jacobsthal terms, not a stated complete gcd over all adjacent windows.",
+        "Soykan 2020, Corollaries 2.7(a) and 2.8(a), gives positive-index Jacobsthal and Jacobsthal-Lucas square-sum identities, not an all-start gcd classification: https://journalajarr.com/index.php/AJARR/article/download/179/357/357",
+        "Mbirika–Spilker 2022 proves a finite-windows gcd theorem for the Fibonacci recurrence with coefficient 1; its formula requires that recurrence."
+      ],
+      "reasoning": "Finite sum formulas and the finite-window reduction are acknowledged as prior structural tools. The new claim additionally proves all local gcd valuations and their exact combination, which does not follow directly from the stated results for distinct recurrences. A mathematical report for the 2023 Jacobsthal-specific project would be decisive if found; it was not accessible.",
+      "searches": [
+        "Sums of Squares and Products of Jacobsthal Numbers Čerin 2007",
+        "Closed Formulas for the Sums of Squares of Generalized Fibonacci Numbers Soykan 2020",
+        "GCD of sums of k consecutive squares of generalized Fibonacci numbers Mbirika Spilker 2022",
+        "Pell Associated Pell Braid Sequences GCD 2023",
+        "Exact sliding gcd of squares of Jacobsthal sequence equals gcd(k, 2^k-(-1)^k) divided by three when k multiple of 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The formula determines the gcd over all shifts, equivalently over the first three shifts via a monic order-three recurrence; its equivalent primewise statement involves a saturated two-part, a one-power companion correction at three, and gcd(k,2^k-(-1)^k) for other primes.",
+        "A 2023 publicly listed project title explicitly mentions consecutive Jacobsthal squared-sum GCDs, but no report, formula, or proof was located: https://www.linkedin.com/in/janeeschrader",
+        "The 2025 paper https://mail.sciencetechindonesia.com/index.php/jsti/article/view/1338 concerns consecutive-term GCDs of altered Jacobsthal squares, a different object."
+      ],
+      "reasoning": "Searches included gcd-of-window, squares-of-Jacobsthal, and companion aliases and the complete prime valuation form. No accessible theorem implying the pair of complete formulas was found. A project title is not comparable mathematical content and is explicitly identified as a live priority risk, not declared non-covering.",
+      "searches": [
+        "Jacobsthal numbers gcd of all sliding sums of consecutive squares J_n",
+        "exact gcd k, 2^k minus sign Jacobsthal squares window",
+        "Exact sliding gcd of squares of Jacobsthal sequence equals gcd(k, 2^k-(-1)^k) divided by three when k multiple of 3",
+        "\"GCD of sums\" \"Jacobsthal\" \"Schrader\" squares",
+        "\"GCD\" \"consecutive\" \"Jacobsthal\" \"squares\" 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A014491 tabulates a length-dependent arithmetic gcd for even lengths; an expression for g(k) by itself is not asserted to be new: https://oeis.org/A014491",
+        "No indexed arithmetic table inspected stated the complete pair of sliding-window gcds; this is an absence of located coverage, not a proof of novelty."
+      ],
+      "reasoning": "The exact sequence identification was compared to the possibility that a known integer-sequence table already gives the full window GCD. Numerical agreement for the arithmetic expression alone does not entail equality with the gcd over every starting index. No exact covering table was located; search incompleteness remains.",
+      "searches": [
+        "Jacobsthal numbers gcd of all sliding sums of consecutive squares J_n",
+        "number theoretic k-th Jacobsthal gcd sum J_i squared across all consecutive windows",
+        "OEIS gcd(k,2^k-1) A014491 Jacobsthal Lucas sliding gcd"
+      ]
+    },
+    "rationale": "The adjacent general-Gibonacci sliding-square paper restricts the recurrence to X_{n+2}=X_{n+1}+X_n, and the Pell-braid results concern other families; the inspected Jacobsthal square-sum formulas of Soykan (2020, Corollaries 2.7 and 2.8) and Čerin (2007) do not themselves give the gcd over all adjacent windows. No equivalent complete Jacobsthal+companion formula was found in the indexed searches or accessible historical claims. A public 2023 Jacobsthal sliding-GCD project without inspectable results is explicitly recorded as a material residual risk; search absence is not uniqueness proof.",
+    "residual_risks": [
+      "The 2023 Jacobsthal sliding-GCD project named on a public researcher profile may contain an unpublished identical formula; its mathematical write-up was not located.",
+      "Searches of indexed records, accessible historical findings, and accessible primary sources may miss unindexed equivalences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: all Gibonacci sequences here have coefficient 1 on the second preceding term, whereas Jacobsthal has coefficient 2. Its finite-window method is context, not the claimed local classification.",
+        "evidence": [
+          "Theorem 3.4 writes the gcd via three shifts for G_n=G_{n-1}+G_{n-2}.",
+          "https://arxiv.org/pdf/2204.12626"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+        "material_read": "Definition 2.1 and Theorem 3.4 with their proof, recurrence assumptions, introduction and open-questions section",
+        "method": "Inspected accessible arXiv full-text rendering, mathematical statement and proof; checked for Jacobsthal occurrence",
+        "title": "GCD of Sums of k Consecutive Squares of Generalized Fibonacci Numbers",
+        "trigger": "Closest established sliding-square gcd topic"
+      },
+      {
+        "assessment": "Not covering: its families are Pell/balancing relatives, not the Jacobsthal pair.",
+        "evidence": [
+          "No Jacobsthal occurrence in searchable PDF.",
+          "https://arxiv.org/pdf/2301.05758"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+        "material_read": "Full-text introduction, studied recurrence families and principal theorem descriptions; searched document for Jacobsthal",
+        "method": "Inspected open arXiv PDF and searched occurrences of Jacobsthal",
+        "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+        "trigger": "Nearest companion-family sliding-gcd work"
+      },
+      {
+        "assessment": "Provides sums of even-index/odd-index squared terms but no located complete sliding-square gcd for all adjacent windows. It is supporting identity literature.",
+        "evidence": [
+          "Sections 2 and 3 treat Jacobsthal even/odd squares.",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL10/Cerin/cerin45.pdf"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL10/Cerin/cerin45.pdf",
+        "material_read": "Abstract, definitions, introduction, Sections 2 and 3 square-sum identities, and full-document search for gcd terminology",
+        "method": "Rendered first and fourth PDF pages and examined exposed primary math; queried text for gcd",
+        "title": "Sums of Squares and Products of Jacobsthal Numbers",
+        "trigger": "Exact sequence and squared-sum overlap"
+      },
+      {
+        "assessment": "Not covering: Corollaries 2.7 and 2.8 provide individual prefix square-sum formulas for Jacobsthal and Jacobsthal-Lucas sequences, not a GCD across all windows or its prime valuation structure.",
+        "evidence": [
+          "Corollary 2.7(a) and Corollary 2.8(a), published PDF page 31: explicit sum-of-first-n-square formulas.",
+          "https://journalajarr.com/index.php/AJARR/article/download/179/357/357"
+        ],
+        "identifier_or_url": "https://journalajarr.com/index.php/AJARR/article/download/179/357/357",
+        "material_read": "Published primary full-text PDF, definition of generalized Jacobsthal recurrence and Corollaries 2.7 and 2.8 (positive-index square sums), with mathematical text and page images examined; full-document search for gcd",
+        "method": "Opened lawful full publisher PDF, inspected first page and page 8 including two exact Jacobsthal square-sum corollaries, searched full text for gcd (no occurrences).",
+        "title": "Closed Formulas for the Sums of Squares of Generalized Fibonacci Numbers",
+        "trigger": "Broader sum-of-squares formula with Jacobsthal pair as a named case"
+      },
+      {
+        "assessment": "Unresolved possible overlap. Title alone contains no formula, claim or proof; no scientific noncoverage determination is made.",
+        "evidence": [
+          "The 2023 project name matches the relevant objects and gcd operation.",
+          "https://www.linkedin.com/in/janeeschrader"
+        ],
+        "identifier_or_url": "https://www.linkedin.com/in/janeeschrader",
+        "material_read": "Public project title and summer 2023 period only; no scientific write-up",
+        "method": "Searched web for exact phrase and principal investigator topic",
+        "title": "GCD of sums (and sums of squares) of k consecutive Jacobsthal numbers",
+        "trigger": "Potentially identical topic from 2023 researcher project listing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91949360-d442-4090-baf4-79dbc807a3cb",
+  "value": {
+    "rationale": "A complete formula for two standard companion sequences closes a natural sliding-square gcd calculation motivated by earlier explicit square-sum research and the 2022 GCD-of-window-squares study. The exact all-prime answer has nontrivial structure: a saturated 2-part, a 3-part differing by one unit of valuation, and length-controlled odd-prime divisibility. It computes an infinite family of natural arithmetical invariants, rather than a bounded test or a substitution exercise.",
+    "status": "PASS"
+  }
+}
