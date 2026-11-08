@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two standalone standard-library programs independently recover the 168 maximal six-arcs. The first checks all 54264 six-point subsets and all 2520 four-arcs against each of the 21 projective lines; the second generates all 168 states by an independent projective-linear orbit. The complete pair table has 14028 unordered comparisons, with intersection counts 840/6048/3780/3360, exchange valency 40, and common-neighbor counts 4/5/16/11. These checks imply the claimed sharp batch size and diameter; they are not a sample or infinite extrapolation. Independent human reproduction is not claimed.
+## correctness
 
-**Originality — PASS, qualified.** Classical unique-equivalence and quadrangle-extension results are excluded from the claim. Betten's available text treats hyperoval construction and codes; Bamberg et al. treat transitive pseudo-hyperovals. Earlier hyperconic-intersection articles are closer in subject and may encode previously known pairwise intersection counts, but no inspected source states the batch-exchange geodesic multiplicity table. The inaccessibility of the complete 2001 paper and possible tabulated association-scheme coverage are material residual risks; no assertion of unique priority follows from searching.
+PASS
 
-**Value — PASS.** A hyperoval is a natural extremal no-three-collinear configuration. The theorem gives a *sharp* minimum simultaneous replacement size for reachability and a complete metric/geodesic profile at that threshold; it distinguishes static intersection data from the ability to navigate between optimal configurations. These precise invariants are nontrivial, independently reproducible and relevant to finite-geometry reconfiguration, although no generalization to higher orders is asserted.
+Using a fresh independent F4 incidence model, enumerated all 54,264 six-subsets of the 21 labelled projective points against all 21 lines, recovered 168 hyperovals, enumerated all 14,028 distinct pairs and constructed the full 40-regular intersection-3 graph. Independently recomputed for every pair the common-neighbor counts (4,5,16,11) by intersections (0,1,2,3), which force diameter/radius 2 and at least four geodesics for nonedges. All finite cases are exhausted, no infinite generalization. Note historical literature already proves 168 and pair intersection valencies, so correctness not dependent on those being novel.
 
-Closest literature: Betten (2005); Bamberg–Glasby–Popiel–Praeger (2014); Bruen–McQuillan (2001); Miyamoto–Shinoha–Hagita (2007). The latter two focus on intersection data, not demonstrably the full exchange-graph geodesic table; full-text gaps remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp 3-swap threshold and 40-regularity are direct consequences of preexisting per-H intersection counts (Brouwer–Van Maldeghem Prop.6.2.10), and are NOT original by themselves. Originality PASS is confined to the complete four-entry common-neighbor/geodesic multiplicity table and metric interpretation, not located in inspected primary text; a complete association-scheme table remains possible prior coverage.
+
+## value
+
+PASS
+
+The exact three-configuration common-neighbor spectrum, unlike routine pairwise hyperoval enumeration, gives a complete navigation/geodesic profile of a natural extremal finite-geometry configuration space. This is a motivated finite structural invariant despite old vertex and valency counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
