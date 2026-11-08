@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Two-case maximal-run proof rules out all nonconstant squares; period-prefix argument rules out all nonconstant repetitions; factor widths are exactly the count of sufficiently long run intersections; minimal length 2^r and explicit endpoint constructions cover all L>=2. Independently computed DP and witnesses returned VERIFY_OK (31,063 checks).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit–Xu Theorem 1 establishes automata deciding factorization width bounded by each fixed B, not uniform unboundedness",
+        "Their Theorem 7 bounds Thue–Morse shortest width by 7; Theorem 12 bounds paperfolding by 10; Theorem 15 gives unbounded *longest* width for Rudin–Shapiro",
+        "Inoue et al. (2022) abstract describes O(n log n) algorithms for arbitrary finite strings"
+      ],
+      "reasoning": "General computability for each finite string does not imply a closed infinite-family extremal law. The inspected propositions have different sequences or different shortest-versus-longest quantifiers. The 2022 paper full text could not be checked, so a residual possibility of unnoticed coverage remains.",
+      "searches": [
+        "arXiv:2311.14961v2 full HTML read: https://arxiv.org/html/2311.14961v2",
+        "web: \"Factorizing Strings into Repetitions\" arxiv 2020 Inoue",
+        "web: \"Repetition Factorization of Automatic Sequences\" unbounded shortest paper followup"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2311.14961",
+      "https://arxiv.org/html/2311.14961v2",
+      "https://doi.org/10.1142/S0129054124430019",
+      "https://doi.org/10.1007/s00224-022-10070-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 permits separate tests of each width bound B; the present proof exhibits witnesses of arbitrarily large width with an exact lower bound 2^k on required factor lengths",
+        "An unbounded longest factorization width need not imply any unbounded shortest factorization width, and none of the cited source words equals the digit-length-parity word"
+      ],
+      "reasoning": "The conclusion is not a stated corollary of the inspected source: it needs a new square-obstruction lemma and explicit sharp witnesses. This does not establish global novelty against unread literature.",
+      "searches": [
+        "arXiv:2311.14961v2 Theorems 1, 7, 10, 12, 15 and Open problem",
+        "web: \"Factorizing Strings into Repetitions\" Inoue 2022 abstract and full-text attempts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.14961v2 Sections 1, 2, 4–7, particularly Theorem 1 and Section 7",
+        "No searched record identified the parity-of-binary-length word or a shortest-width logarithmic profile"
+      ],
+      "reasoning": "The source-defined width matches ours, but a general fixed-threshold automaton and boundedness results for different words do not determine this exact unbounded profile. Search absence alone does not prove uniqueness.",
+      "searches": [
+        "Mathematical-record query: binary automatic sequence parity of binary length unbounded minimal repetition factorization width powers of two runs",
+        "Mathematical-record query: minimal repetition factorization width exact floor logarithm binary length parity sequence",
+        "web: \"unbounded\" \"shortest\" \"repetition factorization\" automatic",
+        "web: automatic word unbounded shortest repetition factorization widths binary length parity powers two alternating blocks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published finding about the exact greedy string attractor of the period-doubling word concerns a different string-attractor invariant",
+        "A retrieved published finding about the sixth ternary squarefree period minimum concerns a ternary squarefree-word finite minimum",
+        "No exact matching count or table appeared in retrieved search output"
+      ],
+      "reasoning": "Similar terms such as factor, square, automatic, or logarithm are insufficient; the closest record statements do not imply shortest-repetition-factorization behavior for the specified word. Coverage cannot be ruled out outside the searched corpus.",
+      "searches": [
+        "Mathematical-record query: shortest repetition factorization width of automatic sequences into periodic powers unbounded",
+        "Mathematical-record query: binary automatic word with only monochromatic square factors, run lengths double",
+        "web: \"repetition factorization\" \"exponentially growing runs\"",
+        "web: \"square\" \"strictly increasing runs\" binary word"
+      ]
+    },
+    "rationale": "Full accessible arXiv preprint treats fixed-width decidability and other automatic sequences, but not the exact logarithmic shortest-width envelope for the digit-length word. Verified semantically that the prior longest-width result is not a shortest-width result. Unindexed equivalent and unread publisher expansions remain risks.",
+    "residual_risks": [
+      "Published 2024 version not available in full; it may contain details absent from the arXiv v2 examined.",
+      "Inoue et al. 2022 full text not inspected; abstract only and institutional access disconnected.",
+      "Mathematical-record search is not exhaustive; an independent earlier equivalent may be unindexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering the claim; no all-length shortest-width law for the digit-length word",
+        "evidence": [
+          "Theorem 1 fixed-B automaton",
+          "Theorem 7 bounded Thue–Morse shortest widths",
+          "Theorem 12 bounded paperfolding widths",
+          "Theorem 15 unbounded Rudin–Shapiro longest widths",
+          "Section 7 general decidability open problem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.14961v2",
+        "material_read": "Full HTML text through Introduction, Theorem 1, Fibonacci, Thue–Morse, paperfolding, Rudin–Shapiro and open problem (sections 1–7)",
+        "method": "read HTML article and compare quantified statements and proof mechanisms",
+        "title": "Repetition factorization of automatic sequences",
+        "trigger": "same invariant and automatic-word setting; guiding 2023 preprint"
+      },
+      {
+        "assessment": "No decisive full-text comparison possible; preprint text used for primary scientific comparison",
+        "evidence": [
+          "Published abstract describes Fibonacci, Thue–Morse, paperfolding and Rudin–Shapiro examples"
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054124430019",
+        "material_read": "Bibliographic record and abstract only; full article returned 403",
+        "method": "publisher page and cross-reference search",
+        "title": "Repetition Factorization of Automatic Sequences (published version)",
+        "trigger": "published counterpart with additional coauthor"
+      },
+      {
+        "assessment": "Known finite-string algorithms, not a decisive covering result; full-text comparison unresolved",
+        "evidence": [
+          "Abstract specifies O(n log n) shortest/longest factorization algorithms and Fibonacci strings"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-022-10070-3",
+        "material_read": "Abstract and bibliographic description only; arXiv/OA attempts did not yield full text, institutional retrieval unavailable",
+        "method": "publisher-linked abstract, university publication record, attempted institutional full-text retrieval",
+        "title": "Factorizing Strings into Repetitions",
+        "trigger": "original finite-string repetition factorization algorithms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "594203fe-7d5c-4aeb-9612-217739e84d20",
+  "value": {
+    "rationale": "The source explicitly distinguishes bounded shortest widths in standard sequences from unbounded longest widths. The theorem gives a natural binary automatic example of unbounded shortest widths with an exact all-length optimal width profile and a structural square obstruction, not just a constructed isolated counterexample.",
+    "status": "PASS"
+  }
+}
