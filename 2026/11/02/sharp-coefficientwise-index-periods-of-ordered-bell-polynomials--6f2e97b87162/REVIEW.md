@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inclusion–exclusion formula for \(k!S(n,k)\) proves the upper period once all nonunit bases vanish. Any eventual period forces the powers of every \(1\le j<p\) to agree, which detects the full odd-prime Carmichael exponent using the sum of Teichmüller lifts; the coefficient at \(X^3\) detects the exact two-adic exponent. The coefficient at \(X^p\) one index before the proposed start supplies a nonzero residue of valuation \(a-1\) for every positive possible period. The proof handles the modulus-two and index-zero boundaries separately. The standalone verifier independently recomputes modular Stirling coefficients across 99 moduli; a finite test is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, residual risk disclosed
+Inclusion-exclusion k! S(n,k)=sum_{j<=k}(-1)^(k-j)binom(k,j)j^n proves uniform coefficientwise period lambda(p^a) from n>=a because nonunits vanish and units obey Carmichael. CRT gives R=max a and L=lcm lambda. For an eventual period T, triangular coefficient identities at 1<=k<=p-1 force j^T=1 mod p^a for all j=1..p-1. At odd p, they give p-1|T; at least one small representative has v_p(j^(p-1)-1)=1 via root factorization and sum j=p(p-1)/2 nonzero mod p^2, so LTE forces p^(a-1)|T. At 2^a, coefficient k=3 yields order of 3 equal lambda(2^a). At n=a-1 coefficient k=p has remaining contribution -p^(a-1) for every eventual T, blocking earlier starts; for a=1 constant term of G_0 distinguishes. Independently computed exact Stirling coefficients verified asserted lambda/R values for every modulus 2..50; finite checks do not establish arbitrary m.
 
-The fixed-column periodicity described by Zhao–Hong–Zhao (arXiv:1209.6284) implies a generic eventual bound for columns but does not itself give the simultaneous least coefficientwise period and earliest starting index. Mező (arXiv:1308.1637) examines Fubini number residues, and Mihoubi–Taharbouchet (arXiv:1706.08950) give prime-modulus polynomial congruences, neither of the exact pair claimed here. Danesh (viXra:2608.0078) describes a broader Carmichael upper-period mechanism; that coverage is acknowledged. Its online abstract does not settle whether the exact sharp pair is obtained in its full text; that unavailable full text is a significant residual overlap risk, not evidence of originality. The closest accessible ledger claim treats **one scalar evaluation** near \(-1\) for special primes and gives a shorter scalar period; it is neither equivalent to nor stronger than simultaneous coefficientwise sharpness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural modular ordered-Bell polynomial sequence is a unified object encoding all surjection counts at each index. Exact global index period and exact transient length are canonical invariants not determined by mere eventual periodicity. The odd-prime obstruction requiring all low unit bases, and the exceptional two-adic detection at degree three, distinguish the result from a substitution or single-column exercise. It clarifies why special numerical Fubini values can have shorter periods without violating a sharp uniform polynomial statement.
+All-modulus exact least *coefficientwise* index period and least preperiod is a tighter classification than known eventual periodicity or selected scalar evaluations; qualified against a very relevant inaccessible 2026 Stirling-transform source.
 
-## Sources and limits
+## value
 
-The main archival source was publicly available on 2012-09-27; the newer cited sources are comparisons, not used to change its cohort. Relevant primary sections and accessible text were inspected, but possible unlocated equivalent exact refinements remain. This is not an independently audited theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordered-Bell polynomials are a classical central combinatorial family, and least eventual coefficientwise period plus least starting index are natural exact modular invariants not determined merely by existence of periodicity. The all-modulus minimality classification and explicit witnesses can be reused by modular Stirling-transform studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
