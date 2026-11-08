@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to even group sizes, independent uniform coupon labels, consecutive quotas \(m\) and \(m+1\), and \(m	o\infty\). The analytic proof passes from independent Gamma group maxima under Poisson thinning to exact draw indices under a common Poisson clock. The density-tail comparison has explicit remainder \(m/(u-m)^2\), shown to vanish by the Gamma central limit theorem at the rare-event centering. The local exponential-tail approximation and the centered sum of class intensities establish the joint CDF. Stirling's inequality and the elementary rate-function inequality bound the global clock's fluctuations uniformly even for very large \(m\). The three last-completer regimes follow from the adjacent-shape tail ratio. The standalone checker executed 454 finite assertions; these are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, provisional priority
+For n even and m=m_n→∞ with n/2 types needing m coupons and n/2 needing m+1, Poisson thinning turns the two rescaled group completion times into independent Gamma(m,1) and Gamma(m+1,1) maxima. Their exact CDFs are (1−Q_m(u))^(n/2),(1−Q_(m+1)(u))^(n/2); center u_n uniquely solves (n/2)(Q_m+Q_(m+1))=1, scale b_n=u_n/(u_n−m). The density Mills bounds with error m/(u_n−m)^2→0 (Gamma CLT implies u_n−m≫√m) give Q_j(u_n+xb_n)/Q_j(u_n)→exp(−x) for both j. Thus Gumbel limit without restriction on growth of m. The Poisson-clock de-Poissonization is valid uniformly because u_n/b_n² <= 2 log n+O(1), bounding count fluctuations versus n b_n. Tail ratio Q_(m+1)/Q_m ~u_n/m and Gamma rate function I(r)=r−1−log r prove the three last-class competition regimes: r∞=1, r0=∞, finite alpha: I(r)=1/alpha, winner probability r/(1+r). Checked independent finite numerical gamma tails/center, ratio and group maximum CDF in four regimes, including m≫n; these illustrate, not prove, asymptotic conclusions. The alpha=0 joint CDF has an escaping coordinate, correctly not claimed as R² weak convergence.
 
-Castro–Marinho, Theorem 2.3, establishes the homogeneous growing-quota completion Gumbel theorem but has no two-class final-bottleneck competition. Long, Theorem 4.1 and Section 3, provides a terminal-defect framework for unequal arrival rates with a common quota, not two different quotas. May's complete 2008 finite generating-function treatment allows arbitrary quotas and gives exact finite distributions, so it is explicitly prior coverage of the model and its finite law, but not an already established growing-quota last-class crossover theorem. Ilienko analyzes successive homogeneous completion layers in a different fixed-layer limit. An accessible earlier claim about homogeneous one-time positive deficit depths does not record types exactly at the lower quota and does not assert a joint two-quota class-maxima limit or winner classification. The named research-record searches found no direct statement, but cannot exclude an implicit classical extreme-value theorem. Historical priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Heterogeneous completion requirements arise naturally in reliability and collection systems, and the smallest nontrivial heterogeneity is exactly one additional copy. The theorem separates a genuinely dominant high-quota class from an asymptotically balanced contest, with an explicit continuous critical crossover, while retaining a universal completion-time law without assuming that \(m/\log n\) converges. The result quantifies which subsystem governs the last completion, not just the expected time or the presence of a Gumbel cutoff.
+Qualified best-of-knowledge PASS: Russell May (2008) gives an arbitrary-quota finite exact generating function—this broad model coverage is explicitly acknowledged but does not state the growing-quota n→∞ last-group crossover. Long (2026) treats evolving single quota and varying arrival rates, not two adjacent quotas assigned to equal-sized groups; Castro–Marinho gives the homogeneous growing-quota Gumbel law, not the winner phase diagram. The combination may be implicit in generic nonidentically distributed Gamma-maxima extreme-value theory; no novelty certification.
 
-## Scope and risks
+## value
 
-The original arbitrary-quota generating function remains the general finite-sample result. Neither a general multi-class asymptotic nor a finite-size convergence rate is claimed. Other old coupon-quota generating functions or general nonidentical-extreme-value results might imply the sharp crossover after nontrivial specialization and require independent specialist priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-copy quota difference is the minimal natural heterogeneity in coupon collection, yet produces a nontrivial sharp crossover in the identity of the last finishing group at m~log n while the total completion stays universally Gumbel. Explicit last-class probabilities and joint class maxima quantify a motivated reliability/coverage bottleneck rather than merely recomputing a finite coupon formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
