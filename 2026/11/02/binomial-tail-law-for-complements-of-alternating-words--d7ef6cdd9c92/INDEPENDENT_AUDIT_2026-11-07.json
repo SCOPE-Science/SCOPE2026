@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:12:36.830432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all m,k>=0, a residual of (ab)^(m+k) after deleting an embedded (ab)^k has balanced two-letter blocks each ab or ba: the residual even-prefix imbalance is at once even and in {-1,0,1}. A ba-block run requires a new deleted a, giving at most k such runs. Conversely each run (ba)^q comes from (ab)^(q+1) with endpoints a,b deleted, so every block word with <=k ba-runs occurs. Selecting 2r of m+1 block boundaries yields C(m+1,2r), equal by Pascal summation to the binomial tail. This proves the full-attainment threshold m<=2k and its unique first missing word. Independently enumerated distinct deletion residuals at 0<=k<=n<=8, consistent with the formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. Section 3 algorithms enumerate C(w,u) in general; Section 4 studies structural instances.",
+          "Conclusion explicitly suggests deriving formulas for special classes."
+        ],
+        "reasoning": "An algorithm that can compute a finite instance does not furnish the uniform all-m,k run-language characterization and exact closed binomial tail as a corollary without a new family-specific argument.",
+        "searches": [
+          "complements scattered factors alternating word (ab)^(m+k) deletion alternating (ab)^k binomial",
+          "Check whether the primary paper proves an all-word theorem that implies this closed count."
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2603.20790 Sections 3,4, Theorem 4.5, Conclusion",
+        "Resultary semantic query: complements scattered factors alternating word (ab)^(m+k) deletion alternating (ab)^k binomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adamson et al. Theorem 4.5 addresses singleton complement sets and perfect shuffles.",
+          "The submitted theorem classifies exponentially many possible distinct residuals for arbitrary m,k and finds first missing word at m=2k+1."
+        ],
+        "reasoning": "Singleton complements and generic algorithms do not logically force this family-wide run-bound bijection or the binomial-tail law.",
+        "searches": [
+          "complements scattered factors alternating word (ab)^(m+k) deletion alternating (ab)^k binomial",
+          "Compare theorem 4.5 singleton and general complement algorithms with actual claim."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adamson–Fleischmann–Huch arxiv:2603.20790 defines exactly C(w,u) and the shuffle interpretation.",
+          "Resultary deletion-channel findings concern different fixed deletion patterns and reconstruction constraints."
+        ],
+        "reasoning": "The source gives generic complement construction and a singleton perfect-shuffle criterion, not a general binomial-tail characterization for the alternating two-parameter pair. General shuffle language permits evaluation but does not state the required run iff condition.",
+        "searches": [
+          "complements scattered factors alternating word (ab)^(m+k) deletion alternating (ab)^k binomial",
+          "Search for shuffle/complement-subsequence equivalences and alternating runs."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All 0<=k<=n<=8 distinct residual sets independently enumerated and matched boundary-binomial counts.",
+          "Binomial boundary choices themselves are classical, but the identification of reachable residuals with <=k reversed-block runs is not shown by that identity alone."
+        ],
+        "reasoning": "Classical C(m+1,2r) counts runs once the language is known; prior binomial tables do not prove this exact alternating deletion language and threshold.",
+        "searches": [
+          "complements scattered factors alternating word (ab)^(m+k) deletion alternating (ab)^k binomial",
+          "Compare exact restricted tables and classical binomial combinatorics."
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.",
+      "residual_risks": [
+        "An equivalent classical shuffle/interleaving formula under a different name could exist; unsuccessful search is not proof of priority.",
+        "Only alternating binary source and alternating removed subsequence, not general complements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operation, generic algorithms and singleton classification; the distinct alternating run-language theorem is not among inspected statements",
+          "evidence": [
+            "Theorem 4.5 singleton criterion; Conclusion calls for closed formulas for special cases"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Full 2026 open-access article: definitions, Sections 3 and 4, Theorem 4.5 and conclusion",
+          "method": "Read lawful arXiv HTML full text; checked key statements and conclusion",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Exactly same complement scattered-factor operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The basic complement-scattered-factor paper explicitly seeks closed formulas for meaningful subclasses. This complete two-parameter alternating subclass identifies the exact residual language, run statistic, minimal deletion requirement and a sharp universality threshold; the formula is not a mere restatement of the general embedding-enumeration algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is two-symbol alternating-source and alternating-deleted-subsequence only.",
+    "Finite enumerations to source length 16 corroborate, not prove, the uniform theorem."
+  ]
+}

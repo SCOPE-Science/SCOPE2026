@@ -1,19 +1,21 @@
-# Review of the alternating-word complement classification
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement quantifies over all nonnegative \(m,k\), distinct alphabet symbols, and distinct complement words. The proof separates necessity (balanced even residual prefixes and parity changes of the deleted alternating subsequence) from sufficiency (an explicit segment for each maximal reversed-block run), then counts runs through their boundaries. This establishes the full language equality, the exact minimum deletion count, and both binomial sums without extrapolation. The standalone checker compares exact sets by two independently formulated enumerators for 78 parameter pairs; its finite success corroborates but does not replace the proof.
+PASS
 
-## Originality (O): PASS, subject to publication-priority uncertainty
+For all m,k>=0, a residual of (ab)^(m+k) after deleting an embedded (ab)^k has balanced two-letter blocks each ab or ba: the residual even-prefix imbalance is at once even and in {-1,0,1}. A ba-block run requires a new deleted a, giving at most k such runs. Conversely each run (ba)^q comes from (ab)^(q+1) with endpoints a,b deleted, so every block word with <=k ba-runs occurs. Selecting 2r of m+1 block boundaries yields C(m+1,2r), equal by Pascal summation to the binomial tail. This proves the full-attainment threshold m<=2k and its unique first missing word. Independently enumerated distinct deletion residuals at 0<=k<=n<=8, consistent with the formula.
 
-The 2026 foundational paper of Adamson, Fleischmann and Huch gives general algorithms and singleton/shuffle structure but leaves closed formulas in specified natural families open (Conclusion). Its Sections 3 and 4 were inspected, including the singleton perfect-shuffle Theorem 4.5. No formula or characterization by reversed-block runs for alternating source and deleted subsequence was found. Semantic database searches for the same objects, aliases, parameters, run characterization and binomial tail returned related deletion/shuffle results but not a statement implying this theorem. Recoverable prior claims include an alternating-word minimal-absent-subsequence result and shuffle variants, none of which imply the complement-language classification. This remains best-knowledge novelty, not proof of global uniqueness; an unindexed shuffle enumeration is plausible.
+## originality
 
-## Value (V): PASS
+PASS
 
-The primary source expressly identifies closed forms for special complement-scattered-factor sets as an unresolved direction. Alternating words are the canonical binary extremal test case, and the full two-parameter theorem gives not merely an isolated value but a structural normal form, a precise minimal deletion resource, a binomial-tail census, and a sharp phase boundary from full to incomplete residual coverage. This is nontrivial information not implicit in the raw embedding count (many embeddings share a residual).
+Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.
 
-## Limits
+## value
 
-The theorem is not an optimal bound over arbitrary word pairs. No external independent mathematical audit or definitive priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The basic complement-scattered-factor paper explicitly seeks closed formulas for meaningful subclasses. This complete two-parameter alternating subclass identifies the exact residual language, run statistic, minimal deletion requirement and a sharp universality threshold; the formula is not a mere restatement of the general embedding-enumeration algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
