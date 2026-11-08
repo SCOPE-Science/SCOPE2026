@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The fixed peak-deficit condition gives four equal-letter adjacencies; the mismatch-with-sawtooth argument rigorously reduces every trace to a union of two intervals, proving the all-size VC upper bound. A 16-pattern support at semilength six yields the matching lower bound for all larger sizes by padding. A complete and inductively justified recurrence with integer bitmasks establishes the finite adaptive table; an independent literal-set recurrence confirms the three nontrivial entropy-bound failures. Fully specified witness trees are replayed rather than inferred from counts. The argument gives only a lower growth bound for larger online dimensions.
+## correctness
 
-**Originality: PASS with residual historical risk.** Searches for Narayana-slice VC/Littlestone dimensions, fixed-peak Dyck paths, parity-adjusted interval unions, and bounded-run online shattering did not identify an exact covering result. Chase–Freitag supplies the model-theoretic dimension framework, not the Narayana calculation; Shigechi treats Catalan statistics, not adaptive trees. General two-interval shattering applies to the larger superfamily and implies the VC upper bound, but neither the matching subclass lower bound nor its exact online table. Closely related older interval learning remains a historical-priority risk, especially after alternative encoding.
+PASS
 
-**Mathematical value: PASS.** The two-defect Narayana layer is a canonical, naturally enumerated Catalan subclass. It exhibits a fixed VC dimension and growing online dimension, and the complete initial finite classification identifies the first nontrivial failure of the cardinality upper bound. The parity-adjusted two-interval representation suggests a structural route for studying general peak-deficit layers; the exact transition at nine is not a consequence of the Narayana count alone.
+For a Dyck word with n-2 peaks, exactly four equal-letter adjacencies make its mismatch with the alternating word exactly two nonempty interval runs. A set of five ordered positions with alternating 1-0-1-0-1 cannot be shattered by two intervals; the 16 traces on positions 2,4,7,8 at n=6 and padding with (UD) tails prove VC=4 for every n>=6. The suffix interval-to-threshold embedding after the UUDD prefix proves unbounded online dimension with floor(log2(n-3)) lower bound. The exact boolean recurrence over all nonempty hypothesis subsets, using complete coordinate splits and exact 2^depth leaf cutoff, proves each finite Ldim n=3..11, rather than extrapolation. The independent finite solver enumerated all 3..11 layers including 825 hypotheses at n=11, 60,564 memoized states, and reproduced the listed dimensions and witness traces. Boundaries n=3,4,5 were separately enumerated. No formula is asserted for the full Ldim sequence past 11.
 
-The finite table is limited to semilength eleven; the general adaptive growth rate is not determined. See `RESULT.md`, `VERIFY.py`, `ALT_CHECK.py`, and `certificates.json` for direct evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Narayana layer and the VC theorem for unrestricted unions of two intervals are known; the new content is the natural fixed-peak-subclass lower bound, its exact online table, earliest entropy deficiency and qualitative VC/Ldim separation. Chase–Freitag identifies the online dimension and model-theoretic equivalence, not the Dyck count; Shigechi computes Catalan statistics such as major index and q-Narayana refinements, not shattering under step queries. No tested published Resultary result implies the exact restricted online depths. Older learning-theory classification under parity-adjusted interval embeddings remains a specified priority risk.
+
+## value
+
+PASS
+
+Two fewer peaks defines a canonical Narayana stratum, not an arbitrary subset. The fixed VC=4 but growing adaptive dimension is a concrete structural separation, and the first failure of the generic floor(log2 class size) upper bound at semilength 9 is not given by the Narayana count. The exact initial table and the two-interval encoding can serve future lower/upper analyses of other peak-deficit strata, while not claiming an all-n Ldim formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

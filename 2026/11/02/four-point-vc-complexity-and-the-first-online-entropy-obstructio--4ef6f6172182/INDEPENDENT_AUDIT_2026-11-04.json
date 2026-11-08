@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:06:44.937921Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, complete actual proof and listed computational files",
+        "Independent exact mathematical checker /mnt/data/scope05_run_20261104T1756/independent_five_checks.py"
+      ],
+      "rationale": "For a Dyck word with n-2 peaks, exactly four equal-letter adjacencies make its mismatch with the alternating word exactly two nonempty interval runs. A set of five ordered positions with alternating 1-0-1-0-1 cannot be shattered by two intervals; the 16 traces on positions 2,4,7,8 at n=6 and padding with (UD) tails prove VC=4 for every n>=6. The suffix interval-to-threshold embedding after the UUDD prefix proves unbounded online dimension with floor(log2(n-3)) lower bound. The exact boolean recurrence over all nonempty hypothesis subsets, using complete coordinate splits and exact 2^depth leaf cutoff, proves each finite Ldim n=3..11, rather than extrapolation. The independent finite solver enumerated all 3..11 layers including 825 hypotheses at n=11, 60,564 memoized states, and reproduced the listed dimensions and witness traces. Boundaries n=3,4,5 were separately enumerated. No formula is asserted for the full Ldim sequence past 11.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted union-of-two-interval VC=4 and Narayana counts are acknowledged",
+          "The generic finite-class Ldim<=floor(log2|H|) is an upper bound, not a sharpness theorem"
+        ],
+        "reasoning": "Neither generic interval VC theory nor class-size entropy gives the observed Ldim=7 at n=9 versus floor(log2 336)=8, or the unboundedness for these constrained Dyck paths; the independent interval embedding is a separate argument.",
+        "searches": [
+          "Resultary: Dyck paths fixed number peaks n-2 VC Littlestone dimension finite online shattering Narayana two intervals",
+          "web: fixed peaks Narayana VC dimension Littlestone threshold learning",
+          "arxiv:1801.06566",
+          "arxiv:2407.17168"
+        ]
+      },
+      "checked_sources": [
+        "Chase–Freitag, Model Theory and Machine Learning, arxiv:1801.06566 (full arXiv HTML, definitions and bounded shattering)",
+        "Shigechi, Major Index on Catalan Combinatorics, arxiv:2407.17168v1 (full arXiv HTML, Sections 2–6)",
+        "Narayana enumeration and elementary two-interval VC bound",
+        "published Resultary semantic search for Narayana/online dimension, 20 ranked hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chase–Freitag 2018/2019 complete-tree definition; Shigechi 2024 Dyck q-statistics; canonical Narayana formula"
+        ],
+        "reasoning": "The cited prior results are necessary terminology/counts. Without the n=6 shattering witness, the encoded subclass could have smaller VC; without constrained recursive splitting, class size alone cannot prove the online table.",
+        "searches": [
+          "Resultary: Dyck paths fixed number peaks n-2 VC Littlestone dimension finite online shattering Narayana two intervals",
+          "web: fixed peaks Narayana VC dimension Littlestone threshold learning",
+          "arxiv:1801.06566",
+          "arxiv:2407.17168"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All two-defect Dyck mismatch sets are unions of two intervals; unrestricted two-interval VC upper bound is four",
+          "Chase–Freitag arxiv:1801.06566 gives the adaptive-tree invariant",
+          "Shigechi arxiv:2407.17168 studies Catalan statistics"
+        ],
+        "reasoning": "Under parity complement the concept class embeds in a known two-interval set system, but this is a proper Narayana-constrained subfamily: an upper bound for the larger class proves only VC<=4, not the sixteen realizations or exact finite online-depth sequence.",
+        "searches": [
+          "Resultary: Dyck paths fixed number peaks n-2 VC Littlestone dimension finite online shattering Narayana two intervals",
+          "web: fixed peaks Narayana VC dimension Littlestone threshold learning",
+          "arxiv:1801.06566",
+          "arxiv:2407.17168"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary fixed-peak Dyck and two-interval learning semantic searches returned other Catalan statistics and finite interval learning results, not this Narayana table",
+          "Exact package n=3..11 enumeration obtained from a complete recurrence"
+        ],
+        "reasoning": "A query for aliases and fixed peak deficiency found no exact published table in checked results; the search is bounded and cannot establish priority.",
+        "searches": [
+          "Resultary: Dyck paths fixed number peaks n-2 VC Littlestone dimension finite online shattering Narayana two intervals",
+          "web: fixed peaks Narayana VC dimension Littlestone threshold learning",
+          "arxiv:1801.06566",
+          "arxiv:2407.17168"
+        ]
+      },
+      "rationale": "The Narayana layer and the VC theorem for unrestricted unions of two intervals are known; the new content is the natural fixed-peak-subclass lower bound, its exact online table, earliest entropy deficiency and qualitative VC/Ldim separation. Chase–Freitag identifies the online dimension and model-theoretic equivalence, not the Dyck count; Shigechi computes Catalan statistics such as major index and q-Narayana refinements, not shattering under step queries. No tested published Resultary result implies the exact restricted online depths. Older learning-theory classification under parity-adjusted interval embeddings remains a specified priority risk.",
+      "residual_risks": [
+        "Potential earlier exact VC/Ldim calculations for fixed-peak Catalan classes under alternation, interval concept or stable-theory terminology",
+        "Finite Ldim table ends at n=11; no exact asymptotic Ldim theorem beyond a logarithmic lower bound"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONAL_PRIOR_WORK_NOT_COVERING_EXACT_NARAYANA_RESULT",
+          "evidence": "Defines general complete adaptive shattering; no stated exact Narayana fixed-peak VC/Ldim table.",
+          "identifier_or_url": "https://arxiv.org/html/1801.06566v1",
+          "material_read": "Full HTML article, with introduction and model-theoretic thicket-dimension definitions, links to stability and learning",
+          "method": "Read named definitions and compared hypotheses and conclusions with binary position-query Dyck Narayana layer",
+          "title": "Model Theory and Machine Learning",
+          "trigger": "Provides the canonical Littlestone/thicket complete binary decision-tree definition, so a potentially broad coverage source"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANTS",
+          "evidence": "Theorems address major index, inversion statistic and equidistribution for Catalan objects; position-query VC and adaptive shattering are not among those asserted results.",
+          "identifier_or_url": "https://arxiv.org/html/2407.17168v1",
+          "material_read": "Open HTML Introduction, complete section/theorem map, targeted passages in Sections 3, 4 and 6 and searches for learning-theoretic invariants; not every line of every proof re-read",
+          "method": "Compared Catalan statistics and word encodings against learning-theoretic step-position traces and online trees",
+          "title": "Major Index on Catalan Combinatorics",
+          "trigger": "Dyck paths, q-Narayana statistics, and fixed-peak Catalan structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chase–Freitag, Model Theory and Machine Learning, arxiv:1801.06566 (full arXiv HTML, definitions and bounded shattering)",
+        "Shigechi, Major Index on Catalan Combinatorics, arxiv:2407.17168v1 (full arXiv HTML, Sections 2–6)",
+        "Narayana enumeration and elementary two-interval VC bound",
+        "published Resultary semantic search for Narayana/online dimension, 20 ranked hits"
+      ],
+      "rationale": "Two fewer peaks defines a canonical Narayana stratum, not an arbitrary subset. The fixed VC=4 but growing adaptive dimension is a concrete structural separation, and the first failure of the generic floor(log2 class size) upper bound at semilength 9 is not given by the Narayana count. The exact initial table and the two-interval encoding can serve future lower/upper analyses of other peak-deficit strata, while not claiming an all-n Ldim formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential earlier exact VC/Ldim calculations for fixed-peak Catalan classes under alternation, interval concept or stable-theory terminology",
+    "Finite Ldim table ends at n=11; no exact asymptotic Ldim theorem beyond a logarithmic lower bound",
+    "Frozen public METADATA.json includes scope_run_id operational provenance and a first_public_date referring to an antecedent cited work rather than an independently substantiated date for this finding; complete guarded, semantically sanitized public metadata and all potentially affected files have not been supplied. Publication withheld."
+  ],
+  "schema_version": 1
+}
