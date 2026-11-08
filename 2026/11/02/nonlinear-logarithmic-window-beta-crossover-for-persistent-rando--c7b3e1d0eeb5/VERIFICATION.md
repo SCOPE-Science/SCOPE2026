@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The functional weak-convergence proof is written out in `RESULT.md`. In the supplementary file `checks/moment_checker.py`, the first block independently enumerates all finite signed-step paths up to length 12 for exponent one and checks the exact second-/fourth-moment and signed mixed-moment recurrences. The second block verifies Beta moments at several rational switching rates by exact rational arithmetic. The third block uses the same independently checked recurrence for finite \(N\) and compares the resulting normalized moments with the predicted analytic finite-window targets at three real window parameters.
+# Independent mathematical audit
 
-To reproduce with Python 3 and no external libraries:
+## correctness
 
-```sh
-python3 checks/moment_checker.py
-```
+PASS
 
-Expected stdout is embedded as `checks/moment_checker_output.txt`. It finishes with `PASSED 131 finite assertions`. The computational cases test finite algebra and trends; they do not certify the Poisson point-process limit, asymptotic independence at positive times, global universality, or novelty.
+PASS: For α_N=1+β_N/log N, β_N→β finite and p_N,k=min(1,c k^(-α_N)), uniformly on δN≤k≤TN one gets N p_N,k→λ/(k/N), λ=c e^(−β), with independent rare reversals. Laplace functionals establish PPP λdt/t, a fair spin independent of future reversals and continuous integration give functional convergence of the 1-Lipschitz interpolated walks in C([0,T]) after excising (0,δ) and then δ→0. Log-time stationary telegraph generator yields (Yλ(t)/t+1)/2∼Beta(λ,λ) via compact-support moments. Exact M2/t²=1/(1+2λ), Binder=2/(3+2λ), and two-time covariance integral including λ=1/2 logarithmic case follow. Independently exact checked finite walk 2nd/4th moment recurrence for n≤9; finite tests do not prove weak convergence.
 
-The proof's noncomputational verification consists of: (1) the independent-flip Laplace-functional limit; (2) local sign-process convergence from a fair sign and continuity of integrated paths; (3) a deterministic \(2\delta\) near-origin approximation; (4) compact-support moment identification from the stationary telegraph generator; and (5) double integration of its exact parity correlation. The result claims convergence of laws for each bounded finite parameter and does not claim error bounds, formal third-party certification, or a uniform limit for unbounded exponent parameters.
+## originality
+
+PASS
+
+PASS (best of knowledge): Pradhan–Roy–Ray 2026 identifies the exponent-one transition and logarithmic scaling variable but the inspected finite-time analysis is first-order/empirical rather than a complete nonlinear triangular-row functional limit. Engländer–Volkov–Wang 2019 already proves critical fixed-sequence Poisson zigzag and Beta laws; those are acknowledged and not newly claimed. The distinct new result is the varying-exponent triangular-window limit and exact nonlinear crossover profile.
+
+## value
+
+PASS
+
+PASS: Derives a controlled full limiting law through the finite-size crossover that the source paper characterized by scaling; exact nonlinear variance, Binder and covariance profiles provide specific, testable mathematical observables rather than renaming a fixed-parameter Beta law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
