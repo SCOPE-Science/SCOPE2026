@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact distribution follows by conditioning on the first two Gaussian sketch columns and integrating a two-dimensional Wishart-normal mixture with density (s-1)/(2pi)(1+||v||^2)^(-(s+1)/2). Direct matrix algebra gives the parabolic discriminant inequality. Polar integration yields a one-dimensional formula for every integer s>=3. The large-s limit is justified via a positive 2D integrable majorant and dominated convergence, with explicit Gaussian/exponential integrals producing prefactor q/(h sqrt(3pi)). Positive-definiteness and the honest sketching regime n>s are checked. The extracted standalone executable passed 59,018 supplementary checks, none substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu and Liu, sections 3, 5, 6 and appendix, provide local subspace and real Schur analyses but not an exact Gaussian event probability.",
+        "Nakatsukasa and Tropp, section 6.8, gives no distribution or sharp fixed-matrix oversampling decay.",
+        "Shao, arXiv:2604.01037, section 1 and theorem 2, uses square complex Gaussian Petrov–Galerkin projection, not real Gaussian oversampled sRR."
+      ],
+      "reasoning": "Broader sRR algorithmic guarantees and perturbation results treat different outcomes and do not imply an exact nonreal-pair distribution at all sketch dimensions. The square complex-Gaussian pencil changes both the law and sketch geometry.",
+      "searches": [
+        "three dimensional symmetric positive definite matrix two column sketched Rayleigh Ritz Gaussian oversampling exact complex probability exponential s row asymptotics",
+        "fixed 3x3 SPD Gaussian sRR complex eigenpair probability s>=3 rows Laplace asymptotic",
+        "three by three real symmetric randomized Ritz probability complex pencil Gaussian two by three sharp bound",
+        "arxiv:2610.22261",
+        "doi:10.1137/23M1565413",
+        "arxiv:2604.01037"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.22261",
+      "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+      "https://arxiv.org/html/2604.01037v1",
+      "https://doi.org/10.1137/23M1565413"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior sRR references establish nonreal outcomes are possible for symmetric inputs.",
+        "The new calculation uses the full bivariate Student regression density and sharp boundary Laplace asymptotics.",
+        "The published randomized Ritz convergence theorem treats a distinct complex square Petrov–Galerkin scheme."
+      ],
+      "reasoning": "The qualitative possibility of nonreal eigenvalues is logically weaker than an exact probability and its fixed-gap large-sketch prefactor. Classic Student mixture theory supplies one ingredient but does not itself state or imply the final spectral-event boundary without the new discriminant geometry and integration.",
+      "searches": [
+        "arxiv:2610.22261 section 3.1",
+        "doi:10.1137/23M1565413 section 6.8",
+        "arxiv:2604.01037 Theorem 2",
+        "Gaussian sketched Rayleigh Ritz symmetric matrix 3-by-3 two-dimensional trial subspace probability complex eigenpairs sharp oversampling rate",
+        "nonsymmetric sketch Rayleigh Ritz nonreal eigenvalues probability Gaussian sketch 3x3 SPD two dimensional projected eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu and Liu, arXiv:2610.22261, section 3.1, gives the nonsymmetric sketched compression and Schur blocks.",
+        "Nakatsukasa and Tropp, DOI 10.1137/23M1565413, section 6.8, establishes qualitative possibility of nonreal estimates."
+      ],
+      "reasoning": "The equivalent whitened-basis pencil is similar to the unsymmetrized two-by-two matrix, so eigenvalue probabilities are invariant. A Gaussian-Wishart regression formula alone provides the coefficient density, but not the parabolic discriminant event, finite-s angular probability, or fixed-gap exponential probability prefactor. No inspected equivalent statement covers all three.",
+      "searches": [
+        "Gaussian sketched Rayleigh Ritz symmetric matrix 3-by-3 two-dimensional trial subspace probability complex eigenpairs sharp oversampling rate",
+        "nonsymmetric sketch Rayleigh Ritz nonreal eigenvalues probability Gaussian sketch 3x3 SPD two dimensional projected eigenvalues",
+        "real arithmetic sketched eigensolvers complex Ritz frequencies asymptotic sample size exact failure rate",
+        "sketched Rayleigh Ritz nonreal complex eigenvalues probability Gaussian sketches oversampling symmetric fixed matrix",
+        "arxiv:2610.22261 Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices nonreal sketched Rayleigh Ritz probability",
+        "Gaussian Wishart Student regression two coordinate sketched Rayleigh Ritz discriminant parabolic integral nonreal conjugate fixed spectral gap exponential 1+h^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record similarity results returned general spectral perturbation and matrix examples without the sketched-Ritz Gaussian event law.",
+        "No finite-sketch p_s(h) angular integral, positive all-s risk, or fixed-gap exponential prefactor was located in the searched primary-source formulas or source appendices."
+      ],
+      "reasoning": "The answer is a probability function indexed by unbounded sketch size rather than a pretabulated single numerical constant. Database search alone cannot establish novelty; the material distinctions and primary-text comparisons are the substantive evidence.",
+      "searches": [
+        "nonreal conjugate eigenpair probability at most 1-sqrt(2/3) for a real symmetric 3-by-3 sketched Rayleigh Ritz projection",
+        "Gaussian sketched Ritz matrix M=(SU)^-1 SAU complex pair probability sharp 3x3",
+        "m_s=s^2+4 near-degenerate spectral gap rho_s probability nonreal p(t) sketched Ritz",
+        "sketched Rayleigh Ritz nonreal complex eigenvalues probability Gaussian sketches oversampling symmetric fixed matrix",
+        "random projection symmetric matrix nonreal Ritz probability exact 3x3"
+      ]
+    },
+    "rationale": "Inspected full primary sRR discussions establish the qualitative nonreal-pair hazard and real Schur remedy, but do not give the exact Gaussian angular law for every fixed s or the fixed-matrix exponential asymptotic with prefactor. Classic Student-mixture theory is a known ingredient, not a prior statement of this spectral event. Priority is best-knowledge, not certified unique.",
+    "residual_risks": [
+      "Unindexed historical probability calculations might yield the same Gaussian parabolic-region integral or its Laplace asymptotic under other terminology.",
+      "The use of a known Gaussian regression coefficient law reduces the novelty burden to the spectral discriminant geometry and sharp prefactor.",
+      "Published-search retrieval is not exhaustive; independent mathematical and literature audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines sRR, warns that eigenvalues may be nonreal, and develops Schur/subspace methods; does not state an exact fixed-matrix Gaussian nonreal-pair law or its exponential sketch-size prefactor",
+        "evidence": [
+          "arXiv:2610.22261 lines 69–95 section 3.1",
+          "lines 386–465 section 5.3",
+          "lines 466–575 sections 6–7",
+          "lines 576–662 appendix"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22261",
+        "material_read": "Full available arXiv text; sections 2–6, in particular section 3.1 and section 5.3, plus appendix/reference material",
+        "method": "Read accessible complete HTML/text, inspect main formulas, eigenvalue treatment, proofs and numerical experiment sections",
+        "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+        "trigger": "Same sketched Rayleigh–Ritz matrix, real Schur treatment of nonreal conjugate pairs"
+      },
+      {
+        "assessment": "Qualitative nonreal estimates and their numerical treatment; no exact Gaussian probability or sharp large-s fixed-model event rate in inspected relevant sections",
+        "evidence": [
+          "Section 6.8, printed page 1203; DOI 10.1137/23M1565413",
+          "web accessible source screenshot of page 20"
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "material_read": "Accessible full paper PDF, especially section 6.8 on page 1203, earlier sRR setup and numerical methods",
+        "method": "Parsed-text inspection and PDF page-20 visual screenshot of section 6.8",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Original sRR and explicitly stated nonreal estimates for symmetric original eigenproblems"
+      },
+      {
+        "assessment": "Complex square Gaussian Petrov–Galerkin eigenvalue convergence, not the real Gaussian overdetermined sRR nonreal-pair event",
+        "evidence": [
+          "arXiv:2604.01037 HTML lines 58–86, Theorem 2 lines 298–307"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.01037v1",
+        "material_read": "Full available arXiv HTML with introduction, main theorem, numerical experiments, appendix",
+        "method": "Read method definition and Theorem 2 and compare real-versus-complex and square-versus-oversampled Gaussian settings",
+        "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+        "trigger": "Alternative randomized Ritz extraction might dominate probability analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71e00621-8203-4b9c-a56b-393603eddbd9",
+  "value": {
+    "rationale": "Nonreal reduced Ritz pairs force real Schur two-by-two blocks and affect eigenpair extraction from symmetric data. The theorem gives an exact failure incidence and a sharp exponential sample-size law for a fixed SPD matrix and arbitrary ambient dimension, including proper dimensional reduction s<n. It separates finite-s positive risk from asymptotic suppression and identifies the gap-to-coupling ratio as the structural control parameter. These outputs are more than a qualitative counterexample or trivial fixed-coefficient computation. Limits: independent real Gaussians, equal-coupling two-state trial model and exact arithmetic.",
+    "status": "PASS"
+  }
+}
