@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The all-order clique bound follows from the representation of a single cross-join as exactly two toggled interior feedback entries and the elementary classification of pairwise-intersecting two-element sets into stars or triangles. Fixed endpoint feedback bits reduce the available positions to \(2^{n-1}-2\). For order five, an exhaustive sweep of all 65536 Boolean tables gives 2048 full cycles and 224 ordered universal-star certificates; each fourteen-vertex clique is counted exactly fourteen times, proving sixteen. A separately implemented Euler-tour enumeration yields precisely the same valid tables, and direct six-mer factor-set intersections with a general maximal-clique algorithm independently yield the same sixteen cliques. The embedded checker printed `VERIFY_OK`, and the supplied fourteen-mask witness was verified pairwise.
+PASS
 
-## Originality: PASS (with limitations)
+For a binary order-n de Bruijn cycle, the feedback permutation has 2^(n-1) entries with two fixed endpoint bits. Cross-joining two full cycles exchanges successors in two conjugate-state pairs and toggles exactly two interior feedback bits. Relative to any clique vertex, the pairs toggled to all other vertices form a pairwise-intersecting family of 2-subsets of q=2^(n-1)-2 coordinates. Such a family is either a star (size <=q-1) or a triangle of at most three edges; hence omega<=q for every n>=4. For n=5, independently enumerated all 2^16=65536 feedback masks by their exact 32-state successor orbits, obtaining 2048 full cycles. Every 14-clique must be a rooted star: 224 valid (mask,common-coordinate) witnesses were enumerated, and each clique is counted exactly fourteen times, so exactly 16 distinct K14. At n=4, 16 valid masks and 24 rooted witnesses give 4 K6. A separate 6-mer-factor intersection check verified all pairs in the 16 constructed order-5 cliques. Finite exhaustive n=4,5 enumeration verifies only those orders; the universal n>=4 bound follows from the 2-subset lemma.
 
-Mykkeltveit and Szmidt establish cross-join construction and connectivity, not an extremal complete-subgraph classification. Alhakim (2018) analyzes the cross-join graph and supplies the exact order-five degree-frequency table, not the clique number or clique inventory; relevant full-text sections and its conclusion were examined. Ezerman, Fahreza, and Szmidt (2018) supply perturbation-distance patterns, not pairwise adjacency among each set of neighbors. The degree distribution and Fryers-type single-reference distance polynomials do not by themselves imply which sets of vertices form cliques. Targeted searches for clique extremality, feedback-table star cliques, 14-cliques and cross-join graph triangles returned no covering statement. The complete extracted text of the 2013 original eleven-page manuscript was examined, including its cross-join theorem and order-four examples, without finding the order-five clique classification. The later 2026 source was not fully retrievable; unindexed historical priority remains possible and no independent certification is asserted.
+## originality
 
-## Value: PASS
+PASS
 
-The cross-join graph is a natural reconfiguration space for binary de Bruijn cycles. Its clique number measures the largest family where every pair of sequences is a single cross-join apart; the answer is directly relevant to the simultaneous local alternatives available from multiple sequence designs. A uniform all-order upper bound together with a sharp order-five extremizer and a complete classification of all sixteen extremal families is more informative than existing degree-only descriptions, rather than an arbitrary subfamily or a routine isolated value. No larger-order equality or cryptographic application is claimed.
+Connectivity and Hamiltonicity are not equivalent to or sufficient for the maximum complete-subgraph count. The feedback-coordinate star classification is a stricter invariant. Broader generality in connectivity and local perturbation degree does not dominate the global clique number and exact 16-subset census; degrees do not determine all common-neighbor intersections. The statement omega=14 and 16 K14 subgraphs is a finite natural exact invariant; no inspected existing exact table supplies this number. Lack of matching database is not proof of novelty. Prior structural ingredients can motivate the proof; they do not in the cited theorems establish the new all-n bound or exact order-five clique count. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.
 
-## Closest literature and residual limitations
+## value
 
-- J. Mykkeltveit and J. Szmidt, 2013 ePrint / 2014-2015 versions: binary cross-join constructions and connectivity.
-- A. Alhakim, 2018, arXiv:1805.12059: full text examined; cross-join graph connectivity, Hamiltonicity, and order-five degree counts.
-- M. F. Ezerman, A. A. Fahreza, and J. Szmidt, 2018 BFA presentation: perturbation patterns; not a complete-subgraph inventory.
-- Residual priority risk: unindexed clique analyses, later publisher full text unavailable for full scrutiny, and other work that may exploit the same feedback-coordinate structure.
-- Scientific limit: the exact order-five classification is finite; sharpness for all larger orders remains open in this work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph of cross-joins is a natural object for nonlinear-feedback sequence generation. Its general clique bound and complete small-order extremal classification supply exact simultaneous cross-join structure not recovered from connectivity, degrees, or pairwise perturbation counts. The order-five census covers all 2048 cycles and is mathematically motivated rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

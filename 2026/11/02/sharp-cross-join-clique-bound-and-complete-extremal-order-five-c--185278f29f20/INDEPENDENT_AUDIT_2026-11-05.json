@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:44:40.725763Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a binary order-n de Bruijn cycle, the feedback permutation has 2^(n-1) entries with two fixed endpoint bits. Cross-joining two full cycles exchanges successors in two conjugate-state pairs and toggles exactly two interior feedback bits. Relative to any clique vertex, the pairs toggled to all other vertices form a pairwise-intersecting family of 2-subsets of q=2^(n-1)-2 coordinates. Such a family is either a star (size <=q-1) or a triangle of at most three edges; hence omega<=q for every n>=4. For n=5, independently enumerated all 2^16=65536 feedback masks by their exact 32-state successor orbits, obtaining 2048 full cycles. Every 14-clique must be a rooted star: 224 valid (mask,common-coordinate) witnesses were enumerated, and each clique is counted exactly fourteen times, so exactly 16 distinct K14. At n=4, 16 valid masks and 24 rooted witnesses give 4 K6. A separate 6-mer-factor intersection check verified all pairs in the 16 constructed order-5 cliques. Finite exhaustive n=4,5 enumeration verifies only those orders; the universal n>=4 bound follows from the 2-subset lemma.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mykkeltveit–Szmidt cross-join connectivity holds in all orders, and Alhakim provides order-five degree frequencies.",
+          "Ezerman–Fahreza–Szmidt perturbation distributions concern distances from a reference feedback table."
+        ],
+        "reasoning": "Broader generality in connectivity and local perturbation degree does not dominate the global clique number and exact 16-subset census; degrees do not determine all common-neighbor intersections.",
+        "searches": [
+          "Resultary: cross-join clique bound extremal order-five Cayley graph combinatorics",
+          "cross join graph de Bruijn sequences clique number 14 n5",
+          "arXiv:1805.12059 cross-join graph degree table section 2",
+          "Perturbations of Binary de Bruijn Sequences 2018"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.12059 Sections 2–5 and Table 1",
+        "Ezerman–Fahreza–Szmidt 2018 perturbation results",
+        "Resultary cross-join clique query",
+        "assigned frozen Git RESULT.md / verify_cliques.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously known feedback toggles explain one cross-join step, but the pairwise-intersecting-two-subset argument and 224/14 rooted census are additional.",
+          "Order-four graphs/degree summaries alone cannot imply all order-five K14 instances."
+        ],
+        "reasoning": "Prior structural ingredients can motivate the proof; they do not in the cited theorems establish the new all-n bound or exact order-five clique count.",
+        "searches": [
+          "Resultary: cross-join clique bound extremal order-five Cayley graph combinatorics",
+          "cross join graph de Bruijn sequences clique number 14 n5",
+          "arXiv:1805.12059 cross-join graph degree table section 2",
+          "Perturbations of Binary de Bruijn Sequences 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alhakim arXiv:1805.12059 defines the same cross-join graph and shows it is connected with a Hamiltonian path.",
+          "Assigned clique invariant requires every pair in a collection of cycles to be joined, not merely reachability."
+        ],
+        "reasoning": "Connectivity and Hamiltonicity are not equivalent to or sufficient for the maximum complete-subgraph count. The feedback-coordinate star classification is a stricter invariant.",
+        "searches": [
+          "Resultary: cross-join clique bound extremal order-five Cayley graph combinatorics",
+          "cross join graph de Bruijn sequences clique number 14 n5",
+          "arXiv:1805.12059 cross-join graph degree table section 2",
+          "Perturbations of Binary de Bruijn Sequences 2018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alhakim Table 1 tabulates order-five degree frequencies over 2048 vertices, not number of K14.",
+          "Resultary semantic search returned nearby clique and Turan census findings but no identified cross-join maximum-clique table."
+        ],
+        "reasoning": "The statement omega=14 and 16 K14 subgraphs is a finite natural exact invariant; no inspected existing exact table supplies this number. Lack of matching database is not proof of novelty.",
+        "searches": [
+          "Resultary: cross-join clique bound extremal order-five Cayley graph combinatorics",
+          "cross join graph de Bruijn sequences clique number 14 n5",
+          "arXiv:1805.12059 cross-join graph degree table section 2",
+          "Perturbations of Binary de Bruijn Sequences 2018"
+        ]
+      },
+      "rationale": "Connectivity and Hamiltonicity are not equivalent to or sufficient for the maximum complete-subgraph count. The feedback-coordinate star classification is a stricter invariant. Broader generality in connectivity and local perturbation degree does not dominate the global clique number and exact 16-subset census; degrees do not determine all common-neighbor intersections. The statement omega=14 and 16 K14 subgraphs is a finite natural exact invariant; no inspected existing exact table supplies this number. Lack of matching database is not proof of novelty. Prior structural ingredients can motivate the proof; they do not in the cited theorems establish the new all-n bound or exact order-five clique count. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.",
+      "residual_risks": [
+        "Prior specialist papers on cross-join interlacement could contain an equivalent star-clique theorem or a clique count under feedback sequence language.",
+        "Sharpness at n>=6 is not proved; no claim about those clique numbers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes connectivity/Hamiltonicity and degree frequencies rather than a K14 count or all-n clique upper bound.",
+          "evidence": "arXiv:1805.12059v2, Table 1, main connectivity/Hamiltonicity theorems.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.12059",
+          "material_read": "Read primary abstract, graph definition, Section 2 and the order-five degree table, and inspected Hamiltonian-path statements.",
+          "method": "Full arXiv PDF targeted sections and relevant table screenshot",
+          "title": "Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences",
+          "trigger": "Identical graph object; order-five degree table"
+        },
+        {
+          "assessment": "Single-base perturbation distance information is not the full mutual-adjacency clique census.",
+          "evidence": "Ezerman–Fahreza–Szmidt (2018), feedback perturbation material.",
+          "identifier_or_url": "https://www.researchgate.net/publication/326436065_Perturbations_of_Binary_de_Bruijn_Sequences",
+          "material_read": "Inspected accessible primary slides/text giving feedback perturbation patterns and small-order examples; no comprehensive full modern equivalent K14 result identified.",
+          "method": "Accessible manuscript/slides, targeted diagrams and distance discussion",
+          "title": "Perturbations of Binary de Bruijn Sequences",
+          "trigger": "Feedback perturbation distributions potentially subsume clique census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph of cross-joins is a natural object for nonlinear-feedback sequence generation. Its general clique bound and complete small-order extremal classification supply exact simultaneous cross-join structure not recovered from connectivity, degrees, or pairwise perturbation counts. The order-five census covers all 2048 cycles and is mathematically motivated rather than an arbitrary sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The universal bound depends on the exact cross-join/two-toggling equivalence reconstructed from the feedback mechanism.",
+    "Exact counts apply only to n=4,5 and count literal labelled cycle-subsets, not symmetry classes."
+  ],
+  "schema_version": 1
+}
