@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and logical checks
+# Independent mathematical audit
 
-The unit-edge graph metric makes it sufficient to inspect each edge \(i\sim i+1\) when calculating Lipschitz norms. The proof in `RESULT.md` establishes (1) integer norm values; (2) winding-degree invariance at any removal step when \(4K<n\); and (3) an explicit commuting parent filtration with edge images at distance at most \(\lceil n/4ceil\).
+## correctness
 
-`check_cycle.py` uses only Python 3 standard library features. Run `python3 check_cycle.py` from the directory containing the files. It reconstructs the parent maps for every \(3\le n\le128\), verifies prefix ranges and fixed-point identities, all cycle-edge Lipschitz bounds, and pairwise commutation. Actual execution result:
+PASS
 
-`PASS: 126 cycle sizes (n=3,...,128), every prefix, all cycle edges, and commutation`
+For a presumed K<n/4, short signed arc increments Δ are unique and define integral winding degree. At each one-new-vertex retraction, the preimage of the new vertex is a union of cyclic intervals; each local degree change is a multiple of n with magnitude ≤4K<n, hence vanishes. This contradicts degrees 0 (constant) versus 1 (identity). The four quarter-point anchors with ancestor projection provide commuting prefixes; each neighboring edge image stays in an anchor arc of length ≤ceil(n/4), including n=3 handled separately. Independent 3≤n≤100 tests verify retraction ranges, edge bounds and all commutations; the all-n argument is analytic.
 
-A separate finite-depth exhaustive state search for \(5\le n\le12\) found no filtration below \(\lceil n/4ceil\). Such enumeration is only corroborative and is not an exhaustive proof for arbitrary n; the signed-degree argument proves the lower bound for all n. Independent audit or certification has not been performed.
+## originality
+
+PASS
+
+PASS at best knowledge: Novotný constructs a centered-cycle metric with an extra basepoint and obtains a growing lower bound; this is not the unit-edge rim-rooted C_n optimization. Hájek–Medina finite-dimensional nets have dimension-independent constants but no exact single-cycle quarter-circumference threshold.
+
+## value
+
+PASS
+
+A sharp complete benchmark for the minimal Lipschitz cost of commuting prefix-retraction chains on the natural unit cycle, connecting discrete winding obstruction to an explicit four-anchor optimum. The lower bound is not routine from existing centered-cycle results and determines all n including small boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
