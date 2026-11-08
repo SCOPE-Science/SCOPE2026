@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:04:06.729800Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact angular compression on harmonic Bergman monomials has weights from h_k=Gamma(k+1)Gamma(alpha+2)/Gamma(k+alpha+2) for all k positive, negative and central crossings. For monomial pairs, direct shift-compression yields opposite signed tail coefficients ±(alpha+1)mn/k²+O(k^-3). For polynomial f,g these combine into finite-band weighted Laurent tails with symbol q=f_prime*conjugate(g_prime), reflected on the negative tail; crossing rows are finite rank. The full proof’s weighted-Laurent block counting lemma is valid for finite Laurent q by Toeplitz finite-section spectral distribution and low-rank block cuts; O(k^-3) perturbations contribute o(t^-1/2) counts. Two tails each supply sqrt(alpha+1)L; summation gives j²s_j→4(alpha+1)L² and associated Schatten/log endpoint. Independently checked e.g. alpha=0, m=n=1: the positive-end commutator diagonal is (k/(k+1)-(k+1)/(k+2))=−1/((k+1)(k+2)), so k² coefficient →−1. The symbolic infinite asymptotics, not finite SVD, establish the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem covers arbitrary finite-band matrices with j^−gamma diagonals, including these harmonic commutator tails."
+        ],
+        "reasoning": "Pushnitski dominates the entire finite Laurent-symbol Weyl counting step under weaker entrywise asymptotic assumptions; package derivation is a specialization. Compaction and block summation preserve the two-tail factor.",
+        "searches": [
+          "Pushnitski arXiv:1710.02652 Theorem 1.2",
+          "harmonic Bergman Toeplitz commutator singular value Weyl law polynomial symbols boundary derivatives"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1710.02652 Theorem 1.2",
+        "arxiv:2609.14635",
+        "Resultary spectral-asymptotics search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each tail Pushnitski gives (sqrt(alpha+1)*L)^2 n^−2; the two tails yield sorted constant (2sqrt(alpha+1)L)^2.",
+          "Tian-Wang-Zhao concerns commuting rigidity and does not rescue this already-covered spectral law."
+        ],
+        "reasoning": "Logical implication is direct from Pushnitski plus elementary coefficient calculation, including p>1/2 and logarithmic endpoint consequences. Hence O FAIL despite correct proof and useful explicit formula.",
+        "searches": [
+          "Pushnitski 2017 Theorem 1.2 gamma=2 finite band",
+          "Tian Wang Zhao 2026 harmonic Bergman commuting rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pushnitski Theorem 1.2: s_n(A)=(integral |sum b_m e^(imθ)|^(1/gamma))^gamma n^(−gamma)+o(n^(−gamma)).",
+          "The submitted commutator’s two tails have gamma=2 and symbols ±(alpha+1)f_prime conjugate(g_prime), modulo finite-rank/decaying remainder."
+        ],
+        "reasoning": "The harmonic-commutator result is an explicit instance of an older theorem, using identical singular-value notion and same angular symbol formula, not merely an analogy.",
+        "searches": [
+          "harmonic Bergman Toeplitz commutator singular value Weyl law polynomial symbols boundary derivatives",
+          "Pushnitski 2017 finite band matrices spectral asymptotics singular values gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit harmonic polynomial commutator table needed because Theorem 1.2 universally covers the same matrix asymptotic class."
+        ],
+        "reasoning": "No exact table was located; absence of exact parameter entry cannot restore originality against a stronger encompassing theorem.",
+        "searches": [
+          "harmonic Bergman Toeplitz commutator singular value Weyl law polynomial symbols boundary derivatives",
+          "Pushnitski banded matrices Toeplitz singular values 2017"
+        ]
+      },
+      "rationale": "Decisive preexisting stronger theorem: Alexander Pushnitski, arXiv:1710.02652 (2017), Theorem 1.2 gives exact singular-value Weyl constant for EVERY finite-band matrix with diagonals a_(j,j+m)=b_m j^(−gamma)+o(j^(−gamma)). Take gamma=2, b_m=−(alpha+1)q_m for the positive harmonic tail and the reflected symbol for the negative one; Theorem 1.2 independently gives each tail constant (alpha+1)*L², and direct-sum counting gives 4(alpha+1)*L². The asserted sharp law, Schatten threshold and log endpoint are therefore routine consequences of older general spectral theory once the explicit harmonic matrix leading term is computed. A special case need not appear verbatim in the predecessor to be covered. The package did not compare this dominating theorem and the original final claim cannot pass O.",
+      "residual_risks": [
+        "Finite Laurent symbols only in submitted proof; direct Pushnitski coverage makes negative originality decisive. No claim about symbol smoothness beyond polynomials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT STRONGER COVERAGE: arbitrary banded matrix diagonal asymptotics; gamma=2 gives submitted law",
+          "evidence": [
+            "arXiv:1710.02652 Theorem 1.2, page 3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.02652",
+          "material_read": "Page 3 Section 1.3, exact hypotheses and formula in Theorem 1.2, adjacent discussion and operator matrix form",
+          "method": "lawful arXiv PDF text and screenshot inspected",
+          "title": "Spectral asymptotics for a class of Toeplitz operators on the Bergman space",
+          "trigger": "Direct general singular-value asymptotics predecessor"
+        },
+        {
+          "assessment": "Qualitative rigidity does not supply independent new spectral asymptotics; Pushnitski is decisive",
+          "evidence": [
+            "This source is not needed for FAIL because a stronger theorem directly applies"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.14635",
+          "material_read": "Title, abstract and cited qualitative commuting rigidity compared",
+          "method": "arXiv abstract and submitted discussion",
+          "title": "Commuting analytic and co-analytic Toeplitz operators on the harmonic Bergman space",
+          "trigger": "Closest direct operator-algebra object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit coefficient for a natural harmonic Toeplitz commutator and exact Schatten threshold can be useful in operator theory, and the two conjugate frequency tails require normalization care. Scientific utility is separate from novelty: here it is already a corollary of general banded-matrix singular-value results, so V PASS does not produce acceptance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1710.02652 Theorem 1.2",
+    "arxiv:2609.14635",
+    "Resultary spectral-asymptotics search",
+    "Git frozen source tree: 454441817a4b86ef4b20e82d94374aa1bc56920c",
+    "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt and checker source inspected (actual tree SHA and blobs)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is originality-only, not correctness, file-access, or transport failure.",
+    "No repair to the unoriginal original is accepted by adding certificates or disclaimers.",
+    "The source package is preserved with relocation action planned only upon guarded server import.",
+    "Publication blocked by private identifiers in original public-bound metadata; this does not affect the completed scientific C/O/V finding."
+  ],
+  "schema_version": 1
+}
