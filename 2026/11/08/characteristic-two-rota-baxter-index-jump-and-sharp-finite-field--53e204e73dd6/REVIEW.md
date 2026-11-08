@@ -1,0 +1,15 @@
+# Scientific review: characteristic-two square-zero Rota–Baxter operators
+
+## Correctness — PASS
+
+The exact statement is proved for every field and every split square-zero algebra \(k\oplus V\), with \(\dim V\ge1\). Applying the defining identity to pairs of elements of the radical forces the scalar part of \(P(V)\) to vanish. Applying it to \((1,1)\) forces \(P(1)\in V\) and \(2LP(1)=0\), while \((1,v)\) forces \(L^2=0\). Substitution verifies the converse in every characteristic. The finite-field count selects image, kernel and induced isomorphism of \(L\), then the allowed vector \(u\). The sharp asymptotic follows from the exact Gaussian-product formula by a dominated-convergence argument with positive summable bounds; no finite calculation is used to establish the infinite statement. Exhaustive direct checks independently confirm the smallest binary and odd-prime examples and the rank-pair distribution. The exact nilpotency-index three example requires and satisfies \(\dim V\ge2\).
+
+## Originality — PASS with residual publication-priority risk
+
+The best direct comparison is Farooq, arXiv:2605.15670, whose Section 3 explicitly treats the same \(k\oplus V\) algebra **only in characteristic zero**, proves \(P^2=0\), and requires \(Lu=0\). In characteristic two, the defining identity instead allows every \(u\) and nonzero \(Lu\), a genuine contrary phenomenon; the finite-field index-three census and its sharp parity-dependent limiting law are not consequences of Farooq's stated theorem. Gubarev, arXiv:1805.00723, introduces the Rota–Baxter index and develops characteristic-zero theory but does not enumerate characteristic-two operators on these algebras. Das, arXiv:2108.05411, develops deformation theory rather than finite-field operator-index distributions. Zheng and Guo (2019) work on different low-order semigroup algebras, with their published theorem stated in characteristic zero. Searches of relevant mathematical records and primary literature found no corresponding theorem. Ordinary Gaussian counts of square-zero matrices and the characteristic-zero subcase are established mathematics and are explicitly not asserted to be novel. Residual risk: unindexed positive-characteristic classifications or broader enumerations may already imply the result, so publication priority is not certified.
+
+## Value — PASS
+
+The motivating invariant is the maximal nilpotency exponent of weight-zero Rota–Baxter operators. The characteristic-two jump from index two to three is structural, not a change in notation. The exact finite-field and Jordan-rank distributions determine natural invariants across all dimensions and finite even fields. The sharp formula showing that index-three operators are typical, with a \(q^{-\lfloor d/2\rfloor}\) exceptional probability and explicit parity constants, is mathematically informative and does not follow merely from stating the block form. The result is restricted to square-zero split local algebras and does not purport to settle classifications for more complicated radicals.
+
+Self-review: passed. Independent audit: not yet performed.
