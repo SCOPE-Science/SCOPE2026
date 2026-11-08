@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For u≠0 shift T by v/u and count squarefree quartics by inclusion/exclusion. Distinct repeated rational roots of f and f+uT give four Hermite constraints, one monic quartic per ordered pair (alpha,beta), q(q-1) incidences. Multiple rational repeated roots occur only for squares H^2 of split quadratics, while irreducible H^2 contributes an uncounted nonsquarefree case. The parametrization by s=H(beta)≠0 yields discriminant (u^2-16s^3)/(4s^2), and the two directions give -2 sum chi, without overlap because H^2-K^2=uT is impossible in odd characteristic. Adding s=0 yields C=C0-2S_q(u). If gcd(3,q-1)=1, cubing permutes F_q so S=0, including characteristic 3. Otherwise cubic-character and quadratic-character orthogonality gives mean S=0 and mean S²=2q from |Jacobi sum|²=q, hence variance 8q. Independent direct polynomial-gcd enumeration for all nonzero slopes at q=3,5,7 gave 162+2500+14406=17068 quartic pairs and slope variance 0,0,56 respectively. Finite checks are not proof for all q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keating–Rudnick full-text Appendix A.1 yields S(J;n)=S(J)q^n+O(n q^{2n/3}) as degree n grows, not exact finite-n=4.",
+          "Carmon–Rudnick main Möbius statement excludes all-even exponent configuration."
+        ],
+        "reasoning": "Their broad-family asymptotic and parity-restricted theorem do not imply exact equality or variance; a stronger exact all-n formula was not found.",
+        "searches": [
+          "Keating and Rudnick arXiv:1504.03444 Appendix A Theorem A.2",
+          "Carmon and Rudnick arXiv:1205.1599 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 actual RESULT.md and verify.py at frozen tree f7da6fda46d2cf580a17185cb62ba5c9c059aa32",
+        "Keating–Rudnick arXiv:1504.03444 Appendix A.1 (author-uploaded full text)",
+        "Carmon–Rudnick arXiv:1205.1599 (abstract/theorem scope)",
+        "Independent_checks.py output direct q=3,5,7 counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An O(nq^{2n/3}) remainder cannot imply the exact fixed-degree correction.",
+          "General Jacobi/Gauss norm |J(ψ,χ)|²=q is standard but requires new Hermite/square-correction reduction to this count."
+        ],
+        "reasoning": "Prior character-sum identities supply a calculational ingredient, not the new count and its slope-moment implication.",
+        "searches": [
+          "arXiv:1504.03444 Appendix A Theorem A.2 full text",
+          "arXiv:1205.1599 Möbius autocorrelations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Möbius correlations with odd exponents differ from simultaneous indicators mu²(f)mu²(f+uT); those indicators have even exponents.",
+          "The exact q=degree4 slope variance is a cubic Jacobi-moment law, not a short-interval asymptotic."
+        ],
+        "reasoning": "The alias is a second mixed moment of the squarefree indicator, or a quadratic/cubic character sum over slope. Tested relevant Möbius correlation frameworks at this statement level; no inspected exact degree-four and slope-variance identity.",
+        "searches": [
+          "Resultary semantic: exact squarefree monic quartic pairs f and f+uT with variance over affine slopes finite fields cubic character",
+          "Carmon–Rudnick arXiv:1205.1599",
+          "Keating–Rudnick arXiv:1504.03444 Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact degree-four affine shift with all odd finite fields and slope variance was present in checked sources."
+        ],
+        "reasoning": "No reliable full-field table of these quantities was located; search absence is not evidence of universal novelty.",
+        "searches": [
+          "Resultary: quartic squarefree affine-shift exact counts",
+          "Keating–Rudnick Appendix A arithmetic squarefree polynomial tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact affine-shift squarefree quartic correlations and a cubic-character variance law. No failed search is represented as a proof of novelty.",
+      "residual_risks": [
+        "Unindexed exact quartic pair-squarefree formulas or character-sum tables may coincide with the result.",
+        "The Carmon–Rudnick full body was not materially read in this execution; comparison uses theorem scope and abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General asymptotic bound not exact quartic count or slope variance",
+          "evidence": "Theorem A.2: S(J;n)=S(J)q^n+O(n q^{2n/3}), n→∞.",
+          "identifier_or_url": "https://www.researchgate.net/publication/299415683_Squarefree_polynomials_and_Mobius_values_in_short_intervals_and_arithmetic_progressions",
+          "material_read": "Author full-text reproduction, Appendix A.1 Theorem A.2 and neighboring proof context with nonzero O(n q^(2n/3)) error; not just abstract",
+          "method": "Browser full-text HTML reading, in-document Appendix search",
+          "title": "Squarefree polynomials and Möbius values in short intervals and arithmetic progressions",
+          "trigger": "Most plausible general pair-squarefree predecessor"
+        },
+        {
+          "assessment": "Odd-exponent Möbius theorem is not an all-even squarefree indicator equality",
+          "evidence": "Main result excludes even-only Möbius exponents.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1599",
+          "material_read": "Abstract and available theorem description; did not read full paper in this run",
+          "method": "Public paper search/abstract, scope comparison",
+          "title": "The autocorrelation of the Möbius function and Chowla’s conjecture for the rational function field",
+          "trigger": "Same function-field correlation subject"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Squarefree two-point correlations are a natural exact function-field arithmetic invariant; at a fixed small degree, the cubic-character fluctuation and precise dichotomy between q≡1 versus not mod 3 are nontrivial corrections missing from usual asymptotics. This delivers a genuinely exact natural degree-four count rather than a routine parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 actual RESULT.md and verify.py at frozen tree f7da6fda46d2cf580a17185cb62ba5c9c059aa32",
+    "Keating–Rudnick arXiv:1504.03444 Appendix A.1 (author-uploaded full text)",
+    "Carmon–Rudnick arXiv:1205.1599 (abstract/theorem scope)",
+    "Independent_checks.py output direct q=3,5,7 counts"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every odd prime power q, all slopes u nonzero and intercepts v, an exact q-degree-four pair-squarefree count is q^4-2q^3+q(q-1)-2 sum_{s!=0} chi(u^2-16s^3), with mean C0 and slope variance 8q if q mod 3=1, else zero.",
+  "limitations": [
+    "Odd prime powers only, monic quartics, nonconstant linear shifts; q even and constant shift excluded.",
+    "Finite gcd checks q=3,5,7 do not prove unrestricted q."
+  ],
+  "residual_risks": [
+    "Unindexed exact quartic pair-squarefree formulas or character-sum tables may coincide with the result.",
+    "The Carmon–Rudnick full body was not materially read in this execution; comparison uses theorem scope and abstract."
+  ],
+  "schema_version": 1
+}

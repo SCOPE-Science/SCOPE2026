@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python verify.py` with Python 3 and no external dependencies. The script computes finite-field arithmetic and polynomial gcds directly. The checker verifies all tested quartic squarefree-pair counts against the character formula, exact intercept independence, and the slope means and second moments. The recorded successful execution was:
+# Independent mathematical audit
 
-`VERIFY_OK field_orders= [3, 5, 7, 11, 13, 9, 25, 27] direct_shifts= 62 quartic_tests= 628254 slope_moment_terms= 92`
+## correctness
 
-The finite test cases are not exhaustive over field sizes and cannot prove the unrestricted theorem. The proof derives the universal identity via Hermite interpolation, incidence multiplicities and multiplicative-character orthogonality. Independent audit and independent validation have not been performed.
+PASS
+
+For u≠0 shift T by v/u and count squarefree quartics by inclusion/exclusion. Distinct repeated rational roots of f and f+uT give four Hermite constraints, one monic quartic per ordered pair (alpha,beta), q(q-1) incidences. Multiple rational repeated roots occur only for squares H^2 of split quadratics, while irreducible H^2 contributes an uncounted nonsquarefree case. The parametrization by s=H(beta)≠0 yields discriminant (u^2-16s^3)/(4s^2), and the two directions give -2 sum chi, without overlap because H^2-K^2=uT is impossible in odd characteristic. Adding s=0 yields C=C0-2S_q(u). If gcd(3,q-1)=1, cubing permutes F_q so S=0, including characteristic 3. Otherwise cubic-character and quadratic-character orthogonality gives mean S=0 and mean S²=2q from |Jacobi sum|²=q, hence variance 8q. Independent direct polynomial-gcd enumeration for all nonzero slopes at q=3,5,7 gave 162+2500+14406=17068 quartic pairs and slope variance 0,0,56 respectively. Finite checks are not proof for all q.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact affine-shift squarefree quartic correlations and a cubic-character variance law. No failed search is represented as a proof of novelty.
+
+## value
+
+PASS
+
+Squarefree two-point correlations are a natural exact function-field arithmetic invariant; at a fixed small degree, the cubic-character fluctuation and precise dichotomy between q≡1 versus not mod 3 are nontrivial corrections missing from usual asymptotics. This delivers a genuinely exact natural degree-four count rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
