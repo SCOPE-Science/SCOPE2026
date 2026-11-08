@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** From Dekking's digit recurrence, the even subsequence has duplicated first two symbols in each triple, excluding alternating runs of four. Case analysis at all three starting residues excludes constant runs of six. A hypothetical length-\(5p+1\) periodic factor of the even subsequence either forces a constant factor (when \(3\nmid p\)) or produces a shorter-period factor by the explicitly surjective index map \(F\) (when \(3\mid p\)). For the original word, a hypothetical forbidden factor similarly descends to the even subsequence or forces more than nine alternating transitions. The witness \(({\tt101})^5\) proves sharpness. The period arguments cover all \(p\ge1\); no asymptotic, statistical, or finite-case inference is needed. An independent digit-extraction checker verifies the key recurrence and finite witness.
+
+**Originality — PASS, subject to documented residual risk.** The complete original arXiv preprint and later journal text of Dekking explicitly formulate this precise critical-exponent assertion as Conjecture 9/10. The 2026 complete paper by Cassaigne–Espinoza–Rigo–Stipulanti relates the two base-\(3/2\) words but proves recurrence/symmetry/frequency properties; its statements do not bound maximal fractional repetitions, so they do not imply this theorem. The OEIS entry A357448 records the recurrence, not an exponent bound. Actual published-finding corpus searches for this assertion, aliases, and power-period formulations yielded only mathematically unrelated records; no equivalent theorem was identified. Residual risk: obscure or unindexed equivalent proof not captured by these sources.
+
+**Value — PASS.** The statement exactly settles a published explicit open problem on a canonical arithmetic infinite word, determining an infinite-word invariant rather than a single isolated coefficient. The sharp five-power witness, auxiliary 5-power-freeness, and period-compression mechanism furnish structural information; this is not mere recurrence evaluation or a finitely tested guess.
+
+**Scientific limits.** The result says nothing about the full critical-exponent spectrum, classifications of all fifth powers, or digit-word factor measures. Stronger independent verification has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
