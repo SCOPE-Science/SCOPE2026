@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The attached `verify_spin_factor_invertible.py` uses only the Python standard library. Run with `python3 verify_spin_factor_invertible.py`. It checks actual skew-adjoint endomorphisms against the invertible-value condition by enumerating each nonzero image vector, not merely checking preselected rank-two candidates. It builds \(\mathbb F_9\) as a quadratic extension of \(\mathbb F_3\), and distinguishes the two binary quadratic-form types. Actual output is embedded in `verification_output.txt`. The exact terminal success marker is `SPIN_FACTOR_IV_DERIVATIONS_OK 12`.
+## correctness
 
-This bounded exhaustive enumeration covers twelve configurations, including dimensions two, three, four, five and fields of orders 3, 5, 7, 9; it is not an exhaustive proof over all dimensions or all fields. The mathematical proof independently uses skew-adjointness, finite-field anisotropy, orthogonal-stabilizer orders, and Witt extension. No outside audit or independent publication-priority certification is asserted.
+PASS
+
+A derivation annihilates 1 and restricts to B-skew-adjoint D on V; Jordan invertibility of a nonzero pure vector is exactly B(w,w)≠0. Even alternating rank plus the finite-field isotropy theorem forces nonzero anisotropic image dimension 2. Such W supports q−1 nonzero skew maps, one class per nonsquare eta with two maps per plane. Witt transitivity and O(V) stabilizer orders yield the exact odd/even dimension formulas, including n=2 split zero. Independent enumeration of all skew matrices for q=3,5, n=2,3 and two form types recovered counts and eta fibers.
+
+## originality
+
+PASS
+
+The exact both-discriminant, all-odd-field number of nonzero invertible-value Jordan spin-factor derivations and their O(V,B) orbit partition refine the existing qualitative anisotropic-image theorem. The finite-perfect-field Corollary 8 discrepancy is restricted to accessible preprint wording.
+
+## value
+
+PASS
+
+The number and full conjugacy sizes of invertible-value derivations are natural arithmetic moduli for canonical simple Jordan spin factors; both discriminant sensitivity and the dimension-two boundary matter. The result is substantially more than the already-known image criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
