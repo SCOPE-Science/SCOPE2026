@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The projector-word contraction argument proves existence, uniqueness and finite fourth moments for every finite normalized spanning row family with strictly positive iid selection weights. A finite centered Gaussian mixture can equal a single Gaussian only if every updated covariance agrees; this forces each row to be a covariance eigenvector with its noise variance as eigenvalue. Orthogonal eigenspace geometry is equivalent to constancy along the nonorthogonality-graph components; the common covariance constructively proves sufficiency. Conditional Gaussianity given index history proves the nonnegative fourth-cumulant identity and strictness when compatibility fails. Exact rational checks in verify.py reproduce the overdetermined three-row example, covariance, nonzero cumulant, and independent two-row invariance cases. The proof uses no unverified finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergou et al., arxiv:2308.16904, introduction and convergence/error bounds for once-perturbed linear data; not fresh iid noisy row observations or full invariant laws.",
+        "Yoon, Klett and Feron, arxiv:1905.09427, Section III, equations (8)-(11): bounds on conditional covariance dynamics for switching affine systems, not law Gaussianity nor graph components.",
+        "Guyon, Iovleff and Yao, ESAIM Probab. Stat. 8 (2004): conditional Gaussianity for randomly switched Ornstein-Uhlenbeck dynamics and moment existence; different continuous-time model and no identified oblique-projection compatibility classification."
+      ],
+      "reasoning": "Generic moment or switching representations alone do not state the exact iff graph condition or strict positive directional kurtosis for every overcomplete spanning set. The conditional-Gaussian general method is explicitly credited, not represented as a new lemma.",
+      "searches": [
+        "\"randomized Kaczmarz\" \"invariant distribution\" \"Gaussian\" noise",
+        "stationary distribution Gaussian iff common covariance random coefficient autoregressive model Gaussian innovation discrete regimes",
+        "arxiv:1905.09427 sections III-IV",
+        "arxiv:2308.16904 Sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.16904",
+      "doi:10.1109/GlobalSIP.2014.7032145",
+      "arxiv:1905.09427",
+      "doi:10.1080/00949655.2014.968159",
+      "doi:10.1051/ps:2003017"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agaskar–Wang–Lu, doi:10.1109/GlobalSIP.2014.7032145, introduction explicitly says its presented exact MSE theory is for noiseless consistent systems, though techniques could be extended.",
+        "Chen–Ip (2014) discrete-coordinate Gibbs Corollary 2 implies a two-coordinate stationary mixture and therefore is relevant to, and subsumes part of, the two-row illustration; it does not state the claim for arbitrary overcomplete normal directions.",
+        "Bergou et al. arxiv:2308.16904 equations (1.1)-(1.3) concern fixed perturbed data, whereas this theorem independently resamples Gaussian measurements at each update."
+      ],
+      "reasoning": "A general noiseless quadratic-error identity or fixed-error convergence guarantee cannot imply fourth-cumulant behavior of a distinct fresh-noise chain. The two-row Gaussian mixture is presented only as a verification example, not the novelty. The substantive claimed contribution is the iff graph criterion and strict positive kurtosis for arbitrary finite overcomplete row families.",
+      "searches": [
+        "Randomized Kaczmarz algorithms Exact MSE analysis and optimal sampling probabilities 2014",
+        "\"randomized Kaczmarz\" \"Gaussian stationary\" row noise",
+        "2014 Chen Ip incompatible Gibbs Theorem 3 Corollary 2",
+        "arxiv:2308.16904 PDF Introduction Sections 2-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen and Ip, J. Stat. Comput. Simul., doi:10.1080/00949655.2014.968159, Theorem 3 and Corollary 2, establish compatibility/scan behavior for a finite discrete-coordinate Gibbs model, including a two-coordinate mixture, without an all-row oblique-projection Gaussianity condition.",
+        "No exact matching nonorthogonality-graph result was recovered from these actual searches."
+      ],
+      "reasoning": "In two independent row directions, a change of coordinates converts updates to two-coordinate Gaussian conditional sampling, so the two-row mixture is not claimed as new. With an overcomplete set of arbitrary row normals, there are more projection directions than coordinates, and the finite-coordinate Gibbs result does not state the necessary-and-sufficient spectral-graph criterion or strict kurtosis; searches found no equivalent stated classification.",
+      "searches": [
+        "Gaussian stationary distribution random row Kaczmarz fresh Gaussian measurement noise eigenvector nonorthogonality graph compatibility",
+        "random scan incompatible Gaussian conditional distribution nonnormal invariant random Kaczmarz projection gaussian mixture fourth cumulant",
+        "\"random scan\" \"Gaussian\" \"compatible\" \"stationary\" \"incompatible\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Agaskar–Wang–Lu (2014) calculate noiseless exact MSE and sampling probabilities, rather than an invariant-law Gaussianity or kurtosis table.",
+        "Yoon–Klett–Feron (arxiv:1905.09427) discuss switching covariance enclosures without cataloguing projector-graph Gaussianity classes.",
+        "No matching theorem, table, or database entry was identified in the inspected primary literature and these public searches."
+      ],
+      "reasoning": "Noise-free mean-square error tables and switching-system covariance bounds do not determine fourth cumulants or graphwise compatibility of fresh Gaussian row noise. Search absence is only limited evidence, not a proof of priority.",
+      "searches": [
+        "\"randomized Kaczmarz\" \"invariant distribution\" \"Gaussian\" noise",
+        "\"Gaussian\" \"stochastic projections\" \"non-Gaussian\" invariant measure",
+        "randomized noisy orthogonal projections conditional Gaussian stationary law all rows variance equal Gaussianity graph"
+      ]
+    },
+    "rationale": "The claim concerns Gaussian versus genuinely non-Gaussian invariant distributions of fresh-noise randomized oblique row projections, with an exact all-row nonorthogonality-graph compatibility criterion and a positive-kurtosis witness. Inspected Kaczmarz sources establish convergence/error bounds or noiseless second-moment formulas, not an invariant-law Gaussianity classification. Switching-system work develops covariance enclosures rather than this exact graph criterion. The discrete Gibbs results supply an important analogous two-coordinate mixture statement; the distinct overcomplete arbitrary-row geometry and its Gaussianity equivalence do not follow from their stated discrete-coordinate conclusions. Similar general random affine iteration theory may still contain an equivalent formulation; this is a residual risk.",
+    "residual_risks": [
+      "Gaussian stationary laws of general random affine recursions and incompatible Gibbs updates are broad areas; a source containing an equivalent all-row projector statement may remain undiscovered.",
+      "Chen–Ip covers the two-coordinate mixture aspect; that subcase is illustration rather than the asserted original contribution.",
+      "The manuscript should receive independent subject-expert novelty and proof assessment before any public attribution of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different fixed perturbed-data model and mean-error bounds; does not establish this fresh-noise graph criterion",
+        "evidence": [
+          "arxiv:2308.16904, pp.1-2 and pp.8-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.16904",
+        "material_read": "Full PDF text, introduction, equations (1.1)-(1.3), statements of Sections 2-3 and numerical setup in Section 4",
+        "method": "Read accessible public PDF text and inspected first page image",
+        "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Same Kaczmarz update, row noise and MSC65F10"
+      },
+      {
+        "assessment": "Exact noise-free mean-square dynamics; does not cover this invariant fresh-noise distribution or kurtosis",
+        "evidence": [
+          "Author manuscript pp.2-3, introduction item 1 and Section 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+        "material_read": "Accessible six-page manuscript abstract, introduction, noiseless model, exact-MSE proposition and paper contributions",
+        "method": "Read public Harvard open-access PDF text; page-image retrieval unavailable",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Potential general exact error formula dominating specialized result"
+      },
+      {
+        "assessment": "Computes covariance enclosures via matrix inequalities, not invariant Gaussianity or row nonorthogonality graph",
+        "evidence": [
+          "arxiv:1905.09427, pp.1-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.09427",
+        "material_read": "All five pages, especially Section III and equations (8)-(11) on covariance dynamics",
+        "method": "Read public PDF text and inspected title page image",
+        "title": "Bounding the State Covariance Matrix for a Randomly Switching Linear System with Noise",
+        "trigger": "Same random switching with fresh Gaussian additive noise"
+      },
+      {
+        "assessment": "Provides two-coordinate random-scan mixture and discrete-coordinate scan-compatibility statements; flagged as closely analogous but not the all-row graph result",
+        "evidence": [
+          "Theorem 3, Corollary 2, sections 3-5 and appendix"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4572746/",
+        "material_read": "Full accessible HTML including Theorems 1-3, Corollary 2, appendix proof and d>2 discussion",
+        "method": "Read peer-reviewed open-access article text",
+        "title": "Behavior of the Gibbs Sampler When Conditional Distributions Are Potentially Incompatible",
+        "trigger": "Oblique two-row scheme reduces to incompatible Gaussian coordinate conditionals"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "525a6be4-45a9-43d3-b5fc-55f83f65343f",
+  "value": {
+    "rationale": "Fresh noisy row observations are natural in repeated sensing and randomized linear-system solvers. Knowing a steady-state covariance does not settle Gaussian validity of confidence bands. This theorem gives a complete, easily testable all-dimension graph condition for Gaussianity, and otherwise proves positive directional excess kurtosis. The heterogeneous, overdetermined three-row example has an exact non-Gaussian cumulant. It isolates a structural design constraint rather than a routine parameter substitution or a tiny finite numerical improvement.",
+    "status": "PASS"
+  }
+}
