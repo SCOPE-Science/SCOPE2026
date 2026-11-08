@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact coupling is verified by decomposing each walk into independent parity streams: the loopless stream is the coordinate-wise repetition compression of the iid stream. Conditional negative-binomial repeat counts and an explicit geometric-stage distribution prove the finite statements. The Gumbel limit follows from factorial moments, the last-side anti-concentration from an independent terminal geometric stage, and the normal saving from a conditional triangular-array CLT. An \(L^1\) switching bound upgrades the mean comparison to its constant term. The independent standard-library checker passed 8,764 assertions, including exact rational original-graph dynamic programming. The checker verifies finite instances only; the asymptotic conclusions use the written proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Matsuo–Kawagishi–Ohsaki (2022 online; 2023 journal) analyze non-backtracking first-passage/mean cover times in random regular and configuration-model networks, not the coupled bipartite saving law. Aldous–Fill give the classical single-stream coupon-collector and loopless-complete-graph Gumbel limits, which are used, not reclaimed. Mixing-rate work of Alon and coauthors concerns a different observable. Nearby bipartite and non-backtracking special graph statements were compared by implication. No located result supplies the joint Gaussian/Gumbel independence and constant-order mean gain under the parity-compression coupling. General survey and full-text coverage outside inspected sources remain imperfect; the novelty verdict is a best-knowledge literature comparison, not a priority certificate.
+PASS
 
-**Value — PASS.** The precise two-scale comparison identifies how a natural minimal-memory exclusion rule modifies network exploration: the leading cover-time law does not change, yet the growing absolute saving has a universal conditional Gaussian fluctuation and a computable constant term. Its coupling-specific nature is explicit, and the expectation difference is an intrinsic performance statistic. The structural independent-stream lemma and last-side-switch suppression are necessary ingredients, not a cosmetic renaming of a coupon-collector formula.
+Alternating iid parity streams for simple walk on K_{n,n} and separately erasing each stream’s consecutive equal symbols produce exact nonbacktracking marginal chains. Conditional on retained chain, discarded repeats are independent geometric-failure counts; the two stream completion times are iid sum_{k=1}^{n-1} Geom(k/(n-1)). Inclusion-exclusion yields the claimed F_n and H_n products. Poisson factorial moments give max(K_A,K_B)/n-log n=>G+log2, while conditional geometric CLT gives repeats (R_*-log n)/sqrt(log n)=>Z, asymptotically independent of max K. The bound sup P(K_n=j)<=1/(n-1) makes late-winner switching probability negligible and gives o(1) correction to the expected saving, proving 2log n+2gamma+2log2+o(1). Independently verified exact stage-CDF identities by rational Markov dynamic programming on n=3,4 with and without loops. The coupling-specific law is explicitly differentiated from coupling-independent mean difference.
 
-**Limits.** Uniform balanced \(K_{n,n}\), one initial part vertex, separate parity-stream compression coupling, vertex cover only. No claim about arbitrary couplings or networks. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Single-stream complete-graph coupon-collector Gumbel laws are classical. The primary nonbacktracking cover-time paper by Matsuo et al. treats random regular and configuration-model network means, rather than paired stream compression for K_{n,n}. The submitted two-scale joint Gaussian-Gumbel independence, conditional repetition counts and constant-order mean correction are not stated in that text; searches of related published findings identified discounted biclique hitting/cover invariants rather than this paired law.
+
+## value
+
+PASS
+
+The exact coupling gives an unusually strong comparison: pathwise monotonicity, an intrinsic logarithmic mean improvement, and a microscopic Gaussian independent of the macroscopic cover-time Gumbel law. This quantifies how removing immediate backtracks changes exploration of a natural dense bipartite network without affecting the leading 2nlog n cover scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

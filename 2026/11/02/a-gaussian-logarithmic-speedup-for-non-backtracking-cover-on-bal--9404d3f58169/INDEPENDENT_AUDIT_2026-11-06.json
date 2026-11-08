@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:49:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md Git blob ea34cda276d54991f8faee516c538dbf03f82016",
+        "Actual source verification code blob 874f6c7bff57d008d20f60ed6ad6a00f25a28c93",
+        "Independent bounded check /mnt/data/check06_20261106.py: C2"
+      ],
+      "rationale": "Alternating iid parity streams for simple walk on K_{n,n} and separately erasing each stream’s consecutive equal symbols produce exact nonbacktracking marginal chains. Conditional on retained chain, discarded repeats are independent geometric-failure counts; the two stream completion times are iid sum_{k=1}^{n-1} Geom(k/(n-1)). Inclusion-exclusion yields the claimed F_n and H_n products. Poisson factorial moments give max(K_A,K_B)/n-log n=>G+log2, while conditional geometric CLT gives repeats (R_*-log n)/sqrt(log n)=>Z, asymptotically independent of max K. The bound sup P(K_n=j)<=1/(n-1) makes late-winner switching probability negligible and gives o(1) correction to the expected saving, proving 2log n+2gamma+2log2+o(1). Independently verified exact stage-CDF identities by rational Markov dynamic programming on n=3,4 with and without loops. The coupling-specific law is explicitly differentiated from coupling-independent mean difference.",
+      "residual_risks": [
+        "No claimed Gaussian law exists for an unspecified joint coupling. Finite Markov checks establish only n=3,4 cases, not n→infinity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldous–Fill’s coupon-collector framework provides one-stream occupancy and loopless walk limits.",
+          "Matsuo–Kawagishi–Ohsaki’s complete primary paper studies nonbacktracking cover on random regular/configuration-model graphs, not this coupling."
+        ],
+        "reasoning": "A general time-change/Markov renewal result could give conditional normality after specialized steps, but no inspected stronger theorem directly supplies the constant and asymptotic independence for K_{n,n}. No generalization to arbitrary graphs is asserted.",
+        "searches": [
+          "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+          "https://doi.org/10.1017/apr.2020.5",
+          "Resultary semantic search: non-backtracking walk cover time complete balanced bipartite K n n versus simple walk coupon collector gaussian logarithmic saving"
+        ]
+      },
+      "checked_sources": [
+        "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+        "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+        "https://doi.org/10.1017/apr.2020.5",
+        "Resultary semantic search: non-backtracking walk cover time complete balanced bipartite K n n versus simple walk coupon collector gaussian logarithmic saving"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal Gumbel for K_n is standard, and the two-parity maximum is an elementary consequence.",
+          "The fine-scale saving requires conditional negative-binomial repeats, control of winner switches and stable Gaussian convergence."
+        ],
+        "reasoning": "Prior one-stream marginal limits and unrelated graph cover means do not logically imply a joint asymptotically independent Gaussian difference under this specified compression coupling.",
+        "searches": [
+          "https://doi.org/10.1587/comex.2022XBL0146",
+          "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+          "Resultary semantic search: non-backtracking walk cover time complete balanced bipartite K n n versus simple walk coupon collector gaussian logarithmic saving"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A random walk on K_{n,n} alternates independent iid samples by parity; a nonbacktracking walk corresponds to independently loopless coupon draws within each stream.",
+          "Matsuo et al. 2023 consider a different graph ensemble and evaluate means without the joint coupling or Gaussian saving."
+        ],
+        "reasoning": "Equivalent terminology is two coupled coupon collectors and their geometric holding-time erasure, with the winner chosen by the largest loopless completion time. Standard one-stream cover distributions imply the marginals but not a joint difference distribution.",
+        "searches": [
+          "Resultary semantic search: non-backtracking walk cover time complete balanced bipartite K n n versus simple walk coupon collector gaussian logarithmic saving",
+          "K_n,n parity stream run-length compression no backtracking coupon collectors normal number of erased repeated labels",
+          "https://doi.org/10.1587/comex.2022XBL0146"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both finite marginal CDFs reduce to standard coupon inclusion–exclusion; no located exact table records the jointly coupled normal saving."
+        ],
+        "reasoning": "Existing coupon-collector tables are counted as prior ingredients; a database listing a marginal does not contain the coupling-specific joint claim.",
+        "searches": [
+          "Resultary semantic search: non-backtracking walk cover time complete balanced bipartite K n n versus simple walk coupon collector gaussian logarithmic saving",
+          "nonbacktracking K_n,n cover time exact CDF F_n H_n finite table",
+          "https://doi.org/10.1587/comex.2022XBL0146"
+        ]
+      },
+      "rationale": "Single-stream complete-graph coupon-collector Gumbel laws are classical. The primary nonbacktracking cover-time paper by Matsuo et al. treats random regular and configuration-model network means, rather than paired stream compression for K_{n,n}. The submitted two-scale joint Gaussian-Gumbel independence, conditional repetition counts and constant-order mean correction are not stated in that text; searches of related published findings identified discounted biclique hitting/cover invariants rather than this paired law.",
+      "residual_risks": [
+        "An abstract general result about coupon-collector clocks and geometric thinning might imply the fine-scale theorem after specialization.",
+        "No priority guarantee against unindexed complete-bipartite nonbacktracking-cover work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes random regular/configuration graph networks, not balanced K_{n,n} two-stream joint coupling or fine Gaussian speedup.",
+          "evidence": [
+            "IEICE Communications Express 12 (2023), pp.42–47"
+          ],
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+          "material_read": "Complete six-page journal PDF, introduction, mean-hitting/cover calculations and concluding graphs studied.",
+          "method": "Publisher lawful open PDF full text",
+          "title": "On the mean first passage time and mean cover time of a non-backtracking random walk on graphs",
+          "trigger": "Direct prior non-backtracking cover paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md Git blob ea34cda276d54991f8faee516c538dbf03f82016",
+        "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+        "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html"
+      ],
+      "rationale": "The exact coupling gives an unusually strong comparison: pathwise monotonicity, an intrinsic logarithmic mean improvement, and a microscopic Gaussian independent of the macroscopic cover-time Gumbel law. This quantifies how removing immediate backtracks changes exploration of a natural dense bipartite network without affecting the leading 2nlog n cover scale.",
+      "residual_risks": [
+        "The saving law is not coupling-invariant, and the theorem does not address irregular or sparse graph sequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claimed Gaussian law exists for an unspecified joint coupling. Finite Markov checks establish only n=3,4 cases, not n→infinity.",
+    "The saving law is not coupling-invariant, and the theorem does not address irregular or sparse graph sequences.",
+    "An abstract general result about coupon-collector clocks and geometric thinning might imply the fine-scale theorem after specialization.",
+    "No priority guarantee against unindexed complete-bipartite nonbacktracking-cover work."
+  ],
+  "schema_version": 1
+}

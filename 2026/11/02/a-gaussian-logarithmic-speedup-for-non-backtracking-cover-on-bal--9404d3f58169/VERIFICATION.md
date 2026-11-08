@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic proof consists of independent parity-stream decomposition, exact geometric coupon stages, independent geometric holding times, factorial-moment Poisson convergence, a last-side anti-concentration estimate, and a conditional characteristic-function central limit argument. The relevant normal limit is coupling-specific; the expected difference is not.
+## correctness
 
-Execute `python check.py` in a directory containing the bundled checker. The script uses Python standard-library components (`fractions`, `collections`, `itertools`, `math`, `random`). An independent finite-state dynamic program for the original walks and an independently calculated inclusion–exclusion formula matched through twelve traversed steps on \(K_{n,n}\) for \(n=2,3,4,5\). Geometric-stage convolutions matched inclusion–exclusion through size \(13\). Seeded numerical diagnostics covered sizes \(40\), \(120\), and \(400\). A completed run reported **8,764 assertions passed**.
+PASS
 
-These checks do not prove convergence for all \(n\) or uniqueness in the literature. No independent audit or external mathematical certification was conducted.
+Alternating iid parity streams for simple walk on K_{n,n} and separately erasing each stream’s consecutive equal symbols produce exact nonbacktracking marginal chains. Conditional on retained chain, discarded repeats are independent geometric-failure counts; the two stream completion times are iid sum_{k=1}^{n-1} Geom(k/(n-1)). Inclusion-exclusion yields the claimed F_n and H_n products. Poisson factorial moments give max(K_A,K_B)/n-log n=>G+log2, while conditional geometric CLT gives repeats (R_*-log n)/sqrt(log n)=>Z, asymptotically independent of max K. The bound sup P(K_n=j)<=1/(n-1) makes late-winner switching probability negligible and gives o(1) correction to the expected saving, proving 2log n+2gamma+2log2+o(1). Independently verified exact stage-CDF identities by rational Markov dynamic programming on n=3,4 with and without loops. The coupling-specific law is explicitly differentiated from coupling-independent mean difference.
+
+## originality
+
+PASS
+
+Single-stream complete-graph coupon-collector Gumbel laws are classical. The primary nonbacktracking cover-time paper by Matsuo et al. treats random regular and configuration-model network means, rather than paired stream compression for K_{n,n}. The submitted two-scale joint Gaussian-Gumbel independence, conditional repetition counts and constant-order mean correction are not stated in that text; searches of related published findings identified discounted biclique hitting/cover invariants rather than this paired law.
+
+## value
+
+PASS
+
+The exact coupling gives an unusually strong comparison: pathwise monotonicity, an intrinsic logarithmic mean improvement, and a microscopic Gaussian independent of the macroscopic cover-time Gumbel law. This quantifies how removing immediate backtracks changes exploration of a natural dense bipartite network without affecting the leading 2nlog n cover scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
