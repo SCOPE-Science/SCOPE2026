@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-## Proof checks
+# Independent mathematical audit
 
-The statement explicitly restricts to an annular right circular conical lateral surface with two boundary circles and no disks. The intrinsic metric is reduced to a developed annular strip with angular period \(2\phi\). For two points the minimum winding is justified by angular contraction, and the shortest path in the punctured planar disk is either an admissible chord or two tangents plus an arc of the inner boundary. Both distance expressions and their first radial derivatives match exactly at tangency. The radial second derivatives are strictly positive on each branch, establishing radial endpoint maximization. The inner–inner corner is inferior to outer–inner, and the final outer–inner versus outer–outer comparison is explicit algebra. The two singularity-derivative statements and cone/cylinder limits have been independently recomputed from the displayed formula during the self-review.
+## correctness
 
-## Reproducible computations
+PASS
 
-Run `python3 frustum_diameter_checker.py` with standard Python 3 (no third-party libraries). Observed output:
+PASS: The lateral frustum intrinsic metric dr²+(r sin gamma)² dtheta² develops to an annular Euclidean polar strip with angle period 2phi=2pi sin gamma, where half-period phi<pi. The shortest between radii r,s and shorter developed separation delta<=phi is a straight chord when delta<=acos(b/r)+acos(b/s), otherwise the sum of two tangents and the inner-circle arc. Shorter winding is optimal by contracting angular speed while fixing the radial path. Distance strictly increases with delta>0, and for fixed other endpoint it is a globally convex function of each radius: chord branch has second derivative s² sin²(delta)/distance³, tangent branch has positive b²/(r²sqrt(r²-b²)), with matching first derivatives at contact. Therefore diametral radii lie at corners (B,b) or (B,B); (b,b) is smaller. Comparing their exact values gives mixed-rim chord only if phi<pi/3 and q<2cos phi-1; outer-to-outer chord if otherwise q<=cos(phi/2); and outer rim tangents+inner arc for q>cos(phi/2). The two transition regularities follow by differentiating these branches. Independent 18,225 radial-grid pairs at several rational-angle numerical samples did not violate the derived corner bound. Finite checks corroborate the analytic convexity argument.
 
-```
-OK cases=270, sampled_pairs=810000, max_positive_violation=0, max_contact_error=5.83e-16
-OK radial_grid_cases=20, radial_grid_points_per_case=8281
-```
+## originality
 
-These samples and finite grids do not constitute a universal proof and do not verify historical priority. Numerical discrepancies reflect ordinary double-precision rounding. The full proof is contained in RESULT.md and does not depend on code.
+PASS
 
-## Scope and integrity
+PASS, qualified: Local cone developability and shortest geodesics are classical and explicitly credited. Chen 2017 primary six-page cone geodesic paper treats rectifying curves and untruncated cones, not the intrinsic diameter of the lateral frustum with forbidden inner disk. No inspected matching prior formula or dominating exact two-parameter diameter classification was found, but older elementary annulus-obstacle geometry may imply it and searches are not proof of priority.
 
-No claims are made about a frustum with planar end caps, arbitrary smooth surfaces of revolution, oblique cones, or any independent mathematical audit. The cited 1987 paper was considered from its publisher abstract only, not its full text. Historical priority therefore remains open to independent examination.
+## value
+
+PASS
+
+PASS: The intrinsic diameter of a naturally parametrized compact surface with boundary is a meaningful exact geometric invariant. The formula classifies diametral boundary-pair geometry and distinguishes a strict endpoint-switch corner from a twice-derivative failure at the geodesic tangency threshold. Though derivable with classical planar tools, the global optimization and sharp phase boundaries are substantive, not just renaming a known local geodesic formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review: intrinsic diameter of circular conical frusta
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the lateral surface only, specifies the generator radii, and correctly converts physical azimuth to developed angular period. The proof covers every real radius ratio in \((0,1)\) and every physical half-apex angle in \((0,\pi/2)\). The shortest-path formula is established from planar annular-obstacle geometry, including boundary-following routes and competing winding classes. Convexity of distance in each radial coordinate reduces global diameter to two specific rim combinations; an exact comparison yields the three exhaustive branches. Both contact transitions and claimed derivatives follow algebraically. The included executable reproduces 810,000 random checks and 20 exhaustive radial grids of 8,281 points each, with no positive diameter violation. This finite evidence is ancillary, not an infinite proof. Nonstandard lemmas needing independent checking are the annular-obstacle geodesic representation and its radial convexity; both have explicit proofs in RESULT.md.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+PASS: The lateral frustum intrinsic metric dr²+(r sin gamma)² dtheta² develops to an annular Euclidean polar strip with angle period 2phi=2pi sin gamma, where half-period phi<pi. The shortest between radii r,s and shorter developed separation delta<=phi is a straight chord when delta<=acos(b/r)+acos(b/s), otherwise the sum of two tangents and the inner-circle arc. Shorter winding is optimal by contracting angular speed while fixing the radial path. Distance strictly increases with delta>0, and for fixed other endpoint it is a globally convex function of each radius: chord branch has second derivative s² sin²(delta)/distance³, tangent branch has positive b²/(r²sqrt(r²-b²)), with matching first derivatives at contact. Therefore diametral radii lie at corners (B,b) or (B,B); (b,b) is smaller. Comparing their exact values gives mixed-rim chord only if phi<pi/3 and q<2cos phi-1; outer-to-outer chord if otherwise q<=cos(phi/2); and outer rim tangents+inner arc for q>cos(phi/2). The two transition regularities follow by differentiating these branches. Independent 18,225 radial-grid pairs at several rational-angle numerical samples did not violate the derived corner bound. Finite checks corroborate the analytic convexity argument.
 
-Compared exact claims and implications rather than titles: classical local straightening of cone geodesics, general polyhedral geodesic algorithms, related geometric cone invariants, and independently published geodesic-diameter work on a different discrete family. Charitos–Papadoperakis–Tsapogas (2013) study complete closed Euclidean cone surfaces and do not present frustum boundaries or diameter optimization. Chen (2017) classifies local cone geodesics but omits the boundary-following minimizers essential here. The 1987 polyhedral shortest-path paper has a broad algorithmic abstract, but its full text could not be inspected; it is not evidence either way for a smooth conical-frustum formula. Relevant indexed records concern other metrics, surfaces, or extrinsic cone quantities; no explicit formula with both specified transition loci was found. This is a scoped positive novelty assessment, not an assertion of exhaustive historical priority. The main residual risk is an unlocated classical treatment of annulus obstacle shortest paths that might already draw the global-diameter corollary.
+## originality
 
-## Value — PASS
+PASS
 
-The geometric problem is canonical: determine the intrinsic diameter and farthest pairs of every circular conical frustum. The answer has a nontrivial contact switch at \(q=2\cos\phi-1\) in one angular regime, a separate boundary-grazing geodesic transition at \(q=\cos(\phi/2)\), and distinct differentiability signatures. The theorem treats all aspect ratios, recovers the sharp intact-cone and cylinder limits, and supplies an explicit global classification rather than a single sampled value. Exact metric diameters and farthest pairs are usable benchmark invariants for intrinsic surface-distance algorithms. The contribution is elementary and may be derivable by familiar planar geometry, but the classification and transitions are not a mere change of variables or numerical exercise.
+PASS, qualified: Local cone developability and shortest geodesics are classical and explicitly credited. Chen 2017 primary six-page cone geodesic paper treats rectifying curves and untruncated cones, not the intrinsic diameter of the lateral frustum with forbidden inner disk. No inspected matching prior formula or dominating exact two-parameter diameter classification was found, but older elementary annulus-obstacle geometry may imply it and searches are not proof of priority.
 
-## Closest literature and limits
+## value
 
-- Charitos, Papadoperakis and Tsapogas, *The geometry of Euclidean surfaces with conical singularities*, arXiv:1306.1759 (2013), exact public submission date 2013-06-07: the local conical metric is shared, but the global problem concerns closed surfaces without annular boundary.
-- Chen, *Rectifying curves and geodesics on a cone in the Euclidean 3-space* (2017), DOI:10.5556/j.tkjm.48.2.2017.2382: full paper's introduction and principal proofs establish local geodesic structure, not shortest paths allowed to follow truncated cone rims.
-- Mitchell, Mount and Papadimitriou, *The discrete geodesic problem* (1987), DOI:10.1137/0216045: publisher abstract only; polyhedral-surface method, not verified as excluding this different smooth-surface special case.
+PASS
 
-All correctness evidence comes from the explicit derivation and separately runnable numerical checks. Neither independent audit nor independent historical-priority review has been performed; no such certification is claimed.
+PASS: The intrinsic diameter of a naturally parametrized compact surface with boundary is a meaningful exact geometric invariant. The formula classifies diametral boundary-pair geometry and distinguishes a strict endpoint-switch corner from a twice-derivative failure at the geodesic tangency threshold. Though derivable with classical planar tools, the global optimization and sharp phase boundaries are substantive, not just renaming a known local geodesic formula.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
