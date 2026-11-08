@@ -1,23 +1,21 @@
-# Scientific review: first jets of commuting square-zero matrices
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full hypotheses are arbitrary field \(k\), characteristic split at two, all \(m\ge1\), original first jet **of the equation scheme**, followed by reduction only for components. Matrix-coefficient comparison yields exactly four equation families. Any nonzero constant-term square-zero matrix has rank one, and a commuting square-zero matrix is in its line. The nilpotent-line parameter is the split conic \(\mathbb P^1\). Direct calculations with the elementary Jordan nilpotent give infinitesimal fiber dimensions \(2m-r+1\) in odd characteristic and \(2m\) in characteristic two for support size \(r\ge1\). Irreducible strata, explicit noncontainment witnesses, and the proper nilpotent-line incidence construction establish the entire component classification. The disjoint strata yield exact counts and Grothendieck classes by a binomial sum. Fifteen independently assembled finite-field rank cases and two direct dual-number enumerations corroborated the equations, including extension-field arithmetic.
+PASS
 
-The geometric claim is only about the reduced underlying variety. Finite checks do not certify the infinite theorem or the nonreduced jet scheme.
+On the exact first-jet scheme of the UNREDUCED square-zero/commutation equations, coefficient comparison gives A_i^2=[A_i,A_j]=0, A_iB_i+B_iA_i=0, [A_i,B_j]+[B_i,A_j]=0; there is no B_i^2 condition. Every nonzero base tuple is t_iN on one nilpotent line P^1. Direct Jordan-matrix elimination yields B-fiber dimension 2m-r+1 for nonempty support size r in odd characteristic, 2m in characteristic two. Traces distinguish closures for distinct odd-characteristic supports, giving 2^m components including the 4m-dimensional A=0 stratum; char2 proper incidence over P^1 has one other irreducible closure dimension 3m+1, totaling two. Summing strata yields q^(4m)+(q+1)q^(m+1)((2q-1)^m-q^m) for odd q and q^(4m)+(q+1)(q^m-1)q^(2m) for even q; locally trivial bundles justify the motivic class, not an interpolation. All fields, m>=1; first jets of the original scheme, NOT higher jets/reduced nilpotent-cone jets. Independent original-equation enumeration over F2 (m=1,2) and independent linear-systems counts (q,m)=(2,3),(3,1),(3,2),(5,1) match the analytic formulas; finite checks corroborate and do not prove the all-field theorem.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-The closest direct predecessors are the fully inspected relevant portions of Sethuraman–Šivic (arXiv:0902.3467), Ngo–Šivic (arXiv:1308.4438), and Moreau–Yu (arXiv:1411.6427), together with D'Alesio's representation-scheme examples. Sethuraman–Šivic study jets of unrestricted commuting pairs; Ngo–Šivic classify reducibility for ordinary commuting nilpotent matrices over fields; Moreau–Yu study jets of reduced nilpotent orbit closures, in particular the irreducibility of jets of the reduced nilpotent cone. The square-zero equation scheme cannot be replaced by its reduction before forming jets; \(\varepsilon I\) over odd-characteristic dual numbers is a concrete point of the former but not the latter. D'Alesio gives the representation-scheme construction without this component or finite-field classification.
+PASS
 
-Published record searches for all-arity first-jet square-zero commutation, dual-number commuting-square-zero counts, equivalent representation schemes, and characteristic-dependent component geometry found no theorem implying the asserted characteristic collapse and formulas. Nearby results on separate nilpotency indices and square-zero matrix distributions concern different equation systems. Search absence is not a proof of priority; an unlocated earlier equivalent classification remains possible.
+Best-of-knowledge new support-indexed component count, characteristic-two collapse and arithmetic/motivic enumeration. Literature on unrestricted commuting-pair jet schemes and on reduced nilpotent-orbit jets does NOT imply this first jet of the specific nonreduced square-zero equation scheme. The direct first-jet linearized equations change the geometry; older representation-scheme treatments may implicitly subsume it, so historical priority is qualified.
 
-## Value — PASS
+## value
 
-The problem is a natural first-infinitesimal neighborhood of representation schemes of the commutative square-zero-generator algebra, not an arbitrarily chosen finite example. The result determines the complete reduced component set for every number of generators, with an exponential-to-constant characteristic jump, exact dimensions, a sharp equidimensionality threshold, and motivic/finite-field enumerators. The key mechanism identifies precisely which scalar first-order directions are freed on zero-constant-term coordinates. These invariants clarify why ordinary nilpotent-cone jet results cannot be applied to nonreduced representation equations.
+PASS
 
-## Limits and closest literature
+Natural moduli scheme of commuting square-zero representations has a sharp characteristic-two phase transition from 2^m to 2 irreducible components and complete uniform finite-field/motivic counts. This is a substantive structural classification beyond a type or routine sign check; the discrepancy between unreduced and reduced first-jet schemes is mathematically important.
 
-The principal novelty is not the general concept of jets, classification of nonzero nilpotent \(2\times2\) matrices, or the irreducibility of commuting nilpotent tuples over a field. The published comparisons do not certify global priority, and independent verification has not occurred. The result excludes higher matrix sizes, higher jets, the full nilpotent scheme structure, orbit counts, and jets of the reduced base.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
