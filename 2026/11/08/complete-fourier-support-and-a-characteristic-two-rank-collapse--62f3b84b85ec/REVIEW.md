@@ -1,0 +1,11 @@
+# Review of the adjugate-graph Fourier-support theorem
+
+**Correctness — PASS.** The proof reduces the adjugate quadratic form by left/right matrix equivalence to diagonal second frequency matrices. Its polarization has rank \(0,4,6,9\) in odd characteristic and \(0,4,6,8\) in characteristic two, with the radical restriction determined explicitly, including the full-rank binary square-root trace condition. A self-contained orthogonality argument proves the vanishing criterion and exact magnitudes. Matrix-rank counting then yields the complete convolution-rank formula. The packaged deterministic checker exhausts all \(262144\) coefficients over \(\mathbb F_2\) and checks \(221\) exact three-adic cyclotomic instances over \(\mathbb F_3\). The finite computations do not replace the algebraic proof.
+
+**Originality — PASS under bounded comparison.** Relevant full primary sources were inspected: Gadouleau–Yan, arXiv:0706.1751, describes rank-metric weight transforms and their character-theoretic relation to matrix ranks; Iosevich–Koh, arXiv:0804.4505, treats nondegenerate quadratic hypersurfaces and Fourier extension in odd characteristic. Neither gives the Fourier support of the \(3\times3\) adjugate graph, its polar rank strata, or the characteristic-two affine obstruction. Searches for matrix-adjugate/cofactor graph Fourier transforms and polar quadratic ranks, and a search of available published mathematical findings, found no directly dominating statement. The general quadratic-character lemma is established prior technique; an unlocated older specialization remains a priority risk.
+
+**Value — PASS.** The adjugate map is a canonical nonlinear quadratic operation on \(M_3(\mathbb F_q)\). Its graph's complete Fourier-null classification determines a natural convolution invariant for every finite field, with a sharp odd-versus-even characteristic asymptotic dichotomy and explicit spectral magnitudes. This is not a rank-weight enumerator or a routine restatement of the general Gauss-sum bound: it requires the nonstandard polar-rank and radical calculations of the cofactor quadratic map.
+
+**Limits.** No assertion extends to larger matrices, arbitrary rings, signed phases, or independence from all unsearched literature. Independent evaluation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
