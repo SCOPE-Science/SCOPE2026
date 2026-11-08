@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The accompanying `checker.py` uses only Python standard-library modules. Invoke it with `python3 checker.py` in a directory containing that file. The observed output from the packaged source is:
+## correctness
 
-```text
-PASS 3311 exact and symbolic assertions plus bounded Monte Carlo diagnostics; finite tests are not asymptotic proofs.
-```
+PASS
 
-The code constructs the entire exact distribution of the three edge-type counts from the part-size transition probabilities, then independently constructs it by enumerating actual labeled feasible edges on all tripartite graphs with part sizes up to three each. It checks normalization, terminal feasibility and agreement of the two exact distributions. Using a coefficient dictionary for multivariate polynomials, it proves by exact arithmetic that the proposed fluid solution satisfies all three ODEs and verifies the exact edge-intensity cancellation identities. It checks rational integrated-count identities, evaluates the ratio on thousands of rational triples and performs bounded seeded Monte Carlo diagnostics at larger sizes.
+PASS. Embedded uniform-feasible-edge chain obtained from exponential edge clocks has drift x’=-x(y+z), y’=-y(x+z), z’=-z(x+y). Exact scalar first integral u’=(1-au)(1-bu)(1-cu) gives x=a(1-bu)(1-cu) etc and u→1/a. Martingale quadratic-variation+Gronwall yields finite-time fluid LLN; post-T edge count dominated by small parts when a>b or total residual when a=b, establishing terminal convergence. Integrating each edge-type intensity under u gives AB=b(1-c/(2a)), AC=c(1-b/(2a)), BC=bc/(2a), and unmatched (a-b)(a-c)/a. With s=(b+c)/a, xy≤s²/4 establishes sharp R>=7/8 and equality only a:b:c=2:1:1. This is an asymptotic-in-probability/expectation theorem for positive linear part fractions only; no finite-order universal ratio.
 
-**Scope of evidence:** The asymptotic finite-horizon limit, the interchange of the terminal and scaling limits, and the global real-parameter optimization are established in `RESULT.md` by martingale/Gronwall, a deterministic truncation argument and elementary inequalities, respectively. Finite enumerations and finite grids cannot prove statements over every size or real triple; randomized diagnostic accuracy is not used as an acceptance criterion. The inspection did not obtain the full text of the older Dyer–Frieze paper. No independently audited mathematical certificate or publication-priority certificate is claimed.
+## originality
+
+PASS
+
+PASS best-of-knowledge. Dyer--Frieze introduced the random feasible-edge greedy algorithm; Hertz et al explicitly discuss that algorithm but analyze the UNIFORM average over maximal matchings, a distinct distribution. Arnosti treats random bipartite graphs and random edge sets. No inspected source supplied dense deterministic complete-tripartite type limits or sharp within-class 7/8 ratio; Dyer--Frieze full text not acquired this cycle, priority remains qualified.
+
+## value
+
+PASS
+
+PASS. A sharp asymptotic performance benchmark and unique worst-shaped tripartition quantify a natural stochastic matching algorithm on a dense heterogeneous graph family; the exact edge-type fluid distribution has standalone use and exceeds routine examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
