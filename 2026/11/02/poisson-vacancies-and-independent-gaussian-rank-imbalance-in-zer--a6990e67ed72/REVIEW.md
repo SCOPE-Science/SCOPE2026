@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The event that two partial injections compose to the zero transformation is exactly disjointness between the first image and second domain. Choosing domains, images, and bijections gives the exact two-rank count with no normalization ambiguity. Vandermonde summation gives the vacancy distribution and identifies the hypergeometric conditional law. The fixed-vacancy hypergeometric local central limit follows from uniform central Stirling expansions and a variance-based tail bound; a summable domination of vacancy probabilities transfers it to a joint independent Poisson–Gaussian limit. Direct exhaustive generation and composition checks for dimensions zero through four matched every rank cell and unrefined total. Risks: finite checks do not prove the infinite limit; the proof explicitly treats limiting tightness and tails.
+## correctness
 
-## Originality — PASS, with disclosed priority risk
-The exact unrefined total and its leading asymptotic are not original: the sum equals OEIS A082545, whose original entry dates to 2003 and whose known Laguerre and asymptotic formulas were checked. The final claim explicitly excludes those totals from its originality assertion. Full available text of Gusev–Volkov, arXiv:2204.10514v2, concerns rook-semiring identities and a finite-basis theorem; Kinyon–Stanovský, arXiv:2209.13805v1, concerns inverse-semigroup central congruences and abelianness. Neither supplies a rank-refined zero-product conditional limit, nor do the published indexed findings retrieved by targeted semantic searches. The reviewed novelty is the joint conditioned law and its independence, whose rank-refined conditional measure is not recoverable from an unrefined scalar sequence alone. Risk: an equivalent result may occur in older combinatorial-probability work under the language of disjoint matchings or independent partial matchings. Searches cannot prove absolute priority.
+PASS
 
-## Mathematical value — PASS
-Zero products are a canonical semigroup invariant and are rare among independent uniform rook-monoid elements. Their conditional typical structure is not explained by their already-known total number: each factor has asymptotic rank one-half of the ambient size, unused rank capacity tends to a tight Poisson random variable, and the rank imbalance retains a distinct Gaussian scale, asymptotically independent of the capacity defect. This is a complete natural two-statistic limit law across all monoid degrees, not an arbitrarily sliced small computation. The independence describes the mechanism of rare zero multiplication and may inform zero-product graph analysis. No broader theorem is implied or claimed.
+For partial-injection ranks i,j with disjoint im(alpha) and dom(beta), independent choices yield Z_{n;i,j}=n! binom(n,i)binom(n,j)/(n-i-j)!, for i+j<=n. Summing via Vandermonde gives P(S=s) proportional to binom(2n,n-s)/s!. Ratios to binom(2n,n) are bounded by 1 and converge to 1 at fixed s; dominated convergence proves Poi(1) in total variation. Conditional I given S=s is hypergeometric (2n,n,n-s) with exact mean (n-s)/2 and variance (n-s)(n+s)/(4(2n-1)); Stirling/local CLT yields (I-J)/sqrt(n)->N(0,1/2). Domination by 1/s! in the vacancy mixture yields asymptotic independence. Independent literal composition enumeration verified every rank cell for n=1,2,3 and scalar totals 3,21,229.
 
-## Closest literature and limitations
-OEIS A082545 exactly covers the unrefined zero-product count, so neither the scalar total nor its asymptotic coefficient is a novelty claim. Gusev and Volkov (2022), *Semiring identities of finite inverse semigroups*, establish a finite-basis result for rook semirings and do not state rank-conditioned random-product behavior. Kinyon and Stanovský (2022), *Abelianness and centrality in inverse semigroups*, address congruences, not the probability law. The assessed limit is restricted to uniformly and independently chosen partial injections conditioned on zero composition. The originality claim remains conditional on the inspected body of literature, with explicit risk of an equivalent probabilistic formulation in adjacent literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the two-statistic conditional joint law; scalar sequence and leading total asymptotics explicitly known and excluded from novelty.
+
+## value
+
+PASS
+
+Zero products are intrinsic annihilation relations in finite inverse monoids. The known total count omits the ranks of the factors. The joint law gives a natural full asymptotic profile on different scales: tight Poisson unused vertices and an independent sqrt(n) Gaussian rank imbalance, sharply contrasting with unconditional near-full ranks. This exact asymptotic classification is potentially useful for random product or zero-divisor graph studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

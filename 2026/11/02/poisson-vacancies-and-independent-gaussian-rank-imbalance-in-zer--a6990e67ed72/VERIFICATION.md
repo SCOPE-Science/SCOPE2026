@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and analytic boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The program constructs partial injections by separately choosing each source domain and injective image tuple. For every pair in dimensions zero through four, it evaluates composition directly and records the two ranks of zero products. Each cell is tested against the formula stated in `RESULT.md`. The program also compares the total with the known Laguerre-sequence representation and checks the independent cardinality count of the whole rook monoid. Exact-ratio numerical diagnostics are checked through dimension 70. The observed result was `VERIFY_OK: direct pair products through n=4 and 70 exact-ratio cases`.
+## correctness
 
-The analytic proof, not this program, supplies convergence as dimension tends to infinity. The relevant non-finite steps are dominated convergence of a summably bounded vacancy mass function, a fixed-vacancy central hypergeometric approximation from Stirling's formula with a variance tightness bound, and the final tight mixture argument. The program is not an exhaustive verification of any infinite statement. Publication priority has not been independently validated.
+PASS
+
+For partial-injection ranks i,j with disjoint im(alpha) and dom(beta), independent choices yield Z_{n;i,j}=n! binom(n,i)binom(n,j)/(n-i-j)!, for i+j<=n. Summing via Vandermonde gives P(S=s) proportional to binom(2n,n-s)/s!. Ratios to binom(2n,n) are bounded by 1 and converge to 1 at fixed s; dominated convergence proves Poi(1) in total variation. Conditional I given S=s is hypergeometric (2n,n,n-s) with exact mean (n-s)/2 and variance (n-s)(n+s)/(4(2n-1)); Stirling/local CLT yields (I-J)/sqrt(n)->N(0,1/2). Domination by 1/s! in the vacancy mixture yields asymptotic independence. Independent literal composition enumeration verified every rank cell for n=1,2,3 and scalar totals 3,21,229.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the two-statistic conditional joint law; scalar sequence and leading total asymptotics explicitly known and excluded from novelty.
+
+## value
+
+PASS
+
+Zero products are intrinsic annihilation relations in finite inverse monoids. The known total count omits the ranks of the factors. The joint law gives a natural full asymptotic profile on different scales: tight Poisson unused vertices and an independent sqrt(n) Gaussian rank imbalance, sharply contrasting with unconditional near-full ranks. This exact asymptotic classification is potentially useful for random product or zero-divisor graph studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

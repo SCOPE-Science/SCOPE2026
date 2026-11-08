@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:56:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For partial-injection ranks i,j with disjoint im(alpha) and dom(beta), independent choices yield Z_{n;i,j}=n! binom(n,i)binom(n,j)/(n-i-j)!, for i+j<=n. Summing via Vandermonde gives P(S=s) proportional to binom(2n,n-s)/s!. Ratios to binom(2n,n) are bounded by 1 and converge to 1 at fixed s; dominated convergence proves Poi(1) in total variation. Conditional I given S=s is hypergeometric (2n,n,n-s) with exact mean (n-s)/2 and variance (n-s)(n+s)/(4(2n-1)); Stirling/local CLT yields (I-J)/sqrt(n)->N(0,1/2). Domination by 1/s! in the vacancy mixture yields asymptotic independence. Independent literal composition enumeration verified every rank cell for n=1,2,3 and scalar totals 3,21,229.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gusev–Volkov main theorems concern identity bases for inverse semigroup semirings.",
+          "Kinyon–Stanovský main results concern centrality and abelianness, not random factors or Gaussian rank fluctuation."
+        ],
+        "reasoning": "The algebraic papers study broader semigroup objects, but their theorem conclusions do not dominate the distributional claim. Classical hypergeometric CLT supplies a component of the proof rather than the conditional zero-product mixture.",
+        "searches": [
+          "Resultary: symmetric inverse semigroup rook monoid zero product ranks joint Poisson Gaussian asymptotic independence",
+          "https://arxiv.org/html/2204.10514v2",
+          "https://arxiv.org/pdf/2209.13805",
+          "zero-product graph random partial injection conditioned rank asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A082545",
+        "https://arxiv.org/html/2204.10514v2",
+        "https://arxiv.org/pdf/2209.13805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The OEIS scalar sum can be produced by summing the new rank-refined count over i,j, not conversely.",
+          "Conditional I given S is hypergeometric, a statistic absent from the inspected semigroup identity and centrality claims."
+        ],
+        "reasoning": "The new joint limit requires Vandermonde decomposition, asymptotics of fixed-vacancy ratios and conditional hypergeometric CLT; no identified stronger prior claim supplies this distribution. A differently worded matching result remains possible.",
+        "searches": [
+          "Resultary: symmetric inverse semigroup rook monoid zero product ranks joint Poisson Gaussian asymptotic independence",
+          "https://oeis.org/A082545",
+          "https://arxiv.org/html/2204.10514v2",
+          "https://arxiv.org/pdf/2209.13805"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook monoid elements are partial permutations; beta o alpha=0 is equivalent to im(alpha) disjoint dom(beta).",
+          "OEIS A082545 tabulates the scalar total count of such zero products, without a bivariate rank-distribution/conditional joint limit."
+        ],
+        "reasoning": "The rank-statistics claim is equivalent to the conditioned law of two disjointly incident partial matchings; a scalar total does not determine its rank weights and cannot imply asymptotic independence by itself.",
+        "searches": [
+          "Resultary: symmetric inverse semigroup rook monoid zero product ranks joint Poisson Gaussian asymptotic independence",
+          "random partial bijections empty composition rank imbalance conditioned Poisson Gaussian",
+          "https://oeis.org/A082545"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A082545 records 1,3,21,229,... and an exact Laguerre representation plus leading scalar asymptotic for the same unrefined totals.",
+          "The claim explicitly excludes novelty for Z_n=n! sum_s binom(2n,n-s)/s!."
+        ],
+        "reasoning": "The scalar total is previously known; the refinement in i,j and limiting independent Poisson vacancy / Gaussian rank difference is additional and not a value reported by the scalar sequence entry.",
+        "searches": [
+          "Resultary: symmetric inverse semigroup rook monoid zero product ranks joint Poisson Gaussian asymptotic independence",
+          "https://oeis.org/A082545",
+          "Laguerre sequence zero products inverse monoid rank refined table"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the two-statistic conditional joint law; scalar sequence and leading total asymptotics explicitly known and excluded from novelty.",
+      "residual_risks": [
+        "Unindexed combinatorial probability work on pairs of disjoint partial matchings might have the equivalent joint limit.",
+        "OEIS scalar identities are known prior mathematics; a scalar sequence match is not independent novelty evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unrefined scalar count and leading asymptotics exactly; no bivariate conditional rank law visible in entry.",
+          "evidence": [
+            "A082545 1,3,21,229,... and known Laguerre representation."
+          ],
+          "identifier_or_url": "https://oeis.org/A082545",
+          "material_read": "Original full OEIS entry: sequence, formulas, Laguerre identities, asymptotic and dates.",
+          "method": "Direct database reading and algebraic comparison of totals.",
+          "title": "OEIS A082545",
+          "trigger": "Exact first terms of unrefined rook zero products match known integer sequence."
+        },
+        {
+          "assessment": "Defines relevant semigroup but studies identities, not zero-product pair random-rank distribution.",
+          "evidence": [
+            "arXiv:2204.10514v2, Theorem 1.3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.10514v2",
+          "material_read": "Full accessible primary HTML introduction, object definitions, main Theorems 1.1–1.3, Sections 2–4 treatment of identities.",
+          "method": "Direct source-text reading with comparison of model and theorem statements.",
+          "title": "Semiring identities of finite inverse semigroups",
+          "trigger": "The same rook/symmetric inverse monoid appears in primary algebraic work."
+        },
+        {
+          "assessment": "Central congruence statements do not imply the conditional random zero-product law; later proof coverage remains unverified.",
+          "evidence": [
+            "arXiv:2209.13805, main claims on centrality and abelianness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13805",
+          "material_read": "Original 14-page arXiv PDF abstract, introduction, Theorem 1.1 and definitions; page-one screenshot inspected. Did not read every later proof.",
+          "method": "Direct original PDF text/screenshot, compared main claims and model.",
+          "title": "Abelianness and centrality in inverse semigroups",
+          "trigger": "Another primary paper on the same inverse-semigroup operations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zero products are intrinsic annihilation relations in finite inverse monoids. The known total count omits the ranks of the factors. The joint law gives a natural full asymptotic profile on different scales: tight Poisson unused vertices and an independent sqrt(n) Gaussian rank imbalance, sharply contrasting with unconditional near-full ranks. This exact asymptotic classification is potentially useful for random product or zero-divisor graph studies.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://oeis.org/A082545",
+    "https://arxiv.org/html/2204.10514v2",
+    "https://arxiv.org/pdf/2209.13805"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two independent uniform partial injections conditional on zero composition; not products of more factors or transformation monoids.",
+    "No uniform convergence-rate or full literature priority certification."
+  ],
+  "residual_risks": [
+    "Unindexed combinatorial probability work on pairs of disjoint partial matchings might have the equivalent joint limit.",
+    "OEIS scalar identities are known prior mathematics; a scalar sequence match is not independent novelty evidence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS unrefined scalar count and leading asymptotics exactly; no bivariate conditional rank law visible in entry.",
+      "evidence": [
+        "A082545 1,3,21,229,... and known Laguerre representation."
+      ],
+      "identifier_or_url": "https://oeis.org/A082545",
+      "material_read": "Original full OEIS entry: sequence, formulas, Laguerre identities, asymptotic and dates.",
+      "method": "Direct database reading and algebraic comparison of totals.",
+      "title": "OEIS A082545",
+      "trigger": "Exact first terms of unrefined rook zero products match known integer sequence."
+    },
+    {
+      "assessment": "Defines relevant semigroup but studies identities, not zero-product pair random-rank distribution.",
+      "evidence": [
+        "arXiv:2204.10514v2, Theorem 1.3."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2204.10514v2",
+      "material_read": "Full accessible primary HTML introduction, object definitions, main Theorems 1.1–1.3, Sections 2–4 treatment of identities.",
+      "method": "Direct source-text reading with comparison of model and theorem statements.",
+      "title": "Semiring identities of finite inverse semigroups",
+      "trigger": "The same rook/symmetric inverse monoid appears in primary algebraic work."
+    },
+    {
+      "assessment": "Central congruence statements do not imply the conditional random zero-product law; later proof coverage remains unverified.",
+      "evidence": [
+        "arXiv:2209.13805, main claims on centrality and abelianness."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2209.13805",
+      "material_read": "Original 14-page arXiv PDF abstract, introduction, Theorem 1.1 and definitions; page-one screenshot inspected. Did not read every later proof.",
+      "method": "Direct original PDF text/screenshot, compared main claims and model.",
+      "title": "Abelianness and centrality in inverse semigroups",
+      "trigger": "Another primary paper on the same inverse-semigroup operations."
+    }
+  ]
+}
