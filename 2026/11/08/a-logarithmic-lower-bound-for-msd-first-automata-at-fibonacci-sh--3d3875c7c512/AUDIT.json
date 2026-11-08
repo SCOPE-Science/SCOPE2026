@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The Fibonacci-word concatenation W_{k+2}=W_kW_{k-1}W_k and an inductive two-letter near-commutation prove the first disagreement is exactly F_{k+1}-2. For k>=4 its canonical encoding has k-1 digits. A two-state last-digit DFAO, a four-state validity DFA, and any s-state shifted DFAO form a discrepancy DFA of at most 8s states. Its shortest accepted word has length k-1, forcing at least k states. Independent finite morphic and Zeckendorf computations successfully check k=4..20 and 25,000 sequence digits; the finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moradi–Popoli–Shallit–Vukusic, arXiv:2603.18858v1, §3 Theorem 3.2 and §4 Theorem 4.1.",
+        "Moradi–Rampersad–Shallit, arXiv:2603.21645v1, §§2–4.",
+        "The first paper introduction derives an unspecified-shift counting lower bound of order log c/loglog c infinitely often, without fixing Fibonacci offsets."
+      ],
+      "reasoning": "The general information-counting bound concerns existence of some hard shifts and does not imply the proposed linear-in-k lower bound along c=F_k. The exact LSD theorem concerns the opposite input direction. The O(log c) MSD upper bound is consistent with, but does not imply, a matching lower bound.",
+      "searches": [
+        "Fibonacci automatic word arbitrary shifts logarithmic lower bound minimal msd states",
+        "Complexity of Linear Subsequences of Fibonacci-Automatic Sequences arXiv:2603.21645v1 shifts state complexity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.18858v1",
+      "https://arxiv.org/html/2603.21645v1",
+      "Accessible previous finding titles and claims (deduplication only).",
+      "Indexed mathematical finding search over Fibonacci automata, Zeckendorf shifts, first mismatches and lower bounds."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.2 of arXiv:2603.18858v1: exact state count for LSD-first.",
+        "Theorem 4.1 of arXiv:2603.18858v1: existence of MSD-first machines with O(log c) states.",
+        "arXiv:2603.21645v1 §4: general polynomial-shift and linear-subsequence state upper bounds."
+      ],
+      "reasoning": "An LSD-first state count cannot be transferred as the same MSD-first minimum; direction reversal can incur state blow-up. An existence/upper bound does not imply the lower bound. The first-disagreement argument supplies the missing implication in the new domain.",
+      "searches": [
+        "State Complexity of Shifts of the Fibonacci Word arXiv:2603.18858v1 Theorem 4.1 Theorem 3.2",
+        "Complexity of Linear Subsequences of Fibonacci-Automatic Sequences arXiv:2603.21645v1 shifts state complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moradi–Popoli–Shallit–Vukusic, arXiv:2603.18858v1, §3 Theorem 3.2 and §4 Theorem 4.1.",
+        "Its §4 gives an upper bound for MSD-first and no minimality theorem; §3 gives a different, LSD-first exact theorem."
+      ],
+      "reasoning": "A lower bound for the explicit sequence shifts c=F_k is equivalent to saying no sublinear-in-k MSD-first machines compute those shifted sequences. Unlike a first-mismatch lemma alone, it connects the mismatch to valid canonical encodings. Neither equivalent wording was found in the inspected primary sections or indexed nearby results.",
+      "searches": [
+        "Fibonacci word shifts Zeckendorf automata exact state complexity for shift c, periodic characterization, suffix/prefix Myhill Nerode state minimization, 2026 Moradi Popoli Shallit Vukusic",
+        "Fibonacci word shifts by Fibonacci numbers F_k, msd-first and lsd-first Zeckendorf automata state complexity Omega(k) lower bound, first mismatch F_{k+1}-2, central words almost commuting",
+        "Moradi Popoli Shallit Vukusic state complexity Fibonacci shifted sequence logarithmic lower bounds along Fibonacci offsets, Myhill Nerode delay of disagreement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearby indexed Fibonacci-word findings concerned entropy/factor complexity, attractors, and antipower radii, not shifted-output state lower bounds.",
+        "Moradi–Popoli–Shallit–Vukusic, arXiv:2603.18858v1, §3 Theorem 3.2 and §4 Theorem 4.1."
+      ],
+      "reasoning": "The new statement is an infinite parameter lower bound, not a claimed new entry in an existing finite state-count table. No exact published MSD state table covering all Fibonacci shifts was found; failed indexing is not a uniqueness proof.",
+      "searches": [
+        "Fibonacci word shifts Zeckendorf automata exact state complexity for shift c, periodic characterization, suffix/prefix Myhill Nerode state minimization, 2026 Moradi Popoli Shallit Vukusic",
+        "Fibonacci word shifts by Fibonacci numbers F_k, msd-first and lsd-first Zeckendorf automata state complexity Omega(k) lower bound, first mismatch F_{k+1}-2, central words almost commuting",
+        "Moradi Popoli Shallit Vukusic state complexity Fibonacci shifted sequence logarithmic lower bounds along Fibonacci offsets, Myhill Nerode delay of disagreement",
+        "minimal MSD Fibonacci Zeckendorf shift automaton state table F_k"
+      ]
+    },
+    "rationale": "The exact first-disagreement location for Fibonacci shifts is combined with a canonical-language discrepancy automaton to force a new explicit MSD-first lower bound linear in the Fibonacci index. The closest primary article proves a logarithmic upper bound for MSD-first machines, and exact minimal state counts only for LSD-first. The companion automata results also provide upper bounds, not this lower bound. Available prior-claim and indexed-literature comparisons did not identify this statement; undiscovered equivalents remain possible.",
+    "residual_risks": [
+      "An unindexed thesis, revision or independent article may already derive the same lower bound.",
+      "A known almost-commutation plus standard DFA lemma might have been recorded implicitly without an explicit shifted-state theorem.",
+      "No exact minimal MSD state counts or optimal lower-bound constant are established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest paper gives an MSD upper bound and exact LSD formula, not the proposed MSD lower bound at Fibonacci shifts. General counting argument does not fix offsets.",
+        "evidence": "arXiv:2603.18858v1, lines in full HTML: introduction statements; §§2–4, Theorems 3.2 and 4.1",
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Abstract; Introduction; Zeckendorf definitions; section 3 theorem and section 4 theorem, proof, and discussion; appendix section describing LSD exactness",
+        "method": "Read primary full HTML sections and compared theorem hypotheses, input direction, and quantified conclusions",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Exactly the same shifted sequence and automata model"
+      },
+      {
+        "assessment": "Does not imply a linear lower bound in k for shifted Fibonacci word MSD automata.",
+        "evidence": "arXiv:2603.21645v1, abstract and sections 1–4",
+        "identifier_or_url": "https://arxiv.org/html/2603.21645v1",
+        "material_read": "Abstract, introduction, definitions in section 2, main shift statements in section 4",
+        "method": "Read relevant primary HTML text and compared the direction and form of results",
+        "title": "Complexity of Linear Subsequences of Fibonacci-Automatic Sequences",
+        "trigger": "Same number representation, related shifts and state bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d3875c7-c512-4c98-95d1-8241d12c5606",
+  "value": {
+    "rationale": "The 2026 primary work establishes an MSD logarithmic upper bound but does not give an explicit matching MSD lower bound. The new infinite Fibonacci-offset family proves optimal logarithmic order and quantifies the combinatorial mechanism by the exact first disagreement. Its mathematical target is a natural asymptotic minimal-state question; no exact constant or comprehensive all-offset assertion is claimed.",
+    "status": "PASS"
+  }
+}
