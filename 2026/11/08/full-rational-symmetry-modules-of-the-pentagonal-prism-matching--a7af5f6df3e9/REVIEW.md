@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness
+PASS. The object is unambiguously the ordinary matching complex of the ten-vertex pentagonal prism, not a perfect-matching or independence complex. The finite chain spaces contain exactly 1, 15, 75, 145, 95 and 11 oriented bases, and the exact rational boundary ranks are 1, 14, 61, 82 and 11. These imply only two nonzero reduced rational homology groups, each of dimension two. For each involution, the modular eigen-boundary ranks sum degree-by-degree to the exact rational full-boundary rank; this forces exact equality over the rationals, permitting the character decomposition. Rotation triviality follows from the rational representation theory of a cyclic group of order five. The group is the full graph automorphism group because four-cycle multiplicities distinguish spokes from rims. Independent signed Lefschetz checks support the computation. Risk: finite verification depends on correct interpretation of the explicit signed chain conventions; no integral representation or homotopy equivalence is established.
+
+## Originality
+PASS relative to the inspected literature and indexed records. The closest full texts are Braun–Hough on open grid matching complexes and Matsushita's extension, neither treating the pentagonal prism with periodic rim closure or its full symmetry character. Agarwal–Basak's 2026 revised abstract addresses independence and perfect-matching complexes of circular ladders, not the ordinary matching complex. Indexed circular-ladder results concern independence, cut, Čech, Rips, or perfect-matching complexes. The available same-area historical records with the pentagonal-prism graph concern second-independence complexes, which are not the line-graph independence complex considered here. Risk: an unindexed calculation or unavailable complete later revision may contain an equivalent formulation; originality is not independently certified.
+
+## Mathematical value
+PASS. This closes a natural small case adjacent to the classical open two-row grid-matching problem. The exact distinction between the degree-two reflection/layer modules and the degree-three modules cannot be recovered from matching counts or ordinary Betti numbers. It predicts the survival of precisely one positive-degree rational homology class in the complete symmetry quotient, a natural topological observable. The scope is intentionally finite rather than an unsupported claim for all circular ladders.
+
+Self-review: passed. Independent audit: not yet performed.
