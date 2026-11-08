@@ -1,15 +1,21 @@
-# Scientific review: one-surplus temporal EF1
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has quantified assumptions \(n\ge2\), \(m\le n+1\), and \(0<\ell_i<h_i\) with additive singleton values in those tiers. The first \(n\) assignments are to distinct agents. The earliest low-tier recipient \(j\) is universally unenvied: if another agent \(i\) also receives a low-tier good later, \(i\) was available when \(j\) got their good and must value that good at \(\ell_i\); all high-tier recipients already value their own singleton maximally. Removing the final arriving good from the anchor's two-good bundle proves the only nontrivial EF1 inequalities. No low anchor means every first recipient is high and any anchor works. The exact checker obtained `VERIFY_OK cases=3908208 prefix_checks=21778368`, but finite enumeration is explicitly not the proof of the unlimited-\(n\) real-tier statement.
+PASS
 
-## Originality — PASS, with priority risk
+During first n arrivals each agent receives at most one item, so deleting the envied singleton makes EF1 automatic. At time n every agent has a singleton. For earliest low-recipient j, each other agent i either got a high-valued singleton (thus maximal own value) or got a low-valued singleton later; in the latter case i was available when g_j arrived, so its nonselection under high-first means v_i(g_j)=ell_i=v_i(g_i). Thus j is universally unenvied. At the (n+1)st arrival place new good with j: any outside i can discard this new good and compare with j’s unenvied first singleton, while all other envied bundles remain singleton. If all n had high singleton, choose any anchor. All n, real positive tier sizes and m≤n+1 are covered. Independently exhausted 4160 binary high-low preference patterns for n=2 and n=3 with heterogeneous tiers and evaluated EF1 at every prefix; finite tests corroborate analytic anchor lemma only.
 
-Directly inspected primary materials include Choi--Li's arXiv:2601.12835v3 (Table 1 marks bi-valued exact temporal EF1 as open and Section 4.3.5 establishes approximate TEFX), Elkind et al.'s arXiv:2410.14593v1 (Theorems 3.6-3.7 use two global item types or generalized binary values), Wang--Wei's arXiv:2505.24321v2 (Theorem 6 uses \(n-1\) identical binary agents and one personalized bi-valued agent), and Amanatidis et al.'s arXiv:2607.01159v1 (full personalized-\(k\) temporal EF1 uses a buffer). An additional n+1-good impossibility uses more than two positive values, and the two-value impossibility for EFX addresses a different, stronger property (arXiv:2610.34625v1). Actual research-record searches for unenvied anchors, bivalued first-surplus allocations and equivalent online EF1 formulations did not return implication-equivalent coverage. This evidence supports novelty to the extent checked; unindexed or unstated prior derivations remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-One surplus good is the first horizon at which prefixwise EF1 is not automatic from distributing distinct singleton goods. Positive two-tier values form a substantively motivated domain singled out in recent temporal allocation literature. The universal unenvied-anchor lemma gives a strong and usable explanation for the algorithm, while a two-agent, three-good profile demonstrates that a naive one-good-per-agent first phase may be unrecoverable. No welfare, efficiency, larger-horizon or exact EFX result is claimed.
+PASS with best-of-knowledge residual risk: Choi–Li 2026 identifies exact temporal EF1 for two-valued goods as open; prior personalized online exact guarantees require homogeneous agents or positive buffer, or restrict goods to global item types. The first-surplus zero-buffer construction is a genuine different hypothesis and horizon, not proof of unrestricted long-horizon EF1.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first n goods can be allocated one per agent with automatic EF1, making the n+1st good the first substantive online fairness obstruction. A universally unenvied singleton anchor gives a sharp constructive positive result for heterogeneous two-tier preferences without lookahead or buffering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:59:14.221074Z",
+  "axes": {
+    "correctness": {
+      "rationale": "During first n arrivals each agent receives at most one item, so deleting the envied singleton makes EF1 automatic. At time n every agent has a singleton. For earliest low-recipient j, each other agent i either got a high-valued singleton (thus maximal own value) or got a low-valued singleton later; in the latter case i was available when g_j arrived, so its nonselection under high-first means v_i(g_j)=ell_i=v_i(g_i). Thus j is universally unenvied. At the (n+1)st arrival place new good with j: any outside i can discard this new good and compare with j’s unenvied first singleton, while all other envied bundles remain singleton. If all n had high singleton, choose any anchor. All n, real positive tier sizes and m≤n+1 are covered. Independently exhausted 4160 binary high-low preference patterns for n=2 and n=3 with heterogeneous tiers and evaluated EF1 at every prefix; finite tests corroborate analytic anchor lemma only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkind et al. two GLOBAL item types/generalized {0,p_g} valuations are stricter than arbitrary personalized positive two-tier patterns; Wang–Wei require n-1 identical agents; buffered online algorithms allow delayed allocations."
+        ],
+        "reasoning": "No inspected stronger theorem simultaneously provides all-personalized positive two-tier values, arbitrary item-type patterns, zero buffering, and temporal EF1 even for arbitrary horizon. Restrictions do not imply this one-surplus rule without an extra argument.",
+        "searches": [
+          "Elkind Lam Latifian Neoh Teh Temporal Fair Division of Indivisible Items Theorem 3.6 3.7",
+          "Wang Wei Online Fair Allocations with Binary Valuations and Beyond Theorem 6",
+          "Amanatidis et al Online Fair Division Meets Reordering Buffers"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 335228983b6789058421d98665309138154779d8/RESULT.md and verify_bivalued_online.cpp",
+        "Choi–Li arXiv:2601.12835",
+        "Elkind et al. arXiv:2410.14593 (theorem references and bibliographic context)",
+        "Wang–Wei arXiv:2505.24321 (theorem references and bibliographic context)",
+        "Amanatidis et al. arXiv:2607.01159 (theorem references and bibliographic context)",
+        "Resultary online EF1 semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive buffer is a different resource from assigning immediately; requiring most agents to share preferences is not equivalent to fully personalized two-tier values."
+        ],
+        "reasoning": "The anchor proof constructs an EF1 assignment online from the first low recipient; neither fixed-item-type, positive-buffer nor mostly-identical-agent prior theorem directly implies it.",
+        "searches": [
+          "Choi Li arxiv 2601.12835 Theorem14 and Table1",
+          "Wang Wei arxiv 2505.24321 exact EF1 one personalized agent",
+          "Amanatidis 2607.01159 online EF1 buffer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi and Li arXiv:2601.12835v3 table marks exact TEF1 for bi-valued goods unresolved and Theorem14 proves a multiplicative TEFX guarantee."
+        ],
+        "reasoning": "Temporal EF1 is the required prefixwise guarantee, not a final-only allocation. The new positive claim has the extra sharp horizon m≤n+1; it does not resolve Choi–Li’s unrestricted horizon.",
+        "searches": [
+          "\"temporal EF1\" \"bi-valued\" one surplus n+1 goods",
+          "Resultary online temporal EF1 fair division positive bi-valued indivisible goods n+1 arrivals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Choi–Li possibility table records unknown exact TEF1 for bi-valued valuations in unrestricted scheduling; no inspected table provides this one-surplus algorithm."
+        ],
+        "reasoning": "This is an all-n existence mechanism, not a numeric table lookup. A previously unindexed first-surplus lemma remains possible.",
+        "searches": [
+          "Choi Li 2026 Table 1 bi-valued TEF1",
+          "online n+1 items personalized agents temporal EF1 anchor"
+        ]
+      },
+      "rationale": "PASS with best-of-knowledge residual risk: Choi–Li 2026 identifies exact temporal EF1 for two-valued goods as open; prior personalized online exact guarantees require homogeneous agents or positive buffer, or restrict goods to global item types. The first-surplus zero-buffer construction is a genuine different hypothesis and horizon, not proof of unrestricted long-horizon EF1.",
+      "residual_risks": [
+        "No guarantee for the second surplus good (m≥n+2), nonadditive or three-tier values.",
+        "An elementary first-surplus anchor may already occur as an unstated corollary in online fair-division literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "An unrestricted-horizon bi-valued exact TEF1 question remained open in the inspected version; Theorem 14 is a weakened TEFX bound, not the exact one-surplus result.",
+          "evidence": "Table 1 bi-valued exact TEF1 unresolved; Theorem 14 multiplicative TEFX.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.12835",
+          "material_read": "ArXiv PDF opened; abstract, Table 1 on bi-valued TEF1 status, Section 4.3.5 and Theorem 14 examined.",
+          "method": "primary arXiv PDF and page screenshot",
+          "title": "Temporal Fair Division of Indivisible Goods with Scheduling",
+          "trigger": "Same temporal EF1 and bi-valued preference domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first n goods can be allocated one per agent with automatic EF1, making the n+1st good the first substantive online fairness obstruction. A universally unenvied singleton anchor gives a sharp constructive positive result for heterogeneous two-tier preferences without lookahead or buffering.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 335228983b6789058421d98665309138154779d8/RESULT.md and verify_bivalued_online.cpp",
+    "Choi–Li arXiv:2601.12835",
+    "Elkind et al. arXiv:2410.14593 (theorem references and bibliographic context)",
+    "Wang–Wei arXiv:2505.24321 (theorem references and bibliographic context)",
+    "Amanatidis et al. arXiv:2607.01159 (theorem references and bibliographic context)",
+    "Resultary online EF1 semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all n≥2, streams of at most n+1 indivisible goods, and additive positive personalized two-tier values 0<ell_i<h_i, a deterministic irrevocable allocation rule maintains EF1 after every prefix without lookahead: first assign each good to an unassigned high-valuer if available, then give the sole surplus good to the earliest low-tier first recipient or any if none.",
+  "limitations": [
+    "Tier constants per agent fixed and positive, every good immediately assigned, no general efficiency or EFX."
+  ],
+  "residual_risks": [
+    "No guarantee for the second surplus good (m≥n+2), nonadditive or three-tier values.",
+    "An elementary first-surplus anchor may already occur as an unstated corollary in online fair-division literature."
+  ],
+  "schema_version": 1
+}

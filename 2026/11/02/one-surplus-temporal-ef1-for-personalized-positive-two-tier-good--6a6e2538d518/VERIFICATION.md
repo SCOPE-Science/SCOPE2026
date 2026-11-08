@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone source `verify_bivalued_online.cpp` was compiled and executed with:
+## correctness
 
-```sh
-g++ -std=c++17 -O3 -Wall -Wextra verify_bivalued_online.cpp -o verify
-./verify
-```
+PASS
 
-Observed output:
+During first n arrivals each agent receives at most one item, so deleting the envied singleton makes EF1 automatic. At time n every agent has a singleton. For earliest low-recipient j, each other agent i either got a high-valued singleton (thus maximal own value) or got a low-valued singleton later; in the latter case i was available when g_j arrived, so its nonselection under high-first means v_i(g_j)=ell_i=v_i(g_i). Thus j is universally unenvied. At the (n+1)st arrival place new good with j: any outside i can discard this new good and compare with j’s unenvied first singleton, while all other envied bundles remain singleton. If all n had high singleton, choose any anchor. All n, real positive tier sizes and m≤n+1 are covered. Independently exhausted 4160 binary high-low preference patterns for n=2 and n=3 with heterogeneous tiers and evaluated EF1 at every prefix; finite tests corroborate analytic anchor lemma only.
 
-```text
-VERIFY_OK cases=3908208 prefix_checks=21778368
-```
+## originality
 
-The checker directly simulates the high-first/first-low allocation. It independently recomputes the complete EF1 inequality at every allocation prefix, and also verifies the unenvied-anchor inequality. It exhaustively enumerates all high/low binary valuation masks with \(n=2,3,4\), \(m=n+1\) under three positive integer tier palettes. It additionally tests 150,000 pseudorandom cases for each \(n=5,\ldots,9\) with heterogeneous positive integer tiers using a fixed PRNG seed. Integer arithmetic is exact, but the experiments establish only their finite domains. The mathematical proof in `RESULT.md` establishes the theorem for all integer numbers of agents and all positive real two-tier values. No independent scientific audit has been performed.
+PASS
+
+PASS with best-of-knowledge residual risk: Choi–Li 2026 identifies exact temporal EF1 for two-valued goods as open; prior personalized online exact guarantees require homogeneous agents or positive buffer, or restrict goods to global item types. The first-surplus zero-buffer construction is a genuine different hypothesis and horizon, not proof of unrestricted long-horizon EF1.
+
+## value
+
+PASS
+
+The first n goods can be allocated one per agent with automatic EF1, making the n+1st good the first substantive online fairness obstruction. A universally unenvied singleton anchor gives a sharp constructive positive result for heterogeneous two-tier preferences without lookahead or buffering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
