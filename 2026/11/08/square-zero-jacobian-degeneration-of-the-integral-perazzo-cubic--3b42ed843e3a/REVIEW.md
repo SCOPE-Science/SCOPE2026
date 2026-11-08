@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Direct differentiation yields the full relative Jacobian ideal, whose square-zero quotient is controlled by an injective two-by-two presentation matrix over \(\mathbb Z\) and every residue field. The determinant gives the Fitting conic, its nonvanishing mod every prime proves base flatness, and explicit cokernel computations identify the odd-characteristic line bundle on the conic and the characteristic-two pair of line bundles on the reduced line. The section formula follows from these sheaves. The included program checks independent polynomial and finite-degree calculations; finite checks are not used as infinite proofs.
+
+**Originality — PASS, qualified.** Gondim–Russo (arXiv:1312.1618v1, Theorem 4.2) gives the classical equation and reduced singular plane, and explicitly distinguishes the singular scheme; Fiorindo–Mezzetti–Miró-Roig (arXiv:2206.02723v1, Section 6) gives the characteristic-zero geometric context. Neither inspected source determines the integral nilradical sheaf, the degeneration to two line-supported summands in characteristic two, or the flat family with unchanged fibre Hilbert polynomial. The closest searched mathematical-record findings concern different singular schemes (a quartic discotope and a cyclic cubic Hessian). Specialist literature not indexed by the searches may still affect priority.
+
+**Value — PASS.** The Perazzo cubic is a canonical nonconical cubic with vanishing Hessian. Its reduced singular plane is invariant in this family, but the scheme-theoretic polar base locus changes support and rank at the bad prime: a conic-supported nilpotent direction becomes two independent line-supported directions. This is a natural integral-degeneration invariant relevant to exact scheme structure, beyond merely detecting reduced singularities or counting points; it provides concrete data for future characteristic-sensitive blowup and polar-map questions, without claiming those analyses are completed.
+
+The statement does not classify all integral models or prove a blowup/resolution theorem. Searches cannot establish absolute priority. Mathematical proofs and computations have been examined within this review, but no external audit has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
