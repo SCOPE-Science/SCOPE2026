@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:49:48.643197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified all seven Git blob identities plus one nested artifact tree from frozen commit, and reconstructed Git tree SHA e68b1b9cffa06834861ca607171cdd128f47fe6e. For Y=P1xP1, global vector fields are independent degree <=2 polynomial vector fields with six coefficients. A field lifts through a blown-up point iff it vanishes at that point. In chart v=ut, the restriction to E of the tangential lift is d+(b-a)t-c*t^2 for linearization [[a,c],[d,b]], so vanishing along E forces c=d=0 and a=b over every field (also checked second chart u=vz with c+(a-b)z-d*z^2). At selected x=0, infinity, vanishing kills a0, a2 respectively (analogous b0,b2); equality of local signed linear coefficients gives eps_x a1=eps_y b1. Independent exact arithmetic computed each of 16 subsets using six-column matrices, with ranks over Q,F2,F3,F5. Dimensions by orbits: empty 6; one 3; opposite pair 1; adjacent pair 1 (char !=2), 2 (char2); triple 0/1; all four 0/1. Ranks follow in any characteristic because all relevant pivot minors lie in {0,1,2}, so field tests are corroborative and the symbolic rank analysis is the unrestricted proof. No arbitrary centers, infinitely near centers, or higher cohomology are claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolgachev--Martin (2025), Introduction and Sec.2, classifies full automorphism groups of del Pezzo surfaces (particularly degrees >=3 via earlier references), not pointwise-trivial infinitesimal fields along designated exceptional divisors.",
+          "The user claim concerns T_{Bl_Z(P1xP1)}(-sum E), unlike the unmodified tangent bundle Lie algebra of Aut(S). Adjacent-pair and three/four-corner configurations may not even be del Pezzo due to proper transforms of fibers of negative self-intersection."
+        ],
+        "reasoning": "Full Aut(S) is not the subgroup scheme fixing each exceptional curve pointwise, and a classification of its abstract automorphism group does not directly yield H^0(T_S(-E)); any broader Demazure-root or marked-divisor Lie-algebra formula with full coverage would supersede this result if found, so residual risk remains.",
+        "searches": [
+          "Web: automorphism group of smooth toric del Pezzo surfaces Demazure roots tangent sheaf characteristic p",
+          "Web: infinitesimal automorphisms del Pezzo surfaces characteristic two blow-up points exceptional curves tangent -E",
+          "Dolgachev and Martin, Automorphisms of del Pezzo surfaces in characteristic 2 (2025), Sec.2 (https://msp.org/ant/2025/19-4/ant-v19-n4-p03-s.pdf)"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.kyoto-u.ac.jp/~fujino/characterization20260911.pdf (Remark 6.2 and surrounding sections materially read)",
+        "https://msp.org/ant/2025/19-4/ant-v19-n4-p03-s.pdf (intro and Sec.2 read)",
+        "Resultary semantic result sets for three actual query strings",
+        "GitHub assigned package RESULT.md, AUDIT.json and REVIEW.md checked as claims/evidence, not independent priority proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fujino--Sato prove four-center constraints a=b, a=-b; because four corners already force a0=a2=b0=b2=0, their proof restricts to two variables.",
+          "For a singleton Z, four non-torus (translation/quadratic) coefficients survive; for adjacent two centers, one such coefficient survives. The new full 6-variable constraint system is required to determine these ranks."
+        ],
+        "reasoning": "Known four-center dimension does not imply the complete table as a statement: for fewer centers the subspace of global fields increases. Their method and general scalar-derivative condition nevertheless make the extra computation short; that ease limits the originality strength and value. No stronger exact formula directly implying the full submitted table was identified from the inspected relevant primary text.",
+        "searches": [
+          "Fujino--Sato 2026 Remark 6.2 original complete chart calculation pp.11--12",
+          "Web: \"tangent bundle\" \"exceptional divisor\" \"blow-up\" \"global sections\" surface automorphisms",
+          "Dolgachev--Martin 2025 §§1--2, characteristic-two automorphism groups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fujino--Sato Remark 6.2 equation (6.2): h^0(S,T_S(-E)) is 0 in characteristic !=2 and 1 in characteristic 2 for Z = all four points. Its local chart y=xt gives lift a x partial_x+(b-a)t partial_t.",
+          "Current package extends the same sheaf to each subset, including 2 adjacent (1,2) and 2 opposite (1,1), and three centers (0,1)."
+        ],
+        "reasoning": "The all-four-center case is exactly covered prior work. Blow-up fields can be recast as infinitesimal automorphisms trivial on each exceptional divisor; the earlier all-four-center statement alone is not logically enough to determine dimensions for fewer centers, because the allowable x^0/x^2 and y^0/y^2 terms change with chosen coordinate projections.",
+        "searches": [
+          "Resultary: blowup P1 times P1 torus fixed corner subset section dimension tangent sheaf twist by reduced exceptional divisor characteristic two",
+          "Web: \"P1 x P1\" \"T\" \"-E\" blow-up four torus fixed points vector fields",
+          "Fujino--Sato (2026) Remark 6.2, https://www.math.kyoto-u.ac.jp/~fujino/characterization20260911.pdf pp. 11--12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top Resultary returns included unrelated toric surface class-group strata, Oka point-orbit rigidity, Poisson vector fields and local singularity results; no matching four-corner subset dimension census in actual inspected hit summaries.",
+          "Fujino--Sato printed equation (6.2) is a single four-center table cell, not the six-orbit all-subsets table."
+        ],
+        "reasoning": "An indexed database table matching all cases was not identified in the queries. The resultary semantic index is not exhaustive and this negative search result is only weak supporting evidence, not proof of novelty.",
+        "searches": [
+          "Resultary: global vector fields on blown up toric quadric vanishing along exceptional curves scalar derivative characteristic p",
+          "Resultary: toric del Pezzo surface blow ups invariant points infinitesimal automorphisms identity on exceptional divisor",
+          "Web: blowup quadric surface torus invariant points characteristic two vector fields exceptional"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality concerns the all-16-subsets dimension classification and its adjacent/opposite configuration distinction, NOT the four-corner case or the scalar-differential blow-up technique. Fujino--Sato Remark 6.2 already proves the four-corner characteristic jump and displays a local chart; its statement and proof do not give the new intermediate subset table. General toric automorphism-group formulas and Demazure-root methods are a material possible implicit-coverage risk. Actual Resultary searches found only different surface invariants; searches do not certify novelty.",
+      "residual_risks": [
+        "Demazure root descriptions, toric Euler sequences, or general automorphism group-scheme theories may implicitly provide the same small exact table under a different formulation.",
+        "A full catalogue of marked automorphism group schemes of rational/toric surfaces might have the data, although indexed searches did not find it.",
+        "The extension from a fully solved four-corner example is short, so scientific gain is limited and priority could be reduced by standard consequence treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT PRIOR COVERAGE for Z = all four corners; no complete all-subsets table stated; the local mechanism is substantially prior.",
+          "evidence": "Remark 6.2: h^0(T_S(-E)) = 0 when char !=2 and =1 when char=2; equations a-b=a+b=0. https://www.math.kyoto-u.ac.jp/~fujino/characterization20260911.pdf#page=11",
+          "identifier_or_url": "https://www.math.kyoto-u.ac.jp/~fujino/characterization20260911.pdf",
+          "material_read": "13-page author-hosted PDF: abstract/Introduction and theorem statements pp.1--3, outline of sections, Remark 6.2 and its complete argument pp.11--12, nearby Remark 6.3 and bibliography. Screenshot inspected pp.11--12.",
+          "method": "Compared actual equation (6.2) and local lifted vector fields with the all-subset formulas and the additional global coefficient-vanishing conditions.",
+          "title": "Characteristic-free characterizations of projective space for smooth toric varieties",
+          "trigger": "Exact same sheaf and four-corner blow-up are treated in Remark 6.2; decisive priority source."
+        },
+        {
+          "assessment": "Relevant contextual result, but its stated invariants and domains differ; does not directly supply the required twisted-tangent global section census in the inspected sections.",
+          "evidence": "Introduction limits new classification to del Pezzo degrees 1 and 2; §2.1 says degree>=5 Aut(X) is characteristic-free. https://msp.org/ant/2025/19-4/ant-v19-n4-p03-s.pdf#page=3",
+          "identifier_or_url": "https://msp.org/ant/2025/19-4/ant-v19-n4-p03-s.pdf",
+          "material_read": "Open-access full PDF text retrieved; Introduction, Section 2 (degree>=3), and scope statements of Sections 3-6 examined; screenshot of early section attempted. Not a claim of exhaustive full-document noncoverage.",
+          "method": "Compared total automorphism group classification (not marked E pointwise stabilizer) to H^0(T_S(-E)); also compared the del Pezzo ampleness hypotheses to weak-del-Pezzo corner cases.",
+          "title": "Automorphisms of del Pezzo surfaces in characteristic 2",
+          "trigger": "Potential general coverage of tangent-vector fields on blown-up rational surfaces in characteristic two."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural complete classification of the 16 torus-fixed corner subsets and the marked exceptional-divisor tangent vanishing invariant. It identifies the first and intermediate configurations with a nonzero characteristic-two jump (adjacent two and all triples), and contrasts opposite two-center sets, which have no jump. That configuration sensitivity is not determined by the previously published four-center value alone. The computation is short and specialized, not a general toric classification, but the precise boundary map of characteristic dependence in a canonical blow-up family has independent geometric use as a small explicit test case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.kyoto-u.ac.jp/~fujino/characterization20260911.pdf (Remark 6.2 and surrounding sections materially read)",
+    "https://msp.org/ant/2025/19-4/ant-v19-n4-p03-s.pdf (intro and Sec.2 read)",
+    "Resultary semantic result sets for three actual query strings",
+    "GitHub assigned package RESULT.md, AUDIT.json and REVIEW.md checked as claims/evidence, not independent priority proof"
+  ],
+  "disposition": "passed",
+  "limitations": "Only subsets of four torus-fixed P1xP1 corners, reduced exceptional divisor, algebraically closed fields in arbitrary characteristic; geometric proof covers all characteristics, finite rank tests corroborate only four fields. No complete classification of all rational blowups or their automorphism group schemes. Earlier four-center result is prior art.",
+  "residual_risks": [
+    "Demazure root descriptions, toric Euler sequences, or general automorphism group-scheme theories may implicitly provide the same small exact table under a different formulation.",
+    "A full catalogue of marked automorphism group schemes of rational/toric surfaces might have the data, although indexed searches did not find it.",
+    "The extension from a fully solved four-corner example is short, so scientific gain is limited and priority could be reduced by standard consequence treatment."
+  ],
+  "schema_version": 1
+}

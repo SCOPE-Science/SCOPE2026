@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local chart calculation for the blow-up shows that a vector field vanishing at a center lifts to a field vanishing along the exceptional curve exactly when its differential is scalar. On \(\mathbb P^1\times\mathbb P^1\), the global vector fields are represented by six coefficients. Each selected coordinate removes one constant or quadratic coefficient; each selected corner equates the signed linear coefficients. If the chosen corners include both diagonal parity classes, the two equations are independent away from characteristic two and coincide in characteristic two. This proves the displayed dimensions. The standalone exact-rank script checks all 16 subsets over \(\mathbb Q\), \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_5\); these computations corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS
+Verified all seven Git blob identities plus one nested artifact tree from frozen commit, and reconstructed Git tree SHA e68b1b9cffa06834861ca607171cdd128f47fe6e. For Y=P1xP1, global vector fields are independent degree <=2 polynomial vector fields with six coefficients. A field lifts through a blown-up point iff it vanishes at that point. In chart v=ut, the restriction to E of the tangential lift is d+(b-a)t-c*t^2 for linearization [[a,c],[d,b]], so vanishing along E forces c=d=0 and a=b over every field (also checked second chart u=vz with c+(a-b)z-d*z^2). At selected x=0, infinity, vanishing kills a0, a2 respectively (analogous b0,b2); equality of local signed linear coefficients gives eps_x a1=eps_y b1. Independent exact arithmetic computed each of 16 subsets using six-column matrices, with ranks over Q,F2,F3,F5. Dimensions by orbits: empty 6; one 3; opposite pair 1; adjacent pair 1 (char !=2), 2 (char2); triple 0/1; all four 0/1. Ranks follow in any characteristic because all relevant pivot minors lie in {0,1,2}, so field tests are corroborative and the symbolic rank analysis is the unrestricted proof. No arbitrary centers, infinitely near centers, or higher cohomology are claimed.
 
-The closest primary source is Fujino–Sato, arXiv:2609.03282, Remark 6.2. It treats the blow-up at all four corners and obtains the characteristic-two jump from the equations \(a-b=0\) and \(a+b=0\). The present claim gives the complete subset classification: the two adjacent-center case has dimensions 1 and 2 in odd and even characteristic, respectively; the opposite-center case remains one-dimensional; and three-center blow-ups have dimensions 0 and 1. Targeted published-finding corpus and literature searches returned no equivalent subset-indexed statement. These searches do not constitute an exhaustive priority proof.
+## originality
 
-## Value — PASS
+PASS
 
-The result classifies the natural finite family of all subsets of the four coordinate corners and isolates the geometric source of the characteristic dependence. The distinction between adjacent and opposite pairs is not recoverable from the number of centers alone and clarifies the intermediate cases between no blow-up and the four-point example.
+Best-of-knowledge originality concerns the all-16-subsets dimension classification and its adjacent/opposite configuration distinction, NOT the four-corner case or the scalar-differential blow-up technique. Fujino--Sato Remark 6.2 already proves the four-corner characteristic jump and displays a local chart; its statement and proof do not give the new intermediate subset table. General toric automorphism-group formulas and Demazure-root methods are a material possible implicit-coverage risk. Actual Resultary searches found only different surface invariants; searches do not certify novelty.
 
-## Limitations
+## value
 
-The claim is restricted to the four coordinate corners and the reduced exceptional divisor. Arbitrary centers, infinitely near points, and higher cohomology are not covered. The targeted literature search leaves a residual risk of a broader known formulation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural complete classification of the 16 torus-fixed corner subsets and the marked exceptional-divisor tangent vanishing invariant. It identifies the first and intermediate configurations with a nonzero characteristic-two jump (adjacent two and all triples), and contrasts opposite two-center sets, which have no jump. That configuration sensitivity is not determined by the previously published four-center value alone. The computation is short and specialized, not a general toric classification, but the precise boundary map of characteristic dependence in a canonical blow-up family has independent geometric use as a small explicit test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
