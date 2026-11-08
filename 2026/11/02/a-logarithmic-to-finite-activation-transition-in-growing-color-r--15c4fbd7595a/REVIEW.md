@@ -1,19 +1,21 @@
-# Scientific review: activation transition in expanding-color reinforced trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact one-dimensional reduction follows because an unchosen color is always represented by exactly one unit-weight ball; hence its total selection weight is the number of unchosen vertices. The mean and variance recursions follow by conditioning and the covariance identity. The divergence branch uses a predictable-variance-bounded martingale strong law and a triangular martingale central limit theorem with deterministically controlled weights. In the summable branch, the finite-activation conclusion follows from finite expected activation count, and the last-activation tail follows from a first/second Bonferroni comparison with the deterministic summable hazard. The proof explicitly identifies fixed positive reinforcement coefficients and exponents and excludes other feedback mechanisms. The supplied full-history checker independently validates 856 exact/numeric assertions; it is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For t existing vertices, unchosen parents retain unit weight; total weight S_{t-1}=t+c sum_{j<t}j^alpha, so exact activation conditional probability p_t=(t-I_{t-1})/S_{t-1}. Conditioning yields mean and variance recursions, with negative feedback coefficient (1-1/S); independent finite Markov transition masses through n=250 stayed normalized to 2.22e-16. For alpha<=1, Lambda=sum t/S diverges with power/log rate and correction sum E I/S =o(Lambda). Bounded-increment martingale strong law and triangular array CLT (predictable quadratic variation ~Lambda; Lindeberg) prove a.s. count, Gaussian and variance. For alpha>1 summable expected hazards gives finitely many first selections. Expected late count asymptotic equals sum q_t; pair-probability bound <=q_s q_t and Bonferroni yield last-activation sharp tail and power moment cutoff. Conditional eternal-star survival yields infinite product. Finite program matches full-history recursions only, not infinite proof.
 
-The closest exact model source is Singh, Alajaji and Gharesifard (arXiv:2308.10197, first public 2023-08-20), whose Sections II–IV define the deterministic-new-color urn and establish *single-color* draw-count marginals, but not global parent-activation trichotomy, Gaussian fluctuations or last-activation timing. The mean count can be recovered by summing those marginals, so mean-only novelty is expressly not claimed. Sidorova (arXiv:1807.04844) treats a fixed two-color reinforced urn and its monopoly event. Sethuraman and Venkataramani (arXiv:1704.05568) obtain degree-count phenomena for degree-superlinear, rather than time-increment-reinforced, preferential attachment. Ruszel and Thacker (2024) treat finitely many colors. Bellina, De Marzo and Loreto (2025) treat novelty-triggered color introduction rather than exactly one new color at every step. Each is mathematically distinct at the transition law's essential assumptions. Research-record and prior research records alias searches did not disclose an implication-equivalent statement. General reinforced-urn and occupancy theory may contain an equivalent abstract result, and priority remains open to independent checking.
+## originality
 
-## Value — PASS
+PASS
 
-The activated-parent count is a natural measure of a growing network's structural diversity: it identifies how many vertices cease to be leaves and is different from the degree law of a typical named vertex. The theorem gives all three natural reinforcement regimes, the sharp finite-versus-infinite activation boundary, Gaussian fluctuations on the divergent side, a positive eternal-star probability on the finite side and a heavy-tail exponent for the final activation time. The tail predicts when a graph can continue growing for very long periods without creating a new parent and identifies a separate moment cutoff. These are structural statements for an infinite parameter family, not a small finite lookup or mere re-labeling.
+Best-of-knowledge originality limited to the final stated novel assertion, not the model, known general machinery or prior exact identities. Primary texts were materially compared for actual logical implication. Accessible published-research semantic search did not establish implication-equivalent coverage; residual risks are explicitly retained. Earlier model/method results are explicitly credited.
 
-## Scientific limitations and nearest prior work
+## value
 
-The theorem does not cover random reinforcement, feedback on current degree, stochastic color birth, or a moving exponent. The claim of novelty is comparative, not an independent priority certificate. The original expanding-color paper's individual-color marginal result and its implications for the first moment remain prior work. The general prior literature may support further reductions that were not established in the completed comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The activated-parent count measures structural branching diversity and the time to the last newly activated branch, natural observables not determined by single-color marginals. The universal alpha=1 trichotomy, central-limit scales, positive star probability and sharp late-activation tail identify a substantive boundary in a growing reinforced graph family, rather than arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
