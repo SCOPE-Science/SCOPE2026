@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:58:05Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "source proof complete: exact positive nonlinear eigenfunction and renewal root uniqueness",
+        "independent exact canonical matrices and q=1/3 Q invariance",
+        "numerical p=1,2 characteristic rates q=2/5",
+        "snapshot source tree verified"
+      ],
+      "rationale": "Reconstructed rank-one N=r ell^T with ell^T r=0 and NA^kN=k gamma N. The explicit absolutely convergent eigen-energy V_p(x)=sum_{k>=0}q^k lambda^{-(k+1)}|ell^T A^k x|^p is continuous, p-homogeneous, strictly positive for x!=0 because ell^T and ell^T D are independent when gamma!=0. The defining F_p(lambda)=1 gives exact qV_p(Ax)+(1-q)V_p(Nx)=lambda V_p(x); compactness on unit circle bounds it above/below by Euclidean norm^p, proving all times and initial states, not just renewal times. Two consecutive N steps cause finite absorption a.s. For canonical A=[[2,-1],[1,0]], N=[[0,0],[1,0]], gamma=-1, independent exact multiplication verifies q=1/3 invariant Q=[[6,-3],[-3,2]] positive definite, q1=1/2, q2=1/3 and q=.4 rates 0.889897948557 and 1.113507624413. Geometric K_q stochastic ordering yields unique q_p for all p>0; strict decrease with p is only asserted for |gamma|=1 example.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those frameworks have broader control/channel assumptions, but primarily characterize second-moment or selected moment dynamics."
+        ],
+        "reasoning": "Broader model generality alone does not dominate a sharp formula for the complete p-spectrum and exact finite-time absorption in the given algebraic subclass.",
+        "searches": [
+          "Lu Li Su arXiv:2204.13083 channels with random transmission delays",
+          "Li Lu Su arXiv:2402.04074 general MIMO mean square stability",
+          "Sykora et al DOI 10.1002/rnc.5218 moment dynamics"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md and verify.py identity",
+        "Su Li Lu arXiv:2108.12795v1 full HTML",
+        "Lu Li Su arXiv:2204.13083 abstract",
+        "Sykora et al DOI 10.1002/rnc.5218 abstract",
+        "Li Lu Su arXiv:2402.04074",
+        "Xu et al DOI 10.1137/22M1496062 abstract",
+        "Resultary semantic all-order packet-erasure moments search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing compared theorems can bound/test second moments under different controller models; they do not imply the eigenenergy identity for all noninteger p without additional rank-one algebra and geometric renewal."
+        ],
+        "reasoning": "The final all-order statement is not proved by the prior p=2 criteria; cannot exclude a hidden specialized exact computation in unavailable full source.",
+        "searches": [
+          "Su Li Lu 2021 mean-square input-output theorem",
+          "Sykora et al 2020 moment dynamics",
+          "Xu et al 2023 packet-drop predictor controller"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned unrelated spectral/guesswork moment results; Su-Li-Lu establishes frequency-domain mean-square control criteria, not the exact real-p eigen-energy."
+        ],
+        "reasoning": "Mean-square p=2 controllability criterion is not equivalent to every p>0 exact noninteger rate and first/second moment gap.",
+        "searches": [
+          "Resultary random packet erasure nilpotent control moment Lyapunov exponent all p",
+          "Su Li Lu arXiv:2108.12795 mean-square input-output random delays"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The small q1/q2 values follow from a specific nilpotent-unipotent pair; no checked exact table or named canonical result was identified. The Xu et al full technical content remained unavailable."
+        ],
+        "reasoning": "An isolated second-moment threshold might be implicit in Riccati/Markov-jump formulas, but no checked table supplies the full real-p q_p family; uninspected paper remains explicitly at risk.",
+        "searches": [
+          "two-step deadbeat control erasure q1 1/2 q2 1/3 almost sure extinction moments",
+          "Xu Zhang Gu Tang 2023 DOI 10.1137/22M1496062 predictor-like random packet drops"
+        ]
+      },
+      "rationale": "Existing broad packet-loss/delay control theorems cover mean-square and Riccati/input-output stability criteria. The inspected technical statements do not furnish the exact all-real-order moment equation and norm-comparable nonlinear eigenenergy of this nilpotent-unipotent family. The second-moment example could be derivable from general moment theory; only complete all-p explicit classification claimed distinctly. Closest predictor-controller paper is not fully inspected, risk noted.",
+      "residual_risks": [
+        "Closer Xu et al 2023 predictor-control full technical paper was not read, possible second-moment overlap.",
+        "Broader Markov jump product spectral machinery might imply some special p values.",
+        "Rates are for deterministic states, iid switching, no process noise; finite extinction breaks with other erasure handling policies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad mean-square framework; different from exact all-real-p nilpotent/unipotent eigenenergy",
+          "evidence": "A p=2 special case may follow from general tools, but full real-p formula not stated.",
+          "identifier_or_url": "https://arxiv.org/html/2108.12795v1",
+          "material_read": "Full accessible HTML article, model definitions and principal stability theorem sections",
+          "method": "full primary HTML text inspection",
+          "title": "Mean-Square Input-Output Stability and Stabilizability of a Networked Control System with Random Channel Induced Delays",
+          "trigger": "Direct packet-erasure and random-delay input-output stability literature"
+        },
+        {
+          "assessment": "Mean-square model literature; limited material does not justify whole-document noncoverage",
+          "evidence": "Explicitly not read in full.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.13083",
+          "material_read": "Accessible arXiv title/abstract and described model scope",
+          "method": "primary abstract/metadata only",
+          "title": "Mean-square stability of linear systems over channels with random transmission delays",
+          "trigger": "Potential broader mean-square criterion"
+        },
+        {
+          "assessment": "Full technical comparison unavailable; do not assert whole paper not covering",
+          "evidence": "Different predictor-like controller indicated by abstract; priority overlap for p=2 remains possible.",
+          "identifier_or_url": "https://doi.org/10.1137/22M1496062",
+          "material_read": "Publisher/repository bibliographic abstract only, no full theorem inspected",
+          "method": "primary abstract and metadata",
+          "title": "Stabilization of Discrete-Time Systems with Random Delays and Packet Drops: A Predictor-Like Controller",
+          "trigger": "Close packet drop setup and potentially exact second moment formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result reveals a meaningful strong/nonuniform stability gap in an elementary packet-loss control family: every trajectory is killed a.s. but high moments can diverge exponentially, with a continuum of exactly characterized thresholds. Its explicit positive p-homogeneous eigenfunction for noninteger p is structurally useful beyond textbook first/second-moment matrix calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md and verify.py identity",
+    "Su Li Lu arXiv:2108.12795v1 full HTML",
+    "Lu Li Su arXiv:2204.13083 abstract",
+    "Sykora et al DOI 10.1002/rnc.5218 abstract",
+    "Li Lu Su arXiv:2402.04074",
+    "Xu et al DOI 10.1137/22M1496062 abstract",
+    "Resultary semantic all-order packet-erasure moments search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real 2x2 N,D with N^2=D^2=0, N nonzero and gamma=tr(ND) nonzero, random iid A=I+D (erasure q) or N (success 1-q) yields almost-sure finite extinction but exact two-sided p-moment exponential rates lambda_p(q) for every p>0, with unique stability threshold q_p; a canonical double-integrator has q1=1/2, q2=1/3.",
+  "residual_risks": [
+    "Closer Xu et al 2023 predictor-control full technical paper was not read, possible second-moment overlap.",
+    "Broader Markov jump product spectral machinery might imply some special p values.",
+    "Rates are for deterministic states, iid switching, no process noise; finite extinction breaks with other erasure handling policies."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Closer Xu et al 2023 predictor-control full technical paper was not read, possible second-moment overlap.",
+    "Broader Markov jump product spectral machinery might imply some special p values.",
+    "Rates are for deterministic states, iid switching, no process noise; finite extinction breaks with other erasure handling policies."
+  ]
+}
