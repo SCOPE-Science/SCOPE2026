@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:56:43.464418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed full-dimensional convex polygon with genuine interior angles α_i∈(0,π), every-sided sampled event has complement probability ≤Σ_i(1−d_i/P)^N. On that event the missing perimeter is exactly Σ_i [a_i+b_i−sqrt(a_i²+b_i²−2 a_i b_i cosα_i)]. Multivariate nearest-gap survival gives independent Exp(1) limits for N a_i/P and N b_i/P, while exponential endpoint tails and the exponentially rare empty-side event yield convergence of all fixed integer moments. Substitution S=U+V~Gamma(2,1), T=U/S~Uniform gives one-corner MGF ∫(1−z bα(t))^−2 dt, b=1−sqrt(1−4cos²(α/2)t(1−t)). Its first singularity is zα=1/(1−sin(α/2)) and exact local blow-up exponent −3/2 from a nondegenerate quadratic maximum. Independent numerical quadrature at α=π/2 and deltas 10^-3, 10^-5 gave normalized constants 1.0007845895 and 1.0000080797. Product singularity locates smallest angle; its exponent determines multiplicity; analytic factor division and induction recover every angle. Checker source inspected, but numerical quadrature is not used for the universal theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2404.02870 2024 covers random Hausdorff approximation and local corner processes; 1911.05917 considers expected volume and faces for simple polytopes; 1103.4978 uses a rolling-ball condition violated by polygon corners."
+        ],
+        "reasoning": "The corner-process theorem can directly supply the forward limiting distribution, but does not determine its inverse angle spectrum. Other broader smooth-body results have incompatible hypotheses or observables.",
+        "searches": [
+          "https://arxiv.org/abs/2404.02870",
+          "https://arxiv.org/abs/1911.05917",
+          "https://arxiv.org/abs/1103.4978",
+          "random convex boundary sampled polytope expected perimeter deficit universal local angles"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2404.02870",
+        "https://arxiv.org/abs/1911.05917",
+        "https://arxiv.org/abs/1103.4978",
+        "boundary sampled random convex polygons perimeter loss distribution identifies angles via moment generating singularities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prochno et al 2024 local Poisson law predicts independent gaps and is essentially the forward limit.",
+          "Present inverse: z_α=1/[1−sin(α/2)] and singular exponent 3r/2, where r is repeated minimum angle."
+        ],
+        "reasoning": "Knowing local point-process convergence does not identify uniqueness of a convolution family, nor its analytic singularities. Full-law inverse injectivity is retained as the substantive result; corner Poisson process is acknowledged as prior.",
+        "searches": [
+          "https://arxiv.org/abs/2404.02870",
+          "https://arxiv.org/abs/1911.05917",
+          "https://arxiv.org/abs/1103.4978"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Prochno–Schütt–Sonnleitner–Werner 2024 derives local independent exponential/Poisson corner limits to study Hausdorff error.",
+          "Source result constructs corner-loss MGF Mα and proves iterative angle identification from its singular abscissa and blow-up exponent."
+        ],
+        "reasoning": "Forward local Poisson vertices are known. The inverse identifiability of an unordered finite angle multiset from a summed perimeter deficit requires a new analytic singularity argument, not merely the Poisson convergence statement.",
+        "searches": [
+          "boundary sampled random convex polygons perimeter loss distribution identifies angles via moment generating singularities",
+          "https://arxiv.org/abs/2404.02870",
+          "boundary sampled convex polygon random perimeter deficit inverse angle spectrum Laplace mgf singularity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns other polygon random Hausdorff, perimeter quadrature and short-distance results, none displaying this all-angle inverse statistic.",
+          "MGF one-corner integral and singular coefficient are computed explicitly in source proof."
+        ],
+        "reasoning": "No finite exact angle table is at issue; classification is for every polygon, so a fixed table would not imply full theorem. Search absence alone is not the basis for originality.",
+        "searches": [
+          "boundary sampled random convex polygons perimeter loss distribution identifies angles via moment generating singularities",
+          "polygon interior angle multiset random boundary hull missing perimeter distribution critical mgf pole 3/2"
+        ]
+      },
+      "rationale": "Accept best-of-knowledge originality of the inverse all-angle identification from the limiting missing-perimeter distribution, while explicitly attributing the forward local corner Poisson process and general random-polytope techniques to prior literature.",
+      "residual_risks": [
+        "An earlier perimeter-specific Laplace inverse theorem or identifiability of angle-dependent convolution factors may exist under different terminology.",
+        "No finite-data numerical conditioning/stability result is proved; exact limiting-law uniqueness is weaker than practical statistical reconstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongly covers one forward ingredient, not perimeter-law angle-multiset inverse in inspected theorems",
+          "evidence": "2024 local convergence and Hausdorff statements, specific theorem comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+          "material_read": "Full accessible arXiv HTML, theorem on boundary polygon vertex-process convergence and Hausdorff-distance consequences",
+          "method": "OA full text, read local limit material and main results",
+          "title": "Random approximation of convex bodies in Hausdorff metric",
+          "trigger": "Close polygon boundary-sampling theorem and local corner Poisson processes"
+        },
+        {
+          "assessment": "Expected volume and face data, not all-angle inverse perimeter distribution",
+          "evidence": "Observable differs from exact distribution of missing perimeter.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Abstract/main model and expected-volume/face statements",
+          "method": "OA indexed/full accessible research summary",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Same boundary sampling; possible dominating moment theorem"
+        },
+        {
+          "assessment": "Smooth positive-curvature assumptions exclude polyhedral corners; no claimed coverage of all convex polygons",
+          "evidence": "Nonapplicability of rolling-ball condition to genuine polygonal vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.4978",
+          "material_read": "Abstract and theorem hypotheses involving rolling-ball bodies",
+          "method": "OA indexed paper/model inspection",
+          "title": "Intrinsic volumes of random polytopes with vertices on the boundary of a convex body",
+          "trigger": "Possible general random-polytope boundary deficit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recoverability of the complete unordered angle multiset from one natural asymptotic stochastic observable is a meaningful inverse-geometric classification across all convex polygons. The result also sharply shows that side lengths and congruence class are unidentifiable, so its scope has an informative boundary beyond trivial normalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed convex polygons, independent uniform arclength sampling, ideal full limiting distribution.",
+    "No edge lengths, vertex order, congruence, finite-N inverse rate or stability.",
+    "An earlier perimeter-specific Laplace inverse theorem or identifiability of angle-dependent convolution factors may exist under different terminology.",
+    "No finite-data numerical conditioning/stability result is proved; exact limiting-law uniqueness is weaker than practical statistical reconstruction."
+  ],
+  "schema_version": 1
+}

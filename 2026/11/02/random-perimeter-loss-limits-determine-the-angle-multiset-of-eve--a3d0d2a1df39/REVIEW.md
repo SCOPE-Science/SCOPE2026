@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed convex polygon with genuine corners, the sampled-hull perimeter has an exact corner-chord decomposition whenever each side receives a sample. The probability of an empty side is exponentially small. Joint exponential endpoint-gap limits give the distributional and all-fixed-moment convergence. The individual corner MGF is an explicit one-dimensional gamma mixture, finite precisely to a critical positive value that increases strictly with its angle. A local quadratic maximum produces a \((1-z/z_\alpha)^{-3/2}\) singularity; the first singularity and its exponent identify the minimum angle and multiplicity, and finite cancellation proves uniqueness of the complete multiset. The supplemental Python checker completed 1787 checks, including exact geometric comparisons and numerical singularity asymptotics. The proof, not numerical extrapolation, supports the infinite-dimensional probability statement.
+## correctness
 
-## Originality — PASS, subject to independent historical review
-Closest inspected primary sources concern expected intrinsic-volume deficits for rolling-ball bodies (Böröczky–Fodor–Hug, 2011), boundary-sampled polytope expected volume/face data (Reitzner–Schütt–Werner, 2019), and Hausdorff approximation with the relevant vertex Poisson processes (Prochno–Schütt–Sonnleitner–Werner, 2024). The last paper provides a known ingredient for the forward asymptotic law, which is not claimed in isolation as original. Its inspected analysis does not give the singularity-based inverse identification of the full angle multiset from perimeter losses. An earlier equivalent perimeter law or angle-identification statement remains a real priority risk; no independent audit is represented.
+PASS
 
-## Mathematical value — PASS
-The inverse statement classifies exactly which local geometric data a natural stochastic boundary-measurement limit retains: every angle, with multiplicities, but not side lengths. This distinction between full angular identifiability and failure of metric-shape reconstruction is not a normalization trick or an arbitrary parameter slice. The theorem holds for all fixed convex polygons, not only regular cases. No finite-data conditioning, numerical inversion stability, or polygonal side reconstruction is claimed.
+For any fixed full-dimensional convex polygon with genuine interior angles α_i∈(0,π), every-sided sampled event has complement probability ≤Σ_i(1−d_i/P)^N. On that event the missing perimeter is exactly Σ_i [a_i+b_i−sqrt(a_i²+b_i²−2 a_i b_i cosα_i)]. Multivariate nearest-gap survival gives independent Exp(1) limits for N a_i/P and N b_i/P, while exponential endpoint tails and the exponentially rare empty-side event yield convergence of all fixed integer moments. Substitution S=U+V~Gamma(2,1), T=U/S~Uniform gives one-corner MGF ∫(1−z bα(t))^−2 dt, b=1−sqrt(1−4cos²(α/2)t(1−t)). Its first singularity is zα=1/(1−sin(α/2)) and exact local blow-up exponent −3/2 from a nondegenerate quadratic maximum. Independent numerical quadrature at α=π/2 and deltas 10^-3, 10^-5 gave normalized constants 1.0007845895 and 1.0000080797. Product singularity locates smallest angle; its exponent determines multiplicity; analytic factor division and induction recover every angle. Checker source inspected, but numerical quadrature is not used for the universal theorem.
 
-## Closest literature and limitations
-Böröczky–Fodor–Hug, arXiv:1103.4978v1 (2011); Reitzner–Schütt–Werner, arXiv:1911.05917v1 (2019); Prochno–Schütt–Sonnleitner–Werner, arXiv:2404.02870v1 (2024). The 2024 result directly supplies the local corner point processes and therefore is stronger than an unrelated citation; the retained result uses those ingredients toward a distinct inverse observable and theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Accept best-of-knowledge originality of the inverse all-angle identification from the limiting missing-perimeter distribution, while explicitly attributing the forward local corner Poisson process and general random-polytope techniques to prior literature.
+
+## value
+
+PASS
+
+Recoverability of the complete unordered angle multiset from one natural asymptotic stochastic observable is a meaningful inverse-geometric classification across all convex polygons. The result also sharply shows that side lengths and congruence class are unidentifiable, so its scope has an informative boundary beyond trivial normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
