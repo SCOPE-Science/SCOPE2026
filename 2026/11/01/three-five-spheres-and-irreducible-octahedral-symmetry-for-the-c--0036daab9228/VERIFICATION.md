@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify.py` is a complete, standalone Python 3.10+ checker. It enumerates all 4095 nonempty subsets of the twelve cube edges and accepts precisely the 1698 subsets with maximum selected vertex degree at most two. It checks the equivalent eight forbidden-triple description, the 847 disjoint discrete-Morse matching pairs, all 7980 Hasse incidences and the acyclicity of the reversed matching via a topological sort of 1698 nodes. It also compares signed reduced Lefschetz traces against both character expressions for all 48 cube symmetries.
+# Independent mathematical audit
 
-The successful execution terminates with `VERIFY_OK` lines. Homotopy equivalence uses the standard finite discrete-Morse theorem and the absence of attaching obstructions below dimension five. Character identification uses the rational Lefschetz formula and ordinary semisimple representation theory. Neither the checker nor the proof asserts results for higher-dimensional cubes or a canonical integral representation.
+## correctness
+
+PASS
+
+The definition is the degree-at-most-two edge-subset complex, equivalently avoidance of the 8 forbidden three-edge stars in the cube. Independent enumeration of all 4095 nonempty masks recovers exactly 1698 faces with dimensions counts (12,66,212,423,516,352,108,9), and 7980 Hasse incidences. The prescribed descending-pivot matching gives 847 disjoint pairs, one critical vertex and three critical 5-cells; a complete 1698-vertex topological sort of the reversed Hasse graph verifies acyclicity. A Forman CW model thus has only a point and three 5-cells and is exactly a wedge of three S^5, not a homology-only guess. Independent exact signed reduced Lefschetz summation for all 48 signed cube actions matches the S4×C2 character (-1)^t sgn(pi)(Fix(pi)-1); sign-twisted S4 standard is irreducible and inversion odd. The attached verifier source was inspected; the finite enumeration here IS an exhaustive certificate for the finite object.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precise final claim after statement-and-implication comparison, preserving explicit priority/access risks; details in four required checks.
+
+## value
+
+PASS
+
+This is a complete finite homotopy classification of a canonical highly symmetric cubic graph bounded-matching complex, with its genuinely nontrivial full rational symmetry representation rather than only Betti numbers. It can serve as an exact structural and computational benchmark for higher matching/crown-graph generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
