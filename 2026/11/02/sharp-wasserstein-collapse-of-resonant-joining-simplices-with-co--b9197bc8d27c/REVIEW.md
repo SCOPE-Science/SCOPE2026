@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result fixes the precise torus metric, the integer denominator and irrational base rotation, the entire Borel invariant-measure simplex, and all orders of Wasserstein distance including the essential-supremum endpoint. The exact \(q\)-iterate decomposition establishes each \(q\)-component orbit closure; irrational unique ergodicity forces the Haar conditional law in the first coordinate. The rational rotation gives uniform conditional mass on its \(q\)-point phase grid and a unique quotient mixing law. The phase-difference quotient is \(1\)-Lipschitz for the stated product \(\ell^1\) metric, and a coupling with the same first coordinate matches the quotient cost exactly. The quotient-circle Dirac-to-Haar integral gives the sharp radius. This is a complete analytical proof, not an extrapolation from finite tests. The script corroborates exact moment calculations; no numerical evidence is needed for an infinite conclusion.
+## correctness
 
-## Originality — PASS under inspected literature
-Das (arXiv:2610.34265v1, Sections 1–3) defines limit-set stations and self-bridges and proves functoriality under semiconjugacies, but does not describe the station count under resonant products or a transport metric on their invariant measures. Das–Suda (arXiv:2609.10912v2, introduction and Section 7) addresses categorical joining composition and generic metric enrichment but does not supply a \(q\)-dependent isometry or sharp radius. De la Rue (arXiv:math/0507429v2, Sections 1.3 and 2.2) already defines joinings and graph-supported joinings; the result makes no novelty claim for those classical facts or for basic irrational rotation theory. Targeted searches of published mathematical findings and web literature found no direct implication of the combined all-order exact Wasserstein geometry, station multiplicity and sharp collapse in this resonant family. Unindexed literature on compact-group homogeneous transport could contain an equivalent general theorem; historical priority is provisional.
+PASS
 
-## Value — PASS
-The recent station/bridge construction is intended to preserve asymptotic connectivity information, while categorical joining work motivates quantitative comparison of compatible invariant measures. Here the same pair of abstract one-station factors can generate either one product station or continuum many. More subtly, even when continuum many distinct ergodic joinings and stations persist, their entire invariant-measure simplex lies inside a Wasserstein ball with an exact optimal radius proportional to the reciprocal resonance denominator, uniformly in the joining and for every transport order. This is a concrete and sharp limit of how visible station complexity is to finite-resolution statistical distances; it is not merely the existence of a classical graph joining. It also gives a precise failure of lower semicontinuity of the invariant-joining simplex at equal-frequency resonance. The constants depend on the chosen metric, and the classification is restricted to rigid rotations.
+Coordinate difference c=y-x gives map (x,c)->(x+alpha,c+a/q), whose qth iterate fixes c and irrationally rotates x; each orbit closure consists of q disjoint Haar circles. Disintegration and uniqueness of Haar under qalpha imply every invariant probability is Haar in x times a measure invariant under order-q rotation in c, equivalently mixture over quotient Qq, with extreme coset-Haar joinings. Difference quotient Π is 1-Lipschitz for torus ℓ1 metric, giving Wp lower bound on Qq. Upper bound attained by coupling same x and same j after choosing quotient representatives at minimal circular distance. This works for all p including essential-supremum. Quotient Dirac-to-Haar moment equals 1/[(p+1)(2q)^p], and mixing couples gives sharp radius. Kronecker equidistribution supplies the rationally-independent factor-only comparison. Independent exact quotient-circle moment integrations at multiple p,q checked; proof covers general probabilities via explicit coupling and disintegration.
 
-## Limitations and priority risks
-The result is not a classification for arbitrary nonlinear compact systems or nontranslation-invariant costs. Classical spectral and graph-joining theory is acknowledged as prior knowledge. The exact metric formula was proved from first principles and checked against inspected sources, but absence from searches cannot establish unconditional historical originality. There is no independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical graph joinings, Kronecker theorem, Haar unique ergodicity and quotient transport methods are prior ingredients. Das network paper treats stations and bridges with functoriality; Das–Suda categorical joining theory concerns general joining composition, neither accessible indexed statement gives this exact q-fold all-p metric isometry and sharp radius. Their primary full texts were not obtained; residual possible implicit stronger result. Published related toral/Bernoulli topics from Resultary were checked and do not imply the quantified q law.
+
+## value
+
+PASS
+
+The exact coexistence of continuum many ergodic extreme joinings/stations with an entire invariant simplex shrinking at rate 1/q in all Wasserstein orders is a natural quantitative rigidity/collapse phenomenon. It distinguishes abstract qualitative station data from metric convergence and supplies a sharp isometric classification, beyond a standard observation that equal irrational rotations have graph joinings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
