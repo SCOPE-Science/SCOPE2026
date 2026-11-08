@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For every a>=2 and b>=c>=1 the fixed priority policy has a transient three-state matrix. Cramer determinants give a nonnegative b-c factor for H_C-H_B and an explicitly positive four-polynomial expression for H_A-H_C. Each claimed polynomial identity is checked by 343 exact evaluations and a proven degree bound <=6 per variable, yielding an all-parameter identity; 45 distinct finite full-vertex chains give independent exact-rational checks. The verified ordering satisfies the Bellman minimum conditions and implies optimality against all adaptive policies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1911.05170 Theorem 1.6 gives polynomial-time optimal hitting strategies for arbitrary finite graphs, without an explicit universal multipartite size-order statement.",
+        "ITCS 2020 Theorem 17 is a general polynomial algorithm, not an all-size symbolic classification."
+      ],
+      "reasoning": "A graph-specific algorithm can of course calculate each finite instance. Its assertion does not logically state or prove the family-wide strict value ordering, so the new claim is neither a rephrased instance nor a stated corollary of those algorithmic bounds.",
+      "searches": [
+        "\"power of two choices\" \"multipartite\" \"hitting\"",
+        "two independently offered neighbors hitting target in complete multipartite graphs explicit optimal policy expected hitting time",
+        "arxiv:1911.05170 Theorem 1.6 and Section 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.05170",
+      "https://doi.org/10.4230/LIPIcs.ITCS.2020.76"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary sources show that the smallest expected remaining hitting value should be chosen when offered; the new proof computes and ranks those values from the three part sizes and proves strictness.",
+        "A related finite complete-multipartite two-offer *cover* objective has a different state space and does not assert the present hitting-time rule."
+      ],
+      "reasoning": "The prior general hitting-time optimization principle is used as the final step, not claimed as new. The non-implied content is an explicit algebraic family-wide ordering and an exact three-state system; finite cover rules or unrelated graph-family hitting examples do not imply it.",
+      "searches": [
+        "arxiv:1911.05170 Bellman preference lower hitting values",
+        "\"Choice and Bias in Random Walks\" Section 5 optimal hitting",
+        "choice random walks two choices multipartite three-part target part order ranking hitting values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1911.05170, Section 7.1, Lemma 7.1 orders offered vertices by their (unknown) hitting values; Table 1 lists complete graphs but no three-part complete graphs.",
+        "ITCS 2020, Section 5.1 Lemma 12 describes the same general value preference."
+      ],
+      "reasoning": "Prior Bellman/value-ranking formulations give a rule only after optimal values are known. They do not supply the claimed part-size ranking or prove it for all positive integer parameters. Reverse relabeling b and c gives the only evident same-family equivalent, covered by the b>=c convention.",
+      "searches": [
+        "\"choice random walk\" \"tripartite\" optimal hitting strategy",
+        "\"two-choice\" \"complete tripartite\" hitting time walk",
+        "optimal hitting time choice random walk non-target class ordering size tripartite graph",
+        "arxiv:1911.05170 Section 7.1 Lemma 7.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit graph-family table in arXiv:1911.05170, p. 5, covers a complete graph and standard graph classes, not complete tripartite K(a,b,c).",
+        "Literature and mathematical-record searches returned related but none stating the three-part parameter-uniform optimal policy; this is a non-exhaustive search result, not a uniqueness certificate."
+      ],
+      "reasoning": "Neither an exact table entry nor a directly dominating parameterization for the stated family was identified. No novelty conclusion is inferred merely from search absence.",
+      "searches": [
+        "\"choice random walk\" \"tripartite\"",
+        "\"power of two choices\" \"complete graph\" \"complete bipartite\"",
+        "optimal power-two-choices random walk hitting time complete tripartite graph K(a,b,c), policy larger non-target part preferred"
+      ]
+    },
+    "rationale": "Two relevant primary full texts, their generic choice-walk preference lemmas and strategy-computation theorems, and searches for multipartite aliases and exact tables do not give the uniform size-priority classification or three-state exact expression. It is distinct from finite cover-time optimality results and individual graph examples. Remaining historical-priority uncertainty is explicitly acknowledged.",
+    "residual_risks": [
+      "Historical priority outside accessible indexed literature cannot be proven absent.",
+      "The broader generic Bellman algorithm computes individual instances; although it does not explicitly imply the all-parameter order, the general method is substantial prior foundation.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimal value-priority lemma and polynomial-time algorithm are acknowledged; no asserted complete-tripartite part-size ordering or three-class closed form in the inspected material.",
+        "evidence": [
+          "Section 7.1 Lemma 7.1 orders choices by unknown optimal hitting values; Section 1.2 Theorem 1.6 gives algorithmic existence.",
+          "Table 1 has a complete-graph row and no complete tripartite row."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.05170",
+        "material_read": "Introduction and main results pp. 1-5; complete graph table p. 5; Section 7.1 pp. 21-24; text search of complete PDF for multipartite and complete bipartite",
+        "method": "Read full-text PDF relevant sections and inspected displayed equations and table",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Direct same random-walk mechanism and general optimal target-hitting strategy result"
+      },
+      {
+        "assessment": "Generic optimal preference and polynomial-time search method; no directly covering complete-tripartite classification in checked sections.",
+        "evidence": [
+          "Section 5.1 Lemma 12 is the generic value-preference theorem; Theorem 17 concerns computability rather than symbolic part-size order."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol151-itcs2020/LIPIcs.ITCS.2020.76/LIPIcs.ITCS.2020.76.pdf",
+        "material_read": "Introduction pp. 1-4; Section 5 pp. 8-10 including Lemma 12 and Theorem 17; text search of full PDF for tripartite and multipartite",
+        "method": "Read published open-access PDF relevant sections and inspected Lemma 12 and algorithmic theorem",
+        "title": "Choice and Bias in Random Walks",
+        "trigger": "Conference predecessor of the closest primary work, potentially containing exact graphs omitted in later version"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd17f643-f8b4-4f8a-aa1c-805b7ef26467",
+  "value": {
+    "rationale": "Complete tripartite graphs are the first complete multipartite family with genuine competition between two distinct non-target neighbor classes. The theorem resolves their graph-distance tie uniformly by part sizes and replaces parameter-by-parameter optimal-control computation with one fixed optimal priority and an exact three-state rational system. It proves strictness and the equal-size boundary throughout an infinite natural family; the result is not merely finite enumeration or a restatement of Bellman optimality.",
+    "status": "PASS"
+  }
+}
