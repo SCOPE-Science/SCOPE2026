@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:57:08.132936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. On the torus, the source's fixed-point equation requires p=0 mod 2pi and K*S_W(x) a multiple of 2pi; for KW<2pi the absolute sine sum <=W excludes nonzero winding. The finite-sine product has 2W distinct zeros, with exact slopes a=W(W+1)/2 at origin, W/2 at each q_m and -(W+1)/2 at each r_n. The determinant-one Jacobian yields exact flip thresholds 8/[W(W+1)] and 8/W. Locally the period-two conditions are S_W(t+h)+S_W(t-h)=0 and [S_W(t+h)-S_W(t-h)]/(2h)=4/K. The first equation gives t=q-[S_W''(q)/(2S_W'(q))]h²+O(h⁴); the second has A=S_W_third(q)/6-S_W''(q)²/(2S_W'(q))<0 at every positive-slope root, giving a unique positive h² branch only above the threshold. The source's explicitly negative A, m-dependent B_m, return-trace 2-8a(K-Kc)+O((K-Kc)²), and local ellipticity follow. Independent symbolic verification checked the coefficient cancellations and sample derivatives for W=2,3,4,7,10,50. The proof is fixed-W local; no nonlinear KAM stability follows from linear ellipticity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General area-preserving flip normal-form principles predict square-root scaling under nondegeneracy",
+          "Cetin et al. 2022 Methods and Results do not provide exact all-W synchronized m-dependent coefficient B_m"
+        ],
+        "reasoning": "Generic flip theory supplies the bifurcation mechanism but not all root slopes, exact thresholds and common return-trace coefficient of this finite harmonic potential.",
+        "searches": [
+          "general symplectic map flip period doubling normal form elliptic two-cycle",
+          "Glendinning Simpson Normal Forms Differentiable Conjugacies Elementary Bifurcations Maps 2023"
+        ]
+      },
+      "checked_sources": [
+        "Cetin et al., Sci Rep 12:8575 (2022), primary PDF Methods eqs 2-3 and phase portraits",
+        "arxiv:1910.12138 abstract",
+        "Resultary exact family semantic query, no matching all-W theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 source explicitly defines S_W and describes elliptic/hyperbolic island changes as W and K vary",
+          "Submitted proof computes the same slope W/2 at W-1 positive roots, A<0, amplitudes, and trace 2-4WΔ+O(Δ²)"
+        ],
+        "reasoning": "Deriving the thresholds from the source kick requires calculation but is elementary; the simultaneous existence, uniqueness and elliptic return trace from third derivatives and IFT are not stated or mechanically implied by source numerical studies.",
+        "searches": [
+          "2022 Nature Scientific Reports generalized standard map Eq 2 3 Methods Results",
+          "2019 generalized standard map z generalized map",
+          "2023 elementary bifurcations maps normal forms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cetin–Tirnakli–Boghosian (2022), Methods equations (2)-(3), same sum of sines and canonical twist map",
+          "The 2019 z-generalized standard map has one kick harmonic sin(zx)"
+        ],
+        "reasoning": "The same family occurs in 2022 primary work; the claimed all-W flip-classification is not equivalent to the 2019 single harmonic analysis, or to 2022 numerical distribution descriptions.",
+        "searches": [
+          "multiharmonic kicked rotor finite sine sum synchronized period doubling flips two cycles elliptic return trace",
+          "Cetin Tirnakli Boghosian 2022 generalized standard map period doubling 8/W elliptic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source includes numerical portraits at W=1,2,3,50,120 and K values 0.1,0.2,0.4,0.6",
+          "No matching all-W table or return-trace asymptotic found in Resultary ranked output"
+        ],
+        "reasoning": "Finite phase portraits do not tabulate or imply exact local families in every W; lack of a search hit is not priority proof.",
+        "searches": [
+          "K=8/W multiharmonic standard map W wells flip resonance q_m",
+          "Resultary semantic search: multiharmonic kicked rotor synchronized flip"
+        ]
+      },
+      "rationale": "Known 2022 potential and general flip theory are credited. No inspected prior theorem directly covers the synchronized supercritical elliptic two-cycles with m-dependent opening and m-independent first return trace. Best-of-knowledge PASS.",
+      "residual_risks": [
+        "The 2022 source already contains the trigonometric factorization, making fixed-point slopes a short deduction; originality rests on the complete local all-W two-cycle coefficients.",
+        "An unindexed follow-up or textbook worked example could give the same flip normal-form coefficients.",
+        "Nature screenshot access failed due identity-provider redirection; text passages were accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same map and sine-product identity are prior; synchronized exact bifurcation/trace classification not stated in inspected mathematical passages. No whole-document absence certification beyond material inspected.",
+          "evidence": "2022 Scientific Reports 12:8575 equations (2)-(3), Methods pp 2-3",
+          "identifier_or_url": "https://www.nature.com/articles/s41598-022-12213-5.pdf",
+          "material_read": "Accessible primary PDF text for Methods eqs (1)-(3), numerical phase portraits and Lyapunov/statistical descriptions; screenshot attempted but hosting authentication prevented screenshot retrieval",
+          "method": "Full-text indexed PDF passages; screenshot access blocked",
+          "title": "A generalization of the standard map and its statistical characterization",
+          "trigger": "Primary same-map paper"
+        },
+        {
+          "assessment": "DIFFERENT kick sin(zx); possible broad methods but does not directly yield multiharmonic A_m",
+          "evidence": "arxiv:1910.12138",
+          "identifier_or_url": "https://arxiv.org/abs/1910.12138",
+          "material_read": "Abstract, model-level description of one-harmonic generalized standard map",
+          "method": "Abstract/metadata",
+          "title": "Dynamical robustness of discrete conservative systems: Harper and generalized standard maps",
+          "trigger": "Potential analogous periodic map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact synchronization of W-1 distinct flip thresholds, positive nondegeneracy, varying square-root amplitudes and the universal first-order return-trace slope classify a natural canonical multiharmonic twist family across all W. Although generic period-doubling is standard, the family-wide quantitative classification is a motivated structural invariant and meaningfully refines numerical phase portraits. The fixed-W local scope and absence of KAM assertions are explicit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cetin et al., Sci Rep 12:8575 (2022), primary PDF Methods eqs 2-3 and phase portraits",
+    "arxiv:1910.12138 abstract",
+    "Resultary exact family semantic query, no matching all-W theorem"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local two-cycle branches only near specified roots for fixed W; no uniform W remainder or nonlinear stability.",
+    "Potential earlier specialized all-W map analysis not completely excluded."
+  ],
+  "residual_risks": [
+    "The 2022 source already contains the trigonometric factorization, making fixed-point slopes a short deduction; originality rests on the complete local all-W two-cycle coefficients.",
+    "An unindexed follow-up or textbook worked example could give the same flip normal-form coefficients.",
+    "Nature screenshot access failed due identity-provider redirection; text passages were accessible."
+  ],
+  "schema_version": 1
+}
