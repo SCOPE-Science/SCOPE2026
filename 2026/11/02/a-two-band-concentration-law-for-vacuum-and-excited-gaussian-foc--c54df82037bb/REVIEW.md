@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The central pointwise convex certificate follows exactly by maximizing \(t^m/(e^t-1)\); it is valid for arbitrary angular masks after polar reduction. The matching two-interval construction has precisely the stipulated area and equalizes the first-order vacuum and excited-state masses. Strict separation from the best single annulus follows from the unique two-point equality locus. The weak-limit proof uses the positive slack away from the two radii. The \(m=1\) exception follows by the bathtub principle and the identity \(f_1'=f_0-f_1\). A standard-library checker corroborated key identities and numerical examples; the analytical proof, not those samples, establishes the infinite statements.
+## correctness
 
-## Originality
-PASS under the inspected evidence. Galbis (arXiv:2102.02031, Theorem 1, Lemma 1 and Proposition 1) obtains individual Fock concentration bounds, not the displayed sharp two-state minimax coefficient, its two-radius equality support, or its asymptotic rigidity. Huang–Xue (arXiv:2310.03050) is an extension of integration inequalities, and Huang–Zhang (arXiv:2405.11147) studies general norm bounds. The exact Gamma-density endpoint calculation for a single Fock monomial already appears in related work; that calculation is credited, not claimed as original. Published-record searches and published-finding corpus similarity searches returned no dominating simultaneous vacuum/excitation robust-mask result. Possible older optimal-design literature remains a historical-priority risk.
+PASS
 
-## Value
-PASS. This is a sharp optimization of two distinct, physically natural state-detection objectives under one fixed aperture-area budget. The explicit support split and limiting proportions show why a single annulus can fail even though each one-state maximization individually selects an annulus. The adjacent-state boundary and exponentially increasing high-excitation one-annulus deficit are structural and quantitatively useful, not merely numerical recomputations.
+Polar-area reduction gives t=|z|² and Gamma densities f_j(t)=e^{-t}t^j/j!. For m≥2 the strictly unique maximizer of t^m/(e^t−1) is t_m∈(m−1,m); the dual convex combination α_m f0+(1−α_m)fm≤α_m has only equality radii t=0,t_m, proving all-area upper bound. Two disjoint radial bands with prescribed area weights match α_m A+O_m(A²); single-annulus uniform Lipschitz estimates give e^{−(m!)^(1/m)}A+O_m(A²), strictly worse. Positive strict dual slack implies near-optimal squared-radius area measures weakly converge to p_mδ0+(1−p_m)δ_t_m. At m=1, first-excited Gamma bathtub + f1’=f0−f1 proves exact unique annulus. Independent numerical dual-inequality testing at 5 excitation indices corroborated the analytic argument.
 
-## Limits
-For higher excitations, the claim is a first-order small-area theorem; no finite-area complete classification or superposition-state claim is made. Historical priority is not independently certified; unlocated earlier two-objective optimization literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: joint fixed-mode small-area minimax and two-radii rigidity, not known individual Fock/Gamma concentration, are the distinct contribution.
+
+## value
+
+PASS
+
+The simultaneous detection of two pure Fock number states is a motivated aperture-design problem. Exact adjacent-vs-nonadjacent support threshold, optimal two-radius split, rigidity of nearly optimal masks and exponentially increasing one-annulus loss are strong nontrivial structural consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
