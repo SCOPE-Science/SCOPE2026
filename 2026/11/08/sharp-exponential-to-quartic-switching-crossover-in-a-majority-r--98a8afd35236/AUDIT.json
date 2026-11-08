@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Independent reconstruction from unitary Rabi evolution gives a binomial strict-majority transition per clock interval, and the Poisson cycle integral has exact period reduction. Uniform odd-binomial first-success tail asymptotics and a Gaussian time saddle establish the fixed-detuning rate and coefficient; central limit plus a quartic dominated time window establish the critical N^-1/4 profile, with F(0) from Fubini. A renewal-cycle Laplace transform proves the exponential switch-time limit and normalized second moment. The standalone finite checker passed 37 assertions, not used as proof of infinite statements. Assumptions and exclusions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perfetto et al. 2021, arxiv:2106.13761, equations for general semi-Markov transition matrices and Laplace renewal kernels (main text around equation 3).",
+        "Magoni et al. 2022, arxiv:2202.12655, supplement equations S10-S11 use a fixed-time Gaussian approximation and discuss exponentially long finite-size simulation times."
+      ],
+      "reasoning": "The generic semi-Markov framework is broader than this specific model but does not explicitly establish the majority-binomial critical scaling or the closed prefactors. The exact source integral mathematically makes the new asymptotic analysis possible; its potential to be viewed as implicit coverage is recorded as a residual priority risk. General large-deviation/Laplace tools are not presented as newly discovered.",
+      "searches": [
+        "magnetization feedback measurement spin ensemble reset Rabi oscillation rare transition majority binomial tails escape times",
+        "arxiv:2106.13761 conditional semi-Markov reset transition matrix",
+        "arxiv:2202.12655 supplemental Section II",
+        "\"conditional reset\" \"large deviation\" \"spin\" rate"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.12655 (primary full main text and supplemental Sections I-II)",
+      "arxiv:2106.13761 (primary full main text)",
+      "Relevant published mathematical records queried by the science phrases enumerated above",
+      "Accessible own prior mathematical findings, inspected as claim summaries for statement-level overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source statements about stationary weights c_up and c_down and exponentially long time to observe them do not give the exact fixed-detuning rate I(a) or critical N^{1/4} switching-time law.",
+        "At fixed a<1/2, the normal approximation exponent (1/2-a)^2/[2a(1-a)] differs from the sharp binomial rate -log(4a(1-a))/2; the two coincide only to leading order as a increases to 1/2.",
+        "At a_N=1/2-lambda/sqrt(N), the time-window curvature becomes quartic in the binomial large-deviation variable, producing the nontrivial integral of Phi(-2lambda-y^2)."
+      ],
+      "reasoning": "A general exact integral determines all these values implicitly, but obtaining the stated two-regime theorem requires a uniform central-limit analysis at a degenerate time maximum and a first-success renewal limit, not simply a renamed finite-size expression. No inspected source proves or explicitly states that complete combination. A possible unpublished or unlocated specialized asymptotic still threatens originality.",
+      "searches": [
+        "conditional majority quantum resetting two polarized spin states first switching time exp N asymptotic rate prefactor geometric exponential law",
+        "magnetization feedback measurement spin ensemble reset Rabi oscillation rare transition majority binomial tails escape times",
+        "critical majority conditioned quantum resetting of Rabi spin ensemble odd N finite size crossover quartic saddle N minus one quarter mean first reversal time",
+        "arxiv:2202.12655 supplemental equations S3 S4 S10 S11",
+        "arxiv:2106.13761 conditional reset transition matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Magoni et al. 2022 supplemental equations S3-S4 give the conditional binomial-majority transition probability and integrated Poisson transition rate for Protocol II.",
+        "The present first-switch event and periodic rate are exact alternative formulations of that cited baseline integral, which is not claimed new.",
+        "The additional claims are the fixed-detuning sharp rate and amplitude, the critical-window quartic scaling function, and the normalized first-switch law."
+      ],
+      "reasoning": "The primary source does cover the exact finite-N probability by a general integral and reports exponential long-time effects. No separately presented result in the inspected material fixes the critical N^{-1/4} physical switching lifetime or its scaling profile; treating the baseline integral itself as new would be incorrect. General binomial asymptotic theory underlies but does not substitute for the spin-specific degenerate-saddle comparison.",
+      "searches": [
+        "Magoni Carollo Perfetto Lesanovsky 2022 conditional reset protocol II finite odd N exponentially long switching metastability majority binomial spin measurement sharp large deviation Poisson",
+        "conditional majority quantum resetting two polarized spin states first switching time exp N asymptotic rate prefactor geometric exponential law",
+        "\"Magoni\" \"Carollo\" metastable rare switching spin resetting majority probability",
+        "arxiv:2202.12655 equations S3-S4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Magoni et al. 2022 supplement Section II contains a finite-N numerical quasi-stationary Figure S1, not a first-switch asymptotic coefficient table.",
+        "Published mathematical result searches returned unrelated qubit control, finite-size entropy and switching systems; no matching majority-reset Rabi coefficient or quartic profile was identified."
+      ],
+      "reasoning": "No exact tabulation or alternate named parametrization of the two new asymptotic regimes was located. This is limited search evidence, not a proof of global novelty.",
+      "searches": [
+        "Magoni Carollo Perfetto Lesanovsky 2022 conditional reset protocol II finite odd N exponentially long switching metastability majority binomial spin measurement sharp large deviation Poisson",
+        "critical majority conditioned quantum resetting of Rabi spin ensemble odd N finite size crossover quartic saddle N minus one quarter mean first reversal time",
+        "\"Emergent quantum correlations\" \"N^-1/4\" switching reset",
+        "\"majority\" \"quantum resetting\" \"metastability\""
+      ]
+    },
+    "rationale": "Primary source arxiv:2202.12655 provides the exact binomial transition representation and recognizes exponentially long finite-N equilibration, while arxiv:2106.13761 provides the broader semi-Markov framework. The assessed new content is the pair of sharp lifetime scalings with exact coefficients, especially the non-Gaussian finite-size critical crossover F(lambda) and the first-switch distributional limit. The exact source integral implies a route to these asymptotics, so priority risk is expressly retained rather than denying implicit derivability.",
+    "residual_risks": [
+      "The original paper already contains an exact transition integral from which the new asymptotics are derivable; a prior asymptotic calculation or standard named result specialized to this kernel may exist beyond the checked material.",
+      "A 2026 experimental paper on noisy discrete-time majority-conditioned circuits has a different interacting Floquet model; only its openly accessible abstract/overview was considered, not its full text, so no whole-document exclusion is asserted.",
+      "The proof does not deliver a uniform simultaneous limit in which lambda tends to infinity with N."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact finite-size conditional binomial probability, stationary weights and qualitative exponential simulation times, but does not state sharp fixed-gap prefactor, critical N^-1/4 crossover function, or the exponential first-switch limit.",
+        "evidence": [
+          "arxiv:2202.12655 main text eqs 1-4; supplemental eqs S3-S11, especially S4, S10, S11 and Figure S1 discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.12655",
+        "material_read": "Main text dynamics and Protocol II; full online supplemental Sections I-II including equations S1-S11 and Figure S1 discussions; later correlation sections scanned for overlap",
+        "method": "Read the accessible full arXiv HTML rendering, including embedded supplemental text and original equations, then compare objects, parameters, regimes and first-switch conclusions.",
+        "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+        "trigger": "Same exact spin ensemble, conditional reset Protocol II, majority-tail finite-size statement"
+      },
+      {
+        "assessment": "General semi-Markov theory and transverse-field Ising chain example; not a statement of the critical finite-N majority-spin first-switch asymptotics.",
+        "evidence": [
+          "arxiv:2106.13761, main text reset protocol and equations describing P_jk(t) and Laplace transition matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.13761",
+        "material_read": "Full accessible arXiv HTML main text, including model, reset protocol, semi-Markov construction, transition and renewal equations, results and outlook",
+        "method": "Read primary mathematical definitions and formulas, compare general transition matrix to the exact noninteracting Rabi majority model.",
+        "title": "Designing non-equilibrium states of quantum matter through stochastic resetting",
+        "trigger": "Original general conditional quantum reset formalism used by the 2022 study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98a8afd3-5236-4fc5-bcde-12253abe8dd8",
+  "value": {
+    "rationale": "At the original study’s collective transition, a physically meaningful first-opposite-reset time crosses from an exponentially large lifetime with a computable nonquadratic large-deviation exponent to a universal quarter-power law. The coefficient incorporates every coherent half-period weighted by reset ages, and the distributional limit distinguishes typical and mean switching times. This addresses finite-size interpretation of the published metastable phenomenon rather than an arbitrary isolated invariant. No general mixing theorem or noise-robust conclusion is claimed.",
+    "status": "PASS"
+  }
+}
