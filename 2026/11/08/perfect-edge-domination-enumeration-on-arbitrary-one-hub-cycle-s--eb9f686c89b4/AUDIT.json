@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the bijection F=E(G[V\\W]), nonwhite positive selected degree and selected-degree-one neighbours of every white vertex. For ordinary degree-two paths the forbidden pairs of white positions have distance at most two; terminal constraints and the degree-(r+2) root are all handled explicitly. The four root cases are exhaustive, disjoint and sufficient. Forced-endpoint path-word counts give the exact coefficients; 468 independent edge-subset enumerations and a larger special-family replay confirm but do not prove the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grippo et al. (2026) Theorem 4.8 and preceding algorithms count PED-sets in generalized series-parallel and chordal graphs; the one-hub cycle spiders belong to the generalized series-parallel class.",
+        "The algorithmic result does not state a closed count for an arbitrary vector of pendant-arm lengths, or the linear-to-exponential subdivision transition."
+      ],
+      "reasoning": "Computability via a generic linear-time algorithm is acknowledged as stronger algorithmic coverage but does not imply the explicit product identity as a published statement without carrying out a new structural derivation. A previously known one-tail formula covers the single-arm specialisation, not all-degree root coupling with r>=2.",
+      "searches": [
+        "perfect edge dominating set count unicyclic spider graph one cycle with many pendant paths attached at a common cycle vertex exact product formula",
+        "unicyclic perfect edge dominating sets extremal cycle maximizes number PED sets",
+        "arXiv:2607.03894v1 generalized series-parallel counting algorithms"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.03894v1 (selected relevant full-text sections)",
+      "arXiv:2509.04598 (abstract)",
+      "Lu--Ko--Tang (2002; bibliographic and indirect content)",
+      "Existing one-tail counts: only r=1 case"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grippo et al. (2026), Section 5, Conjecture 5.1 gives an open connected-cycle upper bound and Theorem 5.2 a recurrence for PED counts on ordinary cycles; neither yields an arbitrary-arm spider count.",
+        "Grippo, Lin, Vera (arXiv:2509.04598) address counting in P6-free graphs, a class not containing all long-arm spiders.",
+        "Previously existing one-tail exact counts are restricted to a single pendant path."
+      ],
+      "reasoning": "The new formula is not the old one-tail result with a renamed parameter: with multiple arms the root has degree r+2, a selected white neighbour forces r+1 white neighbours, and the complete enumeration includes an arm-indexed summation. Prior generic algorithms do not supply the explicit four-term product or subdivision asymptotic as stated.",
+      "searches": [
+        "lollipop tadpole cycle pendant path number of perfect edge dominating sets inequality to cycles conjecture 5.1",
+        "efficient edge domination lollipop graph tail PED edge dominating set counting",
+        "arXiv:2509.04598v1 perfect edge domination P6-free counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grippo et al., arXiv:2607.03894v1, Sec. 2.2: PED-sets correspond to valid black/yellow/white vertex colourings.",
+        "The present formula enumerates edge-subsets using the equivalent zero-selected-degree white vertices and their constrained neighbours."
+      ],
+      "reasoning": "The edge-subset, vertex-three-colouring, and constrained white-set formulations were compared, so equivalent terminology was not treated as novel. The new result is the closed four-case arbitrary-arm enumerator, not the colour coding itself.",
+      "searches": [
+        "perfect edge dominating set count unicyclic spider graph one cycle with many pendant paths attached at a common cycle vertex exact product formula",
+        "cycle spider sun cactus one branch vertex many paths PEDS count multivariate generating function edge domination",
+        "perfect edge dominating sets in cycle with r pendant arms length t_1 ... t_r generalize tadpole counts",
+        "\"perfect edge dominating\" \"tadpole\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research records closest to this subject concern edge general-position and power domination on spider trees, and a different lollipop edge-metric invariant; those statistics do not give PED-set counts.",
+        "The directly inspected 2026 primary paper provides cycle counts and a cycle extremal conjecture, not this multivariate spider formula."
+      ],
+      "reasoning": "No exact table or closed multiarms enumeration was located in the actual searches. This is limited negative search evidence and not proof of priority.",
+      "searches": [
+        "cycle spider sun cactus one branch vertex many paths PEDS count multivariate generating function edge domination",
+        "perfect edge dominating sets in cycle with r pendant arms length t_1 ... t_r generalize tadpole counts",
+        "\"perfect edge dominating sets\" \"unicyclic\" cycle attached path"
+      ]
+    },
+    "rationale": "The closed exact product formula applies to every number of arms r>=2 and every independent arm-length vector. The 2026 primary source gives general algorithms, edge-colourings and a cycle recurrence, not this formula. The previously available one-tail case is a proper special case and does not imply the new root-coupling and subdivision growth law.",
+    "residual_risks": [
+      "Unindexed prior formulas and appendices could contain the multiple-arm count.",
+      "Full-text of 2002 general-algorithm article and 2025 P6-free study was not inspected.",
+      "The family is a subclass of an existing generally tractable class; value is the exact arbitrary-length closed form and sharp subdivision transition, not new computational decidability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERIC_ALGORITHM_AND_CYCLE_RESULTS_NOT_EXPLICIT_MULTIPLE_ARM_FORMULA",
+        "evidence": "Secs. 2.2, 4.1--4.2, 5, including Conjecture 5.1 and Theorem 5.2.",
+        "identifier_or_url": "https://arxiv.org/html/2607.03894",
+        "material_read": "Introduction, preliminaries Sec. 2.2 including PED-colouring bijection, Section 4 algorithms, Section 5 conjecture and cycle recurrence",
+        "method": "Read arXiv lawful full-text HTML in primary source",
+        "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+        "trigger": "Same parameter, closest 2026 motivating source and generic algorithm"
+      },
+      {
+        "assessment": "P6_FREE_RESTRICTED_ALGORITHMS_NOT_ALL_LONG_ARM_SPIDERS; FULLTEXT_LIMIT",
+        "evidence": "2025 source abstract describes polynomial-time methods for P6-free graphs, not all arbitrary-length pendant-path graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.04598",
+        "material_read": "Title and abstract; full-text HTML attempt failed",
+        "method": "Lawful arXiv abstract and search summary",
+        "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+        "trigger": "Earlier PED counting algorithms could cover a small subclass"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND_AND_ALGORITHMS; HISTORICAL_PRIORITY_RISK",
+        "evidence": "Lu--Ko--Tang (2002) cited in Grippo et al. Secs. 1, 4.",
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(01)00198-6",
+        "material_read": "Bibliography, abstract/index descriptions and citations in 2026 primary text; publisher full text not read",
+        "method": "Bibliographic indexing and cited discussion",
+        "title": "Perfect edge domination and efficient edge domination in graphs",
+        "trigger": "Historical introduction of the PED notion and general algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb9f686c-89b4-4639-a9d3-84a6b403b6d3",
+  "value": {
+    "rationale": "Natural arbitrary-armed unicyclic graphs provide a flexible exact counting benchmark within a generally hard enumeration problem. The formula counts every PED-set and identifies the four possible root configurations. Holding cycle length fixed, one-edge arms yield affine dependence on arm count, whereas two-edge arms yield exact 2^r exponential growth after one subdivision per arm. The 3-parameter and arbitrary-vector structure is not a routine numeric update of the prior r=1 formula.",
+    "status": "PASS"
+  }
+}
