@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T06:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any R,H>0, writing a=2R,b=H, the cylinder is a Minkowski disk-plus-axial-interval and its exact one-dimensional directional width is g(t)=a sqrt(1-t^2)+b t with t=|u_3| uniform on [0,1]. The unique interior maximizer t=b/s gives s=sqrt(a^2+b^2); concavity shows the minimum is m=min(a,b). Solving g(t)=w produces t_±=(bw±a sqrt(s^2-w^2))/s^2. Counting each valid inverse branch on w between m,max(a,b),s gives the four claimed CDF regimes, including the a=b boundary with no intermediate regime and continuity/no atoms. Integrating against uniform t yields mean πa/4+b/2. (m,s) identifies the unordered pair {a,b}; swapping them changes the mean by (π-2)|a-b|/4=(π-2)sqrt(s^2-2m^2)/4. Nearest-candidate discrimination is guaranteed for exact endpoints and absolute mean error below half that gap; equality is a non-robust tie. At a=b the candidates coincide and the gap vanishes as square root. Independent 100001-sample monotone t-mesh CDF counts for a,b=(1,2),(2,1),(1,1),(.1,10) differ from exact CDF by at most 2.0e-5, the expected grid discretization error; the continuum proof is analytic, not the grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gesmundo–Meroni analyze disk-and-segment Minkowski sums and algebraic geometry; the published cylinder-shadow record computes planar area/perimeter covariance, not line-width law."
+        ],
+        "reasoning": "The geometric representation is background; support additivity plus isotropic Haar integration is needed anew, and prior planar-shadow statistics are not stronger line-projection invariants.",
+        "searches": [
+          "arXiv:2111.01241 The Geometry of Discotopes",
+          "Resultary exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md SHA f7c706efe7e81cee7772c7dcee8e28c1118be273",
+        "Frozen Git checker.py SHA 44dd3e82677619a17518b0b8fa9184a131ad101e",
+        "arXiv:2111.01241",
+        "Resultary:2026/10/11/SCOPE-unlabeled-directional-widths-determine-a-right-circular-cone--30a3b32d19eb",
+        "Resultary:2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cone has apex support max and a piecewise width of fundamentally different shape; area/perimeter of 2D shadows are different geometric functionals."
+        ],
+        "reasoning": "The cylinder conclusion is not a direct corollary of these prior theorems; the exact mean gap additionally identifies cylinder diameter vs height, which prior endpoint support formulas alone leave swapped.",
+        "searches": [
+          "Resultary cone width inverse theorem full RESULT.md",
+          "arXiv:2111.01241 sections 1–3",
+          "SCOPE exact-cylinder-shadow mixed moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cylinder g(t)=a sqrt(1-t^2)+bt versus cone width/r=sqrt(1-t^2)+max(sqrt(1-t^2),kt); both have unlabeled inverse ambiguities, but their inverse branches and support switch differ."
+        ],
+        "reasoning": "Searched aliases random width, one-dimensional projection, Feret diameter, unlabeled widths and circular cone. Close cone result does not specialize to a capped cylinder, and unrelated general projection laws do not supply the complete cylinder CDF.",
+        "searches": [
+          "Resultary semantic: Random isotropic directional width distribution Feret diameter right circular cylinder CDF inverse radius height",
+          "web: isotropic Feret diameter distribution circular cylinder random width exact distribution arclength",
+          "Resultary 2026/10/11/...unlabeled-directional-widths-determine-a-right-circular-cone--30a3b32d19eb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact cylinder line-width CDF or inverse-gap table was found in the checked sources; Resultary lists analogous cone and cube distributions, not this cylinder formula."
+        ],
+        "reasoning": "No known table is shown to contain the exact CDF, although unindexed historical stereological tables remain a genuine priority risk; an unsuccessful database search alone is not proof.",
+        "searches": [
+          "web: circular cylinder Feret diameter distribution stereology exact table",
+          "Resultary semantic: random directional width right circular cylinder",
+          "source RESULT.md references"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the complete cylinder line-width law and its three-observable inverse condition. Neither the nearby cone theorem nor planar cylinder-shadow results implies this CDF; elementary Minkowski support additivity itself is known and not counted as novel. Classic Feret-diameter stereology could conceivably contain this exact formula.",
+      "residual_risks": [
+        "Prior stereology literature may give the same Feret-diameter law under unindexed terms.",
+        "Error margin is conditional on exact support endpoints; no stability to endpoint sampling noise or finite samples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "geometric background, not verified coverage of full random-width CDF",
+          "evidence": "Support-function and face analysis does not state the isotropic one-dimensional CDF or mean-gap inverse theorem in reviewed material.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.01241",
+          "material_read": "arXiv full-text material on support functions, Minkowski sums and discotope geometry (sections 1–3)",
+          "method": "arXiv lawful OA primary material",
+          "title": "The Geometry of Discotopes",
+          "trigger": "disk-and-segment Minkowski sum is same geometric representation"
+        },
+        {
+          "assessment": "not covering cylinder",
+          "evidence": "Cone support law sqrt(1-t²)+max(sqrt(1-t²),kt) differs from cylinder disk-plus-segment sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unlabeled-directional-widths-determine-a-right-circular-cone--30a3b32d19eb",
+          "material_read": "entire RESULT.md finding, assumptions and proof including cone piecewise width and reconstruction",
+          "method": "GitHub public primary source blob",
+          "title": "Unlabeled directional widths determine a right circular cone",
+          "trigger": "near-identical inverse observable for different family"
+        },
+        {
+          "assessment": "not decisive for one-dimensional width",
+          "evidence": "Its mixed moment concerns two-dimensional projected area and perimeter rather than line-projection length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707",
+          "material_read": "published Resultary indexed scientific statement and summary; complete file not inspected",
+          "method": "Resultary semantic search",
+          "title": "Exact cylinder shadow mixed moment and sharp positive covariance",
+          "trigger": "same body and random direction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlabeled directional width is a natural stereological observable. This result gives a full forward distribution, a rigid but sharply two-to-one inverse problem from endpoint data, and an exact nonuniform stability margin for adding one mean measurement. These are precise independently useful facts for a natural two-parameter body, beyond the elementary support-function formula; it does not solve noisy-support inference or general body reconstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only solid right circular cylinders, strictly positive dimensions, Haar-uniform line directions.",
+    "No noisy-endpoint statistical recovery, arbitrary convex-body inverse theorem, or priority guarantee."
+  ],
+  "schema_version": 1
+}
