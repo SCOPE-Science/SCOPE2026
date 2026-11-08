@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone program `verify_two_target_restart.py` executes entirely with Python standard-library exact rational arithmetic. It certifies the mixed-clock upper bound; a short-duration continuous lower bound; thirty-five closed interval bounds exhausting the finite intermediate range; a long-duration analytic lower bound; and an exact polynomial certificate valid at all positive Poisson reset rates. It derives explicit rational bounds on \(\pi\), square roots, \(e^{-y}\), and \(\operatorname{erf}(\sqrt y)\), rather than trusting ordinary float comparisons. All of its assertions passed upon execution from the actual accompanying file.
+# Independent mathematical audit
 
-The Brownian reflection-principle and renewal identities, the ratio-of-averages distinction, and the analytic monotonicity of the short-range conditional mean are mathematical proof steps, not empirical approximations. The interval program checks their finite arithmetic consequences but does not independently formalize these analytic lemmas. The theorem proves comparison with all sharp and exponential clocks; it does not establish global optimization among general stochastic clocks. Independent scientific assessment has not been performed.
+## correctness
+
+PASS
+
+For generator ∂xx, conditional first-hitting survival S_R(t)=erf[R/(2sqrt t)], F_R=1−S_R, A_R=∫_0^t S_R(s)ds. A target distance is sampled ONCE for the full search; conditional renewal gives M_R(ψ)=E A_R(Z)/E F_R(Z), then weighted sum of conditional ratios, not ratio of averages. For ψ=(43/50)δ(2/5)+(7/50)δ10 and P(R=1)=19/20, P(R=5)=1/20, independent high-precision evaluation gives 4.1947990668979<21/5. For all deterministic t, analytical short-time inequalities imply lower bound 4.267532 on t≤2.9; monotonic A_R,F_R enclose every middle t∈[2.9,20] by 35 exhaustive intervals with minimum certified lower bound 4.3631715; t≥20 lower bound 4.3389016. The actual source exact-rational program supplies explicit enclosures for pi, square roots, exponentials, error functions and every middle bound. For all Poisson rates u=√r>0, positive exponential-series truncation produces cubic 161u³+144u²−378u+144>0, verified by rational Bernstein coefficients in 3 covering intervals and positive increasing tail u≥1. For one fixed R, M_R(ψ) is an F_R-weighted average of deterministic M_R(t), so no strict improvement over all fixed clocks. Thus continuum inequalities are analytically and certified-finitely covered; not inferred from numerical sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.
+
+## value
+
+PASS
+
+The quenched versus annealed distinction matters in optimal restart under hidden heterogeneous targets. Existing broad-tail advantages do not answer how few fixed target locations can defeat sharp restart. An explicit binary-support strict certificate and rigorous minimality theorem are meaningful structural optimization boundaries, independent of finding globally best randomized clock.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:49:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/two-possible-target-distances-suffice-to-make-randomized-restart--2c7e0a5c8beb",
+        "Verified source verify_two_target_restart.py blob 850d252a01b75fd2263df1f2bd458cbd184d0d98",
+        "Independent symbolic and/or exhaustive checks in independent_math_checks.py; limitations of those tests specified"
+      ],
+      "rationale": "For generator ∂xx, conditional first-hitting survival S_R(t)=erf[R/(2sqrt t)], F_R=1−S_R, A_R=∫_0^t S_R(s)ds. A target distance is sampled ONCE for the full search; conditional renewal gives M_R(ψ)=E A_R(Z)/E F_R(Z), then weighted sum of conditional ratios, not ratio of averages. For ψ=(43/50)δ(2/5)+(7/50)δ10 and P(R=1)=19/20, P(R=5)=1/20, independent high-precision evaluation gives 4.1947990668979<21/5. For all deterministic t, analytical short-time inequalities imply lower bound 4.267532 on t≤2.9; monotonic A_R,F_R enclose every middle t∈[2.9,20] by 35 exhaustive intervals with minimum certified lower bound 4.3631715; t≥20 lower bound 4.3389016. The actual source exact-rational program supplies explicit enclosures for pi, square roots, exponentials, error functions and every middle bound. For all Poisson rates u=√r>0, positive exponential-series truncation produces cubic 161u³+144u²−378u+144>0, verified by rational Bernstein coefficients in 3 covering intervals and positive increasing tail u≥1. For one fixed R, M_R(ψ) is an F_R-weighted average of deterministic M_R(t), so no strict improvement over all fixed clocks. Thus continuum inequalities are analytically and certified-finitely covered; not inferred from numerical sampling.",
+      "residual_risks": [
+        "Potential general finite-support restart optimization theorem in unindexed literature would imply the binary example; not ruled out by unsuccessful searches.",
+        "Finite rational certificate depends on elementary interval enclosures checked by inspecting source; independent numeric values alone do not certify all continuum parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Ray primary full arXiv HTML inspected including introduction, main theorem and appendix fixed-target sharp-restart discussion.",
+          "Eliazar–Reuveni sharp-restart optimality applies one fixed completion-time law per attempt, not a hidden variable held through resets."
+        ],
+        "reasoning": "The Evans–Ray broad/unbounded target examples do not supply the specific bounded two-atom support or a minimal support-cardinality theorem. A more general result might still imply it, but that implication was not found. Classical sharp-restart optimality for a single attempt law cannot be applied after averaging quenched conditional ratios.",
+        "searches": [
+          "Evans Ray 2024/2025 Stochastic resetting prevails over sharp restart for broad target distributions arxiv 2410.01941",
+          "Eliazar Reuveni 2020 Mean-performance of sharp restart I arxiv 2003.14116",
+          "Evans Majumdar 2011 Diffusion with Optimal Resetting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and complete exact-rational verify_two_target_restart.py",
+        "Independent mpmath witness, short/middle/long bounds",
+        "Resultary semantic search of quenched binary target restart",
+        "Evans–Ray full arXiv HTML main text and appendix",
+        "Eliazar–Reuveni abstract",
+        "Evans–Majumdar 2011 context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evans–Ray explores unbounded/broad target-distance conditions and renewals; source theorem does not imply finite support two.",
+          "Fixed-target theorem gives precisely one-support impossibility, which is credited as a classical ratio argument."
+        ],
+        "reasoning": "An implication from the stronger-sounding generic stochastic-resetting advantage would require applying its hypotheses to the discrete bounded {1,5} prior; they are not satisfied by the published broad-tail regime. Position optimization versus clock-duration distribution is a different choice variable.",
+        "searches": [
+          "Evans Ray broad target distribution random resetting sharp restart 2025 PRL",
+          "Eliazar Reuveni sharp restart performance 2020",
+          "Evans Majumdar 2011 optimal spatial resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source conditional ratio E A_R(Z)/E F_R(Z), then average over fixed R; Evans–Ray original source gives quenched renewal formulation.",
+          "Source exact two-atom target distances {1,5} and randomized intervals {.4,10} with strict all-t comparisons."
+        ],
+        "reasoning": "Separately compared aliases quenched random target, random environment, imperfect information, stochastic restart and sharp deterministic restart. Critically distinguished target drawn once from target redrawn every attempt, since only the former involves averaged conditional ratios. No inspected source proves minimal finite-support two specifically.",
+        "searches": [
+          "Resultary: quenched randomized restart fixed hidden binary target distance two atom reset clock Brownian hitting beat deterministic Poisson",
+          "Evans Ray Stochastic resetting prevails over sharp restart for broad target distributions quenched targets two point discrete"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational interval verification program is supplied in frozen source; no known preexisting published two-point tabulation."
+        ],
+        "reasoning": "The key numerical witness is a mathematical certificate over all competing real durations and Poisson rates, not mere optimization of a finite parameter grid. No known database with the exact binary separation located.",
+        "searches": [
+          "Resultary semantic search finite binary quenched target restart",
+          "Brownian reset distance 1 5 probability 19/20 1/20 duration 0.4 10 table"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.",
+      "residual_risks": [
+        "Potential general finite-support restart optimization theorem in unindexed literature would imply the binary example; not ruled out by unsuccessful searches.",
+        "The specific mixed clock is a strict certificate, not proven globally optimal; the target is drawn once for the full search.",
+        "Finite rational certificate depends on elementary interval enclosures checked by inspecting source; independent numeric values alone do not certify all continuum parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source provides central conditional renewal formula and stochastic-restart advantage for broad tails, but inspected theorems do not yield the bounded binary target minimality.",
+          "evidence": "Evans and Ray, arXiv:2410.01941, introduction, theorem and appendix",
+          "identifier_or_url": "https://arxiv.org/abs/2410.01941",
+          "material_read": "Original public arXiv full HTML introduction, conditional renewal formula, theorem and appendix fixed-target discussion, including stated broad-tail conditions",
+          "method": "Public arXiv HTML full text inspected",
+          "title": "Stochastic resetting prevails over sharp restart for broad target distributions",
+          "trigger": "Same quenched target and sharp-versus-random reset problem"
+        },
+        {
+          "assessment": "Single underlying attempt law optimality, not proof about averaging fixed hidden targets; complete-document priority not certified.",
+          "evidence": "Eliazar and Reuveni (2020), accessible abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2003.14116",
+          "material_read": "Public abstract/bibliographic result, not whole paper",
+          "method": "Public arXiv search, HTML full access unavailable",
+          "title": "Mean-performance of sharp restart I: Statistical roadmap",
+          "trigger": "Potential universal fixed-clock optimality theorem"
+        },
+        {
+          "assessment": "Optimization of restart locations and rate does not by cited statement determine binary quenched target mixed clock; original full text not examined.",
+          "evidence": "Evans and Majumdar (2011), abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1107.4225",
+          "material_read": "Public bibliographic and abstract context, not full theorem/appendix",
+          "method": "Public arXiv search",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "Classic optimal resetting and random target positions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding/Assumptions/Relationship to prior work",
+        "Independent structural/parameter motivations reviewed against cited prior claims"
+      ],
+      "rationale": "The quenched versus annealed distinction matters in optimal restart under hidden heterogeneous targets. Existing broad-tail advantages do not answer how few fixed target locations can defeat sharp restart. An explicit binary-support strict certificate and rigorous minimality theorem are meaningful structural optimization boundaries, independent of finding globally best randomized clock.",
+      "residual_risks": [
+        "Potential general finite-support restart optimization theorem in unindexed literature would imply the binary example; not ruled out by unsuccessful searches.",
+        "The specific mixed clock is a strict certificate, not proven globally optimal; the target is drawn once for the full search.",
+        "Finite rational certificate depends on elementary interval enclosures checked by inspecting source; independent numeric values alone do not certify all continuum parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A quenched Brownian search target with only two possible fixed distances admits an iid two-atom randomized reset-duration law that strictly beats every deterministic and every Poisson clock; one target-distance support value cannot, giving the minimal cardinality exactly two.",
+  "limitations": [
+    "Potential general finite-support restart optimization theorem in unindexed literature would imply the binary example; not ruled out by unsuccessful searches.",
+    "The specific mixed clock is a strict certificate, not proven globally optimal; the target is drawn once for the full search.",
+    "Finite rational certificate depends on elementary interval enclosures checked by inspecting source; independent numeric values alone do not certify all continuum parameters."
+  ],
+  "schema_version": 1
+}
