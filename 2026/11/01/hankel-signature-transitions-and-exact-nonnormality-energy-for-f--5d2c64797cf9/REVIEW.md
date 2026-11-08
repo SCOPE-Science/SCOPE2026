@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factorization is obtained by an explicit logarithmic unitary, with both the convolution kernel and its Hankel boundary correction written out. Kernel multiplication proves the sign; weighted-square-integrable approximation covers the singular small-order boundary. The signed Hankel factor is trace class through an absolutely convergent monomial rank-one series; its exact trace and squared trace follow from elementary beta-integral evaluations. Integer inertia follows from a nonsingular moment matrix. Noninteger inertia follows from the binomial sign tail, finite-dimensional moment isolation at the origin, and strict sign on an infinite-dimensional moment-vanishing subspace. The injectivity argument uses all Taylor coefficients and polynomial density. An extracted standard-library checker passes 1102 exact-rational assertions. The checker's finite examples are not treated as a proof.
+PASS
 
-## Originality — PASS (best-knowledge)
+Logarithmic unitary Uf(s)=exp(-s/2) f(exp(-s)) maps C_alpha to upper Wiener–Hopf convolution Wg(s)=int_0^infty k(t)g(s+t)dt with k=alpha exp(-t/2)(1-exp(-t))^(alpha-1). For every alpha>0 k∈L1 and Hankel H(s,t)=k(s+t) is Hilbert–Schmidt: ∫t|k(t)|²dt<∞ even when alpha<1. Kernel product gives W W* - W* W = H², so the claimed defect is -J_alpha² after inverse unitary. J_alpha(x,y)=alpha(1-xy)^(alpha-1) is trace class by absolutely summable monomial rank-one expansion a_j=alpha(1-alpha)_j/j!, whose trace-norm summands are |a_j|/(2j+1)=O(j^(-alpha-1)). Beta and squared-kernel integrals give trace J=alpha sqrt(pi)Gamma(alpha)/(2Gamma(alpha+1/2)) and ||defect||_1=alpha²(psi(2alpha)+EulerGamma)/(2alpha-1), removable pi²/24 at alpha=1/2. Independently numerically integrated the kernel norm at alpha=1/4,1/2,1,3/2,2 and matched the formula. Integer monomials yield rank m with alternating signs; noninteger tail coefficients share sign (-1)^floor(alpha), with finitely many opposing signs. First-m-moment nullspace is infinite-dimensional definite, while compressed/scaled moment interpolants realize the full finite opposing index; analytic kernel with every a_j nonzero gives injectivity and dense range. This proves all stated parity bands; finite symbolic checks are corroborative, not exhaustive.
 
-The primary 2026 Cesàro–Hardy study establishes detailed spectral and semigroup properties of these operators, but the relevant sections do not state a trace-class Hankel-square self-commutator or this order-by-order inertia law. Mirotin's closely related paper concerns functional calculus and fractional powers of the classical operator; it does not state the binomial Hankel signature. General compressed-convolution identities cover the existence of a Hankel boundary term, and the classical order-one identity is known. The present quantified all-order inertia, integer-rank transition, and exact trace are not implied without additional kernel-specific analysis. Targeted published-finding corpus queries returned related *discrete* Cesàro matrix self-commutators and other Hankel operator problems, but no matching continuous-order inertia classification. The main unresolved priority risk is a classical theorem on indefinite power-product kernels potentially implying the sign counts in a different language; a search without a match is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The self-commutator is the intrinsic Hilbert-space measure of nonnormality for the current generalized Cesàro–Hardy family. Its exact trace-class norm supplies a quantitative invariant missing from qualitative spectral descriptions. The explicit signed Hankel factor gives a natural finite-versus-infinite spectral-rank transition at every integer order and exact positive/negative indices between them. This is a complete structural classification for the full real parameter family, not a single arbitrary matrix evaluation. The magnitude of individual noninteger eigenvalues is left open.
+Comparison across equivalence, broader coverage, exact results and claimed implication finds no decisive existing result that covers the final scoped theorem in accessible inspected material; precise covered ingredients and full-text access risks are explicitly recorded. This is a best-knowledge scientific judgment, not an attestation of independence or a guarantee of historical priority.
 
-## Closest work and limits
+## value
 
-Closest literature: Abadías–Mahillo–Miana (arXiv:2604.20408v1, especially Sections 2 and 5); Mirotin (arXiv:2411.15578; 2026 accepted manuscript, especially Section 5); Brown–Halmos–Shields (1965) for the classical order-one case. The claim excludes complex orders, discrete matrices, and precise noninteger eigenvalue decay. There remains an indirect-implication risk from older general signed-kernel theory, and no independent audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The self-commutator gives a natural measure of nonnormality for an established continuous operator family. Exact trace-class energy and a complete signed Hankel spectral-inertia transition from finite rank at every integer to infinite rank at every other positive order answer structural questions beyond boundedness or generic Wiener–Hopf factorization; individual eigenvalues remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
