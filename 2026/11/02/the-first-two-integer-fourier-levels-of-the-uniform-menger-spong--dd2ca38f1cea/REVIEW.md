@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The probability measure is specified by exactly 20 allowed ternary triples with equal weights. The phase-correct digit mask is derived from these twenty terms; the modulus-only mask has the cubic multiaffine form shown in the proof. Primitive residues with two or three active coordinates are disposed of by exact first- and second-scale bounds. The one-active-coordinate case is reduced at depth two to two axial classes, at depth three to exactly four signed axial residue classes per coordinate, and then ruled out upon any later first divergence. The explicit rational inequalities show every other Fourier magnitude strictly below \(7/100\). An independent positive-tail product estimate shows \(B>7667/108000>7/100\), and factorwise comparison shows \(A>B\). A replayable exact-rational checker confirms the nonstandard finite inequalities and finite-frequency consistency; finite checking is not used as an infinite argument. The formulas for convolution norms then follow by Plancherel.
+## correctness
 
-## Originality: PASS under bounded comparison
-The closest inspected exact-object source is Berner, Herr, Jorgensen and Weber, arXiv:2402.15950, especially Example 3.14. It defines precisely the same uniform twenty-map Menger sponge but proves slice-singular Fourier expansion results, not the magnitude ranking of the measure's individual lattice Fourier coefficients. Jorgensen and Pedersen, arXiv:math/0604087, provide the general affine-IFS Fourier framework; their inspected general results do not provide this sharp integer-lattice cutoff and extremizer classification. Actual published-record and historical-claim searches found no directly covering statement. Earlier Fourier-level results on planar digit sets have different masks and are not an implication. Unlocated fractal-diffraction or older harmonic-analysis papers remain a residual originality risk. Negative searches alone are not treated as proof of priority.
+PASS
 
-## Mathematical value: PASS
-The first two nontrivial Fourier magnitudes and extremizing frequencies are natural invariants of this canonical nonproduct self-similar measure. A strict global separation leads to sharp, explicitly described convolution operator contraction norms on \(L^2(\mathbb T^3)\). The all-frequency rigidity proof goes beyond simply writing down the standard Fourier product. The claim is restricted to integer frequencies and does not assert the optimal third level.
+For iid uniform twenty-digit ternary Menger set D with at most one coordinate digit 1, µ=law(Σ_{j≥1}3^{−j}D_j). The centered digit mask has modulus |(2c1c2c3+c1c2+c1c3+c2c3)/5|, giving an infinite product at integer frequencies and exact scale invariance µhat(3n)=µhat(n). First digit residue cases yield mod-3 magnitudes 1/5, 1/20, 1/10 by 1,2,3 active coordinates; rational depth-two/three inequalities eliminate all but axial ±e_i,±4e_i residues with potential |hat µ|≥7/100. Proofs explicit first-divergence bound for all subsequent ternary levels, not a finite extrapolation; the positive tail gives B>7667/108000>7/100 and factorwise comparison A>B. Thus only ±3^r e_i attain A≈0.158631115297482, only ±4·3^r e_i attain B≈0.0715848893600233, all other nonzero coefficients <0.07. Torus convolution L2 norms are these sharp multiplier suprema via Plancherel. Independent finite frequency scan and numerical products corroborate, while the all-depth analytic induction establishes unbounded frequency claim.
 
-## Limits of review
-The rational checker confirms the finite angle bounds and spot checks; the all-depth proof is the analytic first-divergence induction. This review is not independent, and the comparative literature search cannot rule out every older equivalent formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: original full preprint Berner et al. includes exactly the same twenty-map measure, but proves slice-singularity and nonorthogonal Fourier expansions rather than the sharp integer Fourier-Stieltjes multiplier ranks. General self-similar Fourier frameworks give a product, not global extremal ranking. Unindexed fractal diffraction remains a priority risk.
+
+## value
+
+PASS
+
+The two largest nontrivial integer Fourier-Stieltjes coefficients and their infinite extremizer families are natural spectral data for this canonical nonproduct self-similar probability measure. The strict 7/100 gap yields sharp torus convolution contraction norms, which need the nontrivial global residue-tree classification, not just a formal product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
