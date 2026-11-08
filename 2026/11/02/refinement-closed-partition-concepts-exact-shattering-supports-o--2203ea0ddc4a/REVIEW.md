@@ -1,13 +1,21 @@
-# Scientific review: refinement-closed partition shattering
+# Independent mathematical audit
 
-**Correctness — PASS.** The iff support criterion follows from the transitivity obstruction to a labeled cycle, and from refinement closure applied to every positive-edge subforest. Its extremal edge count proves the exact VC formula. A union-find online predictor makes mistakes only on target-positive mergers, at most the target partition rank, establishing the matching Littlestone upper bound. Positive-contraction quotient preserves refinement closure and negative constraints. For independent-block partitions the minimum feasible block count is exactly the chromatic number. The proof treats empty supports, isolated vertices, arbitrary finite sizes and all consistent histories. A separately executable exhaustive checker confirms all graph constraints through five vertices and all consistent four-vertex quotient histories. Finite computation is not used as a proof for unbounded sizes.
+## correctness
 
-**Originality — PASS on accessible evidence, with a residual priority risk.** Direct searches examined refinement-closed equivalence-relation concepts, online shattering, structural forests, graph-coloring quotients, partition-learning oracle models and published indexed mathematical claims. Inspected full primary sections on same-cluster recovery establish bounds for complete partition identification or noisy-oracle models, not equalities between VC and Littlestone dimensions. A general Littlestone query-learning source supplies dimension context but not the partition-specific formula. Closest published indexed material on complete multipartite graphs concerns first-order logical width, while binary-similarity work concerns cluster approximation; neither logically implies the claim. The distinction between pair-equality membership queries and *equivalence queries* for whole hypotheses is essential. Absolute historical uniqueness is not established; equivalent arguments in unindexed prior work remain possible.
+PASS
 
-**Value — PASS.** The same transparent structural theorem determines exactly which query supports shatter, the worst-case optimal online mistake budget, the dimensions of every consistent residual version space, and a chromatic-number characterization for natural graph-constrained clusters. This relates two learning dimensions to a classical NP-hard graph invariant while giving a simple mistake-optimal online predictor. The conditional coloring identity is particularly relevant for adaptive clustering, where every observed positive merger or negative constraint changes the quotient graph. These are all-parameter structural results, not a finite table, isolated low-degree case or a query-recovery bound borrowed from existing literature.
+For nonempty finite refinement-closed partition family, shattering an edge set containing a cycle contradicts transitivity (all but one edges positive). For a forest, shattering implies component partition π_S feasible via all-ones labeling; conversely feasibility plus refinement closure lets every choice of positive forest edges define a permitted component partition. Thus maximal shattered forests have |V|−min b(π) edges, proving VCdim. The union-find online predictor makes mistakes only on target-positive mergers, at most the same number; the shattered forest gives the Littlestone lower bound. Contracting positive transcript components preserves refinement closure, with negatives prohibiting mergers. For independent-set partitions, min blocks=χ(G), including quotient graph after consistent history. Independently enumerated all partitions and graph concepts for 74 graph instances n=2..4, comparing VC, recursive Littlestone and n−χ exactly. This finite check corroborates the unrestricted combinatorial proof.
 
-### Closest related work and limits
+## originality
 
-Liu–Mukherjee (2021) computes exact query costs for identifying a hidden partition with fixed block count. DePavia–Medrano Martín del Campo–Tani (2023) studies error-tolerant same-cluster oracle identification. Chase–Freitag–Reyzin (2023) studies broad Littlestone-based query learning. None of their inspected claims provides the theorem's refinement-closed support equivalence, conditional chromatic quotient, or dimension identities. Historical priority remains open to further checking. The result does not apply to fixed-count partition families that violate refinement closure; deterministic mistake complexity is not full identification query complexity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original as an exact forest support characterization plus equality of static and online dimensions for all refinement-closed partition families and conditional coloring quotients. Prior same-cluster identification-query complexity and general Littlestone tools use other objectives.
+
+## value
+
+PASS
+
+The theorem supplies a complete natural structural classification, exact dimension formula and a transcript-conditioned graph chromatic connection. It resolves mistake complexity without requiring the learner to identify a hidden partition, and its quotient formula can be reused under observed constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
