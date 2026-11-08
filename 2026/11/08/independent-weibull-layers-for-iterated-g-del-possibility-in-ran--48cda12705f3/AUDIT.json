@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The finite distributive max-min walk identity reduces each iterated possibility grade to a rooted path bottleneck. For a fixed depth k, (n-1)_k rooted simple paths each have threshold probability (x_k n^{-k/(k+1)})^{k+1}, yielding limiting Poisson mean x_k^{k+1}. Distinct path pairs sharing h primitive variables have at least h common nonroot vertices; overlap-template counting bounds the dependency contribution O(n^{-1/(K+1)}). The exact thresholds for shared variables and dependency-graph Chen–Stein theorem yield a joint Poisson zero-event bound. Repeated-vertex walks with m<k distinct nonroot vertices have at least m independent edge grades plus an independent endpoint mark; their contribution is O(n^{(m-k)/(k+1)}). This gives joint Weibull upper-orthant limits with independent components. A finite standalone checker verifies walk identities and pair-overlap templates; finite checks alone are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arratia–Goldstein–Gordon 1989 gives a general dependency-graph Poisson bound, requiring a new model-specific overlap estimate.",
+        "No directly dominating joint fixed-depth max-min modal limit theorem was identified in the inspected published sources.",
+        "Mallein–Tesemnikov 2022 has Poisson path counts between two fixed endpoints in a sparse acyclic directed Barak–Erdős graph; it does not directly give marked-terminal path events with depth-dependent thresholds or their joint limits."
+      ],
+      "reasoning": "The general Poisson inequality alone does not imply the result without the overlap relation h<=v and separate nonsimple-walk control. A broad theorem for thresholded path-existence counts could cover it, but none was verified. This is an explicit residual priority risk, not a uniqueness proof. Mallein–Tesemnikov 2022 uses the Chen–Stein technique for fixed-endpoint paths in sparse acyclic directed graphs; neither its indexed theorem nor the objects alone supply the present marked-terminal, shared-valuation joint law.",
+      "searches": [
+        "Random max-min powers of dense iid uniform weighted directed adjacency matrices with terminal iid independent random marks, rooted bottleneck walk extremes for fixed k and asymptotic independent Weibull layers",
+        "Poisson limiting counts of high-threshold rooted directed paths with endpoint Bernoulli marks in random digraph; depth dependent Weibull extreme value law",
+        "\"max-min powers\" random matrices limit law",
+        "\"widest path\" \"random complete graph\" length k distribution",
+        "\"Poisson approximation\" \"rooted paths\" different lengths independent random graph"
+      ]
+    },
+    "checked_sources": [
+      "Ferrari et al., arXiv:2606.31906, full accessible article",
+      "Eliazar–Metzler–Reuveni 2019, abstract and indexed passages",
+      "Arratia–Goldstein–Gordon 1989, Poisson bound indexed theorem",
+      "Diaconescu et al. 2020, abstract",
+      "Published mathematical result on ordinal regrading finite Gödel frames, indexed statement",
+      "AiML 2026 proceedings arXiv:2606.29444, public submission date and paper-20 cross-reference",
+      "Mallein–Tesemnikov 2022, arXiv:2112.14932, abstract and indexed Poisson path-count passage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferrari et al. 2026 identifies finite max-min modal semantics; it gives no stochastic input or distributional limit.",
+        "Eliazar et al. 2019 derives Gumbel maxima of independent row-minimum quantities; here dependent multi-edge paths lead to independent but different-shape Weibull limits across depths.",
+        "The 1989 dependency graph theorem guarantees an approximation after proving overlap moment estimates, not the estimates themselves.",
+        "Mallein–Tesemnikov 2022 identifies a related Poisson path-count mechanism in a different directed graph ensemble; any implication requires additional transformations and overlap analysis."
+      ],
+      "reasoning": "The semantic paper implies the walk identity but not the exact random asymptotics. The max-min random matrix work involves distinct operations and dependence. General Poisson approximation plus new combinatorial counting proves the theorem; it does not state it as an existing corollary with specified intensity and rate.",
+      "searches": [
+        "Random Gödel modal Kripke models: iid uniform fuzzy accessibility matrix and truth degrees, iterated diamond depth k, max-min over length-k walks has Weibull limit exp(-x^{k+1}) at scale n^{-k/(k+1)}; joint independent limits across depths",
+        "Random max-min powers of dense iid uniform weighted directed adjacency matrices with terminal iid independent random marks, rooted bottleneck walk extremes for fixed k and asymptotic independent Weibull layers",
+        "Poisson limiting counts of high-threshold rooted directed paths with endpoint Bernoulli marks in random digraph; depth dependent Weibull extreme value law",
+        "\"Poisson-process limit laws yield Gumbel max-min and min-max\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferrari et al. 2026 full-text result concerns witnessed semantics and completeness, without distributions.",
+        "Published finite Gödel-frame ordinal-regrading result addresses invariance of validity under monotone regrading.",
+        "Eliazar et al. 2019 abstract concerns entry-wise independent row/column max-min extremes rather than iterated paths."
+      ],
+      "reasoning": "The proposed equivalences are max-min matrix powers, random bottleneck paths with terminal marks, and random many-valued modal formulas. The 2019 matrix row/column functional does not imply a limiting law for shared directed walks. Ordinal regrading of finite-frame validity does not imply any joint random-value distribution.",
+      "searches": [
+        "Random Gödel modal Kripke models: iid uniform fuzzy accessibility matrix and truth degrees, iterated diamond depth k, max-min over length-k walks has Weibull limit exp(-x^{k+1}) at scale n^{-k/(k+1)}; joint independent limits across depths",
+        "Random max-min powers of dense iid uniform weighted directed adjacency matrices with terminal iid independent random marks, rooted bottleneck walk extremes for fixed k and asymptotic independent Weibull layers",
+        "\"random fuzzy Kripke\" \"Weibull\" iterated diamond",
+        "\"random fuzzy matrix\" \"max-min\" \"Weibull\" powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ordinal regrading classes of finite Gödel Kripke frames (published research summary, 2026): finite-frame validity invariant under endpoint-anchored weak-order regradings, not a random-frame distribution.",
+        "The current finite checker generates no prior numerical tables and supplies no infinite-valued census."
+      ],
+      "reasoning": "The claim is a joint asymptotic distribution over an evolving random-model ensemble, not an entry of a finite-frame census or standard table. The closest published finite-frame order-class record does not determine distributions of the sampled grades.",
+      "searches": [
+        "Random Gödel modal Kripke models: iid uniform fuzzy accessibility matrix and truth degrees, iterated diamond depth k, max-min over length-k walks has Weibull limit exp(-x^{k+1}) at scale n^{-k/(k+1)}; joint independent limits across depths",
+        "Poisson limiting counts of high-threshold rooted directed paths with endpoint Bernoulli marks in random digraph; depth dependent Weibull extreme value law",
+        "\"random Gödel Kripke\" \"extreme\" box diamond",
+        "\"max-min\" \"random matrix\" \"Poisson\" path"
+      ]
+    },
+    "rationale": "Inspected full Gödel witnessed-model semantics and theorems of Ferrari et al. (2026); they study calculi, finite-model theory and complexity rather than iid random fuzzy frames. Eliazar, Metzler and Reuveni (2019) study row/column extremes of independent-entry random matrices, not iterative graph-path max-min composition with a common terminal valuation. The Arratia–Goldstein–Gordon (1989) bound is a tool, not the claim. Targeted published-record semantic searches found a finite-frame ordinal-regrading classification but no asserted joint Weibull law. Specialized probabilistic priority remains a nonzero risk.",
+    "residual_risks": [
+      "The specialist literature on random max-min matrix powers and random rooted path bottlenecks was not exhaustively inspected and may contain an equivalent result.",
+      "Some relevant older articles and mathematical records were available only as abstracts or indexed result descriptions; absence of matching statements there does not establish absence from their full texts.",
+      "The Poisson approximation theorem is cited and applied, not independently proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proceedings v1 publicly submitted 2026-06-28; it collects accepted full papers including the separately available Ferrari et al. article (submitted individually 2026-06-30)",
+        "evidence": "arXiv:2606.29444 timestamp 2026-06-28T15:10:35Z and EPTCS 447 paper 20 DOI 10.4204/EPTCS.447.20.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.29444",
+        "material_read": "Proceedings abstract and first-public submission timestamp, plus independent published article-to-proceedings cross-reference",
+        "method": "Matched Ferrari et al. article to EPTCS volume 447 paper 20, and the volume arXiv v1 timestamp",
+        "title": "Proceedings of the Sixteenth International Conference on Advances in Modal Logic",
+        "trigger": "Verify earliest public source for motivating finite witnessed Gödel semantics"
+      },
+      {
+        "assessment": "Provides finite witnessed max-min semantics, but no random-frame asymptotic theorem in inspected full text",
+        "evidence": "Ferrari, Fiorentini, Giardini, Rodriguez (first public 2026-06-30), finite witnessed models and proof system.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.31906",
+        "material_read": "Full accessible HTML sections, including modal semantics, axiomatization, completeness, finite model property and conclusions",
+        "method": "Examined article text and theorem statements for random frames, repeated diamond and extremal distributions",
+        "title": "A Gödel Modal Logic Over Witnessed Models",
+        "trigger": "Direct motivating semantics and possible same-domain result"
+      },
+      {
+        "assessment": "Independent-entry row/column matrix max-min extrema and Gumbel laws, not shared multi-step rooted paths and independent across-depth Weibull distributions; full text remains priority risk",
+        "evidence": "Eliazar, Metzler, Reuveni 2019, Physical Review E 100, 022129.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.100.022129",
+        "material_read": "Accessible abstract and indexed descriptive passages; full article not completely inspected",
+        "method": "Compared matrix functional and random input dependence in abstract and bibliographic results",
+        "title": "Poisson-process limit laws yield Gumbel max-min and min-max",
+        "trigger": "Closest random max-min matrix work"
+      },
+      {
+        "assessment": "Standard method usable after proving new pair-overlap estimates; not direct coverage of Gödel semantics",
+        "evidence": "Arratia, Goldstein, Gordon 1989, Annals of Probability 17, 9–25.",
+        "identifier_or_url": "https://projecteuclid.org/euclid.aop/1176991491",
+        "material_read": "Indexed theorem and bibliographic description of dependency-graph bound",
+        "method": "Matched dependency neighborhoods and b1,b2,b3 hypotheses to indicators of simple rooted paths",
+        "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+        "trigger": "Critical cited bound used in proof"
+      },
+      {
+        "assessment": "Not covering within accessible statement; uninspected full material remains a historical-priority caveat",
+        "evidence": "Summary concerns finite labelled frames and monotone regrading preserving formula validity, not random threshold path counts.",
+        "identifier_or_url": "Published mathematical finding: ordinal regrading classes of finite Gödel Kripke frames (2026)",
+        "material_read": "Indexed published summary only, not full document",
+        "method": "Compared summary theorem (weak-order equivalence of finite labelled frames) with new random-weight fixed-depth limit law",
+        "title": "Ordinal regrading classes of finite Gödel Kripke frames",
+        "trigger": "Highest-ranked related published mathematical record for fuzzy-frame searches"
+      },
+      {
+        "assessment": "Bisimilarity result not direct coverage of probabilistic limiting laws, but text not fully inspected",
+        "evidence": "Diaconescu et al. 2020, Fundamenta Informaticae 173, 177–189.",
+        "identifier_or_url": "https://doi.org/10.3233/FI-2020-1920",
+        "material_read": "Indexed abstract and bibliographic statement, not full paper",
+        "method": "Compared bisimulation/equivalence questions to random max-min iteration",
+        "title": "Modal Equivalence and Bisimilarity in Many-valued Modal Logics with Many-valued Accessibility Relations",
+        "trigger": "Earlier full many-valued accessibility framework"
+      },
+      {
+        "assessment": "The source proves path-count Poisson behavior for paths joining two fixed endpoints in an ordered acyclic model; does not directly state shared-terminal random Gödel grades or joint independent Weibull limits across modal depths. A broader reduction has not been established.",
+        "evidence": "Mallein–Tesemnikov, arXiv:2112.14932, Statistics & Probability Letters 190 (2022); directed edges only i<j and varying sparsity.",
+        "identifier_or_url": "https://arxiv.org/abs/2112.14932",
+        "material_read": "ArXiv abstract and accessible indexed passage describing a Poisson approximation for a path-count statistic; entire paper not inspected",
+        "method": "Compared source-target path in an acyclic ordered sparse digraph with root-to-arbitrary-marked-terminal directed walk and multiple grade thresholds",
+        "title": "On the length of the shortest path in a sparse Barak–Erdős graph",
+        "trigger": "Potential stronger Poisson limit for constrained directed path counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "48cda127-05f3-4128-90dd-c777fe7aab0d",
+  "value": {
+    "rationale": "Determines the exact fluctuation scale n^{-k/(k+1)} and Weibull shape k+1 for every fixed iterate of a central many-valued modal operator, together with the non-obvious independence of all finite collections of layers despite reuse of a single sampled frame and valuation. This is a structural probability law for a motivated semantic ensemble, not a finite checksum or routine reparametrization.",
+    "status": "PASS"
+  }
+}

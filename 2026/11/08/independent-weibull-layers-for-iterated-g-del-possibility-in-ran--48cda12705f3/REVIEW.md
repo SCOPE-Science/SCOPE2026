@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The finite max–min distributivity identity turns each modal iterate into the bottleneck of a rooted directed walk. The proof gives the exact rare simple-path means, proves a shared-constraint overlap inequality for every pair of distinct rooted simple paths, invokes a standard dependency-graph Poisson bound with vanishing interaction sums, and separately controls all nonsimple walks. The standalone checker verified binary-model semantics and overlap templates through length five; an additional replay from final packaged bytes is performed as an integrity check before delivery. Boundary cases are specified: finite models, loop-inclusive iid uniform directed weights, one independently sampled atomic proposition, and fixed depths.
+
+**Originality — PASS within inspected evidence.** The motivating 2026 paper proves a calculus and finite model property, not random modal-depth asymptotics. The 2019 max–min paper treats independent-entry matrix row/column extrema, not iterated max–min powers on a shared random directed graph with terminal marks. The 1989 Poisson bound is used as a standard method; the present shared-path overlap lemma is necessary to derive the claimed joint independence. Relevant published research records on finite Gödel-frame order-regrading and fuzzy frame combinatorics were compared by implication and do not state a stochastic iterated-depth limit. Residual risk: specialized random max–min matrix and random-graph literature might contain an equivalent fixed-depth result.
+
+**Mathematical value — PASS.** This identifies a parameter-free, natural random Gödel semantic model for which every fixed modal depth has a distinct exact scaling exponent and a Weibull law of order \(k+1\). The independent **joint** limit is structurally informative because the layers share all underlying samples. It furnishes an explicit probabilistic baseline for iterated possibility, rather than a small finite table or a simple one-step consequence.
+
+The result is restricted to the stated random ensemble and fixed depths; no assertion is made about all frames or growing modal depth.
+
+Self-review: passed. Independent audit: not yet performed.
