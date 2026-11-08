@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Substitution gives an exact stochastic affine update; independent Gaussian moments give two closed nonnegative moment recurrences. Strictly positive finite-difference forcing proves sharp divergence at and beyond rho=1, while rho<1 and A<1 give exact stationary limits. The identity rho-A=eta^2(m+1) gives the universal divergent ratio. General proof is algebraic; attached finite checks confirm critical moment identities and selected cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "esGs uses exponentially shifted Gaussian rather than projected CV-ZOD",
+        "Ghadimi--Lan general stochastic zeroth-order convergence and complexity concern a different estimator/context"
+      ],
+      "reasoning": "A general Gaussian-moment formula is a usable ingredient, but the stated publications do not directly provide the exact fixed-hint triangular recurrence or the divergent energy partition. Unread antecedent text remains a recorded risk.",
+      "searches": [
+        "Gaussian zeroth order gradient variance oracle projection hint subspace exact stationary second moment unhinted dimension",
+        "randomized gradient descent projected gradient control variate sharp stability threshold d-k 2/(m+2)",
+        "arxiv:2604.15525 Sections 1.1 and 1.3",
+        "arxiv:1309.5549 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.08277v1: method and major proofs read",
+      "arxiv:2604.15525: estimator and introductory principal-results sections read",
+      "arxiv:1309.5549: abstract read only",
+      "Published mathematical findings returned by recorded semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main source proves variance-descent and finite-horizon stationarity bounds for the oracle-gradient control variate, not a necessary-and-sufficient constant-step second-moment stability criterion",
+        "The distinct esGs gradient estimator has different sampling law and control structure"
+      ],
+      "reasoning": "The proposed theorem needs a distinct blockwise conditional moment propagation, including positive Gaussian sixth-moment forcing. A sufficient high-probability bound cannot imply sharp divergence at the critical eta or the limiting hinted/unhinted energy partition.",
+      "searches": [
+        "arxiv:2609.08277 Eq. (2), Eq. (4), Theorem 3.4 and Appendix C",
+        "arxiv:2604.15525 Eq. (1.3)",
+        "CV-ZOD directional hints oracle zeroth order Gaussian exact mean square stability codimension isotropic quadratic",
+        "control variate zeroth order descent sharp mean square quadratic stability Gaussian sampling finite difference"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source defines the Gaussian estimator G(x,m;u) and oracle m=P_S grad f but gives generic balance bounds",
+        "The new proof reduces to an affine triangular 2x2 moment matrix with multiplier 1-2eta+(m+2)eta^2"
+      ],
+      "reasoning": "Equivalent analysis would require the fixed-subspace projected Gaussian residual block, its codimension-specific fourth moment, and the exact long-time second-moment threshold; the source's generic d-weighted variance bound and high-probability martingale estimate do not give them.",
+      "searches": [
+        "CV-ZOD directional hints oracle zeroth order Gaussian exact mean square stability codimension isotropic quadratic",
+        "control variate zeroth order descent sharp mean square quadratic stability Gaussian sampling finite difference",
+        "arxiv:2609.08277 Sections 3.1--3.3 and Appendix C"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published records concern Haar SSD and Loopless SVRG, not exact projected-Gaussian CV-ZOD",
+        "The current-week and prior-week accessible own research ledgers were searched for control-variate, hint and codimension aliases without an overlapping claim"
+      ],
+      "reasoning": "No located exact database table or published finding provides the stated sharp k,d,eta,tau formulas. This is not a uniqueness claim or a proof from nonmatching searches.",
+      "searches": [
+        "CV-ZOD directional hints oracle zeroth order Gaussian exact mean square stability codimension isotropic quadratic",
+        "control variate zeroth order descent sharp mean square quadratic stability Gaussian sampling finite difference",
+        "Gaussian zeroth order gradient variance oracle projection hint subspace exact stationary second moment unhinted dimension",
+        "Published published-finding corpus search hits 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "Published published-finding corpus search hits 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834"
+      ]
+    },
+    "rationale": "The exact two-block Gaussian CV-ZOD moment dynamics yields the sharp residual-codimension stability threshold, universal divergent energy partition, and arbitrarily large transient; Sections 3--4 and Appendix C of the motivating method provide generic bounds but no such exact classification. The exact recurrence is not a corollary of the compared published record statements, though broader historical priority remains uncertain.",
+    "residual_risks": [
+      "Historical exact projected-Gaussian quadratic stability analysis outside the searched corpus could dominate the claim",
+      "Ghadimi--Lan and the full nonintroductory esGs text were not exhaustively inspected; no absence claim is made from snippets",
+      "The oracle-reference quadratic case is outside the motivating paper's globally bounded-gradient hypothesis for its general convergence theorem"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces estimator and general variance-descent/stationarity bounds but not the exact infinite-horizon codimension-controlled moment recursion, critical growth or divergent energy partition",
+        "evidence": [
+          "Section 3.1, Eq. (2), Lemma 3.3",
+          "Section 3.3, Eq. (4)",
+          "Section 4.2, Theorem 4.4",
+          "Appendix C, proof of Theorem 3.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.08277",
+        "material_read": "Accessible full source Sections 2--4 (including Eqs. 2, 4, 6 and Theorem 3.4), Appendix C's key Gaussian-moment and finite-horizon proof passages",
+        "method": "Compared exact conditional update and quantifiers with Sections 3--4 and Appendix C; inspected estimator, oracle-reference and rate statements",
+        "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+        "trigger": "Exact method, oracle projected hints and finite-difference bias/variance"
+      },
+      {
+        "assessment": "Different exponentially shifted Gaussian estimator, problem class and rate notion; cited dimension-reduction guarantees do not directly imply the specific fixed-hint triangular moment identity",
+        "evidence": [
+          "Eq. (1.3)",
+          "Sections 1.1 and 1.3",
+          "Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.15525",
+        "material_read": "Accessible full source introductory estimator definition, Sections 1.1 and 1.3, comparison and main contribution descriptions; remaining sections not fully read",
+        "method": "Compared esGs estimator and its moment/complexity guarantees with the exact projected control-variate estimator",
+        "title": "Complexity Guarantees for Zeroth-order Methods via Exponentially-shifted Gaussian Smoothing: Mitigating Dimension-dependence and Incorporating Decision-dependence",
+        "trigger": "Potential broader dimension-reduction result for Gaussian zeroth-order methods"
+      },
+      {
+        "assessment": "General stochastic approximation and zeroth-order complexity are antecedents; cannot assert absence of related exact examples from uninspected full text",
+        "evidence": [
+          "Abstract and SIAM Journal on Optimization bibliographic abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.5549",
+        "material_read": "Abstract and indexed publication scope only; primary full text not inspected",
+        "method": "Compared available abstract and cited general Gaussian estimator context to the new oracle-reference specialization",
+        "title": "Stochastic First- and Zeroth-Order Methods for Nonconvex Stochastic Programming",
+        "trigger": "Classical Gaussian zeroth-order gradient descent predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e740065d-4b53-48be-8f95-208e1b0760c8",
+  "value": {
+    "rationale": "The distinction between ambient dimension and unhinted codimension is algorithmically motivated: the exact mean-square ceiling can stay dimension-free for a single unhinted direction, even as one-step transient excess grows linearly in dimension. The exact critical growth, divergent energy partition and finite-difference stationary floor supply substantive benchmarks for hint-selection and step safeguards, beyond a routine Gaussian variance coefficient.",
+    "status": "PASS"
+  }
+}
