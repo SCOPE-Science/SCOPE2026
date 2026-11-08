@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The state (m,r) is sufficient because exactly m^2-r eligible edges remain and the overlap decreases by 0, 1, or 2 with multiplicities (m-r)^2, 2r(m-r), and r(r-1). The m=1 boundary exactly characterizes failure. The normalized first-moment identity telescopes; the survival probability for two tagged common labels is bounded above and below by explicit products, yielding uniformly E[(R_m)_2]=[(m)_2]^2/[n(n-1)] (1+O(1/m)) for 3<=m<=n. Inserting this in the exact drift identity proves the 4 log n/[n(n-1)] correction with O(n^-2) remainder. Independent labelled-subset enumeration and forward-state computations reproduce the exact recurrence and drift identity for n<=6 using rational arithmetic. Numerical checks are not used as a proof of any infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gamarnik–Goldberg arXiv:0807.1277, Theorem 5 (PDF p.7), supplies general expected-matching-size bounds for fixed regular graphs of girth at least four.",
+        "Mastin–Jaillet arXiv:1307.2536, Theorems 3–4 (PDF pp.2–3), treat an online vertex-arrival algorithm on an independent-edge random bipartite graph, not uniform-edge selection on this fixed family.",
+        "Dyer–Frieze 1991 is directly pertinent but full text inaccessible."
+      ],
+      "reasoning": "Theorem 5 may apply to crown graphs for n>=4 (girth four, degree n-1), but its two-sided bounds on normalized mean matching size do not entail the exact failure probability, much less the log-order correction. The online model uses a different distribution over sequences. General underlying definitions do not imply the specific asymptotics without a new argument.",
+      "searches": [
+        "Dyer Frieze 1991 randomized greedy matching random edge fixed graph crown K_n,n minus perfect matching",
+        "0807.1277 randomized greedy matching regular graphs crown graph",
+        "arxiv:0807.1277 theorem 5 greedy matching regular graphs girth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0807.1277v1 (2008-07-08), model/introduction/Theorem 5",
+      "arXiv:1307.2536v1 (2013-07-09), online model and theorem statements",
+      "Dyer–Frieze 1991 DOI:10.1002/rsa.3240020104, abstract only",
+      "Published studies of crown-graph non-CIS counts, cyclic-graph maximal matchings and random greedy independent sets"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gamarnik–Goldberg Theorem 5 bounds E|matching|, whereas here E|matching|=n-p_n and a sharp order-(log n)/n^2 correction is asserted for p_n.",
+        "Record “Exact random greedy maximal independent set law on chain graphs” concerns random-order maximal independent sets on chain graphs; record 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f concerns independent-set variance on complete multipartite graphs."
+      ],
+      "reasoning": "The source theorem does not specify a bound with an error smaller than the rare-event correction, so it cannot imply the coefficient four. The comparison records concern different algorithms or graph parameters, even where graph family names are similar. Prior fixed-edge random graph covariance claims count degree classes under a nonadaptive random-subgraph law and do not imply the greedy process.",
+      "searches": [
+        "Dyer Frieze 1991 randomized greedy matching random edge fixed graph crown K_n,n minus perfect matching",
+        "0807.1277 randomized greedy matching regular graphs crown graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The failure event is equivalent to a leftover diagonal pair at m=1 and to the greedy maximal matching having n-1 edges; the checked searches yielded no same-event probability result.",
+        "Dyer–Frieze 1991 describes random remaining-edge greedy selection for a fixed graph; publisher-accessible abstract does not state the crown specialization."
+      ],
+      "reasoning": "The failure probability is also the probability that exactly one common label survives in the two residual sides; this is an exact equivalent formulation, not a new claim. Searches for greedy derangement failure and sequential matching with one forbidden diagonal produced only related greedy-matching methods or unrelated crown-graph invariants.",
+      "searches": [
+        "random edge greedy matching complete bipartite graph minus diagonal failure probability 2/n 4 log n/n^2",
+        "random sequential matching K_n,n minus matching final unmatched vertex Markov chain exact",
+        "random greedy matching crown graph complete bipartite minus perfect matching probability nonperfect asymptotic 2/n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record “Exact non-CIS pair count for matching-deleted complete bipartite graphs” computes non-CIS maximal-clique/stable-set pairs of the crown graph, not random greedy matching.",
+        "Record “Sharp lower bound for average maximal matchings in cyclic graphs” concerns average size over maximal matchings in cyclic graphs; that sampling law is distinct from random sequential edge selection."
+      ],
+      "reasoning": "No queried record supplied the values 0, 1/3, 4/21, 4/21 for n=2..5 as the same event nor an equivalent formula. A database nonhit cannot prove novelty; the implication comparison rests on the distinct measured objects and probability measures.",
+      "searches": [
+        "random edge greedy matching complete bipartite graph minus diagonal failure probability 2/n 4 log n/n^2",
+        "random sequential matching K_n,n minus matching final unmatched vertex Markov chain exact"
+      ]
+    },
+    "rationale": "After comparing the specific adaptive edge-selection law and rare failure probability against accessible primary theorem statements and relevant published record summaries, no prior result examined states or implies the exact overlap recursion together with the second-order logarithmic constant 4. The best direct older precedent defines the same greedy algorithm, but its complete text could not be accessed; historical implicit coverage remains a documented priority risk, not an assertion of proven uniqueness.",
+    "residual_risks": [
+      "Original Dyer–Frieze 1991 article uses the same algorithm; its complete text was inaccessible and could conceivably include an equivalent crown-graph calculation.",
+      "Other older randomized matching/derangement analyses may implicitly contain the rare-failure asymptotic even without matching terminology.",
+      "Similarity search and title screening are not proofs of mathematical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the precise claim in the inspected theorem: bounds on expected matching size under girth hypotheses, not a sharp rare failure probability for crown graphs",
+        "evidence": [
+          "arXiv:0807.1277v1 dated 2008-07-08",
+          "Theorem 5, PDF p.7; introduction and definitions, PDF pp.2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0807.1277",
+        "material_read": "PDF page 1 abstract; pages 2–3 model, prior work and proof approach; page 7 Theorem 5 and Corollary 5; text search across the paper for complete bipartite and matching",
+        "method": "Full-text PDF text, with visual confirmation of pages 2 and 7",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Same uniform-edge greedy matching algorithm and regular-graph scope"
+      },
+      {
+        "assessment": "NOT_COVERING: vertex arrivals with independent random graph edges, unlike the uniform-edge fixed crown graph process",
+        "evidence": [
+          "arXiv:1307.2536v1 dated 2013-07-09",
+          "Theorems 3–4 and model description, PDF pp.1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.2536",
+        "material_read": "PDF pages 1–3 including online model, Theorems 3–4, and literature comparisons",
+        "method": "Full-text PDF text, with visual confirmation of first page",
+        "title": "Greedy Online Bipartite Matching on Random Graphs",
+        "trigger": "Bipartite greedy matching with asymptotic performance"
+      },
+      {
+        "assessment": "UNRESOLVED plausible implicit priority; no whole-document noncoverage judgment is made",
+        "evidence": [
+          "Dyer and Frieze, Random Structures & Algorithms 2 (1991), 29–45; abstract specifies uniform random remaining edges"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract, bibliographic details and listed scope only; no full text",
+        "method": "No full text could be obtained from lawful open sources; only the publisher abstract was read.",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational original fixed-graph random-edge matching article"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "774adbe6-6cb8-46b1-ade1-4bc54f7a3957",
+  "value": {
+    "rationale": "A crown graph is the simplest natural dense regular bipartite family obtained by deleting one perfect matching; it still has perfect matchings, whereas greedy matching can make an irreversible error. The exact probability of that error is an algorithmically meaningful rare-event invariant. The leading constant 2 and the strictly negative logarithmic correction quantify the precise reliability lost to sequential forbidden-pair avoidance, beyond a generic near-perfect-matching statement. The two-tag overlap method is structural, applies uniformly in n, and does not amount to a table lookup or arbitrary small-size census.",
+    "status": "PASS"
+  }
+}
