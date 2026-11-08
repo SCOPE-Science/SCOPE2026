@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The exact master equation specifies offdiagonal dephasing rate gamma and trap population loss kappa. A positive-density Hilbert--Schmidt dissipation identity and connectivity prove certain capture for gamma>0; an eight-coordinate symmetry reduction yields all integrated terms, including the same-part two-site boundary. Strict convexity proves optimum uniqueness; exact derivative scaling proves distinct root and excess limits. The independent unreduced density-matrix solver passed 106 comparisons/optimization tests. Risk: coherent gamma=0 is asserted only in the source sector proved free of accessible dark states.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alterman--Berman--Strauch (2023 preprint; 2024 journal), sections II, III and V: arbitrarily large *fully connected* networks are solved with complete-graph adjacency and another rate convention; Section V examines a different optimization problem.",
+        "Known star-graph trap calculations handle the singleton-side limit, which is not part of the present two-sided theorem.",
+        "Kassal--Aspuru-Guzik (2012) gives a general finite-system Gaussian-elimination procedure, not an explicit all-size solution for bicliques."
+      ],
+      "reasoning": "A general inverse-Liouvillian prescription mathematically allows computing any fixed finite instance, but does not establish the closed formulas, two-source convexity dichotomy, or the distinct asymptotic square-root constants. Complete graphs and stars are not the two-sided graphs studied here; singleton-side star limits are expressly excluded.",
+      "searches": [
+        "environment-assisted quantum transport bipartite network trap analytical 2011 2024",
+        "optimal conditions for environment-assisted quantum transport fully connected network arxiv:2309.00164",
+        "Haken Strobl dephasing star graph trap mean trapping time analytical"
+      ]
+    },
+    "checked_sources": [
+      "Kassal and Aspuru-Guzik 2012 arxiv:1201.5202",
+      "Caruso et al. 2009 arxiv:0901.4454",
+      "Alterman Berman and Strauch arxiv:2309.00164",
+      "Gaab and Bardeen 2004 doi:10.1063/1.1786922 (abstract only)",
+      "Marais et al. arxiv:1401.6660 (abstract only)",
+      "Prior exact star trapping claim (singleton-side case, excluded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Caruso et al. (2009), Appendix A.3, computes a Laplace transform for a uniform fully connected network and asymptotic capture; no exact two-part first-capture means.",
+        "Alterman et al., Section V, finds complete-network optimal transport conditions and a square-root network-size scale, but no source-dependent biclique coefficients.",
+        "Gaab--Bardeen (2004) abstract identifies the role of network geometry and optimal coherence rate, but its full text was unavailable; no negative whole-document assessment is made."
+      ],
+      "reasoning": "The exact statement is stronger and more specialized than the known qualitative principle that dephasing may accelerate trapping. It fixes the adjacency, generator, both site orbits, loss normalization, explicit means and asymptotic constants; the sources examined do not imply all these by substitution. The unavailable 2004 paper remains an explicit historical-priority risk.",
+      "searches": [
+        "The effects of connectivity coherence trapping Gaab Bardeen 2004 Haken Strobl full text",
+        "Caruso highly efficient excitation transfer 0901.4454 appendix",
+        "arxiv:2309.00164 mean transfer time optimal dephasing fully connected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kassal--Aspuru-Guzik (2012), sections 1--4: its adjacency is a one-dimensional chain or ring; no biclique source classes.",
+        "Caruso et al. (2009), section II and Appendix A.3: its exact collective equations assume a fully connected graph, not a complete bipartite graph."
+      ],
+      "reasoning": "Replacing the complete-graph or nearest-neighbor adjacency by a two-sided biclique is not a reparametrization of those results: it removes every intrapart edge and creates two inequivalent source orbits. Their formulas contain no pair of biclique mean first-capture times or their separate optimal-noise constants.",
+      "searches": [
+        "Haken Strobl complete bipartite trapping time dephasing exact formula",
+        "dephasing assisted transfer complete bipartite K m n trap quantum walk",
+        "quantum walk Lindblad complete bipartite graph absorbing sink uniform dephasing mean",
+        "arxiv:1201.5202; arxiv:0901.4454"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible exact comparisons give a star-graph formula and full-graph formulas, not a table of this two-parameter biclique family.",
+        "Kassal--Aspuru-Guzik (2012), Table 1, enumerates ordered-chain examples only."
+      ],
+      "reasoning": "The examined tables do not contain the exact biclique family or parameter-dependent source cases. A finite table for fixed graphs would in any event require a separate implication to prove these all-size identities. Absence from indexed results is not a uniqueness proof.",
+      "searches": [
+        "continuous-time quantum transport complete bipartite graph dephasing trap mean first passage published",
+        "Haken Strobl complete bipartite trapping time dephasing exact formula",
+        "dephasing assisted transport bipartite graph optimal decoherence complete bipartite"
+      ]
+    },
+    "rationale": "The examined complete-network, chain and ring theorems and the known singleton-part star formula do not state or mathematically imply the all-size two-sided biclique source-resolved first-capture identities or their distinct asymptotic optimizers. Related inaccessible material and unindexed equivalent calculations remain priority risks; the review does not establish independent publication priority.",
+    "residual_risks": [
+      "Full text of Gaab--Bardeen 2004 was not accessible; cannot assert whole-document noncoverage.",
+      "An unindexed exact solution or equivalent transfer-matrix derivation may exist.",
+      "General finite-Liouvillian inversion procedures exist, so originality rests on the two-source explicit all-size biclique classification and its derived asymptotic consequences, not on inventing resolvent methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_IMPLY: nearest-neighbor chains and rings with bulk-loss efficiency rather than two-part all-size mean capture",
+        "evidence": [
+          "Eq. (1) is a nearest-neighbor chain Hamiltonian; Sec. 2.3 Table 1 is on chains; Sec. 3 is on circles."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1201.5202v2",
+        "material_read": "HTML sections 1 through 5 and relevant table; model equations, exact-chain calculation, finite and infinite chain, circle, conclusions",
+        "method": "Direct full HTML reading with examination of equations and section scope",
+        "title": "Environment-assisted quantum transport in ordered systems",
+        "trigger": "Focal 2012 model for site-dephased ordered energy transfer and source/trap positioning"
+      },
+      {
+        "assessment": "DOES_NOT_IMPLY: fully connected network calculations are not biclique with two independent source orbits",
+        "evidence": [
+          "Section II specifies equal coupling between every distinct pair; Appendix A.3 derives the full-graph Laplace polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0901.4454",
+        "material_read": "Full public text including Introduction, sections II and Appendix A.3--A.5",
+        "method": "Direct public full-text reading and comparison of adjacency, Laplace-resolvent assumptions and observables",
+        "title": "Highly efficient energy excitation transfer in light-harvesting complexes: the fundamental role of noise-assisted transport",
+        "trigger": "Established invariant-subspace and Lindblad theory on an all-to-all network"
+      },
+      {
+        "assessment": "DOES_NOT_IMPLY: exact complete-graph, not bipartite, optimized transfer rate is not the claimed two-source loss-free mean time",
+        "evidence": [
+          "Section II Eq. (1) sets equal coupling between every distinct pair; Section V optimizes the fully connected network."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.00164",
+        "material_read": "Full HTML main text, especially sections II--V and explicit equations (11)--(12), (42)--(49)",
+        "method": "Direct public full-text reading and mathematical comparison of graph, mean-time definition and optimized quantity",
+        "title": "Optimal Conditions for Environment-Assisted Quantum Transport on the Fully Connected Network",
+        "trigger": "Potentially dominating 2023/2024 exact network-size transport optimization"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY_RISK; no claim that its full text excludes an equivalent formula",
+        "evidence": [
+          "The abstract discusses topology and optimal trapping/dephasing conditions without an explicit two-sided biclique all-size theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/1.1786922",
+        "material_read": "Bibliographic and abstract material only; full primary text not accessible",
+        "method": "Checked publisher/published abstract and searched for lawful open-access copies; institutional access was not available",
+        "title": "The effects of connectivity, coherence, and trapping on energy transfer in simple light-harvesting systems studied using the Haken--Strobl model with diagonal disorder",
+        "trigger": "Closest early work on geometry, trapping time and Haken--Strobl rate"
+      },
+      {
+        "assessment": "MODEL_DIFFERENCE_ON_EXAMINED_ABSTRACT: an environmental-spin model of fully connected networks; no decisive full-document comparison claimed",
+        "evidence": [
+          "Abstract explicitly describes a homogeneous fully connected network interacting with environmental spins."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.6660",
+        "material_read": "Article abstract and citation information, not primary full text",
+        "method": "Public abstract review only",
+        "title": "Decoherence-assisted transport in quantum networks",
+        "trigger": "Fully connected network with spin-bath-assisted transport potentially synonymous with dephasing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c43b28cf-e933-4766-acab-433047f0aa33",
+  "value": {
+    "rationale": "The same two-sided dense quantum network has inequivalent noise-optimal transport according to the source partition, including a sharp size-two boundary where all dephasing worsens same-part mean capture. The entire family has explicit mean-time formulas and two different leading square-root dephasing strengths for a growing opposite partition. This is a natural transport-design invariant, not a numerical slice or a restated star-graph formula. Its scope is the physically specified loss-free, uniform dephasing model.",
+    "status": "PASS"
+  }
+}
