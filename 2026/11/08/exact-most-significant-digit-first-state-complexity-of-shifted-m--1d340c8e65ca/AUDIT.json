@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every suffix valuation is either prefix-independent or, for the unique divisibility residue modulo its base power, equals a fixed suffix-length contribution plus the valuation of the prefix shifted by one of K+1 explicit offsets. The K+1-vector is therefore a complete and minimal right-context signature. The depth-H trie of the offset residues exhausts every input prefix: missing-child signatures are directly realized and each marked-leaf variable valuation is realized by arbitrary high powers of the radix. This proves exact reachability, inequivalence and the bound for every b>=2,m>=2,c>=0, including composite radices. The standalone checker performed 896 independent automaton minimizations, 12136 explicit signature-witness tests and 107520 direct arithmetic comparisons; tests only corroborate the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2512.10017v5 (Theorem 5 and Sections 4.2-4.3)",
+        "https://arxiv.org/html/2603.18858v1 (Sections 1-4)",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i3p12 (abstract and bibliographic record)"
+      ],
+      "reasoning": "General shift constructions and addition automata can construct an automaton to minimize, but a construction does not itself assert the exact minimal number for this valuation-residue family. The Fibonacci result uses a distinct sequence and numeration. The translated Thue-Morse-set result enumerates a different characteristic language. A hidden specialization in broader literature is a residual risk.",
+      "searches": [
+        "\"Complexity of Linear Subsequences of k-Automatic Sequences\" addition shifts automata theorem 5",
+        "\"State Complexity of Shifts of the Fibonacci Word\" shifted automaton",
+        "\"Minimal Automaton for Multiplying and Translating the Thue-Morse Set\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2512.10017 (first released 2025-12-10)",
+      "arxiv:2603.18858 (first released 2026-03-19)",
+      "arxiv:2607.17369 (first released 2026-07-19)",
+      "Charlier–Cisternino–Massuir, Minimal Automaton for Multiplying and Translating the Thue-Morse Set (2021, abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing binary LSD-first ruler-state calculation does not logically equate to MSD-first state count; for b=2,m=2,c=10 the minimal counts are 8 (LSD) and 9 (MSD).",
+        "Moradi et al., arXiv:2512.10017, Theorem 5 is a two-input addition relation, and the shifted examples are not modular ruler outputs."
+      ],
+      "reasoning": "The old opposite-direction computation covers a related object, not the same right-context relation, and no digit-reversal preservation of deterministic state minimality exists in general. The new proof explicitly computes MSD-first right contexts and all reachable signature vectors. The checked broader automaton relations yield upper-bound constructions but not the exact formula by direct stated implication.",
+      "searches": [
+        "\"shifted modular ruler\" \"LSD\" \"MSD\" \"state complexity\"",
+        "\"shifted Thue-Morse\" \"state complexity\" \"MSD\"",
+        "\"modular ruler sequence\" \"translated\" \"DFAO\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moradi et al., arXiv:2512.10017, Sections 3-4; https://arxiv.org/html/2512.10017v5",
+        "Kosoy, arXiv:2607.17369, Section 3; https://arxiv.org/abs/2607.17369"
+      ],
+      "reasoning": "Classical kernel counting and output-DFA minimization are equivalent conceptual routes, but the inspected comparison sources do not give the specific offset-vector and radix-trie all-parameter count. The opposite digit convention changes which prefixes are Myhill-Nerode equivalent; the two conventions cannot be identified by terminology alone.",
+      "searches": [
+        "\"shifted ruler sequence\" \"most significant digit\" \"minimal automaton\"",
+        "\"p-adic valuation\" \"DFAO\" \"state complexity\" \"translation\"",
+        "\"modular valuation\" \"MSD\" \"kernel\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2512.10017; https://arxiv.org/abs/2603.18858; https://arxiv.org/abs/2607.17369"
+      ],
+      "reasoning": "No exact table or formula for the stated triple-parametric radix-b, modulus-m, arbitrary-shift MSD-first state count was located in the checked literature. This negative search result is not a mathematical uniqueness proof; potential earlier enumerations remain a priority risk.",
+      "searches": [
+        "\"ruler sequence\" \"minimal automaton\" \"shift\" \"states\"",
+        "\"valuation\" \"automatic sequences\" \"most significant\" states",
+        "\"ruler\" \"state complexity\" \"translation\""
+      ]
+    },
+    "rationale": "The inspected current primary literature studies general automatic shifts, an addition relation, Fibonacci-word shifts, and digit-direction learning, without stating the exact MSD-first shifted modular valuation trie formula. An LSD-first state count for the binary shifted modular ruler is a distinct invariant and does not imply this one (sample state counts 8 and 9). A general minimization algorithm is not an already tabulated exact all-parameter structural formula. Unindexed earlier specializations remain a nonzero historical-priority risk.",
+    "residual_risks": [
+      "An earlier unindexed specialized exact MSD-first modular valuation automaton result may exist.",
+      "An inaccessible or not fully inspected source may include an implied specialization even without matching key phrases.",
+      "The exact count is an explicitly finite signature-set cardinality, not a closed elementary expression, and its asymptotic upper bound may be nonsharp."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad shifts and two-tape addition are studied; no exact single-output MSD modular-valuation trie signature count stated in the inspected material",
+        "evidence": [
+          "Theorem 5: automaton for a two-input addition relation",
+          "Sections 4.2-4.3: shifted Thue-Morse and powers-of-two indicator examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "Full-text HTML sections 3 and 4, including Theorem 5, the shift-complexity examples and related discussion",
+        "method": "Direct primary HTML full-text reading and comparison of objects, input direction and the stated theorem",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Most relevant contemporary base-k automatic-sequence shifts and arithmetic addition automata"
+      },
+      {
+        "assessment": "Fibonacci/Zeckendorf shift problem is distinct from base-b translated valuation output; not a stated special case",
+        "evidence": [
+          "Shifted Fibonacci word in Zeckendorf representation; state-complexity estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Full-text HTML introduction and Sections 3-4 on Fibonacci-word shifts and their automaton constructions",
+        "method": "Direct primary HTML full-text reading; compared numeration system, output language and parameters",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Exact shifted automatic-word state-complexity bounds could dominate a specialization"
+      },
+      {
+        "assessment": "Provides motivation for directional complexity, not an exact valuation-state enumeration",
+        "evidence": [
+          "Section 3 automaticity and direction-dependent complexity formulation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.17369",
+        "material_read": "Accessible primary extracted text, including Section 3 on automaticity and complexity direction",
+        "method": "Read primary preprint text; compared its learning formulation with exact output automaton minimization",
+        "title": "Stringological Sequence Prediction II: Right-to-Left Automaticity and Related Complexity Measures",
+        "trigger": "Relationship of right-to-left and left-to-right digit automaticity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1d340c8e-65ca-45c2-b859-65cf2ee0e1f4",
+  "value": {
+    "rationale": "The shifted modular ruler function is a standard naturally arising automatic sequence. Its exact minimal MSD-first state count is a meaningful invariant not transferred from the known opposite digit direction. The theorem classifies all reachable right-context vectors through an explicit short radix trie for every shift, radix and modulus and yields a constructive minimal DFAO and quadratic-logarithmic size upper bound. It is an all-parameter structural classification rather than a reworded generic minimization algorithm; no claim of sharp asymptotic growth or external application is needed.",
+    "status": "PASS"
+  }
+}
