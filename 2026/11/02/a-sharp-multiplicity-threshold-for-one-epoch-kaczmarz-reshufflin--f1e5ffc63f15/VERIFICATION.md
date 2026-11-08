@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` from this extracted package. No nonstandard Python dependencies are required. The checker uses `fractions.Fraction`, exhaustive word enumeration for manageable sizes, and an independent dynamic program for the number of projection-line switches.
+## correctness
 
-The executed script completed with `PASS: 245 exact-rational assertions`. It compared exact projected iterates against transition-polynomial predictions for \(m=2,3,4,5,6\), verified the symbolic coefficients and switch-count moments over \(m=2,\ldots,14\), and confirmed the three-distinct-row positive risk gap as an exact fraction.
+PASS
 
-These computations are finite diagnostics. The arbitrary-size threshold uniqueness follows from the derivative and convexity argument; the superexponential threshold and the limiting risk ratio follow from the coefficient estimates and rare-event Poisson limit respectively. No external certification or independent scientific audit was conducted.
+An A first projection annihilates e0=a; conditional on exceptional B first, each switch of projection nullspace multiplies squared norm by k. For labeled rows RR gives (1−k)k/m; IID gives (1−k)G_m(k)/m with exact two-state weighted transition. G_m(0)=m^(−(m−1)), G_m(1)=1, G_m''(k)>0 for m≥3, G_m'(1)>1, so exactly one interior zero of G_m(k)−k, with the stated strict risk-reversal signs. For m=2, G=(1+k)/2>k. Splitting into zero/one/multiple switches and Poisson(1) rare exceptional future choices gives κ_m~m^(−(m−1))/(1−e^(−1)) and fixed-k ratio e^(1−k²). Independent exact word and projection enumeration m≤9/5 corroborated the theory and three distinct rational vectors gave the stated positive gap 234845527130732528/396688687243963171875.
+
+## originality
+
+PASS
+
+Qualitative random-reshuffling-not-always-better phenomena occur in prior SGD work (including De Sa), and IID Kaczmarz exact-MSE recurrences are classical. The assessed novelty is the exact multi-m repeated-row, full-step one-epoch expected fixed-vector risk law, unique angular threshold for every m≥3, superexponential collapse, e^(1−k²) ratio and distinct-row witness. No exact dominating theorem was identified in the inspected comparisons; residual finite-epoch specialist priority risk remains.
+
+## value
+
+PASS
+
+A sharp all-multiplicity sampling-policy reversal is mathematically useful for the interpretation of convergence guarantees: even full-rank consistent systems can reverse RR/IID endpoint risk. Exact thresholds and a robust distinct-row witness are not generic SGD rate-bound deductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

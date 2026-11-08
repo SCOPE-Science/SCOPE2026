@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:17:56.133310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An A first projection annihilates e0=a; conditional on exceptional B first, each switch of projection nullspace multiplies squared norm by k. For labeled rows RR gives (1−k)k/m; IID gives (1−k)G_m(k)/m with exact two-state weighted transition. G_m(0)=m^(−(m−1)), G_m(1)=1, G_m''(k)>0 for m≥3, G_m'(1)>1, so exactly one interior zero of G_m(k)−k, with the stated strict risk-reversal signs. For m=2, G=(1+k)/2>k. Splitting into zero/one/multiple switches and Poisson(1) rare exceptional future choices gives κ_m~m^(−(m−1))/(1−e^(−1)) and fixed-k ratio e^(1−k²). Independent exact word and projection enumeration m≤9/5 corroborated the theory and three distinct rational vectors gave the stated positive gap 234845527130732528/396688687243963171875.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Sa 2020 establishes broader qualitative exceptions to reshuffling dominance for stochastic optimization; arXiv:2606.32005 concerns averaged SGD guarantees under small step sizes."
+        ],
+        "reasoning": "Qualitative counterexamples are already known, so the qualitative reversal alone is not new. These schemes/guarantees do not furnish the explicit full Kaczmarz projection, fixed-start, all-m exact polynomial and κ_m formula as an immediate corollary.",
+        "searches": [
+          "Random Reshuffling is Not Always Better Christopher De Sa 2020 full text",
+          "Random Reshuffling Dominates Stochastic Gradient Descent arxiv 2606.32005"
+        ]
+      },
+      "checked_sources": [
+        "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method, https://arxiv.org/html/2410.01140",
+        "Survey of a Class of Iterative Row-Action Methods: The Kaczmarz Method, https://arxiv.org/abs/2401.02842",
+        "Random Reshuffling is Not Always Better, https://papers.nips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities, https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "Resultary semantic search: random reshuffling randomized Kaczmarz with replacement one epoch repeated rows mean square error threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Han–Xie bounds convergence and shows operator-norm examples, while this measures expected Euclidean error from a prescribed vector after exactly m unrelaxed row projections. De Sa counterexamples use stochastic-gradient product constructions."
+        ],
+        "reasoning": "Neither prior theorem directly implies the sharp family-specific threshold, its superexponential decay or exact rational nonparallel-row witness; avoid claiming novelty for the mere existence of some reversal.",
+        "searches": [
+          "Han Xie simple linear convergence randomized reshuffling Kaczmarz arxiv 2410.01140",
+          "De Sa Random Reshuffling is Not Always Better theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han–Xie arXiv:2410.01140 Sections 3.1–3.3 discusses RRK convergence bounds and small matrices; Agaskar–Wang–Lu 2014 studies exact IID MSE."
+        ],
+        "reasoning": "Equivalent formulation is a two-state switch generating polynomial, not just a comparison of average convergence rates; these cited works do not state the root structure or large-m asymptotic.",
+        "searches": [
+          "Kaczmarz sampling without replacement random reshuffling repeated rows one epoch",
+          "random reshuffling randomized Kaczmarz with replacement one epoch repeated rows mean square error threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found related Kaczmarz results including 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1, treating relaxed two-row cycles rather than m−1 repeated rows and RR vs IID."
+        ],
+        "reasoning": "Exact table for κ_m=1/2, (sqrt17−4)/3 and asymptotic not found; this search is nonexhaustive.",
+        "searches": [
+          "random reshuffling randomized Kaczmarz with replacement one epoch repeated rows mean square error threshold",
+          "Kaczmarz duplicate row exact finite sampling angle threshold m table"
+        ]
+      },
+      "rationale": "Qualitative random-reshuffling-not-always-better phenomena occur in prior SGD work (including De Sa), and IID Kaczmarz exact-MSE recurrences are classical. The assessed novelty is the exact multi-m repeated-row, full-step one-epoch expected fixed-vector risk law, unique angular threshold for every m≥3, superexponential collapse, e^(1−k²) ratio and distinct-row witness. No exact dominating theorem was identified in the inspected comparisons; residual finite-epoch specialist priority risk remains.",
+      "residual_risks": [
+        "A specialized older finite-order Kaczmarz comparison may give an equivalent repeated-row switch polynomial.",
+        "De Sa already establishes qualitatively that reshuffling need not improve optimization; only the sharp family formula is claimed original.",
+        "The exact 2014 IID-MSE original was inspected at abstract level only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUNDS NOT EXACT FIXED-START MULTIPLICITY LAW",
+          "evidence": "Published analysis studies RRK convergence and product norms, not the exact word law for one exceptional row.",
+          "identifier_or_url": "https://arxiv.org/html/2410.01140",
+          "material_read": "Full accessible HTML introduction, Section 3 convergence bounds, Section 3.3 and the illustrative examples",
+          "method": "Direct primary full-text comparison",
+          "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+          "trigger": "Same method and finite-epoch products"
+        },
+        {
+          "assessment": "RELATED EMPIRICAL RR VS IID RESULTS",
+          "evidence": "Survey highlights performance comparisons, not every-m exact risk reversal thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.02842",
+          "material_read": "Accessible full-text sampling methods and empirical comparison sections",
+          "method": "Read central sections and contrasted objective",
+          "title": "Survey of a Class of Iterative Row-Action Methods: The Kaczmarz Method",
+          "trigger": "Same row-sampling comparison"
+        },
+        {
+          "assessment": "QUALITATIVE COUNTEREXAMPLE PRIORITY ACKNOWLEDGED",
+          "evidence": "Demonstrates sampling-policy reversal can occur in optimization; does not in inspected statements assert this exact Kaczmarz-switch polynomial.",
+          "identifier_or_url": "https://papers.nips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "Original paper PDF abstract and proof setting; first page rendered, discussion of general reshuffling counterexamples",
+          "method": "Primary PDF opened and page image inspected",
+          "title": "Random Reshuffling is Not Always Better",
+          "trigger": "Plausibly broader reversal prior"
+        },
+        {
+          "assessment": "POSSIBLE BACKGROUND NOT FULLY INSPECTED",
+          "evidence": "IID fixed-policy MSE analysis; uncertain possible hidden finite-order special calculations.",
+          "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+          "material_read": "Repository abstract and metadata only",
+          "method": "Abstract-level comparison, no full-paper noncoverage claim",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Earlier exact IID MSE machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-multiplicity sampling-policy reversal is mathematically useful for the interpretation of convergence guarantees: even full-rank consistent systems can reverse RR/IID endpoint risk. Exact thresholds and a robust distinct-row witness are not generic SGD rate-bound deductions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized older finite-order Kaczmarz comparison may give an equivalent repeated-row switch polynomial.",
+    "De Sa already establishes qualitatively that reshuffling need not improve optimization; only the sharp family formula is claimed original.",
+    "The exact 2014 IID-MSE original was inspected at abstract level only."
+  ]
+}
