@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The analytical argument in `RESULT.md` establishes the statement for all specified dimensions and real parameters. The standalone `verify.py` uses Python 3 standard-library exact rational arithmetic. It checks the candidate integrated density matrix, including *every* real and imaginary Lyapunov equation entry, across seven different simple rational energy spectra with sizes 3, 4, 5, 6, 4, 8 and 16. In three separate cases an exact Gaussian elimination of the full Lyapunov system reproduces its trace independently of the candidate closed form. It verifies the binary-cube weighted spectra and exact rational coefficients of the first three nontrivial cube dimensions, together with representative exact small-anisotropy gap bounds for dimensions 2 through 5.
+## correctness
 
-Run `python3 verify.py` in the package directory. Recorded checker standard output is included in `CHECK_OUTPUT.txt`; it is not used to certify universal identities by finite sampling. Critical proof steps include negativity of all dynamical eigenvalue real parts, a pairwise energy-gap identity obtained by cancellation of triple partial fractions, the strictly convex loss optimization, binary uniqueness of anisotropic Walsh energies, and the equal-Hamming-cardinality gap contribution. No external validation has been performed.
+PASS
 
-Known limits: no general nonflat absorber weights, no competing quantum noise or recombination, no finite-time probability distribution, no joint large-dimension/vanishing-anisotropy asymptotics, and no independently certified historical priority.
+The norm-loss generator is strictly stable because every eigenmode couples to the sink. In its diagonal spectral basis the integrated density satisfies the full Lyapunov equation, whose constructed real/imaginary components yield the pair inverse-square sum after cancellation of all triple-index fractions. Differentiating N/kappa+2kappa S/N^2 gives a unique minimum. Walsh eigenvectors have flat moduli; binary-index subset sums make all perturbed cube eigenvalues distinct for 0<epsilon<1/(2^d-1), while only same-cardinality gaps vanish linearly in epsilon. Independent exact direct Liouvillian solutions in eight cases and C2,C3,C4 sums agree. This proves each fixed dimension, not a joint d->infty limit.
+
+## originality
+
+PASS
+
+The homogeneous cube capture fraction and qualitative destruction of dark states by coupling perturbation predate this claim, as do general quantum hitting/trapping frameworks. The actual surviving result is the all-simple-flat-spectrum exact inverse-gap mean, its unique optimal sink rate, and quantitative two-exponent anisotropy singularity; relevant primary studies inspected use projective measurements, coherent ring traps, or on-site energy noise and additional decoherence. Best-of-knowledge PASS, with broader rank-one loss sum-rule priority explicitly unresolved.
+
+## value
+
+PASS
+
+An exact lifetime identity across arbitrary flat-spectral finite Hamiltonians is a natural dynamical invariant, and the singular cube limit gives a sharp diagnostic showing that near-unit eventual absorption can coexist with divergent mean capture; optimal rate tuning halves the power of divergence. This addresses a real distinction between capture efficiency and useful timescales rather than a decorative special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
