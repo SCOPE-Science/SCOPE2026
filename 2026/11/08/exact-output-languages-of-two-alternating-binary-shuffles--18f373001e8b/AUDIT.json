@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes both inclusions for each complete output-language equality for every n≥1. At equal phase, each even-height transition uniquely determines its block; a load-balancing allocation assigns the blocks into exactly n pairs per stream. At opposite phase, the two synchronization states yield independent boundary bits and an attainable complete integer interval containing n, so every block string is realizable. The exact intersection and counting statements follow. Standalone brute mask enumeration matched independent descriptions for n=1..5. Finite checks are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2503.22043 provides recognition conditions for sets of words that are self-shuffles of some word; the root is not prescribed.",
+        "OEIS A191755 counts all binary shuffle squares; A331850 maximizes the fixed-root self-shuffle cardinality over roots. Neither specifies outputs for root (01)^n or compares opposite phases.",
+        "Henshall–Rampersad–Shallit establish general self-shuffle language properties; Grytczuk–Pawlik–Pleszczyński enumerate all binary shuffle squares by letter multiplicity, rather than prescribed alternating-root outputs."
+      ],
+      "reasoning": "General self-shuffle recognition or global maximal counts neither yield the exact fixed-root output set nor the opposite-phase classification and intersection. The 2026 minimum-insertion-degree result studies a different invariant.",
+      "searches": [
+        "arxiv:2503.22043 (shuffle squares structural classification and constrained runs)",
+        "arxiv:2610.39941v1 (bounded insertion and mask exchange)",
+        "oeis:A191755",
+        "oeis:A331850",
+        "arxiv:1106.5767v4",
+        "arxiv:2308.13882v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.39941v1 (HTML sections 1–9; October 29, 2026)",
+      "arxiv:2503.22043 (HTML introductory and structural classification sections; original 2025)",
+      "doi:10.3390/sym17020305 (indexed excerpts, full text 429)",
+      "oeis:A191755 (definition and counts of all binary shuffle squares)",
+      "oeis:A331850 (maximum distinct outputs over all fixed binary roots)",
+      "Searches of published mathematical records for exact formulas, height-strip equivalences, and alternating shuffle roots",
+      "arxiv:1106.5767v4 (HTML sections 1–2 on general shuffle closure and self-shuffle)",
+      "arxiv:2308.13882v2 (HTML introduction and binary multiplicity enumeration)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Zhang–Hughes define d_{u,v}(w) as minimum number of inserted-source runs and prove block exchange descent properties; neither value d nor its spectrum counts the distinct outputs.",
+        "Grytczuk–Pawlik–Ruciński characterize selected shuffle-square classes without prescribing both streams to equal alternating root.",
+        "Datko–Pawlik indexed source discusses roots and lower bounds for general binary words; complete original text inaccessible due HTTP 429."
+      ],
+      "reasoning": "The exact output-language equalities are stronger in the fixed alternating-source direction than a recognition result for unspecified twin roots, and orthogonal to minimum insertion degree. No consulted proposition implies both exact characterizations together; full-paper access limits leave residual implicit-specialization risk.",
+      "searches": [
+        "arxiv:2610.39941v1 section 3 and §§4–9",
+        "arxiv:2503.22043 introduction and §3",
+        "doi:10.3390/sym17020305",
+        "Shuffle square of a periodic alternating binary word (01)^n, complete Dyck height-two characterization, exact 2^(2n-1) distinct output count",
+        "Shuffle of opposite alternating powers (01)^n and (10)^n equals concatenations of 01 and 10 two-letter blocks, exactly 4^n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem reduces the equal-phase source shuffle to height-two constrained balanced paths and opposite phase to independent balanced adjacent pairs; arxiv:2610.39941v1 analyzes minimum insertion degree and mask exchanges rather than these output languages.",
+        "The nearest indexed fixed-color shuffle result concerns Weihrauch complexity, not two finite-string interleavings."
+      ],
+      "reasoning": "Checked both language-equality and numerical-count versions, including the phase-swap duality and balanced path translation. No matched direct formula or stronger fixed-root classification was identified; this absence does not prove priority.",
+      "searches": [
+        "Shuffle square of a periodic alternating binary word (01)^n, complete Dyck height-two characterization, exact 2^(2n-1) distinct output count",
+        "Shuffle of opposite alternating powers (01)^n and (10)^n equals concatenations of 01 and 10 two-letter blocks, exactly 4^n",
+        "Two-copy shuffle Dyck paths bounded height 2, balanced source partition and distinct word enumeration",
+        "\"shuffle\" \"(ab)^n\" \"number\" words",
+        "\"shuffle\" \"alternating\" \"2^\" \"words\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A191755 tabulates number of all binary shuffle-square words at given output length.",
+        "A331850 tabulates maximum fixed-root self-shuffle counts over all binary roots; its length-four maximum is nine, whereas the alternating length-four root has eight distinct outputs.",
+        "The 2023 shuffle-square Table 5 counts all outputs with a given letter multiplicity, not the fixed-root languages here."
+      ],
+      "reasoning": "Neither sequence is an exact table of the family-specific self-shuffle counts 2^(2n-1), the opposite-phase counts 2^(2n), or the singleton intersection. Exact word-set comparison establishes that their questions are not equivalent.",
+      "searches": [
+        "oeis:A191755",
+        "oeis:A331850",
+        "Shuffle square of a periodic alternating binary word (01)^n, complete Dyck height-two characterization, exact 2^(2n-1) distinct output count",
+        "Shuffle of opposite alternating powers (01)^n and (10)^n equals concatenations of 01 and 10 two-letter blocks, exactly 4^n"
+      ]
+    },
+    "rationale": "The all-n fixed-root equal-phase strip-language and opposite-phase pair-block-language classifications, their exact distinct-output counts, and singleton overlap were not found in the relevant primary results or indexed comparison tables. The most related 2026 paper studies minimum insertion degree, whereas the 2025 shuffle-square study treats existence of arbitrary equal twins, not the two prescribed source pairs. Exact overlap searched by equivalent path, language, and count formulations. An implicit historical derivation remains possible, especially in older shuffle-product literature; this is qualified priority, not a uniqueness certification.",
+    "residual_risks": [
+      "Historical priority could be implicit in shuffle algebra, bounded-height path theory, or older periodic-word literature.",
+      "Publisher HTTP 429 prevented full examination of Datko–Pawlik (2025).",
+      "Semantic searches, even with several equivalent formulations, cannot prove a universal absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No stated exact fixed-root alternating-shuffle language or two-phase enumeration",
+        "evidence": [
+          "arXiv:2610.39941v1 dated October 29, 2026; introduction defines shuffles and minimum insertion degrees; theorem concerns exchange of masks."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39941v1",
+        "material_read": "Full HTML sections and proof/result passages including preliminaries, exchange, periodic repair, computational results, open problems",
+        "method": "Direct HTML reading and term searches for alternating/periodic/output sets",
+        "title": "Block-exchange descent for insertion: commuting projections and minimum masks",
+        "trigger": "First public recent source analyzing fixed-source shuffle output ambiguity"
+      },
+      {
+        "assessment": "Recognition of words admitting equal twins; not a fixed prescribed alternating root or opposite-phase language formula",
+        "evidence": [
+          "Paper explicitly defines twins, gives constrained-run characterization and examples, but not fixed-root output count."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.22043v2",
+        "material_read": "Direct HTML abstract/introduction and §3 constrained-run results, definitions, structural propositions, and open problems",
+        "method": "Read HTML result statements and search for alternating/count terminology",
+        "title": "Shuffle squares and ordered nest-free graphs",
+        "trigger": "Possible broad covering result on binary shuffle-square structure"
+      },
+      {
+        "assessment": "Direct publisher fetch returned 429; implicit earlier fixed-root formula cannot be ruled out by available excerpt",
+        "evidence": [
+          "2025 article indexed for binary shuffle-square roots; full original not read."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym17020305",
+        "material_read": "Public indexed description and excerpts of Section 2; full text unavailable",
+        "method": "Public search-index inspection and direct publisher fetch",
+        "title": "Roots of Binary Shuffle Squares",
+        "trigger": "Plausible prior root-specific enumeration"
+      },
+      {
+        "assessment": "Counts union over all binary source roots, not outputs of one specified root",
+        "evidence": [
+          "OEIS entry explicitly defines count across all binary self-shuffle words at each length."
+        ],
+        "identifier_or_url": "https://oeis.org/A191755",
+        "material_read": "Full OEIS entry text, definition, code, cross-references",
+        "method": "Direct HTML inspection",
+        "title": "A191755: Number of square binary words",
+        "trigger": "Exact prior enumeration table possibility"
+      },
+      {
+        "assessment": "Global maximum over all roots, not exact alternating root fixed count",
+        "evidence": [
+          "The length-four maximum is 9, attained by 0110, rather than 8 outputs of 0101."
+        ],
+        "identifier_or_url": "https://oeis.org/A331850",
+        "material_read": "Full OEIS entry text, examples and argmax roots",
+        "method": "Direct HTML inspection",
+        "title": "A331850: Largest cardinality of a self-shuffle set",
+        "trigger": "Exact fixed-root count dominator"
+      },
+      {
+        "assessment": "Investigates language closure/non-context-freeness and global self-shuffle, not the two fixed alternating-root output languages",
+        "evidence": [
+          "Defines ordinary shuffle and self-shuffle of languages; Theorem 1 exhibits non-context-free global self-shuffles."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1106.5767v4",
+        "material_read": "HTML sections 1–2 with definitions, closure discussion, and self-shuffle results",
+        "method": "Read original HTML and search for alternating/number-of statements",
+        "title": "Shuffling and Unshuffling",
+        "trigger": "Classical source on self-shuffle regularity, possibly covering periodic sources"
+      },
+      {
+        "assessment": "Tables number of all binary shuffle squares by letter counts, not prescribed-root output languages",
+        "evidence": [
+          "Corollary 1 counts all shuffle squares with exactly two ones; Table 5 counts all square words by multiplicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.13882v2",
+        "material_read": "HTML introduction, section 2 enumerative results, table on letter-multiplicity classes",
+        "method": "Read original HTML sections and find relevant alternating / number-of passages",
+        "title": "Variations on shuffle squares",
+        "trigger": "Earlier 2023 enumeration of binary shuffle squares"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18f37300-1e8b-42b1-8a28-7d0101a5b555",
+  "value": {
+    "rationale": "A complete infinite classification of distinct fixed-source shuffle outputs resolves a natural ambiguity phenomenon without identifying outputs with masks. The same length and same Parikh vectors give opposite phases with output-set sizes differing by exactly a factor of two and only one common word. Constructive membership witnesses and the tie between path strips and synchronization states offer reusable structure for restricted shuffle languages. This is not a generic binomial coefficient enumeration or an arbitrary isolated parameter.",
+    "status": "PASS"
+  }
+}
