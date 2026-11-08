@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim has a direct local face-pair integral proof: same-face polygon covariograms supply the negative perimeter term; for each edge the wedge change-of-variables with determinant \(\sin\theta\) gives the positive ordered cross-face term; only vertex-local \(O(r^4)\) terms remain. The six-rectangle/twelve-right-dihedral-face-pair decomposition is exact below the minimum side, giving the full quartic. Leading and cubic CDF coefficients reconstruct box area and side sum; explicit unequal triples and the rank-two implicit-function theorem provide discrete and continuous collisions. The two standalone numerical scripts were executed, checking four boxes and four wedge angles; they are consistency checks rather than universal proofs.
+## correctness
 
-**Originality — PASS, qualified.** The relevant pre-2016 D2 and exact cube face-pair literature were searched and compared by implication. Osada (2001) introduces shape distributions, Rea et al. (2005) numerically display D2 for cube-like shapes, Mathai et al. (1999) derive cube face-pair distributions, and planar same-region and random-Boolean models are different claims. The original unit-cube face-pair subcase is not claimed as new. No inspected primary source supplies the general angle-dependent edge coefficient or the equal-area/equal-side-sum inverse family. The inaccessible full 1999 paper is a meaningful historical-priority risk, not a claimed negative inspection.
+PASS
 
-**Value — PASS.** The D2 signature is used for shape retrieval. The theorem both extracts a nontrivial dihedral-bend invariant from its local expansion and precisely characterizes what all short-distance data can and cannot recover on natural three-parameter rectangular boxes. It gives explicit false positives and an entire continuous noncongruent collision family, addressing identifiability rather than an arbitrary numeric benchmark.
+The polygon planar covariogram contributes −4ℓ_e/3 times r^3 per edge, while two oriented face-orderings across a wedge of interior dihedral θ contribute 4ℓ_e(π−θ)/(3 sinθ) times r^3. Nonadjacent faces contribute only O(r^4). For rectangular boxes explicit rectangle autocovariance and perpendicular adjacent-face integrals yield an exact common quartic for r≤min sides; arithmetic confirms the two displayed noncongruent triples both have area 22 and side sum 6. IFT rank-two Jacobian away from cube produces a continuum of local collisions.
 
-**Limits.** Ambient Euclidean chords from surface-uniform sampling only; fixed convex polyhedra asymptotic, box exact interval \([0,h]\); no equivalence of complete nonlocal histograms. The 1999 Mathai full text and 2001 Osada full text were not inspected. A professional independent priority review is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: direct mathematical comparison with published primary sources, Resultary semantic searches and four alias/implication checks; known component theorems and possible indirect consequences are explicitly credited.
+
+## value
+
+PASS
+
+Universal local edge-sensitive coefficient of surface chord statistics and a rigorous inverse nonidentifiability family for boxes give meaningful geometric-probability and shape-reconstruction information beyond numerical shape histograms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

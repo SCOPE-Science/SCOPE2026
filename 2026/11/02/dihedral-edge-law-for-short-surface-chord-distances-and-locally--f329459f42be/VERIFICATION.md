@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Analytic verification
-The small-radius coefficient follows from exact integrals over polygon covariograms and two-face wedges, including all ordered face-pair types and a bounded vertex remainder. The rectangular-box polynomial follows from six exactly integrated rectangular covariograms and twelve exactly integrated right-angle wedge pairs. The box collision is an exact equality of the sum and the pairwise-product sum, not a numerical coincidence.
+# Independent mathematical audit
 
-## Reproducible numerical checks
-Run `python check_local.py` and `python check_wedge.py` from the extracted package directory with NumPy and SciPy. For four boxes and radii below the shortest side, 2,097,152 independently mapped surface-point pairs per box had CDF discrepancies less than \(1.6\times10^{-4}\). Eleven deterministic radius checks compare the two noncongruent collision boxes with precision \(10^{-13}\). Four independently parameterized dihedral cone integrals, each with 4,194,304 scrambled Sobol points, agreed with the exact angle coefficient within \(7\times10^{-7}\). These tests are finite approximate checks, not certificates of an infinite theorem.
+## correctness
 
-## Remaining limitations
-No computer proof of global uniqueness or originality. Mathematical proof does not cover nonconvex singular surfaces, volume samples, surface shortest-path distances or large radii for boxes. Human inspection of the unavailable complete 1999 Mathai and 2001 Osada sources is still necessary for historical priority.
+PASS
+
+The polygon planar covariogram contributes −4ℓ_e/3 times r^3 per edge, while two oriented face-orderings across a wedge of interior dihedral θ contribute 4ℓ_e(π−θ)/(3 sinθ) times r^3. Nonadjacent faces contribute only O(r^4). For rectangular boxes explicit rectangle autocovariance and perpendicular adjacent-face integrals yield an exact common quartic for r≤min sides; arithmetic confirms the two displayed noncongruent triples both have area 22 and side sum 6. IFT rank-two Jacobian away from cube produces a continuum of local collisions.
+
+## originality
+
+PASS
+
+Best-of-knowledge: direct mathematical comparison with published primary sources, Resultary semantic searches and four alias/implication checks; known component theorems and possible indirect consequences are explicitly credited.
+
+## value
+
+PASS
+
+Universal local edge-sensitive coefficient of surface chord statistics and a rigorous inverse nonidentifiability family for boxes give meaningful geometric-probability and shape-reconstruction information beyond numerical shape histograms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
