@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theoretical claims are proved in RESULT.md. The independent-of-proof finite checker, `verify.py`, is a standalone Python 3 script requiring only the standard library. From the directory containing these two files run `python3 verify.py`. The exact-rational output is:
+## correctness
 
-`VERIFY_OK exact_homogeneous_profiles=10236 exact_deviation_comparisons=197226 cycle_equilibria=99 three_voter_phases=15`
+PASS
 
-The program exhausts the \(n^n\) directed delegation functions for each integer population size \(n=2,3,4,5\) and three exact-rational casting probabilities, with equally spaced opinions and tolerance strictly above the stated bound. It separately checks the strict-below, equal-to, and strict-above parameter regions in the three-voter phase diagram for five exact-rational casting probabilities. It recomputes expected utilities from the finite orbit definition and enumerates every unilateral change; no external data or solver is required.
+Exact orbit utility U_i=tau(1-q^{ell_i})-E_i with 0<=E_i<=D q(1-q^{n-1}); each unilateral increase in distinct orbit length gains at least tau p q^{n-1}, greater than maximal penalty difference under stated strict bound. Every non-Hamiltonian functional digraph permits an orbit-lengthening redirect: insert an off-cycle branch into a cycle via a cycle predecessor, or redirect a vertex on a shortest cycle to another cycle. Every Hamiltonian profile has maximum orbit length n and no improving deviation. Full cycle causes votes to be represented if anyone casts, achieving nq^n expected loss. For three equally spaced voters tau>2h, complete rational best-response enumeration independently reproduced adjacent-pair equilibria below tau_c=h(1+1/q), four equilibria at equality and two Hamiltonian cycles above, for q=1/4,1/2,3/4.
 
-The program does **not** certify the theorem for all population sizes or all real parameters. Completeness of the general proof rests on the symbolic uniform penalty bound and explicit cycle/in-tree rerouting cases, not on enumeration. All source-derived distinctions and the claim of novelty are subject to independently reproduced literature checks.
+## originality
+
+PASS
+
+Brill et al. (2026), same default delegation game, prove Nash structural and efficiency properties (Theorem 5 and Proposition 19), but these do not establish the explicit uniform high-tolerance if-and-only-if set of all Hamiltonian equilibria or sharp three-voter parameter boundary. Their global-cycle vote-loss optimum is prior art and excluded as a standalone novelty claim. Older rational/iterative liquid-delegation models use different payoffs and do not directly imply this specific game classification.
+
+## value
+
+PASS
+
+A natural election-game equilibrium set collapses to completely classified global voting cycles under a physically interpretable tolerance-vs-distance condition; the exact three-voter boundary and tie equilibria quantify when such efficiency emerges. This strengthens mere existence and structural restrictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
