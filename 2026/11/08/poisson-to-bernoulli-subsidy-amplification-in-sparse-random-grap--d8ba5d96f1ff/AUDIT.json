@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary finite simple graphs, each nontrivial tree has an indegree-zero source forced to receive at least one unit of money; this forces each isolate to receive at least one unit by global envy. All cyclic components can be oriented to give every participating vertex one edge, and outward tree orientations with unit-paid roots and unit-paid isolates achieve the lower bound. Isolated-edge counts converge to Poisson by their explicit factorial moments, all tree components of order >=3 have vanishing expected count via separate three size regimes, and isolated vertices concentrate in L2 by first/second moments. The claimed scaled distribution, zero probability and expected cost follow rigorously. Standalone brute-force corroboration covers all simple graphs of order <=4, six examples of order 5, and two finite exact expectation comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu arXiv:2610.10272 treats full i.i.d. continuous agent-good valuation matrices and general allocations, not sparse 0/1 endpoint valuation matrices or graph-orientation restrictions.",
+        "Li et al. arXiv:2502.13671 describes worst-case and deterministic minimum-subsidy algorithms; connected-component characterization is a prerequisite rather than a dominating stochastic result.",
+        "IJCAI 2026/387 proves a worst-case bound for multigraphs, and its isolate example explains the seed; it does not imply a distribution without substantial random-graph calculations."
+      ],
+      "reasoning": "The 2025 deterministic theorem implies efficient computation of the optimum for fixed binary instances but no direct asymptotic law. The 2026 random-valuation theorem has a different probability space, allocation constraints, and scale; no substitution of its parameters yields the sparse graph Bernoulli limit. The 2026 worst-case paper supplies a similar deterministic seed, not the concentration/Poisson joint scaling.",
+      "searches": [
+        "asymptotic subsidies envy-free allocation Zekai Wu 2026 random i.i.d. valuations minimum compensation",
+        "On the Subsidy of Envy-Free Orientations in Graphs Li Sun Suzuki Xing binary tree components isolates global envy exact subsidy",
+        "2026 \"random\" \"graph\" \"subsidy\" \"envy-free\" orientation poisson",
+        "2025 \"probabilistic\" \"random graphs\" \"envy-free orientations\" subsidy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2502.13671 (full-text sections 2 and 3.2, Lemma 3, Theorem 4)",
+      "doi:10.24963/ijcai.2026/387 (complete HTML extraction, Example 1 and Theorem 2)",
+      "arxiv:2610.10272 (primary arXiv HTML sections 1, 3, 4)",
+      "Targeted public mathematical literature and claim-index searches under exact and equivalent formulations; no covering statement identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2502.13671 gives the binary connected-component min-subsidy criterion, Theorem 4 and proof.",
+        "IJCAI 2026/387 says a single edge plus otherwise isolated agents can require n-1 money, demonstrating propagation.",
+        "arXiv:2610.10272 gives a very different asymptotic subsidy regime with iid continuous values."
+      ],
+      "reasoning": "The exact deterministic identity, considered alone, is potentially covered or easily deduced from the 2025 theorem and 2026 isolate example; it is expressly treated as an intermediate lemma, not an independently novel finding. The prior results do not state the phase-window law, joint coexistence of Poisson isolated edges and a diverging isolated population, zero-subsidy probability or normalized expectation. Those implications require the new random-graph asymptotics; no stronger source with the same random valuation model was identified.",
+      "searches": [
+        "asymptotic subsidies envy-free allocation Zekai Wu 2026 random i.i.d. valuations minimum compensation",
+        "On the Subsidy of Envy-Free Orientations in Graphs Li Sun Suzuki Xing binary tree components isolates global envy exact subsidy",
+        "arxiv:2502.13671 Theorem 4",
+        "IJCAI 2026 387 Example 1 isolated agents"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2025 arXiv:2502.13671 Theorem 4 treats binary graphical minimum subsidy deterministically, without the random-graph probability or distribution.",
+        "2026 IJCAI/387 Example 1 illustrates a single edge plus isolates forcing linear payment but contains no Poisson limit.",
+        "The closest indexed mathematical research records addressed unrelated graph optimization objectives, not a stochastic subsidy limit."
+      ],
+      "reasoning": "Restated the claim as the weak limit of optimum total money across independent-edge random graph instances, with a scale diverging like sqrt(n/log n), and a mixture atom of exact probability 1-exp(-exp(-c)/4). Search under sparse graph, isolated-edge, subsidies and Bernoulli limit aliases returned no logically equivalent formula. The deterministic graph formula and an isolated-agent example alone are not the novelty claim.",
+      "searches": [
+        "Sharp Poisson threshold for envy-free efficient orientations of Bernoulli Erdős–Rényi random graph with binary graphical valuations at p=(log n+log log n+c)/(2n); isolated K2 trees",
+        "Random graph threshold non-wasteful envy-free graphical valuation allocations, all connected components cyclic or singleton, threshold half log n",
+        "asymptotic subsidies envy free allocation Erdős-Rényi random simple graph edge goods unit binary valuations Poisson isolated edge components isolated agent amplification",
+        "random graph fair orientation minimum monetary compensation spike Bernoulli mixture at (log n + log log n + c)/(2n)",
+        "\"envy-free orientations\" \"Erdos-Renyi\" subsidy",
+        "\"minimum subsidy\" \"isolated vertices\" graph orientation envy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted indexed research-claim queries returned no entry with this graph-orientation subsidy distribution; nearest mathematical statements concerned other invariants.",
+        "Cayley tree-count and isolated-edge factorial-moment calculations are explicit in the new proof; isolated-edge counts themselves are standard random-graph quantities, not a newly claimed table."
+      ],
+      "reasoning": "No indexed exact table of the combined optimal EF subsidy under the specified ER graph model was found. The component count Poisson lemma is a classical calculation; novelty is asserted only for its implication for global-envy total compensation at the matching window.",
+      "searches": [
+        "Sharp Poisson threshold for envy-free efficient orientations of Bernoulli Erdős–Rényi random graph with binary graphical valuations at p=(log n+log log n+c)/(2n); isolated K2 trees",
+        "Poisson isolated edge components and disappearance of tree components in G(n,p) at p=(log n+log log n+c)/(2n)",
+        "asymptotic subsidies envy free allocation Erdős-Rényi random simple graph edge goods unit binary valuations Poisson isolated edge components isolated agent amplification",
+        "Poisson isolated edge components and disappearance of tree components in G(n,p) at p=(log n+log log n+c)/(2n)"
+      ]
+    },
+    "rationale": "The central result is a stochastic distribution/expectation theorem at the double logarithmic window, not the known deterministic component algorithm, known isolated-good subsidy amplification example, nor the classical Poisson count alone. Three most relevant primary full texts and multiple actual database/web queries were compared for implication coverage; no stronger theorem for this random orientation subsidy was identified. A meaningful publication-priority risk from unindexed work persists.",
+    "residual_risks": [
+      "A previously unindexed probabilistic graphical-subsidy theorem could cover the exact limiting law; search is not a proof of novelty.",
+      "Known component characterizations and single-edge isolate amplification provide deterministic inputs; they are not asserted as new standalone facts.",
+      "The classical random-graph isolated-edge Poisson theorem may have other formulations outside fair division; contribution lies in the money objective and its Bernoulli scaling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background/deterministic coverage, not a random graph asymptotic subsidy law",
+        "evidence": [
+          "Graph component criterion and algorithm appear at Theorem 4; the paper studies deterministic and worst-case subsidy bounds, not the G(n,p) Poisson window."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.13671",
+        "material_read": "Full public HTML transcription of manuscript sections 2.1 and 3.2, Lemma 3, Theorem 4 and its proof, and main-results summary",
+        "method": "Read source full-text as HTML transcription at https://www.researchgate.net/publication/389167529_On_the_Subsidy_of_Envy-Free_Orientations_in_Graphs ; compared subsidy component criterion and scope",
+        "title": "On the Subsidy of Envy-Free Orientations in Graphs",
+        "trigger": "Exact minimum-subsidy characterization for binary graph orientations"
+      },
+      {
+        "assessment": "The isolated-agent subsidy amplification mechanism is known for a constructed graph, but the Poisson/Bernoulli random-graph law is not given",
+        "evidence": [
+          "Example with a single edge and otherwise singleton vertices explicitly requires n-1 subsidy; Theorem 2 gives an n/2 bound under a per-agent positive-relevance normalization, not applicable to isolates."
+        ],
+        "identifier_or_url": "https://doi.org/10.24963/ijcai.2026/387",
+        "material_read": "Full searchable HTML text including introduction, Example 1, main theorem and conclusions",
+        "method": "Read IJCAI 2026 extracted full text at https://sex8x8.com/__proxy/ijcai.org/proceedings/2026/387 and compare statements",
+        "title": "Eliminating Envy in Multigraphs Through Subsidy",
+        "trigger": "Recent worst-case graph subsidy paper with explicit isolated-vertex example"
+      },
+      {
+        "assessment": "Stochastic subsidies for full iid continuous valuation matrices, not graph endpoint-only valuations, ER components or Bernoulli subsidy mixture",
+        "evidence": [
+          "The stochastic model draws each agent-good value independently from a continuous distribution bounded above/below; section 3 analyzes nonzero remainder and section 4 exact divisibility, neither restricted orientation graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.10272",
+        "material_read": "Open primary HTML article sections 1, 3, 4, sections and theorem summaries on pages plus appendix discussion of the sparse and square cases",
+        "method": "Read arXiv HTML rendered under the article URL, including its stochastic model, matching algorithm and estimates",
+        "title": "Asymptotic Subsidies for Envy-Free Allocation",
+        "trigger": "Closest emerging work on stochastic monetary fairness compensation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d8ba5d96-f1ff-42dc-8305-f30497f5e992",
+  "value": {
+    "rationale": "A natural sparse random resource market exhibits an unexpectedly discontinuous compensation scale: a Poisson number of nontrivial tree components activates payments to a diverging isolated-agent population. The exact window, Bernoulli-mixture law, and asymptotic mean solve a motivated stochastic reliability question, not arbitrary finite enumeration. The theorem explains how global cash comparisons propagate localized deficits and provides a quantitative design benchmark for subsidy budgeting.",
+    "status": "PASS"
+  }
+}
