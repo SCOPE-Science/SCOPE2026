@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:00:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every order-five binary necklace corresponds to a bijective shift-append map with one complementary pair of outgoing bits per 4-bit suffix, i.e. one of 2^16 feedback tables. Requiring a single orbit of length 32 selects exactly 2048 canonical words starting at the unique 00000. Scattered subsequence membership has an elementary greedy earliest-position characterization and a dynamic set-of-subsequences recurrence; exhaustive partition by full k-deck, not sampled examples, gives class counts [1,1,21,629,1520,2016,2048] at k=8..14. At k=13 exactly 32 doubletons (each distance-two letter swaps) and 1984 singletons; at k=14 2048 singleton classes. Deck downward determination excludes all smaller k. Independent freshly compiled C++ implemented feedback-table enumeration and greedy complete candidate deck classification, confirming 2048 cycles and every count, 32 doubletons and no non-swap k13 collision. Finite exhaustive verification is the complete finite proof because all 65536 tables and all applicable binary patterns are enumerated; unlike a partial experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dress--Erdos universal sufficient uniqueness if 2k>N gives k>=17 for N=32.",
+          "Barker et al provide efficient k-spectrum comparison for general words but not an enumerated 2048-class restriction."
+        ],
+        "reasoning": "A general algorithm is broader in input coverage but does not itself supply the asserted k=14 optimality and 32 ambiguous pairs; universal 17-bound is weaker than sharp restricted threshold.",
+        "searches": [
+          "Resultary query: order 5 de Bruijn necklaces Simon congruence scattered subsequence k-deck length 14",
+          "Dress--Erdos, Reconstructing Words from Subwords in Linear Time, Annals of Combinatorics (2004), DOI 10.1007/s00026-004-0232-4",
+          "Karandikar--Kufleitner--Schnoebelen, On the index of Simon congruence for piecewise testability, arXiv:1310.1278",
+          "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: order 5 de Bruijn necklaces Simon congruence scattered subsequence k-deck length 14",
+        "Dress--Erdos, Reconstructing Words from Subwords in Linear Time, Annals of Combinatorics (2004), DOI 10.1007/s00026-004-0232-4",
+        "Karandikar--Kufleitner--Schnoebelen, On the index of Simon congruence for piecewise testability, arXiv:1310.1278",
+        "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629",
+        "Frozen spectrum_table.csv and ambiguous_pairs.csv Git blob identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dress--Erdos 2004 theorem N<2k implies reconstructibility universally; N=32 therefore k>=17, not 14.",
+          "Simon-congruence and k-spectrum comparison do not determine restricted-family sharp threshold."
+        ],
+        "reasoning": "General theorems provide definitions, algorithms and a weaker universal bound, not both sharp lower witness at 13 and full separation at 14.",
+        "searches": [
+          "Dress--Erdos, Reconstructing Words from Subwords in Linear Time, Annals of Combinatorics (2004), DOI 10.1007/s00026-004-0232-4",
+          "Karandikar--Kufleitner--Schnoebelen, On the index of Simon congruence for piecewise testability, arXiv:1310.1278",
+          "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality of sets D_k(w) is the same as restriction of Simon k-congruence to 2048 canonical de Bruijn words.",
+          "Karandikar et al analyze index of equivalence over unrestricted words/alphabet, not restricted necklaces."
+        ],
+        "reasoning": "Translated exact claim to restricted equivalence-class partition rather than literal deck wording; relevant general equivalence relation was located, but no matching restricted order-five census.",
+        "searches": [
+          "Resultary query: order 5 de Bruijn necklaces Simon congruence scattered subsequence k-deck length 14",
+          "Karandikar--Kufleitner--Schnoebelen, On the index of Simon congruence for piecewise testability, arXiv:1310.1278",
+          "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fully enumerated 2048 cycles; 8..14 counts, and two supplied CSV tables inspected at Git tree identity level.",
+          "No matching published exact database/table returned by targeted query."
+        ],
+        "reasoning": "Unlike a purely algebraic statement, a finite count is potentially table-covered; checked exact parameters, aliases and repository searches. A hidden earlier table cannot be excluded.",
+        "searches": [
+          "Resultary query: order 5 de Bruijn necklaces Simon congruence scattered subsequence k-deck length 14",
+          "exact order-five de Bruijn Simon congruence partition class table search"
+        ]
+      },
+      "rationale": "A natural restricted language of canonical order-five de Bruijn cycles has sharp subsequence separation at 14, sharper than universal length32 bound 17. This precise finite deck-class census is not furnished by general Simon-congruence theory.",
+      "residual_risks": [
+        "An obscure earlier exact de Bruijn subsequence reconstruction table could cover this finite classification.",
+        "Scope is canonical root at 00000 and set not multiset, not circular decks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general sufficient k>=17 at n32 but does not determine sharp restricted de Bruijn value 14",
+          "evidence": "General theorem sufficient level 17; query of document had no de Bruijn term.",
+          "identifier_or_url": "https://doi.org/10.1007/s00026-004-0232-4",
+          "material_read": "Author-uploaded complete paper: theorem 1.1 stating 2k>n condition, proof approach, introduction.",
+          "method": "Web full text and paper PDF screenshot",
+          "title": "Dress--Erdos, Reconstructing Words from Subwords in Linear Time, Annals of Combinatorics (2004), DOI 10.1007/s00026-004-0232-4",
+          "trigger": "Closest universal subsequence deck reconstruction theorem"
+        },
+        {
+          "assessment": "Related general equivalence theory, not exact order-five de Bruijn canonical restriction",
+          "evidence": "Counting classes over all alphabet words differs from restricted 2048 necklaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.1278",
+          "material_read": "Accessible full PDF definitions and main estimates on number of all-word equivalence classes; first PDF page screenshot.",
+          "method": "Web PDF text and screenshot",
+          "title": "Karandikar--Kufleitner--Schnoebelen, On the index of Simon congruence for piecewise testability, arXiv:1310.1278",
+          "trigger": "Same equivalence relation under Simon congruence"
+        },
+        {
+          "assessment": "Algorithmic comparison covers a broader input type, not the claimed exact finite class table",
+          "evidence": "Spectra equality decision algorithm requires additional actual enumeration for threshold 14.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "Accessible full PDF introduction and main comparison/universality claims; first PDF page screenshot.",
+          "method": "Web PDF text and screenshot",
+          "title": "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629",
+          "trigger": "Same k-deck/spectrum concept and algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order-five de Bruijn family is a canonical nontrivial constrained class of length-32 words; its precise threshold relative to the universal 17 bound and full 32-pair obstruction set are useful finite reconstruction benchmarks, including algorithm tests. Complete 2048-case enumeration, rather than an unmotivated isolated example, gives a natural exact classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite binary order-5 rooted necklaces only; no all-orders theorem, circular observations or multiplicities.",
+    "Earlier identical table under Simon congruence may exist despite searches."
+  ],
+  "schema_version": 1
+}

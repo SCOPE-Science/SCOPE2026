@@ -1,17 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The proof enumerates a bijective \(16\)-bit feedback description of all binary order-five cycles and independently enumerates the same \(2{,}048\) roots via Euler tours. Two independent subsequence-deck algorithms agree on every cycle and every length from \(8\) to \(14\). Exact bitset grouping gives the asserted sharp threshold and \(32\) doubletons; their local-swap property is explicitly checked. An explicit ambiguous pair demonstrates failure at length \(13\).
+## correctness
 
-## Originality
+PASS
 
-**PASS, qualified.** Dress and Erdős provide a general sufficiency bound at length \(17\), not the specialized sharp level \(14\). The 2013 Simon-congruence class-index result and 2020 full-spectrum equality algorithm do not imply the restricted order-five deck partition or the complete list of length-\(13\) ambiguous pairs. Searches of accessible records and primary material did not identify an equivalent table. Inaccessible or unindexed historical classifications remain a priority risk.
+Every order-five binary necklace corresponds to a bijective shift-append map with one complementary pair of outgoing bits per 4-bit suffix, i.e. one of 2^16 feedback tables. Requiring a single orbit of length 32 selects exactly 2048 canonical words starting at the unique 00000. Scattered subsequence membership has an elementary greedy earliest-position characterization and a dynamic set-of-subsequences recurrence; exhaustive partition by full k-deck, not sampled examples, gives class counts [1,1,21,629,1520,2016,2048] at k=8..14. At k=13 exactly 32 doubletons (each distance-two letter swaps) and 1984 singletons; at k=14 2048 singleton classes. Deck downward determination excludes all smaller k. Independent freshly compiled C++ implemented feedback-table enumeration and greedy complete candidate deck classification, confirming 2048 cycles and every count, 32 doubletons and no non-swap k13 collision. Finite exhaustive verification is the complete finite proof because all 65536 tables and all applicable binary patterns are enumerated; unlike a partial experiment.
 
-## Value
+## originality
 
-**PASS.** This determines the first nontrivial reconstruction cutoff for a naturally defined, sizeable de Bruijn sequence family with a canonical root. The exact classification quantifies the residual ambiguity one level below the cutoff, and its local two-symbol-swap witnesses explain the near-collisions. It is a motivated finite reconstruction invariant rather than a purely routine enumeration.
+PASS
 
-## Scope and integrity
+A natural restricted language of canonical order-five de Bruijn cycles has sharp subsequence separation at 14, sharper than universal length32 bound 17. This precise finite deck-class census is not furnished by general Simon-congruence theory.
 
-The result does not extrapolate to larger orders, different root conventions, or multisets. Its executable finite proof and supplementary pair table are included. No independent audit has been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The order-five de Bruijn family is a canonical nontrivial constrained class of length-32 words; its precise threshold relative to the universal 17 bound and full 32-pair obstruction set are useful finite reconstruction benchmarks, including algorithm tests. Complete 2048-case enumeration, rather than an unmotivated isolated example, gives a natural exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
