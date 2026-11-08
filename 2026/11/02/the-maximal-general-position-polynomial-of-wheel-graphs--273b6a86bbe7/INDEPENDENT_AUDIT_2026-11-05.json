@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:08:04.050493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_n=K1 join C_n (n>=5), graph diameter two. A hub-free set is GP exactly when its cyclic binary rim word avoids 111. Inclusion maximality forces every 1-run to have length 1 or 2, every 0-run length 1 or 2, and a 00-run precisely between two 11-runs; at least three selected rim vertices preclude adding hub. Hub-including maximal GP sets are exactly the n edge-plus-hub triples. The 2x2 transfer matrix indexed by selected-run sizes 1,2 has entries [[u²z,u²z],[u³z²,u³z²+u⁴z²]], determinant det(I-T)=1-zu²-z²u³-z²u⁴+z³u⁶, and rooted cycles are counted by n sum tr(T^t)/t; this proves A_n(z)=nz³-n[u^n]log det(I-T) for every n>=5. Simple b_i<=a_i constraints plus cyclic run counting yield the stated exact minimum/maximum rim subset multiplicities. Reciprocal polynomial substitution x+1/x shows only one expanding root α=1.401268..., four unit roots and one reciprocal, giving A_n(1)=n+α^n+O(1). Independently enumerated every subset of wheels n=5,...,12 using true graph geodesic triples and checked the maximal-set coefficients and extremal counts, not merely the transfer recurrence. Those finite tests support but do not substitute for the all-n run-decomposition proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General-position polynomial counts ALL eligible sets and does not determine inclusion-maximal subsets from its coefficients; Yao et al give maximum set size only; fan uses a path, not cyclic boundary."
+        ],
+        "reasoning": "No inspected stronger theorem implies the full cyclic run-transfer enumerator. The dissociation-grid paper is the most plausible broader exception and remains an explicit source-access risk.",
+        "searches": [
+          "arXiv:2401.05696 Proposition 3.3 general position polynomial joins",
+          "arXiv:2002.03108 wheel maximum GP number",
+          "Resultary fan and windmill dissociation polynomials"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify.py",
+        "arXiv:2401.05696 (Iršič–Klavžar–Rus–Tuite complete text)",
+        "arXiv:2002.03108 (Yao et al)",
+        "DOI 10.1016/j.amc.2024.128711 (Tian–Tu abstract only)",
+        "Resultary 2026 fan and windmill dissociation records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Iršič et al count all GP sets, not maximal ones; Tian–Tu abstract describes number/growth of maximal dissociation sets, not marked-size extremal coefficients."
+        ],
+        "reasoning": "A specialization of a stronger weighted cyclic-grid recurrence, if present in inaccessible text, could cover part or all; without full text cannot conclusively rule out that implication. Best-of-knowledge PASS subject to the specific risk.",
+        "searches": [
+          "arXiv:2401.05696 general-position polynomial of joins propositions",
+          "Tian Tu 2024 abstract maximal dissociation state matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal hub-free GP sets are EXACTLY maximal dissociation sets of C_n; the Tian–Tu abstract explicitly counts maximal dissociation sets in cyclical grid graphs (potential C_n special case)."
+        ],
+        "reasoning": "This is a real alias/possible overlap, not merely title search; no accessible primary full text established whether Tian–Tu includes the graded size polynomial or coefficient classification.",
+        "searches": [
+          "maximal dissociation sets of cycles C_n weighted size polynomial",
+          "Tian Tu 2024 cyclic grid dissociation maximal enumerator DOI:10.1016/j.amc.2024.128711",
+          "Resultary maximal dissociation generalized windmills"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No verified exact size-refined cycle table surfaced; Tian–Tu may already tabulate the ungraded sequence/growth."
+        ],
+        "reasoning": "A known sequence of totals would cover totals but not automatically the bivariate marked-size generating polynomial, except if an older weighted transfer matrix is provided.",
+        "searches": [
+          "maximal dissociation cycle C_n count OEIS 1.4012683679",
+          "maximal general position W_n polynomial 2+4 periodic minimum counts",
+          "Tian Tu 2024 state matrix recursion"
+        ]
+      },
+      "rationale": "Existing general-position polynomial of graph joins enumerates ALL GP sets, not inclusion-maximal ones; wheel largest-cardinality GP formula does not classify maximal set spectrum. Hub-free part is equivalent to maximal dissociation sets in C_n; Tian–Tu 2024 enumerates maximal dissociation sets in cyclical grid graphs and may imply the total number for cycle specialization, but the full graded polynomial and extremal coefficient classification are not identified in inspected material. Best-of-knowledge PASS with major historical-priority risk honestly recorded.",
+      "residual_risks": [
+        "Tian–Tu 2024 original full text was inaccessible because authorized Oxford VPN disconnected; a cyclic-grid specialization may already include total maximal dissociation counts or a marked transfer operator.",
+        "The hub-free count is not a new object independent of classical maximal dissociation sets on cycles.",
+        "Finite independent checks stop at n=12; all-n relies on the proved cyclic-run classification and determinant identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering inclusion-maximal wheel polynomial",
+          "evidence": "The join formula describes all eligible general-position sets; paper does not derive n[u^n]log for inclusion-maximal rim patterns.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Full HTML paper including definition, join formulas, propositions and worked examples",
+          "method": "read original arXiv text and search wheel/maximal terms",
+          "title": "General Position Polynomials",
+          "trigger": "Exact graph joins theorem could dominate wheel polynomial"
+        },
+        {
+          "assessment": "plausible overlapping broader enumeration; cannot claim full-paper NOT_COVERING",
+          "evidence": "Abstract states cyclical and cylindrical grid graph maximal dissociation enumeration and growth, not a size-marked cycle polynomial.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128711",
+          "material_read": "Published abstract and indexed bibliographic metadata only; primary full text inaccessible",
+          "method": "OA/preprint search then authorized Oxford returned vpn_disconnected job 86bdc8c52847f094fb451c8c8b8f7130",
+          "title": "Enumerating maximal dissociation sets in three classes of grid graphs",
+          "trigger": "Exact same maximal dissociation condition may specialize to cycles"
+        },
+        {
+          "assessment": "prior maximum cardinality, not entire maximal-set count",
+          "evidence": "Theorem 4.1 gives wheel gp number; the current exact size distribution is stronger.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.03108",
+          "material_read": "Publication theorem citation and abstract/theorem summary, not complete independently inspected text",
+          "method": "targeted arXiv search and pinned package citation",
+          "title": "On the general position set of two classes of graphs",
+          "trigger": "Wheel maximum GP cardinality"
+        },
+        {
+          "assessment": "nonidentical fan/path boundary",
+          "evidence": "Coning P_n is not coning C_n and does not impose cyclic boundary closure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+          "material_read": "Resultary published summary only",
+          "method": "semantic Resultary query",
+          "title": "Dissociation polynomial and extremal coefficients of fan graphs",
+          "trigger": "Nearby published SCOPE exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural graph-family full inclusion-maximal-set polynomial, its sharp smallest/largest coefficients and exponential enumeration rate provide more information than previously known scalar GP number. The cyclic transfer method isolates a nontrivial boundary condition for consecutive 00 gaps; the exact counts are useful as extremal combinatorial benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify.py",
+    "arXiv:2401.05696 (Iršič–Klavžar–Rus–Tuite complete text)",
+    "arXiv:2002.03108 (Yao et al)",
+    "DOI 10.1016/j.amc.2024.128711 (Tian–Tu abstract only)",
+    "Resultary 2026 fan and windmill dissociation records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Tian–Tu 2024 original full text was inaccessible because authorized Oxford VPN disconnected; a cyclic-grid specialization may already include total maximal dissociation counts or a marked transfer operator.",
+    "The hub-free count is not a new object independent of classical maximal dissociation sets on cycles.",
+    "Finite independent checks stop at n=12; all-n relies on the proved cyclic-run classification and determinant identity."
+  ],
+  "schema_version": 1
+}

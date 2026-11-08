@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every wheel \(K_1\vee C_n\) with \(n\ge5\), the original geodesic constraint is equivalent to a length-three selected run forbidden on the rim, together with a two-adjacent-rim-vertex restriction when the hub is used. The proof establishes both directions of the exact inclusion-maximal run characterization. The stated transfer matrix counts labeled cyclic patterns without quotienting by rotations: the \(n/t\) run-marking normalization and the formal logarithm are justified. The minimum and maximum coefficient counts use sharp run/zero-gap inequalities. The asymptotic follows from the reciprocal sextic factorization. The packaged breadth-first-search verifier enumerates all subsets for \(5\le n\le13\) and checks every coefficient and both extremal distributions, ending `VERIFY_OK`. Infinite correctness rests on the written proof, not the finite table.
+## correctness
 
-## Originality — PASS, with explicit priority uncertainty
-Yao–He–Ji–Li, arXiv:2002.03108, establishes the wheel maximum size, not this entire inclusion-maximal polynomial. Iršič–Klavžar–Rus–Tuite, arXiv:2401.05696, gives the polynomial of **all** general-position sets of graph joins; this does not classify inclusion-maximal sets. Di Stefano et al., arXiv:2306.09965, define the lower general-position parameter, while arXiv:2404.19451 uses wheel triangles as terminal sets in product graphs. No inspected full text yields the claimed complete coefficientwise maximal-set enumerator. The rim contribution is exactly a maximal-dissociation-set polynomial of a cycle. Tian–Tu (DOI:10.1016/j.amc.2024.128711) is a plausible broader source whose full text was unavailable; a degenerate cylindrical-grid specialization might imply the result. This is recorded as genuine priority risk, not treated as proof of noncoverage.
+PASS
 
-## Mathematical value — PASS
-The distribution of **all** inclusion-maximal sets determines the sizes and abundance of greedy terminal configurations, beyond either scalar extremum. The run obstruction gives an exact infinite classification; the polynomial packages every coefficient, two distinct congruence-dependent extremal multiplicity laws, and an exponentially growing total with a precise dominant root. These are natural combinatorial properties of wheels, not an isolated small computational observation.
+For W_n=K1 join C_n (n>=5), graph diameter two. A hub-free set is GP exactly when its cyclic binary rim word avoids 111. Inclusion maximality forces every 1-run to have length 1 or 2, every 0-run length 1 or 2, and a 00-run precisely between two 11-runs; at least three selected rim vertices preclude adding hub. Hub-including maximal GP sets are exactly the n edge-plus-hub triples. The 2x2 transfer matrix indexed by selected-run sizes 1,2 has entries [[u²z,u²z],[u³z²,u³z²+u⁴z²]], determinant det(I-T)=1-zu²-z²u³-z²u⁴+z³u⁶, and rooted cycles are counted by n sum tr(T^t)/t; this proves A_n(z)=nz³-n[u^n]log det(I-T) for every n>=5. Simple b_i<=a_i constraints plus cyclic run counting yield the stated exact minimum/maximum rim subset multiplicities. Reciprocal polynomial substitution x+1/x shows only one expanding root α=1.401268..., four unit roots and one reciprocal, giving A_n(1)=n+α^n+O(1). Independently enumerated every subset of wheels n=5,...,12 using true graph geodesic triples and checked the maximal-set coefficients and extremal counts, not merely the transfer recurrence. Those finite tests support but do not substitute for the all-n run-decomposition proof.
 
-## Limits and references
-The proof assumes at least five rim vertices and ordinary geodesic general position. The exact coefficients are not independent external certificates; additional publication-priority checking of inaccessible cyclic-grid dissociation work is desirable. Primary inspected sources: arXiv:2002.03108, arXiv:2401.05696, arXiv:2306.09965, arXiv:2404.19451. Adjacent source: DOI:10.1016/j.amc.2024.128711 (abstract only).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing general-position polynomial of graph joins enumerates ALL GP sets, not inclusion-maximal ones; wheel largest-cardinality GP formula does not classify maximal set spectrum. Hub-free part is equivalent to maximal dissociation sets in C_n; Tian–Tu 2024 enumerates maximal dissociation sets in cyclical grid graphs and may imply the total number for cycle specialization, but the full graded polynomial and extremal coefficient classification are not identified in inspected material. Best-of-knowledge PASS with major historical-priority risk honestly recorded.
+
+## value
+
+PASS
+
+A natural graph-family full inclusion-maximal-set polynomial, its sharp smallest/largest coefficients and exponential enumeration rate provide more information than previously known scalar GP number. The cyclic transfer method isolates a nontrivial boundary condition for consecutive 00 gaps; the exact counts are useful as extremal combinatorial benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
