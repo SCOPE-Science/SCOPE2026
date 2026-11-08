@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:53:48.732352Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Full frozen RESULT.md blob 352b2b39cbd011e5c7bd5528c79e5400ba929ca7 §§universal trace identities, SEIR strict sign, thresholds",
+        "Frozen verify.py blob d0e1a1f91dd6256931a461e9962eb434c915840e",
+        "Private independent_checks.py check 2 polynomial trace identities and 20 word classification"
+      ],
+      "rationale": "For positive sigma,gamma, 0<beta_L<beta_H, and positive high/low block durations, H=exp(t_H G_high), L=exp(t_L G_low), G_b=[[-sigma,b],[sigma,-gamma]], are strictly positive 2x2 matrices. Across all 20 words with 3 H and 3 L, cyclic trace/class reduction yields HHHLLL (6 words), HHLHLL (12), HLHLHL (2). Cayley–Hamilton gives exact tr(H²LHL²)-tr(H³L³)=tr(H)tr(L)K and tr((HL)³)-tr(H²LHL²)=tr(HL)K, K=-det[H,L]. Because [H,L]=u_H u_L[G_bH,G_bL] and det[G_bH,G_bL]=-sigma²(beta_H-beta_L)², K>0. At common positive determinant, Perron root strictly grows with trace, proving strict ordering clustered<middle<alternating. For beta_L<gamma, as beta_H varies from beta_L upward each multiplier increases strictly from <1 to infinity, giving strict ordered unique thresholds. Independent symbolic Cayley–Hamilton tests and all 20 word classes checked; numeric example matched but infinite range rests on algebra and positivity.",
+      "residual_risks": [
+        "Only positive 2-state disease-free linear SEIR with exactly 3 H and 3 L and level-fixed positive durations.",
+        "For three separated threshold crossings additionally require 0<beta_L<gamma; no nonlinear peak claim.",
+        "General 2x2 trace identities classical and numerical tests supplemental."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General inequalities for positive matrix-exponential products may be relevant but were not found to imply these three exact balanced binary word classes.",
+          "Diedrichs study nonlinear recurrent outbreak peak scheduling, not disease-free linear SEIR Floquet six calendars."
+        ],
+        "reasoning": "A stronger generic rearrangement theorem is a real residual risk, but no inspected result implies both strict tiers and ordered high-contact invasion thresholds.",
+        "searches": [
+          "Resultary query: SEIR two contact levels three high three low periods six block alternation clustering Floquet multiplier trace matrix word order",
+          "https://doi.org/10.1007/s00285-008-0183-1",
+          "https://doi.org/10.1016/j.mbs.2013.12.004"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-008-0183-1",
+        "https://doi.org/10.1016/j.mbs.2013.12.004",
+        "https://pure.iiasa.ac.at/id/eprint/1854/",
+        "Resultary 2026/9/14/SCOPE021 (coupled SEIR different model)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bacaër–Abdurahman analyze disease-free resonance under variable periodic contact, including sinusoidal examples and latency effects.",
+          "The three strict word levels follow from an exact commutator sign and 2x2 trace polynomial, not from resonance or a generic monotonicity of contact intensity alone."
+        ],
+        "reasoning": "The prior statements do not furnish a general inequality between H^3L^3, H²LHL² and (HL)^3 under SEIR generator constraints; this extra matrix-algebra computation is decisive.",
+        "searches": [
+          "Resultary query: SEIR two contact levels three high three low periods six block alternation clustering Floquet multiplier trace matrix word order",
+          "https://doi.org/10.1007/s00285-008-0183-1",
+          "https://doi.org/10.1016/j.mbs.2013.12.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent as total preorder by trace of monodromy, not just calendar words; cyclic rotations and matrix-product reversal preserve eigenvalues.",
+          "Bacaër–Abdurahman examine period and forcing resonance in general SEIR models, not fixed 3+3 six-word trace tiers."
+        ],
+        "reasoning": "The equivalence is a Floquet multiplier arrangement problem, distinct from epidemic resonance existence at varying sinusoidal frequency.",
+        "searches": [
+          "Resultary query: SEIR two contact levels three high three low periods six block alternation clustering Floquet multiplier trace matrix word order",
+          "https://doi.org/10.1007/s00285-008-0183-1",
+          "https://doi.org/10.1016/j.mbs.2013.12.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem classifies all 20 words symbolically for all parameter values, not one finite numerical epidemic table.",
+          "Ninety-six seeded parameter checks in package are not used as evidence of novelty or all-real validity."
+        ],
+        "reasoning": "No prior exact six-word tier table was found; this does not certify priority.",
+        "searches": [
+          "Resultary query: SEIR two contact levels three high three low periods six block alternation clustering Floquet multiplier trace matrix word order",
+          "https://doi.org/10.1007/s00285-008-0183-1",
+          "https://doi.org/10.1016/j.mbs.2013.12.004"
+        ]
+      },
+      "rationale": "The epidemic literature establishes periodic environment effects and Floquet multipliers, and matrix trace identities are classical. What is assessed is the exact complete ordering of all balanced six-block SEIR calendars with unequal level durations and the strict separation of invasion boundaries. Existing resonance and outbreak scheduling papers do not state this ordered discrete classification in inspected material. Potential general two-matrix product inequalities remain a plausible strong-coverage risk.",
+      "residual_risks": [
+        "Complete Diedrichs et al. and Cohen et al. originals not read; generic 2x2 rearrangement results could subsume exact trace tiers.",
+        "Pertains to linear invasion only, not nonlinear prevalence and heterogeneous population thresholds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING specific 3H/3L calendar classification",
+          "evidence": "Its sections develop resonance in periodic forcing; no three-level trace arrangement appears in inspected full text.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-008-0183-1",
+          "material_read": "Author-uploaded full paper text including Introduction, model construction and periodic SEIR/resonance sections; searched for schedule and piecewise six-word permutation classes",
+          "method": "Public full-text extraction https://www.researchgate.net/publication/5392367_Resonance_of_the_epidemic_threshold_in_a_periodic_environment",
+          "title": "Resonance of the epidemic threshold in a periodic environment",
+          "trigger": "Same disease-free periodic SEIR model and Floquet threshold"
+        },
+        {
+          "assessment": "UNCERTAIN_FULL_TEXT; investigates nonlinear peak infection schedules",
+          "evidence": "Peak prevalence in recurrent nonlinear epidemic model is distinct from the linear SEIR invasion multiplier, but uninspected details could overlap.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2013.12.004",
+          "material_read": "PubMed abstract and indexed bibliographic metadata; full original paper not accessible",
+          "method": "PubMed abstract and publisher/source search",
+          "title": "The schedule effect: can recurrent peak infections be reduced without vaccines, quarantines or school closings?",
+          "trigger": "Strong same-theme calendar title and potential dominating result"
+        },
+        {
+          "assessment": "UNINSPECTED_FULL; possible stronger inequality risk",
+          "evidence": "A generic rearrangement result could subsume some ordering; no such precise implication established from material read.",
+          "identifier_or_url": "https://pure.iiasa.ac.at/id/eprint/1854/",
+          "material_read": "Bibliographic listing and summary of general inequalities, no full proof read",
+          "method": "Institutional repository metadata",
+          "title": "Eigenvalue inequalities for products of matrix exponentials",
+          "trigger": "Potential broad matrix-product comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bacaër–Abdurahman 2008 disease-free periodic epidemic threshold",
+        "Diedrichs et al. 2014 schedule-effect application",
+        "Full RESULT.md universal trace inequality"
+      ],
+      "rationale": "Changing only the order of fixed seasonal contact intensities can change the invasion verdict. An exact universal total ordering of all 20 balanced six-block calendars and the three strict intervention thresholds answers a canonical control scheduling question. This is more than verifying 20 examples because strictness holds for all continuous SEIR parameters and durations.",
+      "residual_risks": [
+        "Complete Diedrichs et al. and Cohen et al. originals not read; generic 2x2 rearrangement results could subsume exact trace tiers.",
+        "Pertains to linear invasion only, not nonlinear prevalence and heterogeneous population thresholds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only positive 2-state disease-free linear SEIR with exactly 3 H and 3 L and level-fixed positive durations.",
+    "For three separated threshold crossings additionally require 0<beta_L<gamma; no nonlinear peak claim.",
+    "General 2x2 trace identities classical and numerical tests supplemental."
+  ]
+}

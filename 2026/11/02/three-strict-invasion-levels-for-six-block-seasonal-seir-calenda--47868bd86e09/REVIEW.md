@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact 2×2 Cayley–Hamilton trace identities were reconstructed symbolically for arbitrary input entries; the irreducible Metzler exponentials are positive and their commutator has strictly negative determinant for distinct transmission rates. Identical six-block determinants make Perron ordering follow strictly from trace ordering. A variation-of-constants argument and the two parameter limits establish strict threshold separation, rather than merely numerical crossings. The embedded checker validates universal polynomial identities and 96 numerical samples, while the proof supplies all-parameter quantifiers. Limitation: the finding does not concern the nonlinear epidemic peak.
+## correctness
 
-## Originality — PASS, with residual historical uncertainty
-Bacaër–Abdurahman 2008: same type of periodic SEIR disease-free model, but a resonance analysis with sinusoidal forcing and no identified six-word complete strict ordering. Diedrichs–Isihara–Buursma 2014: scheduling effects on nonlinear recurrent peak infections, abstract accessible but complete text inaccessible. General 2×2 trace identities and positive matrix-exponential inequalities are classical; the proposed contribution is their strict SEIR-specialized 20-calendar trichotomy and the three invasion thresholds. Mathematical-record searches for the model, aliases, rearrangements and stronger matrix results returned no equivalent combined finding. Absence from searches is not proof of novelty. A stronger general matrix theorem and the inaccessible calendar-effect paper remain risks.
+PASS
 
-## Mathematical value — PASS
-The exact, exhaustive contact-scheduling ranking distinguishes epidemic invasion in identical-exposure six-stage calendars; three distinct critical rates provide a natural, falsifiable design boundary, rather than an isolated example or algebraic renaming. Its value is the global parameter regime and model-relevant invasion reversals. Classical trace identities are tools, not separately claimed contributions. The model's restrictive disease-free and homogeneous assumptions are stated prominently.
+For positive sigma,gamma, 0<beta_L<beta_H, and positive high/low block durations, H=exp(t_H G_high), L=exp(t_L G_low), G_b=[[-sigma,b],[sigma,-gamma]], are strictly positive 2x2 matrices. Across all 20 words with 3 H and 3 L, cyclic trace/class reduction yields HHHLLL (6 words), HHLHLL (12), HLHLHL (2). Cayley–Hamilton gives exact tr(H²LHL²)-tr(H³L³)=tr(H)tr(L)K and tr((HL)³)-tr(H²LHL²)=tr(HL)K, K=-det[H,L]. Because [H,L]=u_H u_L[G_bH,G_bL] and det[G_bH,G_bL]=-sigma²(beta_H-beta_L)², K>0. At common positive determinant, Perron root strictly grows with trace, proving strict ordering clustered<middle<alternating. For beta_L<gamma, as beta_H varies from beta_L upward each multiplier increases strictly from <1 to infinity, giving strict ordered unique thresholds. Independent symbolic Cayley–Hamilton tests and all 20 word classes checked; numeric example matched but infinite range rests on algebra and positivity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The epidemic literature establishes periodic environment effects and Floquet multipliers, and matrix trace identities are classical. What is assessed is the exact complete ordering of all balanced six-block SEIR calendars with unequal level durations and the strict separation of invasion boundaries. Existing resonance and outbreak scheduling papers do not state this ordered discrete classification in inspected material. Potential general two-matrix product inequalities remain a plausible strong-coverage risk.
+
+## value
+
+PASS
+
+Changing only the order of fixed seasonal contact intensities can change the invasion verdict. An exact universal total ordering of all 20 balanced six-block calendars and the three strict intervention thresholds answers a canonical control scheduling question. This is more than verifying 20 examples because strictness holds for all continuous SEIR parameters and durations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
