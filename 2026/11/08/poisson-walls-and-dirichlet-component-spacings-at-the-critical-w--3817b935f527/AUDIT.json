@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For n at least 10, a five-vertex window contains seven host edges. Four or more deletions have union-bound probability at most 35nq^4. A singleton run in any component coloring forces four deleted edges locally, so on the complementary event all component-label runs have length at least two, all boundaries are three-deletion walls, and K=max(1,W). Adjacent walls share one edge and occur with probability q^5, while nonadjacent walls are independent with probability q^6. Counting adjacency clusters gives the point-process factorial moments, and the conditional uniform Poisson spacings give Dirichlet component lengths. Exact finite verification passed 8,935 checks; it does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Federico (2024) allows general fixed range D and distance-dependent rates but proves off-critical 0/1 connectivity only.",
+        "The 2026 manuscript proves sharp critical laws for m/log n tending to infinity; it identifies small m as open."
+      ],
+      "reasoning": "More general parameters in Federico do not imply stronger critical-window outputs; its stated law is solely convergence of connectivity probability to zero or one away from threshold. No inspected theorem dominates the claimed fixed-width full component geometry.",
+      "searches": [
+        "finite range one dimensional bond percolation cycle power small bandwidth m=2 connectivity cut barrier Poisson missing edges",
+        "Connecting probability random bounded-range one-dimensional network Lorenzo Federico 2024 critical Poisson window wall counts",
+        "band random graph 2026 small bandwidth cut events nontrivial interval component Dirichlet spacing",
+        "source https://link.springer.com/article/10.1007/s11565-024-00508-6 Theorem 2.1, Propositions 3.1 and 4.1, section 5",
+        "source https://arxiv.org/html/2610.42107v1 Theorem 4 and Section 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.42107v1 (Theorem 4 and Section 7)",
+      "https://link.springer.com/article/10.1007/s11565-024-00508-6 (full open text)",
+      "https://arxiv.org/abs/2007.06301 (abstract only)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 (record summary)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE058 (record summary)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c (record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Federico (2024) proves zero-one thresholds at strictly off-critical fixed exponents, using cut and isolated obstructions.",
+        "At critical scaling n q_n^3 tending to finite nonzero lambda, neither the 0/1 limits nor their proof state a distribution for the number and sizes of components.",
+        "The 2026 paper asks to determine these critical window laws in its open problem; its isolated-vertex limit requires m/log n to diverge."
+      ],
+      "reasoning": "The new claim does not follow as a numerical special case of any stated full-distribution theorem. It requires a local rigidity lemma with error O(nq^4), a spatial Poisson process of three-edge cut walls and a conditional cyclic spacing argument. The known threshold is explicitly excluded from originality.",
+      "searches": [
+        "source https://link.springer.com/article/10.1007/s11565-024-00508-6 Theorem 2.1/section 6/section 7",
+        "source https://arxiv.org/html/2610.42107v1 Theorem 4/section 7",
+        "finite-range percolation n-cycle power m=2 critical window Poisson cut gaps limit connectivity e^-lambda(1+lambda) Dirichlet component lengths Federico",
+        "band random graph 2026 small bandwidth cut events nontrivial interval component Dirichlet spacing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Federico (2024), Section 2 defines independently appearing edges on a cyclic bounded-range lattice, which specializes to the same cycle-square host with equal rates.",
+        "Federico (2024) Theorem 2.1 is a zero-one threshold with no statement at the critical value.",
+        "Chakraborty–Luh–Singh (2026), Theorem 4 explicitly requires m much larger than log n; Section 7 asks for the small-band laws."
+      ],
+      "reasoning": "The host model in the 2024 paper is exactly equivalent after choosing D=2 and equal rates, so ownership of the off-critical threshold is conceded. The new Poisson point-process of walls, full component count distribution and conditional cyclic Dirichlet spacings are not equivalent to a zero-one threshold and are absent from the inspected statement and proof. The large-band isolated-vertex law has a different regime and mechanism.",
+      "searches": [
+        "band random graph cycle square C_n^2 bond percolation connectivity near p=1, missing three-edge walls Poisson, component count max(1,W), e^-lambda (1+lambda)",
+        "random cycle square connectivity Poisson separating cuts disconnected intervals, component size Dirichlet spacings",
+        "finite-range percolation n-cycle power m=2 critical window Poisson cut gaps limit connectivity e^-lambda(1+lambda) Dirichlet component lengths Federico",
+        "source https://link.springer.com/article/10.1007/s11565-024-00508-6 sections 2,4,5,6",
+        "source https://arxiv.org/html/2610.42107v1 Theorem 4 and section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant available public mathematical record: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns component–triangle covariance, not distribution of cycle-square components.",
+        "Relevant available public record: https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE058 concerns bunkbed percolation, not cyclic finite-range bond deletion.",
+        "Relevant available public record: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c concerns a ladder spanning-tree kernel, not the critical component law."
+      ],
+      "reasoning": "No recovered exact distribution/database entry or table supplies the Poisson/Dirichlet cycle-square law. Public record search is a bounded non-exhaustive overlap check, not uniqueness proof.",
+      "searches": [
+        "band random graph cycle square C_n^2 bond percolation connectivity near p=1, missing three-edge walls Poisson, component count max(1,W), e^-lambda (1+lambda)",
+        "finite range one dimensional bond percolation cycle power small bandwidth m=2 connectivity cut barrier Poisson missing edges",
+        "random cycle square connectivity Poisson separating cuts disconnected intervals, component size Dirichlet spacings",
+        "finite-range percolation n-cycle power m=2 critical window Poisson cut gaps limit connectivity e^-lambda(1+lambda) Dirichlet component lengths Federico",
+        "Connecting probability random bounded-range one-dimensional network Lorenzo Federico 2024 critical Poisson window wall counts",
+        "band random graph 2026 small bandwidth cut events nontrivial interval component Dirichlet spacing"
+      ]
+    },
+    "rationale": "The source 2026 manuscript explicitly requests small-bandwidth critical-window component laws, and its Theorem 4 assumes m/log n tends to infinity. Federico (2024) studies the identical fixed-range lattice family and proves a 0/1 threshold away from criticality, but not the critical Poisson component distribution, conditional Dirichlet spacings, or the explicit all-component rigidity bound. The 2020 random-position soft graph is a different model. Main residual risk is an older equivalent special-case network-reliability theorem.",
+    "residual_risks": [
+      "An older same-model network-reliability paper or theorem could already give the fixed-width Poisson connectivity-window probability or Dirichlet component spacings.",
+      "The known fixed-range threshold and existence of cut walls are not original and are intentionally excluded from the novelty claim.",
+      "Only abstract-level material was inspected for the 2020 continuum paper, which uses a different underlying graph model; the full text was not assessed.",
+      "Searches are necessarily incomplete and do not constitute proof of historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Theorem 4 assumes bandwidth grows faster than log n and yields Poisson isolated vertices; range two outside assumptions. Section 7 explicitly requests small-band component laws.",
+        "evidence": "arXiv:2610.42107v1, lines corresponding to Theorem 4 and Section 7.",
+        "identifier_or_url": "https://arxiv.org/html/2610.42107v1",
+        "material_read": "Abstract, Theorem 4 and its critical-window proof context, Section 7 open problems; arXiv HTML v1.",
+        "method": "Full-text HTML targeted reading",
+        "title": "Band Random Graphs: Connectivity, Geometry, and Transport",
+        "trigger": "Exact same band graph family and explicit fixed-band question"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: Theorem 2.1 settles off-critical threshold, and cut gaps are known; neither critical Poisson/Dirichlet component laws nor an all-component probability error bound is stated. Existing proof techniques may simplify a special-case derivation.",
+        "evidence": "DOI:10.1007/s11565-024-00508-6; Theorem 2.1, Proposition 4.1, Section 5, Section 6.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11565-024-00508-6",
+        "material_read": "Complete open-access HTML: introduction/model, Theorem 2.1, Sections 3–7 including proofs of all stated cut-event bounds.",
+        "method": "Full-text HTML reading",
+        "title": "Connecting probability for random bounded-range one-dimensional network",
+        "trigger": "Exact same bounded-range cyclic graph family and critical cut-gap obstruction"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL; not a whole-document noncoverage claim. Random-point soft geometry, not a fixed cycle-square lattice; abstracts describe isolation/uncrossed gaps rather than the exact claimed law.",
+        "evidence": "Phys Rev E 102, 062312 (2020), arXiv:2007.06301 abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2007.06301",
+        "material_read": "Published abstract and associated publicly indexed source description only; full article not inspected.",
+        "method": "Journal and open arXiv metadata/abstract",
+        "title": "Connectivity in One-Dimensional Soft Random Geometric Graphs",
+        "trigger": "Closest cited continuum one-dimensional random graph analog"
+      },
+      {
+        "assessment": "DIFFERENT_QUESTION: covariance of component and triangle counts in bond percolation; no indicated cycle-square critical distribution.",
+        "evidence": "Public record summary identifies exact component–triangle covariance.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+        "material_read": "Public title and summary returned by research record search; full artifact not inspected.",
+        "method": "Public title and abstract summary only",
+        "title": "Three-point connectivity exactly controls component–triangle covariance",
+        "trigger": "Closest result from semantic public mathematical record search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3817b935-f527-4d37-9db3-cfc692374ed2",
+  "value": {
+    "rationale": "The 2026 primary manuscript explicitly asks for the critical distribution of nontrivial interval components in the small-band regime. This result resolves the simplest nontrivial fixed band completely: all component count probabilities, exact e^-lambda(1+lambda) connectivity, spatial Poisson walls, conditional macroscopic Dirichlet spacings, and a quantitative finite-volume geometric reduction. These are scientifically more informative than the previously established threshold and arise from a natural network-reliability invariant.",
+    "status": "PASS"
+  }
+}
