@@ -1,19 +1,21 @@
-# Review of the three-site mixed-cost universal-optimum theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain is a metric on three distinct sites with one unit-weight agent at each, exactly two distinct facilities at these same sites, and independently assigned maximum/average individual costs. The proof gives the complete eight-type affine cost formula for all three possible decisions, then takes the exact maximum of each pairwise cost difference. The triangle inequality is used explicitly to control the signs. If \(3p>q+r\), every all-average optimum is a shortest pair and a single maximum-type endpoint strictly defeats it. Ties and equality are covered by the nonstrict inequalities and relabeling argument. The four-site boundary is directly costed. Exact-rational verification of \(8{,}327\) integer and \(3{,}339\) additional rational triangles checks the identities and witnesses, but is not substituted for proof of the infinite claim.
+PASS
 
-## Originality
+For three distinct metric locations with distances p<=r<=q<=p+r and three co-located agents, compare A=(0,1), B=(1,2), C=(0,2). All-average baseline twice costs are (2p+q+r,p+q+2r,p+r+2q); switch-to-max increments give exact affine differences: 2(C_A-C_B)=(p-r)+(2p-q)t0+(p-r)t1+(q-2r)t2 and 2(C_A-C_C)=(p-q)+(p-q)t0+(2p-r)t1-r t2. Maximizing over eight type vectors yields p-r+max(0,2p-q) and p-q+max(0,2p-r); both <=0 iff 3p<=q+r. Conversely if 3p>q+r, all-average forces shortest pair but t=(1,0,0) favors B by (3p-q-r)/2, including ties. Independent enumeration of all 8 profiles for every 8327 ordered integer metric triangle p<=r<=q<=44 reproduced equivalence, and verified 3,4,4 plus four-point line counterexamples. Analytical affine inequalities prove all real metrics.
 
-PASS, qualified by ordinary literature coverage limits. The motivating 2026 paper derives general approximation bounds and its unrestricted-line zero-loss result permits facility co-location. The present statement is an exact necessary-and-sufficient *constrained distinct-site* metric threshold, with mixed-type incompatibility despite homogeneous agreement. Deligkas–Lotfi–Voudouris treat homogeneous type models; Han–Anshelevich study compatibility of homogeneous aggregate objectives. Searches for shortest-pair, three-point metric, mixed max/average committees, universal type-blind optima, and the displayed threshold did not identify an equivalent in the accessible literature or the queried public mathematical-record database. The later paper's accessible full text was examined at its definitions, contributions, type-private bounds, line model, and unrestricted co-location results. The two other papers' accessible primary material was considered; Han–Anshelevich's full text remains unread and may conceal a specific corollary. This is best-knowledge originality, not proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result directly resolves the first nontrivial exact type-elicitation problem for two heterogeneous facilities: at three sites it characterizes **precisely when types can be ignored at zero social-cost loss**. Importantly, agreement between the all-average and all-maximum optima is not sufficient, as the strict triangle witness shows. The collinear guarantee and four-site obstruction identify two sharp geometric/market-size boundaries. These distinctions are not routine consequences of the published approximation constants or the unrestricted median theorem.
+Gruszecki–Anshelevich (2026) investigates type-independent mixed max/sum committee rules but its general guarantee is approximation and line treatment permits co-location. Han–Anshelevich (2025) studies compatibility of homogeneous max and sum aggregates, not arbitrary per-agent mixed types. Deligkas et al. study homogeneous facility objectives under strategic reporting. None of the inspected relevant results gives exact distinct-site universal optimum iff 3p<=q+r across all eight heterogeneous profiles. Best-of-knowledge qualification persists.
 
-## Limits and remaining risks
+## value
 
-There is no guarantee for additional sites, unequal weights, distinct site and client sets, or other cost types. It makes no statement about manipulations of location reports. The 2025 compatibility paper was located and its abstract compared, but its complete text was not read; another unindexed equivalent calculation is possible. The 2026 and 2025 primary full-text materials inspected discuss broader results rather than the exact three-site criterion. No independent external validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the smallest nontrivial constrained committee design with privately varying individual cost types, this gives the exact zero-loss type-blind region and a sharp obstruction where even agreement between homogeneous optima fails. The three-point line corollary and four-point counterexample locate a meaningful finite boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

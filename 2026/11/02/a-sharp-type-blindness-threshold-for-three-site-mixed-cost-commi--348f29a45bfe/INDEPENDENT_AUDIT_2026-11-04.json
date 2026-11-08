@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:04:26.094645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three distinct metric locations with distances p<=r<=q<=p+r and three co-located agents, compare A=(0,1), B=(1,2), C=(0,2). All-average baseline twice costs are (2p+q+r,p+q+2r,p+r+2q); switch-to-max increments give exact affine differences: 2(C_A-C_B)=(p-r)+(2p-q)t0+(p-r)t1+(q-2r)t2 and 2(C_A-C_C)=(p-q)+(p-q)t0+(2p-r)t1-r t2. Maximizing over eight type vectors yields p-r+max(0,2p-q) and p-q+max(0,2p-r); both <=0 iff 3p<=q+r. Conversely if 3p>q+r, all-average forces shortest pair but t=(1,0,0) favors B by (3p-q-r)/2, including ties. Independent enumeration of all 8 profiles for every 8327 ordered integer metric triangle p<=r<=q<=44 reproduced equivalence, and verified 3,4,4 plus four-point line counterexamples. Analytical affine inequalities prove all real metrics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gruszecki–Anshelevich arXiv:2606.26074 proves approximate type-independent guarantees and a collinear case with allowed facility co-location.",
+          "Deligkas–Lotfi–Voudouris arXiv:2405.05197 studies homogeneous strategic objectives and constrained agency."
+        ],
+        "reasoning": "An approximation-factor guarantee cannot imply exact zero loss iff the metric inequality; a co-location line theorem has different feasible facility pairs. Neither asserts the sharp full triangle classification.",
+        "searches": [
+          "Resultary: mixed max sum type committee three sites two distinct facilities universal optimality",
+          "arXiv:2606.26074 Strategyproof Facility Location and Committee Selection with Mixed Max and Sum Agent Types",
+          "arXiv:2507.17063 Compatibility of Max and Sum Objectives for Committee Selection and k-Facility Location",
+          "arXiv:2405.05197 Agent-constrained truthful facility location games",
+          "three point metric universal max average costs two facilities type independent"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 20b6fef22e32ebaaf63b2d4e4a74fdd81e7afd83",
+        "verify.py frozen blob 889968a97f463475a05cfc4e26d0a10346d7cace",
+        "https://arxiv.org/abs/2606.26074",
+        "https://arxiv.org/abs/2507.17063",
+        "https://arxiv.org/abs/2405.05197"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Han–Anshelevich’s compatibility of homogeneous max/sum objectives does not control arbitrary individual type mixture.",
+          "A universal optimum in the constrained metric requires simultaneous inequalities across all eight type assignments, proven by maximization of affine differences."
+        ],
+        "reasoning": "The closest theorems do not imply the iff threshold, even as a direct specialization, because their permitted co-location, type profiles, and/or performance guarantee differ.",
+        "searches": [
+          "Resultary: mixed max sum type committee three sites two distinct facilities universal optimality",
+          "arXiv:2606.26074 Strategyproof Facility Location and Committee Selection with Mixed Max and Sum Agent Types",
+          "arXiv:2507.17063 Compatibility of Max and Sum Objectives for Committee Selection and k-Facility Location",
+          "arXiv:2405.05197 Agent-constrained truthful facility location games",
+          "three point metric universal max average costs two facilities type independent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gruszecki–Anshelevich’s mixed type framework uses the same kinds of per-agent average and maximum distance but different guarantees and facility constraints.",
+          "Han–Anshelevich compatible homogeneous objectives have only aggregate all-average/all-maximum types."
+        ],
+        "reasoning": "Being optimal for each homogeneous aggregate does not imply optimality for every heterogeneous assignment; (p,r,q)=(3,4,4) is an exact counterexample. The constraint two distinct participant sites is essential.",
+        "searches": [
+          "Resultary: mixed max sum type committee three sites two distinct facilities universal optimality",
+          "arXiv:2606.26074 Strategyproof Facility Location and Committee Selection with Mixed Max and Sum Agent Types",
+          "arXiv:2507.17063 Compatibility of Max and Sum Objectives for Committee Selection and k-Facility Location",
+          "arXiv:2405.05197 Agent-constrained truthful facility location games",
+          "three point metric universal max average costs two facilities type independent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive exact check covered all 8327 integer sorted triangle triples through q=44 with eight cost profiles apiece.",
+          "The exact 3,4,4 witness defeats a shortest pair with one maximum-type agent."
+        ],
+        "reasoning": "No identical three-site, all-eight-profile threshold in published result records found; finite arithmetic confirms the formula but is not historical novelty evidence.",
+        "searches": [
+          "Resultary: mixed max sum type committee three sites two distinct facilities universal optimality",
+          "arXiv:2606.26074 Strategyproof Facility Location and Committee Selection with Mixed Max and Sum Agent Types",
+          "arXiv:2507.17063 Compatibility of Max and Sum Objectives for Committee Selection and k-Facility Location",
+          "arXiv:2405.05197 Agent-constrained truthful facility location games",
+          "three point metric universal max average costs two facilities type independent"
+        ]
+      },
+      "rationale": "Gruszecki–Anshelevich (2026) investigates type-independent mixed max/sum committee rules but its general guarantee is approximation and line treatment permits co-location. Han–Anshelevich (2025) studies compatibility of homogeneous max and sum aggregates, not arbitrary per-agent mixed types. Deligkas et al. study homogeneous facility objectives under strategic reporting. None of the inspected relevant results gives exact distinct-site universal optimum iff 3p<=q+r across all eight heterogeneous profiles. Best-of-knowledge qualification persists.",
+      "residual_risks": [
+        "Hidden small-instance corollary in prior committee-selection compatibility or strategic-location literature cannot be ruled out.",
+        "No extension to more agents, extra candidate sites, weighted agents or strategyproof location reports."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Approximate general guarantees and different feasible set, no exact three-site distinct-sites threshold in inspected material",
+          "evidence": "Main approximation theorems and line-case distinction",
+          "identifier_or_url": "https://arxiv.org/abs/2606.26074",
+          "material_read": "Lawful author-uploaded full text viewed; main model, type-independent approximation statements and collinear/co-location arguments",
+          "method": "Primary author full text relevant theorem sections",
+          "title": "Strategyproof Facility Location and Committee Selection with Mixed Max and Sum Agent Types",
+          "trigger": "Same heterogeneous cost types and committee placement setting"
+        },
+        {
+          "assessment": "Homogeneous objective compatibility does not imply arbitrary independently mixed agent costs",
+          "evidence": "Definitions of aggregate objectives and main compatibility statements",
+          "identifier_or_url": "https://arxiv.org/abs/2507.17063",
+          "material_read": "ArXiv HTML complete article, main homogeneous max and sum formulations and compatibility results",
+          "method": "Primary full-text relevant theorem sections",
+          "title": "Compatibility of Max and Sum Objectives for Committee Selection and k-Facility Location",
+          "trigger": "Possible broad compatibility theorem for same two social objectives"
+        },
+        {
+          "assessment": "Not enough access to exclude all small-instance corollaries; explicit residual risk",
+          "evidence": "Homogeneous report-constrained variant",
+          "identifier_or_url": "https://arxiv.org/abs/2405.05197",
+          "material_read": "Accessible arXiv abstract and discussion of homogeneous objectives",
+          "method": "Primary abstract and reported scope only",
+          "title": "Agent-constrained truthful facility location games",
+          "trigger": "Nearest report-constrained social-cost problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the smallest nontrivial constrained committee design with privately varying individual cost types, this gives the exact zero-loss type-blind region and a sharp obstruction where even agreement between homogeneous optima fails. The three-point line corollary and four-point counterexample locate a meaningful finite boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 20b6fef22e32ebaaf63b2d4e4a74fdd81e7afd83",
+    "verify.py frozen blob 889968a97f463475a05cfc4e26d0a10346d7cace",
+    "https://arxiv.org/abs/2606.26074",
+    "https://arxiv.org/abs/2507.17063",
+    "https://arxiv.org/abs/2405.05197"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly 3 distinct agent-owned sites and exactly two distinct chosen facilities; unweighted individual costs only.",
+    "Universal optimum for all type assignments, not general mechanism strategyproofness.",
+    "Hidden small-instance corollary in prior committee-selection compatibility or strategic-location literature cannot be ruled out.",
+    "No extension to more agents, extra candidate sites, weighted agents or strategyproof location reports."
+  ],
+  "schema_version": 1
+}
