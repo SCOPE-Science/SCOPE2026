@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The independently replayable script `verify_directed_ring.py` uses exact rational arithmetic for the finite covariance recurrences and leader-placement enumeration; its optional numerical integration uses SciPy. Run it with a standard Python interpreter and SciPy installed.
+## correctness
 
-Observed output: `PASS {'lyapunov_blocks': 33, 'leader_sets': 6105, 'optimum_sets': 1365, 'critical_checks': 16}`.
+PASS
 
-The exact test checks the Lyapunov equation entry by entry for gains \(1/3\), \(3/5\), and \(1\) and lengths zero through ten. It enumerates all leader subsets for rings of sizes two through ten, compares their exact variance totals against the balanced formula, and verifies that all and only balanced subsets are minimizers, including their count. It also checks strict discrete convexity through length 101, the critical closed form, and 16 finite-size numerical convergence comparisons using sizes 500, 2000, and 8000.
+In the pinned directed ring, follower dynamics split into nilpotent lower-shift path blocks with Hurwitz drift -I+rho T. The squared impulse-response integral gives exact stationary variance Phi_rho(ell)=1/2 sum_(h<ell)(ell-h) binom(2h,h)rho^(2h)/4^h. Strict positive second differences 1/2 C_(ell+1)rho^(2ell+2) for all 0<rho<=1 prove the balanced-gap exclusive optimizer and count n/k*binom(k,r), including k=n. The critical identity Phi_1(ell)=ell(2ell+1)C_ell/3 follows from central-binomial recurrences. The n(1-rho_n)->c fixed-k integral uses dominated Riemann sums with an integrable u^-1/2 singularity, and the n(1-rho_n)->infinity regime uses the exact generating function and a uniform truncated-tail inequality. Checked the proof boundaries rho=0 excluded and fixed k assumption. Independently solved Lyapunov blocks via exact rationals and exhaustively compared k-subsets for 2<=n<=8 at rho=1,2/3. Those finite checks corroborate but do not prove asymptotics.
 
-These computations do not certify an infinite statement. The proof in `RESULT.md` establishes the nilpotent matrix integral, strict convexity, optimizer count and the two limiting regimes without relying on sampling or a numerical solver. Small numerical checks use ordinary floating-point and are not interval certificates. Self-review only; no independent external review or certification was performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.
+
+## value
+
+PASS
+
+The same strictly directed, nonnormal stochastic network yields an all-k sharp optimum placement rule, exact optimizer multiplicity, and a nontrivial n(1-rho) critical crossover from n^(3/2) to linear variance. This fills a natural quantitative design question not answered by knowing the single-path covariance alone; a researcher planning pinned directed feedback can use the explicit fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

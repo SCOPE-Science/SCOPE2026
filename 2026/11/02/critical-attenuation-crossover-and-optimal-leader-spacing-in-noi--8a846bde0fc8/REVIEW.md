@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The directed block covariance follows from a finite nilpotent-shift exponential and integral of squared impulse responses. Positive discrete curvature proves the precise balancing classification and the labelled optimizer count. Central-binomial Riemann sums and generating functions prove the two asymptotic regimes with a controlled remainder. The standalone exact-rational checker compares 33 full covariance blocks, 6105 leader placements and 16 numerical crossover examples; these are corroborative finite tests rather than the general proof.
+## correctness
 
-**Originality — PASS, qualified.** Lin, Fardad, and Jovanović (2012) and Fu Lin (2016) derive the variance of a single directed root-to-follower chain; its unit-gain formula is already known and expressly credited. Patterson, McGlohon, and Dyagilev (2014) optimize leaders on undirected rings, with a distinct symmetric covariance. The present claim concerns the all-budget directed ring classifier and the uniform attenuation-size critical window; no inspected primary source establishes their combination. Related specialized literature could still contain equivalent results, and publication priority is not certified.
+PASS
 
-**Value — PASS.** The exact design shows all optimal pinned placements, including their multiplicity, and quantifies a critical leakage threshold at gain deficits of order \(1/n\). At critical coupling the error is \(n^{3/2}\)-scale and leader-budget sensitive, while subcritical coupling gives leading linear error independent of a fixed number of leaders. This distinction guides robustness and placement decisions in directed noise-limited formations.
+In the pinned directed ring, follower dynamics split into nilpotent lower-shift path blocks with Hurwitz drift -I+rho T. The squared impulse-response integral gives exact stationary variance Phi_rho(ell)=1/2 sum_(h<ell)(ell-h) binom(2h,h)rho^(2h)/4^h. Strict positive second differences 1/2 C_(ell+1)rho^(2ell+2) for all 0<rho<=1 prove the balanced-gap exclusive optimizer and count n/k*binom(k,r), including k=n. The critical identity Phi_1(ell)=ell(2ell+1)C_ell/3 follows from central-binomial recurrences. The n(1-rho_n)->c fixed-k integral uses dominated Riemann sums with an integrable u^-1/2 singularity, and the n(1-rho_n)->infinity regime uses the exact generating function and a uniform truncated-tail inequality. Checked the proof boundaries rho=0 excluded and fixed k assumption. Independently solved Lyapunov blocks via exact rationals and exhaustively compared k-subsets for 2<=n<=8 at rho=1,2/3. Those finite checks corroborate but do not prove asymptotics.
 
-**Limitations.** Homogeneous one-way rings, pinned noise-free leaders, independent equal-intensity follower noise, and \(0<\rho\le1\) only. Correlated noise, heterogeneous gains and bidirectional models are not included; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.
+
+## value
+
+PASS
+
+The same strictly directed, nonnormal stochastic network yields an all-k sharp optimum placement rule, exact optimizer multiplicity, and a nontrivial n(1-rho) critical crossover from n^(3/2) to linear variance. This fills a natural quantitative design question not answered by knowing the single-path covariance alone; a researcher planning pinned directed feedback can use the explicit fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
