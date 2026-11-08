@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "With all affine parity-check labels used once, two-window syndromes are exactly zero, all Q odd-parity single-column syndromes, and even-parity adjacent differences. Telescoping XOR forces a missing difference in any noncyclic ordering; a repeated-difference XOR forces one in any cyclic ordering. The primitive power list omits precisely u=1+alpha^{-1}; a power-exponent argument exhibits that missing u as a two-apart difference, within a three-window, for each m>=2. The embedded standalone checker directly enumerates syndromes for m=2..11 and every m=3 ordering. Computations corroborate but are not used to prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sac Himelfarb and Schwartz, arXiv:2601.00435v3, Definition 14, Remark 15, Example 16, Theorems 17-18, Section VIII. Example 16 gives only Q=8. Theorems 17-18 are lower bounds on code lengths and do not imply the constructive all-Q ordering.",
+        "The paper restricts most subsequent exact analysis to binary cyclic codes characterized by LFSRs, whereas the extended Hamming family of even length is treated only in Example 16."
+      ],
+      "reasoning": "The primary full-text sections giving the closest relevant object were inspected. The all-degree upper construction and sharp two-window syndrome-coverage count are not corollaries of the paper’s explicit bounds and small example. An uninspected unrelated paper could still dominate, which remains a risk.",
+      "searches": [
+        "extended binary Hamming codes optimal coordinate reordering for noncyclic and cyclic burst covering radius three all powers of two finite fields primitive element",
+        "\"extended Hamming\" \"burst-covering\" \"3\" 2026",
+        "\"extended hamming code\" \"burst covering\" \"2^m\"",
+        "On the burst-covering radius of binary cyclic codes arxiv 2601.00435 Theorem 17 Theorem 18 Example 16 extended binary Hamming"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.00435v3",
+      "https://arxiv.org/abs/2601.00435",
+      "https://arxiv.org/abs/1603.01496",
+      "https://authors.library.caltech.edu/records/56zn6-vyz20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 16: an extended [8,4,4] Hamming parity-check ordering attains radius 3, while another ordering has radius 4.",
+        "Theorem 17: general counting lower bounds for burst covering; Theorem 18: stronger cyclic bound for b>=3. Neither constructs optimal extended Hamming coordinate orders for m>3 nor counts two-burst syndromes."
+      ],
+      "reasoning": "The new assertion strictly extends the cited Q=8 example with an explicit all-m primitive-element construction and a sharp Q-uniform obstruction for two windows. Prior general inequalities alone do not assert the existence of the specific permutations and therefore do not imply the claim. The proof independently verifies standard finite-field premises.",
+      "searches": [
+        "arxiv:2601.00435 Example 16 Definition 14 Theorem 17 Theorem 18",
+        "arxiv:2601.00435 Section VIII other known families coordinate permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The additive version is an ordering of every point of F_2^m with all but one nonzero neighbor difference and with the omitted difference appearing between distance-two points.",
+        "M. A. Ollis, Terraces for Small Groups, arXiv:1603.01496: the abstract studies group sequencing/terraces, but no full-document comparison establishing inclusion was made."
+      ],
+      "reasoning": "The equivalence was derived algebraically from the parity-check matrix and searched under adjacent differences, near sequencing and burst syndromes. A general group-sequencing result could imply part of the theorem, but the accessible evidence did not exhibit its full ordered-code statement. The near-sequencing article was only abstract-inspected and is a residual priority risk, not declared NOT_COVERING from snippets.",
+      "searches": [
+        "maximum syndrome coverage using two consecutive parity-check columns of extended Hamming codes exactly 2^(m+1)-1",
+        "2-burst syndrome covering all but one for affine Hamming code Gray order partial sequencing F2^m",
+        "near complete sequencing elementary abelian 2 group primitive powers zero adjacent sum",
+        "elementary abelian 2 group permutation successive differences all distinct except one near sequencing almost directed terrace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed research comparisons most closely returned results on ordinary covering radii of extended BCH families and on symbol-pair generation profiles of cyclic Hamming codes; their objects/metrics are different.",
+        "The only matching primary published example located gives length 8, without an all-length table or sharp syndrome count."
+      ],
+      "reasoning": "The check sought exact tabular values for Q=2^m and 2-burst accessible syndrome counts, not just title matches. No indexed table or published record in the inspected results supplied the same infinite family. This is not proof of uniqueness and records may be incomplete.",
+      "searches": [
+        "extended binary Hamming codes optimal coordinate reordering for noncyclic and cyclic burst covering radius three all powers of two finite fields primitive element",
+        "maximum syndrome coverage using two consecutive parity-check columns of extended Hamming codes exactly 2^(m+1)-1",
+        "2-burst syndrome covering all but one for affine Hamming code Gray order partial sequencing F2^m",
+        "\"extended Hamming\" \"burst\" \"permutation\" \"3\" covering"
+      ]
+    },
+    "rationale": "The closest inspected source, arXiv:2601.00435 (January 1, 2026 original), establishes burst covering and the length-eight demonstration, not the all-m optimal coordinate order or the exact 2Q-1 two-window syndrome count. Indexed equivalent and dominance searches found nearby but nonimplicative ordinary-covering and symbol-pair results. The combinatorial near-sequencing antecedent and unindexed literature remain priority risks.",
+    "residual_risks": [
+      "A group-theoretic near-sequencing or adjacent-difference theorem could imply the algebraic ordering lemma without the coding terminology; the 2016 terrace paper was inspected only at abstract level.",
+      "The arXiv source was inspected in its October 2026 version; January original-submission date is verified, but all revision-level differences were not compared.",
+      "Database and general web searches are incomplete and do not establish definitive historical priority; independent mathematical validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only Q=8 example for extended Hamming; bounds and cyclic LFSR results do not provide all-m optimization or sharp two-window count",
+        "evidence": [
+          "Example 16 columns H and Hprime with burst radii 4 and 3 at length 8",
+          "Theorem 17 general length bounds and Theorem 18 cyclic bounds",
+          "Section VIII calls for exact radius of other code families"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.00435v3",
+        "material_read": "HTML full-text relevant Sections III, IV, VIII; Definition 14, Remark 15, Example 16, Theorems 17 and 18 and their proof statements",
+        "method": "direct HTML full-text inspection and statement/implication comparison",
+        "title": "On the Burst-Covering Radius of Binary Cyclic Codes",
+        "trigger": "Exact definition and explicit extended Hamming Q=8 example; plausible direct coverage"
+      },
+      {
+        "assessment": "Not enough material to exclude implicit combinatorial prior coverage; retained as residual risk",
+        "evidence": [
+          "Abstract concerns sequenceability/terraces of groups, including the exceptional noncyclic elementary abelian 2-groups"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.01496",
+        "material_read": "Abstract only",
+        "method": "arXiv abstract and bibliographic metadata inspection",
+        "title": "Terraces for Small Groups",
+        "trigger": "Possibly related group-sequencing/neighbor-difference formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "217f69e3-2c68-4213-b6fa-3d18ffb588a5",
+  "value": {
+    "rationale": "The 2026 burst-covering paper identifies position ordering as material and proves a single length-eight case. The finding settles coordinate-optimized burst radius for the entire extended binary Hamming family in both cyclic and noncyclic models, gives a deterministic primitive-element construction, and establishes the exact best syndrome accessibility under two consecutive positions. This is a structural all-length classification of the optimum parameter, directly motivated by contiguous-access coding rather than an arbitrary finite table.",
+    "status": "PASS"
+  }
+}
