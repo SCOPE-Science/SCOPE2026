@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The subspace-lattice inversion formula has correct coefficients +1,-2,+8 for binary dimension three, and 0<=rho<1 for every proper subspace because the combined code has rank three. Exhaustive exact-rational inspection of all 120 three-column vector multisets and all 5922 full-rank unordered pairs proves the 125/56 global minimum and 28 equality pairs, including zero/repeated columns. A different rational first-step recursion on 64 seen-position states independently agrees for every one of the 5922 pairs, and direct symbolic counting proves the optimal all-time tail. Results are reproduced from the included standalone checker.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.02931v1 Theorem II.3 is an exact evaluation of a fixed code and partition, whereas Theorem II.6 optimizes when an MDS code exists; Section V explicitly leaves small-field non-MDS code-layout optimization open.",
+        "arXiv:2507.20639v1 Section II defines single-container uniform coverage depth and optimizes fixed classical code families.",
+        "The published rank-two theorem explicitly restricts k=2 and single-container draws."
+      ],
+      "reasoning": "The general Möbius formula is broader as an evaluation tool but is not itself a solution of the global binary [6,3], 3+3 minimization. The MDS dominance theorem has an absent hypothesis here: [6,3]_2 MDS codes do not exist. No inspected stronger optimization theorem implies the numerical minimum and complete equality family.",
+      "searches": [
+        "Two-container binary rank-three coverage expectation optimal partition minimum 125/56 full rank small field non MDS",
+        "Distributed coverage depth binary [6,3] two containers non-MDS exact optimal layout expected recovery time",
+        "arXiv 2610.02931 Kong Elishco Wang Duman optimal binary [6,3] two 3-strand containers exact recovery depth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02931v1 (2026-10-02)",
+      "arXiv:2507.20639v1 (2025-07-28)",
+      "arXiv:2305.05656 (2023-05-09)",
+      "2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kong et al., arXiv:2610.02931v1, Theorems II.3 and II.6 and Section V; direct relevant sections read.",
+        "Bertuzzo et al., arXiv:2507.20639v1, Section II; Bar-Lev et al., arXiv:2305.05656, abstract/model.",
+        "Published rank-two coverage optimum 2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9, exact finding and assumptions read."
+      ],
+      "reasoning": "The exact formula for E[tau] conditional on a layout is an acknowledged input and therefore not presented as new. The claim instead minimizes it over all [6,3]_2 codes and 3+3 partitions and proves every equality case. Single-container results and a rank-two result do not imply this two-container rank-three optimization; MDS optimality does not apply over F_2 at length six. The exhaustive 5922-pair rational optimization provides the missing conclusion.",
+      "searches": [
+        "arXiv 2610.02931 Kong Elishco Wang Duman optimal binary [6,3] two 3-strand containers exact recovery depth",
+        "Two-container binary rank-three coverage expectation optimal partition minimum 125/56 full rank small field non MDS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02931v1 Section II.B gives a general subspace formula; Section V asks for non-MDS small-field optimal layouts, not an Fano-line equality classification.",
+        "The indexed rank-two coverage theorem, 2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9, treats all [n,2]_q codes with a single uniform sampling pool; its exact full RESULT.md was inspected."
+      ],
+      "reasoning": "Equivalent formulations include minimizing the expected time to span F_2^3 from two independent uniform three-element multisets, or classifying optimal partitions of six Fano-point multiset columns. Searches by Fano geometry, 125/56, and expected recovery rounds found no equivalent rank-three two-container value; the closest rank-two theorem is dimensionally and operationally different.",
+      "searches": [
+        "Fano-plane complete line versus affine triple optimal six-column rank-three binary stochastic coupon sampling 125/56",
+        "Fano plane six points partitioned into triples line and affine complement optimizes expected stopping time of uniform two-container sampling span F2^3",
+        "Two-container binary rank-three coverage expectation optimal partition minimum 125/56 full rank small field non MDS"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching 125/56 value, binary [6,3] 3+3 minimization, or equality census appears in the inspected 2026 paper passages and appendix examples. Appendix B includes n=6,k=4 and n=6,k=5 MDS examples, not binary k=3.",
+        "Indexed research searches returned the related rank-two theorem 2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9 but no exact rank-three two-container table."
+      ],
+      "reasoning": "Actual value/parameter searches and inspection of likely source tables did not reveal the stated entry or a stronger exact table covering it. Search failure is not taken as proof of novelty; undiscovered tables remain a residual risk.",
+      "searches": [
+        "Binary [6,3] linear code optimal distributed DNA storage two balanced containers size 3 expected rounds 125/56 2.23214 exact coverage depth",
+        "\"125/56\" \"coverage\" code sampling",
+        "\"binary\" \"[6,3]\" \"coverage depth\" \"two\" containers",
+        "\"The Coverage Depth Problem in Distributed DNA Data Storage\" \"6,3\" binary"
+      ]
+    },
+    "rationale": "The directly motivating 2026 primary source gives an exact expected stopping-time formula for a specified code/layout (Theorem II.3) and MDS optimality only when an MDS code exists (Theorem II.6), explicitly leaving non-MDS small-field optimization open in Section V. Binary [6,3] is non-MDS and the new 125/56 global optimum plus unique Fano-line extremal geometry require an additional exhaustive minimization. The inspected 2025 and 2023 primary works treat one container. The published rank-two result has a different dimension and does not imply the binary rank-three optimum. Targeted source, value, geometry, equivalence and comparison searches disclosed no covering result. Possible unindexed or implicit coverage remains a risk.",
+    "residual_risks": [
+      "An unindexed source or an implicit special-case computation in a source not completely searched could predate the exact 125/56 optimization or its Fano classification.",
+      "Published general inversion machinery makes the per-layout expectation calculable, but its existence alone does not certify this global minimum as an independently new theorem.",
+      "Priority and mathematical value have not been independently audited by a human expert."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General evaluation formula is prior; no identified binary [6,3] 3+3 optimum or Fano-line equality classification. Explicit open small-field optimization supports a gap but does not prove priority.",
+        "evidence": [
+          "arXiv:2610.02931v1 Theorem II.3 (Eq. 9-10), Theorem II.6, Section V open problems 1-2, Appendix B n=6 cases with k=4,5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.02931",
+        "material_read": "Full primary PDF accessed; abstract, introduction and distributed model (pp.1-3), exact Möbius formula and MDS dominance (pp.5-7), concluding small-field/balanced open problems (p.23), and six-column MDS examples (pp.25-26). Rendered PDF page images were also inspected.",
+        "method": "arXiv lawful open-access primary PDF text and page images, targeted full-text queries for 125, [6,3], rank three, balanced, and n=6",
+        "title": "The Coverage Depth Problem in Distributed DNA Data Storage",
+        "trigger": "Direct source for the two-container coverage-depth model, generic exact formula, MDS coverage, and open small-field optimization"
+      },
+      {
+        "assessment": "Its objective samples a single pool; no two-container balanced optimization follows from the inspected statements.",
+        "evidence": [
+          "arXiv:2507.20639v1 Sections I-II, Problem A/B"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.20639",
+        "material_read": "Abstract, introduction, single-container sampling formulation and optimal coverage depth problem (pp.1-2); inspected rendered p.2 as well as relevant text.",
+        "method": "arXiv primary PDF text and rendered page",
+        "title": "The Coverage Depth Problem in DNA Storage Over Small Alphabets",
+        "trigger": "Prior small-field optimization and possible numerical code tables"
+      },
+      {
+        "assessment": "Introduces coverage depth and MDS optimality for single-pool retrieval; not a statement of the constrained binary two-container optimum.",
+        "evidence": [
+          "arXiv:2305.05656 introduction and abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.05656",
+        "material_read": "Abstract and introduction describing original single-container model, plus rendered first page.",
+        "method": "arXiv primary PDF text and rendered page",
+        "title": "Cover Your Bases: How to Minimize the Sequencing Coverage in DNA Storage Systems",
+        "trigger": "Foundational coverage-depth and MDS comparison"
+      },
+      {
+        "assessment": "Exactly solves single-container [n,2]_q optimization; explicitly dimension two, hence does not cover the two-container rank-three claim.",
+        "evidence": [
+          "Full public finding: [n,2]_q expected optimum formula and no-zero balanced projective multiplicity criterion"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9/RESULT.md",
+        "material_read": "Complete public RESULT.md, including finding, assumptions, proof, verification and limitations.",
+        "method": "Direct full repository-file read",
+        "title": "Exact rank-two optimum for DNA coverage depth",
+        "trigger": "Closest indexed coverage-depth optimization result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "29d7727e-947f-44d2-9f94-e97413f62c7a",
+  "value": {
+    "rationale": "The motivating 2026 distributed DNA storage study explicitly leaves balanced and non-MDS small-field optimization open. The binary [6,3] 3+3 instance is the first balanced rank-three binary non-MDS two-container case, and the finding gives not just a numerical value but all Fano-geometric optimizers, their entire recovery-time law, and the sharp 3/28-round loss against the hypothetical MDS benchmark. This is a natural exact constrained-code invariant rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
