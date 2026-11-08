@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Cycle suppression proves the forest criterion. Every external subdivision vertex must be included; the internal selected subdivisions form spanning trees of original induced components; a missing original vertex can be added without forming a cycle exactly when it has no two neighbors in the same such component. These are biconditional proofs including boundary and disconnected cases. Specialization to K_n and Cayley enumeration yield the full polynomial; checked exact first difference yields all extremal claims. Independent brute-force code passed on 76 graphs / 44,662 subsets / 555 facets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.01953v1 concerns FPT/max-min feedback vertex sets in unrestricted input graphs, with no explicit subdivision-family enumerator in examined text.",
+        "arXiv:2301.05207v1 characterizes maximum induced forests in several distance-regular graph families, not all maximal forests of a one-subdivision.",
+        "MFCS 2023 derives parameterized algorithms and lower bounds, not an exact Cayley polynomial for the graph family."
+      ],
+      "reasoning": "A general algorithm accepting arbitrary graphs does not imply that an exact closed symbolic facet distribution is stated or determined in a stronger explicit form. The graph class, finer inclusion-maximal condition, and size polynomial are not covered by the inspected theorem statements. The prior private-cycle lemma remains acknowledged.",
+      "searches": [
+        "arXiv:2208.01953v1, full PDF introduction/algorithm sections and targeted subdivisions text lookup",
+        "arXiv:2301.05207v1, accessible full text, sections 1-4 and targeted subdivision/spanning-tree lookup",
+        "doi:10.4230/LIPIcs.MFCS.2023.62, 15-page PDF, text examination and targeted lookup",
+        "published-finding corpus: \"The full subdivision incidence graph of K_n has inclusion-maximal induced forests indexed by a chosen subset of vertices and a spanning tree on it; facet-count polynomial choose(n,a) a^(a-2), maximum minimal feedback vertex set numbers\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.01953v1 (Gaikwad et al., 2022-08-03)",
+      "arXiv:2301.05207v1 (Gunderson et al., 2023-01-12)",
+      "DOI:10.4230/LIPIcs.MFCS.2023.62 (Lampis et al., 2023-08-21)",
+      "Cayley labelled-tree formula as known combinatorial premise"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published general private-cycle criteria make membership in a minimal feedback vertex set decidable for a fixed subset, but do not state the all-subset subdivision classification.",
+        "The 2023 distance-regular paper studies maximum, not all inclusion-maximal, induced forests of different graphs.",
+        "Cayley gives the tree factor only after proving the new facet-to-tree bijection."
+      ],
+      "reasoning": "No inspected prior result asserts either the explicit graph-subdivision facet criterion or the cardinality polynomial, and no prior special case or general theorem was found that gives them immediately as a stated corollary. Standard elementary facts are treated as premises and claimed value rests on the natural complete classification. An overlooked generic graphic-matroid formula could still subsume the result.",
+      "searches": [
+        "doi:10.4230/LIPIcs.MFCS.2023.62 §§1-4, private cycles and parameterized algorithms",
+        "arXiv:2208.01953v1 §§1-2, reduction rules and minimal FVS definition",
+        "arXiv:2301.05207v1, maximum induced forests in Kneser/tensor/other distance-regular graphs",
+        "published-finding corpus: \"induced forests feedback vertex sets of the once-subdivided complete graph S(K_n) maximal forest spanning tree Cayley formula\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complements of facets are inclusion-minimal feedback vertex sets by definition; general private-cycle equivalence appears in arXiv:2208.01953v1 and MFCS 2023 §2.",
+        "Explicit searches with incidence graph, one-subdivision, minimal cycle transversal and spanning tree did not identify an exact class theorem."
+      ],
+      "reasoning": "A generic private-cycle test does not by itself report which original vertices can be omitted or enumerate the sizes and multiplicities. The submitted result supplies an explicit two-layer characterization and all-parameter specialization. Risk remains if a different language hides the same complete statement.",
+      "searches": [
+        "published-finding corpus: \"minimal feedback vertex set enumeration of complete graph one-subdivision Cayley spanning trees forest complex\"",
+        "published-finding corpus: \"maximal induced acyclic vertex sets of incidence subdivision graphs forest complementation\"",
+        "web: \"minimal feedback vertex sets\" \"subdivision\" \"complete graph\" count spanning tree",
+        "web: \"subdivision graphs\" \"feedback vertex sets\" maximal characterization 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The individual factor \\(a^{a-2}\\) is the classical labelled tree count, a known result.",
+        "Searches did not yield a verified table identifying the weighted facet polynomial or the private-cycle correspondence, though an unindexed sequence entry cannot be excluded."
+      ],
+      "reasoning": "An existing formula for counting labelled trees does not state their bijection with inclusion-maximal induced forests or the precise size shift. Even if scalar totals coincide with a classical binomial transform, the distribution and structural interpretation are separate claims; stronger tabular coverage remains a residual risk.",
+      "searches": [
+        "published-finding corpus: \"maximal induced forests of S(K_n) all cardinality coefficients Cayley\"",
+        "web: \"6, 34, 245, 2361\" trees subsets complete graph",
+        "web: \"sum\" \"binomial\" \"k^(k-2)\" \"minimal feedback vertex\"",
+        "web: \"minimal feedback vertex sets\" \"subdivision\" \"complete graph\" count spanning tree"
+      ]
+    },
+    "rationale": "Primary full-text checks of arXiv:2208.01953v1, arXiv:2301.05207v1, and MFCS2023.62 find algorithms or maximum-forest results, but not the explicit full-subdivision facets or the weighted Cayley polynomial. published-finding corpus searches using feedback vertex sets, incidence graphs, subdivisions, spanning trees and exact parameters revealed no statement implying the full result. Unindexed coverage remains a stated risk.",
+    "residual_risks": [
+      "An equivalent specialized result may be indexed under incidence graphs, cycle transversals, matroid independence, or complete-subdivision terminology.",
+      "Prior generic private-cycle criteria and Cayley counts substantially simplify the proof, so the originality and significance of the specialization deserve independent assessment.",
+      "Sequence databases or non-open monographs may contain the exact facet spectrum without being indexed by the searched terms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in examined text: algorithms and generic minimal-FVS tests, not explicit one-subdivision facet enumeration.",
+        "evidence": [
+          "2022-08-03 arXiv v1; introduction defines private cycles; Theorems 1-3 address parameterized algorithms and approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.01953",
+        "material_read": "Primary PDF abstract, introduction, definitions, results and branching discussion; targeted full-document text searches for subdivision and complete graph.",
+        "method": "Open-access arXiv PDF text and page-image cross-check",
+        "title": "Maximum Minimal Feedback Vertex Set: A Parameterized Perspective",
+        "trigger": "Closest generic maximum-minimal feedback-vertex-set results and private-cycle tests"
+      },
+      {
+        "assessment": "NOT_COVERING: graph classes and maximum-cardinality problem differ; no full-subdivision facet theorem appears.",
+        "evidence": [
+          "2023-01-12 v1; Theorem 1.6 lists specific distance-regular families and concerns every maximum forest being canonical."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.05207",
+        "material_read": "Accessible primary full-text rendition including introduction, main theorem statements, sections on Kneser, q-Kneser and tensor powers, and closing discussion; targeted subdivision/spanning-tree lookups.",
+        "method": "Open-access arXiv full-text rendition",
+        "title": "Induced forests in some distance-regular graphs",
+        "trigger": "Closest exact structural literature on maximum induced forests"
+      },
+      {
+        "assessment": "NOT_COVERING: algorithmic complexity and private-cycle lemma do not state specialization or closed enumerator.",
+        "evidence": [
+          "MFCS 2023 §2 states private-cycle criterion; principal contributions are FPT algorithms and ETH bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2023.62",
+        "material_read": "Open-access 15-page PDF, abstract, introduction, related work, preliminaries, statements and proofs of complexity results; text search for subdivision, incidence and complete graph.",
+        "method": "Dagstuhl open-access PDF text and page image",
+        "title": "Parameterized Max Min Feedback Vertex Set",
+        "trigger": "Potential stronger all-graphs framework for maximal minimal FVS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c09a6254-ab6b-469a-9982-4d7340222cbb",
+  "value": {
+    "rationale": "The result characterizes all inclusion-maximal induced forests for arbitrary full graph subdivisions and yields a complete natural closed combinatorial classification for subdivided cliques. It determines the entire cardinality distribution of inclusion-minimal feedback vertex sets, both extremal sizes and multiplicities, permanent nonpurity from four originals onward, and unbounded gaps. These are meaningful exact invariants and structural phenomena beyond the known scalar minimum, rather than arbitrary small numerical slices.",
+    "status": "PASS"
+  }
+}
