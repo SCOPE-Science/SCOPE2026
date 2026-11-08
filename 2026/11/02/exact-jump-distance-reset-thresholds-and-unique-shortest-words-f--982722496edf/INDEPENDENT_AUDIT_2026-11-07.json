@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:45:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf/verify.py",
+        "independent_checks.py; independent_checks_output.txt; tree_check_output.txt"
+      ],
+      "rationale": "For n>=2 and 1<=d<n, b:x↦x+1 mod n and a:0↦d (other states fixed). A common reset image requires x+B+dK_x constant mod n; gcd(n,d)>1 preserves initial difference modulo gcd and forbids synchronization. When gcd=1, effective-a counts K_x occupy all n residues mod n, forcing a trajectory with >=n-1 jumps and >=(n-2)(n-d) intervening b letters, giving |w| >=1+(n-2)(n-d+1). T=ab^(n-d) fixes 0 and subtracts d from other states; T^(n-2)a attains the bound. Equality leaves no spare a/b and forces the literal word a(b^(n-d)a)^(n-2), including n=2. Fresh subset-automaton BFS independently compared all 45 cases n=2..10 and shortest multiplicities (and noncoprime failures). Finite checks corroborate only finite n, proof supplies general n.",
+      "residual_risks": [
+        "Finite tests cannot prove all-parameter claim; proof reconstruction establishes stated scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rystsov--Szykuła 2023 Section 4.2 studies permutation/unitary transformation semigroups through orbitals and synchronization, not per-d minimum word lengths; Don gives upper bound (n-1)^2."
+        ],
+        "reasoning": "These stronger general synchronization criteria do not determine the exact optimal length or its unique witness; d>1 is strictly smaller than the Cerny extreme. They cover existence rather than this quantitative classification.",
+        "searches": [
+          "https://arxiv.org/pdf/2307.01302 Section 4.2",
+          "Resultary: two-letter circular automaton unitary letter 0 maps to d rotation shortest reset word unique threshold for gcd(n,d)=1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: two-letter circular automaton unitary letter 0 maps to d rotation shortest reset word unique threshold for gcd(n,d)=1",
+        "https://arxiv.org/pdf/1507.06070",
+        "https://arxiv.org/pdf/2307.01302"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing bound (n-1)^2 is exact only at d=1 in this family. Exact lower bound here uses all n trajectory jump counts K_x modulo n and tight spacing of b moves."
+        ],
+        "reasoning": "Prior synchronization and general upper bounds imply only feasibility and an inequality. To infer the new formula and uniqueness requires an additional sharp lower-bound/rigidity argument; this is explicitly provided and checked.",
+        "searches": [
+          "Henk Don 2015 Proposition 2 pdf p11",
+          "Rystsov and Szykula 2023 Section 4.2",
+          "Resultary: two-letter circular automaton unitary letter 0 maps to d rotation shortest reset word unique threshold for gcd(n,d)=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Don Proposition 2 treats a circular deficiency-one label with coprime excluded/contracting displacement and proves synchronizability."
+        ],
+        "reasoning": "Same special two-letter automata fit Don as a circular rank-deficiency-one case; neither the exact minimal literal word nor its uniqueness appears in the checked proposition. A broad old equivalent specialization remains possible.",
+        "searches": [
+          "Resultary: two-letter circular automaton unitary letter 0 maps to d rotation shortest reset word unique threshold for gcd(n,d)=1",
+          "web: \"a(b^{n-d}a)\" reset automaton unique shortest",
+          "https://arxiv.org/pdf/1507.06070 Proposition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned reset-word enumerators of unrelated deficiency-two and Cerny-derived automata, not this two-letter jump family."
+        ],
+        "reasoning": "A table of generic reset thresholds or classical d=1 Cerny values does not give d>1 lengths plus literal uniqueness. No matching exact table was found; search absence alone is not novelty proof.",
+        "searches": [
+          "web: \"unitary\" \"shortest reset\" jump distance rotation automaton",
+          "Resultary: exactly four shortest reset words deficiency-two family",
+          "Resultary: two-letter circular automaton unitary letter 0 maps to d rotation shortest reset word unique threshold for gcd(n,d)=1"
+        ]
+      },
+      "rationale": "GCD synchronization criterion and (n-1)^2 bound are earlier results, as is the d=1 classical Cerny extremal. The exact d-dependent reset threshold and literal uniqueness across all coprime d are not supplied by the inspected primary results; original assertion is thus the sharper family-specific classification only.",
+      "residual_risks": [
+        "Possible older exact specialization of simple idempotent automata under another labeling; priority not guaranteed.",
+        "Only the designated fixed alphabet and cycle orientation; no claims for arbitrary circular automata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers synchronization criterion, not sharp jump-dependent exact length/uniqueness",
+          "evidence": [
+            "Proposition 2 items 1–3 and proof on PDF page 11"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06070",
+          "material_read": "Section 4 Proposition 2 and its proof, including the (n-1)^2 upper bound and subset reachability statement",
+          "method": "primary arXiv full PDF text and page visual",
+          "title": "The Cerny conjecture and 1-contracting automata",
+          "trigger": "Circular deficiency-one automata with identical coprimality parameter"
+        },
+        {
+          "assessment": "Establishes structural synchronization results, not minimal word multiplicities",
+          "evidence": [
+            "Section 4.2 pp 8–11 analyzes PU automata via invariant relations"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.01302",
+          "material_read": "Section 4.2 orbital graph lemmas and synchronization theorem, plus introduction",
+          "method": "primary arXiv full PDF text and page screenshot",
+          "title": "Primitive Automata that are Synchronizing",
+          "trigger": "Permutation/unitary automata with same alphabet transformation types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf/verify.py",
+        "independent_checks.py; independent_checks_output.txt; tree_check_output.txt"
+      ],
+      "rationale": "Reset threshold and number of shortest reset words are natural algorithmic invariants of synchronizing automata. The theorem classifies an entire two-parameter explicit family, refines a uniform quadratic upper bound with a sharp jump-dependent value, and establishes optimal-word rigidity; this is more than a relabelled classical Cerny case.",
+      "residual_risks": [
+        "Value assessment is for the specific proved structural/natural exact invariant, not broader unproved generalizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible older exact specialization of simple idempotent automata under another labeling; priority not guaranteed.",
+    "Only the designated fixed alphabet and cycle orientation; no claims for arbitrary circular automata.",
+    "Original source unchanged and publication not authorized before privacy scrub."
+  ],
+  "schema_version": 1
+}

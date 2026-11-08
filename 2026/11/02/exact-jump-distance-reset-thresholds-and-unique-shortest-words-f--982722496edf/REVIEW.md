@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge2\), \(1\le d<n\), the jump-counter identity \(x+B+dK_x\pmod n\) proves the minimum required number of effective idempotent actions, and the return time from \(d\) to \(0\) proves the independent rotation-letter lower bound. The explicit map \(ab^{n-d}\) gives equality; its exact action on the \(d\)-indexed cycle is proved in `RESULT.md`. Equality of each lower-bound term forces the literal unique optimum. Noncoprime cases are separately impossible by invariant residues. A standalone BFS verifier tested the finite range; no infinite claim relies on enumeration.
+## correctness
 
-## Originality — PASS, subject to priority risks
-Don (2015), Proposition 2, already proves the coprimality synchronization criterion and a general \((n-1)^2\) bound; neither is presented as new. Rystsov (2022) gives the regular-group simple-idempotent uniform upper bound, and Rystsov–Szykuła (2023), Theorems 22–23, gives broader structural synchronization criteria. The exact parameter-sensitive minimum and uniqueness of the shortest reset word have not been identified in the inspected primary texts or in semantically ranked research records. Classical \(d=1\) is acknowledged as a known extremal case. The older Rystsov (2000) article and some related complete texts were not inspected; unlocated equivalent specializations remain a genuine risk.
+PASS
 
-## Value — PASS
-This resolves a natural explicit family at every size, including noncoprime impossibility, interpolating between the quadratic Černý threshold and linear reset lengths. The extremal instruction sequence is rigid rather than merely bounded. The exact classification gives useful information about synchronization cost and optimal-word multiplicity beyond previously available general estimates.
+For n>=2 and 1<=d<n, b:x↦x+1 mod n and a:0↦d (other states fixed). A common reset image requires x+B+dK_x constant mod n; gcd(n,d)>1 preserves initial difference modulo gcd and forbids synchronization. When gcd=1, effective-a counts K_x occupy all n residues mod n, forcing a trajectory with >=n-1 jumps and >=(n-2)(n-d) intervening b letters, giving |w| >=1+(n-2)(n-d+1). T=ab^(n-d) fixes 0 and subtracts d from other states; T^(n-2)a attains the bound. Equality leaves no spare a/b and forces the literal word a(b^(n-d)a)^(n-2), including n=2. Fresh subset-automaton BFS independently compared all 45 cases n=2..10 and shortest multiplicities (and noncoprime failures). Finite checks corroborate only finite n, proof supplies general n.
 
-## Scientific limits
-No independent validation was performed. The proof assumes exactly the two specified input maps, and computational experiments cover finite parameters only. Research priority remains subject to deeper bibliographic checking of older idempotent-automata literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+GCD synchronization criterion and (n-1)^2 bound are earlier results, as is the d=1 classical Cerny extremal. The exact d-dependent reset threshold and literal uniqueness across all coprime d are not supplied by the inspected primary results; original assertion is thus the sharper family-specific classification only.
+
+## value
+
+PASS
+
+Reset threshold and number of shortest reset words are natural algorithmic invariants of synchronizing automata. The theorem classifies an entire two-parameter explicit family, refines a uniform quadratic upper bound with a sharp jump-dependent value, and establishes optimal-word rigidity; this is more than a relabelled classical Cerny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
