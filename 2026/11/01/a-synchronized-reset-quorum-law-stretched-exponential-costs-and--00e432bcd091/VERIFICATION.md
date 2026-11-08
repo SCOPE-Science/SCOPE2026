@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. The program requires only the Python standard library and conducts deterministic midpoint quadratures of the independent Brownian first-passage transform and the limiting Fréchet law. Checks include the exact \(N=1\) Brownian transform, equivalence of two independent integral representations of the scaled-law transform, finite-population convergence of quorum success probability and mean, and finite-population agreement of the logarithmic fixed-reset exponent.
+## correctness
 
-Scientific verification is analytic: the exact finite-state-free renewal identity, Brownian reflection formula, uniform \(\operatorname{erfc}\) upper bound, fixed-clock Laplace principle, Fréchet maximum limit, and compactness barriers for rescaled global optimizers are all supplied in `RESULT.md`. Finite samples, quadrature and numerical approximations are consistency checks only and do not prove infinite-population statements. No formal proof assistant or external certification was used, and no independent audit was performed. The limiting objective's minimizer is proven to exist, but its uniqueness and numerical position are not certified.
+PASS
+
+Exact reflection principle gives F(t)=erfc(d/√(4Dt)), M_N=max τ_j and q_N=E[e^{-rM_N}]; restart renewal yields E T=(1−q)/(rq). As t→∞, log F(t)=−ct^-1/2+O(t^-1), c=d/√(πD); compactly localized Laplace principle on t=N^{2/3}u gives inf_{u>0}(ru+c/√u)=3(rc²/4)^{1/3}. F(N² z)^N→exp(−c/√z) and M_N/N²⇒c²/Y² with Y~Exp(1), producing Ψ(λ) and H(λ). Bounds for u=N²r→0 (truncated divergent mean) and u→∞ (global F bound) rule out escaping minimizers. Independent SciPy quadrature gave dimensionless trial optimum λ≈4.303683765 and H≈1.924581668; numbers are not part of proof. No claim of a unique optimizer or finite-size rate.
+
+## originality
+
+PASS
+
+Qualified PASS for combining fixed-clock N^{2/3} stretched-exponential quorum cost with globally optimized inverse-square common reset clock, specifically when all hits must occur within one epoch and progress resets to zero; closest published studies stop at first arrival or count rank arrivals across different protocols.
+
+## value
+
+PASS
+
+A synchronized all-complete quorum is a natural parallel-reliability event with progress deliberately erased at common Poisson aborts. A fixed clock incurs a stretched exponential exp(const·N^{2/3}), while optimal clocks must decrease as N^-2 and achieve only quadratic mean completion; exact variational constant and minimizer tightness are a substantive scaling dichotomy, not standard one-particle rescaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

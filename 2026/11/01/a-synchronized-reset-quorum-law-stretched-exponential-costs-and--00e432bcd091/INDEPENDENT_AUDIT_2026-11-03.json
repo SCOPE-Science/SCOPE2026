@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:15:56.478924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact reflection principle gives F(t)=erfc(d/√(4Dt)), M_N=max τ_j and q_N=E[e^{-rM_N}]; restart renewal yields E T=(1−q)/(rq). As t→∞, log F(t)=−ct^-1/2+O(t^-1), c=d/√(πD); compactly localized Laplace principle on t=N^{2/3}u gives inf_{u>0}(ru+c/√u)=3(rc²/4)^{1/3}. F(N² z)^N→exp(−c/√z) and M_N/N²⇒c²/Y² with Y~Exp(1), producing Ψ(λ) and H(λ). Bounds for u=N²r→0 (truncated divergent mean) and u→∞ (global F bound) rule out escaping minimizers. Independent SciPy quadrature gave dimensionless trial optimum λ≈4.303683765 and H≈1.924581668; numbers are not part of proof. No claim of a unique optimizer or finite-size rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General restart renewal formula (1−q)/(r q) is prior standard mathematics.",
+          "Large-N Fréchet limit for maximum of Brownian first-passages supplies input to N^-2 clock scaling but not automatically fixed-r N^{2/3} saddle point or global minimizer tightness."
+        ],
+        "reasoning": "General renewal and heavy-tail theorems may subsume portions; no inspected stronger theorem yields the combined explicit all-quorum phase scaling. Unread max-job literature is a priority risk.",
+        "searches": [
+          "general jobs restart failure max tasks Brownian tail",
+          "arxiv:0706.0403 restarting jobs asymptotics",
+          "Resultary synchronized Brownian full quorum reset"
+        ]
+      },
+      "checked_sources": [
+        "Resultary full-quorum semantic query (10 retrieved, none exact)",
+        "Biroli–Majumdar–Schehr 2023 original arxiv:2303.18012 PDF",
+        "Vatash et al 2026 arxiv:2609.23542 abstract",
+        "Evans–Majumdar 2011",
+        "Restarting heavy-tailed jobs arxiv:0706.0403 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 exact first-arrival result requires min τ, producing behavior different from max τ.",
+          "The 2011 one-particle exponential restart identity is the N=1 component only."
+        ],
+        "reasoning": "Prior first-arrival or one-particle theorems do not logically imply the proposed stretched exponential and N^-2 optimal clock for all-in-one-epoch quorum without a new extremal analysis.",
+        "searches": [
+          "Biroli–Majumdar–Schehr 2023 common resetting first arrival",
+          "Vatash et al arxiv:2609.23542 abstract",
+          "Evans–Majumdar 2011 one particle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli–Majumdar–Schehr reset process stops at the minimum of independent arrival times, whereas cohort quorum stops at the maximum and erases progress every reset.",
+          "Vatash et al accessible abstract describes rank-dependent arrivals and resetting, not exactly an all-complete common external exponential attempt."
+        ],
+        "reasoning": "First-hit and rank-accumulation processes have different stopping times and renewal probabilities; the current one-attempt success probability is E[e^{-r max τ_j}].",
+        "searches": [
+          "Resultary: Brownian particles global Poisson synchronous resetting all N must hit target within one epoch max first passage optimal reset scaling N squared",
+          "arxiv:2303.18012 first-passage common clock",
+          "arxiv:2609.23542 rank-dependent reset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed findings involve other extreme-particle processes, not complete cohort under a common abort clock."
+        ],
+        "reasoning": "The result determines an asymptotic variational constant and scaling for unbounded N, not merely a finite table.",
+        "searches": [
+          "Resultary synchronous reset all-N-quorum semantic query",
+          "arxiv:2303.18012 full PDF model"
+        ]
+      },
+      "rationale": "Qualified PASS for combining fixed-clock N^{2/3} stretched-exponential quorum cost with globally optimized inverse-square common reset clock, specifically when all hits must occur within one epoch and progress resets to zero; closest published studies stop at first arrival or count rank arrivals across different protocols.",
+      "residual_risks": [
+        "Vatash 2026 full text inaccessible (Oxford vpn_disconnected); abstract cannot rule out overlap.",
+        "Older general restart-of-maxima/extreme-value results could imply part of saddle-point exponent.",
+        "Numerical optimum location is illustrative; uniqueness not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING cohort-max quorum",
+          "evidence": "Its common-reset protocol is stopped when first walker arrives; current event is last arrival before next reset.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.18012",
+          "material_read": "Original complete open arXiv paper, introduction, model/protocol definitions, principal results and supporting figure; inspected original PDF page images",
+          "method": "Compare first-arrival stopping event to all-N per-epoch completion",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Same population and resetting but opposite order statistic"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY; cannot determine whether an appendix covers all-in-one-epoch reset",
+          "evidence": "Different rank-arrival objective is described in abstract; full results are uninspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23542",
+          "material_read": "ArXiv bibliographic abstract/metadata; full PDF and lawful OA routes unavailable; authorized Oxford attempt reported VPN disconnected",
+          "method": "Compare accessible rank description and state the full-text gap",
+          "title": "Rank-dependent optimal resetting in multiparticle search",
+          "trigger": "Recent closest multiple-arrival rank protocol"
+        },
+        {
+          "assessment": "COVERS one-particle methodology only",
+          "evidence": "No population-N maximal first-passage theorem is asserted in the accessible abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+          "material_read": "Accessible abstract and known single-particle result, not entire manuscript",
+          "method": "Compare N=1 case and source of q Laplace identity",
+          "title": "Diffusion with stochastic resetting",
+          "trigger": "Source of standard renewal/resetting setup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A synchronized all-complete quorum is a natural parallel-reliability event with progress deliberately erased at common Poisson aborts. A fixed clock incurs a stretched exponential exp(const·N^{2/3}), while optimal clocks must decrease as N^-2 and achieve only quadratic mean completion; exact variational constant and minimizer tightness are a substantive scaling dichotomy, not standard one-particle rescaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single common exponential reset must erase all progress; independent resets/rank survival differ.",
+    "Global minimum exists and scaled minimizers tight; no uniqueness/rate asserted.",
+    "Relevant Vatash 2026 full source unavailable; Oxford VPN disconnected."
+  ],
+  "schema_version": 1
+}

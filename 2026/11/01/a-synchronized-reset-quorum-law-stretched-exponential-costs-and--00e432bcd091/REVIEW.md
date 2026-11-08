@@ -1,23 +1,21 @@
-# Scientific review: synchronized Brownian quorum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(N\) and \(r\), reflection principle gives \(F(t)\), renewal gives \(q_N\) and the mean exactly. Uniform logarithmic \(F(t)\) expansion, global \(e^{-b/\sqrt t}\) bound and compact Laplace-principle localization establish the fixed-rate \(N^{2/3}\) constant. Maximal first-passage Frechet convergence, its exponential transform, compact-uniform convergence, and explicit uniform small- and large-clock barriers prove convergence of global minima; no unproved optimizer uniqueness is used. The embedded pure-Python verifier reproduces distinct finite-size checks.
+PASS
 
-The limiting optimizing clock is an **argmin set**; uniqueness is neither needed nor claimed. A full Brownian renewal identity and two distinct asymptotic scalings have been proved with explicit uniform tail control. The finite numerical checks cannot replace the limiting proofs.
+Exact reflection principle gives F(t)=erfc(d/√(4Dt)), M_N=max τ_j and q_N=E[e^{-rM_N}]; restart renewal yields E T=(1−q)/(rq). As t→∞, log F(t)=−ct^-1/2+O(t^-1), c=d/√(πD); compactly localized Laplace principle on t=N^{2/3}u gives inf_{u>0}(ru+c/√u)=3(rc²/4)^{1/3}. F(N² z)^N→exp(−c/√z) and M_N/N²⇒c²/Y² with Y~Exp(1), producing Ψ(λ) and H(λ). Bounds for u=N²r→0 (truncated divergent mean) and u→∞ (global F bound) rule out escaping minimizers. Independent SciPy quadrature gave dimensionless trial optimum λ≈4.303683765 and H≈1.924581668; numbers are not part of proof. No claim of a unique optimizer or finite-size rate.
 
-## Originality — PASS, qualified
+## originality
 
-On a genuine different objective (a full quorum completed within one random epoch, with progress lost between common resets), the exact N-dependent renewal functional is distinct from first-arrival and recorded-rank reset theory. Source and claim-level primary literature comparisons found no mathematically stronger directly covering \(N^{2/3}\) fixed-rate cost and global \(N^{-2}\) rate optimization. General restart/extreme-value theory could subsume components and the closest 2026 rank-paper full text was unavailable, so priority remains qualified.
+PASS
 
-The nearest compared primary sources are Biroli, Majumdar and Schehr, arXiv:2303.18012 (first-hit common resets); Vatash et al., arXiv:2609.23542 (ranked arrivals with progress recorded); Evans and Majumdar, arXiv:1102.2704 (one-walker renewal); and the recent first-passage-triggered resetting gas (doi:10.1209/0295-5075/ae3f4f). No known record directly covers the present full-population quorum with erased progress, fixed-rate N-scaling and global optimal-clock scaling. **Priority risk:** stronger generalized restart-maxima results and inaccessible full manuscript text of arXiv:2609.23542. Search absence does not certify novelty.
+Qualified PASS for combining fixed-clock N^{2/3} stretched-exponential quorum cost with globally optimized inverse-square common reset clock, specifically when all hits must occur within one epoch and progress resets to zero; closest published studies stop at first arrival or count rank arrivals across different protocols.
 
-## Value — PASS
+## value
 
-The strict, progress-erasing all-searchers-within-one-reset-epoch task is a natural synchronized quorum/parallel completion objective. It exhibits a singular design distinction: any fixed common reset rate costs \(\exp(\mathrm{const}\cdot N^{2/3})\), but a globally optimized clock of order \(N^{-2}\) reduces the best achievable mean to order \(N^2\) with an explicit universal variational constant. This is a meaningful exact population-scale optimization and boundary, not merely a numerical benchmark or renaming of one-searcher renewal theory.
+PASS
 
-## Limits and verification
+A synchronized all-complete quorum is a natural parallel-reliability event with progress deliberately erased at common Poisson aborts. A fixed clock incurs a stretched exponential exp(const·N^{2/3}), while optimal clocks must decrease as N^-2 and achieve only quadratic mean completion; exact variational constant and minimizer tightness are a substantive scaling dichotomy, not standard one-particle rescaling.
 
-The theory assumes independent Brownian searchers between common Poisson resets, perfect absorption within an epoch, total erasure of progress at resets, and no overhead. The exact finite-N expression, fixed-rate large-N limit, scaled-rate limit and convergence of globally optimized costs are proved. The standalone script is supplemental numerical reproduction.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
