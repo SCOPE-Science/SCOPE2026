@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Poisson cumulant expansion gives the variance-normalized transform and the derivative polynomial. The polynomial is strictly positive for the whole claimed parameter interval. The zero-mixture coefficient comparison proves global origin dominance for every positive argument, not merely a Taylor approximation. A positive-term rational Taylor certificate proves a distant witness at mixing probability \(1/10000\). Compact continuity, a common upper cutoff for all global maximizers, and a uniform negative slope then establish a nonzero coexistence parameter. The reproducible checker independently evaluates the key finite inequalities; the infinite arguments are supplied as proofs, not extrapolated from tests.
+## correctness
 
-## Originality — PASS (best-knowledge, qualified)
-Chen (2026) already derives the scale variational formula and proves an interior optimum for the more frequent large-jump mixture \(p=1/40\). Those are background, not new claims. The new comparison shows an interior *global* winner even when the endpoint remains a strict *local* winner, and forces exact coexistence at some rare-jump parameter. Karp, Vishnyakova and Zhang (2025) prove general unimodality inheritance under coefficient-ratio hypotheses, which does not assert this two-extrema phenomenon and cannot characterize the specific coexistence parameter. Searches of published records and available prior claims found no statement implying the present existence theorem. Residual risk: obscure older M-class mixture analyses or general crossing theorems could subsume the claim; no priority certification is claimed.
+PASS
 
-## Value — PASS
-The local third-cumulant criterion is widely used as the simplest candidate for a variance-exact sub-gamma scale. This natural two-jump model establishes a qualitatively distinct metastable optimization regime: an arbitrarily sparse large-jump component can cause a remote constraint to overtake a locally stable origin, with a genuine coexistence point. The result is a structural boundary warning for concentration-scale calibration, not a routine reevaluation of a known numerical optimum.
+The log MGF equals V_p t² M_p(t)/2 and the scale variational identity is c*(p)=sup_{t>=0}(1-M_p(t)^{-1})/t. Its t=0 value m_p=(1+124p)/(3(1+24p)); Taylor differentiation yields Phi_p'(0)=-(16576p²-952p+1)/(36(1+24p)²)<0 uniformly over p<=10^-4. At p=0 a coefficientwise strict comparison M_0(t)<1/(1-t/3) for 0<t<3 plus Phi<1/t for t>=3 proves global endpoint dominance. At p=10^-4, exact finite positive Taylor lower bounds e²>7 and e^10>22000 imply M_p(2)>1/(1-2m_p) and Phi_p(2)>m_p. Uniform local-slope negativity, joint continuity on compact [0,10^-4]x[0,3], and infimum of positive global-gap parameters yield p*>0 where zero and a bounded-away-from-zero interior argument both attain the maximum. The proof asserts neither uniqueness nor an exact p*.
 
-## Limitations
-The mixing transition is existence-only in a rigorously stated interval. Global uniqueness, an exact value, and broader jump-law universality are not proved. Finite checker output is not an infinite proof. Independent historical-priority and mathematical audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen 2026 supplies the variance-normalized optimal-scale transform and demonstrates a different p=1/40 interior optimum associated with a positive near-origin obstruction. The reviewed sparse-mixture result is a nonlocal global switch despite negative local derivative. Karp–Vishnyakova–Zhang conditional ratio-unimodality theory does not force this nonunimodal shape. Full Chen primary text inaccessible in this run remains a significant, explicit priority risk.
+
+## value
+
+PASS
+
+A rigorous separated-optimizer coexistence example is a substantive concentration calibration boundary: low-order cumulants favor the endpoint locally even when a remote Laplace argument imposes a stronger sharp scale. The first-order-like transition is a natural phenomenon in exact-variance risk bounds, not a tiny unexplained improvement of a numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
