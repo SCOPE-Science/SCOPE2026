@@ -1,21 +1,21 @@
-# Scientific review: LR1 hazard-minimum age
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The hazard is derived from the LR1 exponential/Gamma mixture; the exact derivative numerator and a positive-coefficient polynomial prove unique minimization and strict monotonicity of the minimum age over the full positive parameter domain. Endpoint expansion is obtained from the explicit strictly monotone inverse, not from finite numerical sampling. Symbolic identities, expansions, and bracketed numerical roots were reproduced from the packaged checker. The fixed-time-unit convention and endpoint remainders are explicit.
+PASS
 
-## Originality
+Writing y=λt/2, A=λ²exp(-3y), P(y)=1+y+y²/2+y³/6, the normalized hazard is H=(4A+y³/6)/(A+P). Its derivative has numerator proportional to y²F−6AG with F=y²+4y+6 and G=3y³+15y²+32y+32. Thus sign=sign(Q(y)−λ²). The polynomial 3FG+F'G−FG'=9y^5+78y^4+306y³+668y²+844y+512 is positive, establishing Q'/Q>2/y; hence Q rises bijectively and t(y)=2y/sqrt(Q(y)) strictly decreases. Series inversion Q(y)=y²/32+y³/12+O(y⁴) gives 8sqrt2−256λ/3+O(λ²); Q~y exp(3y)/18 gives log correction. Independently evaluated derivative, symbolic series inversion, and sign checks. The rate, time normalization, λ>0 and endpoint domains match the proof.
 
-PASS with historical-priority qualification. Singh and Patawa give the source model and endpoint hazard signs. Block et al. (2010), Theorem 2.1, already provide a broad **qualitative bathtub classification**, and Block, Langberg and Savits (2012) classify shapes for exponential/Gamma mixtures; uniqueness of a minimum is therefore not claimed as an independent innovation. The nontrivial evaluated addition is the exact coupling of LR1's changing mixing weight and rates to the globally decreasing minimum-age map, the small-parameter finite limit with first correction, and the large-parameter log/log-log expansion and comparison to mean lifetime. Targeted mathematical-record and literature searches did not identify these quantitative statements. The 2012 full text could not be inspected and is an explicit residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The minimum-age of a nonmonotone failure hazard is a natural reliability invariant. Its strict parameter dependence and two unlike scaling regimes quantify when the lowest-risk age occurs in absolute and mean-normalized units. The logarithmically diverging normalized age is a structural consequence of the coupled-rate/mixing-weight restriction, not a renaming of the known shape classification. No cost-optimal screening policy is inferred.
+The 2026 LR1 source expressly says initial hazard decline and eventual rise do not establish a unique minimum. Classical exponential/Gamma mixture theorems establish qualitatively bathtub shapes under broad parameters; the exact linked-parameter turning-point age and two detailed endpoint expansions are distinct, subject to inaccessible 2012 quantitative results.
 
-## Closest literature and limits
+## value
 
-- Singh and Patawa, arXiv:2610.24575v1 (2026), Sections 2 and 3, supply the LR1 distribution, hazard and endpoint analysis.
-- Block et al., *Journal of Applied Probability* 47 (2010), Theorem 2.1(iii), proves a broader bathtub-shape property that covers the qualitative element here.
-- Block, Langberg and Savits, *Journal of Applied Probability* 49 (2012), abstract and scope, announce a general shape classification. Only the abstract was accessible; a full-text comparison of the quantitative minimum-age laws remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single-parameter reliability family has a globally decreasing absolute hazard-minimum time but an increasing normalized minimum time, a nontrivial, operationally interpretable quantitative contrast with sharp corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

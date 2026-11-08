@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:51:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-parameter-dependence-of-the-hazard-minimum-age-in-the-lr1--8ab52822244c/RESULT.md at frozen Git blob 384fa821e5712a248505695de1b220beebac9781",
+        "2026/11/02/sharp-parameter-dependence-of-the-hazard-minimum-age-in-the-lr1--8ab52822244c/verify_hazard.py (source inspected; analytic claims assessed independently)",
+        "/mnt/data/scope_worker03_20261106T0638Z/independent_checks_output.txt"
+      ],
+      "rationale": "Writing y=λt/2, A=λ²exp(-3y), P(y)=1+y+y²/2+y³/6, the normalized hazard is H=(4A+y³/6)/(A+P). Its derivative has numerator proportional to y²F−6AG with F=y²+4y+6 and G=3y³+15y²+32y+32. Thus sign=sign(Q(y)−λ²). The polynomial 3FG+F'G−FG'=9y^5+78y^4+306y³+668y²+844y+512 is positive, establishing Q'/Q>2/y; hence Q rises bijectively and t(y)=2y/sqrt(Q(y)) strictly decreases. Series inversion Q(y)=y²/32+y³/12+O(y⁴) gives 8sqrt2−256λ/3+O(λ²); Q~y exp(3y)/18 gives log correction. Independently evaluated derivative, symbolic series inversion, and sign checks. The rate, time normalization, λ>0 and endpoint domains match the proof.",
+      "residual_risks": [
+        "Computational samples are finite and do not independently certify unquantified infinite-domain conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2010 general theorem includes qualitative bathtub-shape models with exponential and Gamma(4) rate ratio",
+          "2012 abstract classifies mixture hazard shapes; full quantitative treatment not inspected"
+        ],
+        "reasoning": "General shape coverage entails no new qualitative bathtub theorem; its available statements do not give the linked minimum-age curve, derivative sign or logarithmic asymptotic terms. This remains conditional on reading inaccessible quantitative full text.",
+        "searches": [
+          "LR1 lifetime distribution hazard minimum age exponential gamma mixture parameter",
+          "Block Langberg Savits Wang 2010 exponential IFR Gamma bathtub theorem",
+          "Block Langberg Savits 2012 Glaser Twist mixture parameters"
+        ]
+      },
+      "checked_sources": [
+        "Singh and Patawa arXiv:2610.24575v1, full mathematical exposition via paperpeel.com/paper/2610.24575 and arxiv abstract; Section 3 and discussion of nonunique-minimum caveat",
+        "Block, Langberg, Savits and Wang (2010), Continuous Mixtures of Exponentials and IFR Gammas Having Bathtub-Shaped Failure Rates, Theorem 2.1 qualitative context",
+        "Block, Langberg and Savits (2012), A Glaser Twist: Focus on the Mixture Parameters, DOI 10.1239/jap/1354716663, abstract only; full text inaccessible",
+        "Resultary semantic search of LR1 hazard turning-age and exponential Gamma mixture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original arxiv abstract states hazard falls early and rises eventually",
+          "The new polynomial Q'/Q>2/y simultaneously proves strict location monotonicity and uniqueness"
+        ],
+        "reasoning": "Endpoint shape statements do not logically imply a unique minimum or monotone minimum age; prior general mixture classifications might supply related formulas and are retained as residual risk.",
+        "searches": [
+          "LR1 lifetime distribution hazard minimum age exponential gamma mixture parameter",
+          "arxiv:2610.24575 hazard endpoint shapes and moment properties",
+          "doi:10.1239/jap/1354716663"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LR1 primary text states a decrease at small t and increase at large t, without asserting a unique minimum"
+        ],
+        "reasoning": "The target distinguishes uniqueness and variation of the minimizer as λ changes, not simply nonmonotone failure rates.",
+        "searches": [
+          "LR1 lifetime distribution hazard minimum age exponential gamma mixture parameter",
+          "LR1 arxiv 2610.24575 unique hazard minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model parameter λ ranges continuously over all positive reals and the theorem gives an explicit analytic inverse and asymptotics",
+          "No identified exact table/database spans the continuous monotonicity assertion"
+        ],
+        "reasoning": "Numerical tables or examples cannot imply the all-parameter strict decrease; exact database coverage was not identified in bounded searches.",
+        "searches": [
+          "LR1 lifetime distribution hazard minimum age exponential gamma mixture parameter",
+          "LR1 minimum hazard age tabulated λ values",
+          "Resultary search LR1 mixture minimum age"
+        ]
+      },
+      "rationale": "The 2026 LR1 source expressly says initial hazard decline and eventual rise do not establish a unique minimum. Classical exponential/Gamma mixture theorems establish qualitatively bathtub shapes under broad parameters; the exact linked-parameter turning-point age and two detailed endpoint expansions are distinct, subject to inaccessible 2012 quantitative results.",
+      "residual_risks": [
+        "The exact full 2012 mixture-parameter paper was not accessible; a quantitative age monotonicity formula in it could cover this result.",
+        "The LR1 model is a special restriction of an older mixture; no new claim to the qualitative bathtub phenomenon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME MODEL, ORIGINAL SOURCE DOES NOT ASSERT TURNING-AGE THEOREM",
+          "evidence": "Initial decrease and eventual increase; no unique hazard minimum is asserted",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.24575",
+          "material_read": "Substantial full-text exposition: mixture definition, hazard discussion, Section 7 simulation context and Section 8 limitations; explicitly warns endpoint behavior does not prove a unique minimum",
+          "method": "lawful readable text rendering cross-checked against arXiv metadata",
+          "title": "The LR1 Lifetime Distribution: Properties, Nonmonotone Hazard, and Statistical Inference",
+          "trigger": "identical one-parameter mixture and hazard formula"
+        },
+        {
+          "assessment": "PRIOR COVERAGE OF QUALITATIVE SHAPE, NOT IDENTIFIED LINKED QUANTITATIVE AGE",
+          "evidence": "Theorem 2.1 establishes qualitative shape for broader mixture class",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1294170507",
+          "material_read": "Accessible theorem/abstract statements on bathtub-shaped failure-rate class and parameter coverage",
+          "method": "published primary abstract and theorem identification",
+          "title": "Continuous Mixtures of Exponentials and IFR Gammas Having Bathtub-Shaped Failure Rates",
+          "trigger": "stronger qualitative exponential/Gamma mixture theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE PRIORITY RISK",
+          "evidence": "Full quantitative results not known; cannot declare the entire paper noncovering",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1354716663",
+          "material_read": "Publisher abstract only; no full text available",
+          "method": "arXiv/open-access attempts followed by authorized Oxford retrieval (authorization unavailable)",
+          "title": "A Glaser Twist: Focus on the Mixture Parameters",
+          "trigger": "highly relevant full parameter classification could dominate claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Singh and Patawa arXiv:2610.24575v1, full mathematical exposition via paperpeel.com/paper/2610.24575 and arxiv abstract; Section 3 and discussion of nonunique-minimum caveat",
+        "Block, Langberg, Savits and Wang (2010), Continuous Mixtures of Exponentials and IFR Gammas Having Bathtub-Shaped Failure Rates, Theorem 2.1 qualitative context",
+        "Block, Langberg and Savits (2012), A Glaser Twist: Focus on the Mixture Parameters, DOI 10.1239/jap/1354716663, abstract only; full text inaccessible",
+        "Resultary semantic search of LR1 hazard turning-age and exponential Gamma mixture"
+      ],
+      "rationale": "A single-parameter reliability family has a globally decreasing absolute hazard-minimum time but an increasing normalized minimum time, a nontrivial, operationally interpretable quantitative contrast with sharp corrections.",
+      "residual_risks": [
+        "The exact full 2012 mixture-parameter paper was not accessible; a quantitative age monotonicity formula in it could cover this result.",
+        "The LR1 model is a special restriction of an older mixture; no new claim to the qualitative bathtub phenomenon."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Singh and Patawa arXiv:2610.24575v1, full mathematical exposition via paperpeel.com/paper/2610.24575 and arxiv abstract; Section 3 and discussion of nonunique-minimum caveat",
+    "Block, Langberg, Savits and Wang (2010), Continuous Mixtures of Exponentials and IFR Gammas Having Bathtub-Shaped Failure Rates, Theorem 2.1 qualitative context",
+    "Block, Langberg and Savits (2012), A Glaser Twist: Focus on the Mixture Parameters, DOI 10.1239/jap/1354716663, abstract only; full text inaccessible",
+    "Resultary semantic search of LR1 hazard turning-age and exponential Gamma mixture"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The exact full 2012 mixture-parameter paper was not accessible; a quantitative age monotonicity formula in it could cover this result.",
+    "The LR1 model is a special restriction of an older mixture; no new claim to the qualitative bathtub phenomenon."
+  ],
+  "schema_version": 1
+}
