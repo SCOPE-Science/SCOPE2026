@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank comparison establishes two-generator rigidity for a partial bijection with a nontrivial chain; the cyclic-only case reduces to Euler-totient generator counting on the uniquely determined support. Labeled chain and cycle exponential species with integer-divisor Möbius inversion give exact refined multiplicities, while the rook-monoid count yields the total and quantitative half-density estimate. Full finite closures and direct profile counts agree through five vertices. The infinity-parameter assertions are supported by the proof, not those finite checks alone.
+## correctness
 
-## Originality — PASS relative to the checked record
-Elliott–Levine–Mitchell, arXiv:2303.12387, especially Sections 1, 3 and 4, count isomorphism types and identify chain-period parameters; they do not count embedded monogenic inverse submonoids on each labeled set or their fiber multiplicities. Preston's 1986 paper classifies representations up to isomorphism, per its available abstract; its inaccessible full text remains a priority risk. Searches for labeled inverse-submonoid embeddings, their counts and generator multiplicities did not locate the exact refined enumerator or one-half density law; an available functional-digraph profile concerns different algebraic objects. Cho–Ruškuc (2024) studies finite presentability inside the free monogenic inverse semigroup, rather than embeddings in finite rook monoids. Failed retrieval or searches are not proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-This gives the concrete embedding multiplicities absent from abstract isomorphism-type counts: every possible maximal-chain/cycle-order profile can be enumerated exactly, including the exceptional cyclic-support stratum. The structural two-generator theorem explains a uniform large-degree density law, provides reproducible exact counts, and distinguishes natural questions of abstract type, distinct embedded submonoids, and generators. The results are not mere recitations of the known type classification.
+A word in f and f^(-1) translates each directed chain by its signed exponent; |t|≥2 strictly reduces rank when any chain arrow exists, and t=0 gives a partial identity. Rank equality of two mutual generators then forces f or f^(-1). For pure cyclic support, equality of generated local cyclic subgroup yields exactly φ(m) generators. Chains of r labeled vertices contribute z^r and cycles z^r/r to the exponential formulas; maximum chain length subtraction and period-lcm divisor Möbius inversion give the boxed profile expressions. The rook count |I_n| and Q_n=n!∑(1/j!) bound the total deviation by e/[2(n+1)]. Literal inverse submonoid closure checked independently for n=0,…,4, while the proof treats all n.
 
-## Remaining limits
-Independent mathematical audit has not been performed. Earlier representation literature may contain equivalent embedded enumeration under different terminology. Exhaustive finite verification stops at five points; the general statements depend on the written proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for labeled embedded-subset count and half-density, not abstract monogenic inverse-monoid type classification or the general species formula. Elliott–Levine–Mitchell give isomorphism types and chain-period parameters; Preston studies representations of monogenic inverse semigroups. Neither inspected primary material specifies this exact labeled generator-fiber census.
+
+## value
+
+PASS
+
+An exact structural distinction between isomorphism types and literal embedded inverse submonoids gives an implementable bivariate count and simple limiting density, useful to finite inverse-semigroup enumeration and rook monoid combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

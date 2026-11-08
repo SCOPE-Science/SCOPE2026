@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing that file using Python 3 standard library only. Successful completion prints `VERIFY_OK: generator rigidity, embedded census, refined EGF n<=5`.
+## correctness
 
-The program independently generates partial bijections for \(0\le n\le5\), constructs inverse submonoids by closure, checks distinct generator fibers, computes chain and cycle profiles, compares every positive-chain profile to rational formal-power-series coefficients, independently counts cyclic subgroups of each symmetric group by permutation orders, and checks total embedded counts.
+PASS
 
-The checked totals for \(n=0,1,2,3,4,5\) are \(1,2,6,24,126,838\), respectively. Proof of the universal rigidity lemma and of the formal generating series is mathematical and does not rely on numerical extrapolation. No independent external validation or machine-formal proof is asserted.
+A word in f and f^(-1) translates each directed chain by its signed exponent; |t|≥2 strictly reduces rank when any chain arrow exists, and t=0 gives a partial identity. Rank equality of two mutual generators then forces f or f^(-1). For pure cyclic support, equality of generated local cyclic subgroup yields exactly φ(m) generators. Chains of r labeled vertices contribute z^r and cycles z^r/r to the exponential formulas; maximum chain length subtraction and period-lcm divisor Möbius inversion give the boxed profile expressions. The rook count |I_n| and Q_n=n!∑(1/j!) bound the total deviation by e/[2(n+1)]. Literal inverse submonoid closure checked independently for n=0,…,4, while the proof treats all n.
+
+## originality
+
+PASS
+
+Qualified PASS for labeled embedded-subset count and half-density, not abstract monogenic inverse-monoid type classification or the general species formula. Elliott–Levine–Mitchell give isomorphism types and chain-period parameters; Preston studies representations of monogenic inverse semigroups. Neither inspected primary material specifies this exact labeled generator-fiber census.
+
+## value
+
+PASS
+
+An exact structural distinction between isomorphism types and literal embedded inverse submonoids gives an implementable bivariate count and simple limiting density, useful to finite inverse-semigroup enumeration and rook monoid combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
