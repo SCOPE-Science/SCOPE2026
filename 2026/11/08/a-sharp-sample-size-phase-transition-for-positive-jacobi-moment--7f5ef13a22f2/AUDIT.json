@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For every \\(m\\ge2\\) and \\(\\alpha>-1\\), the convex hull of the sampled parabola has precise lower and upper chords at the target abscissa. The resulting exact opposite-sign order-statistic density integrals give the finite-m law; two-corner boundary Laplace and interior quadratic Laplace expansions prove both leading constants and the unique \\(\\alpha=\\sqrt2\\) crossing. All hypotheses, endpoints and normalization are explicit; the stdlib checker passed 2,222 rational/numerical cases and the infinite-parameter proof does not rest on computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bělík–Narayan–Turnage, arXiv:2609.09506v1, pages 1-2,8-10: randomized least-squares positive quadrature with general probabilistic sufficient conditions and Tchakaloff pruning; no exact finite-m moment-parabola probability in inspected results.",
+        "Neumayer–Schäfer–Ullrich, arXiv:2610.32699v1, Theorem 1.1: Lewis-density dominated sampling with m >= 134 gamma n log(4n/delta) yields positive adapted weights with probability >=1-delta, not exact sharp failure rates.",
+        "Hayakawa–Lyons–Oberhauser, arXiv:2101.04250, general Tukey-depth/sample-size inequalities; these do not numerically determine the claim-specific probability.",
+        "published-finding corpus closest 2026/10/11/SCOPE-exact-first-discrete-threshold-below-the-jacobi-radau-continuous--d1b1206636bc: Jacobi–Radau amplitude threshold for a deterministic problem, not iid uniform node moment feasibility."
+      ],
+      "reasoning": "General positive-quadrature existence results subsume eventual high-probability feasibility in some sampling regimes, and random convex-hull results provide generic bounds, but none establishes the stated exact law for every m or the different outer-versus-center exponential mechanisms and critical Jacobi exponent. Positive-weight existence alone does not determine a distribution or sharp prefactors.",
+      "searches": [
+        "Jacobi beta quadrature three random uniform nodes positive weights interpolation degree two moment parabola convex hull exact finite sample probability",
+        "random quadrature positive moment curve two competing failure mechanisms asymptotic sample size",
+        "arxiv:2609.09506v1 Theorems 4 and 10-12 and positive-weights results in the available full text",
+        "arxiv:2610.32699v1 Theorem 1.1, Sections 1.2, 2 and full-text Jacobi/moment curve search"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.09506 (2026-09-08, full PDF)",
+      "https://arxiv.org/abs/2610.32699 (2026-10-23, full PDF)",
+      "https://arxiv.org/abs/2101.04250 (2021, primary PDF)",
+      "https://arxiv.org/abs/2210.05787 (2022, primary PDF)",
+      "https://arxiv.org/abs/1809.09842 (2018; accessible Delft article excerpt)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-sharp-curvature-envelope-three-point-rules--be4efc393b53 (indexed summary)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-first-discrete-threshold-below-the-jacobi-radau-continuous--d1b1206636bc (indexed summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own earlier c9640bcc-315c-40ce-8bba-3c7f33e816f0 covers signs of a particular degree-one randomized least-squares weight formula, not existence of any weights exact on degree-two Jacobi moments.",
+        "Own earlier e0513184-011d-4a76-9d27-b98d9121c9eb concerns positivity of regularized Bayesian quadrature weights on centrally symmetric deterministic node sets, not iid feasible positive moment quadrature.",
+        "Own earlier 9be4d444-603c-4788-8052-5dfe9a06ec0e concerns near-equal affine moment weights for iid points on spheres, not second-moment target laws on an interval.",
+        "2021 and 2022 Hayakawa–Lyons–Oberhauser general sample-size bounds do not determine the order-statistic densities or exact rate constants."
+      ],
+      "reasoning": "There is no implication from a fixed algorithm’s sign probability to existential positivity for all exact degree-two weights. Generic convex hull or volume/Tukey-depth bounds do not fix the exact transformed one-dimensional density, the two failure Laplace maximizers, or the \\(\\alpha=\\sqrt2\\) crossover. The current result contains earlier convex-hull feasibility concepts but asserts an additional quantitative classification.",
+      "searches": [
+        "Jacobi beta quadrature three random uniform nodes positive weights interpolation degree two moment parabola convex hull exact finite sample probability",
+        "sharp transition for positive quadrature randomly sampled moments nearest bracketing products extremes square root Jacobi alpha",
+        "probability three uniform random quadrature nodes exact integral quadratic weights 1/2 log 3 minus 1/3",
+        "sharp random Jacobi positive quadrature finite sample success law P3 3 tau/2 (log(1/tau)-1+tau) alpha sqrt 2 phase transition",
+        "iid uniform nodes moment curve parabola convex hull (0,tau) sharp probability outer extremal and nearest bracketing product",
+        "Neumayer Schäfer Ullrich random nodes positive weights exact finite-sample three-node quadratic Jacobi law",
+        "arxiv:2101.04250 sections 1 and general inequalities",
+        "arxiv:2210.05787 introduction and sample-complexity statement",
+        "own ledger item c9640bcc-315c-40ce-8bba-3c7f33e816f0 claim",
+        "own ledger item e0513184-011d-4a76-9d27-b98d9121c9eb claim",
+        "own ledger item 9be4d444-603c-4788-8052-5dfe9a06ec0e claim"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hayakawa–Lyons–Oberhauser 2021, arXiv:2101.04250, eq. (2) and main general bounds: random moment-vector convex-hull membership is equivalent to nonnegative quadrature weights, but no fixed Jacobi parabola probability or alpha crossover in inspected main results.",
+        "Hayakawa–Oberhauser–Lyons 2022, arXiv:2210.05787, introduction eqs. (2)-(3) and hypercontractive sample-complexity results: same general convex-hull formulation, no explicit degree-two uniform-node law in inspected sections.",
+        "published-finding corpus closest index 2026/9/21/SCOPE-sharp-curvature-envelope-three-point-rules--be4efc393b53: deterministic symmetric endpoint-midpoint rule error, not a random-node feasibility probability."
+      ],
+      "reasoning": "The exact event is a two-sided product condition on the inner and outer opposite-sign order statistics. Classical moment-matching/Carathéodory equivalence and general random-polytope probability inequalities are prior concepts, not claimed as new. The new content is the exact integral and the two sharp parameter-dependent Laplace prefactors, neither implied by generic convex-hull probability bounds or deterministic symmetric-rule quadrature error.",
+      "searches": [
+        "Jacobi beta quadrature three random uniform nodes positive weights interpolation degree two moment parabola convex hull exact finite sample probability",
+        "uniform random quadrature 3 nodes positivity interpolation moments parabola convex hull probability",
+        "arxiv:2101.04250 introduction and general convex-hull probability results; find parabola and quadratic (no hit)",
+        "arxiv:2210.05787 introduction and convex-hull interpretation; find parabola and Jacobi (no hit)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct published-finding corpus queries returned no exact formula matching (log 3)/2 - 1/3 for three iid uniform nodes and a quadratic uniform target; closest deterministic three-point rules ID 2026/9/21/SCOPE-sharp-curvature-envelope-three-point-rules--be4efc393b53.",
+        "Source PDFs do not contain Jacobi parameter phase diagrams: relevant full-text search returned no Jacobi or moment curve occurrence in the two 2026 papers.",
+        "Old sampled-node polynomial methods 2018 arXiv:1809.09842, accessible 2020 article abstract/introduction, describe positive-weight algorithms rather than a precomputed probability table."
+      ],
+      "reasoning": "There is no identified table or database covering the exact all-m law or sharp failure constants. Failed keyword searches are not proof of novelty; the recorded closest distinct claims and independently derived calculations provide best-knowledge comparison.",
+      "searches": [
+        "probability three uniform random quadrature nodes exact integral quadratic weights 1/2 log 3 minus 1/3",
+        "exact probability three iid uniform nodes support positive quadratic interpolatory quadrature weights equal uniform measure log 3 1/2 minus 1/3",
+        "constructive Tchakaloff random nodes positive weights probability sample three order two",
+        "sharp random Jacobi positive quadrature finite sample success law P3 3 tau/2 (log(1/tau)-1+tau) alpha sqrt 2 phase transition",
+        "iid uniform nodes moment curve parabola convex hull (0,tau) sharp probability outer extremal and nearest bracketing product",
+        "Neumayer Schäfer Ullrich random nodes positive weights exact finite-sample three-node quadratic Jacobi law",
+        "arxiv:2609.09506v1 full-text Jacobi keyword",
+        "arxiv:2610.32699v1 full-text Jacobi and moment curve keywords"
+      ]
+    },
+    "rationale": "The supplied proof is compared at the level of the exact moment hull event and its finite-m probability, not title overlap. Two 2026 primary full-text results, two general random convex-hull primary sources, accessible older sample-based work, ten direct relevant published-finding corpus queries and recoverable earlier quadrature claims were compared. Generic existence, algorithms and Tukey-depth bounds do not imply the exact Jacobi all-m integral or its crossover constants. Historical priority remains uncertain for unindexed order-statistic/moment-curve calculations.",
+    "residual_risks": [
+      "Unindexed or differently worded order-statistic calculations on random convex hulls of the parabola may contain the same exact probability.",
+      "Older implicit quadrature article was inspected for its formulation and algorithm, but not all proof sections; no complete whole-paper uniqueness certification is claimed.",
+      "No independent historical-priority or mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General constructive high-probability sufficient conditions and pruning, not an exact finite-sample Jacobi-specific success law in inspected mathematical statements",
+        "evidence": [
+          "arXiv:2609.09506v1, pages 1-2,8-10: statement of general randomized least-squares positive weights; original v1 dated 2026-09-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.09506",
+        "material_read": "Title, abstract, intro, contribution overview, Theorems 4 and 10-12, positive-weight subsection, reference list, and full-text Jacobi keyword search",
+        "method": "Read available full PDF text with targeted result/theorem and term searches; visually checked front page",
+        "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+        "trigger": "Motivating recent primary numerical analysis paper and same positive quadrature problem"
+      },
+      {
+        "assessment": "Provides explicit generic Lewis-density sampling bound and weight-adaptation feasibility, but inspected statements do not imply exact all-m Jacobi probability or two sharp failure mechanisms",
+        "evidence": [
+          "arXiv:2610.32699v1, pp.1-5, Theorem 1.1 and related-work discussion; original v1 dated 2026-10-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+        "material_read": "Abstract, introduction, Theorem 1.1, remarks on uniform sampling, literature comparisons and numerical-integration scope; full-text search for Jacobi and moment curve",
+        "method": "Inspected 31-page accessible PDF main results and related-work section; checked title/original-version date",
+        "title": "Random nodes with positive weights: Richter-Tchakaloff rules and optimal positive quadrature",
+        "trigger": "Closest later recent paper on exact positive weights from independent random nodes"
+      },
+      {
+        "assessment": "Encompasses the convex-hull probability formulation, but inspected results supply general bounds rather than exact special moment-parabola probability law",
+        "evidence": [
+          "arXiv:2101.04250, main statement 1/2 <= alpha_X N_X <= 3d+1, introduction §1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2101.04250",
+        "material_read": "Abstract, full introduction, mathematical definitions of p_n and N_X, general bounds and cubature application statements; targeted parabola and quadratic search",
+        "method": "Read primary OA PDF text and visually checked first page; compared general inequalities to claimed exact distribution",
+        "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+        "trigger": "Potentially stronger generic random-convex-hull probability result referred to in 2026 literature"
+      },
+      {
+        "assessment": "General polynomial cubature sample-complexity framework, not a claim of exact two-moment iid uniform probabilities or sharp alpha-dependent constants",
+        "evidence": [
+          "arXiv:2210.05787v1, pp.1-2, convex-hull eq. (2), sample complexity discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.05787",
+        "material_read": "Title, abstract, intro moment-map convex hull equivalence and sample complexity/hypercontractivity overview; targeted Jacobi and parabola text searches",
+        "method": "Read primary OA PDF text, visually checked first page, compared statement and assumptions",
+        "title": "Hypercontractivity Meets Random Convex Hulls: Analysis of Randomized Multivariate Cubatures",
+        "trigger": "Strongest potentially dominating random cubature sample-complexity framework"
+      },
+      {
+        "assessment": "The inspected material addresses algorithmic compression of discrete sample measures, not exact Jacobi-target/uniform-sampling probability; full-document equivalence remains a residual priority risk",
+        "evidence": [
+          "2020 SIAM/ASA J. UQ vol.8 pp.139-169, DOI:10.1137/18M1213373, §§1-2 inspected"
+        ],
+        "identifier_or_url": "https://pure.tudelft.nl/ws/files/73567959/18m1213373.pdf",
+        "material_read": "Accessible final article abstract, introduction, problem formulation and node-subsampling construction overview; not all appendices",
+        "method": "Inspected lawful institutional repository HTML/text PDF; original arXiv pdf attempt unavailable",
+        "title": "Generating nested quadrature rules with positive weights based on arbitrary sample sets",
+        "trigger": "Older direct sample-based positive quadrature approach cited by both recent works"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f5ef13a-22f2-4820-ae32-139ea9c0c803",
+  "value": {
+    "rationale": "Random prescribed-node exact positive quadrature is a natural stability-sensitive numerical integration problem. The result gives exact success at every m and two analytically distinct failure mechanisms with a new, parameter-dependent exponential-scale phase boundary at \\(\\alpha=\\sqrt2\\). The sample-budget constants are unavailable from abstract high-probability existence frameworks; the positive result is a complete classification of an interpretable polynomial-degree-two family. No general algorithmic performance claim is made.",
+    "status": "PASS"
+  }
+}
