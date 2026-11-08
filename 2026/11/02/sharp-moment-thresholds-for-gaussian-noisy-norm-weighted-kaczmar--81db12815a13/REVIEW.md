@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For refreshed nondegenerate Gaussian candidate rows, the normalized importance-sampling rule makes the exact \(q\)-moment of the affine projection innovation the integral of \(\sum_i |b_i|^q r_i^{\beta-q}/\sum_j r_j^\beta\). The proof separately checks the singular selected-row face and simultaneous all-row collapse; together they give the strict cutoff \(q<\min\{md,d+\beta\}\), with endpoint divergence. A uniform expected-contraction argument supplies the invariant law and its same sharp cutoff, including the one-dimensional exact-reset case. Gamma/Dirichlet factorization and pathwise projection orthogonality give the centered exact second-moment law. The standalone verifier passed its independent computations. Simulations are corroboration only, not infinite-dimensional proof.
+PASS
 
-## Originality — PASS (qualified)
+PASS. At the pinned RESULT.md, write each projection as Bx+V with B=I-uu^T, V=b_Iu/||a_I||, BV=0. Independent Gaussian radial densities have r^(d-1) positive near zero; on sectors s=max_j r_j the singular radial exponent is md-q-1 and angular chosen-radius exponent d+beta-q-1, so E||V||^q finite iff q<min(md,d+beta), equality logarithmically divergent. Independence gives finite/infinite iterate moments at every positive time. Full-support selected directions make E||Bv||^q/||v||^q<1 uniformly on the sphere (d>=2), giving an invariant law and matching moment bounds; d=1 refreshes every step. For centered beta=2, Gamma/Dirichlet decomposition yields exact q-moment ratio and the second-moment recurrence with factor 1-1/d; limiting cases m=1, d=1, beta=0 are handled by these formulas. Finite numerical tests are not substituted for the general proof.
 
-The sampled projection and importance weighting are established in Needell–Srebro–Ward (arXiv:1310.5715); noisy-matrix Kaczmarz is established in Bergou et al. (arXiv:2308.16904). The latter's Theorem 5 conditions on a fixed perturbed matrix, whereas the new claim classifies **unconditional** every-order moments for a fresh Gaussian coefficient matrix per iteration. Anderson et al. (arXiv:2511.20877) concern higher moments of homogeneous error maps on fixed consistent systems, not singular affine innovations. Results for subspace-constrained Kaczmarz (arXiv:2309.04889) are also distinguished. Related records and precise implication variants were searched; none identified coverage. Prior inverse-Gamma, Dirichlet and random contraction principles are credited. Equivalent earlier affine-random-projection analyses may exist and independent priority checking remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem provides an exact, reproducible diagnostic for finite variance, higher-order concentration moments and stationary error of a noisy row-action algorithm. Changing selection from uniform to the classical squared-norm weighting changes the variance requirement from \(d>2\) to \(md>2\), but cannot remove the all-row collapse obstruction or the next higher-moment threshold. The exact equilibrium mean-square floor is new method-specific quantitative information with direct interpretation, not just a numerical experiment.
+PASS (best of knowledge). The claim concerns refreshed independent Gaussian candidate observations and exact unconditional moment integrability, distinct from the fixed noisy-matrix and fixed-system prior results; the general gamma/Dirichlet facts are not claimed as new. No equivalent all-q result found in actual semantic and primary-paper comparisons.
 
-## Scope and residual risks
+## value
 
-This is an online, independently re-observed Gaussian coefficient model; one frozen noisy matrix is not covered. No optimization accuracy guarantee for a fixed true system is asserted. No invariant tail constant is derived. Scientific review was performed on the stated argument, not by an independent authority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Sharp, natural all-order heavy-tail cutoffs and invariant-state moment classification explain when norm-squared sampling removes infinite variance in an online noisy projection method; the simultaneous-origin md obstruction is structurally relevant, and the closed Gaussian moment/equilibrium floor is not an arbitrary narrow instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:05:49.878769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. At the pinned RESULT.md, write each projection as Bx+V with B=I-uu^T, V=b_Iu/||a_I||, BV=0. Independent Gaussian radial densities have r^(d-1) positive near zero; on sectors s=max_j r_j the singular radial exponent is md-q-1 and angular chosen-radius exponent d+beta-q-1, so E||V||^q finite iff q<min(md,d+beta), equality logarithmically divergent. Independence gives finite/infinite iterate moments at every positive time. Full-support selected directions make E||Bv||^q/||v||^q<1 uniformly on the sphere (d>=2), giving an invariant law and matching moment bounds; d=1 refreshes every step. For centered beta=2, Gamma/Dirichlet decomposition yields exact q-moment ratio and the second-moment recurrence with factor 1-1/d; limiting cases m=1, d=1, beta=0 are handled by these formulas. Finite numerical tests are not substituted for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Needell–Srebro–Ward arXiv:1310.5715 analyzes row sampling/convergence on fixed systems; Anderson et al. arXiv:2511.20877 discusses moment/concentration bounds for random iterative methods, especially fixed consistent systems.",
+          "Here new rows and denominators are freshly resampled at each iteration; singular mass at simultaneous radius collapse forces q<md."
+        ],
+        "reasoning": "General weighted-sampling analysis does not immediately imply an if-and-only-if q-cutoff including the simultaneous-origin event, the invariant-law spectrum, or the centered exact gamma ratio; preserve residual risk for wider random-affine-recursion theorems.",
+        "searches": [
+          "randomized Kaczmarz fresh Gaussian coefficient noise norm weighted sampling row radius singular moments invariant law q threshold md d+beta",
+          "Needell Srebro Ward 2013 norm squared Kaczmarz stochastic gradient weighted sampling",
+          "Anderson Collins Haddock Lok Rebrova 2025 beyond expectation randomized iterative methods"
+        ]
+      },
+      "checked_sources": [
+        "E. H. Bergou et al., A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems (arXiv:2308.16904; introductory model and convergence results)",
+        "D. Needell, N. Srebro, R. Ward, Stochastic Gradient Descent, Weighted Sampling, and the Randomized Kaczmarz Algorithm (arXiv:1310.5715)",
+        "T. Anderson et al., Beyond Expectation: Concentration Inequalities for Randomized Iterative Methods (arXiv:2511.20877)",
+        "Resultary semantic-search query: randomized Kaczmarz fresh Gaussian coefficient noise norm weighted sampling row radius singular moments invariant law q threshold md d+beta"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Different noise models: conditional fixed-matrix error guarantees do not bound negative moments of newly sampled row norms.",
+          "Derived radial angular integrability exponents md-q and d+beta-q; neither inequality is a direct specialization of the cited fixed-design error theorems."
+        ],
+        "reasoning": "The classical Kaczmarz primitive and coupling/Dirichlet algebra are prior ingredients, but no examined primary theorem entails the full fresh-Gaussian all-q invariant threshold as a corollary. Older random-affine-recursion results could conceivably do so and remain a risk.",
+        "searches": [
+          "randomized Kaczmarz fresh Gaussian coefficient noise norm weighted sampling row radius singular moments invariant law q threshold md d+beta",
+          "arxiv:2308.16904",
+          "arxiv:1310.5715",
+          "arxiv:2511.20877"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The innovation in the actual RESULT.md equals b_I u_I/||a_I||; its qth moment reduces to integral of sum_i |b_i|^q r_i^(beta-q)/sum_j r_j^beta.",
+          "Bergou et al. (arXiv:2308.16904) treats perturbed matrix/right-hand side with a different sampling/noise protocol."
+        ],
+        "reasoning": "Aliases checked: noisy stochastic row-action, random hyperplane projection, Gaussian inverse-radius perpetuity and stochastic affine projection. Frozen doubly-noisy Kaczmarz does not state the same fresh-all-candidate and all-order moment theorem; similar update formula alone is not equivalent because the correlation and sampling law differ.",
+        "searches": [
+          "randomized Kaczmarz fresh Gaussian coefficient noise norm weighted sampling row radius singular moments invariant law q threshold md d+beta",
+          "randomized Kaczmarz resampling random row inverse norm heavy tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact numerical table or database was identified encoding q*=min(md,d+beta) for all m,d,beta.",
+          "The statement is continuous in beta, Gaussian mean vectors, and real q, so a finite table cannot by itself dominate the universal theorem."
+        ],
+        "reasoning": "Checked exact-table possibility and found no known tabulation for this specific resampled candidate selection law; lack of search hit is not novelty proof.",
+        "searches": [
+          "randomized Kaczmarz fresh Gaussian coefficient noise norm weighted sampling row radius singular moments invariant law q threshold md d+beta",
+          "arxiv 2308.16904 Gaussian coefficient noise Kaczmarz moment distribution"
+        ]
+      },
+      "rationale": "PASS (best of knowledge). The claim concerns refreshed independent Gaussian candidate observations and exact unconditional moment integrability, distinct from the fixed noisy-matrix and fixed-system prior results; the general gamma/Dirichlet facts are not claimed as new. No equivalent all-q result found in actual semantic and primary-paper comparisons.",
+      "residual_risks": [
+        "Wider stochastic affine-recursion or random-projection literature may contain equivalent tail-index statements under alternate terminology.",
+        "The Gaussian mean vectors are arbitrary but all share nondegenerate spherical variance; extensions to frozen matrices or non-Gaussian radial laws are unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different noise protocol; no statement of the all-order exact singular threshold found in inspected results.",
+          "evidence": "The matrix/measurement perturbation is conditioned on for convergence/error bounds rather than independently refreshing all Gaussian row candidates before each projection.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16904",
+          "material_read": "Accessible full paper: introductory model, assumptions and error-convergence discussion concerning noisy coefficient matrices, with comparison of noise protocols.",
+          "method": "Read primary arXiv PDF and relevant result sections; compare conditional/frozen data hypotheses with every-iteration fresh full candidate resampling.",
+          "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Same numerical update with noisy coefficient matrix and right-hand side"
+        },
+        {
+          "assessment": "Prior sampling and convergence methods, not the same random-row negative-radius moment spectrum.",
+          "evidence": "Fixed linear system/importance-sampling question rather than independently refreshed Gaussian coefficient rows.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.5715",
+          "material_read": "Abstract and characterization of fixed-row weighted Kaczmarz/SGD, compared against source claim.",
+          "method": "Primary abstract and research comparison; no claim to have examined all appendices.",
+          "title": "Stochastic Gradient Descent, Weighted Sampling, and the Randomized Kaczmarz Algorithm",
+          "trigger": "Potential broader theorem on weighted sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Sharp, natural all-order heavy-tail cutoffs and invariant-state moment classification explain when norm-squared sampling removes infinite variance in an online noisy projection method; the simultaneous-origin md obstruction is structurally relevant, and the closed Gaussian moment/equilibrium floor is not an arbitrary narrow instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact cutoff requires b≠0, independent fresh Gaussian candidate rows, and β≥0; no claim of recovery of deterministic original solution.",
+    "Best-of-knowledge originality assessment, not proof of global absence of earlier coverage."
+  ],
+  "schema_version": 1
+}
