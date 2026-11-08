@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unique nonzero element of the one-dimensional square makes the bilinear coefficient form intrinsic. Its Gram matrix in any natural basis is the identity, giving a nonsingular form and exactly the orthonormal bases. The characteristic vector is unique, and its expression in any orthonormal basis is all ones. Thus full support is equivalent to the exceptional equality \(u=c\), while the support-size parity is the intrinsic scalar \(B(u,u)\). Explicit weight-four orthogonal transvections change nonexceptional support weight by exactly two whenever an intermediate weight is permitted. Together with coordinate permutations this proves transitivity on the full nonexceptional parity orbit; equal stabilizer sizes yield the exact binomial probability for a uniform natural basis. This proves both necessity and sufficiency for every dimension. Independent exhaustive checks cover dimensions up to five and orbit generation up to nine.
+## correctness
 
-## Originality — PASS, qualified
-Kramer and Stroppel study related characteristic-two orthogonal groups (arxiv:2208.11326); the graph-and-frequency consequence was not found in the inspected material. The nearest published evolution-algebra results establish natural-basis orthogonality (Boudi et al., 2020/2022), one-dimensional-square classification (Martín Barquero et al., 2025), and an open problem about basis-dependent graphs (Kaygorodov et al., 2026). Their inspected full-text portions do not determine the exact binary support spectrum, binomial frequency distribution, or the four-dimensional threshold. Searches for graph invariants, characteristic vectors and orthogonal actions located no explicit dominating prior theorem. A general binary-orthogonal orbit theorem could imply the orbit component; this remains a priority risk and is not claimed to be independently excluded.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural-basis graph classification for the intrinsic first non-perfect square-rank class over the smallest finite field, not a selected isolated graph. It identifies an invariant parity and an exceptional canonical square vector, determines all simultaneously realizable support sizes and their exact frequencies for uniformly sampled natural bases within a fixed algebra, and proves the sharp dimension-four onset of graph variation. These are directly motivated by Questions 14, 27 and 30 of the 2026 survey. The limit to characteristic two and ordinary square dimension one is essential.
+Since E^2 has unique nonzero u, each natural-basis square is u by nondegeneracy; natural bases exactly B-orthonormal frames. The characteristic vector c=sum e_i in every orthonormal frame; graph outdegree is the coordinate weight k of u, which has norm parity s and k=n iff u=c. Coordinate permutations and weight-four isotropic transvections T_w(x)=x+B(x,w)w change weight by +/-2 and connect all permitted noncharacteristic vectors of equal norm parity, proving exact orbit and binomial frequencies. Independently enumerated every ordered orthonormal frame over F2 in n=1..5 (counts 1,2,6,48,720) and checked all nonzero u and every predicted support probability.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2025 classification of commutative algebras with one-dimensional square identifies their bilinear-form structure but does not specify every natural-basis digraph or its exact distribution. Kramer–Stroppel work on the same bilinear isometry groups and likely implies some orbit facts, but focuses on Hodge/exterior-power actions rather than evolution-algebra graph spectra. Recent evolution-algebra surveys ask for such natural-basis graph invariants. Classical orbit theory may make the graph law a short corollary, and that priority risk is recorded.
+
+## value
+
+PASS
+
+An exact natural-basis graph spectrum, first dimension with more than one graph type (n=4), and uniform orbit law provide an interpretable basis-dependence classification of a standard family; they answer natural graph-variation questions rather than an arbitrary restricted count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
