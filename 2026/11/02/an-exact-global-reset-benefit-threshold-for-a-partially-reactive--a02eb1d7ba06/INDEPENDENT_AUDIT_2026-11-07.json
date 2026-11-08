@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving Robin/Neumann Laplace boundary problem gives phi(r,x0)=cosh(beta y)/(cosh(y)+eta*y*sinh(y)); renewal yields the stated T(r). The sign-relevant Q(y) has even-series B_n; for u<1/3 all C_n>0, n>=4 A_n>0, and B3 at B2=0 is strictly positive by -2(u-1)^3(9u-1)>0. Thus B2>=0 means every Q(y)>0. If B2<0, small y makes Q negative; T(r)->infinity at large r ensures a finite beneficial minimizer. The positive threshold root and limits follow; independently checked two exact B2/B3 polynomial identities. Does not prove unique positive optimizer.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Whitehouse--Evans--Majumdar treat partial targets and Benkhadaj--Grebenkov consider encounter-based reset and reactive endpoints."
+        ],
+        "reasoning": "General renewal principles determine T given phi but do not automatically give strict global sign for all rates and all eta,u.",
+        "searches": [
+          "Whitehouse Evans Majumdar 2013 partial absorption resetting",
+          "Benkhadaj Grebenkov 2022 arxiv:2209.00947"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1088/1751-8113/48/28/285003 publisher abstract",
+        "arxiv:2209.00947 index only",
+        "arxiv:1102.2704 reference",
+        "Git RESULT.md blob cc5b9686ee24e6136e0d9ce27dd0413bba91e7f7",
+        "Git verify.py blob daab9e21e0f3270562adda127758302b94c87e1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reset first-passage framework gives renewal identity; the present global positivity follows a nontrivial Taylor coefficient chain."
+        ],
+        "reasoning": "Prior first-passage expressions are necessary antecedents but do not by themselves imply the sharp if-and-only-if classification.",
+        "searches": [
+          "Christou Schadschneider 2015 publisher abstract",
+          "Evans Majumdar arxiv:1102.2704",
+          "Benkhadaj Grebenkov arxiv:2209.00947"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Christou--Schadschneider (2015) abstract studies bounded diffusion with an interior absorbing point and optimal-rate transition."
+        ],
+        "reasoning": "Interior perfect sink versus finite Robin endpoint and opposite Neumann wall are different generators; an unproved limiting reduction could still produce same formula.",
+        "searches": [
+          "web Christou Schadschneider 2015 diffusion resetting bounded domains",
+          "arxiv:2209.00947 resetting partial boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded-domain paper is a related phase-transition analysis, not a verified exact (u,eta) all-rate table."
+        ],
+        "reasoning": "No identical critical-position table was verified; absence not asserted exhaustively.",
+        "searches": [
+          "Christou Schadschneider DOI:10.1088/1751-8113/48/28/285003",
+          "Resultary search partial absorbing reflecting bounded interval reset global benefit"
+        ]
+      },
+      "rationale": "The reset renewal formula is standard, while the exact global finite-reactivity one-reflecting-endpoint threshold, including strict equality case, is not a statement found in inspected abstracts and related accessible treatments. Major risk: original Christou--Schadschneider 2015 bounded reset paper treats an interior absorbing point and phase transition; full paper inaccessible, so its possible boundary limiting formula cannot be ruled out.",
+      "residual_risks": [
+        "Christou--Schadschneider 2015 complete text inaccessible; exact boundary limiting case might imply threshold.",
+        "Benkhadaj--Grebenkov complete text unavailable for theorem-level comparison.",
+        "No uniqueness of positive optimal resetting rate is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Authorized institutional request vpn_disconnected job b60571176c38562abc71275c12ee233e; no whole-paper noncoverage claim.",
+          "identifier_or_url": "doi:10.1088/1751-8113/48/28/285003",
+          "material_read": "Publisher abstract states interior absorption point and phase transition; full 18-page paper not read",
+          "method": "Publisher web inspection, lawful OA search and authorized Oxford lookup",
+          "title": "Diffusion with resetting in bounded domains",
+          "trigger": "Same bounded reset setting with optimal-rate transition"
+        },
+        {
+          "assessment": "POSSIBLE_RELATED_COVERAGE",
+          "evidence": "Potential all-rate expressions or Robin limits unverified at theorem level.",
+          "identifier_or_url": "arxiv:2209.00947",
+          "material_read": "Title, indexed descriptions and assigned result comparison, not full article",
+          "method": "arXiv OA PDF attempt failed",
+          "title": "Encounter-based Approach to Diffusion with Resetting",
+          "trigger": "Partially reactive resetting in confined domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp iff inequality replacing a local small-rate heuristic with all-reset-rate optimality, including finite surface-reaction impedance and strict transition, provides a natural physically interpretable design threshold.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1088/1751-8113/48/28/285003 publisher abstract",
+    "arxiv:2209.00947 index only",
+    "arxiv:1102.2704 reference",
+    "Git RESULT.md blob cc5b9686ee24e6136e0d9ce27dd0413bba91e7f7",
+    "Git verify.py blob daab9e21e0f3270562adda127758302b94c87e1e"
+  ],
+  "disposition": "passed",
+  "final_claim": "For diffusion on [0,L] with reflecting right endpoint and partial absorbing Robin left endpoint, exponential position resetting to fixed interior x0 improves mean reaction time at some r>0 exactly when (1-u)(1-5u)+4eta(1-3u)<0, u=(1-x0/L)^2 and eta=D/(kappa L); equality/nonbeneficial case is globally strict for all positive rates.",
+  "limitations": [
+    "Christou--Schadschneider 2015 complete text inaccessible; exact boundary limiting case might imply threshold.",
+    "Benkhadaj--Grebenkov complete text unavailable for theorem-level comparison.",
+    "No uniqueness of positive optimal resetting rate is established."
+  ],
+  "residual_risks": [
+    "Christou--Schadschneider 2015 complete text inaccessible; exact boundary limiting case might imply threshold.",
+    "Benkhadaj--Grebenkov complete text unavailable for theorem-level comparison.",
+    "No uniqueness of positive optimal resetting rate is established."
+  ],
+  "schema_version": 1
+}
