@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Derive exact component composition and epoch representation, prove Jensen and majorization inequalities for every convex function, verify strict covariance and stationary limits. The signs of geometric sums and rational example are independently checked by exact algebra and a standalone checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1908.00045 proves lower bounds for SGDs with permutations, not all convex tests of the fixed-step endpoint law.",
+        "arXiv:2006.05988 small-step assumption excludes negative component contractions.",
+        "arXiv:2206.00632 studies approximate noise and iteration-time/phase-averaged variance; its positive-step SO-vs-RR empirical comparisons use a different observable and parameter regime."
+      ],
+      "reasoning": "Rate bounds and averaged stationary second moments do not imply a multivariate convex order for every loss or the negative-sweep reversal. A claimed general RR/SO bound needs quantifier and sampling-time comparison; none inspected subsumes the fixed-step all-epoch theorem.",
+      "searches": [
+        "arXiv:1908.00045 Section 5 Appendix A",
+        "arXiv:2006.05988 Theorem 1",
+        "arXiv:2102.09718 Section 6",
+        "arXiv:2206.00632 Propositions 2 and 3"
+      ]
+    },
+    "checked_sources": [
+      "Safran–Shamir, arXiv:1908.00045, full 2020 COLT PDF Section 5 and Appendix A, especially the product of scalar component contractions",
+      "Mishchenko–Khaled–Richtárik, arXiv:2006.05988, full NeurIPS PDF Section 3.1 and Theorem 1",
+      "Rajput–Lee–Papailiopoulos, arXiv:2102.09718, full arXiv HTML Introduction, Section 6 and algorithm/table comparison",
+      "Domingo-Enrich, arXiv:2206.00632v1, full arXiv HTML Sections 1, 4, 5, 6 (Propositions 2 and 3)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Safran–Shamir common scalar product is a premise, not the signed-convex-order conclusion.",
+        "Mishchenko et al. rates are bounds under conservative stepsizes; no reverse signed case.",
+        "Rajput et al. compare FlipFlop rate improvements; not fresh-vs-fixed permutation convex order.",
+        "Domingo-Enrich Proposition 2/3 compare PSD variance in zero-th-order noise and time-averaged stationary setting, not exact completed-epoch distributions."
+      ],
+      "reasoning": "The claimed exact stochastic dominance is not a reformulation of a rate bound, a one-sided variance bound or a table measured within epochs. The main risk is an independent equivalent result in generic exchangeable weighted-sum theory applied directly to this epoch model.",
+      "searches": [
+        "arXiv:1908.00045 full PDF Appendix A",
+        "arXiv:2006.05988 full PDF Section 3.1",
+        "arXiv:2102.09718 full HTML Introduction and Section 6",
+        "arXiv:2206.00632 full HTML Sections 4–6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact statement reduces to the majorization relation between the signed normalized geometric coefficient vector and a basis vector; the general exchangeable weighted-sum theorem is classical.",
+        "arXiv:2102.09718 Algorithm 1 and Section 6 compare RR/SO and FlipFlop asymptotic rates, not a convex-order equivalence."
+      ],
+      "reasoning": "An affine-recursion formulation is genuinely equivalent to the SGD epoch formulation when all component Jacobians are scalar. This equivalence was included in comparison, not treated as novelty. Standard majorization explains the proof, but the observed sources do not articulate the sign-complete algorithmic frontier. Residual broad literature could.",
+      "searches": [
+        "random reshuffling worse than shuffle once for large step sizes affine map stochastic gradient SGD",
+        "noncommuting Hessians shuffle-once random reshuffling stationary distribution risk spectral signed contraction",
+        "convex order stochastic order comparison random reshuffling and shuffle once over epochs with negative epoch contraction and overshooting steps",
+        "arXiv:2102.09718 Section 6",
+        "arXiv:2206.00632 Sections 4-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published mathematical records concern RR-vs-with-replacement stability or unrelated affine stationary variances; no hit claims RR-vs-SO signed product convex ordering.",
+        "arXiv:2206.00632 Table 1 lists stationary iteration-time MSEs in a five-dimensional varying-Hessian experiment, not the exact epoch-endpoint scalar-affine distribution comparison."
+      ],
+      "reasoning": "Neither inspected database snippets nor actual primary tables give the present full-domain result or its exact negative-product stationary witness. Search alone is not proof of uniqueness.",
+      "searches": [
+        "Mathematical publication query: exact stationary risk random reshuffling versus single shuffle shuffle once affine scalar finite sum quadratics sign of epoch contraction negative overshoot variance ordering",
+        "Mathematical publication query: random reshuffling worse than shuffle once for large step sizes affine map stochastic gradient SGD",
+        "Mathematical publication query: noncommuting Hessians shuffle-once random reshuffling stationary distribution risk spectral signed contraction",
+        "Mathematical publication query: convex order stochastic order comparison random reshuffling and shuffle once over epochs with negative epoch contraction and overshooting steps",
+        "Mathematical publication query: all convex loss sharp reverse risk ordering reshuffle once fixed permutation strong convex isotropic quadratics arbitrary epoch count",
+        "Mathematical publication query: finite sum scalar quadratic epoch product negative random reshuffling worse than shuffle once variance ordering and distribution"
+      ]
+    },
+    "rationale": "Actual full-text material in four highly relevant primary works examines shuffling rates, permutation design and iterate-time variances, but does not establish signed common-epoch multiplier equivalence to a complete multivariate convex-order reversal for all completed epochs. This is a specialized classification using a classical majorization lemma; unobserved equivalent specializations remain a precedence risk.",
+    "residual_risks": [
+      "Majorization of weighted exchangeable sums is classical; the precise shuffle-once/RR signed-epoch specialization may appear in uninspected specialized probability or optimization literature.",
+      "Results of Domingo-Enrich concern all-iteration stationary variance; apparent opposite comparisons in small-step experiments are not contradiction but emphasize importance of endpoint scope.",
+      "Not extended to noncommuting Hessians or non-epoch-endpoint observations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Premise and asymptotic rate bounds overlap; no all-convex signed-order theorem located",
+        "evidence": [
+          "arXiv:1908.00045, source submission 2019-07-31",
+          "Section 5 and Appendix A scalar contraction calculations"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v125/safran20a/safran20a.pdf",
+        "material_read": "Full PDF Section 5 and Appendix A including scalar epoch-product derivation",
+        "method": "Full-text PDF read with page image inspection",
+        "title": "How Good is SGD with Random Shuffling?",
+        "trigger": "Scalar quadratic RR/SO rates and identical sweep product"
+      },
+      {
+        "assessment": "Small-step rates exclude negative factor regime, no implication of signed full convex order",
+        "evidence": [
+          "arXiv:2006.05988",
+          "Section 3.1 theorem and step restrictions"
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/c8cc6e90ccbff44c9cee23611711cdc4-Paper.pdf",
+        "material_read": "Full PDF Section 3.1 Theorem 1 and assumptions",
+        "method": "Full-text PDF read with page image inspection",
+        "title": "Random Reshuffling: Simple Analysis with Vast Improvements",
+        "trigger": "Comparison of RR and shuffle-once rates"
+      },
+      {
+        "assessment": "Compares rates and FlipFlop; no all-epoch convex-order reversal under negative scalar product observed",
+        "evidence": [
+          "arXiv:2102.09718 Introduction and Algorithm 1",
+          "Section 6 summary of theorem statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.09718",
+        "material_read": "ArXiv rendered full HTML Introduction, Algorithm 1, discussion of Section 6 and FlipFlop results",
+        "method": "Material read from arXiv full HTML",
+        "title": "Permutation-Based SGD: Is Random Optimal?",
+        "trigger": "Permutation strategy comparison and possible stronger deterministic ordering"
+      },
+      {
+        "assessment": "Studies approximate noise model and randomized time phase; contrasts with exact epoch-endpoint all-convex ordering. Does not cover negative product.",
+        "evidence": [
+          "arXiv:2206.00632v1 Sections 4–6",
+          "Proposition 2 and Proposition 3",
+          "Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+        "material_read": "Full arXiv HTML Sections 1, 4, 5, 6, equations 23–30, Propositions 2 and 3 and Table 1",
+        "method": "ArXiv HTML primary full-text material inspection",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Direct comparison RR/SO stationary variances, potential decisive overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1730aa3c-ce41-4a59-8dd4-877895c576b5",
+  "value": {
+    "rationale": "Sharp and global reversal of every convex endpoint risk between two standard shuffling regimes as the stable epoch multiplier changes sign; applies to all dimensions of isotropic strongly convex quadratics and every epoch count, not merely finite numerical curiosities. Practical boundary is motivated by larger constant step sizes and permutation order sensitivity.",
+    "status": "PASS"
+  }
+}
