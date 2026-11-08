@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:50:51.296396Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 999a7cb6dd493063f1add5cce2f0cd2d72742d06",
+        "Independent CASE5_OK finite-section calculations for three polynomials"
+      ],
+      "rationale": "In canonical orthonormal monomials e_n=sqrt(c_n(a))z^n, c_n=(a)_n/n!, multiplication is a banded weighted forward shift. Splitting e_0 from n>=1 gives block [[p0,0],[a^-1/2 v(a),B(a)]], with v_j=p_j sqrt(a/c_j). Expansion a/c_j=j(1-aH_{j-1}+O(a²)) yields ||v||²=D-a sum jH|p_j|². For any fixed polynomial degree the ratios c_n/c_(n+j) converge uniformly for n>=1, so B(a)->B0 with bounded norm O(a). Schur complement of M_p* M_p above ||B||² shows top eigenvalue λ=D/a+O(1) and λ=D/a+|p0|²-sum jH|p_j|² + ||B0* v0||²/D+O(a). Exact B0* v0 has n-th entry n^-1/2 sum_{m=n}^d m p_m conj(p_{m-n}), yielding C. Independent finite multiplier matrices confirmed C=-2 for p=z², C=0 for p=1+z² and a nontrivial complex polynomial, with residual error decreasing with a. The infinite conclusion follows from uniform band estimates, not finite sections.",
+      "residual_risks": [
+        "The asymptotics are fixed-polynomial and a->0+, not uniform in degree or a complete finite-a spectrum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monsalve–Seco section 7(b) explicitly proposes studying polynomials of degree >=2; their Theorem 1.5 settles a linear c-z case. Fu–Guo–Yan model does not state the two-term arbitrary fixed polynomial formula."
+        ],
+        "reasoning": "A generic perturbation theorem may imply the rank-one expansion as a framework, but no inspected prior spectral theorem automatically evaluates C(p) for all d>=2.",
+        "searches": [
+          "Resultary semantic: multiplier norm reproducing kernel (1-z wbar)^(-a) Dirichlet small exponent asymptotic polynomial operator",
+          "Monsalve–Seco 2025 full HTML Section 7(b)",
+          "Fu–Guo–Yan 2024 DOI"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 999a7cb6dd493063f1add5cce2f0cd2d72742d06",
+        "Independent CASE5_OK finite-section calculations for three polynomials",
+        "Monsalve-López–Seco DOI 10.1007/s43034-025-00446-0 full HTML Theorem1.5 Section7(b)",
+        "Fu–Guo–Yan DOI 10.1007/s11425-023-2192-2",
+        "Resultary weighted Dirichlet multiplier norm query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 2025 degree-one full spectrum implies that slice; a polynomial degree-two asymptotic requires additional banded coefficient interactions and a uniform Schur-complement argument."
+        ],
+        "reasoning": "The stronger-on-one-slice theorem does not dominate the claimed all-polynomial result; provenance appropriately restricts novel assertion to d>=2.",
+        "searches": [
+          "DOI 10.1007/s43034-025-00446-0",
+          "DOI 10.1007/s11425-023-2192-2",
+          "Resultary semantic: multiplier norm reproducing kernel (1-z wbar)^(-a) Dirichlet small exponent asymptotic polynomial operator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weight ratio model corresponds to weighted analytic Dirichlet/Bergman spaces. Theorem 1.5 of Monsalve–Seco gives full spectral data for linear symbols, implying degree one; it does not directly determine all degree>=2 polynomial coefficient correlations."
+        ],
+        "reasoning": "Compared equivalent kernel exponent a, weighted Dirichlet limit, analytic multiplier norm vs singular-value and cyclic-function spectral problems. The degree-one specialization is known, all-degree correction is the assessed remainder.",
+        "searches": [
+          "Resultary semantic: multiplier norm reproducing kernel (1-z wbar)^(-a) Dirichlet small exponent asymptotic polynomial operator",
+          "Monsalve-López and Seco DOI 10.1007/s43034-025-00446-0 Theorem 1.5",
+          "Fu Guo Yan DOI 10.1007/s11425-023-2192-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Simple monomials p=z² and p=1+z² yield identical leading D=2 but different constants -2 and 0. Known degree-one spectral tables cannot supply those contrasting quadratic cases."
+        ],
+        "reasoning": "No exact degree>=2 constant table was found in inspected literature; the examples serve as explicit nontrivial boundary checks, not novelty by themselves.",
+        "searches": [
+          "Resultary semantic: multiplier norm reproducing kernel (1-z wbar)^(-a) Dirichlet small exponent asymptotic polynomial operator",
+          "Monsalve–Seco 2025 Theorem 1.5 coefficient formulas"
+        ]
+      },
+      "rationale": "The degree-one case is already implied by Monsalve-López–Seco 2025 spectral theorem and is expressly disclaimed as new. Inspected primary paper Section 7(b) describes higher degree d>=2 as a prospective extension rather than providing this explicit all-fixed-degree a->0 two-term norm expansion. Fu–Guo–Yan 2024 establish model/context, but not the cited finite correction. An abstract rank-one singular perturbation theorem would provide methodology but not necessarily polynomial coefficient formula; priority risk remains.",
+      "residual_risks": [
+        "An earlier unpublished or unindexed singular rank-one operator-norm expansion could give the complete C(p) formula as a corollary.",
+        "The asymptotics are fixed-polynomial and a->0+, not uniform in degree or a complete finite-a spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear specialization is covered, and Section 7(b) explicitly describes degree>=2 as future work; no all-polynomial two-term coefficient formula in examined paper.",
+          "evidence": [
+            "Monsalve-López–Seco 2025, Theorem 1.5 and Section 7(b)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43034-025-00446-0",
+          "material_read": "Complete accessible Springer HTML primary article; inspected Theorem 1.5 for linear symbol and Section 7(b) on possible higher-degree extensions",
+          "method": "Primary full HTML and targeted theorem text",
+          "title": "Towards spectral descriptions of cyclic functions",
+          "trigger": "Exact same multiplier operator family and potentially all polynomial degrees"
+        },
+        {
+          "assessment": "Supplies natural spaces/operator framework but no documented all-degree small-a two-term norm result in inspected material; full-paper noncoverage not claimed.",
+          "evidence": [
+            "Fu–Guo–Yan, Science China Mathematics 67 (2024)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11425-023-2192-2",
+          "material_read": "Published primary abstract, model description and contextual result as referenced in inspected package; complete paper was not read in this run",
+          "method": "Publisher/bibliographic abstract and candidate reference discussion",
+          "title": "Coanalytic models for Hardy-type operators",
+          "trigger": "Related weighted Bergman/Dirichlet operator models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 999a7cb6dd493063f1add5cce2f0cd2d72742d06",
+        "Independent CASE5_OK finite-section calculations for three polynomials",
+        "Monsalve-López–Seco DOI 10.1007/s43034-025-00446-0 full HTML Theorem1.5 Section7(b)",
+        "Fu–Guo–Yan DOI 10.1007/s11425-023-2192-2",
+        "Resultary weighted Dirichlet multiplier norm query"
+      ],
+      "rationale": "Natural singular degeneration of reproducing kernel analytic Hilbert spaces: exact leading term identifies classical polynomial Dirichlet energy, while harmonic-number/correlation correction distinguishes polynomials sharing energy (z² vs 1+z²). Uniform fixed-degree formula for arbitrary complex coefficients is a meaningful explicit operator-norm invariant, not merely known linear case.",
+      "residual_risks": [
+        "An earlier unpublished or unindexed singular rank-one operator-norm expansion could give the complete C(p) formula as a corollary.",
+        "The asymptotics are fixed-polynomial and a->0+, not uniform in degree or a complete finite-a spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 999a7cb6dd493063f1add5cce2f0cd2d72742d06",
+    "Independent CASE5_OK finite-section calculations for three polynomials",
+    "Monsalve-López–Seco DOI 10.1007/s43034-025-00446-0 full HTML Theorem1.5 Section7(b)",
+    "Fu–Guo–Yan DOI 10.1007/s11425-023-2192-2",
+    "Resultary weighted Dirichlet multiplier norm query"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An earlier unpublished or unindexed singular rank-one operator-norm expansion could give the complete C(p) formula as a corollary.",
+    "The asymptotics are fixed-polynomial and a->0+, not uniform in degree or a complete finite-a spectrum."
+  ],
+  "schema_version": 1
+}

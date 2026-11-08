@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The monomial kernel expansion gives the multiplier matrix exactly. Splitting off the constant monomial yields a rank-one singular block and a uniformly bounded polynomial-band tail. The Schur-complement equation, uniform operator-norm convergence of the tail, and an explicit finite coefficient computation rigorously give both coefficients and an O(a) remainder. Numerical finite sections confirm representative real and complex polynomials; they are not used as infinite proofs. Nonconstant polynomial and fixed degree are essential.
+## correctness
 
-## Originality — PASS (with residual risk)
-The 2024 source supplies the weighted-kernel operator model, not the all-degree two-term formula. The 2025 complete point-spectrum and eigenfunction theorem for linear symbols directly subsumes the degree-one specialization, which is therefore expressly excluded from the novelty claim. Its Section 7(b) states degrees at least two as prospective future work. Current published-finding corpus searches for weighted analytic multiplier norms, Dirichlet energy singular limits, two-term harmonic-number corrections, and polynomial extensions produced no statement implying the asserted all-degree finite-correlation coefficient. A generic singular-perturbation theorem could subsume the method; no independent exhaustive literature certificate is asserted.
+PASS
 
-## Mathematical value — PASS
-The natural degeneration of the kernel toward the constant kernel produces a sharp connection to the classical Dirichlet energy. The finite correction depends on cross-correlations and harmonic numbers and distinguishes polynomial multipliers with identical leading energy. It treats every fixed polynomial degree and gives directly computable constants, while leaving the full fixed-exponent polynomial spectral problem open.
+In canonical orthonormal monomials e_n=sqrt(c_n(a))z^n, c_n=(a)_n/n!, multiplication is a banded weighted forward shift. Splitting e_0 from n>=1 gives block [[p0,0],[a^-1/2 v(a),B(a)]], with v_j=p_j sqrt(a/c_j). Expansion a/c_j=j(1-aH_{j-1}+O(a²)) yields ||v||²=D-a sum jH|p_j|². For any fixed polynomial degree the ratios c_n/c_(n+j) converge uniformly for n>=1, so B(a)->B0 with bounded norm O(a). Schur complement of M_p* M_p above ||B||² shows top eigenvalue λ=D/a+O(1) and λ=D/a+|p0|²-sum jH|p_j|² + ||B0* v0||²/D+O(a). Exact B0* v0 has n-th entry n^-1/2 sum_{m=n}^d m p_m conj(p_{m-n}), yielding C. Independent finite multiplier matrices confirmed C=-2 for p=z², C=0 for p=1+z² and a nontrivial complex polynomial, with residual error decreasing with a. The infinite conclusion follows from uniform band estimates, not finite sections.
 
-## Remaining limitations
-No uniformity in degree or claim of originality for linear symbols; source searches cannot establish mathematical priority with certainty. Independent expert audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The degree-one case is already implied by Monsalve-López–Seco 2025 spectral theorem and is expressly disclaimed as new. Inspected primary paper Section 7(b) describes higher degree d>=2 as a prospective extension rather than providing this explicit all-fixed-degree a->0 two-term norm expansion. Fu–Guo–Yan 2024 establish model/context, but not the cited finite correction. An abstract rank-one singular perturbation theorem would provide methodology but not necessarily polynomial coefficient formula; priority risk remains.
+
+## value
+
+PASS
+
+Natural singular degeneration of reproducing kernel analytic Hilbert spaces: exact leading term identifies classical polynomial Dirichlet energy, while harmonic-number/correlation correction distinguishes polynomials sharing energy (z² vs 1+z²). Uniform fixed-degree formula for arbitrary complex coefficients is a meaningful explicit operator-norm invariant, not merely known linear case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
