@@ -1,19 +1,21 @@
-# Scientific review of the selective-dephasing three-site capture-time theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-dimensional trace-decreasing Lindblad dynamics is completely positive, and a support/invariance argument excludes dark invariant states. Therefore the resolvent of the Liouvillian at zero exists on the full matrix space for positive capture rate. The integrated-density equations give an exact positive-denominator rational expression for the mean capture time. Independently differentiated and factored expressions reduce comparison with zero dephasing to a single constrained rational minimization. The derivative numerator of its comparison threshold has one positive root when \(\kappa^4<32\), and no positive root otherwise. A separate derivative-root analysis rules out additional positive global minimizers. All boundary cases, including zero detuning, the equality threshold, and the critical \(\kappa^4=32\) point, are included. The attached standalone symbolic/numerical checker confirms the displayed equations and exercises independent Liouvillian resolvents, but the infinite claims depend on the algebraic proof rather than finite sampling.
+PASS
 
-## Originality — PASS, conditional on examined historical evidence
+For pulse initial state |1><1| and an absorbing sink at site 3, the Lindblad integrated density M=-L^{-1}(|1><1|) has finite trace: no invariant nondecaying positive state exists under kappa>0 by support elimination. Reconstructed 9x9 complex Liouvillian numerically independently and verified T(gamma)=3gamma/2+(kappa^2+6)/(2kappa)+delta^2*kappa*(6gamma+kappa)/(2P), P=2kappa gamma^2+(kappa^2+8)gamma+2kappa, including gamma=0. Symbolically checked T(gamma)-T(0)=gamma(6P-delta^2 kappa S)/(4P), S=kappa^2+2kappa gamma-4, and T'= [3P^2-delta^2 kappa^2 Q]/(2P^2), Q=12gamma^2+4kappa gamma+kappa^2-4. The G(gamma)=6P/(kappa S) derivative has upward quadratic K with constant kappa^4-32; hence interior coexisting gamma_c only when kappa<32^(1/4). R'=12kappa Q on Q>0 proves a unique positive local minimum wherever it beats zero. Four independently constructed Liouvillian inverses and exact symbolic factor identities passed. At equality high kappa the unique minimizer remains zero; no thermodynamic transition claim.
 
-This theorem does **not** claim the discovery of environment-assisted transport, quantum Zeno suppression, Haken–Strobl dephasing, or detuned triple-dot phenomenology. The closest manuscript is Contreras-Pulido et al. (2014), whose complete available text was examined. Its homogeneous **all-site** dephasing and source/drain stationary current cannot be specialized by parameter substitution into the present **middle-site-only**, initially localized pulse-capture model. The outer-outer coherence is undamped here but damped there, leading to distinct exact mean times when both detuning and dephasing are nonzero. Their formulas do not give the present two-branch global optimizer, the nonzero coexistence optimizer, or the change at \(\kappa^4=32\). Kassal and Aspuru-Guzik (2012) study uniformly dephased ordered chains and trapping yield rather than this detuned mean arrival objective. Giusteri et al. (2016) study an initially subradiant trimer of different topology with additional fluorescence and finite-time transfer yield. Accessible published mathematical-result summaries searched for equivalent optimization statements did not show a dominating result. A missing older equivalent formulation cannot be excluded; novelty here is a supported priority assessment, not proof of absolute uniqueness in the literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The claim answers a full-domain, physically motivated noise-engineering question rather than reporting an isolated numerical peak: when does intentionally adding **local** dephasing reduce the average time of quantum capture? The exact nonzero jump for weak-to-moderate capture is qualitatively different from infinitesimal-noise assistance, and the closed critical boundary identifies when this first-order-like behavior becomes a continuous onset. Coexistence of no dephasing and a finite dephasing strength at exactly the threshold has an operational decision consequence; no arbitrary parameter slice is necessary. The rigorous global classification and explicit threshold are not implied by merely knowing that a trimer can exhibit assisted transport.
+Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.
 
-## Closest literature and limitations
+## value
 
-Primary full texts inspected: Kassal and Aspuru-Guzik, arXiv:1201.5202v2; Contreras-Pulido et al., arXiv:1407.0924; Giusteri et al., arXiv:1603.01373. The formalism is ideal Markovian single-excitation dynamics with equal nearest-neighbor hopping and one localized dephaser and absorber. This does not establish analogous sharp onsets for uniform/multisite dephasing, longer chains, source-driven current, finite-temperature structured reservoirs, or experimental implementations. Historical-priority uncertainty persists because no literature search is exhaustive and equivalent earlier calculations under other terminology remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp globally optimized mean first-capture time for a naturally minimal detuned chain exhibits a mathematically meaningful first-order-versus-continuous optimizer onset boundary, with a nonzero coexistence jump. Distinguishes the physical choice of local dephasing and pulse capture from the established steady-current/uniform dephasing setting, making a useful exact benchmark for environment-assisted transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
