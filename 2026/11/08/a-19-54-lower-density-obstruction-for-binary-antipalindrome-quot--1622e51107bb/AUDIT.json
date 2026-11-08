@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The reverse-complement identity equates the leading-one run length and binary trailing-zero valuation for every canonical even-length antipalindrome, including the all-ones-first-half case. For an integer quotient, equality/strict inequality of valuations gives exact odd/even mantissa shells. The explicit excluded intervals have exactly counted parity-restricted cardinalities; uniform scale-4 asymptotics attain global minimum \\(19/54\\) at normalized scale 3/2. A standard-library checker exhaustively corroborates 65,025 ordered small pairs and eight boundary counts; the proof itself handles all lengths and all indices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bai et al. Corollary 19 proves at least \\(1/60\\) nonrepresentable density for antipalindrome quotients.",
+        "Bai et al. Corollary 9 treats ordinary palindromes, a different quotient set, with bound 1/40."
+      ],
+      "reasoning": "The published \\(1/60\\) bound does not imply \\(19/54\\). Its antipalindrome proof restricts a narrow first-three-bit cylinder with residue 1 modulo 4, whereas the new proof excludes full parity-separated power-of-four intervals using equality of initial one-run length and trailing-zero valuation. The ordinary-palindrome result does not dominate the antipalindrome claim.",
+      "searches": [
+        "antipalindromic quotients upper density positive proportion not representable base 2 2023 2024",
+        "\"quotients of antipalindromic numbers\" \"density\" 2026",
+        "arXiv:2202.13694v1 Sections 2.4 and 3.4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.13694v1 Sections 2.4, 3.2–3.4",
+      "INTEGERS 22 (2022) A96 bibliographic record",
+      "OEIS A351172",
+      "OEIS A351173",
+      "MaRDI bibliographic/classification record",
+      "Mathematical research index semantic searches for antipalindrome quotients, parity, valuation and density"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In Section 3.4 the authors forbid \\(40\\cdot4^j<N<48\\cdot4^j\\) with \\(N\\equiv1\\pmod4\\) and infer lower density at least \\(1/60\\).",
+        "The new F explicitly forbids all even \\(2\\cdot4^j\\le N\\le4^{j+1}\\) and odd \\((3/2)\\cdot4^j<N<(8/3)\\cdot4^j\\); elementary disjoint-shell counts give exact lower density \\(19/54\\)."
+      ],
+      "reasoning": "The new conclusion strengthens a proved quantitative lower bound rather than claiming to settle the strictly stronger conjectured density-zero result; the numerical inequality is strict and the newly used forbidden cylinders are not implied by the narrow older cylinder.",
+      "searches": [
+        "arXiv:2202.13694v1 Theorem 18 Corollary 19 Conjecture 5",
+        "Quotients of Palindromic and Antipalindromic Numbers INTEGERS 22 A96 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2202.13694v1 defines the exact integer quotient set Q_apal; its Conjecture 5 concerns density zero.",
+        "OEIS A351172/A351173 list the corresponding representable/complement sequences."
+      ],
+      "reasoning": "The claimed upper bound \\(35/54\\) for representables is equivalent to the lower bound \\(19/54\\) for the complement, and the new parity-separated shell restriction is a sufficient obstruction. Neither wording nor these constants appeared in the accessible compared materials.",
+      "searches": [
+        "\"antipalindromic quotients\" \"lower density\" 2025",
+        "\"antipalindromic\" \"positive density\" \"quotients\"",
+        "Odd integer quotient binary antipalindromes valuation leading prefix four-adic interval exclusion density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A351173 lists early nonrepresentable integers, including 2,4,7,8,9,10,12,16,22.",
+        "OEIS A351172 lists representable integers and cites the Bai et al. paper; it has no exact lower-density classification."
+      ],
+      "reasoning": "The integer tables contain membership data, not an all-length \\(19/54\\) forbidden-set density theorem; the source classification is 11A63. Finite table agreement is used only as corroboration.",
+      "searches": [
+        "https://oeis.org/A351172",
+        "https://oeis.org/A351173",
+        "https://portal.mardi4nfdi.de/wiki/Quotients_of_palindromic_and_antipalindromic_numbers"
+      ]
+    },
+    "rationale": "The accessible full primary paper arXiv:2202.13694v1, Section 3.4 Theorem 18 and Corollary 19, proves a \\(1/60\\) nonrepresentability lower-density bound, not the \\(19/54\\) theorem. Its Conjecture 5 remains stronger. OEIS lists early integer examples but no covering asymptotic. The valuation/shell mechanism improves the published lower bound by more than twentyfold. Extensive relevant external searches and mathematical-research-index searches revealed no covering result; unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "Unindexed or very recent equivalent work may exist outside the inspected literature and database.",
+      "The explicit F is only a subset of the complement; neither the exact complement density nor the original conjectured zero representable density has been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: Corollary 19 gives \\(1/60\\); Conjecture 5 asks for density zero. No \\(19/54\\) bound or parity-separated valuation/shell proof appears in the inspected relevant material.",
+        "evidence": [
+          "Theorem 18 interval \\(40\\cdot4^j<N<48\\cdot4^j\\) and residue 1 mod4.",
+          "Corollary 19 \\(1/60\\) lower density.",
+          "Conjecture 5 predicts representable density zero."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.13694v1",
+        "material_read": "Full relevant HTML text of the introduction and Sections 2.4, 3.2, 3.3, 3.4, including all statements and proofs of Theorem 18/Corollary 19, and related palindrome discussion.",
+        "method": "Read accessible primary full-text HTML and compare definitions, proofs, quantifiers and implications.",
+        "title": "Quotients of Palindromic and Antipalindromic Numbers",
+        "trigger": "Exactly the same objects and a density conjecture; highest-priority potential covering source."
+      },
+      {
+        "assessment": "Consistent initial terms but no asymptotic covering theorem.",
+        "evidence": [
+          "A351173 begins 2,3,4,7,8,9,10,11,12 and cites arXiv:2202.13694."
+        ],
+        "identifier_or_url": "https://oeis.org/A351173",
+        "material_read": "Complete accessible sequence entry, initial terms, cross references and bibliography.",
+        "method": "Read database entry and compare recorded invariants and exclusions.",
+        "title": "A351173: Natural numbers not representable as quotients of binary antipalindromes",
+        "trigger": "Exact database of complement integer membership."
+      },
+      {
+        "assessment": "Non-covering finite membership data; it does not supply a stronger density bound.",
+        "evidence": [
+          "A351172 begins 1,5,6,15,17,18 and cites the same 2022 paper."
+        ],
+        "identifier_or_url": "https://oeis.org/A351172",
+        "material_read": "Accessible sequence entry and initial terms as surfaced by search results, with bibliography and complement link.",
+        "method": "Compared recorded membership values with the proposed forbidden intervals.",
+        "title": "A351172: Natural numbers representable as quotients of binary antipalindromes",
+        "trigger": "Complementary exact database and potential finite classification."
+      },
+      {
+        "assessment": "Confirms first listed MSC 11A63 and no separate listed covering quotient-density article.",
+        "evidence": [
+          "Listed MSC codes 11A63, 11A67 and 11B05."
+        ],
+        "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/Quotients_of_palindromic_and_antipalindromic_numbers",
+        "material_read": "Available full bibliographic and citation record.",
+        "method": "Compared listed classification, references and citing works; related short-interval title was checked bibliographically.",
+        "title": "MaRDI bibliographic record for the 2022 quotient paper",
+        "trigger": "MSC ownership and related literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1622e511-07bb-4ab9-b110-d307666f0753",
+  "value": {
+    "rationale": "Bai et al. explicitly conjecture zero density for representable antipalindrome quotients. Their established lower bound \\(1/60\\) for the complement is strengthened to \\(19/54\\), a factor greater than 21, via a natural structural 2-adic/leading-prefix mechanism and an exact asymptotic obstruction density, rather than a finite table or routine normalization. This is a meaningful quantitative step toward the published problem without claiming to resolve it.",
+    "status": "PASS"
+  }
+}
