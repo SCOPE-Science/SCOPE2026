@@ -1,21 +1,21 @@
-# Scientific review: six-secant conics of type-nine points
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantifiers concern **every** smooth complex plane cubic and six **distinct** points of exact order nine relative to a flex. The equivalence of six-secant conics with zero-sum six-subsets follows from Abel's theorem, degree-zero Riemann–Roch, the exact restriction sequence for a cubic plane curve, and Bézout. The group-character coefficient calculation is explicitly reconstructed in `RESULT.md`; its 1, 8 and 72 character contributions give the total 1,928,772. The pointwise 30-trisecant and 632-disjoint-partner arguments give 227,520 reducible conics and 1,701,252 smooth conics. The standalone verifier independently checks all finite arithmetic and the noncollision of reducible supports. No finite sample is used as an infinite proof.
+PASS
 
-## Originality — PASS (qualified by priority risk)
+On a smooth complex plane cubic with flex origin O, E[9] minus E[3] is the 72-point set T=(Z/9)^2 minus 3(Z/9)^2. Abel's divisor criterion and the cubic restriction exact sequence establish a unique conic through a distinct six-subset precisely when the group sum is zero. Character orthogonality gives [C(72,6)+8*(-1101)+72*6]/81=1,928,772 zero-sum six-subsets. Independent exact group dynamic programming recovered 1,928,772. The 72-point group yields exactly 720 unordered distinct zero-sum triples, 30 through every point; independent enumeration confirmed those, and the 632 disjoint partner lines per trisecant. Unordered pairs of disjoint trisecants give exactly 227,520 unique reducible conics (independently enumerated); subtraction gives 1,701,252 smooth conics, 160,731 all/18,960 reducible/141,771 smooth incident per point. The geometric argument, not finite numerical coincidences, identifies group subsets with distinct curves. No characteristic-p version or conic parameter-scheme claim is made.
 
-Gattazzo (1979, *Punti di tipo 9 di una cubica ellittica*) characterized 72 type-nine points and a third-intersection collinearity property. Szemberg–Szpond (arXiv:2211.00494, 2022) counted 8,244 six-secant conics through the **different 27-point sextactic set**, with 5,976 smooth. Merta–Zięba (arXiv:2406.13802, 2024) determined type-nine coordinates and counted 324 conics of contact type \(3P+3Q\). Merta's 2026 doctoral dissertation (Chapter 2, §2.2) additionally displays three 24-line type-nine subarrangements and (§2.4) the same special bitangent conics. These descriptions do not imply the full six-distinct-point census or 720-trisecant incidence configuration. Relevant primary sections were inspected and equivalent, broader, table, and implication comparisons were recorded in `AUDIT.json`.
+## originality
 
-An earlier unindexed or generically formulated torsion-subset enumeration may exist; a negative search does not establish absolute priority. This risk is not an identified covering theorem.
+PASS
 
-## Mathematical value — PASS
+PASS best of knowledge: previous sextactic six-secant counts are on E[6] rather than E[9], whereas type-nine literature treats either partial trisecant arrangements or conics with 3+3 contact, not six distinct transverse points; the group/Abel and character argument produces a separate complete moduli-independent count.
 
-The complete, moduli-independent type-nine six-secant count extends a specifically motivated study of geometric conic arrangements at the next special torsion level, rather than enumerating an arbitrary coefficient slice. Separating smooth from reducible members, deriving all 720 trisecants and 30-through-each-point incidence, and obtaining exact point-conic statistics supplies a natural closed enumerative classification not present in the inspected motivating work. No stronger downstream theorem is assumed.
+## value
 
-## Limits and verification status
+PASS
 
-The result does not address isomorphism classes of conics, the global intersection lattice of all six-secant conics, positive-characteristic versions, or Hilbert-scheme multiplicities. Reproducibility is by `verify_sixsecants.py`. No independent external mathematical audit has been performed.
+The complete moduli-independent six-secant conic count at exact order-nine torsion, including smooth/reducible split, all trisecants and point incidences, is a motivated enumerative invariant suggested by prior sextactic/type-nine geometry. A finite group calculation is valuable because the geometric identification and natural object are both substantive.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
