@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:08:44.353872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For crown K_{n,n} minus one perfect matching, n>=5 and unit-rate unnormalized Laplacian, the row-kernel spectrum has eigenvalues 0, 2(n-1), n-2, n. There are exactly three vertex-pair orbits. Same-part W1/d equals alpha=exp(-(n-2)t); matched-nonedge W1/d equals alpha+(n-4)c/3; an adjacent pair attains alpha+(n-4)c with c=(alpha-exp(-2(n-1)t))/n>0 by a unit-cost bijective matching of signed row masses. The corresponding Kantorovich potentials give the lower bounds. Thus the full norm is [2(n-2)alpha-(n-4)exp(-2(n-1)t)]/n, adjacent pairs uniquely maximize for t>0, and -d(log C)/dt is strictly increasing 2 to n-2; n=4 is explicitly excluded from strict acceleration. Concavity of log C with value 0 at time zero establishes strict submultiplicativity. Independent matrix-exp/LP computation checked all pair ratios for n=5,6,8 and t=0.03,0.2,0.7, with zero discrepancies beyond numerical tolerance. n>=5 and arbitrary t are covered symbolically, not inferred from finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Münch–Wojciechowski derive exponential gradient bounds from curvature.",
+          "Cushing et al calculate Lin–Lu–Yau curvature for distance-regular graphs of girth four, yielding the initial time rate but not the full time profile."
+        ],
+        "reasoning": "Neither stated theorem computes a parameter-dependent exact optimal-coupling distribution for every t; the two exponential terms and increasing h(t) are stronger.",
+        "searches": [
+          "arxiv:1712.00875 Theorem 3.8",
+          "arxiv:1909.11565 Theorem 6.2 graph products and girth-four distance-regular Ricci curvature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1909.11565",
+        "https://arxiv.org/pdf/1712.00875"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior rate of 2 is recovered exactly as h(0).",
+          "The derived full C(t) is strictly smaller than e^{-2t} at all t>0 for n>=5."
+        ],
+        "reasoning": "Prior curvature implies an upper bound consistent with the claim but not the strict improvement, exact prefactor, or strict norm submultiplicativity.",
+        "searches": [
+          "Cushing et al 2019 Theorem 6.2",
+          "Münch Wojciechowski 2017 Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown graph is a hyperoctahedral distance-regular graph; the metric has three pair-orbits (adjacent, same side, matched nonedge).",
+          "W1 and Lipschitz norms agree, but no identified exact two-exponential expression in the alternate descriptions."
+        ],
+        "reasoning": "The reduction addresses graph naming aliases and the exact same normalization, not only paper titles.",
+        "searches": [
+          "crown graph K_nn minus matching heat kernel Lipschitz Dobrushin Wasserstein contraction exact",
+          "Resultary: crown graph heat semigroup Wasserstein distance contraction curvature time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search hits concerned distinct graphs and heat methods rather than a labelled crown time-dependent W1 table."
+        ],
+        "reasoning": "Even a graph spectrum table would not yield the optimal W1 transport unless dual potentials/transport plans are additionally supplied.",
+        "searches": [
+          "crown K_n,n minus perfect matching graph W1 heat semigroup spectrum exact table",
+          "Resultary crown graph transport contraction"
+        ]
+      },
+      "rationale": "Earlier graph curvature and heat semigroup theory gives an infinitesimal rate and e^{-2t} upper bound; the exact two-exponential optimal-transport norm and strictly time-accelerating contraction for all crown sizes are additional. Resultary search for crown Wasserstein heat flow returned no exact direct match. Priority is best-of-knowledge and allows hidden distance-regular exact formulas.",
+      "residual_risks": [
+        "A distance-regular random-walk or coarse Ricci treatment with explicit heat-kernel couplings may reproduce the expression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers initial curvature bound, not exact all-time crown semigroup norm",
+          "evidence": "Theorem 6.2 gives sharp distance-regular girth-four curvature.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.11565",
+          "material_read": "Theorem 6.2 and its graph-product/curvature context, including PDF page image",
+          "method": "Read the relevant original theorem",
+          "title": "Curvatures, graph products and Ricci flatness",
+          "trigger": "Sharp Ricci curvature of distance-regular girth-four graphs"
+        },
+        {
+          "assessment": "Only generic semigroup estimates; does not settle the exact crown transport LP",
+          "evidence": "Curvature-to-heat estimate gives the rate 2 upper envelope.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.00875",
+          "material_read": "Theorem 3.8 and surrounding setup",
+          "method": "Read relevant primary theorem",
+          "title": "Ollivier Ricci curvature for general graph Laplacians",
+          "trigger": "Heat/Wasserstein bound could imply submitted norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-time curvature acceleration for this natural distance-regular graph family sharpens a generic curvature estimate; strict submultiplicativity of optimal Wasserstein norms despite exact semigroup composition is an independently meaningful quantitative phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1909.11565",
+    "https://arxiv.org/pdf/1712.00875"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A distance-regular random-walk or coarse Ricci treatment with explicit heat-kernel couplings may reproduce the expression.",
+    "Unverified public-bound metadata provenance prevents publication; this is a transport/privacy limitation rather than a scientific rejection.",
+    "Finite independent experiments do not establish universal formulas; universal conclusions rest on the inspected symbolic proof."
+  ],
+  "schema_version": 1
+}

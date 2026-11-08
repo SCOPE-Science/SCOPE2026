@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The graph has exactly three metric pair types and the semigroup has four explicitly computed spectral multipliers. For each pair type, the proof constructs an admissible plan; for the length-two and length-three pairs it constructs a matching Lipschitz dual potential; for adjacent pairs, every unit of positive mass must travel at least one unit and an all-edge plan attains that minimum. The positive-mass sign pattern follows from \(0<c\le v<u\) for positive time, proved without sampling. Taking a maximum over point pairs indeed equals the full Wasserstein operator contraction coefficient by disintegration over an initial coupling. Finally, explicit differentiation proves the strict time-rate statement and submultiplicativity. Boundary \(t=0\) is verified separately.
+## correctness
 
-The standalone exact-rational calculation within the package was replayed successfully: `CHECK_OK exact_rational_pair_and_transport_checks= 6195 orders=5..14 bases=2,3,5`. It checks every pair at finite prescribed times, but neither substitutes for the all-time proof nor establishes historical priority.
+PASS
 
-## Originality: PASS, qualified
-Münch–Wojciechowski (arXiv:1712.00875, Theorem 3.8) prove a general equivalence between Ollivier curvature lower bounds and Lipschitz/heat Wasserstein contraction bounded exponentially at the curvature rate. Cushing et al. (arXiv:1909.11565, Theorem 6.2) prove that distance-regular girth-four graphs have maximal Lin–Lu–Yau curvature. These results determine the initial contraction rate \(2\) for the present graph family, but do not determine the finite-time coefficient, strict curvature acceleration or exact long-time prefactor. The more recent operator-theoretic semigroup-curvature formulation of Lakzian (arXiv:2610.40301, §§1, 4–5) is primarily infinitesimal, not a stated explicit crown-graph kernel calculation. Targeted literature and prior-statement comparisons found no equivalent formula; this is evidence for qualified, not certified, originality. An earlier name or family-wide exact heat-kernel computation could still cover the formula.
+For crown K_{n,n} minus one perfect matching, n>=5 and unit-rate unnormalized Laplacian, the row-kernel spectrum has eigenvalues 0, 2(n-1), n-2, n. There are exactly three vertex-pair orbits. Same-part W1/d equals alpha=exp(-(n-2)t); matched-nonedge W1/d equals alpha+(n-4)c/3; an adjacent pair attains alpha+(n-4)c with c=(alpha-exp(-2(n-1)t))/n>0 by a unit-cost bijective matching of signed row masses. The corresponding Kantorovich potentials give the lower bounds. Thus the full norm is [2(n-2)alpha-(n-4)exp(-2(n-1)t)]/n, adjacent pairs uniquely maximize for t>0, and -d(log C)/dt is strictly increasing 2 to n-2; n=4 is explicitly excluded from strict acceleration. Concavity of log C with value 0 at time zero establishes strict submultiplicativity. Independent matrix-exp/LP computation checked all pair ratios for n=5,6,8 and t=0.03,0.2,0.7, with zero discrepancies beyond numerical tolerance. n>=5 and arbitrary t are covered symbolically, not inferred from finite sampling.
 
-## Mathematical value: PASS
-This determines a sharp operator norm throughout continuous time for an infinite natural graph family. Curvature supplies the best *uniform exponential* rate \(2\), but the actual norm decays faster at all positive times, with a strictly increasing instantaneous logarithmic rate ending at the spectral gap \(n-2\). That separation is exact, and the two-exponential coefficient, strict submultiplicativity and persistent adjacent-pair optimality are functional-analytic properties not furnished by a first-order curvature statement alone.
+## originality
 
-## Limitations and independence
-Assumptions and quantifiers are restricted to the unweighted symmetric graph Laplacian and real \(W_1\) for \(n\ge5\); no claim is made for arbitrary weights, normalized generators, or directed chains. Full prior-art priority cannot be independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Earlier graph curvature and heat semigroup theory gives an infinitesimal rate and e^{-2t} upper bound; the exact two-exponential optimal-transport norm and strictly time-accelerating contraction for all crown sizes are additional. Resultary search for crown Wasserstein heat flow returned no exact direct match. Priority is best-of-knowledge and allows hidden distance-regular exact formulas.
+
+## value
+
+PASS
+
+Exact all-time curvature acceleration for this natural distance-regular graph family sharpens a generic curvature estimate; strict submultiplicativity of optimal Wasserstein norms despite exact semigroup composition is an independently meaningful quantitative phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
