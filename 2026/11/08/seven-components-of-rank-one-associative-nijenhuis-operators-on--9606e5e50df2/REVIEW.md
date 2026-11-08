@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The normal form follows by forcing \(a^2\in ka\) in the original rank-one Nijenhuis equation and solving it in the explicit Kronecker multiplication table. Equation (2) is necessary and sufficient; separate evaluations for radical, idempotent and unit image lines establish the seven families, including characteristic two. Their projective incidence and determinantal geometry proves geometric irreducibility and dimensions. The finite-field count is an exact disjoint image-line count. An independent program exhausts the original identities in four finite-field configurations; this is corroboration rather than a substitute for proof.
+
+**Originality — PASS, with residual historical-priority risk.** The full accessible Guo–Lei (arXiv:1210.1821) paper develops free Nijenhuis algebras and operads rather than this finite-dimensional operator census. The full Bartocci–Tacchella quiver-path-algebra paper (arXiv:1604.02012) treats Poisson-Nijenhuis recursion tensors, not linear associative operators on the algebra. The full Zou–Gao–Kang–Lü classification (arXiv:2308.12121v3) covers 3-dimensional associative algebras over \(\mathbb C\), whereas these Kronecker algebras have dimension at least four. Earlier indexed finite Kronecker commutator counts and accessible work on Nijenhuis operators of Lie algebras do not imply the seven components or finite-field count. A broader unlocated classification could still cover the theorem; historical priority is not independently certified.
+
+**Value — PASS.** The \(m\)-Kronecker algebra is a natural representation-theoretic family, and the result gives a complete, uniform rank-one operator moduli description across all characteristics and dimensions \(m\ge2\). Its seven non-equidimensional irreducible components, particularly the nontrivial radical incidence component, and an exact polynomial finite-field count are structural invariants; this is not a routine change of parameters or an isolated tiny enumeration.
+
+**Limits.** Higher-rank operators, nonreduced schemes, and conjugacy classes are outside scope. The direct computations check finite examples only.
+
+Self-review: passed. Independent audit: not yet performed.
