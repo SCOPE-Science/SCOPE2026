@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses only Python's standard library. Run it as `python verify.py`. It constructs the Cartesian product directly, computes the closed-neighborhood initialization, and repeatedly applies the observed-vertex unique-unobserved-neighbor rule until the state stops changing. It does not use the layer criterion to implement the graph dynamics.
+## correctness
 
-For each \(3\leq n\leq6\), \(3\leq L\leq7\), and each seed subset of size \(0\leq k\leq n-2\), the checker compares direct propagation with the claimed endpoint-or-consecutive-layer criterion. It separately computes the independent-set polynomial coefficients using elementary binomial identities and compares those coefficients to the direct success counts. It also checks a size-\(n-1\) successful witness that violates the support condition for each parameter pair.
+PASS
 
-Observed execution result: `PASS direct forcing, sharp cutoff and all low-degree coefficients: 257426 subsets across 20 dimension pairs`.
+For K_n square P_L with n,L>=3, power domination first observes closed neighborhoods then unique-neighbor forces. If seeds meet an endpoint clique, propagation successively fills layers; if seeds meet consecutive cliques, propagation works outward on both fronts. Conversely if <=n-2 seeds meet no endpoint and no consecutive layers, at least two entire column indices contain no seeds. In each seedless layer, unseeded-column vertices remain permanently unobserved: a currently observed vertex in a seedless clique has at least two white clique neighbors, while an occupied interior clique vertex from an unseeded column has two white matching neighbors; any other force stays within seeded columns. Thus failure. The n-1 second-layer construction fills first clique then propagates, proving sharp budget. Failed low-budget sets correspond bijectively to independent occupied-layer sets on the interior path; substitute u=(1+z)^n-1 into I_{P_{L-2}} and subtract from all subsets, modulo z^(n-1), including the multivariate version. Independent direct unique-neighbor simulation checked ALL qualifying subsets for n=3,4,5 and L=3,4,5; finite coverage only corroborates. Bernoulli p=c/n with fixed L follows from probability bound by Bin(nL,p)>=n-1, whose tail vanishes; a=(1-c/n)^n->e^-c. No higher-degree or growing-L claim is inferred.
 
-The proof for arbitrary parameters is in `RESULT.md`. A successful finite census is not an infinite proof, and no external or independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: known singleton power-domination minimum, general power-domination polynomials and Cartesian product bounds do not imply the all-low-budget iff or coefficient formulas in the inspected statements. The precise graph-family novelty remains subject to uninspected specialist sections.
+
+## value
+
+PASS
+
+For a natural Cartesian clique-path sensor topology, knowing that one endpoint seed suffices does not describe all successful sparse placements. This sharp structural iff, first failing cardinality, exact entire low-degree coefficient window, layer-marked census, and sparse-sensor reliability law are natural combinatorial and applied graph parameters with distinct use beyond the domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

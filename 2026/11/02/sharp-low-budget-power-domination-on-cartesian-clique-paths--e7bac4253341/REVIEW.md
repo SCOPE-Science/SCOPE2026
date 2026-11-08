@@ -1,19 +1,21 @@
-# Review of sharp low-budget power domination on Cartesian clique paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The deterministic theorem follows from a two-way structural argument. Meeting an endpoint clique or two consecutive cliques makes propagation sweep the entire strip. If neither condition occurs with at most \(n-2\) seeds, at least two columns contain no seeds; their initially white vertices remain permanently white in every unoccupied layer, because each observed vertex either has at least two white clique neighbors or at least two white vertical neighbors, unless it can force only inside already represented columns. The \(n-1\)-seed second-layer witness proves sharpness. The independent-set substitution counts every and only the failing low-budget layer occupancy pattern; the Bernoulli result follows by a binomial-tail sandwich. Exhaustive direct propagation checks cover 257,426 subsets for \(3\leq n\leq6\), \(3\leq L\leq7\); the universal proof is not inferred from finite tests.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+For K_n square P_L with n,L>=3, power domination first observes closed neighborhoods then unique-neighbor forces. If seeds meet an endpoint clique, propagation successively fills layers; if seeds meet consecutive cliques, propagation works outward on both fronts. Conversely if <=n-2 seeds meet no endpoint and no consecutive layers, at least two entire column indices contain no seeds. In each seedless layer, unseeded-column vertices remain permanently unobserved: a currently observed vertex in a seedless clique has at least two white clique neighbors, while an occupied interior clique vertex from an unseeded column has two white matching neighbors; any other force stays within seeded columns. Thus failure. The n-1 second-layer construction fills first clique then propagates, proving sharp budget. Failed low-budget sets correspond bijectively to independent occupied-layer sets on the interior path; substitute u=(1+z)^n-1 into I_{P_{L-2}} and subtract from all subsets, modulo z^(n-1), including the multivariate version. Independent direct unique-neighbor simulation checked ALL qualifying subsets for n=3,4,5 and L=3,4,5; finite coverage only corroborates. Bernoulli p=c/n with fixed L follows from probability bound by Bin(nL,p)>=n-1, whose tail vanishes; a=(1-c/n)^n->e^-c. No higher-degree or growing-L claim is inferred.
 
-Koh and Soh's Cartesian-product article gives the existing singleton-minimum observation for this graph family; it does not supply the growing window of exact subset counts. Brimkov et al.'s power-domination polynomial paper supplies the counting framework and standard reductions but no formula for these clique-path products in its inspected family classification. Anderson, Kuenzel, and Schuerger establish Cartesian-product lower bounds and failed-partition methods but no corresponding all-subset enumeration. Fort-neighborhood duality does not automatically evaluate the current obstruction family. Searches considered equivalent notations, stronger generic graph-product coverage, small-graph coefficient tables and implications from the nearest sources. There remains a genuine possibility of differently formulated or unindexed prior work, and some display mathematics in the accessible Koh--Soh article could not be inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a sharp qualitative description of all feasible sparse sensor configurations on an arbitrary-length natural clique strip, together with exact coefficients through \(n-2\), layer-sensitive counting, an explicit first failing budget, and a fixed-length Poisson-sensor reliability limit. These statements distinguish successful and unsuccessful multisensor deployment patterns that the known minimum power domination number does not distinguish.
+Best-of-knowledge PASS: known singleton power-domination minimum, general power-domination polynomials and Cartesian product bounds do not imply the all-low-budget iff or coefficient formulas in the inspected statements. The precise graph-family novelty remains subject to uninspected specialist sections.
 
-## Limitations
+## value
 
-No complete polynomial at degrees \(n-1\) and above is asserted. The asymptotic random-sensor result fixes strip length while the number of columns grows. The low-dimensional checker is corroborating evidence, not an infinite verification or an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural Cartesian clique-path sensor topology, knowing that one endpoint seed suffices does not describe all successful sparse placements. This sharp structural iff, first failing cardinality, exact entire low-degree coefficient window, layer-marked census, and sparse-sensor reliability law are natural combinatorial and applied graph parameters with distinct use beyond the domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
