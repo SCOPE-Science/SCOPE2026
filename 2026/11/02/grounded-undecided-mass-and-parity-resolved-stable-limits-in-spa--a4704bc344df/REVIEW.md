@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The deterministic rooted-tree/cycle decomposition is proved in RESULT.md. The weighted forest determinant yields the exact finite distribution, while finite-component factorial moments, a uniform cyclic-basin tightness bound and absolutely convergent cycle EGFs establish the joint weak limit. Direct exact-fraction exhaustive checks through five arguments independently confirm the finite law and stable-subset count. The infinite statements are established mathematically, not inferred from enumeration.
+## correctness
 
-**Originality — PASS within investigated evidence, with substantial residual priority risk.** The distinctive claimed statement is the *joint* asymptotic law for grounded undecided mass and parity-resolved stable multiplicity under targetwise missing-pointer probability \(p\in(0,1)\). Xu–Luo 2026 studies decision complexity, not stochastic statistics. Finch 2022 and Hansen–Jaworski 2006 concern (principally) complete random mappings; the standard forest and cycle tools are acknowledged. Older single-attracting-centre mapping results may already contain the undecided-size marginal, which is not independently claimed new, and might contain an equivalent parity-marked joint statement. Their full text could not be inspected; the unresolved risk remains material. A previously reported deterministic one-attacker diversity formula covers fixed-graph stable semantics but does not imply the joint random distribution by itself.
+PASS
 
-**Value — PASS.** The motivation is the distribution of disagreement/indeterminacy under grounded semantics versus existence and multiplicity of stable extensions. The new joint limit gives correlated, not just marginal, statistics; the exact all-size identity is a useful sharp calibration for a natural sparse probabilistic argumentation model. The Poisson–Borel law distinguishes its fixed-positive-root regime from the uniform complete-mapping regime. No claim is made for all finitary argumentation frameworks.
+Deterministic Dung grounded labelling marks exactly vertices flowing into pointer cycles UNDEC; an odd pointer cycle eliminates stable labelings, an even one provides two. A designated cyclic-component union S of size k carries k^k internal maps; the complement must be a sink-rooted forest with weighted determinant p(p+ma/n)^(m-1). For fixed 0<p<1, factorial moments of finite unicyclic shapes yield independent Poisson limits, and an O(1/n) uniform cyclic-basin probability bound makes the component-size truncation tight. The labelled cycle EGF with Poisson(a) attached trees gives the stated joint pgf. Exact enumeration for n<=4 independently reproduces the finite law and P(Z=1)=p.
 
-**Closest literature and limits.** Dung 1995; Xu–Luo arXiv:2610.12008; Finch arXiv:2205.05579; Hansen–Jaworski arXiv:math/0603529; Berg–Mutafchiev DOI:10.2307/3214546; Fichte et al. arXiv:2605.13332. The old attracting-centre source was accessible only through its abstract, and priority under alternate mapping nomenclature requires independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dung semantics and one-attacker parity classification are older, as is random mapping Poisson assembly. The claimed combination conditions on a positive missing-pointer rate and resolves jointly the total undecided basin mass and odd/even cycles; neither the complete random mapping regime nor deterministic fixed-graph parity counting directly asserts this distribution. An older attracting-center paper uses Lagrangian laws and may already cover the marginal or a deeper joint law; only abstract was accessible, an important residual risk.
+
+## value
+
+PASS
+
+Connects two genuinely different argumentation observables—grounded indecision and existence/multiplicity of stable extensions—through a complete joint limiting law, with an all-size exact calibration P(U=0)=p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

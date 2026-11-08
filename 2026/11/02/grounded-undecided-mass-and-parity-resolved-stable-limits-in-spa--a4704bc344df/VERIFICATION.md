@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`checker.py` enumerates all \((n+1)^n\) attacker arrays for \(n=1,2,3,4,5\) with independent choice probabilities \(p=2/5\) and \(a/n=3/(5n)\). It computes cyclic-basin membership by tracing pointers, counts stable extensions by enumerating all subsets under Dung's stability rule, and compares every finite size mass with the weighted-forest formula using exact rational arithmetic. It checks the all-size property \(\Pr(U_n=0)=\Pr(Z_n=1)=2/5\) in those five sizes. Run with `python checker.py` (Python 3 standard library only); successful output terminates with `ALL_CHECKS_OK`.
+## correctness
 
-The finite computation covers 8,476 attacker arrays in total, and cannot establish the asymptotic limit, its joint form, or priority. Those rely on the proofs and literature discussion in RESULT.md. The primary remaining priority risk is the unresolved relationship to historical random mappings with an attracting centre; the check provides no independent scientific audit.
+PASS
+
+Deterministic Dung grounded labelling marks exactly vertices flowing into pointer cycles UNDEC; an odd pointer cycle eliminates stable labelings, an even one provides two. A designated cyclic-component union S of size k carries k^k internal maps; the complement must be a sink-rooted forest with weighted determinant p(p+ma/n)^(m-1). For fixed 0<p<1, factorial moments of finite unicyclic shapes yield independent Poisson limits, and an O(1/n) uniform cyclic-basin probability bound makes the component-size truncation tight. The labelled cycle EGF with Poisson(a) attached trees gives the stated joint pgf. Exact enumeration for n<=4 independently reproduces the finite law and P(Z=1)=p.
+
+## originality
+
+PASS
+
+Dung semantics and one-attacker parity classification are older, as is random mapping Poisson assembly. The claimed combination conditions on a positive missing-pointer rate and resolves jointly the total undecided basin mass and odd/even cycles; neither the complete random mapping regime nor deterministic fixed-graph parity counting directly asserts this distribution. An older attracting-center paper uses Lagrangian laws and may already cover the marginal or a deeper joint law; only abstract was accessible, an important residual risk.
+
+## value
+
+PASS
+
+Connects two genuinely different argumentation observables—grounded indecision and existence/multiplicity of stable extensions—through a complete joint limiting law, with an all-size exact calibration P(U=0)=p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
