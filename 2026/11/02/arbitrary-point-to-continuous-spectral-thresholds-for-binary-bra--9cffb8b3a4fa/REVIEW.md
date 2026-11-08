@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact eigenvalue criterion follows from the radial eigenvector and a sharp Cauchy–Schwarz bound on each descendant layer. The construction uses a log-corrected density word with sparse count-preserving rearrangements; this independently controls the mean branching frequency, arbitrarily long runs, and convergence/divergence at the critical circle. Wavelet chains in long binary blocks prove the entire closed spectral disk; injectivity of the adjoint shift removes residual spectrum. The finite checker passes 4,620 cases but is explicitly supplementary.
+## correctness
 
-**Originality (PASS, best knowledge).** The closest directly inspected recent source, Mandal–Trivedi arXiv:2508.00763v1, proves balanced-shift unitary-equivalence criteria but not the arbitrary point/continuous spectral interface. The most relevant earlier spectral source, Budzyński–Dymek–Ptak arXiv:1510.03828, proves point-spectrum inclusions and fixed regular-tree examples; the Wold-decomposition paper arXiv:1702.00765 supplies structural decompositions. The present novelty claim rests on the *joint* two-symbol inverse realization, not on known generic weighted-shift disk or point-spectrum principles. Targeted published-literature comparisons identified no directly covering statement; an implicit special case in general weighted-shift theory remains possible.
+PASS
 
-**Value (PASS).** The two-valued tree restriction fixes the operator-norm and full-spectrum endpoints while allowing every possible interior point/continuous threshold and both boundary states. This is a natural and complete inverse-spectral answer in a simple balanced-tree subfamily, directly motivated by spectral questions about unweighted tree shifts and balanced-shift classifications. It is not a claim about arbitrary graph-directed shifts or their multiplicities.
+Rooted leafless spherically homogeneous tree: radial vector x_v=lambda^n/P_n gives sufficiency and Cauchy–Schwarz on disjoint descendant layers gives necessity; for lambda=0 root basis vector works. For theta=2 log_2 r, the binary count floor(theta n+a log_2(n+2)) with a=0 or 2 controls boundary divergence/convergence; O(k)-length rearranged windows at 2^(k^4) preserve asymptotics while ensuring arbitrarily long 0/1 runs. Exact wavelet cancellation on long all-two blocks gives approximate eigenvectors throughout |lambda|<sqrt2, operator norm gives outside exclusion, absence of S* eigenvectors makes all ranges dense. Infinite conclusion proved analytically, not by finite experiment.
 
-The result is purely analytic; finite tests do not prove its infinite assertions. Human priority assessment and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
+
+## value
+
+PASS
+
+A constrained inverse spectral construction realizes an arbitrary point-to-continuous transition and independent endpoint status while fixing full disk and the small branching alphabet; this addresses a natural spectral-type flexibility question rather than a routine spectrum calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

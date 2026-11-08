@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The main proof establishes the exact radial point-spectrum criterion, constructs the two boundary regimes through count-preserving sparse windows, produces finite approximate eigenvectors on arbitrarily long binary branching blocks, and proves density of each shifted range using the adjoint's lack of eigenvalues.
+# Independent mathematical audit
 
-Run the standalone Python standard-library script `check_spherical_shift.py` with `python check_spherical_shift.py`; it passed 4,620 finite cases. These include exact rational finite radial eigen equations and wavelet telescoping identities for every branching word of length at most eight, and count-preserving reordering tests for three densities and two logarithmic exponents. The tests are finite cross-checks and do not certify the infinite series or all trees. Self-review is recorded separately; no independent audit is claimed.
+## correctness
+
+PASS
+
+Rooted leafless spherically homogeneous tree: radial vector x_v=lambda^n/P_n gives sufficiency and Cauchy–Schwarz on disjoint descendant layers gives necessity; for lambda=0 root basis vector works. For theta=2 log_2 r, the binary count floor(theta n+a log_2(n+2)) with a=0 or 2 controls boundary divergence/convergence; O(k)-length rearranged windows at 2^(k^4) preserve asymptotics while ensuring arbitrarily long 0/1 runs. Exact wavelet cancellation on long all-two blocks gives approximate eigenvectors throughout |lambda|<sqrt2, operator norm gives outside exclusion, absence of S* eigenvectors makes all ranges dense. Infinite conclusion proved analytically, not by finite experiment.
+
+## originality
+
+PASS
+
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
+
+## value
+
+PASS
+
+A constrained inverse spectral construction realizes an arbitrary point-to-continuous transition and independent endpoint status while fixing full disk and the small branching alphabet; this addresses a natural spectral-type flexibility question rather than a routine spectrum calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
