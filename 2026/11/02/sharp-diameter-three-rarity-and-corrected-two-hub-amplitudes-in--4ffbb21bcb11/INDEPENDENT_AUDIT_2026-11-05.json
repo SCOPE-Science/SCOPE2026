@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:04:09.815570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start edge 2 vertices, each attachment samples uniform vertex then uniform neighbor; stars have probability s_n=2/(n-1). For n>=4 diameter<=3 precisely J_n<=2 with all nonleaf vertices adjacent. Mark second internal vertex and b of its leaf neighbors. The exact surviving-double-star recurrence is q_{n+1}(b)=[n-2-b+1/(b+1)]q_n(b)/n+[b-1+1/(n-b)]q_n(b-1)/n+2*1_{b=1}/[n(n-1)]. It has correct star-to-two-hub birth and kills trajectories producing a third internal vertex. Stable n*q_n(b) limit yields c_1=4/3, c_b=4/[b(b+2)] at each fixed b. Fractional moment F_n=sum b^(1/8)q_n(b) has drift bound F_{n+1}<=(1-17/(16n))F_n+2/[n(n-1)], leading F_n<=64/n, so no mass escapes to b→infinity, and summation gives total 3. Star contribution 2 yields nP(diam<=3)→5, with conditional mass 4/[3b(b+2)]. Independent rational history enumeration through n=8 is encoded in checker, and an independent n=1800 recurrence calculation gave nP(J=2)~3.01543 and nP(diam<=3)~5.01654. Infinite asymptotics rely on tightness and stable-recursion proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krapivsky–Redner publish D_2=2 and U_b=4(b+1)/(b+2)!; Addario-Berry et al treat random friend-tree diameter in its typical scaling, not the precise n^-1 diameter<=3 coefficient."
+        ],
+        "reasoning": "Neither the wrong published asymptotic nor the typical diameter estimates imply the corrected sharp rare-event amplitude; exact finite recurrences permit a separate proof.",
+        "searches": [
+          "arXiv:1706.01514 Sections 4,5",
+          "arXiv:2403.20185 random friend trees diameter",
+          "Resultary: isotropic redirection random friend tree two hubs diameter at most 3 probability asymptotic 5/n 3/n Krapivsky Redner"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob d19df423039831b80814d563dbb48f75290d61e3",
+        "checker.py Git blob f7a510fc758f6215022115e2aa96bc53bd27ca6e",
+        "Krapivsky and Redner 2017 full original PDF",
+        "Addario-Berry et al 2024 full arXiv paper",
+        "Resultary search: Resultary: isotropic redirection random friend tree two hubs diameter at most 3 probability asymptotic 5/n 3/n Krapivsky Redner"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (11) of the full primary text retains the predecessor multiplier (b−1), while continuum Eq. (22) omits it and Eq. (24) reports the incompatible factorial sequence. The repaired asymptotic recursion gives c_b=(b−1)c_{b−1}/(b+1−1/(b+1)) and total 3."
+        ],
+        "reasoning": "The discrepancy is mathematically decisive and not a change of variable: both refer to the same two-hub model. Earlier formula is false as a limit of its own recurrence; original exact finite recurrence and model are not claimed new.",
+        "searches": [
+          "https://arxiv.org/abs/1706.01514",
+          "https://sites.santafe.edu/~redner/pubs/pdf/enm.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same model is also called complete redirection / isotropic random-walk attachment / random friend trees; equivalence of growth rule was checked. Published exact two-hub recurrence (11) agrees with the corrected finite formula, while its continuum coefficients differ."
+        ],
+        "reasoning": "The model and initial exact recursion are covered but the stated asymptotic law is not equivalent to the published one; it contradicts its Eq.24 numbers for b>=3.",
+        "searches": [
+          "Resultary: isotropic redirection random friend tree two hubs diameter at most 3 probability asymptotic 5/n 3/n Krapivsky Redner",
+          "Krapivsky and Redner 2017 two hub H_mn U_m D2",
+          "Addario-Berry et al 2024 random friend trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only directly matching table/formula inspected gives U_3=2/15 and D2=2; the newly proved values U_3=4/15 and D2=3."
+        ],
+        "reasoning": "Matching object/parameters found but published values differ; the new constants cannot be accepted as a duplicate of that table. Could be separately corrected elsewhere.",
+        "searches": [
+          "Resultary: isotropic redirection random friend tree two hubs diameter at most 3 probability asymptotic 5/n 3/n Krapivsky Redner",
+          "Krapivsky Redner equations 11, 22, 24 and numerical table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: correction of omitted predecessor factor and summably tight fixed-hub asymptotics. Residual priority and access risks retained.",
+      "residual_risks": [
+        "A later erratum or other independent correction of Krapivsky–Redner coefficients may exist and would affect priority.",
+        "Finite enumeration, including n=1800, cannot replace the uniform tail bound for asymptotic summation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published exact recurrence shares the new proof input; published continuum simplification drops predecessor multiplier and yields different wrong amplitudes",
+          "evidence": [
+            "Eq. 11 has (m-1)H_{m-1,n} but Eq. 22 omits m-1; Eq.24 gives D2=2, in contrast with nP(J=2)→3."
+          ],
+          "identifier_or_url": "https://sites.santafe.edu/~redner/pubs/pdf/enm.pdf",
+          "material_read": "Full article PDF, Sections 2 and 4.3, especially equations (11), (22)-(24) and Section 5.2",
+          "method": "Open author PDF extracted text and visual pages 8, 11",
+          "title": "Emergent Network Modularity",
+          "trigger": "Exactly same redirection model and conflicting asymptotic constants"
+        },
+        {
+          "assessment": "Treats diameter/structure broadly; no inspected corrected two-hub fixed-b asymptotic",
+          "evidence": [
+            "It motivates isotropic friend attachment but concerns typical macroscopic diameter rather than exact rare double-star constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.20185",
+          "material_read": "Primary 2024 arXiv full paper, introductory model and diameter results, visual first page",
+          "method": "Arxiv PDF text and screenshot",
+          "title": "Random friend trees",
+          "trigger": "Same growth model and diameter question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Corrects published rare-event two-hub asymptotic constants in a natural preferential redirection/random friend-tree model and determines the full fixed-secondary-hub limiting distribution. The identified omitted b−1 term changes not merely a normalization but individual coefficients from b=3 onward, and the no-mass-escape argument is essential.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md Git blob d19df423039831b80814d563dbb48f75290d61e3",
+    "checker.py Git blob f7a510fc758f6215022115e2aa96bc53bd27ca6e",
+    "Krapivsky and Redner 2017 full original PDF",
+    "Addario-Berry et al 2024 full arXiv paper",
+    "Resultary search: Resultary: isotropic redirection random friend tree two hubs diameter at most 3 probability asymptotic 5/n 3/n Krapivsky Redner"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later erratum or other independent correction of Krapivsky–Redner coefficients may exist and would affect priority.",
+    "Finite enumeration, including n=1800, cannot replace the uniform tail bound for asymptotic summation.",
+    "No GitHub modifications or dispatcher closeout were made; publication has not occurred."
+  ],
+  "schema_version": 1
+}
