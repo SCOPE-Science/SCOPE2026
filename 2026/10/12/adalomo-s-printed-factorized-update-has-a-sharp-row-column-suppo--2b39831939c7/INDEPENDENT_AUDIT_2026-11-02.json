@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:51:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob f7f0e77c78876bb9fc33de03e605e26ca11cc014",
+        "Frozen verify.py blob fa973d2da791520aeb97f7d8e65b9cb8b3cf5046",
+        "ACL 2024 paper Algorithm 1 at https://aclanthology.org/2024.findings-acl.742.pdf"
+      ],
+      "rationale": "The frozen RESULT.md has a precisely limited first-step theorem for finite real m×n matrices, m,n≥1, zero row/column accumulators, and 0≤β<1. The printed ACL 2024 Algorithm 1 has r_i=(1−β)Σ_j G_ij², c_j=(1−β)Σ_i G_ij² and v=rc/(1ᵀr); for G≠0, V_ij=(1−β)R_i C_j/||G||_F². Thus all quotient denominators are positive iff every row and column contains a nonzero gradient. If a whole row or column is zero, the corresponding 0 numerator and 0 denominator form 0/0. For G=0 the normalization has zero total mass. Grouped RMS normalization is applied after raw U, so it cannot repair an undefined U. The strongly convex F(W)=1/2||W−B||² with first gradient [[0,0],[1,−1]] has a nonstationary undefined printed update. Independently reconstructed the exact rational support theorem and exhaustively checked 1×1, 1×3, 2×2, 2×3 and 3×3 matrices with entries {-1,0,1} (20,523 matrices, three β values each), beyond the source 2×3 enumeration. The Git tree SHA was independently reassembled from all seven Git blob entries and matched the assigned tree.",
+      "residual_risks": [
+        "Printed recurrence is different from the maintained code and must not be represented as practical implementation failure.",
+        "The original arXiv v1 entire algorithm page was not independently accessible; the current ACL v3-equivalent normalized printed formula was verified directly.",
+        "No second-step state-dependent extension or floating-point overflow statement is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adafactor Lemma 1 derives a factorized outer-product of row and column sums, but Algorithm 2 divides by sqrt(Vhat)+epsilon and therefore avoids this support obstruction.",
+          "The maintained AdaLomo implementation adds eps[0]=1e-30 to squared gradients before factorizing and multiplies by inverse-square-root factors; it is not the literal printed quotient."
+        ],
+        "reasoning": "Broader factorization mathematics is known, and its outer-product support identity is an immediate prerequisite. The full claim is about the domain of a particular unsafeguarded printed AdaLomo quotient, not an Adafactor convergence or stability theorem. Prior safeguarded methods do not imply that the implemented methods have the same singularity. The evident elementary nature is reflected in value and priority risks.",
+        "searches": [
+          "Shazeer and Stern, Adafactor, arXiv:1804.04235v1, Lemma 1 and Algorithm 2, p.3",
+          "Resultary_Search: factorized adaptive optimizer zero row zero column denominator safeguard algorithm (39 hits)",
+          "Web: AdaLomo low-memory optimization adaptive learning rate 2310.10195v3 Algorithm 1 update gradient v sqrt sparse zero"
+        ]
+      },
+      "checked_sources": [
+        "ACL Findings 2024 doi:10.18653/v1/2024.findings-acl.742",
+        "Adafactor arXiv:1804.04235v1",
+        "OpenLMLab/LOMO lomo_optim/adalomo.py blob 3226e5c99256918692df75016854442ad17c2d85",
+        "Resultary searches: three actual phrases listed in structured checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ACL Algorithm 1 line 10 prints u=g/v without eps in the denominator, while line 11 applies RMS regularization only after u exists; equation (2) explicitly uses epsilon for Adam, showing the distinction.",
+          "From the printed first-step states r_i=(1-beta)R_i and c_j=(1-beta)C_j, normalization gives V_ij=(1-beta)R_i C_j / sum(R), so zero-row/column entries are 0/0.",
+          "The OpenLMLab source uses update=grad_fp32**2+eps[0] and _approx_sq_grad(...).rsqrt(), so its full update does not inherit the printed formula."
+        ],
+        "reasoning": "The printed formula and Adafactor factorization make the new support test a particularly elementary direct algebraic corollary, but the previously published optimizer formula does not explicitly present or examine this domain theorem, and its maintained implementation supplies a different safeguarded operation. No mathematically stronger published theorem with the same precise unregularized quotient and asserted domain was found. Priority remains best-of-knowledge and the result has modest depth.",
+        "searches": [
+          "Lv et al., AdaLomo, ACL Findings 2024 DOI:10.18653/v1/2024.findings-acl.742, Algorithm 1 and §3.2",
+          "Shazeer and Stern, Adafactor, arXiv:1804.04235v1, Lemma 1 / Algorithm 2",
+          "OpenLMLab/LOMO, lomo_optim/adalomo.py main, blob 3226e5c99256918692df75016854442ad17c2d85",
+          "Resultary: 2026/10/4/SCOPE-cover-transversal-obstruction-to-per-coordinate-adaptivity-in-sm--1c7f082f2ba0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ACL 2024 AdaLomo Algorithm 1 lines 7-11 gives r,c and v=rc/(1^T r), u=g/v, grouped normalization afterwards; section 3.2 does not state a row/column support iff.",
+          "The closest indexed SCOPE findings include SOAP stale-basis collapse, SM3 cover-transversal suppression, and PDNQP row-coherence; none has the AdaLomo printed-quotient object."
+        ],
+        "reasoning": "The relevant equivalent wording is first-step domain of the elementwise quotient or bipartite support of row/column squared-gradient accumulators. The published algorithm specifies the recurrence, but the inspected method and grouped-normalization sections do not separately classify its definedness; the classification must be deduced with zero-state initialization. This is a short derivation, reducing originality depth but not an observed earlier stated exact classification.",
+        "searches": [
+          "Resultary_Search: AdaLomo printed Algorithm 1 zero row zero column factorized state support 0/0 undefined matrix gradient (38 hits; none exact)",
+          "Resultary_Search: first step zero gradient sparse matrix row column AdaLomo factorized second moment 0/0 denominator (38 hits; none exact)",
+          "Web: \"AdaLomo\" \"division by zero\" \"row\" factorized",
+          "ACL Findings 2024, 2024.findings-acl.742, Algorithm 1, p.12489"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby optimizer analyses such as SM3 cover-transversal and SOAP stale-basis claims, not an exact AdaLomo first-step row/column support classification.",
+          "The searchable AdaLomo paper and public code documents inspected do not supply a separate exact support-domain table or result."
+        ],
+        "reasoning": "This is an all-matrix algebraic condition, not a finite graph/census object; a database or table could only cover it by recording the optimizer-specific iff. The sampled publication and Resultary searches did not identify one. Absence from indexes is not a proof of priority.",
+        "searches": [
+          "Resultary_Search: Adalomo Adam low rank moment optimizer factorized update row column support matrices sharp necessary sufficient support condition (24 hits)",
+          "Resultary_Search: AdaLomo printed Algorithm 1 zero row zero column factorized state support 0/0 undefined matrix gradient (38 hits)",
+          "Web: \"AdaLomo\" \"zero column\" gradient",
+          "Web: \"AdaLomo\" \"0/0\" factorized second moment"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact *printed AdaLomo first-step* support iff, not the factorization formula itself. Direct inspection of the accessible definitive ACL conference paper confirms its printed unregularized quotient but no separate zero-row/column domain classification in the relevant original method and normalization sections. Adafactor supplies the predecessor factorization with an epsilon-protected quotient, and the first-party AdaLomo code protects sparse rows via an epsilon floor. Three targeted Resultary searches and focused public searches did not expose an implication-equivalent prior classification. The theorem is a short immediate consequence of the published recurrence, and this makes novelty modest and potentially contestable; absence of indexed matches is not proof of priority.",
+      "residual_risks": [
+        "The exact iff is an elementary corollary of the published recurrence and may have been observed informally or in an unindexed bug discussion.",
+        "Full v1 arXiv PDF could not be read; the accessible current ACL version determines the core printed result.",
+        "No inference about current implementation or later-state well-definedness is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRINTED_DIVISION_CONFIRMED; no separate stated zero-row/column iff seen in relevant material.",
+          "evidence": "Algorithm 1 line 9: v=rc/(1^T r); line 10: u=g/v; line 11: normalized afterwards. §2.2 says adaptation is motivated by sparse data.",
+          "identifier_or_url": "https://aclanthology.org/2024.findings-acl.742.pdf",
+          "material_read": "Accessible full 17-page conference PDF, especially §§2.2,3.1,3.2 and Algorithm 1 at paper pp.12488–12490; actual printed page 12489 visually inspected.",
+          "method": "Web PDF text and direct page-3 screenshot (zero-indexed), comparing lines 7–11 and the sparse-data discussion.",
+          "title": "AdaLomo: Low-memory Optimization with Adaptive Learning Rate (ACL Findings 2024)",
+          "trigger": "Defining printed algorithm and its grouped update normalization; exact same matrix and parameters."
+        },
+        {
+          "assessment": "ROW_COLUMN_FACTORIZATION_PRIOR; denominator sqrt(Vhat)+epsilon prevents the specific 0/0 quotient in Adafactor.",
+          "evidence": "Lemma 1 characterizes outer-product factorization by row and column sums; Algorithm 2 line 8 updates by G/(sqrt(Vhat)+epsilon).",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04235",
+          "material_read": "Entire nine-page open PDF available; Lemma 1 and Algorithm 2 on page 3 were closely inspected, including a page-image screenshot.",
+          "method": "Web PDF text and screenshot of zero-indexed page 2.",
+          "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+          "trigger": "Closest structural predecessor and possible stronger factorization coverage."
+        },
+        {
+          "assessment": "SAFEGUARDED_CODE_DIFFERS_FROM_PRINTED_FORMULA.",
+          "evidence": "Update squared-gradient floor +eps[0] (default 1e-30); factors built by rsqrt then multiplied by gradient before update normalization.",
+          "identifier_or_url": "https://github.com/OpenLMLab/LOMO/blob/main/lomo_optim/adalomo.py",
+          "material_read": "Full 14,268-character source at Git blob 3226e5c99256918692df75016854442ad17c2d85; init, _approx_sq_grad, fuse_update and ZeRO update branches.",
+          "method": "GitHub connector read at main (blob SHA recorded).",
+          "title": "OpenLMLab first-party AdaLomo implementation",
+          "trigger": "Test whether printed-rule pathology is actually present in software."
+        },
+        {
+          "assessment": "ORIGINAL_VERSION_FULL_ALGORITHM_NOT_INDEPENDENTLY_RECHECKED.",
+          "evidence": "Main audited current normalized formula is printed in the accessible ACL 2024 paper; the package says v1 omitted total-mass normalization, whose omission would preserve support if so.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.10195v1",
+          "material_read": "Bibliographic abstract/metadata only; versioned full PDF attempts were inaccessible through the available web interface. No whole-document no-coverage claim is made for v1.",
+          "method": "arXiv abstract and failed public versioned PDF access; no Oxford attempt because the same paper’s ACL OA final text is available.",
+          "title": "AdaLomo: Low-memory Optimization with Adaptive Learning Rate (arXiv original v1)",
+          "trigger": "Original-version normalization might differ from the later published conference version."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "ACL 2024 §2.2 explicit sparse-data motivation and Algorithm 1",
+        "Frozen RESULT.md and independent exact rational enumeration",
+        "OpenLMLab official implementation safeguarding support"
+      ],
+      "rationale": "Although the proof is elementary, it is a complete necessary-and-sufficient well-posedness boundary for a specific factorized optimizer’s first mathematical step, motivated before the calculation by the defining paper’s explicit sparse-gradient use case. The 2×2 strongly convex nonstationary witness shows failure is not confined to a zero-gradient optimum; any complete inactive row/column causes an entire raw update strip to be undefined. This precise condition is needed to state valid assumptions in analyses or faithful reproductions of the printed algorithm, and the documented contrast to Adafactor and safeguarded maintained AdaLomo identifies the exact mathematical fix. It is an interpretive algorithm-specification result, not a new convergence guarantee or practical software vulnerability, and has limited depth; it nonetheless clears the motivated structural-boundary bar rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "The practical software already implements the remedy, so downstream applied significance is confined to literal printed algorithms and proofs based on them.",
+        "No near-zero conditioning or adaptive trajectory theorem follows; the observation is mathematically short and its independent value is limited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://aclanthology.org/2024.findings-acl.742.pdf",
+    "https://arxiv.org/pdf/1804.04235",
+    "https://github.com/OpenLMLab/LOMO/blob/main/lomo_optim/adalomo.py",
+    "Resultary searches listed in axes.originality"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only first-step zero-state matrix branch and literal paper formula; no later-step classification.",
+    "Practical first-party code has positive squared-gradient floor, so no practical software-failure claim.",
+    "The arXiv v1 full PDF was inaccessible; original-v1 support-equivalence statement taken conditionally on its unnormalized outer product as reported in the frozen package.",
+    "Elementary support deduction; no quantitative near-zero or convergence result; indexed-search absence not originality proof."
+  ]
+}
