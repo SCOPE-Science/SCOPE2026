@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof covers exactly four complete binary heights and reconstructs the full first-query obstruction at the fifteen-vertex level. The count \(677\) follows from independent child-ideal choices; eight leaves provide a lower bound; all internal-query negative branches have respectively \(1,27,157\) concepts at depths zero, one and two; the leaf-positive branch factors into independent ideal classes with dimensions \(1,2,4\). Both exact verification algorithms reproduce the resulting values. Their finite computations corroborate, but are not prerequisites for, the proof.
+
+**Originality — PASS with priority risk.** The inspected 2023 query-learning/compression preprint develops general Littlestone results without evaluating this finite ancestor-ideal class. A 2023 hierarchical-tree learning preprint has a different instance/concept domain (labeled tuples on an unknown hierarchy). The candidate's precise first strict gap is not implied by either comparison. Searches under downward ideals, rooted subtrees, tree concept classes, and Horn implication models revealed no equivalent statement, but older unindexed folklore remains a real possibility. A search miss is not certification of novelty.
+
+**Value — PASS.** This is the first natural level at which the elementary counting bound for the perfect-binary ancestor-ideal hierarchy ceases to determine optimal deterministic online mistake complexity. The result distinguishes eight actual mistakes from the nine allowed by the 677-hypothesis count and provides a compact exact reference example for learning with hierarchy-constrained Horn predicates. It is a meaningful finite transition, not a claim about higher trees.
+
+**Closest comparisons and limitations.** Chase–Freitag–Reyzin (2023, arXiv:2310.04812v1) concerns consequences of Littlestone dimension for query learning and compression; Avdiukhin et al. (2023, arXiv:2302.04492v1) concerns online learning of tree-induced tuple labels. Neither inspected statement resolves this exact fixed-tree ideal membership rank. Only heights zero through three were established. Historical priority and independent mathematical validation remain unverified.
+
+Self-review: passed. Independent audit: not yet performed.

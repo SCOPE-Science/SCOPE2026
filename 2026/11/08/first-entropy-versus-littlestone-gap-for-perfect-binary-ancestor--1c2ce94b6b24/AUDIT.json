@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The ideal-count recurrence N_h=1+N_(h-1)^2 gives 2,5,26,677. Eight leaves are VC-shattered, forcing Ldim>=8. For every first query in height three, the negative branch at depth 0/1/2 has 1/27/157 concepts, with log bounds 0/4/7, and every leaf-positive branch is the disjoint-domain product of height-0, -1 and -2 ideal classes, of dimensions 1+2+4=7. Standard product additivity follows from the Littlestone recurrence. The upper bound is 8 and all h<=2 have matching cardinality upper bounds. Independently implemented exact poset-deletion and membership-version-space algorithms agree on all four classes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "For 677 hypotheses, generic entropy gives only Ldim<=9, and eight leaves yield the generic VC lower bound Ldim>=8.",
+        "Avdiukhin et al. predict labels on tuples induced by a hidden tree, not vertex membership in ancestor ideals of a known tree."
+      ],
+      "reasoning": "Neither general result resolves the unique integer ambiguity 8 versus 9, and the tree-learning parameter bounds do not transfer without changing the instance and hypothesis domains.",
+      "searches": [
+        "arxiv:2310.04812v1 sections on Littlestone query learning/compression",
+        "arxiv:2302.04492v1 hierarchical tree learning"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.04492v1",
+      "arxiv:2310.04812v1",
+      "2026/10/4/SCOPE-rooted-forests-collapse-m-bius-convex-order-to-hockey-stick-test--4da8e7971b39",
+      "2026/9/18/SCOPE-weak-order-interval-endomorphism-dimensions--7fe56a124cd9",
+      "2026/10/4/SCOPE-finite-ifs-frames-are-downset-families-over-minimal-worlds--e25abb14e6ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General Littlestone learning results assume d is known, so do not imply its exact value for this concrete class.",
+        "Learning tree-defined labels on tuples does not imply the branching rank of ancestor-ideal membership predicates.",
+        "The earlier published-finding corpus rooted-forest item bounds total variation under Möbius-convex domination, not a mistake-tree game."
+      ],
+      "reasoning": "The candidate asserts a sharpened exact finite invariant absent from the overlapping claims inspected; it does not claim a stronger query-learning theorem.",
+      "searches": [
+        "arxiv:2310.04812v1",
+        "arxiv:2302.04492v1",
+        "published-finding corpus: family of all rooted subtrees of complete binary tree Littlestone dimension versus number of leaves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The concept family is exactly the set of downward-closed subsets of the ancestor poset, or equivalently root-containing subtrees together with the empty set.",
+        "An alternative propositional presentation is the 14 Horn implications child-included => parent-included on 15 membership variables."
+      ],
+      "reasoning": "The searches target those aliases rather than merely the term tree learning. No accessible matching full claim was identified; the equivalences are directly verified from definitions.",
+      "searches": [
+        "published-finding corpus: Littlestone dimension of order ideals downsets finite posets ancestor closed subsets rooted trees",
+        "published-finding corpus: exact Ldim root tree ideals complete binary tree height h number of leaves",
+        "web: \"Littlestone dimension\" \"downsets\" posets ideals",
+        "web: \"Littlestone\" \"order ideals\" tree online learning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest returned published-finding corpus poset items concern Möbius convex order or interval endomorphism dimensions, not the exact Littlestone dimension of the ancestor-ideal concept class.",
+        "Actual class sizes 2,5,26,677 and ranks 1,2,4,8 were independently computed, not copied from a published table."
+      ],
+      "reasoning": "No matching enumerative table or theorem was located in the accessible searches. This is not a proof of uniqueness or absence from unindexed literature.",
+      "searches": [
+        "published-finding corpus: 677 ideals complete binary tree fifteen vertices Littlestone dimension eight nine",
+        "published-finding corpus: perfect complete binary tree of height three has 677 ancestor closed order ideals and Littlestone dimension eight",
+        "published-finding corpus: ideal membership online learning 15-element rooted binary tree 677 downsets 8 mistakes entropy 9",
+        "web: \"Littlestone dimension\" \"rooted\" \"ideals\"",
+        "web: \"Littlestone dimension\" \"downward closed\" poset"
+      ]
+    },
+    "rationale": "The exact 15-vertex first-gap assertion is not implied by the inspected general query-learning and hierarchical tuple-learning theorems; the entropy bound leaves one unresolved bit and the current branch/product argument supplies it. Targeted actual search comparisons found no claim with the same concept domain and parameter values; priority risk remains under other Horn/poset terminology.",
+    "residual_risks": [
+      "An equivalent calculation may be implicit in historical order-ideal, rooted-subtree or Horn learning folklore and may not be indexed under these keywords.",
+      "Only the finite heights 0 through 3 are established; extending to arbitrary height requires new work.",
+      "Independent scientific and historical-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework and applications, not a covering evaluation of the height-three ideal class.",
+        "evidence": [
+          "arxiv:2310.04812v1, 2023-10-07",
+          "General query-learning and compression statements use rather than calculate exact hierarchy-ideal dimensions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+        "material_read": "First-public abstract and accessible full-text sections on the definition of Littlestone dimension, query learning and compression; no rooted perfect-binary ideal evaluation was found in the sections inspected.",
+        "method": "arXiv preprint abstract and accessible HTML/full-text sections; checked statement-level implication",
+        "title": "Applications of Littlestone dimension to query learning and to compression",
+        "trigger": "General bounds might already determine the specific online rank of finite ideals."
+      },
+      {
+        "assessment": "Distinct instances and hypotheses; no direct implication for the proposed finite value.",
+        "evidence": [
+          "arxiv:2302.04492v1, 2023-02-09",
+          "Tree representations of data are learned from labeled tuples, unlike membership queries at vertices of a fixed tree."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.04492",
+        "material_read": "Abstract, introduction and problem-definition material identifying labeled tuples induced by an unknown hierarchy, not membership labels of fixed-tree ideals.",
+        "method": "arXiv preprint introduction and PDF pages examined against the exact concept domain",
+        "title": "Tree Learning: Optimal Algorithms and Sample Complexity",
+        "trigger": "Tree-learning Littlestone bounds could apply through a tree-class duality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c2ce94b-6b24-4b52-83cf-38c7b0afe186",
+  "value": {
+    "rationale": "The exact dimension determines the optimal realizable worst-case mistake budget of a natural 15-variable hierarchical Horn concept class; 677 hypotheses permit nine mistakes by counting but the structure reduces this to eight. It is the minimal height in the canonical perfect-binary sequence at which entropy ceases to predict the correct online dimension, furnishing a mathematically motivated finite benchmark and clear structural obstruction, rather than an arbitrary selected instance or an exercise in recomputing a known table. The restricted value is not advertised as an all-height theorem.",
+    "status": "PASS"
+  }
+}
