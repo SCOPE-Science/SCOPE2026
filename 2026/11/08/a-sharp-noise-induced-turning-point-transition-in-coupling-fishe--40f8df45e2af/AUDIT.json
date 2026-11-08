@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Stable Gaussian covariance is solved uniquely from the Lyapunov equation. Gaussian trace FI, cubic derivative sign, negative curvature, strictly monotone normalized maximum, unique double root, exact zero count and asymptotics are reconstructed in RESULT.md. The extracted standalone verifier must pass exact algebra and bounded numerical tests; experiments alone do not prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.20963v1 Sections III–V provide covariance, full Fisher matrix, positive determinant, and illustrative monotonic/nonmonotonic behavior.",
+        "arXiv:2504.09981v3 Sections 3–5 analyze coordinate-rotation information flow and heat-dissipation trade-offs."
+      ],
+      "reasoning": "The 2026 source covers all pointwise Fisher values and qualitatively anticipates the phenomenon; the new claim is limited to a nontrivial global root-count and onset theorem. The 2025 source covers spatial learning rate rather than statistical parameter information, so it cannot dominate the claimed comparison.",
+      "searches": [
+        "\"Fisher information\" \"gyrator\" \"saddle-node\" \"noise\" coupling",
+        "\"Information geometry\" \"Brownian gyrator\" coupling precision",
+        "Gaussian two temperature Brownian gyrator stationary parameter Fisher information saddle-node noise-dependent extrema"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.20963",
+      "https://arxiv.org/html/2610.20963",
+      "https://arxiv.org/html/2504.09981v3",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11049317/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Eq. (26) logically determines the function \\(\\mathcal I_{bb}\\), and the source already reports nonmonotonicity for sufficiently large added noise.",
+        "The presented proof obtains a concave derivative cubic, a strictly ordered normalized maximum, a unique double root, and two global bifurcation branches; these claims are not asserted in the inspected source."
+      ],
+      "reasoning": "The formula is a strong input and must be credited. Unlike a direct special-case substitution or a corollary whose parameter regime is supplied, the global root-count theorem and singular asymptotics require deriving and analyzing the cubic sign geometry. The claim is deliberately narrowed to that analytic addition and does not suggest the broader Fisher theory is new.",
+      "searches": [
+        "Fisher information coupling b noise D saddle node two local extrema exact threshold Brownian gyrator stationarity",
+        "stationary two dimensional Ornstein Uhlenbeck Fisher information nonmonotonic b noise D polynomial roots critical",
+        "\"Fisher information analysis\" \"thermal and athermal noise\" threshold extrema"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.20963v1 Eq. (26) has exactly the source stationary Fisher expression; Section IV.2 describes nonmonotonicity qualitatively, without critical double-root characterization.",
+        "arXiv:2504.09981v3 Sections 2 and 5.1 define a learning-rate matrix from probability currents rather than parameter-score Fisher information."
+      ],
+      "reasoning": "The closest alias is stationary coupling Fisher-information sensitivity. Its value formula is known, but a global transition classification of its coupling extrema does not appear in the examined source. The learning-rate matrix is a different information object.",
+      "searches": [
+        "\"Fisher information\" \"athermal noise\" \"nonmonotonic\" coupling threshold 2026",
+        "arXiv:2610.20963 Fisher information analysis of a Langevin System with Thermal and Athermal Noise",
+        "2026 Nascimento Morgado Fisher information Langevin thermal athermal Gaussian gyrator sharp noise threshold nonmonotonic coupling extrema stationary Ibb"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the critical decimal and the two-extrema classification found the 2026 source, but no separately published exact critical-parameter table.",
+        "The critical pair in this manuscript is algebraically defined by two polynomial equations and numerically evaluated only as a verification aid."
+      ],
+      "reasoning": "The stated new value is not a recomputed source-table constant: the threshold is a proved unique global boundary, with additional turning-point and asymptotic structure. Absence from search does not establish independent novelty.",
+      "searches": [
+        "\"33.219537\" fisher information Langevin",
+        "unique critical athermal noise 33.219537 Nascimento Morgado local maxima minima Fisher coupling b"
+      ]
+    },
+    "rationale": "The 2026 primary source derives the full Fisher matrix and mentions possible nonmonotonicity. The novel scope is the unique exact onset, complete global root count and critical/large-noise asymptotics, none of which is stated there. The pointwise Fisher formula itself is acknowledged prior. Searches of nearby parameter-Fisher and information-thermodynamic literature and recoverable prior claims did not show a statement covering the full bifurcation.",
+    "residual_risks": [
+      "The base formula and the qualitative phenomenon are published, so the gain is a sharp analytical classification rather than a new model or Fisher formula.",
+      "Unexamined prior parameter-estimation literature may have derived an equivalent critical boundary.",
+      "A 2024 paper on Langevin information-control geometry could not be inspected beyond its public abstract and is not treated as whole-text noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source is closest and already provides the base formula and qualitative nonmonotonicity but no full unique transition theorem in the inspected text.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.20963",
+          "https://arxiv.org/html/2610.20963"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.20963",
+        "material_read": "Public HTML full article, specifically Sections II, III, IV.1, IV.2, V and VI; covariance Eqs. (16)-(18) and Fisher Eqs. (26)-(30)",
+        "method": "Read section formulas and prose for global extrema, critical noise and asymptotics; independently reconstructed covariance and Fisher expressions",
+        "title": "Fisher information analysis of a Langevin System with Thermal and Athermal Noise",
+        "trigger": "Exact same model and same parameters for stationary Fisher information"
+      },
+      {
+        "assessment": "The learning-rate matrix is inequivalent to the stationary parameter Fisher information; no claim-level coverage.",
+        "evidence": [
+          "https://arxiv.org/html/2504.09981v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.09981v3",
+        "material_read": "Public full-text sections 2, 3 and 5.1, definitions of the learning-rate matrix and Brownian-gyrator example",
+        "method": "Compared definitions and observables: spatial probability-current information flow versus score information about model parameters",
+        "title": "Learning rate matrix and information-thermodynamic trade-off relation",
+        "trigger": "Brownian-gyrator information matrix could be confused with the parameter Fisher metric"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "40f8df45-e2af-468e-85c8-26f5513420de",
+  "value": {
+    "rationale": "The exact noise onset separates monotonic coupling sensitivity from an interval of sensitivity suppression, replacing a qualitative published observation by a natural complete phase classification. The two branches and square-root critical opening provide exact experiment-design guidance and a singular large-noise limit, rather than an arbitrary numeric slice.",
+    "status": "PASS"
+  }
+}
