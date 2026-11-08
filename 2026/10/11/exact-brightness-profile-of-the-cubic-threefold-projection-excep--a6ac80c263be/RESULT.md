@@ -1,77 +1,74 @@
 # Exact brightness profile of the cubic threefold-projection exception
+
 ## Finding
+
 Let \(K_\varepsilon\subset\mathbb R^3\) have support function
 \[
 h_\varepsilon(u)=1+\varepsilon u_1u_2u_3,\qquad u\in S^2,
 \]
-for any real \(\varepsilon\) for which this is a support function. Myroshnychenko--Ryabogin--Saroglou prove that this family gives the exceptional non-spherical constant-width examples whose every planar projection has threefold rotational symmetry after translation. For every unit normal \(n=(n_1,n_2,n_3)\), its brightness is
+for any real \(\varepsilon\) for which this is a convex-body support function. For every unit normal \(n=(n_1,n_2,n_3)\), the ordinary two-dimensional area of its orthogonal shadow satisfies
 \[
-b_{K_\varepsilon}(n):=\operatorname{{area}}(K_\varepsilon\mid n^\perp)
-=\pi-\frac{{\pi\varepsilon^2}}4\prod_{{i=1}}^3(1-n_i^2).
+b_{K_\varepsilon}(n)=\operatorname{area}_2(K_\varepsilon\mid n^\perp)
+=\pi-\frac{\pi\varepsilon^2}{4}\prod_{i=1}^{3}(1-n_i^2).
 \]
-Hence
+In particular,
 \[
-\pi\left(1-\frac{{2\varepsilon^2}}{{27}}\right)\le b_{{K_\varepsilon}}(n)\le\pi.
+\pi\left(1-\frac{2\varepsilon^2}{27}\right)\le b_{K_\varepsilon}(n)\le\pi.
 \]
-The upper endpoint occurs exactly for coordinate-axis normals, where the projection is the unit disk. The lower endpoint occurs exactly when \(|n_1|=|n_2|=|n_3|=1/\sqrt3\); modulo antipodal identification these are the four body-diagonal projection planes.
+**For \(\varepsilon\ne0\)** the upper endpoint occurs exactly at the six coordinate-axis normals (three unoriented projection planes), whose shadows are unit disks; the lower endpoint occurs exactly when \(|n_1|=|n_2|=|n_3|=1/\sqrt3\) (four unoriented body-diagonal planes). **For \(\varepsilon=0\)**, \(K_0\) is the unit ball and \(b_{K_0}(n)=\pi\) for *every* normal; no direction is an exclusive maximizer or minimizer. The formula and inequalities include this degenerate case.
 
 ## Assumptions and scope
-The statement is conditional only on \(h_\varepsilon\) being a support function. The source proves this for all sufficiently small \(|\varepsilon|\) (and explicitly states the positive-parameter case in its theorem). No use is made here of any larger sharp convexity interval. Projection area is ordinary Euclidean two-dimensional area, and \(n\) is always a unit vector. Opposite normals define the same projection plane.
+
+The normal \(n\) is a unit vector and opposite normals identify the same plane. The sole parameter condition is that \(h_\varepsilon\) be a support function; sufficiently small \(|\varepsilon|\) are admissible by Myroshnychenko--Ryabogin--Saroglou, and the exact convexity range has been treated separately in published work on the cubic family. This statement does not assert or reprove that range. For nonzero admissible \(\varepsilon\), the body is the non-spherical constant-width cubic exception with threefold-symmetric planar projections up to translation. For zero parameter it is the sphere. Projection area is Euclidean, not a section area.
 
 ## Proof
-Fix \(n\in S^2\) and an oriented orthonormal basis \(e_1,e_2\) of \(n^\perp\). Parametrize its unit circle by
+
+Fix \(n\in S^2\) and an oriented orthonormal basis \(e_1,e_2\) of \(n^\perp\). Parametrize the unit circle of the plane by
 \[
 u(\theta)=e_1\cos\theta+e_2\sin\theta.
 \]
-The source proves that the restriction of \(H(u)=u_1u_2u_3\) to every such circle contains only first and third Fourier modes. Put \(z=e_1-i e_2\). Since
+The cubic \(H(u)=u_1u_2u_3\) restricts to a homogeneous cubic in \(\cos\theta,\sin\theta\), so the only Fourier frequencies are 1 and 3. Set \(z=e_1-i e_2\). The identity
 \[
-u(\theta)=\frac12\left(ze^{{i\theta}}+\overline z e^{{-i\theta}}\right),
+u(\theta)=\tfrac12(ze^{i\theta}+\overline z e^{-i\theta})
 \]
-the coefficient of \(e^{{3i\theta}}\) in \(H(u(\theta))\) is \(z_1z_2z_3/8\). Writing the third harmonic as
+shows that the coefficient of \(e^{3i\theta}\) in \(H(u(\theta))\) is \(z_1z_2z_3/8\). Hence, writing the third harmonic as \(C\cos3\theta+D\sin3\theta\), we obtain
 \[
-C\cos3\theta+D\sin3\theta,
+R^2:=C^2+D^2=\frac1{16}|z_1z_2z_3|^2
+=\frac1{16}\prod_{i=1}^3(1-n_i^2),
 \]
-its squared amplitude is therefore
-\[
-R^2:=C^2+D^2=\frac1{16}|z_1z_2z_3|^2.
-\]
-Because \(e_1,e_2,n\) is an orthonormal basis,
-\[
-|z_i|^2=e_{{1,i}}^2+e_{{2,i}}^2=1-n_i^2,
-\]
-so
-\[
-R^2=\frac1{16}\prod_{{i=1}}^3(1-n_i^2).
-\]
-The first harmonic is exactly a translation of the planar projection and does not affect area. After translating, its support function is
-\[
-p(\theta)=1+\varepsilon R\cos(3\theta-\phi)
-\]
-for some phase \(\phi\). The planar support-function area identity gives
-\[
-\operatorname{{area}}=\frac12\int_0^{{2\pi}}\left(p(\theta)^2-p'(\theta)^2\right)d\theta
-=\pi-4\pi\varepsilon^2R^2,
-\]
-which is the displayed brightness formula.
+because orthonormality of \((e_1,e_2,n)\) implies \(|z_i|^2=e_{1,i}^2+e_{2,i}^2=1-n_i^2\).
 
-For the extremal directions put \(a_i=n_i^2\). Then \(a_i\ge0\), \(a_1+a_2+a_3=1\), and
+The first Fourier harmonic is precisely a translation of the planar support function and contributes no area. After translating, the support is \(p(\theta)=1+\varepsilon R\cos(3\theta-\phi)\) for a suitable phase \(\phi\) (when \(R=0\), the phase is irrelevant). The planar support-function area identity gives
 \[
-\prod_{{i=1}}^3(1-a_i)\le\left(\frac{(1-a_1)+(1-a_2)+(1-a_3)}3\right)^3=\left(\frac23\right)^3=\frac8{27}.
+\begin{aligned}
+\operatorname{area}_2(K_\varepsilon\mid n^\perp)
+&=\frac12\int_0^{2\pi}\left(p(\theta)^2-p'(\theta)^2\right)d\theta\\
+&=\pi-4\pi\varepsilon^2R^2
+=\pi-\frac{\pi\varepsilon^2}{4}\prod_{i=1}^3(1-n_i^2).
+\end{aligned}
 \]
-Equality holds exactly at \(a_1=a_2=a_3=1/3\). The product has minimum zero exactly when one \(a_i=1\), i.e. for a coordinate-axis normal. In that case \(u_1u_2u_3\) vanishes identically on the corresponding coordinate plane, so the projected support function is exactly \(1\) and the projection is the unit disk.
+The identity holds for the convex support under the stated assumption, including at possible curvature-degenerate parameter endpoints.
 
-## Verification
-A symbolic checker expands the diagonal restriction, recovers third-harmonic amplitude \(R^2=1/54\), integrates the planar area formula to \(\pi(1-2\varepsilon^2/27)\), and verifies the general amplitude identity on several exact orthonormal frames. These calculations are supplementary checks; the proof above establishes the identity for every direction.
+To classify extrema, put \(a_i=n_i^2\ge0\), with \(a_1+a_2+a_3=1\). Then
+\[
+0\le \prod_{i=1}^3(1-a_i)
+\le \left(\frac{\sum_i(1-a_i)}3\right)^3
+=\frac8{27}.
+\]
+The upper product bound is an equality exactly for \(a_1=a_2=a_3=1/3\); the product is zero exactly if one \(a_i=1\), forcing \(n\) onto a coordinate axis. If \(\varepsilon\ne0\), multiplication by the strictly negative coefficient \(-\pi\varepsilon^2/4\) makes these exactly the indicated brightness extrema. Along a coordinate normal, the cubic vanishes on the projection plane, and the projection support is exactly 1, so its shadow is a unit disk. If \(\varepsilon=0\), the coefficient vanishes instead: the entire brightness function equals \(\pi\), and every normal attains both bounds. This last distinction is necessary; without it the asserted uniqueness of extremizers would be false.
+
+## Verification and limitations
+
+The checked finite symbolic examples include normal vectors \((0,0,1)\), \((1,1,1)/\sqrt3\) and \((1,2,2)/3\), with third-harmonic squared amplitudes \(0\), \(1/54\) and \(25/1458\), respectively. These are consistency checks, not proofs for all normals. The universal result follows from the Fourier coefficient calculation above. The \(\varepsilon=0\) case is verified directly as the unit ball.
+
+The theorem is specific to the canonical cubic family and its fixed coordinate axes; it neither characterizes all threefold-projection exceptions nor proves a general brightness-reconstruction theorem or stability theorem. No sharp convexity interval is newly claimed.
 
 ## Relationship to prior work
-Myroshnychenko--Ryabogin--Saroglou identify \(u_1u_2u_3\) as the cubic exception, prove that every great-circle restriction has only first and third harmonics, and show that \(1+\varepsilon u_1u_2u_3\) yields smooth strictly convex non-spherical constant-width bodies with threefold-symmetric planar projections for sufficiently small \(|\varepsilon|\). Their inspected argument stops at the symmetry statement and does not compute the directional projection areas.
 
-General brightness-function literature studies the map \(n\mapsto\operatorname{{area}}(K\mid n^\perp)\), including uniqueness and stability questions, but the checked sources do not state this explicit profile for the cubic exception. Recent mixed-volume work on constant-width bodies gives global and averaged projection-defect identities; it does not imply the directional product formula above without the present circle-level computation.
-
-## Limitations
-The result concerns the specific canonical cubic family \(1+\varepsilon u_1u_2u_3\), not every threefold-projection exception. It does not determine the largest admissible \(|\varepsilon|\), and it makes no reconstruction or stability claim from brightness data. The formula depends on the fixed coordinate axes appearing in the cubic harmonic.
+Myroshnychenko--Ryabogin--Saroglou identify the cubic exception and prove its great-circle first/third-mode restriction and threefold projection symmetry, but their exceptional-case argument does not compute the directionwise third-harmonic amplitude or shadow area. The separately published sharp convexity-threshold result treats support-function admissibility, not brightness. General brightness/lightness theory and averaged constant-width identities do not state this coordinate-product profile. A separately published axially symmetric cubic brightness formula concerns a different spherical harmonic and has a different directional invariant. The public indexed record of this same finding is its own dissemination record, not independent preexisting prior art.
 
 ## References
-1. S. Myroshnychenko, D. Ryabogin, C. Saroglou, *On convex bodies with rotationally symmetric planar projections*, arXiv:2609.27192v1 (2026).
+
+1. S. Myroshnychenko, D. Ryabogin, C. Saroglou, *On convex bodies with rotationally symmetric planar projections*, arXiv:2609.27192v1 (2026), particularly Proposition 5.1 and Theorem 5.4.
 2. S. Campi, R. J. Gardner, P. Gronchi, M. Kiderlen, *Lightness functions*, Advances in Mathematics 231 (2012), 3118--3146, DOI 10.1016/j.aim.2012.08.015.
 3. M. Zwierzyński, *Mixed Volumes, the Wigner Caustic, and Isoperimetric Inequalities*, arXiv:2608.11068v1 (2026).
