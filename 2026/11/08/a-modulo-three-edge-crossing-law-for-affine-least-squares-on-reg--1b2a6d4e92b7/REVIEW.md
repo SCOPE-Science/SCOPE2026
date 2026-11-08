@@ -1,0 +1,11 @@
+# Scientific review of the regular-polygon perimeter theorem
+
+**Correctness — PASS.** The Gram inverse follows from exact rotational covariance of uniform perimeter arclength, including the triangular case. The cutoff \(k=\lceil n/3\rceil\) is proved with strict inequalities; the negative-part sum includes both crossing edges and the edge-free interior case at \(n=4\). The strict vertex characterization uses a positive-measure sign conflict rather than non-strict convexity. The three residue expansions are exact Laurent–Taylor identities. Independent perimeter integrations for \(3\le n\le110\) and symbolic series checks corroborate, but do not replace, the general proof.
+
+**Originality — PASS, qualified.** Related primary sources treat higher-dimensional piecewise-linear finite-element projections (Oswald, arXiv:math/0611573v1) and localized kernel least squares on manifolds (Hangelbroek et al., arXiv:1005.2424v1). The closest published exact formula concerns the three-frequency Fourier projection on a *discrete cyclic group* (published title: *Exact three-frequency Fourier projection norm on every cyclic group*); it samples a different input measure and lacks the continuous crossing-edge integral. The accessible local research ledger includes sharp affine norms on simplex/cube boundaries, but no regular polygon perimeter theorem. Targeted source and equivalence searches found no stronger claim implying the exact formula or its cubic correction. Residual risk: an unindexed classical polynomial-approximation calculation might coincide with the result.
+
+**Value — PASS.** The continuous-perimeter least-squares projector is a canonical rank-three approximation operator on polygonal curves. The exact norm and complete norming-point classification give an operative sharp stability bound for every side count; the modulo-three cubic term identifies a genuine arithmetic edge-crossing effect invisible in the limiting circle constant. The result is structurally separate from single-shape or table lookup evaluations.
+
+**Limits.** This review does not certify priority over inaccessible literature or extend the theorem beyond uniform regular polygons and affine spaces. The checker only corroborates symbolic algebra and finite cases.
+
+Self-review: passed. Independent audit: not yet performed.

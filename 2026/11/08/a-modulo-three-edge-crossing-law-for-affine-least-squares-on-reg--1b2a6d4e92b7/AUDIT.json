@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Uniform perimeter covariance is exactly ((2+cos(2pi/n))/6)I_2. The k=ceil(n/3) cutoff is established with strict inequalities for all n>=3; sign crossing areas and complete negative-edge sums give the displayed norm. Strict disagreement at v_k between kernels evaluated at adjacent vertices proves only vertices norm, and equality in L1-Linfinity duality classifies input extremizers. Laurent coefficients are deduced analytically for each residue class and checked independently by Sympy; direct edge integration with mpmath confirms n=3..110, but is not used as an infinite proof. No hypotheses are relaxed beyond real affine functions, regular polygons, and uniform boundary arclength.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Oswald, Theorem 1: piecewise-linear finite elements over interior triangulations with norms growing without bound.",
+        "Hangelbroek et al., Theorem 5.1: uniform stability bounds under local stable kernel-basis hypotheses, not exact regular polygon constants."
+      ],
+      "reasoning": "Neither primary theorem entails an exact degree-one polynomial projector norm under one-dimensional arclength on each regular polygon. Generic Gram inversion is insufficient without the exact sign cutoff and all-crossing edge sum.",
+      "searches": [
+        "arxiv:math/0611573v1: full primary PDF Theorem 1 and Sections 2-3",
+        "arxiv:1005.2424v1: Theorem 5.1, Corollary 5.3, space S(kappa,Xi)",
+        "published-finding corpus: exact L infinity norm affine L2 projector polygonal boundary spline"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0611573v1 (original 2006-11-19)",
+      "arxiv:1005.2424v1 (original 2010-05-13)",
+      "published-finding corpus published three-frequency cyclic projector RESULT.md",
+      "Accessible local ledger: 12 recoverable titles and claim IDs, including simplex boundary and cube boundary exact-affine projectors",
+      "MSC2020 41A44 Best constants in approximation theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The discrete cyclic projector has kernel 1+2 cos(2 pi j/n), while the polygon perimeter projector has 1+(6/(2+cos(2 pi/n))) x·y and continuous integration across edges.",
+        "The earlier surface simplex claim covers n=3; the earlier square/cube claim covers n=4. For n>=5 neither applies.",
+        "Direct calculation yields a universal positive quadratic perimeter defect relative to the circle, and a signed cubic n mod 3 correction."
+      ],
+      "reasoning": "The prior discrete norm shares its circle limit but samples vertices rather than edges, and uses a different orthogonality measure; its formulas cannot be substituted into the continuous integral. The prior simplex and cube formulas settle only two isolated members. The full all-n law and residue coefficient are not corollaries of the inspected statements.",
+      "searches": [
+        "published-finding corpus: exact three-frequency Fourier projection norm on every cyclic group and residue classes polygon affine orthogonal projection Lebesgue constant",
+        "arxiv:1005.2424v1: Section 5 Theorem 5.1",
+        "own accessible ledger IDs: 1f737486-2743-41c9-a71a-4f2bcb1072ed and 1f20d6a9-8a1f-4b00-81aa-f968ee5ec730"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus targeted searches returned closest polygon geometric invariants and cyclic discrete Fourier result, not a continuous-perimeter projector theorem.",
+        "The same real affine space is the first harmonic span at the polygon vertices, but normalized arclength and normalized counting measure yield different Gram inverses."
+      ],
+      "reasoning": "Projection onto span(1,x,y) on continuous polygon perimeter is equivalent to rank-three first-harmonic least squares with continuous segment measure, not sampled cyclic Fourier projection. The unique additional triangular crossing-area term in the new formula is absent in the sampled norm. No matched formulation was found.",
+      "searches": [
+        "published-finding corpus: regular polygon boundary least squares projection affine functions perimeter sharp norm arcsine negative-part integral modulo three correction asymptotic",
+        "published-finding corpus: Lebesgue constant for rank three orthogonal projector regular polygon arclength",
+        "Web: orthogonal projection regular polygon polynomials perimeter",
+        "Web: regular n gon boundary L2 projection onto affine functions Lebesgue constant exact norm vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published RESULT.md of Exact three-frequency Fourier projection norm on every cyclic group: discrete norm N^-1 sum |1+2 cos(2 pi k/N)|; exact modulo-three formulas.",
+        "Accessible local affine boundary simplex and cube claims imply the triangle and square special values only."
+      ],
+      "reasoning": "The indexed exact finite-grid table is genuinely close, but does not provide the perimeter edge integrals or the continuous-modified covariance c=6/(2+cos(2 pi/n)). A common circle limit is not equality of finite norms. Exact local special cases n=3,4 do not dominate the n>=5 family.",
+      "searches": [
+        "published-finding corpus: exact three-frequency Fourier projection norm on every cyclic group and residue classes polygon affine orthogonal projection Lebesgue constant",
+        "published-finding corpus: Dirichlet kernel of degree one Fourier harmonics on polygonal curves sharp L1 norm",
+        "Web: 1/3 2sqrt(3)/pi orthogonal projection circle",
+        "Web: least squares regular polygon projection norm polynomial boundary"
+      ]
+    },
+    "rationale": "Direct public-result comparisons and targeted searches identified no claim implying the sharp continuous-perimeter norm and its sign-dependent third-order residue correction. Earlier affine simplex and cube formulas cover the n=3 and n=4 special cases, respectively, but do not cover all n>=5; these two special cases are not asserted independently new. The closest discrete cyclic Fourier projection has a different measure, covariance and evaluation kernel. Residual risk: older unindexed exact formulas for polygon boundary regression.",
+    "residual_risks": [
+      "Potential equivalent older polynomial least-squares formula in unindexed approximation literature; search absence does not establish priority.",
+      "The full set of all classical books on finite-dimensional projector norms was not inspected; findings should undergo independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this claim: area integration over triangulated domains and variable-dimensional spline spaces; no perimeter affine rank-three constant.",
+        "evidence": [
+          "arXiv:math/0611573v1, pp.1-7; especially Theorem 1 p.4 and construction p.5-6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611573",
+        "material_read": "Abstract, Theorem 1, formulas for nodal Gram matrices, Sections 2-3 including proof and references (7 pages).",
+        "method": "Primary arXiv full-text PDF reading with inspected page images.",
+        "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+        "trigger": "Historical exact and unbounded L-infinity projector norms on polygonal domains."
+      },
+      {
+        "assessment": "NOT_COVERING for exact constants: local kernel span over quasiuniform centers on smooth manifolds, stability bounds rather than polygonal perimeter affine exact norms.",
+        "evidence": [
+          "arXiv:1005.2424v1, Theorem 5.1, p.17; S(kappa,Xi) definition and discussion pp.1-3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.2424",
+        "material_read": "Abstract, Introduction, Sections 4-5 including Theorem 5.1 and Corollaries 5.2-5.3, manifold assumptions.",
+        "method": "Full primary arXiv PDF text, theorem/section searches and page-image inspection.",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector",
+        "trigger": "Potential stronger least-squares Lp theorem on one-dimensional curves."
+      },
+      {
+        "assessment": "NOT_COVERING for the perimeter claim: counting-measure n-point Fourier projection, not continuous arclength projector; common circle limit but distinct finite Gram covariance and negative-part integrals.",
+        "evidence": [
+          "Discrete kernel K_N(j)=1+2cos(2pi j/N) and normalized sum of |K_N|.",
+          "The polygon kernel has c=6/(2+cos(2pi/n)), and 2 crossing-edge contributions."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242",
+        "material_read": "Complete public RESULT.md, including exact cyclic sampled formulas, negative index interval, proof, scope and limitations.",
+        "method": "Read published full research statement and proof from its repository source.",
+        "title": "Exact three-frequency Fourier projection norm on every cyclic group",
+        "trigger": "Same rank-three first harmonics, identical circle limit and a modulo-three phase."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b2a6d4e-92b7-480e-bfd3-cf5d902b70fa",
+  "value": {
+    "rationale": "The rank-three affine least-squares projector on polygonal perimeters is a canonical sharp stability problem for boundary regression. The exact all-n formula and complete optimizer locations go beyond numerical tables. The zero-crossing edges create a quantitative residue-three cubic correction, separating continuous boundary integration from both circle integration and previously known vertex-sampling Fourier projection. This nontrivial convergence mechanism makes the precise constant useful for stable polygonal approximation rather than being a gratuitous parameter slice.",
+    "status": "PASS"
+  }
+}
