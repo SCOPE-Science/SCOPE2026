@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The global exclusion follows from a strict integrated cosine/Laplacian inequality, with a separate coordinatewise displacement bound ruling out hidden torus windings at and below the claimed threshold. Bipartite Perron--Frobenius spectral simplicity makes the Lyapunov--Schmidt branch regular. The explicit cubic coefficient and Jacobian multipliers give a supercritical attracting branch; odd center-manifold reduction proves the generic critical inverse-time squared-distance law. Direct finite computations on weighted trees, a weighted bipartite graph with a cycle, and unweighted complete bipartite examples support—not replace—the universal proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with acknowledged residual risk.** The motivating 2026 Huygens work gives small-step Morse--Smale/invertibility results, while this theorem concerns the later sharp period-two threshold and critical dynamics on arbitrary weighted bipartite graphs. Earlier even-cycle two-cycle calculations form an important covered special case rather than an independent general theorem. The open-access graph-cycle-space paper addresses stochastic continuous-time synchronization, not this discrete-time bifurcation. Targeted searches did not identify a stronger graph-uniform statement. The complete recent Huygens preprint and the older general-coupling article could not be inspected in full; hidden implications remain a literature priority risk, not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** A universal graph-spectral phase boundary connects three distinct phenomena: the rigorous global absence of prime-two torus orbits below the boundary, emergence of a stable spatially signed oscillatory phase pattern immediately above it, and a universal nonexponential convergence constant exactly at the boundary. This class includes irregular and weighted trees and cyclic bipartite networks, not merely a fixed small oscillator motif. The sharp threshold distinguishes numerical overshoot from a merely conservative Lyapunov step-size condition.
+Perron-Frobenius on signless Laplacian makes top Laplacian eigenvalue simple and its eigenvector opposite-signed by bipartition. At h<=2/lambda, coordinate displacement <=h d_i<=2, so no 2-step torus lattice winding (total <=4<2pi); a nonzero real 2-cycle contradicts (2/h)||d||^2 < d^T L d <= lambda||d||^2 via the strict cosine integral. At h*=2/lambda, Lyapunov-Schmidt on the top eigenspace gives cubic coefficient S4/(3lambda), unique positive amplitude branch for h>h*, J_h(u)^2 contracts transversely, and the odd center manifold yields t a_t^2->3lambda/(2S4) outside the strong-stable manifold. Independent two-node benchmark verified lambda=2,S4=4, nearcritical branches, and 100000-step critical ratio 0.999635589. Finite checks do not certify all weighted graphs.
 
-The scope is a local attracting branch and local critical relaxation, not a global classification beyond the threshold. Finite tests do not prove an infinite assertion, and incomplete access to older specialized literature leaves a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge positive originality for the full final claim after identifying all presently established subclaims; actual source-material inspections and possible dominating alternatives are recorded. Literature gaps are residual risks, not proof of novelty.
+
+## value
+
+PASS
+
+The true graph-spectral threshold jointly characterizes a global torus obstruction at the endpoint, local emergence and stability of a checkerboard oscillation, and an exact nonexponential critical decay constant for every weighted connected bipartite graph. The endpoint and cubic S4 profile go beyond the known strict descent criterion, and cannot be inferred from linear eigenvalue crossing alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
