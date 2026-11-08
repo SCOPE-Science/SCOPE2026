@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The geodesic distance is the ambient spherical angle because the orthant is geodesically convex. The proof partitions the orthant by maximal coordinates, computes the exact projective area element, and reduces rare-event geometry to a sum of nonnegative product terms. The complement to a small coordinate box loses a logarithm and is provably lower order. Inside the box, integration of product densities yields a beta-simplex leading coefficient. The resulting normalization is checked algebraically, and the attached checker supplies exact low-dimensional and deterministic quadrature tests. These computations corroborate, but do not substitute for, the analytic proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Cai–Fan–Jiang (2013) give the pair-angle law for entire-sphere sampling and study large-sample extreme angles. Sidiropoulos (2014) derives full-sphere chord and inner-product distributions. Laarhoven (2017), Theorem 1, derives fixed-angle high-dimension same-orthant collision rates, but not a fixed-dimension near-right-angle tail. Cook (2023) gives the exact positive-orthant sampling model but only examines typical inner products. The inspected results do not imply the endpoint law for two independent orthant-uniform points; the all-dimensional logarithmic exponent and leading coefficient are not the same as any of these prior claims. Searches found no equivalent mathematical research record. No exhaustive priority certification is claimed.
+PASS
 
-**Value — PASS.** This is an exact rare-event invariant of a canonical spherical simplex with a non-power-law correction whose exponent grows with dimension. The result quantitatively resolves the near-diameter effect of disjoint-support boundary strata and distinguishes it from unrestricted sphere statistics. It is a complete leading-order classification in each fixed dimension, not merely a low-dimensional numeric observation. It does not provide the full CDF, any uniform-in-dimension estimate, or a theorem for arbitrary spherical simplices.
+For d>=2 positive spherical orthant Ω_d with normalized area, its intrinsic geodesic diameter is π/2 because dot products are nonnegative and the coordinate axes attain orthogonality. In dominant-coordinate projective chart i the sphere area is (1+||r||²)^(-d/2)dr. Same-index chart pairs have dot product≥1/d, hence for t=sinε<1/d only d(d-1) distinct-index pairs contribute. For charts i != j write dot product (a+c+sum_{l=1}^{d-2} b_l q_l)/sqrt((1+a²+sum b²)(1+c²+sum q²)). Outside a small η-box, one product factor is >=η and loses one log, giving O_{d,η}(t^d log(1/t)^{d-3}) for d>=3; for d=2 exterior is absent. Inside small box area densities and denominators sandwich the flat integral. The product w=bq over [0,η]^2 has unnormalized density log(η²/w). After a,c and product substitutions, J_{d-2,η}(t)~t^d log(1/t)^{d-2}/d! by the beta simplex integral; η→0 removes multiplicative chart errors. Multiply d(d-1) and divide by Ω_d area² where area=2^{1-d}π^{d/2}/Γ(d/2); the constant equals 2^{2d-2}Γ(d/2)^2/[π^d(d-2)!]. t=sinε has same leading scale. Independent exact d=2 tail and beta/product-log integral evaluations, and normalized constants for d=2..8, passed. The all-d result is symbolic, not inferred from numerical integration.
 
-**Closest sources and limitations.** Cai–Fan–Jiang, arXiv:1306.0256; Sidiropoulos, arXiv:1411.5639; Laarhoven, arXiv:1702.05760; Cook, *Random points in a high-dimensional orthant* (2023). Other spherical-cone endpoint asymptotic work may remain undiscovered, which is the residual originality risk. The proof establishes a fixed-dimensional limit only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after comparing full-sphere pair-angle distributions with same-orthant conditional-angle results in their actual order of limits. Full-sphere laws, positive-orthant mean-direction sampling and large-dimensional hypercube hashing do not state or imply this fixed-d near-π/2 sharp ε^d log^{d−2} coefficient; exact pair product localization remains an independent analysis.
+
+## value
+
+PASS
+
+The coordinate orthant is a canonical spherical simplex and the spherical angle between two independently area-uniform positive vectors is a natural random-geometry statistic. The near-maximum distance event is governed by coordinate products and yields a dimension-specific logarithmic endpoint singularity absent from full-sphere pair-angle laws. The exact ε^d log^{d-2} rate and constant for every fixed d give a meaningful rare-event invariant and sharp test case for cone-conditioned random directions and singular integral asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

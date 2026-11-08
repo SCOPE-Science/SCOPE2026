@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:42:58.830151Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=2 positive spherical orthant Ω_d with normalized area, its intrinsic geodesic diameter is π/2 because dot products are nonnegative and the coordinate axes attain orthogonality. In dominant-coordinate projective chart i the sphere area is (1+||r||²)^(-d/2)dr. Same-index chart pairs have dot product≥1/d, hence for t=sinε<1/d only d(d-1) distinct-index pairs contribute. For charts i != j write dot product (a+c+sum_{l=1}^{d-2} b_l q_l)/sqrt((1+a²+sum b²)(1+c²+sum q²)). Outside a small η-box, one product factor is >=η and loses one log, giving O_{d,η}(t^d log(1/t)^{d-3}) for d>=3; for d=2 exterior is absent. Inside small box area densities and denominators sandwich the flat integral. The product w=bq over [0,η]^2 has unnormalized density log(η²/w). After a,c and product substitutions, J_{d-2,η}(t)~t^d log(1/t)^{d-2}/d! by the beta simplex integral; η→0 removes multiplicative chart errors. Multiply d(d-1) and divide by Ω_d area² where area=2^{1-d}π^{d/2}/Γ(d/2); the constant equals 2^{2d-2}Γ(d/2)^2/[π^d(d-2)!]. t=sinε has same leading scale. Independent exact d=2 tail and beta/product-log integral evaluations, and normalized constants for d=2..8, passed. The all-d result is symbolic, not inferred from numerical integration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai et al. fixed-d pair-angle density proportional to sin(theta)^{d−2} on entire sphere, with π/2 interior not maximum.",
+          "Sidiropoulos computes full-sphere distance and dot-product beta distributions but no condition U_i,V_i>=0.",
+          "Laarhoven gives dimension-exponential collision probability at fixed angle, not the fixed-d t^d(log(1/t))^{d−2}/d! rare-event leading constant."
+        ],
+        "reasoning": "A formula in a broader ambient dimension or a different order of limits does not automatically cover the orthant-conditioned endpoint. The closest object-equivalent collision quantity lacks the needed fixed-dimensional local analysis.",
+        "searches": [
+          "Cai Fan Jiang Distributions of Angles in Random Packing on Spheres arXiv:1306.0256 full PDF Theorems 1–2",
+          "Sidiropoulos N-sphere chord length distribution arXiv:1411.5639 full primary PDF",
+          "Laarhoven Hypercube LSH for approximate near neighbors arXiv:1702.05760 Theorem 1 and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1306.0256",
+        "https://arxiv.org/pdf/1411.5639",
+        "https://arxiv.org/pdf/1702.05760",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/logarithmic-maximal-distance-tails-on-positive-spherical-orthant--145195954dd3/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cai/Fan/Jiang full-sphere density is finite near π/2 for d>=2, unlike the orthant event with ε^d(log1/ε)^{d−2}.",
+          "Laarhoven estimates hypercube collision probability in d→∞ and an angle parameter, but does not provide exact ε→0 at fixed d; exponential error in d cannot determine the leading fixed-d coefficient.",
+          "Sidiropoulos beta laws integrate across all coordinate sign sectors and do not condition on two positive vectors."
+        ],
+        "reasoning": "None of the inspected results has both the correct sampling measure and fixed-dimensional rare-angle limit needed to imply the claim. The proof genuinely uses small product coordinates to derive the logarithm and its prefactor.",
+        "searches": [
+          "Cai/Fan/Jiang arXiv:1306.0256 Theorems 1–2 and sample-event regime",
+          "Laarhoven arXiv:1702.05760 Theorem 1 and Appendix A",
+          "Sidiropoulos arXiv:1411.5639 sections II–IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Near-diameter Θ>π/2−ε is equivalent to <U,V><sinε for independent nonnegative spherical directions, or a conditioned full-sphere same-orthant pair-angle event.",
+          "Cai/Fan/Jiang and Sidiropoulos derive full-sphere angle and chord laws without conditioning both signs to one orthant.",
+          "Laarhoven studies same-orthant collision at fixed angle with d→∞, whereas target fixes d then ε→0."
+        ],
+        "reasoning": "The equivalent small-inner-product and cone-conditioned formulations were compared. Conditioning on same signs is not an independent constant multiplier on the angle law; large-d and fixed-d endpoint limits cannot be interchanged without a uniform theorem.",
+        "searches": [
+          "Resultary: two independent uniformly positive orthant sphere vectors near orthogonal angle tail epsilon log epsilon",
+          "Resultary: logarithmic endpoint law factorized smooth product kernels orthant",
+          "Cai-Fan-Jiang arXiv:1306.0256, Sidiropoulos arXiv:1411.5639, Laarhoven arXiv:1702.05760"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full-sphere chord-length tables have smooth density at the orthant right-angle cutoff and cannot tabulate its logarithmic tail.",
+          "Related Resultary exact logarithmic endpoint law for factorized smooth product kernels is a different singular integral operator, not two random positive spherical vectors."
+        ],
+        "reasoning": "The exact C_d coefficient and its d=2,3 equality are not contained in the located full-sphere or unrelated product-kernel tables. A bounded negative retrieval is a limitation, not evidence of global nonexistence.",
+        "searches": [
+          "Resultary: two independent uniformly positive orthant sphere vectors near orthogonal angle tail epsilon log epsilon",
+          "Resultary: logarithmic endpoint law factorized smooth product kernels orthant",
+          "Sidiropoulos arXiv:1411.5639 exact chord length table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after comparing full-sphere pair-angle distributions with same-orthant conditional-angle results in their actual order of limits. Full-sphere laws, positive-orthant mean-direction sampling and large-dimensional hypercube hashing do not state or imply this fixed-d near-π/2 sharp ε^d log^{d−2} coefficient; exact pair product localization remains an independent analysis.",
+      "residual_risks": [
+        "A general semialgebraic sublevel-volume theorem may recover the power-log structure but not necessarily this coefficient.",
+        "Specialized positive-cone random-angle literature could contain an equivalent fixed-d endpoint calculation.",
+        "Hypercube LSH estimates the related orthant collision probability in a distinct asymptotic regime; no uniform comparison has been established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correct full-sphere theorem, wrong conditioning; cannot supply orthant endpoint tail",
+          "evidence": [
+            "Density ∝(sinθ)^{d−2} on entire S^{d−1}, π/2 an interior point."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.0256",
+          "material_read": "Primary PDF introduction, Theorems 1–2 with full-sphere pair-angle density and fixed-versus-growing-sample parameter scope; viewed rendered pages",
+          "method": "Read original full-sphere distribution statements and inspected supporting mathematical pages",
+          "title": "Distributions of Angles in Random Packing on Spheres",
+          "trigger": "Nearest classic pair-angle distribution and extreme sample-angle theorem"
+        },
+        {
+          "assessment": "No restriction to two independently positive-orthant unit vectors",
+          "evidence": [
+            "Full-sphere dot product beta-type law; no coordinate-wise nonnegative conditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.5639",
+          "material_read": "Original PDF Sections II–IV for entire-sphere inner product and chord distributions; examined rendered page",
+          "method": "Read primary derivation for full-sphere chord/dot-product law",
+          "title": "N-sphere chord length distribution",
+          "trigger": "Potentially exact full pair-distance table with a right-angle cutoff"
+        },
+        {
+          "assessment": "Same kind of orthant angular correlation, but d→∞ fixed angle rather than fixed d at π/2 endpoint",
+          "evidence": [
+            "Theorem 1 has high-d collision exponent, not a fixed-d near-right-angle power-log coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.05760",
+          "material_read": "Original full paper Theorem 1 and Appendix A fixed-angle, high-dimensional collision asymptotics; inspected rendered theorem page",
+          "method": "Compared exact order of limits and parameters of conditional collision event",
+          "title": "Hypercube LSH for approximate near neighbors",
+          "trigger": "Same-orthant angular event under randomized rotation, closest conceptually"
+        },
+        {
+          "assessment": "Different product-kernel operator; residual stronger-coverage possibility beyond snippet remains",
+          "evidence": [
+            "Summary gives small-level kernel distribution C λ^{-1} log(1/λ) in operator setting, not an explicit probability of sum of d−2 products."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c",
+          "material_read": "Published record title/summary from semantic corpus; no full text was inspected",
+          "method": "Read published summary only, without claiming full-text noncoverage",
+          "title": "Exact logarithmic endpoint law for factorized smooth product kernels",
+          "trigger": "Logarithmic product singularity may give an equivalent transferable theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinate orthant is a canonical spherical simplex and the spherical angle between two independently area-uniform positive vectors is a natural random-geometry statistic. The near-maximum distance event is governed by coordinate products and yields a dimension-specific logarithmic endpoint singularity absent from full-sphere pair-angle laws. The exact ε^d log^{d-2} rate and constant for every fixed d give a meaningful rare-event invariant and sharp test case for cone-conditioned random directions and singular integral asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed d, induced area distribution on Ω_d and ε→0; no uniform d limit, complete angle CDF, arbitrary spherical-simplex extension or second-order expansion.",
+    "Log-asymptotic integral localization is analytic; finite-dimensional numerical quadrature is not used as an infinite proof.",
+    "Older spherical cone-conditioned angle/analytic sublevel-set literature may contain the identical coefficient under equivalent variables."
+  ],
+  "schema_version": 1
+}
