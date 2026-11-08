@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:57:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed reference R and nonempty target s, a joined-history optimal first phrase cannot cross R/target join because target history initially empty. Every later joined-history phrase has source entirely in R or decoded prefix, or crosses the boundary once and splits into at most two legal source phrases; hence P<=A<=2P-1. Greedy longest-available-match optimality follows from a suffix-of-existing-source exchange that preserves decoded source availability. With pairwise distinct letters R=a1...am, recursively T1=R, Tj=Tj-1(a_j...a_m)Tj-1, the joined parse takes one phrase per stage; unique new a_m a_(j-1) backward adjacency forces two longest split-source phrases at each later stage, so P=m, A=2m-1, length (m-1)2^m+1. Independently recomputed exact dynamic-programming optimum for m=1,...,5: (P,A)=(1,1),(2,3),(3,5),(4,7),(5,9). Proof, not finite search, covers every m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marteau provides greedy optimality and an O(n) algorithm for arbitrary dictionaries, thus covers structural preliminaries.",
+          "No stronger theorem in inspected original shows extremal ratio 2-1/m for fixed reference; statement explicitly left open."
+        ],
+        "reasoning": "General greedy parsing and LZ comparisons do not imply an exact maximum for this two-source boundary geometry. Main proof uses distinct-letter recursive boundary markers.",
+        "searches": [
+          "adaptive covering complexity split reference and joined history parsing sharp factor two additive 2p-1",
+          "arXiv:2610.26021 full HTML Sections III IV and appendices",
+          "Kosolobov Shur comparison of LZ77 parsing models"
+        ]
+      },
+      "checked_sources": [
+        "Marteau arXiv:2610.26021 full HTML",
+        "Kosolobov–Shur arXiv:1708.03558 reference",
+        "assigned exact construction and verification code"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known source-change crossing argument yields at most 2 phrases for each joined phrase.",
+          "New observation that first phrase cannot cross join yields additive minus one, and a separate induction establishes equality for each possible P; original source says attainment unresolved."
+        ],
+        "reasoning": "Explicit open sharpness is resolved rather than only a restatement or special case of earlier bound.",
+        "searches": [
+          "Marteau Theorem IV.10 proof and Remark IV.11",
+          "adaptive covering complexity split reference and joined history parsing sharp factor two additive 2p-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marteau theorem proves split/concatenated comparison <=2; exact first-phrase argument strengthens to <=2P-1.",
+          "Remark IV.11 expressly says factor 2 attainment unknown and only binary ratio5/3 found.",
+          "Kosolobov-Shur compares overlapping and nonoverlapping LZ77 models, a different source condition."
+        ],
+        "reasoning": "Exact phrase-count -1 strengthening and recursive sharpness at all P values do not follow from the published factor-two bound; identical-looking 2m-1 patterns from other parsing models lack required fixed-reference boundary semantics.",
+        "searches": [
+          "adaptive covering complexity split reference and joined history parsing sharp factor two additive 2p-1",
+          "Marteau arXiv:2610.26021 Theorem IV.10 Remark IV.11",
+          "Kosolobov Shur arxiv:1708.03558"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Marteau reports finite binary search with max5/3 at reference length<=5 and target<=8; the sharp family grows alphabet and exponential target, so tiny table cannot cover it.",
+          "Resultary query returned no same exact source-separated extremal finding."
+        ],
+        "reasoning": "The new exact per-m envelope is an infinite classification, not recomputation of the small binary dataset.",
+        "searches": [
+          "adaptive covering complexity split reference and joined history parsing sharp factor two additive 2p-1",
+          "binary small word databases ratio 5/3",
+          "Resultary semantic parse query"
+        ]
+      },
+      "rationale": "Marteau, arXiv:2610.26021, defines exactly the split-versus-preset-history comparison, proves weaker A<=2P (Theorem IV.10) and in Remark IV.11 explicitly states factor-two attainability unknown with finite binary search maximum 5/3. Its greedy exchange theorem is preexisting. The additional additive -1 bound and exact extremizing recursive family for every P=m answer the stated sharpness question. Kosolobov–Shur compare different LZ overlap/encoding variants with superficially similar integer bounds, not identical source boundary.",
+      "residual_risks": [
+        "Potential equivalent construction under alternative LZ terminology not found by semantic search.",
+        "Sharp family uses alphabet of size m and exponential target length; fixed-alphabet sharpness unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes A<=2P and greedy optimality; explicitly leaves factor-two sharpness unresolved and records finite search bound 5/3",
+          "evidence": [
+            "Theorem IV.10 lines 360-401 and Remark IV.11 lines 402-405."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26021",
+          "material_read": "Full arXiv HTML: Definitions III, Lemma IV.1/Thm IV.2, IV-C preset-history Theorem IV.10 and proof, Remark IV.11, appendix index",
+          "method": "Full-text primary source reading via arXiv HTML",
+          "title": "On the Adaptive Covering Complexity of Strings: Unifying Relative and Self-Referential Compression",
+          "trigger": "Same model, closest theorem and open sharpness question"
+        },
+        {
+          "assessment": "Different target-history overlap and encoding definitions; possible indirect reduction priority risk retained",
+          "evidence": [
+            "Original Marteau related-work discussion; assigned RESULT.md references Theorem3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.03558",
+          "material_read": "Abstract/cross-reference as present in main published primary work; full comparative proof not read in this run",
+          "method": "Published citation and source comparison",
+          "title": "Comparison of LZ77-type Parsings",
+          "trigger": "Numerically similar 2m-1 parsing comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Settles explicitly open finite sharpness question for a natural two-source compression model: every optimal joined-phrase count has exact maximal separated-source cost 2m-1, with factor two a strict unattained supremum. The bound is sharper than a numerical table and informs nonoverlap dictionary design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Marteau arXiv:2610.26021 full HTML",
+    "Kosolobov–Shur arXiv:1708.03558 reference",
+    "assigned exact construction and verification code"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a bit-compression or fixed-alphabet result; no claims on minimal witness lengths.",
+    "DP tests finite; proof covers all m."
+  ],
+  "residual_risks": [
+    "Potential equivalent construction under alternative LZ terminology not found by semantic search.",
+    "Sharp family uses alphabet of size m and exponential target length; fixed-alphabet sharpness unproved."
+  ],
+  "schema_version": 1
+}
