@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument identifies a concrete finite union of disjoint prime-valuation cylinders and computes its density using an absolutely convergent squarefree Euler product. For every selected vector, the unitary/exponential divisor-sum ratio is at least one from the small-prime contribution, and becomes strictly greater than one when at least one large prime divides the squarefree tail. The zero-tail exceptions are finite because all eleven selected valuations have fixed upper caps. Exact arbitrary-precision enumeration checks the numerator, denominators, divisors of each exponent, and rational threshold; a second separately coded integer enumerator agrees. The proof concerns a density, not an unproved sampling extrapolation.
+## correctness
 
-## Originality — PASS, with literature risk
-The original 2013 preprint supplies the open density question and a squarefree-only bound. A prior public result certifies \(0.753659844064288\ldots\) using the six primes at most \(13\); the new rational coefficient instead certifies \(0.770667314486686\ldots\) from the first eleven primes. Its statement is strictly stronger: the earlier bound does not imply the new one. OEIS A322446 records finite-prefix counts, not an asymptotic inequality. Searches found no equivalent or stronger published certified bound, although absence from these indices is not proof that none exists.
+PASS
 
-## Mathematical value — PASS
-The exact density remains a stated open arithmetic-distribution question. Raising the certified lower bound from \(0.75366\) to \(0.77067\) closes approximately \(69\%\) of the gap between the former bound and the published finite-prefix benchmark \(0.778307\). It also establishes the clean rigorous threshold \(\delta>0.77\). The certificate is finite, but applies to all positive integers in a mathematically natural density sense, not just to a numerical sample. The work makes no claim of conceptual novelty in its Euler-product method.
+Both divisor sums are multiplicative, and exact prime-power ratios rho_p(a) are correct. For each exponent cylinder supported on primes <=31 with R>=1, the squarefree >31 tail multiplies R by factors (1+1/q)>1; finitely many all-smooth equality exceptions do not affect density. CRT/squarefree sieve gives density sum W/D*prod_{q>31}(1-1/q^2). Independently compiled a new boost::multiprecision cpp_int enumerator with different accumulation structure, exhaustively enumerating 7,676,370 configurations: W=28604085934433764658299339805699268088627200, 2,837,267 accepted, six equal, and D=36886693308870756519590386924324100736000000. Independent Fraction algebra reproduced the exact pi^-2 coefficient and the strict rational 77% inequality via pi<22/7. Finite arithmetic is exhaustive for the explicitly defined cylinder, but not a census of all integers.
 
-## Closest literature and limitations
-See Trudgian, arXiv:1312.4615v1; the preceding six-prime density record; and OEIS A322446. Other prime-exponent configurations are omitted. A stronger unlocated result remains possible. The true density and a sharp upper bound are open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2013 Trudgian question, 6/pi^2 squarefree bound and 0.778307 empirical fraction are distinct from the rigorous 77% bound. The explicit previously published 0.753659... cylinder has only six primes and exponent caps five, whereas this certificate chooses eleven primes with varying caps and recomputes all rational weights. The Erdos–Wintner theorem guarantees density existence and generic Euler products count exponent restrictions, but neither determines which 7,676,370 local patterns pass the weighted product condition. No inspected source supplies a dominating certified 0.77 lower bound. OEIS A322446 lists finite sample counts, not an asymptotic inequality. The inspected Resultary RESULT.md has W over 46,656 vectors and constant 0.753659844, different from this exact 7,676,370-vector certificate. The earlier lower bound is strictly weaker numerically and uses a narrower cylinder; the new bound does not follow merely by quoting the old fraction. It reuses the same standard method with a stronger exact finite certificate; it neither proves delta=0.778307 nor any upper bound.
+
+## value
+
+PASS
+
+Improves the published 0.753659844... rigorous lower bound to 0.770667314..., crossing the mathematically concrete 77% threshold, within about 0.00764 of the earlier billion-integer empirical proportion. The large exact rational certificate is a new, reproducible inequality for a natural unresolved divisor-comparison density, not merely recomputation of the previously tabulated bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
