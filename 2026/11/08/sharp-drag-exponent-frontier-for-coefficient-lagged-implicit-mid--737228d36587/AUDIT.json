@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The scalar reduction is derived directly from two identical midpoint stage equations. Positive uniqueness follows from strict monotonicity of yD_m(y). Exact logarithmic derivative is strictly increasing with limit m, yielding global log contraction for m<=1 and a locally repelling fixed point when m>1 and x>xc. Monotone even/odd subsequences plus repulsion imply a genuine two-cycle. For m=2, the polynomial 2-cycle elimination proves the complete positive parameter classification, including equality and exact multiplier. The local executable verifier confirms 2956 finite cases, which are auxiliary to the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. (2026) provide midpoint coefficients and coefficient-lagged Picard but not a global log Lipschitz bound or exponent threshold in material read.",
+        "Tedeschi-Prades et al. (2025) analyze a related gas--dust drag integrator, principally with other coefficient assumptions.",
+        "A general differentiable-decreasing-map result implies alternating limits, but does not supply the source-specific reduction or q_m slope."
+      ],
+      "reasoning": "The general method is broader in dust species and forces, not in the exact sharp theorem for this scalar frozen-stage iterate. General anti-monotone fixed-point theory alone covers the dynamical technique, not the needed identity linking to Epstein--Baines drag. No stronger matching theorem was identified; uninspected sources remain a risk.",
+      "searches": [
+        "implicit midpoint state-dependent drag Epstein Baines nonlinear Picard iteration convergence global linear drag coefficient sqrt 1+b u squared 2 cycle superlinear drag",
+        "sharp convergence threshold coefficient-frozen implicit midpoint square-root drift drag alpha(w)=(1+b w^2)^0.5 Picard global contraction",
+        "state dependent drag exponent m Picard coefficient lagging global convergence if m at most one superlinear generates 2 cycle",
+        "arXiv:2610.18979v1 Sections II.4--II.5",
+        "arXiv:2511.07562 Methods"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.18979v1; https://arxiv.org/abs/2610.18979; full public HTML sections II.4, II.5 and III.3",
+      "arXiv:2511.07562; https://arxiv.org/abs/2511.07562; public HTML introduction/methods",
+      "DOI:10.1137/S0036142997327075; abstract-level material only",
+      "https://www.mdpi.com/1999-4893/10/3/88; abstract-level material only",
+      "https://www.scholarpedia.org/article/Period_doubling; generic background",
+      "Published published-finding corpus semantic searches of recurrence, midpoint drag, slope, coefficient-lagging and two-cycles; relevant closest record IDs listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Chen et al. scheme implies the scalar recurrence once one fixes a single pure-drag species and the midpoint tableau; the paper does not state that the resulting Picard map always converges for a square-root drag rate.",
+        "Its experiments record roughly three Picard iterations and a finite iteration cap, but neither a universal in-step convergence rate nor a sharp counter-regime for superlinear drag.",
+        "Generic lagged-diffusivity convergence papers concern different nonlinear operators and their assumptions are not shown to imply the claimed exact two-cycle."
+      ],
+      "reasoning": "The recurrence is a consequence of prior method definitions, so novelty is not claimed for it. The added assertions are the sharp exponent partition, certified logarithmic geometric error bound and exact analytic 2-cycle onset; no inspected primary source was shown to logically imply these quantitative results. Risk of classical recurrence-equivalence is explicit.",
+      "searches": [
+        "implicit midpoint state-dependent drag Epstein Baines nonlinear Picard iteration convergence global linear drag coefficient sqrt 1+b u squared 2 cycle superlinear drag",
+        "implicit discretization nonlinear dissipation cubic drag Picard iteration period two instability threshold state dependent viscosity quadratic",
+        "sharp convergence threshold coefficient-frozen implicit midpoint square-root drift drag alpha(w)=(1+b w^2)^0.5 Picard global contraction",
+        "state dependent drag exponent m Picard coefficient lagging global convergence if m at most one superlinear generates 2 cycle",
+        "arXiv:2610.18979v1 eq. (23), Sections II.5 and III.3",
+        "arXiv:2511.07562 Introduction and Methods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rational-map cycle equality \\(yz=A/B\\) is derived explicitly in the proof.",
+        "Nearest published-finding corpus inverse-power map concerns \\(x\\mapsto ax+b/x^p\\), not the present \\(y\\mapsto x/(A+By^2)\\); its claimed multiplier and parameter inequalities differ.",
+        "Generic period-doubling literature, e.g. https://www.scholarpedia.org/article/Period_doubling, describes normal-form principles."
+      ],
+      "reasoning": "Scaling \\(y\\mapsto\\sqrt{B/A}\\,y\\) reduces the quadratic-rate map to a standard one-parameter reciprocal quadratic map. This transparent equivalence is acknowledged; no exact formula for the present parameter threshold together with the physical stage reduction was found in inspected research. Since the scalar map may be classical under another name, priority is explicitly qualified.",
+      "searches": [
+        "implicit discretization nonlinear dissipation cubic drag Picard iteration period two instability threshold state dependent viscosity quadratic",
+        "rational decreasing iteration y_(n+1)=x/(A+B y_n^2) exact two-cycle discriminant threshold x^2=4A^3/B implicit solver",
+        "published-finding corpus search: \"A unique inverse-power two-cycle and its sharp stability boundary\"",
+        "\"x_{n+1}\" \"A+B x_n^2\" period two cycle convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest IDs differ in map, parameters and conclusions, e.g. \"A unique inverse-power two-cycle and its sharp stability boundary\" (published 2026-10-11)."
+      ],
+      "reasoning": "No exact published published-finding corpus record or known numerical table was found recording the two-stage midpoint exponent dichotomy or the stated threshold. Searches  do not establish uniqueness or world priority.",
+      "searches": [
+        "implicit discretization nonlinear dissipation cubic drag Picard iteration period two instability threshold state dependent viscosity quadratic",
+        "rational decreasing iteration y_(n+1)=x/(A+B y_n^2) exact two-cycle discriminant threshold x^2=4A^3/B implicit solver",
+        "published-finding corpus query: rational decreasing iteration y_(n+1)=x/(A+B y_n^2) exact two-cycle discriminant threshold x^2=4A^3/B implicit solver"
+      ]
+    },
+    "rationale": "Inspected the motivating 2026 article and foundational 2025 GIRK work, compared general lagged fixed-point sources and published published-finding corpus similarities, and compared published related mathematical results. The asserted new statement is the applied midpoint scalar exponent frontier and exact quadratic-rate stress test, not the routine idea of a flip bifurcation. Priority qualification persists for older reciprocal-quadratic recurrence results and incompletely accessible literature.",
+    "residual_risks": [
+      "The reciprocal-quadratic scalar iteration could have an older exact bifurcation classification not retrievable by available search aliases; this would qualify originality of the explicit m=2 corollary.",
+      "Older lagged-diffusivity full texts were not all completely read; generic fixed-point theorems may subsume some dynamical ingredients, but no decisive covering theorem was identified.",
+      "Only the specified symmetric frozen-stage midpoint setting is proved; adaptive stiff/resolved GIRK branches can behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the numerical scheme and empirical Picard behavior; no exact scalar unconditional logarithmic convergence or superlinear exponent frontier was identified in inspected material. The new reduction uses their specified midpoint coefficient set as a specialized variant, not the full adaptive default.",
+        "evidence": [
+          "2026-10-13 arXiv first public date; HTML II.4 eq. (23), II.5 eqs. (29)--(33) and discussion of a 20-iteration cap; https://arxiv.org/abs/2610.18979"
+        ],
+        "identifier_or_url": "arXiv:2610.18979v1; https://arxiv.org/abs/2610.18979",
+        "material_read": "HTML full-text Sections II.4 (two-stage tableau and midpoint row), II.5 (state-dependent drag and Picard stage freeze), III.3 (convergence experiments), and adjoining source equations and tables",
+        "method": "Examined public full HTML article with exact page-text searches for midpoint, Picard, Epstein, iteration, convergence and two-cycle",
+        "title": "A Nonlinear General Implicit Runge-Kutta Integrator for Multifluid Charged Dust and Gas",
+        "trigger": "Direct matching recent two-stage method with coefficient-frozen Picard and square-root Epstein--Baines drift"
+      },
+      {
+        "assessment": "Develops drag-source integration and analysis but does not yield the particular state-dependent exponent-dependent midpoint Picard dichotomy from the read sections. Incomplete appendix inspection leaves residual priority risk.",
+        "evidence": [
+          "arXiv:2511.07562 Sections I--II; https://arxiv.org/abs/2511.07562"
+        ],
+        "identifier_or_url": "arXiv:2511.07562; https://arxiv.org/abs/2511.07562",
+        "material_read": "ArXiv HTML article introduction and methods including drag equations and GIRK construction; no exhaustive inspection of all later appendices",
+        "method": "Opened arXiv HTML page and compared published problem, coefficient assumptions and stated results",
+        "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag",
+        "trigger": "Parent GIRK drag integration source cited by the motivating method"
+      },
+      {
+        "assessment": "Addresses a distinct variational imaging lagged-diffusivity problem, not the scalar gas--dust midpoint map. Limited access means no whole-document noncoverage claim.",
+        "evidence": [
+          "1999 SIAM J. Numer. Anal. lagged diffusivity; https://doi.org/10.1137/S0036142997327075"
+        ],
+        "identifier_or_url": "DOI:10.1137/S0036142997327075; https://doi.org/10.1137/S0036142997327075",
+        "material_read": "Bibliographic summary and abstract/search snippet only; not complete article",
+        "method": "Web literature query on nonlinear coefficient lagging and Picard convergence",
+        "title": "Convergence of lagged diffusivity fixed point methods for total variation image restoration",
+        "trigger": "Possible broader generic convergence theorem for frozen state-dependent coefficients"
+      },
+      {
+        "assessment": "General lagged diffusivity framework; cannot be ruled out as a source of related convergence tools, but no exact specialized gas--dust midpoint implication was established.",
+        "evidence": [
+          "2017 Algorithms 10(3), 88; https://www.mdpi.com/1999-4893/10/3/88"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/10/3/88",
+        "material_read": "Search result and abstract-level summary; full text rate-limited",
+        "method": "Targeted title and abstract lookup; did not claim complete article inspection",
+        "title": "On the Lagged Diffusivity Method for the Solution of Nonlinear Finite Difference Systems",
+        "trigger": "Potential generalization of coefficient lagging to nonlinear finite differences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "737228d3-6587-4ae7-adb7-f695e77fd95b",
+  "value": {
+    "rationale": "Epstein--Baines is precisely m=1, the sharp boundary of uniform-in-input Picard convergence, giving a justified unconditional step-size guarantee for this specific method and a computable log-rate. The superlinear family explains stable coefficient-oscillation failure despite uniqueness of the implicit stage and gives exact stress-test parameters and multiplier for m=2; this is a motivated solver-design boundary rather than an arbitrary scalar numerical identity.",
+    "status": "PASS"
+  }
+}
