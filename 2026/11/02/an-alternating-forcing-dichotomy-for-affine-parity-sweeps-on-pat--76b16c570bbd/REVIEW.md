@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has exact quantifiers: integers \(n\ge2\), arbitrary field sizes \(q=2^h\), arbitrary offsets and all permutation schedules of path vertices. Local parity maps are affine adjacent-coordinate swaps in the root-coordinate realization, where the product is an \((n+1)\)-cycle. Translation to an affine constant-sum hyperplane gives fixed-point counts by gcd and parity of the repetition length. The separate adjacency-kernel calculation identifies the one obstruction to fixed points, and primitive periods follow constructively. These steps prove the infinite statement; the replayed 4,696-case exhaustive checker independently tested 154,528 initial states, with additional random large-size checks. The finite checks are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The linear map x↦Σ_i x_i(e_{i-1}+e_i) identifies F_q^n with the zero-sum hyperplane in F_q^{n+1}; each local update conjugates to adjacent swap plus b_i root translation. Any order of the n edge-transpositions along the path is one (n+1)-cycle. A global translation puts the affine map on constant-sum hyperplane H_c, whose c=0 is equivalent to solvability of A(P_n)x=b; the odd-n kernel is the alternating vector. P^t fixes gcd(t,n+1) cycles and one affine sum constraint yields the displayed counts; primitive period witnesses and Möbius inversion establish support and exact order. Independent exhaustive GF2/GF4 checks covered 4696 offset/order instances, not the all-n proof.
 
-The closest inspected primary source, Defant (arXiv:1511.06966), determines affine parity orbits on cycle graphs over the binary field and a specified update order. Macauley–McCammond–Mortveit (arXiv:0808.1238) focus on circular asynchronous cellular automata and general dynamics groups. Chen–Reidys (arXiv:1510.04930) provide a matrix-composition formula for arbitrary linear sequential systems, not the stated path-specific affine fixed and primitive-period counts. The type-\(A\) Coxeter identification and generic Möbius inversion are prior mathematical knowledge. The assessed new content is their combined exact all-size affine path orbit census, schedule universality, and alternating-forcing period restriction. Searches of published mathematical findings and recoverable prior claims did not identify equivalent or stronger coverage. The negative-search evidence is not proof of uniqueness; general affine-Coxeter literature not exhaustively checked remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The path is the canonical finite spatial interval for asynchronous local updates. The full classification measures how static vertex forcing changes the available global clock periods rather than merely detecting invertibility. It identifies a sharp one-dimensional obstruction, explains why forcing removes all periods missing the largest power of two in \(n+1\), and yields a complete maximal-cycle regime for dyadic path lengths. These are natural, schedule-robust orbit properties for an infinite system family, beyond a single small computation.
+Coxeter elements of type A and general sequential linear-system matrices are classical. The finite-field affine constant-sum representation plus arbitrary-schedule path-specific offset obstruction and complete orbit census are the surviving contributions. Defant’s closely related affine rule 150/105 work studies cycles with more restricted update settings rather than the exact asserted path theorem.
 
-## Relationship and limitations
+## value
 
-This result is specifically for fixed permutation schedules, finite characteristic-two fields, and nearest-neighbor self-inclusive parity with constant offsets. It does not subsume previous theorems for asynchronous cycle graphs or arbitrary graph maps. Broader historical equivalences remain possible, and no independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-schedule complete periodic-orbit classification for a natural reversible affine local-update system is a structural theorem, including a sharp forcing dichotomy and exact primitive period support beyond elementary matrix invertibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
