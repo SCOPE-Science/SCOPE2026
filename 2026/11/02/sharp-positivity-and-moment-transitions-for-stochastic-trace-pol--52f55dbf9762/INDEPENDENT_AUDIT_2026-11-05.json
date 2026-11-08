@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:15:10.876924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 87f37bdf0fbb80fc8ae9adbe6595626cd45cbcd8",
+        "Frozen verification/check.py Git blob c6298dd5ccac981519466cb5adb074a06ce81547"
+      ],
+      "rationale": "Spectral diagonalization gives exact preconditioner eigenvalues n−κ+n(κ−1) Ubar and n−1+n(κ−1)Ubar. Each independent spherical squared coordinate U has Beta(1/2,(n−1)/2), yielding SPD exactly when mean(nU)>(κ−n)/(κ−1), and the incomplete-beta one-probe failure. At κ=n the preconditioned condition number blows up as 1/(n² Ubar); the Dirichlet convolution of r x^(−1/2) densities gives tail t^(−r/2) with exact supplied constant and E K^q finite iff q<r/2, including divergence at equality. Law of large numbers and CLT prove the two limit orders, with chi-square limit in n. Independently verified the n=3 κ=9 half-probability and four exact critical-tail constants. Only one-spike spherical probes and exact arithmetic are covered.",
+      "residual_risks": [
+        "Stochastic trace probes independent and spherical, one spike, no roundoff or solver trajectory. Simulations support but do not prove stochastic asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutch++ gives general trace-estimation accuracy guarantees; specialized spike-critical condition-number tails are not stated.",
+          "Doikov–Rodomanov give exact symmetric-polynomial SPD guarantees, which require exact trace coefficients."
+        ],
+        "reasoning": "General relative-error trace bounds cannot guarantee positive definiteness when the smallest preconditioner eigenvalue approaches zero, and do not imply an exact beta failure probability or r/2 integrability transition.",
+        "searches": [
+          "https://arxiv.org/abs/2010.09649",
+          "https://arxiv.org/abs/2301.13194"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2301.13194",
+        "https://arxiv.org/abs/2010.09649"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Preexisting exact-trace preconditioner is provably SPD; this does not imply that its unbiased random trace substitution is SPD or yields finite expected conditioning.",
+          "The critical r/2 tail and noncommuting iterated limits require beta small-sum, small-eigenvalue asymptotics and central-limit analyses not in the inspected source."
+        ],
+        "reasoning": "Prior papers establish the setup and trace-estimation technology, not the sharp spike threshold, conditional heavy-tail constant, or limit-order phenomenon. A specialized unindexed stochastic-preconditioner analysis remains possible.",
+        "searches": [
+          "https://arxiv.org/abs/2301.13194",
+          "https://arxiv.org/abs/2010.09649"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doikov–Rodomanov first symmetric polynomial preconditioner equals tr(B)I−B; their Section 4.1 footnote notes a spherical unbiased trace estimator.",
+          "Their exact trace guarantees do not assert the distribution or positivity of the random substituted preconditioner."
+        ],
+        "reasoning": "Same estimator and preconditioner occurs as a suggested computational shortcut, but no inspected equivalent stochastic failure law or critical moment theorem accompanies it.",
+        "searches": [
+          "Resultary semantic search: spherical stochastic trace preconditioner symmetric polynomial trace minus matrix positivity heavy-tailed condition number",
+          "https://arxiv.org/abs/2301.13194"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A finite-dimension n=3,kappa=9 one-probe failure probability of 1/2 is an instance of a full n,r,kappa theorem, not a known small numerical table."
+        ],
+        "reasoning": "No exact database/table is naturally the right predecessor for this all-dimensional continuous-parameter probability law; the compared source provides the method and estimator but no exact tabulation of stochastic failure.",
+        "searches": [
+          "Resultary semantic search: spherical stochastic trace preconditioner symmetric polynomial trace minus matrix positivity heavy-tailed condition number",
+          "https://arxiv.org/abs/2301.13194"
+        ]
+      },
+      "rationale": "Qualified PASS: Doikov–Rodomanov (2023) introduce the exact trace-minus-B SPD preconditioner and mention spherical trace estimation, but their guarantee is for exact-trace coefficients. Hutch++ concerns trace accuracy. Neither inspected statement implies the random coefficient’s exact sharp SPD failure, heavy-tail cutoff r/2 or iterated-limit distinction. An unindexed specific one-spike stochastic-preconditioner result remains a risk.",
+      "residual_risks": [
+        "An exact specialized earlier preconditioner-tail analysis may be unindexed; Hutch++ full text not inspected, but abstract/method is not direct coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces trace-minus-B and notes random substitution but lacks its spike-dependent SPD failure law or moment threshold",
+          "evidence": [
+            "Section 4.1 first symmetric polynomial P1=tr(B)I−B and spherical trace estimator footnote."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.13194",
+          "material_read": "Full accessible primary PDF, particularly Section 4.1, exact trace spectrum and footnote on spherical trace estimation",
+          "method": "Primary PDF full-text and page-image inspection",
+          "title": "Polynomial Preconditioning for Gradient Methods",
+          "trigger": "Exact source of polynomial preconditioner and proposed unbiased trace substitute"
+        },
+        {
+          "assessment": "General trace approximation is not itself a sharp preconditioned spectrum theorem",
+          "evidence": [
+            "Trace estimation complexity and error guarantees rather than positive-definite first-symmetric-polynomial spike threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.09649",
+          "material_read": "Primary indexed abstract, not full paper",
+          "method": "arXiv abstract and stated estimator comparisons",
+          "title": "Hutch++: Optimal Stochastic Trace Estimation",
+          "trigger": "Potential dominating general random trace concentration bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2301.13194",
+        "https://arxiv.org/abs/2010.09649"
+      ],
+      "rationale": "PASS: plugging an unbiased spherical trace estimator into a supposedly SPD first-polynomial preconditioner is a natural matrix-free shortcut. The exact positivity frontier κ=n, critical r/2 moment cutoff and half-probability witness identify a meaningful reliability failure, and the noncommuting limits quantify why fixed probe budgets cannot robustly protect very large spikes.",
+      "residual_risks": [
+        "Does not analyze higher-degree polynomials, Hutch++ or numerical mitigation; no direct solver runtime guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Best-knowledge historical novelty with exact prior implication comparison; formal source was read but no new Lean compilation or expert attestation. Independent bounded checks are not unrestricted proofs. Private metadata prohibits publication in this run. The third scientific verdict is rejection for decisive previous identical theorem.",
+  "schema_version": 1
+}

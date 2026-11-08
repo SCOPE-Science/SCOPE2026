@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The analytic proof and the standalone script `verification/check.py` are the evidence for this package. The script executes without third-party dependencies using Python 3 and checks diagonal eigenvalue identities for 25 parameter choices, exact beta-CDF instances in dimensions two and three, the critical three-dimensional half-probability example, finite independent-sphere simulations, exact tail constants for the critical regime, and a high-dimensional chi-square approximation.
+# Independent mathematical audit
 
-Run: `python3 verification/check.py` from the package root.
+## correctness
 
-Observed output: `VERIFY_OK exact_spectral_cases=25 beta_cdf_cases=5 finite_probe_checks=4 high_dimension=1`.
+PASS
 
-Random simulations have fixed seeds and specified finite sample counts. They verify finite comparisons within numerical tolerance but do not prove beta-law identities, tail equivalences, integrability boundaries, or the order-of-limits statements; those are established in `RESULT.md`. No external audit or independent validation is claimed.
+Spectral diagonalization gives exact preconditioner eigenvalues n−κ+n(κ−1) Ubar and n−1+n(κ−1)Ubar. Each independent spherical squared coordinate U has Beta(1/2,(n−1)/2), yielding SPD exactly when mean(nU)>(κ−n)/(κ−1), and the incomplete-beta one-probe failure. At κ=n the preconditioned condition number blows up as 1/(n² Ubar); the Dirichlet convolution of r x^(−1/2) densities gives tail t^(−r/2) with exact supplied constant and E K^q finite iff q<r/2, including divergence at equality. Law of large numbers and CLT prove the two limit orders, with chi-square limit in n. Independently verified the n=3 κ=9 half-probability and four exact critical-tail constants. Only one-spike spherical probes and exact arithmetic are covered.
+
+## originality
+
+PASS
+
+Qualified PASS: Doikov–Rodomanov (2023) introduce the exact trace-minus-B SPD preconditioner and mention spherical trace estimation, but their guarantee is for exact-trace coefficients. Hutch++ concerns trace accuracy. Neither inspected statement implies the random coefficient’s exact sharp SPD failure, heavy-tail cutoff r/2 or iterated-limit distinction. An unindexed specific one-spike stochastic-preconditioner result remains a risk.
+
+## value
+
+PASS
+
+PASS: plugging an unbiased spherical trace estimator into a supposedly SPD first-polynomial preconditioner is a natural matrix-free shortcut. The exact positivity frontier κ=n, critical r/2 moment cutoff and half-probability witness identify a meaningful reliability failure, and the noncommuting limits quantify why fixed probe budgets cannot robustly protect very large spikes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

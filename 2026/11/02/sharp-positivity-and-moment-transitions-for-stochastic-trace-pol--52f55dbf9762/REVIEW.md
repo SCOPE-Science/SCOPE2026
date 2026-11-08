@@ -1,11 +1,21 @@
-# Scientific review: stochastic-trace polynomial preconditioning
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact-trace spectral condition number follows from diagonal eigenvalues. Independent spherical probes have a beta-distributed squared first coordinate, yielding the sharp condition-number threshold and incomplete-beta one-probe probability. At the critical threshold, a Dirichlet small-sum convolution gives the \(r/2\) tail exponent and exact leading constant. The strong law, central limit theorem, and Gaussian representation of spherical vectors establish the stated noncommuting limits. Finite simulation and exact-special-case verification are recorded in `verification/check.py`; they do not replace the proofs.
+## correctness
 
-**Originality — PASS, qualified.** The closest directly relevant source, Doikov and Rodomanov (2023), defines the exact-trace preconditioner and explicitly suggests the spherical unbiased trace estimator in its Section 4.1 footnote; its inspected Section 4 guarantees positivity for the exact-trace polynomial, not for its random plug-in. Meyer and collaborators (2020/2021) develop trace-estimation accuracy but do not state this preconditioner-specific positivity threshold, heavy-tail moment classification, or limit-order phenomenon. Related published mathematical findings about trace-estimator variance and Nyström preconditioning concern different constructions and do not imply the stated exact critical \(r/2\) condition-number tail without a new analysis. The beta law and the underlying stochastic trace estimator are prior knowledge; this review does not claim to originate them. A previously published specialized treatment remains possible.
+PASS
 
-**Value — PASS.** A matrix-free shortcut explicitly contemplated in a polynomial-preconditioning paper may yield an indefinite preconditioner despite being unbiased. The classification specifies when positivity is certain or only almost sure, identifies the minimal three-probe budget for a finite expected condition number at the critical spectral spike, gives an exact finite-dimensional failure probability, and explains why no fixed sampling budget is uniformly safe at arbitrarily large spikes. The sharp cutoff and integrability law are operationally relevant to using approximate trace coefficients inside positive-definite preconditioners.
+Spectral diagonalization gives exact preconditioner eigenvalues n−κ+n(κ−1) Ubar and n−1+n(κ−1)Ubar. Each independent spherical squared coordinate U has Beta(1/2,(n−1)/2), yielding SPD exactly when mean(nU)>(κ−n)/(κ−1), and the incomplete-beta one-probe failure. At κ=n the preconditioned condition number blows up as 1/(n² Ubar); the Dirichlet convolution of r x^(−1/2) densities gives tail t^(−r/2) with exact supplied constant and E K^q finite iff q<r/2, including divergence at equality. Law of large numbers and CLT prove the two limit orders, with chi-square limit in n. Independently verified the n=3 κ=9 half-probability and four exact critical-tail constants. Only one-spike spherical probes and exact arithmetic are covered.
 
-**Limits and verification risk.** Only independent spherical probes, the first symmetric-polynomial preconditioner, one-spike real SPD spectra, and exact arithmetic are covered. Trace-estimation procedures that deflate spikes, probe deterministically, or impose positivity safeguards can behave differently. The literature comparison cannot establish unique publication priority, and no independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Doikov–Rodomanov (2023) introduce the exact trace-minus-B SPD preconditioner and mention spherical trace estimation, but their guarantee is for exact-trace coefficients. Hutch++ concerns trace accuracy. Neither inspected statement implies the random coefficient’s exact sharp SPD failure, heavy-tail cutoff r/2 or iterated-limit distinction. An unindexed specific one-spike stochastic-preconditioner result remains a risk.
+
+## value
+
+PASS
+
+PASS: plugging an unbiased spherical trace estimator into a supposedly SPD first-polynomial preconditioner is a natural matrix-free shortcut. The exact positivity frontier κ=n, critical r/2 moment cutoff and half-probability witness identify a meaningful reliability failure, and the noncommuting limits quantify why fixed probe budgets cannot robustly protect very large spikes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
