@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Euler-tour rooted-type formula is converted to a scalar factorial criterion. Explicit formulas handle directed cycles, bowties, and theta supports. The five-arc case has a lower bound of two rooted cycles and six arcs a lower bound of three; periodic pure cycles are handled separately. The resulting five disjoint generating series are algebraically combined; independent word and balanced-matrix enumerations agree through lengths 9 and 26, respectively.
+## correctness
 
-**Originality — PASS with residual priority risk.** Direct comparison with the full primary text of the 2010 Markov-type paper and Chapter 11.2 of the 2022 book shows that the rational series for all balanced matrices and Markov-type asymptotics are prior, but this theorem asks for singleton cyclic-word fibers, an additional constraint absent from the cited general counts. The 2026 Eulerian-trail enumeration source likewise addresses a different output. Indexed searches for aliases, uniqueness, Euler tours, and cyclic reconstruction did not identify an equivalent or dominating theorem. Unindexed published reconstruction claims remain possible.
+PASS
 
-**Value — PASS.** Uniqueness of reconstruction from adjacent-pair profiles is a natural invariant of circular string assembly. This exact all-length classification reveals a quadratic reconstructible-profile count and a strict four-cross-arc restriction, contrasting with the much larger total profile family; it is not an arbitrary bounded census or a recomputation of a balanced-matrix total.
+For a balanced connected three-vertex directed multigraph the BEST/Whittle rooted-word formula T(M)=n*tau*product_i(d_i-1)!/product_ij(m_ij)! correctly accounts for indistinguishable parallel arcs. The source handles nonprimitive pure repeated 2- and 3-cycles separately; for all other unique cases a unit-multiplicity edge forces primitivity and F=T/n=1. Loop multiplier binomial(r_i+a_i-1,a_i) and exact bowtie/theta F formulas classify <=4 cross-arcs; five-cross-arc lower bound >=2 and six-cross-arc arborescence lower bound >=3 exclude others. Sum of five disjoint support GFs gives the claimed rational function and leading n² term. Independent brute force grouped all 88,572 ternary words of lengths 1..10 by digram profile and necklace, reproducing coefficients 3,6,11,24,45,64,93,114,139,168; symbolic summation confirmed the rational identity. Enumeration is only corroboration: the support and primitivity arguments are the all-length proof.
 
-Scientific limits: fixed ternary alphabet, cyclic pair statistics only, no independent priority or mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical BEST/Whittle counts Euler circuits and all Markov transition matrices, but the five-support singleton-necklace fiber classification and generating series require an additional ambiguity criterion. The published Resultary binary two-spectrum singleton table is a proper alphabet restriction and cannot imply the labeled ternary classification without new case analysis. The full-result theorem remains best-of-knowledge original, with possible unindexed assembly results.
+
+## value
+
+PASS
+
+Unique reconstruction from cyclic adjacent-pair statistics is a natural question in sequence assembly and Markov-type inversion. An exact labeled ternary all-length five-support classification, GF and quadratic growth degree give nontrivial structural information, not routine reparameterization of BEST or known binary tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
