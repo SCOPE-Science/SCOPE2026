@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The mathematical proof is algebraic and does not rely on a finite computation. The independent direct verifier `verify.py` enumerates all vector subspaces in reduced row echelon form, multiplies their basis elements in the quadratic-truncated polynomial algebra, and checks closure. It compares the resulting profiles to the stated Gaussian-binomial expression.
+# Independent mathematical audit
 
-Command: `python verify.py` (Python standard library only).
+## correctness
 
-Direct checks: \((d,q)=(1,2),(1,3),(2,2),(2,3)\). All \(374\) subspaces were classified for \((2,2)\), with \(50\) closed; all \(2664\) for \((2,3)\), with \(117\) closed. At these two dimensions, the subalgebra-dimension profiles were \((1,7,19,19,3,1)\) and \((1,13,49,49,4,1)\). Output also evaluates formulas for \((3,2),(3,3),(4,2),(5,2)\) but these cases are *not* exhaustive verification. The program returned `VERIFY_OK`.
+PASS
 
-Boundary conditions: the exact theorem includes characteristic two and arbitrary prime powers; direct computational verification uses only prime fields. The probability limit uses fixed \(q\) and growing \(d\). An independently performed mathematical audit and independent literature-priority assessment remain outstanding.
+For q any prime power, d>=2, A=F_q[X1,...,Xd]/m^3, set V=m/m^2 of dimension d, Z=m^2=Sym^2 V of dimension D=d(d+1)/2. Each F_q-linear unital subalgebra B=F_q1+W corresponds bijectively to U=proj_V W, T=W∩Z and a graph map phi:U->Z/T, with multiplication closure iff Sym^2 U⊆T (basis products independent also in characteristic 2). For s=dim U, e_s=s(s+1)/2, r=dim T, counting U,T,phi yields exactly [d s]_q [D-e_s r-e_s]_q q^{s(D-r)} z^{1+s+r}. For fixed q, s=0 count H_q(D); s=1 count [d1]_q(H_q(D)-H_q(D-1)); using Gaussian estimates and exponent s(d-s)+(D-s(s-1)/2)^2/4 excludes all s>=2 uniformly, so P(dim U=1)=1-(1+o(1))/[d1]_q=1-(q-1+o(1))q^-d. Independently exhausted all 374 subspaces of five-dimensional nilpotent ideal over F2 for d=2, yielding 50 closed, with dimension strata (1,7,19,19,3,1); formula gives q=3 profile (1,13,49,49,4,1). The last numerical profile is formula evaluation, not a full independent q=3 exhaustive claim.
+
+## originality
+
+PASS
+
+Qualified originality of an all-dimension Gaussian-binomial rank polynomial for a specific free cube-zero local ring and fixed-field concentration law; one-variable truncated rings and enumerations of isomorphism classes of ambient cube-zero rings are prior. H. Strade (1975) is a plausible dominating general nilpotent-algebra subalgebra-enumeration result; full text unavailable due authorized VPN disconnection, retained as material residual priority risk, not automatic rejection.
+
+## value
+
+PASS
+
+The full subalgebra dimension distribution of a canonical local algebra, together with unexpected concentration on one-dimensional cotangent images in high embedding dimension, is a natural independent algebraic counting/classification target; not an arbitrary small finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

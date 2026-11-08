@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is a bijection, not just an upper bound: for a unital subalgebra \(\mathbb F_q1\oplus W\), its uniquely determined image \(U\) modulo \(\mathfrak m^2\), intersection \(T\) with \(\mathfrak m^2\), and graph map \(\phi:U\to\mathfrak m^2/T\) recover \(W\). Closure is equivalent to the necessary and sufficient condition \(\operatorname{Sym}^2 U\subseteq T\) because all mixed products with the quadratic ideal vanish. The symmetric-square dimension count remains valid in characteristic two since distinct products of degree-one monomials form a basis. Exact Gaussian counting establishes the full rank polynomial. The large-embedding-dimension limit follows from uniform Gaussian-binomial bounds and a proved estimate for every higher-dimensional image stratum. Independent direct finite enumeration over two prime fields supports the formula without constituting a proof for all dimensions or fields.
+## correctness
 
-## Originality — PASS relative to inspected material
-The most directly related accessible primary full text, Franco Muñoz (2018, arXiv:1812.03576), concerns \(K[x]/x^n\) in **one variable** and small truncation lengths; its univariate special case is acknowledged. Blackburn–McLean (2022, DOI:10.1112/jlms.12661) count isomorphism classes of nilpotent commutative algebras, not subalgebras inside the specific free truncated symmetric algebra. Isham (2022, arXiv:2203.00646) counts finite-index subrings of \(\mathbb Z^n\), not subspaces closed under the product in the finite local algebra here. The full text of a relevant published short-local-algebra classification was examined: its tensor-kernel monomializability criterion is unrelated to subalgebra enumeration. Published research-record searches did not return an equivalent rank polynomial or a fixed-field asymptotic cotangent-line concentration theorem.
+PASS
 
-**Material risk:** Strade (1975, DOI:10.1090/S0002-9939-1975-0357526-4) enumerates subalgebras in some nilpotent algebra classes, including alternatives, according to its bibliographic abstract. Full text was inaccessible; its exact statement might cover or imply part of the formula. The available abstract does not document the claimed multivariable rank distribution or asymptotic; its absence from search results is not a proof of novelty. This self-review is explicitly provisional and does not resolve independent publication priority. A general theorem on arbitrary cube-zero algebras could also specialize to the present count.
+For q any prime power, d>=2, A=F_q[X1,...,Xd]/m^3, set V=m/m^2 of dimension d, Z=m^2=Sym^2 V of dimension D=d(d+1)/2. Each F_q-linear unital subalgebra B=F_q1+W corresponds bijectively to U=proj_V W, T=W∩Z and a graph map phi:U->Z/T, with multiplication closure iff Sym^2 U⊆T (basis products independent also in characteristic 2). For s=dim U, e_s=s(s+1)/2, r=dim T, counting U,T,phi yields exactly [d s]_q [D-e_s r-e_s]_q q^{s(D-r)} z^{1+s+r}. For fixed q, s=0 count H_q(D); s=1 count [d1]_q(H_q(D)-H_q(D-1)); using Gaussian estimates and exponent s(d-s)+(D-s(s-1)/2)^2/4 excludes all s>=2 uniformly, so P(dim U=1)=1-(1+o(1))/[d1]_q=1-(q-1+o(1))q^-d. Independently exhausted all 374 subspaces of five-dimensional nilpotent ideal over F2 for d=2, yielding 50 closed, with dimension strata (1,7,19,19,3,1); formula gives q=3 profile (1,13,49,49,4,1). The last numerical profile is formula evaluation, not a full independent q=3 exhaustive claim.
 
-## Mathematical value — PASS
-The fixed ambient algebra is the natural free commutative Artinian local algebra with a cubic nilpotency cutoff and an unconstrained symmetric-square multiplication map. The complete subalgebra rank polynomial is a canonical algebra invariant for all field sizes and embedding dimensions, rather than a selected numerical coefficient. The probability limit identifies a non-obvious structural phenomenon: although the ambient first-order space grows, almost every unital subalgebra projects to exactly one dimension, with a sharp error asymptotic reciprocal to the number of projective points. Both the classification and the concentration are motivated by finite-ring subalgebra enumeration and can serve as benchmarks for general nilpotent local algebras; neither follows simply from counting vector subspaces without the multiplication-closure constraint.
+## originality
 
-## Limits
-Only \(\mathbb F_q\)-linear unital subalgebras are counted; the asymptotic fixes \(q\). Exhaustive computations concern only the smallest prime-field examples, not general correctness or independent validation. Literature priority has not been independently settled.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified originality of an all-dimension Gaussian-binomial rank polynomial for a specific free cube-zero local ring and fixed-field concentration law; one-variable truncated rings and enumerations of isomorphism classes of ambient cube-zero rings are prior. H. Strade (1975) is a plausible dominating general nilpotent-algebra subalgebra-enumeration result; full text unavailable due authorized VPN disconnection, retained as material residual priority risk, not automatic rejection.
+
+## value
+
+PASS
+
+The full subalgebra dimension distribution of a canonical local algebra, together with unexpected concentration on one-dimensional cotangent images in high embedding dimension, is a natural independent algebraic counting/classification target; not an arbitrary small finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
