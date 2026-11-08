@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The simplex Gram matrix has off-diagonal -1/d and eigenvalue n/d on its d-dimensional row space; every size-k sub-Gram matrix is positive definite. Its ones-eigenvalue (d-k+1)/d gives z_S and norm squared delta^2*k*d/(d-k+1). Permutation symmetry and trace give E[P_S]=k/d I, E[z_S]=0 and E[z_S z_S^T]=delta^2*k/(d-k+1) I. Since Q_S z_S=0, the conditional squared-error recurrence is exact, hence its solved transient and stationary formulas hold for every d,k,t. Isotropy of the covariance at an LS initialization follows by induction. The included exact rational script checked all subsets for d=2..7 and every k; these finite checks are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2608.22259 Theorem 5.2 and proof, particularly the inequality at Eq. 34",
+        "https://arxiv.org/abs/1208.3805 Theorem 1.2 and Section 1.6",
+        "https://arxiv.org/abs/1403.4192 Sections 1-3"
+      ],
+      "reasoning": "Gan-Wu bounds α^t times the initial error plus a sketch-dependent horizon; their proof supplies the standard orthogonality identity. On this simplex one must additionally prove the uniform averaged projector is scalar and the noise forcing is isotropic to recover exact finite-time equalities. Needell-Tropp studies fixed row partitions with paving-dependent upper bounds, not the independent all-k-subsets distribution. Needell-Zhao-Zouzias includes residual correction and is not the same iteration.",
+      "searches": [
+        "uniform random k-row block Kaczmarz regular simplex tight frame inconsistent all-one right hand side exact mean square error floor d squared over d-k+1",
+        "randomized block Kaczmarz inconsistent data larger blocks worse mean-square noise floor simplex equiangular tight frame sharp block size rate",
+        "Kaczmarz normalized tight frame equiangular simplex frame constant response error floor blocks projection convergence tradeoff",
+        "Doubly noisy randomized Kaczmarz multiplicative noisy coefficient perturbation exact stationary bias error floor orthogonal two row systems",
+        "Gaussian noisy Kaczmarz normalized noisy row projection random fixed-point exact bias variance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.22259",
+      "https://arxiv.org/abs/1208.3805",
+      "https://arxiv.org/abs/1403.4192",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2608.22259 Eq. 33 orthogonal decomposition and Eq. 34 upper bound",
+        "https://arxiv.org/abs/1208.3805 Theorem 1.2 convergence horizon; fixed-partition Algorithm 1.1",
+        "https://arxiv.org/abs/1403.4192 Algorithm 1 extended residual correction"
+      ],
+      "reasoning": "A generic upper bound for the squared error can be specialized to give an upper bound of the same asymptotic scale, and its derivation motivates this calculation. It neither asserts equality at all iterations nor determines the covariance. The present proof makes the conditional bound an equality through the exact simplex average and identifies strict increase of steady error and every positive-time error (at least-squares initialization) across block sizes. Thus the complete claim is not a formal corollary of the cited inequalities alone. Equivalent older sharpness examples remain a live risk.",
+      "searches": [
+        "uniform random k-row block Kaczmarz regular simplex tight frame inconsistent all-one right hand side exact mean square error floor d squared over d-k+1",
+        "randomized block Kaczmarz inconsistent data larger blocks worse mean-square noise floor simplex equiangular tight frame sharp block size rate",
+        "Kaczmarz normalized tight frame equiangular simplex frame constant response error floor blocks projection convergence tradeoff",
+        "\"simplex\" \"block Kaczmarz\" \"noise\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2608.22259 Sections 4.2-5; Eqs. 33-34",
+        "https://arxiv.org/abs/1208.3805 Sections 1.3-1.6",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+      ],
+      "reasoning": "Compared the uniform-size-subset affine projection on the regular-simplex rows with general sketch-and-project, fixed-paving block methods, normalized-frame Kaczmarz, and different cyclic/order-reversed procedures. The specific all-size exact transient mean-square and isotropic covariance statement was not found. General projector formulas are prior, but do not by themselves assert the exact all-time noise-floor reversal.",
+      "searches": [
+        "uniform random k-row block Kaczmarz regular simplex tight frame inconsistent all-one right hand side exact mean square error floor d squared over d-k+1",
+        "randomized block Kaczmarz inconsistent data larger blocks worse mean-square noise floor simplex equiangular tight frame sharp block size rate",
+        "Kaczmarz normalized tight frame equiangular simplex frame constant response error floor blocks projection convergence tradeoff",
+        "\"simplex\" \"block Kaczmarz\" \"noise\"",
+        "\"regular simplex\" \"Kaczmarz\" inconsistent",
+        "\"tight frame\" \"Kaczmarz\" \"noise floor\" \"block\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "No indexed record returned that described this exact frame/noise/covariance profile."
+      ],
+      "reasoning": "Nearest returned public research records concern coherence spikes under maximal-distance row selection, order-reversal of underrelaxed cyclic Kaczmarz, and transient overrelaxation. Their objects, sampling and state quantities differ. A semantic search returning no exact match is not proof of uniqueness.",
+      "searches": [
+        "uniform random k-row block Kaczmarz regular simplex tight frame inconsistent all-one right hand side exact mean square error floor d squared over d-k+1",
+        "randomized block Kaczmarz inconsistent data larger blocks worse mean-square noise floor simplex equiangular tight frame sharp block size rate",
+        "Kaczmarz normalized tight frame equiangular simplex frame constant response error floor blocks projection convergence tradeoff"
+      ]
+    },
+    "rationale": "The established noisy sketch-and-project inequality gives a convergence neighborhood, whereas the present result gives equality at every finite iteration and the full covariance for every uniformly sampled subset size in a minimal-redundancy tight frame. The exact strict block-size reversal, including a dimension-factor gap and covariance isotropy, was not located in inspected relevant full-text sections or indexed mathematical claims. Priority remains qualified by the possibility of an older unindexed equality-case computation.",
+    "residual_risks": [
+      "The newest general sketch-and-project proof is close to the present conditional second-moment equality; an unindexed explicit regular-simplex equality case may be prior.",
+      "Older block iterative-projection literature not exhausted, and some related sources were compared via accessible summaries rather than full text.",
+      "Finite exact tests diagnose arithmetic but do not establish novelty or mathematical proof for all dimensions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bounds and fixed-paving block theory do not state the uniform-subset simplex equality and covariance formulas",
+        "evidence": [
+          "https://arxiv.org/abs/2608.22259 Sections 1, 3, 4.2, 5 and 6.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22259",
+        "material_read": "Full-text HTML-rendered Sections 1-3, 4.2, 5 and 6.4, including theorem statements and displayed projection/error equations (33),(34), plus targeted text checks for simplex, stationary and covariance.",
+        "method": "Read primary arXiv full-text HTML representation and examined relevant theorem/proof sections",
+        "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+        "trigger": "Direct motivating recent source with 65F10 ownership and general noisy sketch-and-project bounds"
+      },
+      {
+        "assessment": "Upper bounds for fixed paving; no all-subset exact second moment found in material inspected",
+        "evidence": [
+          "https://arxiv.org/abs/1208.3805 Algorithm 1.1; Theorem 1.2; Section 1.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.3805",
+        "material_read": "Full-text HTML-rendered introduction, sections 1.3-1.6, Algorithm 1.1 and Theorem 1.2, with targeted simplex and stationary searches.",
+        "method": "Read primary arXiv text, compared hypotheses (fixed paving) and error bound to new subset sampling",
+        "title": "Paved with Good Intentions: Analysis of a Randomized Block Kaczmarz Method",
+        "trigger": "Foundational noisy block Kaczmarz paper; plausible stronger convergence horizon coverage"
+      },
+      {
+        "assessment": "The algorithm includes residual correction and differs from ordinary unextended projection; does not cover the stated stochastic covariance identity",
+        "evidence": [
+          "https://arxiv.org/abs/1403.4192 Algorithm 1; Sections 1-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4192",
+        "material_read": "Full-text HTML-rendered Sections 1-3, especially Algorithm 1 and paving hypotheses, with targeted simplex search.",
+        "method": "Read primary arXiv full-text sections and compare residual-correction iteration",
+        "title": "Randomized Block Kaczmarz Method with Projection for Solving Least Squares",
+        "trigger": "Same block pseudoinverse updates applied to inconsistent least squares"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19551a18-9d65-4641-ad50-3d39420da99b",
+  "value": {
+    "rationale": "The regular simplex is the natural minimally redundant unit tight frame: its entire observation inconsistency is the common-mode residual, so the calculation classifies all noisy response vectors in that family. It shows an exact, strictly monotone and dimension-unbounded tradeoff between noiseless contraction and actual least-squares error floor, and also yields the entire finite-time covariance. This is useful for testing block-size heuristics in noisy projection solvers without confusing bias in the least-squares target with iteration noise. It makes no claim about general frames or computational cost.",
+    "status": "PASS"
+  }
+}
