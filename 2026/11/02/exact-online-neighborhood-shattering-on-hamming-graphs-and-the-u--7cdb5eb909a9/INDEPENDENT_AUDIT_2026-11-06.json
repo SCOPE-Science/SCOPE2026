@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:49:55.712825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two distinct positive queries x,y, common positive centers are q−2 points on their coordinate line when d_H(x,y)=1, exactly two switch-point centers when distance=2, or empty otherwise. Any third query splits the line into at most one versus the rest, hence the doubly positive candidate family has Ldim<=1; no complete adaptive depth-four tree exists. The packaged TREES.json depth-three witnesses for H(2,3), H(4,2) and depth-two H(3,2) are consistent with distance-one relations; independently computed exact finite Ldim via recursive candidate splitting, obtaining Ldim values 1,1,2,3,3,3,3 for (d,q)=(1,3),(2,2),(3,2),(2,3),(4,2),(3,3),(2,4). Product alphabet/dimension embeddings extend lower bounds, small neighborhood sizes give exceptional upper bounds. Read Adler–Benediktsson–Macpherson Theorem 4.7 in accepted full text: VC=3 exactly for d>=3,q>=3 or d>=2,q>=4 or d>=4,q>=2, and VC=2 at H(2,3). Thus unique strict Ldim>VC gap H(2,3). Infinite upper bound is structural, not inferred from finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler et al. full Section 4 gives intersection geometry and VC bounds, not a tree-shattering dimension formula in the inspected full text."
+        ],
+        "reasoning": "Local intersection lemmas supply prior ingredients but no identified adaptive upper/lower classification; general zero-set family uses broader concept class not this sparse neighborhood family.",
+        "searches": [
+          "Theorem 4.7 Adler Benediktsson Macpherson 2022",
+          "Guingona Kolesnikov Nierwinski Soucy Littlestone VC zero sets"
+        ]
+      },
+      "checked_sources": [
+        "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+        "https://arxiv.org/abs/2007.16042",
+        "https://arxiv.org/abs/2109.04805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.7 predicts static VC=2 at H(2,3), while audited adaptive depth-three witnesses establish Ldim=3; static theorem cannot imply the online upper bound."
+        ],
+        "reasoning": "Known common-neighbor lemma simplifies the new adaptive argument, but a published consequence may predate it outside reviewed sources.",
+        "searches": [
+          "Adler et al. 2022 Theorems 4.6–4.8",
+          "arxiv:2109.04805",
+          "Littlestone dimension Hamming graph open neighborhoods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original source studies the same distance-one open-neighborhood family but a static VC parameter. The current proof uses adaptive queries and positive-positive restrictions."
+        ],
+        "reasoning": "VC dimension <=3 does not automatically imply Ldim<=3; VC(H(2,3))=2 is consistent with Ldim=3, demonstrating non-equivalence.",
+        "searches": [
+          "Resultary: Hamming graph open neighborhood Littlestone dimension online shattering VC dimension",
+          "Adler Benediktsson Macpherson VC Hamming graph 2022",
+          "Littlestone Hamming graph exact dimension mistake tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assessed result is an all-d,q mathematical family, not a lookup table; H(2,3) and H(4,2) witness certificates were checked independently by recursive finite recurrence."
+        ],
+        "reasoning": "No exact online Hamming-neighborhood dimension table found in targeted searches; this is not itself a novelty proof.",
+        "searches": [
+          "Resultary: Hamming graph open neighborhood Littlestone dimension online shattering VC dimension",
+          "Resultary published Hamming graph online shattering VC Littlestone"
+        ]
+      },
+      "rationale": "The same open-neighborhood VC classification is established and explicitly credited to Adler–Benediktsson–Macpherson; adaptive Littlestone dimension and its unique strict VC gap do not follow solely from static VC classification. The exact online formula survived targeted published-search checks, qualified by literature breadth.",
+      "residual_risks": [
+        "Potential undiscovered exact Littlestone calculation for Hamming graphs under alternate online-learning terminology; search cannot certify priority.",
+        "Only full graphs receive a complete value; induced subgraphs receive the upper bound 3, not a full classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes static VC=3 parameter ranges, VC=2 at H(2,3); no explicit Littlestone formula in the material inspected",
+          "evidence": [
+            "Theorem 4.7 conditions d>=3,q>=3; d>=2,q>=4; d>=4,q>=2; Lemma 4.5 common neighbor counts q−2 and 2"
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "material_read": "Accepted-version full-text Section 4, Lemmas 4.1–4.5 and Theorems 4.6–4.8, plus introduction and method context",
+          "method": "Web full PDF extracted text lines 954–1155; attempted PDF screenshot but fetch disabled",
+          "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "Exact same Hamming open-neighborhood relation and local common-neighbor lemmas"
+        },
+        {
+          "assessment": "Different full families of linear-combination zeros; cannot conclude universal inapplicability without stronger statement",
+          "evidence": [
+            "The subject is all nontrivial linear-combination zero sets, not specifically graph open neighborhoods"
+          ],
+          "identifier_or_url": "arXiv:2109.04805",
+          "material_read": "Bibliographic title and abstract-level scope only, not full text",
+          "method": "Web literature query and source-package references",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Potential general adaptive-shattering framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact online/adaptive shattering dimension of an infinite natural graph family is a substantial learning-theoretic invariant. The unique H(2,3) gap clarifies that adaptive and static neighborhood complexity differ in one sharp exceptional family. It uses nontrivial structural geometry, not just a trivial VC restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential undiscovered exact Littlestone calculation for Hamming graphs under alternate online-learning terminology; search cannot certify priority.",
+    "Only full graphs receive a complete value; induced subgraphs receive the upper bound 3, not a full classification."
+  ],
+  "schema_version": 1
+}

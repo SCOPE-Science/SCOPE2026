@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pair-intersection lemma distinguishes Hamming query distance one, two, and at least three. A common-neighbor coordinate line has no balanced two-versus-two neighborhood trace, and a two-center intersection cannot shatter depth two. Thus a positive-positive branch of a depth-four adaptive tree is impossible. The small-parameter upper bounds use exact positive-branch cardinalities, while the lower bounds have complete explicitly checked trees with one center witness per leaf; induced embeddings propagate them to all allowed parameters. The sole-gap comparison uses the already-published exact VC theorem. Finite verification is corroborative rather than a substitute for the unrestricted argument.
+PASS
 
-## Originality — PASS under accessible comparison
+For two distinct positive queries x,y, common positive centers are q−2 points on their coordinate line when d_H(x,y)=1, exactly two switch-point centers when distance=2, or empty otherwise. Any third query splits the line into at most one versus the rest, hence the doubly positive candidate family has Ldim<=1; no complete adaptive depth-four tree exists. The packaged TREES.json depth-three witnesses for H(2,3), H(4,2) and depth-two H(3,2) are consistent with distance-one relations; independently computed exact finite Ldim via recursive candidate splitting, obtaining Ldim values 1,1,2,3,3,3,3 for (d,q)=(1,3),(2,2),(3,2),(2,3),(4,2),(3,3),(2,4). Product alphabet/dimension embeddings extend lower bounds, small neighborhood sizes give exceptional upper bounds. Read Adler–Benediktsson–Macpherson Theorem 4.7 in accepted full text: VC=3 exactly for d>=3,q>=3 or d>=2,q>=4 or d>=4,q>=2, and VC=2 at H(2,3). Thus unique strict Ldim>VC gap H(2,3). Infinite upper bound is structural, not inferred from finite enumeration.
 
-The closest paper is Adler–Benediktsson–Macpherson, arXiv:2007.16042, whose complete Section 4 establishes the static VC classification and neighborhood-intersection geometry. Its Theorems 4.6–4.7 do not address online shattering. The additional positive-positive branch obstruction together with a depth-three tree in \(H(2,3)\) establishes an online value not implied by their VC result; the unique adaptive-versus-static exception follows only after this new work. Available searches also examined general Littlestone dimensions and algebraic zero-set families. Historical-priority search cannot be exhaustive and independent assessment remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles an all-parameter natural invariant of a graph class that is central in model-theoretic VC research, including every small boundary. It distinguishes the unique smallest Hamming graph where two standard complexity measures differ and gives a uniform three-level online bound even under induced restrictions. The isolated strict gap \(2<3\) is a structural phenomenon, not a rounding, naming, or normalization artifact. The exact answer guides which Hamming edge-query families are statically representative of their online mistake complexity.
+The same open-neighborhood VC classification is established and explicitly credited to Adler–Benediktsson–Macpherson; adaptive Littlestone dimension and its unique strict VC gap do not follow solely from static VC classification. The exact online formula survived targeted published-search checks, qualified by literature breadth.
 
-## Limitations and closest literature
+## value
 
-Theorem 4.7 of the focal source is established prior work, not a new component. The theorem concerns open adjacency only, with no full characterization of dimensions in arbitrary induced subgraphs. Published-record and full-text searches cannot rule out every independent discovery or terminology variant. The finite certificate checking has not been independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact online/adaptive shattering dimension of an infinite natural graph family is a substantial learning-theoretic invariant. The unique H(2,3) gap clarifies that adaptive and static neighborhood complexity differ in one sharp exceptional family. It uses nontrivial structural geometry, not just a trivial VC restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
