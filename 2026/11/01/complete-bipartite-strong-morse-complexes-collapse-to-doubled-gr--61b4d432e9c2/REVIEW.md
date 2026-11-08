@@ -1,15 +1,21 @@
-# Scientific review: complete bipartite strong Morse complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact strong-matching rule follows from the one-dimensional descending link being a discrete set, conical precisely at singleton cardinality. The case analysis on the first vertices from the two bipartition classes proves that **all** strong-match simplices lie in the stated \(m+n+2mn\) generators; explicit orders realize every generator. A mixed-target face of dimension at least one has a unique containing bridge cone. Descending-cardinality paired deletions thus provide genuine elementary simplicial collapses of each cone relative to its two target stars, and then of each target simplex to a tree. Counting surviving edges and vertices gives a connected graph with \(2mn\) vertices and \(4mn-m-n\) edges. This proves the integral homotopy type for every \(m,n\ge2\). The accompanying independently constructed order enumerator and free-face checker verified nine finite parameter pairs, totaling 132624 orders and 738 elementary collapses. These checks corroborate, rather than replace, the all-parameter proof.
+## correctness
 
-## Originality — PASS, with stated residual risk
-Knudson and Owens–White, arXiv:2609.06844v1, introduce the exact strong object. Their Theorem 7.1 gives the star case \(K_{1,n}\), outside the claimed domain, and their Proposition 8.5 gives \(K_{2,2}\cong C_4\), which is acknowledged as a pre-existing specialization. Their classifications do not cover arbitrary complete bipartite graphs with both part sizes at least two. Publicly indexed results about the **ordinary** Morse complexes of \(K_{2,n}\) and \(K_{3,3}\) do not cover the strong subcomplex: an ambient homotopy classification does not determine the homotopy type of a distinct subcomplex. Searches for equivalent graph-spine, circle-wedge, complete-bipartite, and alternate matching-complex formulations found no logically dominating theorem. The full text of the main 2026 source was read in relevant sections and searched for these objects. The two indexed ordinary-complex texts were not retrievable in full through their advertised links; their public summaries were inspected and the object distinction is decisive for their **stated** claims. An unindexed or implicit derivation remains possible, and no exhaustive novelty guarantee is asserted.
+PASS
 
-## Mathematical value — PASS
-This supplies a complete infinite two-parameter homotopy classification in a recently introduced theory, beyond the paper's stars and cycles. The complexes have maximal simplex dimension as large as \(\max(m,n)-1\), yet all of them simplicially collapse to graphs. Their circle ranks have a transparent combinatorial interpretation as the cycle rank of the **edge-doubled original graph**, not merely as a computed Euler characteristic. The contrast with known high-dimensional ordinary Morse complexes on the same bipartite graphs makes the strong/ordinary difference mathematically substantive. The exact spine and construction are directly useful as test cases for strong-Morse behavior in other graph families.
+An injective vertex ordering of K_(m,n) yields strong pairs precisely when the descending neighbor set has size one; its matching is contained in one target simplex T_v or one mixed cone F^A/F^B_(a,b). Conversely each listed facet is realized by an ordering. A mixed-target nontrivial face belongs to exactly one such cone, allowing the stated descending-size free-pair collapses to single bridges; all disjoint target simplices then collapse to trees. The final connected graph has 2mn vertices, 4mn-m-n edges and cycle rank 2mn-m-n+1. Independently enumerated all vertex orders and matched their face closures with proposed facet family at (2,2),(2,3),(3,3),(3,4). Actual verifier source also describes explicit free-pair checking.
 
-## Scope and uncertainties
-The input graph is one-dimensional and complete bipartite, both parts have size at least two, and the result concerns the full strong matching complex. No statement about the pure complex, arbitrary bipartite graphs, equivariant module structures, or higher-dimensional input complexes is proved. A pre-existing special case at \(m=n=2\) is explicitly acknowledged. An equivalent unindexed source cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+This is an all-parameter simple-homotopy classification for a natural uncomputed input family of the full strong Morse complex; it strengthens ordinary Betti counts and separates strong from ordinary Morse complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

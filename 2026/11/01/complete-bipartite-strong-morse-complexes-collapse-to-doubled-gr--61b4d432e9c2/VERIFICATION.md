@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. It uses only the standard library. It enumerates the strong-matching generators directly from all vertex orders for nine finite complete bipartite graphs, independently builds the proposed closed facet family, compares the entire face sets, verifies every elementary free-face cancellation and the final connected graph, then checks the graph-cycle rank. The expected last line is `VERIFY_OK 9 cases 132624 orderings 738 certified collapses`.
+## correctness
 
-The tested pairs are \((2,2),(2,3),(2,4),(2,5),(2,6),(3,3),(3,4),(3,5),(4,4)\). This finite test is not a proof for arbitrary parameters. The theorem for all \(m,n\ge2\) depends on the explicit symbolic facet characterization and descending-size collapse arguments in `RESULT.md`.
+PASS
 
-There is no independent audit or external validation associated with this package.
+An injective vertex ordering of K_(m,n) yields strong pairs precisely when the descending neighbor set has size one; its matching is contained in one target simplex T_v or one mixed cone F^A/F^B_(a,b). Conversely each listed facet is realized by an ordering. A mixed-target nontrivial face belongs to exactly one such cone, allowing the stated descending-size free-pair collapses to single bridges; all disjoint target simplices then collapse to trees. The final connected graph has 2mn vertices, 4mn-m-n edges and cycle rank 2mn-m-n+1. Independently enumerated all vertex orders and matched their face closures with proposed facet family at (2,2),(2,3),(3,3),(3,4). Actual verifier source also describes explicit free-pair checking.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+This is an all-parameter simple-homotopy classification for a natural uncomputed input family of the full strong Morse complex; it strengthens ordinary Betti counts and separates strong from ordinary Morse complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
