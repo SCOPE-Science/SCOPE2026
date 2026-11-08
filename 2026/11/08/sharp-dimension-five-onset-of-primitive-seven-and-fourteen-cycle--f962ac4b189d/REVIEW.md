@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two explicit finite traces close after, respectively, seven and fourteen steps, each with no repeated intermediate state. A direct full-cube update independently verifies the lifts. The weight-partition lift is injective and commutes with the update for every dimension at least five, proving that the primitive periods persist, rather than only their multiples. Two independently structured exhaustive functional-graph programs classify all 43,046,721 four-cube states and exclude the stated periods, while an independent smaller-cube program establishes the remaining dimensions. The computation is exactly finite and not extrapolated into a general theorem.
+
+**Originality — PASS with residual historical-priority risk.** The closest inspected general papers by Durrett–Steif, Gravner–Lyu–Sivakoff and Doba establish periodicity/oscillation criteria, activity rates, and typical large-volume behavior. The earlier exact four-dimensional classification excludes the proposed periods below dimension five but does not construct them at five. Neither the inspected statements of those publications nor the research-index searches yield the pair of five-dimensional explicit oscillators with the sharp dimension threshold. A missing or unindexed older specific example could affect priority; the search does not prove uniqueness in the literature.
+
+**Mathematical value — PASS.** A natural invariant of an excitable rule on the cube family is the smallest dimension supporting a given primitive period. In a graph family that is bipartite at every dimension, seven is a nontrivial odd oscillation period unrelated to a seven-cycle of the graph. The two exact thresholds identify a structural new phase at dimension five, with a compact weight-symmetric construction and an all-dimension persistence argument. This is a sharp natural cutoff, not an arbitrary selection of a graph colouring or a purely experimental observation.
+
+The result establishes existence and minimal dimension, not a full dimension-five orbit census. See the precise scope and accessibility qualifications in `RESULT.md` and `AUDIT.json`.
+
+Self-review: passed. Independent audit: not yet performed.
