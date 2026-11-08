@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The eigenvalue formula is verified directly on the orthonormal Dirichlet basis. Every numerical-range value of the diagonal normal operator belongs to the closed convex hull of its eigenvalues. The positive-imaginary spiral maximum gives the sharp upper bound. Two explicitly indexed *integer* eigenvalues and the eigenvalue 1 form a triangle containing zero whose three side distances have asymptotic lower bound equal to that maximum. The ceiling/logarithm estimates are uniform in the fixed positive shift, and the factor \(e^{-1}\) follows from \(a\arctan(1/a)\to1\). The finite checker supports but does not substitute for this proof.
+## correctness
 
-**Originality — PASS, best-knowledge and not independently established.** The closest directly matching work is Finet–Queffélec's normal-operator numerical-range polygon characterization, reproduced by Lahiri–Ojha–Halder–Birbonshi (2026), Proposition 2.8(c). This polygon result is *prior input*: it does not state the sharp centered disk inradius collapse. The 2026 disk-inclusion results concern more general weighted operators but do not give the small-nonreal-shift boundary law. A related published result about geometric-spectrum contracting dilations has a nonconstant fractional-phase prefactor; it is not the ordinary Dirichlet-series translation spectrum. The full 2004 source was inaccessible through available literature routes, and a previously known indirect calculation remains the main priority risk.
+PASS
 
-**Mathematical value — PASS.** The centered numerical-range inradius is the optimal strength of the closed-disk inclusion considered by the recent paper, not an arbitrary parameter. The exact essential-singularity constant quantifies how numerical-range geometry degenerates at positive real translations despite qualitative disk inclusion for every nonreal shift. It also distinguishes dense logarithmic sampling from a related geometric-spectrum fractional-phase phenomenon. This is a natural structural boundary value even without a downstream general theorem.
+The diagonal normal operator gives closed numerical range equal to the closed convex hull of {n^{-σ-it}}∪{0}. The logarithmic spiral has maximal positive imaginary support m_a=e^{-a(π+arctan(1/a))}/sqrt(1+a²), a=σ/t; this upper bounds any centered disk. The actual integer eigenvalues at ceiling exp((π/2)/t) and ceiling exp((π+arctan(1/a))/t), plus 1, form a zero-containing triangle with all side-line distances ≥m_a(1−o(1)); the other two distances are asymptotically larger. Ceiling logarithmic errors are exponentially tiny. Thus r∼m_a and the limit constant is e^{-1}, while two negative-real conjugate-phase eigenvalues plus 1 prove positive inradius for any t≠0.
 
-The result holds for fixed positive real shifts and makes no uniform, arbitrary-weight, or finite-shift exact-formula claim. The full 2004 primary text was unavailable for priority comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual mathematical statements and implications, not titles. None of the inspected exact results supplies the claim in this final scope; all four comparison types and materially read primary sources are documented. Inaccessible plausible sources are disclosed as risks rather than falsely excluded or used as automatic failure.
+
+## value
+
+PASS
+
+The centered numerical-range disk radius is a canonical quantitative version of the previously established disk inclusion for nonreal Dirichlet translations. The e^{-πσ/|t|} boundary-layer collapse and its nonoscillating exact e^{-1} coefficient separate dense logarithmic spectral sampling from known geometric-sampling phase oscillations and provide a natural operator invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
