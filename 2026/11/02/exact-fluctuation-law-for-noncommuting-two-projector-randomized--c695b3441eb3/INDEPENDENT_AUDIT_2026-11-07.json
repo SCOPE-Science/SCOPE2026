@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:53:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<c<1, T>0, h=T/N and rank-one 2P_u,2P_v samples, (I+2hP)^{-1}=I-2hP/(1+2h) gives sign-symmetric coordinates in the eigenbasis w_+,w_- of A=P_u+P_v. Conditioning gives exact mean (m_+^N,0), zero cross moment, and H=[[m_+²,g²],[g²,m_-²]] for second moments; Cayley-Hamilton gives E Y_N²=g²(rho_+^N-rho_-^N)/(rho_+-rho_-). The fast component fluctuates at L² order h and has O(h) bias; the slow component is L²-close after scaling sqrt(h) to an independent bounded triangular Rademacher sum, whose Riemann variance is V=(1-c²)(exp[-2(1-c)T]-exp[-2(1+c)T])/(4c)>0. Lindeberg and Slutsky establish the one-direction Gaussian limit, and positive limiting squared error/h proves sharp RMS 1/2. Independent rational path enumeration and second-moment convergence checks agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 Theorem 5.2 covers abstract operator settings with at least order 1/2; it does not assert an explicit matching lower bound or one-direction normal limit for the specified pair"
+        ],
+        "reasoning": "A general upper bound cannot imply the positive lower constant for noncommuting projections; it is compatible with some special configurations achieving order 1.",
+        "searches": [
+          "Eisenmann Stillfjord Numerische Mathematik 156 2024 Theorem 5.2 strong error",
+          "randomized operator splitting numerical evolution 1/2 rate optimal sharpness"
+        ]
+      },
+      "checked_sources": [
+        "Eisenmann & Stillfjord 2024 full open-access publisher article",
+        "Berg et al. arxiv:2010.15679 abstract",
+        "Resultary published SCOPE semantic search",
+        "Exact RESULT.md and verification/check.py",
+        "Independent signed-path exact moments and N=1000,4000 asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eisenmann–Stillfjord prove order at least 1/2 without explicit model-specific CLT; Berg et al. study a different Brownian/stochastic equation mechanism"
+        ],
+        "reasoning": "The primary general result permits both exact 1/2 rate and higher rates depending on operator sampling, so sharpness requires this independent nonzero variance calculation.",
+        "searches": [
+          "Eisenmann Stillfjord 2024 abstract evolution equation randomized operator theorem 5.2",
+          "Berg Cohen Dujardin stochastic Manakov Lie Trotter splitting 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact projected moment recurrence H and Y_N/√h Gaussian with V(c,T), not just a scalar strong norm estimate"
+        ],
+        "reasoning": "Equivalent phrases include stochastic approximation CLT, product of two random rank-one resolvents and random Lie splitting; inspected general error theorem gives an upper bound but not this model-specific variance and limit distribution.",
+        "searches": [
+          "Eisenmann Stillfjord randomized implicit Euler randomized operator splitting mean-square rate",
+          "two rank one projector multiplicative random matrix central limit sharp strong 1/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns different projection means, numerical-radius transitions and randomized ULMC, not matching the fast-to-slow mode variance"
+        ],
+        "reasoning": "No identical formula surfaced from checked published records. This does not prove priority among unindexed products of random matrices.",
+        "searches": [
+          "Resultary semantic: randomized implicit Euler two noncommuting projectors gaussian limit sharp root mean square 1/2 rate variance finite covariance",
+          "2x2 rank one projector randomized Euler exact covariance H eigenvalues"
+        ]
+      },
+      "rationale": "The exact strong-order 1/2 lower bound in the specific noncommuting two-projection test case and the explicit finite-time covariance and Gaussian one-direction fluctuation law are distinct from Eisenmann–Stillfjord’s general at-least-1/2 error estimate. The prior paper defines the randomized scheme, which is not claimed new. Other exact random product matrix asymptotics are a priority risk.",
+      "residual_risks": [
+        "Specialized random-matrix product CLT literature could already contain this two-state rank-one formula.",
+        "Parameter c=0 or c=1, arbitrary initialization, dependent draws and nonlinear dynamics are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS method and abstract 1/2 upper bound; inspected theorem does not give the specific finite-step covariance or Gaussian lower-bound witness",
+          "evidence": "Eisenmann & Stillfjord, Numerische Mathematik 156 (2024), 435-461, Theorem 5.2 and article abstract.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-024-01396-w",
+          "material_read": "Open-access 2024 publisher HTML full article: setup, main convergence theorem and examples",
+          "method": "Read complete accessible article text and compared Theorem 5.2 assumptions/claims with exact rank-one specialization",
+          "title": "A randomized operator splitting scheme inspired by stochastic optimization methods",
+          "trigger": "Identical randomized implicit operator scheme and potentially dominating general theorem"
+        },
+        {
+          "assessment": "Different physical randomness and equation class; not claimed whole-document noncoverage",
+          "evidence": "Berg, Cohen & Dujardin, arxiv:2010.15679, abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.15679",
+          "material_read": "ArXiv abstract and stated SDE/nonlinear scope only",
+          "method": "Compared randomness coming from the stochastic differential equation with independent sampled deterministic operators",
+          "title": "Lie–Trotter splitting for the nonlinear stochastic Manakov system",
+          "trigger": "Potential alternative Gaussian error theorem under randomized splitting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-projector model is a minimal genuinely noncommuting example in which sampling noise moves error into a slower eigenspace. Giving a strictly positive sharp constant and limiting law determines when a general convergence-rate guarantee cannot be improved, a concrete and reusable numerical-analysis diagnostic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No distribution law for arbitrary initial states or spatially discretized PDEs.",
+    "Full originality comparison to all random matrix product exact CLTs is not exhaustive."
+  ],
+  "schema_version": 1
+}
