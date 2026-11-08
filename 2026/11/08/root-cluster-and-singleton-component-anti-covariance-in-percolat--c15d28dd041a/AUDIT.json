@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "All quantities are defined for a uniform growing recursive tree with independent open edges. Exact parent-isolated and root-membership calculations imply the displayed conditional mixed-product recursion, which telescopes to the all-size formula. Sign at nondegenerate p, the two-term fixed-p expansion, variance and correlation limits, and two high-retention regimes follow by the proof in RESULT.md. Bundle verifier returned 4425 exact assertions, including complete parent/edge-mask enumeration for n<=7. Finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baur arXiv:1407.2508 Section 2 analyzes tree-indexed cluster sizes and p(n)->1 weak limits, not finite mixed moments.",
+        "Kürsten arXiv:1512.05275 Equations 45-46 concern vertex mass of first-generation child clusters, not the singleton count across all generations."
+      ],
+      "reasoning": "Full tree-of-cluster-sizes distributions would determine the covariance, but the inspected asymptotic cluster-size theorems and separate finite moment formulas do not provide such a finite-n joint law. The non-iid fire-propagation model in DOI 10.1016/j.spa.2015.08.006 does not dominate independent Bernoulli thinning.",
+      "searches": [
+        "\"percolation\" \"singleton clusters\" \"root cluster\" \"covariance\"",
+        "random recursive tree percolation root cluster size number isolated vertices covariance research"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1407.2508",
+      "https://arxiv.org/abs/1512.05275",
+      "https://doi.org/10.1016/j.spa.2015.08.006",
+      "https://arxiv.org/abs/1305.2880"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kürsten 2015 reports E[C_n], Pr(C_n=1), E[I_n], and E[C_n^2] separately.",
+        "The new term E[C_n I_n] is determined by an additional conditional-product cancellation; it does not follow algebraically from those marginals.",
+        "Baur 2014 concerns p(n)->1 cluster sizes, without the exact finite cross moment."
+      ],
+      "reasoning": "The exact covariance, two-term fixed-p asymptotic and two high-retention boundary limits require information about the joint law beyond the cited marginal results. The indexed prior root-degree/root-component covariance does not imply the new singleton-component covariance.",
+      "searches": [
+        "arxiv:1512.05275 Eq. 19 Eq. 38 Eq. 44 Eq. 45",
+        "arxiv:1407.2508 Section 2 random recursive tree percolation cluster sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kürsten arXiv:1512.05275 Section IV explicitly gives the root singleton probability (19) and expected singleton number (38).",
+        "The Yule-family/mutation-language reformulation uses the same independent attachment and retention mechanism."
+      ],
+      "reasoning": "Single-family ancestral mass and singleton mutant-family abundance are equivalent terms for the same two random variables. Separate marginal identities do not determine their covariance; no equivalent complete mixed-moment claim was identified in the inspected sources.",
+      "searches": [
+        "\"root cluster\" \"singleton\" \"covariance\" \"recursive tree\"",
+        "\"random recursive tree\" \"isolated vertices\" \"covariance\"",
+        "random recursive tree Bernoulli bond percolation covariance root cluster size number of isolated vertices singleton clusters fixed retention probability exact mixed moment",
+        "Yule Simon mutation model covariance ancestral species population count singleton mutant species",
+        "root cluster covariance singleton components random recursive tree percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed scientific claims concern root degree versus leaves, and root attachments versus path length in unpercolated recursive trees; neither measures singleton components after bond thinning.",
+        "An accessible own previous result on original root degree versus percolated root-cluster mass has a different covariate, and did not supply the singleton-component mixed moment."
+      ],
+      "reasoning": "The searched records and scholarly sources did not present a table or formula with the same two counts and retention parameter. Search absence is not proof of priority.",
+      "searches": [
+        "exact mixed moment covariance ancestral root cluster size and number singleton components in Bernoulli percolation on uniform random recursive tree with retention p; correlation n^-1/2",
+        "recursive trees percolation Yule mutation cluster one-point counts root genealogy covariance near critical p 1 minus lambda log n",
+        "\"random recursive tree\" \"singleton\" \"root cluster\" \"correlation\""
+      ]
+    },
+    "rationale": "A new mixed moment between ancestral cluster mass and total singleton components was compared at the implication level with the root mass/isolated-cluster marginals in Kürsten 2015 and the cluster size results in Baur 2014. The inspected claims do not imply this mixed moment. Multiple targeted scholarly and indexed searches did not identify direct coverage. Implicit historical coverage remains a nonzero risk, not a certification of uniqueness.",
+    "residual_risks": [
+      "An older multivariate cluster-count enumerator or Yule-mutation moment formula may imply the exact cross moment without matching the wording of the search queries.",
+      "The assessment is limited to inspected full-text sections and indexed scholarly records; priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model; result concerns cluster-size scaling under p(n) approaching one, not finite singleton/root mixed covariance.",
+        "evidence": [
+          "Introduction distinguishes p(n)->1 regimes and root cluster size.",
+          "Section 2 defines the tree of cluster sizes; Section 3 treats cut-tree/root isolation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.2508",
+        "material_read": "Accessible full-text HTML introduction, percolation model, Section 2 cluster-size construction, and Section 3 splitting/root-isolation material; text searches for singleton/isolated coverage.",
+        "method": "Read article HTML sections and mathematical descriptions.",
+        "title": "Percolation on random recursive trees",
+        "trigger": "Exact same random recursive tree and independent bond-percolation model, possible broader cluster results."
+      },
+      {
+        "assessment": "Direct marginal precursor; Eq. 38 is the singleton-count expectation. Its reported mixed root correlation concerns first-generation child-cluster vertex mass, not total singleton count.",
+        "evidence": [
+          "Eq. 19: probability root is a singleton.",
+          "Eq. 38: expected total number of singleton clusters.",
+          "Eq. 44: root-cluster second moment.",
+          "Eqs. 45-46 and Appendix B: a different mixed statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.05275",
+        "material_read": "Accessible full-text HTML Section IV including Equations 19, 37, 38 and 43-46, Section V comparison and Appendix B discussion.",
+        "method": "Read relevant equations with their scientific definitions and compare the random variables.",
+        "title": "Random Recursive Trees and the Elephant Random Walk",
+        "trigger": "Exactly the two separate target marginals, plus other root-cluster correlations."
+      },
+      {
+        "assessment": "Fire spread propagates across adjacent flammable edges and is stopped by fireproof edges; this is not independent retention of each edge followed by counting singleton components.",
+        "evidence": [
+          "Abstract and introduction define correlated fire propagation and fireproof forests."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spa.2015.08.006",
+        "material_read": "Accessible HTML abstract, introduction, fire-dynamics definition and Section 4 connectivity descriptions.",
+        "method": "Compare model mechanism and scope in HTML article text.",
+        "title": "Fires on large recursive trees",
+        "trigger": "Title and use of isolated and connected vertices in recursive-tree edge destruction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c15d28dd-041a-48c0-b233-c5238b894da4",
+  "value": {
+    "rationale": "Root population size and the number of singleton components are canonical macroscopic/microscopic observables in recursive-tree bond percolation and mutation models. Their separate exact marginals were known, but joint dependence is not characterized by them. The mixed-product cancellation gives the all-parameter negative covariance, its two-term fixed-p magnitude, fixed-p correlation constant, and distinct n/log n versus finite high-retention limits, making the cross-statistic useful beyond a routine finite computation.",
+    "status": "PASS"
+  }
+}
