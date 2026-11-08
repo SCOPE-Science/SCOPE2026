@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Stationary convolution exists and is unique by positive-state occupation and contraction. The Markov generator gives the exact second/fourth moment systems and 2x2 lag covariance system; characteristic-root interlacing, factorization of p(D/V), and uniqueness of the fast coefficient zero prove all parameter-uniform claims. The fourth cumulant is strictly positive, including at the unique cancellation stiffness. The standalone checker was run from its actual stored path and passed 1,050 rational cases with five independent-lag comparisons; finite checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General stationary/transient MMOU moment recursion and lag covariance matrix scheme from Huang et al., arxiv:1412.7952.",
+        "Guyon–Iovleff–Yao (2004) treats stability and moment existence for stationary-switching linear diffusions."
+      ],
+      "reasoning": "The older literature covers model existence and a broader computational representation of moments/covariance, hence the formulas can in principle be derived from it. The claim is explicitly restricted to the sharp spectral positivity/curvature/OU-cancellation phase diagram; it does not claim originality of the general representation. It would be covered if an earlier publication performed the same exact parameter classification; no such statement was found in material inspected. This limitation remains a risk.",
+      "searches": [
+        "\"Markov-modulated Ornstein-Uhlenbeck processes\" Huang Jansen Mandjes Spreij De Turck",
+        "\"fluctuating harmonic trap\" \"autocorrelation\" \"two\" exponential stochastic stiffness",
+        "arxiv:1412.7952 Secs. 3.3, 3.4, 6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2407.12213 (primary full-text sections I–VII)",
+      "https://arxiv.org/abs/1412.7952 (general moments and covariance Sections 3.1–3.4, 6, 7)",
+      "https://www.numdam.org/item/PS_2004__8__25_0/ (metadata/abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Frydel (2024) imposes symmetric exponentially distributed on/off durations and primarily obtains stationary density/thermodynamic laws.",
+        "Huang et al. (2014) computes covariance generically via matrix exponentiation, without stated residue positivity boundaries or OU-covariance-camouflage manifold.",
+        "Guyon et al. (2004) establishes stability and conditional Gaussianity in wider switching diffusions."
+      ],
+      "reasoning": "The exact new global classification is not a previously stated subcase of a published phase result. It requires combining the stationary second- and fourth-moment equations with the two relaxation poles, resolving a rational sign factorization, and proving uniqueness and curvature regimes. The 2014 matrix formula implies numerical values for covariance at all parameter points, and therefore allows post hoc deduction; this is disclosed as the main risk rather than claimed absent.",
+      "searches": [
+        "arxiv:2407.12213 full paper Sections II, III, VI, VII",
+        "arxiv:1412.7952 Sections 3.3 and 3.4",
+        "\"on-off\" \"trap\" \"autocorrelation\" \"power spectrum\" Brownian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huang et al. (2014) Sec. 3.3 gives a matrix-exponential covariance calculation for Markov-modulated Ornstein–Uhlenbeck processes.",
+        "The two-state off/on specialization has a pair of decay exponents with parameter-dependent signed coefficients; no equal-covariance Gaussian-counterpart classification was located in the inspected sections."
+      ],
+      "reasoning": "The general generator representation is mathematically equivalent to the lag-covariance computation, but this new claim is the necessary-and-sufficient sign and exact cancellation classification plus nonzero fourth cumulant. The general expression does not explicitly state these parameter-uniform qualitative boundaries. It is a substantial methodological predecessor and an originality risk, not evidence of an identical theorem.",
+      "searches": [
+        "\"Markov-modulated Ornstein-Uhlenbeck\" \"two exponential\" autocorrelation positivity",
+        "\"on-off harmonic trap\" \"autocorrelation\" \"exponential\"",
+        "arxiv:1412.7952 Sec. 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Frydel (2024) studies equal-rate on/off traps, derives stationary spatial Gaussian mixtures, and studies potential energy and entropy production; no exact unequal-rate temporal signed-residue table or cancellation boundary was present in sections reviewed.",
+        "Published symmetric covariance calculations give only the negative-fast-weight subfamily."
+      ],
+      "reasoning": "The claimed boundary is a continuum condition on both unequal switching rates and trap stiffness, not a fixed finite table. No exact published table of the same H=0 phase transition was located in the inspected relevant primary texts or searches.",
+      "searches": [
+        "\"fluctuating harmonic trap\" \"single exponential\" \"autocorrelation\" switching",
+        "\"Markov-modulated\" \"complete monotonicity\" Ornstein Uhlenbeck covariance",
+        "arxiv:2407.12213 Secs. II–VII"
+      ]
+    },
+    "rationale": "The asymmetric spectral-sign and curvature phase, unique finite-stiffness OU covariance identity, and positive fourth-cumulant formula were not stated in inspected primary works. Frydel 2024 confines itself to symmetric switching and static spatial/thermodynamic results; Huang 2014 supplies general matrix moment/covariance machinery but not this sharp parameter classification. The latter is a substantive implicit-derivability risk, recorded here without claiming that search proves novelty.",
+    "residual_risks": [
+      "The general covariance/moment machinery in arxiv:1412.7952 mathematically contains this model and may make the new phase diagram appear an implicit corollary.",
+      "An indexed or unindexed paper may already extract this precise two-rate spectral-cancellation manifold.",
+      "The full text of Guyon–Iovleff–Yao (2004) was not inspected; only its abstract and bibliographic page were available to the comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Equal-rate spatial and thermodynamic calculations; no explicit unequal-rate temporal spectral-sign or covariance camouflage classification found",
+        "evidence": [
+          "Sec. II explicitly specifies equal rates for trapped and released dwell times.",
+          "Secs. III and VI cover stationary density as Gaussian mixtures, energy and entropy, not the present exact mode-weight phase diagram."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+        "material_read": "Public full-text sections I–VII, especially II switching assumptions, III Gaussian mixture, VI physical quantities and VII conclusion",
+        "method": "Open full-text arXiv HTML rendering and inspect models, results, equations and conclusions",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Primary motivating on/off confinement model; plausible direct prior coverage"
+      },
+      {
+        "assessment": "Broad general representation of moments and two-time covariance; direct formula-level antecedent, but no stated spectral-sign/cancellation surface in the inspected text",
+        "evidence": [
+          "Sec. 3.3 obtains lag covariance by finite-dimensional matrix exponentiation.",
+          "Sec. 3.4 gives moment recursion.",
+          "Sec. 6.1 discusses conditional Gaussianity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.7952",
+        "material_read": "Full-text introduction, Sections 3.1–3.4, conditional-normality discussion in Section 6, and Section 7 conclusion",
+        "method": "Read public arXiv full-text equations and stated results",
+        "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+        "trigger": "Potentially dominating arbitrary-regime covariance and moment framework"
+      },
+      {
+        "assessment": "Supports stable random-coefficient diffusion context but cannot exclude theorem coverage from unread full paper",
+        "evidence": [
+          "Abstract states ergodicity and moment conditions of stationary switching linear diffusion, conditional normality."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/PS_2004__8__25_0/",
+        "material_read": "Publisher-hosted abstract, bibliographic information, and stated scope; full paper not inspected",
+        "method": "Read accessible article landing-page text",
+        "title": "Linear diffusion with stationary switching regime",
+        "trigger": "Earlier stability and conditional-Gaussian framework for switching linear diffusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d57d3a9e-09b2-4cde-a4fb-82a3d627b489",
+  "value": {
+    "rationale": "A two-state fluctuating optical trap is a natural experimental and mathematical object; the theorem sharply separates completely-monotone from non-completely-monotone covariance, identifies a distinct inflection boundary, and gives the exact finite asymmetric switching condition where a non-Gaussian stationary process is second-order indistinguishable from equilibrium OU. The precise condition is an observable identification boundary with an independent fourth-cumulant witness; not merely a parameter substitution.",
+    "status": "PASS"
+  }
+}
