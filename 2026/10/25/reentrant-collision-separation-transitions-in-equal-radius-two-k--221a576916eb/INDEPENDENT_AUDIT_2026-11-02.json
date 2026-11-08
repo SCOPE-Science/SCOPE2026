@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:55:54Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "t→0⁺ and t→1⁻ excluded as assumed; t0, t1 included with correct equality classification; c=−1 endpoint excluded as optimum by positive derivative; c=1 requires derivative-kernel first jet rather than duplicate kernel; distinct-node class has supremum only in collision regions"
+      ],
+      "proof_sources": [
+        "RESULT.md, Theorem and Proof §§1–4 at Git blob 2c289176f97676a790e2f748de796ef092e0cd48",
+        "verify_phase.py at blob 1b0e5cc736dbb6f5df88ac67d03e442212805516 (read and independently checked)",
+        "new independent symbolic Gram-identity and randomized numeric script /mnt/data/independent_bergman_check.py; all exact core identities established symbolically"
+      ],
+      "rationale": "Verified the normalized Bergman kernel and z² norm 1/3, reconstructed the two-dimensional Gram-inverse projection formula exactly from a complex unit phase and proved it equals P_t(1)-t(1−t)²(1−c)Q_t(c)/D_t(c), including its removable confluent-jet limit. For 0<t<1, D_t>0; Q_t is strictly convex with vertex 1/(2t)−1. Its constrained minimum is the quartic at c=1 for t≤1/4 and t(4t³−4t²+3t−2) for t≥1/4. The quartic decreases strictly on [0,1/4] with one crossing t0; the cubic strictly increases with one crossing t1. The strictly negative second derivative of log[(1−c)(c−r_-)(r_+−c)/D_t] in the Q<0 interval forces a unique separated global maximum. The exact positive P′_t(−1) excludes the antipodal end. At t=t0 only c=1 ties itself; at t=t1 c=1 and vertex c=1/(2t1)−1 tie, all other c inferior. Distinct-node attainment is correctly distinguished from the confluent 2D jet limit. An independently written SymPy/complex-Gram calculation verified polynomial identities and derivative and performed 500 random complex Gram comparisons, plus boundary representatives; finite checks only corroborate the continuum argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qian (2022), arXiv:2201.07228, full accessible PDF §4.2: normalized weighted Bergman kernel and existence of best approximation; no fixed-radius angular optimizer in inspected theorem.",
+          "Qu–Qian–Deng (2020), arXiv:2006.03290, main sufficient condition for existence of n-best kernel approximations; no exact fixed-radius two-kernel geometry in inspected theorem.",
+          "The Hardy/Szegő kernel has Gram exponent 1 rather than Bergman exponent 2, so even an unrestricted Hardy z² optimum is not a stronger result for this norm."
+        ],
+        "reasoning": "General existence theorems apply to a wider class of Hilbert spaces but do not imply the exact optimizing angle, polynomial threshold equations or nonattainment in the distinct-node Bergman subclass; their conclusion is logically weaker on this object. Reproducing-kernel formulas are standard input, not claimed new.",
+        "searches": [
+          "Bergman reproducing kernels best two-node approximation z squared monomial equal modulus angular separation projection Gram collision derivative jet",
+          "Hardy Szego optimal two kernels approximating z squared unrestricted nodes exact optimal energy",
+          "Bergman reproducing kernel regular polygon orbit Gram Fourier aliasing monomial",
+          "Tao Qian n-Best Kernel Approximation RKHS arXiv 2201.07228 Section 4.2",
+          "Qu Qian Deng sufficient condition n-Best Kernel Approximation arXiv:2006.03290"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.07228v1 (accessible PDF; main results and §4.2 materially inspected)",
+        "arXiv:2006.03290v3 (accessible PDF; main theorem/proof materially inspected)",
+        "DOI:10.1016/j.amc.2021.126749 (abstract/opening material only, full text inaccessible)",
+        "DOI:10.1002/mma.5648 (bibliographic abstract only)",
+        "published mathematical findings semantic index: four actual query strings reproduced above",
+        "Published findings: first-order Bergman jet zero-free dichotomy; Bergman-jet Gram zero fibres; equispaced Bergman-pole Fourier Hessian; concentric Szegő Gram determinant (summary comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qu–Qian–Li–Zhu (2021/2022) indexed abstract describes existence of best kernel approximants in weighted Bergman space; complete source could not be read, so implication comparison against its full body is not proven.",
+          "Qian 2022 §4.2 establishes conditions for best n-kernel existence. It does not state numerical optimal angles or t-threshold equations in material inspected.",
+          "Related published mathematical findings about Bergman jet Gram zeros or equispaced Bergman-pole Hessians analyze zero locations or local properties of constrained frames, not global projection energy onto span{k_a,k_b} against z²."
+        ],
+        "reasoning": "A theorem ensuring that some best approximant exists cannot logically yield the all-radius fixed-circle maximizing angular placement. Regular-polygon m=2 forces the antipodal c=−1, whereas the audited calculation proves P′(−1)>0 and thus cannot be that special case. A sharp Hardy/Szegő result is not parameter-/norm-identical. The inaccessible 2021 full-text comparison is a named historical-priority risk.",
+        "searches": [
+          "Hardy Szego optimal two kernels approximating z squared unrestricted nodes exact optimal energy",
+          "Bergman reproducing kernel regular polygon orbit Gram Fourier aliasing monomial",
+          "Bergman best kernel approximation Qu Qian Li Zhu DOI:10.1016/j.amc.2021.126749",
+          "arXiv:2201.07228 §4.2",
+          "arXiv:2006.03290v3 main existence theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four separate semantic searches in the published mathematical findings index located Bergman-jet zero fibres, regular-polygon kernel Hessians and Hardy/Szegő spectra but not an equivalent two-node z² fixed-radius projection-optimum theorem.",
+          "Qian arXiv:2201.07228v1 presents existence and kernel geometry; the inspected Bergman Section 4.2 does not state angular maximum, t0/t1 polynomials or confluent versus distinct-node attainment."
+        ],
+        "reasoning": "Rephrased the optimization as best 2-point circular Hermite interpolation/projection, Gram inverse capture for z², and a collision–separation bifurcation. Related jet-zero and frame determinant results optimize a different functional; neither their theorem statements nor inspected proofs directly imply the two sharp thresholds.",
+        "searches": [
+          "Bergman reproducing kernels best two-node approximation z squared monomial equal modulus angular separation projection Gram collision derivative jet",
+          "best two-kernel Bergman quadratic fixed radius two critical radii t0 t1 cosine",
+          "\"Bergman\" \"two kernels\" \"coalescing\" optimal approximation",
+          "Bergman fixed-radius two-point interpolation derivative Hermite jet projection z2 best angle",
+          "arXiv:2201.07228, §§2 and 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The investigated published-finding search results and targeted threshold searches provided no independently prior table of the two transition radii, collision/separation equality regimes or exact angular optima.",
+          "No complete cross-radius numerical tabulation could by itself prove the all-real-parameter unique optimizer and sharp nonattainment claims."
+        ],
+        "reasoning": "The exact value is a parameter-dependent phase classification, not a database lookup of a single routine invariant. An unsuccessful index search does not rule out older unindexed tables; residual risk remains.",
+        "searches": [
+          "best two-kernel Bergman quadratic fixed radius two critical radii t0 t1 cosine",
+          "\"0.121278837988269\" Bergman",
+          "\"0.825314595719694\" kernel",
+          "\"20t^4-44t^3+36t^2-12t+1\" Bergman"
+        ]
+      },
+      "rationale": "On actual statement/implication comparisons, the sharp fixed-common-radius two-node Bergman approximation of the monomial z^2, including its two threshold polynomials, uniquely optimal angular separation and endpoint jet nonattainment, is not supplied by the inspected general n-best existence theorems, Szegő-kernel optimization results, regular-polygon radius/Gram analyses, or related Bergman-jet zero-count findings. The strongest directly relevant 2021 Bergman work is access-limited in full text. This is a best-of-knowledge PASS with that explicit priority risk, not an assertion that unsuccessful searches prove novelty.",
+      "residual_risks": [
+        "The full original Qu–Qian–Li–Zhu Bergman n-best article was not accessible; it could include a hidden two-point special example. This access limitation alone does not negate the observed mathematical originality.",
+        "Older equivalent two-point Bergman Hermite interpolation / constrained design optimization may use unindexed or different notation.",
+        "The 2019 algorithmic weighted-Bergman paper was accessible at abstract level, not in full text.",
+        "Priority is best-of-knowledge: absence of a database/semantic hit is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected general and Bergman existence results do not supply the two critical radius polynomials or the separated-angle maximizer; supports differentiation of the new sharp angular classification from existing existence claims.",
+          "evidence": [
+            "arXiv:2201.07228v1, main existence theorem and Section 4.2 (Bergman kernel); numerical t0/t1 are not in those inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.07228",
+          "material_read": "Full 22-page PDF was accessible; materially read introduction and existence statements, main setup and Section 4.2 on Bergman kernels, with visually inspected relevant PDF pages. Did not claim to have checked every page for every possible example.",
+          "method": "Read text and PDF screenshots of relevant parts; statement comparison to the exact fixed-radius angular phase theorem.",
+          "title": "n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Direct, more general n-best reproducing-kernel approximation with a Bergman-space subsection."
+        },
+        {
+          "assessment": "Accessible main result ensures existence under hypotheses; no implication in the inspected mathematical conclusions that fixes equal-radius Bergman two-site angle for target z².",
+          "evidence": [
+            "arXiv:2006.03290v3, main n-best sufficient condition and reproducing-kernel setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.03290",
+          "material_read": "Full 11-page PDF was accessible; introduction, theorem formulation, relevant analytic condition and proof framework materially inspected; front PDF page visually checked.",
+          "method": "Full-text access plus theorem and proof comparison, PDF screenshot.",
+          "title": "A sufficient condition for n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Previous general n-best existence and boundary condition results, possible source of a stronger kernel theorem."
+        },
+        {
+          "assessment": "ACCESS-LIMITED. Abstract states existence focus, which is not the same as angle optimization, but the uninspected full paper could contain a special example or deduction; cannot assert whole-paper noncoverage.",
+          "evidence": [
+            "Applied Mathematics and Computation 416 (2022), art. 126749, DOI 10.1016/j.amc.2021.126749; online 10 Nov 2021; accessible abstract; Oxford access vpn_disconnected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2021.126749",
+          "material_read": "Bibliographic details, indexed abstract and accessible opening material only; full text NOT read because arXiv/lawful OA search did not yield full paper and authorized institutional retrieval returned vpn_disconnected.",
+          "method": "Exact-title, arXiv and lawful OA search first; authorized Oxford retrieval afterward; no authentication bypass.",
+          "title": "Best kernel approximation in Bergman spaces",
+          "trigger": "Closest paper sharing precise Bergman space and best-kernel-approximation subject."
+        },
+        {
+          "assessment": "ACCESS-LIMITED. The inspected abstract emphasizes algorithmic approximation rather than a sharp two-angle phase theorem. Full text was not inspected, and no whole-source noncoverage is claimed.",
+          "evidence": [
+            "2019 publisher bibliographic abstract, DOI 10.1002/mma.5648."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mma.5648",
+          "material_read": "Indexed bibliographic abstract and reference-level description; not full text.",
+          "method": "Primary publisher abstract and targeted title search.",
+          "title": "Reproducing kernel approximation in weighted Bergman spaces: Algorithm and applications",
+          "trigger": "Earlier algorithmic/numerical Bergman approximation potentially containing special two-kernel examples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md statement and proof, exact t0 and t1 polynomials",
+        "Primary 2021/2022 n-best Bergman existence literature, compared for significance of exact optimizer",
+        "Independent rational Gram and extremum verification"
+      ],
+      "rationale": "The precise placement of two samples constrained to a common circular radius is a natural inverse/approximation-design question in the canonical Bergman Hilbert space; the squared best projection energy for the quadratic monomial is an intrinsic, normalized invariant. Its exact all-radius angular maximum has a nontrivial continuous jet-splitting threshold t0, coexistence/discontinuous reentrant return threshold t1, a provably unique separated phase and a sharp attained/unattained boundary. These are not arbitrary tiny-radius numerics or routine rewriting of the general existence theorem; the result fully classifies a mathematically motivated constraint problem even though it makes no claim about unequal radii or higher numbers of kernels.",
+      "residual_risks": [
+        "The conclusion is deliberately restricted to two sites sharing a fixed radius and target z²; no broader nonlinear-approximation theorem is claimed.",
+        "Its value is the exact constrained classification, not novelty of the general 2x2 Gram projection formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No unrestricted optimality for unequal-radius nodes, targets other than z², or more than two kernels.",
+    "Collision refers to the first derivative kernel plane; two literal coincident evaluation kernels have dimension one and do not attain the same projection.",
+    "Finite symbolic/numeric checks supplement but do not replace the all-parameter sign/log-concavity proof.",
+    "Closest Bergman n-best paper full text inaccessible through authorized access; originality best of knowledge with explicit prior-coverage uncertainty.",
+    "Publication blocked by operational identifiers in source metadata until exact sanitized guarded replacement bytes are staged."
+  ],
+  "schema_version": 1
+}
