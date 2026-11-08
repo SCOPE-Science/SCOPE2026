@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_lipschitz.py` from the directory containing the packaged file; it requires only the Python 3 standard library. It exhaustively evaluates the published Newton-polyhedron/lattice-subgroup membership criterion for the \((n-1)^2\) gap candidates at each \(n=3,4,5,6,7,8\). In this family, the generators besides \((1,0)\) have first coordinate either zero or \(n\), making Newton membership a two-point segment test. The complementary subgroup contains \((1,0)\), so its second-coordinate gcd decides lattice membership. This is a separate combinatorial verification of the metric proof in `RESULT.md`.
+## correctness
 
-The recorded execution printed:
+PASS
 
-```
-n=3 holes=1 minimal_generators=6 checked_q=4
-n=4 holes=3 minimal_generators=8 checked_q=9
-n=5 holes=6 minimal_generators=10 checked_q=16
-n=6 holes=10 minimal_generators=12 checked_q=25
-n=7 holes=15 minimal_generators=14 checked_q=36
-n=8 holes=21 minimal_generators=16 checked_q=49
-VERIFY_OK: 139 full-subset decisions; 1383503 subsets actually tested
-```
+The original semigroup includes exactly b=0 or b≥n or a≥n. The explicit two-case complex cusp estimate ρ^n|v−v′|≤K(|v^{n+1}−v′^{n+1}|+ρ|v^n−v′^n|) together with comparison |u|≤ρ/≥ρ proves each upper-triangular missing monomial is Lipschitz under original embedding. For an arbitrary convergent analytic function the root-of-unity arcs (ct,t),(ct,ζt) have original image distance O(|t|^{n+1}); coefficientwise polynomial-in-c vanishing excludes every (a,b) with 1≤b<n and a+b≤n, including cancellation. Residue-class convergent series decomposition gives complete saturated analytic ring; elementary gap count gives length and semigroup indecomposables give exactly 2n minimal generators. Independently verified 22 small n generator and length claims; source Newton-lattice criterion checker inspected but all-n argument is independent of finite tests.
 
-The checker also directly computes minimal generators of both original and predicted saturated semigroups, checking the claimed cardinality \(2n\). This is finite evidence only. The arbitrary-parameter theorem rests on the explicit complex analytic Lipschitz estimates and root-of-unity obstruction in `RESULT.md`; no independent mathematical audit is claimed.
+## originality
+
+PASS
+
+Bernard–Chávez-Martínez–Giles Flores (2026) Theorem 3.7 gives a universal toric saturation membership algorithm and Example 3.10 is EXACTLY this family for n=3, so the n=3 case is explicitly known. The all-n closed triangular law and unbounded correction length/constant embedding dimension are not stated in the inspected 14-page primary article; the general criterion does in principle decide every instance but does not automatically state the uniform formula. Duarte–Giles Flores concern other toric examples. Priority is qualified because a reader might derive the present family by an unstated application of prior general algorithm.
+
+## value
+
+PASS
+
+An explicit closed parametric all-n classification, finite-length correction growing quadratically and fixed 2n embedding dimension for natural isolated nonnormal toric surfaces is a motivated structural invariant; it is not merely the known n=3 numerical recomputation. The direct metric proof gives extra usable uniform estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

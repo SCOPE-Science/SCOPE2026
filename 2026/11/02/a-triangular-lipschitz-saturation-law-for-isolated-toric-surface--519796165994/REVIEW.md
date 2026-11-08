@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact exponent statement follows from a direct Lipschitz estimate for upper-triangular monomials and a primitive-root arc obstruction for all lower-triangular power-series terms. The cusp estimate is proved by a two-case argument with an explicit finite constant. The normalizing algebra, its original semigroup, the analytic generation of the saturated ring, the finite quotient basis, and the minimal generating sets are all described without extrapolation. The standalone enumeration also agrees with the independent published Newton-lattice criterion for each gap exponent in dimensions \(3\le n\le8\); these checks do not certify the infinite range by themselves.
+## correctness
 
-## Originality — PASS, qualified
-The source most likely to cover the statement is Bernard--Chávez-Martínez--Giles Flores, arXiv:2604.03164 (2026). Example 3.10 already gives the \(n=3\) surface and its added monomial, and Theorem 3.7 gives a general decision criterion. Both are credited. The present result determines, for every \(n\ge3\), the entire explicit minimal-generator structure, triangular support and unbounded exact correction length; no matching all-parameter statement was identified in the inspected primary text. Duarte--Giles Flores, arXiv:2310.03216, concerns other semigroup families; Dalbelo--Hernandes--Ruas (2026) concerns normalization and isolated-singularity normal forms rather than Lipschitz correction. General algorithms may imply the answer after additional work, and unpublished priority remains a risk.
+PASS
 
-## Mathematical value — PASS
-Lipschitz saturation is a canonical intermediate algebra of an isolated nonnormal toric surface singularity. The result shows that a single published one-monomial phenomenon persists with a triangular and unbounded finite-length correction, while the local embedding dimension is unchanged by saturation at each parameter. It determines the entire correction module rather than merely verifying membership of isolated monomials. This quantifies an intrinsic boundary between the original algebra, Lipschitz saturation, and normalization in a natural family.
+The original semigroup includes exactly b=0 or b≥n or a≥n. The explicit two-case complex cusp estimate ρ^n|v−v′|≤K(|v^{n+1}−v′^{n+1}|+ρ|v^n−v′^n|) together with comparison |u|≤ρ/≥ρ proves each upper-triangular missing monomial is Lipschitz under original embedding. For an arbitrary convergent analytic function the root-of-unity arcs (ct,t),(ct,ζt) have original image distance O(|t|^{n+1}); coefficientwise polynomial-in-c vanishing excludes every (a,b) with 1≤b<n and a+b≤n, including cancellation. Residue-class convergent series decomposition gives complete saturated analytic ring; elementary gap count gives length and semigroup indecomposables give exactly 2n minimal generators. Independently verified 22 small n generator and length claims; source Newton-lattice criterion checker inspected but all-n argument is independent of finite tests.
 
-## Limits and closest literature
-The result is over \(\mathbb C\) for this specified family only. It does not compute arbitrary toric Lipschitz saturations or make a new claim about the already-known \(n=3\) instance. The corrections are finite-dimensional vector-space invariants, not the full normalization quotient. The published general membership criterion is an important prior theorem; the explicit all-parameter formula is not asserted to be logically independent of that theorem. Priority and external validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bernard–Chávez-Martínez–Giles Flores (2026) Theorem 3.7 gives a universal toric saturation membership algorithm and Example 3.10 is EXACTLY this family for n=3, so the n=3 case is explicitly known. The all-n closed triangular law and unbounded correction length/constant embedding dimension are not stated in the inspected 14-page primary article; the general criterion does in principle decide every instance but does not automatically state the uniform formula. Duarte–Giles Flores concern other toric examples. Priority is qualified because a reader might derive the present family by an unstated application of prior general algorithm.
+
+## value
+
+PASS
+
+An explicit closed parametric all-n classification, finite-length correction growing quadratically and fixed 2n embedding dimension for natural isolated nonnormal toric surfaces is a motivated structural invariant; it is not merely the known n=3 numerical recomputation. The direct metric proof gives extra usable uniform estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
