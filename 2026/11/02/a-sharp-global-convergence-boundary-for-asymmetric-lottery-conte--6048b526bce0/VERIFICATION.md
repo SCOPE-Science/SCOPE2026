@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-- Run `python verify.py` with dependencies in `requirements.txt`.
-- Completed checks: exact \(P_c\) discriminant, substitution at the Cauchy bound, fixed-point multiplier identity, the four response-square identities at \(c=1/6\), strict positivity of the witness, and the exact primitive-cycle multiplier \(43/243\).
-- General parameter claims are verified by the analytic proof, not by a finite scan. In particular, Coppel's interval-iteration theorem is used to turn the absence of any primitive period-two point into convergence of all iterates on a compact interval.
-- The lower-cost player's initial effort must be strictly between zero and one; positive-interior dynamics never use the discontinuous zero-opponent convention. The symbolic script is a consistency check, not independent validation or exhaustive parameter certification.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Derived smooth return F_c(y)=sqrt((sqrt(y)-y)/c)-(sqrt(y)-y) on invariant positive (0,1) since c>4/25. Unique Nash has y*=1/(1+c)^2; F_c prime at Nash equals -(1-c)^2/(4c). For a putative u<v two-cycle, alternating best-response square equations imply 2cS²-(1+c)S+1=0 with S=a+b+u+v<2/(1+c); discriminant c²-6c+1 excludes primitive cycles when c>=3-2sqrt2. Applying Coppel no-two-cycle theorem to the continuous compact extension yields convergence to a fixed point; F(y)~c^-1/2 y^1/4 rules out zero from positive starts. Below threshold G=F²-y has sign changes around the repelling Nash point and positive near zero, giving cycle; quadratic root plus squared difference recovers unique unordered cycle. Independent numerical iterations and exact source witness at c=1/6 corroborate the transition; universality rests on the algebra and interval theorem.
+
+## originality
+
+PASS
+
+This sharp global convergence threshold and uniqueness of an interior 2-cycle resolves a gap beyond the available source counterexamples and simulations; local Nash multiplier or one cycle witness alone is not the global result.
+
+## value
+
+PASS
+
+Sharp global-stability boundary for a well-motivated best-response learning dynamic, with the first true intermediate-regime positive cycle, complete uniqueness of period-two orbits, and exact critical parameter; not merely local Jacobian stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
