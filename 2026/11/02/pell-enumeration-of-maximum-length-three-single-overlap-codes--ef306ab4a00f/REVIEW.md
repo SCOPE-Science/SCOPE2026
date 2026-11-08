@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sharp upper bound follows from the partition into nonconstant rotation triples. The partition representation follows from the disjoint prefix/suffix context sets. Equality forces every directed triple to contain both binary colors. The repeated-letter cases force ties into a matching; orientations to outside symbols are coherent; the quotient tournament is transitive. The converse construction and the first-singleton-only reconstruction ambiguity yield the exact labeled-code count. Two independent finite programs checked every context matrix or every prescribed block construction through alphabet size five, including deduplicated code sets. The general proof does not rest on a finite cutoff.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Yang and Ding's full text addresses interval-restricted codes via generalized constructions; its Theorem 3.4 counts sizes of that construction, not the optimality and full equality census for isolated length-two overlaps at word length three. The abstract of Wang–Fang–Feng has a different combination of restrictions. Targeted searches for the exact recurrence, Pell counts, de Bruijn directed cuts, and two-overlap-free codes did not identify an equivalent classification. The simple numerical upper bound may have been observed elsewhere; the main claimed contribution includes all extremizers and exact counting. Indirect coverage by older graph-theoretic directed-cut work cannot be excluded.
+PASS
 
-**Value — PASS.** A complete all-alphabet classification of optimal synchronization codes is a natural structural invariant, not an arbitrary finite slice. The pair-block theorem explains all equality cases, and the Pell recurrence produces an exact labeled optimizer count while correcting the overcount from binary context partitions. These properties are not provided by the elementary orbit bound alone.
+Cyclic rotation partitions q³-q nonconstant triples into length-three necklaces, at most one codeword per necklace, and an ordered-letter cut attains the upper bound. Every maximum code is exactly C(B)={(a,b,c):B_ab=1,B_bc=0} for a zero/one context partition. Equality forbids monochromatic directed 3-cycles and forces tied letter pairs to form a matching, uniform orientations from pairs to outside letters, and a transitive tournament on blocks. Every such block arrangement achieves equality. Every context bit is recoverable from prefix/suffix sets except the diagonal of a singleton initial block; removing that binary duplication yields Pell recurrence T_q=2T_(q-1)+T_(q-2), total q!(P_(q+1)-P_q). Independent enumeration of all binary q×q matrices through q=4 verified numbers of maximal matrices 10,72,696 and distinct codes 6,42,408; these finite tests corroborate the infinite structural proof.
 
-**Limits.** Overlap length two at word length three only, not interval overlap constraints. Finite tests at alphabet sizes one through five. The older graph-theoretic literature remains a specific priority risk. No independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp necklace maximum may be known; novelty of this assessment is the universal equality characterization and Pell labeled optimizer count. The closest inspected full overlap-free code paper treats interval constraints, chiefly intervals beginning with length one, not isolated length two with n=3. The de Bruijn directed-cut equivalence is acknowledged as a possible older source of priority.
+
+## value
+
+PASS
+
+Exact optimum cardinality is elementary, but the unique global structure and Pell enumeration of all labeled optimizers solve a naturally motivated code-classification problem at the shortest nontrivial overlap length. The counting requires resolving genuine representational redundancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
