@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:46:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rook graph K_m□K_n is L(K_{m,n}); selected rook vertices induce an acyclic graph precisely when the chosen bipartite edges form a linear forest (no degree>=3 and no cycles). For labeled path components, isolated vertices contribute x+y; balanced paths with r vertices per side contribute (xy)^r z^(2r−1), and unequal-shore paths contribute (x+y)(xy)^r z^(2r)/2. The labeled exponential formula yields exp(x+y+[xyz+xy(x+y)z²/2]/[1−xyz²]) exactly as a formal series. Every chosen edge touches a left vertex with degree<=2, giving the upper bound 2m; it is sharp for m<n via an alternating path, while m=n has at most 2m−1 edges by acyclicity. Alternating Hamiltonian paths give (m!)² square-case optima. In the rectangular case suppress degree-two left vertices; this bijects optima with labeled right-shore linear forests having m edges and a bijection of m left labels to these edges. Extract from (u+u²/[2(1−u)])^(n−m)/(n−m)! to obtain the displayed binomial sum. An independent direct rook-adjacency/union-find count matched all coefficients in cases (2,2),(2,3),(3,3),(3,4),(4,4), including the 3×3 and 3×4 displayed polynomials. Infinite parameter claims follow from the combinatorial bijection and EGF, not the five finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barton–Brown–Pike establish general acyclic-polynomial results and a lexicographic-product identity, not this K_m Cartesian K_n family.",
+          "Bau–Beineke give decycling numbers/upper bounds for graph classes, which control a degree but not all coefficients."
+        ],
+        "reasoning": "Product types and invariants differ. A known general labeled linear-forest enumeration could imply this specialization but was not verified here; absence from a search is not a coverage certificate.",
+        "searches": [
+          "induced forest acyclic polynomial rook graph line graph complete bipartite linear forests",
+          "arXiv:2011.01735",
+          "arXiv:math/0703544"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2011.01735",
+        "arXiv:math/0703544",
+        "MathWorld Feedback Vertex Set Number",
+        "Resultary search: induced forest acyclic polynomial rook graph line graph complete bipartite linear forests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior lexicographic-product lemma does not specialize to Cartesian product K_m□K_n.",
+          "Feedback vertex set cardinality does not determine the full acyclic polynomial or number of extremizers."
+        ],
+        "reasoning": "The new line-graph/linear-forest EGF and extremal counting require an additional labeled-component calculation. Generic species exponential formula is classical and is not itself claimed as a novel theorem.",
+        "searches": [
+          "arXiv:2011.01735 §2 and Lemma 2.21",
+          "arXiv:math/0703544",
+          "induced forest acyclic polynomial rook graph line graph complete bipartite linear forests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_{m,n}=L(K_{m,n}) identifies induced forests in the rook graph with labeled bipartite spanning linear forests in K_{m,n}.",
+          "The acyclic polynomial of Barton–Brown–Pike counts vertex-induced forests, exactly the target invariant."
+        ],
+        "reasoning": "The equivalence is weight-preserving and must be checked against enumeration literature in both languages. The found primary graph-polynomial paper does not give this bivariate formula, but a different general path-forest EGF could cover the result.",
+        "searches": [
+          "induced forest acyclic polynomial rook graph line graph complete bipartite linear forests",
+          "forest polynomial rook graph induced vertex sets",
+          "linear forests complete bipartite graph edge generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rook graph feedback-vertex-set minimum is tabulated and is consistent with 2m−1_{m=n} remaining vertices in the complement.",
+          "Neither the scalar minimum nor the generic induced-forest definition gives the coefficient of the maximal monomial."
+        ],
+        "reasoning": "Only the decycling-number consequence is covered by the known table, while the all-coefficients formula and optimal multiplicities refine it.",
+        "searches": [
+          "Feedback Vertex Set Number rook graph MathWorld",
+          "induced forest acyclic polynomial rook graph line graph complete bipartite linear forests"
+        ]
+      },
+      "rationale": "Barton–Brown–Pike study this precise induced-forest polynomial, but their product formula is for lexicographic graph products, not rook Cartesian clique products. The scalar rook decycling number is known and is excluded from novelty. The two-variable complete coefficient enumeration and labeled top multiplicity were not identified as already published; general bipartite path-forest enumeration is a real equivalence/priority risk.",
+      "residual_risks": [
+        "A general labeled-bipartite-linear-forest enumeration may have been published under a different name and would imply this specialization.",
+        "The graph-to-path bijection and species exponential formula are classical building blocks, not individually original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant and studies other products/families, but does not directly give this rook graph EGF in inspected portions.",
+          "evidence": [
+            "Barton–Brown–Pike, 2022, Lemma 2.21, lexicographic product"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.01735",
+          "material_read": "Primary ar5iv full-text paper: definition, main enumerative examples and lexicographic product result; original PDF opening page inspected visually.",
+          "method": "Full relevant accessible ar5iv text and PDF visual check",
+          "title": "Acyclic polynomials of graphs",
+          "trigger": "Same exact vertex-induced-forest polynomial"
+        },
+        {
+          "assessment": "Provides a scalar graph invariant, not all induced-forest coefficient counts.",
+          "evidence": [
+            "Bau–Beineke arXiv:math/0703544, decycling definition"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0703544",
+          "material_read": "Accessible primary discussion of decycling number and Cartesian graph products.",
+          "method": "Primary abstract/text comparison",
+          "title": "The Decycling Number of Graphs",
+          "trigger": "Potential scalar result for rook graphs"
+        },
+        {
+          "assessment": "Known optimum size does not determine number of optimum sets.",
+          "evidence": [
+            "MathWorld rook graph invariant table"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/FeedbackVertexSetNumber.html",
+          "material_read": "Rook-graph entry and interpretation of decycling number.",
+          "method": "Table and definition inspection",
+          "title": "Feedback Vertex Set Number",
+          "trigger": "Exact database/table for rook graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The induced-forest polynomial counts feedback-vertex-set complements, a natural graph invariant; resolving every coefficient and all optimal-set multiplicities in the entire rectangular rook family provides strictly more information than the tabulated decycling number. The connection to labeled bipartite path forests also gives a useful combinatorial translation for future exact graph enumerations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claim is for rook graphs/complete bipartite line graphs and counts labeled subsets, not equivalence classes under graph automorphisms.",
+    "Finite checks illustrate the universal counting proof; they are not substitutes for formal component decomposition."
+  ],
+  "schema_version": 1
+}
