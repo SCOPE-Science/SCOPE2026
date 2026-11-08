@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each pattern length \\(k\\), repeat occurrences are bounded by colliding-window pairs. Disjoint windows have collision probability \\(1/k!\\). For overlapping windows at shift \\(d<k\\), the \\(k\\) shift edges form disjoint paths. One alternating edge color is a matching of size at least \\(\\lfloor k/2\\rfloor\\); identical full patterns force equal order types on two disjoint coordinate sets, so their collision probability is at most \\(1/\\lfloor k/2\\rfloor!\\). The factorial tails above \\((1+\\varepsilon)\\log n/\\log\\log n\\) contribute \\(o(n\\log n/\\log\\log n)\\). Below \\((1-\\varepsilon)\\log n/\\log\\log n\\), the \\(k!\\) cardinality cap forces almost \\(n\\) lost occurrences at each length. Sending \\(\\varepsilon\\downarrow0\\) proves coefficient one. The standalone program passed 362934 exact finite assertions, which do not prove the asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Both primary studies concern the identical full statistic but yield coarser expected-loss bounds, not a stronger theorem.",
+        "Borga–Penaguiao papers discussed in the primary literature study feasible pattern-frequency polytopes, rather than an all-length random expectation with precise correction."
+      ],
+      "reasoning": "A stronger theorem implying the coefficient would cover the result even without the same wording. Within materially inspected direct sources, published bounds leave an unclosed factor of \\(\\log\\log n\\) and do not entail the limit.",
+      "searches": [
+        "\"random permutation distinct order isomorphism consecutive subwords missing patterns near factorial transition\"",
+        "\"Allen Godbole Swickheimer distinct consecutive patterns second order expectation 2024\"",
+        "\"permutation pattern overlap probability n k factorial distinct patterns deficit\""
+      ]
+    },
+    "checked_sources": [
+      "Allen et al., arxiv:2011.12179, first posted 2020-11-24 and journal text 2022",
+      "Godbole–Swickheimer, arxiv:2310.14071v4, first posted 2023-10-21",
+      "Published record: Second-order digital oscillation for distinct substrings of a uniform random word (2026)",
+      "Published record: Complete local graph-degree spectrum of the fourth consecutive-pattern polytope (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 1 deterministic cap gives \\(D_n\\ge(1-o(1))n\\log n/\\log\\log n\\) but source expected bound only \\(D_n=O(n\\log n)\\).",
+        "Source 2 lower expected-count inequality also yields \\(D_n=O(n\\log n)\\), with an explicit suggestion that the bound be improved.",
+        "New statement proves \\(D_n\\sim n\\log n/\\log\\log n\\), strictly stronger than these source inequalities."
+      ],
+      "reasoning": "The source lower and upper bounds allow the deficit \\(D_n\\) anywhere between order \\(n\\log n/\\log\\log n\\) and order \\(n\\log n\\), a diverging factor \\(\\log\\log n\\). Neither implies the new sharp ratio limit; the aligned matching lemma closes that gap.",
+      "searches": [
+        "arxiv:2011.12179 full text deterministic Lemma 2.2 and final cutoff b_n=100 ln n",
+        "arxiv:2310.14071v4 Theorem 1.2 and Section 3(b)",
+        "The expected number of distinct consecutive permutation patterns in a uniformly random permutation has second-order deficit asymptotic to n log n divided by log log n with sharp coefficient one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allen et al. 2020 Main Theorem \\(\\mathbb E X_n=n^2(1-o(1))/2\\), not deficit asymptotics.",
+        "Godbole–Swickheimer 2023 Theorem 1.2 \\(\\mathbb E X_n\\ge n^2/2-(17/2)n\\log n\\).",
+        "Closest published record about independent-word substrings has a different object and equivalence rule."
+      ],
+      "reasoning": "Rephrasing via repeat counts, distinct-pattern count, or factorial-transition deficit yields the same proposed statement; none of the inspected direct theorems identifies the sharp expected-deficit coefficient.",
+      "searches": [
+        "\"distinct consecutive patterns\" \"log log n\" \"expected\" sharp correction",
+        "\"expected number distinct consecutive permutation patterns deficit n log n log log n sharp asymptotic constant\"",
+        "The expected number of distinct consecutive permutation patterns in a uniformly random permutation has second-order deficit asymptotic to n log n divided by log log n with sharp coefficient one",
+        "arxiv:2011.12179; arxiv:2310.14071"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Allen et al. display small-n exact/numerical pattern counts (including \\(n=8\\) near 22.08), but no all-n coefficient-one asymptotic.",
+        "An accessible published record on random independent-word substrings obtains a different \\(n\\log_d n\\) scale."
+      ],
+      "reasoning": "Finite tables cannot imply the claimed infinite-size coefficient, and the returned independent-word records do not encode rank-order patterns of a random permutation.",
+      "searches": [
+        "\"distinct consecutive patterns\" \"deficit\" \"log log\" random permutation",
+        "The expected number of distinct consecutive permutation patterns in a uniformly random permutation has second-order deficit asymptotic to n log n divided by log log n with sharp coefficient one",
+        "\"expected number of distinct consecutive patterns\" n=8 table 22.08"
+      ]
+    },
+    "rationale": "The two inspected direct primary papers prove a half-quadratic first-order law and \\(n\\log n\\) scale lower bound for the expected count, not the sharp first-order deficit \\(n\\log n/\\log\\log n\\). The new matching bound upgrades the overlapping-pair estimate enough to identify the coefficient. No returned mathematical record with equivalent coverage was identified; absence of such a record is not itself a novelty proof.",
+    "residual_risks": [
+      "A stronger independent theorem may have appeared outside the searched and inspected literature.",
+      "The ordinary-symbol substring analogy does not establish a priority claim about relative-order patterns.",
+      "The distribution, variance and sharper finite-n errors are not investigated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes leading half-quadratic expectation and deterministic threshold, but its expected-deficit upper estimate is only of order \\(n\\log n\\); it does not give coefficient one at scale \\(n\\log n/\\log\\log n\\).",
+        "evidence": [
+          "Main Theorem: \\(\\mathbb E X_n=n^2(1-o(1))/2\\); Lemma 2.2: factorial/window crossover at log n/\\(\\log\\log n\\); Section 2.2 selects \\(b_n=\\lceil100\\log n\\rceil\\) and concludes a first-order theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.12179; https://www.researchgate.net/publication/368481996_The_expected_number_of_distinct_consecutive_patterns_in_a_random_permutation",
+        "material_read": "Full available text of introduction, main theorem, deterministic factorial-threshold Lemma 2.2, repeated-window inequalities and final cutoff proof, including numerical table.",
+        "method": "Opened lawful public full text rendered as HTML and compared bounds and proof implications with the proposed asymptotic.",
+        "title": "The Expected Number of Distinct Consecutive Patterns in a Random Permutation",
+        "trigger": "Identical probability model and all-length pattern statistic, first source publicly posted 2020-11-24."
+      },
+      {
+        "assessment": "Theorem 1.2 shows \\(\\mathbb E X_n\\ge n^2/2-(17/2)n\\log n\\), with threshold b_n=4 log n/\\(\\log\\log n\\) and an additional \\(n\\log n\\) loss. It does not prove the sharp \\(n\\log n/\\log\\log n\\) coefficient and explicitly asks for a better bound.",
+        "evidence": [
+          "arXiv:2310.14071v4, Theorem 1.2 and equations (18)–(20); Section 3(b): might the bound be improved? First posted 2023-10-21."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.14071v4",
+        "material_read": "Full HTML of abstract, introduction, Theorem 1.2, Poisson approximation, Lemma 2.1, formulas (17)–(20), Section 3 open questions, and bibliography.",
+        "method": "Inspected arXiv accessible HTML full paper and checked its quantitative bound and dependency estimates against proposed sharp correction.",
+        "title": "An Alternative Proof for the Expected Number of Distinct Consecutive Patterns in a Random Permutation",
+        "trigger": "Direct alternative proof for the identical random observable and explicit invitation to tighten the expected-count bound."
+      },
+      {
+        "assessment": "Independent finite-alphabet words and exact symbol equality are not uniform permutations with relative-order patterns. The summary does not imply the claim.",
+        "evidence": [
+          "Record summary has n log_d n leading deficit for uniform words over a fixed d-letter alphabet, not \\(n\\log n/\\log\\log n\\) for permutation order patterns."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b",
+        "material_read": "Published record title and summary only; not full paper.",
+        "method": "Compared object, equivalence relation, and leading deficit scale in the published record summary.",
+        "title": "Second-order digital oscillation for distinct substrings of a uniform random word",
+        "trigger": "Closest returned semantic neighbor involving a deficit of distinct substrings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "96562487-2f0e-4b00-8f48-80eabf28796d",
+  "value": {
+    "rationale": "The sharp deficit closes an explicitly motivated, logarithmic-factor-sized gap between the deterministic pigeonhole floor (factorial cutoff) and existing expected-count bounds. It supplies a complete asymptotic answer with a canonical coefficient one for a natural random permutation diversity statistic; no downstream theorem is presumed.",
+    "status": "PASS"
+  }
+}
