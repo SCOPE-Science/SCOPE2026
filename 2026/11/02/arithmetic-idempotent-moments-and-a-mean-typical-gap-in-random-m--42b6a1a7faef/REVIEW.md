@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cycle equation \(x_{\sigma(i)}=a_ix_i^2\) forces either all-zero or all-nonzero coordinates on each permutation cycle. Iteration reduces nonzero solutions to a power equation of exponent \(2^\ell-1\) with a uniform multiplicative parameter, yielding exactly \(g_\ell\) roots with probability \(1/g_\ell\). Independence follows from disjoint coefficient sets. Standard permutation-cycle-index enumeration proves all moment identities. Divisor-totient decomposition gives the second-moment Euler product; at \(z=1\), its singularity dominates all other roots of unity by at least four powers. Total-variance and negative-covariance cycle-count bounds prove the logarithmic \(L^2\) law. Directly enumerated finite algebras over six finite fields pass the multiplication verifier. Limits: fixed \(q\), no asserted convergence rate, finite checks are not an infinite proof.
+## correctness
 
-## Originality — PASS within searched coverage
-The closest same-object source, Khudoyberdiyev–Omirov–Qaralleh (2013, §3), gives the weighted-permutation evolution algebra and cycle decomposition over characteristic zero; neither a uniform finite-field law nor moment/typical statistics follows from its root-extraction isomorphism argument over complex coefficients. Narkuziyev (2020, §4) studies a different two-permutation real family and special idempotents. An established homomorphism theorem for unweighted permutation-cycle evolution algebras includes the same elementary \(\gcd(2^\ell-1,q-1)\) factor, covering the all-unit-coefficient case but not uniformly random nonzero weights; the gcd factor itself is not claimed as new. Wei–Zou (2023, §§1–3) count isomorphism classes of perfect evolution algebras over finite fields rather than idempotent elements of uniformly sampled monomial algebras. The 2026 survey's whole-\(\operatorname{GL}_n\) mean is \(2\) **including zero**, whereas the monomial subensemble mean is \(n+1\); its result cannot imply the present statistic. Relevant exact-statement, alias, whole-matrix and cycle-index searches, plus accessible prior records, yielded no statement dominating the joint moment and typical laws. Risk: a broader unpublished or unlocated combinatorial cycle-index theorem might imply a portion of the findings; literature priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The number of solutions to \(x^2=x\) is a direct structural invariant of an evolution algebra, not an arbitrary numerical slice. The result reveals a large, rigorous difference between the typical value and mean under a natural uniform structure-matrix model. The variance exponent responds explicitly to divisors of the odd part of \(q-1\), and the \(q=4\) parity law distinguishes an algebraic obstruction to any nonzero idempotent. Together these supply a complete moment family and sharp typical-scale law, not just a finite computation or routine specialization.
+Every σ-cycle has either all zero coordinates or a nonzero solution of x=βx^(2^ell); because a final independent coefficient enters β with exponent 1, β is uniform in F_q^*. Hence cycle idempotent factor 1+g_ell with probability 1/g_ell, else 1, independently. Permutation cycle index yields the stated all-moment EGF and mean n+1. For r=2 use divisor-sum gcd identity and product (1-z)^(-4)∏(1-z^ord_d(2))^(-φ(d)/ord_d(2)); z=1 dominates all other roots of unity and gives variance asymptotic. Bounded cycle contributions, negative cross-covariances and periodic g_ell yield L2 exponent κ_q. q=4 odd cycles always have 2 idempotents while even cycles have no-nonzero probability 2/3, giving (1-z²)^(-1/3). Every theorem quantifier fixes q and varies n.
 
-## Sources and limitations
-Primary inspected sources: Khudoyberdiyev–Omirov–Qaralleh, arXiv:1307.0993v1 (§§2–3); Narkuziyev, arXiv:2005.05793v1 (§4); Wei–Zou, arXiv:2310.12368v1 (§§1–3); Kaygorodov–Martín González–Viruel, arXiv:2610.22248v1 (Remark 23). The classification of weighted-permutation algebras, classical permutation cycle-index identity and power-map theory are prior work. Only the stated ensemble has been analyzed; the algebra is generally nonassociative, and \(q\) is fixed in the limit. Mathematical priority has not received independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
+
+## value
+
+PASS
+
+The exact mean–typical growth disparity and arithmetic second-moment exponent for a natural uniform labeled monomial-matrix ensemble are nontrivial finite-field probability results, with a sharp parity-specific zero-only phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

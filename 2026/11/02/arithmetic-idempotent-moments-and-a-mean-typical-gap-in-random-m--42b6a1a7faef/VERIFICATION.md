@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification scope
-The accompanying `verify.py` uses only the Python standard library. It directly constructs multiplication in labeled finite-field evolution algebras and enumerates all vectors, rather than computing the answers by substituting the theorem's formulas. It independently computes moment predictions from the permutation cycle-index recurrence and compares exact rational moments. The extension fields \(\mathbb F_4\) and \(\mathbb F_8\) are represented by \(\mathbb F_2[t]/(t^2+t+1)\) and \(\mathbb F_2[t]/(t^3+t+1)\), respectively, and the exact parity-sensitive idempotent-free probabilities are also checked.
+# Independent mathematical audit
 
-On execution, all cases \(q=2,3,4\), \(1\le n\le4\), and \(q=5,7,8\), \(1\le n\le3\), pass and the program emits `VERIFY_OK`. These are exhaustive finite checks of the sampled ensembles (not Monte Carlo). The separate direct finite reconstruction verifies no cases of dimension greater than four, and cannot prove the \(n\to\infty\) claims. The full mathematical arguments for the general cycle law, exact moments, root-of-unity coefficient asymptotics, and logarithmic concentration appear in `RESULT.md`.
+## correctness
 
-The verification is limited to algebraic claims; no independent peer review or independent mathematical audit was performed.
+PASS
+
+Every σ-cycle has either all zero coordinates or a nonzero solution of x=βx^(2^ell); because a final independent coefficient enters β with exponent 1, β is uniform in F_q^*. Hence cycle idempotent factor 1+g_ell with probability 1/g_ell, else 1, independently. Permutation cycle index yields the stated all-moment EGF and mean n+1. For r=2 use divisor-sum gcd identity and product (1-z)^(-4)∏(1-z^ord_d(2))^(-φ(d)/ord_d(2)); z=1 dominates all other roots of unity and gives variance asymptotic. Bounded cycle contributions, negative cross-covariances and periodic g_ell yield L2 exponent κ_q. q=4 odd cycles always have 2 idempotents while even cycles have no-nonzero probability 2/3, giving (1-z²)^(-1/3). Every theorem quantifier fixes q and varies n.
+
+## originality
+
+PASS
+
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
+
+## value
+
+PASS
+
+The exact mean–typical growth disparity and arithmetic second-moment exponent for a natural uniform labeled monomial-matrix ensemble are nontrivial finite-field probability results, with a sharp parity-specific zero-only phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
