@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The variable-step BDF2 zero-test equation gives precisely q(R)=R²/(1+2R). Stationary two-state ergodic products decay a.s. because ab<1. Positive series L^s convergence is equivalent to rho(diag(a^s,b^s) P)<1: exponential moment bounds prove sufficiency, and conditional perpetuity plus strict Perron left eigenvector proves necessity, including equality and p=0. The determinant is affine in p, crosses zero once for r>1+sqrt(2), and stays positive in the stable branch; exact fractions 24/31 and 171/283 checked by standalone script. Numerical tests are corroboration only. Limits: zero test equation, exact arithmetic, infinite horizon.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Liao establish stability for arbitrary step ratios with startup derivative measured on a finite ODE grid; their bound has an h-dependent prefactor.",
+        "Yue et al. analyze mesh-robust deferred corrections and sample random grids with a different finite-horizon scope."
+      ],
+      "reasoning": "Arbitrary-grid BDF2 stability is broader with respect to finite-horizon mesh shape but does not imply finite moments of the unscaled infinite-step startup amplification. The current infinite-series risk classification neither refutes nor strengthens their fixed-horizon bounds.",
+      "searches": [
+        "BDF2 random mesh zero stability moment thresholds geometric iid ratio Lyapunov exponents",
+        "variable-step BDF2 probabilistic zero-stability random steps Lyapunov almost sure mean-square risk",
+        "Z. Li, H.-l. Liao (2022), Section 2, arXiv:2201.00527",
+        "J. Yue, H.-l. Liao, N. Liu (2024), arXiv:2402.06129"
+      ]
+    },
+    "checked_sources": [
+      "G. Söderlind, I. Fekete, I. Faragó (2018), Section 4, https://doi.org/10.1007/s10543-018-0716-y",
+      "Z. Li, H.-l. Liao (2022), Section 2, arXiv:2201.00527",
+      "J. Yue, H.-l. Liao, N. Liu (2024), arXiv:2402.06129"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The zero-test multiplier follows from the 2018 source and is not claimed new.",
+        "Li--Liao finite-grid derivative-scaled stability is consistent with divergence of startup-amplification moments on an infinite random grid.",
+        "The explicit threshold uses state-conditional moment equations and sharp Perron-root comparison, not a corollary asserted in inspected BDF2 articles."
+      ],
+      "reasoning": "Known BDF2 recursion plus general Perron-Frobenius tools can derive this sharp special-case formula; the contribution is the concrete closed classification and its finite-mean/infinite-variance witness, not foundational Markov-product theory. An equivalent result may exist elsewhere.",
+      "searches": [
+        "variable step BDF2 random reciprocal adjacent timestep ratios i.i.d. parasitic multiplier r^2/(1+2r) almost sure decay but divergent mean square moments perpetuity",
+        "BDF2 exact conditional moment spectral radius two-state Markov ratios zero test equation",
+        "G. Söderlind, I. Fekete, I. Faragó (2018), Section 4, https://doi.org/10.1007/s10543-018-0716-y",
+        "Z. Li, H.-l. Liao (2022), Section 2, arXiv:2201.00527",
+        "J. Yue, H.-l. Liao, N. Liu (2024), arXiv:2402.06129"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The BDF2 zero-test recurrence is Delta_n = [R_n^2/(1+2 R_n)] Delta_(n-1); the resulting positive Markov product has a moment-matrix spectral-radius criterion.",
+        "2018 Section 4 analyzes this extraneous multiplier under smooth-grid ratio assumptions; its statements do not supply the Markov persistence moment cutoff."
+      ],
+      "reasoning": "Rephrased the result as Markov switching multiplicative product, positive perpetuity, random grid zero stability and BDF2 parasitic-root moments. The matrix method is standard but a directly matching all-moment BDF2 reciprocal-ratio cutoff was not identified in inspected sources.",
+      "searches": [
+        "variable step BDF2 random reciprocal adjacent timestep ratios i.i.d. parasitic multiplier r^2/(1+2r) almost sure decay but divergent mean square moments perpetuity",
+        "BDF2 Markov switching timestep ratios persistence probability sharp Lp moment stability parasitic mode reciprocal ratios",
+        "BDF2 exact conditional moment spectral radius two-state Markov ratios zero test equation",
+        "G. Söderlind, I. Fekete, I. Faragó (2018), Section 4, https://doi.org/10.1007/s10543-018-0716-y",
+        "Z. Li, H.-l. Liao (2022), Section 2, arXiv:2201.00527"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching formula p_s(r)=(1-(ab)^s)/(a^s+b^s-2(ab)^s) appeared in searched mathematical finding summaries, or in the examined primary BDF2 stability statements."
+      ],
+      "reasoning": "Searched the exact multiplier, Markov persistence, reciprocal ratio, zero stability and moment frontier language. Lack of a matching database entry is not a novelty proof and is stated only as bounded negative evidence.",
+      "searches": [
+        "variable step BDF2 random ratios stochastic infinite tail amplification",
+        "BDF2 Markov switching timestep ratios persistence probability sharp Lp moment stability parasitic mode reciprocal ratios",
+        "BDF2 exact conditional moment spectral radius two-state Markov ratios zero test equation"
+      ]
+    },
+    "rationale": "Primary published sources supply the deterministic variable-step multiplier and finite-horizon stability, but not an exact all-real-moment persistence frontier for stationary reciprocal Markov ratios. Direct relevant mathematical-finding searches found no dominating or equivalent claim. Markov product/Perron theory is prior knowledge; priority remains qualified by possible literature outside inspected sources.",
+    "residual_risks": [
+      "A general Markov perpetuity theorem plus standard BDF2 factor may already have been specialized elsewhere to this closed-form frontier.",
+      "The present random unbounded grid cannot be interpreted as a fixed-horizon numerical convergence counterexample."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the multiplier and deterministic context, not the stated distributional moment frontier",
+        "evidence": [
+          "Section 4 gives the r^2/(1+2r) parasitic factor under changing ratios."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-018-0716-y",
+        "material_read": "Full accessible HTML, especially Section 4 and variable-step BDF2 multiplier and mesh-regularity assumptions",
+        "method": "Read equations and theorem assumptions and compared stochastic infinite-step moment statement",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Exact BDF2 extraneous recurrence and zero-stability"
+      },
+      {
+        "assessment": "Broad deterministic mesh-robust result is not an all-real-moment formula for unscaled infinite-step amplification",
+        "evidence": [
+          "Section 2 bounds derivative-scaled startup effects; no sharp Markov persistence probability is derived."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.00527",
+        "material_read": "Accessible complete PDF; introduction, BDF2 coefficients, Section 2 stability estimate and conclusion",
+        "method": "Read theorem hypotheses, startup-derivative normalization, and scope of finite-time bound",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Arbitrary-grid stability potentially dominates special random-ratio case"
+      },
+      {
+        "assessment": "No infinite-step Markov moment classification in inspected relevant sections",
+        "evidence": [
+          "Random-time-grid tests are finite-grid computational studies, not analytic persistence frontiers."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.06129",
+        "material_read": "Accessible PDF, introductory BDF2 formulation, random-grid experiment and conclusions",
+        "method": "Compared finite-time random mesh tests and convergence theorems with exact zero-test perpetuity",
+        "title": "Mesh-robust stability and convergence of variable-step deferred correction methods based on the BDF2 formula",
+        "trigger": "Random grids numerical results could include the same stochastic phenomenon"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10f874ba-2223-477f-8570-bcc3a92c35ae",
+  "value": {
+    "rationale": "The parameter r is a natural ratio contrast and p measures run persistence at unchanged stationary ratio frequencies. The exact all-real-s moment boundary distinguishes pathwise zero-test stability from moment blow-up; e.g. r=3,p=0.7 gives finite expected amplification but infinite variance. This can guide correlated random time-step diagnostics and identifies a structural reliability question absent from finite-grid stability claims; no broad ODE error theorem is asserted.",
+    "status": "PASS"
+  }
+}
