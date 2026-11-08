@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:42:06.209953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadratic generator has LV=4-2(x-q)^2-rx^2, coercive for r,g>0, ensuring an invariant law with finite first/second moments and symmetry. Solving the exact reset-free linear SDE after (0,q) yields X_a=b_g(a)q+N(0,v_g(a)), with b_g=g/(g+1)(1-e^{-(1+1/g)a}) and v_g=2a/(g+1)+g²/(g+1)²(1-e^{-2(1+1/g)a}). Independently used symbolic differentiation and the matrix fundamental solution to check its mean and variance formulas, including t=0. Exponential-age conditioning at the last reset with bath preserved, Jensen bound E e^{sbQ}>=1, and v_g>=2a/(g+1) force MGF divergence at and beyond sqrt(r(g+1)). Restricting exponential age to [cz,cz+1] with bounded Q and optimizing rc+(g+1)/(4c) yields the tail lower bound; squeezing establishes zero Gaussian coefficient. The comparator has limiting variance (2r+1)/r and Gaussian quadratic log coefficient r/[2(2r+1)]. No matching finite-g rate or subthreshold MGF finiteness asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra–Das provides exact transient moments and limiting Gaussian comparison; general partial-reset renewal theory may provide a common method."
+        ],
+        "reasoning": "No inspected broader statement supplies the threshold sqrt(r(g+1)) and optimized one-sided tail bound for this model; general long-age conditioning alone is not claimed new.",
+        "searches": [
+          "Published Santra–Das paper introduction, abstract, model summary",
+          "Resultary: partially reset OU exponential tails",
+          "Web: viscoelastic tracer finite g Gaussian tails memory resetting"
+        ]
+      },
+      "checked_sources": [
+        "Santra–Das DOI:10.1088/1367-2630/ae868c accessible introduction and abstract",
+        "arXiv:2603.17027 abstract",
+        "Resultary partial reset model search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source provides the covariance ingredients; the new implication depends on state-independent Poisson last-reset age plus Jensen and long-time free-mode noise."
+        ],
+        "reasoning": "There is no logical contradiction with source strong-memory Gaussian approximation: limits of spatial distance and bath friction need not commute. Exact finite-parameter tail upper rate is not obtained and must not be inferred.",
+        "searches": [
+          "Santra–Das 2026 model and quasistatic distribution",
+          "Web: independent coupled Brownian reset models",
+          "Resultary: stationary partially reset bath memory tails"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source paper studies exactly the same tracer-and-bath SDE and probe-only reset mechanism.",
+          "Publisher abstract describes Gaussian tails in strong bath memory approximation, not a rigorously universal finite-g far-tail theorem."
+        ],
+        "reasoning": "Both studies concern the same model. The present assessed claim is a one-sided finite-g far-tail obstruction and MGF divergence, not novelty of the model, reset-free propagator or quasistatic formula.",
+        "searches": [
+          "Resultary: Partially reset coupled Brownian viscoelastic bath stationary probe exponential moment divergence far tail Gaussian quasistatic",
+          "Santra–Das arXiv:2603.17027 and New J Phys 2026 DOI:10.1088/1367-2630/ae868c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available source discusses moments and limiting Gaussian densities, not a tabulated finite-g MGF-divergence boundary."
+        ],
+        "reasoning": "Numerical Gaussian-looking cores and moment tables cannot imply absence of Gaussian asymptotic far tails; no exact matching table identified.",
+        "searches": [
+          "Santra–Das paper numerical distribution/variance summaries",
+          "Resultary: exponential moment boundary for partially reset Brownian bath"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.",
+      "residual_risks": [
+        "A broader previously published theorem on partial-reset linear diffusions or long-reset-age tails could imply the exact bound under another parametrization.",
+        "Full 2026 source article body was not independently examined, so bibliographic noncoverage is best-of-knowledge only.",
+        "Only a probability lower bound and moment divergence proven, not an exact exponential rate nor subthreshold MGF domain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible introduction explicitly reserves Gaussian tails for large-memory time-scale separation; no complete-document noncoverage is asserted without full body.",
+          "evidence": "Introduction: full distribution not closed at arbitrary parameters, strong memory yields Gaussian tails in approximation.",
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/ae868c",
+          "material_read": "Published journal record dated 2026-07-28, complete accessible introduction and summary in indexed full-text search, abstract and bibliographic metadata; equation-number claims in the research package; remainder of article body not independently accessed.",
+          "method": "Open-access publisher indexed full-text excerpt and bibliographic record",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Exactly same model and claimed strong-memory Gaussian comparison"
+        },
+        {
+          "assessment": "Same original model; detailed full-text priority check remains a risk.",
+          "evidence": "Abstract identifies preserved bath memory and strong-memory nonexponential distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.17027",
+          "material_read": "ArXiv abstract and publication version/date, not whole preprint; arxiv HTML/PDF fetch attempts unavailable.",
+          "method": "ArXiv indexed record",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Full preprint alternate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An order-of-limits obstruction for a natural physical stochastic-reset model: arbitrarily long no-reset excursions force heavier-than-Gaussian far tails at every finite memory, even though the motivating strong-memory quasistatic expression is Gaussian. Quantifies the exact moment-divergence barrier and lower-tail exponent without overselling a full tail asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Santra–Das DOI:10.1088/1367-2630/ae868c accessible introduction and abstract",
+    "arXiv:2603.17027 abstract",
+    "Resultary partial reset model search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any finite g,r>0 in the specified two-coordinate partially reset Brownian model, the probe stationary MGF diverges for every |s|>=sqrt(r(g+1)), the one-sided far-tail log-liminf is >=-sqrt(r(g+1)), and the quadratic log-tail coefficient vanishes, unlike the stated separate quasistatic Gaussian mixture.",
+  "limitations": [
+    "A broader previously published theorem on partial-reset linear diffusions or long-reset-age tails could imply the exact bound under another parametrization.",
+    "Full 2026 source article body was not independently examined, so bibliographic noncoverage is best-of-knowledge only.",
+    "Only a probability lower bound and moment divergence proven, not an exact exponential rate nor subthreshold MGF domain."
+  ],
+  "residual_risks": [
+    "A broader previously published theorem on partial-reset linear diffusions or long-reset-age tails could imply the exact bound under another parametrization.",
+    "Full 2026 source article body was not independently examined, so bibliographic noncoverage is best-of-knowledge only.",
+    "Only a probability lower bound and moment divergence proven, not an exact exponential rate nor subthreshold MGF domain."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The accessible introduction explicitly reserves Gaussian tails for large-memory time-scale separation; no complete-document noncoverage is asserted without full body.",
+      "evidence": "Introduction: full distribution not closed at arbitrary parameters, strong memory yields Gaussian tails in approximation.",
+      "identifier_or_url": "https://doi.org/10.1088/1367-2630/ae868c",
+      "material_read": "Published journal record dated 2026-07-28, complete accessible introduction and summary in indexed full-text search, abstract and bibliographic metadata; equation-number claims in the research package; remainder of article body not independently accessed.",
+      "method": "Open-access publisher indexed full-text excerpt and bibliographic record",
+      "title": "Resetting in a viscoelastic bath: the bath remembers",
+      "trigger": "Exactly same model and claimed strong-memory Gaussian comparison"
+    },
+    {
+      "assessment": "Same original model; detailed full-text priority check remains a risk.",
+      "evidence": "Abstract identifies preserved bath memory and strong-memory nonexponential distribution.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.17027",
+      "material_read": "ArXiv abstract and publication version/date, not whole preprint; arxiv HTML/PDF fetch attempts unavailable.",
+      "method": "ArXiv indexed record",
+      "title": "Resetting in a viscoelastic bath: the bath remembers",
+      "trigger": "Full preprint alternate"
+    }
+  ]
+}

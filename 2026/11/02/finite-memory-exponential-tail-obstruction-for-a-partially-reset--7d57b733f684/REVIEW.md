@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The generator applied to \(x^2+gq^2\) is the explicit negative-definite quadratic drift plus four, establishing positive recurrence and a finite stationary second moment. The reset-free probe starting at \((0,q)\) has exact mean \(g(1-e^{-(1+1/g)a})q/(g+1)\) and variance \(2a/(g+1)+g^2(1-e^{-2(1+1/g)a})/(g+1)^2\). Independent Poisson reset ages and the pre-reset bath marginal yield an exact stationary conditioning identity. Jensen proves exponential-moment divergence; a compact-mass restriction and one-dimensional Gaussian asymptotics prove the quantified far-tail bound. The quasistatic comparison is expressly to a defined mixture, not to a claimed rigorous parameter limit. Algebraic checks are reproducible in the companion script.
+PASS
 
-## Originality
+The quadratic generator has LV=4-2(x-q)^2-rx^2, coercive for r,g>0, ensuring an invariant law with finite first/second moments and symmetry. Solving the exact reset-free linear SDE after (0,q) yields X_a=b_g(a)q+N(0,v_g(a)), with b_g=g/(g+1)(1-e^{-(1+1/g)a}) and v_g=2a/(g+1)+g²/(g+1)²(1-e^{-2(1+1/g)a}). Independently used symbolic differentiation and the matrix fundamental solution to check its mean and variance formulas, including t=0. Exponential-age conditioning at the last reset with bath preserved, Jensen bound E e^{sbQ}>=1, and v_g>=2a/(g+1) force MGF divergence at and beyond sqrt(r(g+1)). Restricting exponential age to [cz,cz+1] with bounded Q and optimizing rc+(g+1)/(4c) yields the tail lower bound; squeezing establishes zero Gaussian coefficient. The comparator has limiting variance (2r+1)/r and Gaussian quadratic log coefficient r/[2(2r+1)]. No matching finite-g rate or subthreshold MGF finiteness asserted.
 
-PASS, with residual risk. Santra and Das, arXiv:2603.17027v1, full-text sections II–III and Appendix, establish the model, variance, and quasistatic Gaussian approximation but do not establish the stated finite-\(g\) far-tail obstruction or the exponential-moment divergence threshold. Falcao and Evans, arXiv:1610.03503v1, analyze collision-triggered joint resetting of two particles, not a bath degree of freedom preserved at exogenous reset epochs. Targeted published-results comparisons found no matching stronger finite-\(g\) claim; general age-mixture arguments are established techniques and an unidentified stronger general partial-resetting theorem remains a priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The exact rare-event boundary is motivated by the source paper's central conclusion that strong viscoelastic memory gives Gaussian stationary tails. It identifies a nonuniform asymptotic effect: even very long but finite bath relaxation allows rare reset-free intervals with unbounded diffusive center-of-mass spread. A quantitative exponential-moment obstruction and spatial log-tail bound distinguish this effect from low-order moments or a minor coefficient refinement, and delimit when the quasistatic tail law can be used.
+Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.
 
-## Scope and residual limitations
+## value
 
-The main lower bound is not a matching tail asymptotic. The moment-generating function may diverge at smaller nonzero arguments. The strong-memory Gaussian mixture is used as an explicit mathematical comparator; convergence of finite-memory stationary laws to this comparator is not newly proved. The calculation is for one linear bath coordinate with position-only Poisson resetting and finite positive bath friction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An order-of-limits obstruction for a natural physical stochastic-reset model: arbitrarily long no-reset excursions force heavier-than-Gaussian far tails at every finite memory, even though the motivating strong-memory quasistatic expression is Gaussian. Quantifies the exact moment-divergence barrier and lower-tail exponent without overselling a full tail asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `checks/check_kernel.py` is a finite, self-contained symbolic and numerical consistency check. Run with Python 3 and SymPy: `python checks/check_kernel.py`.
+# Independent mathematical audit
 
-It checks the quadratic generator identity, the reset-free linear drift propagator and Gaussian variance, the saddle minimizer and rate, and the limiting variance of the separate quasistatic Gaussian mixture. The checker supports exact algebra, but does not establish positive Harris recurrence, Poisson last-reset conditioning, Jensen's inequality, Gaussian tail asymptotics, literature priority, or any infinite-time or infinite-distance theorem. Those mathematical steps are supplied analytically in RESULT.md.
+## correctness
 
-No claim is made of an independent audit or external certification. The exact finite-\(g\) exponential tail rate, finiteness of the moment-generating function below the reported divergence threshold, and a rigorous stationary \(g\to\infty\) limit remain unproved.
+PASS
+
+The quadratic generator has LV=4-2(x-q)^2-rx^2, coercive for r,g>0, ensuring an invariant law with finite first/second moments and symmetry. Solving the exact reset-free linear SDE after (0,q) yields X_a=b_g(a)q+N(0,v_g(a)), with b_g=g/(g+1)(1-e^{-(1+1/g)a}) and v_g=2a/(g+1)+g²/(g+1)²(1-e^{-2(1+1/g)a}). Independently used symbolic differentiation and the matrix fundamental solution to check its mean and variance formulas, including t=0. Exponential-age conditioning at the last reset with bath preserved, Jensen bound E e^{sbQ}>=1, and v_g>=2a/(g+1) force MGF divergence at and beyond sqrt(r(g+1)). Restricting exponential age to [cz,cz+1] with bounded Q and optimizing rc+(g+1)/(4c) yields the tail lower bound; squeezing establishes zero Gaussian coefficient. The comparator has limiting variance (2r+1)/r and Gaussian quadratic log coefficient r/[2(2r+1)]. No matching finite-g rate or subthreshold MGF finiteness asserted.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.
+
+## value
+
+PASS
+
+An order-of-limits obstruction for a natural physical stochastic-reset model: arbitrarily long no-reset excursions force heavier-than-Gaussian far tails at every finite memory, even though the motivating strong-memory quasistatic expression is Gaussian. Quantifies the exact moment-divergence barrier and lower-tail exponent without overselling a full tail asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
