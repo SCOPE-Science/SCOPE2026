@@ -1,9 +1,21 @@
-# Review of the rational-ladder rank law
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-state one-input rank follows from the tensor-product path spectrum and the PBH spectral decomposition. A rational cross-branch gap is an integer by algebraic integrality; a norm argument classifies the two exceptional gaps of sizes \(2\) and \(3\). Exact path-mode zeros account for \(g-1\) missing directions, and explicit collision pairs supply the remaining defect without double-counting. A separately constructed modular Krylov verifier agreed in 504 test cases. The proof covers all integers \(n\ge2\), all input vertices and all rational \(r\ge1\); finite testing alone does not establish this infinite assertion.
+## correctness
 
-**Originality — PASS, with historical risk.** The inspected 2012 primary grid paper already treats unweighted Cartesian grids, so the \(r=1\) specialization is prior coverage, not a new result. The inspected 2011 path/cycle paper gives the ingredient for counting vanished path components, not rational two-branch resonances. The additional complete weighted classification proves that, among all rational rung strengths at least one, precisely \(1\) and \(3/2\) can cause cross-branch collisions, and determines their exact one-input rank costs at every site and size. Relevant published studies of weighted ladder resistance and two-input control address other observables or input architectures. Search and inspection cannot prove global uniqueness; unindexed work on weighted graph control remains a risk.
+PASS
 
-**Mathematical value — PASS.** A rational choice \(r=4/3\), independent of network size, guarantees complete one-corner controllability for arbitrarily long ladders; the theorem also explains exactly why the two exceptional rational weights fail on specific divisibility classes. The all-position formula separates geometric zero-mode obstructions from spectral resonances and is directly applicable to actuator placement in Laplacian network control. The result concerns rank, not control energy or robustness.
+Product decomposition L_path tensor I + r I tensor L_P2 gives two eigenvalue branches 2-2cos(pi j/n) and those plus 2r; path input zeros count (g-1)/2 in each branch. Rational eigenvalue coincidence forces rational algebraic integer 2r in {2,3}; conjugate norm bounds on doubled cosines show only n-even (0,n/2), n-multiple3 (n/3,2n/3) at r=1 and (0,2n/3) at r=3/2. Discount zero components to avoid double-counting; the stated delta follows. Separate exact rational eigenspace computations in 100 small n,s,r instances confirmed rank formula (not its infinite proof).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: Published path zero-mode rule and unweighted r=1 grid decomposition are prerequisites, but they do not imply the r>1 classification without the algebraic-integer collision lemma; r=3/2 sharp exception is not a direct r=1 corollary.
+
+## value
+
+PASS
+
+A complete arithmetic resonance law for every ladder length, input position and rational rung weight >=1 gives a sharp way to remove uncontrollable modes (e.g., universal corner controllability at fixed r=4/3), a natural control-design invariant. It is more than standard path eigenvectors because exact cross-branch coincidences must be classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

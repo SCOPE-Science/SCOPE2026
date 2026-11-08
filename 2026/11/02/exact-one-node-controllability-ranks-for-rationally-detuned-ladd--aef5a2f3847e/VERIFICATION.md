@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytic proof uses the path eigenbasis, algebraic integrality of doubled cyclotomic cosines, an elementary algebraic-integer norm lemma and the PBH eigenspace rank criterion. Every step applies to the stated infinite rational family. No finite computation is used as a substitute for those arguments.
+## correctness
 
-The supplied `verify.py` constructs the scaled Laplacian with integer entries for each rational rung conductance, independently forms the full one-input Kalman matrix and computes rank over a large prime field. Exactly 504 predicted-versus-computed ranks were compared for 19 ladder lengths, seven rational rung strengths and selected vertices. All 504 matched when this package was checked.
+PASS
 
-Run `python verify.py` in Python 3 with NumPy installed. The program prints a PASS count on success or raises an assertion with the failing graph, site, weight and two rank values.
+Product decomposition L_path tensor I + r I tensor L_P2 gives two eigenvalue branches 2-2cos(pi j/n) and those plus 2r; path input zeros count (g-1)/2 in each branch. Rational eigenvalue coincidence forces rational algebraic integer 2r in {2,3}; conjugate norm bounds on doubled cosines show only n-even (0,n/2), n-multiple3 (n/3,2n/3) at r=1 and (0,2n/3) at r=3/2. Discount zero components to avoid double-counting; the stated delta follows. Separate exact rational eigenspace computations in 100 small n,s,r instances confirmed rank formula (not its infinite proof).
 
-The modular tests are finite and can only corroborate instances; the proof, not this test, establishes the all-size real-rank formula. The controls are unconstrained scalar inputs and the theorem does not bound actuation energy or conditioning. There has been no independent mathematical audit.
+## originality
+
+PASS
+
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: Published path zero-mode rule and unweighted r=1 grid decomposition are prerequisites, but they do not imply the r>1 classification without the algebraic-integer collision lemma; r=3/2 sharp exception is not a direct r=1 corollary.
+
+## value
+
+PASS
+
+A complete arithmetic resonance law for every ladder length, input position and rational rung weight >=1 gives a sharp way to remove uncontrollable modes (e.g., universal corner controllability at fixed r=4/3), a natural control-design invariant. It is more than standard path eigenvectors because exact cross-branch coincidences must be classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
