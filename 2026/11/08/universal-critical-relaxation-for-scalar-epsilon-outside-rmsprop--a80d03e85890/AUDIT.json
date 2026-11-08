@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact multiplier identity yields global amplitude monotonicity. Stable geometric memory filter proves both-state convergence at equality. A dominated-convergence convolution comparison uses sqrt(beta)<rho<1, then reciprocal increments yield the exact n^-1 amplitude constant and the universal n^-2 memory constant. Separate finite-hit orbits are handled. The embedded checker replays exact identities and five representative finite experiments; finite testing is not substituted for the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.13 of arXiv:2610.30078 proves global compact trapping for h >= 2epsilon/lambda_max, which only bounds limsup and does not force convergence.",
+        "Theorem 1 in arXiv:2603.15823 assumes eta_0 in (0,2epsilon/L) and eta_0+eta_1<2epsilon/L; equality is not covered.",
+        "Proposition 2.7 of arXiv:2504.19426 assumes 0<gamma<2epsilon/K."
+      ],
+      "reasoning": "More general theorems were checked for implication, not merely similar titles. Their strict-step hypotheses exclude the boundary, or their conclusions are only boundedness; no stronger covering convergence/rate statement was found.",
+      "searches": [
+        "RMSProp quadratic critical learning rate h = 2epsilon/lambda_max convergence equality inverse n rate scalar diagonal",
+        "Global convergence of scalar epsilon-outside RMSProp exactly at critical learning rate h*=2eps/a and asymptotic |x_n|~eps/(2a n), v_n~eps^2/(4n^2)",
+        "arXiv:2610.30078v1 Theorems 4.4, 4.8, 4.13 and 5.3; arXiv:2603.15823 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.30078v1 (first public 2026-10-21)",
+      "arXiv:2603.15823 (first public 2026-03-16)",
+      "arXiv:2504.19426 (first public 2025-04-28)",
+      "Published published-finding corpus research records returned for five actual RMSProp critical-boundary semantic queries; closest: Polar-Express surrogate flip frontier, Padam max-memory transition, AdaBelief local stability."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Thm 4.4 yields convergence below h*, Thm 4.8 yields instability above h*, Thm 4.13 yields boundedness at equality, and Thm 5.3 excludes a nontrivial period-two orbit at equality.",
+        "The absence of a period-two orbit and boundedness do not imply convergence of all other orbits, and neither implies the exact polynomial constants.",
+        "The 2025 local RMSProp rate analysis uses spectral radius strictly below one, so it does not apply to a -1 boundary multiplier."
+      ],
+      "reasoning": "The proof supplies two missing implications at equality: global asymptotic stability, and sharp non-finite-hit critical relaxation. No inspected source statement subsumes both, and neither follows merely from an absence of a two-cycle.",
+      "searches": [
+        "arXiv:2610.30078v1 Theorems 4.4, 4.8, 4.13, 5.3",
+        "arXiv:2603.15823 Theorem 1",
+        "arXiv:2504.19426 Proposition 2.7",
+        "RMSprop nonhyperbolic flip fixed point sharp 1/n decay time scale at borderline step size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source map has a neutral position multiplier -1 at the critical step; its strict subcritical convergence theorem (arXiv:2610.30078, Theorem 4.4) and strict supercritical instability (Theorem 4.8) leave equality unresolved.",
+        "Related optimizer flip-frontier database record for a Polar-Express surrogate concerns a different recurrence and a different n^{-1/4} exponent."
+      ],
+      "reasoning": "Compared the claim both as exact equality-step global asymptotic stability and as a nonhyperbolic flip-boundary polynomial-relaxation law, including the equivalent objective n^2 L(x_n) -> epsilon^2/(8a). Available hits concern other adaptive methods or strict interior contraction; none implies these limits for the RMSProp memory recurrence.",
+      "searches": [
+        "RMSProp exactly at stability boundary epsilon outside quadratic decay rate n^{-1} memory beta",
+        "RMSprop nonhyperbolic flip fixed point sharp 1/n decay time scale at borderline step size",
+        "arXiv:2610.30078v1 Section 4.1-4.3, Section 5; arXiv:2504.19426 Section 2.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results included scalar Padam with max-memory dynamics, a Polar-Express surrogate with n^{-1/4} critical rate, and adaptive optimizers with local spectral frontiers; none was an exact RMSProp critical-step rate table.",
+        "The claim is a continuum-parameter infinite-time theorem, not a finite lookup-table invariant."
+      ],
+      "reasoning": "The search did not identify any database of these two exact limits, and the algorithm-specific recurrences in closest records differ. Absence of an exact hit is treated as limited evidence, not proof of novelty.",
+      "searches": [
+        "RMSProp quadratic critical learning rate h = 2epsilon/lambda_max convergence equality inverse n rate scalar diagonal",
+        "RMSProp exactly at stability boundary epsilon outside quadratic decay rate n^{-1} memory beta",
+        "Global convergence of scalar epsilon-outside RMSProp exactly at critical learning rate h*=2eps/a and asymptotic |x_n|~eps/(2a n), v_n~eps^2/(4n^2)",
+        "On diagonal quadratic RMSprop at equal stability threshold, memory decay n^-2 and alternating signs"
+      ]
+    },
+    "rationale": "The closest original work proves global convergence strictly below the threshold, instability strictly above it and bounded trapping at equality, but not the critical equality-step global convergence or rate. Other inspected RMSProp stability/rate results impose strict steps. Semantic searches found only nonimplicative adaptive-optimizer parallels; priority remains provisional.",
+    "residual_risks": [
+      "Earlier unpublished or poorly indexed marginal-convergence results could contain an equivalent statement; database search alone cannot establish historical priority.",
+      "Only relevant sections of the longer primary papers and selected appendices were materially inspected; exhaustive line-by-line review of every reference was not performed.",
+      "Similar algorithm-level statements in distinct optimizer variants do not imply RMSProp but may suggest overlapping general theory not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for equality-step convergence and n^{-1},n^{-2} constants; Theorem 4.13 only provides trapping at equality.",
+        "evidence": [
+          "Theorem 4.4: h<h*; Theorem 4.8: h>h*; Theorem 4.13: h>=h* compact trap; Theorem 5.3: 2-cycle iff h>h*.",
+          "Dimension-one experiments in Section 8.3.1 do not state an equality-step proof or rate."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.30078",
+        "material_read": "PDF algorithm p. 4; stability and instability pp. 5-7; trapping pp. 8-11; normalized map and two-cycle classification pp. 12-14; dimension-one observation p. 27; targeted appendix-B/C text. Page images inspected on pp. 6 and 13.",
+        "method": "Full-text PDF section reading, text search, and visual page inspection",
+        "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+        "trigger": "Defines the exact epsilon-outside quadratic RMSProp map and h*=2epsilon/lambda_max boundary"
+      },
+      {
+        "assessment": "NOT_COVERING critical equality; its certified global stability regime is strict h<2epsilon/L.",
+        "evidence": [
+          "Theorem 1 assumes eta_0 in (0,2epsilon/L), eta_0+eta_1<2epsilon/L."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.15823",
+        "material_read": "Accessible full-text HTML Sections II and III, including algorithm equations and Theorem 1 hypothesis and proof outline.",
+        "method": "Read article HTML mathematical statements and hypotheses",
+        "title": "Global Stability and Step Size Robustness of RMSProp",
+        "trigger": "Potential stronger global stability theorem for the same epsilon-outside recurrence"
+      },
+      {
+        "assessment": "NOT_COVERING because the strict step hypothesis and spectral-radius <1 are incompatible with the critical multiplier -1.",
+        "evidence": [
+          "Proposition 2.7 uses gamma in (0,2epsilon/K), excludes equality, and obtains interior geometric contraction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.19426",
+        "material_read": "Accessible HTML Introduction, section 2.3 spectral contraction, and Section 2.5 Proposition 2.7 and its proof.",
+        "method": "Read exact hypotheses and proof of RMSProp local convergence",
+        "title": "Sharp higher order convergence rates for the Adam optimizer",
+        "trigger": "Potential broader sharp RMSProp convergence-rate theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a80d03e8-5890-40ac-9245-597d579ee66f",
+  "value": {
+    "rationale": "The precise equality case h=2epsilon/a is the natural missing stability boundary between strict global convergence and strict instability in the 2026 motivating work. A complete global dichotomy and exact polynomial decay exponents are mathematically motivated, with surprising beta-independent constants and curvature-independent leading memory amplitude. It is not a numerical gain, arbitrary parameter slice, or renaming of an interior contraction theorem.",
+    "status": "PASS"
+  }
+}
