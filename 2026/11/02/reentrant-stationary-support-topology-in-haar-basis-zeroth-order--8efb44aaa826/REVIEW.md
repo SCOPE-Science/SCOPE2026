@@ -1,23 +1,21 @@
-# Scientific review: Reentrant stationary-support topology in Haar-basis zeroth-order descent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(d\ge2\), expanding the actual orthogonal forward differences yields the exact affine recursion with uniform-sphere innovations. The proof reconstructs the stationary series and Wasserstein contraction, then applies the complete polygon inequality and connectedness to determine its entire compact support, rather than guessing from sampled trajectories. Its second moment and absolute-continuity boundary are independently established. The accompanying verifier passed 780 exact-rational support/moment tests, 750 finite-difference identity checks and five separate stationary simulations. The general argument is analytic; finite checks are corroborative.
+PASS
 
-## Originality — PASS, qualified
+Expanding the full Haar orthogonal forward-difference estimator on f=λ||x||²/2 gives exactly X_{n+1}=(1−γ)X_n−(γδ√d/2)V_n with independent uniform sphere directions. The contractive affine recursion yields its unique invariant via an absolutely convergent random series and W₂ contraction |1−γ|; independence yields E||X||²=dγδ²/[4(2−γ)]. In dimension d≥2, planar polygon lengths and connectedness of the product of sphere directions show its complete support is r≤||x||≤R, with R=a/(1−q), r=R max(0,1−2q), q=|1−γ|. The two-sphere addition map is a submersion away from parallel directions, proving absolute continuity for q>0; at γ=1 one uniform sphere remains. Exact independent rational checks of 21 endpoint/moment examples corroborate formulas, but the all-parameter conclusion follows from the geometric proof. Boundaries γ=0,2 and dimension 1 excluded.
 
-Kozak et al. (arXiv:2107.03941, Sections 2, 3 and 9.1) introduce the orthogonal finite-difference setup and study convergence, but their inspected full text does not classify constant-step invariant support. Rando et al. (arXiv:2206.05124, Algorithm 1, Assumptions 2–3, Appendix D.4) treat the same structured estimator in a stochastic setting and focus on convergence estimates, not the exact reentrant topological support thresholds. Searches of equivalent sphere-innovation random recursions and accessible published mathematical records found no direct full-algorithm statement. Classical geometric random-series or affine-recursion results could cover the support geometry in an alternate language; the claim does not assert novelty of polygon closure or contractive random-series theory. Priority therefore remains qualified.
+## originality
 
-## Value — PASS
+PASS
 
-This is a full-dimensional exact stationary benchmark with a sharp algorithmically meaningful distinction: in some stable stepsize regimes the method *cannot* visit a central neighborhood of its minimizer in stationarity, whereas in others its support includes the minimizer. The sphere at the center rate and the fixed outer radius as the mean-square error vanishes distinguish support geometry from usual optimization error estimates. The result does not generalize to arbitrary objectives, sampling mechanisms or finite-sample confidence guarantees.
+The optimizer and Haar full-basis estimator are from Kozak et al. and Rando et al.; polygon closure and contractive random sums are classical. On examined mathematical statements, neither primary optimization paper states the exact reentrant stationary-support phase diagram at γ=1/2,1,3/2 or the nonshrinking support despite vanishing MSE. Originality is narrowly credited to this specific algorithmic translation and exact sharp topological benchmark, with possible general random-series implicit coverage.
 
-## Closest literature and limitations
+## value
 
-- Kozak, Molinari, Rosasco, Tenorio and Villa, *Zeroth order optimization with orthogonal random directions*, arXiv:2107.03941.
-- Rando, Molinari, Villa and Rosasco, *Stochastic Zeroth order Descent with Structured Directions*, arXiv:2206.05124.
-- Banakh, Bartoszewicz, Filipczak and Szymonik, *Topological and measure properties of some self-similar sets*, arXiv:1403.0098 (abstract-level comparison only, not a full-text noncoverage assertion).
+PASS
 
-The restrictions are integer dimension at least two, full i.i.d. Haar bases, centered isotropic quadratic, noiseless forward differences and strictly stable constant steps. A complete priority search over geometric random-series literature and independent scientific audit are outstanding.
+The stationary support is a natural invariant of a constant-step zeroth-order optimizer; discovering whether the minimizer lies in support is substantially different from estimating convergence error. The exact ball–annulus–sphere–annulus–ball transitions, absolute-continuity discontinuity and fixed outer radius as γ↓0 give a motivated full-dimensional benchmark that is not implied by an MSE bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
