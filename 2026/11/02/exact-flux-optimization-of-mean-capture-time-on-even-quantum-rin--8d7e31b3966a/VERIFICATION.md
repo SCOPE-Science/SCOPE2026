@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact argument is in `RESULT.md`, including the finite-dimensional integrated-density identity, the parity-constrained Fourier-sum factorization, and strict convex optimization. Numerical support is reproducible with `python check_even_flux.py`, using NumPy and SciPy.
+# Independent mathematical audit
 
-The checker constructs the physical Hamiltonian independently and verifies 150 full complex Lyapunov solutions, 168 direct spectral-gap sums, 14 bounded numerical flux optimizations, and 28 exceptional-flux spectral multiplicity counts. All checks passed on the supplied version. These experiments are finite and do not serve as proof of the universal quantifier over even ring sizes.
+## correctness
 
-Only the stated Hamiltonian, Markovian loss, and maximally mixed initial state were checked; no inference is made about decoherence, disorder, multi-excitation dynamics or localized-source optimization. Independent scientific validation has not been performed.
+PASS
+
+For noninteger-half flux the energies 2J cos((2pi k+phi)/n) are simple and all modes overlap the single absorber; full decay follows from nonexistence of dark eigenmodes. Integrated Lyapunov equation for X=int rho gives exact rank-one absorber identity T=n/kappa+(2kappa/n²)sum_{j<k}(E_j-E_k)^-2. Even-cycle parity d=j-k,s=j+k and differentiated cotangent multiplication identity evaluate to two csc² terms. Strict convexity of a/x+b/(1-x) yields the two reflected flux minimizers and jointly optimal kappa. At 0,pi capture ranks count distinct energies and unconditional T diverges. Independently solved 20 full complex Lyapunov systems for n=4..12, 4 off-resonance phases, matching formula; not an infinite proof.
+
+## originality
+
+PASS
+
+Varbanov-Krovi-Brun 2008 studies Poisson-monitored continuous quantum walks, infinite hitting times and general measurement-rate tradeoff, but not homogeneous even magnetic rings with local trace-decreasing absorber and a non-quarter optimal flux. Novo et al. 2015 gives coherent transport invariant-subspace methods; flux-dependent three-site transport uses other setups. Exact even Fourier inverse-gap sum and optimization not observed in inspected related source.
+
+## value
+
+PASS
+
+Loss-assisted transport on even rings gives a canonical phase-interference optimization problem; this result resolves full unconditional mean, unique flux/rate optimum, dark-phase capture fractions, and an asymptotically shifted optimum, useful in precise comparisons of flux choices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
