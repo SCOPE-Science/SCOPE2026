@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the basis for all infinite and arbitrary-size statements. The accompanying `verify_tripartite.py` independently evaluates its key identities at exact rational parameter choices and checks its numerical consequences on a bounded sample of size vectors. From the directory containing the extracted files, install the dependencies in `requirements.txt` and execute `python verify_tripartite.py`.
+## correctness
 
-The checker performs exact-rational equilibrium and Jacobian checks for the balanced three-group example of group sizes \((2,2,2)\): at \(\lambda=1\) the endemic equilibrium is \(x=1/2\) and the class Jacobian has eigenvalues \(0,-3,-3\); at \(\lambda=9/8\) the equilibria \(x=1/3\) and \(x=2/3\) have respectively one and zero unstable directions. It checks an unbalanced rational stable equilibrium \((n_1,n_2,n_3)=(72,27,16)\), \((x_1,x_2,x_3)=(1/2,2/3,3/4)\), \(\lambda=1/216\), including the positive-definite sign condition for the stability transform. It numerically minimizes the exact scalar curve and compares balanced versus every other integer partition of totals from 3 through 18 into three positive parts. This enumeration checks 3-partite instances only; it is not a proof for general \(m\) or unbounded sizes.
+PASS
 
-The static full-node Jacobian's transverse-mode argument and the analytic concavity inequality are proved in `RESULT.md`. No finite computation or approximate minimizer is used in place of these proofs. Scientific limitations, uncertainty about equivalent prior results, and the deterministic-versus-stochastic distinction are stated in `RESULT.md`.
+At every nonzero equilibrium all vertices within group i have identical infection probability x_i because their force is equal, and no boundary equilibrium other than zero exists. Let h=n_i x_i²/(1−x_i)=λ∏n_j x_j; then x_i=u_i(h)=2/(1+sqrt(1+4n_i/h)), and λ(h)=h/∏n_i u_i(h). Its logarithmic derivative is 1−Φ(h) with Φ=Σ(1−u_i)/(2−u_i), strictly decreases from m/2>1 to0 for m>=3; λ→∞ at both h→0 and h→∞, so a unique nondegenerate fold gives zero/one/two positive equilibria. The group Jacobian is diagonally similar to 11^T−diag((2−x_i)/(1−x_i)); rank-one inertia shows one unstable lower branch, simple zero at the fold, and a stable upper branch, while within-group zero-sum modes have −1/(1−x_i)<0. DFE Jacobian −I. g_h(n)=n u_i(h)=(h/2)(sqrt(1+4n/h)−1) has strictly concave log, giving strict integer smoothing and balanced partition minimizing λ* at fixed N. Equal-size real bound (m−1)^(m−1)/[(m−2)^(m−2)(N/m)^(m−1)]. Independently recomputed class-matrix spectra for x=1/2 ({−3 twice,0}), x=1/3 ({1/2,−5/2 twice}), x=2/3 ({−1,−4 twice}); checked balanced n_i=3 threshold 4/9 and package finite verifier code. General result is analytic not finite extrapolation. Only local deterministic SIS closure, not exact stochastic extinction.
+
+## originality
+
+PASS
+
+Qualified PASS for complete heterogeneous transversal m-partite equilibrium multiplicity, full-node inertia and strict total-population balancing threshold. The inspected broad higher-order SIS papers prove healthy/endemic existence and stability criteria or homogeneous simplicial mean-field folds; they do not explicitly or by inspected implication derive the exact all-size balancing law. Potential equivalent heterogeneous reduction under another normalization remains.
+
+## value
+
+PASS
+
+Solves natural heterogeneous epidemic-closure bifurcation and allocation question: exact unique fold, full node stability and strict balancing over integer part sizes, a sharp structural result beyond the known homogeneous scalar fold. Natural parameter-independent extremal answer can guide mathematical model comparison without pretending to clinical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

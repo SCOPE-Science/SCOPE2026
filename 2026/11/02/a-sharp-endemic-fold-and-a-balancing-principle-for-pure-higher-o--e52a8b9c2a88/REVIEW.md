@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every positive node equilibrium must be group-symmetric, after which an exact positive scalar parameter gives all equilibria. The derivative of the scalar infection-rate curve has a unique zero and positive curvature there. The node-level linearization splits into class modes and strictly decaying within-class modes; a symmetric rank-one reduction fixes its full inertia. Strict log concavity of the group infected-count function proves the optimal balance result. Exact rational and finite numerical checks are described in the verification document. No stochastic-chain conclusion is inferred from a deterministic closure.
+## correctness
 
-## Originality
-PASS, subject to residual bibliographic uncertainty. The 2023 higher-order SIS sources establish general models, homogeneous folds, and broad existence or stability conditions. Their inspected theorems and relevant technical appendices do not state the complete transversal multipartite branch classification or sharp fixed-total-size balancing theorem. The 2021 multi-group reference gives sufficient, not exact allocation-dependent conditions; the 2023 two-community planted-partition reference has different hyperedge incidence. The balanced homogeneous fold is known and expressly excluded from the asserted novelty. Semantic research-record and targeted literature searches returned no exact covering implication, but cannot establish global priority.
+PASS
 
-## Mathematical value
-PASS. The result answers an epidemiologically meaningful allocation question in a natural extreme group-contact geometry: how the minimum infection rate capable of supporting an endemic state depends on the division of a fixed population into the participant groups. It supplies a necessary-and-sufficient rate threshold, exhaustive equilibrium multiplicity, full node-level local stability, and a unique optimal group allocation for every number of participating groups. This is more than the familiar homogeneous scalar saddle-node or a single numerical case.
+At every nonzero equilibrium all vertices within group i have identical infection probability x_i because their force is equal, and no boundary equilibrium other than zero exists. Let h=n_i x_i²/(1−x_i)=λ∏n_j x_j; then x_i=u_i(h)=2/(1+sqrt(1+4n_i/h)), and λ(h)=h/∏n_i u_i(h). Its logarithmic derivative is 1−Φ(h) with Φ=Σ(1−u_i)/(2−u_i), strictly decreases from m/2>1 to0 for m>=3; λ→∞ at both h→0 and h→∞, so a unique nondegenerate fold gives zero/one/two positive equilibria. The group Jacobian is diagonally similar to 11^T−diag((2−x_i)/(1−x_i)); rank-one inertia shows one unstable lower branch, simple zero at the fold, and a stable upper branch, while within-group zero-sum modes have −1/(1−x_i)<0. DFE Jacobian −I. g_h(n)=n u_i(h)=(h/2)(sqrt(1+4n/h)−1) has strictly concave log, giving strict integer smoothing and balanced partition minimizing λ* at fixed N. Equal-size real bound (m−1)^(m−1)/[(m−2)^(m−2)(N/m)^(m−1)]. Independently recomputed class-matrix spectra for x=1/2 ({−3 twice,0}), x=1/3 ({1/2,−5/2 twice}), x=2/3 ({−1,−4 twice}); checked balanced n_i=3 threshold 4/9 and package finite verifier code. General result is analytic not finite extrapolation. Only local deterministic SIS closure, not exact stochastic extinction.
 
-## Closest literature and limitations
-Cui et al., arXiv:2306.00619; Kiss et al., arXiv:2309.12752; Cisneros-Velarde and Bullo, arXiv:2005.11404; Landry and Restrepo, arXiv:2302.13967. Potential equivalents under other hypergraph normalizations remain a bibliographic risk. The theorem does not assert global convergence, finite-chain persistence, or heterogeneous recovery and interaction rates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for complete heterogeneous transversal m-partite equilibrium multiplicity, full-node inertia and strict total-population balancing threshold. The inspected broad higher-order SIS papers prove healthy/endemic existence and stability criteria or homogeneous simplicial mean-field folds; they do not explicitly or by inspected implication derive the exact all-size balancing law. Potential equivalent heterogeneous reduction under another normalization remains.
+
+## value
+
+PASS
+
+Solves natural heterogeneous epidemic-closure bifurcation and allocation question: exact unique fold, full node stability and strict balancing over integer part sizes, a sharp structural result beyond the known homogeneous scalar fold. Natural parameter-independent extremal answer can guide mathematical model comparison without pretending to clinical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
