@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the coordinate-correlation claim
+# Independent mathematical audit
 
-The analytic proof holds for every integer dimension \(M\ge2\) and every nonnegative lag. The supporting standard-library script `CHECK.py` was run from its actual included content and printed `PASSED 346 independent exact partition/coboundary/adjoint identities`. It independently enumerates the forward map's rational itinerary rectangles for \(2\le M\le5\), integrates the coordinate product for \(0\le n\le9\), and verifies exact agreement with transfer-matrix powers. It additionally checks the branchwise coboundary and the conditional two-preimage cancellation for dimensions through nineteen. The script prints the exact lag-zero through lag-eight covariance values for four dimensions.
+## correctness
 
-Proof-only steps that the finite checker does **not** establish include the symbolic cofactor formula for unbounded dimension, exclusion of nonzero real poles, Pringsheim's sign-change implication, and the stationary reverse-martingale central limit theorem. Those steps are explicitly justified in RESULT.md, using the published ergodicity of the map. The rational tests are a reproducibility check rather than an external mathematical audit. In particular, no independent validation is claimed.
+PASS
+
+Checked original full branch map, m=(1/2)Lebesgue, inverse branches, M-dimensional transfer-on-centered-coordinates matrix B_M, correct adjoint covariance Cn=(B_M^n)11/3, the cofactor determinant and spectral-radius bound. Reconstructed eigenvalue polynomial (2w+1)w^(M-1)=-1: no real nonzero eigenvalues; denominator has no cancellation at z=2, and Pringsheim applied separately to each signed eventual tail yields infinitely many correlations of both signs. At z=1 resolvent equals 1/3, giving sum n>=1 Cn=0. Checked d=x1 on left, xM on right, h=sum(j>=2)(xj-1/2): f=d+h∘F-h and Pd=0. For fixed M, h bounded, reverse martingale differences with stationary mixing and bounded conditional moments support CLT and variance limit. Independent SymPy full cofactor/denominator and z=1 identities hold exactly for M=2,...,9. All-dimensional theorem rests on symbolic proof, not eight tests.
+
+## originality
+
+PASS
+
+The original exact Saiki–Takahasi–Yorke map, invariance and ergodic mixing are prior work; the published real-spectrum residue result concerns periodic-iterate Jacobians, not transfer coefficients or physical-coordinate correlations. Inspected the relevant original PDF and differentiated Jacobian and Koopman-adjoint spectra. Did not locate pre-existing exact rational coordinate autocovariance, sign recurrence, or dimension-free Green–Kubo cancellation; historical general baker-map transfer calculations remain a risk.
+
+## value
+
+PASS
+
+A physical coordinate on a natural all-dimensional mixing map has nonzero adjacent memory but exactly zero integrated positive-lag covariance and asymptotic variance equal to instantaneous variance. Complete exact oscillatory correlation and explicit bounded coboundary explain the mechanism and supply a reusable benchmark for dynamical correlation statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

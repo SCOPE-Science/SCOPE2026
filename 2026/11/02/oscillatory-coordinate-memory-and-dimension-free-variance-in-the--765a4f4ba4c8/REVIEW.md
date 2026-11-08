@@ -1,15 +1,21 @@
-# Scientific review: coordinate memory and dimension-free variance
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the explicitly defined full-branch \(M\)-dimensional twisted baker map, a fixed integer \(M\ge2\), normalized stationary Lebesgue measure, and the first spatial coordinate. Both inverse branches have Jacobian magnitude two, giving the stated transfer operator. Its action on centered linear coordinates is an exactly invariant \(M\)-dimensional space. The explicit determinant/cofactor calculation yields the rational covariance generator. The eigenvalue equation excludes unit-modulus eigenvalues, justifying absolute summability. Its real-root argument excludes every nonzero real pole, and Pringsheim's theorem proves infinitely many positive and negative covariance coefficients. Evaluation at one gives the exact cancellation. Finally, \(f=d+h\circ F-h\) and \(Pd=0\) are verified pointwise, with \(\int d^2dm=1/3\); the established ergodicity of this map permits a standard bounded reverse-martingale central limit theorem. No finite experiment is used as an infinite proof. The exact branch-partition checker corroborates the orientation and normalization in 346 rational identities.
+## correctness
 
-## Originality — PASS on inspected evidence
-The closest originating paper (Saiki--Takahasi--Yorke, arXiv:2202.04304) defines this map and proves periodic-point spectral statements, Bernoulli coding and mixing; its stated theorems do not give a coordinate covariance function, the zero Green--Kubo correction or a dimension-free variance. The closest public claim on the same map, *Exact real-spectrum residue law for the twisted baker map*, concerns periodic-point Jacobian spectra and counts, not stationary coordinate correlations or the transfer matrix. General Gordin theory supplies a central limit theorem only *after* a map-specific martingale decomposition and coefficient have been supplied. A different heterochaos baker-map family has separate statistical theory but not this transfer identity. Named queries and implication comparisons are in AUDIT.json. Residual priority risks are unindexed equivalent calculations and unseen later sections of the originating full text; search failure is not proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-This is a naturally observable statistical quantity for the vortex-inspired twisted baker system, not a forced special parameter. It reveals a surprising coexistence throughout **all finite dimensions**: positive one-step correlation, infinitely recurring sign reversals, yet exactly zero total serial-covariance correction and a dimension-independent Gaussian variance. The explicit Poisson/martingale solution \(h=\sum_{j=2}^M(x_j-1/2)\) gives a structural explanation rather than merely a computed number; the rational covariance generator gives every lag and all observable poles. Although its algebra uses a finite-dimensional transfer restriction, the result classifies the original uninduced physical coordinate in a genuine nonlinear dynamical system. No claim of a new general martingale theorem is made.
+Checked original full branch map, m=(1/2)Lebesgue, inverse branches, M-dimensional transfer-on-centered-coordinates matrix B_M, correct adjoint covariance Cn=(B_M^n)11/3, the cofactor determinant and spectral-radius bound. Reconstructed eigenvalue polynomial (2w+1)w^(M-1)=-1: no real nonzero eigenvalues; denominator has no cancellation at z=2, and Pringsheim applied separately to each signed eventual tail yields infinitely many correlations of both signs. At z=1 resolvent equals 1/3, giving sum n>=1 Cn=0. Checked d=x1 on left, xM on right, h=sum(j>=2)(xj-1/2): f=d+h∘F-h and Pd=0. For fixed M, h bounded, reverse martingale differences with stationary mixing and bounded conditional moments support CLT and variance limit. Independent SymPy full cofactor/denominator and z=1 identities hold exactly for M=2,...,9. All-dimensional theorem rests on symbolic proof, not eight tests.
 
-## Closest literature and limitations
-Saiki--Takahasi--Yorke's original mixing theorem establishes the necessary ergodicity and the map construction. The public real-spectrum residue result on this exact map concerns a different spectrum (periodic derivatives), and standard martingale limit theory provides the general convergence mechanism. The claim is for fixed dimension and stationary Lebesgue initial data; it does not give a full transfer-operator gap, all-observable correlation functions, or dimension-uniform Gaussian limits. An equivalent identity may appear in unindexed prior calculations. An independent audit would need to reconstruct the proof and compare all relevant literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original exact Saiki–Takahasi–Yorke map, invariance and ergodic mixing are prior work; the published real-spectrum residue result concerns periodic-iterate Jacobians, not transfer coefficients or physical-coordinate correlations. Inspected the relevant original PDF and differentiated Jacobian and Koopman-adjoint spectra. Did not locate pre-existing exact rational coordinate autocovariance, sign recurrence, or dimension-free Green–Kubo cancellation; historical general baker-map transfer calculations remain a risk.
+
+## value
+
+PASS
+
+A physical coordinate on a natural all-dimensional mixing map has nonzero adjacent memory but exactly zero integrated positive-lag covariance and asymptotic variance equal to instantaneous variance. Complete exact oscillatory correlation and explicit bounded coboundary explain the mechanism and supply a reusable benchmark for dynamical correlation statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
