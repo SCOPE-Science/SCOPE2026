@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "All distinct nonempty palindromic subsequences partition by numbers of ones k=0,1,2,3; the respective gap counts are z, T+1, a three-rectangle union of cardinality (r+1)(b+c+1)+E, and (r+1)(s+1). The case split a<=d vs a>d is exhaustive including equality. Uniform ordered gap compositions converge to the Dirichlet simplex; the homogeneous n² term is Phi. Exponential minimum independence and exact mixed integrals give E(Phi)=7/80 and Var(Phi)=2299/1209600, strictly positive. Separate direct subsequence-set verification passed all 3,876 three-one words through length 18; exact rational checks reproduce the moments. No finite computation is used as an all-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam–Pandoh establish a Fibonacci-type unrestricted upper bound on distinct scattered palindromes and an alphabet-dependent extremum when q >= n/2; fixed binary alphabet q=2 for arbitrary n does not satisfy the latter condition.",
+        "Rubinchik–Shur Theorem 1.1 concerns distinct contiguous palindromic factors for iid random words and average order sqrt(n), whereas scattered subsequences here scale quadratically under uniform fixed-three-one sampling."
+      ],
+      "reasoning": "Neither a general upper bound nor an alphabet-size-unrestricted extremum specializes to the exact gap formula. Conditioning an iid contiguous-factor result on Hamming weight would still concern a different combinatorial object; thus there is no implication of the law or moments.",
+      "searches": [
+        "maximum distinct palindromic subsequences binary string fixed number of ones 3",
+        "maximum distinct palindromic subsequences fixed number of ones zeros binary word alternating run lengths",
+        "Mahalingam and Pandoh 2021 Section 4 Fibonacci bound and Section 5 q distinct letters conjecture",
+        "Rubinchik Shur arxiv 1505.08043 Theorem 1.1 random words palindromic factors"
+      ]
+    },
+    "checked_sources": [
+      "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+      "https://arxiv.org/pdf/1505.08043",
+      "https://arxiv.org/pdf/2108.02729",
+      "https://doi.org/10.1016/j.tcs.2008.08.035"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Holub–Saari reconstruct words from *sets* of palindromic subsequences; that injectivity result alone gives no cardinality of the set at a fixed word.",
+        "Mahalingam–Pandoh Lemma 5.3 bounds the change in scattered-palindrome count on inserting a third copy of a letter, but it does not give a sharp equality for every binary gap quadruple.",
+        "Rubinchik–Shur uses contiguous palindromes under an iid model, logically separate from this fixed-weight scattered statistic."
+      ],
+      "reasoning": "The accepted theorem is an exact gap formula plus the induced nondegenerate Dirichlet pushforward law and two evaluated moments. None of the inspected closest primary claims entails these by parameter restriction, simple renaming, reversal, or probabilistic conditioning; novelty remains best-knowledge rather than certified priority.",
+      "searches": [
+        "scattered palindromic subsequences count three ones binary word gap formula limit law variance 2299/1209600 7/80",
+        "distinct palindromic subsequences in binary words with three ones exact count generating function",
+        "Holub Saari Theorem 2 reconstruct word from palindrome subsequences",
+        "Mahalingam Pandoh 2021 Lemma 5.3 three occurrences of one letter",
+        "arxiv 1505.08043v1 The Number of Distinct Subpalindromes in Random Words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holub–Saari, Theorem 2: equality of the full scattered-palindrome sets implies equality of words up to reversal; no scalar cardinality formula in that theorem.",
+        "Mahalingam–Pandoh, Introduction and Sections 3–5: overall scattered palindrome extrema and alphabet-size bounds, including a lemma for words with three equal markers; not a complete fixed-weight-three gap count or limit law."
+      ],
+      "reasoning": "The same object is termed scattered subpalindrome or palindromic subsequence; the exact gap-quadruple cardinality and the distribution on uniform three-marker words have been compared at the level of statements rather than search-title similarity. The known reconstruction theorem is not a count formula, while the general bounds are not equalities for every fixed gap configuration.",
+      "searches": [
+        "scattered palindromic subsequences count three ones binary word gap formula limit law variance 2299/1209600 7/80",
+        "distinct palindromic subsequences fixed Hamming weight three binary word Dirichlet distribution",
+        "palindromic subsequences sparse binary words fixed Hamming weight extremizers",
+        "Holub and Saari On highly palindromic words Section 4 Theorem 2 (2009)",
+        "Mahalingam and Pandoh Counting Scattered Palindromes in a Finite Word Section 5 (2021)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 study includes finite small-word tables and general extremal conjectures rather than a tabulation of all ordered zero-gap quadruples.",
+        "An independent executable checks all 3,876 binary three-one words of length at most 18; this finite check is not evidence for uniqueness of the formulas in literature."
+      ],
+      "reasoning": "A finite table of unrestricted maxima cannot supply the complete count for all a,b,c,d or the nondegenerate limiting distribution. No identified exact table determines this statistic in all lengths; the possibility of uncatalogued equivalent data remains a risk.",
+      "searches": [
+        "distinct palindromic subsequences maximal count binary words fixed number ones",
+        "scattered palindrome counts sparse-marker words exact two-one and three-one asymptotic distributions",
+        "Mahalingam Pandoh Table 4 scattered palindromes binary length ten",
+        "binary word number of distinct palindromic subsequences given three ones OEIS"
+      ]
+    },
+    "rationale": "Closest primary full texts and plausible broader bounds were compared at statement/implication level: scattered-subword reconstruction by set equality, unrestricted scattered-palindrome bounds and their three-marker inequalities, and iid contiguous-palindrome factor expectations do not imply this exact fixed-three-one count and conditional limit law. Published results and available prior claims were searched for aliases and equivalent parameters; no covering claim was identified, with residual risk of unindexed equivalent work.",
+    "residual_risks": [
+      "An equivalent fixed-weight-three result might exist in unindexed literature, obscure sequence databases, or an appendix not revealed by available indexes.",
+      "The 2021 three-occurrence insertion bounds are related but not sharp equalities; a clever additional derivation from other published lemmas is not ruled out categorically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem concerns reconstruction from the complete set, minimal-palindromic properties and longest scattered palindrome; not an explicit fixed-weight-three cardinality formula.",
+        "evidence": [
+          "Abstract: full scattered-palindrome set characterizes a binary word up to reversal.",
+          "Section 4 Theorem 2 proves equivalence of full palindrome-subword sets under reversal."
+        ],
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+        "material_read": "Abstract, notation/definition of scattered subword, Sections 3–5, in particular Section 4 Theorem 2 and its proof",
+        "method": "Lawful author PDF with text and visually inspected Section 4 page",
+        "title": "On highly palindromic words",
+        "trigger": "Direct early study of scattered palindromic subwords of binary words; possible equivalent count"
+      },
+      {
+        "assessment": "Uses contiguous factors and iid uniform alphabets; its expected square-root factor count does not imply sparse-composition scattered-subsequence law.",
+        "evidence": [
+          "arXiv v1 date 29 May 2015; abstract states expected Θ(sqrt(n)) distinct palindromic factors.",
+          "Theorem 1.1 specifies iid k-ary uniform words."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+        "material_read": "First-page arXiv v1 date and abstract; Introduction, Theorem 1.1, definitions and model description",
+        "method": "Public arXiv v1 PDF, text and rendered first-page inspection",
+        "title": "The Number of Distinct Subpalindromes in Random Words",
+        "trigger": "2015 exact-date public source on counting distinct palindromes in random words"
+      },
+      {
+        "assessment": "General bounds, extremal conjectures, and restricted q>=n/2 exact results; the three-equal-marker lemma is a non-sharp count inequality, not the claimed complete gap formula and conditional Dirichlet law.",
+        "evidence": [
+          "Abstract and Section 5 say exact alphabet-size extremal formula when q>=n/2; fixed q=2 fails this for arbitrarily large n.",
+          "Lemma 5.3 treats three copies of the same letter but only supplies inequalities for scattered-palindrome counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+        "material_read": "Introduction and Sections 3, 4, 5, including Fibonacci upper bound, Theorem 5.1, Lemma 5.3 and finite extremal tables",
+        "method": "Public arXiv v1 PDF text and rendered selected pages including Lemma 5.3",
+        "title": "Counting Scattered Palindromes in a Finite Word",
+        "trigger": "Direct object match and plausible stronger enumeration; high novelty risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc05508b-94e7-4312-b89c-be3a0e0ca8e3",
+  "value": {
+    "rationale": "The exact cardinality of distinct scattered palindromic subsequences is an established string-complexity invariant, and conditioning on a fixed number of markers is natural for sparse binary strings. The theorem determines it for every word in a full infinite family by a transparent collision-free structural partition, then determines its order-n² limit random variable with exact positive variance. This goes beyond a small table, trivial parameter substitution, or a routine upper bound; the nonconcentration result characterizes fluctuations not captured by an extremal statement.",
+    "status": "PASS"
+  }
+}
