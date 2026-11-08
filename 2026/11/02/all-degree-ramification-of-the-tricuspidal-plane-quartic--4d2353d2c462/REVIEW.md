@@ -1,11 +1,21 @@
-# Scientific review of the all-degree tricuspidal-quartic ramification divisor
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the rational plane quartic and its three ordinary cusps, uses the exact degree-four equation to calculate the dimension of the pulled-back plane system, and derives three independent linear first-jet conditions. Solving the two remaining constraints after imposing vanishing at a cusp gives the exact sequence \(0,2,3,\ldots,4m-2\) for every integer \(m\ge2\). The Plücker degree then leaves weight three. The full \(S_3\)-symmetry permits only the unique smooth orbit \(\{-1,1/2,2\}\), forcing simple residual zeros. Sample exact determinants in degrees two and three and ranks through degree ten support, but do not replace, this general proof. Boundary: the plane-form series on the normalization, over characteristic zero.
+## correctness
 
-**Originality — PASS, qualified.** Nawara's arXiv:2610.30992v1 develops the rational third-Veronese determinant and smooth quartic examples, not the tricuspidal all-degree ramification divisor. Maugesten–Moe's arXiv:1709.01698 treats second-Veronese ramification with a different singular-quartic example. Coolidge's classical formula, as quoted by Dimca–Ilardi–Malara–Pokora (arXiv:2311.08913), can cover the unrefined three-sextactic-point number in degree two, which is therefore **not** presented as novel. Published-record queries for tricuspidal quartics, aliases, higher Veronese osculation, and weighted Wronskians found only substantively different curves, types, or general methods. The new statement is the explicit cusp-jet and complete, persistent divisor for all degrees. A classical formulation with equivalent coverage could exist; priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** This resolves the exact higher-order osculation divisor of a canonical maximally cuspidal rational quartic for infinitely many plane degrees, including every ramification location and multiplicity. The persistent three smooth points in arbitrarily high degrees are a structural consequence of local cusp constraints and global symmetry; this is more than a known finite count or a routine numerical restatement.
+Verified normalization of quartic and rank-3 independent 1-jet equations F'(0)+2mF(0)=0, F'(1)-2mF(1)=0, a_(4m-1)+2ma_(4m)=0; dimension 4m-2 and cusp vanishing sequence 0,2,...,4m-2 of weight 4m-3. Pluecker genus-zero total 3(4m-2), hence after three cusps the smooth residual degree is 3; S3 orbit structure leaves only {-1,1/2,2}. Independent symbolic calculation checked quartic polynomial identity, 7 m-values of jet ranks and complete Wronskians at m=2,3; all-m conclusion is the algebraic proof, not the finite sample. Correct complex-characteristic and m>=2 boundary.
 
-**Limitations and residual risk.** The theory is specific to the unique tricuspidal quartic in characteristic zero and to the normalized plane-section series. The classical degree-two count has prior coverage. The general historical-priority search is not exhaustive, and no independent mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact all-degree ramification divisor and persistent location/weight classification, not the classical genus-zero Pluecker formula or already known count of three sextactic points at m=2. Nawara treats higher-order Wronskian/plane-quartic osculation but checked available scope describes smooth quartics, while Maugesten–Moe use 2-Hessian methods; neither accessible statement entails these normalization jet constraints for every m. Older classical all-degree projective treatment might contain equivalence and remains a priority risk.
+
+## value
+
+PASS
+
+The complete ramification divisor for every plane-degree is a natural exact invariant of an intrinsically singular classical rational quartic and determines the precise three smooth hyperosculation points and cusp weights. The infinite-degree stability of the smooth orbit is a motivated structural classification, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

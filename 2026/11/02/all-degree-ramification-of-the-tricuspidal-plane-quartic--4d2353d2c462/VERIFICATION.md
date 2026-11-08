@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the complete ramification divisor
 
-The standalone `verify.py` computes exact polynomial and linear-algebra checks in SymPy, without floating point. The actual package was assembled from the files and the script executed successfully, returning `VERIFY_OK: plane equation, coefficient-jet constraints, cusp dimensions m=2..10, full Wronskians m=2,3`.
+# Independent mathematical audit
 
-The verifier checks: (a) the quartic vanishes identically on its normalization; (b) all pulled-back plane monomials of degrees two through five satisfy the three stated cusp-jet conditions; (c) the coefficient-condition matrix has rank three and the predicted spaces of sections vanishing to each allowed order have the stated dimensions for each of the integer degrees two through ten; and (d) Wronskian determinants of the complete conic and cubic series have exactly the predicted nonzero scalar times affine factorization.
+## correctness
 
-The full mathematical proof is in `RESULT.md`, Steps 1–4: independent jet conditions, local rank formula for arbitrary degree, Plücker weight total, and symmetry-orbit exhaustion. Finite arithmetic is corroboration only. The script is not a certificate of historical originality. The calculation is over \(\mathbb Q\) for the displayed model and the theorem over \(\mathbb C\) by algebraic arguments. No independent audit was performed.
+PASS
+
+Verified normalization of quartic and rank-3 independent 1-jet equations F'(0)+2mF(0)=0, F'(1)-2mF(1)=0, a_(4m-1)+2ma_(4m)=0; dimension 4m-2 and cusp vanishing sequence 0,2,...,4m-2 of weight 4m-3. Pluecker genus-zero total 3(4m-2), hence after three cusps the smooth residual degree is 3; S3 orbit structure leaves only {-1,1/2,2}. Independent symbolic calculation checked quartic polynomial identity, 7 m-values of jet ranks and complete Wronskians at m=2,3; all-m conclusion is the algebraic proof, not the finite sample. Correct complex-characteristic and m>=2 boundary.
+
+## originality
+
+PASS
+
+Qualified PASS for exact all-degree ramification divisor and persistent location/weight classification, not the classical genus-zero Pluecker formula or already known count of three sextactic points at m=2. Nawara treats higher-order Wronskian/plane-quartic osculation but checked available scope describes smooth quartics, while Maugesten–Moe use 2-Hessian methods; neither accessible statement entails these normalization jet constraints for every m. Older classical all-degree projective treatment might contain equivalence and remains a priority risk.
+
+## value
+
+PASS
+
+The complete ramification divisor for every plane-degree is a natural exact invariant of an intrinsically singular classical rational quartic and determines the precise three smooth hyperosculation points and cusp weights. The infinite-degree stability of the smooth orbit is a motivated structural classification, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
