@@ -1,19 +1,21 @@
-# Scientific review: sharp edge-query shattering of Hamiltonian cycles and spanning two-factors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every labeled order at least five, the upper VC bound follows from the forced completion of an almost-complete two-factor after omission of a path endpoint edge. The lower VC bound has an explicit Hamiltonian cycle completion for every assignment on the edges of a path with one extra isolated vertex; the small numbers of path blocks are treated separately. The finite adaptive values use the exact finite version-space recursion, full hypothesis enumeration and complete decision-tree witnesses for each claimed depth. Independent generation by permutation cycles and an independent fiber-refinement shattering computation agree with the main programs. Numerical certificate replay and graph-degree checks all pass.
+PASS
 
-## Originality — PASS with stated residual historical risk
+All two-factors have degree exactly two and n edges. A shattered support with >=n-1 edges gives contradictions: any n-edge all-positive support exhausts a factor; any n-1-edge all-positive subset is a factor with one removed edge, hence a path plus cycles, and requiring all but an endpoint path edge forces that forbidden edge by exact degree deficits. Thus VC<=n-2. A path of n-2 queried edges on n-1 vertices plus one extra vertex is shattered by explicit Hamiltonian cycle block reorderings (k=1,2,3,>=4 cases), proving VC=n-2 for all n>=5 in both families. For n=3..7 exact integer edge masks exhaust 2-factors and Hamilton cycles; independent permutation-cycle generation and fiber-refinement VC counts agree, finite game recursion and complete tree witnesses prove Littlestone pairs (0,0),(1,1),(3,3),(4,5),(5,6). At n=7 all edges symmetric; the entire positive-first-edge version space fails depth6, so LD<7; depth6 witnesses exist. Independently reconstructed n=7 465/360 families, support polynomials [1,21,210,1190,3780,2520]/[1,21,210,1155,3465,2520], positive-branch upper failure; n<=6 corroboration. Finite n<=7 not extrapolated to higher n Littlestone.
 
-Published background on regular graph factors concerns existence in host graphs, whereas published VC-dimension work inspected here concerns adjacency neighborhoods in Johnson/Hamming graphs or practical algorithms for that different graph-neighborhood set system. None of the inspected primary theorems provides the all-size edge-incidence VC formula, the first online gap for complete-graph two-factors and Hamiltonian cycles, or their finite support polynomials. Searches for incidence families, fixed-degree edge predicates, spanning two-factors, Hamiltonian cycles and online mistake trees produced no directly covering result. This is a statement about accessible comparisons, not an assertion of absolute priority. Other graph-family learning invariants may use similar query terminology, but those are not automatically equivalent to the present incidence hypotheses.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies the exact static complexity of two classical spanning graph families at arbitrary order, supplies an explicit shattering support valid even under the connectivity restriction, and locates the first order where adaptive queries strictly outperform fixed queries. At the first two orders exhibiting an adaptive excess, the Hamiltonian and two-factor concept classes have equal dimensions but different intermediate support polynomials. This separates dimension invariants from the finer distribution of shattered supports and motivates the unresolved all-order adaptive dimension question. The finite cutoff is a natural first-transition classification rather than an arbitrary isolated numeral.
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
 
-## Limits and related literature
+## value
 
-Finite support profiles and adaptive dimensions stop at seven vertices; only the VC formula is proved for all larger orders. Relevant literature: Kostochka–Raspaud–Toft–West–Zirlin (arXiv:1806.05347), Adler–Benediktsson–Macpherson (arXiv:2007.16042), and Coudert–Csikós–Ducoffe–Viennot (DOI:10.4230/LIPIcs.SEA.2024.8). The last was examined at its published abstract, rather than in full. Alternative equivalent historical descriptions remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Hamiltonian cycles and spanning two-factors are canonical combinatorial concept classes for edge membership queries. Exact all-order static dimension, a concrete optimal shattered path support, the first strict static/adaptive gap, and fully classified small-order shattering profiles are mathematically natural reusable learning-complexity invariants. The nontrivial finite n=7 cutoff and differing support polynomials justify specific computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

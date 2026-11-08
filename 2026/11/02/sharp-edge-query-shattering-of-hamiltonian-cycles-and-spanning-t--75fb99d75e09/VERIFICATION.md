@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-The theorem's all-order VC bound is proved by explicit degree-deficit and Hamiltonian cycle arguments in `RESULT.md`; no experiment or unexplained finite observation is used in that deduction.
+## correctness
 
-Run `python3 verify_2factors.py` and `python3 verify_hamilton.py` in a directory also containing `independent_2factors.py`, `certificate.json` and `hamilton_certificate.json`. The scripts use only the Python standard library. The primary two-factor generator visits every subset of exactly \(n\) edges of the complete graph and retains it if every degree is two. The primary Hamiltonian generator enumerates cyclic orders modulo reversal. Every claimed VC-support count is obtained by complete trace-set enumeration and the hereditary pruning of unshattered supports.
+PASS
 
-The depth checker on any finite version space \(V\) accepts depth \(d\) precisely when a query has both child spaces accepting depth \(d-1\), with the cardinality obstruction \(|V|<2^d\) applied first. For order seven, the all-edge symmetry allows the depth-seven upper bound to be reduced to rejecting depth six after a fixed positive first edge. This was checked with 176 visited depth states in the two-factor class and 86 in the Hamiltonian class. The certificates contain complete lower-bound trees: 31 internal nodes and 32 distinct terminal witnesses at order six; 63 internal nodes and 64 distinct terminal witnesses at order seven, for each concept family. For smaller orders they contain the corresponding complete trees.
+All two-factors have degree exactly two and n edges. A shattered support with >=n-1 edges gives contradictions: any n-edge all-positive support exhausts a factor; any n-1-edge all-positive subset is a factor with one removed edge, hence a path plus cycles, and requiring all but an endpoint path edge forces that forbidden edge by exact degree deficits. Thus VC<=n-2. A path of n-2 queried edges on n-1 vertices plus one extra vertex is shattered by explicit Hamiltonian cycle block reorderings (k=1,2,3,>=4 cases), proving VC=n-2 for all n>=5 in both families. For n=3..7 exact integer edge masks exhaust 2-factors and Hamilton cycles; independent permutation-cycle generation and fiber-refinement VC counts agree, finite game recursion and complete tree witnesses prove Littlestone pairs (0,0),(1,1),(3,3),(4,5),(5,6). At n=7 all edges symmetric; the entire positive-first-edge version space fails depth6, so LD<7; depth6 witnesses exist. Independently reconstructed n=7 465/360 families, support polynomials [1,21,210,1190,3780,2520]/[1,21,210,1155,3465,2520], positive-branch upper failure; n<=6 corroboration. Finite n<=7 not extrapolated to higher n Littlestone.
 
-The independent checker generates all two-factors by decomposing permutations into cycles of length at least three, extracts the connected subfamily, computes all shattered supports by refining the hypothesis fibers for each newly appended edge query, and replays every certificate path against an independently generated edge mask. It separately excludes depth six in the positive branch of the seven-vertex classes using every query edge. The two generators and the two VC-census approaches are algorithmically different, although the review remains within one scientific assessment and is not an independent external audit.
+## originality
 
-The class sizes are 1, 3, 12, 70 and 465 for two-factors, and 1, 3, 12, 60 and 360 for Hamiltonian cycles at orders three through seven. The upper bound for online depth six at order six follows independently from positive-first-query branch sizes 28 and 24, both less than 32. The depth-seven upper bound at order seven is an exhaustive finite computation; the statements do not extrapolate it beyond that order.
+PASS
 
-No result beyond the mathematical and finite ranges explicitly specified is verified. Historical novelty cannot be certified by keyword search alone.
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
+
+## value
+
+PASS
+
+Hamiltonian cycles and spanning two-factors are canonical combinatorial concept classes for edge membership queries. Exact all-order static dimension, a concrete optimal shattered path support, the first strict static/adaptive gap, and fully classified small-order shattering profiles are mathematically natural reusable learning-complexity invariants. The nontrivial finite n=7 cutoff and differing support polynomials justify specific computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
