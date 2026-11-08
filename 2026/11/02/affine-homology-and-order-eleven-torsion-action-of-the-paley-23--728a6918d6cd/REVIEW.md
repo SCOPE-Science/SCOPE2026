@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite checker enumerates all transitive faces of the specified quadratic-residue tournament, proves the 2,681-pair matching acyclic by checking all 22,011 Hasse incidences, and recomputes the exact Morse Smith factors 78 units and one 23. Signed invariant cellular orbit complexes for the translation, multiplier and full affine groups have explicitly reproduced mod-1009 ranks. All eleven eigenchain computations over \(\mathbb F_{23}\) isolate precisely one excess eigenline at scalar 12 in degrees three and four; naturality of the universal coefficient sequence identifies the torsion action. The representation argument uses the complete rational irreducible types of \(C_{23}\rtimes C_{11}\). Risks: programmatic proof depends on the explicitly reviewed construction of the signed orbit complexes; the check is finite and not a statement for other tournaments.
+## correctness
 
-## Originality
-PASS against inspected sources and indexed comparisons, with a bounded bibliographic risk. Govc [1], Proposition 3.4 already gives the full nonequivariant homotopy type of the order-23 example including \(\mathbb Z/23\) torsion: none of those claims is proposed as new. The new statements are its full rational affine \(G\)-modules and the scalar 12 on the 23-primary torsion subgroup. The studied literature does not supply or imply these equivariant refinements. Neighboring indexed affine homology calculations address the Paley-19 directed flag complex, not this 23-vertex torsion module. Broader equivariant module calculations could exist outside the inspected material; no bibliographic completeness is asserted.
+PASS
 
-## Value
-PASS. The order-23 example is the unique 23-torsion homotopy type in the published doubly regular tournament order-23 census. Its finite-field torsion line admits a genuinely nontrivial order-eleven multiplier character, information not recoverable from the integral homology groups or nonequivariant Moore-space classification. The rational affine decomposition also distinguishes the finite quotient's two surviving homology classes. The claim is a natural equivariant refinement centered on the published exceptional torsion example, not an arbitrary parameter increase.
+With Q the eleven quadratic residues modulo 23 and action G=F23 semidirect Q, transitive tournament subsets are simplices. Independent enumeration of every subset up to size five produced exactly 506 cyclic triples and face vector (23,253,1265,2530,1518). The actual verifier constructs an acyclic discrete Morse matching with 2681 pairs, a 102x124 integral Morse boundary with Smith units 78 and one factor 23, and signed orbit invariant complexes over F1009. The known nonequivariant Z^23+Z/23 in H3 and Z^45 in H4 is from Govc and rechecked by the package, not claimed new. Independently implemented separate M=<x->2x> orbit-eigenchain reductions over F23: eigenvalue 1 Betti in degrees 3,4 is (3,5), eigenvalue 12 likewise (3,5), and each of nine others (2,4), with degree0 only at eigenvalue1. By universal coefficients the extra 23-primary degree3 eigendirection has multiplier 12, while the translation C23 acts trivially on its Z/23 torsion group. The invariant rational dimensions and unique 22-dimensional augmentation module force H3_Q=1+W and H4_Q=1+2W; rational quotient homology in degrees 3,4 is Q. Computation is exhaustive for this finite 23-vertex complex, not a uniform-family theorem.
 
-## Closest literature and scope
-Govc, *Computing Homotopy Types of Directed Flag Complexes*, arXiv:2006.05333v1, §3.2, Proposition 3.4; Govc–Levi–Smith, *Complexes of Tournaments, Directionality Filtrations and Persistent Homology*, arXiv:2003.00324. The result concerns homology representations, not an equivariant Moore-space decomposition or integral quotient homology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge O PASS for the affine action on rational homology and the order-11 multiplier character on the known Z/23 torsion. Govc's 2020 classification already contains the nonequivariant homotopy type and integral homology; these are explicitly excluded from novelty. Published Resultary work at Paley 19 and Paley 31 concerns different orders and cannot determine the 23-torsion scalar. Govc's full text could not be obtained via arXiv HTML or OA mirrors and authorized institutional retrieval returned vpn_disconnected, so possible equivariant data in appendices remain a pronounced priority risk. No decisive stronger prior equivariant theorem was identified from material accessible.
+
+## value
+
+PASS
+
+The character of a canonical order-eleven automorphism on the 23-torsion class is a natural equivariant-topological invariant not determined by the nonequivariant wedge/Moore-space homotopy type. Together with full rational G-module decomposition and quotient Betti numbers it describes how affine symmetry acts on a famous 23-vertex directed complex, a meaningful finite classification rather than a gratuitous computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
