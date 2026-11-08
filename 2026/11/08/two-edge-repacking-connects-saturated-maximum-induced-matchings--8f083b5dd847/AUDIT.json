@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "A direct resource-count proof establishes optimum size, saturation and one-edge freezing. Exhaustive local resaturation cases give the exact degree. Row/column fibre transpositions connect the whole state space, with independent complete finite graph and structural verifiers for t=1,2. The diameter-four case uses BFS on 8100 states and proved vertex transitivity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2406.04020v2 Section 5 gives scalar product bounds for edge open packing; no optimum two-edge-exchange graph classification.",
+        "arxiv:2111.13476v2 Section 1.1 treats one-vertex token moves on induced regular vertex sets, not simultaneous replacement of two induced-matching edges."
+      ],
+      "reasoning": "The general reconfiguration and graph-product results do not imply the specific sharp one-/two-whole-edge threshold or the degree formula in this saturating rook family.",
+      "searches": [
+        "Induced matching vs edge open packing: trees and product graphs arxiv:2406.04020v2",
+        "Reconfiguration of Regular Induced Subgraphs arxiv:2111.13476v2",
+        "strong matching number square rook graphs induced domino packing maximal exchange connectivity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1312.5180v1",
+      "arxiv:2406.04020v2",
+      "arxiv:2111.13476v2",
+      "doi:10.1016/j.jda.2004.05.001",
+      "opaque:58c2e820-445f-484a-a3b6-035a5291db15",
+      "Published mathematical records on rook graph complexes, induced matchings and exchange"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1312.5180v1 theorem is a maximal-induced-matching bound for triangle-free graphs; rook graph K_n square K_n has cliques.",
+        "arxiv:2406.04020v2 product results do not state rook graph optimal exchange connectivity.",
+        "arxiv:2111.13476v2 changes one vertex in a 1-regular induced vertex set, not two entire edges; it does not classify two-edge differences between saturated optima.",
+        "Earlier exact rook packing claim gives counting and size but no two-edge state-graph theorem."
+      ],
+      "reasoning": "The main exchange theorem has strictly different predicates and parameters from the checked stronger/general results. Neither a size bound nor a state count proves connectedness or regular degree; no located statement dominates the claim.",
+      "searches": [
+        "Maximal induced matchings in triangle-free graphs arxiv:1312.5180v1",
+        "Induced matching vs edge open packing product graphs arxiv:2406.04020v2",
+        "Reconfiguration of Regular Induced Subgraphs arxiv:2111.13476v2",
+        "one edge exchange reconfiguration of induced matchings in rook graphs Hamming graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The strong matching/2-edge packing terminology is explicitly identified in arxiv:2406.04020v2 introduction.",
+        "Searches found matching and domination variants but no two-edge exchange theorem for square rook graphs with sides divisible by three."
+      ],
+      "reasoning": "The theorem is invariant under translating induced matchings to vertex-disjoint length-two paths in the bipartite complete graph; that alternative description supplies known counts, but no stated exchange-connectivity theorem.",
+      "searches": [
+        "induced matching \"rook graph\" \"exchange\" maximum",
+        "strong matching \"lattice graph\" \"reconfiguration\"",
+        "reconfiguration maximum induced matching edge exchange two edges",
+        "maximum induced matchings rook graphs K_n Cartesian K_n reconfiguration by two edge exchanges divisible by 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier exact rook induced-matching bivariate generating-function claim 58c2e820-445f-484a-a3b6-035a5291db15 counts every induced matching by horizontal and vertical types.",
+        "Its coefficient for square dimension 3t is the known optimum count shown here.",
+        "No compared enumeration source determined edges, valency, or connectivity of the two-edge exchange graph."
+      ],
+      "reasoning": "The scalar optimum and cardinality count are expressly marked prior coverage. The new claim is not an alternate presentation of that count: it establishes adjacency, degree, jamming, and connectivity, none of which follows from the enumerator without additional structural arguments.",
+      "searches": [
+        "rook graph induced matching polynomial maximal matching enumeration",
+        "2026-10_week1 rook graph induced matching packing claim 58c2e820-445f-484a-a3b6-035a5291db15",
+        "induced matching K_{3t} square K_{3t} exact count ((3t)!/(2^t t!))^2 connected two-edge replacement"
+      ]
+    },
+    "rationale": "Existing exact rook induced-matching enumeration already implies scalar optimum and state count. The new, compared assertion is connectivity and regularity under exactly two whole-edge replacements, with all one-edge replacements frozen. Inspected matching/graph-product/reconfiguration sources and relevant indexed records did not provide the same implication.",
+    "residual_risks": [
+      "Undigitized or unindexed earlier two-edge induced-matching exchange work may exist.",
+      "One older archive part was not available in accessible historical files; no uniqueness is inferred from accessible partitions.",
+      "The six-by-six diameter is verified computationally, not extended to arbitrary dimensions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: general/triangle-free maximal-matching enumeration; the rook family has triangles",
+        "evidence": "arxiv:1312.5180v1; public date 2013-12-18; theorem restricts triangle-free graphs",
+        "identifier_or_url": "https://arxiv.org/abs/1312.5180",
+        "material_read": "Full HTML searchable article introduction, definitions, Theorem 1.1 and scope; queried text for rook and Cartesian",
+        "method": "Read accessible original/preprint HTML sections and searched complete parsed text",
+        "title": "Maximal induced matchings in triangle-free graphs",
+        "trigger": "Foundational pre-2016 induced-matching enumeration with original public date"
+      },
+      {
+        "assessment": "NOT_COVERING the two-edge reconfiguration graph; scalar graph-product bounds are closest but different",
+        "evidence": "arxiv:2406.04020v2, Sections 1 and 5",
+        "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+        "material_read": "Full-text HTML introduction and sections on graph products, particularly Section 5 and its propositions/corollaries, plus text search",
+        "method": "Read OA arXiv HTML, examined definitions and product-theorem scope",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Highly relevant induced matching in Cartesian products"
+      },
+      {
+        "assessment": "NOT_COVERING: one vertex replaced at a time, rather than two whole matching edges simultaneously",
+        "evidence": "arxiv:2111.13476v2, Sections 1.1-1.3 and 3",
+        "identifier_or_url": "https://arxiv.org/html/2111.13476v2",
+        "material_read": "Full-text HTML introduction, definitions of token jumping/sliding, related-work survey and theorem statements for chordal/bipartite settings",
+        "method": "Read OA arXiv HTML and compared move predicates",
+        "title": "Reconfiguration of Regular Induced Subgraphs",
+        "trigger": "Reconfiguration of induced 1-regular subgraphs including induced matchings"
+      },
+      {
+        "assessment": "NOT_COVERING: approximation/complexity, not exact rook optimum exchange graphs",
+        "evidence": "Duckworth, Manlove, Zito, Journal of Discrete Algorithms 3 (2005) 79-91",
+        "identifier_or_url": "https://doi.org/10.1016/j.jda.2004.05.001",
+        "material_read": "Accessible article abstract, introduction, main approximation bounds and NP-hardness result",
+        "method": "Read publisher HTML",
+        "title": "On the approximability of the maximum induced matching problem",
+        "trigger": "Pre-2016 algorithmic induced matching literature"
+      },
+      {
+        "assessment": "COVERS scalar maximum size, optimum count, and classification by coordinate resources; DOES NOT state two-edge-exchange connectivity or degree",
+        "evidence": "Earlier claim gives m!n!/(2^{a+b}a!b!r!c!) and generating function for rook induced matchings",
+        "identifier_or_url": "58c2e820-445f-484a-a3b6-035a5291db15",
+        "material_read": "Complete recoverable earlier claim and source IDs for scientific implication comparison",
+        "method": "Compared statement, exact enumerator and maximum-size formula; no re-review of historical work",
+        "title": "Earlier exact induced-matching packing enumeration for rectangular rook graphs",
+        "trigger": "Directly matching graph family and invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f083b5d-d847-4c58-9194-26a247af4135",
+  "value": {
+    "rationale": "The sharp local-stability transition (single-edge deadlock but two-edge connectivity) for every saturated square rook optimum is a structural mobility theorem. The closed valency and constructive transposition routing describe a natural optimum reconfiguration geometry beyond the previously known enumerator.",
+    "status": "PASS"
+  }
+}
