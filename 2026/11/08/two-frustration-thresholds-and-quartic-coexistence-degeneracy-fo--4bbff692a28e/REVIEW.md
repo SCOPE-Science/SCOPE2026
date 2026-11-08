@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The Hamiltonian counts each unordered pair once. Walsh diagonalization gives exact distance-one and distance-two eigenvalues, and the minimum eigenvalue is attained by a legal sign character, so the global energy formula is an equality rather than only a relaxation. Strict convexity fixes both boundary ratios and the support levels. Multiplication by full parity converts the five regimes into degree-zero, degree-at-most-one, degree-one, degree-one-or-two, and degree-two sign polynomials. The influence bound rigorously reduces the final classifications to four essential variables; exact integer truth-table enumeration covers every Boolean assignment on these at-most-four variables. The independently constructed multiplexer and signed-square families agree with the exhaustive classifications, and an independent direct four-cube Ising enumeration checks each predicted phase count. Computations are complete finite censuses; all-dimensional statements rest on the analytic reduction.
+
+## Originality: PASS, with stated priority risk
+The closest examined primary studies are the frustrated square-lattice Ising analysis by Kalz, Honecker and Moliner (2011), the foundational degree-of-Boolean-functions analysis by Nisan and Szegedy (1994), and the ferromagnetic single-distance hypercube metastability study by Jovanovski (2017). The first uses a different lattice, the second bounds relevant variables without counting the two-range Ising ground-state sectors, and the third has a different coupling sign and lacks distance-two bonds. The preceding known partial techniques have been acknowledged explicitly. Published mathematical summaries involving Boolean-cube Fourier moments and earlier finite-graph Ising records were searched for implications, not title coincidences; no examined statement yields the simultaneous thresholds and quartic degeneracy formula. Residual priority risk: an unindexed low-degree Boolean census or physical spin-model computation might imply these exact numbers.
+
+## Mathematical value: PASS
+The two-range antiferromagnet is a canonical frustration mechanism, while the hypercube's Hamming-distance interactions permit an exact spectral solution. The nontrivial output is the complete multiplicity of spin ground states through two successive coupling thresholds, with a sharp quartic-size coexistence enhancement caused by genuinely four-coordinate configurations. These counts are reproducible finite-cluster benchmarks and are not advertised as thermodynamic phase transitions. The significance is the dimension-uniform exact degeneracy classification, not the standard Fourier spectral bound alone.
+
+## Scientific limitations
+The high-coupling degeneracies beyond the next threshold in dimension at least six, magnetic fields, and positive-temperature behavior are not classified. Independent validation is not asserted. Priority is based on accessible comparisons, not a universal novelty certificate.
+
+Self-review: passed. Independent audit: not yet performed.
