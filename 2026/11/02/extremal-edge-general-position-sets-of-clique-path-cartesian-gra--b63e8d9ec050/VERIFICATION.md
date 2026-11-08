@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Compile the packaged source using `g++ -std=c++17 -O3 verify.cpp -o verify`, then execute `./verify` in the same directory. It constructs every product as an edge-labeled adjacency graph, computes shortest paths by breadth-first search and enumerates the forbidden triples, then performs an exhaustive exact-size backtracking search. It separately checks that each predicted optimum is admissible and cannot be enlarged. Finding precisely the predicted \(L-1\) admissible sets of optimal size and proving that all are inclusion-maximal also rules out larger admissible sets for each tested finite graph by downward closure.
+## correctness
 
-The exhaustive parameter pairs are \(m\in\{2,3\}\), \(2\le L\le5\), and \(m=4\), \(L\in\{2,3\}\). The output for these ten instances ends in `VERIFY_OK`. In the largest case (\(m=3,L=5\)), the backtracker visits 716383 internal nodes; in the \(m=4,L=3\) case it visits 46628 internal nodes. The proof in `RESULT.md` supplies the full infinite argument, including the exceptional \(m=t=2\) boundary, and the finite computation is an additional check only.
+PASS
 
-Independent auditing is not performed; no claim of formal mechanized proof is made. The reachable literature record includes a 2026 graph-products paper whose full text was not accessible for comparison.
+Reconstructed the distance and extremizer proof in actual RESULT.md (blob 4f757a8c). Cartesian geodesics change the K_m coordinate at most once and cross each path cut at most once. Each selected column has at most two longitudinal edges. A double-selected column forces two endpoint-layer incident clique-edge omissions; the exceptional m=t=2 scenario requires an additional interior omission. If there are no double-selected columns, equality forces all clique edges and one longitudinal edge per column; geodesics switching between distinct chosen cuts forbid staggered choices. This covers m=L=2 and every L,m>=2. Independently enumerated geodesic triples and all optimal masks for (m,L)=(2,3),(2,4),(3,2),(3,3), checking unique claimed forms. The finite cases corroborate but do not prove all parameters.
+
+## originality
+
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. Claim-vs-prior implication checked at graph-class and extremal-set level, not title alone.
+
+## value
+
+PASS
+
+Exact extremal classification, not just a numerical parameter, for a natural nontrivial Cartesian product: specifies all L-1 maximum edge-general-position sets, sharply distinguishing path×clique from trees, grids and block graphs. The rigidity is a usable structural graph-invariant fact, not an arbitrary small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

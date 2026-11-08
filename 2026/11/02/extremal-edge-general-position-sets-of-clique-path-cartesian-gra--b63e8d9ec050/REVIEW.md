@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof shows that a column can contain at most two selected path edges. Every double-selected column forces endpoint-clique deletions; the only numerical equality boundary \(m=t=2\) is eliminated by an explicit three-edge geodesic. With no double-selected columns, equality forces all clique edges and one path edge in every column; an interleaving geodesic then forces a common cut. The cut constructions match the bound. Ten exact finite instances were independently enumerated from shortest paths using `verify.cpp`; no invalid counterexample emerged. The finite tests are not substituted for the general proof.
+## correctness
 
-**Originality — PASS, subject to stated risk.** The foundational 2021 work deals with trees, hypercubes and path-by-path grids, not this clique-by-path product; the 2022 extension studies edge \(k\)-general position on tori, cubes and Benes networks. The primary 2024 extremal paper concerns block graphs and specified near-complete cardinalities, not the general infinite clique-path theorem. The 2026 product paper's accessible abstract lists hierarchical and corona products, not the Cartesian product studied here; its full text could not be read, and the priority risk is retained. Six targeted mathematical-record queries and an available historical-claim comparison showed no matching or stronger implication. Absence from an indexed search alone is not evidence of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** The result provides a complete two-parameter extremal solution and a strong classification of all maximum configurations for a natural Cartesian graph family. This is not a single example or an arbitrary numerical slice: the same proof determines both a sharp maximum and the exact rigidity multiplicity \(L-1\), contrasting with the structurally different Cartesian grid optima established in the original paper.
+Reconstructed the distance and extremizer proof in actual RESULT.md (blob 4f757a8c). Cartesian geodesics change the K_m coordinate at most once and cross each path cut at most once. Each selected column has at most two longitudinal edges. A double-selected column forces two endpoint-layer incident clique-edge omissions; the exceptional m=t=2 scenario requires an additional interior omission. If there are no double-selected columns, equality forces all clique edges and one longitudinal edge per column; geodesics switching between distinct chosen cuts forbid staggered choices. This covers m=L=2 and every L,m>=2. Independently enumerated geodesic triples and all optimal masks for (m,L)=(2,3),(2,4),(3,2),(3,3), checking unique claimed forms. The finite cases corroborate but do not prove all parameters.
 
-**Closest literature and limitations.** Manuel–Prabha–Klavžar (2021–2022) proves grid, tree, cube, torus and Benes-network cases. Tian–Klavžar–Tan (2024) treats block graphs and extremal edge-general-position numbers. Hamed-Labbafian–Henning–Tavakoli (2026), 10.1016/j.dam.2026.01.008, is a plausible graph-products priority risk; only its abstract was accessible. No claim is made about arbitrary Cartesian factors. Formal or independent proof audit was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. Claim-vs-prior implication checked at graph-class and extremal-set level, not title alone.
+
+## value
+
+PASS
+
+Exact extremal classification, not just a numerical parameter, for a natural nontrivial Cartesian product: specifies all L-1 maximum edge-general-position sets, sharply distinguishing path×clique from trees, grids and block graphs. The rigidity is a usable structural graph-invariant fact, not an arbitrary small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
