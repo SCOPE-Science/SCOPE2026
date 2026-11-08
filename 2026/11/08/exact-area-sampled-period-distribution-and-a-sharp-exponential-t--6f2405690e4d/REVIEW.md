@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The canonical first integral \(Q=(1-X^2)(1-Y^2)\) and Hamiltonian orientation are checked algebraically. A quarter-orbit substitution gives the physical-time period without time reparametrization. Independent uniform coordinates produce an explicit product-density integral; the elliptic-derivative identity determines its antiderivative and normalization. Standard complementary-modulus expansions with error terms establish both coefficients of the large-period tail. Layer-cake integration proves the sharp moment boundary, including divergence at equality. The executable checks independently recompute algebra and sample quadratures; finite tests are not used as a substitute for the full argument.
+
+## Originality — PASS on inspected evidence
+The phase portrait and period integral are classical and expressly credited, including the exact symmetric period formula in the published invariant-square quartic-center result. Comparison by implication isolates the actual contribution: the exact *Euclidean initial-area period law* and its two-term long-period tail and sharp moment threshold. The 2024 source focuses on limit cycles and center strata; 1996 Hamiltonian work covers qualitative conservative structure; the 2026 matching-pennies comparison discusses divergence of period without this initial-condition distribution. The published quartic-center result gives period as a function of energy but not the probability pushforward or its distributional tail. Search comparisons found no direct statement of the joint probability result. There is residual possibility of equivalent unindexed probability computations; the search is not a uniqueness certificate.
+
+## Mathematical value — PASS
+Uniform mixed-strategy initialization is a natural full-dimensional experiment, distinct from conditioning on an individual periodic trajectory or choosing a flow-invariant measure. The exact CDF quantifies the fraction of starting profiles with a physical oscillation period above any prescribed threshold. The sharp \(t e^{-t/2}\) factor, its constant-order correction and critical exponential-moment boundary capture the separatrix slowdown quantitatively. These are useful precisely when qualitative periodicity and an energy-to-period formula are insufficient for ensemble predictions. The result is deliberately restricted to this canonical integrable matching-pennies system; it does not claim broad universality.
+
+Self-review: passed. Independent audit: not yet performed.
