@@ -1,19 +1,21 @@
-# Scientific review: complete-prism edge landmark classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof explicitly computes distance from both layer types to every edge type, turns indistinguishability into four necessary-and-sufficient conditions, and handles all possible edge pairs. The missing-column lower bound is exact. A case analysis classifies every minimum set for both parameter regimes, including \(n=2,3,4\), and the resulting combinatorial counts are derived without symmetry quotienting. The graph-level BFS verifier independently reconstructs edge-distance codes and checks all minimum-size candidate subsets through \(n=11\). Finite experiments alone would not prove the infinite theorem; its unrestricted conclusion follows from the symbolic edge-type argument.
+PASS
 
-## Originality
+A direct edge-distance table for horizontal X/Y edges and matching edges yields the three collision criteria in RESULT.md, covering each unordered pair of edge types. Two omitted matched columns create indistinguishable matching edges, forcing |S|>=n-1; with at most one omitted column, every edge is vertex-edge dominated, so dominant and ordinary edge-metric minima agree. At size n-1, exactly one omitted column, no doubled columns, and each layer has >=3 selected vertices are necessary and sufficient. This requires n>=7. For n<=6, the only size-n support profiles are a full transversal or one empty and one doubled column; the collision criteria give the stated layer restrictions. Combinatorial counting then yields M_n. Independently built graph adjacencies and BFS edge distances, exhaustive minimum-size subsets n=2..8, including n=2 square and n=7 first drop, produced basis counts 4,14,50,182,532,140,560, all matching the claimed classifications. The all-n conclusion rests on explicit collision exhaustion, not just these tests.
 
-**PASS, conditional on available literature.** The 2022 vertex-edge dominant edge metric paper introduces the invariant and treats path/cycle product families, not all \(K_n\square K_2\). The 2024 Cartesian-product edge metric paper proves the general interval \([n-1,n]\) after specialization, not the sharp threshold or its exact extremal families. A closely related indexed complete-prism result concerns *mixed* metric dimension, a strictly stronger requirement; its \(n\)-element minimum cannot supply the present \(n-1\)-element bases for \(n\ge7\). No equivalent complete statement emerged from targeted mathematical-record and literature searches. The closest mixed-result full text was not accessible and publication priority is not independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** This natural infinite family exhibits a sharp order-seven phase transition, and the theorem answers both the exact optimization and full multiplicity question instead of giving a routine numerical instance of a general bound. The endpoint cases illustrate precisely which extra configurations appear at low order. A structural explanation in terms of supported matching columns and layer counts is part of the result, and may guide further analysis of Cartesian graph products.
+A 2024 Cartesian-product inequality gives n-1 <= edim(K_n square K_2) <= n but not the sharp transition or all minimum bases. The close Resultary theorem gives MIXED metric bases of complete prisms, which impose additional vertex/edge distinction constraints; its n-value does not imply the edge-only n-1 regime. The original dominant edge-metric work treats other graph families. The exact full classification is best-of-knowledge new.
 
-## Limitations and sources
+## value
 
-The classification concerns simple complete prisms and does not classify general graph prisms or mixed metric landmark systems. Principal source: Ikhlaq–Hayat–Siddiqui (2022), arXiv:2211.09327. Closest broader bound: Chandran–Reji (2024), DOI:10.22199/issn.0717-6279-5770. Related but different invariant: indexed *Mixed metric bases of complete prisms* record (source identified in RESULT.md). More complete literature discovery and independent expert audit may refine publication-priority status.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 7-column sharp threshold and exact bases/enumerator explain a natural transition in a standard two-layer graph family, and distinguish edge resolution from stronger mixed resolution; researchers working in metric location parameters can use the complete extremizer structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

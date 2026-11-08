@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A direct edge-distance table for horizontal X/Y edges and matching edges yields the three collision criteria in RESULT.md, covering each unordered pair of edge types. Two omitted matched columns create indistinguishable matching edges, forcing |S|>=n-1; with at most one omitted column, every edge is vertex-edge dominated, so dominant and ordinary edge-metric minima agree. At size n-1, exactly one omitted column, no doubled columns, and each layer has >=3 selected vertices are necessary and sufficient. This requires n>=7. For n<=6, the only size-n support profiles are a full transversal or one empty and one doubled column; the collision criteria give the stated layer restrictions. Combinatorial counting then yields M_n. Independently built graph adjacencies and BFS edge distances, exhaustive minimum-size subsets n=2..8, including n=2 square and n=7 first drop, produced basis counts 4,14,50,182,532,140,560, all matching the claimed classifications. The all-n conclusion rests on explicit collision exhaustion, not just these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chandran and Reji Theorem 1 bounds edim(G square K2) between edim(G) and edim(G)+1; for G=K_n it is [n-1,n].",
+          "Ikhlaq et al. study paths, cycles, complete bipartite and other products, not full Kn square K2."
+        ],
+        "reasoning": "The general interval does not select the correct endpoint n<7 versus n>=7 or classify all minimizers; stronger relevant exact mixed parameter does not dominate the weaker edge parameter.",
+        "searches": [
+          "Chandran Reji 2024 edge metric dimension Cartesian products Theorem 1",
+          "edge metric dimension vertex edge dominant complete prism K_n Cartesian K2 classification",
+          "Ikhlaq Hayat Siddiqui 2022 vertex-edge dominant edge metric dimension"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md and verification/check_basis.py",
+        "Chandran and Reji 2024 theorem and proof",
+        "Ikhlaq et al. arxiv:2211.09327 abstract",
+        "Published Resultary mixed complete-prism record and other edge-resolving graph families",
+        "Resultary queries Q2 and complete-prism exact bases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior interval [n-1,n] remains undecided separately for all n.",
+          "Mixed dimension can be n even when edge-only dimension is n-1; no implication from a larger invariant determines a smaller invariant or its extremizers."
+        ],
+        "reasoning": "Neither the 2024 inequality nor mixed parameter theorem yields the n=7 drop, layer-size >=3 condition, or all labeled counts.",
+        "searches": [
+          "Chandran Reji 2024 Section 3 Theorem 1",
+          "Resultary mixed metric bases complete prisms",
+          "arxiv:2211.09327"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex-edge dominant edge resolving means selected vertices resolve edges using min-endpoint vertex distance AND are within edge-distance <=1; not standard mixed resolving.",
+          "Published Resultary complete-prism MIXED metric dimension distinguishes both vertices and edges, unlike edge-only resolution."
+        ],
+        "reasoning": "No alias supplies precisely the same all-bases classification: dominant edge resolution here collapses to ordinary edge resolution due to graph geometry; mixed metric is stricter.",
+        "searches": [
+          "edge metric dimension vertex edge dominant complete prism K_n Cartesian K2 classification",
+          "\"dominant edge metric dimension\" complete prism K_n K_2",
+          "Resultary mixed metric bases of complete prisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary identifies exactly n for mixed dimension n>=5 and 2^n-2n-2 mixed bases, numerically distinct from these edge-only base counts.",
+          "New BFS enumerations n=2..8 are independent local confirmation, not a previously published exact table."
+        ],
+        "reasoning": "No matching edge-only all-n census was identified. In particular, mixed basis counts are NOT the source of the claimed M_n.",
+        "searches": [
+          "edge metric dimension vertex edge dominant complete prism K_n Cartesian K2 classification",
+          "Resultary 2026/10/4 SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0",
+          "\"edge metric bases\" complete prisms n-1 n"
+        ]
+      },
+      "rationale": "A 2024 Cartesian-product inequality gives n-1 <= edim(K_n square K_2) <= n but not the sharp transition or all minimum bases. The close Resultary theorem gives MIXED metric bases of complete prisms, which impose additional vertex/edge distinction constraints; its n-value does not imply the edge-only n-1 regime. The original dominant edge-metric work treats other graph families. The exact full classification is best-of-knowledge new.",
+      "residual_risks": [
+        "Unindexed earlier edge-only complete-prism bases classification under edge-locating/metric-generator terminology remains possible.",
+        "The 2022 original dominant edge-metric work was not completely inspected; its abstract does not list this family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact Kn square K2 extremizer theorem",
+          "evidence": "Inequality edim(G) <= edim(G square K_2) <= edim(G)+1 specializes only to a two-point interval.",
+          "identifier_or_url": "https://doi.org/10.22199/issn.0717-6279-5770",
+          "material_read": "Section 3 / Theorem 1 inequality and proof for G square K_2",
+          "method": "Accessible complete public manuscript via ResearchGate; read stated bound and argument",
+          "title": "Edge metric dimension of some Cartesian product of graphs",
+          "trigger": "Exact same product operation and parameter"
+        },
+        {
+          "assessment": "NO_DIRECT_COVERAGE_IN_MATERIAL_READ",
+          "evidence": "Graph classes described do not establish complete prism K_n square K_2; full text not reviewed here.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.09327",
+          "material_read": "Title, abstract and described graph classes in introductory metadata",
+          "method": "arXiv abstract and source context, not full text",
+          "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+          "trigger": "Original parameter definition"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER",
+          "evidence": "Mixed resolution also must separate vertex–vertex and vertex–edge pairs; edge-only bases of size n-1 can exist when mixed dim=n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0",
+          "material_read": "Published title, result summary and exact mixed dimension/basis count",
+          "method": "Resultary indexed scientific record, not full Git proof",
+          "title": "Mixed metric bases of complete prisms",
+          "trigger": "Identical graph family, potentially stronger resolving notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 7-column sharp threshold and exact bases/enumerator explain a natural transition in a standard two-layer graph family, and distinguish edge resolution from stronger mixed resolution; researchers working in metric location parameters can use the complete extremizer structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md and verification/check_basis.py",
+    "Chandran and Reji 2024 theorem and proof",
+    "Ikhlaq et al. arxiv:2211.09327 abstract",
+    "Published Resultary mixed complete-prism record and other edge-resolving graph families",
+    "Resultary queries Q2 and complete-prism exact bases"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed earlier edge-only complete-prism bases classification under edge-locating/metric-generator terminology remains possible.",
+    "The 2022 original dominant edge-metric work was not completely inspected; its abstract does not list this family."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Only two clique layers joined by one perfect matching, n>=2; no general graph product, arbitrary mixed metric basis, or extra layer result."
+}
