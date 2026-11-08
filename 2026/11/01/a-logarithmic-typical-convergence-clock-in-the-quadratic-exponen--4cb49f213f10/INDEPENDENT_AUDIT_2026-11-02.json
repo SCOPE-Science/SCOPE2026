@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:11:36.683464Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 81a387399e32f4233cd8b68e6bc0782c67237509 proof sections 1–5",
+        "Frozen verify.py blob ea23092a556b76e14585fd3c33dd4362cdf1e4bb (inspected only)",
+        "Independent bit-mask direct dynamics 3<=n<=11 in private independent_scope05_checks_20261102.py"
+      ],
+      "rationale": "For the directed n-cycle plus n−1->1 shortcut, Boolean path propagation gives F^n>=I OR R: a base length-(n+1) tour can be shortened by a shortcut to advance one position in n steps. Iterating fills any zero gap L by time nL. Counting shortcuts in an nk-step walk (successive shortcuts need >=n−1 edges) shows T>n(L−2) when L>=2. Frobenius semigroup H=<n,n−1> proves unique maximizer e0 with T=(n−1)^2+1 and singleton times t_*-i. The largest zero-run in a uniform n-bit word is (1+o_P(1))log2 n by union bound and disjoint-block lower estimates; tail sums give expectation, and 2n error transfers to T. Independently enumerated all configurations 3<=n<=11 and confirmed uniqueness/bounds, but infinite family is proved analytically.",
+      "residual_risks": [
+        "All-zero state must be excluded from the cyclic-gap comparison; treated separately.",
+        "Uniform asymptotic assumes fair independent initial bits, fixed shortcut and synchronized OR updates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neufeld–Shen 1998 abstract defines F(G,k)=max over all initial subsets of size k and characterizes graph-level extremizers.",
+          "Jarrah et al and Gadouleau provide general primitive network height bounds."
+        ],
+        "reasoning": "Support-cardinality maxima are coarser than individual longest-gap position information; general upper bounds may be quadratic at typical density and do not directly give sharp n log n mean. Full Neufeld–Shen text remains a possible stronger coverage risk.",
+        "searches": [
+          "DOI:10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M",
+          "arXiv:0805.0275",
+          "arXiv:2104.04403"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0805.0275",
+        "https://arxiv.org/abs/2104.04403",
+        "https://doi.org/10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M",
+        "Resultary semantic search: Wielandt primitive digraph disjunctive Boolean networks convergence entry time longest cyclic zero gap random initial activation n log n",
+        "Resultary semantic search: primitive Wielandt digraph set exponent random initial vertices longest gap saturation time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier general primitive-matrix height bound supplies T<=exponent, not T approximated by nL uniformly.",
+          "Neufeld–Shen paper explicitly maximizes over |X|=k; no direct run-length profile is stated in accessible abstract."
+        ],
+        "reasoning": "Derivation needs shortcut-count lower bound and longest-Bernoulli-run asymptotics beyond general exponent results; the inaccessible article might contain a less obvious implication and is not certified noncovering.",
+        "searches": [
+          "arXiv:0805.0275 Section 2 Theorem 2.10",
+          "arXiv:2104.04403 Section 3.1.2",
+          "Neufeld–Shen JGT 1998 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boolean adjacency powers correspond to disjunctive networks; the known Wielandt exponent matches the unique max T.",
+          "Resultary Wielandt automata rank/reset findings concern deterministic words in distinct automata."
+        ],
+        "reasoning": "The general exponent recovers worst-case maximum, not the new pointwise longest-inactive-gap estimate or mean scale. Automata with similar names are not identical operators.",
+        "searches": [
+          "Resultary semantic search: Wielandt primitive digraph disjunctive Boolean networks convergence entry time longest cyclic zero gap random initial activation n log n",
+          "Resultary semantic search: primitive Wielandt digraph set exponent random initial vertices longest gap saturation time",
+          "arXiv:0805.0275",
+          "arXiv:2104.04403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact quadratic exponent and generalized-exponent extrema are recorded in Neufeld–Shen abstract.",
+          "No searched table gives configuration-by-configuration entry times or the n log2 n limit."
+        ],
+        "reasoning": "The known numerical worst-case exact value is not original. The new sharp leading typical relaxation clock is not an already reported exact table in inspected material.",
+        "searches": [
+          "Resultary semantic search: Wielandt primitive digraph disjunctive Boolean networks convergence entry time longest cyclic zero gap random initial activation n log n",
+          "Resultary semantic search: primitive Wielandt digraph set exponent random initial vertices longest gap saturation time",
+          "web: Wielandt digraph typical convergence random subset longest zero run exact mean"
+        ]
+      },
+      "rationale": "The extremal exponent (n−1)^2+1 and eventual all-one state are classical; not claimed as novelty. The source adds a configuration-specific L-gap comparison with <2n error and exact leading typical n log2 n relaxation for the same maximally slow graph. Jarrah–Laubenbacher–Veliz-Cuba and Gadouleau give general height bounds/periodic structure, not this run-length distribution. Neufeld–Shen 1998 studies maximal generalized exponents by support size but its accessible abstract does not supply a configuration-sensitive zero-gap law; whole text inaccessible (Oxford VPN disconnected), so an implicit implication remains a named risk.",
+      "residual_risks": [
+        "Neufeld–Shen 1998 DOI 10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M full article inaccessible (Oxford VPN disconnected).",
+        "Earlier generalized-exponent formulas may contain a run-gap characterization in an unexamined section."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "WORST_CASE_AND_PERIODIC_BACKGROUND",
+          "evidence": [
+            "Graph-level height bounded by primitive exponent; no displayed L-gap typical law in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+          "material_read": "Primary PDF opened; inspected Section 2 primitive network dynamics and Theorem 2.10 scope with page image",
+          "method": "arXiv PDF text and screenshot",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "General height theorem and primitive graph model"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_THEORY",
+          "evidence": [
+            "General periodicity and convergence, not inspected exact longest-zero-gap relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.04403",
+          "material_read": "Primary PDF opened; inspected Section 3.1.2 and discussion of strongly connected primitive networks",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Dynamical properties of disjunctive Boolean networks",
+          "trigger": "Broad disjunctive network periodic-point/height literature"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_UNDETERMINED",
+          "evidence": [
+            "1998 paper potentially relates pointwise height via subset exponents but abstract only gives support-cardinality extremal claims."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M",
+          "material_read": "Full publisher abstract read: defines exp(X), F(G,k), F(n,k), graph extremizers, degree bounds; full article unavailable after arXiv/OA searches and Oxford access vpn_disconnected",
+          "method": "Wiley abstract and institutional-access attempt",
+          "title": "Some results on generalized exponents",
+          "trigger": "Closest generalized initial-support exponent formalism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic search: Wielandt primitive digraph disjunctive Boolean networks convergence entry time longest cyclic zero gap random initial activation n log n",
+        "Resultary semantic search: primitive Wielandt digraph set exponent random initial vertices longest gap saturation time",
+        "https://arxiv.org/abs/0805.0275",
+        "https://arxiv.org/abs/2104.04403",
+        "https://doi.org/10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M"
+      ],
+      "rationale": "A canonical primitive extremal graph has quadratic worst-case convergence but its uniform-random starting configurations relax on the sharply smaller n log2 n scale. The uniform two-tour comparison is a motivated structural lemma linking the extremal graph to longest zero runs; its exact coefficient matters for typical Boolean-network convergence.",
+      "residual_risks": [
+        "No exact hitting-time census for all configurations; no extension to arbitrary primitive graphs or asynchronous rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-zero state must be excluded from the cyclic-gap comparison; treated separately.",
+    "Uniform asymptotic assumes fair independent initial bits, fixed shortcut and synchronized OR updates.",
+    "Neufeld–Shen 1998 DOI 10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M full article inaccessible (Oxford VPN disconnected).",
+    "Earlier generalized-exponent formulas may contain a run-gap characterization in an unexamined section.",
+    "No exact hitting-time census for all configurations; no extension to arbitrary primitive graphs or asynchronous rules."
+  ],
+  "schema_version": 1
+}

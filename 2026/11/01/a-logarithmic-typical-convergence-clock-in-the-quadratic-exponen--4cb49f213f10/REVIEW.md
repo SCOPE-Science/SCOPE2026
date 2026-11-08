@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The update recurrence and orientation match the stated directed cycle plus shortcut. Boolean walk propagation proves \(F_n^n\ge I\lor R\), yielding the all-size upper time bound. The gap lower bound follows from the minimum \(n-1\) steps separating consecutive uses of the shortcut and is valid for every \(n\ge3\) with \(L\ge2\). For the extreme, a return to vertex \(0\) requires one full tour plus an element of the numerical semigroup \(\langle n,n-1\rangle\); its Frobenius gap proves the sharp worst-case and unique single-site maximizer. Disjoint-block and union probability estimates prove both random-time limits. The standalone program independently implements the transition rule and exhaustively checks all \(32{,}760\) states through size \(14\), with additional path-covering checks through size \(89\). Finite computations alone do not certify the asymptotic statement.
+## correctness
 
-## Originality
-**PASS, qualified.** The classical Wielandt exponent \((n-1)^2+1\), the identification of the two fixed states in primitive disjunctive networks, and general subset-exponent bounds are established literature, not claimed as novel. The assessed distinction is the longest-zero-run comparison \(|T_n(x)-nL_n(x)|<2n\), from which the *precise leading scale* \(n\log_2 n\) follows in probability and in expectation for uniformly random starts. The 2008 Jarrah–Laubenbacher–Veliz-Cuba study and 2021 Gadouleau survey present graph-structural periodic-point/height results but do not state this configuration-dependent or average-case law in the relevant inspected portions. Neufeld–Shen 1998 provides a closer generalized-exponent formulation and could potentially subsume parts of the deterministic extremal statement. Its abstract is accessible, but the full text was not retrieved; this is an explicit residual risk rather than a whole-paper exclusion claim. Searches of mathematical research records did not identify the precise law; that absence is not proof of universal novelty.
+PASS
 
-## Mathematical value
-**PASS.** A maximally slow primitive graph, classically exhibiting quadratic worst-case saturation, is shown to relax typically at a sharply determined, much smaller scale. The deterministic longest-zero-gap comparison is a structural mechanism, not a parameter-only restatement of a primitive-matrix exponent. It has a natural probabilistic observable and an exact leading constant; the discrepancy \(n^2\) versus \(n\log n\) is mathematically substantive. The extremal singleton is retained to calibrate the prior worst-case bound, not as an independent novelty claim.
+For the directed n-cycle plus n−1->1 shortcut, Boolean path propagation gives F^n>=I OR R: a base length-(n+1) tour can be shortened by a shortcut to advance one position in n steps. Iterating fills any zero gap L by time nL. Counting shortcuts in an nk-step walk (successive shortcuts need >=n−1 edges) shows T>n(L−2) when L>=2. Frobenius semigroup H=<n,n−1> proves unique maximizer e0 with T=(n−1)^2+1 and singleton times t_*-i. The largest zero-run in a uniform n-bit word is (1+o_P(1))log2 n by union bound and disjoint-block lower estimates; tail sums give expectation, and 2n error transfers to T. Independently enumerated all configurations 3<=n<=11 and confirmed uniqueness/bounds, but infinite family is proved analytically.
 
-## Closest literature and limits
-Jarrah–Laubenbacher–Veliz-Cuba, arXiv:0805.0275v1, Section 2 and Theorem 2.10, contains general upper bounds for height in terms of primitive exponents. Gadouleau, arXiv:2104.04403, Section 3.1.2, reviews primitive disjunctive network periodic states. Neufeld–Shen, *Journal of Graph Theory* 28 (1998), 215–225, defines initial-set generalized exponents and characterizes extremal graphs at fixed support size; only its abstract was accessible. Brualdi–Liu 1990 develops generalized exponents. These background results must not be mistaken for a new proof of the known quadratic exponent. There remains an unquantified risk of an earlier configuration-sensitive law, particularly in the unavailable older generalized-exponent literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The extremal exponent (n−1)^2+1 and eventual all-one state are classical; not claimed as novelty. The source adds a configuration-specific L-gap comparison with <2n error and exact leading typical n log2 n relaxation for the same maximally slow graph. Jarrah–Laubenbacher–Veliz-Cuba and Gadouleau give general height bounds/periodic structure, not this run-length distribution. Neufeld–Shen 1998 studies maximal generalized exponents by support size but its accessible abstract does not supply a configuration-sensitive zero-gap law; whole text inaccessible (Oxford VPN disconnected), so an implicit implication remains a named risk.
+
+## value
+
+PASS
+
+A canonical primitive extremal graph has quadratic worst-case convergence but its uniform-random starting configurations relax on the sharply smaller n log2 n scale. The uniform two-tour comparison is a motivated structural lemma linking the extremal graph to longest zero runs; its exact coefficient matters for typical Boolean-network convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
