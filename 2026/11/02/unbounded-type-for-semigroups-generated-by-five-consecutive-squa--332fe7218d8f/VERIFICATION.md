@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is established by the symbolic integer proof in `RESULT.md`, including exact generator-translate identities, an upper bound on the number of putative generators, and the parity-and-moment contradiction.
+## correctness
 
-Execute `python3 verify.py` with Python 3. The script builds complete shortest-residue Apéry tables for \(n=12k\) at \(k=4,5,6,7,8,9,10\), checks all \(98\) explicit pseudo-Frobenius witnesses, and recomputes full types \(47,57,68,78,89,99,110\). It additionally checks the identities and strict inequality conditions for \(k=11,20,50,100,1000\). No nonstandard package is required. A finite check is evidence about those parameters only, not a substitute for the all-parameter proof. Historical equivalence and independent mathematical correctness assessment remain unperformed externally.
+PASS
+
+Proof checked by expanding all five generator-shift identities and the nonmembership argument. If f had a semigroup representation, total coefficient difference δ≤2 because remainder R satisfies 0<R<n² for k≥4. Parity forces even s; inequalities 0≤U≤W≤4U exclude s<0, s=0, force δ=2 for s≥2, and exclude s=2 by Q≥L and s≥4 by Q≤4L. Distinct witnesses differ by 2g3−g4>0. Independent integer checks of all four identities for k=4,5,6,7,20,100 passed. Does not determine exact type.
+
+## originality
+
+PASS
+
+Chomicz full relevant sections calculate Apéry and Frobenius invariants of four consecutive squares, Section 6 discusses Frobenius bounds for fixed length, not five-square pseudo-Frobenius type. Moscariello–Strazzanti boundedness assumes nearly Gorenstein, absent here; Backelin already shows fixed-generator unbounded type in other families. Specific consecutive-square witness family appears unprovided by inspected results; alternative reduction via existing Apéry classifications remains risk.
+
+## value
+
+PASS
+
+Pseudo-Frobenius type is a central numerical-semigroup invariant; explicit unbounded growth in a rigid consecutive-square family (not arbitrary five generators) is meaningful despite lower bound rather than full census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

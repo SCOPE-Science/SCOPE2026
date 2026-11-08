@@ -1,15 +1,21 @@
-# Scientific review: unbounded type for five consecutive squares
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The explicit \(2k\) candidate pseudo-Frobenius numbers have four nonnegative generator-translate identities, and the fifth follows from their definition. Nonmembership follows for all integers \(k\ge4\) and \(0\le j\le2k-1\) from the quadratic-moment representation obstruction: any putative representation has \(\delta\le2\), the deficit inequalities force \(\delta=2\), and the two remaining parity branches violate either \(Q\ge L\) or \(Q\le4L\). The exact residue shortest-path verifier independently checks the candidates and full types for seven parameters. It does not serve as a proof for unbounded \(k\).
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** Chomicz's arXiv:2604.25653 explicitly treats four consecutive-square generators and provides a general four-generator Apéry procedure; its inspected Sections 4 and 6 do not yield the five-generator type bound. Moscariello–Strazzanti's arXiv:2501.08260 concerns the nearly Gorenstein subclass, which the present theorem does not assume. Searches for the exact five-square type, pseudo-Frobenius construction, and unboundedness found no equivalent or stronger covering result. Lack of an indexed match does not prove worldwide priority; an earlier theorem under another description remains possible. The historical literature search is necessarily non-exhaustive, and no completeness claim is made for it.
+PASS
 
-## Mathematical value
-**PASS.** The five-square family is a natural next instance after the four consecutive squares solved by Chomicz. The result proves that its type is unbounded even while the embedding dimension remains exactly five and gives a linear lower bound with explicit witnesses. This is a structural infinite-family theorem, not a routine recomputation or a finite census. It does not provide a sharp type formula.
+Proof checked by expanding all five generator-shift identities and the nonmembership argument. If f had a semigroup representation, total coefficient difference δ≤2 because remainder R satisfies 0<R<n² for k≥4. Parity forces even s; inequalities 0≤U≤W≤4U exclude s<0, s=0, force δ=2 for s≥2, and exclude s=2 by Q≥L and s≥4 by Q≤4L. Distinct witnesses differ by 2g3−g4>0. Independent integer checks of all four identities for k=4,5,6,7,20,100 passed. Does not determine exact type.
 
-## Reproducibility and limitations
-`verify.py` requires Python 3 and the standard library only. It computes Apéry minima by shortest paths modulo the smallest generator and verifies \(98\) witnesses among seven semigroups; direct algebra checks cover five more parameter values. The proof itself covers every stated parameter symbolically. The earlier nearly Gorenstein paper was compared using its public abstract rather than a complete primary full-text reading; this remains an originality risk. No independent external review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chomicz full relevant sections calculate Apéry and Frobenius invariants of four consecutive squares, Section 6 discusses Frobenius bounds for fixed length, not five-square pseudo-Frobenius type. Moscariello–Strazzanti boundedness assumes nearly Gorenstein, absent here; Backelin already shows fixed-generator unbounded type in other families. Specific consecutive-square witness family appears unprovided by inspected results; alternative reduction via existing Apéry classifications remains risk.
+
+## value
+
+PASS
+
+Pseudo-Frobenius type is a central numerical-semigroup invariant; explicit unbounded growth in a rigid consecutive-square family (not arbitrary five generators) is meaningful despite lower bound rather than full census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
