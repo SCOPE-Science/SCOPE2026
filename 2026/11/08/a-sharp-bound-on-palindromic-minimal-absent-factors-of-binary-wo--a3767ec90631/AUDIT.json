@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For binary words using both symbols, the prefix-of-length-|p|-1 earliest-endpoint map is injective for palindromic minimal absent factors. At a hypothetical collision of differing lengths, equal outside letters force the shorter palindrome to occur inside the longer truncated prefix. Different outside letters disallow any next binary letter unless the common endpoint is final, where occurrence of the longer palindrome truncated suffix forces an earlier shorter-prefix occurrence. Monochromatic words have only two minimal absent factors; 01^(n-2)0 realizes n for all n>=3, with n=2 explicitly handled. Independent exhaustive implementations agree and test injection.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Almirantis et al. (2017) Lemma 1 gives only asymptotic O(sigma n) tightness and the already known word a2 a1^(n-2) a2.",
+        "Pinho et al. (2009) presents a general |S||Sigma|^2 bound, which does not numerically imply n.",
+        "Barton et al. (2014) presents O(sigma n) general bound without sharp binary constant."
+      ],
+      "reasoning": "General O(n) and O(sigma n) bounds, without a constant-one finite-length inequality, do not yield the sharp cardinality. If a stronger exact maximum for *all* binary minimal absent factors exists, it could imply this bound combined with the known witness. This is the main unresolved historical-priority risk.",
+      "searches": [
+        "binary string maximum number of minimal absent words n+1",
+        "maximum number of distinct minimal absent words over binary alphabet exact n",
+        "tight bounds size minimal absent words binary alphabet n string combinatorics"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/1471-2105-10-137",
+      "https://doi.org/10.1186/s12859-014-0388-9",
+      "https://doi.org/10.1186/s13015-017-0094-z",
+      "https://oeis.org/A247000",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full 2009 primary Methods/Theorem 2: l alpha r absent iff left/right contexts occur without the joint extension.",
+        "Full 2017 primary Lemma 1: the precise same two-run family is used to exhibit n-2 distinct absent factors, hence asymptotic tightness; it does not state an exact palindromic maximum.",
+        "Full 2014 primary Methods/Lemma 1 identifies minimal absent words using suffix-array left contexts, no endpoint charging theorem."
+      ],
+      "reasoning": "The accepted claim is a sharp maximum over all binary inputs of the palindrome-filtered subset; none of the compared general algorithmic statements or asymptotic examples asserts this exact theorem. The known witness is expressly not claimed new, and its relationship is a substantive partial implication.",
+      "searches": [
+        "On finding minimal absent words Pinho 2009 theorems",
+        "On avoided words absent words 2017 Lemma 1",
+        "sharp maximum number of palindromic minimal absent factors of binary word length n equals n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinho et al. (2009), Methods/Theorems 1-2, treats minimal absent words without a palindrome restriction.",
+        "2014 Barton et al. full-text Methods/Lemma 1 discusses all minimal absent factors and no palindrome restriction.",
+        "Targeted published-finding corpus records include 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28: subsequences, not contiguous factors."
+      ],
+      "reasoning": "The relevant aliases are minimal absent factors, minimal forbidden factors, and palindromic missing motifs. Results on shortest absent subsequences do not imply bounds for contiguous palindromic minimal absent factors.",
+      "searches": [
+        "sharp maximum number of palindromic minimal absent factors of binary word length n equals n",
+        "binary strings whose minimal absent words are all palindromes 0 1^k 0 extremal",
+        "palindromic minimal absent words factor number",
+        "minimal forbidden palindromes binary word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A247000 concerns the maximum number of PRESENT palindromes in circular binary words; it is not an absent-factor invariant."
+      ],
+      "reasoning": "The numerical sequence n alone is ubiquitous and not novelty evidence. No exact table for the defined palindrome-filtered minimal-absent-factor maximum was located; this is not proof of absence.",
+      "searches": [
+        "site:oeis.org palindromic minimal absent word maximum n",
+        "site:oeis.org minimal absent palindromes binary string"
+      ]
+    },
+    "rationale": "The exact palindromic-subfamily upper bound and the first-occurrence endpoint injection were not located in the inspected primary literature or returned research records. Pinho et al. (2009) and Barton et al. (2014) give general minimal-absent characterizations and algorithms. Almirantis et al. (2017) already gives the same witness for asymptotic tightness, but only exhibits n-2 factors and no sharp palindromic upper bound. A stronger uncatalogued exact full-MAW theorem may still imply the cardinality assertion; this risk is recorded.",
+    "residual_risks": [
+      "A different published exact bound on ALL binary minimal absent factors could imply the present cardinality result with the 2017 witness; no such decisive source was found in the accessible check, so novelty remains a best-knowledge assessment.",
+      "A terminological variant such as palindrome-filtered antidictionary may be unindexed.",
+      "The published witness has high overlap with the construction; only the exact sharp theorem and first-occurrence injection are presented as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact palindromic bound; general cardinality at most |S||Sigma|^2 and maximal-repeat characterization. Length-two factors are outside its Definition 3 but included here.",
+        "evidence": [
+          "Published 2009-05-08; Definition 3 specifies length >=3; Theorem 2 gives context-pair characterization; suffix-tree section states |S||Sigma|^2 bound; no palindrome-specific maximal count."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1471-2105-10-137",
+        "material_read": "Full accessible Springer HTML: Background, Methods, Definition 3, Theorems 1-2 and suffix-tree upper bound, together with results discussion",
+        "method": "Read primary full-text HTML, including the hypotheses for the length-at-least-three definition",
+        "title": "On finding minimal absent words",
+        "trigger": "Original minimal absent factor definition and general structural/count bounds"
+      },
+      {
+        "assessment": "NOT_COVERING precise bound; algorithms and general O(sigma n) bound rather than exact palindromic extremum.",
+        "evidence": [
+          "Methods/Definitions define minimal absent factors length >=2; Lemma 1 describes left contexts in suffix arrays; no exact binary-palindrome maximum stated."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s12859-014-0388-9",
+        "material_read": "Full accessible Springer HTML Background, Methods, Definitions/notation, algorithm and Lemma 1",
+        "method": "Read primary full-text HTML (same work also first posted arXiv:1406.6341 on 2014-06-24)",
+        "title": "Linear-time computation of minimal absent words using suffix array",
+        "trigger": "Potential stronger general results dominating palindrome-subset upper bound"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: same two-run family appears as an asymptotic witness, explicitly at least n-2 absent factors; no sharp cardinality or binary-palindrome injection.",
+        "evidence": [
+          "Lemma 1 uses x=a2 a1^(n-2) a2 and lists a2 a1^k a2 for 0<=k<=n-3; its conclusion is Omega(n) rather than equality n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13015-017-0094-z",
+        "material_read": "Full accessible Springer HTML, especially Tight bounds on minimal absent words, Lemmas 1-2 and contextual background",
+        "method": "Read primary full-text HTML and directly compared the witness and implication",
+        "title": "On avoided words, absent words, and their application to biological sequence analysis",
+        "trigger": "Highly relevant source using the same saturating family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a3767ec9-0631-4fe7-a1ac-3e9494f29381",
+  "value": {
+    "rationale": "The sharp exact maximum of reversal-symmetric minimal missing motifs is a motivated natural factor-antidictionary invariant rather than an arbitrary slice: general source results previously gave only asymptotic control. The endpoint injection explains the exact binary coefficient one; the extremal construction shows this is an attained information capacity. No claim of a biological effect or improved general-purpose algorithm is made.",
+    "status": "PASS"
+  }
+}
