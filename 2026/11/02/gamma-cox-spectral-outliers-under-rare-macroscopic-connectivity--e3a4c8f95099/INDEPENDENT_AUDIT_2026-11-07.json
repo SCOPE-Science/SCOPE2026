@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:52:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/gamma-cox-spectral-outliers-under-rare-macroscopic-connectivity--e3a4c8f95099/RESULT.md",
+        "2026/11/02/gamma-cox-spectral-outliers-under-rare-macroscopic-connectivity--e3a4c8f95099/verify.py",
+        "/mnt/data/scope_worker03_20261107T0938Z/independent_checks_output.txt"
+      ],
+      "rationale": "For the precisely defined loopless Pólya threshold graph, direct Laplacian eigenvectors give lambda*_j=j Z_j+sum_{l>j} Z_l for j>=2. The last-zero index proves {kappa_n>=k} iff its last k creation bits equal one (k<=n-1), with complete graphs giving kappa_n=n. Beta(a,b) de Finetti mixing yields exact P(E_n)=(a)_k/(a+b)_k and posterior P|E_n=Beta(a+k,b); k/n->theta makes n(1-P) tend Gamma(b,rate theta). Prefix defect-indicator Laplace functionals give a mixed Cox Poisson process on [0,1-theta]; only O_p(1) defects perturb the reflected eigenvalue positions, while all nondefect normalized eigenvalues approach one. Mixing a Poisson((1-theta)Y) count gives NB(b,theta); nested suffix events give survival (theta/s)^b and complete-graph atom theta^b at one. Independent finite graph spectral and exact-rational beta checks corroborated premises, not the weak convergence itself.",
+      "residual_risks": [
+        "Independent finite checks do not replace the stated infinite proof or establish correctness of assumptions outside the precise theorem domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General random threshold graph limit laws with a fixed success probability and Pólya graph unconditional spectra do not analyze kappa_n of order n under rare conditioning."
+        ],
+        "reasoning": "Their hypotheses and scaling have O(n) or independent defects, unlike O(1) defects and Gamma-mixed Cox process after conditioning.",
+        "searches": [
+          "Resultary semantic: Polya threshold spectral Gamma Cox",
+          "arxiv:2603.18452 Yu Alajaji Gharesifard theorem 4; random threshold graph Laplacian Diaconis Holmes Janson"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2603.18452",
+        "Diaconis–Holmes–Janson (2008)",
+        "Resultary semantic: Polya threshold spectral Gamma Cox"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original theorem supplies lambda*_j; it does not include posterior Gamma limit, Cox conditional process or the normalized spectral atom. These require tail conditioning and mixed Poisson convergence."
+        ],
+        "reasoning": "The original spectral formula is used as a premise and not claimed new; the rare-conditioning theorem is a mathematical extension.",
+        "searches": [
+          "Resultary semantic: Polya threshold spectral Gamma Cox",
+          "Yu et al theorem 4 arxiv:2603.18452; Diaconis Holmes Janson 2008 theorem 6.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu et al give exact creation-bit spectrum. De Finetti equivalence gives a beta-mixture random creation sequence; combining conditional rare-event scaling requires separate Laplace functional and eigenvalue reasoning."
+        ],
+        "reasoning": "The equivalent run-of-universal-vertices event is explicitly identified and conditioned upon; the claimed limit is stronger than the finite spectral identity.",
+        "searches": [
+          "Resultary semantic: Polya threshold spectral Gamma Cox",
+          "Pólya threshold graphs beta mixture conditioned suffix run spectral gap Poisson point defects Cox process; Resultary Pólya threshold spectral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact rare-event conditional spectrum or tabular NB limit surfaced in Resultary; finite bit-vector checks recover the claimed small spectral values."
+        ],
+        "reasoning": "An asymptotic random point process is not covered merely by exact finite eigenvalue tables; absence of search hits is not proof of novelty.",
+        "searches": [
+          "Resultary semantic: Polya threshold spectral Gamma Cox",
+          "Resultary Gamma Cox spectral outlier Pólya; finite threshold graph spectra and counts"
+        ]
+      },
+      "rationale": "Earlier Yu–Alajaji–Gharesifard exact threshold-graph eigenvalues and de Finetti/Pólya posterior theory are explicitly prior. Their combination under a rare macroscopic Laplacian-gap event produces the nontrivial Gamma-Cox outlier process, negative binomial counts and conditional limiting spectral gap law; no inspected prior statement covers this conditioned limit.",
+      "residual_risks": [
+        "An earlier specialized rare-event threshold-graph analysis could derive the same Cox process under a different parametrization.",
+        "The first creation bit does not affect the graph; k_n/n must converge to a fixed interior theta, a,b positive; no claim at theta=0 or theta=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deterministic eigenspectrum; no Gamma-Cox rare-event conditional limit found in material read",
+          "evidence": [
+            "Theorem 4, arxiv:2603.18452"
+          ],
+          "identifier_or_url": "arxiv:2603.18452",
+          "material_read": "Original article Theorem 4, Laplacian eigenvectors, formula and neighboring discussion (PDF inspected)",
+          "method": "arXiv PDF and page screenshot",
+          "title": "Random Pólya threshold graph and its Laplacian spectrum",
+          "trigger": "Identical model, creation-bit law and exact Laplacian theorem"
+        },
+        {
+          "assessment": "Prior threshold spectra structurally related, but not same conditioned beta-mixture process",
+          "evidence": [
+            "Diaconis Holmes Janson theorem 6.4"
+          ],
+          "identifier_or_url": "Diaconis–Holmes–Janson (2008)",
+          "material_read": "Published theorem and Section 9 as cited in assigned proof; no complete primary full text independently inspected",
+          "method": "Bibliographic/theorem comparison in mathematical package",
+          "title": "Random threshold graphs",
+          "trigger": "Potential broader unconditioned random threshold graph spectral limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2603.18452",
+        "Diaconis–Holmes–Janson (2008)"
+      ],
+      "rationale": "The theorem extracts a sharp rare-event probability and a full random spectral-outlier process under atypical connectivity, including an observable gap atom and universal dependence on b and theta. This is a natural random-graph spectral question, not a restatement of beta-binomial algebra alone.",
+      "residual_risks": [
+        "Value rests on the stated natural problem, not on code reproducibility or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier specialized rare-event threshold-graph analysis could derive the same Cox process under a different parametrization.",
+    "The first creation bit does not affect the graph; k_n/n must converge to a fixed interior theta, a,b positive; no claim at theta=0 or theta=1.",
+    "Scientific acceptance is not publication/import acceptance; public metadata sanitation blocked.",
+    "Historical ledger gaps preserved byte-for-byte and not reaudited."
+  ],
+  "schema_version": 1
+}
