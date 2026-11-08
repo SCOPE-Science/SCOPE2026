@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The offspring word gives \(B_n\asymp2^{n/2}(n+2)^\kappa\) by an explicit exponentially spaced excess-branch count. Iterated Hölder supplies a necessary eigenvalue summability test, while level-radial functions show sufficiency. Exact power norms and the spectral radius settle the full disk; disjoint sibling-subtree eigenvectors establish infinite multiplicity and hence the Fredholm essential disk. The two-sided critical series test proves that the boundary is included if and only if \(p>\rho\), with equality excluded. The complex \(\ell^\infty\) boundary is handled separately, avoiding finite-\(p\) summability assumptions.
+
+**Originality — PASS, with residual priority risk.** The motivating 2026 tree-Rota paper treats Hilbert-space radius/universality, rather than tunable peripheral membership over the Banach \(\ell^p\) scale. The 2018 directed-tree \(L^p\) literature concerns hypercyclicity, and the 2017 tree-shift paper concerns Hilbert-space multiplier algebras, reflexivity and Wold decompositions. Related published mathematical records on dyadic shift power norms, geometric weighted shifts and single-exponent spectral regions were compared; none identified equivalent full coverage. Classical radial eigenvectors and sequence-space ratio tests are prior techniques, not claimed as new. A broader older weighted-shift or tree-spectrum result may encode the same conclusion and is a genuine risk.
+
+**Mathematical value — PASS.** Point-spectrum membership at the spectral radius is a natural invariant in Banach-space operator dynamics; \(p\) is the ambient canonical interpolation scale. One sparse *unweighted* branching geometry independently controls the endpoint across all \(p\), with arbitrary sharp threshold, while the full essential disk does not change its qualitative shape. The contrast distinguishes point from essential spectra and provides a structurally motivated exact classification, not isolated finite numerical gains.
+
+The statements do not establish corresponding behavior for forward shifts, non-spherically homogeneous trees or alternative notions of essential spectrum. Reproducibility checks are finite; the proof is analytical.
+
+Self-review: passed. Independent audit: not yet performed.
