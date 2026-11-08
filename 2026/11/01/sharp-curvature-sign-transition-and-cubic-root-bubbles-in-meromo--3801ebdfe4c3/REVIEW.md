@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-Laurent monomials with indices bounded below are an orthogonal Hilbert basis because angular Fourier coefficients are orthogonal and square-integrability gives the exact lowest index. Their norms reconstruct the reproducing kernel. Applying the stated curvature convention to the resulting positive radial metric gives an exact rational expression whose numerator is the explicit polynomial \(Q_c\). Every positive-degree coefficient is positive, so strict monotonicity gives the unique sign threshold and the complete zero-circle classification. The near-threshold implicit expansion, the rescaled polynomial limit, and local smooth convergence away from the puncture establish the sharp endpoint laws. Symbolic identities and exact rational checks in `checker.py` corroborate, but do not substitute for, the proof.
+## correctness
 
-## Originality (O): PASS, provisional historical priority
-The original kernel is known from Ghiloufi–Snoun (arXiv:2009.04307), and the general meromorphic-space setting from Ghiloufi–Zaway (arXiv:2309.00552). Snoun (arXiv:2310.03519, §4.1) introduces the corresponding kernel metric and proves two-sided metric comparisons; its introduction describes negative curvature, but that paragraph is not accompanied by a universal curvature calculation. The present exact formula provides positive curvature for particular admissible weights, so the qualitative description cannot be globally valid under the stated metric convention. Ghiloufi–Snoun (arXiv:2401.03941, §4) studies Berezin transforms using the modified Bergman metric, without establishing the exact curvature sign diagram or the cubic-root degeneration. Targeted mathematical-record searches did not find a covering theorem, although absence from returned records is not a proof of priority. A broader implicit curvature result remains a residual risk.
+PASS
 
-## Mathematical value (V): PASS
-This is a natural intrinsic invariant of the previously introduced kernel metric, not a reparametrization of a known zero-location table. The full, sharp sign diagram identifies a non-obvious region of positive Gaussian curvature in a setting described as negatively curved. The single-circle rigidity and two singular transition exponents quantify how this anomalous region is born and disappears. The result can inform the interpretation of metric estimates and curvature-dependent methods in weighted complex analysis.
+In the punctured disk with pure |z|^(2beta) weight beta>-1, Laurent integrability n>=-ceil(beta) yields the kernel K(z,w)=(z conj(w))^(-m)[delta+(1-delta)z conj(w)]/[(beta+1)(1-z conj(w))²], m=ceil(beta),delta=beta-m+1∈(0,1]. Omitting harmonic log |z|² factor gives g(x)=2/(1-x)²+c/(1+cx)², c=(1-delta)/delta. Under declared Gaussian curvature K=-2g^-1[(log g)'+x(log g)''], set t=x/(1-x): exact symbolic differentiation independently confirms K=-4Q_c(t)/[2(1+(1+c)t)²+c]^3 for explicit degree-six polynomial given in RESULT.md; all positive-degree coefficients of Q_c are positive for c>=0 and constant term -(c+2)(c²-2). Therefore strictly negative curvature for c<=sqrt2 and exactly one positive-inside / negative-outside zero-circle for c>sqrt2. Taylor root gives radius ~sqrt[sqrt2/(6(1+sqrt2))](c-sqrt2)^1/2 near threshold; substituting t=c^(-2/3)y yields c^-3Q ->4y³-1, radius ~2^(-1/3)c^(-1/3) as c->infinity. Fixed nonzero point curvature ->-2, puncture-limiting curvature ->+4. All boundary statements concern limits at deleted puncture, not assigning curvature there.
 
-## Limits
-The result concerns the entire pure-power punctured-disk weight family, not general boundary weights or higher dimensions. Curvatures at the deleted puncture are one-sided limits only. No claim of independent verification or global research priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct statement-level comparison with relevant original primary research and semantic published-finding records did not identify an equivalent or dominating fully checked result. Known premises are attributed; nontrivial new specific quantitative conclusions assessed at qualified best-of-knowledge level. Inaccessible and incompletely inspected papers remain explicit residual priority risks.
+
+## value
+
+PASS
+
+Sign of Gaussian curvature is a natural intrinsic invariant of the existing meromorphic Bergman kernel metric. The full pure-power weight family has an unexpected positive-curvature regime despite earlier broad negative-curvature descriptions, a unique sign-changing circle, and sharp square-root birth/cubic-root shrinking laws. This is a structurally motivated full natural one-parameter classification, not a small arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
