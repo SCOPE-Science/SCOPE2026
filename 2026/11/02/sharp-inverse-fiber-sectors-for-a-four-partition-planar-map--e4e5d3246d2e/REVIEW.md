@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four source quadrants map linearly onto the four cones spanned by the images of the coordinate half-rays. In the nondegenerate parameter regimes, no quadrant loses rank. Ordering the four target rays gives all open-region counts, including the fourfold overlap; deduplicating axis preimages gives the boundary cases. The homeomorphism proof directly eliminates the second source variable and proves strictly positive slope throughout the first source variable. The degree, properness, and disk area statements follow from explicit determinants, positive homogeneity, and elementary sector area. An independent implementation of exact rational Cramer's-rule fiber counting checks the finite grid, without purporting to prove the real-parameter theorem.
+## correctness
 
-## Originality
-**PASS under inspected sources, with specific residual risk.** The full 2026 originating manuscript was read (model, preliminaries, cycle analyses, degenerate case) and does not state a target-fiber census or area law. The fully inspected 2011 preprint by Poggiolini–Spadini contains Theorem 4.5 proving a general invertibility theorem for four convex cones with same-sign branch Jacobians, so only the opposite-sign fiber geometry and its quantitative four-sheet sector are claimed as new. The relevant 2018 paper's abstract discusses inversion, and the 2020 transition study uses two partitions; neither accessible material implies the explicit sector inequalities or angular measure. Full 2018 text could not be inspected, limiting priority certainty.
+PASS
 
-## Mathematical value
-**PASS.** The originating paper explicitly identifies critical curves and global noninvertibility as organizing dynamical complexity. An exact 0/2/4 target partition, sharp global inversion transition, and angular size of the four-branch region provide a natural input for inverse-branch constructions and noninvertible planar-map analyses. This is a complete natural classification for the new concrete four-partition system rather than an arbitrary parameter sample. The claimed value does not rely on the already-known general homeomorphism case.
+PASS. Each source quadrant has an exact nonsingular linear map whose image is the positive cone between two adjacent axis images (1,1),(a,c),(1,-1),(-a,c). For |a|>|c|, eliminating y gives Y=x+(c/|a|)|X-|x|| with all piece slopes between 1-|c|/|a| and 1+|c|/|a|, proving a unique inverse. For |c|>|a|, the ordered image rays partition target angle into cone covering counts 0,2,4,2,0 (for both signs c), with 4fold region c>0: Y>X and tX>bY, or c<0: X+Y<0 and tX+bY>0 (b=|a|,t=|c|). The outer support inequalities and critical ray counts follow by tracking quadrant cone interiors and deduplicating shared source-axis points; b=0 coalesced rays handled separately. Since no nonzero source maps to the apex and each cone is pointed, properness and signed degree statements follow. Wedge angle theta-pi/4 gives exact disk-area fraction <=1/8. Independent rational Cramers-rule enumeration checked parameter/target grids including signs and critical rays. Singular parameters |a|=|c| intentionally excluded; finite enumeration is not the proof.
 
-## Limitations and priority
-Singular equal-magnitude parameter lines are excluded. The classification concerns fibers, not attractor stability. The unavailable complete text of the 2018 inversion paper and possible unindexed analogous sector counts remain priority risks. The verification grid cannot establish generality independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, carefully delimited. Tikjha 2026 defines this exact four-partition piecewise-linear map and studies noninvertibility/critical curves; general same-sign-Jacobian invertibility is already proved by Poggiolini and Spadini 2011. New assessment is not invertibility but opposite-sign exact global target fiber multiplicities and boundary counts, with sharp four-sheet aperture and area fraction. Relevant 2018 inversion theory is general and accessible introduction did not give a demonstrated implication of these sector formulas. Full original Tikjha paper and full 2018 comparison remain limited by inaccessible lawful complete texts; prior equivalence risk is explicit.
+
+## value
+
+PASS
+
+PASS. For a concrete published planar noninvertible map, exact inverse-branch regions and critical-ray counts are natural data for reconstructing preimages, invariant sets and bifurcation geometry. The complete 0/2/4 sector partition with sharp quantified fourfold aperture is a meaningful classification, not the already-covered homeomorphism case or an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
