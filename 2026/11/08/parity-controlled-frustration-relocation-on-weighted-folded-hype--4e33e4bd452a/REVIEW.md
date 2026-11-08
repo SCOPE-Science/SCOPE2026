@@ -1,0 +1,13 @@
+# Scientific assessment: weighted folded-hypercube Ising ground states
+
+**Correctness — PASS.** Boolean Walsh characters diagonalize the complete signed weighted network operator. The parity of the set of omitted coordinate factors yields two—and only two—competing spectral branches, with a crossing at \((-1)^dK=J_*\). Every listed character attains the spectral energy lower bound. The nonstandard equality step is an exhaustive all-d proof: if a minimum-eigenspace vector is a binary spin configuration, its quotient by the full-parity character is affine Boolean, and comparison of nonconstant Fourier coefficients in its square forces that affine function to be a single signed character. This rules out extra states in degenerate eigenspaces. The independent packaged integer verifier agreed on 26 fully exhaustive parameter instances for dimensions two through four and 561 exact spectral tests for dimensions two through twelve.
+
+**Originality — PASS on examined evidence; historical risk remains.** Xu and Meng (2009) give the unweighted folded-hypercube spectrum; Liu and collaborators (2014) give Laplacian/resistance properties; Mosseri (2014) gives general Ising/Hadamard energy enumeration. These cover the raw graph spectrum and generic spectral methodology, not the checked arbitrarily anisotropic spin-phase theorem together with the complete binary-minimizer equality classification. A related 2019 weighted folded-hypercube network-spectra publication was located but its full text could not be obtained; it remains explicitly unresolved. An unindexed equivalent signed-MaxCut theorem is another residual risk. No failure to find a paper is used as proof of global novelty.
+
+**Mathematical value — PASS.** Direction anisotropy makes the multiplicity jump depend on the exact number of weakest directions rather than only dimension. The complete solution gives a sharp frustration-relocation boundary and a rigorous classification of all ground states for an unbounded sequence of network sizes, resolving a natural physical optimization question rather than a one-off numerical count.
+
+**Scope and limits.** All positive coordinate couplings and all real antipodal couplings are covered, with \(d\ge2\). Magnetic fields, vanishing directional bonds, additional interactions, finite-temperature observables, and quantum dynamics are outside scope. Independent experimental or mathematical review has not been performed.
+
+**Closest literature.** Xu and Meng, *Ars Combinatoria* 92 (2009), 3–9; Liu et al., *Mathematical Problems in Engineering* (2014), 380874; Mosseri, arXiv:1409.0147 (2014); Dai et al., *International Journal of Modern Physics B* 33 (2019), 1950094 (abstract only).
+
+Self-review: passed. Independent audit: not yet performed.
