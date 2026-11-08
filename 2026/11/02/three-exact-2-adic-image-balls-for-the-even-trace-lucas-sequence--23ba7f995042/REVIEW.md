@@ -1,15 +1,21 @@
-# Scientific review: three 2-adic image balls
+# Independent mathematical audit
 
-## Correctness — PASS
-The recurrence, companion sequence, and three index classes are all precisely defined for every nonzero \(4\mid P\). The standard Lucas difference and doubling identities imply \(\nu_2(V_{2j})=1\), \(\nu_2(V_{2j+1})=h\), and \(\nu_2(U_{2j})=h+\nu_2(j)\). Substitution gives three normalized index isometries. Each isometry is a bijection on every finite quotient and hence has dense, indeed completed-surjective, image in \(\mathbb Z_2\). Disjoint balls then give an exact residue count and density. The standalone checker passed all 132 modular images and 25,308 independent isometry comparisons. These finite tests are consistency checks, not replacements for the infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The strongest comparison is de Clercq et al., arXiv:2003.01559, Theorem 5, which classifies the all-residue permutation regime \(P\equiv2\pmod4\). Its stated result excludes \(4\mid P\) and does not give an exact closure for that side. The even-index ball follows from the known result by the trace-squaring identity \(U_{2a}(P)=P U_a(P^2-2)\), since \(P^2-2\equiv2\pmod4\); the remaining two odd-index balls and their image topology require additional argument. Ferrari, Luca and Moree, arXiv:2309.12843, focus on the \(4k+2\) trace family and discriminator values, not the asserted three-ball structure. Bragman–Rowland, arXiv:2202.00704, study Fibonacci density for a different recurrence. Sanna 2021 and Accossato–Sanna 2024 consider achievable counts across varied recurrences/moduli, not exact images for this fixed normalized sequence. The companion identities are standard; the contribution is the closed-form complementary image theorem and its exact isometric attainment, not the algebraic identities alone. Searches considered alternative Chebyshev terminology, dyadic images, recurrence-sign duality, and stronger coverage. An older exhaustive residue-image theorem in another notation is a residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The discriminator literature isolates \(P\equiv2\pmod4\) as the complete-residue regime while leaving a natural infinite excluded parameter class. The theorem completely classifies the excluded divisible-by-four family, replaces nonattainment by three explicit full 2-adic balls, gives their exact dyadic residue counts and Haar density, and identifies canonical isometric parametrizations. This is a natural boundary/completion result for a studied arithmetic object, rather than an arbitrary modular sample or a one-off count.
+For U_{n+2}=P U_{n+1}−U_n, P≠0, v2(P)=h≥2, the standard companion recurrence gives v2(V_{2j})=1, v2(V_{2j+1})=h, and v2(U_{2j})=h+v2(j) for j>0. Same-parity Lucas difference identity then proves index isometries of even, 1 mod4, and 3 mod4 subsequences at scales 2^h, 2^{2h}, 2^{2h}. Each induces a permutation on every Z/2^N, hence its completed image is one whole 2-adic ball; disjointness at precision≥2 produces exact count 2^max(0,N−h)+min(2,2^{N−1})2^max(0,N−2h) and Haar proportion 2^{−h}+2^{1−2h}. The actual verifier script checks entire finite recurrence orbits over 12 signed P parameters and N≤11, but the stated identities prove all P,N.
 
-## Limitations
-The theorem concerns only the canonical \(U(P,1)\) sequence, the prime two, and \(4\mid P\). The conclusion is not a classification of discriminators. Literature searches do not establish uniqueness against all earlier work; residual risk is implicit equivalence in older recurrence/congruence literature. Independent scientific validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Related de Clercq et al. 2020 Theorem 5 classifies complete residue permutations when P≡2 mod4, a different regime. By U_{2a}(P)=P U_a(P²−2), their theorem already covers the even-index ball; this part is explicitly not new. No inspected theorem implies the two odd-index balls or exact union for P≡0 mod4. Other Resultary Lucas period equality for q=−1 uses the companion valuations but not exact residue closure. Older recurrence image literature could contain an equivalent formulation.
+
+## value
+
+PASS
+
+Naturally completes the complementary trace class excluded by the known dyadic permutation theorem: full image topology, canonical isometric parametrizations, exact residue counts at every modulus and Haar density; not an arbitrary fixed-modulus example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
