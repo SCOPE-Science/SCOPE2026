@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For every n>=4, c,B>0, nonnegative independent edge conductances, the full-budget Kirchhoff index is strictly convex on the connected feasible region because the second directional derivative of Tr(L+J/N)^(-1) is strictly positive for any nonzero edge variation. Compactness with divergence at disconnection yields a unique optimizer; automorphisms force positive constant intra-layer and interlayer weights. The exact tensor-product spectrum 0, 2b, na (n-1), na+2b (n-1) yields the stated scalar equation. Unique sign-crossing of its derivative follows from strict convexity along the affine budget line. Rational scaling expansions prove all three limits with root trapping. The 202 deterministic test assertions from verify.py independently check formulas and budgets on sample inputs but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi prove general convexity and symmetry for optimizing total resistance under a budget; Sections 5.2 and 7 calculate other topology examples.",
+        "Their two-clique barbell is joined by one bridge and their wheel has a hub and outer cycle, neither has a full interlayer matching of complete layers."
+      ],
+      "reasoning": "The general framework includes the new problem as a convex program but does not logically imply the precise scalar optimizer equation and c<1, c=1, c>1 asymptotic limits without additional analysis. The new theorem derives those quantities. No dominating explicit all-size full-matching priced result was found.",
+      "searches": [
+        "two cliques connected by perfect matching effective resistance optimal budget conductance allocation",
+        "Kirchhoff index complete prism K_n Cartesian K_2 optimal edge weights resistance price interlayer matching",
+        "two clique layer complete graph matching interlayer edge weight optimization total effective resistance",
+        "DOI 10.1137/050645452",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/icm06_talk.pdf",
+      "https://digitalcommons.memphis.edu/facpubs/5572/",
+      "https://arxiv.org/abs/2007.10674",
+      "https://www.web.stanford.edu/~boyd/papers/eff_res.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi Section 5.2 establishes graph-symmetry reduction and the distinct single-edge barbell.",
+        "The 2006 lecture gives the general spectral objective but not matching-price thresholds.",
+        "A price-independent exact Kirchhoff formula follows from the product spectrum, but the price-transition requires asymptotic root analysis not present in the compared material."
+      ],
+      "reasoning": "A general algorithm for finding the optimum numerically does not assert the three sharp asymptotic formulas. A bound or optimizer for a one-link barbell cannot imply the full-match prism optimizer by adding links under a fixed budget, as adding links changes both the spectral multiplicities and cost allocation. The main result is the exact all-n classification plus critical price-one allocation power laws.",
+      "searches": [
+        "two cliques connected by perfect matching effective resistance optimal budget conductance allocation",
+        "Kirchhoff index complete prism K_n Cartesian K_2 optimal edge weights resistance price interlayer matching",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/icm06_talk.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new graph is the Cartesian product K_n square K_2, equivalently two n-cliques joined by a perfect matching; spectral sum includes 2b, na (n−1 times), na+2b (n−1 times).",
+        "Bollobás–Brightwell (1997) abstract considers resistances on graph products; the S_n square K_2 index paper studies star, not complete, prism."
+      ],
+      "reasoning": "Equivalence by graph isomorphism or a change of variables was checked explicitly: the complete-prism product is not the one-bridge barbell or the star prism; a fixed-weight resistance formula determines an objective value, not its optimizers over all individual conductances and all prices. An exact full-text literature equivalence remains possible outside inspected sources.",
+      "searches": [
+        "\"K_n square K_2\" Kirchhoff index optimum conductance",
+        "\"complete prism\" \"Kirchhoff index\" weighted graph",
+        "\"K_n □ K_2\" \"Kirchhoff\" resistance",
+        "https://digitalcommons.memphis.edu/facpubs/5572/",
+        "https://arxiv.org/abs/2007.10674"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed product-graph sources concern fixed graphs and resistance or random-walk quantities; no database table or numeric formula was located for three optimized price regimes.",
+        "The explicit generic graph resistance optimization appears in the 2008 SIAM Review paper, not a graph-specific solved table."
+      ],
+      "reasoning": "The new asymptotic exponents are not a finite tabulation or a parameter-substitution of a reported closed table in inspected sources. Search absence alone is not treated as proof of novelty.",
+      "searches": [
+        "\"K_n square K_2\" Kirchhoff index optimum conductance",
+        "\"complete prism\" \"Kirchhoff index\" weighted graph",
+        "two cliques connected by perfect matching effective resistance optimal budget conductance allocation",
+        "Bollobás Brightwell 1997 electrical resistances products of graphs",
+        "Ghosh Boyd Saberi perfect matching graph optimal resistances"
+      ]
+    },
+    "rationale": "The 2006/2008 primary source establishes the general convex optimization, symmetry and a single-bridge two-clique barbell, but not the exact full-matching complete-prism allocation and price-one trichotomy. Product-graph studies address related graph invariants without yielding the priced optimum in inspected material. Statement-level comparisons distinguish this n>=4 family, cost parameter and asymptotic implications. A bounded search found no dominating theorem, with unindexed-equivalence risk acknowledged.",
+    "residual_risks": [
+      "An unindexed equivalent full-matching conductance-allocation asymptotic theorem may exist, despite searches on graph names and equivalent two-clique topology.",
+      "Bollobás–Brightwell 1997 and other fixed-product graph studies were not available as complete original full texts; the abstract alone cannot exclude all statements within them.",
+      "The Ghosh–Boyd–Saberi July 2006 conference version has month-level priority but no independently established exact public-release day; 2006-08-29 is the earliest inspected day-precise public source evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general minimization framework is stronger as a method, but its special two-clique barbell has one bridge, not a perfect matching of bridges; no stated three-price-regime complete-prism formula was found in the inspected full text.",
+        "evidence": [
+          "DOI 10.1137/050645452",
+          "Section 5.2 pp. 58–61 explicitly discusses wheel and a single-edge two-clique barbell",
+          "Section 7 numerical path/tree/grid/barbell examples"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Full accessible 30-page PDF consulted, including introduction, convexity, symmetry (Section 5.2), wheel and single-link barbell examples (pp. 59–61), and Section 7 examples.",
+        "method": "Read the PDF text and inspected actual page images to confirm graph topology and scope.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Full primary source on conductance allocation and the closest earlier two-clique construction."
+      },
+      {
+        "assessment": "Defines inverse-eigenvalue sum and convex optimization approach, not the derived two-layer matching allocation or n-dependent critical power laws.",
+        "evidence": [
+          "August 29, 2006 appears on the relevant slide",
+          "Slide 5 states the sum of reciprocals of positive Laplacian eigenvalues is proportional to total effective resistance"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/icm06_talk.pdf",
+        "material_read": "Slides 1–6 including the August 29, 2006 date and slide 5 reciprocal-eigenvalue formulation; inspected page image of slide 5.",
+        "method": "Read PDF text and slide image.",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "Dated foundational source for total effective resistance as a convex Laplacian spectral objective."
+      },
+      {
+        "assessment": "The abstract addresses vertexwise resistances and random walks on Cartesian graph products; no expenditure-budgeted conductance optimum is stated there. No full-paper noncoverage claim is made.",
+        "evidence": [
+          "Bollobás and Brightwell (1997), Discrete Applied Mathematics 73(1), 69–79",
+          "DOI 10.1016/S0166-218X(96)00002-9",
+          "Repository abstract describes resistance monotonicity and hitting-probability comparisons"
+        ],
+        "identifier_or_url": "https://digitalcommons.memphis.edu/facpubs/5572/",
+        "material_read": "Repository publication metadata and abstract only; original publisher full text was not available in this inspection.",
+        "method": "Read online repository abstract and bibliographic citation.",
+        "title": "Random walks and electrical resistances in products of graphs",
+        "trigger": "A direct possible product-graph resistance antecedent."
+      },
+      {
+        "assessment": "The base graph is the star S_n rather than the complete graph K_n and the reported objects are fixed-graph indices, not unrestricted priced-conductance optimization. Full-text equivalence is still a residual risk.",
+        "evidence": [
+          "ArXiv abstract submitted July 21, 2020 specifies the star S_n × K_2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.10674",
+        "material_read": "ArXiv title, dated abstract and graph definition; no complete manuscript inspection.",
+        "method": "Read arXiv public abstract.",
+        "title": "The (multiplicative degree-)Kirchhoff index of graphs derived from the Cartesian product of S_n and K_2",
+        "trigger": "Plausible related fixed-weight prism resistance computation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab8d4763-67b2-4df0-9a8a-1f4cd2bf0a4d",
+  "value": {
+    "rationale": "A perfect matching joining two dense communities is a canonical and natural interlayer design for resistance reduction. The explicit cost-dependent optimizer and quantitative budget fraction are directly interpretable, and the price-one transition separates constant interlayer investment from vanishing allocations with two different power-law exponents, n^(-1/3) and n^(-1/2). These formulas do not follow from correctness or reproducibility alone and give specific network-design insight rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
