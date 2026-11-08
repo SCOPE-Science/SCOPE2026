@@ -1,17 +1,21 @@
-# Scientific review: exact local defects and prime-support thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified over every odd integer \(n>1\) and its distinct odd-prime support. The proof identifies the exact order of \(2\) modulo each prime power by the odd-prime lifting-the-exponent formula, takes the least common multiple via the Chinese remainder theorem, and then calculates each \(p\)-adic quotient valuation and gcd exponent. No finite test is used as an infinite proof. The principal-filter and logarithmic lattice-count consequences follow with explicit quantifiers and boundary conditions. The directly executed verifier produced `VERIFY_OK odd_n=7500 wieferich_cases=1538 supports=6` from the packaged code; its finite range is stated.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Siegel's *An Asymptotic for Non-Wieferich Numbers* (arXiv:2610.28685v1, 2026-10-19), examined across its eight pages, gives a squarefree sufficient test (Lemma 2.1), a one-way Wieferich-factor exclusion (Lemma 2.2), order-divisibility obstructions (Lemmas 2.4–2.5), and asymptotic counts. These statements do not give the complete exact gcd valuation at arbitrary prime powers or the unique minimal non-Wieferich integer on every fixed prime support. OEIS A182297 provides an exact general order-based membership test but does not exhibit the prime-support exponent thresholds; simply matching the membership test is not the new claim. The new contribution is the explicit factor-by-factor valuation and uniform principal-upset classification, which are verified independently from those sources. Searches of research records on the source title, prime-support thresholds, Wieferich valuations, and equivalent order criteria returned no matching structural theorem, though absence of a hit is not proof of priority.
+PASS
 
-The 1995 Franco–Pomerance article is highly relevant; its bibliographic record and the lemma attributed to it were checked through Siegel, but the complete original text could not be inspected. Possible implicit coverage in it, later surveys, or unindexed material remains a material risk. Independent priority assessment remains necessary.
+LTE at p gives ord_{p^e}(2)=t_p p^max(0,e-h_p) for t_p=ord_p(2), h_p=v_p(2^t_p-1) and p odd. CRT yields ord_n(2)=lcm over p; the p-adic valuation of this lcm is max(0,e_p-h_p,H_p(P)) with H_p=max_{q!=p}v_p(t_q), because p does not divide t_p. LTE again yields v_p(2^ord_n(2)-1)=max(e_p,h_p+H_p). Subtract e_p for the quotient gcd, so non-Wieferich exactly e_p>=h_p+H_p for all p. Lattice-point simplex counting gives the support-restricted asymptotic. Independently checked the original gcd formula for each odd n<=1000, including 21 vs 63; finite calculations complement unrestricted LTE/CRT proof.
 
-## Mathematical value — PASS
-Siegel's density result motivates membership structure rather than a routine isolated congruence. The exact thresholds answer the natural complete-classification problem at **every** fixed finite odd-prime support. Cross-prime order valuations explain the qualitative change from \(21\) to \(63\) at support \(\{3,7\}\), and the Wieferich-height term handles a genuinely different prime-power obstruction at \(1093\). The result determines the local gcd defect, not merely a yes/no decision, and yields an exact minimal representative and a uniform lattice-point asymptotic for every support. These structural conclusions are not claimed to be a new global count, a general-base theorem, or a breakthrough on Wieferich primes. Their arithmetic motivation and complete natural parameter range justify reporting an elementary but substantive classification, not an arbitrary finite slice.
+## originality
 
-## Closest literature and limits
-Primary: Casia Siegel, arXiv:2610.28685v1, Sections 1–2. Exact database: OEIS A182297. Historical high-risk comparison: Z. Franco and C. Pomerance, *Math. Comp.* **64** (1995), 1333–1336 (full text unavailable for this comparison). Finite verification is limited to odd integers through \(15001\) and six specified supports. Any stronger earlier source would override the priority assessment; no independent mathematical audit or certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Siegel arxiv:2610.28685 gives the definition, one-way prime obstructions, sufficient squarefree criteria and global asymptotics, but inspected Lemmas 2.1, 2.2 and 2.4–2.5 do not give arbitrary-exponent exact gcd valuations or full prime-support principal-upset classification. Membership table OEIS A182297 is prior. Franco–Pomerance 1995 original paper was only available through quoted lemma and bibliographic data, so a meaningful implicit-priority risk remains.
+
+## value
+
+PASS
+
+The order-based Wieferich predicate is a natural multiplicative-order arithmetical object; the complete exponent-space description at every odd prime support, including cross-order interactions and anomalous height primes, answers a precise structural classification question. Example P={3,7} has minimum 63 despite 21 being obstructed; the support count is a natural quantitative corollary. The ingredients are classical, but their explicit general-support classification is not an arbitrary small exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

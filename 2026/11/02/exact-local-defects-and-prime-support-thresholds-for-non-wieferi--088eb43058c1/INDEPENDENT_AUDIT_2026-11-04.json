@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:17:01.864256Z",
+  "axes": {
+    "correctness": {
+      "rationale": "LTE at p gives ord_{p^e}(2)=t_p p^max(0,e-h_p) for t_p=ord_p(2), h_p=v_p(2^t_p-1) and p odd. CRT yields ord_n(2)=lcm over p; the p-adic valuation of this lcm is max(0,e_p-h_p,H_p(P)) with H_p=max_{q!=p}v_p(t_q), because p does not divide t_p. LTE again yields v_p(2^ord_n(2)-1)=max(e_p,h_p+H_p). Subtract e_p for the quotient gcd, so non-Wieferich exactly e_p>=h_p+H_p for all p. Lattice-point simplex counting gives the support-restricted asymptotic. Independently checked the original gcd formula for each odd n<=1000, including 21 vs 63; finite calculations complement unrestricted LTE/CRT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Siegel Lemma 2.1 squarefree sufficient condition; Lemma 2.2 and Lemmas 2.4–2.5 one-way obstructions",
+          "Current theorem exact for every exponent e_p>=1"
+        ],
+        "reasoning": "Global asymptotic work and sufficient/necessary local tests are strictly weaker than all-prime-support exact valuations. The original Franco–Pomerance full text was not read, which is a real coverage risk.",
+        "searches": [
+          "non-Wieferich composite integers order 2 modulo n local valuation threshold prime support minimal exponents",
+          "arxiv:2610.28685 Lemma 2.1 Lemma 2.2 Lemma 2.5",
+          "Franco Pomerance 1995 order Wieferich"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py plus metadata and review",
+        "non-Wieferich composite integers order 2 modulo n local valuation threshold prime support minimal exponents",
+        "arxiv:2610.28685 full primary text",
+        "OEIS A182297",
+        "Franco–Pomerance 1995 via Siegel cited lemma"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Siegel statements address squarefree sufficient and one-way divisibility",
+          "LTE/CRT proof derives exact p-adic defect for prime powers and mixed supports"
+        ],
+        "reasoning": "No cited Siegel lemma entails the complete vector equivalence. A universal LTE formula elsewhere could imply it, so the novelty claim is structural explicitness, not a new lifting-the-exponent identity.",
+        "searches": [
+          "non-Wieferich composite integers order 2 modulo n local valuation threshold prime support minimal exponents",
+          "arxiv:2610.28685 local obstructions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Siegel defines gcd(n,(2^ord_n(2)-1)/n)=1",
+          "OEIS A182297 lists order-Wieferich membership"
+        ],
+        "reasoning": "The new support-wise inequality is equivalent to the known definition once one performs detailed LTE/CRT valuations. Definition/table alone do not state the explicit closed exponent-region classification; an equivalent formula in an older theorem could dominate it.",
+        "searches": [
+          "non-Wieferich composite integers order 2 modulo n local valuation threshold prime support minimal exponents",
+          "arxiv:2610.28685",
+          "OEIS A182297"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A182297 direct membership and examples",
+          "Exact p-adic gcd formula distinguishes multiples of W(P) within exact support"
+        ],
+        "reasoning": "A sequence membership table cannot by itself assert all-support minimal exponents or a symbolic classification; it could nevertheless encode specific examples, already credited.",
+        "searches": [
+          "non-Wieferich composite integers order 2 modulo n local valuation threshold prime support minimal exponents",
+          "OEIS A182297",
+          "fixed prime support Wieferich integer exponent threshold table"
+        ]
+      },
+      "rationale": "Siegel arxiv:2610.28685 gives the definition, one-way prime obstructions, sufficient squarefree criteria and global asymptotics, but inspected Lemmas 2.1, 2.2 and 2.4–2.5 do not give arbitrary-exponent exact gcd valuations or full prime-support principal-upset classification. Membership table OEIS A182297 is prior. Franco–Pomerance 1995 original paper was only available through quoted lemma and bibliographic data, so a meaningful implicit-priority risk remains.",
+      "residual_risks": [
+        "Franco–Pomerance 1995 and older sources may implicitly prove local exponent formula; only secondary material inspected",
+        "Derivation uses standard LTE and CRT, so future priority review should check elementary multiplicative-order literature before exclusive publication claim"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COMPLETE_SUPPORT_CLASSIFICATION",
+          "evidence": "Gives global asymptotic and partial local conditions; no all-exponent exact gcd formula or minimal W(P) in inspected statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28685",
+          "material_read": "Full eight-page primary arXiv text, especially Sections 1–2 and Lemmas 2.1, 2.2, 2.4 and 2.5",
+          "method": "read full primary arXiv HTML/text",
+          "title": "An Asymptotic for Non-Wieferich Numbers",
+          "trigger": "Identical order-based definition, most directly relevant recent source"
+        },
+        {
+          "assessment": "UNINSPECTED_MATERIAL_PRIORITY_RISK",
+          "evidence": "Cannot conclude whole historical paper lacks the claimed exponent-vector classification.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1995-1297468-4",
+          "material_read": "Bibliography and Franco–Pomerance lemma as reproduced/cited by Siegel; full 1995 article was not obtained",
+          "method": "secondary citation and bibliographic inspection",
+          "title": "On a conjecture of Crandall concerning the qx+1 problem",
+          "trigger": "Historical original order-Wieferich reference, possible implicit local theorem"
+        },
+        {
+          "assessment": "MEMBERSHIP_PRIOR",
+          "evidence": "Lists/characterizes members computationally, not an all-P threshold formula.",
+          "identifier_or_url": "https://oeis.org/A182297",
+          "material_read": "Sequence description and order-based membership criterion",
+          "method": "read online sequence/database metadata",
+          "title": "OEIS A182297: Wieferich numbers (2)",
+          "trigger": "Exact sequence/database check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order-based Wieferich predicate is a natural multiplicative-order arithmetical object; the complete exponent-space description at every odd prime support, including cross-order interactions and anomalous height primes, answers a precise structural classification question. Example P={3,7} has minimum 63 despite 21 being obstructed; the support count is a natural quantitative corollary. The ingredients are classical, but their explicit general-support classification is not an arbitrary small exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd n>1, base 2 only; no claim about existence of Wieferich primes",
+    "Support-wise logarithmic count does not provide global density asymptotics."
+  ],
+  "schema_version": 1
+}

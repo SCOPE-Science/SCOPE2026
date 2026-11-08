@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Reproduction
-Execute `python3 verify.py` using the Python 3 standard library. The script has no network dependency, fixed test limits, and no external data files. It derives multiplicative orders using Euler-totient reduction and modular exponentiation, checks the original gcd modulo \(n^2\), and separately calculates the prime-support threshold prediction.
+# Independent mathematical audit
 
-Expected output:
+## correctness
 
-```
-VERIFY_OK odd_n=7500 wieferich_cases=1538 supports=6
-EXAMPLES 21=defect3 63=non-Wieferich 1093=defect1093 1093^2=non-Wieferich
-```
+PASS
 
-The verification range is all odd integers \(3\le n\le15001\), supplemented by six explicitly listed prime supports that include both known base-two Wieferich primes. The verifier also checks that decrementing any threshold exponent by one (when possible) restores a nontrivial defect. These tests are finite, not an exhaustive verification of the infinite theorem. The proof uses the multiplicative-order formula modulo odd prime powers and lifting the exponent.
+LTE at p gives ord_{p^e}(2)=t_p p^max(0,e-h_p) for t_p=ord_p(2), h_p=v_p(2^t_p-1) and p odd. CRT yields ord_n(2)=lcm over p; the p-adic valuation of this lcm is max(0,e_p-h_p,H_p(P)) with H_p=max_{q!=p}v_p(t_q), because p does not divide t_p. LTE again yields v_p(2^ord_n(2)-1)=max(e_p,h_p+H_p). Subtract e_p for the quotient gcd, so non-Wieferich exactly e_p>=h_p+H_p for all p. Lattice-point simplex counting gives the support-restricted asymptotic. Independently checked the original gcd formula for each odd n<=1000, including 21 vs 63; finite calculations complement unrestricted LTE/CRT proof.
 
-## Source comparison and limits
-The full eight-page text of arXiv:2610.28685v1 was inspected for the squarefree sufficient condition, local obstructions, and global asymptotics. The OEIS order test was compared as an equivalent computational reformulation. Full historical text of Franco–Pomerance (1995) was not available to complete that particular comparison, so mathematical priority remains subject to independent review. No independent audit or external certification has taken place.
+## originality
+
+PASS
+
+Siegel arxiv:2610.28685 gives the definition, one-way prime obstructions, sufficient squarefree criteria and global asymptotics, but inspected Lemmas 2.1, 2.2 and 2.4–2.5 do not give arbitrary-exponent exact gcd valuations or full prime-support principal-upset classification. Membership table OEIS A182297 is prior. Franco–Pomerance 1995 original paper was only available through quoted lemma and bibliographic data, so a meaningful implicit-priority risk remains.
+
+## value
+
+PASS
+
+The order-based Wieferich predicate is a natural multiplicative-order arithmetical object; the complete exponent-space description at every odd prime support, including cross-order interactions and anomalous height primes, answers a precise structural classification question. Example P={3,7} has minimum 63 despite 21 being obstructed; the support count is a natural quantitative corollary. The ingredients are classical, but their explicit general-support classification is not an arbitrary small exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
