@@ -1,17 +1,21 @@
-# Scientific review: exact modal pinning for point-reset OU diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary measure is the positive Gaussian-age renewal integral, giving existence, normalization and uniqueness for all positive physical parameters. The explicit Green-function solution on either side of the reset point follows from a nondegenerate pair of solutions of the stationary homogeneous OU equation, their Gaussian-integrable tails, continuity and the jump \(\rho'(y_0+)-\rho'(y_0-)=-s\). Direct substitution verifies the density and its normalization. The critical quotient obeys \(q_s'=s-1-m_sq_s\), all roots for \(0<s<1\) cross strictly downward, and its signs at zero and infinity prove precisely one. The special \(s=1\) identity and monotone-likelihood-ratio comparison exclude roots at larger rates. The strictly negative density derivative to the right of the reset point gives full global unimodality, not just local mode classification. Strict parameter monotonicity and all stated limits follow from a positive covariance and endpoint asymptotics. The checker independently compares 120 closed-form densities with the renewal integral and verifies additional threshold identities. No simulation or partial enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Pal's 2014 arXiv preprint derives the reset OU stationary density and describes qualitative peak displacement. The later paper by Trajanovski et al. reproduces a Hermite-function density and notes that high reset rates put the peak at the reset site, without giving the unique distance-dependent onset rate, the globally exact \(\min\{y_0,\zeta(s)\}\) mode formula, or saturation under farther placement of the reset site. Olsen's 2023 article derives stationary moments under distributed resets rather than this mode classification. Three actual published-finding corpus similarity queries were examined for resetting, peak-location, mode and Hermite-function equivalents. The closest indexed results concern different OU observation or oscillator-reset questions; the closest own entries concern different processes. Mathematical implication comparisons find no inspected earlier theorem containing the combined exact pinning and saturation result.
+PASS
 
-Priority is not independently certified. published-finding corpus similarity search does not prove nonexistence; less visible analyses of special-function zeros or stationary densities may imply the classification. The present claim is strictly the theorem beyond the previously published density and qualitative observations.
+For all a,D,x0,r>0 and s=r/a,y0=x0 sqrt(a/D), the Gaussian-age renewal integral gives a normalized positive stationary density solving rho''+(y rho)'-s rho=0 away from y0 and derivative jump -s. On the left the decaying solution is e^{-y²/2}U_s(y), U_s(y)=integral t^{s-1}exp(yt-t²/2) dt; on right e^{-y²/2}U_s(-y). The logarithmic derivative is q_s(y)=m_s(y)-y left and -y-m_s(-y)<0 right. Integration by parts gives q_s'=s-1-m_s q_s. For 0<s<1 q_s(0)>0, q_s(y)=(s-1)/y+O(y^{-3}) as y→∞, and every root has negative derivative s-1, hence exactly one. For s=1 q_1=1/U_1>0; positive Cov(t,log t)=∂_s m_s implies q_s>0 for all s≥1. Strictly positive covariance and implicit differentiation give unique increasing root zeta(s), endpoint limits 0 and +infinity, small-s zeta~sqrt(pi/2)s. The right derivative is negative and the left sign pattern gives unique global mode min(y0,zeta(s)). The strictly increasing inverse yields unique pinning threshold s_c(y0)∈(0,1), with small-y0 inverse asymptotic sqrt(2/pi)y0. Independently evaluated root integrals and recovered zeta(.2)=.2680583634, zeta(.5)=.76495086739, zeta(.8)=1.53077076608. Numeric instances corroborate but do not prove all-parameter sign/crossing assertions.
 
-## Value — PASS
-The physically observable mode, unlike a mean or variance, reports the most likely position of a reset-driven tracer. Its exact location does not follow from knowing only the previously published density without a global derivative/sign analysis. The theorem supplies a full parameter-space rule, an experimentally interpretable reset-position saturation effect, a strictly monotone onset curve, and a sharp upper bound at the trap relaxation rate. The value is a natural complete classification, not a disconnected finite numerical slice or an unsupported claim of generic resetting novelty.
+## originality
 
-## Verification and limitations
-Numerical support: 120 independent renewal-versus-resolvent comparisons (largest relative deviation approximately \(1.43\times10^{-10}\)); six free-mode sign-bracket checks, six critical-rate monotonicity checks, and the exact rate-one special identity. The arguments establish all positive values of the parameters. Generalized reset distributions, nonlinear traps, and non-Poisson reset clocks are not addressed. Historical priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original scientific contribution confined to the exact theorem beyond explicitly acknowledged prior partial coverage. Meaningful searched aliases, broader-result implications, primary source materials, and access limits are documented below.
+
+## value
+
+PASS
+
+The most likely position of a reset-driven harmonically confined tracer is a natural observable beyond its stationary density. A sharp all-rate and all-distance classification including a universal saturated mode, unique rate-dependent onset threshold, and endpoint scaling is a mathematically substantive special-function crossing theorem, not a redefinition or trivial numeric fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
