@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:54:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md 97ea9c0d09219a5b1949aa2581b524afe24f77a7",
+        "frozen verify.py 64e1b9d090a72861ab05706fb6d819e7c7f583f9",
+        "independent_checks_output.txt STIRLING_INTERIOR 1881/2052"
+      ],
+      "rationale": "The exact Stirling partition expansion [Adelberg--Lengyel equations (5.2),(5.4)] has unique 2-adically lowest term corresponding to u_1=r=n-k: v2(i+1)<i for i>1. With q=2^h, k=bq+a, B=q-a, T=(c-b-1)q, Kummer yields constant t_b=v2 binom(2c-b-1,c) for T<=d<=r. For d<T, v2 Lambda <=(r+d)/2 implies r-v2 Lambda >=(B+1)/2 > t_b under B>=2t_b, so no cancellation of the leading term. Legendre gives v2 S(cq,k)=s2(a)+s2(b)-s2(c)+t_b. Counting excluded block endpoints and B<2t_b gives E(c) independent of h. The positive index k=cq works; k=0 has undefined ordinary valuation. Independently computed 1881 sufficient-range exact recurrences of 2052 finite examples, and inspected packaged verify.py partition check and modular range; no finite-to-infinite inference.",
+      "residual_risks": [
+        "Published exact Stirling partition identity is a critical premise; independent all-size proof conditional on that established formula, finite checks only corroborate it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known min-valuation and first-half exact formulas require initial-half restrictions or distinct indices."
+        ],
+        "reasoning": "Those theorems do not imply a bounded number of exceptions at the right end of every dyadic block for all h.",
+        "searches": [
+          "arXiv:1912.01090 Theorems 2.1--2.6; arXiv:2111.08766 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "New Results on the p-adic Valuation of Stirling Numbers: https://arxiv.org/html/2111.08766v1",
+        "The 2-Adic Analysis of Stirling Numbers of the Second Kind via Higher Order Bernoulli Numbers: https://arxiv.org/html/1912.01090v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New proof imports the published partition identity but supplies a new partition-length split using (B+1)/2>t_b, which extends far beyond the prior initial-half range."
+        ],
+        "reasoning": "The original identity alone is a tool, not a published implication of uniform bounded exceptions; priority remains subject to overlooked derivations.",
+        "searches": [
+          "arXiv:2111.08766 equations (5.2),(5.4) and Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original question concerns n=c2^h and v2 S(n,k) matching s2(k)-s2(c)+v2 binom(2n-k,n), up to a vanishing fraction of k."
+        ],
+        "reasoning": "Compared the precise index range, b/q normalization and binary-carry correction; this audit proves the conjectured positive-index density with bounded exceptions, not simply another expression for a prior proved theorem.",
+        "searches": [
+          "arXiv:2111.08766v1 Theorem 3.1, Conjecture 3.1, §3.4; Resultary: Stirling second kind 2-adic valuation n=c 2^h formula almost all k Adelberg Lengyel bounded exceptions conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published paper formulates density-one as Conjecture 3.1; finite calculator and OEIS-style data do not constitute a general solution."
+        ],
+        "reasoning": "This is an all-c all-h theorem, not a particular table value; a separate exact-invariant search found no exhaustive table implying the claimed bound.",
+        "searches": [
+          "Resultary: Stirling second kind 2-adic valuation n=c 2^h formula almost all k Adelberg Lengyel bounded exceptions conjecture; arXiv:2111.08766 §3.4"
+        ]
+      },
+      "rationale": "The published Adelberg--Lengyel 2021 Theorem 3.1 covers an initial block half subject to scale assumptions, whereas its Conjecture 3.1 requests density one for n=c2^h. The new strict valuation estimate supplies a uniform O_c(1) exception bound, stronger than the published half-block theorem and directly proves the positive-index conjecture. A full-text reading of the original theorem and conjecture plus Resultary/targeted literature searches found no directly dominating statement. This is best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "Published exact Stirling partition identity is a critical premise; independent all-size proof conditional on that established formula, finite checks only corroborate it.",
+        "E(c) is an upper bound, not the exact exception count; k=0 excluded; possible unindexed earlier solution remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides identity and half-block theorem but explicitly leaves density-one conjecture open",
+          "evidence": "arXiv:2111.08766v1 Theorem 3.1, Conjecture 3.1, equations (5.2),(5.4)",
+          "identifier_or_url": "https://arxiv.org/html/2111.08766v1",
+          "material_read": "Read theorem 3.1, conjecture §3.4, equations (5.2),(5.4) and proof passages; PDF pages including theorem and identities visually checked",
+          "method": "arXiv HTML and PDF rendered pages",
+          "title": "New Results on the p-adic Valuation of Stirling Numbers",
+          "trigger": "Exact same n=c2^h conjecture and partition formula"
+        },
+        {
+          "assessment": "Relevant background, no demonstrated all-height bounded exception claim",
+          "evidence": "Adelberg 2019 Theorems 2.1--2.6",
+          "identifier_or_url": "https://arxiv.org/html/1912.01090v1",
+          "material_read": "Inspected available theorem statements, not full proof",
+          "method": "public HTML search and text",
+          "title": "The 2-Adic Analysis of Stirling Numbers of the Second Kind via Higher Order Bernoulli Numbers",
+          "trigger": "Earlier general valuations and scale-dependent formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md 97ea9c0d09219a5b1949aa2581b524afe24f77a7"
+      ],
+      "rationale": "Resolves a specifically stated arithmetic conjecture and supplies an explicit uniform finite exception envelope rather than an asymptotic existence argument; the stronger bound and all-height scope would be independently useful for dyadic Stirling valuation research.",
+      "residual_risks": [
+        "E(c) is an upper bound, not the exact exception count; k=0 excluded; possible unindexed earlier solution remains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Published exact Stirling partition identity is a critical premise; independent all-size proof conditional on that established formula, finite checks only corroborate it.",
+    "E(c) is an upper bound, not the exact exception count; k=0 excluded; possible unindexed earlier solution remains."
+  ],
+  "schema_version": 1
+}

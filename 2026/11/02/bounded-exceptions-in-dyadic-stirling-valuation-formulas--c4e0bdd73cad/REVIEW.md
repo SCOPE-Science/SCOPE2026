@@ -1,23 +1,21 @@
-# Scientific review: bounded exceptions in dyadic Stirling valuations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive \(c,h\), the interior theorem has the precise range \(0\le b<c\), \(1\le a<2^h\), \(2^h-a\ge 2t_b\), where \(t_b=\nu_2\binom{2c-b-1}{c}\). The published exact Stirling–Bernoulli partition expansion is used as an equality. The term with \(u_1=n-k\) has valuation \(t_b-s_2(n-k)\) after multiplication by \((n-k)!\). For \(d\ge(c-b-1)2^h\), Kummer's carry identity makes the binomial coefficient's valuation constant; for smaller \(d\), the estimate \(\nu_2\Lambda\le(w+d)/2\) and the threshold \(2^h-a\ge2t_b\) make every other term strictly higher in valuation. The counting bound follows from the finite set of excluded end positions. No cancellation or unproved extrapolation is used. The exact recurrence verifier checks 19,812 positive-index coefficients, including 18,537 certified-range indices, and all bounded-exception envelopes. The 2-adic valuation of zero is excluded and the top endpoint is handled separately.
+PASS
 
-## Originality — PASS within inspected evidence
+The exact Stirling partition expansion [Adelberg--Lengyel equations (5.2),(5.4)] has unique 2-adically lowest term corresponding to u_1=r=n-k: v2(i+1)<i for i>1. With q=2^h, k=bq+a, B=q-a, T=(c-b-1)q, Kummer yields constant t_b=v2 binom(2c-b-1,c) for T<=d<=r. For d<T, v2 Lambda <=(r+d)/2 implies r-v2 Lambda >=(B+1)/2 > t_b under B>=2t_b, so no cancellation of the leading term. Legendre gives v2 S(cq,k)=s2(a)+s2(b)-s2(c)+t_b. Counting excluded block endpoints and B<2t_b gives E(c) independent of h. The positive index k=cq works; k=0 has undefined ordinary valuation. Independently computed 1881 sufficient-range exact recurrences of 2052 finite examples, and inspected packaged verify.py partition check and modular range; no finite-to-infinite inference.
 
-Adelberg–Lengyel (2021), Theorem 3.1, covers the initial half of each \(2^h\)-block subject to a size condition; Section 3.4 explicitly asks whether the formula holds for asymptotically almost all \(k\). The new claim gives a stronger, uniform bounded-exception theorem with \(E(c)\) independent of \(h\). The proof technique and exact partition identity originate in that source and are explicitly credited. Adelberg (2019) supplies general binary Stirling bounds and a limiting theorem for scaled indices, but not this all-interior bounded-exception estimate. Other relevant related searches, including an article on central Stirling numbers, did not identify full coverage. Search incompleteness and an implicit existing consequence remain risks. Numerical novelty is not asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result proves a specific, numbered 2021 conjecture and improves its qualitative limiting statement to the quantitative \(O_c(2^{-h})\) rate, while providing explicit local windows of validity. Its value lies in replacing half-block coverage by almost-full-block coverage for every fixed \(c\) and in obtaining a uniform number of possible exceptions, not merely an isolated extension of a numerical table.
+The published Adelberg--Lengyel 2021 Theorem 3.1 covers an initial block half subject to scale assumptions, whereas its Conjecture 3.1 requests density one for n=c2^h. The new strict valuation estimate supplies a uniform O_c(1) exception bound, stronger than the published half-block theorem and directly proves the positive-index conjecture. A full-text reading of the original theorem and conjecture plus Resultary/targeted literature searches found no directly dominating statement. This is best-of-knowledge, not priority certification.
 
-## Closest literature and limits
+## value
 
-- A. Adelberg and T. Lengyel, *New Results on the p-adic Valuation of Stirling Numbers*, arXiv:2111.08766v1 (2021), Theorem 3.1, Section 3.4 (Conjecture 3.1), Appendix 5.4.
-- A. Adelberg, *The 2-Adic Analysis of Stirling Numbers of the Second Kind via Higher Order Bernoulli Numbers and Polynomials*, arXiv:1912.01090v1 (2019), Theorems 2.1–2.6, Section 3.
-- A. Adelberg and T. Lengyel, *New Results on the 2-Adic Valuation of the Central Stirling Numbers S(2k,k)*, Fibonacci Quarterly 63 (2025); accessible abstract covers the central family, and full text has not been compared.
+PASS
 
-The proof does not determine the actual valuations at every excluded boundary index. Absolute bibliographic novelty and independent scientific validation are not certified.
+Resolves a specifically stated arithmetic conjecture and supplies an explicit uniform finite exception envelope rather than an asymptotic existence argument; the stronger bound and all-height scope would be independently useful for dyadic Stirling valuation research.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
