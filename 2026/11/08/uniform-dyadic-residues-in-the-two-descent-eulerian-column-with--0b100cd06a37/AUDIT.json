@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Closed form cross-checked against Eulerian recurrence; correction -(n+1)2^n vanishes at precisely the claimed eventual starting threshold. The same-parity two-adic difference has valuation exactly that of the half-index difference because the triangular difference is an odd multiple and the 9^t difference is eightfold more divisible. This gives one bijection on each parity, exact two-fiber counts, least period and sharp failure at the preceding index. Includes k=1..4. Finite checker matches 398 recurrence rows, 36 complete blocks and 15,288 valuation tests. The proof, not the experiments, establishes all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao-Pan Theorem 1.1 gives divisibility bounds for weighted sums over the second index, fixed first index; it does not assert per-target values as the first index varies.",
+        "Castro-Gonzalez-Medina abstract says valuation trees and exact divisibility in congruence classes, without a claim about nonzero residue fibers.",
+        "Nakamura 2015 describes a normalized distribution of descents at a fixed permutation length."
+      ],
+      "reasoning": "Divisibility of the sequence at target zero, column sums at a fixed row, and normalized descent counts across permutations are mathematically different marginal problems. The unavailable full Castro paper is a residual risk, not claimed to be cleared.",
+      "searches": [
+        "Eulerian numbers p-adic valuation trees Castro Gonzalez Medina fixed second index congruence class",
+        "Eulerian numbers congruences powers 2 fixed descents",
+        "arxiv:math/0608564 Theorem 1.1, Sections 2-4",
+        "doi:10.1080/10586458.2014.981899 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0608564",
+      "doi:10.4064/aa132-4-2",
+      "OEIS:A000460",
+      "Josai Mathematical Monographs 8 (2015), 85–95",
+      "doi:10.1080/10586458.2014.981899 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cao-Pan: congruences for a sum across second index at fixed first index, not fixed second index and varying first index.",
+        "Nakamura: probability that a random permutation at fixed n has a given number of descents, not arithmetic distribution of counts across n.",
+        "The claimed exact valuation of differences on parity branches and sharp threshold are new intermediate statements relative to these inspected sources."
+      ],
+      "reasoning": "Neither column-sum divisibility nor a normalized fixed-size distribution entails two preimages for every target modulo every 2^k. The OEIS closed formula permits deriving this result, but it does not logically present the nontrivial global classification; no cited theorem already concludes it.",
+      "searches": [
+        "arxiv:math/0608564 Theorem 1.1 and proofs",
+        "OEIS A000460 fixed column formula",
+        "Nakamura Pseudo-Normal Random Number Generation via the Eulerian Numbers full PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A000460 gives 3^n-(n+1)2^n+n(n+1)/2 but no 2-power residue-fiber law",
+        "arxiv:math/0608564 Theorem 1.1 concerns sums of Eulerian numbers over a descent-index residue class",
+        "The two parity maps are isometric, hence no language-specific alias can conceal a different fiber multiplicity."
+      ],
+      "reasoning": "Searches included 2-adic isometry, fixed two descents, residue distributions, sharp period and dyadic fibers. No statement equivalent to the full every-target, every-k law was found. A source being absent from searches is not a proof of novelty.",
+      "searches": [
+        "Eulerian number fixed column two descents A(n,2) modulo powers of two exact period residue fibers sharp onset",
+        "Eulerian 2-adic interpolation 3^n binomial n+1 2 ultrametric parity isometry uniform dyadic outputs",
+        "permutation descents counts n exactly two mod 2^k residue distribution each parity branch"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000460 lists the exact formula, initial values and citations including two related papers; no every-residue fiber theorem or exact sharp preperiod appears in its record."
+      ],
+      "reasoning": "Listing an explicit formula and a table does not itself state the exact fiber classification at all powers and all eventual blocks; the classification is not a finite-table lookup. It is derived here using an ultrametric isometry argument.",
+      "searches": [
+        "OEIS A000460",
+        "Eulerian number sequence two descents 1 11 66 302 OEIS",
+        "Eulerian A(n,2) residue distribution 2^k"
+      ]
+    },
+    "rationale": "The explicit Eulerian formula is known, but the consulted primary mathematical statements and sequence database do not give the full one-per-parity residue-fiber law at every two-power or the exact preperiod. Cao-Pan addresses fixed-row column sums, Nakamura fixed-size descent distributions, and Castro-Gonzalez-Medina described zero valuations (full text not accessible). Own previously recorded claims on Stirling, Stern, necklace and other sequences do not imply fixed-column Eulerian fibers. Historical priority is not independently certified.",
+    "residual_risks": [
+      "The complete text of Castro–González–Medina (2015) was not accessible; a previously unrecognized stronger result there cannot be ruled out.",
+      "An unlocated earlier proof or table equivalent to the exact every-modulus distribution may exist.",
+      "The present result is a fixed-column finding; no originality is claimed for the well-known explicit Eulerian formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.1 bounds column-residue sums for each fixed first index; does not cover the varying-first-index exact output distribution.",
+        "evidence": [
+          "Theorem 1.1 equations (1.8) and (1.9) operate on sums over k congruent r modulo p^alpha.",
+          "Section 2 proves those sum bounds using Stirling-number expansions and root-of-unity filters."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0608564",
+        "material_read": "13-page primary preprint: introduction and stated Theorems 1.1–1.3; Section 2 (Eulerian congruence proof); section scopes and later Stirling results; visual inspection of pages 3, 4, 6",
+        "method": "lawful open-access full text, theorem and proof comparison",
+        "title": "Congruences on Stirling numbers and Eulerian numbers",
+        "trigger": "2006 archived number-theoretic Eulerian congruences; primary MSC 11A07"
+      },
+      {
+        "assessment": "Exact closed form and entry values are known; no exact modular fiber theorem is stated.",
+        "evidence": [
+          "Formula contributed 2002-01-22: a(n)=3^n-(n+1)*2^n+n(n+1)/2.",
+          "Sequence offset n=3; no all-k residue multiplicity formula."
+        ],
+        "identifier_or_url": "https://oeis.org/A000460",
+        "material_read": "full entry: comments, table, formula, links, and cross-references",
+        "method": "read HTML entry and compare exact equation and output claim",
+        "title": "OEIS A000460",
+        "trigger": "exact fixed-two-descent column and possible known sequences/tables"
+      },
+      {
+        "assessment": "It concerns the normalized distribution of descents at fixed n, not 2-adic residues of the fixed column as n varies.",
+        "evidence": [
+          "Section 2 Table 1 is the complete Eulerian triangle through n=7.",
+          "Section 3 concerns a pseudo-normal random-number generation scheme."
+        ],
+        "identifier_or_url": "https://libir.josai.ac.jp/il/user_contents/02/G0000284repository/pdf/JOS-13447777-0808.pdf",
+        "material_read": "11-page primary paper: abstract, introduction and sections 2–3 through normal sampling algorithm; visually inspected pages 1 and 3",
+        "method": "open-access full-text content and page-image comparison",
+        "title": "Pseudo-Normal Random Number Generation via the Eulerian Numbers",
+        "trigger": "title has Eulerian numbers and local uniformity; possible alias for result"
+      },
+      {
+        "assessment": "Abstract describes p-adic valuations along congruence classes; not enough material to assert NOT_COVERING, but no decisive equivalent theorem visible. Residual historical-priority risk remains.",
+        "evidence": [
+          "The abstract frames the results as valuations/divisibility of Eulerian numbers; it does not specify exact distribution for all nonzero target residues."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10586458.2014.981899",
+        "material_read": "publisher abstract and metadata only; an author PDF URL listed by OEIS was inaccessible; full text not retrieved",
+        "method": "author OA and publisher access attempts; public abstract assessment; institutional retrieval required unavailable human input",
+        "title": "The p-adic Valuation of Eulerian Numbers: Trees and Bernoulli Numbers",
+        "trigger": "highly relevant Eulerian fixed-column valuation study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0b100cd0-6a37-4cc3-85d4-d3ef8bf7b8ee",
+  "value": {
+    "rationale": "Complete all-target residue distribution for every 2^k of a classical permutation statistic, including exact least period and earliest starting index. This goes well beyond existing zero-target divisibility, periodicity upper bounds, or known value tables and supplies a natural inverse-limit Haar isometry structure. A complete natural classification of this infinite family is mathematically meaningful without claiming a downstream grand theorem.",
+    "status": "PASS"
+  }
+}
