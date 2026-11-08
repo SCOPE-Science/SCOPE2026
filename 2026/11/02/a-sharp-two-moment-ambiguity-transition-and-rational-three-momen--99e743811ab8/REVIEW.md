@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cylinder surface-area law is a product of uniform angle and height; the squared ambient distance decomposes into independent angular chord and axial squared-difference terms. Exact beta/binomial and triangular integrals provide the moment polynomials. With fixed second moment, the normalized fourth moment is a convex quadratic on the exact positivity interval. This yields the full feasible range and the number of inverse images, including endpoints. Polynomial elimination produces a rational formula with a denominator bounded below by \(660\mu^2\), and the sixth-moment difference factors into a positive cube difference with a sharp coefficient. Exact symbolic identities and independent integrations are reproducible with `verify.py`. Risk: no empirical-noise claim is established.
+PASS
 
-## Originality — PASS, provisional historical priority
+Directly reconstructed the independent squared angular-chord and axial-difference decomposition: E[A^j]=binom(2j,j)R^(2j), E[B^j]=2h^(2j)/((2j+1)(2j+2)). Hence mu=2x+y/6, nu=6x²+2xy/3+y²/15, omega=20x³+3x²y+2xy²/5+y³/28. At fixed m=mu, u=y/m lies strictly in (0,6), and kappa=(540-60u+19u²)/360 has unique minimum 26/19 at u=30/19, endpoints 3/2 and 12/5, proving all inverse multiplicity boundaries. Polynomial elimination gives y=(7581omega+23082m³-28023mnu)/(1672nu-1628m²), with denominator >=660m²; partner heights sum to 60m/19 and sixth-moment difference equals 11/945*(y1³-y2³), implying sharp 220/2527 separation. Independently checked six exact symbolic assertions (moments, rational inverse, branch constant and endpoints). The analytic positive-domain proof, not finite tests, establishes the result.
 
-Closest primary literature inspected includes Tu–Fischbach (2002, spherical volume-distance distributions and moments), Kellerer (1971, invariant-line cylinder chords under explicitly different sampling), García-Pelayo (2011, general polynomial even-moment relations; abstract only), and Lellouche–Souris (2019, general convolution treatment of distances in compact volume sets). Those methods can motivate forward moments but no inspected statement supplies the precise lateral-surface two-moment multiplicity transition or rational three-moment inverse. A closely related prior result treats intrinsic (not ambient) distances on the same sidewall; the metric and information supplied are different. Searches of primary literature and scientific-result records for cylinder chord moments, finite-moment inversion, and equivalent expressions did not identify covering results. Residual risk: the inaccessible full 2011 García-Pelayo paper or unindexed or differently named prior inverse formulas may supply an equivalent specialization; no independent priority determination has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Determining a geometric object's parameters from a few unlabeled random point-pair distances is a natural metric inverse problem. A complete and sharp answer for the familiar two-parameter cylinder sidewall includes an unexpected open two-solution regime, an exact algebraic involution, the minimal number of consecutive even moments needed for global reconstruction, and a sharp quantitative branch-separation constant. These are complete natural invariants of the family rather than an arbitrary parameter slice. The result is restricted to positive radius/height, ambient Euclidean distances, and exact moments; it is not a finite-sample estimation theorem.
+The proposed claim is not the generic evaluation of moments alone but the sharp two-to-one inverse region, three-consecutive-even-moment recovery, and quantitative sixth-moment separation for two independent uniform sidewall points in ambient Euclidean distance. The closest cylinder-chord literature uses random line sampling and generally distinct data; broad moment methods do not by themselves state this inverse image classification. Best-of-knowledge PASS despite incomplete García-Pelayo full-text access and possibility of an older specialization.
 
-## Boundary of the assessment
+## value
 
-The result was checked by symbolic reconstruction, independent numerical integration, and targeted comparison with the indicated literature. Historical priority is provisional; independent mathematical and literature audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reconstruction of a simple geometric body from finitely many unlabeled random pair distances is a canonical inverse problem. The exact first-two-moment non-identifiability region, algebraic involution, minimal third moment for unique inversion, and sharp branch separation are motivated, nontrivial structural facts potentially needed for inverse distance statistics. This is not claimed as a noisy-data estimation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
