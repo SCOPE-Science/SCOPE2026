@@ -1,19 +1,21 @@
-# Self-review of finite caterpillar-tree finite-variable theories
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the unique degree-at-least-two path, includes the singleton and two-vertex exceptions, and proves the four \(\mathrm{FO}^{2}\) phases by a permanent two-pebble strategy. Three reusable variables define all fixed distances on the spine. A \(k\)-variable recycling argument counts leaves up to and including \(k\), and a permanent \(k\)-pebble strategy proves the converse for arbitrarily high quantifier rank. Reversal gives the exact Burnside enumerator; clipping gives minimum representatives and sharp class-relative defining widths. Two independent standalone checks reproduced 4,935 finite logical comparisons, 3,203 structural constructions, 45,180 leaf-witness configurations and 15 orbit counts. Finite tests are corroboration, not universal proof.
+PASS
 
-## Originality — PASS (qualified)
+For trees on >=3 vertices, degree>=2 is a 3-variable spine predicate. Recycled variable names express exact spine-walk distances of any fixed length in FO³ and a k-leaf threshold at a given center in FO^k: witness k-1 distinct leaf neighbors, rebind center name to kth leaf and release one stored name to a common neighbor of that leaf and the stored first leaf, forcing the former center. Hence each finite clipped spine word/length/reversal type has a width-k defining sentence. Conversely an indefinite k-pebble strategy matches spine vertices under reversal and distinct leaves fiberwise; if both fibers >=k, there is always a fresh leaf since <=k-1 other pebbles are placed. Burnside on reversal gives N_k(1)=k-1 and N_k(m)=[k²(k+1)^(m-2)+k(k+1)^floor((m-1)/2)]/2 for m>=2. Witness increase b=k to k+1 for lower defining width; FO² is by two-pebble adjacency/equality options. Independently checked finite orbit counts and leaf thresholds. Finite games are only corroboration.
 
-Pikhurko–Verbitsky (arXiv:1003.4865, Section 5.1.1) bounds the individual-tree logical width and gives a sharp star example. This does not identify the infinite family of all caterpillar \(\mathrm{FO}^{k}\)-theories, unrestricted-depth equivalence, orbit counts, or least representatives. Immerman–Kozen's original/full work studies bounded-degree rooted trees in an ancestry language; the differing signature and hypotheses do not imply the claimed adjacency-language classification. The closest found mathematical research records concern directed-path bounded-rank logic and complete multipartite logical width. A separate rooted-tree fan-morphism result is about counting bounded morphisms, not \(\mathrm{FO}^{k}\)-equivalence of undirected trees. Residual risk: an unidentified general tree-composition theorem may imply all or part of the result; no exhaustive historical-priority claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers the natural complete classification problem for every variable width on an infinite unbounded-degree graph family, including zero-leaf interior spine positions; it establishes a strict hierarchy, a canonical finite minimum per equivalence class and an exact reversal-orbit counting formula. The sharp variable-recycling threshold is structurally informative, not a lone computational curiosity.
+Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. A stronger general tree composition theorem could subsume this classification but none inspected provides the required pure adjacency class count and reversal fibers.
 
-## Scope and independent validation
+## value
 
-The study excludes counting quantifiers, rooted or ordered expansions, disconnected forests and noncaterpillar trees. Full provenance and scripts are in the accompanying result and verification files.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete k-variable theory of a broad natural tree family under a fixed standard adjacency signature, including class counts, canonical smallest representatives and sharp defining widths. This addresses a substantive graph-logical classification gap beyond a generic degree bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
