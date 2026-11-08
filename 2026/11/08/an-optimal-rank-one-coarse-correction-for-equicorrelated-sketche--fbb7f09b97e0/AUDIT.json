@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The decomposition into global, between-block and within-block subspaces is exact and complete. Strict monotonicity of the scalar ratio orders all three eigenvalues. Every PSD rank-one correction must retain an unchanged within-block Rayleigh direction while it cannot increase the between-block Rayleigh quotient, giving the universal sharp lower bound. A global projector correction attains the bound on the exact derived nonempty interval; an independent checker passed 4,216 rational, symbolic-matrix, and numerical consistency assertions. This is an analytic proof, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu and Zikatanov, arXiv:1611.01917, develops general optimal coarse spaces for multigrid smoother operators.",
+        "Demmel, DOI:10.1137/22M1504901, studies nearly optimal block-diagonal scalings, not the fixed-block rank-one positive denominator correction."
+      ],
+      "reasoning": "Classical coarse-subspace and eigenvalue-interlacing techniques plausibly prove pieces of the result after specializing. The cited general coarse-space constructions optimize different operators; the inspected statements do not directly imply this exact BLOKS-family spectrum, positive update interval, and dimension-free optimum together.",
+      "searches": [
+        "rank one coarse space correction compound symmetry preconditioner conjugate gradient two eigenvalues",
+        "For compound-symmetry Nyström kernel ridge Gram matrix BLOKS sketched-block Jacobi, every partition leaves the condition number unchanged, yet a single positive rank-one global constant coarse correction minimizes the spectral condition number over all PSD rank-one corrections with sharp ratio d_c/d_a",
+        "web: Xu Zikatanov 2017 algebraic multigrid methods coarse spaces rank one exact two level stable convergence arxiv",
+        "web: two-level additive Schwarz one-dimensional coarse correction SPD spectral optimality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13382 (2026-10-09), accessible HTML transcription of relevant main sections and Appendix B",
+      "arXiv:1611.01917, abstract/general coarse-space methodology",
+      "DOI:10.1137/22M1504901, author-lab public abstract",
+      "published-finding corpus semantic records including 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f and 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Vitale et al. provide the denominator and explicitly identify coarse corrections as an open extension rather than proving its sharp rank-one solution.",
+        "Generalized Rayleigh quotient invariants on the within-block and interblock-constant spaces force the lower bound for all PSD rank-one corrections.",
+        "Previously published coherent-block examples establish possible preconditioning slowdowns, not the optimum under positive rank-one repair."
+      ],
+      "reasoning": "Neither a matching kernel title nor a generic convergence/low-rank spectral estimate is enough to imply the explicit all-parameter minimax equality, scalar equality interval and no-improvement baseline. Some interlacing ingredients are standard and acknowledged. Priority uncertainty remains for an undiscovered more general preconditioning theorem.",
+      "searches": [
+        "For compound-symmetry Nyström kernel ridge Gram matrix BLOKS sketched-block Jacobi, every partition leaves the condition number unchanged, yet a single positive rank-one global constant coarse correction minimizes the spectral condition number over all PSD rank-one corrections with sharp ratio d_c/d_a",
+        "Equicorrelation kernel fixed block width rank-one coarse correction recovers uniformly bounded preconditioned condition number and two distinct eigenvalues, optimal among PSD rank-one perturbations of block preconditioner",
+        "arxiv:2610.13382 sections 3, 6, appendix B",
+        "arxiv:1611.01917 abstract and multigrid optimal coarse-space statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full eigenvalue comparison on $G,V,U$ shows that the statement is a rank-one positive denominator design problem, not merely kernel symmetry or Jacobi scaling.",
+        "arXiv:2610.13382, sections 3 and 6, treats the block preconditioner but not this exact tuning interval."
+      ],
+      "reasoning": "Equivalent terminology includes two-level coarse correction, one-dimensional deflation, compound symmetry, equicorrelation, and rank-one denominator update. No inspected statement furnished the same constrained optimum and simultaneous equality interval.",
+      "searches": [
+        "BLOKS Nyström sketched block Jacobi equicorrelation exact spectrum rank-one coarse correction CG iteration count",
+        "compound-symmetric kernel block Jacobi preconditioner global rank-one coarse correction exact condition number",
+        "global all-ones rank-one update to block Jacobi preconditioner optimizes condition number interblock sum zero, within block sum zero exact eigenvalue bounds",
+        "web: \"compound symmetry\" \"block Jacobi\" preconditioning spectral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "BLOKS experiments in Appendix B compare three block strategies but report empirical time/test error, not an exact rank-one optimum table.",
+        "published-finding corpus searches found only thematically related preconditioning and Krylov results, not this exact family/invariant."
+      ],
+      "reasoning": "The candidate is a parametrized algebraic theorem for all block counts, widths and regularization strengths, not recomputation of a published finite table.",
+      "searches": [
+        "BLOKS Nyström sketched block Jacobi equicorrelation exact spectrum rank-one coarse correction CG iteration count",
+        "Equicorrelation kernel fixed block width rank-one coarse correction recovers uniformly bounded preconditioned condition number and two distinct eigenvalues, optimal among PSD rank-one perturbations of block preconditioner",
+        "web: \"coarse\" \"BLOKS\" \"equicorrelation\""
+      ]
+    },
+    "rationale": "A statement-level comparison found no direct earlier claim of the exact rank-one PSD correction minimax and full tuning interval for the BLOKS block denominator on this kernel family. The BLOKS paper explicitly leaves coarse corrections to future work. Earlier published block-Jacobi spectral examples exhibit conditioning and iteration effects but not this sharp global correction classification. Xu–Zikatanov and block-Jacobi scaling supply general motivations, without the same optimization object or the explicit answer; residual risk of reduction to a known low-rank interlacing theorem remains.",
+    "residual_risks": [
+      "An older general exact low-rank SPD preconditioner perturbation theorem may directly subsume the sharp Rayleigh-quotient lower bound after specialization.",
+      "The full text of the lengthy Xu–Zikatanov overview and complete Demmel article was not available for a line-by-line noncoverage check; their abstracts do not establish this particular explicit optimizer.",
+      "The result is limited to one structured coherent kernel family and full within-block sketches; generic random sketching may behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives source method and recommends exploring coarse corrections, but provides no exact positive rank-one correction optimizer on compound symmetry.",
+        "evidence": [
+          "Equation for the Nyström normal matrix in Section 2; block inverse Cholesky formula Section 3; future coarse-correction proposal Section 6; Appendix B empirical block comparisons."
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.13382",
+        "material_read": "Sections 2–4 and 6, Appendix B comparison text, and block Cholesky formula as accessible in the HTML transcription.",
+        "method": "Read indexed full-text HTML sections and cross-checked submission date and primary MSC in arXiv metadata mirror.",
+        "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+        "trigger": "Direct motivating paper: same normal matrix and sketched-block-Jacobi denominator."
+      },
+      {
+        "assessment": "Different smoother-based optimal coarse space and convergence formulation; full-text comparison not exhaustive.",
+        "evidence": [
+          "Optimal coarse spaces for smoother-based algebraic multigrid and uniform convergence under stated assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.01917",
+        "material_read": "Author abstract and accessible mathematical overview, not complete full text.",
+        "method": "Read arXiv abstract and published journal summary.",
+        "title": "Algebraic Multigrid Methods",
+        "trigger": "Cited by BLOKS as background for coarse corrections, with potentially dominating abstract theory."
+      },
+      {
+        "assessment": "Treats optimal diagonal/block diagonal scalings, not positive rank-one updates to an already specified denominator.",
+        "evidence": [
+          "Condition-number approximation bounds for block-Jacobi diagonal scaling; DOI:10.1137/22M1504901."
+        ],
+        "identifier_or_url": "https://slice.eecs.berkeley.edu/papers/nearly-optimal-block-jacobi-preconditioning/",
+        "material_read": "Full public abstract and descriptive summary, not paywalled complete article.",
+        "method": "Read author-laboratory summary and bibliographic identifier.",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Possible general spectral optimum for block-Jacobi methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbb7f09b-97e0-4a8f-a8a5-576ea02f6724",
+  "value": {
+    "rationale": "The recent large-scale KRR block preconditioner explicitly leaves inter-block coarse corrections open. The present complete sharp one-dimensional correction design demonstrates an O(m)-growing preconditioned condition number repaired to an O(s)-only fixed-block-width bound with one global dot product, and proves no other PSD rank-one denominator correction can improve the result. This tests the method at a natural coherence boundary, not an arbitrary finite slice; no general-kernel or runtime extrapolation is claimed.",
+    "status": "PASS"
+  }
+}
