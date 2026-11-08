@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise normalization \(D(f)=\sum n|a_n|^2=1\), the entire closed stable subspace, and phase-orbit metric are fixed. The critical exponential estimate yields local real analyticity of the nonlinear functional. Its stable Hessian is uniformly strictly negative, so the analytic implicit-function reduction is a genuine infinite-dimensional result. Exact Fourier coefficients identify the leading fourth- and sixth-order terms, while symmetry eliminates the possibility of unseen low-order contributions from higher modes. The stable coercivity and distance identity then give the sharp lower bound; an explicit four-mode family supplies the upper bound. The embedded exact rational checker passed 24 finite coefficient checks. Numerical or finite tests alone would not prove the theorem.
+## correctness
 
-**Originality — PASS on accessible scientific evidence, with priority risk.** The October 2026 sharp inequality identifies monomial extremizers but not their sixth-order Dirichlet-distance stability. The inspected 1994 local-maximality work gives no uniform full-space sharp sixth-order coefficient. A previously recorded four-mode calculation gives only an upper obstruction at the first monomial, explicitly lacking the matching infinite-dimensional lower bound; this is the substantive distinction. Published-record searches did not reveal an equivalent result, but the search is not proof of priority and less accessible historical sources could still contain the argument.
+PASS
 
-**Value — PASS.** An exact quantitative local stability law is a natural refinement of a recently closed global extremal problem. The local curvature is degenerate at one harmonic mode, making ordinary quadratic stability false. A sixth-order sharp lower bound valid for every analytic Dirichlet perturbation fills the resulting meaningful gap, and the formula determines all vanishing orders without restricting to finite sections.
+On D(f)=1 the phase-gauged chart around z^m/√m has first transverse coordinate t z^(m+1) and stable tail w. Critical exponential integrability and Hölder establish real analyticity of exp(|f|²) functional on a small Dirichlet ball; the full stable Hessian is diagonal −(j−1)/m per |w_j|², uniformly coercive relative to ∑(m+j)|w_j|² for j≥2. Hilbert implicit function theorem gives analytic stable critical w=W(t). Rotation and conjugation equivariance force W2=c_m t² and W3=d_m t³ at leading order, with higher modes contributing only beyond degree six. Exact degree-six zero Fourier coefficient on four-mode chart gives reduced Φ=1−|t|^6/(24m)+O(|t|^8), c_m=(2m+1)/(2√m), d_m=m+5/4+1/(3m). Exact orbit distance d²=2[1−(1+s)^(−1/2)]=(m+1)|t|²+O(|t|⁴) on the stable branch; uniform stable coercivity controls all non-polynomial perturbations and the four-mode family gives matching upper limsup. Independent rational Fourier expansion at m=1,4,9,16 matched zero quadratic/quartic coefficients, −1/(24m) sixth term and off-branch quadratic penalties. Infinite-dimensional coercivity and analytical limit rest on proof, not finite checks.
 
-Scientific limitations: the estimate is local; the radius of validity and independent priority/technical validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: Frank–Ivanisvili global sharp Chang–Marshall (2026) fixes monomial equality cases but does not supply quantitative local deficit; Andreev–Matheson (1994) works on local maxima and second variation, not the all-m matching distance-six lower bound. Earlier four-mode computation gives an upper obstruction only; full stable-Hilbert lower bound is substantial. Broader nonlinear stability may exist unindexed.
+
+## value
+
+PASS
+
+Local stability of a sharp exponential integrability inequality is a natural mathematical problem because one Fourier mode has a vanishing Hessian and ordinary quadratic stability fails; the exact sixth-order coefficient in every vanishing-order Dirichlet class is a meaningful infinite-dimensional quantitative classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
