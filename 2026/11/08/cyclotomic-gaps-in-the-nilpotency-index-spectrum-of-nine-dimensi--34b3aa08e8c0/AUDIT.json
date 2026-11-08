@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The PBW multiplication rule gives a basis and an exact universal expansion for the powers of every radical element. Its degree-two square coefficients force the linear terms to vanish, reducing square-zero count to q^2 solutions times q^3 free coefficients. Cube-zero coefficients split into a=b=0, a≠0,b=0, and a=0,b≠0, and the fourth power is exactly (1+lambda+lambda^2)(1+lambda^2)a^2 b^2 x^2y^2. Every fifth power is zero. These statements are all verified symbolically over the integer coefficient ring by verify_symbolic.py; verify.py independently checks all radical elements over fields of orders 2,3,4 and relevant low-degree coefficient strata over orders 5,7. The proof is valid for every finite field including characteristic 2 and 3; no finite experiment is presented as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Erdmann–Hellstrøm-Finnsen, arXiv:1703.05962, computes Hochschild cohomology for a primitive-root subfamily, not counts of radical power-zero loci.",
+        "Jin–Zhang, arXiv:2208.05687, analyzes bi-Frobenius and Hopf structures on the quantum complete intersections, not elementwise nilpotency-index multiplicities."
+      ],
+      "reasoning": "The same-algebra literature was inspected for stronger structural theorems. Cohomology-ring nilpotence is a separate ring and invariant, and comultiplication existence conditions do not imply the parameter-specific exact q-power counts. General PBW and q-binomial identities supply ingredients but not the claimed complete distribution without the new coefficient stratification and counting.",
+      "searches": [
+        "two generator quantum complete intersection nilpotent elements counting index radical cube power",
+        "quantum complete intersection nilpotency degree distribution elements finite fields 3rd 4th powers",
+        "arxiv:1703.05962 §2–§5; arxiv:2208.05687 §1, §3–§5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1703.05962",
+      "https://arxiv.org/pdf/1910.06714",
+      "https://arxiv.org/pdf/2208.05687",
+      "https://arxiv.org/abs/1703.05962",
+      "https://arxiv.org/abs/1910.06714",
+      "https://arxiv.org/abs/2208.05687"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 source establishes \\(u^3=0\\) for every linear form \\(u\\) in a specially constrained parameter subfamily; it does not count \\(w^r=0\\) for all \\(w\\in J\\) when the skew parameter varies.",
+        "The 2017 cohomology theorem treats nilpotent classes in \\(\\mathrm{HH}^*(A)\\), whereas the current claim concerns powers inside \\(A\\) itself.",
+        "The 2022 structure theorem gives criteria for bi-Frobenius/Hopf structures, not counts of the powers of arbitrary elements."
+      ],
+      "reasoning": "The known root-of-unity linear-form theorem is compatible with, and substantially narrower than, the cube-zero case. Neither its conclusion nor the known cohomology and coalgebraic conclusions implies the coefficientwise distribution for all parameters, including the sixth-cyclotomic missing-index-four regime. Future discovery of a stronger general polynomial-identity or enumeration theorem remains a priority risk.",
+      "searches": [
+        "arxiv:1910.06714 Lemma [BEH, Lemma 2.3] and §2 radical filtration",
+        "arxiv:1703.05962 Theorem 3.1 and §5",
+        "arxiv:2208.05687 Theorem 3.2, 4.1 and 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bergh–Erdmann–Jorgensen, arXiv:1910.06714, §2, discusses nilpotence of linear combinations of generators at a special root-of-unity parameter; the present formula counts powers of all radical elements, including higher homogeneous terms, for every nonzero parameter.",
+        "The power-zero sets of all radical elements are not equivalent to Jordan types of a specified module, since the latter tracks multiplication operators rather than scalar power vanishing distributions."
+      ],
+      "reasoning": "Examined the alternate terminology nilpotent elements, nilpotency exponent, power-zero fibers, quantum truncated plane and constant Jordan type. The identified linear-form statement is a restriction to a two-dimensional subspace and parameter special case; it does not determine the full eight-dimensional radical counts.",
+      "searches": [
+        "\"quantum complete intersection\" \"nilpotency index\" \"elements\" distribution",
+        "\"quantum complete intersection\" \"nilpotent elements\" finite field counting",
+        "arxiv:1910.06714 §2 and §4 on linear-form Jordan type"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary articles present Jordan-type or Hochschild-cohomology results, rather than a table enumerating elementwise indices 1,2,3,4,5 in the nine-dimensional radical.",
+        "No exact database or published table with the same field and parameter branches was identified in the searches."
+      ],
+      "reasoning": "Checked exact-value phrasing and the root-polynomial conditions, not merely paper-title similarity. This negative search is only bounded evidence; it is not a proof that no unpublished table exists.",
+      "searches": [
+        "\"quantum complete intersection\" \"nilpotent elements\" finite field counting",
+        "\"quantum complete intersection\" \"nilpotency\" \"cube\" generators",
+        "quantum complete intersection nilpotency degree distribution elements finite fields 3rd 4th powers"
+      ]
+    },
+    "rationale": "Relevant published work establishes special-parameter nilpotence of linear forms and studies module Jordan types, Hochschild cohomology and bi-Frobenius structures. None of the inspected statements implies the all-parameter distribution of powers of arbitrary radical elements. Available earlier scientific claims and published mathematical record searches did not identify an exact covering result. Novelty is provisional and can be overturned by an unlocated stronger statement.",
+    "residual_risks": [
+      "A broader theorem on power-zero loci in quantum complete intersections may already imply the formula without matching its notation.",
+      "Primary-literature checks were bounded, so unpublished and inaccessible work is not excluded.",
+      "No independent mathematical audit or publication-priority certification has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_INVARIANT; deals with nilpotent Hochschild cohomology classes, not a census of nilpotent elements of A.",
+        "evidence": [
+          "arXiv:1703.05962 Theorem 3.1 and Corollary 3.2 compute dimensions of Hochschild cohomology; §5 concerns HH even-part structure.",
+          "First public arXiv posting recorded 2017-03-17."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1703.05962",
+        "material_read": "Full-text PDF introduction, definitions and multiplication conventions (pp. 1–2), Hochschild cohomology statements in §3, calculations in §§4–5 and concluding results (pp. 13–15).",
+        "method": "Read primary arXiv PDF text, inspected its first page as rendered and checked theorem statements and the use of nilpotent in the body.",
+        "title": "Hochschild cohomology of some quantum complete intersections",
+        "trigger": "Identical two-generator quantum complete intersection presentation and use of the word nilpotent."
+      },
+      {
+        "assessment": "SPECIAL_PARAMETER_PARTIAL_COVERAGE; prior linear-form result is acknowledged, complete parameter-dependent radical element counts not found.",
+        "evidence": [
+          "arXiv:1910.06714 §2 cites [BEH, Lemma 2.3] for the index of each nonzero linear form under a specified primitive root parameter.",
+          "Article abstract and §§3–4 focus on representation-module Jordan types and Auslander–Reiten components; the paper does not state a full all-parameter elementwise radical power-zero count.",
+          "First public arXiv posting recorded 2019-10-15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1910.06714",
+        "material_read": "Full-text introduction and §2 definitions/radical filtration/linear-form statement (pp. 1–5), representative main propositions of §§2–3, and final §4 classification and conclusion (pp. 14–21).",
+        "method": "Read accessible arXiv PDF text and displayed selected rendered pages; examined relevant theorem statements and searched its text for nilpotent, nilpotency and finite-field counting.",
+        "title": "Modules of constant Jordan type over quantum complete intersections",
+        "trigger": "Same quantum complete intersection family and established n-nilpotence of generator linear forms."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT; bi-Frobenius and Hopf structures do not enumerate nilpotency indices of radical elements.",
+        "evidence": [
+          "arXiv:2208.05687 Theorems 3.2, 4.1, 5.1 concern comultiplications, bialgebra/Hopf existence, and quantum exterior algebras.",
+          "Original arXiv submission was 2022-08-11; current revision date is later and was not used as first-public date."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.05687",
+        "material_read": "Abstract, introduction, principal theorem statements and representative calculations for comultiplication restrictions and bialgebras in §§3–5.",
+        "method": "Read arXiv primary full-text PDF text and inspected first-page rendering, comparing its hypotheses and conclusions with the power-map census.",
+        "title": "Bi-Frobenius algebra structure on quantum complete intersections",
+        "trigger": "The general quantum complete intersection parameters and presence of fourth-root tests."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34b3aa08-e8c0-4582-a079-267c18d0bb29",
+  "value": {
+    "rationale": "The elementwise nilpotency-index spectrum is a canonical invariant of a finite local algebra, and the nine-dimensional cubically truncated skew polynomial family is the first natural two-generator case with indices up to five. The complete exact census for arbitrary finite fields and deformation parameters distinguishes subtle cyclotomic phases, including a genuinely missing intermediate index four while index five persists, and elementwise cube-zero without the ideal radical being cube-zero. These are motivated structural boundaries, not a random coefficient slice or a mere program check.",
+    "status": "PASS"
+  }
+}
