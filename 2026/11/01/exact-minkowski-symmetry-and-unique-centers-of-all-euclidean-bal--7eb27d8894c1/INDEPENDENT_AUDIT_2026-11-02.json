@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:02:16.575770Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE assigned RESULT.md blob 8a94e7ba1c0dcf84f423129f703ca56a60b50b0b",
+        "SCOPE assigned verify.py blob 913afc5452c360b14f579dd5405a568daf9c920a",
+        "Belloni–Freund On the symmetry function of a convex set full author-uploaded manuscript, §3.2",
+        "Independent contact-constraint checks for a=-.999,-.7,-.2,0,.3,.9,.999"
+      ],
+      "rationale": "PASS. For d>=2 and -1<a<1, write K={t²+||y||²<=1,t<=a} and z=(1+lambda)c. Feasibility z-lambda K⊂K implies from the south pole z1+lambda<=a. The full rim orbit (a,sqrt(1-a²)v), v ranging across S^{d-2}, yields (z1-lambda a)²+(||z_perp||+lambda sqrt(1-a²))²<=1. For lambda>=lambda_a>a, the axial bound makes z1-lambda a negative; this forces lambda²-a lambda<=(1-a)/2. The positive quadratic root is exactly lambda_a=(a+sqrt((1-a)²+1))/2. At that root z=(a-lambda)e1 satisfies the truncation and Euclidean-ball bound for ALL t∈[-1,a] because the squared norm is affine increasing in t when constrained by t²+||y||²<=1; this gives feasibility. Equality in both necessary orbit constraints forces z1=a-lambda and z_perp=0, proving unique center. Monotonicity follows by derivative; the a↓-1 affine blowup tends to paraboloid P_d={0<=s<=1,||y||²<=s}. The direct rim/apex constraints give gamma²+gamma<=1 and a constructive gamma=(sqrt5-1)/2 center, independently of continuity. Independently evaluated the rim equality and maximum-ball inequality for seven truncations, including near-endpoints, with floating error <1e-12. Finite samples only corroborate the analytic universal proof. Dimension one is excluded, and the degenerate endpoint a=-1 is a limit.",
+      "residual_risks": [
+        "Classical half-ball instance a=0 already known; it is not the claimed new contribution.",
+        "No optimal rounding-factor claim follows from the symmetry index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belloni–Freund general convex-body and norm bound theorems are qualitative/inequality results.",
+          "den Hertog–Pauphilet–Soali discuss computational center optimization for intersections of ellipsoids, and Xiong–Freund discuss ellipsoidal rounding bounds; neither result read determines this cap-depth exact index."
+        ],
+        "reasoning": "General center-existence, robust optimization, affine invariance and rounding theorems are broader in object class but mathematically weaker than exact symmetry for every clipped Euclidean ball; the one-parameter equality is a new calculation, not claimed as a consequence already stated.",
+        "searches": [
+          "Minkowski symmetry center truncated Euclidean ball spherical cap parameter a Belloni Freund half ball paraboloid"
+        ]
+      },
+      "checked_sources": [
+        "On the symmetry function of a convex set — https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+        "Minkowski Centers via Robust Optimization: Computation and Applications — https://doi.org/10.1287/opre.2023.2448",
+        "Resultary semantic search: Minkowski symmetry center truncated Euclidean ball spherical cap parameter a Belloni Freund half ball paraboloid",
+        "Resultary targeted search: symmetry truncated unit ball cap ellipsoid halfspace exact parameter centers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Belloni–Freund sym=1/sqrt(2) and unique half-ball center agree with present formula at a=0.",
+          "Present formula lambda_a solves lambda²-a lambda=(1-a)/2, with nonconstant derivative and a↓-1 limit gamma, not determined by the lone half-ball value."
+        ],
+        "reasoning": "A single known parameter and general affine invariance do not imply lambda(a) for other a because clipping-depth ratios are genuine affine invariants. Even the paraboloid limiting body requires its own apex/rim optimization.",
+        "searches": [
+          "Minkowski symmetry center truncated Euclidean ball spherical cap parameter a Belloni Freund half ball paraboloid",
+          "symmetry truncated unit ball cap ellipsoid halfspace exact parameter centers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belloni–Freund §3.2 gives sym(S)=1/sqrt(2), uniquely at (sqrt2-1)e1 for the complementary oriented Euclidean half-ball (a=0 in present coordinates).",
+          "Full Belloni–Freund manuscript otherwise develops general symmetry bounds and characterization, not an a-dependent clipped-ball formula."
+        ],
+        "reasoning": "After accounting for opposite clipping orientation and reciprocal asymmetry conventions, the half-ball is exactly the a=0 special case and is covered. An arbitrary cap a≠0 and the unique cap-depth center are not obtained by a fixed affine transformation of that half-ball.",
+        "searches": [
+          "Minkowski symmetry center truncated Euclidean ball spherical cap parameter a Belloni Freund half ball paraboloid",
+          "symmetry truncated unit ball cap ellipsoid halfspace exact parameter centers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest published hits were unrelated translated-disk outer asymmetry, capped-hypercube John ellipsoid and symmetric polytope inballs.",
+          "Belloni–Freund has a precise table-entry-like half-ball value only, not full a law."
+        ],
+        "reasoning": "No exact matching cap-depth table located. Distinguish Minkowski reflection-ratio from other outer-asymmetry and ellipsoid-center invariants; lack of hits alone does not establish novelty.",
+        "searches": [
+          "symmetry truncated unit ball cap ellipsoid halfspace exact parameter centers"
+        ]
+      },
+      "rationale": "PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: the a=0 half-ball symmetry and center were already published; the full a∈(-1,1) cap-depth formula and paraboloid degeneration are not implied by that isolated parameter or known general bounds.",
+      "residual_risks": [
+        "An obscure full-family cap calculation in convex optimization literature may be equivalent; den Hertog–Pauphilet–Soali was not read in full here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Half-ball special case covered; complete clipping-parameter law not stated in the material read.",
+          "evidence": "At §3.2 the text states S={||x||²<=1,x1>=0}, unique center (sqrt2-1)e1 and sym=1/sqrt2.",
+          "identifier_or_url": "https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+          "material_read": "Full author-uploaded manuscript text, Introduction, Section 2 general symmetry, Section 3.2 pp.10–11 including half-ball example and §3.3 bounds",
+          "method": "Web readable author manuscript full text with relevant pages, not merely abstract",
+          "title": "On the symmetry function of a convex set",
+          "trigger": "exact half-ball special case and general Minkowski symmetry definition"
+        },
+        {
+          "assessment": "Potential methods contextual only; not used to make a whole-document novelty exclusion.",
+          "evidence": "Work addresses computation/intersection models; any hidden cap formula remains a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1287/opre.2023.2448",
+          "material_read": "Bibliographic abstract and topic description only; full proof not verified in this run",
+          "method": "Web search/assigned primary-source citations",
+          "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+          "trigger": "nearby computational center theory for ellipsoid intersections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/exact-minkowski-symmetry-and-unique-centers-of-all-euclidean-bal--7eb27d8894c1/RESULT.md",
+        "Published same-object and neighboring-object comparisons described in originality"
+      ],
+      "rationale": "PASS. The full cap-depth parameter law identifies all truncated ellipsoids under affine symmetry, every unique optimal center, contact geometry, and a sharp golden-ratio paraboloid degeneration; these are motivated benchmark bodies for the Minkowski asymmetry functional. The known half-ball value is only one parameter and does not settle the entire natural family.",
+      "residual_risks": [
+        "The optimization uses a highly symmetric one-parameter body, and an obscure older full-family calculation remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE assigned RESULT.md blob 8a94e7ba1c0dcf84f423129f703ca56a60b50b0b",
+    "SCOPE assigned verify.py blob 913afc5452c360b14f579dd5405a568daf9c920a",
+    "Belloni–Freund On the symmetry function of a convex set full author-uploaded manuscript, §3.2",
+    "Independent contact-constraint checks for a=-.999,-.7,-.2,0,.3,.9,.999",
+    "https://www.researchgate.net/publication/225156081_On_the_symmetry_function_of_a_convex_set",
+    "https://doi.org/10.1287/opre.2023.2448"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical half-ball instance a=0 already known; it is not the claimed new contribution.",
+    "No optimal rounding-factor claim follows from the symmetry index.",
+    "The optimization uses a highly symmetric one-parameter body, and an obscure older full-family calculation remains possible.",
+    "An obscure full-family cap calculation in convex optimization literature may be equivalent; den Hertog–Pauphilet–Soali was not read in full here."
+  ],
+  "residual_risks": [
+    "Classical half-ball instance a=0 already known; it is not the claimed new contribution.",
+    "No optimal rounding-factor claim follows from the symmetry index.",
+    "An obscure full-family cap calculation in convex optimization literature may be equivalent; den Hertog–Pauphilet–Soali was not read in full here.",
+    "The optimization uses a highly symmetric one-parameter body, and an obscure older full-family calculation remains possible."
+  ],
+  "schema_version": 1
+}
