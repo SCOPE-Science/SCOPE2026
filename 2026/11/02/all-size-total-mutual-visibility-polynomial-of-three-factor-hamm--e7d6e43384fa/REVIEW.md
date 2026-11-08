@@ -1,15 +1,21 @@
-# Scientific review: three-factor Hamming total-visibility enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim defines a labeled all-set polynomial, with a formal zero-parameter boundary solely for coefficient extraction. The proof invokes the published distance-two-avoidance characterization and then proves a bijective decomposition: induced selected components are coordinate-line cliques or singletons, while distinct components have disjoint supports in every coordinate. This is both necessary and sufficient in exactly three Cartesian factors. The multitype exponential formula counts unordered components without symmetry overcounting; a separate distinguished-first-label argument gives a recurrence using nonnegative integers. Maximum-set counts follow from sharp component-count and coordinate-support inequalities, not finite extrapolation. All finite checks in the packaged `verify.py` ran successfully (terminal marker `VERIFY_OK`). The same proofs do not establish an analogous exponential formula for four or more factors.
+## correctness
 
-## Originality — PASS, with qualification
-Bujtás–Klavžar–Tian (arXiv:2307.05168, 2023) already supply both the distance-two criterion and a closely related disjoint base-edge decomposition in their proof of the three-factor maximum. Accordingly those structural facts and the maximum *sizes* are not presented as new. The assessed additions are an exact multivariate all-size total-visibility polynomial, a positive integer recurrence computing all its coefficients, and exact maximum-set counts and symmetry classification in two infinite parameter regimes. These complete counting statements do not appear in the inspected original proof, in the 2025 paper introducing visibility polynomials, or in the inspected lower-visibility paper. The deduplication and literature searches included the equivalent hypergraph, code and all-cardinality-enumerator formulations. Priority uncertainty remains: a direct labeled enumeration of the known base-edge classes could independently yield the same formulas, and an unindexed result may already have done so. The source decomposition makes the new evaluation accessible, but does not itself state its entire coefficient vector or labeled maximum counts.
+PASS
 
-## Mathematical value — PASS
-The three-factor Hamming family is a standard, natural object for total mutual-visibility. Prior work determines its extremal cardinality, whereas the polynomial determines the number of admissible sets at *every* size, including reliability evaluations obtained by specialization, and gives exact counts of optimal configurations. It is an infinite three-parameter result, not an arbitrary finite census; the formal EGF and positive recurrence provide complementary exact representations. Counts such as \(\mathcal T_{3,3,3}(z)=1+27z+189z^2+387z^3+162z^4\) and the \(a(a-1)b(b-1)c(c-1)\) large-factor optimum coefficient were independently checked in the permitted finite ranges. The explicit enumeration and symmetry orbit have clear combinatorial use even without a downstream general theorem.
+For G=Ka □ Kb □ Kc, a,b,c>=2, use published theorem that total mutual-visible iff no selected pair at Hamming distance exactly 2. Adjacent selected vertices must lie on same coordinate line throughout each connected induced component; otherwise two at distance 2. Distinct components differ in all three coordinates, hence use disjoint coordinate-label supports. This gives a canonical labeled mixed-species SET decomposition (unused labels plus singleton triples plus coordinate lines length>=2) with EGF exp(x+y+w+zxyw+yw(exp(zx)-1-zx)+xw(exp(zy)-1-zy)+xy(exp(zw)-1-zw)). Mark one first-coordinate label to obtain the displayed finite positive recurrence. For a>=b>=c>=5, three components each varying in distinct axes attain a+b+c-6, and choices of ordered fixed labels yield a(a-1)b(b-1)c(c-1) maxima in one orbit. When c=2,b>=3, two axis-lines attain a+b-2, count 2ab. Independent integer recurrence generated exact polynomials (2,2,2): 1+8z+16z²; (3,3,3):1+27z+189z²+387z³+162z⁴, and (4,4,4), and top (5,5,5)=8000. Entire algebraic bijection proves all parameters; finite regressions only confirm small cases.
 
-## Closest literature and limits
-Primary paper: Bujtás, Klavžar, Tian, *Total mutual-visibility in Hamming graphs*, arXiv:2307.05168 (first posted 2023-07-11), Theorem 6 and Section 3. Their proof partially subsumes the component *structure*, which is cited and not claimed as a separate new discovery. Closest all-cardinality framework: Bujtás, Klavžar, Tian, *Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets*, DOI 10.1007/s00010-025-01197-y (2025), Section 3, defining total visibility polynomials and computing different examples. Adjacent lower-variant work: Brešar and Yero, arXiv:2307.02951, studying smallest maximal sets rather than the complete three-factor polynomial. The all-size identity is not a result about four-factor Hamming graphs, and absolute publication priority is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge for full all-cardinality Hamming 3-factor EGF, recurrence, exact extremal multiplicities and orbits, not for published distance-two criterion or known maximum sizes. Full primary Bujtás–Klavžar–Tian 2023 paper inspected: Section 3 has a related component/base-edge decomposition already credited, but no EGF. Full 2025 visibility-polynomial paper supplies general inclusion-exclusion technique but not this explicit enumerator. Potential equivalence with independently studied three-partite hypergraph induced matching polynomials remains risk.
+
+## value
+
+PASS
+
+Gives an exact labeled counting polynomial for a natural graph invariant, improving known scalar optimum into all-size distribution and precise optimal multiplicities; useful as benchmark and structural enumeration for Hamming visibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

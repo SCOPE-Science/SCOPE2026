@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:16:01.821327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G=Ka □ Kb □ Kc, a,b,c>=2, use published theorem that total mutual-visible iff no selected pair at Hamming distance exactly 2. Adjacent selected vertices must lie on same coordinate line throughout each connected induced component; otherwise two at distance 2. Distinct components differ in all three coordinates, hence use disjoint coordinate-label supports. This gives a canonical labeled mixed-species SET decomposition (unused labels plus singleton triples plus coordinate lines length>=2) with EGF exp(x+y+w+zxyw+yw(exp(zx)-1-zx)+xw(exp(zy)-1-zy)+xy(exp(zw)-1-zw)). Mark one first-coordinate label to obtain the displayed finite positive recurrence. For a>=b>=c>=5, three components each varying in distinct axes attain a+b+c-6, and choices of ordered fixed labels yield a(a-1)b(b-1)c(c-1) maxima in one orbit. When c=2,b>=3, two axis-lines attain a+b-2, count 2ab. Independent integer recurrence generated exact polynomials (2,2,2): 1+8z+16z²; (3,3,3):1+27z+189z²+387z³+162z⁴, and (4,4,4), and top (5,5,5)=8000. Entire algebraic bijection proves all parameters; finite regressions only confirm small cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First primary paper proves characterization and maximum cardinalities; second develops general visibility-polynomial principles and examples on other families."
+        ],
+        "reasoning": "Both frameworks apply generally but inspected formulas do not imply a closed 3-parameter EGF/recurrence without the new labeled component enumeration.",
+        "searches": [
+          "arxiv:2307.05168 Total mutual-visibility in Hamming graphs Theorem 6 Section 3",
+          "doi:10.1007/s00010-025-01197-y Visibility polynomials"
+        ]
+      },
+      "checked_sources": [
+        "record RESULT.md Git blob 4fb13bfa9eed3684292a3163cf4970104c4d3195",
+        "record verify.py Git blob 42f6057beb994b25e678833d56ec70836d68f7d5",
+        "arxiv:2307.05168 full PDF Theorems 1,6",
+        "doi:10.1007/s00010-025-01197-y full HTML",
+        "arxiv:2307.02951",
+        "Resultary query total mutual visibility polynomial three factor Hamming graphs enumerate distance two forbidden sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior maximum size a+b+c-6 (large c) and distance-two criterion do not supply multiplicity a(a-1)b(b-1)c(c-1) or full EGF; general inclusion-exclusion computes coefficients in principle but not an explicit formula."
+        ],
+        "reasoning": "The labeled SET construction solves a more detailed counting problem; the prior graph decomposition is properly credited, and the new work is enumeration rather than recognition.",
+        "searches": [
+          "arxiv:2307.05168 Theorem 1,6 and base-edge construction",
+          "doi:10.1007/s00010-025-01197-y Proposition 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Bujtás–Klavžar–Tian 2023 Theorem 6 identifies total mutual-visibility sets with families of triples avoiding Hamming distance 2, equivalently disjoint-support coordinate-line components."
+        ],
+        "reasoning": "This published equivalence and component structure are prior, not claimed new; counted object is all independent sets in the distance-two conflict graph on [a]x[b]x[c].",
+        "searches": [
+          "total mutual visibility polynomial three factor Hamming graphs enumerate distance two forbidden sets",
+          "Hamming distance two avoiding code mixed alphabet triples no singleton intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2025 primary paper lists other families, not an explicit three-factor Hamming all-size table; small (2,2,2),(3,3,3),(4,4,4) polynomials independently recomputed."
+        ],
+        "reasoning": "A known general independent-set polynomial table might specialize; no exact table located; absence of a search hit is not proof of novelty.",
+        "searches": [
+          "total mutual visibility polynomial three factor Hamming graphs enumerate distance two forbidden sets",
+          "distance-two-free [a]x[b]x[c] independent set polynomial three factors",
+          "Hamming graph total visibility polynomial coefficients"
+        ]
+      },
+      "rationale": "PASS best knowledge for full all-cardinality Hamming 3-factor EGF, recurrence, exact extremal multiplicities and orbits, not for published distance-two criterion or known maximum sizes. Full primary Bujtás–Klavžar–Tian 2023 paper inspected: Section 3 has a related component/base-edge decomposition already credited, but no EGF. Full 2025 visibility-polynomial paper supplies general inclusion-exclusion technique but not this explicit enumerator. Potential equivalence with independently studied three-partite hypergraph induced matching polynomials remains risk.",
+      "residual_risks": [
+        "General inclusion-exclusion or an unindexed mixed-alphabet distance-two-avoiding code enumeration could imply full polynomial.",
+        "The two explicit maximum-count regimes exclude c=3,4; full polynomial remains all a,b,c>=2, with zero size only a formal coefficient convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves distance-two characterization and extrema, not the claimed trivariate all-cardinality EGF or maxima counts",
+          "evidence": [
+            "arxiv:2307.05168, Theorems 1,6, Section 3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.05168",
+          "material_read": "Full arXiv PDF including Theorem 6 and Section 3 geometric/base-edge proof, screenshot of page 5 also inspected",
+          "method": "read full PDF text and inspect rendered mathematical page",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "Same graph and precise visibility criterion"
+        },
+        {
+          "assessment": "General inclusion-exclusion, examples on other graphs; no explicit three-factor Hamming EGF found",
+          "evidence": [
+            "Aequationes Mathematicae 99 (2025), Proposition 3.5"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+          "material_read": "Full lawful open HTML, including Proposition 3.5 inclusion-exclusion and graph examples",
+          "method": "read full online mathematical text",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "General polynomial framework and potential dominating counting result"
+        },
+        {
+          "assessment": "Studies minimum of inclusion-maximal sets rather than complete all-size total-visibility polynomial",
+          "evidence": [
+            "arxiv:2307.02951"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Available summary and Cartesian-product sectional context",
+          "method": "targeted source comparison",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "Related Cartesian-product variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives an exact labeled counting polynomial for a natural graph invariant, improving known scalar optimum into all-size distribution and precise optimal multiplicities; useful as benchmark and structural enumeration for Hamming visibility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "record RESULT.md Git blob 4fb13bfa9eed3684292a3163cf4970104c4d3195",
+    "record verify.py Git blob 42f6057beb994b25e678833d56ec70836d68f7d5",
+    "arxiv:2307.05168 full PDF Theorems 1,6",
+    "doi:10.1007/s00010-025-01197-y full HTML",
+    "arxiv:2307.02951",
+    "Resultary query total mutual visibility polynomial three factor Hamming graphs enumerate distance two forbidden sets"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full enumerator for exactly three nonempty factors; EGF permits zero-factor formal extension only; explicit maximum counts only c>=5 or c=2 with b>=3.",
+    "General inclusion-exclusion or an unindexed mixed-alphabet distance-two-avoiding code enumeration could imply full polynomial.",
+    "The two explicit maximum-count regimes exclude c=3,4; full polynomial remains all a,b,c>=2, with zero size only a formal coefficient convention."
+  ],
+  "schema_version": 1
+}
