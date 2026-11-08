@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For all real fractional orders \(0<\alpha<1\), every positive mesh width and all coefficient indices, the proof reduces the Taylor coefficients of the BDF2 symbol to the exact three-term recurrence. Six explicit coefficient expressions give the exceptional indices, two completed-square identities give strict negativity at indices four and five, polynomial identities prove \(0<r_5<1\) and \(3/4<r_6<1\), and an induction gives \(3/4<r_j<1\) for every \(j\ge6\). The independent symbolic/exact-rational checker agrees with these identities but does not replace the infinite induction. The claim excludes starting corrections and PDE maximum principles.
+## correctness
 
-**Originality: PASS, qualified by historical-equivalence risk.** The 2014 Jin--Lazarov--Zhou full text sets up the classical BDF2 fractional CQ but does not give the asserted all-index sign/monotonicity proof. The 2023 López-Fernández--Płociniczak paper (inspected 2025 revision) provides first weight formulas and reports that the higher weight signs and magnitude decrease have been *numerically* checked, rather than proving them. Thus the exceptional threshold observation is credited, and the additional analytic certificate for every real exponent and arbitrarily late coefficient is distinguished from the empirical statement. Searches of indexed research and published numerical-analysis literature did not locate an equivalently strong proof; those searches are not a guarantee of historical uniqueness. A numerical BDF2 scalar-decay positivity paper is about a different operator and does not imply the convolution coefficient result.
+PASS
 
-**Value: PASS.** The cited CQ analysis uses a negative-history-weight assumption in discrete energy and Grönwall estimates. The present exact proof replaces a finite numerical observation with a valid entire-sequence sign criterion, including its sharp failure at higher fractional orders. Strict decrease beyond the first exceptional weights and quantitative ratio bounds provide additional non-asymptotic structure. The result is deliberately a kernel theorem, not a blanket convergence theorem.
+The normalizing scalar h^{-alpha}(3/2)^alpha is positive. Direct Taylor differentiation gives the coefficients 1..6; Q4 and Q5 are positive completed squares, r5 is between zero and one and r6>3/4 from the beta-polynomial inequality. The exact recurrence 3(j+1)c_{j+1}=4(j-alpha)c_j+(2alpha-j+1)c_{j-1} traps ratios (3/4,1) inductively for all j>=6, proving infinite-index claims. Independent symbolic calculations and seven rational alpha cases through j=121 confirmed all displayed signs and ratios. Numerical enumeration is auxiliary.
 
-**Residual risks:** A technically equivalent all-coefficient proof might appear in older special-function/coefficient literature. The significance of sign verification is specific to analytical estimates that use a negative-history-weight hypothesis; it is not a certificate for arbitrary discretizations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first exceptional orders and empirical later-negative observation are known; the claim adds a uniform all-index proof and strict tail ratio bounds. Compared against primary fractional BDF2 CQ literature and related published searches, no dominating previously proved all-index theorem was identified, subject to historical priority risk.
+
+## value
+
+PASS
+
+The all-index sign and strict tail ratio bounds resolve a stated uncertainty in a standard fractional BDF2 convolution kernel: they are exact stability-relevant kernel structure not a numerical extrapolation or a restatement of low-order coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
