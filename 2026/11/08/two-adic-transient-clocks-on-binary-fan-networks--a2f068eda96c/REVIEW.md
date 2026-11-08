@@ -1,0 +1,17 @@
+# Mathematical assessment
+
+## Correctness — PASS
+For the fan \(F_n=K_1\vee P_n\), the matching-polynomial expansion of the characteristic-two adjacency determinant distinguishes even and odd path lengths. For odd lengths it factors as \((z+1)^2f_{(n-1)/2}(z)^2\). The halving identity \(f_{2k+1}=zf_k^2\) gives the exact zero multiplicity. In the noninvertible odd case, two explicit kernel vectors establish geometric multiplicity two; one has self-pairing one, so symmetry excludes it from the matrix image and forces one length-one nilpotent block. Subtracting from the algebraic multiplicity gives the other block length. Fitting decomposition then determines every first-entry population for every finite field of characteristic two. For the resonant lengths \(n=2^s-1\), exact computation of the dimension-one fixed space establishes the two-dimensional unipotent recurrent block. Every boundary and quantifier is spelled out in `RESULT.md`.
+
+The standalone, pure-stdlib `checks/matrix_certificate.py` checked an independent determinant for \(2\le n\le14\), all iterate nullities up to and beyond stabilization for \(2\le n\le96\), and the dimension-one fixed space at five resonant sizes. A distinct `checks/labelled_evolution.py` directly followed all 8,184 binary configurations for \(2\le n\le11\). Both programs ran successfully; see `checks/verification_output.txt`. The infinite-family proof is mathematical, not an inference from the finite tests.
+
+## Originality — PASS, qualified
+Wolfram (1983) and Martin–Odlyzko–Wolfram (1984) supply the classical algebraic methodology for additive automata, particularly on rings. Thomas–Stevens–Lettieri (2006) analyzes polynomial and minimal-polynomial phenomena for one-dimensional finite-path and ring rules. These precedents are acknowledged and do not themselves give the universal-hub fan's nilpotent Jordan partition and labelled entry census. Cardoso–Gomes–Pinheiro (2022) concerns spectra of graph joins; its general spectral formulas may already imply the displayed characteristic polynomial, which is explicitly excluded from the new contribution. The known two-adic transient classification on a rim-closed wheel has a different graph and is not a general theorem covering the fan. Searches for aliases and stronger statements identified no coverage by implication; this is not a guarantee of priority. The general 2022 spectral manuscript was not fully accessible and remains a material risk.
+
+## Mathematical value — PASS
+The theorem solves a natural dynamics invariant for the whole fan family, giving the complete entrance-time census over every finite characteristic-two field, including two-adic phase changes in the Jordan partition. The resonant graphs all have diameter two, while their maximum transient is \(n-2\) and a fixed proportion \(1-1/q\) of initial states realizes it. The result therefore separates locality/graph diameter from algebraic relaxation and provides a structurally motivated family of arbitrarily large transient delays. It is not a mere recomputation of matching polynomials.
+
+## Limitations and priority context
+The general recurrent-order spectrum at nonresonant lengths is not claimed. External priority assessment and independent verification remain outstanding; the general graph-join literature and unindexed earlier sources could change priority.
+
+Self-review: passed. Independent audit: not yet performed.
