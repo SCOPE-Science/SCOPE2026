@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The crown graph is (n-1)-regular, giving the exact threshold t=floor((n-1)/2) for selected neighbors. For occupied shore index sets X,Y, chosen a_i has |Y|-1_{i in Y} selected neighbors and chosen b_j has |X|-1_{j in X}. These counts prove the complete alliance feasibility dichotomy (both shores >=t+1, or both >=t and disjoint). Single-deletion analysis leaves exactly disjoint (t,t) and intersecting (t+1,t+1) with overlap >=2. For the latter, any proper alliance must delete one selected vertex on each shore, removing all overlap, which is possible if and only if overlap=2; with overlap>=3 global minimality follows. Binomial choices yield all labelled polynomial coefficients. Boundaries n=3,4 have t=1 and no overlap>=3. The standalone script independently checked original neighborhood inequalities, all locally/globally minimal sets, and closed counts through n=8 (87,360 labelled subsets). The unrestricted conclusion relies on the proof, not the finite check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bazgan–Fernau–Tuza, Aspects of upper defensive alliances (2019), gives definitions, bounds and hardness, plus examples separating upper parameters; inspected article does not state a crown polynomial.",
+        "Gaikwad–Maity, arXiv:2202.02010v1, gives an FPT algorithm parameterized by neighborhood diversity and hardness results; its accessible full text gives no specialized crown polynomial.",
+        "Feng–Fernau–Mann, arXiv:2312.11963, claims general enumeration/counting results on special classes, but accessible abstract does not enumerate those classes; full document inaccessible.",
+        "Fernau–Mann–Meier–Vollmer, arXiv:2609.27984, proves generic enumeration-complexity results and degree-5 structure; full document inaccessible."
+      ],
+      "reasoning": "General FPT or output-sensitive enumeration methods can enumerate a finite graph but do not by themselves state the closed labelled two-polynomial formula for Cr_n, nor the overlap=2 local/global discrepancy for all n. Nevertheless the 2023 and 2026 general enumeration papers are plausible sources of implicitly equivalent structure and are recorded as risks, not marked NOT_COVERING from abstracts.",
+      "searches": [
+        "Web: \"Enumerating Minimal Defensive Alliances\" \"bipartite\" \"crown\"",
+        "Web: \"Enumerating Minimal Defensive Alliances\" \"special graph classes\" threshold chordal",
+        "Published research-record search: global minimal defensive alliances of complete multipartite graphs classification and polynomial",
+        "Published research-record search: inclusion-minimal defensive alliances complete bipartite graphs, perfect matching deletion, exact cardinality spectrum"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.dam.2018.05.061",
+      "arXiv:2202.02010v1",
+      "arXiv:2312.11963v1 (abstract only)",
+      "arXiv:2609.27984 (abstract only)",
+      "Published finding, Strong alliance polynomial of complete multipartite graphs",
+      "Published finding, Restrained-dominating-set profile of crown graphs",
+      "Accessible crown-graph and defensive-alliance prior claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Gaikwad–Maity gives fixed-parameter tractability in neighborhood diversity, not a labelled formula; crown graphs have unbounded distinct paired neighborhoods as n grows, so a fixed-parameter statement alone does not determine these coefficients.",
+        "Bazgan–Fernau–Tuza study extremal upper alliance parameters and separation examples, not the exact (t,t)/(t+1,t+1) membership criterion for crown graphs.",
+        "A previously available clique-bouquet result involves a different graph family and no graph reduction was identified that preserves defensive-alliance minimality to the crown family."
+      ],
+      "reasoning": "The proposed theorem implies the exact upper global and local defensive-alliance parameters for every crown graph and counts every labelled locally/global minimal set, including a local-only family with two contained global minima. Prior general hardness/FPT/enumerability theorems concern computational existence or enumeration algorithms and do not imply those explicit symbolic conclusions without additional analysis. A genuinely general previously published structural characterization, if one exists in inaccessible full text, could subsume the theorem; this remains the chief risk.",
+      "searches": [
+        "Web: \"Globally Minimal Defensive Alliances: A Parameterized Perspective\" filetype:pdf",
+        "Web: \"Enumerating Minimal Defensive Alliances\" filetype:pdf",
+        "Web: \"Parameterized Enumeration of Minimal Defensive Alliances\" filetype:pdf",
+        "Published research-record search: globally minimal defensive alliances in crown graphs complete bipartite graph minus matching classification maximum size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown graphs are complete bipartite graphs with a fixed deleted perfect matching, also called bipartite double covers of complete graphs. The direct calculation depends on shore occupancies and the overlap of matched indices. Accessible results concern other invariants or general alliance complexity and do not exhibit this two-threshold classification."
+      ],
+      "reasoning": "Same underlying graph under the aliases Cr_n, K_{n,n}-M, and the bipartite double cover of K_n; same selected subsets under ordinary defensive alliance terminology. The candidate classifies locally and globally minimal alliance sets, not domination, strong alliances, or generic enumeration algorithm running time.",
+      "searches": [
+        "Published research-record search: Crown graph K_{n,n} minus matching locally minimal globally minimal defensive alliance sets exact counts intersection threshold 2 3",
+        "Published research-record search: minimal defensive alliance complement matching bipartite double cover clique graph locally minimal vs globally minimal",
+        "Web: \"crown graph\" \"alliance\" locally minimal",
+        "Web: \"K_{n,n}-M\" \"defensive alliance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned research IDs concern restrained domination of crown graphs (Restrained-dominating-set profile of crown graphs (published finding)), perfect Roman domination (Perfect Roman domination of crown graphs (published finding)), and strong defensive alliances on complete multipartite graphs (Strong alliance polynomial of complete multipartite graphs (published finding)). None states the claimed ordinary minimal-defensive-alliance polynomial.",
+        "Accessible earlier scientific results contain the unrelated defensive alliance theorem on clique bouquets (item f9ba36a4-b31b-4a94-b5c6-fc10a5ebbf2c) and crown-graph results for other invariants; no equivalent crown defensive-alliance claim."
+      ],
+      "reasoning": "No exact cardinality table or closed formula matching the proposed global/local polynomials or the intersection-two exception appeared in the actual searches. A negative search does not prove novelty, and uninspected literature remains a risk.",
+      "searches": [
+        "Published research-record search: Crown graph defensive alliance upper alliance number globally minimal defensive alliances two sizes factorial binomial coefficients",
+        "Published research-record search: Crown graph K_{n,n} minus matching locally minimal globally minimal defensive alliance sets exact counts intersection threshold 2 3",
+        "Web: defensive alliance crown graphs minimal globally locally polynomial number"
+      ]
+    },
+    "rationale": "Compared the actual characterization, overlap thresholds, full labelled coefficients and upper-parameter implications with accessible foundational, parameterized and enumeration literature and accessible earlier scientific results. Bazgan–Fernau–Tuza introduce the local/global distinction and general upper problems but no crown classification in inspected material. Gaikwad–Maity give FPT and hardness results rather than the closed intersection theorem. Searches did not find an equivalent exact crown formula. Feng–Fernau–Mann (2023) and Fernau et al. (2026) are highly relevant generic enumeration papers whose primary full texts could not be read, creating a material publication-priority residual risk; this risk does not establish coverage but warrants independent comparison. Small n=3 is a six-cycle, and no new priority is asserted for its isolated specialization.",
+    "residual_risks": [
+      "Complete primary text of arXiv:2312.11963 was not accessible; its special-graph-class enumeration results could potentially cover or implicitly imply the formula.",
+      "Complete primary text of arXiv:2609.27984 was not accessible; a broad structural lemma could in principle imply a specialization.",
+      "An older paper using the alternative descriptions K_{n,n} minus a perfect matching or a bipartite double cover could be unindexed or missed.",
+      "The n=3 six-cycle specialization is not independently original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No crown-graph exact classification located; covers definitions and general complexity, with non-hereditary minimality motivation.",
+        "evidence": [
+          "doi:10.1016/j.dam.2018.05.061",
+          "Definitions of local/global minimality and upper parameters in Section 2; discussion of nonhereditariness; Section 3 hardness and Section 4 conclusions."
+        ],
+        "identifier_or_url": "https://www.lamsade.dauphine.fr/~bazgan/Papers/DAM19a.pdf",
+        "material_read": "Introduction, definitions, examples, complexity theorems and concluding remarks from accessible indexed full text; PDF page-image retrieval did not complete.",
+        "method": "Web full-text lines and targeted term searches for crown and bipartite.",
+        "title": "Aspects of upper defensive alliances",
+        "trigger": "Defines and separates upper local/global alliance parameters, the exact conceptual comparator."
+      },
+      {
+        "assessment": "No crown-graph two-threshold polynomial in inspected primary text; general FPT and hardness results do not imply it directly.",
+        "evidence": [
+          "arXiv:2202.02010v1",
+          "Definitions 1–4 and Theorem 1; Section 6 conclusion."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/358401994_Globally_Minimal_Defensive_Alliances_A_Parameterized_Perspective",
+        "material_read": "Accessible reproduced primary full text, including definitions, neighborhood-diversity FPT section, hardness statements and conclusion.",
+        "method": "Full-text web page, inspected beginning, Sections 1–2 and conclusion, searched for bipartite and crown terminology.",
+        "title": "Globally Minimal Defensive Alliances: A Parameterized Perspective",
+        "trigger": "Same global minimality definition and 2022 literature-led direction."
+      },
+      {
+        "assessment": "Unresolved source-coverage risk; no whole-document NOT_COVERING conclusion claimed.",
+        "evidence": [
+          "arXiv:2312.11963v1",
+          "Published preprint December 19, 2023; algorithms and counting on general and special graph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.11963",
+        "material_read": "Abstract and secondary bibliographic description only; full arXiv/OA attempts were unsuccessful.",
+        "method": "Publisher/preprint metadata and web search; alternative institutional full-text request unavailable.",
+        "title": "Enumerating Minimal Defensive Alliances",
+        "trigger": "Same local/global enumeration problem in general graphs; plausible broader coverage."
+      },
+      {
+        "assessment": "Unresolved full-text risk; stated degree-5 tractability and neighborhood-diversity results do not explicitly give the crown family polynomial.",
+        "evidence": [
+          "arXiv:2609.27984",
+          "September 23, 2026 preprint, generic enumeration results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.27984",
+        "material_read": "Abstract and accessible extended descriptive summary only; primary full text unavailable.",
+        "method": "Preprint metadata and targeted web search.",
+        "title": "Parameterized Enumeration of Minimal Defensive Alliances",
+        "trigger": "Potential stronger general enumeration result after the selected motivating source date."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8bf284de-a59d-4cac-9f6c-46010952f754",
+  "value": {
+    "rationale": "Globally versus locally minimal defensive alliances differ because the property is nonhereditary, and upper/all-cardinality distinctions are explicitly motivated in the source literature. On an infinite, connected, regular bipartite family the exact overlap-two local-only obstruction is a structural classification: each such set contains exactly two strictly smaller globally minimal alliances. Both full labelled polynomials, possible minimal cardinalities and both upper parameters follow, with a sharp n=5 boundary for agreement of upper values despite persistent family-level disagreement. Neither a scalar minimum nor the ability to enumerate algorithmically supplies this statement.",
+    "status": "PASS"
+  }
+}
