@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The symmetric graph Laplacian has projectors E0=J/N and two positive nontrivial spectral values alpha<beta. Solving Ealpha+Ebeta=I-J/N and alpha Ealpha+beta Ebeta=L gives exact adjacent/nonadjacent projector entries; applying F(z)-1=-12z/(z^2+6z+12) yields the two rational entry formulas. Diagonal entries are strictly positive because F(z)>0 for all z>=0. Every nonedge entry is strictly positive for h>0. Every edge entry has the sign of 12N/p+6h+(s-N)h^2, with p=alpha*beta>0 and s=alpha+beta. This polynomial has a unique positive root exactly when s<N. Formula for that root and the equality/sign cases were algebraically checked. Standalone check.py computes and inverts exact rational matrices on seven distinct strongly regular graphs, verifying 8172 offdiagonal entries, row sums, diagonals, and parameter identities. All-dimension proof relies on the analytical identities rather than finite enumerations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Accessible older claim 335027f8-6795-4037-8d52-216000e85bd5 gives a filter-wide criterion on complete multipartite graphs, covering only a restricted strongly regular subfamily.",
+        "Accessible older claim e93fc319-6dc7-41e0-81cf-01692c55ac9c classifies [2/2] Padé on products of complete graphs, already covering rook-graph examples but not arbitrary strongly regular graphs.",
+        "Lóczi–Ketcheson (arxiv:1303.6651v1) studies method-level absolute monotonicity, and its scalar criteria do not imply positivity across a specifically restricted graph family.",
+        "Zappavigna et al. (pp. 13–18) obtain sufficient positivity bounds for Hurwitz Metzler systems rather than an exact if-and-only-if threshold for semistable connected graph Laplacians."
+      ],
+      "reasoning": "The same Padé map appears in both accessible earlier subfamily results, so their overlapping special cases are explicitly excluded as independent novelties. The new statement instead determines every connected noncomplete strongly regular graph, including Petersen and non-Cartesian examples, with a common exact all-timestep parameter criterion. General Padé sufficient bounds or global absolute-monotonicity results neither yield its necessity nor classify all such graph Laplacians.",
+      "searches": [
+        "Gauss Legendre rational stability function numerical heat strongly regular graph entrywise nonnegativity",
+        "exact positivity Runge Kutta rational heat propagator graph Laplacian",
+        "indexed-scientific-record:1f6f56bd0eac",
+        "prior-claim:335027f8-6795-4037-8d52-216000e85bd5",
+        "prior-claim:e93fc319-6dc7-41e0-81cf-01692c55ac9c"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1303.6651",
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://arxiv.org/abs/1411.6532",
+      "indexed-scientific-record:4aad2a3f58ab",
+      "indexed-scientific-record:1f6f56bd0eac",
+      "prior-claim:ffa09f55-5e63-425c-a058-e4f31166bb3b",
+      "prior-claim:335027f8-6795-4037-8d52-216000e85bd5",
+      "prior-claim:e93fc319-6dc7-41e0-81cf-01692c55ac9c",
+      "prior-claim:a8ca5b26-1d22-4dd0-8733-d33e1f3433ad"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible older item ffa09f55-5e63-425c-a058-e4f31166bb3b: exact positivity horizon for classical polynomial RK4 on strongly regular graphs; unlike the present implicit rational [2/2] map.",
+        "Accessible older item 335027f8-6795-4037-8d52-216000e85bd5: complete multipartite graph positivity criterion for arbitrary scalar filters, with explicit Gauss–Legendre corollary; not all strongly regular graphs.",
+        "Accessible older item e93fc319-6dc7-41e0-81cf-01692c55ac9c: [2/2] Gauss–Legendre positivity for Cartesian products of cliques, covering particular rook graphs but not triangular or Petersen graphs.",
+        "Accessible older item a8ca5b26-1d22-4dd0-8733-d33e1f3433ad: [2/2] Gauss–Legendre on windmill graphs, with a different generally nonregular graph family.",
+        "published-finding corpus eight-state barrier: existence of negativity for a directed eight-state generator at arbitrarily small h, not an exact universal theorem for reversible strongly regular graphs."
+      ],
+      "reasoning": "Compared the precise graph domains, matrix-valued rational versus polynomial stability functions, and implication direction. The same-graph RK4 theorem does not imply the Padé theorem, while same-filter subfamily classifications imply some examples but not the all-SRG iff classification or its universal edge-sign mechanism. A general negative directed-generator example and stability theory cannot imply the exact strongly regular parameter law.",
+      "searches": [
+        "two-stage Gauss Legendre fourth-order Padé heat graph strongly regular graph three spectral values positivity threshold eigenvalues",
+        "Gauss Legendre rational stability function numerical heat strongly regular graph entrywise nonnegativity",
+        "prior-claim:ffa09f55-5e63-425c-a058-e4f31166bb3b",
+        "prior-claim:335027f8-6795-4037-8d52-216000e85bd5",
+        "prior-claim:e93fc319-6dc7-41e0-81cf-01692c55ac9c",
+        "prior-claim:a8ca5b26-1d22-4dd0-8733-d33e1f3433ad",
+        "indexed-scientific-record:4aad2a3f58ab"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The spectral statement alpha+beta>=N is equivalent to the parameter inequality 2k-lambda+mu>=N (Lin–Weng, equation (1.1), arxiv:1411.6532v1).",
+        "The rational function is the standard [2/2] Padé stability map, also treated as C2 by Zappavigna et al., pp. 13–17 of the openly readable manuscript.",
+        "published-finding corpus 2026/9/20 eight-state Padé obstruction concerns a directed pure-birth chain and does not give the symmetric three-eigenvalue parameter classification."
+      ],
+      "reasoning": "Converted the theorem between graph parameters, two nonzero Laplacian eigenvalues, graph-heat rational filter notation, and the [2/2] Padé matrix representation. The located results treat the standard scalar method or directed nonreversible obstructions, but none of these statements supplies the same edge-versus-nonedge sharp sign law for every connected strongly regular graph.",
+      "searches": [
+        "two-stage Gauss Legendre fourth-order Padé heat graph strongly regular graph three spectral values positivity threshold eigenvalues",
+        "strongly regular graphs [2/2] Padé positivity adjacent non-adjacent exact cutoff alpha beta number vertices",
+        "indexed-scientific-record:4aad2a3f58ab",
+        "arxiv:1411.6532v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned a Padé Markov-chain counterexample and other positivity thresholds for different methods but no matching all-SRG [2/2] table among the inspected closest results.",
+        "The Lin–Weng spectral equation provides the nonzero Laplacian eigenvalues but not rational heat transition matrices or timesteps.",
+        "The derived formula directly covers both nonisomorphic (16,6,2,2) rook and Shrikhande graphs, showing parameter-level rather than instance-table scope."
+      ],
+      "reasoning": "A focused search for the exact matrix-function, graph family, and equivalent spectral threshold did not identify a published database or table already reporting this class-wide cutoff. This is evidence only within the searched materials, not proof that no unindexed table exists; the residual risk is retained explicitly.",
+      "searches": [
+        "two-stage Gauss Legendre fourth-order Padé heat graph strongly regular graph three spectral values positivity threshold eigenvalues",
+        "strongly regular graphs [2/2] Padé positivity adjacent non-adjacent exact cutoff alpha beta number vertices",
+        "strongly regular graph Laplacian [2/2] Pade numerical heat positivity",
+        "indexed-scientific-record:4aad2a3f58ab",
+        "https://arxiv.org/abs/1303.6651",
+        "https://arxiv.org/abs/1411.6532"
+      ]
+    },
+    "rationale": "The checked published primary work concerns absolute monotonicity of scalar rational functions, general sufficient positivity of Padé matrices on Metzler systems, or strongly regular graph spectral eigenvalues. These furnish ingredients but not the explicit all-SRG if-and-only-if entrywise time-step classification. The closest accessible earlier claims with the same scalar filter concern Hamming products, complete multipartite graphs, and windmills; the same SRG graph class was previously treated with a different polynomial RK4 filter. Coverage is checked by statement implication, including overlapping special cases, not merely titles; publication priority remains qualified by unindexed older literature.",
+    "residual_risks": [
+      "Older unindexed research in association-scheme matrix functions or strongly regular graph positivity might formulate an equivalent [2/2] Padé transition inequality.",
+      "The full secondary literature and every unpublished thesis cannot be exhaustively screened; best-knowledge originality is not a formal uniqueness or priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes method-level scalar rational stability and absolute-monotonicity analysis; no exact all-strongly-regular graph-heat entrywise cutoff in the inspected material.",
+        "evidence": [
+          "arxiv:1303.6651v1 posted March 26, 2013; introduction and §§1,6; https://arxiv.org/pdf/1303.6651"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "Abstract; first sections defining absolute monotonicity, rational order classes and their method scope; section 6 on specific rational families; full-text searches for graph-specific, Gauss, and strongly regular terms.",
+        "method": "Lawful arXiv public full text and visually inspected first PDF page.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Focal 2013 primary numerical-analysis literature on rational Runge–Kutta positivity and Padé stability functions."
+      },
+      {
+        "assessment": "The theorem provides sufficient steps for Hurwitz Metzler matrices and a directed obstruction, not this exact necessary-and-sufficient graph-specific law; full paper text was available.",
+        "evidence": [
+          "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf, pp. 13–18, Theorem 3"
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Pages 1–4 definitions and Padé map, pp. 13–14 [2/2] directed nilpotent example, pp. 16–18 Lemmas and Theorem 3 with sufficient positivity conditions.",
+        "method": "Lawful open PDF text; visually inspected first page; read relevant mathematical arguments and sufficient bounds.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Directly studies diagonal Padé approximations on positive systems and a sharp failure example."
+      },
+      {
+        "assessment": "Contains the established spectral identities used as input, but does not analyze rational graph-heat positivity or provide the claimed sharp time-step threshold.",
+        "evidence": [
+          "arxiv:1411.6532v1 posted November 24, 2014; eq. (1.1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.6532",
+        "material_read": "First two sections including definition, equation (1.1), main theorem description and graph spectral discussion; searched full 11-page text for Padé and Runge–Kutta terms.",
+        "method": "Lawful arXiv full PDF; visually inspected first page and read spectral formulas.",
+        "title": "Strongly Regular Graphs as Laplacian Extremal Graphs",
+        "trigger": "Potential identical graph parameters and exact Laplacian eigenvalue coverage."
+      },
+      {
+        "assessment": "The published claim concerns minimal dimension for arbitrarily-small negative Markov transition probabilities on unrestricted directed generators, with an eight-state pure-birth witness. It does not entail the new all-timestep classification on connected undirected strongly regular graphs, whose entries are determined by a symmetric three-eigenvalue spectral scheme and parameter s versus order N.",
+        "evidence": [
+          "Published RESULT.md Theorem 1: local positivity for CTMC with at most seven states and an eight-state directed counterexample; Theorem 2: exact stochasticity interval for the pure-birth chain; no strongly regular spectral parameter law."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+        "material_read": "Full published RESULT.md, including both theorems and their proofs, directed pure-birth Markov generator, exact stochasticity-window analysis, relationship to prior Padé work, and limitations.",
+        "method": "Read complete published primary mathematical record through the connected read-only repository fetch.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest indexed published claim using exactly the same fourth-order [2/2] Padé numerical propagator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "89483546-8c5c-4549-b892-f367e506f058",
+  "value": {
+    "rationale": "Entrywise positivity is a natural invariant of graph heat propagation and probability-mass diffusion; a fourth-order A-stable implicit numerical step need not preserve it. The theorem classifies the exact all-step positivity domain over every connected noncomplete strongly regular graph, identifies the sole failure mechanism and all boundary entries, and turns the issue into a simple parameter inequality 2k-lambda+mu>=N. Infinite safe Paley/conference and unsafe triangular families and the n*h_* -> sqrt(6) scaling show structurally distinct behavior beyond small examples. The exact cutoff is useful for certified positivity-safe numerical integration on symmetric graphs, not an arbitrary finite table entry.",
+    "status": "PASS"
+  }
+}
