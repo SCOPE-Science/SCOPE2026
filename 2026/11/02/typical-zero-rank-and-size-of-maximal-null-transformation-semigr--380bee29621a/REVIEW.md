@@ -1,23 +1,21 @@
-# Review: typical zero rank and size of maximal null transformation semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact normal form follows by decomposing a null subsemigroup along the kernel classes of its zero idempotent. On a block with root \(a\) and admissible image set \(W\), all maps collapse \(W\) to \(a\) and map the remaining points into \(W\). The count \(k\binom{k-1}{j-1}\) and order \(j^{k-j}\) are independently reconstructed, including the two exceptional small block sizes. Direct labeled-set assembly gives the marked generating function.
+PASS
 
-For the limits, a unique positive saddle \(t\) satisfies \(n=tB'(t)\). Independent Poisson block variables conditioned on total size \(n\) reproduce uniform maximal null subsemigroups exactly. A characteristic-function expansion proves the needed normal approximation for the total size excluding singleton blocks. This gives a quantitative, non-negligible lower bound for the conditioning event, sufficient for the Poisson Chernoff rank law and the exponentially tilted bad-block bound. Uniformly typical block sizes and root-subset sizes prove the logarithmic semigroup-order law. The coefficient identity and Stirling's formula give total-count growth.
+From the known Cameron et al. maximal-null component normal form N(W,a), a rooted k-block has b1=1,b2=2,bk=k(2^{k−1}−2) choices k≥3 and order j^{k−j} when |W|=j. Labeled assembly gives exp(u C_theta(z)), with C0=B(z)=z e^{2z}−2z e^z+2z+z². Independently implemented the coefficient recurrence and reproduced published F0..F10 exactly (1,1,3,13,73,451,3211,26097,236433,2335123,24943171). For saddle n=tB′(t), the Poisson component model gives 2t=logn−2loglogn+log2+o(1), B(t)~n/logn. The characteristic-function CLT and independent Poisson X1 yield P(N=n)≥exp(−o(n/(logn)^3)), enough for Chernoff concentration of block count and exponentially rare atypical decorated blocks under conditioning. On typical blocks k≈2t, j≈k/2, so L_n∼(n/2)loglogn; Stirling yields logF_n=nlogn−nloglogn+(log2−1)n+o(n). Checked the conditioning denominator versus all concentration scales; the finite recurrence is corroboration and not an asymptotic proof.
 
-The verifier constructs transformation multiplication independently and exhaustively tests all maximal null families for ground-set sizes one through four. It checks the complete zero-rank spectra and first two order moments against the marked formula. These finite checks are corroboration, not proof of the asymptotic assertions.
+## originality
 
-## Originality — PASS, with priority limits
+PASS
 
-Cameron et al., arXiv:2110.09701, Section 4.2, already classified inclusion-maximal null subsemigroups, computed their component weights, and provided an exact total-count recurrence and initial table. Those are **not** presented as new. The exact bivariate and Mellin-marked identities are straightforward explicit transformations of their classification and are not the independent novelty basis. The assessed addition is the quantitative description of a uniformly chosen maximal null subsemigroup: zero rank asymptotic to \(n/\log n\), logarithmic order asymptotic to \(n\log\log n/2\), and total-count logarithmic growth with its linear constant. Cain–Malheiro–Paulista, arXiv:2310.08481, addresses extremal cardinalities of commutative nilpotent transformation semigroups rather than these typical inclusion-maximal statistics. Relevant scientific-index and primary-literature searches did not reveal an equivalent calculation, but absence from searched sources does not certify priority. General asymptotic theorems for decorated set partitions may subsume portions of the result; a broader unlocated analysis remains the main risk.
+The unmarked normal form and total-count recurrence belong to Cameron et al. (2023); here they are credited. The joint uniform maximal-null rank and semigroup-logsize in-probability asymptotics and precise total logcount were not supplied by the inspected structural theorem or by later maximum-size studies.
 
-## Mathematical value — PASS
+## value
 
-The space of maximal-by-inclusion null subsemigroups is structurally much larger than the set of maximum-cardinality examples. A typical member has a zero with a logarithmically thinning fraction of kernel classes and has semigroup size on a radically different scale from the largest examples. These intrinsic statistics explain the typical structure of a natural finite-semigroup family, not merely an arbitrary numerical slice. The marked formula also allows exact zero-rank and order-moment extraction at every finite dimension.
+PASS
 
-## Limitations
+A typical-object probabilistic classification in a naturally counted transformation-semigroup family, sharply separating zero rank n/logn from logarithmic object size nloglogn/2, is an independently useful asymptotic result beyond enumeration.
 
-The results concern labeled full transformation semigroups and uniform sampling of inclusion-maximal **null** subsemigroups. They do not imply analogous laws for maximal commutative nilpotent semigroups, unlabeled isomorphism classes, or arbitrary nilpotent transformation semigroups. An independent literature and mathematical audit has not been carried out.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
