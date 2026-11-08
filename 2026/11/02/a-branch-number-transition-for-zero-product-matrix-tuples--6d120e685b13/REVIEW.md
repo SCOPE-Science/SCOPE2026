@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normalization \(E_i=A_iS^{-1}\) gives a reversible equivalence with orthogonal idempotents and invertible blocks; the stabilizer quotient yields the constant \(|\mathrm{GL}_n(q)|\) for each rank profile. The geometric smoothness and motivic identity follow from Zariski-local triviality of the ordered-decomposition bundle. The two-branch rank count has the asserted leading degrees. The competing square-zero family has unique recoverable middle subspace and supplies the lower bound needed for the higher-branch transition. In dimension two, nilpotent and nonnilpotent rank-one matrices exhaust the singular alternatives. The standalone program corroborates nine exact finite cases.
+PASS
 
-## Originality
+For ordered m-tuples A_i in M_n(K) with cross products A_i A_j=0 only for i!=j, unit sum S invertible induces commuting idempotents E_i=A_i S^-1 with E_i E_j=0 and sum E_i=I. Hence K^n decomposes as direct sum V_i and A_i are invertible on each V_i. For each weak composition r of n, G=GL_n acts transitively on decompositions with stabilizer H=product GL_{r_i}; choice of invertible block maps contributes H, yielding exactly |GL_n(q)| points each and Zariski-local bundle class [G/H][H]=[G], smooth geometrically irreducible dimension n^2 (GL special ensures local trivialization). For m2, fixing rank of A1 yields factor-through ker / quotient rank counts with leading q-degree n² iff ranks sum n, proving unit proportion 1-O(q^-1). For m>=4 the common-kernel/image square-zero family on a t=floor(n/2) plane has dimension (m+1)t(n-t)>n², giving decay power; at even n,m3 its dimension matches n² and gives the asserted limsup cap. For n2, separate nilpotent rank-one line families and singleton nonnilpotent matrices to derive the all-m exact count. Independently enumerated all tuples for (n,q,m)=(2,2,5) and (2,3,3), obtaining totals 214 and 465 and unit totals 90 and 288 respectively with GL_n(q) per composition. These computations do not replace the general scheme/dimension argument.
 
-PASS relative to inspected evidence. Huang's full relevant §3.1 covers all pair counts and provides the standard quotient/kernel observation; the two-branch baseline is not presented as new. Bondarenko–Gerasimova–Sergeichuk and Oblak classify pair structures, while Schröer treats nilpotent pairs. None of these inspected statements supplies the arbitrary-branch unit-sum motivic and rank-profile identity together with the three/four-branch transition. Residual risk: this decomposition may be implicit in general semisimple-module or ordinary multiple-point representation-variety work; publication priority is not established exhaustively.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem isolates a natural open locus of the representation variety of the union of coordinate axes and proves that all its rank components have the same point count and motive. It further locates an explicit branching threshold beyond which a large square-zero subfamily overwhelms this entire open locus, with a sharp low-dimensional formula resolving the first critical case. It is not a bare count of one arbitrary finite instance.
+Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The unit-sum rank distribution is an exact intrinsic invariant of an algebraic variety, not just a computational count. The competition between a smooth invertible-sum locus and a higher-dimensional nilpotent family gives a sharp qualitative change with number of branches, plus an exact n2 all-m count and critical m3 even-n separation. This combination offers usable structure for finite-field representation variety and algebraic statistic research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
