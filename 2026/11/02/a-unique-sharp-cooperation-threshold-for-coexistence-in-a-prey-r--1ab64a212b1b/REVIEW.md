@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim follows from a bijective fixed-point parameterization \(t=Y(1+cY)\), the endpoint divergence of \(C(t)\), and a proved global strict-convexity identity for \(K(t)\). The assumptions force \(A\ge B\), \(0<F'<R<1\); consequently \(K\) has one positive zero and \(C\) exactly one nondegenerate minimum. The bundled numerical checks evaluate the original, not merely reduced, map. Limits and monotonic branches follow analytically. Finite experiments are not used as proof of an infinite assertion.
+## correctness
 
-## Originality
-PASS on presently checked evidence, with a residual unindexed-literature risk. The motivating 2023 article's Section 2.3 and Theorem 2.4 provide only a one-sided exclusion criterion and an at-most-two bound, and Figure 3 explicitly describes its fold threshold as unproved. Chow--Jang--Wang (2018), Theorems 3.1--3.2, obtain fold results in the *no-refuge* model while varying predator conversion \(\beta\), so do not imply this theorem about the dependence on cooperation \(c\) for a nontrivial prey refuge \(0<\gamma<1\). Relevant published mathematical research hits studied different prey-fear and herd models, not the same map or critical-parameter quantifiers. Searches and full-document inspection descriptions are enumerated in AUDIT.json. A targeted search cannot prove global uniqueness in the literature.
+PASS
 
-## Mathematical value
-PASS. The originating biological problem is to determine whether cooperative hunting can rescue predators when the invasion number is below one. A merely sufficient extinction condition or numerical bifurcation graph cannot decide exactly when coexistence becomes possible. A sharp, all-parameter coexistence phase transition with a constructive scalar characterization and complete branch limits closes that gap in a nonempty ecological regime.
+For lambda>1, beta>0, 0<gamma<1 with gamma<=(lambda-1)/(2lambda) and R=beta*gamma*(lambda-1)<1, t=Y(1+cY) gives a bijective equilibrium parameterization X=A+B exp(-t), Y=F(t)=beta*gamma*(1-exp(-t))*(A+B exp(-t)). Since A>=B>0, F is a positive sum of exponentials with 0<F'(t)<=R<1. The exact derivative C'=F'K/F^2 of C=(t-F)/F^2 and the independently verified K''>0 formula imply exactly one positive zero of K: K(0)=0, K'(0)=R-1<0, K(infinity)>0. Thus C has a unique nondegenerate positive minimum and diverges at both ends, proving exactly 0/1/2 strictly positive fixed points below/at/above c*. Inverse branch derivatives give opposite Y monotonicities and asymptotic expansions. Independent SymPy differentiation reproduced the nonstandard convexity identity; numeric bisection gave c*=2.319323453738189 for lambda,beta,gamma=3,4,0.1 and reconstructed map residuals. Neither sampling nor threshold logs are the global proof.
 
-## Scope and residual risks
-The proof covers precisely \(\gamma\le(\lambda-1)/(2\lambda)\), \(R<1\); it makes no global persistence or stability claims and does not cover larger prey-access fractions. The 2023 source's reported numerical fold location is not treated as a theorem, and the precise threshold here is computed independently from its printed map equations. Other ecological response functions are not equivalent without a demonstrated conjugacy.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precise final mathematical claim; generic tools and starting formulae are acknowledged as prior. The fixed-point nullcline reduction uses the same map as Jang–Yousef, but its Theorem 2.4 gives only a sufficient nonexistence condition and an upper bound of two solutions; the unique all-parameter c-fold and inverse branches are stronger.
+
+## value
+
+PASS
+
+A coexistence threshold below predator-invasion one is directly motivated by a discrete prey-refuge predator model. The result upgrades a sufficient no-coexistence condition and numeric fold into a sharp necessary-and-sufficient global fixed-point count in a genuinely nonempty parameter region; the branch limits are useful to bifurcation analysis. It does not assert dynamics or stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
