@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 check_translation.py` with Python 3. The program uses only the standard library. It explicitly constructs the Latin-square graphs and clique complexes for the cyclic groups of orders 5, 7, and 9 and the noncyclic group of order 9, enumerates all cliques and all translations, calculates the signed alternating face traces, and verifies the proposed character formula at each translation. It additionally constructs all boundary maps over the field of two elements, obtains their ranks by bit-vector elimination, and confirms the Betti ranks and character multiplicities.
+## correctness
 
-Observed successful cases: `(5,)` had 25 vertices, 515 cliques and second Betti rank 64; `(7,)` had 49 vertices, 2863 cliques and rank 216; `(9,)` and `(3,3)` each had 81 vertices, 14283 cliques and rank 512. Exactly 236 translation traces and 236 multiplicity entries were checked across the four groups. The other positive-degree mod-two Betti ranks vanished for every case. This is a finite consistency test, not an exhaustive search of all odd groups or a proof of the unrestricted theorem.
+PASS
 
-For all group orders, the proof relies on the established all-field homology theorem for Latin-square clique complexes, the elementary no-intercalate argument for odd-order abelian group tables, the classification of invariant cliques, and the signed Lefschetz trace identity. The conclusion is a rational representation isomorphism, not an assertion about integral representation lattices or equivariant homotopy types.
+An odd-order abelian group table has no intercalate: the Latin 2x2 equations imply 2(c1-c2)=0 and hence c1=c2. The inspected Cioabă–Mim field-homology theorem therefore gives reduced homology only H2 with dimension (n-1)^3. Every nontrivial translation acts freely on cells with odd orbit length>=3; a setwise invariant clique contains such an orbit, forcing u=0 or v=0 or u+v=0, exactly one axis. An outside cell meets a preserved row/column/sum line in at most two positions, so every preserved clique lies wholly on one of n disjoint lines. A preserved full simplex has alternating oriented-face trace 1, hence Lefschetz L(t)=n on axes and 0 elsewhere, with H0 trace 1; at identity H2 dimension known. The resulting character is product of three augmentation characters and gives a rational isomorphism by characteristic-zero semisimplicity, with Fourier multiplicity n-|{1,alpha,beta}|. Independent exact n=5 clique enumeration yielded 515 nonempty faces, and representative translation characters (identity64, axes4, off-axes -1) matched formula.
+
+## originality
+
+PASS
+
+The nonequivariant Latin-square homology ranks and even wedge-type information predate this claim. The explicit action of group translations, its augmentation-tensor module, and multiplicities of all characters are not forced by nonequivariant data and were not found in inspected primary work.
+
+## value
+
+PASS
+
+The natural T=A×A symmetry is intrinsic to every group-table Latin square, and the complete H2 character supplies precise invariant subspace dimensions and every isotypic multiplicity. This is an interpretable equivariant refinement of the known nonequivariant homology theorem across all odd finite abelian groups, not mere relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

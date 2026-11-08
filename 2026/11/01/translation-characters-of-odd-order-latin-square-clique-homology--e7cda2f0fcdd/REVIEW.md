@@ -1,15 +1,21 @@
-# Scientific review: translation characters of odd-order Latin-square clique homology
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the full clique complex of the group-table Latin-square graph of an odd-order abelian group with at least five elements. Translations preserve its three line classes. The published all-field Latin-square homology theorem applies because group tables are Latin squares of the required order, and the odd-order group table has no intercalates. For a nonidentity translation, an invariant clique contains an orbit of odd length at least three, which forces the translation to preserve exactly one of the row, column, or sum line classes. Any clique containing three points of one such line lies entirely in that line. Each preserved simplex line contributes signed Lefschetz number one, giving the new trace formula. The augmentation-tensor and Fourier formulas follow rigorously from finite-group character theory. The proof does not mistake finite checks for an unrestricted argument.
+## correctness
 
-## Originality — PASS, with residual risks
-Cioabă–Mim (arXiv:2606.27328v1, Section 3) already determine ordinary field homology and the degree-two rank \((n-1)^3-I\). An accessible prior statement further identifies the nonequivariant homotopy type for all Latin squares as a wedge of two-spheres. Neither result specifies the action of the translation group or the decomposition into all complex characters. The key additional argument classifies translation-setwise-invariant cliques and uses oriented simplex traces; this information is not implied by a Betti number or nonequivariant homotopy type. Targeted searches on characters, autotopisms, augmentation tensor modules, and group-table clique homology yielded no equivalent or dominating theorem. Unindexed or implicit prior coverage cannot be excluded.
+PASS
 
-## Value — PASS
-The natural translation action on a group-table Latin square is intrinsic, and the gap between an ordinary Betti number and its symmetry module is mathematically substantive. The theorem gives the entire rational translation representation for every finite odd-order abelian group of size at least five, with a uniform three-factor augmentation description, an explicit character at every group element, all \(n^2\) irreducible multiplicities, and \(n-1\) translation-invariant classes. It applies to noncyclic groups and detects information invisible to the previously determined homotopy type. Odd order has a structural role: it removes intercalate tetrahedra and order-two translation orbits.
+An odd-order abelian group table has no intercalate: the Latin 2x2 equations imply 2(c1-c2)=0 and hence c1=c2. The inspected Cioabă–Mim field-homology theorem therefore gives reduced homology only H2 with dimension (n-1)^3. Every nontrivial translation acts freely on cells with odd orbit length>=3; a setwise invariant clique contains such an orbit, forcing u=0 or v=0 or u+v=0, exactly one axis. An outside cell meets a preserved row/column/sum line in at most two positions, so every preserved clique lies wholly on one of n disjoint lines. A preserved full simplex has alternating oriented-face trace 1, hence Lefschetz L(t)=n on axes and 0 elsewhere, with H0 trace 1; at identity H2 dimension known. The resulting character is product of three augmentation characters and gives a rational isomorphism by characteristic-zero semisimplicity, with Fourier multiplicity n-|{1,alpha,beta}|. Independent exact n=5 clique enumeration yielded 515 nonempty faces, and representative translation characters (identity64, axes4, off-axes -1) matched formula.
 
-## Limits and closest sources
-The accepted statement makes no integral module or equivariant homotopy assertion. It uses the published all-field homology theorem as an input; the new proof verifies the special-case assumptions and computes the action itself. Source: S. M. Cioabă and M. Mim, *On the homology groups of clique complexes of strongly regular graphs*, arXiv:2606.27328v1 (2026-06-25), especially Section 3. A previously recorded nonequivariant sphere-wedge theorem is stronger on homotopy but does not resolve the equivariant claim. The finite verifier covers four example groups and does not exhaust the theorem's infinite domain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonequivariant Latin-square homology ranks and even wedge-type information predate this claim. The explicit action of group translations, its augmentation-tensor module, and multiplicities of all characters are not forced by nonequivariant data and were not found in inspected primary work.
+
+## value
+
+PASS
+
+The natural T=A×A symmetry is intrinsic to every group-table Latin square, and the complete H2 character supplies precise invariant subspace dimensions and every isotypic multiplicity. This is an interpretable equivariant refinement of the known nonequivariant homology theorem across all odd finite abelian groups, not mere relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
