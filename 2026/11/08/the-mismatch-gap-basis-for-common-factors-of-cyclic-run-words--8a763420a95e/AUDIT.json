@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Any factor containing a letter transition has its cyclic run phase forced by distinct letters. Thus all interior full runs in a shared factor have equal lengths; mismatches may only be at endpoints. Every common factor embeds in the interval word between consecutive mismatches with endpoint lengths clipped to the smaller values. The interval words are common by construction. Their left predecessor and right successor disagree between sources, proving inclusion maximality. Distinct initial labels give distinct maximal words. This proves all q>=2 and positive lengths, including a single mismatch and equal-profile degeneracy. Standalone finite checker passed 2684 independent parameter pairs; it is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.00966, Definitions 3–8 and Theorem 1: generic finite RLE longest-common-substring algorithm",
+        "arXiv:2105.03106, Theorem 1.1: generic finite LCS algorithm",
+        "doi:10.4230/LIPIcs.CPM.2018.11: periodic dynamic-LCF algorithm"
+      ],
+      "reasoning": "Broader algorithms could compute an individual longest factor after appropriate finite truncation, but neither their statements nor inspected structural arguments imply the explicit equality of whole common-factor languages, exactly one maximal word per mismatched run type, or the direct compressed closed formula without additional reasoning.",
+      "searches": [
+        "longest common factors infinite periodic run length encoded cyclic words maximal common factors",
+        "longest common substring RLE strings same run sequence mismatched run lengths theorem",
+        "doi:10.4230/LIPIcs.CPM.2018.11",
+        "arXiv:2310.00966"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.CPM.2018.11",
+      "arXiv:1901.11305",
+      "arXiv:2105.03106",
+      "arXiv:2310.00966"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1901.11305 Section 1 explicitly allows cyclic shift, whereas the claimed factors are unshifted contiguous words",
+        "arXiv:2310.00966 solves a finite RLE optimization problem; no exact symbolic maximal-factor set is stated",
+        "doi:10.4230/LIPIcs.CPM.2018.11 Definition 1 is per occurrence rather than maximal as a language word"
+      ],
+      "reasoning": "Even a generic LCS solver would not on its own deliver the explicit full factor-language equality or number of maximal words. The present proof establishes these stronger structural facts. No inspected theorem directly covers them; an unindexed result or derivation elsewhere may exist.",
+      "searches": [
+        "arXiv:1901.11305",
+        "arXiv:2105.03106",
+        "arXiv:2310.00966",
+        "longest common contiguous substring of two cyclic run words neighboring mismatched run blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.4230/LIPIcs.CPM.2018.11, Definition 1: locally maximal occurrence, not an inclusion-maximal common word",
+        "arXiv:2105.03106, Section 1.2: finite longest-common-substring algorithms"
+      ],
+      "reasoning": "Factoring the intersection language into factors of its inclusion-maximal words is formally equivalent to listing all maximal common factors, so both phrasings were searched. The closely named occurrence-based LMCF definition is not equivalent to a complete inclusion-maximal word antichain, and no checked source states the concrete mismatch-gap formula.",
+      "searches": [
+        "all maximal common contiguous factors of two cyclic run length words distinct letters mismatched runs",
+        "maximal common substring infinite periodic string common factors antichain run length",
+        "common substring language intersection of two ultimately periodic words run length code maximal factor antichain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed formula/table identified by the reported literal and semantic searches",
+        "arXiv:1901.11305 concerns a different circular-factor output",
+        "doi:10.4230/LIPIcs.CPM.2018.11 concerns locally maximal finite-string occurrences"
+      ],
+      "reasoning": "The input consists of unbounded positive integral profile vectors, so a small finite table could not itself imply a complete theorem. No checked database or table gave the formula or a stronger exact parametrization; this absence is not proof of global novelty.",
+      "searches": [
+        "periodic words longest common substring differing run lengths maximal factors mismatch intervals",
+        "intersection factor languages two periodic words maximal factors antichain",
+        "all maximal common factors two infinite periodic words equal cyclic distinct-letter run order consecutive unequal lengths"
+      ]
+    },
+    "rationale": "Four directly relevant open-access full-text primary works were compared by definitions, theorem hypotheses and implications, including the occurrence-based LMCF, circular-factor LCCF, general finite LCS and compressed RLE LCS problems. Their stated results do not subsume the closed maximal-word antichain, exact count and whole factor-language identity for this paired infinite distinct-run family. Published mathematical-result semantic searches and available historical claims yielded no direct overlap. Residual unindexed-equivalence risk is disclosed.",
+    "residual_risks": [
+      "Unknown, unindexed specialized treatments of periodic factor-language intersections could give an equivalent formula.",
+      "The general common-factor problem is classical and the proof is elementary under pairwise-distinct run labels; no claim of general algorithmic superiority is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Locally maximal occurrences in one finite string against another and dynamic update bounds are not an inclusion-maximal word basis for two infinite cyclic unequal-run strings.",
+        "evidence": "Definition 1 on PDF page 3 defines position-indexed locally maximal factors D[i..j]; abstract and main results study dynamic substitutions.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.11",
+        "material_read": "Full-text abstract, introduction, Definitions 1 and following observations, description of periodic dynamic problem, initial algorithm setup (PDF pages 1–4 and nearby main-theorem description).",
+        "method": "Opened publisher open-access PDF, inspected its precise LMCF definitions and finite-input dynamic query setting.",
+        "title": "Locally Maximal Common Factors as a Tool for Efficient Dynamic String Algorithms",
+        "trigger": "Most similar terminology and a specialized periodic-input algorithm."
+      },
+      {
+        "assessment": "The LCCF input is two finite strings and permits a cyclic rotation of the matched factor; the result is an algorithmic bound and does not establish our explicit common-factor antichain or mismatch count.",
+        "evidence": "Its abstract and Section 1 define an LCCF as a factor of S whose cyclic shift occurs in T.",
+        "identifier_or_url": "https://arxiv.org/abs/1901.11305",
+        "material_read": "Full-text PDF title, abstract and Section 1 precise LCCF problem definition and Theorem 1.",
+        "method": "Opened arXiv open-access PDF and compared the cyclic-shift requirement with ordinary factor-language intersection.",
+        "title": "Quasi-Linear-Time Algorithm for Longest Common Circular Factor",
+        "trigger": "Circular string matching can resemble periodic factors or cyclic run words."
+      },
+      {
+        "assessment": "General finite-string algorithm and complex handling of periodic fragments, not the closed mismatch-gap basis or exact count for infinitely repeated distinct-run cycles.",
+        "evidence": "Theorems 1.1–1.5 and Section 1.2 concern computational complexity and general finite-string instances.",
+        "identifier_or_url": "https://arxiv.org/abs/2105.03106",
+        "material_read": "Full-text PDF abstract, Sections 1, 1.2, 2 and descriptions of periodic anchor constructions; inspected relevant lines and definitions, not only search snippets.",
+        "method": "Read arXiv open-access PDF via page views and targeted full-text searches for periodic instances and longest common substrings.",
+        "title": "Faster Algorithms for Longest Common Substring",
+        "trigger": "Direct general treatment of exact longest common contiguous substring and periodic cases."
+      },
+      {
+        "assessment": "Computes finite RLE longest common substring under quantum query model; no full common-factor language or exact mismatched-interval antichain classification.",
+        "evidence": "Definitions 3–8 and Theorem 1 describe finite RLE LCS and runtime, not maximal-word spectra.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.00966",
+        "material_read": "Full-text PDF abstract, introduction, Sections 2.1–2.4, core algorithm statements and complexity assumptions.",
+        "method": "Opened lawful arXiv PDF and examined definitions of generalized RLE substrings, LCS-RLE and theorem statements.",
+        "title": "A sublinear time quantum algorithm for longest common substring problem between run-length encoded strings",
+        "trigger": "Run-length-encoded inputs directly overlap our representation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a763420-a95e-44f0-be86-c4083193d3f8",
+  "value": {
+    "rationale": "This is a complete structural classification of the intersection of two infinite periodic factor languages, not a single instance or an arbitrarily chosen parameter slice. For any number of runs and unbounded lengths, it provides all inclusion-maximal common strings, an exact formula for their number (number of mismatching run types), and a sharp common-length cutoff. A symbolic O(q)-sized run list represents what may be an exponentially large decoded factor set. It isolates mismatch-free cyclic intervals as the only way long exact matches persist, a useful invariant for compressed cyclic-string comparison.",
+    "status": "PASS"
+  }
+}
