@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For a primitive fifteenth root, the monic cyclotomic polynomial has degree eight. Every relevant minor is a signed sum of monomials with integer exponents, hence it is zero exactly when its eight-coefficient remainder modulo that polynomial vanishes. The embedded standalone program enumerates all 18 affine orbits of four-row sets, all 1365 column sets per representative, and lower-order minors as necessary; it verifies all rank counts exactly and derives the 1,863,225-pair census by affine invariance. Symmetric pair-incidence consistency and independent symbolic verification of the cyclotomic polynomial reinforce the exhaustive certificate. The claim is finite: no infinite extrapolation is involved.
+## correctness
 
-**Originality — PASS under bounded review.** The full freely available text of Alexeev–Cahill–Mixon, *Full Spark Frames* (arXiv:1110.3548), gives affine invariance and full-spark methods, but not the all-pair rank-2/rank-3 incidence. Existing full-spark classifications for the four-row pattern \(\{0,1,2,4\}\) and other orders already imply some full-spark rows and are not claimed as new. Delvaux–Van Barel's 2007 Kronecker Fourier paper is highly relevant, but accessible metadata and abstract describe constructions of rank-deficient blocks, not this exhaustive fourth-order table. Its inaccessible full text is a substantive residual risk; nonaccess is not evidence of noncoverage. Equivalent rank-incidence results might exist in uncatalogued older Fourier/uncertainty literature.
+PASS
 
-**Mathematical value — PASS.** The rank of four selected Fourier measurements on four spectral locations is a natural sharp identifiability invariant. The 4-by-4 rank census measures not just determinant failure but exactly how many measurement dimensions survive; notably 4,500 configurations have rank two, a stronger failure than singularity alone. The complete 18-by-18 positional orbit incidence and exact count provide a reusable small finite benchmark for sparse Fourier recovery, full-spark frame selection, and testing finite-group uncertainty mechanisms. This is a natural exact classification, not an arbitrary slice or a claim of a general theorem.
+Rank is determined by vanishing of k-minors over Q(zeta_15), reduced in Z[X]/Phi_15(X), whose monic degree-eight basis makes determinant zero testing exact. Affine row action preserves ranks after column frequency relabeling and nonzero phase multiplication. An independently written exact integer enumeration over 18 affine row-orbit representatives and all 1365 four-column subsets gave 18 orbit sizes, the same 18 row rank profiles and global Counter({4:1697625,3:161100,2:4500}); compared all relevant lower-order minors with exact cyclotomic remainders and weighted transpose reciprocity. This enumerates ALL possibilities via proven orbit reduction, not a sample. Integer arithmetic and the irreducible Phi_15 premise validate the certificate.
 
-**Closest literature and limits.** Alexeev–Cahill–Mixon supplies foundational DFT affine/full-spark theory; Delvaux–Van Barel addresses Kronecker rank-deficient Fourier submatrices with unresolved possible stronger implications. The classification is restricted to order 15 and four rows/four columns; no singular-value or all-moduli claims are made. Numerical conditioning and independent mathematical validation are outside this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison, not conclusive historical priority. The exhaustive exact census yields extra finite data not inferred by the inspected general principles without a new finite classification.
+
+## value
+
+PASS
+
+Complete natural finite rank-incidence table for the smallest cyclic Fourier group combining two distinct odd primes, distinguishing rank-two and rank-three failures relevant to exact sparse Fourier interpolation, with exact reproducible certificate. Nontrivial 18-orbit scheme and 1.86m ordered cases make it a meaningful finite invariant, not an arbitrary tiny recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

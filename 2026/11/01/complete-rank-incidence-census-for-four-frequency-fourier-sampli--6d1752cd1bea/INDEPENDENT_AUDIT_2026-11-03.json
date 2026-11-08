@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:59:47Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "Only 15x15 cyclic complex DFT, 4 distinct rows and 4 distinct columns",
+        "Ranks over complex characteristic zero; no finite-characteristic extension",
+        "All pair counts are ordered choices of row and column subsets",
+        "Does not imply exact support of a nonzero Fourier null vector"
+      ],
+      "proof_sources": [
+        "RESULT.md minor-polynomial proof, orbit action and complete incidence table (blob e74f672fdb589fb2c4ba55cb324763e97005fd3a)",
+        "verify_fourier15.py exact integer certificate inspected (blob 655ed2ed3c16f84626fc9c248e840c3aba2bf7d7)",
+        "Independent exact integer 18-orbit census with two/three/four minor tests and reciprocity"
+      ],
+      "rationale": "Rank is determined by vanishing of k-minors over Q(zeta_15), reduced in Z[X]/Phi_15(X), whose monic degree-eight basis makes determinant zero testing exact. Affine row action preserves ranks after column frequency relabeling and nonzero phase multiplication. An independently written exact integer enumeration over 18 affine row-orbit representatives and all 1365 four-column subsets gave 18 orbit sizes, the same 18 row rank profiles and global Counter({4:1697625,3:161100,2:4500}); compared all relevant lower-order minors with exact cyclotomic remainders and weighted transpose reciprocity. This enumerates ALL possibilities via proven orbit reduction, not a sample. Integer arithmetic and the irreducible Phi_15 premise validate the certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delvaux–Van Barel 2007 full technical report gives maximal rank-deficient submatrix constructions and subgroup/Hamming-number theorems on composite Fourier product groups, so F15 is indeed within its ambient class.",
+          "The inspected statements do not give a complete 4x4 rank-incidence count or 18-by-18 affine positional table."
+        ],
+        "reasoning": "Broader class does not mathematically dominate specific detailed incidence counts in the inspected theorems; priority risk remains for uninspected other sections/papers.",
+        "searches": [
+          "Delvaux Van Barel Kronecker products of Fourier matrices rank deficient submatrices order fifteen 3 times 5",
+          "doi:10.1016/j.laa.2007.05.009",
+          "doi:10.1016/j.laa.2008.04.043"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-characteristic-seven-principal-minor-defects-of-the-order--1a68a76be220",
+        "doi:10.1016/j.laa.2008.04.043",
+        "arxiv:1110.3548",
+        "doi:10.1016/j.laa.2007.05.009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subgroup tiling/uncertainty bounds classify possibilities or extremal ranks, but do not fix counts of 4500 rank-two and 161100 rank-three ordered positional 4-minors.",
+          "Existing two full-spark row patterns explain only 2 of the 18 orbit rows, not remaining 16 or the cross-incidence."
+        ],
+        "reasoning": "The exhaustive exact census yields extra finite data not inferred by the inspected general principles without a new finite classification.",
+        "searches": [
+          "Fourier matrix order 15 four by four submatrices rank deficient minor incidence census",
+          "doi:10.1016/j.laa.2007.05.009",
+          "arxiv:1110.3548",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent form: all four-dimensional coordinate subspaces of the cyclic order-15 Fourier transform, classified by rank loss, not just determinant zero.",
+          "Alexeev–Cahill–Mixon full spark asks whether every maximal minor of a fixed row frame is nonsingular."
+        ],
+        "reasoning": "Earlier full-spark statements do not assign rank 2 vs rank 3 for all affine row/column orbit pairs.",
+        "searches": [
+          "Fourier matrix order 15 four by four submatrices rank deficient minor incidence census",
+          "doi:10.1016/j.laa.2008.04.043",
+          "arxiv:1110.3548"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published ternary affine-plane (F3^2) 4x4 incidence table has exactly 126 four-point row sets, different group from cyclic Z15 and a different 15 choose 4 indexing.",
+          "Published order-15 characteristic-seven principal-minor exceptions are for finite field and principal minors, not arbitrary complex minors."
+        ],
+        "reasoning": "No identified exact same group/field/size rank-incidence table; different matrix parameters alone are not novel, but earlier findings do not entail this count.",
+        "searches": [
+          "Fourier matrix order 15 four by four submatrices rank deficient minor incidence census",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-characteristic-seven-principal-minor-defects-of-the-order--1a68a76be220"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison, not conclusive historical priority. The exhaustive exact census yields extra finite data not inferred by the inspected general principles without a new finite classification.",
+      "residual_risks": [
+        "A more detailed older Delvaux–Van Barel 2008 or other composite Fourier census might contain implicit equivalent order-15 counts; only its abstract was available, so originality is best-of-knowledge.",
+        "2007 PDF page-image screenshot request returned 403 although extracted full text was available; no claim of visual PDF inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rank-deficiency constructions and dimension bounds in the same broad object, but no inspected full incidence table",
+          "evidence": [
+            "Inspected structural theorems concern rank extremality, not all 18-by-18 rank incidence counts"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.05.009",
+          "material_read": "Author report/full lawful PDF text: introduction, Sections 3–4 subgroup tiling, Theorem 14, Hamming number/minimal rank constructions",
+          "method": "primary accessible full-text text extraction; PDF screenshot endpoint returned 403",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Order 15 is CRT-equivalent to F3 tensor F5, high-priority possible dominance"
+        },
+        {
+          "assessment": "Prior full-spark families and criteria only, not complete low-rank incidence",
+          "evidence": [
+            "All consecutive-row Vandermonde minors nonsingular"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Open full-text sections on affine symmetries, Fourier minors and full spark",
+          "method": "arXiv HTML reading",
+          "title": "Full Spark Frames",
+          "trigger": "Full-spark criteria for composite DFTs"
+        },
+        {
+          "assessment": "Genuine exact incidence prior art but different group F3^2, matrix order nine",
+          "evidence": [
+            "126 four-index subsets and 54/72 cap/line-rich partition vs cyclic order fifteen"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e",
+          "material_read": "Full published RESULT.md: finite Eisenstein-integer determinant certificate, two affine row types and 45 singular partners",
+          "method": "GitHub published result full reading",
+          "title": "The four-by-four Fourier-minor incidence of the ternary affine plane",
+          "trigger": "Closest matching four-by-four Fourier incidence problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md minor-polynomial proof, orbit action and complete incidence table (blob e74f672fdb589fb2c4ba55cb324763e97005fd3a)",
+        "Subgroup tiling/uncertainty bounds classify possibilities or extremal ranks, but do not fix counts of 4500 rank-two and 161100 rank-three ordered positional 4-minors."
+      ],
+      "rationale": "Complete natural finite rank-incidence table for the smallest cyclic Fourier group combining two distinct odd primes, distinguishing rank-two and rank-three failures relevant to exact sparse Fourier interpolation, with exact reproducible certificate. Nontrivial 18-orbit scheme and 1.86m ordered cases make it a meaningful finite invariant, not an arbitrary tiny recomputation.",
+      "residual_risks": [
+        "No general N theorem or condition-number information; only a finite but exhaustive complete classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 15x15 cyclic complex DFT, 4 distinct rows and 4 distinct columns",
+    "Ranks over complex characteristic zero; no finite-characteristic extension",
+    "All pair counts are ordered choices of row and column subsets",
+    "Does not imply exact support of a nonzero Fourier null vector",
+    "A more detailed older Delvaux–Van Barel 2008 or other composite Fourier census might contain implicit equivalent order-15 counts; only its abstract was available, so originality is best-of-knowledge.",
+    "2007 PDF page-image screenshot request returned 403 although extracted full text was available; no claim of visual PDF inspection.",
+    "No general N theorem or condition-number information; only a finite but exhaustive complete classification."
+  ],
+  "schema_version": 1
+}
