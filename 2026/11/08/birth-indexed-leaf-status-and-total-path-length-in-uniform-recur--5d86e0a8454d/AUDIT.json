@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The final no-child event is the intersection of independent exclusions of one parent label at every subsequent arrival. Conditioning preserves the independence and uniformity of eligible parents. The exact conditional recurrence has solution \\(\\mathbb E[T_k\\mid X_{n,j}=1]-\\mathbb E[T_k]=-(H_{k-1}-H_{j-1})\\) for every \\(j\\le k\\le n\\). Multiplication by (j-1)/(n-1) proves the covariance. Reversing two finite sums gives \\(-(n-2)/4\\). The adjacent-difference formula is strictly decreasing, and the bulk harmonic limit peaks at \\(e^{-1}\\). Independent exact enumeration of all 46,233 trees through nine vertices and conditional recurrence checks through 159 vertices passed. Computation checks are finite and not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lundblad–Wagner 2026 equation (13) jointly marks total path length, external path length and global leaf count, allowing derivatives for aggregated moments but not explicitly marking leaf status of vertex j.",
+        "Gopaladesikan 2014 abstract discusses counts of fringe motifs and path lengths in a distinct block-growth model."
+      ],
+      "reasoning": "The strongest relevant global generating function may cover the aggregate summed covariance but does not give a separate birth-indexed profile without a new source of positional information. The claim deliberately treats the sum as a consequence, not the flagship result. Full dissertation comparison remains limited by access.",
+      "searches": [
+        "random recursive tree path length number leaves joint moments covariance",
+        "\"total path length\" \"leaves\" \"recursive trees\" covariance 2014",
+        "https://doi.org/10.4230/LIPIcs.AofA.2026.2"
+      ]
+    },
+    "checked_sources": [
+      "Dobrow and Fill, Combinatorics Probability and Computing 8 (1999), DOI 10.1017/S0963548399003855, full text",
+      "Lundblad and Wagner, AofA 2026, DOI 10.4230/LIPIcs.AofA.2026.2, full OA",
+      "Janson, Random Structures & Algorithms (2004), DOI 10.1002/rsa.20046, abstract",
+      "Gopaladesikan, Purdue doctoral thesis (2014), institutional abstract",
+      "Related published scientific summaries on root-attachment/path-length covariance and root-degree/leaf-count covariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dobrow–Fill path-length moment recurrences are univariate in T_n.",
+        "Lundblad–Wagner global leaf/path-length joint enumerator is blind to the j label and thus cannot directly recover the nonconstant \\(j\\)-profile.",
+        "A published exact root-attachment event covariance involves \\(P_j=1\\), not the event that all later \\(P_k\\) avoid j; knowing individual attachment covariances does not determine covariance with their product."
+      ],
+      "reasoning": "No searched and materially checked result logically gives the full age-indexed conditional mean by statement or immediate specialization. The global summed identity may be contained in a stronger unmarked global enumerator and is explicitly not claimed as independently novel.",
+      "searches": [
+        "\"random recursive trees\" \"leaf\" \"path length\" covariance",
+        "\"random recursive tree\" \"internal path length\" \"leaf profile\" conditional expectation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dobrow–Fill 1999, DOI 10.1017/S0963548399003855, sections 1–4: full text works with total path-length moments and recursion, no marked leaf event in theorem statements.",
+        "Lundblad–Wagner 2026, DOI 10.4230/LIPIcs.AofA.2026.2, section 5: full text introduces a global four-variable generating function without birth-label marking."
+      ],
+      "reasoning": "The indexed covariance is equivalent to the reduction in E[T_n] on forbidding all future attachments to a particular birth label. It is not equivalent to the mean/variance of T_n or L_n, and differs from a single parent-to-root attachment indicator. The displayed primary results lack this indexed event.",
+      "searches": [
+        "random recursive tree covariance leaf indicator depth total path length birth time",
+        "\"recursive tree\" \"out-degree zero\" \"total path length\" covariance",
+        "Random recursive trees individual leaf status covariance with global depth sum indexed by arrival time age, local influence profile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved closest scientific summaries concern root-attachment/path-length covariance and root-degree/leaf-count covariance; neither expresses the indexed leaf-status/path-length mixed moment.",
+        "No located exact formula or parameter table matching the indexed regression in the searched primary literature."
+      ],
+      "reasoning": "Searches covered the claim, its conditional formulation and its harmonic-parameter shape. Search absence is not proof of uniqueness, so residual historical-coverage risk remains.",
+      "searches": [
+        "For uniform random recursive trees exact covariance between total path length and indicator that birth-index j is a leaf, equals -(j-1)/(n-1)*(H_{n-1}-H_{j-1})",
+        "Uniform random recursive tree conditioning a designated vertex to have no children, expected total path length decreases by H_{n-1}-H_{j-1}",
+        "random recursive trees leaf no-child indicator total path length age mixed moment"
+      ]
+    },
+    "rationale": "The proposed contribution is the full birth-indexed leaf/no-child conditioning regression and covariance profile, not the known distribution of total path length or marginal leaves. A full reading of the classical 1999 path-length paper showed univariate moment recurrences and no vertex-marked leaf covariance. A later full-text four-variable generating function marks only global leaf count and path lengths; deriving the aggregate covariance from it would not supply the indexed formula. A related root-attachment/path-length result concerns a different event and does not determine the higher-order no-attachment event. Earlier indexed mixed-moment coverage is not conclusively excluded; the risk is explicitly recorded.",
+    "residual_risks": [
+      "A specialized earlier mixed-moment or degree-profile paper might contain an implicit age-indexed specialization that was not discoverable by title and abstract searching.",
+      "Full text of one relevant doctoral dissertation and a degree-distribution paper was not available for direct implication checking.",
+      "The global summed covariance is likely accessible by differentiating existing all-leaf generating functions, so originality rests only on the indexed theorem and its age-profile consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The studied variables are total path length and normalized path-length moments; no birth-index leaf indicator is introduced or marked in the investigated results.",
+        "evidence": "Sections 1–4 and equations (2.1), (3.1) and Theorems 2.1, 3.1 define univariate path-length moment machinery.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+        "material_read": "Full text, all 17 pages, including definitions, distributional decomposition, moment theorems, tables and references",
+        "method": "Inspected primary PDF text via authorized scholarly access and checked substantive theorems and leaf-related terms",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Canonical exact total-path-length paper on same random tree model"
+      },
+      {
+        "assessment": "Global leaf count and total/external path lengths are marked, but there is no label-specific leaf indicator. The global covariance may be derivable; no automatic implication for the nonconstant indexed profile.",
+        "evidence": "Section 5, equation (13), \\(F(x,y,z,u)\\), marks number of leaves, external path length and total path length globally.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+        "material_read": "Accessible 20-page OA source, especially abstract, introduction, section 5, equation (13), and references; page images of key formula and context",
+        "method": "Primary PDF text and page-image inspection of the relevant theorem statements and generating functions",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "Strong later joint path-length/leaf-count generating-function coverage"
+      },
+      {
+        "assessment": "Available material concerns degree counts, not an indexed leaf event crossed with total path length; cannot exclude implicit full-text coverage.",
+        "evidence": "Title and research scope identify aggregate degree distributions in recursive trees.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Publication abstract and bibliographic information; full text not retrieved",
+        "method": "Searched primary publisher and bibliographic descriptions",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Potential degree-zero/leaf-distribution coverage for same model"
+      },
+      {
+        "assessment": "The abstract addresses fringe motifs and a block-growth model with leaves and total path length; no index-specific mixed moment visible, but full-text priority comparison is unresolved.",
+        "evidence": "Institutional dissertation abstract, 2014, describes three research topics and block-growth statistics.",
+        "identifier_or_url": "https://docs.lib.purdue.edu/open_access_dissertations/274/",
+        "material_read": "Repository abstract; full dissertation download returned access error",
+        "method": "Read institutional abstract and attempted lawful OA manuscript download",
+        "title": "On the occurrences of motifs in recursive trees, with applications to random structures",
+        "trigger": "Potential joint leaf/path-length calculations in historical dissertation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d86e0a8-454d-4178-b747-2ca144b4777e",
+  "value": {
+    "rationale": "The particular statistic is motivated by the age of a vertex in a recursive growth model: being childless becomes less likely with age, while its effect on overall path length grows with remaining exposure time. The exact conditional shift, negative covariance for every eligible birth index, strict finite concavity and unique limiting maximizing age \\(e^{-1}\\) give a complete natural local dependence profile. Summation yields the aggregate path-length/leaf-count covariance; this is a structural connection, rather than a toy finite table or arbitrary slice.",
+    "status": "PASS"
+  }
+}
