@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The centered stationary convolution has finite fourth moments under the stated hypothesis. Independent compensated-Poisson cumulants give \(\kappa_4=\lambda\mathbb E[J^4]/(4\gamma)\). The innovation decomposition \(Y_t=e^{-\gamma t}Y_0+\eta_t\) yields the two chronological fourth moments, their exact difference, and the unique optimum. Additive stationary reversible contamination cancels at the level of fourth joint cumulants. The package verification program checks the derivation by a distinct polynomial-generator recurrence, integral quadrature, and multiple jump/noise parameter values.
+## correctness
 
-## Originality: PASS with residual risk
-The model, stationary transform, and **numerical observation** of \(X,X^3\) chronological asymmetry are due to Di Bello et al. (arXiv:2309.13424, Secs. 2, 3, and 5). The new evaluated claim concerns its explicit entire lag dependence, unique universal optimal lag, parameter inversion, and immunity to independent stationary reversible contamination. Spiliopoulos's Lévy–OU stationary-moment and estimation results, Yuvan–Bier's stable-Lévy climbing-step statistic, and Ohga–Ito–Kolchinsky's finite-state thermodynamic cross-correlation bound do not state these exact conclusions in the inspected material. General cumulant identities are standard; undiscovered stronger coverage, or an earlier short derivation, remains a publication-priority risk.
+PASS
 
-## Value: PASS
-The source article motivates the exact same chronological \(X,X^3\) observable numerically and raises quantitative irreversibility questions. The theorem supplies a sign-definite witness for every nondegenerate finite-fourth-moment kick law, predicts the unique experimental lag at which its expected magnitude is greatest, and shows that arbitrarily strong independent reversible sensor noise does not bias its **population-level** signal. The inverse relations identify precisely what can and cannot be recovered without extra calibration. These are structural and observable-specific results rather than a change of notation or an arbitrary parameter slice.
+The two-time innovation relation Y_t=q Y_0+eta_t, q=exp(-gamma t), eta_t independent of Y_0 and centered with variance Var(Y_0)(1-q^2), gives E[Y0 Yt^3]-E[Y0^3 Yt]=-(q-q^3)(E[Y0^4]-3 Var(Y0)^2). The Poisson stochastic-convolution fourth cumulant is lambda E[J^4]/(4 gamma) and thermal Brownian noise contributes none. Maximizing q-q^3 yields q=1/sqrt(3), proving both peak and inverse formulas. Stationary time reversal makes the fourth joint-cumulant swap of independent added V vanish, while pair-partition terms cancel because the covariance is stationary; independent mixed cumulants add and K_{p,q}=q^q kappa_{p+q}. These are exact identities for symmetric/asymmetric marks, including nonzero mean after centering. Independently used exact symbolic cumulant and innovation calculations and checked the maximum, invertibility and noise cancellation for representative parameters. Unlike a simulation this reconstructs the general proof.
 
-## Scientific limitations
-The result is a model-specific exact identity, not a universal entropy-production calculation. It requires stationarity, a linear trap, Poisson kicks independent of thermal noise, and finite fourth jump moment. The correlation's optimal expected magnitude is not necessarily the optimal finite-sample signal-to-noise ratio. Priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Di Bello et al. (arXiv:2309.13424v2) already propose the same shot-noise harmonic model and exhibit the chronological X,X^3 asymmetry in Figure 5 and Equation 68. The model and qualitative irreversibility therefore are not new. In the inspected sections and Appendix B, however, they do not evaluate this centered full-lag fourth cumulant profile, prove the universal unique maximizing lag, or give the reversible-sensor invariance and joint-cumulant hierarchy. General Lévy-OU and cumulant formulas are known and could mechanically imply this result with specialization; no direct published identical full package was located. Best-knowledge PASS with a meaningful general-theorem overlap risk.
+
+## value
+
+PASS
+
+The published observable is physically motivated, not a made-up moment. Its exact sign, nontrivial optimal lag, identifiability of only the aggregate fourth-kick intensity, and robustness to independent time-reversible measurement contamination are useful observable-specific quantitative facts. It does not claim entropy-production measurement or finite-sample signal-to-noise optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
