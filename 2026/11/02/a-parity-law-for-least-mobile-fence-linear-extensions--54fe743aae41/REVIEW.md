@@ -1,11 +1,21 @@
-# Review of the least-mobile fence-extension theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof makes the poset, move and degree unambiguous. Comparable adjacent pairs are a matching in the fence cover path. Maximum matching structure forces a unique optimal word in even order; for odd order it gives disjoint left and right block chains and precisely \(\binom mj\) optimal shuffles at each unmatched odd label. Every odd-length optimal word has precisely one optimal neighbor, from swapping the first two entries. Direct exhaustive and independent C++ enumerations confirm the claimed structure through order thirteen. The diameter statement is proved separately using incomparable-pair inversion distance.
+## correctness
 
-**Originality — PASS, qualified by residual risk.** The closest primary full text inspected, Bondarenko (2011), proves general regularity and boundary degree facts but not the parity-dependent optimal-fence induced subgraph. Naatz (2000) identifies vertex connectivity with the poset jump number, which implies a minimum degree value in general contexts but not the number of minimizers or their adjacency. Pruesse–Ruskey's Gray-code work does not determine this stratum. Separate searches considered the inverse-alternating-permutation convention, jump-optimal schedules, zigzag-poset aliases, cover-path matchings and permutahedral adjacency. No claim of literature-wide uniqueness is made; Naatz's full paper and obscure bump polynomial literature remain material possible overlap.
+PASS
 
-**Value — PASS.** The comparison distinguishes two sharply different geometric regimes within a natural, connected family of permutation-reconfiguration graphs: at even order the least-mobile vertex is unique, while at odd order an exponentially large least-mobile set fractures into independent edges. The exact characterization identifies all extremizers and the induced move structure, rather than merely re-evaluating the fence jump number.
+In fence F_n, comparable consecutive pairs are bump edges in label path 1–2–...–n and cannot share label because height is two, bounding bumps by floor(n/2), hence minimum jump degree ceil(n/2)−1. For even n perfect path matching uniquely forces descending 2-letter blocks and one optimal extension. For odd n exactly one unmatched odd u yields forced ordered left/right bump-block chains and every shuffle is valid, giving ∑_{j=0}^m binom(m,j)=2^m optimizers. Only exchange of unmatched u with first block leader preserves all bump count, giving induced 2^(m−1)K2. Standard incomparable-pair inversion distance yields diameter binom(n−1,2), credited as prior. Independently enumerated all linear extensions n=3..9, optimizer counts 2,1,4,1,8,1,16 and induced degrees 1 odd /0 even; enumeration finite but combinatorial matching/shuffle proof is all n.
 
-**Limitations.** The result concerns only alternating height-two fence posets and adjacent-position exchanges. Some relevant older texts were accessible only by abstract or slides. The diameter identity is contextual, not a new theorem claim. Finite checks are not the all-size proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General linear-extension graph theory, jump number equals minimum degree, and diameter via incomparable-pair inversion are prior; the inspected Bondarenko paper does not supply the exact fence-specific parity optimizer multiplicity and induced matching. Full Naatz 2000 could not be accessed via lawful OA or authorized institutional VPN and remains explicit residual risk; best-of-knowledge PASS is not priority certification.
+
+## value
+
+PASS
+
+The exact minimum-degree stratum of a reconfiguration graph is a natural local mobility invariant. The all-n parity split between unique minimizer and exponentially many optimal extensions forming a perfect matching gives a complete meaningful classification for standard fence posets; general diameter fact is credited as contextual prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

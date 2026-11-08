@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:58:25.959697Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In fence F_n, comparable consecutive pairs are bump edges in label path 1–2–...–n and cannot share label because height is two, bounding bumps by floor(n/2), hence minimum jump degree ceil(n/2)−1. For even n perfect path matching uniquely forces descending 2-letter blocks and one optimal extension. For odd n exactly one unmatched odd u yields forced ordered left/right bump-block chains and every shuffle is valid, giving ∑_{j=0}^m binom(m,j)=2^m optimizers. Only exchange of unmatched u with first block leader preserves all bump count, giving induced 2^(m−1)K2. Standard incomparable-pair inversion distance yields diameter binom(n−1,2), credited as prior. Independently enumerated all linear extensions n=3..9, optimizer counts 2,1,4,1,8,1,16 and induced degrees 1 odd /0 even; enumeration finite but combinatorial matching/shuffle proof is all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bondarenko 2011 entire six-page paper analyzes regular subgraph phenomena, not all-size fence least-degree optimizer graph.",
+          "Naatz DOI 10.1137/S0895480199352609 abstract concerns vertex connectivity via jump number, no obtained full text.",
+          "Pruesse–Ruskey 1994 addresses Gray-code generation for arbitrary posets."
+        ],
+        "reasoning": "A broader connectivity theorem does not automatically give optimizer multiplicity 1 or 2^m or induced 2^(m-1)K2. However Naatz full-text inaccessibility remains an explicit priority risk.",
+        "searches": [
+          "Naatz The Graph of Linear Extensions Revisited 2000 minimum degree jump number",
+          "Bondarenko Regular Subgraphs of Linear Extension Graphs 2011",
+          "Pruesse Ruskey Generating Linear Extensions Fast 1994"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen source 24f8c3715cc46afc9fb1a875242b9f75a503ae6d",
+        "Bondarenko 2011 doi:10.30970/ms.36.1.6-11 full primary text",
+        "Naatz 2000 doi:10.1137/S0895480199352609 abstract only, full text inaccessible",
+        "Pruesse Ruskey 1994 DOI:10.1137/S0097539791202647",
+        "Resultary fence and jump-number query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard graph-of-extensions distance gives diameter, explicitly not claimed as new.",
+          "New statement is exact minimum degree multiplicity and induced topology; requires matching argument and exchange preservation not supplied by the available prior theorems."
+        ],
+        "reasoning": "The proof fills an actual structural counting gap beyond generic degree/connectivity statements; limitation is that one plausible older full article was unread.",
+        "searches": [
+          "Bondarenko 2011 full article regular subgraphs linear extension graphs",
+          "Naatz 2000 DOI 10.1137/S0895480199352609 abstract",
+          "Graham linear extension graph incomparable-pair distance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zigzag fences are alternating permutation posets; their graph degree is number of adjacent incomparable pairs or jumps.",
+          "Naatz 2000 relates graph connectivity and jump number but not in official abstract the minimum-degree induced subgraph."
+        ],
+        "reasoning": "The relevant invariant is count and adjacency of ALL jump-minimizing extensions, not Euler numbers of all alternating permutations or general min-degree equality.",
+        "searches": [
+          "Resultary fence zigzag poset linear extension graph jump number degree minimizers adjacent swaps induced matching",
+          "fence alternating permutations minimal jumps optimal bumps enumeration degree linear extension graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source RESULT.md itself gives bounded n3..13 tests and all-n proof; no independent published enumeration table with the same 1 versus 2^m minimizer law was located."
+        ],
+        "reasoning": "Failed targeted table search does not establish uniqueness; derivability from standard fence matching may be implicit historical literature.",
+        "searches": [
+          "minimum jump linear extensions fence alternating zigzag count parity 2^m",
+          "Resultary fence minimum degree induced matching 2^(m-1)K2"
+        ]
+      },
+      "rationale": "General linear-extension graph theory, jump number equals minimum degree, and diameter via incomparable-pair inversion are prior; the inspected Bondarenko paper does not supply the exact fence-specific parity optimizer multiplicity and induced matching. Full Naatz 2000 could not be accessed via lawful OA or authorized institutional VPN and remains explicit residual risk; best-of-knowledge PASS is not priority certification.",
+      "residual_risks": [
+        "Naatz 2000 full text inaccessible after lawful OA and authorized Oxford retrieval: vpn_disconnected; unknown implicit fence optimizer analysis.",
+        "Generic jump-optimal extension enumeration of zigzag posets under alternating-permutation terminology might predate the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_FENCE_OPTIMIZERS",
+          "evidence": [
+            "No fence parity minimizer count or induced 2^(m-1)K2 enumeration in inspected full article"
+          ],
+          "identifier_or_url": "https://matstud.org.ua/texts/2011/36_1/6-11.pdf",
+          "material_read": "All six pages of primary article on regularity and subgraphs including degree-related facts; PDF page screenshot",
+          "method": "Open-access primary full PDF",
+          "title": "Regular Subgraphs of Linear Extension Graphs",
+          "trigger": "Potential general optimizer-graph characterization"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "Full source not classified non-covering; authorized institutional access returned VPN disconnected"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895480199352609",
+          "material_read": "Official abstract only: identifies graph connectivity and jump number; full paper not retrieved",
+          "method": "Official publisher abstract, arXiv/OA searches, authorized institutional request",
+          "title": "The Graph of Linear Extensions Revisited",
+          "trigger": "Highly plausible general jump-number paper, possible equivalent optimal extension classification"
+        },
+        {
+          "assessment": "DIFFERENT_QUESTION",
+          "evidence": [
+            "Efficient generation, not fence-specific induced optimizer graph"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0097539791202647",
+          "material_read": "Official summary and primary record of method",
+          "method": "Journal publication record",
+          "title": "Generating Linear Extensions Fast",
+          "trigger": "General adjacent transposition Gray codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact minimum-degree stratum of a reconfiguration graph is a natural local mobility invariant. The all-n parity split between unique minimizer and exponentially many optimal extensions forming a perfect matching gives a complete meaningful classification for standard fence posets; general diameter fact is credited as contextual prior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen source 24f8c3715cc46afc9fb1a875242b9f75a503ae6d",
+    "Bondarenko 2011 doi:10.30970/ms.36.1.6-11 full primary text",
+    "Naatz 2000 doi:10.1137/S0895480199352609 abstract only, full text inaccessible",
+    "Pruesse Ruskey 1994 DOI:10.1137/S0097539791202647",
+    "Resultary fence and jump-number query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Science decision is best-of-knowledge independent mathematical assessment, not third-party formal certification.",
+    "Finite computation corroborates only finite cases and cannot prove infinity.",
+    "Publication is not_ready because source public operational IDs have not been sanitized with guarded complete file replacements."
+  ],
+  "residual_risks": [
+    "Naatz 2000 full text inaccessible after lawful OA and authorized Oxford retrieval: vpn_disconnected; unknown implicit fence optimizer analysis.",
+    "Generic jump-optimal extension enumeration of zigzag posets under alternating-permutation terminology might predate the claim."
+  ],
+  "schema_version": 1
+}
