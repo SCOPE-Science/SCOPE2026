@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Formula (1) is proved in both directions by a constructive assignment of off-grid coordinates to at most \(k\) non-endpoint slots per summand. Exact minimization over the coordinates forced onto the regular grid proves the full pointwise formula in every coordinate \(\ell_p\) norm. Simultaneous coordinate-grid midpoints attain the global supremum and give the displayed sharp radius; the threshold, Hausdorff dimension, and unit-cube farthest-point characterization then follow. The exact verifier checks 28,065 finite rational assertions. It is corroboration, not an infinite proof.
+
+**Originality — PASS, with historical-priority risk.** The closest original scientific treatments study general Hausdorff bounds and contraction (Fradelizi–Madiman–Marsiglietti–Zvavitch; van Hintum), or adding a *convex* body to a fixed nonconvex set (Meyer). A published simplex-skeleton result gives the same numerical filling threshold for a different face system, but neither its barycentric statement nor its proof yields the grid-stratum identity or the full quantitative profile for orthotopes. A published all-order raised-simplex result concerns another compact set. Indexed mathematical-record and accessible claim comparisons identified no equivalent or stronger orthotope result. Unindexed elementary treatments of sums of cubical faces remain an acknowledged risk.
+
+**Mathematical value — PASS.** This is a complete, naturally parameterized description of how a familiar family of nonconvex polytopal skeleta approaches its convex hull. It resolves every finite order rather than only an asymptotic rate or special threshold; it also distinguishes the zero-volume finite-stage regime from sudden exact saturation and determines all sharp deep holes for a cube. No general universal inequality is claimed.
+
+**Scope and limits.** Positive side lengths, all orders and skeleton degrees, and coordinate \(\ell_p\) norms are included. Nonorthogonal affine images, arbitrary norms, and universal nonconvex-set phenomena are excluded. The verifier covers finite rational cases only. Independent literature-priority verification and independent mathematical audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
