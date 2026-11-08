@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Mazzolo arXiv:2609.22527, Eq. (116), supplies the exact finite-reactivity drifted mean time. For \\(p=vL/(2D)>0\\) and \\(b=kL/(2D)>0\\), the substitution \\(u=\\sqrt{p^2+rL^2/D}-p\\) is strictly increasing in \\(r\\). Expanding the analytic numerator into positive Taylor coefficients makes the derivative numerator divided by \\(u^2\\) strictly increasing from negative infinity to positive infinity, establishing exactly one optimum for both drifts. At the inward optimum the outward derivative numerator equals \\((1-e^{2p})d'(u)<0\\), establishing strict global rate ordering. The log-stationarity expansion as \\(p\\) tends to infinity gives \\(u_+=1-1/(2p)+O(p^{-2})\\), \\(u_-=1-(1/2+b/e)/p+O(p^{-2})\\), and hence the nonzero dimensional gap \\(k/(eL)\\). CHECK.py passes 590 numerical and coefficient tests, supplemental only. Boundaries \\(k=\\infty\\), \\(v=0\\) and non-Poisson clocks are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1811.08239 studies perfectly absorbing drift-diffusion restart and the Péclet threshold; finite delta-sink reactivity is absent.",
+        "arXiv:2304.10605 studies an independently switching gate with drift and restart; the reaction mechanism and optimal-clock phase diagram differ."
+      ],
+      "reasoning": "The perfect absorber can have zero optimal inward resetting and does not bound the fixed finite-k asymptotic; the dynamically gated model does not imply the delta-local-time objective. A published universal minimizer comparison theorem is a residual coverage risk, not established by the examined material.",
+      "searches": [
+        "arXiv:1811.08239 Péclet number absorbing drift resetting optimum",
+        "arXiv:2304.10605 gated drift-diffusion optimal resetting phase diagram",
+        "Web: \"Péclet number governs transition to acceleratory restart in drift-diffusion\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.22527",
+      "https://arxiv.org/abs/1301.2489",
+      "https://arxiv.org/abs/1811.08239",
+      "https://arxiv.org/abs/2304.10605"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source already proves the drifted resolvent and calculates T_mu(r), so no originality is claimed for the reaction model, renewal construction, or mean formula.",
+        "Mazzolo Appendix A.5 gives a signed first-order drift derivative at zero and numerical nonmonotone inward behavior, not an all-paired-magnitudes sign inequality or its finite strong-drift offset.",
+        "Whitehouse et al. 2013 specialize to zero drift and therefore cannot make an opposite-nonzero-drift comparison."
+      ],
+      "reasoning": "Known T_mu(r) supplies the input function and implies optimizer values after solving a transcendental global optimization. The new implication requires proving the global single-crossing property for arbitrary signed bias, comparing the roots by a sign argument, and extracting a second-order-in-drift parameter normalization to expose the finite \\(k/(eL)\\) difference. These comparisons are not stated as a theorem or covered numerically by the inspected sources; novelty remains qualified.",
+      "searches": [
+        "arXiv:2609.22527 Sections III.3.2 and Appendix A.5",
+        "arXiv:1301.2489 partial absorption diffusion resetting",
+        "Web: \"strong drift\" \"delta killing\" \"optimal resetting rate\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.22527 Eq. (116) parameterizes T_mu(r) for both signs; Appendix A.5 reports small-drift shift and sample numerical minima including inward nonmonotonicity.",
+        "Mazzolo, arXiv:2609.22527, Fig. 3 and Appendix A.5 analyze signed-drift optima numerically and locally without the exact large-speed offset."
+      ],
+      "reasoning": "Aliasing drift reversal as signed Péclet number, opposite-bias reset optimization, and optimal restart rate leads back to the known T_mu(r) source. The present object is not the known T_mu(r) itself: it compares the two unique minimizers globally and computes their difference at arbitrarily large fixed-reactivity bias.",
+      "searches": [
+        "Web: \"partially absorbing\" \"optimal resetting rate\" \"drift\" monotonicity",
+        "arXiv:2609.22527 Eq. (116), Appendix A.5",
+        "Web: \"delta\" \"killing\" \"resetting\" optimal rate drift direction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mazzolo 2026 Figure 3 gives numerical optima for three drift values but not a full all-speed comparison or high-speed gap.",
+        "No table of the asymptotic paired rate difference was identified in the inspected 2013, 2018, 2023, or 2026 primary works."
+      ],
+      "reasoning": "A finite plot of optimizer values and an exact formula for individual mean times do not constitute a table of the limiting paired difference; an unindexed prior derivation remains possible.",
+      "searches": [
+        "Web: \"delta\" \"killing\" \"resetting\" optimal rate drift direction",
+        "Web: \"optimal resetting\" \"inward\" \"outward\" \"reactivity\""
+      ]
+    },
+    "rationale": "The new all-speed paired-drift ordering and nonzero strong-drift optimizer difference were not identified as statements in the relevant complete optimization discussion of the motivating 2026 preprint. It supplies their exact mean-time starting formula, numerical paired examples and local drift perturbation, all credited. Other consulted primary works omit constant-drift finite-delta-sink optimization. A general comparative-statics result or unindexed asymptotic paper could still cover this special consequence; priority is qualified, not independently certified.",
+    "residual_risks": [
+      "The result uses and analytically refines an exact prior mean-time expression, so a broadly interpreted formula-coverage standard may classify it as an implicit corollary.",
+      "Relevant unindexed or inaccessible publications might already contain the global optimal-rate comparison or the \\(k/(eL)\\) offset.",
+      "The \\(v\\to\\infty\\) asymptotic is fixed finite \\(k\\) only, and not uniform in the perfect-absorber limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the known mean-time formula and near-zero-drift effect, but did not identify the proposed strict paired all-speed theorem or fixed \\(k\\) asymptotic difference.",
+        "evidence": [
+          "arXiv:2609.22527 Eq. (116): T_mu(r) exact.",
+          "Appendix A.5, Eqs. (182)–(185): weak-drift and 1D optimization with illustrative numerical inward nonmonotonicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.22527",
+        "material_read": "arXiv HTML sections I, II renewal formula, III.3.2 (Eq. 116), III.4, Appendix A.2–A.5 (Eqs. 160–185), references; full-text searches for reverse, strong drift, asymptotic, unique.",
+        "method": "Examined primary arXiv HTML full-text mathematical expressions and optimization discussion.",
+        "title": "Diffusion with stochastic resetting in the presence of a delta killing trap: Drift-controlled survival regimes",
+        "trigger": "Exact same diffusion, finite delta sink, drift and resetting; direct originality bottleneck"
+      },
+      {
+        "assessment": "NO constant opposite drift; finite reactivity alone does not state paired drift optimal rate asymptotic.",
+        "evidence": [
+          "2013 abstract explicitly formulates partial absorption and mean time without signed constant drift."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.2489",
+        "material_read": "Primary arXiv HTML abstract, introduction, definition of partial absorption and method; exact model discussion.",
+        "method": "Compared physical assumptions and which drift parameter is present.",
+        "title": "Effect of Partial Absorption on Diffusion with Resetting",
+        "trigger": "Prior partially reactive point-target renewal problem"
+      },
+      {
+        "assessment": "Perfectly absorbing target, not finite delta-local-time killing; does not subsume the fixed \\(k\\) gap.",
+        "evidence": [
+          "2018 paper classifies Péclet-controlled perfect-absorption restart threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.08239",
+        "material_read": "Primary arXiv HTML abstract, introduction and optimal restart discussion.",
+        "method": "Compared target boundary condition and optimizer phase structure.",
+        "title": "Péclet number governs transition to acceleratory restart in drift-diffusion",
+        "trigger": "Prior drift-dependent optimum and strongly drifting limit"
+      },
+      {
+        "assessment": "A separately switching target state rather than a constant delta sink; no direct implication of the claimed fixed \\(k\\) gap.",
+        "evidence": [
+          "2023 Section III concerns stochastic gate opening/closing and drift, with a resetting transition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.10605",
+        "material_read": "Primary arXiv HTML introduction, Sections II–III and Appendix A model description.",
+        "method": "Read gating dynamics, primary optimization statements and comparison to finite local-time killing.",
+        "title": "Rate enhancement of gated drift-diffusion process by optimal resetting",
+        "trigger": "A potentially stronger drift-optimal-search phase diagram with partial reaction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b1a5dde-c0f2-44b2-8a36-2dc3bb5dd3e1",
+  "value": {
+    "rationale": "The source motivates optimal restart for physical constant drift and finite sink reactivity, where the inward optimum is numerically nonmonotone. Establishing an exact all-speed ordering under bias reversal resolves a global robustness question that cannot be concluded from the source local expansion or plot. The limit \\(k/(eL)\\) captures a finite, diffusivity-independent reactivity fingerprint invisible at leading rate \\(v/L\\) and explains the danger of taking perfect absorption before strong drift. This is a natural asymptotic classification of the entire model, not an arbitrary parameter slice; no independent application or experimental estimation guarantee is asserted.",
+    "status": "PASS"
+  }
+}
