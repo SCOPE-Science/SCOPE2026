@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** Conditional independence yields the two explicit two-round CDF formulas. The all-parameter strict comparison is proved by lower-bounding one central first-round outcome and checking only the finite boundary via exact integer differences. Independent labeled-vertex transition enumeration matches the two-count formula for the five small graphs checked. For the late tail, every descendant transient state has no-change probability below \(1/4\), while the singleton states have distinct larger/smaller self-loop rates, establishing precise geometric asymptotics with positive constants.
+
+**Originality (O): PASS, qualified.** The closest source is Chan et al. (2019), §2.3, which already derives the complete-bipartite Markov transitions and records small-parameter expected times, then poses a conjecture about starting-part *means*. This reviewed theorem compares full completion-time distributions, proves an all-size strict two-round inequality and shows the opposite eventual tail order. Geneson–Hogben, Narayanan–Sun and Hu–Sun furnish related definitions and propagation-time bounds but no equivalent comparison in the inspected text. Semantic searches of published research records and comparison of accessible local claims showed no matching K2b stochastic-horizon result. The generic Markov framework creates residual historical-priority risk; an unlocated paper could contain this specialization.
+
+**Value (V): PASS.** Initial-seed location is an explicit optimization question in the source literature. Showing that its reliability ranking reverses between early and late deadlines across every graph in a natural infinite family sharply distinguishes stochastic dominance from expected-time comparisons. The value comes from the all-size structural and spectral explanation, not from a single computed counterexample.
+
+**Limitations:** No assertion is made concerning mean-optimality for every parameter, the number of CDF crossings, or other bipartite sizes. The exact checker covers its stated finite cases only; infinite conclusions are analytic. No independent validation has yet been performed.
+
+Self-review: passed. Independent audit: not yet performed.
