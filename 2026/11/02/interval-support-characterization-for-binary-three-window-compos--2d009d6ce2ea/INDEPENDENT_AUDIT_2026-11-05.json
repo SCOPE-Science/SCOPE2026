@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:57:03.737793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sliding width-three weights satisfy s_(i+1)−s_i=w_(i+3)−w_i∈{−1,0,1}, hence interval support is necessary. The submitted explicit base words for every singleton/pair/triple/full contiguous support, with left 100 and right 011 three-cycle prepending/appending gadgets, increment prescribed counts while preserving required terminal states. This proves sufficiency for every positive composition of a consecutive support; counting intervals of r indices yields Σ_(r=1..4)(5−r) binom(m−1,r−1)=(m³+11m+12)/6. Exactly one witness per profile attains the noiseless zero-error size. At every width h≥4 a profile with one extra count at index 2 would force disjoint 0^h and 1^h factors in 2h+1 symbols; one remaining bit permits repeats only at 0,1,h−1,h, contradiction. Independently enumerated all binary words with m≤9 triple windows and verified profile counts and consecutive supports; all 512 words for h=4 also exclude (1,1,2,1,1).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta–Mahdavifar all-substring-length composition spectrum carries strictly more data than fixed width three",
+          "Marcovich–Yaakobi literal patterns carry more information than their Hamming weights; Sporring–Darkner returns ordered local histograms"
+        ],
+        "reasoning": "More informative read observations do not automatically determine the attainable output vectors of their coarsening. No inspected broad theorem implies every positive interval histogram is feasible, nor the explicit forbidden full-support profile h≥4.",
+        "searches": [
+          "https://arxiv.org/abs/1912.11108",
+          "https://arxiv.org/abs/2201.09955",
+          "https://doi.org/10.3390/e24030433",
+          "binary sliding length three window composition histogram feasible profiles consecutive support zero error code OEIS"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1912.11108",
+        "https://arxiv.org/abs/2201.09955",
+        "https://doi.org/10.3390/e24030433",
+        "https://oeis.org/A188554"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordered local-histogram channel of Sporring–Darkner tracks the sequence of observed histograms, whereas H_3 tracks only aggregate multiplicity counts",
+          "Existing literal and all-length channels are not the exact width-three coarsened observation"
+        ],
+        "reasoning": "None of these source statements entails interval support sufficiency merely by a relabeling. Conversely the new criterion does not solve reconstruction of original word under richer observations or noise; it gives a constrained feasible-image characterization.",
+        "searches": [
+          "https://arxiv.org/abs/1912.11108",
+          "https://arxiv.org/abs/2201.09955",
+          "https://doi.org/10.3390/e24030433",
+          "https://oeis.org/A188554"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weight processes s_i for consecutive triples have step differences w_(i+3)−w_i in {−1,0,1}; graph-flow/de Bruijn reconstruction is a potential alias",
+          "Sporring–Darkner uses ordered local histogram sequence, not a single aggregate per-weight count vector"
+        ],
+        "reasoning": "The interval condition is necessary for any nearest-neighbor weight walk, but not sufficient for arbitrary walks because overlapping bits constrain transitions. Its exact sufficiency at h=3 follows from distinct endpoint gadgets; prior ordered-histogram inversion does not provide it.",
+        "searches": [
+          "binary sliding length three window composition histogram feasible profiles consecutive support zero error code OEIS",
+          "binary triple de Bruijn Markov type unlabeled composition support feasible",
+          "OEIS A188554",
+          "https://doi.org/10.3390/e24030433"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A188554 records exactly the polynomial (m³+11m+12)/6 under a different binary-array interpretation"
+        ],
+        "reasoning": "Numerical T_m is already known in a different form, so no numerical sequence priority is asserted. Equality of counts alone does not give this overlapping sliding read realization theorem or the h≥4 obstruction.",
+        "searches": [
+          "https://oeis.org/A188554",
+          "binary sliding length three window composition histogram feasible profiles consecutive support zero error code OEIS",
+          "OEIS A188554 length three histogram profile counts"
+        ]
+      },
+      "rationale": "OEIS A188554 already contains the same cubic numerical formula for another combinatorial model, so sequence novelty is explicitly excluded. Marcovich–Yaakobi handles literal k-substring multispectra, Gupta–Mahdavifar studies composition multisets over all substring lengths, and Sporring–Darkner preserves ordering of local histograms. The claim here is a complete iff description of UNORDERED multiplicity counts for overlapping width-three binary reads, with a constructive codebook and sharp width-four counterexample; none of the inspected statements directly establishes that channel output space. Historical equivalent hidden in sliding-histogram literature remains possible.",
+      "residual_risks": [
+        "Exact value sequence T_m is known (OEIS A188554); should never be described as a new sequence.",
+        "The interval-support sufficiency theorem may be a specialization of an unindexed sliding-de Bruijn histogram realizability result.",
+        "No classification for all profiles at widths four and above is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local histogram observations are indexed by position; no all-size unordered Hamming-weight count-vector iff identified",
+          "evidence": [
+            "The paper defines an ordered sequence of local histograms, rather than multiplicity of each histogram composition"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e24030433",
+          "material_read": "Full accessible 2022 primary HTML through definitions, formal input stream, methods and concluding section",
+          "method": "Full PMC HTML primary text inspection",
+          "title": "Reconstructing Binary Signals from Local Histograms",
+          "trigger": "Same sliding local histograms and potential equivalent known reconstruction"
+        },
+        {
+          "assessment": "Literal substrings and errors/erasures are different from unordered Hamming-weight profile feasibility",
+          "evidence": [
+            "Substring spectrum retains actual bits of reads, not only each length-three read weight"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.11108",
+          "material_read": "Primary arXiv PDF first page and formal channel statements with PDF screenshot",
+          "method": "PDF text/page inspection",
+          "title": "Reconstruction of Strings from their Substrings Spectrum",
+          "trigger": "Same term substring spectrum but possibly different observation"
+        },
+        {
+          "assessment": "Uses multiple substring lengths, so does not directly supply exact fixed-width-three profile image",
+          "evidence": [
+            "Study concerns substring compositions from all lengths"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.09955",
+          "material_read": "Primary arXiv PDF formal definitions/methods, inspected page screenshot",
+          "method": "PDF primary text/page inspection",
+          "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+          "trigger": "Composition multisets can be stronger supersets"
+        },
+        {
+          "assessment": "Identical cubic value sequence is prior; object-specific bridge and iff remain the assessed mathematical claim",
+          "evidence": [
+            "OEIS numerical term formula matches T_m, even though the counted objects differ"
+          ],
+          "identifier_or_url": "https://oeis.org/A188554",
+          "material_read": "Indexed sequence title, formula and independent combinatorial interpretation",
+          "method": "Database record inspection",
+          "title": "OEIS A188554",
+          "trigger": "Exact numerical sequence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete realizability theorem for a natural fixed-width unordered read-composition channel gives a one-line admission test and an explicit maximal zero-error codebook for every word length, as well as a sharp boundary h=3 versus h≥4 where support sufficiency breaks. That statement has independent coding-theoretic use even though the numerical polynomial is recorded elsewhere.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary contiguous noiseless width-three composition-read multispectra classified.",
+    "The h≥4 result is an obstruction, not a complete classification of all wider profiles.",
+    "Polynomial T_m coincides with an already known OEIS sequence from a different model."
+  ],
+  "schema_version": 1
+}
