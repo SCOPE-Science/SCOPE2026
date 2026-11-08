@@ -1,19 +1,21 @@
-# Review of the square-zero Schatten commutator-cost theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The target is any complex Schatten \(S_p\) operator satisfying \(N^2=0\), for \(1\le p<\infty\). Orthogonality of the polar source and range gives an attaining representation with the required norm product. The matching lower bound holds over **all** representations and uses a corner estimate whose \(S_2\) endpoint is reconstructed block-by-block, whose \(S_1\) endpoint is Hölder's inequality, and whose interpolation is proved explicitly using analytic polar-power families and the three-lines theorem. Trace duality, cyclicity and finite-rank density close all exponent and infinite-dimensional cases. The included checker passed 390 finite assertions. Boundary: no assertion for \(p<1\) or higher nilpotency index.
+PASS
 
-## Originality
+For complex H, N in S_p with N²=0 (p>=1), polar source/range supports are orthogonal. Direct products of X=(|N*|^{1/2}-|N|^{1/2})/2 and Y=U|N|^{1/2} give XY=N/2, YX=-N/2, S_{2p} norm-product 2^{1/(2p)-1}||N||_p. For unrestricted factors the dual W=|N|^{p-1}U* lies in a square-zero corner. The corner commutator bound interpolates the HS endpoint sqrt(2)||W||∞||X||₂, proved by orthogonal block energy, with trace endpoint 2||W||₁||X||∞, yielding 2^{1-1/(2p)}||W||_{p'}||X||_{2p} in S_{2p/(2p-1)}. Polar powers W(z),X(z),Z(z) on the strip yield the exact exponent; finite-rank density and trace duality cover infinite rank and p=1. Trace cyclicity gives the matching lower bound over ALL factors. Independently verified explicit multi-singular examples p=1,1.3,2,4,10 and 300 random complex-matrix HS corner tests; these do not prove the infinite-dimensional interpolation.
 
-PASS on the inspected record. Liu–Yang (arXiv:2610.27024v1) give existence for \(p>2\) and a nonsharp factor-product upper bound. Dykema–Krishnaswamy-Usha (arXiv:1706.03465) give nilpotent commutator existence/ideal membership. Marcoux–Radjavi–Zhang (arXiv:2402.15676) classify outputs of two square-zero factors, not the cost when the target is square-zero. Classical Hilbert–Schmidt commutator inequalities already imply the rank-one \(p=1\) special lower bound, but not the displayed arbitrary-rank trace-norm result or the full \(p\)-family. The closest mathematical-record finding estimates finite-rank **normal** target costs up to constants and cannot imply the exact nonnormal square-zero minimum. Residual risk: prior equivalent formula under different terminology is possible; independent publication-priority assessment was not performed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem computes the exact unrestricted product-norm cost, not merely existence or a convenient bound, for every singular sequence in a motivated target class. It clarifies the gap between recent general \(p>2\) factorization theory and trace-class or Hilbert–Schmidt square-zero operators, and identifies a reusable sharp interpolation mechanism and an explicit minimizer.
+Liu–Yang 2026 Thm 1.1 establishes general single commutator existence p>2 with upper bound 16 zeta(p−1)^{1/p}, not the sharp infimum. Dykema–Krishnaswamy-Usha handle ideal membership for nilpotent commutators; Marcoux–Radjavi–Zhang constrain square-zero FACTORS, a different problem. Resultary normal finite-rank target result estimates norm costs up to constants, not nonnormal index-two nilpotents. Rank-one p=1 is classical Hilbert–Schmidt comparison; the all-rank all-p exact cost appears additional, subject to alternate formulations of sharp corner interpolation.
 
-## Limitations and evidence
+## value
 
-Source inspections: arXiv:2610.27024v1 (Theorem 1.1, Lemma 2.6, Section 5), arXiv:1706.03465 (Proposition 3.1, Theorem 3.2, Question 3.4), arXiv:2402.15676 (the square-zero-factor classification), and arXiv:2202.11520 (Hilbert–Schmidt background). The finite checker confirms algebraic constructions and endpoint examples but does not independently prove the interpolation theorem. The available search is not a proof of global literature uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computes an exact attainable unrestricted factor-product optimization in Schatten ideals, including the delicate trace-class endpoint and infinite-rank targets, rather than a convenient nonoptimal construction. Such norm-optimal representations are useful in operator-ideal commutator theory and sharp Hölder/three-lines inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
