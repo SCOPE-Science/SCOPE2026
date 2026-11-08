@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof derives the upper bounds by explicit rooted-tree parent folds and the lower bound from three neighbors in distinct factors. Tree products always have the coordinate-sum shortest-path metric. The three-radius-one-ball intersection is a singleton even when the factors branch; choosing one neighbor in each of three distinct coordinates is sufficient.
+## correctness
 
-The standalone script `tree_product_check.py` was executed with ordinary Python and no third-party dependencies. The observed largest prefix-retraction Lipschitz constants were: two binary factors, 1; rooted path/tree pairs of sizes (4,4) and (4,3), 1; three nontrivial factors of sizes (2,2,2), (3,2,2), (3,3,2), and (4,2,2), 2; four binary factors, 2. The script verifies every prefix and every vertex pair in each listed case. These finite computations corroborate the explicit construction but do not certify all tree sizes.
+PASS
 
-The novelty comparison concerns the exact statement and its logical implications, not matching titles. Source material and residual bibliographic risks are recorded in the accompanying review. The mathematical statement is subject to independent assessment.
+For d>=1 nontrivial finite unit-edge trees, product shortest-path metric, arbitrary roots, commuting prefix retractions have exact optimum 1 for one or two factors and 2 for three or more. For one factor parent folds are nonexpansive. For two factors, lex parent-before-descendant order and simultaneous coordinate-parent predecessor make each one-point fold nonexpansive on prior prefix: when earlier first coordinate differs it is outside current descendant subtree so first coordinate distance drops by one, compensating second coordinate; within same first row the second-coordinate parent distance drops. For d>=3 recursive row-prefix maps use ancestral projections π_Q in the first factor, change by at most one in that coordinate when second-factor membership changes, making graph-edge output distance<=2. Nested one-point fold compositions commute. For lower bound, any last vertex v has three neighbors in distinct factors whose closed radius-one balls intersect only at v; penultimate retraction must move v but fix its neighbors, so integer Lipschitz <2 is impossible. The result is about retractional free-space projections, not arbitrary Banach bases.
+
+## originality
+
+PASS
+
+General free-space retractional bases of Hájek–Medina, finite-graph obstruction results of Novotný, and median metric graph retractions are relevant, but no inspected theorem yields the exact d<=2 versus d>=3 threshold for arbitrary unit-edge tree products. The previously studied binary-Hamming cube is a special case and does not imply the arbitrary branching path/tree extension. Older median graph folding literature could encode equivalent 1-Lipschitz filtrations.
+
+## value
+
+PASS
+
+An exact classification of the minimal commutative retractional basis constant on a natural fundamental family of graph metrics, identifying a sharp two-to-three-factor obstruction with explicit construction for arbitrary branching finite trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
