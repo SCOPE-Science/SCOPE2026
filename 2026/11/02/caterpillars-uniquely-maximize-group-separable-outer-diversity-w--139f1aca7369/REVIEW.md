@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns rooted full binary group-separable preference domains under the impartial-culture average of minimum Kendall distance. Every distinct pair of alternatives has a unique lowest common ancestor, so the minimum Kendall loss decomposes exactly into nodewise balanced-interleaving losses. The exact singleton cost yields \(F_m\). The universal bound \(g(a,b)\ge ab/4\) for \(a,b\ge2\) follows from the exact sample-without-replacement variance and Cauchy–Schwarz except for five explicit small pairs, which have been evaluated exactly. The comparison \(F_{a+b}-F_a-F_b\le ab/4-1/6\) has equality only for \((a,b)=(2,2)\). Telescoping proves the global lower bound, strict caterpillar-only equality, the uniform runner-up gap and every runner-up shape. This reasoning is finite and elementary at every local step and applies to every tree size; the exact verifier independently reproduces the finite calculations and sample domains.
+PASS
 
-## Originality — PASS (qualified)
+For each lowest-common-ancestor split (a,b), Kendall loss optimizes its two block orders independently, giving D(T)=sum_v g(a_v,b_v). The singleton interleaving yields F_m; the without-replacement inversion variance ab(a+b+1)/12 and Cauchy-Schwarz imply g(a,b)>=ab/4 away from five small explicitly evaluated cases. Harmonic-sum comparison bounds F_{a+b}-F_a-F_b<=ab/4-1/6, equality only (2,2), while singleton splits have zero surcharge. Telescoping over all nodes proves caterpillar uniqueness and sharp exactly-one-balanced-four-leaf-core runner-up for every m>=4. Independent exact interleaving enumeration through total size 12 checked surcharges; finite tests are not the infinite proof.
 
-The primary 2026 source, *Outer Diversity of Condorcet Domains* (arXiv:2610.00720v1), proves its finite-size optimization algorithm and reports the caterpillar maximizer empirically for up to one hundred alternatives, but does not supply the all-size analytic extremal characterization or second-best gap. Its earlier companion, *Outer Diversity of Structured Domains* (arXiv:2602.15708v1), explicitly poses the extremality question. The related *Nearly Group-Separable Elections* (arXiv:2609.33535v1) studies different multi-voter edit problems. Searches of relevant published research and mathematical claim records found no dominating or equivalent theorem; their absence is not proof of novelty. An unindexed equivalent result is the main remaining risk.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a publicly motivated structural extremal question for all numbers of alternatives, upgrades a finite experimental pattern to an exact theorem and identifies the sharp next-best shape and gap. The nodewise surcharge also explains why a true balanced branch is less diverse, a structural mechanism useful in further extremal questions about domain restrictions.
+The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.
 
-## Scope and limitations
+## value
 
-The expectation is over a single uniformly random complete ranking and the permissible domains are exactly those represented by full binary group-separable trees. No claim is made for arbitrary domains, alternative distances, or correlated electoral profiles. The numerical checks are finite and are not substitutes for the universal proof. Equivalent independent earlier results might not be indexed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem settles a naturally motivated group-separable diversity extremal problem for every number of alternatives and determines sharp next-best trees and exact Kendall gap. The local mixed-branch surcharge is an informative structural extremal lemma, not a merely computed small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

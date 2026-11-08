@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The accompanying `verify.py` uses Python's `Fraction` and integer arithmetic only; no nonstandard packages or data files are necessary. Run `python verify.py` alongside this document. The verifier compares two independent calculations of the interleaving-cost law for all 64 ordered block-size pairs from 1 to 8, checks the five exceptional cases exactly, and verifies the mixed-block inequality on 300 pairs of sizes 2 through 25.
+## correctness
 
-It also enumerates every unlabeled full rooted binary shape for 2 through 14 leaves (2,179 shapes at 14 leaves), checks the precise caterpillar optimum and second-ranked tree shape and \(1/6\) gap, and for up to six leaves independently enumerates all full rankings and admissible domain rankings to check the expected minimum Kendall distance directly. Every one of these tests passed. The analytic proof, rather than finite enumeration, certifies the claim for unbounded numbers of leaves. It does not establish an independent audit or priority outside the inspected sources.
+PASS
+
+For each lowest-common-ancestor split (a,b), Kendall loss optimizes its two block orders independently, giving D(T)=sum_v g(a_v,b_v). The singleton interleaving yields F_m; the without-replacement inversion variance ab(a+b+1)/12 and Cauchy-Schwarz imply g(a,b)>=ab/4 away from five small explicitly evaluated cases. Harmonic-sum comparison bounds F_{a+b}-F_a-F_b<=ab/4-1/6, equality only (2,2), while singleton splits have zero surcharge. Telescoping over all nodes proves caterpillar uniqueness and sharp exactly-one-balanced-four-leaf-core runner-up for every m>=4. Independent exact interleaving enumeration through total size 12 checked surcharges; finite tests are not the infinite proof.
+
+## originality
+
+PASS
+
+The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+The theorem settles a naturally motivated group-separable diversity extremal problem for every number of alternatives and determines sharp next-best trees and exact Kendall gap. The local mixed-branch surcharge is an informative structural extremal lemma, not a merely computed small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
