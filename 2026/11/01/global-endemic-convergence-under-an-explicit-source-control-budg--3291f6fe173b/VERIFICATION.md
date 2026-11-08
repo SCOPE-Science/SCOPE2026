@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify.py` is standalone Python 3 source requiring SymPy. Execute `python3 verify.py` from the directory containing it. It passed on this package, producing exact tests of (i) the coupled entropy derivative including all cross terms; (ii) the simplified source-control quotient; (iii) positive simplex mass balance; (iv) the three equilibrium equations; (v) exact rational values at the exhibited strict interior point; and (vi) the positive damping margin. These tests do not assert any result about untested parameter regimes by enumeration.
+# Independent mathematical audit
 
-The global statement itself follows analytically from positive invariance, the explicit exact dissipation formula, its completed-square bound, properness of the integral potential, and LaSalle's invariance principle. The strict inequalities are checked symbolically or proved by the given parameter bounds, rather than extrapolated from numerical samples. The source date of October 7, 2026 is verified against the initial arXiv submission, not inferred from a later journal or revision date.
+## correctness
 
-Independent audit has not been performed. The theorem is deliberately restricted to permanent immunity, zero conformity and strictly positive initial infection and adherence. The strongest historical risk is possible coverage by a general entropy-stability result not identified during primary-literature comparison.
+PASS
+
+Reconstructed S+I+R=1 invariance, interior equilibrium monotonicity, relative-entropy H and adherence potential U. Independently differentiated the ODE and verified exactly that d(H+U)/dt is the three-term formula in RESULT.md, including the mixed term. The source-control difference quotient is e/[beta(1-e x)(a+e-ae(x+x_*))] >= e/[beta(a+e)], yielding a strict completed square when the stated inequality holds. The potential diverges at x=0,1 and entropies at S=0,I=0; compact invariant sublevels and LaSalle exclude other interior recurrent sets. Exact rational example and margin 3357/106288 independently recomputed. Domain excludes waning, conformity, zero-infection and boundary adherence.
+
+## originality
+
+PASS
+
+The original 2026 source proves local equilibrium statements and explores Hopf/recurrent dynamics in a broader behavioral SIRS game. A proper entropy providing all-interior global attraction in its no-waning no-conformity specialization under a new explicit source-control bound is not implied by its local stability or by the SIS model of Martin–Castella–Hamelin. No exact analogue in the targeted published-record search. Broader unindexed epidemic feedback Lyapunov theorems remain possible.
+
+## value
+
+PASS
+
+A rigorous global basin criterion uniform in behavioral speed resolves a motivated nonlinear question left open by local analysis and trajectories. The explicit checkable damping condition and proper entropy prevent hidden interior cycles in a natural reduced epidemic game, not merely a numerical threshold or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

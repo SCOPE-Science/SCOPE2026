@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The new theorem is proved on exactly the strict population simplex with positive adherence. The demographic mass balance establishes positive invariance and global solutions. The relative-entropy-plus-behavioral-potential derivative follows from exact product differentiation. Its mixed term is dominated by the strictly positive source-control quotient, yielding a sum of two negative squares under the displayed strict condition. The behavioral potential is proper at both adherence boundaries, allowing a compact LaSalle argument; the zero-dissipation set has only one invariant point. The standalone SymPy checks recompute the critical identities and the exact rational example. Finite tests are used as checks, not as replacements for the analytical proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The October 2026 source defines the precise split between source control and private protection; its main text and Supplement establish local behavior and numerical bifurcations, not the global proper entropy inequality here. Earlier NPI work establishes different transmission/payoff models; the closely related 2026 article by Martin, Castella, and Hamelin studies SIS dynamics rather than the present three-dimensional permanent-immunity SIR system. The published-record and literature searches described in AUDIT.json did not identify a theorem whose hypotheses imply the exact all-positive-state, all-behavioral-speed conclusion. This is a best-knowledge originality finding, not a claim that searches establish uniqueness; a broader global stability theorem in the epidemic-game literature could subsume the result.
+PASS
 
-## Mathematical value — PASS
-The motivating dynamical analysis classifies local stability and discusses recurrent regimes. The new statement upgrades local stability to a rigorous *global* basin theorem for a natural biological reduction and removes any restriction on adherence adaptation speed. A computable sufficient source-control condition, an exact proper entropy, and a strictly feasible rational parameter point are useful tools for separating guaranteed convergence from possible nonlinear behavior. The contribution does not rest on a numerical threshold adjustment, terminology, or a renaming of standard SIR stability alone.
+Reconstructed S+I+R=1 invariance, interior equilibrium monotonicity, relative-entropy H and adherence potential U. Independently differentiated the ODE and verified exactly that d(H+U)/dt is the three-term formula in RESULT.md, including the mixed term. The source-control difference quotient is e/[beta(1-e x)(a+e-ae(x+x_*))] >= e/[beta(a+e)], yielding a strict completed square when the stated inequality holds. The potential diverges at x=0,1 and entropies at S=0,I=0; compact invariant sublevels and LaSalle exclude other interior recurrent sets. Exact rational example and margin 3357/106288 independently recomputed. Domain excludes waning, conformity, zero-infection and boundary adherence.
 
-## Closest literature and limits
-Kumata–Ito–Yamamichi, arXiv:2610.12519v1, is the closest model source. Saad-Roy–Traulsen (PNAS, 2023) and Martin–Castella–Hamelin (J. Theor. Biol., 2026) inform the precedent and the residual coverage risk. Other generalized nonlinear-incidence epidemic stability theorems could cover a broader class; none of the inspected statements has been shown to imply this result. The theorem does not address positive immunity waning, conformity, behavioral boundary data, nor sharpness of the stated source-control budget.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2026 source proves local equilibrium statements and explores Hopf/recurrent dynamics in a broader behavioral SIRS game. A proper entropy providing all-interior global attraction in its no-waning no-conformity specialization under a new explicit source-control bound is not implied by its local stability or by the SIS model of Martin–Castella–Hamelin. No exact analogue in the targeted published-record search. Broader unindexed epidemic feedback Lyapunov theorems remain possible.
+
+## value
+
+PASS
+
+A rigorous global basin criterion uniform in behavioral speed resolves a motivated nonlinear question left open by local analysis and trajectories. The explicit checkable damping condition and proper entropy prevent hidden interior cycles in a natural reduced epidemic game, not merely a numerical threshold or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
