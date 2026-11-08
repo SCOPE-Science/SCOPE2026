@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the central section law
+# Independent mathematical audit
 
-Run `python verify_truncated_tetra.py` using Python 3, NumPy, and mpmath. The self-contained program defines the twelve exact vertices from the original four tetrahedral vertices and derives the eighteen edges by squared edge length eight. It verifies the four critical vertex-sign lines and partitions the normal chamber into six polygons with rational vertices. Testing rational interior centroids determines the section side count rigorously on each open cell because all sign-change boundaries have been listed. Exact shoelace areas prove that the six cells exhaust the planar chamber without positive-area overlap.
+## correctness
 
-The checker evaluates each spherical polygon by triangulation using the closed spherical solid-angle formula, separately tests the two radical denominators for the hexagonal cells, and checks that direct six-cell probabilities agree with the expectation from the eighteen identical endpoint angles. Numerical calculations use high precision for displayed values; exact statements are established symbolically in the accompanying proof. A separate direct experiment samples 240000 independent Gaussian directions and counts edge crossings as a diagnostic only. The observed counts are 51993 quadrilaterals, 124711 pentagons, and 63296 hexagons.
+PASS
 
-The executable prints `EXACT_VERTEX_AND_CHAMBER_PARTITION_PASSED`, `EXACT_SOLID_ANGLE_AND_EDGE_CROFTON_IDENTITIES_PASSED`, `INDEPENDENT_ALL_SIX_SPHERICAL_CELL_AREAS_PASSED`, `RATIONAL_PENTAGON_MAJORITY_CERTIFICATE_PASSED`, `INDEPENDENT_HAAR_NORMAL_MONTE_CARLO_PASSED`, and `ALL_CHECKS_PASSED` on successful completion.
+The vertex set V={2A+B:A,B among four regular tetrahedron corners, A!=B} has 12 vertices of squared norm 11 and exactly 18 truncated-tetrahedron edges of squared length 8, with adjacent inner product 7. A generic central section has one polygon corner per edge with opposite-signed normal projections. Tetrahedral and coordinate-sign symmetries reduce normal directions to 0<=z<=y<=1, partitioned by exactly four internal vertex-normal lines into six rational planar cells. Exhaustively classifying the cell interior sign patterns gives only 4,5,6 sides, two cells each. Hexagonal cell solid angles follow the exact 3-ray determinant identity, yielding q=24/pi(atan(2/S1)+atan(1/S2)); independent edge-sign separation gives mean mu=18/pi arccos(7/11), so p4=5-mu+q, p5=mu-4-2q, p6=q. Independent rational cell counts, determinant checks, high-precision evaluation give (0.21593608531264,0.52024746523894,0.26381644944842); source supplies a separate exact rational >0.518 pentagon certificate. Six cells partition the chamber, so no appeal to Monte Carlo for universality.
 
-The verification does not establish novelty, independent proof certification, extension to off-center sections, or unexamined literature coverage.
+## originality
+
+PASS
+
+Random central section type is a natural stereological object. Inspecting classical truncated tetrahedron geometry and nearby exact random-section laws revealed different solids or different observables; the particular full three-atom law was not implied.
+
+## value
+
+PASS
+
+The full distribution of polygon complexity of a Haar-random central section is a basic stereological invariant of a canonical regular Archimedean solid. The noncentrally symmetric truncated tetrahedron has a new six-cell normal arrangement with three possible polygon types, unlike classical cube/icosahedron cases; exact p4,p5,p6 and rigorous pentagonal majority are independently useful facts not implied by a standard face-count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

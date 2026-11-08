@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The given Cartesian vertices are the one-third truncation of a regular tetrahedron; the vertex enumeration yields exactly eighteen edges, all of squared length eight and all subtending the same angle \(\arccos(7/11)\) at the origin. The sign of each edge endpoint under a section normal determines an intersection vertex. The four exact interior critical lines partition the symmetry chamber into six rational polygon cells, whose computed sign patterns give precisely the counts four, five, and six. The two six-sided spherical triangles have exact determinants two and one and the displayed radical denominators. Their solid angles and the expected-edge count reconstruct all three probabilities. Exact rational cell checks, a rational strict-majority certificate, and independent spherical-area calculations corroborate the identities; universal statements do not rely on randomized tests.
+PASS
 
-## Originality — PASS, provisional historical priority
+The vertex set V={2A+B:A,B among four regular tetrahedron corners, A!=B} has 12 vertices of squared norm 11 and exactly 18 truncated-tetrahedron edges of squared length 8, with adjacent inner product 7. A generic central section has one polygon corner per edge with opposite-signed normal projections. Tetrahedral and coordinate-sign symmetries reduce normal directions to 0<=z<=y<=1, partitioned by exactly four internal vertex-normal lines into six rational planar cells. Exhaustively classifying the cell interior sign patterns gives only 4,5,6 sides, two cells each. Hexagonal cell solid angles follow the exact 3-ray determinant identity, yielding q=24/pi(atan(2/S1)+atan(1/S2)); independent edge-sign separation gives mean mu=18/pi arccos(7/11), so p4=5-mu+q, p5=mu-4-2q, p6=q. Independent rational cell counts, determinant checks, high-precision evaluation give (0.21593608531264,0.52024746523894,0.26381644944842); source supplies a separate exact rational >0.518 pentagon certificate. Six cells partition the chamber, so no appeal to Monte Carlo for universality.
 
-The closest identified published section papers treat **different convex bodies or different observables**. König–Koldobsky (arXiv:1806.08659) optimize cube-section perimeter; König (arXiv:2002.10743) treats maximal simplex, cube, and cross-polytope sections. Contemporary indexed exact polygon-type results for cubes and icosahedra concern different vertex sets, sign arrangements, and angular probabilities. Weisstein gives the truncated tetrahedron's deterministic structure without a random central-section law. Lavau (2019) studies the same solid but the distinct Rupert passage problem. No inspected source implies the three exact probabilities for this Archimedean solid. Full access to all historical stereology literature was not established, so independent priority checking remains desirable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of sides of a random plane section is a basic stereological characteristic. Determining its entire law for this classical noncentrally-symmetric Archimedean solid is not a mere parameter substitution into the cube law: the tetrahedral normal chamber has a new six-cell arrangement, and the support has three rather than two values. The calculation identifies a concrete predominant pentagonal section type, computes its exact frequency, and supplies independently checkable solid-angle formulas and a mean-combinatorial identity.
+Random central section type is a natural stereological object. Inspecting classical truncated tetrahedron geometry and nearby exact random-section laws revealed different solids or different observables; the particular full three-atom law was not implied.
 
-## Scientific limits
+## value
 
-Only centroidal, Haar-normal sections and the regular one-third truncation are treated; an arbitrary section offset or a general truncation is not claimed. Priority remains provisional. These checks are self-review only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full distribution of polygon complexity of a Haar-random central section is a basic stereological invariant of a canonical regular Archimedean solid. The noncentrally symmetric truncated tetrahedron has a new six-cell normal arrangement with three possible polygon types, unlike classical cube/icosahedron cases; exact p4,p5,p6 and rigorous pentagonal majority are independently useful facts not implied by a standard face-count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

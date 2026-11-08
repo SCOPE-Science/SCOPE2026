@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:13:42.229820Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md complete six-cell table, spherical triangle and edge-expectation proof; blob abd5d5c91f158aeccaa06658c3515b9cbe64b0f9",
+        "verify_truncated_tetra.py blob 1dd5b9401a92a7acecc0e88bad24079fd2d1fc10 with rational cell/majority checks",
+        "Independent vertex/edge and six-cell computation in independent_scope05_checks.py"
+      ],
+      "rationale": "The vertex set V={2A+B:A,B among four regular tetrahedron corners, A!=B} has 12 vertices of squared norm 11 and exactly 18 truncated-tetrahedron edges of squared length 8, with adjacent inner product 7. A generic central section has one polygon corner per edge with opposite-signed normal projections. Tetrahedral and coordinate-sign symmetries reduce normal directions to 0<=z<=y<=1, partitioned by exactly four internal vertex-normal lines into six rational planar cells. Exhaustively classifying the cell interior sign patterns gives only 4,5,6 sides, two cells each. Hexagonal cell solid angles follow the exact 3-ray determinant identity, yielding q=24/pi(atan(2/S1)+atan(1/S2)); independent edge-sign separation gives mean mu=18/pi arccos(7/11), so p4=5-mu+q, p5=mu-4-2q, p6=q. Independent rational cell counts, determinant checks, high-precision evaluation give (0.21593608531264,0.52024746523894,0.26381644944842); source supplies a separate exact rational >0.518 pentagon certificate. Six cells partition the chamber, so no appeal to Monte Carlo for universality.",
+      "residual_risks": [
+        "Only Haar-normal planes through the centroid of the fixed regular one-third truncated tetrahedron, excluding null vertex-hit orientations.",
+        "Simulation corroborates but does not prove exact probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "König–Koldobsky analyze maximal cube-section perimeter; König analyzes extremal simplex/cross-polytope/cube sections; Lavau 2019 studies Rupert passage of truncated tetrahedron.",
+          "None of these inspected statements provides the probability law of number of sides for Haar-central truncated tetrahedral sections."
+        ],
+        "reasoning": "General convex-section theorems establish background geometry but do not supply the six-cell combinatorial decomposition or q radical arctangents for this solid.",
+        "searches": [
+          "arxiv:1806.08659 maximal perimeter sections cube",
+          "arxiv:2002.10743 simplex cross-polytope noncentral sections",
+          "Lavau truncated tetrahedron Rupert 2019"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search for truncated-tetrahedron central plane probability",
+        "Published Resultary icosahedron/box full results",
+        "MathWorld truncated tetrahedron page",
+        "König–Koldobsky arXiv abstract",
+        "Lavau DOI metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard edge-crossing expectation mu is transferable but does not itself determine three separate p4,p5,p6 values.",
+          "The explicit two hexagon cell solid angles and complete 4/5/6 cell census are extra geometry not implied by formulas for icosahedron or box."
+        ],
+        "reasoning": "An exact probability distribution requires the distinct six-cell subdivision, not just deterministic face counts or expectation.",
+        "searches": [
+          "MathWorld truncated tetrahedron 12 vertices 18 edges",
+          "Resultary icosahedron Haar polygon-type law",
+          "Resultary rectangular box Haar hexagon law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weisstein MathWorld provides 12 vertices, 18 edges, 4 triangular and 4 hexagonal faces but no angular section-probability law.",
+          "Resultary exact icosahedron central-section law gives 10/12-gon types; rectangular box law has parallelogram/hexagon types."
+        ],
+        "reasoning": "Same Haar-normal method and edge counting are general tools, but those different solids have distinct vertex-sign arrangements, so their exact laws are not equivalent to this truncated-tetrahedron three-way distribution.",
+        "searches": [
+          "Resultary: truncated tetrahedron random central plane section probability 4 5 6 sides",
+          "MathWorld truncated tetrahedron edges vertices geometry",
+          "random central section truncated tetrahedron pentagon hexagon probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary entries list random icosahedron central-section law and cuboid section law; neither is an exact table for this Archimedean solid."
+        ],
+        "reasoning": "Exact database coverage checked by object, random orientation model, polygon side-count support and value formulas. Search absence not priority proof.",
+        "searches": [
+          "Resultary truncated tetrahedron Haar central section polygon counts exact probabilities",
+          "central section Archimedean truncated tetrahedron four five six section proportion"
+        ]
+      },
+      "rationale": "Random central section type is a natural stereological object. Inspecting classical truncated tetrahedron geometry and nearby exact random-section laws revealed different solids or different observables; the particular full three-atom law was not implied.",
+      "residual_risks": [
+        "An older stereology or integral-geometry catalog may already contain this same three-atom Archimedean section law.",
+        "König and Lavau whole articles not fully read; any relevant appendix would need explicit follow-up, though known main theorems concern different observables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical deterministic geometry only, not Haar-central section frequencies",
+          "evidence": "12 vertices, 18 edges, 4 triangular and 4 hexagonal faces",
+          "identifier_or_url": "https://mathworld.wolfram.com/TruncatedTetrahedron.html",
+          "material_read": "Main page on Archimedean solid vertices, edges and faces",
+          "method": "MathWorld webpage read",
+          "title": "Truncated Tetrahedron",
+          "trigger": "Basic same-solid geometry and possible table"
+        },
+        {
+          "assessment": "Different regular icosahedron with 10/12 sided sections; no implication for truncated tetrahedron",
+          "evidence": "Sphere subdivided into triangular and pentagonal chambers",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f/RESULT.md",
+          "material_read": "Entire Finding, scope and sign-chamber/edge expectation proof",
+          "method": "Published Resultary RESULT.md read through GitHub connector",
+          "title": "Exact Haar polygon-type law for central icosahedron sections",
+          "trigger": "Nearby published exact random central polygon law"
+        },
+        {
+          "assessment": "Generic box gives 4/6 sides; distinct from truncated-tetrahedron 4/5/6 classes",
+          "evidence": "Cube case p6=1-6 arcsin(1/3)/pi",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+          "material_read": "Finding, triangle-inequality cone and three-ray spherical area proof",
+          "method": "Published Resultary RESULT.md read through GitHub connector",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Nearby published solid-angle formula for Haar sections"
+        },
+        {
+          "assessment": "Optimizes section perimeter for cube; cannot assert full document not covering, but stated result is distinct",
+          "evidence": "König–Koldobsky 2018",
+          "identifier_or_url": "https://arxiv.org/abs/1806.08659",
+          "material_read": "Abstract and topic/statement metadata only, not full main article",
+          "method": "arXiv publication metadata/abstract inspected",
+          "title": "On the maximal perimeter of sections of the cube",
+          "trigger": "Potential stronger random-section theorem"
+        },
+        {
+          "assessment": "Studies congruent solid passage, not purported random central section distribution; no whole-document exclusion",
+          "evidence": "Lavau 2019",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.2019.1656958",
+          "material_read": "Bibliographic title and publication metadata only",
+          "method": "DOI record metadata",
+          "title": "The Truncated Tetrahedron Is Rupert",
+          "trigger": "Same named polyhedron, potentially broad results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md full angular-chamber argument and exact q/mu formulas",
+        "Independent six-cell sign-count calculations and high-precision probabilities"
+      ],
+      "rationale": "The full distribution of polygon complexity of a Haar-random central section is a basic stereological invariant of a canonical regular Archimedean solid. The noncentrally symmetric truncated tetrahedron has a new six-cell normal arrangement with three possible polygon types, unlike classical cube/icosahedron cases; exact p4,p5,p6 and rigorous pentagonal majority are independently useful facts not implied by a standard face-count table.",
+      "residual_risks": [
+        "Result is confined to the regular truncated tetrahedron at center, not an arbitrary truncation or offset plane."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only Haar-normal planes through the centroid of the fixed regular one-third truncated tetrahedron, excluding null vertex-hit orientations.",
+    "Simulation corroborates but does not prove exact probabilities.",
+    "An older stereology or integral-geometry catalog may already contain this same three-atom Archimedean section law.",
+    "König and Lavau whole articles not fully read; any relevant appendix would need explicit follow-up, though known main theorems concern different observables.",
+    "Result is confined to the regular truncated tetrahedron at center, not an arbitrary truncation or offset plane."
+  ],
+  "schema_version": 1
+}
