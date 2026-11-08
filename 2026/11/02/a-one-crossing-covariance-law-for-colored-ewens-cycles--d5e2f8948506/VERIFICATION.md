@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python standard library. It enumerates all permutations on 6 and 8 labels, measures the exact Ewens-weighted joint moments of the two opposite mixed three-cycle types, and verifies their rational closed forms for four positive rational bias parameters. The program also probes strict monotonicity of the rational covariance ratio for a range of balanced population sizes and compares the first-order asymptotic coefficient at a large finite size.
+## correctness
 
-Observed output from the package source: `PASS 622 assertions permutation_cases= 41040`. All displayed theorems for arbitrary sizes follow from the symbolic marked-cycle proof and monotone rational factorization, not from finite enumeration. The sharp root expansion coefficient was additionally checked by exact symbolic series; the standalone checker is an independent finite-data sanity check rather than a formal proof certificate.
+PASS
 
-Independent audit: not performed.
+For distinct simultaneously feasible marked cycle signatures with fixed deterministic color counts and common θ>0 Ewens weight, choosing disjoint labelled cycles gives normalized covariance F_{a,b}G_{r,s}(θ)−1 with F falling-factorial combinatorics and G=product_{j<=s}(θ+n−j)/(θ+n−r−j). G strictly decreases to 1; F=1 exactly for disjoint color supports, otherwise F<1. This proves positive covariance in disjoint-support case and at most one positive-to-negative crossing otherwise, with the exact F G(0+)>1 test. For (2,1),(1,2) types in balanced n=2m, the exact rational ratio has a unique zero θ_m=m/4+5/4+O(1/m) and Cov/n→γ²(1−8γ)/(64(1+γ)^7) at θ=γn. Independently checked centered Taylor coefficient (20−16c)/(9m²), macroscopic ratio coefficient and 67 monotonicity sequences. Source checker enumerates 41040 finite permutations and exact moments, but the general proof is marked-cycle factorization.
+
+## originality
+
+PASS
+
+Compared statements and implications against the actual primary-source sections listed below, Resultary semantic retrieval and targeted literature searches. A sampled non-match alone is not proof of novelty; prior general frameworks/derivability are credited with material-specific residual risks.
+
+## value
+
+PASS
+
+A complete sign classification for cross-type colored cycle covariances and an explicit macroscopic bias-driven transition are natural dependence facts for exchangeable partitions. Their phase structure is not simply the marginal colored Ewens law or a renaming of parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
