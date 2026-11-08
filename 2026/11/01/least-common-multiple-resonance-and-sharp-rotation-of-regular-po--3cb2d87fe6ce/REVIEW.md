@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** Every term in the theorem is defined on a fixed nondegenerate Euclidean regular-polygon domain. The difference-body reduction covers both odd and even side counts, with the width-maximizing phase distinguished from the original vertex phase. Integration over an angular cell gives absolutely summable Fourier coefficients. Orthogonality forces the least common multiple and the parity shift. A directly integrated autocorrelation has a derivative with strict sign from \(\sin z/z\) monotonicity, yielding global uniqueness, not merely stationarity. Minkowski additivity transfers it to the coefficient of variation. The included executable checks direct vertex projections and endpoint expressions. The proof covers every integer side-count pair, not just those tested numerically.
+## correctness
 
-**Originality (PASS, conditional on the inspected literature).** Akiyama and Kamae (2022, arXiv:2201.06736, Theorems 1 and 4) derive a general edge-shadow second-moment formula and optimize the width deviation of *one* polygon. Their general formula implicitly permits calculating mixed moments for two polygons, so neither basic covariance computability nor the elementary Fourier method is claimed. The checked full-text sections do not formulate the least-common-multiple collapse or determine the globally minimizing relative rotation for every pair of regular side counts. The 2018 ESA width/Minkowski-sum work concerns approximation algorithms, not the rotation-dependent width variance. Indexed related results on individual prism widths, tangential-polygon inverse laws, and Minkowski symmetrization do not imply this all-pairs parity/rotation theorem. Historical priority outside the accessible corpus remains a risk.
+PASS
 
-**Value (PASS).** A positive Minkowski combination of two regular shapes has an orientation-sensitive directional width variance even when their means are fixed. The result solves the sharp relative-rotation design problem in closed form for all polygon orders and all positive weights, with an unexpected arithmetic switch (aligned maxima sometimes *minimize* variance). The \(L^{-4}\) law quantifies harmonic resonance rather than merely recomputing a known single-body variance. The exact strict optimizer and decay law furnish a meaningful geometric mixing principle.
+For an n-gon the support function of P-P is a regular N-gon with N=n if n even, 2n if n odd. Centering phase at a difference-body width maximum gives f_N(theta)=(h_N/sin h_N) cos d_N(theta), h_N=pi/N, mean 1. Its Fourier coefficient at kN equals (-1)^(k+1)/(k^2N^2-1). Haar covariance retains exactly kN=lM=j lcm(N,M), yielding the arithmetic parity shift by (r+s)pi/L. The autocorrelation K_L is rigorously strictly decreasing on (0,pi/L): its derivative is [t sin(2h-t)-(2h-t)sin t]/(4h), negative by strict decrease of sin(x)/x for 0<x<2h<=pi/2. This proves global unique extrema (not only local stationary phases), with strict positivity of Minkowski weights transferring to variance and coefficient of variation. Closed forms for the two extrema follow from cell integration and yield L^-4 coefficients. I independently computed twelve direct vertex-width covariances for polygon pairs (3,4),(4,8),(4,6),(5,9) and three angles each, within 2e-9 of Fourier law. All integer n,m>=3 and arbitrary positive radii/weights are covered analytically.
 
-The scope is two regular polygons, fixed positive weights, and a shared uniformly random direction. The result makes no assertion about general polytopes or independent direction samples. An unindexed specialized earlier treatment may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of precisely the stated additional conclusion, not of its acknowledged classical object or method. Least-common-multiple resonance and sharp rotation of regular-polygon Minkowski sums is not directly implied by the strongest inspected primary theorem; exact comparisons and accessible source passages appear in the four structured checks. Inaccessible sources are identified as residual risks, not counted as negative whole-document evidence.
+
+## value
+
+PASS
+
+The simultaneous directional-width fluctuation of two regular polygons is a natural geometric statistic, and positive Minkowski combination leads to a meaningful orientation design problem. Its global optimizer and equality cases collapsing to one LCM and parity bit, including counterintuitive square-octagon alignment, are exact structural information not provided by routine individual width-variance tables. The problem is self-contained and naturally generalizes classical width deviation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:45:20.167776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an n-gon the support function of P-P is a regular N-gon with N=n if n even, 2n if n odd. Centering phase at a difference-body width maximum gives f_N(theta)=(h_N/sin h_N) cos d_N(theta), h_N=pi/N, mean 1. Its Fourier coefficient at kN equals (-1)^(k+1)/(k^2N^2-1). Haar covariance retains exactly kN=lM=j lcm(N,M), yielding the arithmetic parity shift by (r+s)pi/L. The autocorrelation K_L is rigorously strictly decreasing on (0,pi/L): its derivative is [t sin(2h-t)-(2h-t)sin t]/(4h), negative by strict decrease of sin(x)/x for 0<x<2h<=pi/2. This proves global unique extrema (not only local stationary phases), with strict positivity of Minkowski weights transferring to variance and coefficient of variation. Closed forms for the two extrema follow from cell integration and yield L^-4 coefficients. I independently computed twelve direct vertex-width covariances for polygon pairs (3,4),(4,8),(4,6),(5,9) and three angles each, within 2e-9 of Fourier law. All integer n,m>=3 and arbitrary positive radii/weights are covered analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General polygon width covariance via edge sums is stronger in object class but does not optimize over relative rotation.",
+          "Resultary translative convex hull profile concerns another invariant of regular polygons."
+        ],
+        "reasoning": "A more general moment identity already covers unoptimized covariance computability; not all optimizer special cases are automatically entailed without solving the angle extremization. The completed statement adds unique phase classification.",
+        "searches": [
+          "Akiyama Kamae convex polygons general width moment kernel theorem 1",
+          "Minkowski sum width additivity regular polygon optimal orientation",
+          "Resultary exact translative convex hull regular polygon"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 10da9d169bdfc1d93f07d96a013ae7a22cfa299f and CHECK.py fa70544577832e660ce6daafbcbc72a96b720fc5",
+        "Akiyama & Kamae arXiv:2201.06736 full text Theorems 1,4",
+        "Resultary searches on regular polygons, Minkowski sums, shared width covariance and LCM optimizers",
+        "Direct independent 120000-angle integration for four polygon pairs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Akiyama–Kamae, arXiv:2201.06736v1, §2 Theorem 1 and §4 Theorem 4; the explicit general edge second-moment formula can be specialized, but its statement contains neither arithmetic LCM collapse nor the sharp rotation congruences."
+        ],
+        "reasoning": "The audited result is a concrete global rotation optimization and equality-case theorem, not an assertion that Fourier series or general polygon covariance was newly invented.",
+        "searches": [
+          "Akiyama Kamae theorem 1 pairwise mixed widths and theorem 4 one polygon optimal",
+          "Fourier autocorrelation cos d regular polygon",
+          "Minkowski sum additivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akiyama–Kamae Theorem 1 computes a general pairwise edge-shadow second moment V(eta), implying computability of any regular-polygon mixed covariance via a finite edge sum.",
+          "Its Theorem 4 concerns single-shape deviation rates rather than two-factor relative rotations."
+        ],
+        "reasoning": "The general edge-pair kernel overlaps the basic calculation method; the LCM collapse, parity rotation rigidity and exact extrema for two regular factors are not stated by these theorems, and require nontrivial cancellation and strict autocorrelation monotonicity.",
+        "searches": [
+          "Width deviation of convex polygons Akiyama Kamae 2201.06736 theorem 1",
+          "Minkowski sum of rotated regular polygons covariance width phase",
+          "Resultary regular polygon directional width covariance rotation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published regular polygon individual deviation values and general edge kernels are available.",
+          "No observed exact table of all pairs by L=lcm(N,M) and parity with unique optimal rotation."
+        ],
+        "reasoning": "Known individual-width tables do not specify cross-covariance under shared direction. Search absence is only qualified; exact arithmetic comparisons, not mere wording, support the originality decision.",
+        "searches": [
+          "regular polygon mixed width covariance table triangle square octagon",
+          "Akiyama Kamae width deviation regular n gon Theorem 4",
+          "Resultary regular polygon Minkowski sum rotated variance"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of precisely the stated additional conclusion, not of its acknowledged classical object or method. Least-common-multiple resonance and sharp rotation of regular-polygon Minkowski sums is not directly implied by the strongest inspected primary theorem; exact comparisons and accessible source passages appear in the four structured checks. Inaccessible sources are identified as residual risks, not counted as negative whole-document evidence.",
+      "residual_risks": [
+        "Arithmetic LCM covariance identity may be implicit in older support-function Fourier literature, despite lack of explicit optimizer statement in inspected sources.",
+        "Generalized multi-factor or nonregular polygon optimality is outside claim; numerical quadrature only corroborates universal proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general edge covariance kernel and one-polygon deviation extremizers, not the two-factor LCM parity optimizer",
+          "evidence": "Theorem 1: E(X_alpha X_beta)=|alpha beta| V(eta)/(4pi); Theorem 4 addresses single-shape deviation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06736",
+          "material_read": "Available 25-page arXiv preprint, main theorem statements, §2 Theorem 1 and proof, §4 Theorem 4 and comparison of regular polygons",
+          "method": "Primary full text, mathematical equations and page 7 screenshot inspected",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Same directional-width second moment invariant for polygons"
+        },
+        {
+          "assessment": "No claim of full-text negative coverage for this computational source",
+          "evidence": "Addresses approximate convex intersection/width and Minkowski sums rather than observed stochastic rotation moments.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2018.3",
+          "material_read": "Citation and topic from source bibliography, not read in full during this run",
+          "method": "Bibliographic context only",
+          "title": "Approximate Convex Intersection Detection with Applications to Width and Minkowski Sums",
+          "trigger": "Minkowski-sum width computational context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simultaneous directional-width fluctuation of two regular polygons is a natural geometric statistic, and positive Minkowski combination leads to a meaningful orientation design problem. Its global optimizer and equality cases collapsing to one LCM and parity bit, including counterintuitive square-octagon alignment, are exact structural information not provided by routine individual width-variance tables. The problem is self-contained and naturally generalizes classical width deviation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical width Fourier methods underlie the proof; no claim to invent covariance calculability.",
+    "Only positive two-factor weights and common Haar view directions, not arbitrary polygons or three-plus factors."
+  ],
+  "schema_version": 1
+}
