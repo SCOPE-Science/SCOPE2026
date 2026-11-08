@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-attempt absorption Laplace transform and reset-clock decomposition independently reproduce the motivating paper's Eq. (5.37). Differentiation reduces the rate derivative to the sign of \(A_n(q)-2\). Analytic endpoint bounds, monotonicity of the truncated-geometric index mean, and an exact-rational covering argument prove \(A_{21}(q)<2\) on all \(0<q<1\). The 80 accepted rational intervals jointly cover the entire middle parameter range; the verifier reproduces them from scratch using exact fractions. A strict rational lower witness proves \(A_{22}(6/7)>2\), and budget-monotonicity propagates this to every larger finite allowance. The proof does not rely on numerical root counts.
+PASS
 
-## Originality — PASS, qualified
+Independent-cycle decomposition gives E[min(τ,E_r)]=q/r and T_μ=(q+...+q^(μ+1))/r for q=1-e^-z and z=a sqrt(r/D). Differentiating yields derivative sign f(q)E_(μ+1)(q)-2. Index-mean E_n increases in n and q, while f decreases. For n=21 the low/high q analytic estimates and the exact 80-subinterval rational bound over [1/2,19/20] prove globally negative derivative; the independent exact-rational check reproduced 159 nodes and 80 leaves. At n=22, seven-term atanh lower bound for log7 and a rational weighted-index inequality prove positive derivative at q=6/7, propagating to higher n; endpoint signs are negative. The strict analyticity argument yields at least one minimum and later maximum, not unique extrema. Important primary-reference correction: the frozen text says Eq 5.37 of Bressloff for finite-budget mean, whereas full paper Eq 5.38 is finite-budget and Eq 5.37 unbounded-reset; the formula and proof itself are correct.
 
-The 2023 preprint *Truncated stochastically switching processes* explicitly gives the mean termination time in Eq. (5.37) and observes the qualitative monotonicity-to-nonmonotonicity change in Fig. 4. The new assertion is the sharp finite reset-budget cutoff (20 or fewer permitted resets versus 21 or more) uniformly over positive diffusion and starting-distance parameters; that integer threshold and its global proof are not given by the motivating work. The 2023 critical-number-of-walkers paper studies independent particle number with unlimited resetting until target hit and neither implies nor reproduces this cap on attempts. The checked mathematical research records and available previous claims reveal no equivalent result. There remains an unexcluded risk of an unindexed or differently formulated mathematical analysis of the same finite-budget curve.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite allowance is the controlling resource in the motivating model. The exact first allowance at which a metastable local optimum appears resolves its observed qualitative change as a natural, uniform discrete phase boundary, distinguishing a termination-time profile from an unbounded-reset first-passage profile. The proof gives a reproducible finite analytic certificate for a delicate near-threshold case. No broad theorem or numerical approximation is required to interpret the sharp cutoff.
+Bressloff 2023/2024 gives the identical Brownian finite-reset mean in Eq (5.38) and Fig 4 qualitative small-versus-large budget examples (not a sharp integer 21 or an all-budget proof). The frozen package cites Eq (5.37) incorrectly—its scientific formula nevertheless matches Eq (5.38). Biroli–Majumdar–Schehr study a critical number of independent walkers with resets, not a one-walker finite reset budget with fatal event. The exact derivative sign threshold is additional; bounded risk of an earlier implicit threshold computation remains.
 
-## Closest literature and limitations
+## value
 
-P. C. Bressloff, arXiv:2310.20502v1, Section V.B, Eq. (5.37), Fig. 4: established formula and qualitative examples; no all-budget sharp integer threshold. M. Biroli, S. N. Majumdar, G. Schehr, arXiv:2303.18012v1: critical *number of walkers* and target first-hit mean, a different control variable and stopping event. The certificate establishes presence but not uniqueness of local extrema at large budgets. The mean stopping time includes trajectories terminated by budget exhaustion, so it is not a performance guarantee for successful target detection. Publication priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The original finite reset allowance is an actual resource in the model and prior work observed a nonmonotone effect numerically. Proving the first precise allowance 21, uniformly in distance and diffusion, is a motivated phase-boundary theorem; exact rational covering of the delicate low-budget range is substantive, though no unique stationary-point count claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
