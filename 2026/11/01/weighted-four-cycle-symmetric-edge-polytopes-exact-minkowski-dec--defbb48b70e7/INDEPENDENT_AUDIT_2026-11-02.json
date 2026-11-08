@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:45:17.649275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "3216b56cf13f3458b5353d1e118761f975adbcd9:2026/11/01/weighted-four-cycle-symmetric-edge-polytopes-exact-minkowski-dec--defbb48b70e7/RESULT.md",
+        "3216b56cf13f3458b5353d1e118761f975adbcd9:2026/11/01/weighted-four-cycle-symmetric-edge-polytopes-exact-minkowski-dec--defbb48b70e7/verify_weighted_c4.py",
+        "Higashitani–Mori arXiv:2608.02445, Section 3 triangular criterion"
+      ],
+      "rationale": "The normalized centrally symmetric circuit has vertices ±e_1,±e_2,±e_3,±(a,b,c), a,b,c>0. A generating antipodal pair drops exactly when one of four strict convex-hull triangle-inequality chambers fails, producing a 3D crosspolytope and hence an indecomposable six-vertex case. In the eight-vertex region a facet has at most one point from each antipodal pair, and a four-vertex facet forces one of the three signed equalities a+b−c=1, a−b+c=1, −a+b+c=1. With zero or one equalities, connected triangular facets touch all facets, so McMullen’s criterion yields indecomposability. Two equalities reduce, up to permutation, to a=1,b=c=t≠1: the formula Q_t + [−m h,m h], m=min(1,t), h=(0,1/2,1/2), gives an exact Minkowski decomposition with crosspolytope Q_t. The four triangular facets in two components and parallel cross-edges force every summand deformation, modulo translations, into a two-dimensional cone. Its two independent indecomposable factors therefore supply precisely the two extremal rays. All three equalities give a three-segment parallelotope. Returning to original positive edge weights, exactly two equal pairs characterize the decomposable locus. Independently enumerated rational supporting facets and solved exact edge-parallel deformation linear systems corroborate the 1-, 2-, and 3-dimensional nontranslation deformation cones. Finite rational tests are corroboration, not the universal proof.",
+      "residual_risks": [
+        "All-real-parameter summand-cone completeness depends on the standard equivalence between edge-parallel vertex deformations and Minkowski summands and the triangle-component rank argument; the general framework is not formalized in Lean.",
+        "Finite samples do not prove the universal statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higashitani–Mori Theorem 1.1 classifies *unweighted* P_G^± (all edge multipliers exactly one), including K_{2,n−2}, and Section 5 gives P_{K2,n−2}=conv{e1−ei,ei−e2}+conv{0,e2−e1}.",
+          "Padrol–Poullot (arXiv:2512.05307) develops edge-dependency indecomposability criteria and deformation-cone dimensions, especially deformed permutahedra; no source theorem on this circuit weight stratum was located.",
+          "Higashitani–Padrol–Sanyal (arXiv:2605.22594) applies 0/1 polytope product structure, not arbitrary positive non-0/1 circuit vertices."
+        ],
+        "reasoning": "Generic broad deformation technology can test the claim but does not automatically supply its three exact pair-equality loci or its precise two-ray factors. The unweighted K2,2 decomposition is strictly a proper special case, not broader weight coverage.",
+        "searches": [
+          "arxiv:2608.02445 Higashitani Mori symmetric edge polytope graph Minkowski K2,2 [web, 2026-11-02]",
+          "arxiv:2512.05307 Padrol Poullot graph of implicit edge dependencies deformation cone [web, 2026-11-02]",
+          "arxiv:2605.22594 Higashitani Padrol Sanyal 0/1 polytope [web, 2026-11-02]"
+        ]
+      },
+      "checked_sources": [
+        "Higashitani–Mori arxiv:2608.02445 full preprint Theorem 1.1 and Sections 3/5/6",
+        "Przesławski–Yost 2026 DOI:10.1515/advgeom-2026-0006 full HTML sections 1–4",
+        "Yost 2007 DOI:10.1080/02331930701617304 abstract-only",
+        "Padrol–Poullot arxiv:2512.05307 abstract only",
+        "Resultary semantic query 1 19 results; wheel ellipsoid and weighted-cycle numerical-index findings not covering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1: P_G^± decomposable iff G is K_n, K_{2,n−2} or K_{1,1,n−2}; C4=K2,2 covered only when w_i=1.",
+          "Przesławski–Yost Theorem 4 establishes general combinatorial decomposability with <=4d−5 vertices when a segment summand exists, inapplicable to 3D 8-vertex weight stratum since 4*3−5=7.",
+          "The present two-equality rays are an octahedron plus segment; the original is strictly more specific about when they occur."
+        ],
+        "reasoning": "Neither published theorem implies the exact equality criterion for arbitrary w>0. The unweighted original is already credited and is not counted as novel.",
+        "searches": [
+          "Higashitani–Mori 2026 Theorem 1.1 Section 5 K2,2 original full text [web]",
+          "Przesławski–Yost 2026 Theorems 2–5 [publisher full HTML]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalized circuit model P(a,b,c)=conv{±e1,±e2,±e3,±(a,b,c)} has exactly 3 affine equalities controlling quadrilateral facets and a 2-ray summand cone only on pair-equality strata.",
+          "David Yost, Some indecomposable polyhedra, DOI 10.1080/02331930701617304 abstract classifies combinatorial types of 8-vertex 8-facet polyhedra as always/never/conditionally decomposable; does not itself state parameter equations.",
+          "Przesławski–Yost et al., Lower bound results for conditionally decomposable polytopes (DOI 10.1515/advgeom-2026-0006), full text §§1–4, studies 8v8f classes and general bounds, without a positive four-weight circuit parameterization."
+        ],
+        "reasoning": "The 8-vertex/8-facet conditional types may include this two-equality regime, but existence of a decomposable realization or classification by combinatorial type does not settle which strictly positive four-cycle weights decompose, nor their entire cone of summands. No exact alias theorem was identified; the 2007 primary full text was inaccessible and is a residual risk.",
+        "searches": [
+          "weighted symmetric edge polytope four cycle positive edge weights Minkowski decomposability pairs equality cross polytope segment summand cone [Resultary, 2026-11-02]",
+          "Minkowski decomposition convex hull ±e1 ±e2 ±e3 ±(a,b,c) equalities [web, 2026-11-02]",
+          "antipodal eight vertices eight faces conditional decomposability Yost Smilansky [web, 2026-11-02]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returned 19 hits, including wheel symmetric-edge-polytopes Löwner ellipsoid and weighted-cycle numerical index, neither a Minkowski decomposition of C4.",
+          "Yost abstract reports 34 types universally indecomposable, 5 universally decomposable and 3 conditional types among 42, but not a weight-by-weight stratum table."
+        ],
+        "reasoning": "A combinatorial type table is not an exact 4-real-weight classification; the inaccessible tables could provide more historical context, therefore this is an explicitly retained limitation.",
+        "searches": [
+          "2026 Resultary weighted symmetric edge polytopes exact four cycle decomposition [semantic query 1]",
+          "Yost 42 eight-face eight-vertex polytope decomposability table 2007 [web, 2026-11-02]"
+        ]
+      },
+      "rationale": "The unweighted K_{2,2}=C4 result is explicitly prior and not newly asserted; the all-positive-edge-weight equality-stratum criterion and the exact summand cone are different assertions. Checked both exact graph terminology and the affinely normalized antipodal eight-vertex circuit, conditional decomposability and deformation cone aliases. The closest full-text primary work provides tools or broader combinatorial context, not an implication of the quantitative weight equality classification. This is best-of-knowledge originality with historical-priority risks.",
+      "residual_risks": [
+        "Yost 2007 full 8-vertex table unavailable (authorized Oxford VPN disconnected); a broader historical result under conditional polytope combinatorial types might admit an alternative presentation.",
+        "General deformation cone tools may make this classification derivable but no direct statement covering the exact positive weight equality locus was inspected.",
+        "Semantic database search is not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: unweighted C4 yes; arbitrary positive weights and cone rays not treated.",
+          "evidence": [
+            "Theorem 1.1 fixes P_G=conv{±(ei−ej)}; Section 5 K2,n−2 decomposition is unweighted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.02445",
+          "material_read": "Full publicly available preprint HTML: definitions, Theorem 1.1, triangular-face indecomposability theorem, Section 5 explicit K2,n−2 summand, Section 6 proof",
+          "method": "Open full HTML text reproduced at ResearchGate / arXiv source cross-check",
+          "title": "Minkowski decomposability of symmetric edge polytopes",
+          "trigger": "Same C4 symmetric edge polytopes and graph decomposability"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING: general small-polytope conditional realizations and segment-summand criteria, but no four-weight equations or summand-ray classification.",
+          "evidence": [
+            "Introduction discusses 8-vertex 8-facet conditional types; Theorem 4 bound <=4d−5 does not capture d=3 with 8 vertices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/advgeom-2026-0006",
+          "material_read": "Open publisher full HTML, Introduction, 8-vertex/8-facet examples, Theorems 4 and 5 and section on vertex bounds",
+          "method": "Publisher full HTML sections 1–4",
+          "title": "Lower bound results for conditionally decomposable polytopes",
+          "trigger": "Same 3D 8-vertex/8-facet conditional decomposability boundary"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; no claim that the full text has been ruled out.",
+          "evidence": [
+            "Abstract describes 42 types, 34 always indecomposable, 5 always decomposable, 3 conditional; no weight equation in available material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/02331930701617304",
+          "material_read": "Abstract and publisher metadata only; primary full text inaccessible through OA repository and Oxford VPN disconnected",
+          "method": "Publisher abstract; failed lawful OA and authorized Oxford request",
+          "title": "Some indecomposable polyhedra",
+          "trigger": "Specific older table of all 8-vertex 8-facet geometric types could overlap two-equality combinatorics"
+        },
+        {
+          "assessment": "GENERAL_METHOD, whole-document noncoverage not asserted.",
+          "evidence": [
+            "Abstract emphasizes dependency criteria and deformed permutahedra, no parameterized C4 result in accessible statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.05307",
+          "material_read": "Abstract and stated application list only",
+          "method": "arXiv record / metadata",
+          "title": "Indecomposability and beyond via the graph of edge dependencies",
+          "trigger": "Broad deformation cone machinery potentially subsumes proof techniques"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Higashitani–Mori unweighted C4 classification",
+        "McMullen indecomposable-faces criterion",
+        "Resultary closest symmetric-edge-polytopes findings"
+      ],
+      "rationale": "This is a sharp, motivated classification for the smallest graph C4 whose unweighted symmetric edge polytope is decomposable. It identifies exactly how anisotropic edge weights destroy the Minkowski factorization, distinguishes quadrilateral-facet changes from genuine decomposability, and classifies the complete summand cone on the two-equality strata. A future deformation or rigidity study of edge-weighted circuits can need the precise equality loci, not just the unweighted special case.",
+      "residual_risks": [
+        "Only the positive weighted C4 family is treated, not all weighted graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Weight inequalities are strictly positive; no conclusion for zero/negative weights, other graphs, lattice/Ehrhart invariants or independent expert/formal certification.",
+    "One highly relevant old Yost full source inaccessible through authorized Oxford VPN (VPN disconnected); originality is provisional, not proved by failed search."
+  ],
+  "schema_version": 1
+}

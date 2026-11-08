@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The all-positive-parameter classification follows by an exhaustive face-count argument for the eight-point antipodal circuit, McMullen's triangular-face connectivity criterion in the zero- and one-quadrilateral-pair regimes, and a constructive convex-hull-plus-segment decomposition in the two-pair regime. The summand-cone statement is supported by a vertex-edge scaling argument on the four triangular facets. Exact rational face and edge-deformation checks corroborate every combinatorial regime; these finite checks are not used as proofs for all real parameters.
+## correctness
 
-## Originality
-Higashitani and Mori, arXiv:2608.02445v1 (3 August 2026), give the unweighted graph classification and the special unweighted \(C_4\) decomposition. Their accessible full text, including Sections 1, 3, 5, and 6, does not identify the positive-weight pair-equality strata or the two-ray summand cones. Searches of mathematical records using weighted four-cycle, positive-weight symmetric edge polytope, complete bipartite \(K_{2,2}\), octahedron-plus-segment, and equivalent antipodal-circuit terminology did not locate the same classification. A general polytope deformation-cone treatment may nevertheless contain an equivalent characterization; publication priority is provisional.
+PASS
 
-## Mathematical value
-The result gives a complete sharp classification for the minimal decomposable cycle in the recent graph-based theory, resolving how decomposition survives or fails under arbitrary positive edge anisotropy. It distinguishes the one-pair quadrilateral-facet transition (still indecomposable) from the two-pair decomposition transition, provides exact geometric factors, and determines every summand ray on the nonuniform decomposable locus. No classification for larger weighted graphs is claimed.
+The normalized centrally symmetric circuit has vertices ±e_1,±e_2,±e_3,±(a,b,c), a,b,c>0. A generating antipodal pair drops exactly when one of four strict convex-hull triangle-inequality chambers fails, producing a 3D crosspolytope and hence an indecomposable six-vertex case. In the eight-vertex region a facet has at most one point from each antipodal pair, and a four-vertex facet forces one of the three signed equalities a+b−c=1, a−b+c=1, −a+b+c=1. With zero or one equalities, connected triangular facets touch all facets, so McMullen’s criterion yields indecomposability. Two equalities reduce, up to permutation, to a=1,b=c=t≠1: the formula Q_t + [−m h,m h], m=min(1,t), h=(0,1/2,1/2), gives an exact Minkowski decomposition with crosspolytope Q_t. The four triangular facets in two components and parallel cross-edges force every summand deformation, modulo translations, into a two-dimensional cone. Its two independent indecomposable factors therefore supply precisely the two extremal rays. All three equalities give a three-segment parallelotope. Returning to original positive edge weights, exactly two equal pairs characterize the decomposable locus. Independently enumerated rational supporting facets and solved exact edge-parallel deformation linear systems corroborate the 1-, 2-, and 3-dimensional nontranslation deformation cones. Finite rational tests are corroboration, not the universal proof.
 
-## Limitations
-The scope is precisely positive weights on a four-cycle. Independent mathematical audit has not been performed. The published unweighted theorem is acknowledged as a prior special case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unweighted K_{2,2}=C4 result is explicitly prior and not newly asserted; the all-positive-edge-weight equality-stratum criterion and the exact summand cone are different assertions. Checked both exact graph terminology and the affinely normalized antipodal eight-vertex circuit, conditional decomposability and deformation cone aliases. The closest full-text primary work provides tools or broader combinatorial context, not an implication of the quantitative weight equality classification. This is best-of-knowledge originality with historical-priority risks.
+
+## value
+
+PASS
+
+This is a sharp, motivated classification for the smallest graph C4 whose unweighted symmetric edge polytope is decomposable. It identifies exactly how anisotropic edge weights destroy the Minkowski factorization, distinguishes quadrilateral-facet changes from genuine decomposability, and classifies the complete summand cone on the two-equality strata. A future deformation or rigidity study of edge-weighted circuits can need the precise equality loci, not just the unweighted special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
