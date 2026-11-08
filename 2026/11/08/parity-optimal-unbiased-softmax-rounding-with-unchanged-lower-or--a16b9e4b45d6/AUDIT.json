@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The law fiber follows from a full-rank proper-subset product-moment linear system; positive probabilities constrain exactly one parameter. Loss linear terms retain fixed expectations; repeated calculus gives Delta_n=(-1)^(n-1)(n-1)! times the strictly positive integral of the product of softmax probabilities. Thus unique endpoint optimality and label independence hold for every allowed n, K, logits, bins and marginals. Fair-parity and h/2^n asymptotic are exact binomial-difference consequences. The standalone checker executed 4283 checks, including 100 LPs; finite tests are supplementary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 theorem gives all feasible (n-1)-wise-independent laws and sharp count-event probability bounds; it does not evaluate a softmax logarithmic expected cost.",
+        "The 2026 low-precision inference paper gives a Fisher-Hessian second-order loss expansion, not exact optimization over dependent joint logit roundings.",
+        "The 2023 SIAM paper covers probability-of-event envelopes under pairwise independence."
+      ],
+      "reasoning": "The 2022 feasible-polytope result is broader on distributions and strictly subsumes that portion of the proof; the present result is a loss-specific optimization and sign evaluation not implied as a stated probability-count bound. Its cross-entropy loss is not an indicator of a single count tail, and heterogeneous logits prohibit reduction to one Hamming count. An unknown general higher-order increasing-differences theorem could imply this specialization; this risk is named.",
+      "searches": [
+        "stochastic rounding pairwise independent parity coupling softmax log sum exp classification cross entropy risk",
+        "unbounded third-order cross-entropy effect with same mean and covariance of quantized logits",
+        "loss monotonicity mixed partial logsumexp k-wise independence optimal coupling numerical quantization",
+        "arXiv:2211.01596 Theorems 9 and 13",
+        "arXiv:2610.01889 Section 5.2",
+        "DOI:10.1137/21M1408294"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01889",
+      "arXiv:2211.01596",
+      "arXiv:2006.00516",
+      "DOI:10.1137/21M1408294",
+      "https://eprints.maths.manchester.ac.uk/2765/",
+      "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91",
+      "2026/10/4/SCOPE-exact-fixed-sum-phase-diagram-for-collision-entropy-of-bernoulli--55be6d09f9ef",
+      "2026/10/11/SCOPE-sharp-endpoint-khintchine-constants-for-next-to-independent-rade--93098a285ffa",
+      "2026/10/4/SCOPE-sharp-unanimity-envelope-for-pairwise-independent-bernoulli-tria--28552821b6bf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.01889 obtains a local quadratic Fisher variance penalty; all tested admissible couplings have exactly the same mean and covariance, so that penalty agrees while exact expected loss changes.",
+        "arXiv:2211.01596 precisely gives the law fiber; its Theorem 13 optimizes count-tail probabilities and gives no all-label softmax derivative identity.",
+        "The Manchester log-sum-exp source analyzes evaluating log-sum-exp accurately rather than its expected value over constrained high-order couplings."
+      ],
+      "reasoning": "Prior work implies the allowable 1D family, and the softmax paper implies a common second-order surrogate. Their statements alone do not choose an all-label strict minimizer or establish positive exact gains despite all fixed lower-order moments. This new theorem supplies the derivative identity, endpoint orientation, exact fair-grid law, and asymptotic h/2^n gain.",
+      "searches": [
+        "arXiv:2610.01889 Sections 5.1-5.3",
+        "arXiv:2211.01596 Corollary 4, Theorems 9, 13",
+        "arXiv:2006.00516 abstract",
+        "https://eprints.maths.manchester.ac.uk/2765/",
+        "third mixed finite difference log-sum-exp positive minimizing pairwise-independent Bernoulli expected loss",
+        "loss monotonicity mixed partial logsumexp k-wise independence optimal coupling numerical quantization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Natarajan–Ramachandra–Tan (2022) Corollary 4 and Theorem 9 characterize q_b+(-1)^|b|s and its feasibility interval. The present proof uses the same fiber and does not claim that part as new.",
+        "Searches returned parity-related Bernoulli results but no direct softmax risk minimization."
+      ],
+      "reasoning": "Changing s to (-1)^n theta makes the prior feasible law algebraically identical. The decisive new comparison is the objective coefficient Delta_n: exact log-sum-exp has a strictly alternating mixed derivative, selecting a unique endpoint for every label and any positive bin widths. Generic probability parametrization does not state that analytic sign or the sharp loss gap, though it is necessary input to the result.",
+      "searches": [
+        "stochastic rounding pairwise independent parity coupling softmax log sum exp classification cross entropy risk",
+        "multiway mixed finite differences log sum exp parity randomization k-wise independence",
+        "sharp pairwise-independent three-point stochastic rounding coupling minimizing expected softmax cross entropy for all labels, fixed marginals",
+        "even parity stochastic rounding optimal softmax cross entropy over n-wise independent Bernoulli couplings",
+        "cross entropy logsumexp high order mixed differences n-1 wise independent parity rounding numerical analysis",
+        "arXiv:2211.01596, Section 2 and Theorem 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed three-score ordering record characterizes rank-order laws for continuous pairwise-independent scores, not quantized softmax loss.",
+        "The nearest Khintchine endpoint record concerns L^n/L^2 constants for sign vectors; the same parity family appears but the functional and optimality theorem differ.",
+        "The 2022 article gives analytic symbolic formulas rather than a lookup table for this softmax risk."
+      ],
+      "reasoning": "No exact table or database entry with the same n, softmax cost, and risk-optimal coupling was encountered. This does not prove nonexistence or independence.",
+      "searches": [
+        "even parity 3-bit rounding improves cross entropy compared independent coordinates with identical pairwise covariances",
+        "sharp pairwise-independent three-point stochastic rounding coupling minimizing expected softmax cross entropy for all labels, fixed marginals",
+        "even parity stochastic rounding optimal softmax cross entropy over n-wise independent Bernoulli couplings",
+        "cross entropy logsumexp high order mixed differences n-1 wise independent parity rounding numerical analysis",
+        "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91",
+        "2026/10/11/SCOPE-sharp-endpoint-khintchine-constants-for-next-to-independent-rade--93098a285ffa"
+      ]
+    },
+    "rationale": "The novelty claim is restricted to the exact softmax objective over a pre-existing (n-1)-wise-independent probability fiber: a strict all-order mixed derivative selects a single label-universal optimal coupling, with an exact nonperturbative loss gap. The feasibility fiber and the even-parity construction themselves are explicitly credited to Natarajan–Ramachandra–Tan (2022). Primary softmax-rounding work treats second-order Fisher and fresh operation-level randomness, not optimized moment-preserving joint output rounding. Searches identified no directly covering theorem. An unindexed higher-order dependence ordering specialized to softmax could dominate the result and remains an acknowledged priority risk.",
+    "residual_risks": [
+      "Generic higher-order supermodular-order or dependence-optimality theorems not indexed by direct softmax terms might already imply the strict sign application.",
+      "The 2023 SIAM article and Manchester preprint were compared through abstracts/metadata, not fully read PDFs.",
+      "A one-shot output-logit rounding result cannot be transferred to sequential stochastic-rounding computations without checking conditional unbiasedness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Analyzes fresh-draw operation-level rounding and a Fisher second-order approximation; no one-shot optimized (n-1)-wise-independent logit coupling statement in inspected relevant sections.",
+        "evidence": "arXiv:2610.01889, Sections 5.1-5.3, particularly conditional mean-independence and quadratic loss decomposition; https://www.paperpeel.com/paper/2610.01889",
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.01889",
+        "material_read": "Accessible full textual article rendering; introduction, Sections 2, 5.1-5.3, discussion and section list",
+        "method": "Read primary scientific text and compared exact loss decomposition, conditional noise assumptions, and scope of second-order Taylor analysis",
+        "title": "Stochastic Rounding in Low-Precision Transformer Inference: A Variable-Precision Emulation Study of a Small GPT-2",
+        "trigger": "Direct motivating primary paper about rounding loss at softmax"
+      },
+      {
+        "assessment": "Definitively subsumes the feasible-family parametrization and fair-parity construction. Does not treat the exact softmax loss or its mixed derivative sign and label-universal minimizer.",
+        "evidence": "arXiv:2211.01596, equation (2.3), equation (2.6), Theorem 9, Theorem 13",
+        "identifier_or_url": "https://arxiv.org/pdf/2211.01596",
+        "material_read": "PDF pages 1-8, Section 2 characterization, Corollary 4, Theorem 9, Section 3 count-event optimization and Theorem 13",
+        "method": "Read PDF text and inspected source-page images; compared exact atom measure q_b+sign*s and endpoint bounds with proposed construction",
+        "title": "Probability bounds for n random events under (n-1)-wise independence",
+        "trigger": "Direct potential coverage of the entire proposed feasible distribution family and parity laws"
+      },
+      {
+        "assessment": "General bounds on union and intersection events and tail probabilities; exact softmax objective not established in inspected material; broader full text remains a limitation.",
+        "evidence": "SIAM J. Discrete Math. 37 (2023), 516-555, DOI 10.1137/21M1408294",
+        "identifier_or_url": "https://doi.org/10.1137/21M1408294",
+        "material_read": "Publisher abstract, metadata and supplied scholarly summary",
+        "method": "Inspected source abstract, published date, mathematical scope and exact claim summary; full text not claimed read",
+        "title": "Tight Probability Bounds with Pairwise Independence",
+        "trigger": "Sharp generic Bernoulli intersection/probability envelope could subsume a proposed 3-way coupling"
+      },
+      {
+        "assessment": "Numerically stable evaluation and rounding error analysis, not optimization of expected cross entropy over higher-order dependence.",
+        "evidence": "Blanchard–Higham–Higham (2021), repository abstract",
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2765/",
+        "material_read": "Authoritative repository abstract, manuscript bibliographic description and mathematical scope",
+        "method": "Read primary manuscript landing page; no claim to have inspected every page of the PDF",
+        "title": "Accurately Computing the Log-Sum-Exp and Softmax Functions",
+        "trigger": "Numerical log-sum-exp rounding literature could already contain equivalent risk formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a16b9e4b-45d6-48d1-9185-751d27c9dc9b",
+  "value": {
+    "rationale": "Moment-preserving stochastic rounding of multiple logits is motivated by modern low-precision softmax inference. The theorem identifies the globally optimal full-order coupling for exact expected cross entropy, uniformly across labels and arbitrary bin widths, and exhibits a nonperturbative gap unobservable to mean-covariance Fisher surrogates. The exact positive n=3 gain at finite width and asymptotic h/2^n benchmark have substantive calibration value; neither sequential arithmetic improvement nor deployed-model accuracy is claimed.",
+    "status": "PASS"
+  }
+}
