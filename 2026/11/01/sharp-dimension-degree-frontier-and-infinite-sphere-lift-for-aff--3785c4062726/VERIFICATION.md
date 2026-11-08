@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-The theorem's positive direction is a finite, exact Gram-matrix argument: the sign-cube vectors fit in \(S^d\) precisely under the stated degree condition, positivity of the restricted convolution matrix forces nonnegative Walsh Fourier coefficients, and binomial expectation gives the nonnegative ordinary power expansion. Tensor powers then show universal-sphere positivity. The negative direction reconstructs the top Gegenbauer coefficient from the centered \(n\)-th finite difference, with the normalization explicitly displayed in RESULT.md.
+# Independent mathematical audit
 
-## Reproducible supplementary checks
+## correctness
 
-Run `python CHECK.py` in an environment with Python 3.10 or later and SymPy. The checker evaluates exact normalized Gegenbauer samples for representative dimensions, degrees and basis orders, matches each Bernstein power coefficient with its Walsh layer sum, checks nonnegativity, and independently compares the top Gegenbauer coefficient with the closed obstruction formula. A direct run returned `PASS: 2298 exact rational assertions`. The separate symbolic formula comparison covered \(2\le d\le8\) and \(1\le n\le10\). The checker is not claimed to enumerate every dimension, degree or continuous input; it supplements the analytical proof.
+PASS
 
-## Scope of verification
+For every d>=2, n>=1 and continuous zonal PSD f on S^d, if n<=d+1 embed {-1,1}^n/n^{1/2} in S^d: the full convolution Gram kernel f((epsilon·eta)/n) is PSD, so every Walsh Fourier coefficient is nonnegative. Taking independent ±1 signs of bias t converts the ordinary affine Bernstein sampling into sum_A hat h(A)t^{|A|}, hence nonnegative power coefficients and PSD by tensor kernels on every S^D. For n>=d+2 the normalized Gegenbauer polynomial Q_{n+2}^{(d)} is a valid PSD input; centered n-th finite differences yield a degree-n Gegenbauer coefficient equal to (n!/n^n) ((n+lambda)(d+1-n)/(3n))((n+1)(n+2)/((n+d-1)(n+d))), strictly negative. Schoenberg gives failure. Independently checked Walsh layers for small d,n and the exact Gegenbauer obstruction for 28 (d,n) pairs using symbolic rationals. The pre-existing S² positive slice and general negative direction are credited, not newly proved here.
 
-The proof is not formalized in a proof assistant and has not undergone independent mathematical review. The standard Schoenberg characterization and classical Gegenbauer normalization are assumed. Literature searches may miss implicit equivalent results in unindexed sources. No assertion of external certification, exhaustive publication coverage, or numerical proof of universal quantifiers is made.
+## originality
+
+PASS
+
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. Earlier SCOPE finding already established S² frontier and general n>=d+2 Gegenbauer counterexample; ONLY unrestricted d>=3 positive implication, Walsh coefficient formula and all-spheres lift are assessed as original here.
+
+## value
+
+PASS
+
+The nontrivial missing finite-sphere positive direction n<=d+1 for *all d>=3*, with a surprising automatic lift to positive-definiteness on every sphere, fills a sharply delimited natural preservation problem left open in the primary article. The simple finite hypercube/Walsh mechanism explains a dimension-degree threshold and may be reusable; not merely a routine interpolation calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

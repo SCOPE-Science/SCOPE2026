@@ -1,19 +1,21 @@
-# Scientific review: sharp affine Bernstein dimension–degree frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim ranges over every integer \(d\ge2\), integer \(n\ge1\), and every continuous real zonal positive-definite input on \(S^d\). When \(n\le d+1\), the Boolean sign cube embeds isometrically in the sphere, the restricted group-convolution matrix is positive semidefinite, and its Walsh coefficients are all nonnegative by explicit quadratic forms. Independent signs turn Bernstein sampling into \(\sum_A\widehat h(A)t^{|A|}\); each tensor-power kernel is positive semidefinite on all spheres. This proves the positive direction and the stronger dimension lift. For \(n\ge d+2\), a normalized Gegenbauer polynomial is a valid test kernel and its degree-\(n\) output coefficient is strictly negative by an exact finite-difference calculation; Schoenberg's theorem gives failure. Direct exact-rational checks passed 2,298 supplementary assertions and verified 70 independent symbolic instances of the obstruction. No finite enumeration is used as a substitute for either universal proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For every d>=2, n>=1 and continuous zonal PSD f on S^d, if n<=d+1 embed {-1,1}^n/n^{1/2} in S^d: the full convolution Gram kernel f((epsilon·eta)/n) is PSD, so every Walsh Fourier coefficient is nonnegative. Taking independent ±1 signs of bias t converts the ordinary affine Bernstein sampling into sum_A hat h(A)t^{|A|}, hence nonnegative power coefficients and PSD by tensor kernels on every S^D. For n>=d+2 the normalized Gegenbauer polynomial Q_{n+2}^{(d)} is a valid PSD input; centered n-th finite differences yield a degree-n Gegenbauer coefficient equal to (n!/n^n) ((n+lambda)(d+1-n)/(3n))((n+1)(n+2)/((n+d-1)(n+d))), strictly negative. Schoenberg gives failure. Independently checked Walsh layers for small d,n and the exact Gegenbauer obstruction for 28 (d,n) pairs using symbolic rationals. The pre-existing S² positive slice and general negative direction are credited, not newly proved here.
 
-The preceding mathematical result already contains the \(S^2\) classification and the all-dimensional failure direction. The present new component is the **full previously untreated positive direction for every \(d\ge3\)** and the explicit all-dimensions output lift. Otten–Nguyen–Watts (arXiv:2608.04836, Section 4 read in full) gives the \(S^2\) degree-four failure and a power-Bernstein operator on \(S^\infty\) for inputs assumed positive definite in infinite dimension, not an affine Bernstein preservation theorem for arbitrary finite-sphere inputs. Beatson–zu Castell's dimension-walk operators and Gneiting's Schoenberg framework are distinct and do not imply the finite-node result without the new hypercube argument. Equivalence, broader-coverage, database/table and claim-versus-prior implication searches found no dominating result in the consulted records. Residual risk: an unindexed historical proof may already use the hypercube restriction; search absence is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete natural classification of a standard approximation operator on spherical covariance/Gram cones. The exact threshold \(n=d+1\), its first failing degree \(n=d+2\), and the positive direction's unexpected promotion of an \(S^d\)-only input to an \(S^\infty\)-positive polynomial answer the natural finite-dimension question after a known counterexample. The result includes a reusable structural lemma rather than only a numerical improvement or arbitrary parameter slice. It has a clear limit: no claim for altered nodes, geodesic Bernstein operators, or strict positive definiteness.
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. Earlier SCOPE finding already established S² frontier and general n>=d+2 Gegenbauer counterexample; ONLY unrestricted d>=3 positive implication, Walsh coefficient formula and all-spheres lift are assessed as original here.
 
-## Closest literature and limitations
+## value
 
-Otten, Nguyen, Watts (2026), arXiv:2608.04836, is the motivating primary source. Schoenberg (1942), Gneiting (2013) supply the classical coefficient characterization; Beatson and zu Castell (2017) treats different dimension-hopping operators. The preceding technical finding provided the negative calculation and the \(S^2\) special case. The proof has not been independently audited and equivalent historical coverage may remain undiscovered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nontrivial missing finite-sphere positive direction n<=d+1 for *all d>=3*, with a surprising automatic lift to positive-definiteness on every sphere, fills a sharply delimited natural preservation problem left open in the primary article. The simple finite hypercube/Walsh mechanism explains a dimension-degree threshold and may be reusable; not merely a routine interpolation calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
