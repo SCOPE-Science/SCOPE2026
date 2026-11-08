@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact uniform double-occurrence word restriction, independence of disjoint label sets, and a complete enumeration of 113400+2520+90 words determine all Q_r tables. Counting triple overlap classes then gives the four-by-four covariance formula for every integer n>=3. Factorized off-diagonal polynomials certify n=4 and n=119 thresholds; all diagonal polynomials positive. A separate exhaustive matching enumeration n=3,...,7 and algebra checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy 2000, crossing distribution moments only, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "Paguyo 2021, Theorem 1.1 univariate crossing normal approximation, https://arxiv.org/pdf/2104.01134"
+      ],
+      "reasoning": "A general joint induced-subgraph moment formula could subsume this calculation, but inspected crossing-number generating functions and univariate theorems do not imply each motif covariance without further pattern-specific enumeration.",
+      "searches": [
+        "Chord diagrams intersection graphs three-chord patterns covariance density variance asymptotics",
+        "second moments induced graphlet counts random circle graphs perfect matchings covariances",
+        "random matchings chord diagram number of crossing triangles covariance crossing pairs and nesting pairs"
+      ]
+    },
+    "checked_sources": [
+      "INRIA RR3914 (Flajolet–Noy, March 4 2000)",
+      "arXiv:1501.01489v1 (Acan, January 7 2015)",
+      "arXiv:1406.2867 (Acan–Pittel, 2014)",
+      "arXiv:2104.01134 (Paguyo, 2021)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy 2000, Section 2 computes total crossing moments, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "Acan 2015, Section 7 gives E[X_r] for independent sets, https://arxiv.org/pdf/1501.01489",
+        "Acan–Pittel 2014 treats giant-component onset for constrained crossing counts, https://arxiv.org/pdf/1406.2867"
+      ],
+      "reasoning": "Total edge-count moments are sums of different induced-triple mixed moments, and expectations of independent triples give only first marginals. Neither determines the full covariance of induced paths with single-edge triples. The overlap-pattern tables are additional information absent from the compared theorems.",
+      "searches": [
+        "random chord diagram intersection graph induced triangle path motif covariance connected three chords",
+        "uniform chord diagram crossing triangle induced path counts covariance",
+        "Random chord diagram triangle induced path single-edge motif counts joint central limit theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "H. Acan 2015, Section 7 equates crossing clique and independent chord sets; https://arxiv.org/pdf/1501.01489"
+      ],
+      "reasoning": "Rephrased the claim using induced graphlets (empty triple, isolated edge, induced path, triangle), chord crossing patterns, labelled words, and circle graphs. Closest primary source identifies these objects but does not evaluate the mixed second moments.",
+      "searches": [
+        "uniform chord diagram crossing triangle induced path counts covariance",
+        "circle graph random chord diagram induced three-vertex subgraph covariance",
+        "Random chord diagrams exact covariance counts induced triples with one crossing versus two crossings threshold n=119"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "H. Acan 2015, Section 7 reports expectation of independent sets rather than a mixed covariance table; https://arxiv.org/pdf/1501.01489"
+      ],
+      "reasoning": "Searches for the exact four-pattern table and the 119-chord threshold found no covering claim. This is weak negative search evidence, supplemented by full-text inspection; database incompleteness is a residual risk.",
+      "searches": [
+        "uniform random matching circle four triple subgraph counts 0 1 2 3 intersections covariance finite n",
+        "exact negative-to-positive covariance transition at 119 chords for one-crossing versus two-crossing triples",
+        "Random circle graph 3-vertex motifs covariance matrix crossing nesting chord diagram 119"
+      ]
+    },
+    "rationale": "The closest inspected primary sources cover the model, total crossing moments, independent-set means, component transitions, or univariate crossing convergence, not the explicit joint induced-three-chord motif covariance and late n=119 reversal. Relevant historical comparisons of pairwise crossing and nesting do not imply the four-motif second moments. Priority risk from a more general unidentified pattern enumerator remains.",
+    "residual_risks": [
+      "A general but not identified chord-diagram graphlet-pattern covariance theorem may implicitly subsume the polynomial table.",
+      "Some historical papers or appendices beyond the inspected primary sections may contain equivalent pattern enumerations.",
+      "The same-model review does not substitute for independent review or comprehensive mathematical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the total-crossing moments, not the full four-motif covariance matrix nor the single-edge/path cutoff.",
+        "evidence": [
+          "INRIA RR3914, March 4 2000, abstract and Section 2 Crossings; full text https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Open full OA research report; read dated cover, abstract, introduction pp.1–2 and the crossings section and theorem around p.6.",
+        "method": "Compared its formal crossing-count variable and moments with the four induced three-vertex motif counts.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational exact moments and crossing distribution for same uniform chord diagram."
+      },
+      {
+        "assessment": "It gives marginal independent-set expectation and asymptotic graph properties, not covariance among all four induced three-vertex types.",
+        "evidence": [
+          "arXiv:1501.01489v1, p.1 primary MSC 60C05; Section 7 concluding remarks formula E[X_r], https://arxiv.org/pdf/1501.01489"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Inspected full OA PDF, abstract and introduction pp.1–2, concluding remarks and independent-set expectation pp.25–26.",
+        "method": "Read its random graph definition and its formula for expected independent sets; checked for three-vertex motif covariance.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same exact random matching model and intersection graph, with triangle and independent-set relevance."
+      },
+      {
+        "assessment": "Different constrained-crossing/connected-component regime, not the four-dimensional motif covariance.",
+        "evidence": [
+          "arXiv:1406.2867, main stated results, https://arxiv.org/pdf/1406.2867"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.2867",
+        "material_read": "Opened full preprint PDF; inspected abstract, introduction, and theorem statements concerning sparse fixed-crossing component transition.",
+        "method": "Compared model and parameters to unconditional small-induced-graph covariance.",
+        "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+        "trigger": "Another full-text primary article on the same intersection graph model."
+      },
+      {
+        "assessment": "No exact mixed covariance of the four three-vertex induced patterns in the inspected theorems.",
+        "evidence": [
+          "arXiv:2104.01134, p.3 Theorems 1.1–1.3, https://arxiv.org/pdf/2104.01134"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Opened full OA PDF; inspected introduction and Theorems 1.1–1.3 on p.3, along with its definitions of crossing count and simple chords.",
+        "method": "Compared its univariate crossing normal approximation and simple-chord Poisson approximation to the induced graphlet vector.",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Later probability theory on fluctuation of random chord crossings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb61f563-2fb7-4fe6-a1e9-61deee037625",
+  "value": {
+    "rationale": "The four induced three-vertex motifs form the full intrinsic local motif profile of a random chord-intersection graph, a natural object for comparing local structure. Their exact covariance gives finite-sample fluctuation information not recoverable from univariate crossing counts. The n=119 switch between mutually exclusive motifs is sharp and arises from competing overlap structures, not arbitrary parameter slicing.",
+    "status": "PASS"
+  }
+}
