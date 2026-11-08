@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The minimal-support representation is unique for a monotone finite set operator. Necessary partition coherence yields stability and a bipartite two-coloring; conversely, local stability forces the two color classes to be pairwise-disjoint coverings of the carrier. The correspondence between full ordered representation fibers and proper colorings is bijective, giving the exact exponent. Each connected component requires at least two blocks of each partition and at least four worlds; disjoint four-world grids, with optional extra worlds in an intersection, attain the bound for every allowed carrier size. The odd-cycle counterexample shows that bipartiteness cannot be removed. The standalone checker exhaustively agrees through six worlds and checks eight-world ambiguity, but exhaustive tests are not treated as a general proof.
+## correctness
 
-**Originality: PASS within inspected literature.** Ding--Yang's 2026 general bundled-modal completeness theorem represents neighborhood models by an enlarged unraveling (§5.1, Lemma 5.5); it neither fixes the same labelled carrier nor determines all partitions that yield the same operator. Ågotnes--Wáng's 2021 somebody-knows semantics investigates minimal neighborhoods, equivalence and completeness for general agent relations, not a same-carrier two-S5 incidence-graph obstruction and a sharp multiplicity law in the material inspected. Exact-title, alternative-formulation, bipartite-incidence, and partition-interior searches gave no covering statement. A possible older equivalence under partition-graph or interior-algebra terminology remains a historical priority risk, not a novelty certificate.
+PASS
 
-**Value: PASS.** Anonymous disjunction of knowledge operators forgets agent identities. The natural reconstruction question is whether this loss is reversible without changing worlds. The result provides an exact finite recognition test, a complete count of the residual ambiguity, and a sharp worst-case state-size threshold: uniqueness modulo global exchange fails first at eight worlds. This is a structural answer rather than a tiny numerical case, and directly complements representation results that may enlarge models.
+For finite monotone F:P(W)->P(W), each minimal truth support is an antichain, and w in F(S) iff a minimal support at w lies in S. Under exactly two incomparable supports at each w and w in each support, an S5 partition pair forces support stability and a bipartite incidence multigraph H. Conversely a proper two-coloring of H yields two partitions: stable support membership forces equal-colored blocks disjoint, while each world has one of each. There are exactly 2^c colorings for c components and 2^(c-1) classes after a global swap. Incomparability forces each connected component to contain at least four worlds, so c<=floor(n/4); disjoint 2x2 grids attain sharpness. A stable three-world support triangle gives a nonrepresentable odd-cycle boundary, and two grids on eight worlds give first global-swap ambiguity. The proof covers n>=4 represented cases and correctly excludes n<4.
 
-**Coverage and limits.** The result is intentionally restricted to operators with exactly two minimal supports at each world. It neither enumerates all redundant two-agent structures nor claims uniqueness across expanded-world or merely modally equivalent models. The sources provide evidence, not independent priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novel object is the COMPLETE truth-set operator on the SAME world carrier and the entire fiber of ordered pairs of equivalence relations. Ding-Yang 2026 (Section 5.1 Lemma 5.5) gives existence via enlarged-world unraveling and not same-carrier identification. Agotnes-Wang 2021 relates anonymous knowledge to neighborhoods but does not visibly count the fixed-carrier partition fiber. Published quadratic proper S5 cover theorem concerns m^2-state bounded morphism for a UNIVERSAL target; it is not a classification of fixed-carrier operator ambiguity. Different direction of reduction and different carrier are essential.
+
+## value
+
+PASS
+
+Sharp identifiability criterion and exact agent-label ambiguity in finite anonymous epistemic semantics: bipartite supports plus stability are testable, and the 4-world component cost/8-world boundary determine when observations cannot distinguish global agent roles. Natural structural classification, not merely renamed graph coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

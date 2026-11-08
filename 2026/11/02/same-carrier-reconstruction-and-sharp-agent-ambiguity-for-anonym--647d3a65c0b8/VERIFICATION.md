@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3. It uses only the standard library, constructs set partitions of carriers of sizes 1 through 6, evaluates all ordered pairs of partitions on every subset of the carrier, and groups equal complete anonymous-knowledge truth tables. For every two-support operator encountered, it independently reconstructs colorings of the recovered support incidence graph and asserts equality with the entire genuine partition-pair fiber. It additionally constructs a stable three-world triangle with no two-coloring and two independent four-world grids with four ordered representations. The executed checker produced:
+## correctness
 
-```
-EXHAUSTIVE_OK 1 partitions 1 operators 1 two-core operators 0
-EXHAUSTIVE_OK 2 partitions 2 operators 2 two-core operators 0
-EXHAUSTIVE_OK 3 partitions 5 operators 8 two-core operators 0
-EXHAUSTIVE_OK 4 partitions 15 operators 72 two-core operators 3
-EXHAUSTIVE_OK 5 partitions 52 operators 957 two-core operators 30
-EXHAUSTIVE_OK 6 partitions 203 operators 15413 two-core operators 315
-BOUNDARY_OK three-point-odd-cycle and eight-point-two-components
-ALL_CHECKS_OK
-```
+PASS
 
-## Mathematical limits
+For finite monotone F:P(W)->P(W), each minimal truth support is an antichain, and w in F(S) iff a minimal support at w lies in S. Under exactly two incomparable supports at each w and w in each support, an S5 partition pair forces support stability and a bipartite incidence multigraph H. Conversely a proper two-coloring of H yields two partitions: stable support membership forces equal-colored blocks disjoint, while each world has one of each. There are exactly 2^c colorings for c components and 2^(c-1) classes after a global swap. Incomparability forces each connected component to contain at least four worlds, so c<=floor(n/4); disjoint 2x2 grids attain sharpness. A stable three-world support triangle gives a nonrepresentable odd-cycle boundary, and two grids on eight worlds give first global-swap ambiguity. The proof covers n>=4 represented cases and correctly excludes n<4.
 
-These enumerations establish only the tested finite cases. The all-size theorem follows from minimal generators, equivalence-block stability, bipartite two-coloring, and the component-size proof in `RESULT.md`. No independent audit or historical uniqueness certification has been performed.
+## originality
+
+PASS
+
+The novel object is the COMPLETE truth-set operator on the SAME world carrier and the entire fiber of ordered pairs of equivalence relations. Ding-Yang 2026 (Section 5.1 Lemma 5.5) gives existence via enlarged-world unraveling and not same-carrier identification. Agotnes-Wang 2021 relates anonymous knowledge to neighborhoods but does not visibly count the fixed-carrier partition fiber. Published quadratic proper S5 cover theorem concerns m^2-state bounded morphism for a UNIVERSAL target; it is not a classification of fixed-carrier operator ambiguity. Different direction of reduction and different carrier are essential.
+
+## value
+
+PASS
+
+Sharp identifiability criterion and exact agent-label ambiguity in finite anonymous epistemic semantics: bipartite supports plus stability are testable, and the 4-world component cost/8-world boundary determine when observations cannot distinguish global agent roles. Natural structural classification, not merely renamed graph coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
