@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone file `verify.py` is executable with Python 3 and only the standard library. Run `python verify.py` after extracting it from the same package.
+## correctness
 
-It enumerates all involutions for each \(2\le n\le10\) and checks their counts against the recurrence. For every eligible descent position it verifies the exact probability \(1/2\), the predicted pairwise covariance against every fixed-site indicator, the full fixed-point-count/descent covariance, and every conditional descent probability in every realized pattern of **all remote fixed-site bits**. It checks the global fixed-point-count/total-descent covariance as well. For every involution and adjacent site pair it also checks that the explicit map is an involution, reverses the descent and preserves the entire remote fixed-site pattern. The final run reported `PASS: 345599 exact assertions` and enumerated 9,496 involutions at \(n=10\).
+PASS
 
-The proof of the all-size assertion is the explicitly defined local involution and the exact conditioning/counting argument in `RESULT.md`. Finite checks do not establish infinite statements. There was no computer-assisted infinite certification or independent audit.
+For n>=3 uniform involutions, the adjacent-label map that exchanges two fixed singleton cycles with their transposition, otherwise conjugates by (j,j+1), is a genuine involution. Case analysis shows that it toggles D_j while preserving the entire remote fixed-indicator vector, proving joint (not just pairwise) independence within every admissible fiber. Conditioning on a local fixed site counts (j-1)T_(n-3) or (n-j-1)T_(n-3) favorable pairings; the telephone recurrence gives the exact two-diagonal covariance matrix, Cov(F,D_j)=-T_(n-2)/T_n, and endpoint/interior distinctions, with interior n=3 equality. Verified independently by exhaustive enumeration of every involution n=3..8, fiber by fiber and rational covariance entry by entry; finite tests support but do not replace the bijection.
+
+## originality
+
+PASS
+
+The novelty assessed is the remote-FIXED-LOCATION joint independence and complete site-specific covariance matrix, not classical univariate involution Eulerian numbers or aggregate fixed-count/descents identities. Chow's 2008 involution Eulerian enumerators retain total fixed counts, not the vector of named fixed statuses. The nearest published result for uniform *permutations* has a different law and Cov(F,D)=-1/n, and does not cover the involution conditional fibers. Relevant older descent-set/cycle-type algebra is a residual potential for an implicit positional specialization.
+
+## value
+
+PASS
+
+The fiberwise independence is a nontrivial local-symmetry classification for an important restricted permutation measure, strictly stronger than zero covariance. The exact mixed covariance matrix and its surprising interior negative total-descents correlations are natural statistics for random involutions, with potentially reusable local-complementation map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
