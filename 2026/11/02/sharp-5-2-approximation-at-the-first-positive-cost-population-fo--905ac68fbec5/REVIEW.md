@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four omitted-agent choices have exact weights \(yz,(x+y)z,x(y+z),xy\) and matching costs \(x,\min(x,y),\min(y,z),z\). Their normalization and the optimal three-facility cost follow directly. Three minimum-gap cases certify strict upper bound \(5/2\); the \((\varepsilon,1,1)\) family approaches it. Exact fractions independently compared direct randomized-rule enumeration against the formula across \(37{,}000\) cases; finite checks are corroboration, not the proof.
+## correctness
 
-## Originality
-**PASS (self-review).** Jia (arXiv:2608.19633) and Chan--Lin--Wang (arXiv:2608.22484) define the same Product-Gap/Gap-Product mechanism and prove a globally sharp factor \(6\) for three facilities. The former tightness profile needs growing population; the latter also defines a distinct Inverse-Square rule for almost as many facilities as agents. Relevant source arguments and variants were inspected. These statements do not give the sharp four-agent factor, the exact gap formula, or its nonattainment. Searches of mathematical research records and primary literature did not surface an equivalent fixed-four-agent statement. Priority remains subject to unindexed earlier work.
+PASS
 
-## Mathematical value
-**PASS.** Four distinct agents constitute the first positive-optimum population with three facilities. A sharp small-population factor \(5/2\), compared with the unrestricted factor \(6\), gives a mathematically meaningful parameter-dependent efficiency refinement and identifies a degenerating extremal geometry.
+For four ordered distinct reports with gaps x,y,z>0, each three-facility triple omits one agent. Its four Product-Gap weights are yz,(x+y)z,x(y+z),xy summing 2(xy+xz+yz), and corresponding nearest-facility costs are x,min(x,y),min(y,z),z. Hence E=[2xyz+z(x+y)min(x,y)+x(y+z)min(y,z)]/[2(xy+xz+yz)]; OPT_3=min(x,y,z) because some facility must serve a pair and selecting all but one member of a minimum gap attains the bound. For m=x, N/x≤5yz+xz<5(xy+xz+yz); m=y gives N/y=4xz+xy+yz<5H; m=z is mirror. Thus E/OPT<5/2 strictly for all distinct profiles. The family (ε,1,1) yields (5+ε)/(2(1+2ε))→5/2, establishing sharp but nonattained supremum. Independently enumerated the four selected triples and verified exact formulas for all 30³=27000 integer gap triples and four rational epsilon values, but the algebraic case split is the infinite proof.
 
-## Scope and risks
-The rule is fixed; no new strategyproof mechanism is claimed. The proof does not cover more than four agents, different rules, higher dimensions or duplicate-position profiles. The supremum is nonattained for four distinct agents. Independent validation has not yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identical Product-Gap / Gap-Product sampling rule and the population-uniform factor six for k=3 are known from Jia 2026 and Chan–Lin–Wang 2026. Both primary papers were read in available full text; their general bounds and tightness examples do not determine the exact four-distinct-agent population optimum 5/2 and its nonattainment. The finite-n result is a motivated sharp boundary rather than a new mechanism. An unindexed fixed-small-population optimization could still cover it.
+
+## value
+
+PASS
+
+Four distinct agents are the first population with positive three-facility social optimum; this makes the exact n=4 factor mathematically canonical rather than an arbitrary numerical slice. The sharp improvement from globally valid 6 to 5/2, and the explicit degenerating near-extremal gap geometry, describe a practically meaningful finite-population limitation/strength of the known randomized strategyproof mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

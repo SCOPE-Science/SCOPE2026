@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:01:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For four ordered distinct reports with gaps x,y,z>0, each three-facility triple omits one agent. Its four Product-Gap weights are yz,(x+y)z,x(y+z),xy summing 2(xy+xz+yz), and corresponding nearest-facility costs are x,min(x,y),min(y,z),z. Hence E=[2xyz+z(x+y)min(x,y)+x(y+z)min(y,z)]/[2(xy+xz+yz)]; OPT_3=min(x,y,z) because some facility must serve a pair and selecting all but one member of a minimum gap attains the bound. For m=x, N/x≤5yz+xz<5(xy+xz+yz); m=y gives N/y=4xz+xy+yz<5H; m=z is mirror. Thus E/OPT<5/2 strictly for all distinct profiles. The family (ε,1,1) yields (5+ε)/(2(1+2ε))→5/2, establishing sharp but nonattained supremum. Independently enumerated the four selected triples and verified exact formulas for all 30³=27000 integer gap triples and four rational epsilon values, but the algebraic case split is the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jia full paper proves sharp factor 2k over varying n; the tightness uses growing populations.",
+          "Chan et al. analyze a different Inverse-Square mechanism for near-complete facility counts."
+        ],
+        "reasoning": "The bound 6 trivially bounds n=4 but does not imply that the best n=4 constant is 5/2; no examined theorem or example dominates the sharpened value.",
+        "searches": [
+          "Product Gap random facility location 4 agents 3 facilities sharp approximation factor five halves",
+          "Jia theorem uniform population factor 2k tightness",
+          "Chan Lin Wang gap product general factor 6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.19633",
+        "https://arxiv.org/abs/2608.22484",
+        "Resultary query: Product Gap random facility location 4 agents 3 facilities sharp approximation factor five halves"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both prior papers establish a uniform 6-approximation and use different tightness regimes.",
+          "The present strict upper bound and ε→0 family give 5/2 exactly for n=4."
+        ],
+        "reasoning": "From 6-approximation alone one cannot infer 5/2 at n=4; the four possible subsets and their exact cost weights must be analyzed. This is a nontrivial sharp finite-parameter refinement rather than general-strategyproofness novelty.",
+        "searches": [
+          "Product Gap random facility location 4 agents 3 facilities sharp approximation factor five halves",
+          "Jia 2608.19633 theorem 2k and tightness",
+          "Chan Lin Wang 2608.22484 approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Product-Gap and Gap-Product are aliases: probabilities ∝(s_2−s_1)(s_3−s_2) for triple selection.",
+          "Both 2026 full-text papers give k=3 universal factor 6."
+        ],
+        "reasoning": "Identified and credited the same mechanism under both names rather than treating it as a new sampling rule. The new claim restricts population n=4 and calculates its distinct sharp approximation ratio and supremizing geometry.",
+        "searches": [
+          "Product Gap random facility location 4 agents 3 facilities sharp approximation factor five halves",
+          "Jia Product Gap Mechanisms Jia 2608.19633",
+          "Chan Lin Wang 2608.22484 Gap Product mechanism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact 27000 integer-gap checks with a rational asymptotic witness.",
+          "Resultary search did not identify a fixed-population exact-factor table for this specific sampling rule."
+        ],
+        "reasoning": "The theorem is a one-parameter first positive-cost population extremal invariant with a global strict proof, not an unmotivated small grid maximum. No matching checked table was found; this is not a novelty certificate.",
+        "searches": [
+          "Product Gap random facility location 4 agents 3 facilities sharp approximation factor five halves",
+          "Resultary four agents three facilities product-gap 5/2 sharp ratio"
+        ]
+      },
+      "rationale": "The identical Product-Gap / Gap-Product sampling rule and the population-uniform factor six for k=3 are known from Jia 2026 and Chan–Lin–Wang 2026. Both primary papers were read in available full text; their general bounds and tightness examples do not determine the exact four-distinct-agent population optimum 5/2 and its nonattainment. The finite-n result is a motivated sharp boundary rather than a new mechanism. An unindexed fixed-small-population optimization could still cover it.",
+      "residual_risks": [
+        "A small-population case may be implicit in prior strategyproof mechanism appendices or later unindexed computations; examined primary full-text results did not state it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows global factor six and large-population tightness; does not explicitly determine sharp four-agent factor five halves/nonattainment.",
+          "evidence": [
+            "Jia 2026, arXiv:2608.19633, main result and tightness; web turn542418view1 / turn770510view4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19633",
+          "material_read": "Read primary extracted full paper, definitions, theorem 1, tightness theorem and profiles/appendix.",
+          "method": "Compare its population-uniform k=3 bound and tightness construction against exactly n=4.",
+          "title": "Product Gap Mechanisms for Multi-Facility Location",
+          "trigger": "exact same Product-Gap rule and 3-facility 2k upper bound"
+        },
+        {
+          "assessment": "General six-approximation does not entail the sharp strict first-positive-population 5/2 optimum; Inverse-Square is different.",
+          "evidence": [
+            "Chan–Lin–Wang 2026, arXiv:2608.22484; web turn862977view2 / turn811207view5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.22484",
+          "material_read": "Read primary extracted full paper, mechanism definition, approximation statements and related appendices.",
+          "method": "Compare same Product-Gap probabilities and exact four-agent objective.",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "same mechanism under Gap-Product alias and separate inverse-square mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four distinct agents are the first population with positive three-facility social optimum; this makes the exact n=4 factor mathematically canonical rather than an arbitrary numerical slice. The sharp improvement from globally valid 6 to 5/2, and the explicit degenerating near-extremal gap geometry, describe a practically meaningful finite-population limitation/strength of the known randomized strategyproof mechanism.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2608.19633",
+    "https://arxiv.org/abs/2608.22484",
+    "Resultary query: Product Gap random facility location 4 agents 3 facilities sharp approximation factor five halves",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/sharp-5-2-approximation-at-the-first-positive-cost-population-fo--905ac68fbec5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly four distinct real-line reports, three facilities, specific Product-Gap selection, absolute nearest-facility social cost and arbitrary real optimum.",
+    "Strict 5/2 supremum not attained; no claim for n>4, duplicate reports, alternative metrics or the Inverse-Square mechanism."
+  ],
+  "residual_risks": [
+    "A small-population case may be implicit in prior strategyproof mechanism appendices or later unindexed computations; examined primary full-text results did not state it."
+  ],
+  "schema_version": 1
+}
