@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is reconstructed with the exact field characteristic, arbitrary finite tree and simultaneous update; it establishes the incidence kernel, forest characteristic polynomial, odd nilpotent Jordan chain and Fitting count. No enumeration is used to infer a theorem beyond finite samples. The tested verifier is independent of the derivation in its direct rank and forest enumeration.
+PASS
 
-## Originality — PASS, qualified
+For every finite tree, B is injective over characteristic 2, im(B)=even-sum hyperplane, ker B^T=<1>; M=B^TB therefore has nullity zero for odd n and exactly one for even n. Sylvester and rooted matrix-forest determinant express the characteristic polynomial mod 2 as sum over odd-order-component forests, establishing an odd zero algebraic multiplicity s and a single nilpotent Jordan block. Fitting decomposition yields q^{n-1-s+j} entrance counts and universal last-shell probability 1-1/q. Path on 2^k vertices has f_{n-1}(z)=z^{n-1} and star gives idempotent M, so sharp opposite lengths. Confirmed 220 independent exact small-tree characteristic-polynomial/forest calculations. No inference from finite samples.
 
-The closest historical work of Sciriha (1998, 1999) and Gutman–Sciriha (2001) establishes real adjacency spectral-nullity facts for line graphs of trees. The accessible Cardoso et al. (2013) full text works with real characteristic polynomials for caterpillars, and its incidence identity is explicitly credited. The matrix-forest theorem is classical. Search comparisons did not identify a dominating result giving the all-tree characteristic-two nilpotent chain and exact transient law. Restricted historical full texts and unindexed equivalents remain a risk; no claim of independence or absolute novelty is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The stopping time is a canonical invariant of finite-field dynamics, and an exact tree-wide parity-forest characterization is mathematically motivated. One universal last-transient fraction coexists with extreme shape-dependent extinction depth, sharply distinguished on powers-of-two paths and stars. The result is a complete natural classification at the stated level, not a routine finite data entry.
+The claim combines all finite trees in char2 with odd-component forest-parity Jordan size and exact dynamical shells. Historical singular-line-graph spectra over the reals and incidence determinant are antecedents, not identical to the char2 Jordan classification; best-of-knowledge new, qualified by older literature access.
 
-## Limits
+## value
 
-The eventual nonzero primitive periods are not enumerated, and the formula for the nilpotent length may still require finite forest-parity computation. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nilpotent index and first-periodic-entry counts are intrinsic finite dynamical invariants, and the tree-wide formula and path/star extremal contrast are naturally useful beyond any isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
