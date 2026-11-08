@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The perspective inequality yields the joint convexity relation and body inclusion; Brunn–Minkowski plus its homothety equality theorem, the exact equality characterization of the perspective, and the origin-independent Minkowski surface integral force distinct origins to give strict volume-root concavity. Symmetry centers follow by opposite-normal pairing; affine permutation invariance identifies the simplex centroid. A fourth-order local expansion and the global inequalities \(|r|-\log2\le\log\cosh r\le|r|\) give the two endpoint results. The hypotheses and dimension are explicit, and the finite numerical verifier is described only as corroboration.
+## correctness
 
-## Originality
-PASS, with provisional priority. Primary full-text inspection of Haddad–Jiménez–Resende (arXiv:2610.11700v1) finds the integral and critical scaling but no comparison of origins. The Lutwak–Yang–Zhang Orlicz paper includes the underlying general perspective inequality, which is credited, and an across-shape isoperimetric theorem; that theorem does not entail the fixed-body strict origin-profile claim as stated. Higher-order Orlicz and Orlicz Brunn–Minkowski literature concern other operator transformations. Direct searches for translation/center and the exact volume-fiber consequence did not locate a prior equivalent. The open risk is a hidden equivalent formulation of origin optimization.
+PASS
 
-## Mathematical value
-PASS. A fresh critical transition body gains an all-dimensional strict Brunn–Minkowski inequality, a unique geometric center for simplices and symmetric bodies, and a natural concave determinant functional in the small-level limit. These are structural statements for all convex bodies, not isolated numerical examples or a renormalization. The uniform large-level sandwich also quantifies convergence across all translation origins.
+The proof is genuinely all-dimensional for every full-dimensional convex K, interior z and tau>0, not a numerical extrapolation. With a_z=h_K-<z,u>, the perspective psi(a,b)=a log cosh(b/(2a)) is jointly convex, so integrating Jensen gives Phi_zt((1-t)y0+t y1)<= (1-t)Phi_z0(y0)+t Phi_z1(y1) and Minkowski inclusion. For strict root-volume concavity, equality would force centered endpoint convex bodies to be homothetic T_z1=s T_z0; generic boundary y has <y,u> nonzero for S_K-almost every normal, so equality of the perspective integrand forces a_z1=s a_z0 almost everywhere. The identity integral a_z dS_K=d Vol(K) gives s=1; spanning support normals imply z1=z0, contradiction. Pairing opposite normals proves central-origin maximality and uniqueness; simplex vertex-permutation orbit averaging proves centroid uniqueness. Taylor logcosh at y=0 gives Phi=1/8 y^T M_z y+O_z(|y|^4) and the correct sqrt(8 tau) ellipsoid limit. The inequality |r|-log 2 <= logcosh r <= |r| yields the uniform polar projection containment including all interior z. Positive definiteness, d>=2, fixed tau, and no C3 claim for polytope covariograms are explicit. The verified source numerical program illustrates planar cases but does not establish this proof.
 
-## Closest literature and limits
-The critical integral is prior work (2026); the perspective inequality and Orlicz-body interpretation are older (2010). The present statement neither extends the smoothness assumptions of covariogram convergence to polytopes nor proves a global interior maximizing origin for every asymmetric body. Independent priority verification remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the strict translation-fiber volume law, equality rigidity, simplex center and uniform threshold estimates; not a claim that the logcosh transition integral or perspective inequality is new. Relevant source full-text access is incomplete; historical priority remains provisional.
+
+## value
+
+PASS
+
+PASS: A natural optimization problem for the critical logcosh covariogram transition bodies receives an all-convex-body strict Brunn–Minkowski law and unique symmetric/simplex centers, quantitatively linking small-tau ellipsoidal and large-tau projection-body regimes. It is not merely a normalization identity or a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
