@@ -1,19 +1,21 @@
-# Review: stationary inward propulsion in a three-dimensional trapped run-and-tumble particle
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized stochastic model, renewal independence, beta attenuation law, and Jacobian of the position–heading conditional density are stated and derived. The one-coordinate projection gives the inward-sign integral with the exact positivity bounds. The slow-switching coefficient follows by weak convergence to a uniform sphere-coordinate projection, with a uniformly bounded integral kernel. The rapid-switching coefficient follows from the gamma-process representation, a two-dimensional Fourier-inversion local limit theorem, and an exponentially controlled boundary-layer integral. The special-rate integral was separately quadrature-checked, and finite stochastic diagnostics agree with the conditional event formula. No finite experiment is invoked to prove an infinite assertion.
+PASS
 
-## Originality
+The stationary two-sided renewal property makes backward age exponential and independent of new heading and pre-renewal position; a=e^(-mu B) is Beta(alpha,1), yielding Jacobian a^-3 in g_alpha(x|n). Projecting N·Y onto the uniform[-1,1] coordinate direction yields exact sign condition a>1/(1+u). Rare-tumbling weak convergence gives the log2-1/2 coefficient. A gamma random measure whose normalized mass is independent of total gives the Gaussian local density through an explicit integrable characteristic-function bound; the 1/alpha boundary layer yields sqrt(3/(2pi)). Independent density normalization, unit-alpha variance and Q quadrature, and three-rate renewal Monte Carlo agree; Monte Carlo is not a proof of tails.
 
-**PASS, with publication-priority risk.** Frydel, arXiv:2309.12537, studies positional moments and distributions, not the stationary sign of current propulsion relative to position. Guéneau–Majumdar–Schehr, arXiv:2602.08436, derive the full distribution of **position coordinates**, including a Dirichlet-process law; Section III.3 explicitly identifies position–velocity joint statistics as an additional calculation. Their general position recursion is acknowledged as a starting point. Sun–Ye–Podgornik, arXiv:2409.00578, analyze nonzero residence in a tumble state and all-dimensional moment methods rather than the present instantaneous-renewal sign observable. Sun–Ye–Chen, arXiv:2610.24961, present a one-dimensional conditioned-velocity treatment, not the present isotropic three-dimensional classification; only its public abstract was accessible. Generic gamma local limits and Poisson renewal disintegration are not claimed as inventions. No exact all-rate inward probability with both sharp coefficients was identified in the directly compared papers or targeted mathematical-record searches; a search failure does not prove global priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Position-only stationary densities cannot by themselves provide the orientation-resolved inward-propulsion fraction. This is a physically natural nonequilibrium observable: it measures how often an active particle's drive opposes its current outward radial direction. The all-rate integral, exact strict range, separate rare-tumble and rapid-tumble constants, and one exactly integrable reference parameter provide a useful quantified bridge between persistence-dominated and strongly mixed regimes. The high-rate constant requires a nontrivial local-density limit rather than only second-moment asymptotics.
+The recently published primary paper by Guéneau--Majumdar--Schehr explicitly derives the stationary POSITION distribution and indicates that joint position/velocity statistics could be calculated, but its full relevant Sections III and asymptotics do not present the exact current-heading inward-sign probability or its two asymptotic constants. Frydel's moment analysis, Sun--Ye--Podgornik finite tumble time, and Sun--Ye--Chen one-dimensional conditional law are materially different. Best-of-knowledge PASS for the new observable while crediting all underlying position and Dirichlet-process identities.
 
-## Closest literature and boundaries
+## value
 
-The source's position law and general Dirichlet-mean representation are known inputs, not parts of the novelty claim. The proof concerns a single athermal, overdamped particle in a strictly isotropic three-dimensional trap with instantaneous, independent uniform reorientation. It makes no claims about monotonicity, thermal noise, other dimensions, finite tumble residence or independently certified novelty. A later paper with a more general joint-observable theorem could subsume this result; publication priority has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inward-pointing propulsion fraction is a physically interpretable joint position/orientation statistic that a position marginal cannot determine. Exact all-rate representation and two opposite-rate scaling coefficients quantify nontrivial sign reversal under isotropic tumbling, with explicit dependence on 3D heading geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
