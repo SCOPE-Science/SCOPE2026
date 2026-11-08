@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.8+ without optional dependencies. The program executes two exhaustive constructions of all 2,048 rooted de Bruijn cycles, two independent algorithms for linear complexity, and two independent algorithms for periodic sidelobe magnitude. It verifies the full 10-row by 6-column joint histogram, both marginals, the three four-element reversal/complement orbits for the 12 best-sidelobe cycles, and the eight cycles attaining both optimal invariants.
+## correctness
 
-The exact required success line is:
+PASS
 
-`VERIFY_OK cycles=2048 joint_cells=32 optimal=8 best_orbits=3 independent_enumerations=2 independent_invariant_checks=2`
+Each order-five de Bruijn cycle has one rooted 00000 occurrence and corresponds uniquely to a reversible 5-bit feedback map T_g(a,u)=(u,a XOR g(u)), g on 16 four-bit arguments; checking all 2^16 truth tables and a full 32-state orbit is exhaustive, not sampling. A second Euler-tour characterization on the four-bit de Bruijn graph supplies an independent structural enumeration. Periodic complexity is L=32-v_(x+1)(sum w_i*x^i) over F_2 because x^32-1=(x+1)^32; sidelobe P=max_{1<=t<=31}|32-2d_H(W,shift_t W)|. The bundled verifier implements polynomial/Games–Chan and signed/XOR comparisons. Independent feedback-table enumeration reproduced 2048 cycles, all 32 nonzero joint cells and their exact 32 integer counts, 12 with P=4, and 8 with L=31,P=4. Proof of exhaustiveness is fixed order-five, not an infinite extrapolation.
 
-Exhaustiveness depends on the five-window successor-map bijection and independent Euler-tour equivalence proved in `RESULT.md`, not merely the smallness of the tested examples. The verification is finite and conditional on executing the supplied code correctly. No independent scientific audit has been performed; historical-priority caveats remain.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: compare exact statement and model rather than terminology. Known foundational tools, marginal/special cases and directly overlapping results are credited. No actually inspected stronger result is shown to imply the complete final claim. Unavailable or only partially inspected plausible primary work is identified in residual risks; failed searches are not treated as proof of novelty.
+
+## value
+
+PASS
+
+The natural joint distribution of recurrence complexity and periodic sidelobe correlation resolves a simultaneous optimization question not settled by either known marginal distribution. The eight extremal cycles, three 4-element symmetry orbits at minimum sidelobe, and exact full joint table can support selection of finite pseudorandom/spreading sequences. The small but complete natural class is mathematically motivated and finite exhaustiveness is proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
