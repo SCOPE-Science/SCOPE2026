@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The checker reconstructs all 64x256 incidence coefficients from first principles, checks a complete 199-node binary branch certificate, and verifies all 100 leaf obstructions using exact Fraction arithmetic, independent of floating-point solver status. It separately checks all 15/16-word constructions and the prefix embedding monotonicity is proved. This proves M_2(8)=15 and the minimal sixteen-message length nine.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin 2026 supplies asymptotic existence Ω(2^n t log^{1/t}(n)/n^{k+k/t}), not a finite sharp table.",
+        "Guruswami-Håstad 2020 constructs asymptotically large 2-list 2-deletion codes, no matching n=8 upper bound identified in accessible abstracts."
+      ],
+      "reasoning": "Neither cited asymptotic statement yields the finite exact optimum 15 or excludes 16 messages at length eight; residual concern remains regarding undiscovered numeric tables.",
+      "searches": [
+        "arxiv 2609.26650 Lower Bounds for all List-Decodable Deletion Codes",
+        "arxiv 2007.10592 Explicit two-deletion codes with redundancy matching existential bound",
+        "length eight two list two deletion maximum fifteen 15 length nine sixteen 16"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.26650 (full accessible HTML extraction)",
+      "arxiv:2007.10592 (primary PDF abstract, Section 4, theorem statements, searched full PDF for exact tables)",
+      "published-finding corpus indexed length-six 2-list 2-deletion exact result",
+      "Related published-finding corpus search results for phrase, parameters, and code cardinality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin 2026 Theorem 1.1 and its hypergraph formulation address broad asymptotic n, not exact n=8.",
+        "Published and indexed length-six result M_2(6)=7 does not impose M_2(8)<=15 from monotonicity (which goes the opposite direction)."
+      ],
+      "reasoning": "The new upper bound is a finite rational dual branch proof not obtained as a special case of the published asymptotic lower or upper estimates; prior shorter-block lower bound and the present threshold are distinct implications.",
+      "searches": [
+        "binary 2-list decodable 2-deletion code 8 15 shortest length to carry sixteen messages",
+        "published-finding corpus search: binary two deletion list size two shortest block length 16 codewords"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.26650 gives the equivalent (k,t)-deletion hypergraph independent-set formulation (full text, Definition 2.1).",
+        "The previously indexed length-six result is for the same list size and deletion count but a different parameter, and cannot imply the length-eight optimum."
+      ],
+      "reasoning": "The condition that each length-(n-2) output have at most two parents is exactly independent-set selection in the 3-uniform two-deletion hypergraph; the sharp n=8 cardinality is not implied by asymptotic bounds.",
+      "searches": [
+        "binary 2-list decodable 2-deletion code 8 15 shortest length to carry sixteen messages",
+        "binary two deletion list size two shortest block length 16 codewords",
+        "published-finding corpus:2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result reports M_2(6)=7, not M_2(8).",
+        "Exact length-eight 15 and length-nine sixteen-message threshold were not present in retrieved indexed results."
+      ],
+      "reasoning": "Searched exact numerical values, code type, length and equivalent threshold formulation; failed matching searches do not by themselves certify priority, but a full stand-alone proof is supplied.",
+      "searches": [
+        "length eight two list two deletion maximum fifteen 15 length nine sixteen 16",
+        "binary two deletion list size two shortest block length 16 codewords",
+        "published-finding corpus:2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814"
+      ]
+    },
+    "rationale": "The indexed length-six exact result does not imply this length-eight upper bound; Lin 2026 and Guruswami-Hastad 2020 address asymptotic family sizes, not the nontrivial first sixteen-message finite cutoff. Exact-value and equivalent-formulation searches found no dominating result. Priority remains provisional pending inspection of all unindexed tables.",
+    "residual_risks": [
+      "Unindexed independent finite computations could predate this result.",
+      "Unindexed finite tables or independent early calculations may predate this result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the exact size 15 at n=8 or minimum length for sixteen codewords in the inspected text",
+        "evidence": [
+          "Definition of t-list k-deletion code at extracted lines 63-66",
+          "Main existence and asymptotic statements at lines 39-53"
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2609.26650",
+        "material_read": "Complete accessible HTML extraction: abstract; Sections 1, 2 and 3, including hypergraph definition and main theorem",
+        "method": "Read text and compare hypotheses and asymptotic statements with exact finite n=8 target",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Same channel, list size two and two deletions"
+      },
+      {
+        "assessment": "The relevant Section 4 result concerns asymptotic constructions, with no length-eight sharp cardinality bound",
+        "evidence": [
+          "Full primary arXiv PDF Section 4, Theorem 4.5 and Corollary 4.6, establish asymptotic two-list existence, with no exact length-eight maximization table"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.10592",
+        "material_read": "Primary arXiv PDF abstract, full Section 4, theorem statements and references; SIAM publisher abstract",
+        "method": "Read Section 4, Theorem 4.5 and Corollary 4.6 in primary PDF; checked for exact-value tables throughout PDF",
+        "title": "Explicit two-deletion codes with redundancy matching the existential bound",
+        "trigger": "Origin of 2-list 2-deletion construction"
+      },
+      {
+        "assessment": "Only exact n=6 value seven. Does not cover the eight-bit 15 upper bound or nine-bit threshold.",
+        "evidence": [
+          "Indexed summary states size exactly seven at length six"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "material_read": "Indexed title, exact summary and parameter values; not the full associated file",
+        "method": "Parameter and statement implication comparison",
+        "title": "Exact length-six binary two-list two-deletion code size",
+        "trigger": "Closest known small-parameter record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5d1a372-4fdb-4b12-b9ad-590155fd6327",
+  "value": {
+    "rationale": "Exact minimum blocklength to encode four bits/sixteen messages with worst-case two-deletion list-two decoding is a natural finite engineering/information-theoretic threshold, not an arbitrary slice. The strict eight-to-nine-bit boundary is nontrivial and certified by a complete rational proof with witnesses; it is not an asymptotic estimate or a routine reformulation.",
+    "status": "PASS"
+  }
+}
