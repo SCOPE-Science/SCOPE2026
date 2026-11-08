@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:44:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose the positive-shift Fourier columns as an orthonormal basis and replace exactly two by corresponding negative-shift columns. The Gram matrix is an identity block plus a 2-column cross block L, hence its minimum is 1−||L||=1−sqrt(1−s_min(K)^2) for the two removed reference coordinates K. Geometric-sum evaluation yields |K| entries d,b,c and negative off-diagonal phase product, so s_min(K)=[sqrt(4d²+(b+c)²)−|b−c|]/2. For p=3, L has one row; the same singular-value identity still applies. With y=sin²g and v=y/(sin²β−y), the derivative F_y′(v)<0 follows from a positive quadratic with negative discriminant; v decreases as shorter separation grows, proving unique adjacency minimizer. d=1/(p sin g) and q=1/(3−4sin²g) increase with g, giving strict decrease of the adjacent lower bound as p increases and stated limit. Independent direct eigenspectrum computations for all separations p=3..30 matched the formula. Finite matrices corroborate, not prove, all-p claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Theorem 6.1 gives periodic model; Remark 6.8 covers p=3",
+          "Conjecture 7.4 leaves contiguous minority patterns unresolved in general"
+        ],
+        "reasoning": "The general finite matrix reduction does not logically imply the exact two-defect adjacency minimizer or uniform lower constant; current proof supplies needed 2×2 singular analysis and monotonicity.",
+        "searches": [
+          "Vellucci Samad arXiv 2610.31956 Theorem 6.1 Remark 6.8 Conjecture 7.4",
+          "Batenkov Demanet Goldman Yomdin clustered Fourier conditioning"
+        ]
+      },
+      "checked_sources": [
+        "Vellucci–Samad arXiv:2610.31956v1, Thm6.1, Remark6.8, Conj7.4",
+        "Pan arXiv:1504.02118 background",
+        "Batenkov et al DOI:10.1137/18M1212197 background",
+        "Resultary semantic shifted-sinc Fourier two-defect query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source conjectures contiguous optimality for prescribed sign count",
+          "Current theorem proves just two-minority case for all p"
+        ],
+        "reasoning": "A conjecture is not proof and general condition-number bounds do not determine this sharp lower eigenvalue or exact adjacent optimizer. Stronger general statements remain open.",
+        "searches": [
+          "arXiv:2610.31956 Conjecture 7.4 contiguous block",
+          "Pan Vandermonde condition numbers general"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vellucci–Samad arXiv:2610.31956, periodic finite matrix model",
+          "Uniform singular values of 2x2 Cauchy compression are equivalent to optimal synthesis bound"
+        ],
+        "reasoning": "The problem is equivalent to a two-column replacement of a discrete Fourier orthobasis; compare singular-value and Riesz-bound language rather than matching numeric constant alone.",
+        "searches": [
+          "two negative classes quarter shifted Fourier Vandermonde lowest Riesz bound adjacent",
+          "Resultary: Vellucci Samad periodic shifted sinc two negative sign classes quarter shift Riesz bound Vandermonde adjacent defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returned neighboring Riesz/Fourier facts but not this exact table",
+          "Existing source explicitly reports only period-three special case"
+        ],
+        "reasoning": "An exact all-period profile is not found in checked published tables; finite p=3 coverage is credited. Search absence alone is not novelty proof.",
+        "searches": [
+          "periodic shifted sinc two-defect 0.166762438881 adjacent sign bound",
+          "Resultary shifted-sinc two minority classes exact profile"
+        ]
+      },
+      "rationale": "Vellucci–Samad arXiv:2610.31956 introduces the auxiliary periodic shifted-sinc Fourier reduction and states an adjacent/contiguous-block minimizer as Conjecture 7.4, with a special p=3 calculation. The current proof resolves exactly the two-minority case at all p and an exact uniform lower constant, not their general conjecture. Pan and Batenkov et al conditioning papers concern broader matrices but do not give the identical finite sign-specific exact minimax theorem in inspected sources.",
+      "residual_risks": [
+        "Equivalent exact two-column Fourier-compression theorem may exist under different frame conventions.",
+        "The theorem concerns only the auxiliary periodic finite model and exactly two minority columns."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MODEL_AND_SPECIAL_CASE; TWO_DEFECT_ALL_PERIOD_CASE_NOT_PROVED",
+          "evidence": [
+            "Vellucci–Samad, arXiv:2610.31956v1, Thm6.1, Remark6.8, Conj7.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31956",
+          "material_read": "Accessible primary author manuscript, matrix construction, Section6, Remark6.8 and Conjecture7.4 inspected",
+          "method": "Compared all-period two-minus claim to period3 and general conjecture",
+          "title": "Perturbed Exponential Systems, Pattern-Dependent Shifted-Sinc Operators, and Matrix Symbols on Finite Unions of Intervals",
+          "trigger": "Source of exact auxiliary periodic model and explicit block conjecture"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_ON_READ_MATERIAL",
+          "evidence": [
+            "V. Y. Pan (2016), arXiv:1504.02118"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02118",
+          "material_read": "Bibliographic abstract and theorem descriptions; no full text in this execution",
+          "method": "Compared target sharp sign-class separation profile against stated generic condition number focus",
+          "title": "How Bad Are Vandermonde Matrices?",
+          "trigger": "Potential stronger general conditioning bound"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR_ON_READ_MATERIAL",
+          "evidence": [
+            "Batenkov et al SIAM JMAA 41 (2020)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/18M1212197",
+          "material_read": "Bibliographic/summary information only",
+          "method": "Compared node-cluster geometry and existence of explicit two-column periodic minimax",
+          "title": "Conditioning of Partial Nonuniform Fourier Matrices with Clustered Nodes",
+          "trigger": "Potential stronger Fourier matrix lower bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-two-defect subclass is the first natural nontrivial geometry-dependent slice of a declared contiguous-block conditioning conjecture. The explicit separation profile proves a sharp defect count/stability boundary: two minority classes remain uniformly stable at the critical quarter shift even though unrestricted patterns can collapse. It is an all-period structural classification, not an arbitrary instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vellucci–Samad arXiv:2610.31956v1, Thm6.1, Remark6.8, Conj7.4",
+    "Pan arXiv:1504.02118 background",
+    "Batenkov et al DOI:10.1137/18M1212197 background",
+    "Resultary semantic shifted-sinc Fourier two-defect query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every period p≥3 and sign pattern with exactly two negative quarter-shift columns, the smallest squared synthesis eigenvalue of the finite periodic shifted-sinc Fourier matrix equals 1−sqrt(1−eta_{p,l}²), where eta is an explicit 2×2 Cauchy-compression singular value. It is minimized exactly for adjacent negative columns; the sharp infimum over periods is 1−sqrt(1−4(sqrt13−1)^2/(9 pi²))≈0.166762438881.",
+  "limitations": [
+    "No claim for 3 or more minority classes, nonperiodic sign patterns, or genuine two-index Gram model."
+  ],
+  "residual_risks": [
+    "Equivalent exact two-column Fourier-compression theorem may exist under different frame conventions.",
+    "The theorem concerns only the auxiliary periodic finite model and exactly two minority columns."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS_MODEL_AND_SPECIAL_CASE; TWO_DEFECT_ALL_PERIOD_CASE_NOT_PROVED",
+      "evidence": [
+        "Vellucci–Samad, arXiv:2610.31956v1, Thm6.1, Remark6.8, Conj7.4"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.31956",
+      "material_read": "Accessible primary author manuscript, matrix construction, Section6, Remark6.8 and Conjecture7.4 inspected",
+      "method": "Compared all-period two-minus claim to period3 and general conjecture",
+      "title": "Perturbed Exponential Systems, Pattern-Dependent Shifted-Sinc Operators, and Matrix Symbols on Finite Unions of Intervals",
+      "trigger": "Source of exact auxiliary periodic model and explicit block conjecture"
+    },
+    {
+      "assessment": "BACKGROUND_ONLY_ON_READ_MATERIAL",
+      "evidence": [
+        "V. Y. Pan (2016), arXiv:1504.02118"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1504.02118",
+      "material_read": "Bibliographic abstract and theorem descriptions; no full text in this execution",
+      "method": "Compared target sharp sign-class separation profile against stated generic condition number focus",
+      "title": "How Bad Are Vandermonde Matrices?",
+      "trigger": "Potential stronger general conditioning bound"
+    },
+    {
+      "assessment": "DIFFERENT_OPERATOR_ON_READ_MATERIAL",
+      "evidence": [
+        "Batenkov et al SIAM JMAA 41 (2020)"
+      ],
+      "identifier_or_url": "https://doi.org/10.1137/18M1212197",
+      "material_read": "Bibliographic/summary information only",
+      "method": "Compared node-cluster geometry and existence of explicit two-column periodic minimax",
+      "title": "Conditioning of Partial Nonuniform Fourier Matrices with Clustered Nodes",
+      "trigger": "Potential stronger Fourier matrix lower bounds"
+    }
+  ]
+}
