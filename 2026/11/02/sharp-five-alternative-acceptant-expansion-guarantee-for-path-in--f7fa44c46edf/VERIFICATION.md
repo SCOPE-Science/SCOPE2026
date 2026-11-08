@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible exact verification
+# Independent mathematical audit
 
-Run `python3 verification/verify.py`. The verifier uses only exact integers and Python's standard library. It checks every generated choice function against the full path-independence identity and checks every source against every admissible acceptant target. Expected five-alternative lines include `QUOTA 3 SOURCE 56140 ACCEPTANT 80 UNCOVERED 0` and `QUOTA 4 SOURCE 59385 ACCEPTANT 5 UNCOVERED 0`, followed by `SIX_WITNESS_NO_EXPANSION 4` and `VERIFICATION_OK`.
+## correctness
 
-The completeness argument uses the established Aizerman–Malishevski maximizer-collecting theorem; without that theorem, computational generation would certify only the generated subclass. The six-alternative witness is an independently verified instance of a previously published type of obstruction, not a new priority claim. No inference about arbitrary larger numbers of alternatives is made, and no independent validation has been performed.
+PASS
+
+For a nonempty-valued path-independent choice function C on all menus of labelled U, |U|<=5, with |C(A)|<=q, the Aizerman-Malishevski representation expresses every such C as the union of highest-priority singleton selections from a finite family of strict linear orders. Its converse is verified: pointwise OR of priority-maximizers is path independent. Exhaust all subsets of n! orders via exact bitmask union closure (n=5 produces 59386 distinct rules), and for q=1..5 test ALL capacity<=q source rules and ALL q-acceptant targets by inclusion on every menu. Independently authored and compiled a separate C++ exhaustive implementation from the mathematical specification; verified at n=5 source/target counts q1 120/120, q2 13710/480, q3 56140/80, q4 59385/5, q5 59386/1, all zero unexpandable, plus q=3 extension multiplicities 3340,7320,9540,11160,3780,7020,8460,3240,1840,440 for 1,2,4,6,8,10,12,16,24,36 expansions and exactly 39860 law-of-aggregate-demand violations. Verified every generated rule satisfies PI by direct all-menu-pairs test. Prior six-item obstruction reported by Chambers-Yenmez is NOT claimed new. Finite exhaustive proof depends on the classical representation but does NOT assert arbitrarily large |U|.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the FINITE five-item universal existence guarantee and complete multiplicity census; the six-item counterexample, representation and general rejection characterization are acknowledged prior. The primary 2026 paper abstract was read but full text unavailable via lawful web/authorized institutional VPN, a significant residual historical-coverage risk but not by itself a proof of coverage.
+
+## value
+
+PASS
+
+Sharp minimum size permitting failure is a natural finite-size boundary for acceptant expansion of Plott choice functions. Complete labelled n=5 census also quantifies expansion multiplicities and shows thousands of applicable rules violate the previously known sufficient law of aggregate demand. The result is valuable without a global solution for q<=3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

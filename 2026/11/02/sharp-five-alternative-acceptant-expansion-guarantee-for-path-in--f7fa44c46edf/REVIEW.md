@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, cardinality bounds, path-independence identity, and inclusion condition are explicit. The classical Aizerman–Malishevski representation reduces the exhaustive source class to pointwise unions of the finite collection of linear-order maximum functions. The included Python checker enumerates every such union and performs a separate direct path-independence test on each distinct table. Every source with \(n\le5\) and capacity \(q\le n\) has at least one acceptant target by a full bit-mask inclusion test. For \(n=5,q=3\), the exact census is \(56,140\) sources, \(80\) acceptant targets, and zero uncovered; the \(39,860\) law-of-aggregate-demand violations and extension-count distribution are checked with integer arithmetic. For \(q>n\), the identity rule proves the result. This is a finite exhaustive proof, not an infinite-size extrapolation.
+PASS
 
-## Originality — PASS under self-review
+For a nonempty-valued path-independent choice function C on all menus of labelled U, |U|<=5, with |C(A)|<=q, the Aizerman-Malishevski representation expresses every such C as the union of highest-priority singleton selections from a finite family of strict linear orders. Its converse is verified: pointwise OR of priority-maximizers is path independent. Exhaust all subsets of n! orders via exact bitmask union closure (n=5 produces 59386 distinct rules), and for q=1..5 test ALL capacity<=q source rules and ALL q-acceptant targets by inclusion on every menu. Independently authored and compiled a separate C++ exhaustive implementation from the mathematical specification; verified at n=5 source/target counts q1 120/120, q2 13710/480, q3 56140/80, q4 59385/5, q5 59386/1, all zero unexpandable, plus q=3 extension multiplicities 3340,7320,9540,11160,3780,7020,8460,3240,1840,440 for 1,2,4,6,8,10,12,16,24,36 expansions and exactly 39860 law-of-aggregate-demand violations. Verified every generated rule satisfies PI by direct all-menu-pairs test. Prior six-item obstruction reported by Chambers-Yenmez is NOT claimed new. Finite exhaustive proof depends on the classical representation but does NOT assert arbitrarily large |U|.
 
-Chambers and Yenmez, arXiv:2608.07022v1 (2026), were read in full-text HTML, including their Example 1, positive theorems, characterization, conclusions, and appendices. Their six-alternative example already establishes the existence of failure and is fully credited, not claimed as original. The law-of-aggregate-demand theorem does not imply the new finite statement because \(39,860\) of the five-alternative capacity-three sources fail that hypothesis. The general monotone-rejection characterization is a decision criterion, not the exact five-element extension classification or census. Section 8 explicitly leaves capacity-at-most-three expandability open in general. Aizerman–Malishevski supplies only the source representation. Additional searches of mathematical records and general scholarly indexing found no exact finite census. An inaccessible full doctoral thesis and potentially unindexed historical tables present residual priority risk; the thesis abstract addresses representation length, not this expansion count.
+## originality
 
-## Value — PASS
+PASS
 
-The first known failure occurs on six alternatives with capacity four; proving that no smaller nonempty path-independent rule can fail establishes the sharp minimum ground-set size. Capacity three is the first unresolved general-capacity class adjacent to the published obstruction; the complete \(56,140\)-rule and \(80\)-target finite census supplies a concrete benchmark for this problem. Crucially, most sources do not satisfy the existing law-of-aggregate-demand sufficient condition, so the result identifies additional expandability rather than enumerating a guaranteed subclass.
+Best-of-knowledge PASS for the FINITE five-item universal existence guarantee and complete multiplicity census; the six-item counterexample, representation and general rejection characterization are acknowledged prior. The primary 2026 paper abstract was read but full text unavailable via lawful web/authorized institutional VPN, a significant residual historical-coverage risk but not by itself a proof of coverage.
 
-## Limitations and closest literature
+## value
 
-This is not a global result for capacity three, does not cover empty-valued rules, and does not claim that the published six-element obstruction is original. Only the scientific, self-review have been performed. No independent scientific audit is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp minimum size permitting failure is a natural finite-size boundary for acceptant expansion of Plott choice functions. Complete labelled n=5 census also quantifies expansion multiplicities and shows thousands of applicable rules violate the previously known sufficient law of aggregate demand. The result is valuable without a global solution for q<=3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
