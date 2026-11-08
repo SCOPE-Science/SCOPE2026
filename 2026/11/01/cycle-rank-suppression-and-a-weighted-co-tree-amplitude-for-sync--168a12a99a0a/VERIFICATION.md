@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The direct finite-case checker was replayed from the provided standalone Python source. Its normal exit and the marker `SUBDIVISION_SYNC_VERIFY_OK 6` confirm exact convolution/direct-coloring agreement for triangle, diamond and four-vertex complete graph at subdivision factors one and two.
+# Independent mathematical audit
 
-The all-size result is supported by an explicit path-increment bijection conditional on modular cycle constraints, the established finite-graph irrotationality theorem, Fourier-inversion local-limit asymptotics with the full integer lattice confirmed by the chord block, and a weighted co-tree determinant identity.
+## correctness
 
-Computations are finite cross-checks only; they are not a substitute for these infinite proofs. The 1995 Matamala–Goles full text remained inaccessible, so historical equivalence has not been definitively ruled out. No independent audit has been performed.
+PASS
+
+For a uniform 3-color configuration, each oriented subdivided path has increments in {-1,0,1}, with modular cycle sums zero. The chord block of a fundamental-cycle matrix gives full modular surjectivity, so conditioning independent increments costs precisely 3^r, not 1. Closed color-flow balance implies the CCA signed integral is 3 times the GHM one. Gravner–Lyu–Sivakoff Theorem 3 equates synchronization with zero cycle integrals; hence the exact finite convolution formula. For fixed H, lattice Fourier inversion with covariance (2L/3) B diag(ell) B^T, full Z^r lattice and aperiodicity gives local mass (3/(4πL))^{r/2}/sqrt(det Q), multiplied by 3^r. The cographic Cauchy–Binet identity makes det Q the weighted co-tree polynomial. Independently enumerated all uniform colorings of cycles of lengths 3..9 and compared with lazy-step exact central counts including multiplier 3; finite tests do not prove the general result.
+
+## originality
+
+PASS
+
+Comparisons distinguish evaluated final mathematical statements from source theorems. Best-of-knowledge novelty assessment; inaccessible primary literature is treated as residual risk, not proof of novelty.
+
+## value
+
+PASS
+
+Synchronization probabilities under long-edge subdivision are natural network statistics. The exact finite convolution and asymptotic L^{-r/2} with graph- and length-sensitive co-tree amplitude distinguish topology beyond an existing qualitative criterion and provide concrete finite-to-large-size information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
