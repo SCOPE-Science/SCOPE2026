@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T00:45:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hilbert barycentric variance on the m-point part and any two-point part gives C^2 >= 2(m-1)/m+1 exactly. Orthogonal simplex and antipodal vectors attain lower bound. For each pair class, equality in both variance bounds forces common centroid, all within-class edges two, all cross distances C; subtracting ± norms enforces pair directions orthogonal to simplex. Between different pairs, squared distances 2±2 inner product enforce |inner product| <= min(1/2,(C^2-2)/2)=(m-2)/(2m). Volume packing supplies d>=Omega(log t), Rademacher/union bound O_m(log t), and Welch Gram rank gives d(7,1/6)>=6, attained by regular 7-simplex in dimension6. Independently reconstructed Gram example m=3,t=7 with exact squared distortion 7/3 and optimal affine dimension8. Finite examples do not replace rigidity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vallentin analyzes distance-regular graphs; an unbalanced K_(m,2,...,2), m!=2,t>1 has nonuniform degrees and is not distance-regular.",
+          "Robertson covers exactly two vertex classes.",
+          "Das–Mohanty study graph squared-distance matrix spectrum, not minimax embedding rank."
+        ],
+        "reasoning": "The graph family lies outside distance-regular or merely two-part classifications. General spherical-code packing estimates bound dimensions but do not give embedding rigidity without the new equality argument.",
+        "searches": [
+          "F. Vallentin arxiv:math/0509716 distance regular strongly regular graphs optimal Hilbert distortion",
+          "Resultary: Euclidean distortion complete multipartite graphs",
+          "Das Mohanty arxiv:2012.04341 squared distance matrix"
+        ]
+      },
+      "checked_sources": [
+        "G. Robertson arxiv:2309.16070v1 Theorem 4.3",
+        "F. Vallentin arxiv:math/0509716",
+        "Das–Mohanty arxiv:2012.04341 abstract",
+        "Resultary semantic query complete multipartite Hilbert distortion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Robertson Theorem 4.3 constructs two-class optimal embedding but imposes no requirements between t distinct pair classes.",
+          "Vallentin distance-regular hypothesis rules out generally unbalanced family."
+        ],
+        "reasoning": "Known distortion constants for a restriction do not imply global rigidity or optimal target dimension, which require every two-part equality simultaneously and cross-pair inequalities.",
+        "searches": [
+          "arxiv:2309.16070 Theorem 4.3 section 4.1 complete bipartite",
+          "arxiv:math/0509716 distance-regular graph theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barycentric simplex-plus-antipodal pair model is a metric embedding formulation; its cross-pair coherence translates to spherical line coding.",
+          "Robertson Theorem 4.3 solves complete bipartite K_m,n and provides an optimal orthogonal-simplex construction."
+        ],
+        "reasoning": "Pair and line-code languages compared. The known bipartite construction gives t=1 but no simultaneous cross-pair code constraints for t>1.",
+        "searches": [
+          "Resultary semantic query: Euclidean distortion complete multipartite graph metric one large class pairs rigidity spherical line code optimal dimension",
+          "arxiv:2309.16070 Theorem 4.3",
+          "spherical equiangular lines complete multipartite graph embedding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary results concerned Lipschitz-free (transportation norm) spaces of multipartite graphs, rather than graph point-metric Hilbert embeddings.",
+          "The seven-lines rank is exact Welch bound plus a 7-simplex and is background algebra, not independently claimed novel."
+        ],
+        "reasoning": "No matching exact table for the optimal affine dimensions of these multipartite point-metric embeddings was identified. The finite seven-line value is elementary and not alone the value claim.",
+        "searches": [
+          "Resultary semantic query: Euclidean distortion complete multipartite graph metric one large class pairs rigidity spherical line code optimal dimension",
+          "d(7,1/6) seven lines six dimensions Welch graph metric"
+        ]
+      },
+      "rationale": "Strictly broader metric Hilbert embedding theorem not found in read full sources; Robertson gives exact t=1 antecedent, not all t. Originality is qualified.",
+      "residual_risks": [
+        "Potential historical work on negative-type metrics/spherical line configurations could give same rigidity in different terminology.",
+        "Line-code dimension generally unspecified at finite t other than selected cases; m fixed in logarithmic asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_TWO_PART_SPECIALIZATION_ONLY",
+          "evidence": [
+            "Theorem 4.3 explicitly K_(m,n), not K_(m,2,2,...,2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.16070v1",
+          "material_read": "Full HTML Section 4.1, Lemma 4.2 and Theorem 4.3 and corollary",
+          "method": "Compared K_m,2 subclass and extremal simplex against multiple pair-class rigidity",
+          "title": "Negative Type and Bi-lipschitz Embeddings Into Hilbert Space",
+          "trigger": "Sharp same graph metric for two parts"
+        },
+        {
+          "assessment": "NOT_APPLICABLE_TO_UNBALANCED_MULTIPARTITE",
+          "evidence": [
+            "Vallentin arXiv:math/0509716 defines distance-regular graph families and distortion formulas for them"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0509716",
+          "material_read": "Full accessible author manuscript: distance-regular framework and strongly regular examples",
+          "method": "Checked regularity hypothesis against different part sizes",
+          "title": "Optimal Embeddings of Distance Regular Graphs into Euclidean Spaces",
+          "trigger": "Potential broader Euclidean graph metric distortion"
+        },
+        {
+          "assessment": "NO_CLAIM_OF_FULL_DOCUMENT_NONCOVERAGE",
+          "evidence": [
+            "Das–Mohanty arXiv:2012.04341 abstract focuses squared distance matrix eigenvalues"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.04341",
+          "material_read": "Abstract and available theorem descriptions, not full proof in this run",
+          "method": "Compared matrix spectral inertia versus optimal embedding/distortion and rigidity",
+          "title": "On Squared Distance Matrix of Complete Multipartite Graphs",
+          "trigger": "Same graph family but alternate distance matrix invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same constant distortion conceals a sharp dimension-rigidity transition from linear number of antipodal parts to logarithmic dimension when the large part grows from size two to three. The complete characterization of all optimizers through spherical lines is a structural classification of natural multipartite shortest-path metrics, beyond a known two-class lower bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "G. Robertson arxiv:2309.16070v1 Theorem 4.3",
+    "F. Vallentin arxiv:math/0509716",
+    "Das–Mohanty arxiv:2012.04341 abstract",
+    "Resultary semantic query complete multipartite Hilbert distortion"
+  ],
+  "disposition": "passed",
+  "final_claim": "For graph metric K_(m,2,...,2), m>=2,t>=1, c2=sqrt(3-2/m); all normalized optimizers consist of orthogonal centered m-simplex edge two and antipodal pairs with coherence <=(m-2)/(2m). Minimum optimal affine dimension is m-1 plus spherical line-code dimension d(t,mu), equals t+1 when m=2 and m-1+Theta_m(log(t+1)) fixed m>=3; d(7,1/6)=6.",
+  "limitations": [
+    "Exact d(t,mu) remains open in general spherical-code theory",
+    "Dimension law fixed m, not uniform m and t",
+    "Real Hilbert embeddings only"
+  ],
+  "residual_risks": [
+    "Potential historical work on negative-type metrics/spherical line configurations could give same rigidity in different terminology.",
+    "Line-code dimension generally unspecified at finite t other than selected cases; m fixed in logarithmic asymptotics."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS_TWO_PART_SPECIALIZATION_ONLY",
+      "evidence": [
+        "Theorem 4.3 explicitly K_(m,n), not K_(m,2,2,...,2)"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2309.16070v1",
+      "material_read": "Full HTML Section 4.1, Lemma 4.2 and Theorem 4.3 and corollary",
+      "method": "Compared K_m,2 subclass and extremal simplex against multiple pair-class rigidity",
+      "title": "Negative Type and Bi-lipschitz Embeddings Into Hilbert Space",
+      "trigger": "Sharp same graph metric for two parts"
+    },
+    {
+      "assessment": "NOT_APPLICABLE_TO_UNBALANCED_MULTIPARTITE",
+      "evidence": [
+        "Vallentin arXiv:math/0509716 defines distance-regular graph families and distortion formulas for them"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/math/0509716",
+      "material_read": "Full accessible author manuscript: distance-regular framework and strongly regular examples",
+      "method": "Checked regularity hypothesis against different part sizes",
+      "title": "Optimal Embeddings of Distance Regular Graphs into Euclidean Spaces",
+      "trigger": "Potential broader Euclidean graph metric distortion"
+    },
+    {
+      "assessment": "NO_CLAIM_OF_FULL_DOCUMENT_NONCOVERAGE",
+      "evidence": [
+        "Das–Mohanty arXiv:2012.04341 abstract focuses squared distance matrix eigenvalues"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2012.04341",
+      "material_read": "Abstract and available theorem descriptions, not full proof in this run",
+      "method": "Compared matrix spectral inertia versus optimal embedding/distortion and rigidity",
+      "title": "On Squared Distance Matrix of Complete Multipartite Graphs",
+      "trigger": "Same graph family but alternate distance matrix invariant"
+    }
+  ]
+}
