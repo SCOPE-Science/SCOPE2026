@@ -1,0 +1,11 @@
+# Research assessment
+
+**Correctness — PASS.** The published proper-interval canonical-order theorem supplies a complete finite generator. The new checker uses independent exact data paths for refinement, permutation-orbit enumeration, and joint-graph signatures; it reproduces the expected Catalan/binomial isomorphism counts, including all \(232\) connected eight-vertex types. A direct graph argument proves the exceptional vertex-orbit mismatch without trusting the census. Limits: the minimality and uniqueness conclusions rest on exhaustive checking through eight vertices and the canonical-order premise.
+
+**Originality — PASS, qualified.** Saitoh et al. enumerate connected proper interval graphs and show canonical representations; Arvind et al. introduce refinability and prove general implications. Their inspected relevant sections do not establish the smallest nonrefinable proper interval graph or the unique eight-vertex exception. The result is an exact natural cutoff, not merely the known count of graph types. Searches for 'proper interval', 'unit interval', 'refinable', 'stable equitable partition', 'automorphism orbit' and 'color refinement' did not reveal a stronger covering claim in the checked sources. Risk: historical search is not exhaustive and other work may already contain this finite classification.
+
+**Mathematical value — PASS.** Refinability is a standard graph-isomorphism and finite-model-theory boundary: a stable equitable partition need not recover vertex symmetries. Proper interval graphs are a canonical highly structured graph class, so the exact smallest counterexample and its uniqueness distinguish the two tasks of graph identification and automorphism-orbit identification. The explicit exception explains the mechanism: triangle incidence is invisible to the stable degree partition even though it separates vertex orbits. This is a motivated classification, not a numerical change to an arbitrary parameter slice.
+
+**Closest literature and limits.** Saitoh et al. (2010), DOI 10.1587/transinf.E93.D.1816, establishes the graph generator/count; Arvind et al. (2015), arXiv:1502.01255, gives the refinable/amenable hierarchy. No claim is made beyond eight vertices. The current comparison does not establish independent historical priority.
+
+Self-review: passed. Independent audit: not yet performed.

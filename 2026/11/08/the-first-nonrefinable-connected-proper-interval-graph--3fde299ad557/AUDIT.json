@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Exact exhaustive enumeration of all connected proper interval graphs through eight vertices from monotone straight-order endpoint sequences, classified up to reversal per Saitoh et al. Lemma 1; the 232 count agrees with their Theorem 1. An independent exact search over all adjacency-preserving permutations computes automorphism orbits; an exact stable-multiset refinement computes color cells. All 352 types through order eight were tested. The unique counterexample has a direct equitable degree partition and triangle-invariance orbit obstruction. A shared-palette check gives distinct signatures for all types of each order. The verifier runs to VERIFY_OK with standard Python.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arvind et al. (2015), pp. 1-4 and Section 8, give general class inclusions and examples but no proper-interval minimum.",
+        "Saitoh et al. (2010), pp. 1816-1819, establish enumerability, without a color-refinement classification."
+      ],
+      "reasoning": "A general algorithm for deciding refinability and a separate enumeration result do not themselves provide the exact first-failure value or unique exception; no stronger explicit statement covering this classification was identified.",
+      "searches": [
+        "\"Graph Isomorphism, Color Refinement, and Compactness\" \"proper interval\"",
+        "\"Graphs Identified by Logics with Counting\" \"proper interval\"",
+        "\"refinable\" \"claw-free\" \"interval\" graphs"
+      ]
+    },
+    "checked_sources": [
+      "Saitoh–Yamanaka–Kiyomi–Uehara (2010), DOI:10.1587/transinf.E93.D.1816, relevant PDF sections and targeted searches.",
+      "Arvind–Köbler–Rattan–Verbitsky (2015), arXiv:1502.01255, relevant full-text sections and terminology scans.",
+      "Searches for proper/unit interval refinable orbit partition and first nonrefinable minimum, as described in named checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arvind et al. show amenable implies compact implies refinable; this does not classify all proper interval graphs and does not assert every such graph is refinable.",
+        "Saitoh et al. prove representation/census but have no studied stable color partition.",
+        "The new connected-eight-vertex graph has stable color cells of sizes 6 and 2 but automorphism orbits 4,2,2."
+      ],
+      "reasoning": "Neither published theorem implies the new exact value without carrying out additional orbit/refinement analysis; the new finding is a sharply bounded finite classification and contrasting first counterexample. General nonrefinable graphs need not be proper interval graphs.",
+      "searches": [
+        "\"refinable graphs\" \"proper interval\"",
+        "\"color refinement\" \"unit interval graphs\" isomorphism",
+        "arXiv:1502.01255 Section 8 refinable graphs",
+        "doi:10.1587/transinf.E93.D.1816 Lemma 1 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arvind et al., arXiv:1502.01255, Section 8, defines refinability as equality of the stable color partition and the orbit partition.",
+        "Saitoh et al., DOI:10.1587/transinf.E93.D.1816, Lemma 1 provides straight-order uniqueness up to reflection."
+      ],
+      "reasoning": "Checked the standard alias unit interval/indifference graph, orbit partition/equitable partition, refinable/color refinement and counting-logic terminology. The observed difference is not a change of graph class name or a restatement of the cited general definition.",
+      "searches": [
+        "\"proper interval graphs\" \"refinable\" \"color refinement\"",
+        "\"non-refinable\" \"unit interval\" graph",
+        "\"proper interval\" \"automorphism orbit\" \"stable color\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Saitoh et al., Theorem 1: 232 connected proper interval graph types on eight vertices, with a Catalan/binomial formula; no refinability column.",
+        "New verification enumerates all 232 types, with exactly one nonrefinable type."
+      ],
+      "reasoning": "The standard graph-type census agrees with the generated count, but cannot be mistaken for the new refinability census. No checked source or database had the exact first-failure table.",
+      "searches": [
+        "\"Random Generation and Enumeration of Proper Interval Graphs\" 232",
+        "\"first nonrefinable\" \"proper interval graph\"",
+        "\"smallest\" \"nonrefinable\" \"unit interval\""
+      ]
+    },
+    "rationale": "The published connected-proper-interval enumeration and canonical representation (Saitoh et al., 2010) do not address stable color partitions or automorphism orbits. The general notion and hierarchy of refinable graphs (Arvind et al., 2015, Sections 1 and 8) do not state the eight-vertex first failure or its uniqueness. Complete exact computation supplies the missing cutoff and a direct structural witness. Priority remains provisional because unindexed work may exist.",
+    "residual_risks": [
+      "This is a finite-class classification, not a larger-order theorem.",
+      "An inaccessible or unindexed technical report may already contain the eight-vertex cutoff and unique counterexample.",
+      "The proof of exhaustive graph-family coverage relies on the published canonical straight-order theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides enumeration and a canonical string representation, not this refinement-orbit classification",
+        "evidence": [
+          "Lemma 1 states uniqueness up to reversal (p.1817).",
+          "Theorem 1 establishes the Catalan/binomial count (p.1818)."
+        ],
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/transinf/E93.D/7/E93.D_7_1816/_pdf/-char/en",
+        "material_read": "PDF pp. 1816–1819: Abstract, Introduction, §2 preliminary definitions and Lemma 1, §3 Theorem 1 and its proof; full-text searches for color refinement, refinable, automorphism found no relevant text",
+        "method": "Read PDF text and visually inspected page 1817; targeted whole-document search",
+        "title": "Random Generation and Enumeration of Proper Interval Graphs",
+        "trigger": "Same graph class, unlabeled enumeration, and canonical straight order"
+      },
+      {
+        "assessment": "General definition and hierarchy; not an explicit result for proper interval graphs or their first nonrefinable order",
+        "evidence": [
+          "§1 p.3 defines refinable as equality with automorphism-orbit partition.",
+          "§8 pp.19–20 elaborates refinability and the hierarchy."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+        "material_read": "30-page PDF: abstract/intro pp.1–4 and refinable-graph discussion in §8 pp.19–22; whole-document searches for proper interval/unit interval found no matches",
+        "method": "Read PDF text, visual inspection of page 3, targeted fulltext finds",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Defines and compares refinable graphs and color refinement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3fde299a-d557-4cc6-9c1e-c5b891d1f140",
+  "value": {
+    "rationale": "Refinability measures whether a widely used logic/graph-isomorphism refinement fully detects vertex symmetries. Connected unit interval graphs are a basic highly constrained class. Its first and unique order-eight failure is a natural complete cutoff, not an arbitrary slice; the obstruction separates orbit recovery from graph recognition within the class, while revealing the exact equitable partition mechanism.",
+    "status": "PASS"
+  }
+}
