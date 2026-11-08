@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:17:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-n VC upper bound maps any shattered comparison-support edges to a forest: a cycle can be oriented cyclically in its queried pair answers but no total order can realize it. n-1 lower bound is a star comparing symbol 1 to all other symbols: for every partition before/after 1, Av(123) is witnessed by both sides descending, and Av(132) by left descending/right ascending; reversal/complement symmetries extend to all six forbidden length-three patterns. For Ldim only n<=8 is claimed. For each of tau=123 and tau=132, all n! permutations are screened by direct triple standardization; compared concepts' n-choose-2 comparison-column masks. The exact complete-depth recurrence F(B,d)=exists query q with both answer subsets satisfying F(.,d-1), and safe cardinality pruning <2^d, proves both feasible and infeasible depth decisions. I independently reimplemented the recurrence without relying on package upper-test results and reproduced the dimensions tau=123: (n=3..8) 2,3,4,6,7,9 and tau=132: 2,3,5,6,8,9, including upper negative decisions; class sizes 5,14,42,132,429,1430. Inspected the actual compute_dimensions.py, verify_certificates.py, and full Git-tree-listed SHATTERING_TREES.json 33,305-byte certificate and its documented leaf verifier. The source verifier checks all root-to-leaf answer traces; independent exhaustive upper recurrence also confirms both dimensions. Boundaries n=1 gives 0, n=2 gives 1. No general n>=9 Ldim formula or finite-to-infinite extrapolation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Littlestone dimension/query-learning results do not determine a particular proper concept subclass without its query-column geometry.",
+          "A complete full-permutation concept class is a strict superset of Av_n(tau), so its Ldim gives only an upper bound, not exact restricted-class lower bounds nor the n=5 split."
+        ],
+        "reasoning": "No generic dimension theorem was identified which implies the specific finite avoidance census; direct proof establishes the exceptional split.",
+        "searches": [
+          "arXiv:2310.04812 Applications of Littlestone dimension...",
+          "Resultary exact permutation comparison/inversion covariance result (2026/10/4)",
+          "Earlier full total-order comparison class dimension result described by source package"
+        ]
+      },
+      "checked_sources": [
+        "GitHub immutable RESULT.md 5e483f89bbd8b52ed2dbe1dce0934bf53d600aa6, verify_certificates.py 89bd4f148b2e51eadc786ff6c687c6a327896c53, compute_dimensions.py 203fa6433a5490808f73d9d458d02d5e5087ffcd, SHATTERING_TREES.json sha739d9ebba7fa6c3f8a88f1af773e1ac9fb9c1bc0",
+        "Janson arXiv:1709.08427 PDF original Eq.(1.3) and subsequent sections",
+        "Published SCOPE032 complete RESULT.md on 123 avoider fp/exc/des",
+        "Chase–Freitag–Reyzin arXiv:2310.04812 metadata and abstract",
+        "Resultary permutation-avoidance and comparison query semantic searches",
+        "Independent exhaustive online depth recursion through n=8 /mnt/data/audit_independent_1404.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Janson covers cardinality C_n; cardinality only bounds Ldim <= floor(log2 C_n), e.g. n=5 bound 5 and distinguishes neither orbit.",
+          "SCOPE032 distinguished classes at n=3 for another statistic, not the same pairwise-query online depth at n=5."
+        ],
+        "reasoning": "Matched implication-level facts: existing Catalan and other statistics neither force VC equality nor the adaptive 4-vs-5 split. The current all-n star proof and exhaustive finite trees do the additional work.",
+        "searches": [
+          "arXiv:1709.08427 Janson 321 avoidance Catalan formula vs Ldim",
+          "arXiv:2006.05692 sorting with 132-machine",
+          "Resultary SCOPE032 123-vs-132 statistic census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson, Eq.(1.3), proves all six length-three avoiders have Catalan size and studies pattern occurrences, not pair-label online-shattering in inspected introduction/sections.",
+          "Pairwise comparison VC dimension is different from permutation-pattern VC based on factorial arrangements of positions."
+        ],
+        "reasoning": "Same labeled-pair concept domain and complete binary decision-tree semantics were required in comparing possible aliases (online sorting, query learning, order preference learning); no matching dimension table emerged from inspected literature.",
+        "searches": [
+          "\"Littlestone dimension permutation avoidance classes comparison tree pattern 132 Catalan\" web query",
+          "\"online learnability pattern avoiding permutations Littlestone dimension ranking comparisons\" web query",
+          "arXiv:1709.08427 and arXiv:2006.05692"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE032 computes enumerators of fixed points, excedances and descents and a 123-vs-132 divergence at n=3 in those coordinates; no online comparison trees.",
+          "Catalan class-size tables are known and checked; equal Catalan counts do not encode exact adaptive dimension."
+        ],
+        "reasoning": "Exact database checked on same object and length regime but different invariant; no domination of Ldim by fp/exc/des counts (they lose pair-query correlations) can be inferred.",
+        "searches": [
+          "Resultary 123-avoiding joint fp/exc/des census 2026/9/9/SCOPE032 actual RESULT.md",
+          "\"Littlestone dimension permutation pattern 123 132\" web search",
+          "Janson 1709.08427 Eq. (1.3)"
+        ]
+      },
+      "rationale": "The six avoidance classes are Catalan/Wilf-equivalent, as Janson documents, but prior pattern-occurrence, permutation-enumeration and constrained stack-sorting results do not calculate this exact online pairwise-comparison Littlestone table. General query-learning theorems and full-permutation VC/online dimensions give only universal bounds, not restricted-class sharp dimensions. A published 123-avoidance fp/exc/des finite census concerns a genuinely different observable. Originality qualified by potential older specialization in sorting/ranking learning literature.",
+      "residual_risks": [
+        "No adaptive dimension beyond n=8 claimed.",
+        "A historical online sorting/learning paper specializing to Catalan avoidance may give these exact dimensions; full historical literature is not exhaustively inspected.",
+        "The general Littlestone paper was only read at abstract level here, so no whole-document NOT_COVERING claim rests on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports Catalan equivalence and different occurrence-statistic focus; no paired comparison online learning theorem located in inspected material",
+          "evidence": [
+            "Eq.(1.3) gives |S_n(tau)|=C_n for any length-three tau, discussed p.2; main quantity n_sigma(pi_tau,n) counts pattern occurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.08427",
+          "material_read": "Original primary arXiv PDF: title and introduction pp.1-3, Eq.(1.3), distribution objectives, Dyck bijection discussion; text search across PDF for Littlestone",
+          "method": "Read primary PDF text and inspected page-2 screenshot",
+          "title": "Patterns in random permutations avoiding the pattern 321",
+          "trigger": "Same avoidance class and the exact Catalan/Wilf equivalence central to claim"
+        },
+        {
+          "assessment": "Census of fp/exc/des on same avoidance classes but not online label-comparison shattering; cannot imply adaptive dimension table",
+          "evidence": [
+            "Result section: divergence of (fp,exc,des) profiles begins n=3, with 572 cells through n=10, not query trees."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/9/SCOPE032/RESULT.md",
+          "material_read": "Complete RESULT.md: definitions, all reported n<=10 cells, proof/evidence, limitations, prior work",
+          "method": "Read immutable published GitHub RESULT.md via connector",
+          "title": "Certified joint (fp, exc, des) census for 123-avoiding permutations to n=10",
+          "trigger": "Closest published same-object finite comparison of 123 and 132 classes"
+        },
+        {
+          "assessment": "General counterexample/query-learning and compression, no direct evidence of special permutation-avoidance class classification in read material",
+          "evidence": [
+            "Abstract frames general equivalence-query learning and dimension/compression, not a pairwise-order pattern-specific table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "Accessible full author/title abstract; full text was not read this run",
+          "method": "arXiv metadata and abstract; not used as whole-document noncoverage proof",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "Possibly broad theorem for online query complexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question whether equinumerous Wilf classes and identical static VC dimensions can have different adaptive comparison complexity is mathematically natural. Exact separation first at n=5, renewed n=7, and a full two-symmetry-orbit finite census to n=8 give an independently useful boundary with explicit search/tree witnesses; no unjustified all-n claim. The result is not arbitrary isolated integer counting because it compares canonical Catalan pattern classes under a standard online learning dimension.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub immutable RESULT.md 5e483f89bbd8b52ed2dbe1dce0934bf53d600aa6, verify_certificates.py 89bd4f148b2e51eadc786ff6c687c6a327896c53, compute_dimensions.py 203fa6433a5490808f73d9d458d02d5e5087ffcd, SHATTERING_TREES.json sha739d9ebba7fa6c3f8a88f1af773e1ac9fb9c1bc0",
+    "Janson arXiv:1709.08427 PDF original Eq.(1.3) and subsequent sections",
+    "Published SCOPE032 complete RESULT.md on 123 avoider fp/exc/des",
+    "Chase–Freitag–Reyzin arXiv:2310.04812 metadata and abstract",
+    "Resultary permutation-avoidance and comparison query semantic searches",
+    "Independent exhaustive online depth recursion through n=8 /mnt/data/audit_independent_1404.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "VC equality proved for all n; adaptive table exhaustively valid only 1<=n<=8.",
+    "Comparison queries ask label order, not classical factorial pattern shattering of position sets."
+  ],
+  "schema_version": 1
+}

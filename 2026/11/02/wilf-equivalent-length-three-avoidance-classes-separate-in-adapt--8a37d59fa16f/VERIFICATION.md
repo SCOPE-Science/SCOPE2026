@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-The exact source is the included `compute_dimensions.py`; its `SHATTERING_TREES.json` records twelve complete depth-optimal binary query trees, each with a leaf permutation index. The separate `verify_certificates.py` reconstructs all permissible permutations from independent rank-standardization logic, checks every query-answer history against the indicated leaf permutation, confirms distinct witnesses, and independently recomputes nonexistence of depth one greater. Execute `python3 verify_certificates.py` in the directory containing all three files. `verification_output.txt` is the output of that invocation against the packaged files; it is not itself an independent proof. The implementation's exhaustive recurrence and the leaf assertions are the finite mathematical certificates.
+## correctness
 
-The final line of the actual check was:
+PASS
 
-`PATTERN_CLASS_WITNESS_CHECKS_PASS 12 1596 1608 32941`
+The all-n VC upper bound maps any shattered comparison-support edges to a forest: a cycle can be oriented cyclically in its queried pair answers but no total order can realize it. n-1 lower bound is a star comparing symbol 1 to all other symbols: for every partition before/after 1, Av(123) is witnessed by both sides descending, and Av(132) by left descending/right ascending; reversal/complement symmetries extend to all six forbidden length-three patterns. For Ldim only n<=8 is claimed. For each of tau=123 and tau=132, all n! permutations are screened by direct triple standardization; compared concepts' n-choose-2 comparison-column masks. The exact complete-depth recurrence F(B,d)=exists query q with both answer subsets satisfying F(.,d-1), and safe cardinality pruning <2^d, proves both feasible and infeasible depth decisions. I independently reimplemented the recurrence without relying on package upper-test results and reproduced the dimensions tau=123: (n=3..8) 2,3,4,6,7,9 and tau=132: 2,3,5,6,8,9, including upper negative decisions; class sizes 5,14,42,132,429,1430. Inspected the actual compute_dimensions.py, verify_certificates.py, and full Git-tree-listed SHATTERING_TREES.json 33,305-byte certificate and its documented leaf verifier. The source verifier checks all root-to-leaf answer traces; independent exhaustive upper recurrence also confirms both dimensions. Boundaries n=1 gives 0, n=2 gives 1. No general n>=9 Ldim formula or finite-to-infinite extrapolation is asserted.
 
-The largest nontrivial upper-depth search involved 31,849 states, for eight symbols and forbidden pattern \(132\). For \(n=1,2\), the dimensions are elementary. For larger \(n\), no finite-experiment-based inference is made. The static VC dimension for every \(n\) has an independent mathematical proof in `RESULT.md`.
+## originality
+
+PASS
+
+The six avoidance classes are Catalan/Wilf-equivalent, as Janson documents, but prior pattern-occurrence, permutation-enumeration and constrained stack-sorting results do not calculate this exact online pairwise-comparison Littlestone table. General query-learning theorems and full-permutation VC/online dimensions give only universal bounds, not restricted-class sharp dimensions. A published 123-avoidance fp/exc/des finite census concerns a genuinely different observable. Originality qualified by potential older specialization in sorting/ranking learning literature.
+
+## value
+
+PASS
+
+The question whether equinumerous Wilf classes and identical static VC dimensions can have different adaptive comparison complexity is mathematically natural. Exact separation first at n=5, renewed n=7, and a full two-symmetry-orbit finite census to n=8 give an independently useful boundary with explicit search/tree witnesses; no unjustified all-n claim. The result is not arbitrary isolated integer counting because it compares canonical Catalan pattern classes under a standard online learning dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
