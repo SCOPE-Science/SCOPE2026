@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The claim has a precise fixed-order extremal definition, asymptotic quantifiers, and restricted eventual-uniqueness assertion. The decisive global step is not a numerical graph: the exact second-order differential equations at actual maximizers imply squared-distance barriers for the ratios \(x^2/q_\nu\) and \(x^2/Q_\nu\). Since the sharp source bounds and fixed-ray evaluations force the extremal values to approach their limits, these barriers trap *all* global maxima near the two specified rays. Compact \(C^2\) Debye expansions are therefore sufficient. The standard coefficient recurrence produces the rational second-order profiles, whose strict leading concavity implies eventual uniqueness and whose evaluations give the exact constants and shifts. The included checker confirms 33 symbolic and supplementary numerical assertions but does not independently prove the all-order asymptotics.
+## correctness
 
-## Originality
-**PASS relative to checked sources, with residual risk.** Segura and Suzuki (arXiv:2610.07933v1, Sections 3--5) prove the universal sharp shifts, identify leading rays, and list numerical maxima but not the optimal finite-order inverse-square deficits, displacement laws, or eventual uniqueness. Segura (arXiv:2608.03633, Section 3) already computes the fourth-order Debye product term on the critical ray, from which the *pointwise* coefficient \(54/625\) is recoverable; this narrower fact is **not** presented as new. That computation does not imply the next-order behavior of the global supremum without localization, and does not determine the companion logarithmic-derivative optimum or either displacement. Segura's 2021 ratio/product paper and DLMF's general coefficient formula do not state these optimized conclusions. The closest retrieved mathematical-research records concern Bessel Turán minima and different Bessel monotonicity problems. A prior unindexed treatment of the same optimized-order law remains possible.
+PASS
 
-## Value
-**PASS.** The sharp constants \(1/5\) and \(7/20\) are proved in recent work as uniform-in-order optimal, but by definition they cannot describe how close the bound is for a specified large finite order. The exact positive deficits settle that quantitative gap for both coupled functionals; the two maximizing-ray displacements and eventual uniqueness identify the location of the worst approximation error rather than merely giving a pointwise series. The extremum-localization mechanism is structural and avoids treating fixed-ray asymptotics as globally uniform. The result does not purport to replace or improve the original uniform constants.
+For real large nu and x>0, published global inequalities bound both shifted Bessel-product functionals uniformly. The exact second-order differential identities, evaluated at genuine interior global maxima where f′=0 and f″<=0, force x^2/(x^2+nu^2+f) toward 2/5 and 3/5 respectively. This localizes every maximizing ray to sqrt(2/3) and sqrt(3/2), avoiding an unjustified global Debye approximation. The compact differentiated Debye series then gives strict local concavity, eventual uniqueness, leading values 1/5 and 7/20 and order-nu^-2 deficits 54/625 and 108/625, respectively, with optimizer shifts 17 sqrt(6)/150 and 27 sqrt(6)/80 times nu^-2. Independent SymPy differentiation and exact substitution reproduced all four coefficients and both negative second derivatives (-108/125, -144/125). The proof assumes the cited second-order identities and compact Debye expansion; no effective onset nu0.
 
-## Closest literature, scope, and limitations
-The central comparison is Segura--Suzuki, *Sharp two-sided bounds for the product of modified Bessel functions and for its logarithmic derivative* (arXiv:2610.07933, first posted 2026-10-06), especially its Section 5 and Table 1. Segura's preceding *Optimized bounds for the product and the ratios of modified Bessel functions* (arXiv:2608.03633, 2026-08-04) gives a stronger pointwise Debye expansion on a critical ray and is acknowledged as prior coverage of that fact. NIST DLMF Section 10.41 supplies classical coefficients and justified compact asymptotics. No explicit finite-order threshold or finite-order closed-form optimum is supplied. Real orders, positive arguments, and sufficiently large \(\nu\) are essential to the claim. The work has not received independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two universal sharp shifts and leading maximizing rays are prior Segura–Suzuki; Segura earlier computed product Debye coefficients on a limiting ray. Their mere pointwise coefficients do not prove the optimized global-in-x correction without the global-max localization barrier, nor the distinct logarithmic-derivative correction and displacement. The claimed combined optimal-deficit and both-maximizer laws are not present in the accessible source abstracts or mathematical descriptions. Full preprint text of the exact closest papers was unavailable via arXiv/OA access; Oxford protected retrieval blocked on VPN. Therefore this is a qualified best-of-knowledge PASS with a substantial prior-coverage risk, not a claim full documents were checked.
+
+## value
+
+PASS
+
+Sharp uniform Bessel inequalities have worst-case fixed-order gaps that are mathematically meaningful. The precise large-order 1/nu^2 gap and optimizer location quantify how quickly a sharp order-independent inequality becomes suboptimal for finite real order; the global-maximizer localization step is nontrivial and prevents a pointwise asymptotic shortcut.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
