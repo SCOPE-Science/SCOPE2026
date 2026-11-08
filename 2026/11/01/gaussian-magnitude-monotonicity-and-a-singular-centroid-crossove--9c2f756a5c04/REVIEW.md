@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(m\ge3\), the full negative-type domain is proved by an exact zero-sum quadratic-form decomposition and an explicit regular-simplex embedding. On this domain the Gaussian similarity matrix is positive definite for every \(t>0\) by a block spectral decomposition and strict weighted AM–GM. The magnitude formula follows from unique block-invariant weights. Its time derivative is factored exactly; the parameter-dependent term has no interior minimum, and both endpoint expressions are positive, with the critical endpoint controlled by a rigorous third-derivative sign. The small-scale, critical and double-scaling limits follow from direct Taylor expansions. These arguments control all admissible real parameters and dimensions, not just a numerical grid. The standalone program passed 5,273 diagnostic assertions; finite tests only corroborate the analytic arguments.
+## correctness
 
-## Originality — PASS, with priority risk
-Gomi–Tsuji (arXiv:2608.15720v1, Introduction and §§3–5) prove nonmonotonic examples of negative-type semimetrics with four or more points. Their general Lemma 5.4 proves strict monotonicity for any finite **metric** with at most one negative magnitude weight, which covers our entire metric subrange because all leaf weights are positive; their full accessible manuscript was inspected. Roff–Yoshinaga (2025, Theorem 3.3) give a general join magnitude **formula** for homogeneous metric spaces, which subsumes the algebraic expression on the metric subrange. This is explicitly credited rather than claimed anew. Neither inspected full work states or implies the all-scale strict positive derivative **in the nonmetric interval** or its critical centroid crossover. Related indexed items on equiradial stars concern distinct invariants such as numerical index and bounded-Lipschitz norm. The Asao–Gomi (2025) geometric-magnitude abstract was accessible but its full manuscript was not; unknown older equivalents cannot be excluded. The originality assessment concerns the strict-monotonicity and singular-crossover theorem, **not** the pre-existing join algebra.
+PASS
 
-## Value — PASS
-The critical boundary separates generic one-point magnitude collapse from a non-unit limit of \((m+1)/2\), while strict increase remains valid on both sides and across every triangle-inequality-violating parameter up to the exact Schoenberg boundary. An explicit crossover resolves the noncommuting small-time and critical-geometry limits. This natural high-symmetry class supplies a sharp all-cardinality benchmark for assessing why negative type alone is insufficient to guarantee monotonicity, and is more informative than an arbitrary finite example or a re-expression of the block inverse.
+For m≥3, hub-to-leaf squared distances a>0 and equal leaf separation b>0, the zero-sum distance quadratic form is −b||w||²+((m−1)b/m−2a)s², so negative type iff 0<r=b/a≤rc=2m/(m−1). Euclidean regular-simplex centroid-axis realization and metric boundary r≤2 follow. The Gaussian kernel decomposes into leaf-difference eigenvalue 1−p^r and 2×2 block determinant D=1+(m−1)p^r−mp²>0 by strict weighted AM–GM. Unique weights give M=1+m(1−p)^2/D; derivative has positive prefactor times a bracket whose r dependence has no interior minimum over [0,rc], leaving positive endpoints. At r=rc, H_k(p)=1−(k+1)p+(k+1−p)p^(1+2/k) has H,H′,H″ all zero at p=1 and H‴<0 for 0<p<1, proving strict positivity at every scale. Exact Taylor expansions give generic limit1, critical (m+1)/2+(m+1)at/6 and δ-transition 1+mτ/(m−1+rcτ). Fresh symbolic expansions were checked independently at m=3,4,5,7. No inference of a general negative-type monotonicity theorem; only nonmetric 2<r≤rc is claimed as new.
 
-## Scope and unresolved issues
-The finding does not address arbitrary negative-type semimetrics, and no claimed asymptotics hold outside their stated parameter regimes. Algebraic formulas and all-scale strict monotonicity in the metric range are covered by earlier join and one-negative-weight theorems; only the nonmetric positivity and critical crossover are presented as original. Historical priority beyond accessible primary literature and indexed records is not established; independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS ONLY for the strict all-scale positive derivative in the nonmetric negative-type interval 2<r≤rc and sharp singular centroid crossover, not the elementary symmetric inverse or metric interval. The full accessible Roff–Yoshinaga Theorem 3.3 applies to metric homogeneous joins (r≤2) and the package explicitly acknowledges the Gomi–Tsuji metric one-negative-weight criterion. General negative-type nonmonotonic counterexamples do not cover a positive classification for this equiradial subclass. Gomi–Tsuji full manuscript and Asao–Gomi full text were inaccessible; this is meaningful unresolved priority risk but no positive stronger coverage was observed in material read.
+
+## value
+
+PASS
+
+The regular-simplex-with-centroid geometry is a motivated sharp negative-type benchmark; strict magnitude monotonicity survives every triangle-inequality-violating scale in this family even though arbitrary negative-type semimetrics may fail. The noncommuting one-point limits and explicit crossover form a nontrivial geometric singular law, beyond a kernel inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
