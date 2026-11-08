@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:48:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-edge-open-packing-rigidity-and-multiplicity-in-cycle-prism--945d5b20e374/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-edge-open-packing-rigidity-and-multiplicity-in-cycle-prism--945d5b20e374/verify.py",
+        "/mnt/data/scope_worker03_20261107T0038Z/transfer_independent_output.txt",
+        "/mnt/data/scope_worker03_20261107T0038Z/independent_checks_output.txt"
+      ],
+      "rationale": "The labelled prism C_n square K2 has top, bottom and rung edges in n columns, and the third-edge EOP conflict is fully local to column offsets at most two. The independent transfer checker constructed conflicts directly from the n=11 graph, found exactly 37 admissible local mask triples and 17 consecutive-mask states. With potential φ=1 precisely at (0,5),(0,6),(1,5),(2,6), all transfer arcs have integer slack 1+φ(v)-φ(u)-popcount(next_mask) in {0,1}; exactly 24 tight arcs and 13 unit-slack arcs. Its independently built integer adjacency matrices A,B satisfy A^8=A^2, tr(A^n) for n=4..9 equals [0,0,6,0,0,0], and tr(A^(n-1)B) equals [2,4,6,2,2,4], hence repeat by six. The potential telescopes on all cyclic words so weight=n-number_of_unit_slack_arcs; zero-slack extrema only when 6|n (six words), otherwise exactly one slack gives n-1 edges and count n tr(A^(n-1)B). Direct independently built graph backtracking for n=3..7 matches the n=3 exceptional case (2,12) and subsequent formulas. The all-n theorem follows from exact transfer identity, not finite pattern interpolation.",
+      "residual_risks": [
+        "For n=3 the graph has extra wraparound conflicts and is treated separately.",
+        "Only labeled maximum EOP sets are counted; the numbers are not symmetry orbit counts or all packing-size enumerators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General product-graph EOP inequalities and graph-class algorithms can be specialized to prisms but the inspected statements do not calculate this explicit transfer trace and complete multiplier counts."
+        ],
+        "reasoning": "Algorithmic solvability of a graph class does not constitute an exact all-n closed formula unless its consequences are explicitly established or straightforward; the all-n trace/multiplicity remains additional structure.",
+        "searches": [
+          "arxiv:2406.04020 Cartesian product edge open packing prism bounds",
+          "arxiv:2610.02275 maximum edge open packing algorithms AT-free chordal convex bipartite"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.2298/FIL2312963K",
+        "https://arxiv.org/abs/2406.04020",
+        "https://arxiv.org/abs/2610.02275",
+        "Resultary query: edge open packing cycle prism circular ladder C_n square K_2 periodic exact formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 theorem gives chromatic index 3 when 6 divides circumference, and 4 otherwise; current theorem optimizes and counts a single EOP class."
+        ],
+        "reasoning": "The shared mod-six regime is compatible but does not imply exact n versus n-1 maximum sizes or 6/2n/4n optimizer counts; a new transfer/potential proof is needed.",
+        "searches": [
+          "doi:10.2298/FIL2312963K Theorem 2.20",
+          "arXiv:2406.04020 Section 5 product bounds",
+          "doi:10.1051/ro/2022171"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhanupriya et al 2023 Theorem 2.20 determines the minimum colors of an injective edge coloring of the prism; this is a different optimization functional."
+        ],
+        "reasoning": "Taking a color class in a k-coloring provides examples/averages; minimizing number of colors neither forces exact maximum class count nor 2n/4n labeled optimizer multiplicities.",
+        "searches": [
+          "injective edge chromatic index cycle prism maximum color class edge-open packing",
+          "Resultary: edge open packing cycle prism circular ladder C_n square K_2 periodic exact formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent n=3..7 brute counts (2,12),(3,8),(4,20),(6,6),(6,14) align with exact n mod6 formula; no prior matching table was found in examined primary statements."
+        ],
+        "reasoning": "Finite existing graph tables might contain several terms; finitely many terms alone do not imply a uniform all-n identity A^8=A^2 or multiplicity theorem.",
+        "searches": [
+          "cycle prism circular ladder edge open packing sequence n mod 6",
+          "edge open packing circular ladder labelled extremizer number"
+        ]
+      },
+      "rationale": "Published injective edge-chromatic index of C_n square K2 quantifies minimum number of EOP color classes, not the size or number of a largest single class. Relevant Cartesian-product bounds do not state the six-phase exact maximum and multiplicity.",
+      "residual_risks": [
+        "An older exact circular-ladder transfer computation may give the same result under injective edge coloring terminology.",
+        "The 2026 algorithm paper was not read end-to-end; snippet-level material was not used to assert full-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct chromatic-index claim, consistent period-six structure but not single-class multiplicities",
+          "evidence": "Cycle prism 3-color/4-color injective chromatic index",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2312963K",
+          "material_read": "Proposition 2.19 and Theorem 2.20 with prism coloring; theorem statements and proof context",
+          "method": "Primary Filomat PDF inspected with page screenshot",
+          "title": "Injective edge coloring of product graphs and some complexity results",
+          "trigger": "Same cycle-prism graph and related packing/colouring duality"
+        },
+        {
+          "assessment": "No exact labelled cycle-prism optimizer enumeration identified",
+          "evidence": "General bounds do not yield the n-period six count",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "Cartesian product and hypercube sections; relevant definitions and bounds",
+          "method": "Primary PDF sections",
+          "title": "Induced matching versus edge open packing: Trees and product graphs",
+          "trigger": "Broader Cartesian-product EOP results"
+        },
+        {
+          "assessment": "No claim made that the entire paper was read or lacks every specialization",
+          "evidence": "General maximum EOP algorithms for selected classes, not a stated circular-ladder enumerator",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02275",
+          "material_read": "Abstract and scope statements, not full algorithm text",
+          "method": "Open-access source listing and available summary",
+          "title": "Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs",
+          "trigger": "Recent algorithms potentially dominating graph subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-edge-open-packing-rigidity-and-multiplicity-in-cycle-prism--945d5b20e374/RESULT.md",
+        "https://doi.org/10.2298/FIL2312963K",
+        "https://arxiv.org/abs/2406.04020"
+      ],
+      "rationale": "An all-size exact extremal function together with the full labelled optimizer multiplicities and six-period rigidity is a natural structural classification of edge-open packings in the basic 2×n cylindrical grid; the transfer certificate gives reusable insight beyond routine small-graph enumeration.",
+      "residual_risks": [
+        "Does not classify other widths of cylindrical grids or all packing sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For n=3 the graph has extra wraparound conflicts and is treated separately.",
+    "Only labeled maximum EOP sets are counted; the numbers are not symmetry orbit counts or all packing-size enumerators.",
+    "An older exact circular-ladder transfer computation may give the same result under injective edge coloring terminology.",
+    "The 2026 algorithm paper was not read end-to-end; snippet-level material was not used to assert full-document noncoverage.",
+    "Does not classify other widths of cylindrical grids or all packing sizes.",
+    "Scientific best-of-knowledge judgment, not formal proof certification or historical priority guarantee. Publication withheld."
+  ],
+  "schema_version": 1
+}
