@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility
-Execute `python3 verify.py` with Python 3.9 or later. The code requires only the Python standard library and does not use the claimed structural lemma when testing actual minimal connected dominating subsets: it creates full subdivision adjacency, tests closed-neighborhood coverage, tests induced connectivity, and tests every one-vertex deletion. The property is upward closed, so a connected dominating set with no deletable single vertex is inclusion-minimal.
+# Independent mathematical audit
 
-The separately coded candidate builder enumerates vertex covers, spanning trees, external leaf conditions, and boundary choices to compare actual **sets** for 47 small connected base graphs. A separate exact Stirling formula is compared against full cardinality dictionaries for seven labeled subdivided complete bicliques. Another 144 arithmetic parameter pairs check well-defined positive coefficients.
+## correctness
 
-Validated local result:
+PASS
 
-`VERIFY_OK general_graphs=47 biclique_graphs=7 direct_subsets=1280106 arithmetic_pairs=144`
+For connected simple base graph order n>=3, a connected dominating set of a full edge subdivision induces a connected vertex cover S, selected interior subdivision vertices must form a spanning tree T of G[S], and each excluded original x needs exactly one selected incident subdivision neighbor. Inclusion-minimality further forces every tree leaf to have an outside-S neighbor. All selected vertices are indispensable under those conditions. Weighted matrix-tree theorem and Prüfer-word surjection count give the K_{a,b} Stirling polynomial; n+|S|-1 verifies degrees and K_{2,b} gap. Independent verification: Independently built full-edge-subdivided K_{2,2}, K_{2,3}, K_{2,4} and brute-enumerated all connected inclusion-minimal dominating sets. Obtained labeled count polynomials {6:8}, {7:12,8:6}, {8:32,10:8}, exactly the specialized Stirling formula. Inspected the full standalone verifier; finite cases only corroborate the general leaf/tree proof.
 
-The tests comprise 1,280,106 enumerated nonempty vertex subsets in the direct graph cases. They are finite spot checks, not an infinite proof or a computational exhaustion of all graphs. The weighted spanning-tree identity and all-order statements are justified analytically in `RESULT.md`. The general-graph correspondence is intended for connected simple bases with at least three original vertices; the excluded two-vertex base is not implicitly certified.
+## originality
+
+PASS
+
+Best-of-knowledge: inspected accessible closely related primary PDFs, searched published mathematical records for aliases/stronger results, and compared implications. General enumeration algorithms do not logically entail the displayed closed coefficient polynomial; a prior same weighted bipartite-tree kernel for a rook graph is expressly credited and not claimed new. Residual priority limitations are explicit.
+
+## value
+
+PASS
+
+The exact arbitrary-base subdivision tree-cover characterization is structurally reusable; its K_{2,b} specialization yields unbounded gaps in cardinalities of inclusion-minimal connected dominating sets even for bipartite 2-degenerate graphs. The labeled polynomial is a natural enumerative invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
