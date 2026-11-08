@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "All three nonzero vectors of a binary rank-two code are permuted by GL2(F2), reducing linear isomorphism minimization exactly to six matchings. Each crossed pair is improved or maintained by uncrossing, proving optimal sorted ratios. Pairwise ratio comparison yields D≤n, and equality requires a weight-one and weight-n word in one code and equal nonzero weights in the other. Binary column-count algebra gives exactly (1,n-1,n) and (2t,2t,2t), 1≤t≤floor(n/3), and these constructions attain n. The sorted triple uniquely determines a binary rank-two code modulo coordinate permutation; n=2 is exceptional. The actual embedded verify.py separately checks 21,096 generators and 19,902 profile pairs with exact fractions; those tests corroborate rather than substitute the all-length argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In Lemma 15, Bennett–Fox–Morrell bound all [n,k] code distortions by n².",
+        "Lemma 27 gives a finite enumeration exact algorithm in time O*(q^{k(k+1)}); Corollary 28 yields polynomial-time computability for low dimension.",
+        "Their Theorem 30 concerns an approximation from successive-minima bases."
+      ],
+      "reasoning": "A generic n² bound is not the binary rank-two sharp value n, and an instance solver alone neither implies the maximum over all code pairs nor characterizes exactly which pairs attain it. The new theorem supplies the sharp value and rigid equality cases for all n.",
+      "searches": [
+        "published-finding corpus: distortion between any two binary two-dimensional linear codes Hamming length n at most n exact worst-case",
+        "Web: \"maximum distortion\" \"linear codes\" same length",
+        "Bennett–Fox–Morrell Lemma 15, Lemma 27, Corollary 28, Theorem 30"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.26261 (first-public source and abstract)",
+      "DOI:10.4230/LIPIcs.APPROX/RANDOM.2026.24 (full relevant open-access publisher paper)",
+      "https://eprint.iacr.org/2024/782.pdf (relevant introductory material)",
+      "published-finding corpus indexed records, including 2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bennett–Fox–Morrell provides computational complexity and approximation algorithms, plus general n² upper bound and D=1 criterion, not a sharp rank-two diameter or equality family.",
+        "Bennett–Win concerns structural reductions for code equivalence, not metric distortion values.",
+        "The complete rank-two output classification uses the three nonzero word weights and equality constraints not contained in those statements."
+      ],
+      "reasoning": "The source results enable the definitions and offer a general computation route. The new universal rank-two bound n and iff equality classification require additional sorting and extremal-structure arguments; they are not special instances of a stronger stated numeric diameter bound. Ordinary column multiplicity identities are treated as background, not novel.",
+      "searches": [
+        "Bennett–Fox–Morrell, full publisher PDF, introduction, Lemma 15, Proposition 19, Lemma 27/Corollary 28, Theorem 30",
+        "Bennett–Win ePrint 2024/782, introduction and theorems 1.1–1.2",
+        "Web: \"Code Distortion Problem\" \"dimension 2\" binary exact",
+        "Web: \"minimum distortion\" \"binary\" \"dimension two\" codes 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bennett–Fox–Morrell define distortion as an optimal bi-Lipschitz ratio of nonzero codeword Hamming weights (Eq. 1, p. 2); Proposition 19 provides general D=1 equivalence up to unary scaling.",
+        "No searched indexed record explicitly identifies sorted three-word weight profiles with Hilbert projective distance in binary dimension two."
+      ],
+      "reasoning": "The known distortion-one scaling characterization is acknowledged and not claimed new. The new metric identity is stronger for the specific rank-two binary domain, giving all pairwise distortions rather than only the D=1 relation. Existing definitions plus brute-force algorithm allow evaluating instances, but neither states the global sharp diameter or its equality classification.",
+      "searches": [
+        "published-finding corpus: Code Distortion Problem binary dimension 2 exact formula sorted three nonzero weights maximum distortion n sharp extremal simplex codes",
+        "Web: \"code distortion\" \"Hilbert metric\" linear codes",
+        "Web: \"code distortion\" \"two-dimensional\" \"weight enumerator\" pdf",
+        "arxiv:2607.26261; DOI:10.4230/LIPIcs.APPROX/RANDOM.2026.24"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest indexed items were the rank-two DNA coverage-depth optimum (2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9) and general coding/metric results with different objectives.",
+        "The new proof gives a formula for infinitely many lengths, not a finite previously tabulated collection."
+      ],
+      "reasoning": "Neither the indexed rank-two coverage-depth calculation nor the published records solves code distortion, and no exact table of the sharp diameter and extremal pairs was identified. Negative search evidence is not a certification of priority.",
+      "searches": [
+        "published-finding corpus: Bennett Fox Morrell code distortion problem two-dimensional codes explicit distortion and diameter",
+        "published-finding corpus: minimum bilipschitz distortion linear code pairs projective line dimension 2 weight profiles"
+      ]
+    },
+    "rationale": "The July 2026 primary paper introduces the invariant and a general n² bound plus an exact input-instance algorithm, but the inspected statements do not yield a sharp explicit dimension-two diameter, Hilbert weight-profile formula, or exhaustive equality classification as stated. Searches of published-finding corpus, published literature, and previously available claims found no equivalent or stronger conclusion. A general exact algorithm does not itself supply the symbolic global extremum across all length-n code pairs. Historical nonindexing remains a risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible prior treatment could have proved the same rank-two diameter and equality classification.",
+      "Only relevant portions, rather than every page, of the code-equivalence background document were read; its primary claims concern a different problem.",
+      "No independent priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The example optimizes one [4,2] pair; the general n² upper bound, D=1 criterion and exact instance algorithm do not state the n diameter/equality classification.",
+        "evidence": [
+          "Publisher PDF pages 2–4 define D and show an example with optimal mapping ratio 8/3, not a global maximization.",
+          "Lemma 15: 1≤D≤n²; Lemma 27: O*(q^{k(k+1)}) exact computation; Theorem 30: k² approximation.",
+          "No located sharp n bound for binary rank two nor complete extremal pairs."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol392-approx-random2026/LIPIcs.APPROX-RANDOM.2026.24/LIPIcs.APPROX-RANDOM.2026.24.pdf",
+        "material_read": "Relevant introduction (pp. 1–5), Lemma 15/Proposition 19 (pp. 11–13), Lemma 27/Corollary 28 (p. 19), Theorem 30 (p. 20) and their proof extracts.",
+        "method": "Full 22-page open-access PDF available; inspected relevant pages and page 3 image, with searches for low dimension, sorting and explicit rank-two results.",
+        "title": "The Code Distortion Problem",
+        "trigger": "Introduces exactly the new distortion invariant and has a concrete binary rank-two example."
+      },
+      {
+        "assessment": "Code equivalence reductions do not supply pairwise bi-Lipschitz distortion values or a sharp diameter; standard code equivalence facts are acknowledged.",
+        "evidence": [
+          "Theorem 1.1 concerns GI-to-LCE reductions, Theorem 1.2 LCE-to-lattice-isomorphism reductions; neither evaluates distortion."
+        ],
+        "identifier_or_url": "https://eprint.iacr.org/2024/782.pdf",
+        "material_read": "Abstract, introductory definitions, and main-result descriptions of graph/matroid/lattice reductions (pp. 1–4).",
+        "method": "Open-access full-text PDF source; inspected its searchable introductory section and theorem descriptions.",
+        "title": "Relating Code Equivalence to Other Isomorphism Problems",
+        "trigger": "Code equivalence and projective column descriptions could cover the structural classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d4edaa76-5343-41e6-8249-1677b3fd3184",
+  "value": {
+    "rationale": "This is a natural global extremal invariant for the newly introduced code-distortion framework. It replaces a general n² upper bound with a sharp n law in the first nontrivial binary dimension, explicitly identifies the distortion geometry with a projective metric on weight profiles, and classifies every maximizing pair for all lengths. The statement is not an arbitrary finite parameter calculation or a mere numerical refinement: it gives a universal structural extremal theorem and equality rigidity, useful as an exact benchmark for higher-dimensional distortion and algorithms.",
+    "status": "PASS"
+  }
+}
