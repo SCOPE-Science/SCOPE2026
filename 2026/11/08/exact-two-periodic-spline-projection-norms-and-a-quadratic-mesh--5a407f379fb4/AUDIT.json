@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The explicit hats give a cyclic tridiagonal Gram with diagonal s/3 and off-diagonal h/6; checkerboard conjugation is an irreducible strictly diagonally dominant M-matrix, so inverse signs are strict. A two-period Schur complement gives the cyclic Green recurrence H u_k-ab(u_{k-1}+u_{k+1})=12s 1_{k=0} with closed form U_k. Exact integration of affine signed kernels gives the finite sum and strict knot norming; constant reproduction proves the sharp negativity formula. Geometric periodization, a rational polynomial identity using abq^2-Hq+ab=0, and exponential tail decay prove the limit. Standalone SymPy and independent exact rational inversion checks passed, but universality derives from the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Passenbrunner 2016 gives mesh-independent periodic projector boundedness and almost-everywhere convergence for general order, not exact optimal constants for alternating length ratio.",
+        "Passenbrunner–Shadrin 2013 gives nonperiodic inverse Gram decay and a.e. convergence for arbitrary knots; those estimates are not a sharp norm equality in a two-period family.",
+        "General classic piecewise-linear projection bounds, including the 3 bound recounted in Passenbrunner 2011, are weaker than this exact statement."
+      ],
+      "reasoning": "Although the older hypotheses of uniform boundedness include this mesh geometrically, their conclusions are inequalities with unspecified or nonsharp constants. They do not imply the contrast-dependent sharp formula nor the description of norming locations and sharp positivity defect.",
+      "searches": [
+        "published-finding corpus semantic query: finite element continuous piecewise linear projection on alternating nonuniform two-cell mesh endpoint stability projection constant",
+        "published-finding corpus semantic query: orthogonal projector to hat spline space Lebesgue norm alternating cell lengths a b asymptotic mesh contrast squared",
+        "Primary: Passenbrunner, Orthogonal projectors onto spaces of periodic splines, arxiv:1608.06720, Introduction and main theorems",
+        "Primary: Passenbrunner and Shadrin, On almost everywhere convergence of orthogonal spline projections with arbitrary knots, arxiv:1308.4824, Theorems 1.1 and 1.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1103.1950",
+      "https://doi.org/10.4064/sm164-1-4",
+      "https://arxiv.org/abs/1608.06720",
+      "https://arxiv.org/abs/1308.4824",
+      "https://arxiv.org/abs/math/0408418"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The periodic Franklin main family has adjacent small intervals followed by adjacent large intervals; its sharp constant 2+(33-18sqrt(3))/13 does not algebraically specialize to 2-(a-b)^2/((3a+b)(a+3b)) for positive unequal a,b.",
+        "The 2004 nonperiodic Ciesielski–Kamont family similarly has two contiguous regions, so it does not enumerate alternating two-period cycles.",
+        "The 2016 arbitrary-knot boundedness statement permits this family but is insufficient to derive an exact sharp value without additional Green kernel work."
+      ],
+      "reasoning": "Unlike a corollary of a stronger existing exact theorem, the claimed sharp asymptotic value depends on a microscopic alternating pattern not treated by the inspected exact two-region calculations. General inverses and norm identities make a derivation possible but do not state or imply the optimized contrast identity. The primary novelty is this family-specific exact finite evaluation and its contrast law, not the familiar general Gram formula.",
+      "searches": [
+        "Primary complete periodic Franklin text: arxiv:1103.1950, §2 knot definition, §3.1 Gram and norm formula, §4 specific two-block exact theorem",
+        "Primary full text: arxiv:1608.06720, §§1–3 and boundedness theorem",
+        "Primary 19-page journal PDF: DOI 10.4064/sm164-1-4, introduction, main statement and piecewise-linear kernel method",
+        "published-finding corpus semantic query: two-periodic nonuniform linear spline projector asymptotic L∞ norm 2 minus (a-b)^2/((a+3b)(3a+b))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Passenbrunner 2011 §3.1 explicitly equates the endpoint Lebesgue norm with integrated absolute values of the inverse Gram reproducing kernel; this is the same general functional but not the alternating formula.",
+        "A previously recorded uniform cyclic linear-spline projection formula is the equal-length a=b specialization, not a nonuniform mesh contrast law.",
+        "Semantic published-finding corpus hits for the alternating formula instead concern distinct periodic recurrence stability and unrelated approximation operators."
+      ],
+      "reasoning": "Compared exact operator norms, Lebesgue constants, signed hat-basis inverse Gram matrix, periodic finite-element least-squares stability, and limiting two-period mesh contrast. The 2011 general knot-kernel identity is a known tool, but its main computed family has consecutive refined/coarse zones, not alternating adjacent widths. The equal-spacing special case is known and explicitly excluded from the novelty assertion.",
+      "searches": [
+        "published-finding corpus semantic query: alternating step lengths two periodic mesh piecewise linear spline L2 orthogonal projection Lebesgue operator norm exact (5r^2+22r+5)/(3r^2+10r+3)",
+        "published-finding corpus semantic query: two-periodic nonuniform linear spline projector asymptotic L∞ norm 2 minus (a-b)^2/((a+3b)(3a+b))",
+        "published-finding corpus semantic query: periodic linear spline L2 projector exact L infinity norm uniform mesh inverse Gram q=2-sqrt3 knot extremizers",
+        "Primary: Passenbrunner, The Lebesgue Constant for the Periodic Franklin System, arxiv:1103.1950, §3.1, formula (5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2004 and 2011 paper theorem constants correspond to a consecutive-block mesh and are strictly greater than 2 in their sharp regimes; the alternating limit here is strictly less than 2 if a≠b.",
+        "No retrieved exact finite alternating two-period table or rational aspect-ratio profile matched the statement.",
+        "The a=b special case appears in known uniform-grid work and is not asserted to be novel."
+      ],
+      "reasoning": "Searched exact constants, expressions in aspect ratio, interval-pattern descriptions, and Gram-inverse representations. No located source contained the two-period closed form; search absence alone does not establish novelty, and an inaccessible older piecewise-linear paper is retained as a priority risk.",
+      "searches": [
+        "published-finding corpus semantic query: periodic piecewise linear finite element orthoprojector alternating knot spacings two period mesh ratio sharp Lebesgue constant",
+        "published-finding corpus semantic query: periodic linear spline L2 projector exact L infinity norm uniform mesh inverse Gram q=2-sqrt3 knot extremizers",
+        "Direct published bibliography: Ciesielski and Kamont 2004 DOI 10.4064/sm164-1-4; Passenbrunner 2011 arxiv 1103.1950"
+      ]
+    },
+    "rationale": "The exact two-period alternating finite norm and the nonuniform rational contrast law are not implications of the closest examined primary theorems: Ciesielski–Kamont 2004 and Passenbrunner 2011 compute nonalternating contiguous two-block configurations; Passenbrunner 2016 proves only general boundedness; the previously recorded uniform mesh case corresponds to a=b. published-finding corpus searches for two-period, alternating, projection constant, finite-element stability, exact ratio, and equivalent inverse-Gram descriptions did not locate an equal or stronger theorem. Generic Gram methods and equal-spacing results are credited, and unindexed classic spline literature remains a priority risk.",
+    "residual_risks": [
+      "Ciesielski–Kamont (1997), Projections onto piecewise linear functions, was referenced in inspected 2013 primary text but its full text was unavailable; an unindexed exact alternating-mesh formula could alter the priority assessment.",
+      "Literature search and similarity retrieval do not prove global uniqueness; analytic identities are original only as far as the compared evidence demonstrates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST PRIMARY; its two consecutive spacing blocks and known absolute-kernel formula do not state the two-period contrast result. Generic inverse Gram techniques are acknowledged as prior.",
+        "evidence": [
+          "arxiv:1103.1950 §2 defines contiguous small and large knot zones, not strict alternation",
+          "arxiv:1103.1950 §3.1, equations (3)–(6), gives the general known reproducing-kernel norm computation",
+          "Its sharp constant is 2+(33−18√3)/13, whereas the alternating contrast asymptotic is <2 for a≠b"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1103.1950",
+        "material_read": "Full accessible article text; Introduction, main knot definition and theorem (§2), Gram inverse/absolute kernel formulation (§3.1), and the proof-case structure (§4).",
+        "method": "Read the original text and compared its two-block mesh interval sequence and theorem to alternating a,b,a,b and the sharp asymptotic sign of the defect.",
+        "title": "The Lebesgue Constant for the Periodic Franklin System",
+        "trigger": "Same circle, degree-one periodic orthogonal spline projector, exact Lebesgue endpoint norm and inverse Gram kernel."
+      },
+      {
+        "assessment": "Does not give the exact circle two-period alternating formula. Different (nonperiodic, clustered) mesh geometry.",
+        "evidence": [
+          "Studia Math. 164 (2004), 55–73, two consecutive zones with lengths 1/(2n) and 1/n",
+          "Sharp nonperiodic Franklin constant 2+(2−√3)^2 is above 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.4064/sm164-1-4",
+        "material_read": "Accessible 19-page original journal PDF, with introduction, statement of the two-block grids, Gram-kernel development and comparison with uniform lengths.",
+        "method": "Inspected the primary PDF text and visual pages, compared boundary condition, the order of the small/large intervals, and the claimed norm constant.",
+        "title": "The Lebesgue constants for the Franklin orthogonal system",
+        "trigger": "Earlier sharp piecewise-linear projection constants and a potentially covering knot configuration."
+      },
+      {
+        "assessment": "General norm boundedness is not exact in the parameter a/b, and no two-period sharp value appears in the inspected proof.",
+        "evidence": [
+          "Initial arxiv submission 2016-08-24, abstract and §§1–3",
+          "Statements concern norm boundedness and a.e. convergence for arbitrary knot sequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.06720",
+        "material_read": "Full accessible article text, Introduction and general boundedness/a.e.-convergence results with inverse Gram estimates.",
+        "method": "Compared quantifiers and conclusions: mesh-uniform bound for arbitrary periodic knots versus the present sharp two-period operator norm for all m and a/b.",
+        "title": "Orthogonal projectors onto spaces of periodic splines",
+        "trigger": "General arbitrary-knot periodic spline projection theorem might subsume the exact assertion."
+      },
+      {
+        "assessment": "Provides earlier general estimates but no sharp alternating periodic norm. Notes relevant Ciesielski–Kamont 1997 paper.",
+        "evidence": [
+          "Theorems 1.1–1.2 cover a.e. convergence and inverse Gram decay, not specific finite norm",
+          "1997 linear-spline projection result cited in the introductory bibliography"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.4824",
+        "material_read": "Full accessible text, Introduction, Theorems 1.1–1.2, inverse Gram decay, and historical bibliography.",
+        "method": "Compared its universal norm control and decay bound to exact two-period equality and asymptotics.",
+        "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+        "trigger": "Potential stronger general boundedness and inverse Gram estimate."
+      },
+      {
+        "assessment": "Related stability motivation but not the same periodic alternating knot operator or exact contrast parameter.",
+        "evidence": [
+          "First public arXiv version 2004-08-30",
+          "Article concerns second-order L-splines and mesh-uniform bounds, including the polynomial benchmark 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "Full accessible text, abstract, introductory problem statement and L-spline norm bounds.",
+        "method": "Compared the differential-operator L-spline spaces and general interval uniform bound with the exact periodic polynomial hat-space law.",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Early dated literature on least-squares endpoint stability with knot-independent bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a407f37-9fb4-45bc-8c4c-dd879a757851",
+  "value": {
+    "rationale": "The alternating a,b mesh is the simplest genuinely nonuniform cyclic finite-element pattern, and sharp L-infinity stability and positivity loss of least-squares projection are natural invariants of this discretization. The exact law 2-(a-b)^2/((3a+b)(a+3b)) gives a nontrivial strict improvement from 2 for all nonzero alternation contrast while macroscopically two-block grading can worsen the constant. The theorem handles all finite periods, exact extremizing evaluations, and a sharp asymptotic structural dependence, rather than an isolated arbitrary example or merely a routine bound.",
+    "status": "PASS"
+  }
+}
