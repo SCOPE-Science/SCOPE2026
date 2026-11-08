@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Because a permutation has one occurrence of each symbol per period, a query uniquely fixes its residue phases. Every admissible gap residue has a unique least representative in the first min(q,b_i-a_i+1) legal differences. The independent minima form the componentwise earliest embedding, and tuples (first phase, minimal gap differences) biject with distinct locally feasible queries. Their endpoint generating polynomial is exactly Q; coefficient truncation at qk-1 yields the finite-host count. The unique maximal endpoint gives the saturation boundary; inclusion-exclusion verifies the uniform binomial form. Self-contained independent query enumeration passed 1472 uniform and 4000 variable-bound instances. Finite tests corroborate rather than constitute the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Day et al., arxiv:2206.13896v1, develops general algorithms and hardness for gap-constrained language questions.",
+        "Manea, Richardsen, Schmid, arxiv:2404.10497v1, treats constraints between nonadjacent positions with matching complexity analysis."
+      ],
+      "reasoning": "A general algorithm or a hard decision problem does not supply a closed enumeration of distinct output words, nor determine the exact saturation threshold for all intervals. The broader syntactic constraint models contain the present instances, but inspected general complexity bounds do not imply these numerical formulas.",
+      "searches": [
+        "published-finding corpus: universal bounded-gap subsequences permutation powers saturation threshold",
+        "published-finding corpus: gap constraints per adjacent selected positions permutation power factorizing generating function",
+        "arxiv:2206.13896v1 inspected introduction, language analysis, gap definitions and appendix discussions",
+        "arxiv:2404.10497v1 generalized gap constraints"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.13896v1",
+      "arxiv:2304.05270",
+      "arxiv:2404.10497v1",
+      "published-finding corpus: 967f04fec949",
+      "published-finding corpus: e77c4e8d9f37",
+      "Prior published mathematical claim bcfce8ef-aaec-4a13-a7af-a8033cee2cfc",
+      "Prior published mathematical claim b8ecd39e-db44-40bd-9ce3-f4ff16f7e8b2",
+      "Prior published mathematical claim b9bf64a8-097c-4871-bd07-26dc3e2adb6f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier binary bounded-range result constrains the total span of an occurrence, not each successive gap, and its two-run period has repeated letters.",
+        "Earlier rotation-complete result constrains appearance of all cyclic rotations of a query, not embedding of the query with individual interval bounds.",
+        "The edit-radius result concerns insertions until ordinary subsequence universality, not these counts."
+      ],
+      "reasoning": "The prior hypotheses/target objects do not cover the current result by straightforward parameter substitution, duality, or corollary. A global window cannot be transformed into arbitrary independently bounded interselection gaps without changing the accepted language. Ordinary universality does not force a particular gap-constrained embedding.",
+      "searches": [
+        "Prior mathematics IDs: bcfce8ef-aaec-4a13-a7af-a8033cee2cfc; b8ecd39e-db44-40bd-9ce3-f4ff16f7e8b2; b9bf64a8-097c-4871-bd07-26dc3e2adb6f.",
+        "published-finding corpus: 967f04fec949",
+        "arxiv:2304.05270 longest common subsequence with gap constraints"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2206.13896v1, definition of interval gap constraints and language analysis; no inspected claim enumerates distinct query languages of permutation powers.",
+        "published-finding corpus: 967f04fec949 concerns editing distance for unrestricted subsequences, not local interval-gap languages."
+      ],
+      "reasoning": "An equivalent claim would count each distinct query once and yield the full coefficient distribution for arbitrary independent position-difference intervals and a power of a permutation. The retrieved results cover different host/constraint/invariant combinations and do not logically imply the arbitrary-gap product polynomial. The search is not a novelty proof.",
+      "searches": [
+        "published-finding corpus: distinct gap-constrained subsequences of repeated permutation words exact generating polynomial shortest embedding",
+        "published-finding corpus: interval constrained scattered subword language of periodic permutation host phase greedy length profile",
+        "Web: \"gap-constrained subsequences\" \"periodic words\" counting",
+        "Web: \"gap constrained\" \"repeated permutation\" subsequences enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The polynomial depends on arbitrarily chosen independent interval vectors, not a single fixed scalar sequence; no exact tabulation or formula with these data was returned.",
+        "published-finding corpus: e77c4e8d9f37 concerns unconstrained binary universality-index counts."
+      ],
+      "reasoning": "A table for special parameters would cover only those cases, and none was located. The theorem covers every number of repetitions and every vector of interval constraints. Lack of a database result is a limited bibliographic observation, not affirmative proof of novelty.",
+      "searches": [
+        "Web: site:oeis.org \"gap\" \"subsequence\" \"permutation\" powers",
+        "published-finding corpus: repeated permutation word bounded gap subsequences exact generating function cumulative",
+        "published-finding corpus: periodic permutation word (012...q-1)^k every distinct subsequence constrained gap intervals position dependent generating polynomial product geometric sums"
+      ]
+    },
+    "rationale": "Actual record searches, accessible historical claim comparisons, and relevant primary full-text sections were compared for their exact mathematical implication. The closest work studies general gap matching complexity, gap-constrained LCS, generalized nonadjacent gaps, and ordinary subsequence universality rather than a complete exact distinct-language enumerator for all interval vectors on permutation powers. An unindexed or implicit equivalent remains possible.",
+    "residual_risks": [
+      "An identical formula or a more general theorem might exist under different terminology in unindexed or uninspected literature.",
+      "The inspected article sections do not constitute exhaustive all-papers or all-appendices coverage.",
+      "Some abstract-generating-function frameworks may imply the result after nontrivial specialization; such an implication was not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected statements address general decision/complexity and algorithmic bounds, not the distinct-query generating function for a repeated-permutation host.",
+        "evidence": [
+          "arxiv:2206.13896v1, introduction and formal gap-constraint definitions",
+          "DOI:10.4230/LIPIcs.ISAAC.2022.64"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.13896v1",
+        "material_read": "Introduction, definitions, language-analysis problems, discussion of periodicity and inspected appendix sections concerning matching and witnesses.",
+        "method": "Readable arXiv HTML and published PDF page screenshots",
+        "title": "Subsequences With Gap Constraints: Complexity Bounds for Matching and Analysis Problems",
+        "trigger": "Same local interval gap model and language-analysis setting"
+      },
+      {
+        "assessment": "Its objective is longest common subsequence optimization across strings, not the number of distinct queries in one repeated-permutation host.",
+        "evidence": [
+          "arxiv:2304.05270, problem statement and introductory results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.05270",
+        "material_read": "Accessible full-text introductory and algorithmic-problem statements concerning the gap-constrained LCS objective",
+        "method": "arXiv rendered text",
+        "title": "Longest Common Subsequence with Gap Constraints",
+        "trigger": "Gap-constrained subsequence problem could give dominating general result"
+      },
+      {
+        "assessment": "Allows nonadjacent conditions but focuses on matching algorithms and complexity, not exact finite-host cardinalities.",
+        "evidence": [
+          "arxiv:2404.10497v1, model and main complexity statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.10497v1",
+        "material_read": "Definitions, introduction and matching/complexity results in accessible HTML",
+        "method": "arXiv HTML",
+        "title": "Subsequences With Generalised Gap Constraints: Upper and Lower Complexity Bounds",
+        "trigger": "More general constraints between arbitrary selected positions might dominate local intervals"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5374d30f-aea3-40ad-8be3-5c045a37bdd2",
+  "value": {
+    "rationale": "For the natural interval-gap subsequence model, the theorem gives a complete all-parameter distinct-language census for repeated permutation hosts, with an explicit product generating polynomial and sharp finite-host saturation and universality boundaries. This addresses exactly the multiplicity-of-embeddings obstacle of language enumeration and identifies a q-sized residue transition, rather than computing one ad hoc small example or a routine fixed-query membership test.",
+    "status": "PASS"
+  }
+}
