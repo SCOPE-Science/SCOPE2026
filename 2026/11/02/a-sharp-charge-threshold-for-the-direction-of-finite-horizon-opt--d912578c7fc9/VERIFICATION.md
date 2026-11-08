@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical steps and all assumptions are in `RESULT.md`. The included standard-library program `verify.py` is executed by running `python3 verify.py` alongside the document. It checks the closed-form two-state transition probability against the net-counting-work identity; the unique optimizer's stationary equation against numerical maxima; optimal-load positions and monotonicity across a deterministic grid; the tilted truncated-exponential variance inequality; and the exact charging and storage threshold crossings.
+## correctness
 
-A local replay completed successfully with 6636 bounded checks covering 108 parameter families. Illustrative values with \(\beta=E=k=1\) for discharge durations \(T=0.01,1,20\): at prepared occupation \(p=0.65\), optimal loads are approximately \(0.7872562,0.7986934,0.8035373\); at \(p=0.75\), all equal \(1\); at \(p=0.9\), they are approximately \(1.4195253,1.3431205,1.3176680\).
+PASS
 
-These finite checks do not certify the strict all-parameter inequality, uniqueness, infinitely many horizons, or publication priority. Those statements rely on the displayed exact calculation and the separately described literature comparison. No independent audit has been performed.
+For a two-state detailed-balance Markov model and constant load, integrating occupation gives W_T(w)=w(p−q(w))(1−e^(−lambda(w)T)). Factor W as w*sinh[c(Phi−w)]*K_T(lambda). Strict log curvature follows the exact variance inequality v_{lambda,T}<mu_{lambda,T}/lambda and lambda'²=c²(lambda²−4k²), lambda''=c²lambda. The log derivative at w=E is sign(p−(1/2+βE/4)), independent of T, and implicit differentiation yields positive/negative horizon drift on the respective branches. Short/long horizon extrema and exponential charging/retention follow. Independently solved maximizers for several p,T parameter sets, verifying direction and threshold; these finite optimizations do not prove global concavity.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the exact theorem after mathematical statement/implication comparison; risk explicitly retained. This result fixes one constant load, one two-state Markov generator, and counts net jumps; the cited circuit paper optimizes multistage currents and dissipative efficiency. Different objective and state process prevent theorem implication. The original active-matter battery paper could contain related load optimization, but its full text was not obtained in this run; residual priority risk explicit.
+
+## value
+
+PASS
+
+The sign reversal of optimum load response to discharge duration is a sharp operational invariant of a fixed-rate stochastic two-state battery, with a nontrivial universally time-independent preparation threshold. Exact branching and retained-charge crossover distinguish it from standard continuous circuit/power optimization. Does not claim general device efficiency or variable-load control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
