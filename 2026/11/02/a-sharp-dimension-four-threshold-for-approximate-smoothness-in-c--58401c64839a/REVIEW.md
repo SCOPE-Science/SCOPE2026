@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The proof enumerates every vertex in the open parameter interval without assuming a finite numerical search, derives the dual norm from fractional knapsack, and calculates all incident facet-pair distances. Separate extremizing functionals prove the dimension-four obstruction and both endpoint regimes. Reproducible rational checks cover 20 finite instances; the analytic proof covers all positive real parameters and dimensions at least two.
+## correctness
 
-**Originality — PASS (self-review, with residual risk).** Chmieliński–Khurana–Sain, arXiv:2109.11884, give the general polyhedral formula but not the special sharp dimension/parameter phase law. Deza–Hiriart-Urruty–Pournin, arXiv:2011.05607, analyze the same interpolation family for face combinatorics and volume but do not determine approximate-smoothness coefficients. A separately read Mahler-product result and graph-distance result on the same underlying bodies do not imply norming-face diameters. Older unindexed equivalents are possible. The known regular-octagon special case \(n=2,\ s=\sqrt2\) is recovered and not claimed as new.
+PASS
 
-**Mathematical value — PASS (self-review).** This is a complete classification of a natural quantitative smoothness invariant on a nontrivial continuous interpolation between canonical Banach spaces, with an unexpected four-dimensional obstruction and genuine parameter boundary jumps. The exact 2D and 3D values and higher-dimensional saturation are motivated and reusable distinctions.
+The polar/dual support formula follows by exact vertex enumeration: for 1<s<2, vertices are signed permutations of (1,s−1,0,…), and ||h||*=b1+(s−1)b2 for sorted absolute coefficients. Every proper face contains a vertex and its norming face is contained in the vertex norming face; incident normals e1* and (e1*+e2*+sum σj ej*)/s yield E=(1+(s−1)^2)/s at n=2, 2/s at n=3, 2 at n≥4 using two flipped free signs. Direct witnesses yield E=2 at s≤1 and s≥2. The n=4 obstruction and endpoint jumps follow without relying on finite checks.
 
-**Limitations.** Real finite-dimensional norms only. Independent review remains outstanding. The finite rational checker corroborates, rather than establishes, infinitely quantified claims; bibliographic searches do not prove novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No covering exact all-n, all-s E formula found: known general extreme-norming-functional method and known single regular-octagon instance are expressly credited; Deza et al treat different invariants.
+
+## value
+
+PASS
+
+A sharp complete dimension/parameter classification for the natural intersection of cube and scaled crosspolytope explains an abrupt dimension-four obstruction and two-dimensional endpoint jumps; a geometric optimizer in quantitative smoothness can use the exact face diameter, not just generic polyhedral existence formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

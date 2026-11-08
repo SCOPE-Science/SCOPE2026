@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The claim is proved by an exhaustive analytic classification of vertices, active supporting functionals and their dual distances. The key nonstandard identity is the dual norm \(\|h\|_*=b_1+(s-1)b_2\) for \(1<s<2\), where \(b_1,b_2\) are the two largest coefficient magnitudes; its proof is a fractional-knapsack argument over the full cube–crosspolytope intersection.
+## correctness
 
-Execute `python3 artifacts/verify.py` from the extracted finding directory. Actual output:
+PASS
 
-```
-VERIFY_OK 20 full-polytope exact-rational cases
-```
+The polar/dual support formula follows by exact vertex enumeration: for 1<s<2, vertices are signed permutations of (1,s−1,0,…), and ||h||*=b1+(s−1)b2 for sorted absolute coefficients. Every proper face contains a vertex and its norming face is contained in the vertex norming face; incident normals e1* and (e1*+e2*+sum σj ej*)/s yield E=(1+(s−1)^2)/s at n=2, 2/s at n=3, 2 at n≥4 using two flipped free signs. Direct witnesses yield E=2 at s≤1 and s≥2. The n=4 obstruction and endpoint jumps follow without relying on finite checks.
 
-The program enumerates all signed two-support vertices and all displayed facet normals and compares the largest active dual distance with the claimed coefficient at five rational parameters in dimensions two through five. It uses only the Python standard library. Finite checks do not establish the infinitely quantified statement; the proof independently handles arbitrary dimension, every real parameter and both endpoint ranges.
+## originality
 
-The novelty comparison examines the original mathematical works on approximate smoothness and this norm-ball family, plus published different-invariant results on the same body. Its unavoidable limitation is incomplete historical bibliographic coverage. No independent audit or external certification was performed.
+PASS
+
+No covering exact all-n, all-s E formula found: known general extreme-norming-functional method and known single regular-octagon instance are expressly credited; Deza et al treat different invariants.
+
+## value
+
+PASS
+
+A sharp complete dimension/parameter classification for the natural intersection of cube and scaled crosspolytope explains an abrupt dimension-four obstruction and two-dimensional endpoint jumps; a geometric optimizer in quantitative smoothness can use the exact face diameter, not just generic polyhedral existence formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

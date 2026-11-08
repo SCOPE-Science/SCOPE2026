@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:16:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md steps 1–6; Git blob 4ce01589e3e278b5c6bbcdbfdbcca625974a8c45",
+        "artifacts/verify.py Git blob 66a20b67904fc914f4b3ef080086cbbb9530bfec"
+      ],
+      "rationale": "The polar/dual support formula follows by exact vertex enumeration: for 1<s<2, vertices are signed permutations of (1,s−1,0,…), and ||h||*=b1+(s−1)b2 for sorted absolute coefficients. Every proper face contains a vertex and its norming face is contained in the vertex norming face; incident normals e1* and (e1*+e2*+sum σj ej*)/s yield E=(1+(s−1)^2)/s at n=2, 2/s at n=3, 2 at n≥4 using two flipped free signs. Direct witnesses yield E=2 at s≤1 and s≥2. The n=4 obstruction and endpoint jumps follow without relying on finite checks.",
+      "residual_risks": [
+        "The RESULT.md cites Chmieliński et al Theorem 4.3 for polyhedral extreme-functional formula; the pertinent general statement is Theorem 5.3, an amendable bibliographic miscitation, not a gap in the supplied self-contained computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 gives a general extremal-facet route for arbitrary polyhedral spaces, not the numerical 1<s<2 transition. Deza et al analyze combinatorial and volume aspects of the same polytopes."
+        ],
+        "reasoning": "The general method does not itself assert the explicit piecewise dimension/s parameter values; no stronger covering claim seen in inspected full text.",
+        "searches": [
+          "arXiv:2109.11884 Theorem 5.3",
+          "arXiv:2011.05607 Sections 1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/11/SCOPE-exact-minkowski-ellipse-duality-gap-and-sharp-minimizer-stabilit--bd5630629b35",
+        "RESULT.md full proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.3 plus a new vertex and norming-facet calculation can derive the current formula; the isolated octagon example does not entail the dimension-four obstruction."
+        ],
+        "reasoning": "Claim is more explicit than generic polyhedral formula; it is not a direct stated corollary of a published exact family table as checked.",
+        "searches": [
+          "arXiv:2109.11884 Theorem 5.3 and Example 4.1",
+          "arXiv:2011.05607 primary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent descriptions include maximal diameter of norming faces in the dual ball and extreme active support-functional distances. Chmieliński et al use the latter, Theorem 5.3."
+        ],
+        "reasoning": "Same functional invariant under polar/top-two-weighted-sum normalization, but published generic method does not tabulate the exact three dimension regimes for these bodies.",
+        "searches": [
+          "Resultary semantic query: approximate smoothness diameter norming functionals cube crosspolytope intersection max infinity 1-norm interpolation exact dimension",
+          "arXiv:2109.11884"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known regular-octagon example yields E=2(sqrt 2−1) for n=2,s=sqrt 2, a covered isolated special case. Resultary closest returned Minkowski-ellipse and Mahler/volume quantities, not E."
+        ],
+        "reasoning": "The special regular-octagon point is previously known and is not claimed as new; no checked table giving all values was identified.",
+        "searches": [
+          "Resultary semantic query for cube-crosspolytope approximate smoothness",
+          "arXiv:2109.11884 Example 4.1"
+        ]
+      },
+      "rationale": "No covering exact all-n, all-s E formula found: known general extreme-norming-functional method and known single regular-octagon instance are expressly credited; Deza et al treat different invariants.",
+      "residual_risks": [
+        "Older or differently normalized convex-polytope smoothness literature may implicitly reproduce the family formula.",
+        "Full RESULT.md has bibliographic Theorem 4.3/5.3 misnumbering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers method and one special parameter, not entire displayed classification",
+          "evidence": [
+            "Theorem 5.3 facet-extreme computation; Example 4.1 gives regular octagon E; RESULT.md wrong 4.3 numbering."
+          ],
+          "identifier_or_url": "arXiv:2109.11884",
+          "material_read": "Definitions of approximate smoothness; polyhedral theorem numbered 5.3 and Example 4.1 regular octagon; distinguished unrelated Theorem 4.3",
+          "method": "full-text section and theorem inspection",
+          "title": "Approximate smoothness in normed linear spaces",
+          "trigger": "Same E invariant and claimed exact-polyhedral method"
+        },
+        {
+          "assessment": "Same bodies but different invariant; not found exact norming-dual-face diameter",
+          "evidence": [
+            "Polytopal interpolation constructions, combinatorial invariants and volume results."
+          ],
+          "identifier_or_url": "arXiv:2011.05607",
+          "material_read": "Definitions, face and volume classification in core sections",
+          "method": "primary full-text inspection",
+          "title": "Polytopal balls arising in optimization",
+          "trigger": "Identical cube/crosspolytope interpolation bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chmieliński–Khurana–Sain Theorem 5.3 and regular-octagon Example 4.1",
+        "Deza–Hiriart-Urruty–Pournin polytopal interpolation family"
+      ],
+      "rationale": "A sharp complete dimension/parameter classification for the natural intersection of cube and scaled crosspolytope explains an abrupt dimension-four obstruction and two-dimensional endpoint jumps; a geometric optimizer in quantitative smoothness can use the exact face diameter, not just generic polyhedral existence formulas.",
+      "residual_risks": [
+        "The computation uses a generic polyhedral support method, but the family-wide phase diagram and exact boundary jumps are not automatic numeric substitutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real finite-dimensional norm only; no complex or other smoothness moduli.",
+    "Finite exact checks are corroborative, the all-dimensional proof uses support geometry.",
+    "Public metadata includes operational scope_run_id and misleading first_public_date, not sanitized for publication."
+  ],
+  "schema_version": 1
+}
