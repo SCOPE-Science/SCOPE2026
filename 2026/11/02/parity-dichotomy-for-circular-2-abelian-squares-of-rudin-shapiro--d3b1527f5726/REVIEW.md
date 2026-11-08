@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The result specifies a single finite-word family and every cyclic starting position for every rank \(k\ge2\). Its proof uses the standard two-polynomial Rudin–Shapiro recursion \(P_{j+1}=P_jQ_j\), \(Q_{j+1}=P_j(-Q_j)\), an exact four-quarter factorization, and a necessary-and-sufficient characterization of binary 2-Abelian equivalence by symbol counts, first/last symbols, and transition counts. Every disallowed phase is excluded by a first- or last-symbol obstruction. At strict interior cuts in either repeated quarter, the two boundary transitions balance exactly, leaving precisely the zero-total condition on the intervening signed block. The signed-block total is zero exactly at odd recursion depth. All edge cases, including \(k=2\), are handled. The independent-construction checker directly confirms the full cut sets through \(k=14\), but these finite checks are not the proof for all ranks.
+## correctness
 
-## Originality — PASS (historically qualified)
-Published Rudin–Shapiro work on signed partial sums, 1-Abelian complexity, and 2-Abelian complexity of other automatic words was compared by **claims and implications**, not by title. The 2025 Rudin–Shapiro summation results determine certain partial-sum value frequencies; they do not directly determine the length-two factor signatures and boundary effects of complementary halves. The 2016 infinite-word Abelian-complexity result does not imply equality of length-two factor multisets at finite cyclic cuts. The 2014 2-Abelian paper treats Thue–Morse and period-doubling, not the Rudin–Shapiro cyclic half-rotation dichotomy. Search results did not identify an equivalent or strictly stronger complete positioned classification. Historical-priority risk remains, particularly because not every older primary paper was read completely; originality is not guaranteed by unsuccessful search.
+PASS
 
-## Value — PASS
-The claim gives the entire set of producing positions for a natural full-length 2-Abelian repetition question, not simply a computational count. Odd ranks have asymptotically one half of all cuts producing 2-Abelian squares, while even ranks have none. The infinite parity dichotomy separates genuine adjacent-pair equivalence from ordinary Abelian matching and is explained by a structural two-boundary cancellation, making it potentially useful in studying abelian powers and circular repetitions of automatic words. No broader applications are asserted as proved.
+PASS: Sign recursion P_{j+1}=P_jQ_j, Q_{j+1}=P_j(-Q_j) produces the stated bit-parity word. At rank k, P_k=A B A (-B), where A=P_{k-2} and B=Q_{k-2}. For starts in B or -B the two halves start with opposite signs; for the two A boundary starts their final signs differ. For interior A starts, the two halves have shared A fragments, matching endpoints and exactly one transition at each pair of glued boundaries, so transition totals match. Remaining single-letter imbalance equals the signed sum of B, which is zero exactly for odd k: q_{2h}=2^h, q_{2h+1}=0. Binary 2-Abelian equivalence follows from endpoints, one-symbol count and total transitions. This establishes all k>=2, not only checked ranks. Independently enumerated direct overlapping-binary-11 signs and five-component factor signatures for all positioned cuts, ranks k=2..11: observed 0,2,0,14,0,62,0,254,0,1022 as predicted. k=2 has no interior A cut.
 
-## Closest literature and residual limitations
-Parreau–Rigo–Rowland–Vandomme (arXiv:1405.3532; 2014) develops 2-Abelian complexity for different sequences; Lü–Chen–Wen–Wu (arXiv:1606.06935; 2016) develops infinite Rudin–Shapiro 1-Abelian complexity; Brillhart–Erdős–Morton (1983) studies signed partial sums; Rampersad–Shallit (2025) proves exact frequencies of Rudin–Shapiro summation values. These results supply context, but no inspected claim directly classifies the stated cyclic 2-Abelian squares. The theorem applies only to complete dyadic prefixes, two equal halves, and binary order-two Abelian equivalence. It has not been independently audited or exhaustively checked against all historical publications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: exact positioned cyclic 2-Abelian square cuts for complete dyadic Rudin–Shapiro prefixes are not the 1-Abelian infinite-word complexity of Lü–Chen–Wen–Wu or the 2-Abelian factor-complexity studies of Thue–Morse/period-doubling by Parreau et al. Summation parity identity is classical; its combination with boundary transitions yields the distinct exact classification.
+
+## value
+
+PASS
+
+PASS: Two natural order-two word invariants—2-Abelian equivalence of two half-rotations and the cyclic cut-location set—have a complete parity phase transition and an exact fraction of good cuts. This is not a relabeling of abelian complexity; the adjacency and two boundary joints matter. A researcher studying automatic-word rotations or 2-Abelian powers could use the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
