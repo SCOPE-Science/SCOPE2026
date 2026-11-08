@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes deterministic eventual entry to {-1,0,1,2}, all recurrent classes and convergence, exact mass balance/mean, exact variance, and a strictly decreasing variance ratio with limit 3. An extracted standalone rational checker runs 911 assertions and reproduces the claimed examples. These are separate analytical and finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Connolly–Higham–Mary DOI:10.1137/20M1334796, sections 1–4",
+        "Xia–Massei–Hochstenbach DOI:10.1007/s10589-025-00656-1, section 1 and theorem discussion"
+      ],
+      "reasoning": "General probabilistic backward-error analysis gives mean error control but not an exact stationary law. The 2025 fixed-point-gradient convergence bounds use descent-oriented steps (e.g. t <= 1/(4L)) rather than the oscillatory steps with eta*lambda > 1 required for the strict variance inflation.",
+      "searches": [
+        "integer stochastic rounding affine contraction negative multiplier three state stationary distribution gradient descent overshoot",
+        "stochastic quantized gradient descent inverse learning rate sign alternation three lattice state invariant",
+        "web: stochastic rounding gradient descent overshooting scalar negative contraction stationary variance 3 state"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1706.02379",
+      "https://eprints.maths.manchester.ac.uk/2763/1/paper.pdf",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8905452/",
+      "https://link.springer.com/article/10.1007/s10589-025-00656-1",
+      "published-finding corpus 2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c",
+      "published-finding corpus 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1706.02379 Theorem 5 explicitly states a limit as learning rate alpha tends to 0 under noisy gradients; present alpha*lambda is in (1,1.5]",
+        "DOI:10.1137/20M1334796 has mean-independent rounding errors but no three-state support or sharp stationary multiplier",
+        "Published 2026/10/11 deterministic floor-map orbit classification uses nonrandom floor rounding"
+      ],
+      "reasoning": "Neither a mean-independence statement nor the limit stationary distribution for small noisy updates determines the exact finite-step transition law of a deterministic negative-slope gradient followed by unbiased stochastic rounding. The present conclusion is not implied by stationary orbit classifications for deterministic floor maps.",
+      "searches": [
+        "stochastic rounding fixed point quantized negative slope affine contraction three state stationary variance",
+        "integer stochastic rounding affine contraction negative multiplier three state stationary distribution gradient descent overshoot",
+        "stochastic fixed point rounding Markov chain exact quadratic stationary law phase transition sign of slope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. arXiv:1706.02379 section 5, Theorem 5 and Appendix F",
+        "published-finding corpus 2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c"
+      ],
+      "reasoning": "The deterministic floor-rounded negative-slope map has periodic orbit basins, whereas unbiased stochastic rounding produces a Markov chain with a unique invariant probability distribution. Li et al. use a random stochastic-gradient law, a small-step limit and different transition assumptions; their asymptotic stationary limit neither specifies the exact overshoot transition matrix nor its factor-three variance.",
+      "searches": [
+        "stochastic rounding fixed point quantized negative slope affine contraction three state stationary variance",
+        "integer lattice unbiased stochastic quantization invariant measure negative contraction variance",
+        "stochastic fixed point rounding Markov chain exact quadratic stationary law phase transition sign of slope",
+        "web: \"stochastic rounding\" \"stationary distribution\" \"linear\" quantization",
+        "web: \"negative slope\" \"stochastic rounding\" invariant distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878"
+      ],
+      "reasoning": "The available published search results concern distinct stochastic recurrences (additive-noise signSGD or deterministic floor quantization), not this exact affine stochastic-rounding invariant law. A targeted statement-level comparison found no identical table; search coverage does not prove that no equivalent calculation exists elsewhere.",
+      "searches": [
+        "stochastic rounding scalar fixed point contraction absorbing boundary expected hitting time floating-point representation",
+        "stochastic rounding oscillatory scalar iteration three-state stationary distribution",
+        "unbiased quantization fixed point scalar oscillating contraction sharp variance inflation 3"
+      ]
+    },
+    "rationale": "Statement-level comparison finds different regimes: Li et al. require noisy stochastic gradients and small-step asymptotics; Connolly et al. prove mean-independent error bounds; Croci et al. survey error analysis; Xia et al. impose descent-oriented steps; the closest public deterministic floor-map record contains no stochastic invariant law. The current exact three-state threshold and factor-three stationary variance are not obtained as corollaries of their stated results. Residual risk is an obscure equivalent elementary Markov calculation.",
+    "residual_risks": [
+      "An equivalent specialist finite-state Markov calculation may exist under quantized control or stochastic rounding terminology not indexed in available searches.",
+      "No independent field-expert audit has been performed; linear lattice model excludes intermediate arithmetic roundings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant stationary-distribution analysis, but assumes nonzero two-sided noisy gradient laws and proves a small-learning-rate limit, not exact negative-slope uniform lattice stationary masses",
+        "evidence": [
+          "arXiv:1706.02379 Theorem 5, PDF page 7 (zero-index page 6), Appendix F"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.02379",
+        "material_read": "Abstract, Sections 3 and 5, particularly Theorem 5 and transition-kernel derivation, Appendix F proof of Theorem 5",
+        "method": "Opened full arXiv PDF; read content and its displayed page, searched its theorem and appendix",
+        "title": "Training Quantized Nets: A Deeper Understanding",
+        "trigger": "Closest early work treating stochastic rounding as a Markov chain with invariant law"
+      },
+      {
+        "assessment": "Provides mean independence and backwards error; no stationary law for oscillatory affine integer iteration",
+        "evidence": [
+          "DOI:10.1137/20M1334796; initial preprint April 28 2020"
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2763/1/paper.pdf",
+        "material_read": "Abstract; Sections 1–4 defining rounding/error assumptions and backward error; checked stationary and Markov terminology",
+        "method": "Inspected Sections 1–4 of the original open-access preprint and an original page image.",
+        "title": "Stochastic Rounding and Its Probabilistic Backward Error Analysis",
+        "trigger": "Foundational unbiased stochastic rounding and numerical-error scope"
+      },
+      {
+        "assessment": "Surveys implementation and error bounds; no exact three-state overshoot invariant distribution or sharp global variance factor",
+        "evidence": [
+          "DOI:10.1098/rsos.211631, full text"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8905452/",
+        "material_read": "Open full HTML article: rounding definitions, error analysis, and application sections; searched stationary/Markov terminology",
+        "method": "Opened freely accessible full HTML article, inspected definitions, rounding error analysis, and application sections, and searched stationary/Markov terminology.",
+        "title": "Stochastic rounding: implementation, error analysis and applications",
+        "trigger": "Comprehensive stochastic-rounding survey and related application coverage"
+      },
+      {
+        "assessment": "Bounds study small descent-oriented steps and different rounding sites; do not imply exact overshoot stationary law",
+        "evidence": [
+          "DOI:10.1007/s10589-025-00656-1, 2025, section 1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10589-025-00656-1",
+        "material_read": "Open full text sections on convergence and fixed-point arithmetic, abstract, theorem discussion and Table 1",
+        "method": "Inspected freely available full HTML; searched step-size assumptions",
+        "title": "On the convergence of the gradient descent method with stochastic fixed-point rounding errors under the Polyak–Łojasiewicz inequality",
+        "trigger": "Close modern theoretical gradient-descent stochastic rounding article"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eff25e39-0ccd-484d-9746-57bc9d54663d",
+  "value": {
+    "rationale": "Complete natural classification of the stationary measure for signed scalar linear contraction on a unit lattice; exact three-state phase and strict sharp factor-three inflation quantify a meaningful cost of oscillatory steps that remains hidden from unbiasedness and convergence of the mean. The cutoff r=1/2 is the largest multiplier for which a universal four-integer trap follows directly from |rounding error|<1, not a parameter selected for a small numerical example. The result is intentionally restricted rather than overstated.",
+    "status": "PASS"
+  }
+}
