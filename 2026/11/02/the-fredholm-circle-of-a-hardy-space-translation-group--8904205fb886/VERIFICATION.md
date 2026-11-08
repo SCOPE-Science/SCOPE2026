@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The mathematical checks establish the group-law spectral-radius argument, the monomial residual estimate, phase density and the weakly null singular sequence. The supplementary `check.py` numerically checks finite triangular sections for sampled parameters; finite tests do not establish the infinite-dimensional statement. Independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Manzur–Noor original bounded invertible group satisfies ||T_tau^k||=||T_(k tau)||<=1+2k|tau| in both time directions, hence spectral radii of T_tau and inverse <=1 and all ordinary spectral values have modulus one. On H², ||(T_tau-(n+1)^{i tau})e_n||=sqrt(n)| (n+1)^{i tau}-n^{i tau}|<=|tau|/sqrt(n). For tau !=0, phases tau log(n+1) are dense modulo 2pi because unbounded increasing log has vanishing increments; extracted subsequences of orthonormal monomials yield weakly null singular sequences at every unit-circle lambda, excluding Fredholmness via Atkinson parametrix. tau=0 gives I and essential singleton {1}. Independent code checked finite monomial estimates and phase-gap approximation, not the infinite conclusion.
+
+## originality
+
+PASS
+
+Original primary preprint builds the operator, bound and invariant-subspace criterion but does not state the specific essential-spectrum classification in inspected sections; standard operator theory provides the technique, not the specialized conclusion.
+
+## value
+
+PASS
+
+Full ordinary and Fredholm essential spectral classification of an explicitly defined nonnormal Hardy-space group from a recent primary operator-theory problem. The weakly-null monomial mechanism is a natural quantitative characterization, though the final proof is concise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
