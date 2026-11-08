@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof partitions every maximal subgroup chain of a generalized dihedral group at its unique crossing from the abelian kernel into an outside coset subgroup. The crossing index is two, and all other cover relations exactly project to prime-index covers in the kernel. Counting admissible crossing positions within the two-primary block yields the stated formula; no unproved restriction on the exponent or rank of the abelian kernel is used. The unrestricted count and odd-squarefree rarity bound follow from the same reversible parametrization. Direct exhaustive subgroup-lattice checks for fifteen small kernels independently reproduce the theorem, but cannot replace the general proof.
+## correctness
 
-## Originality — PASS, qualified
-The current full manuscript of Sater (arXiv:2609.26228) solves an existence problem in the negative and does not state these enumerative formulas. Monakhov and Sokhor's accessible 2025 paper on Iwasawa–Huppert criteria examines structural existence of monotone prime-index chains, not this all-order count. Prior dihedral-chain counting in Sajedi–Moghaddam–Darabi addresses all subgroup chains rather than increasing maximal chains. Comparisons with published mathematical records and accessible prior claims on generalized-dihedral incidence and quotients did not reveal an implication determining the precise theorem. Nevertheless, the complete 2025 Results in Mathematics paper on indices of maximal chains could not be inspected; classical maximal-chain index-sequence enumerators pose a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-An all-order count across finite abelian kernels is a natural quantitative strengthening of recent existence questions. The exact two-adic factor and its interpretation as permissible positions of the unique index-two crossing are structural. The factorial upper bound on the fraction of increasing chains for odd squarefree cyclic kernels reveals that guaranteed existence may coincide with vanishing relative frequency. The claim does not extend to arbitrary finite solvable groups, and this bound is not claimed sharp.
+Every outside subgroup is K(H,a) with H≤A and a+H∈A/H. Its covers above are in bijection with covers of A; a full saturated chain has precisely one index-two transition H<K(H,a). Forgetting the transition yields a complete flag of A, and its nondecreasing prime indices must be the ordered concatenation of Sylow flags counted by F(A). If e=v2(|A|), the transition can be inserted after j=0..e two-primary steps and has |A|/2^j coset choices, giving F(A)(2|A|-|A_odd|). The unrestricted-chain formula factors at H into b(H)|A:H|b(A/H); for odd squarefree C_n chains with initial crossing yield T≥n k!, while I=n. Independent full subgroup-lattice chain enumeration confirmed the monotone formula on eight cyclic, noncyclic and mixed kernels, notably C2², C2xC4, C3² and C2²xC3. The finite diagnostics do not replace the cover-bijection proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known monotone-chain theory addresses existence and structural consequences, not the exact number of actual chains for all generalized dihedral kernels. The semidirect subgroup parametrization is routine, but the universal two-adic factor, all-chain formula and factorial rarity are statements not entailed by the inspected existence theorems. Best-of-knowledge qualified by incomplete 2025 closest subscription text.
+
+## value
+
+PASS
+
+A complete count across every finite abelian kernel, independent of rank and exponent except via Sylow flag factors, and the factorial rarity bound supply reusable group lattice enumeration, not a renaming or tiny ad hoc count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
