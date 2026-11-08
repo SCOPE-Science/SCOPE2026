@@ -1,0 +1,19 @@
+# Scientific review: matching-deletion threshold for connected mutual visibility
+
+## Correctness — PASS
+The graph family has two labelled shores with exactly the first \(t\) matched edges removed, with \(n\ge4\) and \(0\le t\le n\). A selected same-shore pair must use an unselected opposite-shore midpoint; this forces at least one omission per shore when at most two vertices are omitted. For an omitted pair \(a_i,b_j\), midpoint feasibility reduces exactly to \(j>t\) or \(i=j\) and \(i>t\) or \(i=j\). If \(i=j\le t\), a further selected matched nonedge forbids the pattern for \(t\ge2\), whereas \(t=1\) creates the exceptional additional maximum set. For \(i,j>t\), explicit length-three external geodesics verify each remaining matched nonedge. The completely deleted matching case requires three omissions and forces the two stated mirror-image patterns. Connectivity is independently checked. Hence the exact maximum sizes and all labelled multiplicitites follow for every quantified parameter, not just for finite instances.
+
+The standalone direct graph verifier exhaustively enumerates every subset for \(4\le n\le7\), every matching size, and compares *sets* of maxima, not just totals. At \(n=8\) it checks every subset at or above the predicted maximum. All experiments pass, but they are corroboration, not an infinite proof.
+
+## Originality — PASS, qualified
+Tonny K B and Shikhi M (2026, arXiv:2609.18877, full text reviewed) define connected mutual visibility and determine complete multipartite cases including undeleted bicliques, not proper matching deletions. Bujtás, Klavžar and Tian (arXiv:2412.03066) and Fresán-Figueroa, Goldfeder and Lozano-Piña (arXiv:2610.24324) cover ordinary mutual-visibility polynomials and configurations of undeleted bicliques. OEIS A004280 supplies the ordinary crown maximum; OEIS A390404 and Andrew Howroyd's detailed derivation supply the complete ordinary crown polynomial and ordinary set families. Those earlier endpoint assertions are not claimed as new and can cover aspects of the \(t=n\) case after elementary connectivity filtering. The exact *connected* intermediate-deletion phase and complete maximizing-set classification for all \(1\le t<n\) are not furnished by these sources or the searched mathematical records. No full-priority guarantee is made.
+
+The proper-submatching result is not a restatement of the ordinary crown polynomial: the intermediate graphs have a different set of edges, and their maximum-set counts undergo the \(t=1\), \(2\le t<n\) and \(t=n\) transitions. Other studied invariants of matching-deleted bicliques, such as geodesic-subpath counts and zero forcing, do not imply the connected mutual-visibility assertion.
+
+## Mathematical value — PASS
+Matching deletion is a canonical sparse perturbation of a balanced biclique, so determining when the newly introduced connectivity-plus-geodesic extremum changes is a natural robustness question. The answer is structurally non-obvious: the size stays constant under all proper submatchings while the exact number of maximizing configurations shrinks to one; the very last deletion simultaneously causes a one-unit loss of size and a jump to quadratically many maximizers. A second, exceptional extra maximizer at the first deletion demonstrates that the count cannot be guessed by simply replacing \(n\) with \(n-t\) throughout. These are infinite-family structural and enumerative results, not isolated small-graph table entries.
+
+## Scope and residual risks
+No theorem is asserted for \(n=3\), unequal shores, or nonmatching edge deletion. The full crown ordinary visibility polynomial is prior art. Earlier work is not excluded by title alone; historical priority should be evaluated independently, especially under aliases such as partial crown graphs and bicliques with deleted matchings. Independent mathematical auditing has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
