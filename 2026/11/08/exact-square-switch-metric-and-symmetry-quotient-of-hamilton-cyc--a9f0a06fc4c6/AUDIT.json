@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Two different complete tour enumerations, all 24 square-face tests versus path-segment inversions, reconstruct 1344 cycles and 1920 edges. BFS from every mobile state proves one component of 1104 plus 240 isolates and exact eccentricities 10:96, 11:192, 12:816 (hence radius 10 and diameter 12). A fully labeled adjacency certificate is independently replayed. Nine orbit vectors are checked under all 384 cube automorphisms. The finite exhaustive proof does not imply higher-dimensional statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gregor–Mütze prove existence/construction of cyclic Gray codes for cube subgraphs; Contassot-Vivier et al. give inversion-based generation and isolated examples, not a 4-cube all-pairs BFS metric theorem."
+      ],
+      "reasoning": "General generation and inversion existence does not imply that all nonisolates are connected or their exact radius 10, diameter 12, eccentricities and neighbor-orbit structure.",
+      "searches": [
+        "Trimming and gluing Gray codes arXiv:1607.08806 first version",
+        "Gray Codes Generation Algorithm and Theoretical Evaluation of Random Walks in N-Cubes 2018 §2 and §5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1607.08806",
+      "https://doi.org/10.3390/math6060098",
+      "https://doi.org/10.1002/j.1538-7305.1958.tb03887.x",
+      "https://www.mdpi.com/2227-7390/6/6/98"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2018 inversion construction supplies an equivalent edge operation and acknowledges disconnectedness; it does not assert that exactly one nontrivial component exists or determine its eccentricity profile in available main text."
+      ],
+      "reasoning": "The final statement strengthens published availability and statistics with full labeled reconfiguration data: unique mobile block, graph diameter and radius, degree spectrum and symmetry quotient. No implication from the 2016 construction/existence results or the 2018 local-rule definition alone.",
+      "searches": [
+        "2018 inversion transformation §2 and statistical isolated-code study §5.2",
+        "Trimming and gluing Gray codes 2016 §§1–4",
+        "Hamiltonian cycles of 4-dimensional hypercube connected by 4-cycle symmetric difference or 2-opt inversion, exact reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A Hamiltonian square switch removes two opposite face edges and reconnects by reversing the intervening Gray-code subsequence, matching the 2018 inversion model."
+      ],
+      "reasoning": "The same 2-opt inversion move is explicitly treated as prior, not renamed to evade coverage. Its graph metric and equitable quotient, not its definition, are compared.",
+      "searches": [
+        "Cyclic Gray code 4-cube inversion transformation flip graph singleton 1344 components diameter",
+        "2018 Mathematics 6(6) 98 §§2.2–2.4 local subsequence inversion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2018 Table 2 explicitly claims percentages of isolated codes; the specific numerical cells were not extractable as text. The classical 1344 Hamilton-cycle count and nine isomorphism types are published background. No recovered exact table with radius/diameter, eccentricities or orbit neighbor matrix."
+      ],
+      "reasoning": "Potential preexisting isolate counts are excluded from originality; exhaustive adjacency and metric computations are strictly stronger than counting codes or isolated codes, and are not forced by those older tables.",
+      "searches": [
+        "2018 article Table 2 isolation percentages for dimensions 2–5",
+        "4-cube Hamiltonian cycles square flip connected components 1344 1104 240",
+        "Hamiltonian cycles Q4 4-cube cyclic Gray codes square-switch flip reconfiguration component graph diameter 1104 240"
+      ]
+    },
+    "rationale": "The previously known inversion operation, 4-cube count, nine isomorphism types and existence/isolation frequency are expressly excluded as originality claims. The one-component mobility of all 1104 non-isolated cycles and its exact metric/eccentricity spectrum and nine-orbit adjacency vectors are not contained in the inspected prior main texts nor implied by mere Gray-code enumeration or algorithmic reachability from an initial state. Research-record searches returned no equivalent structure. The 2018 table numerics were not readable, limiting priority certainty for isolate count, which is not claimed new.",
+    "residual_risks": [
+      "The 2018 Table 2 numerical cells were not accessible as text and may already include the isolated-state count; that count is not claimed new.",
+      "Gilbert 1958 full text was not inspected, so an unexpected early adjacency census cannot be ruled out.",
+      "Unindexed prior work may already contain the full metric or orbital adjacency classification; mathematical priority requires external human confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_METRIC",
+        "evidence": "First arXiv date 2016-07-29; construction of cyclic Hamilton sequences rather than the graph of such cycles under switches.",
+        "identifier_or_url": "https://arxiv.org/abs/1607.08806",
+        "material_read": "Abstract, introductory definitions and results and the complete extracted preprint searchable text for relevant move terminology",
+        "method": "Open full-text arXiv HTML and search for inversion/reconfiguration/switch",
+        "title": "Trimming and gluing Gray codes",
+        "trigger": "pre-2016 dated primary Gray-code constructions and Hamiltonicity on cubes"
+      },
+      {
+        "assessment": "OVERLAPS_MOVE_ISOLATION_NOT_METRIC_CENSUS",
+        "evidence": "Sections 2.2–2.4 define inversion and isolated codes, Section 5.2 reports isolated percentages for dimensions 2–5, with no disclosed exact 1104-block metric, eccentricities or nine-orbit neighbor quotient.",
+        "identifier_or_url": "https://doi.org/10.3390/math6060098",
+        "material_read": "Available rendered full-text sections 1, 2.1–2.4, 5.1–5.2 and 6; Table 2 reported but its numerical cells unavailable in extracted text",
+        "method": "Full-text HTML extraction via indexed web results; additional numeric table queries",
+        "title": "Gray Codes Generation Algorithm and Theoretical Evaluation of Random Walks in N-Cubes",
+        "trigger": "exact same face-based inverse-subpath operation; potential stronger coverage"
+      },
+      {
+        "assessment": "PRIOR_NINE_TYPES_AND_HAMILTON_CENSUS_WITH_FULL_TEXT_RISK",
+        "evidence": "1958 abstract states all closed-path types on cubes through dimension four were determined; no main-text claim of the present flip distance was verified.",
+        "identifier_or_url": "https://doi.org/10.1002/j.1538-7305.1958.tb03887.x",
+        "material_read": "Abstract and bibliographic/issue metadata; complete primary article not accessible",
+        "method": "Publisher abstract and literature citations",
+        "title": "Gray Codes and Paths on the n-Cube",
+        "trigger": "classic classification of closed paths on cubes up to four dimensions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a9f0a06f-c4c6-498e-8ec9-4800378508bd",
+  "value": {
+    "rationale": "Cyclic Gray codes are a natural Hamilton-cycle configuration space and the face inversion a published local operation. Exact mobility components, all-pairs metric and symmetry adjacency quotient determine whether inversion-only generation can reach all movable codes, and the sharp worst-case number of moves in the first nontrivial cube. Neither a bare code count nor isolation percentage gives these properties.",
+    "status": "PASS"
+  }
+}
