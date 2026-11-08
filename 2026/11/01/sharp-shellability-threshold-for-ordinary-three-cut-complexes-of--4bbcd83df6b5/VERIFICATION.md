@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduce the exact finite checks
+# Independent mathematical audit
 
-Install Python 3.8 or later. Put `verify.py`, `cert_p4_n17.json`, `cert_p4_n18.json`, `cert_p4_n19.json`, and `cert_p4_n20.json` in one directory. Run:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The checker independently constructs cyclic-distance adjacency, enumerates disconnected triples using breadth-first search, and forms each facet as the complement of such a triple. It verifies that no facets exist for \(3\le n\le10\). For each \(11\le n\le16\), it enumerates every face, computes every mod-two simplicial boundary by integer bit operations, and uses exact Gaussian elimination to produce all reduced Betti ranks; the single nonzero rank occurs strictly below dimension \(n-4\).
+The ordinary three-cut complex has complements of all disconnected triples of C_n^4 as facets. For n≤9 C_n^4 is complete; at n=10 the unique nonneighbor per vertex prevents an isolated vertex of any triple, so the complex is void. Independently implemented exact full mod-two chain complexes for n=11,…,16 (all faces; all boundary ranks) and reproduced reduced homology {11:H3=1,12:H6=6,13:H7=40,14:H8=15,15:H9=1,16:H11=3}; all lie below the pure top dimension n−4 and obstruct shellability. For n=17,18,19,20 retrieved four actual certificate blobs, independently enumerated all disconnected triples and verified each certificate lists each once and satisfies the shelling ridge-witness condition against every earlier facet. Verified counts (facets,spanning): (408,1),(528,10),(665,20),(820,31); hence homotopy wedge counts at boundary. Chauhan–Shukla Theorem 1.4 proves shelling for all n≥6p−3, so p=4 begins n≥21; published top-sphere count binom(n−8,2)−35=(n²−17n+2)/2 matches the four finite boundaries. This uses genuinely exhaustive finite certification plus a distinct published infinite theorem, not finite extrapolation.
 
-For each \(n=17,18,19,20\), the corresponding JSON file is a complete ordered list of complementary triples. The checker recomputes the entire facet set independently of this list, proves its exact coverage without repetition, tests the pairwise pure-shelling witness criterion for every new facet against every earlier facet, and counts those new facets whose entire boundary was present. Expected facet counts are respectively 408, 528, 665, and 820; expected spanning-facet counts are 1, 10, 20, and 31.
+## originality
 
-The finite computations are exhaustive because they iterate over all triples, all faces of all facet complements for the lower cases, and every earlier-facet comparison for the four certificates. They do not replace the cited general theorem for \(n\ge21\), do not establish integral lower-range homotopy types, and do not establish any result for powers other than four.
+PASS
 
-The relevant external theorems and tabulated previously known Betti values are cited in `RESULT.md`. No independent mathematical audit has been performed.
+The exact new structural step is the four n=17..20 facet shellings; lower Betti ranks and the n≥21 tail are not claimed new. The published Chauhan–Shukla 2026 paper Theorem 1.4 covers n≥21 at p=4 and explicitly describes a prior conjecture of sharp n≥4p+1 in its conclusion, without providing shellings of n17..20. The browsable 2024 arXiv version of earlier Chauhan–Shukla–Vinayak does not display the later published Conjecture 4.2/Table 2, a bibliographic-version limitation transparently noted; 2026 source confirms its published citation. No indexed earlier boundary shellings found; unindexed finite orders remain an originality risk.
+
+## value
+
+PASS
+
+Proves a complete natural p=4 instance of a published sharp shellability threshold conjecture, providing explicit shelling certificates rather than merely homology coincidences. Shellability is a structural condition stronger than vanishing of lower homology, and the result joins exact boundary cases to a published infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
