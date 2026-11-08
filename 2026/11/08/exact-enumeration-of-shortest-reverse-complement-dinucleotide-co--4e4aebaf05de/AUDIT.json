@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "An independent ten-orbit lower bound, complete 64-edge-choice reduction and 24-case directed BEST/matrix-tree calculation give 544 cyclic tours. Separate direct enumeration of all 1,048,576 rooted DNA words gives 5,440 satisfying roots and 544 distinct least rotations; both verifiers pass from embedded artifact paths. Reverse-complement pairing and an order-16 Burnside calculation give 272 and 37, with 31 size-16 and 6 size-8 orbits. The assertion is finite, exact and explicitly circular.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein--Shamir (2013), Sections 3.2--3.3 and Discussion: algorithms and optimum lengths, an explicit unaddressed enumeration question.",
+        "Schmidt--Alanko (2023), Theorem 1 and discussion of walk covers: linear-time construction of minimal representation rather than an exact population count of minimum circular traversals."
+      ],
+      "reasoning": "General graph algorithms can generate Euler tours, but do not by themselves evaluate the sum over all 64 complement-orientation choices, or the fixed-point and orbit counts. No identified stronger result implies the explicit 544/272/37 enumeration.",
+      "searches": [
+        "enumeration Euler tours bidirected de Bruijn graph reverse complement minimum cycles counts",
+        "counting optimal reverse-complement complete sequences enumeration 2013 2024 DNA k-mer",
+        "Eulertigs minimum plain text representation reverse complement cycle enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1093/bioinformatics/btt230",
+      "https://doi.org/10.1186/s13015-023-00227-1",
+      "https://academic.oup.com/bioinformatics/article/29/13/i71/195654",
+      "https://link.springer.com/article/10.1186/s13015-023-00227-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Orenstein--Shamir (2013) explicitly raises counting distinct optimal sequences as an open problem, while giving length 10 for order two.",
+        "Schmidt--Alanko (2023) provides a construction algorithm for minimum plain-text representation of a set of canonical k-mers; it neither enumerates all optimal single cycles nor their symmetry actions."
+      ],
+      "reasoning": "The earlier lower bound and construction show existence of some length-ten solutions, not how many. BEST and matrix--tree are standard and entail the count only after the complete 64-choice balance and determinant classification, supplied here. The 37-class quotient requires a separate fixed-point computation.",
+      "searches": [
+        "Design of shortest double-stranded DNA sequences covering all k-mers Orenstein Shamir 2013",
+        "Eulertigs minimum plain text representation of k-mer sets without repetitions 2023",
+        "number of different optimal reverse complement complete sequences DNA"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Orenstein--Shamir (2013), DOI 10.1093/bioinformatics/btt230, Conclusions: asks for the number of different optimal RC-complete sequences; Table 1 supplies length 10 but no enumeration.",
+        "Schmidt--Alanko (2023), DOI 10.1186/s13015-023-00227-1, Definitions and Theorem 1: an SPSS construction problem, not a census of single circular solutions."
+      ],
+      "reasoning": "An optimal RC-complete circular order-two word is equivalently a cyclic Eulerian traversal using one oriented representative of every reverse-complement dinucleotide orbit. Existing construction results and spectrum-preserving string-set representations do not state the number of such traversals or its nucleotide-symmetry classes.",
+      "searches": [
+        "\"number of different optimal RC complete sequences\"",
+        "\"544\" \"reverse complement\" \"de Bruijn\" sequences",
+        "\"number optimal reverse complement complete sequence k=2 kmer 2013\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Orenstein--Shamir (2013), Table 1, order 2: shortest length 10, not optimal-cycle population.",
+        "Exact exhaustive direct-word catalog contains 544 canonical cycles; direct and Euler-tour programs agree."
+      ],
+      "reasoning": "Searches for exact numeric matches and the underlying objects found an optimal-length table but not a catalog or count of shortest circular words. A negative search does not establish global uniqueness; an unindexed earlier table is a residual historical-priority risk.",
+      "searches": [
+        "\"544\" \"RC complete\" DNA cycles",
+        "\"544\" dinucleotide \"reverse complement\" circular sequences",
+        "\"24\" Eulerian choices \"reverse complement\" dinucleotide"
+      ]
+    },
+    "rationale": "The 2013 primary work establishes minimum length ten and explicitly asks for enumeration of distinct optima. The 2023 canonical k-mer representation result addresses construction/minimization for general sets, not this exact census. Exact numerical and alias searches, plus full HTML inspections, did not show the 544/272/37 count. Standard Euler counting facts and known length optimality are not claimed as new; prior unindexed computations remain a risk.",
+    "residual_risks": [
+      "An unindexed finite count of reverse-complement-complete order-two cycles could predate this calculation; searched literature is not an exhaustive priority certificate.",
+      "The circular convention must not be conflated with linear strings or oligonucleotides that omit the final-to-first window."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports minimum length 10 and explicitly leaves counting distinct optimal sequences open; no count of 544 or strand/relabeling orbits",
+        "evidence": [
+          "Published online 2013-06-19",
+          "Table 1 order 2 value 10",
+          "Discussion: asks What is the number of different optimal RC complete sequences?"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt230",
+        "material_read": "Open article HTML: definitions, Sections 3.1--3.3 including optimality algorithms and Table 1, and concluding open questions",
+        "method": "Open full accessible HTML text, read definitions, theorem statements, table and conclusion",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Same reverse-complement-complete object and exact order-two minimum length"
+      },
+      {
+        "assessment": "Proves construction of minimum representations of k-mer sets; does not enumerate shortest single circular order-two DNA sequences",
+        "evidence": [
+          "Published 2023-07-04",
+          "Theorem 1 concerns minimum cumulative-length set of output strings",
+          "No exact 544/272/37 optimal-cycle census stated in the inspected sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13015-023-00227-1",
+        "material_read": "Open article HTML: definitions, contribution statement, Theorem 1, walk/graph representation and discussion of algorithmic goals",
+        "method": "Open full accessible HTML text and inspect central theorem and relevant method sections",
+        "title": "Eulertigs: minimum plain text representation of k-mer sets without repetitions in linear time",
+        "trigger": "Potential broader bidirected de Bruijn graph result using reverse-complement canonical k-mers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e4aebaf-05de-44b9-9935-fbc66e233feb",
+  "value": {
+    "rationale": "The 2013 paper explicitly presents enumeration of optimal RC-complete sequences as an open mathematical objective. This first even-order DNA instance determines the full set of 544 shortest designs, the 272 distinct double-stranded circular designs, and 37 biological-alphabet symmetry types. These exact non-implied quantities are useful for design variation and evaluating further constraints, not merely a tiny numerical bound.",
+    "status": "PASS"
+  }
+}
