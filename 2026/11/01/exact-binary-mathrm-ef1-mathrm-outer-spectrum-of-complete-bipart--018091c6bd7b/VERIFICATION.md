@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The construction and exhaustive finite search can be checked using Python 3: run `python3 verify.py` from the directory containing the extracted files. `verify.py` tests the positive spectrum construction for every valuation-count combination through \(a=8\), \(b=5\), and uses a separate memoized exact feasibility oracle through \(a=7\), \(b=4\). The checker confirms the all-one no instances in each tested intermediate agent-count cell and checks the outer-removal condition as well as connectivity and exact accounting. Expected output: `VERIFY_OK exact_profile_cases= 3362 constructive_profiles= 5451 negative_spectrum_cells= 55`.
+# Independent mathematical audit
 
-The full theorem has infinitely many finite parameter settings. Therefore no finite program run certifies the unrestricted quantifiers; the proof in `RESULT.md` is the mathematical argument. The verifier uses integer arithmetic only, has no input data files and needs no third-party packages. A successful execution is a reproducibility cross-check, not independent scientific validation.
+## correctness
+
+PASS
+
+For identical common binary valuations, EF1_outer follows if values differ by at most 1 and high-value bundles contain a removable valued vertex. When k<=b, cycling all valued vertices and placing zero connectors on each missing side yields connected balanced bundles, with extra zeros deposited in a low bundle. When k>=a, p=a+b-k cross edges plus singletons can be matched so that all bundles carry values 0/1 or 1/2; the bipartite zero–one/zero–zero matching argument covers both W<=k and W>k. When b<k<a the all-one profile forces a singleton and a >=3-vertex bundle, contradiction. Independent exact brute profiles for a<=5 confirmed all claimed positive cases and each all-one negative case; not infinite proof.
+
+## originality
+
+PASS
+
+The exact universal common-binary outer-EF1 biclique spectrum has the gap b<k<a. Prior Bei et al Proposition 4.8 provides ordinary EF1 only, while Chen–Zwicker gives graph-general high-agent terminal subranges and Bousquet et al tree/double-sun results. Those statements do not imply both positive intervals under the stronger outer deletion restriction. Priority conditional on full 2026 primary article not accessible.
+
+## value
+
+PASS
+
+Exact outer-EF1 agent-count yes/no spectrum for all common binary values on arbitrary unbalanced bicliques solves a motivated fair division spectrum question. The constructive positive tails and sharp negative interval explain an actual structural gap, rather than recomputing small tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

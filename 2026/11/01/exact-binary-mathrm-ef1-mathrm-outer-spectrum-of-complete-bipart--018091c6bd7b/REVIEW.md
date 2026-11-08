@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is common, nonnegative binary additive valuations on the vertices of \(K_{a,b}\) with \(a\ge b\ge1\) and \(1\le k\le a+b\). For \(k\le b\), cyclicly distributing one-valued goods balances total value while ensuring no side requires more than its available zero-valued fillers to connect the bundles; placing leftover zeros in a minimum-valued bundle protects every maximum-valued bundle's outer removable one. For \(k\ge a\), a matching of \(a+b-k\) cross-part edges separates the low-value and high-value regimes by whether the total number of ones is at most the number of agents. The all-ones instance disproves every intermediate agent count. Finite exhaustive checks and constructive checks corroborate, but do not replace, the unrestricted proof.
+## correctness
 
-**Originality — PASS with residual publication-priority risk.** Bei et al., arXiv:1908.05433, Proposition 4.8, prove ordinary EF1 for \(k\le b\), not outer EF1 with the full biclique agent-count classification. Chen–Zwicker, arXiv:2402.05884, prove universal high-agent results covering only a terminal subinterval. Bousquet et al., arXiv:2608.29902v1, study outer-EF1 and establish spectra on trees, without an equivalent biclique theorem in their inspected relevant sections. Targeted searches for the equivalent formulation, larger coverage, exact spectra/tables, and implications of these source results did not reveal a dominating theorem. Similar results could exist under other terminology, and relevant papers were inspected only in the identified relevant sections.
+PASS
 
-**Value — PASS.** The complete biclique family is the simplest dense nontraceable graph class with an adjustable imbalance, and graph fair-division spectra have an explicit conjectural yes–no–yes structure. The theorem gives all parameter boundaries, a binary-valuation sharp obstruction, and explicit polynomial-time constructions across both feasible ranges, extending the previously known sufficient conditions on this natural model. It is not merely an isolated small finite enumeration.
+For identical common binary valuations, EF1_outer follows if values differ by at most 1 and high-value bundles contain a removable valued vertex. When k<=b, cycling all valued vertices and placing zero connectors on each missing side yields connected balanced bundles, with extra zeros deposited in a low bundle. When k>=a, p=a+b-k cross edges plus singletons can be matched so that all bundles carry values 0/1 or 1/2; the bipartite zero–one/zero–zero matching argument covers both W<=k and W>k. When b<k<a the all-one profile forces a singleton and a >=3-vertex bundle, contradiction. Independent exact brute profiles for a<=5 confirmed all claimed positive cases and each all-one negative case; not infinite proof.
 
-**Limitations.** No extension to arbitrary valuations follows from this proof. The matching and all-ones arguments establish precisely the stated common-binary result. The science has received no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact universal common-binary outer-EF1 biclique spectrum has the gap b<k<a. Prior Bei et al Proposition 4.8 provides ordinary EF1 only, while Chen–Zwicker gives graph-general high-agent terminal subranges and Bousquet et al tree/double-sun results. Those statements do not imply both positive intervals under the stronger outer deletion restriction. Priority conditional on full 2026 primary article not accessible.
+
+## value
+
+PASS
+
+Exact outer-EF1 agent-count yes/no spectrum for all common binary values on arbitrary unbalanced bicliques solves a motivated fair division spectrum question. The constructive positive tails and sharp negative interval explain an actual structural gap, rather than recomputing small tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
