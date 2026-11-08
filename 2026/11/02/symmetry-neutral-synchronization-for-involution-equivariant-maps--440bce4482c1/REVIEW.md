@@ -1,19 +1,21 @@
-# Scientific review: symmetry-neutral synchronization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim includes every involution with a nonempty fixed set and treats zero free orbits and one-vertex carriers separately. Constant powers must converge to a fixed vertex fixed by the involution. Equivariant maps have exactly \(f^f(f+2m)^m\) choices. Their success requires a rooted functional tree on the fixed vertices and a cycle-free, directed, weighted forest from each two-orbit to the fixed sector. The weighted count \(f(f+2m)^{m-1}\) is derived independently via Prüfer words, including all weights and boundaries. The magma-monoid correspondence and monoid powers are explicitly checked. Exhaustive direct enumeration for all binary operations on up to three elements, and for nine small involution types, agrees. No finite enumeration is substituted for proof.
+PASS
 
-## Originality — PASS, with named residual risk
+For an involution with f singleton and m paired orbits, equivariance forces exactly f^f(f+2m)^m maps. A constant power must converge to one fixed-point root; rooted Cayley trees on fixed vertices contribute f^(f-1), and a weighted rooted forest on m paired orbits contributes f(f+2m)^(m-1). The Prüfer edge weights f to fixed sink and 2 to each other paired orbit give the latter exactly; product yields f^f N^(m-1), including f=1,m>=1, whereas m=0 gives f^(f-1). The n-ary table to X² swap-commuting transformations is bijective and preserves powers, yielding n^(n²-2). A separate direct enumerator counted all commuting maps for nine (f,m) values f=1..3,m=0..2 and agreed in each case, including 189/1323 for f=3,m=2. Finite tests corroborate, not establish the all-f,m proof.
 
-The closest full-text article, Baiduk–Kozerenko (arXiv:2607.13746, especially §2 and Theorems 23 and 25), gives the pairmorph identification and counts idempotent and regular transformations. Its investigated properties do not state or imply the eventual-constant **enumeration** without an additional rooted-forest argument. López-Permouth (2026, Theorems 2.9 and 3.6) counts idempotents; the smaller class of constant-power elements is not separately enumerated. Owusu-Mensah (2026) explicitly investigates powers and certain almost-constant operations, but the stated results are for examples or particular families and do not yield this full enumerative law. Konieczny (1999) is a relevant older study of permutation centralizers and Green relations; its complete 13-page paper was inspected, including its induced cycle-map characterization, but its theorems are not exact counts of eventual-constant powers. Search for constant powers, equivariant rooted trees, cyclic classes, and magma-monoid synchronization found no directly equivalent law. A hidden corollary of earlier general centralizer or weighted-tree literature remains a priority risk, not a certified impossibility of overlap.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete infinite-family probability law whose exact invariance under the addition of an arbitrary involutive symmetry is unexpected. It provides an explicit count of a natural power-defined subset of the recently studied magma monoid, complementing counts of idempotent and regular elements. The entire theorem is self-contained and structural: the invariance follows from a nontrivial cancellation between constraints on fixed points and transposed pairs, explained through weighted rooted forests. It has natural limitations for fixed-point-free involutions and general permutation actions; neither is hidden or claimed covered.
+The centralizer/pairmorph correspondence and Cayley trees are known, but the exact all-involution constant-power law and its magma-monoid power enumerator were not found in compared primary source content. Novelty is best-of-knowledge and subject to older centralizer power-class work.
 
-## Limits of the review
+## value
 
-The finite checker is reproducible but does not certify the infinite theorem. Historical priority is supported by primary-source comparisons rather than an exhaustive global literature census. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The probability that a uniformly random permutation-centralizing endomorphism eventually collapses is a natural dynamical statistic. Its surprising independence of the involution orbit type (subject to fixed points) and exact magma-power count are mathematically meaningful closed classifications rather than routine idempotent counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

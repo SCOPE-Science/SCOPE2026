@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of constant-power involution counts
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3 and no third-party libraries. The program directly enumerates all operation tables on sets of sizes one, two, and three, computes the associated transformations on ordered pairs, and tests consecutive powers until an image collapses to one point. It reports successful/total counts \(1/1\), \(4/16\), and \(2187/19683\), respectively.
+## correctness
 
-Separately, the program generates all commuting transformations for each \((f,m)\) with \(1\le f\le3\) and \(0\le m\le2\). It checks the commuting equation for every generated function and directly tests powers. For example, the complete counts are \(9/27\) for \((f,m)=(3,0)\), and \(189/1323\) for \((3,2)\). The checker computes all cases directly. It also enumerates weighted rooted forests for \(1\le f\le4\) and \(1\le m\le5\), checking the Prüfer closed form without invoking that formula during enumeration. Successful execution ends in `VERIFY_OK`.
+PASS
 
-The full-dimensional statements are proved in `RESULT.md`. The tests do not establish them by induction or by exhaustive coverage beyond the printed sizes. The checker does not certify historical novelty or supply independent validation.
+For an involution with f singleton and m paired orbits, equivariance forces exactly f^f(f+2m)^m maps. A constant power must converge to one fixed-point root; rooted Cayley trees on fixed vertices contribute f^(f-1), and a weighted rooted forest on m paired orbits contributes f(f+2m)^(m-1). The Prüfer edge weights f to fixed sink and 2 to each other paired orbit give the latter exactly; product yields f^f N^(m-1), including f=1,m>=1, whereas m=0 gives f^(f-1). The n-ary table to X² swap-commuting transformations is bijective and preserves powers, yielding n^(n²-2). A separate direct enumerator counted all commuting maps for nine (f,m) values f=1..3,m=0..2 and agreed in each case, including 189/1323 for f=3,m=2. Finite tests corroborate, not establish the all-f,m proof.
+
+## originality
+
+PASS
+
+The centralizer/pairmorph correspondence and Cayley trees are known, but the exact all-involution constant-power law and its magma-monoid power enumerator were not found in compared primary source content. Novelty is best-of-knowledge and subject to older centralizer power-class work.
+
+## value
+
+PASS
+
+The probability that a uniformly random permutation-centralizing endomorphism eventually collapses is a natural dynamical statistic. Its surprising independence of the involution orbit type (subject to fixed points) and exact magma-power count are mathematically meaningful closed classifications rather than routine idempotent counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
