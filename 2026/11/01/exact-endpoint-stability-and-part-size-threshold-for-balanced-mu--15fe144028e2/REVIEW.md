@@ -1,19 +1,21 @@
-# Scientific review of exact balanced multipartite metric-graph spline stability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projected function is globally continuous and affine on each graph edge, so its essential supremum is the largest vertex magnitude. The Gram entries \(d/3\) and \(1/6\) come from direct integrals of nodal hats. Multiplication of the explicit candidate inverse by the Gram matrix checks all three orbit types, rather than inferring invertibility from finite examples. On each kernel edge, the absolute integral is exactly \((a^2+b^2)/(2(a+b))\) for endpoints of opposite sign. Counting incident, same-part-adjacent and other-part edges yields the exact formula, attained by a kernel sign input. Exact algebra proves the sharp threshold and limits. The independently assembled full graph matrices passed 4,690 rational assertions on 26 parameter pairs. General correctness comes from the symbolic proof; finitely many checks alone would not suffice.
+PASS
 
-## Originality — PASS, with stated residual risk
+The hat-function Gram matrix is G=(2dI+A)/6 with d=m(r-1). Direct multiplication proves its exact inverse has diagonal X/T, same-part off-diagonal 1/T, across-part -2/T, T=m^2(r-1)(2r-3), X=3m(2r-3)+1. Its kernel edge types are incident (X,-2), same-part-adjacent (1,-2), and external (-2,-2); their exact absolute integrals give the stated R. Since every projected function is affine on each edge, an L-infinity norming evaluation is a vertex. Kernel-sign inputs attain R. Algebra verifies R-2 sign regimes, monotonic m-increment, both limits, and negative kernel mass (R-1)/2. Independent direct SymPy Gram inversions and exact integrals at (m,r)=(1,2),(2,2),(3,2),(3,3),(2,4) agree; universal statement follows from matrix proof, not sample sizes.
 
-Kayumov (2004) analyzes interval splines and orthogonal projection rather than branched balanced multipartite graphs. Pesenson (2005) treats quantum-graph polynomial splines built through Sobolev-energy minimization and spectral approximation. Arioli–Benzi (2015 technical report, later 2017 publication) presents finite-element mass matrices and operator equations on metric graphs, but its inspected analysis concerns PDE discretization and mass-matrix conditioning rather than an exact \(L^\infty\)-norm formula for this graph family. Searches over matching graph types, Gram matrices, aliases for least-squares spline projections and positivity defects did not identify the identical or a stronger statement. Existing endpoint estimates on a single metric star do not determine the constants for balanced multipartite graphs with multiple independent vertices in each part. Unindexed earlier exact graph-spline calculations remain possible; a failed search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central invariant is the optimal \(L^\infty\) stability constant of the canonical arclength least-squares projector, not an artificial auxiliary parameter. The result classifies an unbounded two-parameter family of vertex-transitive but increasingly branched metric graphs, with exact extremizers and an unexpected topology-dependent threshold: amplification exceeds two if and only if every part has at least four vertices. The sharp unattained family supremum \(7/3\) already approached by graphs without pendant vertices, the two distinct dense limits, strict part-size monotonicity and sharp positivity failure quantify concrete approximation instability beyond the earlier one-junction case. This gives useful exact benchmarks for finite-element mass-matrix inversion and network approximation, without claiming a downstream theorem.
+Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.
 
-## Closest literature and limits
+## value
 
-A. Kayumov, *Least-squares approximation by second-order L-splines*, arXiv:math/0408418 (2004-08-30); I. Pesenson, *Polynomial splines and eigenvalue approximations on quantum graphs*, J. Approx. Theory 135 (2005) 203–220, DOI 10.1016/j.jat.2005.04.007; M. Arioli and M. Benzi, *A finite element method for quantum graphs*, Emory technical report TR-2015-009, subsequent IMA J. Numer. Anal. 38 (2018) 1119–1163, DOI 10.1093/imanum/drx029. This is not an assertion of publication priority over inaccessible work. It does not treat unequal part sizes, variable densities, subdivided edges, or complex scalar spaces.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal max-norm amplification of an L2 projector is a standard stability invariant in spline/FEM analysis. The natural balanced branched graph family gives a complete two-parameter formula, exact sign extremizers, the sharp m=4 transition above 2, and an unattained universal 7/3 benchmark without pendant vertices. These are substantive approximation-instability boundaries, not mere routine plug-in numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

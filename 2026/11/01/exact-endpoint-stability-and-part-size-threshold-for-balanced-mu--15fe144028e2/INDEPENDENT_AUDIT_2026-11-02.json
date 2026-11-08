@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:52:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hat-function Gram matrix is G=(2dI+A)/6 with d=m(r-1). Direct multiplication proves its exact inverse has diagonal X/T, same-part off-diagonal 1/T, across-part -2/T, T=m^2(r-1)(2r-3), X=3m(2r-3)+1. Its kernel edge types are incident (X,-2), same-part-adjacent (1,-2), and external (-2,-2); their exact absolute integrals give the stated R. Since every projected function is affine on each edge, an L-infinity norming evaluation is a vertex. Kernel-sign inputs attain R. Algebra verifies R-2 sign regimes, monotonic m-increment, both limits, and negative kernel mass (R-1)/2. Independent direct SymPy Gram inversions and exact integrals at (m,r)=(1,2),(2,2),(3,2),(3,3),(2,4) agree; universal statement follows from matrix proof, not sample sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arioli–Benzi Section 5 assembles a finite-element mass matrix and bounds its conditioning for PDE discretization; no sharp L-infinity orthogonal-projector norm for K_{m,...,m} is derived in the inspected sections.",
+          "Kayumov studies L-splines on an interval with knots, not vertex-coupled metric-graph edges."
+        ],
+        "reasoning": "Generic exact mass matrices and classical interval projection estimates are mathematical ingredients, not a dominating all-parameter norm theorem.",
+        "searches": [
+          "Arioli Benzi finite element method quantum graphs TR-2015-009 Section 5 mass matrix",
+          "Kayumov arxiv:math/0408418 least-squares second-order L-splines"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cs.emory.edu/technical-reports/techrep-00275.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "https://arxiv.org/abs/math/0408418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arioli–Benzi theorem 5.1 discusses spectral conditioning of graph FEM mass matrix; the asserted R_{m,r} involves its inverse row kernel and an absolute edge integral.",
+          "Simplex norm formula depends on simplex barycentric integration rather than cross-part kernel signs."
+        ],
+        "reasoning": "Neither source supplies the graph-specific inverse/kernels, 2-threshold or 7/3 supremum as a logical corollary without the present new calculations.",
+        "searches": [
+          "Arioli Benzi Emory TR-2015-009 Sections 2,5.1,5.2",
+          "Resultary simplex positivity defect https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent names are continuous P1 metric-graph nodal L2 projector, one-element-per-edge hat projection, Gram-kernel Lebesgue constant. Resultary simplex exact defect is for one higher-dimensional simplex, not a branched multipartite graph."
+        ],
+        "reasoning": "A simplex with different integration geometry does not encode many glued graph edges or the two integer parameters; same positivity-defect terminology does not imply the graph expression.",
+        "searches": [
+          "Resultary: metric graph continuous piecewise affine L2 orthogonal projector L infinity Lebesgue norm complete multipartite bipartite spline hat Gram inverse",
+          "SCOPE published exact positivity defect affine simplex projector https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearest published Resultary entry https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 computes a simplex local projector instead of the target graph family; no indexed exact graph-family table identified."
+        ],
+        "reasoning": "The exact integer-parametric expression is not a finite table recomputation; an absent indexed hit is not proof of novelty.",
+        "searches": [
+          "Resultary: metric graph continuous piecewise affine L2 orthogonal projector L infinity Lebesgue norm complete multipartite bipartite spline hat Gram inverse",
+          "Resultary: affine L2 metric-graph projector exact L infinity norm branched complete multipartite"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.",
+      "residual_risks": [
+        "Older exact metric-graph P1 projector computations could use alternate terms (Lebesgue constant/hat-function Gram kernel) and escape search.",
+        "The most relevant interval-spline full text was not fully accessible; this alone does not establish covered or uncovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mass-matrix/FEM context, no displayed exact Lebesgue norm for the balanced multipartite projector in material read",
+          "evidence": [
+            "Theorem 5.1 estimates mass-matrix eigenvalue scale O(dmax), not the row integral of inverse-kernel absolute values."
+          ],
+          "identifier_or_url": "https://www.cs.emory.edu/technical-reports/techrep-00275.pdf",
+          "material_read": "Primary full-text technical report: abstract, section 2 metric-graph L2 definitions, section 5.1 mass-matrix assembly and section 5.2 conditioning, theorem 5.1",
+          "method": "Original OA PDF text and page screenshots",
+          "title": "A Finite Element Method for Quantum Graphs",
+          "trigger": "Same continuous metric-graph finite-element basis and mass matrices"
+        },
+        {
+          "assessment": "Different geometric support; full text not inspected, so no whole-document noncoverage conclusion",
+          "evidence": [
+            "Simplex d-dimensional local affine projector has defect C_d=(d+1)((d+1)/(d+2))^d-1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Title and scientific summary only",
+          "method": "Resultary semantic record summary",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Published SCOPE exact projection-positivity comparison"
+        },
+        {
+          "assessment": "Interval knots, no demonstrated implication to multipartite graph; full-text limitation retained",
+          "evidence": [
+            "Interval L-splines have a different domain and continuity pattern."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Abstract and available bibliographic description; full text not obtained",
+          "method": "arXiv abstract",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Classical L2 spline projector stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal max-norm amplification of an L2 projector is a standard stability invariant in spline/FEM analysis. The natural balanced branched graph family gives a complete two-parameter formula, exact sign extremizers, the sharp m=4 transition above 2, and an unattained universal 7/3 benchmark without pendant vertices. These are substantive approximation-instability boundaries, not mere routine plug-in numbers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cs.emory.edu/technical-reports/techrep-00275.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+    "https://arxiv.org/abs/math/0408418"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unit equal arclength edges, real continuous P1 functions with no internal nodes, balanced multipartite parts; not general weighted, unbalanced or subdivided graphs.",
+    "Older exact metric-graph P1 projector computations could use alternate terms (Lebesgue constant/hat-function Gram kernel) and escape search.",
+    "The most relevant interval-spline full text was not fully accessible; this alone does not establish covered or uncovered."
+  ]
+}
