@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Two exhaustive recursions generated and cross-checked all perfect matchings and the full alternating-square counts for d=3,4,5; independent Q4 flip-neighbor graph traversal confirms 8 singleton components and one of 264; explicit partner arrays verify pairwise edge disjointness and freezing, and case-by-case Cartesian square classification rigorously proves the stated all-d bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartarsky–Lichev–Toninelli Theorem 6 proves connectivity only when allowing alternating cycles up to length 4d-4, not exclusively length four.",
+        "Fink connects matchings by Hamiltonian-cycle replacements, which do not require square moves."
+      ],
+      "reasoning": "A theorem for a supergraph of the square-flip adjacency graph does not show connectivity or its component counts in the subgraph. Generic isolation examples for other hypercubic boxes do not imply the exact Q4 and Q5 counts, or this family size. Hamiltonian-cycle moves can connect configurations isolated under strictly local moves.",
+      "searches": [
+        "arxiv:2304.10930 full primary text Sections 1.2–1.3 and Theorems 3–6",
+        "Fink Connectivity of Matching graph of Hypercube full PDF",
+        "published-finding corpus: hypercube dimer plaquette flipping nonergodicity exact disconnected components and exponentially many frozen configurations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.10930",
+      "https://arxiv.org/abs/cond-mat/0512579",
+      "https://ktiml.mff.cuni.cz/~fink/publication/kreweras2.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+      "https://oeis.org/A005271",
+      "published-finding corpus:2026/10/11/SCOPE-the-matching-complex-of-the-4-times4-cartesian-square-grid-is-a--f1b5ea641880"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Syljuåsen (2005) studies quantum dimers on planar square lattices; not binary hypercube dimer sectors.",
+        "Hartarsky–Lichev–Toninelli (2023) treat longer alternating-cycle dynamics and discuss nonergodicity of shorter-cycle versions, without this numerical or constructive quantitative square-only classification.",
+        "Published published-finding corpus comparison: 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098, full RESULT.md inspected; domain and theorem differ."
+      ],
+      "reasoning": "None of the inspected statements is stronger in the precise parameter regime: restrictions to local four-cycle moves preserve the frozen states, while connectivity under longer moves does not cover their square-only graph. No identified published statement implies the Q4 one-component-plus-eight-isolated decomposition, Q5 exact 120, or the all-d lower bound. Search limitations remain.",
+      "searches": [
+        "arxiv:cond-mat/0512579 full accessible HTML",
+        "arxiv:2304.10930 complete accessible primary text",
+        "published-finding corpus: quantum dimer frozen square plaquette resonance flip graph Q4 hypercube Q5 120 isolated matchings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2304.10930 explicitly defines D_2(Q_d) as the square-only perfect-matching flip graph.",
+        "published-finding corpus closest title: Complete prescribed-difference matching multiplicity spectrum in dimension four (2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098)."
+      ],
+      "reasoning": "Alternate words include frozen dimer, plaquette-inert covering, isolated vertex of D_2(Q_d), and length-four alternating-cycle flip. Matching these definitions against the source text reveals prior generic nonergodicity, not the present exact sectors or quantitative family. The published-finding corpus item uses perfect matchings of the complete graph on F_2^4 with arbitrary edge differences, not the hypercube subgraph with square flips.",
+      "searches": [
+        "published-finding corpus: quantum dimer frozen square plaquette resonance flip graph Q4 hypercube Q5 120 isolated matchings",
+        "web: hyercube frozen dimer flips perfect matching",
+        "arxiv:2304.10930 Section 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005271 gives 272 and 589185 perfect matching totals, but not the count or connectivity of frozen matchings.",
+        "published-finding corpus semantic results about other four-cube complexes and matchings do not report the isolated vertices of the length-four flip graph."
+      ],
+      "reasoning": "Perfect-matching number, forced matching number, and matching-complex homotopy are not equivalent to the plaquette flip-degree distribution or connected-components classification. Novelty of raw perfect-matching totals is not claimed.",
+      "searches": [
+        "OEIS A005271 perfect matchings hypercubes",
+        "web: quantum dimer hypercube 4D 5D square flip frozen perfect matchings 120 8 sectors",
+        "published-finding corpus: 8 frozen square-flip perfect matchings in Q4 and 120 in Q5"
+      ]
+    },
+    "rationale": "The closest full primary hypercube study allows longer alternating-cycle moves for its connectivity theorems; generic 4-cycle nonergodicity and raw dimer totals are acknowledged as prior. Searches and full comparison did not find an equivalent Q4/Q5 square-only spectrum or dimension-uniform quantitative frozen-family theorem; priority remains provisional.",
+    "residual_risks": [
+      "An unindexed older quantum-dimer enumeration might tabulate frozen hypercube configurations.",
+      "Connectivity for longer alternating-cycle moves does not certify the same square-only sectors.",
+      "Only frozen counts, not all components, of Q5 are established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING quantitative square-only theorem; generic nonergodicity already known; longer-cycle connectivity explicitly distinct",
+        "evidence": [
+          "definition D_l permits cycles up to 2l; Theorem 6 uses length up to 4d-4",
+          "Section 1.2 reports existing isolated examples for 3D boxes, not binary Q4/Q5 square-only counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.10930",
+        "material_read": "model definitions, introduction, Sections 1.2–1.3, statements of Theorems 3–6 and main proof framework",
+        "method": "accessible full preprint text inspected and term/parameter cross-check",
+        "title": "Local dimer dynamics in higher dimensions",
+        "trigger": "same perfect-matching graph and local alternating-cycle updates on unit hypercubes"
+      },
+      {
+        "assessment": "NOT_COVERING binary hypercubes; establishes older physically motivated local resonance move",
+        "evidence": [
+          "original preprint posted 2005-12-22",
+          "the simulated domains are planar square lattices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0512579",
+        "material_read": "accessible HTML introduction, model, and quantum Monte Carlo/phase results",
+        "method": "arXiv full HTML and bibliographic first-posting record",
+        "title": "The plaquette phase of the square lattice quantum dimer model",
+        "trigger": "focal archived quantum dimer square-plaquette dynamics"
+      },
+      {
+        "assessment": "NOT_COVERING because adjacency requires a Hamiltonian-cycle union, not square swaps",
+        "evidence": [
+          "matching graph defined by union forming Hamiltonian cycle"
+        ],
+        "identifier_or_url": "https://ktiml.mff.cuni.cz/~fink/publication/kreweras2.pdf",
+        "material_read": "full accessible article text and first page visual",
+        "method": "PDF text and page screenshot comparison of adjacency definition",
+        "title": "Connectivity of Matching Graph of Hypercube",
+        "trigger": "same hypercube perfect matchings; possibility of stronger connectivity theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: complete graph matchings with multiset XOR differences, not hypercube edge dimers or plaquette dynamic components",
+        "evidence": [
+          "20,295 difference profiles enumerated among all 16-vertex pairings"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+        "material_read": "full RESULT.md",
+        "method": "published record full claim/assumptions/proof read",
+        "title": "Complete prescribed-difference matching multiplicity spectrum in dimension four",
+        "trigger": "closest published-finding corpus hit for Q4 perfect matching enumeration"
+      },
+      {
+        "assessment": "covers only total perfect matchings, not frozen counts or flip components",
+        "evidence": [
+          "272 and 589185 are prior known totals"
+        ],
+        "identifier_or_url": "https://oeis.org/A005271",
+        "material_read": "sequence values and description",
+        "method": "accessible sequence entry",
+        "title": "OEIS A005271",
+        "trigger": "avoid claiming known Q4/Q5 perfect-matching totals as new"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db180e33-9d90-4fe4-bbe2-de082c4fd182",
+  "value": {
+    "rationale": "A natural kinetic plaquette model admits an exact small-size fragmentation threshold, complete Q4 component structure, Q5 frozen count, and a structural construction with at least doubly exponentially many isolated coverings in the dimension parameter. This is motivated by quantum dimer Hilbert-sector fragmentation and not an arbitrary graph enumeration.",
+    "status": "PASS"
+  }
+}
