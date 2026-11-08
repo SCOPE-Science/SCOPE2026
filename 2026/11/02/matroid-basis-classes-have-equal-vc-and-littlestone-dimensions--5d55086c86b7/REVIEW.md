@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A set is shattered by matroid bases exactly when it is simultaneously independent in the matroid and its dual: the two extreme traces force both directions and deletion plus basis extension gives all intermediate traces. A partition-controlled path through any complete online shattered tree gives the rank-sum upper bound. Edmonds' classical matroid intersection theorem identifies this upper bound with the attainable static dimension. The fixed-sign predictor errs only on primal basis elements in one block and dual basis elements in the other. The explicit proof also covers empty ground sets, loops, coloops, repeated queries, and uniform target-base quantifiers. The independent enumerator checks all 498 labeled matroids through five points and three complete graphic matroids, but these checks are not the all-size justification.
+## correctness
 
-**Originality — PASS within the actual accessible comparisons.** Bhaskar (arXiv:1702.03956, full HTML sections on shattering and trees), Manurangsi–Rubinstein (2017 PDF, introduction/model and computational-hardness results), the exact Edmonds rank intersection minimax as stated in *Matroid Intersection*, Theorem 8.3.2, and Bérczi et al., Theorem 2.1, Bérczi–Király–Yamaguchi–Yokoi (arXiv:2209.14516, general matroid intersection), and Buchbinder–Chen–Naor–Shamir (2012, online optimization on matroid base polytopes) were checked. None of the inspected statements equates the VC and Littlestone dimensions of the entire matroid base class or supplies its fixed-sign minimax membership predictor. Edmonds' theorem is a key prior ingredient, so the rank-cut equality as such is not claimed as new. The Engström–Sanyal–Stump 2022 standard-complex article and Kranakis/coauthors' 1990s graph VC paper present residual priority risk where only accessible abstracts or an inaccessible report were available. Searches of published research records found no dominating exact theorem. Missing evidence is not portrayed as proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The equality identifies two generally different combinatorial/online learning dimensions for every finite matroid and turns the potentially exponentially large adaptive problem into exact polynomial-time matroid intersection. The optimal fixed-sign online predictor supplies an algorithmic interpretation of the equality. For spanning trees this becomes the natural maximum size of an acyclic edge set whose deletion preserves connectivity, a structural characterization not limited to small graph families. This is a motivated full-class statement, not a parameter substitution or a numerical small improvement.
+A shattered S must be independent both in M (all-one trace) and M* (all-zero trace). Conversely primal and dual independence of S permit any trace T by deleting D=S\T: dual independence yields a full-rank basis disjoint from D, then extend T in the deletion. A fully shattered depth-d query tree has no repeat along paths; for any partition E=A∪A^c follow branch label 1 inside A, 0 outside, and a witness basis bounds d≤r_M(A)+r_M*(A^c). Classical Edmonds intersection minmax equates min rank-cut to max common independent-set cardinality, hence Ldim=VCdim. The same partition yields an optimal fixed-sign membership-mistake predictor by counting 1-mistakes in A and 0-mistakes in A^c. This is an all-matroid proof, not extrapolation. Independent uniform matroid cut checks U(4,2), U(5,2), U(6,3), U(7,3), source finite enumerator inspected; loops, coloops and empty E fit.
 
-**Residual risks.** Full historical priority, especially equivalent formulations in matroid-learning, standard-complex and graph-VC language, has not been exhaustively certified; the early graph report was inaccessible. The general min-max statement is classical and carefully attributed. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Edmonds intersection minimax and polynomial algorithm are prior results and explicitly credited. Prior Littlestone/thicket theory defines binary tree shattering; general-dimension hardness concerns arbitrary concept classes, whereas this statement specializes to all matroid base incidence classes. No exact matching class theorem located in actual searches or published indexed record comparisons. However older graphic VC and matroid learning papers could contain equivalent formulations. The main contribution assessed is joint static/adaptive equality and simple optimal online fixed-sign learner.
+
+## value
+
+PASS
+
+A natural, broad combinatorial concept class with generally different static and adaptive dimensions unexpectedly has equality, exact polynomial-time computation and a nonadaptive-sign mistake-optimal online strategy; spanning-tree specialization is concrete. Substantive structural theorem beyond merely quoting Edmonds rank minimax.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
