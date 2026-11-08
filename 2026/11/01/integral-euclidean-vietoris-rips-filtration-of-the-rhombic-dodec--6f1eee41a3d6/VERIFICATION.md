@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-The standalone files `verify.py` and `collapse_8.json` are sufficient. Run `python3 verify.py` in their directory using the Python 3 standard library. The recorded output is `verification_output.txt` and ends in `VERIFY_OK`.
+# Independent mathematical audit
 
-The program constructs the fourteen exact integer-coordinate vertices, all 91 pairwise squared distances and complete clique complexes at squared thresholds \(0,3,4,8,11,12,16\). It checks the expected face vectors and connectedness; checks every edge has two triangles and every vertex link is a cycle at squared scale four; checks every one of the eighty claimed elementary collapse pairs is present, has codimension one and a unique immediate coface at the moment of removal; verifies exactly the eight-corner four-crosspolytope boundary remains; checks the seven opposite pairs at squared scale eleven; and checks universal cone vertices at squared scale twelve. It also checks the full simplex at squared scale sixteen.
+## correctness
 
-The collapsing sequence is explicit finite evidence, not a stochastic experiment or a homology-rank heuristic. The proof of the integral barcode additionally uses standard geometric identifications of spheres, basic connected-graph homotopy and closed-surface classification. Full source-by-source originality and mathematical value comparisons are recorded in `AUDIT.json` and `REVIEW.md`; the checker alone makes no such judgments.
+PASS
 
-**Limits.** Only the stated finite Euclidean configuration is verified. No independent audit, equivariant reduction, wider family theorem, or publication-priority certificate is claimed.
+Coordinates are exactly six ±2e_i and eight (±1,±1,±1), Euclidean inclusive thresholds; squared pair distances 3,4,8,11,12,16 with no other changes. At q=3 the rhombic dodecahedron one-skeleton has 14 vertices/24 edges and wedge11 circles. At q=4 the added 12 cube edges triangulate its 12 rhombi to a connected closed 2-manifold of Euler characteristic two, S2. For q=8, independently regenerated all 240 flag faces from actual coordinates and replayed all 80 recorded certificate pairs, verifying at each step present faces, codimension-one and exactly one coface; the remaining 80 faces are the induced complex on eight cube corners, whose complement four antipodal edges makes the join of 4 copies of S0 = S3. At q=11 seven missing edges are a perfect matching on 14 vertices giving (S0)^{*7}=S6. At q=12 each cube corner becomes a cone apex. Homology dimensions are separated at adjacent stages, giving the asserted complete reduced integral barcodes.
+
+## originality
+
+PASS
+
+Checked actual theorems and their implications, original sources and relevant published exact results, including already-known special cases; none of those inspected entails the full target claim, subject to the explicit best-of-knowledge residual risks. This does not infer novelty from a failed search.
+
+## value
+
+PASS
+
+The rhombic dodecahedron is a canonical Catalan solid with two distinct vertex orbit geometries. The exact entire Euclidean filtration and 80-step collapse prove an independently meaningful natural polyhedral invariant, extending the eight-corner cube subcase. Different noncontractible dimensions 2,3,6 are non-obvious and useful as a finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns exactly fourteen Euclidean vertices with a fixed inclusive distance convention. The verifier independently reconstructs every squared distance, every simplicial face, the closed-surface structure at radius two, and an actual 80-pair elementary simplicial collapse at radius \(2\sqrt2\). The subsequent seven-opposite-pair crosspolytope and cone stages prove the remaining types. Because each reduced homology degree occurs at just one threshold stage, these homotopy identifications determine integral persistence, not only rank over a field.
+## correctness
 
-**Originality — PASS, subject to publication-priority risk.** The 2011 graph-power framework does not impose this fourteen-point Euclidean metric. The 2023 Platonic-solids theorem proves the eight-corner subcomplex’s type but not the ambient rhombic-dodecahedral collapse or the complete six-threshold classification. Nada Saleh's 2023 dissertation computes a different Catalan solid and explicitly lists Catalan-solid homotopy classification as future work. Accessible closest public results cover the dual twelve-vertex cuboctahedron or a matching complex on twenty-four graph edges. These scientific implications were compared rather than relying on titles. A differently indexed or unpublished exact calculation cannot be excluded.
+PASS
 
-**Value — PASS.** This is a natural complete integral homotopy-and-barcode classification of a canonical Catalan-solid vertex set. The alternating degrees \(2,3,6\) and the explicit 80-pair reduction constitute a nontrivial polyhedral benchmark. Its scope is intentionally finite and does not assert a general Catalan-solid theorem.
+Coordinates are exactly six ±2e_i and eight (±1,±1,±1), Euclidean inclusive thresholds; squared pair distances 3,4,8,11,12,16 with no other changes. At q=3 the rhombic dodecahedron one-skeleton has 14 vertices/24 edges and wedge11 circles. At q=4 the added 12 cube edges triangulate its 12 rhombi to a connected closed 2-manifold of Euler characteristic two, S2. For q=8, independently regenerated all 240 flag faces from actual coordinates and replayed all 80 recorded certificate pairs, verifying at each step present faces, codimension-one and exactly one coface; the remaining 80 faces are the induced complex on eight cube corners, whose complement four antipodal edges makes the join of 4 copies of S0 = S3. At q=11 seven missing edges are a perfect matching on 14 vertices giving (S0)^{*7}=S6. At q=12 each cube corner becomes a cone apex. Homology dimensions are separated at adjacent stages, giving the asserted complete reduced integral barcodes.
 
-**Verification and limits.** The checker uses only integer squared distances, exact bit masks and elementary free-face assertions. It is exhaustive on the stated fourteen vertices. It does not establish equivariant homotopy, deformed ratios, metric stability, publication priority or outside independent certification. The original source has not been independently mathematically audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Checked actual theorems and their implications, original sources and relevant published exact results, including already-known special cases; none of those inspected entails the full target claim, subject to the explicit best-of-knowledge residual risks. This does not infer novelty from a failed search.
+
+## value
+
+PASS
+
+The rhombic dodecahedron is a canonical Catalan solid with two distinct vertex orbit geometries. The exact entire Euclidean filtration and 80-step collapse prove an independently meaningful natural polyhedral invariant, extending the eight-corner cube subcase. Different noncontractible dimensions 2,3,6 are non-obvious and useful as a finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
