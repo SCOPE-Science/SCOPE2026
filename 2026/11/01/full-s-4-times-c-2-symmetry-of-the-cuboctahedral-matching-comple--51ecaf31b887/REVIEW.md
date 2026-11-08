@@ -1,11 +1,21 @@
-# Scientific review of the cuboctahedral matching-complex representation
+# Independent mathematical audit
 
-**Correctness — PASS.** The topological concentration used in the character proof is established from an explicit exhaustive acyclic discrete-Morse matching with one critical zero-cell, 65 critical three-cells and 8 critical four-cells, together with a signed primitive 8-by-8 attaching-degree minor. A separate full enumeration of all signed invariant simplices computes 48 character values, and a second orbit-cycle method reproduces them. Character inner products give the stated ten multiplicities. The rational quotient consequence uses the valid finite-group transfer/averaging theorem. Both standalone checkers replayed successfully.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The same-object wedge-of-57-spheres record establishes the nonequivariant homotopy type, which is expressly excluded from the new contribution; its full result does not contain this automorphism character. The six-vertex octahedral matching-complex representation uses the same abstract group but a distinct graph and a dimension-11 degree-one module. A cuboctahedral two-particle configuration-space module describes a distinct space. The inspected complete-hypergraph representation theorem and older claw-free-complex connectivity results do not specialize to this matching-complex character. Actual exact-object, equivalent-formulation and stronger-coverage database searches produced no source implying the explicit decomposition. Unindexed calculations remain possible.
+PASS
 
-**Value — PASS.** The cuboctahedron is a natural highly symmetric line graph of the cube, and the complete 57-dimensional representation is a motivated missing symmetry invariant of a known non-outerplanar matching complex. The result distinguishes 34 and 23 antipodal eigendimensions and proves nontrivial rational top homology of the full symmetry quotient (rank one) versus the rotation quotient (rank three). These structural invariants are not reconstructible from the previously known total Betti number 57. No assertion of an integral lattice decomposition is made.
+At the frozen actual 19c87a tree the final result concerns ordinary matchings of the 24-edge cuboctahedral graph L(Q3), not cube matchings. A 2648-face census yields (24,204,744,1116,528,32). A greedy matched Hasse graph on these faces is acyclic with 1287 pairs, critical counts 1 in degree 0, 65 in degree3 and 8 in degree4; an explicitly signed diagonal unit 8x8 Morse minor makes the eight attaching degree vectors primitive, so the Morse CW model is a wedge of 57 S3. With homology concentrated in degree3, χ3(g)=1−Σ_q(−1)^q tr(g|C_q); all 48 cube symmetries act via edge permutations and orientation signs. The 10-class character table has identity 57, central inversion 11 and S4×C2 Specht multiplicities ((1,2),(5,2),(5,4),(2,2),(2,1)); invariants G=1, rotations=3 follow from character averaging. Independently re-enumerated the 2648 nonempty faces and central inversion signed chain traces (0,−12,0,30,0,−8), yielding χ3(z)=11. Read all original verification scripts and Morse/character algorithms, but did not rerun the entire 48-element unit-minor certificate locally. Finite exhaustion is valid for this finite graph; no integral representation lattice or integral orbit-space claim.
 
-Closest literature: Engström (2005); Freij (2009); Bate–Everitt–Ford–Ramos (2023/2025); the same-object published wedge computation; the octahedral matching-complex symmetry module; and the cuboctahedral two-particle configuration module. Principal residual risk: an equivalent computation outside indexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS specifically for the full rational S4×C2 homology representation and quotient ranks, NOT the already published wedge-of-57-spheres theorem. Same graph and group, but nonequivariant rank57 alone leaves nontrivial traces undetermined; different octahedral matching and cuboctahedral particle configuration modules cannot imply the present traces. Finite exact source computation of nonidentity characters is distinctive; no same-object full equivariant computation located by targeted Resultary search. Risks: unindexed prior computation and full Bate–Everitt–Ford–Ramos primary text not independently read.
+
+## value
+
+PASS
+
+Full equivariant module of a natural Archimedean graph is the structural invariant missing from its known wedge-of-57-spheres classification: inversion eigendimensions 34 and 23 and quotient ranks 1 and 3 cannot be inferred from the single Betti number. A natural representation refinement, not arbitrary subgroup arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
