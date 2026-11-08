@@ -1,0 +1,19 @@
+# Scientific assessment: optimal alternating Markov-hole escape
+
+## Correctness — PASS
+
+The finite-time survivors of the integer map are in bijection, up to null cylinder endpoints, with base-digit words avoiding a time-indexed self-pair. The proof gives the exact nonnegative count matrices and a strict dynamic-programming comparison for **every** possible continuation: when one extreme digit has larger count, excluding its self-transition yields a coordinatewise smaller state after identifying the symmetric opposite choice. All matrix products preserve strict positivity of total-count coefficients. Thus the unique optimal hole at every noninitial step is the alternate extreme, not merely a greedy guess. The alternating total satisfies an exact second-order recurrence. Its double root at base two and two distinct roots at higher bases yield the claimed finite counts and escape exponents. An independent elementary fixed-hole recurrence establishes the strict spectral-rate comparison. The finite program passes 2,174 supplementary checks; it is not used as an infinite proof.
+
+## Originality — PASS within inspected evidence
+
+The most relevant mathematical comparisons are Bolding--Bunimovich (2017, arXiv:1707.04231, sections 1-3, fixed-hole hitting-order results and a switching prescription), Atnip--Froyland--González-Tokman--Vaienti (2021, arXiv:2103.04712, especially the escape-pressure discussion and random interval examples), Livorati--Georgiou--Dettmann--Leonel (2013, arXiv:1312.7030, periodic oscillating/breathing holes in doubling), Cheriyath--Agarwal (2019, arXiv:1905.11767, fixed forbidden-word hole unions), and Bahsoun--Schmeling--Vaienti (2014, arXiv:1405.0361, random hole operators). These establish theory and fixed-hole rankings or related periodic cases, not the finite-horizon minimizer among **all** binary schedules restricted to the two endpoint self-pairs. The recurrence itself is **not** asserted new: it is the same classical no-overlap recurrence as for a static length-two cross-pair cylinder, which is unavailable to the restricted switching controller. Related published static negative-doubling survivor and random-map escape results were compared at the statement level, not inferred from title alone. Closest background is the nonstationary matrix-product formulation of moving holes, which does not itself supply a universal ordering of those products. The literature evidence cannot exclude an equivalent argument in unindexed optimal-switching or word-avoidance research.
+
+## Mathematical value — PASS
+
+For two equal Markov holes, the natural control question is which predetermined placement schedule removes the greatest amount of Lebesgue mass over a fixed time budget. The theorem solves this optimization **for every** horizon and integer expansion factor, with uniqueness, and shows that alternation reproduces the survivor performance of the unavailable static cross-pair hole. The static cross-pair recurrence is known; the new optimization is the restricted nonstationary product ordering. It also reveals a critical double-root effect: the binary case retains a linear survivor-count prefactor absent at higher bases. The exact spectral comparison quantifies why alternating the available endpoints is faster than fixing one, rather than relying on a simulation or qualitative mixing heuristic. The theorem is intentionally restricted to two endpoint cylinders and does not claim optimality over arbitrary hole shapes or positions.
+
+## Limits and sources
+
+The analytic argument covers integer bases, Lebesgue initial mass, two length-two endpoint cylinders, and predetermined choices. It makes no claim about arbitrary moving holes, adaptive access to initial conditions, or uniqueness of asymptotically optimal schedules. Sources and precise comparisons appear in `RESULT.md`, with structured originality checks in `AUDIT.json`.
+
+Self-review: passed. Independent audit: not yet performed.
