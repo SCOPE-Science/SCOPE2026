@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every integer quadratic admits an integral Newton expansion with coefficients determined by values at 0, e_i, 2e_i and e_i+e_j. Minimal common prime-valuation of actual values divides all Newton coefficients, giving a nonzero reduction modulo p. For odd p the total degree-two field bound gives support at least (p-2)/p; for 2, independent u=x mod2 and v=floor(x/2) mod2 bits give a Boolean quadratic with support at least 1/4, or affine at least 1/2 for n=1. For exponent one, B_i=2a_i yields the same bound. CRT reduces global support to any nonzero local component; explicit m/p times x(x-1), x, or x1x2 exactly attain the minimum. All cases m>=2,n>=1 covered. Companion checker exhausts 450011 finite coefficient arrays in 16 cases and 297 CRT witness cases; no finite enumeration substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1407.3433 states finite-field Reed–Muller bounds, which give the odd-prime support term after valuation-normalizing but not the dyadic or CRT parts.",
+        "DOI:10.1109/FOCS.2010.71 concerns Fourier-analytic decoding of finite-field Reed–Muller codes, not integer polynomial evaluation on arbitrary residue rings."
+      ],
+      "reasoning": "Field results do not subsume nonreduced finite-ring evaluation codes. No broader found theorem covered the claimed normalization and uniform CRT sharpness.",
+      "searches": [
+        "Published mathematical findings index query: Surowka Regan 2014 last gap between two largest possible numbers zeros quadratic polynomials over Z 2^q any n sharp 2^(qn-2) generalized m",
+        "web: Schwartz Zippel minimum distance generalized Reed Muller polynomial functions finite local rings prime powers"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1404.4852v2",
+      "https://arxiv.org/abs/1407.3433",
+      "https://doi.org/10.1109/FOCS.2010.71",
+      "https://arxiv.org/abs/0801.3024",
+      "Published mathematical findings index query: queried last-gap conjecture, quadratic evaluation code, local ring quadratic zero-count gaps, and related 2-adic terms."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1404.4852 Theorems 1-2 give divisibility constraints on counts and combined slices; §8, lines 2477–2479 in HTML v2, explicitly says the largest gap formula is guessed.",
+        "Published research hit 2026/10/4/SCOPE-dyadic-shell-classification-of-fourier-zeros-for-four-point-indi--68cf8ce2dd05 concerns roots of Fourier transforms of sparse indicator functions, a different object."
+      ],
+      "reasoning": "Divisibility by a common factor neither implies the sharp maximum proper zero count nor supplies all-modulus attaining witnesses. The original explicitly leaves the last-gap value as future work; the new theorem implies the power-of-two conjecture and covers additional CRT cases.",
+      "searches": [
+        "web: arxiv 1404.4852 Theorem 1 Theorem 2 §8 last gap conjecture",
+        "Published mathematical findings index query: quadratic polynomial zero counts modulo powers of two exact distribution of values quadratic forms local densities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The result is the minimum nonzero Hamming weight of the evaluation code of all integral degree-at-most-two polynomials on the full residue grid; arXiv:0801.3024 concerns quaternary Reed–Muller-like Plotkin/Gray construction and its abstract does not identify that evaluation code.",
+        "The published findings index returned e.g. 2026/9/20/SCOPE-positive-characteristic-two-call-register-programs--e2229eff652e, which is an algebraic program-degree statement, not a polynomial root-support result."
+      ],
+      "reasoning": "The equivalent evaluation-code language was explicitly searched; no returned hit implied the sharp mixed-modulus bound. Because an accessible abstract does not settle equivalence of quaternary constructions, historical-risk documentation is retained.",
+      "searches": [
+        "Published mathematical findings index query: exact minimum nonzero Hamming support degree at most two polynomial functions over finite residue rings Z_m modular polynomial evaluation Reed Muller",
+        "web: minimum distance degree two polynomial evaluation codes over Z4 finite rings",
+        "web: quadratic polynomials modulo 2^r largest zero set least nonzero support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1404.4852 §5 Table 16 provides finite sampled last-gap counts for small moduli, and §8 proposes the power-of-two formula as a guess.",
+        "Closest published finding 2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325 counts Fourier exponential bases, not root-set support of quadratic polynomial functions."
+      ],
+      "reasoning": "A table of finite counts is evidence of motivation and checks some cases, not a theorem for all n and m. No exact database/table claimed to settle the unrestricted result.",
+      "searches": [
+        "web: Surowka Regan last gap Table 16 zero counts Z_m degree 2",
+        "Published mathematical findings index query: zero-set cardinality gap for quadratic polynomial functions over arbitrary finite quotient rings prime powers"
+      ]
+    },
+    "rationale": "The 2014 original poses the power-of-two last-gap formula as a guess in §8 and contains finite tables rather than an all-modulus exact solution. The new all-modulus sharp support formula is not implied by its cited divisibility and symmetry results. Actual semantic database searches returned only unrelated Fourier/finite-field/coding results; a coding-theoretic equivalent remains a risk.",
+    "residual_risks": [
+      "Some earlier or later coding-theoretic work may state the result as a minimum distance for finite-ring polynomial evaluation codes.",
+      "Only abstract-level material was available for the quaternary Reed–Muller-like code comparison, so no full-document NOT_COVERING assertion is made.",
+      "Search-retrieval incompleteness means negative search results cannot prove absolute historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Conjectures the exact two-power gap; tables finite; main theorems do not imply the sharp all-modulus claim",
+        "evidence": [
+          "§8 paragraph beginning “Yet, encouraged by our experiments”, and formulas for r=2^q; §5 Table 16; §§1–2 theorem statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1404.4852v2",
+        "material_read": "Full HTML relevant parts: introduction, statements and proofs of main theorems, experimental tables in §5, future-work §8 including last-gap discussion",
+        "method": "Direct primary HTML text inspection",
+        "title": "Polynomials Modulo Composite Numbers: Ax-Katz type theorems for the structure of their solution sets",
+        "trigger": "Same degree, same modulus rings, named last-gap conjecture"
+      },
+      {
+        "assessment": "Classical field comparison, not finite residue-ring assertion",
+        "evidence": [
+          "Over finite fields, minimum distance for degree-two polynomial evaluation; does not address p-adic normalization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.3433",
+        "material_read": "ArXiv article introductory statement and finite-field coding scope via accessible HTML",
+        "method": "Direct full-text arXiv HTML exploration and relevant sections",
+        "title": "List decoding Reed-Muller codes over small fields",
+        "trigger": "Potential finite-field minimum-distance implication"
+      },
+      {
+        "assessment": "Finite-field decoding; incomplete full-text novelty check but no apparent ring coverage",
+        "evidence": [
+          "Publication describes Reed–Muller decoding over finite fields."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/FOCS.2010.71",
+        "material_read": "Search-accessible abstract and introductory description only",
+        "method": "Bibliographic and abstract-level comparison",
+        "title": "A Fourier-analytic approach to Reed-Muller decoding",
+        "trigger": "Possible broader Reed–Muller code coverage"
+      },
+      {
+        "assessment": "Potentially relevant alternative code; no evidence the construction matches the entire degree-two evaluation code",
+        "evidence": [
+          "Abstract describes Plotkin/Gray-map constructions rather than universal polynomial evaluations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0801.3024",
+        "material_read": "ArXiv abstract; full article not inspected",
+        "method": "Abstract-level examination of construction objects",
+        "title": "Construction of Z4-linear Reed-Muller codes",
+        "trigger": "Potential equivalent quaternary code construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c9f22fb-779e-44c0-bb1f-67de1c7cba87",
+  "value": {
+    "rationale": "The exact last-gap problem is explicitly highlighted as a future direction in arXiv:1404.4852 §8, which conjectures only the 2-power pattern and describes mixed moduli as difficult. This theorem proves the conjecture for every n and exponent and completely resolves the degree-two sharp extremal gap for all residue rings, giving a structural 2-adic Newton/Boolean plus CRT mechanism. It is a mathematically motivated natural sharp classification, not a routine finite enumeration.",
+    "status": "PASS"
+  }
+}
