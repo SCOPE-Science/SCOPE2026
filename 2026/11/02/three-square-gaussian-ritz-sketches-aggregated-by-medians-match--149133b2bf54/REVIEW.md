@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every output entry, elimination against all but one square Gaussian column reduces the compression error to a deterministic residual-column norm times a ratio of two independent standard circular complex Gaussians. Direct change of variables gives the planar ratio density, then the real coordinate CDF and the transformed beta order-statistic density, with *exact* median second moment \(1/2\) in each coordinate. Summing over the matrix entries proves the square-median risk, while the two-complex-dimensional Schur-complement residual has Gamma shape two and reciprocal mean one, proving the one-row-oversampled risk. The same ratio has divergent squared moment for the unaggregated sketch. These checks cover nonnormal matrices, arbitrary residual column dependence, and the zero-residual boundary. The accompanying verifier independently checks finite cases, but its random samples are not the proof.
+PASS
 
-## Originality
+Decomposition AW=WT+UF and independent Gaussian blocks gives G^{-1}HF. Conditional on all but the ith Gaussian column of G, each error entry is ||f_j|| times the ratio of independent complex N(0,1) variables. The ratio density is 1/[π(1+|z|^2)^2]; a real component has CDF [1+x/sqrt(1+x²)]/2. The transformed median-of-three component is 3(1-u²)du/4 and has variance 1/2; summing real and imaginary component variances yields one per entry. No independence across different entries is assumed. For the m+1-row sketch, the two-dimensional Schur complement is Gamma(2,1) and E inverse is 1, yielding expected trace m. Direct independent symbolic rational calculation checks the median moment. If E=0, all errors vanish; otherwise the square ratio has logarithmically divergent second moment.
 
-**PASS on the inspected literature; historical priority is not certified.** Shao's randomized Rayleigh--Ritz study gives square Gaussian pencils and high-probability eigenpair analysis; its reported median is over performance data and not a median of compressed-matrix entries. Its rectangular oversampling comparison is a total-least-squares eigenproblem, not the estimator here. Nakatsukasa and Tropp introduce and analyze least-squares sketched Rayleigh--Ritz, but do not state this median-of-three versus one-row exact-risk equivalence. The established complex Student-ratio, order-statistic and inverse-Wishart identities are properly credited; none alone states the cross-algorithm matrix-risk identity. Available prior related claims concern different randomized Ritz perturbation laws, embedding thresholds and nonreal-spectrum probabilities. A specialized earlier robust-sketch aggregation result might still contain this equivalence.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** At precisely the square sketch boundary, even a single nonzero residual produces infinite squared compression error in expectation. The three-independent-sketch median restores a finite dimension-explicit expected error and, without tuning or asymptotics, matches the benchmark from adding one Gaussian observation per solve. This supplies an exact robustness-versus-sketch-dimension comparison for a natural randomized Ritz computation. It does not purport to show lower computational cost, eigenpair accuracy or high-probability performance.
+The identical exact compression-matrix risk under median robustification versus one extra Gaussian row is not the previously established generic sketched Ritz stability or the classical stand-alone Gaussian ratio moment.
 
-## Remaining scope and evidence risks
+## value
 
-The numerical procedure uses complex Gaussian sketches in exact arithmetic; real-Gaussian behavior and floating-point effects are different. The studied publications were examined for compression estimators, probability bounds, oversampling and median usages, but inaccessible or older niche robust-sketch results may affect historical priority. No claim of eigenvalue-error improvement is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural square Gaussian Ritz sketch has infinite Frobenius risk; a minimal three-replicate median restores finite risk and exactly matches one extra least-squares row. Exact efficiency/robustness benchmark of practical numerical linear algebra relevance, with explicit cost caveat.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

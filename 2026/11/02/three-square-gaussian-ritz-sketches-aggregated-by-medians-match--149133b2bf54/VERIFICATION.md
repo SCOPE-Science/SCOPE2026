@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility notes
+# Independent mathematical audit
 
-The analytic proof gives, for the real part of a standard circular complex-Gaussian ratio, \(F(x)=(1+x/\sqrt{1+x^2})/2\). The median-of-three density is \(3/[4(1+x^2)^{5/2}]\), and the change \(u=x/\sqrt{1+x^2}\) gives the exact moment \(\frac34\int_{-1}^1u^2\,du=1/2\). These are symbolic, nonasymptotic identities, checked again using rational polynomial integrals in `verify.py`.
+## correctness
 
-The additional-row formula follows from a Schur-complement two-dimensional complex Gaussian projection and the shape-two Gamma inverse moment. The verifier uses separate seeded independent Gaussian draws to test two specific residual matrices at \(m=1\) and \(m=2\). Expected squared errors from the run were approximately \(1.600000\) and \(3.720000\), respectively; empirical median-of-three risks were \(1.586309\) and \(3.685232\), and empirical one-row-over risks \(1.587715\) and \(3.697470\). Acceptance tolerances were 7.5% and 10% relative error. These finite numerical tests only check implementation consistency; they cannot establish the all-dimensional theorem or rule out an undiscovered equivalent prior result. Standard-library only: `python3 verify.py`.
+PASS
+
+Decomposition AW=WT+UF and independent Gaussian blocks gives G^{-1}HF. Conditional on all but the ith Gaussian column of G, each error entry is ||f_j|| times the ratio of independent complex N(0,1) variables. The ratio density is 1/[π(1+|z|^2)^2]; a real component has CDF [1+x/sqrt(1+x²)]/2. The transformed median-of-three component is 3(1-u²)du/4 and has variance 1/2; summing real and imaginary component variances yields one per entry. No independence across different entries is assumed. For the m+1-row sketch, the two-dimensional Schur complement is Gamma(2,1) and E inverse is 1, yielding expected trace m. Direct independent symbolic rational calculation checks the median moment. If E=0, all errors vanish; otherwise the square ratio has logarithmically divergent second moment.
+
+## originality
+
+PASS
+
+The identical exact compression-matrix risk under median robustification versus one extra Gaussian row is not the previously established generic sketched Ritz stability or the classical stand-alone Gaussian ratio moment.
+
+## value
+
+PASS
+
+The natural square Gaussian Ritz sketch has infinite Frobenius risk; a minimal three-replicate median restores finite risk and exactly matches one extra least-squares row. Exact efficiency/robustness benchmark of practical numerical linear algebra relevance, with explicit cost caveat.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

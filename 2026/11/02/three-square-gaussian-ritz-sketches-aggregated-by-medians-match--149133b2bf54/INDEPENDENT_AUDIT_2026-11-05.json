@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:57:37.338133Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 89497810ef077b9bb4fc50a11909e71d6763e48a",
+        "verify.py f33e596c74ac04dd7ef90266393e4cec982715e4 source inspected",
+        "Independent standard-library/symbolic median second-moment evaluation in scope_independent_checks_20261105.py"
+      ],
+      "rationale": "Decomposition AW=WT+UF and independent Gaussian blocks gives G^{-1}HF. Conditional on all but the ith Gaussian column of G, each error entry is ||f_j|| times the ratio of independent complex N(0,1) variables. The ratio density is 1/[π(1+|z|^2)^2]; a real component has CDF [1+x/sqrt(1+x²)]/2. The transformed median-of-three component is 3(1-u²)du/4 and has variance 1/2; summing real and imaginary component variances yields one per entry. No independence across different entries is assumed. For the m+1-row sketch, the two-dimensional Schur complement is Gamma(2,1) and E inverse is 1, yielding expected trace m. Direct independent symbolic rational calculation checks the median moment. If E=0, all errors vanish; otherwise the square ratio has logarithmically divergent second moment.",
+      "residual_risks": [
+        "Exact expectation statement does not imply eigenvalue or eigenvector accuracy, numerical conditioning or sample-level unitary invariance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical complex Student ratio and complex inverse-Wishart identities",
+          "Nakatsukasa–Tropp 2024 least-squares Ritz analysis"
+        ],
+        "reasoning": "Known ratio and inverse-Wishart formulas supply ingredients; they do not by themselves state the new structured 3-square-median = (m+1)-rectangular least-squares identity with E≠0 infinite-risk contrast. This combination follows by a nontrivial median order-statistic calculation.",
+        "searches": [
+          "Resultary semantic search: Gaussian square sketched Rayleigh Ritz entrywise median three sketches risk one row oversampling complex Gaussian"
+        ]
+      },
+      "checked_sources": [
+        "Nian Shao, Stabilizing the Rayleigh–Ritz procedure by randomization, arXiv:2604.01037 (2026)",
+        "Yuji Nakatsukasa and Joel Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems, SIAM J. Matrix Anal. Appl. 45 (2024), DOI 10.1137/23M1565413",
+        "Classical complex Student ratio and complex inverse-Wishart identities",
+        "Nakatsukasa–Tropp 2024 least-squares Ritz analysis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shao arXiv:2604.01037: randomized Petrov–Galerkin and eigenpair stability",
+          "Nakatsukasa–Tropp DOI 10.1137/23M1565413: oversampled least-squares sketch formulation"
+        ],
+        "reasoning": "The earlier results supply the two estimators but not the median risk calculation and its exact equality to the one-row sketch. Numerical comparison of eigenpairs is logically weaker and in a different metric.",
+        "searches": [
+          "Resultary semantic search: Gaussian square sketched Rayleigh Ritz entrywise median three sketches risk one row oversampling complex Gaussian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nian Shao, Stabilizing the Rayleigh–Ritz procedure by randomization, arXiv:2604.01037 (2026)",
+          "Yuji Nakatsukasa and Joel Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems, SIAM J. Matrix Anal. Appl. 45 (2024), DOI 10.1137/23M1565413"
+        ],
+        "reasoning": "Shao’s plotted median is a median of repeated eigenpair errors, not an entrywise complex-median aggregate of three compressed matrices. Nakatsukasa–Tropp use least-squares sketching and general subspace-error estimates, not this exact matching robust-versus-one-extra-row Frobenius risk.",
+        "searches": [
+          "Resultary semantic search: Gaussian square sketched Rayleigh Ritz entrywise median three sketches risk one row oversampling complex Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned verify.py empirical m=1,m=2 with known exact analytic targets",
+          "No relevant external table in searched Resultary or published literature"
+        ],
+        "reasoning": "Finite Monte Carlo is neither a table of exact results nor prior coverage; the equality is an all-dimensional Gaussian expectation identity.",
+        "searches": [
+          "Resultary semantic search: Gaussian square sketched Rayleigh Ritz entrywise median three sketches risk one row oversampling complex Gaussian"
+        ]
+      },
+      "rationale": "The identical exact compression-matrix risk under median robustification versus one extra Gaussian row is not the previously established generic sketched Ritz stability or the classical stand-alone Gaussian ratio moment.",
+      "residual_risks": [
+        "Resultary semantic search not comprehensive; lack of a matching result is not novelty proof.",
+        "Complex iid circular Gaussians, exact arithmetic, orthonormal W and entrywise medians; no spectral/eigenpair error, floating point, real Gaussian, or equivariance conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No entrywise 3-sketch median compression-matrix expectation theorem identified; medians summarize repeated eigenpair errors",
+          "evidence": "The stated results emphasize high-probability stability of Ritz eigenpairs and total-least-squares rectangular-pencil tests.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.01037",
+          "material_read": "Full OA PDF mathematical setup, occurrence of median in numerical error plots, algorithm and oversampling comparison sections",
+          "method": "arXiv PDF opened, searched for median and inspected pages",
+          "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+          "trigger": "Introduces directly comparable Gaussian randomized Ritz sketches"
+        },
+        {
+          "assessment": "Provides least-squares Ritz context, not the median=oversampling exact risk identity",
+          "evidence": "Sketching analysis concerns approximation behavior and numerical solvers rather than coordinatewise median-of-three second moments.",
+          "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+          "material_read": "Full OA PDF available, relevant sketched Ritz formulation, principal approximation theorem and oversampling discussion inspected",
+          "method": "Author full PDF, primary sections and equations",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Potentially dominating general theory of sketched Rayleigh–Ritz with oversampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned verified RESULT.md blob 89497810ef077b9bb4fc50a11909e71d6763e48a",
+        "Nian Shao, Stabilizing the Rayleigh–Ritz procedure by randomization, arXiv:2604.01037 (2026)",
+        "Yuji Nakatsukasa and Joel Tropp, Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems, SIAM J. Matrix Anal. Appl. 45 (2024), DOI 10.1137/23M1565413"
+      ],
+      "rationale": "The natural square Gaussian Ritz sketch has infinite Frobenius risk; a minimal three-replicate median restores finite risk and exactly matches one extra least-squares row. Exact efficiency/robustness benchmark of practical numerical linear algebra relevance, with explicit cost caveat.",
+      "residual_risks": [
+        "Three square sketches may require more projections and solves than a single slightly oversampled rectangular solve; no runtime superiority claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For independent standard circular complex Gaussian square sketches, componentwise complex coordinate medians over three randomized Ritz compressions have mean squared Frobenius error m||E||_F^2, exactly equal to a single (m+1)-row least-squares sketch; a lone square sketch has infinite squared risk if E≠0.",
+  "limitations": [
+    "Complex iid circular Gaussians, exact arithmetic, orthonormal W and entrywise medians; no spectral/eigenpair error, floating point, real Gaussian, or equivariance conclusion."
+  ],
+  "schema_version": 1
+}
