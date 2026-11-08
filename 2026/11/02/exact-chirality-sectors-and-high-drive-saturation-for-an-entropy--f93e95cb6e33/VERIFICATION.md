@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The critical proof is the analytic derivation in `RESULT.md`, not the numerical sample. Specifically, it checks the strictly positive second derivative of entropy production in the single cycle-current variable, the three-factor tangent identity that characterizes conservative minima, the odd-power Taylor coefficient, and the monotone scalar limiting equation for strong driving.
+## correctness
 
-The self-contained `check_triangle.py` uses the Python standard library, a fixed pseudorandom seed, and bisection for the exact scalar stationarity equation. Replayed in the same directory as this document, it printed `PASS: 5007 deterministic numerical assertions`. Checked examples include: preservation of the probability continuity equations; vanishing affinity on each of the three exceptional lines; the global sign formula across randomly chosen positive kinetic weights and velocities; the small-driving cubic coefficient; the generic strong-driving limit; and a closed-form example with equal reduced traffic rates.
+PASS
 
-The finite numerical tests do not certify the all-parameter theorem, nor establish publication priority or independent validation. The strong-driving formula requires pairwise distinct linear offsets; the sign and conservative-locus statements do not.
+At fixed strictly positive occupations and kinetic prefactors, continuity constrains currents to J_i=r_i+c with r=(−b_1,b_3,0). Each force F_i=2asinh(J_i/(2omega_i)); total entropy ΣJ_i F_i is strictly convex in c, and its unique minimizer satisfies Σ(x_i+tanh x_i)=0. For 3 terms, zero Σx_i and zero Σtanh x_i forces one x_i=0, and the other two are ±, equivalent to L_1(b)L_2(b)L_3(b)=0 where L is the weighted linear-response projection. These give exactly three distinct straight lines in b_1+b_2+b_3=0 and alternating sign sectors, with no positive-ray reversal by continuity. Taylor expansion yields epsilon³/8∏(L_i/omega_i)+O(epsilon^5). Under generic b_i≠0, order r_l<r_m<r_h and shift c=−epsilon r_m+z; strictly monotone limiting root u+tanh u=−log R yields affinity limit −2tanh u in (−2,2). Independent bisection and random positive weights tested 150 cases with cubic coefficient and strong-drive asymptotic. Numerical tests corroborate but do not prove all rays.
+
+## originality
+
+PASS
+
+The Euler equation, nonconservative advantage, cubic ORDER and absolute affinity bound are previously known; evaluated contribution is exact three-line conservative locus, all-amplitude chirality sign, cubic coefficient and generic direction-dependent saturation.
+
+## value
+
+PASS
+
+The smallest nonequilibrium cycle is a natural test case for whether entropy-minimizing control is conservative. Exact exceptional lines, non-reversing chirality, and asymptotically finite driving affinity describe the entire 2D velocity domain and enable scientifically motivated force-design predictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
