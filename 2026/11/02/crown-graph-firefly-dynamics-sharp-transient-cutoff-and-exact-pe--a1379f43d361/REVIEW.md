@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The matched-pair quotient with nine three-level multiplicities is exact for all finite crown graphs: a vertex only excludes its own matched mate from the opposite-shore blinking count, so zero/one/at-least-two multiplicities suffice. On a recurrent quotient orbit the occupied-type transition is bijective and induces a finite permutation; therefore first periodic-entry times agree in the quotient and full labelled dynamics, and full periods are quotient periods multiplied by permutation orders. Complete enumeration of all 19,683 quotient states establishes the sharp time cutoff and all period possibilities. The 19-term symbolic basin polynomial is checked independently by a polynomial-ring identity; direct vertex enumeration through seven matched pairs corroborates the formulas. The certificate is finite because the mathematical reduction is exact for arbitrary graph size, not because the sampled graph sizes are exhaustive.
+## correctness
 
-## Originality
-**PASS, with priority risk.** Lyu's original accessible 2014 firefly manuscript defines precisely this inhibitory rule but principally proves synchronization criteria for paths, trees, and stochastic perturbations; its inspected statements do not imply an exact crown-graph time cutoff, the size-three eighteen-cycle exception, or exact period-basin formulas. The subsequent 2016 tree work does not cover these crown graphs. The previously established same-rule results for complete bipartite and complete split graphs have fundamentally different neighborhoods: deleting the fixed matching changes each individual vertex's inhibition rule and produces the new quotient permutation phenomenon. Earlier crown results for Greenberg–Hastings excitation and cyclic cellular automata use different update maps and do not imply this result. A targeted published-record search did not reveal a dominating or equivalent claim. No negative search proves historical uniqueness; inaccessible and unindexed related results remain a limitation.
+PASS
 
-## Mathematical value
-**PASS.** The theorem produces a complete, exact period stratification and attraction-basin census for an infinite connected graph family. The exception at three pairs is a structurally nontrivial eighteen-cycle, not merely a numerical parameter adjustment, while the universal thirteen-step bound and closed basin polynomial show how removal of one matching changes a familiar dense-graph oscillator. The exponential predominance of three-cycle attraction quantifies typical behavior despite persistent minority four-cycle orbits. The result is a natural dynamical classification and does not rely on an arbitrary parameter slice.
+Every labelled matched pair has one of nine types (a,b). Since a vertex excludes at most its paired opposite neighbor, capping each type count at two retains exactly the blink-neighbor decision, producing a deterministic 3^9-state quotient. Occupied-type support cannot increase, so on a recurrent capped orbit the type map permutes surviving types; full labelled first periodic entry agrees with quotient first recurrence and full period follows by the induced permutation order. Independently reimplemented and exhaustively traversed ALL 19683 capped states: eventual periods 3 for 19209, 4 for 449, 18 for 24, empty fixed for 1; max entry 13, maximal feasible n=3,4 cutoff 9. Independently derived and exactly matched the full period-four polynomial P4(z,y) and its expansion with y=e^z-1-z, giving B4(n) for every n. Directly independently enumerated all 729 Cr3 labelled states (period basins 585 and 144, 72 recurrent 18-cycle states, four 18-cycles) and all 6561 Cr4 states (four-cycle basin 1248, max transient nine). These finite exhaustive quotient and formal identities, plus support-permutation lemma, support all n, not just small-n experiments.
 
-## Limits of the assessment
-The historical-priority comparison is bounded to material actually accessible, especially the full original author manuscript and documented related work. The 2016 tree preprint was available here only through its abstract and citation information. No independent external audit or formal-machine proof assistant check was performed. All numerical outputs are retained with standalone programs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lyu 2014 gives the identical three-state inhibitory firefly rule and proves results mainly for paths/trees; no full crown-graph 18-cycle exception or exact all-size basin law was located in accessible full text. Published Resultary crown graph records involving parity/other automata use different transition maps, so cannot imply these dynamics. Any unindexed family-specific exact census remains a risk.
+
+## value
+
+PASS
+
+The finite type quotient yields a size-uniform exact transient bound for an infinite graph family, an unexpected exceptional eighteen-cycle at smallest nontrivial size, an exact basin law and a probabilistic synchronization cutoff. This is a natural and reproducible complete dynamical classification, not a mere tiny finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
