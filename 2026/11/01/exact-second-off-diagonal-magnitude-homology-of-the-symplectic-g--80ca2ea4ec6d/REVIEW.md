@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-Correctness — PASS. The graph is rebuilt from isotropic subspaces and independently checked against the generalized-quadrangle axiom. The length-five magnitude chain bases are exhaustively generated and the smooth-deletion boundary is computed without rounding. Both compositions are zero; the two local rank pairs are 18/63 and 28/50. Explicit symplectic transvections certify orbit sizes 160 and 1440 and therefore the global multiplicities, with path reversal covering the other ordering. No untested infinite parameter range is asserted.
+## correctness
 
-Originality — PASS against inspected literature. The Asao–Hiraoka–Kanazawa girth theorem concerns a stronger girth bound for second-off-diagonal vanishing; it does not calculate this girth-eight graph. The closest published result concerns \(W(3,2)\), with rank 1440, while the new order-three graph has 80 vertices and a different endpoint-local chain complex. Direct searches for GQ(3,3), \(W(3,3)\), symplectic Levi graphs, magnitude bidegree (3,5), and 25920 did not identify an exact existing table. An unindexed equivalent remains possible.
+PASS
 
-Value — PASS. The order-three symplectic generalized quadrangle is the first larger classical example beyond the published order-two boundary computation. The exact endpoint-localized profile and 25920 global rank give a meaningful new finite comparison at the first girth allowing these second-off-diagonal classes, rather than an arbitrary slice, numerical rounding, or a known-table recomputation. The result supplies a reproducible benchmark for conjectured dependence on the generalized-quadrangle order; a uniform theorem is not claimed.
+The 4D nondegenerate alternating F3 form yields exactly 40 projective points and 40 totally isotropic lines, each with four incidences; the incidence graph has diameter four. For ordered point–line endpoints at distances 1 and 3, independently enumerated all length-five magnitude chains in degrees 2,3,4 and built the smooth-interior-deletion mod-two boundary matrices. At distance 1, chain dimensions (18,81,120) and ranks (18,63) give H3=0; at distance 3, dimensions (28,87,72) and ranks (28,50) give H3=9. Every degree-four column satisfies ∂3∂4=0 and ranks were computed by exact bit elimination. Explicit symplectic transvection generators act transitively on all 160 incident and 1440 nonincident ordered point-to-line pairs; reversal covers line-to-point. Bipartite length parity makes same-part chains vanish. Thus 2×1440×9=25920. The finite graph enumeration is exhaustive by exact group orbits, not an unjustified sample or an all-q extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest published calculation determines the same bidegree for W(3,2), the 30-vertex Tutte–Coxeter graph, with local nonincident rank 4 and global rank 1440. The new order-three W(3,3) graph has 80 vertices, different chain matrices and local nonincident rank 9. The girth-controlled vanishing theorem has stronger girth hypotheses and does not imply the girth-eight boundary rank. A bounded exact-parameter search found no order-three table. This is best-of-knowledge acceptance with unindexed-table risk.
+
+## value
+
+PASS
+
+The incidence graph W(3,3) is the canonical first thick symplectic generalized quadrangle beyond the published order-two Tutte–Coxeter example. The exact endpoint-local H3 rank nine and total 25920 determine a natural graph invariant at the first girth boundary where second-off-diagonal magnitude homology may persist; exhaustive group-orbit reduction makes this a reproducible reference for future q-general investigations. A complete natural finite invariant is valuable without proving a uniform q formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
