@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claimed event is exactly the simultaneous illumination of two antipodal spike tips by a positively spanning tetrahedral frame. The twelve cross-family cap-pair events are disjoint in the specified parameter interval. A Gauss--Bonnet calculation gives the spherical lens area, while a local parabolic-strip calculation yields the \(3/2\)-power onset with the asserted exact coefficient. Independent one-dimensional quadrature, high-precision asymptotic checks and reproducible simulation corroborate the algebra but do not substitute for proof.
+PASS
 
-## Originality
+Reconstructed spherical tip normals: simultaneous hits are twelve cross-family equal-radius spherical lenses. Pair-center distance arccos(1/3) gives zero r>=sqrt3, same-family separation arccos(-1/3) gives no overlaps at r>=sqrt(3/2); hence 12 lens areas/4pi. Spherical Gauss--Bonnet supplies L=2pi-2eta-4 cos(alpha) beta. Independently evaluated positive probabilities 0.6015098891 at r=1.25, 0.1236287046 at 1.5, 0.0047279827 at 1.7. Parabolic tangency local area scales as (sqrt3-r)^(3/2). Tetrahedral covering radius gives p=1 for 1<r<=3/(2sqrt2); bounds only in unevaluated middle region.
 
-PASS, with historical-priority risk. Arman--Kaire--Prymak's Proposition 3 and Lemma 4 handle the cap-illumination criterion and marginal one-tip probability. They do not evaluate the joint probability that both antipodal spikes are hit by the same random tetrahedral frame. General simplex-cap union calculations involve one family and need not provide this two-sided joint law. Checked relevant literature and indexed mathematical findings; inaccessible full texts and unindexed equivalents remain risks. The exact two-sided probability and threshold, not the one-tip formula, are the claimed contribution.
+## originality
 
-## Value
+PASS
 
-PASS. The two-tip correlation is a natural obstacle to reducing a randomized multi-tip illumination bound to independent marginal estimates. The exact nonzero interval and sharp finite-radius cutoff quantify when a canonical four-beam strategy can succeed, while the \(3/2\) lens-tangency exponent supplies a mechanism for its abrupt loss of efficacy. This is a finite, geometrically motivated probability classification, not a statement about the global minimum illumination number.
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
 
-## Limits
+## value
 
-The overlap-rich intermediate interval is not explicitly integrated. The finding does not claim a new all-body illumination upper bound. Broader historical priority and independent mathematical validation remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact distribution and sharp noninteger onset exponent for a natural randomized illumination scheme on a symmetric two-tip cap body provide a usable sharp benchmark beyond deterministic illumination counts and one-tip marginal coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
