@@ -1,11 +1,21 @@
-# Scientific review: sharp rank-two Gaussian sketch small-ball law
+# Independent mathematical audit
 
-**Correctness — PASS.** Rank-two Gaussian rotational reduction, normalized ordered singular-value Jacobian, conditional chi-square CDF expansion, a finite negative chi-square moment, dominated convergence and beta integrals reconstruct the entire coefficient. The \(k\ge2\), fixed-positive-spectrum boundary is essential. The standalone checker validates several exact reductions but finite simulation is not an asymptotic proof.
+## correctness
 
-**Originality — PASS under the inspected source comparison.** Shao–Nakatsukasa, arXiv:2607.10377, Theorem 2.7 and its numerical rank-two discussion give a broader qualitative small-ball estimate and numerically suggest the exponent \(2k-1\). The present exact limit with elliptic anisotropy constant is not implied by those statements. Targeted published mathematical records and Google-style scholarly searches did not reveal equivalent coverage. Risk: older product-Wishart and Gaussian bilinear-form exact special-function literature was not exhaustively inspected; negative search results do not establish absolute priority. The earlier Nakatsukasa–Tropp comparator was consulted at abstract level only.
+PASS
 
-**Mathematical value — PASS.** A specific exponent proposed numerically for Gaussian block probing is now proved with a sharp nonzero coefficient for every fixed real rank-two residue. This gives measurable probability of a numerical eigensolver effectively missing a weak residue and reveals dependence on residue spectral shape. It does not imply global nonlinear eigensolver convergence or all-rank results.
+SVD/orthogonal invariance reduce Z to G^T diag(a,c) H with independent 2xk standard Gaussian factors. The ordered real 2xk singular-value density has factor (s1s2)^(k-2)(s1²-s2²) and gamma(k-1) normalization; the radial-angular check verifies it. Conditional ||Z||_F²=s1² V1+s2² V2 with independent chi-square_k variables. Scaling s2=eps*t produces eps^(2k-1); the chi-square CDF power bound and integrable E[V2^(-(k-1)/2)] justify dominated convergence for k>=2. Separate s1 and t beta integrals yield C_k and the Haar average J(a,c), and J reduces to elliptic K. Direct independent gamma evaluation verifies C2=pi/6,C3=1/15,C4=pi/840, but these finite values do not prove the limit. A fixed finite-threshold simulation in the source checker is smoke testing only.
 
-**Scientific limitations.** No claims for complex Gaussians, higher-rank residues, joint scaling limits, other sketch distributions, or floating-point detection. Self-review is not independent replication. The complete historical priority question remains open to additional primary-source comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shao-Nakatsukasa explicitly give a general rank-one-style upper anti-concentration bound and show numerical rank-two slope 2k-1; their theorem does not give an exact asymptotic or elliptic anisotropy constant. The assessed novelty is the leading constant and rigorous rank-two asymptotic, not SVD distributions or Gaussian anti-concentration itself.
+
+## value
+
+PASS
+
+Two-sided Gaussian probing is directly used in randomized resolvent eigensolvers. Determining exact rank-two rare-event decay, including spectral-shape dependence and no logarithm, resolves a specific numerically conjectured regime and provides precise probabilistic calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:15:06.660850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "SVD/orthogonal invariance reduce Z to G^T diag(a,c) H with independent 2xk standard Gaussian factors. The ordered real 2xk singular-value density has factor (s1s2)^(k-2)(s1²-s2²) and gamma(k-1) normalization; the radial-angular check verifies it. Conditional ||Z||_F²=s1² V1+s2² V2 with independent chi-square_k variables. Scaling s2=eps*t produces eps^(2k-1); the chi-square CDF power bound and integrable E[V2^(-(k-1)/2)] justify dominated convergence for k>=2. Separate s1 and t beta integrals yield C_k and the Haar average J(a,c), and J reduces to elliptic K. Direct independent gamma evaluation verifies C2=pi/6,C3=1/15,C4=pi/840, but these finite values do not prove the limit. A fixed finite-threshold simulation in the source checker is smoke testing only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Gaussian bilinear small-ball inequalities bound probabilities from above or below, not the sharp anisotropic constant. The Shao-Nakatsukasa bound O((eps log eps)^k) is weaker than eps^(2k-1) for k>=2 and therefore does not imply the asymptotic."
+        ],
+        "reasoning": "General Gaussian bilinear small-ball inequalities bound probabilities from above or below, not the sharp anisotropic constant. The Shao-Nakatsukasa bound O((eps log eps)^k) is weaker than eps^(2k-1) for k>=2 and therefore does not imply the asymptotic.",
+        "searches": [
+          "Resultary: two sided real Gaussian rank two block probing Frobenius small ball epsilon 2k-1 elliptic singular value leading constant",
+          "web: Gaussian product 2xk kx2 small ball rank 2 Frobenius epsilon^(2k-1) exact",
+          "Shao-Nakatsukasa arxiv:2607.10377, theorem 2.7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10377",
+        "https://www.researchgate.net/publication/409443398_Convergence_analysis_of_a_nonlinear_eigensolver_based_on_rational_approximation_of_the_resolvent",
+        "https://people.maths.ox.ac.uk/nakatsukasa/research.htm",
+        "Resultary: Gaussian rank-two block probing exact small-ball search",
+        "Assigned source result: https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/sharp-rank-two-gaussian-resolvent-sketch-small-ball-law-with-ell--6dd6377737bf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Shao-Nakatsukasa full primary section 2.2 states rank-two 2k-1 only as numerical evidence in Figure 2.2 after Theorem 2.7; equation (2.6) is an upper bound and cannot imply a matching asymptotic constant. The SVD measure and dominated-convergence calculation supply a genuinely additional step."
+        ],
+        "reasoning": "The Shao-Nakatsukasa full primary section 2.2 states rank-two 2k-1 only as numerical evidence in Figure 2.2 after Theorem 2.7; equation (2.6) is an upper bound and cannot imply a matching asymptotic constant. The SVD measure and dominated-convergence calculation supply a genuinely additional step.",
+        "searches": [
+          "Resultary: two sided real Gaussian rank two block probing Frobenius small ball epsilon 2k-1 elliptic singular value leading constant",
+          "web: Gaussian product 2xk kx2 small ball rank 2 Frobenius epsilon^(2k-1) exact",
+          "Shao-Nakatsukasa arxiv:2607.10377, theorem 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Product-Wishart/singular-value distributions encode related integrals, but a density for singular values of one factor is not yet the exact Frobenius small ball law of two factors. The proof explicitly integrates the conditional chi-square tail over near-rank-one singular values."
+        ],
+        "reasoning": "Product-Wishart/singular-value distributions encode related integrals, but a density for singular values of one factor is not yet the exact Frobenius small ball law of two factors. The proof explicitly integrates the conditional chi-square tail over near-rank-one singular values.",
+        "searches": [
+          "Resultary: two sided real Gaussian rank two block probing Frobenius small ball epsilon 2k-1 elliptic singular value leading constant",
+          "web: Gaussian product 2xk kx2 small ball rank 2 Frobenius epsilon^(2k-1) exact",
+          "Shao-Nakatsukasa arxiv:2607.10377, theorem 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "C2,C3,C4 are gamma evaluations, not the novelty themselves. The entire fixed-k family and elliptic shape factor are analytic, not a database recomputation; literature searches and Resultary semantic matches did not locate an exact previously tabulated constant."
+        ],
+        "reasoning": "C2,C3,C4 are gamma evaluations, not the novelty themselves. The entire fixed-k family and elliptic shape factor are analytic, not a database recomputation; literature searches and Resultary semantic matches did not locate an exact previously tabulated constant.",
+        "searches": [
+          "Resultary: two sided real Gaussian rank two block probing Frobenius small ball epsilon 2k-1 elliptic singular value leading constant",
+          "web: Gaussian product 2xk kx2 small ball rank 2 Frobenius epsilon^(2k-1) exact",
+          "Shao-Nakatsukasa arxiv:2607.10377, theorem 2.7"
+        ]
+      },
+      "rationale": "Shao-Nakatsukasa explicitly give a general rank-one-style upper anti-concentration bound and show numerical rank-two slope 2k-1; their theorem does not give an exact asymptotic or elliptic anisotropy constant. The assessed novelty is the leading constant and rigorous rank-two asymptotic, not SVD distributions or Gaussian anti-concentration itself.",
+      "residual_risks": [
+        "Specialized Gaussian matrix-product literature could contain an equivalent exact density that implies the result after integration.",
+        "Only fixed real rank two, k>=2, positive singular values; no complex or joint scaling regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes O((eps |log eps|)^k) upper bound and numerically suggests eps^(2k-1), without exact small-ball equivalent or elliptic coefficient",
+          "evidence": "Theorem 2.7 near lines 1044-1062; lines 1226-1234 explicitly call 2k-1 numerical evidence",
+          "identifier_or_url": "https://www.researchgate.net/publication/409443398_Convergence_analysis_of_a_nonlinear_eigensolver_based_on_rational_approximation_of_the_resolvent",
+          "material_read": "Full primary text exposed as readable HTML; section 2.2, theorem 2.7, proof of bound eq. (2.6), numerical Figure 2.2 and discussion, checked with document search",
+          "method": "web HTML extracted full paper text; arxiv PDF unavailable; Oxford call separately returned vpn_disconnected",
+          "title": "Convergence analysis of a nonlinear eigensolver based on rational approximation of the resolvent",
+          "trigger": "Direct motivating paper, same rank-two Gaussian block probing probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-sided Gaussian probing is directly used in randomized resolvent eigensolvers. Determining exact rank-two rare-event decay, including spectral-shape dependence and no logarithm, resolves a specific numerically conjectured regime and provides precise probabilistic calibration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.10377",
+    "https://www.researchgate.net/publication/409443398_Convergence_analysis_of_a_nonlinear_eigensolver_based_on_rational_approximation_of_the_resolvent",
+    "https://people.maths.ox.ac.uk/nakatsukasa/research.htm",
+    "Resultary: Gaussian rank-two block probing exact small-ball search",
+    "GitHub immutable RESULT.md and verifier blobs at https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/sharp-rank-two-gaussian-resolvent-sketch-small-ball-law-with-ell--6dd6377737bf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No uniform error term in eps or ill-conditioning, no higher rank or complex extension; finite numerical program is not an asymptotic proof.",
+    "Specialized Gaussian matrix-product literature could contain an equivalent exact density that implies the result after integration.",
+    "Only fixed real rank two, k>=2, positive singular values; no complex or joint scaling regime."
+  ],
+  "schema_version": 1
+}
