@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The encoded field model uses base-\(p\) polynomial coefficients and the monic irreducible moduli listed in `RESULT.md`. Every chosen multiplicative generator is checked primitive; the Python implementation also checks irreducibility by trial division, while the C++ verifier uses independent quartic-character arithmetic and checks the field Frobenius identity and generator order.
+## correctness
 
-The Python verification script, which uses only the standard library, checks four explicit obstructions for orders \(9,49,81,121\) and exact symmetry-reduced four-extension minima at orders \(121,361\). It computes both order-\(121\) three-extension minima. The C++17 program independently enumerates all \(280840\) four-subsets containing zero for both order-\(121\) graphs and all \(257044\) Peisert order-\(361\) four-tuple orbit representatives. It computes all sixteen adjacency masks for each tuple, checks degree and common-neighbor parameters, and independently verifies the 3-e.c. order-121 comparison.
+PASS
 
-Observed completed runs are recorded in `python_output.txt` and `independent_output.txt`. Both reproduce the positive Peisert order-\(361\) minimum \(10\) and the order-\(121\) Paley minimum \(2\). The C++ order-\(121\) Peisert enumeration identifies \(400\) failing four-sets containing zero and confirms the exact missing-all-neighbors tuple \((0,1,16,17)\). The mathematical orbit-normalization argument in `RESULT.md` is necessary: finite testing without that coverage argument would not prove a universal statement over all four-subsets.
+For Peisert P*(q) at q=p^(2e), p≡3 mod4, quartic-coset adjacency D={g^j:j mod4∈{0,1}}, explicit irreducible polynomial models were checked for q=9,49,81,121,361 and primitive generators. The tuples (0,1,2,3) at 9 and49, (0,1,2,42) at81 and (0,1,16,17) at121 have a zero four-extension count (not necessarily same pattern), ruling out all smaller eligible orders. For q=361, translations and fourth-power multiplications reduce every unordered four-set and adjacency mask to (0,b,c,d) with b∈{1,g,g²,g³}, 1≤c<d<361, c,d≠b; exactly 4*binom(359,2)=257044 cases. Independent bit-mask exhaustive census (new implementation) returns global min10, attained at (0,1,2,3). For q121 translations reduce to all binom(120,3)=280840 anchored four-subsets; independent complete enumerations show Paley min2, zero failures; Peisert min0, 400 failing anchored tuples. Both 3-e.c.: all binom(120,2)=7140 anchored triples have minimum 12 (Paley) or11 (Peisert). Both share (121,60,29,30) by exact field count. Their 3-extension property gives a four-round back-and-forth strategy, so rank≤4 elementary equivalence, while ∃4 distinct vertices with no common neighbor is a rank-five sentence true for Peisert and false for Paley, giving sharp depth. Finite exhaustive ranges are mathematically complete because of the supplied orbit reduction, not extrapolated to all larger orders.
 
-**Limits:** These exhaustive computations address only the named finite field orders. They do not establish 4-e.c. for every larger Peisert graph. Independent mathematical audit has not been performed. Historical-priority assessment remains qualified because the full 2004 pseudorandomness article was not accessible.
+## originality
+
+PASS
+
+PASS qualified: classical Peisert construction, finite-field graph pseudorandomness and Rado extension logic are earlier; the exact first Peisert 4-e.c. order, tenfold extension minimum, q=121 Paley–Peisert first-order rank-five separation do not appear in inspected thesis and retrieved primary summaries. Inaccessible Kisielewicz–Peisert 2004 full text leaves a concrete historical priority risk.
+
+## value
+
+PASS
+
+Peisert and Paley at order 121 share full strongly regular parameters, so an explicit difference at the first separating first-order quantifier rank is a natural model-theoretic invariant. The first order with Peisert four-extension property and its exact min10 matter to finite pseudorandom extension thresholds; exhaustive finite classification is independently meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
