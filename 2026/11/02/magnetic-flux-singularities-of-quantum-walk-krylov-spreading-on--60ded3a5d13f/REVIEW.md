@@ -1,19 +1,21 @@
-# Scientific assessment of magnetic-flux singularities on finite cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over every integer \(N\ge3\), all fluxes modulo \(2\pi\), a positive uniform hopping amplitude, and a vertex-localized initial state. The proof is a finite exact spectral calculation, not an inference from simulated samples. Fourier eigenvalues and their pairings establish the rooted Krylov dimensions. Cesàro dephasing assigns each distinct energy eigenspace its exact root projection weight. This proves uniformity at generic flux and at even half flux. At zero flux the reflection shell vectors are exactly the ordered Lanczos vectors; finite geometric-series identities give the complete averaged distributions. The odd half-flux case follows by a gauge equivalence with the negative zero-flux Hamiltonian. The continuity-at-fixed-time argument explicitly handles the collapse in Krylov dimension. The exact arithmetic probability and mean formulas have been independently checked using orthogonal-polynomial spectral quadrature and exact rational arithmetic, with 1,300 finite assertions. Remaining limitations: no uniform-in-flux time averaging, disorder, measurements, or general graphs.
+PASS
 
-## Originality — PASS (qualified priority)
+The Fourier eigenvalues E_k=2J cos((2 pi k+phi)/N) are distinct except phi modulo 2pi equals 0 or pi; degeneracies pair k with -k (zero) or -1-k (pi). Each Fourier mode contributes seed spectral weight 1/N, so generic dephased cyclic density is the maximally mixed state and all N Krylov populations equal 1/N. Even N half-flux has all paired weights 2/N, giving m equal populations; at zero flux the reflection-shell Lanczos vectors and finite cosine-square sums give endpoint/interior populations, with the odd-N pi case gauge equivalent to minus the zero-flux Hamiltonian. Independent NumPy Hamiltonian/Lanczos/eigenprojection dephasing reproduced every branch for N=3..12, not relying on source claimed populations. Spectral theory and finite geometric-series identities prove all N; noncommuting infinite-time and phi limits arise from fixed-time continuity versus dephasing degeneracy.
 
-The closest source, Jeevanesan, arXiv:2401.00526v1, proves the general Krylov spectral-average machinery and treats other graph families, without this magnetic cycle classification. Adamczak et al., arXiv:0708.2096, concern *spatial vertex probabilities*, not the rooted Krylov-index distribution. Luppi, arXiv:2608.12519, establishes flux-dependent local return and sequential measurement results for similar magnetic cycles; its rooted eigenvalue framework supplies relevant ingredients but it does not present these averaged Krylov-index populations, their all-\(N\) phase/parity formula, or their discontinuous long-time flux limits. The exact implication comparison matters: equal simple-spectrum root weights already imply the generic uniform branch by known dephasing, so neither that spectral observation nor the dephasing principle is claimed as new on its own. The new result is the combined finite-cycle classification and singular limits, including exceptional-flux formulas. Other published finite-dimensional spectral theory might subsume parts of the argument; this priority risk survives and independent examination is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete, natural and parameter-free benchmark for the proposed graph-based complexity observable under an experimentally meaningful gauge parameter. It proves an order-\(N\) jump in a long-time information-spreading diagnostic under an arbitrarily small flux perturbation, while rigorously showing no corresponding instantaneous jump. The parity-dependent half-flux behavior also separates eigenvalue multiplicity and dynamically available Krylov dimension from ordinary graph size. All four branches are exact, and the exceptional spectral shell profiles explain *why* the discontinuity occurs. This is a meaningful finite-graph physical distinction, not an arbitrary slice or a mere reproduction of a known mixing table.
+Jeevanesan primary quantum-walk spread-complexity article develops the exact measure and covers path, complete graph, stars, attached hubs/trees, but inspected mathematical sections do not state flux-threaded cycle parity and Krylov index populations. Adamczak et al study vertex average mixing, a different observable; spectral energy degeneracies are known and not claimed new. Luppi studies flux and measurement correlations, not the exact Krylov time-averaged law in accessible abstract. No direct Resultary match.
 
-## Closest literature and residual risk
+## value
 
-The published model-observable framework is arXiv:2401.00526v1; the closest alternative observable is cycle vertex mixing in arXiv:0708.2096; the closest magnetic-ring source is arXiv:2608.12519. The proof uses elementary character sums and spectral dephasing, so novelty concerns this classification and resulting physical singularity rather than those general methods. A sufficiently broad known result about magnetic-cycle orthogonal-polynomial measures could imply the numerical formulas without naming this observable, and that possibility is not entirely ruled out. An independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-cycle magnetic-flux and parity classification for a natural quantum-information complexity observable, with a discontinuous Cesaro limit despite continuous finite-time dynamics; this distinguishes Krylov spreading from spatial mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

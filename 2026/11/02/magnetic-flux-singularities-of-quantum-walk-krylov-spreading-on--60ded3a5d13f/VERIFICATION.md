@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The exact argument is in `RESULT.md`. For every integer \(N\ge3\), the Fourier spectrum has one simple eigenvalue for every mode except at integer half-flux multiples, and the degeneracy classification follows directly from the cosine equality condition. The projected spectral density yields \(\overline p_j\) after dephasing; no stochastic approximation, time-grid truncation or floating-point interpolation is needed to prove the theorem.
+## correctness
 
-For reproducibility, run `python3 verify_flux_cycle.py` with Python 3. The standalone script reports `PASS: 1300 independent finite checks; all-cycle proof remains analytic`. It reconstructs the orthogonal polynomials on distinct Fourier energies from scratch rather than inserting the asserted Krylov populations. It compares the resulting expectations against the full population and mean formulas on \(N=3,\ldots,27\), checks exact rational identities up to \(N=149\), and estimates finite-time Cesàro integrals on small cycles as an additional independent check.
+PASS
 
-The finite checks do not replace the exact all-size proof or establish convergence rates uniform in flux. The result treats a single localized seed in a unitary nearest-neighbor finite ring; no independent external audit or certification is asserted.
+The Fourier eigenvalues E_k=2J cos((2 pi k+phi)/N) are distinct except phi modulo 2pi equals 0 or pi; degeneracies pair k with -k (zero) or -1-k (pi). Each Fourier mode contributes seed spectral weight 1/N, so generic dephased cyclic density is the maximally mixed state and all N Krylov populations equal 1/N. Even N half-flux has all paired weights 2/N, giving m equal populations; at zero flux the reflection-shell Lanczos vectors and finite cosine-square sums give endpoint/interior populations, with the odd-N pi case gauge equivalent to minus the zero-flux Hamiltonian. Independent NumPy Hamiltonian/Lanczos/eigenprojection dephasing reproduced every branch for N=3..12, not relying on source claimed populations. Spectral theory and finite geometric-series identities prove all N; noncommuting infinite-time and phi limits arise from fixed-time continuity versus dephasing degeneracy.
+
+## originality
+
+PASS
+
+Jeevanesan primary quantum-walk spread-complexity article develops the exact measure and covers path, complete graph, stars, attached hubs/trees, but inspected mathematical sections do not state flux-threaded cycle parity and Krylov index populations. Adamczak et al study vertex average mixing, a different observable; spectral energy degeneracies are known and not claimed new. Luppi studies flux and measurement correlations, not the exact Krylov time-averaged law in accessible abstract. No direct Resultary match.
+
+## value
+
+PASS
+
+Complete all-cycle magnetic-flux and parity classification for a natural quantum-information complexity observable, with a discontinuous Cesaro limit despite continuous finite-time dynamics; this distinguishes Krylov spreading from spatial mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
