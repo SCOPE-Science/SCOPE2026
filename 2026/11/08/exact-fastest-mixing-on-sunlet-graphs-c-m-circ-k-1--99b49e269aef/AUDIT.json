@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Global convex averaging is legitimate for every symmetric stochastic feasible P since SLEM=||P-J||₂. The exact 2×2 Fourier blocks give all invariant eigenvalues. Strict monotonicity in spoke weight and strict convexity of the positive-mode lower bound establish its unique optimizer. An exact identity shows the worst negative eigenvalue has smaller modulus, while the zero-mode eigenvalue is bounded. The argument covers every integer m≥3. Seven algebraic identities and 41 actual matrices were verified, with 3280 feasible invariant perturbation and 770 feasible noninvariant sampling checks; numerical checks are not used to prove the universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarizadeh (2010), §III.C–D, builds cyclic multipartite pseudo-distance-regular networks from neighboring vertex sets and exhibits no degree-one pendant vertex for the stated families.",
+        "Jafarizadeh (2025), §3 and §6, establishes reductions for clique lifts, path-attached subgraphs, palms, stars and symmetry classes; the sunlet is not a clique lift with complete fiber-to-fiber edges.",
+        "Boyd, Diaconis and Xiao (2004) give a semidefinite formulation for arbitrary supports, rather than an analytic answer for this support."
+      ],
+      "reasoning": "Generic existence of a convex formulation does not determine a closed-form minimizer. Cyclic multipartite and clique-lift subclasses lack the sunlet one-leaf-per-cycle-vertex topology, so their optimized parameter bounds do not imply the two sunlet weights or the sharp spectral value.",
+      "searches": [
+        "fastest mixing Markov chain on Cartesian product of complete graphs with unequal sizes mixed Hamming graph exact SLEM optimal probability",
+        "fastest mixing Markov chain on symmetric K-partite network cycle K-PPDR",
+        "https://arxiv.org/abs/1008.2588",
+        "https://arxiv.org/abs/2501.02421"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis and Xiao 2004, https://doi.org/10.1137/S0036144503423264",
+      "Boyd, Diaconis, Parrilo and Xiao 2007, arXiv:0709.0955v1",
+      "Jafarizadeh 2010, arXiv:1008.2588v1",
+      "Jafarizadeh 2025, arXiv:2501.02421"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004/2007 general graph framework allows symmetry averaging and Fourier analysis, but supplies no closed formula for the sunlet cycle-spoke minimax problem.",
+        "The 2010 cyclic pseudo-distance-regular graphs have no single pendant leaf on each core and the 2025 clique-lift reduction has complete internal clique fibers.",
+        "The explicit new proof uses strict convexity of a first-Fourier-mode lower bound followed by a nontrivial inequality controlling the opposite spectral edge: rho²-(b²+4a²)=z(z+2)(2-z²)/D²>0.",
+        "The m=3 boundary case coincides with a clique core K3 with one pendant leaf per core vertex and is already obtained by the earlier clique-corona formula; that formula does not apply to cycle cores C_m for m≥4 because C_m is not complete."
+      ],
+      "reasoning": "The claimed global sunlet result follows from the established convex framework only after deriving and solving a new two-parameter spectral problem and verifying that no other Fourier mode dominates. It is not a direct specialization of the closed formulas for different graphs. Residual risk is a not-yet-indexed specialist paper with exactly this graph. The m=3 overlap is explicitly credited and does not establish the new m≥4 cyclic-core family.",
+      "searches": [
+        "https://doi.org/10.1137/S0036144503423264",
+        "https://arxiv.org/abs/0709.0955",
+        "https://arxiv.org/abs/1008.2588",
+        "https://arxiv.org/abs/2501.02421"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2007 Boyd–Diaconis–Parrilo–Xiao manuscript treats wheel graphs in §5.3.3 (one central hub) and a repeated six-vertex cyclic graph in §5.3.6, neither the one-leaf-per-core sunlet.",
+        "The explicit proposed weights depend on the cycle first Fourier frequency through z=√2 sin(π/m) and are not obtained by a parameter rename of a cycle-only optimum."
+      ],
+      "reasoning": "For equivalent formulations the underlying adjacency/support graph must coincide, or the prior theorem must cover arbitrary graph with an evaluated output. The wheel and cyclic examples have different supports; the general SDP representation has no analytic sunlet solution. Searching formulations using corona, sunlet, ring with leaves, and symmetric edge-weight optimization yielded no exact equivalent among inspected materials.",
+      "searches": [
+        "sunlet graph fastest mixing Markov chain exact optimal spectral gap transition probability ring leaf corona C_n K_1",
+        "fastest mixing Markov chain on corona of cycle with one pendant leaf each",
+        "fastest mixing Markov chain sunlet graph cycle with attached pendant vertex each optimal edge transition rates",
+        "https://arxiv.org/abs/0709.0955"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ranked mathematical-findings search surfaced no record for an all-size sunlet SLEM or exact optimal transition matrix. Nearest indexed records concerned unrelated cycle spectroscopy or other graph invariants.",
+        "The Boyd et al. (2007) and Jafarizadeh (2010) table/explicit-example sections inspected contain cycles, wheels, complete multipartite and cyclic multipartite networks, but not a sunlet table or the proposed expression."
+      ],
+      "reasoning": "A finite table, even if it exists for some small sunlets, would not automatically imply an algebraic formula and all-size proof. No exact table or record with dominating coverage was recovered. The absence of a search hit is not itself a novelty certificate.",
+      "searches": [
+        "sunlet cycle corona C_n pendant leaves optimal SLEM fastest mixing",
+        "edge orbit two parameters ring spokes leaf fastest mixing Markov chain",
+        "second-largest eigenvalue modulus cycle with a leaf attached to each vertex core ring optimal symmetric stochastic matrix"
+      ]
+    },
+    "rationale": "An exact all-size SLEM formula and optimal two-edge-orbit weights for the sunlet corona are not a stated or directly implied special case of the inspected graph-optimization treatments: the general SDP method is not an evaluated solution, the wheel has one hub rather than individual leaves, cyclic K-partite pseudo-distance-regular networks have complete interlayer connections without pendant leaves, and clique lifting requires different fiber connections. The result is considered original on currently inspected evidence with residual bibliographic risk. The m=3 triangle-core member overlaps an existing clique-with-one-leaf classification; originality concerns the infinite nonclique-core m≥4 family.",
+    "residual_risks": [
+      "A specialist article or thesis not indexed by the searched sources may have independently solved the sunlet graph.",
+      "No independent literature-priority or mathematical audit has been performed; the mathematical proof is supplied for scrutiny."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimization framework, not an evaluated sunlet threshold",
+        "evidence": [
+          "SIAM Review 46 (2004), DOI 10.1137/S0036144503423264; matrix norm and semidefinite program"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Definitions and SDP formulation; discussions of symmetry reduction and exact graph examples, including the complete bipartite case",
+        "method": "Author-hosted public full-text PDF rendering and relevant section inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational general FMMC and potentially dominating all-graph convex program"
+      },
+      {
+        "assessment": "Provides the averaging/spectral techniques but treats non-sunlet edge supports; does not give the proposed sunlet weights",
+        "evidence": [
+          "arXiv:0709.0955v1 (2007-09-06); §5.3.3 wheel has a single hub, not one leaf per cycle vertex"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "material_read": "Graph symmetry and cycle discussions; §5.3.3 Wheel graph, §5.3.5 binary trees, §5.3.6 Ron Graham repeated six-vertex cyclic graph, and formulas for other graph supports",
+        "method": "Readable lawful complete HTML manuscript with focused passage inspection; corresponding PDF title page also viewed",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Highly relevant exact solutions for cyclic graphs and dihedral edge orbits"
+      },
+      {
+        "assessment": "Cyclic multipartite graph constructions connect adjacent layers, rather than attaching degree-one leaves to a core cycle; no direct coverage",
+        "evidence": [
+          "arXiv:1008.2588v1 (2010-08-16), §III.C–D"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+        "material_read": "Full-text introduction, §III.A–D including definitions and equations for cyclic networks, their diagrams, and §IV discussion; page 6 figure and definitions inspected visually",
+        "method": "Public full-text PDF section inspection with relevant page screenshot",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "The titles Cycle K-PPDR and Semi Cycle K-PPDR could superficially resemble a cycle with leaves"
+      },
+      {
+        "assessment": "General clique-lift and separate subgraph optimality results do not state or derive the complete sunlet optimum",
+        "evidence": [
+          "arXiv:2501.02421 (2025), §§3–7"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+        "material_read": "Introduction, definition and reduction for clique lifts, and descriptions of the specific path, tree, star and palm graph families",
+        "method": "Full public HTML manuscript, focused definition/theorem/graph-family inspection",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Potentially broad lift and subgraph results, published after focal source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "99b49e26-9aef-4eda-8717-6b14dfeb0e32",
+  "value": {
+    "rationale": "The fully determined global fastest-mixing value on a nonregular unicyclic infinite graph family is a motivated graph-weight design invariant, not a generic convex-program restatement. The formula supplies explicit optimal cycle/spoke probabilities, proves that the core has no holding, and yields sharp 1/m spoke scaling and 1/m² gap scaling. The solved extremal statement and negative-mode certificate explain a concrete nontrivial topology-induced mixing slowdown and support future comparison with other corona and decorated-cycle graphs.",
+    "status": "PASS"
+  }
+}
