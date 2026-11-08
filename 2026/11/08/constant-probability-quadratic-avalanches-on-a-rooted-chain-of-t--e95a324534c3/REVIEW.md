@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** Exact cut-triangle Dhar burning gives all \(3^k\) recurrent configurations. An explicit integral reduced-Laplacian odometer proves the all-size maximum, least-action monotonicity bounds every state, and stable-recurrent uniqueness determines precisely the \(3^{k-2}\) maximizing codes. An exact potential solves the uniform-recurrence mean. Independent complete enumeration through \(k=9\) and Laplacian checks through \(k=50\) succeeded. These finite checks supplement, not substitute for, the symbolic proof.
+
+**Originality: PASS on examined evidence.** Ali and Dhar (1994/1995) already prove quadratic toppling scales in other one-dimensional decorated sandpiles; that known phenomenon is explicitly not claimed new. Their alternating double-bond and bridge-linked diamond graphs do not contain this edge-sharing triangle-chain theorem. Gauthier (2011) analyzes branched expanded cacti with first-wave cell size; Austin et al. (2016) characterize avalanche polynomials for other families; Fairchild et al. (2016) treat a different ring-of-triangles sink convention. Accessible prior finite triangle-hub avalanches have different topology/source and a linear maximum. The exact fixed-terminal all-\(k\) maximum, last-two-block criterion, and atom of probability \(1/9\) were not found as direct statements or logical consequences of those primary results. Historical priority remains provisional because obscure/unindexed equivalent work may exist.
+
+**Mathematical value: PASS.** A physically canonical bounded-degree chain of triangle blocks supports an order-\(k^2\) event with exactly constant probability under recurrent stationary driving, not merely at rare specially chosen global configurations. The sharp formula and two-block criterion turn multiscale dissipation in a decorated one-dimensional system into a complete exact benchmark rather than an arbitrary small graph census.
+
+**Scientific limitations.** Only one fixed distal addition site, one sink, finite undirected deterministic Abelian sandpiles and total individual topplings; no general exponent, full distribution or infinite-volume stationary law is established. Available source coverage cannot certify worldwide novelty.
+
+Self-review: passed. Independent audit: not yet performed.
