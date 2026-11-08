@@ -1,0 +1,15 @@
+# Scientific review: two-level symmetric-matrix commutator fibers
+
+## Correctness — PASS
+The claim is exact for every odd prime power. The Fourier identity is derived from two nondegenerate trace pairings, not assumed. A nonzero skew-symmetric three-by-three matrix necessarily has rank two and cannot have square zero, so the quadratic-minimal-polynomial contradiction forces cyclicity. Its full centralizer is the polynomial algebra, and transpose selects exactly the two-dimensional symmetric span of the identity and the square. Character orthogonality gives both fiber sizes, and their total mass is the full number of ordered pairs. The dimension-four witness uses explicitly distinct centralizer dimensions, and nonuniform Fourier values contradict uniform nonzero fibers. Exhaustive checks over three prime fields and a separate four-dimensional witness check agree. The experiments do not prove the arbitrary-field statement; the algebraic argument does.
+
+## Originality — PASS, provisional historical priority
+The inspected full accessible texts by Bulois (arXiv:0906.3881, type-AI symmetric-pair geometry), Lopatin (arXiv:1004.3082, invariants of skew matrices), and Fulman–Guralnick (arXiv:1611.05499, general linear/unitary/symplectic commuting-pair enumeration) address related centralizers but do not supply this target-resolved bracket law for two symmetric factors or its dimension-four obstruction. Grašič's 2010 skew-Lie zero-product-determined result was checked at the abstract/metadata level only; full text was inaccessible and remains a specific risk. Searches for the formulas, aliases and equivalent Fourier statements did not locate an implication establishing the result. Search absence is not a proof of novelty; a more general unidentified symmetric-pair convolution theorem remains a residual risk.
+
+## Value — PASS
+The orthogonal symmetric-pair bracket is a canonical quadratic map from self-adjoint to skew-adjoint matrices, not an arbitrary finite slice. Dimension three is the smallest case where its target space has more than one dimension and yields the nontrivial finding that **all** nonzero skew targets share a single exact multiplicity despite their different orthogonal types. The first higher-dimensional obstruction shows that uniformity reflects a distinctive cyclic-centralizer property rather than an automatic bilinear-map phenomenon. The zero fiber also determines the exact symmetric-matrix commuting probability. The invariant is natural even without a downstream theorem or higher-dimensional classification.
+
+## Sources and limitations
+M. Bulois, arXiv:0906.3881v1 (public 2009-06-21); A. A. Lopatin, arXiv:1004.3082v1 (public 2010-04-19); M. Grašič, DOI 10.1080/03081080903191672 (online 2010-04-16); J. Fulman and R. Guralnick, arXiv:1611.05499v1 (public 2016-11-16). The characteristic-two situation and the complete dimension-four target distribution are outside the claim. The accessible-literature comparison is provisional and independent mathematical validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
