@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator-image recurrence and the mixed-product coefficient criterion prove the classification for every field, including characteristics two and three. The radical ideal comparison proves the geometric assertion without claiming an unreduced scheme. Linear ranks and composition nilpotency are derived from explicit support shifts. Direct exhaustive field tests supplement the proof; see `verify.py` and `VERIFICATION.md`.
+PASS
 
-## Originality — PASS, with priority risk
+Successive squaring of first column forces all later columns. If a_s,a_t ≠0 for 1≤s<t<n, coefficient of e_(t+1) in f(e1) f(e_(t-s+1)) is a_t a_s^(2^(t-s))≠0, contradicting mixed product relation; a sole nonterminal coordinate is sufficient because shifted supports are disjoint. In universal coordinate ring the mixed-product ideal I lies within squarefree K=(a_s a_t), and each (a_s a_t)^N lies in radical(I); hence radical(I)=K and exactly n-1 affine-plane components share a line. First-column positions give all ranks and single-map nilpotence. Independently checked full generator-image census over F2 for n=2,3,4 and F3 for n=3, with exact predicted counts and idempotents; finite checks do not prove all fields or reduced-scheme claim.
 
-Camacho et al. (arXiv:1004.1987) give the nilpotency context; Casas et al. (arXiv:1004.1050) discuss **isomorphisms**, and Mukhamedov et al. (arXiv:1805.10285) characterize **automorphisms**, thereby covering the invertible rank-\(n\) part, not the singular ranks \(0\) through \(n-1\), reduced endomorphism variety or exact composition-nilpotency indices. Other inspected nilpotency/graph classifications do not directly imply the complete endomorphism-monoid classification. Closest indexed mathematical results studied different families or algebraic invariants. Specialized publication priority cannot be excluded, especially where full text was not accessible.
+## originality
 
-## Value — PASS
+PASS
 
-The object is the pure chain evolution algebra, a canonical maximal-nilindex example. Its complete unrestricted map monoid, irreducible-component geometry, finite-field rank distribution and nilpotency of every nonunit are natural structural invariants beyond routine automorphism calculations.
+Casas et al 2010 study isomorphisms of evolutionary algebra families, and Mukhamedov et al 2018 automorphism and derivation theory, while 2020 full primary paper discusses classification, enveloping algebras and derivations; neither inspected theorem claims all singular endomorphisms and the radical ideal. The rank formula also appears in another, distinct research package in this same assignment (the sharp nilpotent-ideal package); it is not independent novelty twice. The current package distinguishes itself by arbitrary-field classification and a reduced scheme with n−1 irreducible components. Resultary index hits adjacent evolution objects, not this reduced endomorphism scheme.
 
-## Scientific limitations
+## value
 
-Only the pure chain family is covered. The algebraic variety assertion is for the reduced endomorphism scheme. The finite checks cannot certify the infinite theorem or publication priority. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unrestricted endomorphisms of the canonical maximal-nilindex chain algebra and their algebraic-geometric moduli are natural invariants; a uniform normal form, rank profile over finite fields, geometric component count and nilpotency distinguish singular maps from known invertible automorphisms. Reduced scheme determination is not just a table or a rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
