@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness (PASS).** An ordered-factor reduction isolates the number of surplus small elements. The one-surplus case uses a direct union bound and supplies the sharpness family. The two-surplus case reduces to five exact rational comparisons, one further exact comparison, and 15 small compositions; the three-surplus case reduces by monotonicity to 24 exact rational comparisons. Appending larger surplus factors strictly increases the proven lower bound. A separate argument transfers the inequality to the precise prime-gap hypothesis. The finite certificates are independently executable; they are used only for finite residual lemmas, not as a substitute for the infinite reductions.
+
+**Originality (PASS, qualified).** Campbell (arXiv:2610.19534, Lemmas 5–6) states the weaker factor \(2/e^3\) and sufficient prime gap \(11M\); the sharp \(1/2\) and \(2M\) are not stated there. The full source was read through the relevant proof and conclusion. Deléglise–Nicolas (arXiv:1207.0603) treat a related maximum-product function with a bounded sum and not this sharp separated-set inequality. Semantic mathematical-record searches for optimal split-product constants and prime-gap constructions found no directly covering item; a historical equivalent inequality outside the examined sources remains possible. No historical uniqueness is independently certified.
+
+**Mathematical value (PASS).** This is a sharp structural lemma for a natural separated-sum/product optimization problem. The constant improves by more than a factor of five over the contemporary bound and directly weakens the prime-gap hypothesis in an existing construction of extremal distinct-prime partitions. The qualitative prime-partition theorem was already proved and is not re-claimed.
+
+Self-review: passed. Independent audit: not yet performed.
