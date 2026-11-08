@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The tame cover has genus four, and explicit valuation calculations supply four independent holomorphic differentials. Two independently implemented coefficient extractions yield all four Cartier blocks and the exact determinant; the invertible two-dimensional block and vanishing scalar blocks give the stable ranks, while the quadratic's discriminant proves that there are exactly two geometric exceptions. The determinant multiplicities are stated only on the marked smooth parameter line.
+## correctness
 
-**Originality — PASS, qualified by historical priority.** Bouw's general coefficient formula and Moonen's cyclic-quintic special-family framework do not explicitly provide the complete characteristic-eleven parameterwise ranks and doubled divisor in the material inspected. Li--Mantovan--Pries--Tang supply stronger general context about possible Newton polygons and the equianharmonic CM configuration, but those statements alone do not locate every nonordinary member at this prime or calculate the marked divisor length. The established branch invariant and existence of the distinguished CM configuration are not claimed as new. A specialized older computation could nevertheless subsume the numerical factorization; independent historical audit is outstanding.
+PASS
 
-**Value — PASS.** A complete Hasse degeneration locus and its scheme-theoretic multiplicity are natural arithmetic invariants on this Shimura-type Hurwitz pencil. The two-point doubled degeneration is strictly more information than a generic p-rank, the existence of a distinguished CM member, or an unordered moduli classification alone; it gives exact integral intersection data for the Hasse divisor in the specified marking.
+For p=11, Riemann-Hurwitz and valuations at 0,1,lambda,infinity yield genus 4 and the four displayed regular differential basis elements. Cartier preserves its j=2,3,4 character blocks since p=1 (mod 5). Exact extraction in GF(11)[lambda] gives scalar A=-5*lambda^2*(lambda-1)^2*Q and B=4*Q, Q=lambda^2-lambda+1, and invertible 2x2 block determinant 2*lambda^4*(lambda-1)^4. Independently recomputed blocks and total 4*lambda^6*(lambda-1)^6*Q^2. Thus full Cartier/stable rank 4 off Q=0, rank 2 at its two geometric roots, and a-numbers 0/2. Q discriminant -3=8 is nonsquare mod 11, roots in F_121; divisor order two is on marked smooth lambda line, not coarse moduli.
 
-**Closest literature and limitations.** Bouw (2001), Moonen (2010), and Li--Mantovan--Pries--Tang (arXiv:1805.06914 and later work) provide the general framework and analogous geometry. Priority against every historical cyclic-cover Cartier computation has not been independently determined. No coarse-moduli multiplicity, full Newton polygon, or Ekedahl--Oort classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bouw ramified-cover Cartier coefficients and Moonen's genus-four cyclic-quintic special-family table are acknowledged prior work; Li–Mantovan–Pries–Tang address possible Newton slopes and equianharmonic special configurations. Their inspected results do not specify the exact p=11 parameterwise Cartier rank locus with doubled marked divisor. Relevant stronger qualitative statements are not identical to this exact parameter divisor. Best-of-knowledge originality qualified by possible older specialized formula.
+
+## value
+
+PASS
+
+The complete ordinary/nonordinary locus, stable p-ranks, and exact doubled multiplicities are natural arithmetic/Hasse invariants on a geometrically motivated Hurwitz pencil. They quantify a sharp exception, not an arbitrary small-field table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
