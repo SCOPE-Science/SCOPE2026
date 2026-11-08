@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For the real mean-zero energy space on the equilateral ladder with at least three rungs, the resistance-polarization identity gives the exact evaluation diagonal. The independent Gaussian-field (vertex pseudoinverse plus edge Brownian bridges) construction verifies the edgewise quadratic coefficient \(m-1-mr_e\) and computes the constant without uncontrolled limiting operations. A path/antisymmetric resolvent decomposition proves the endpoint-to-center vertex monotonicity, a strict potential gap and the end-rail derivative inequality for **all** integers \(n\ge3\). It follows that exactly two end-rung midpoints maximize. The centered-bridge calculation gives the claimed rational formula and the exact off-end-rung deficit. Rational network computations independently checked all pairs of edges for eight sizes, \(2\le n\le9\). The finite tests are supplementary to the general proof.
+
+## Originality — PASS, with specified bibliographic risk
+The strongest same-object comparison is Z. Cinkir, arXiv:1503.06353 (full preprint, §§2–5): it computes vertex resistances, Kirchhoff index, tau constant and admissible invariants for the same ladder, **not** the continuum arclength Sobolev embedding norm or locations of its norm-maximizing points. Baker–Faber, arXiv:math/0407428, supplies the foundational resistance and metric-graph Laplacian framework, not the ladder-specific theorem. Carmona–Encinas–Mitjana, DOI:10.1002/qua.24740, addresses a broader family of ladder-like chains; only its abstract and references were accessible, leaving the risk of implicit coverage in unseen full text. The new result needs a nontrivial strict comparison across all rail and rung interiors and a Brownian-bridge centering computation; the earlier generic Green formulas do not state that classification or closed rational embedding constant. Actual published-record comparisons and the locally available prior-claim ledger revealed no equivalent claim. Search incompleteness is not proof of novelty.
+
+## Mathematical value — PASS
+An equilateral ladder is a canonical sequence of non-complete, cyclic metric graphs where continuous edge evaluation is not exhausted by vertex resistance tables. The all-rank formula is rational despite the appearance of the irrational hyperbolic resistance profile in individual rungs. Its exact classification locates the worst Sobolev concentration at the *two boundary rung midpoints* and supplies a strictly positive all-configuration gap for evaluation off those rungs, approaching \((2-\sqrt3)/4\). These are natural sharp stability invariants of a standard graph family, not an arbitrary finite enumeration or a change of notation.
+
+## Limits and closest literature
+No claim is made for weighted ladders or other Sobolev orders. The continuous edge maximization and the nonzero gap were absent from the inspected full primary preprints, but exhaustive bibliographic priority is not established. In particular, the full text of the 2014 Carmona–Encinas–Mitjana paper could not be compared and is retained as a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
