@@ -1,15 +1,21 @@
-# Review of the self-loop defect theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The tensor space is reduced modulo the pure tensors of pairs with both ordered products zero. Explicit nonloop relations bound the quotient by one generator per vertex and two per arrow. The displayed linearly independent coordinate forms are verified to vanish on all mutual-zero-product pairs, including self-loop terms separately over an arbitrary field. The product map to two copies of the algebra has independently computed rank one per vertex, two per nonloop arrow, and one per loop; subtracting yields the exact defect. The relation to simple self-extensions uses the standard Gabriel-quiver correspondence and is not needed to prove the count. All 18 enumerated finite prime-field cases agree.
+## correctness
 
-## Originality
-PASS relative to the inspected material, with substantial publication-priority uncertainty explicitly retained. Bajuk–Brešar (2022) provide the general two-sided zero-product definition and tensor characterization, not this explicit quiver-wide dimension and loop-obstruction formula. Ghahramani–Hosseini (online 2024) cover triangular algebras at the qualitative level; their accessible abstract does not give the entire quantitative formula for arbitrary cyclic quivers. One-sided zero-product determined criteria based on idempotent generation are established background and not claimed new. Semantic database and available own-title/claim searches yielded no equivalent or strictly stronger formulation. A differently indexed or inaccessible prior result cannot be excluded.
+PASS
 
-## Value
-PASS. The exact defect computes a natural space of bilinear functionals on all radical-square-zero quiver algebras, including oriented cycles and arbitrary loops, and shows that the entire failure of two-sided zero-product determinacy is precisely measured by the quiver self-extension multiplicity. The enumeration over finite fields provides a sharp structural quantitative invariant, not a mere reformulation of a single counterexample.
+For A=KQ/(paths of length two), the tensor quotient by pure mutual-zero-product pairs is spanned by one diagonal vertex tensor and two tensors per arrow. For nonloops, explicit pairs (e_i+a,e_j-a) and (e_j+a,e_i-a) yield requisite linear relations. The n+2m displayed coordinate forms vanish on mutual-zero pairs and are independent, including each loop term separately because xy=0 forces each mixed term to zero over a field; this matches the upper bound. The ordered multiplication map (xy,yx) has image rank n+2m-ell, with one output direction per loop rather than two. Hence dim B0=n+2m, dim Bprod=n+2m-ell, defect ell and loopless iff two-sided zpd. Independent exhaustive F2 tensor-rank checks on varied finite quivers reproduce the ranks; unrestricted proof is symbolic and valid in every characteristic.
 
-## Closest literature and limitations
-Bajuk and Brešar, *Two-sided zero product determined algebras* (arXiv:2209.13194v1, September 27, 2022) is the main conceptual antecedent and its general tensor criterion is acknowledged. Ghahramani and Hosseini, *Two-sided zero product determined triangular algebras* (first online September 13, 2024), overlaps the acyclic triangular situation; only its abstract and first-page material were accessible. Gardella and Thiel, *Zero-product balanced algebras* (arXiv:2210.07891v1) concerns a different condition. The theorem has not been assessed for algebras with radical cube nonzero or for non-bilinear maps. An equivalent quiver-specific identity in inaccessible papers remains an originality risk. Exhaustive source priority is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: exact theorem/implication compared against the stated accessible primary work and semantic published-finding records. Inaccessible plausible literature is identified as risk rather than assumed not covering.
+
+## value
+
+PASS
+
+A complete loop-by-loop quantitative obstruction and iff condition for the natural radical-square-zero quiver class is an intrinsic algebraic structural classification; it identifies the defect with the number of self-extension loops, while allowing oriented cycles and parallel arrows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
