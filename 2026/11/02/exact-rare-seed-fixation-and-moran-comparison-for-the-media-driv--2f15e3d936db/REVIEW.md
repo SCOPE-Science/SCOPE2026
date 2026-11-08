@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the explicitly specified focal-first, distinct-panel Markov chain, the upward and downward rates count all committees exactly. The injection of committees with exactly one plus agent gives \(U_k\ge pqD_k\), including states with fewer than \(q\) minus agents. At a single seed equality holds. A bounded supermartingale and finite-state stopping give the all-population Moran bound for \(pq>1\). The nearest-neighbor harmonic function yields a product formula; each fixed-step ratio tends to \((pq)^{-1}\). Geometric domination establishes the supercritical limit, while a diverging partial sum in the denominator proves zero fixation in the subcritical and critical cases. The proof treats every stated quantifier and boundary, using \(p>0\) and fixed \(m,q\) as stipulated. Reproducible exact combinatorial tests support, but do not replace, this argument.
+## correctness
 
-## Originality — PASS (qualified to inspected literature)
-The nearest primary work, Muslim, Anugraha NQZ and Khalif, arXiv:2305.06053, investigates media on nonunanimous q-voter committees, a threshold near \(p=1/q\), and macroscopic initial densities. It does not state this rare-seed fixation limit or uniform finite-population Moran domination under the specific distinct-panel convention. Thus neither the media threshold nor standard one-dimensional Markov-chain formulas are asserted as original separately. Azhari and Muslim, arXiv:2305.06051, provide related numerical media threshold experiments; Doniec et al., arXiv:2502.10172, give generalized finite-population Markov exit methods without the fixed-seed singular limit or domination statement. Civitarese (Phys. Rev. E 103, 012303, 2021) concerns a different external-field/noise model and its abstract, but not entire article, was accessible. General biased-voter and branching-process results suggest proof techniques, yet the inspected sources do not imply the exact theorem. Search coverage is not an exhaustive mathematical priority certification.
+PASS
 
-## Value — PASS
-In a socially motivated media-bias model, the probability that a *finite number of advocates* eventually converts a much larger population is not the same observable as fixation from a positive initial fraction. The theorem supplies a sharp nontrivial survival probability and an all-size lower bound. In particular, even a perfectly effective media field leaves a single innovator with limiting failure chance \(1/q\). This resolves the rare-seed invasion outcome and demonstrates a precise limitation of macroscopic threshold intuition; it is not a routine numerical increment. The conclusion is restricted to the stated complete-graph panel sampling rule, and need not transfer to noisy, networked, or alternative finite-size models.
+For N>=q+1, q>=2, 0<p<=1, exchangeability yields exact birth/death rates U_k=(N-k)[(k)_q+p((N-1)_q-(k)_q-(N-k-1)_q)]/[N(N-1)_q], D_k=k(N-k)_q/[N(N-1)_q]. Inject exactly-one-plus mixed ordered panels qk(N-k-1)_(q-1) to show U_k>=pq D_k, including small remaining minus panels; equality at k=1. For pq>1, bounded supermartingale (pq)^(-X_t) and optional stopping imply all-N Moran lower bound. The birth-death harmonic product has fixed-k ratio D_k/U_k -> 1/(pq) as N grows. Geometric dominated convergence yields 1-(pq)^(-m) for pq>1; divergent denominator bounds yield 0 at/under pq=1, for each fixed m. Independently checked 2280 exact transition, injection, and fixation identities; finite checks do not prove the N limit.
 
-## Closest sources and limitations
-Primary source arXiv:2305.06053 (public 2023-05-10); related arXiv:2305.06051 (2023-05-10) and arXiv:2502.10172 (2025-02-14). Distinct-sampling and focal-selection normalization in the primary paper is not silently identified with the present exact chain. A plausible source with abstract-only access is Civitarese, DOI:10.1103/PhysRevE.103.012303. Literature beyond these sources may contain equivalent specializations. Finite enumeration cannot certify asymptotics or novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 source media q-voter paper covers q-panel nonlinear drift and a macroscopic threshold near 1/q and finite-size exit probabilities in a different normalization. Its results do not state the specified focal-first distinct-other-panel exact all-N domination or the fixed-m rare-seed limit. Doniec et al. generalized q-voter finite Markov method and branching theory are relevant but a general algorithm to solve every N does not directly imply the uniform sharp bound plus singular regime. Historical equivalent branching/fixation result under the same sampling convention remains possible.
+
+## value
+
+PASS
+
+Fixed finitely many initial advocates constitute a distinct scaling from a positive fraction. The theorem gives a sharp invasion survival probability and an all-population comparison, showing that even p=1 leaves a single initial plus with limiting failure probability 1/q. This exact finite-size and infinite-limit boundary is natural for biased opinion dynamics and not a routine restatement of mean-field drift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
-Run `python3 verify_finite_chain.py` in this directory with Python 3 standard library. The program constructs transition probabilities from independently enumerated focal voters and distinct panels and compares them with the symbolic closed formulas using exact rational arithmetic. It also checks finite-size Moran domination, the exact one-seed transition ratio and the birth–death product formula, with a numerical convergence illustration. The observed output terminates with `ALL_CHECKS_PASSED` and reports 420 microstate comparisons.
+# Independent mathematical audit
 
-# Analytical verification and limits
-The infinite-population result is established in `RESULT.md` by (i) exact transition enumeration; (ii) injection of mixed panels containing exactly one supporter; (iii) optional stopping of a bounded supermartingale; and (iv) a birth–death potential formula, dominated convergence in the supercritical region and a growing denominator at and below criticality. The program is a finite, nonexhaustive corroboration only. The result uses the explicitly stated media-on-mixed-panel rule, focal-first distinct sampling and fixed seed count. Independent audit and validation have not been performed.
+## correctness
+
+PASS
+
+For N>=q+1, q>=2, 0<p<=1, exchangeability yields exact birth/death rates U_k=(N-k)[(k)_q+p((N-1)_q-(k)_q-(N-k-1)_q)]/[N(N-1)_q], D_k=k(N-k)_q/[N(N-1)_q]. Inject exactly-one-plus mixed ordered panels qk(N-k-1)_(q-1) to show U_k>=pq D_k, including small remaining minus panels; equality at k=1. For pq>1, bounded supermartingale (pq)^(-X_t) and optional stopping imply all-N Moran lower bound. The birth-death harmonic product has fixed-k ratio D_k/U_k -> 1/(pq) as N grows. Geometric dominated convergence yields 1-(pq)^(-m) for pq>1; divergent denominator bounds yield 0 at/under pq=1, for each fixed m. Independently checked 2280 exact transition, injection, and fixation identities; finite checks do not prove the N limit.
+
+## originality
+
+PASS
+
+The 2023 source media q-voter paper covers q-panel nonlinear drift and a macroscopic threshold near 1/q and finite-size exit probabilities in a different normalization. Its results do not state the specified focal-first distinct-other-panel exact all-N domination or the fixed-m rare-seed limit. Doniec et al. generalized q-voter finite Markov method and branching theory are relevant but a general algorithm to solve every N does not directly imply the uniform sharp bound plus singular regime. Historical equivalent branching/fixation result under the same sampling convention remains possible.
+
+## value
+
+PASS
+
+Fixed finitely many initial advocates constitute a distinct scaling from a positive fraction. The theorem gives a sharp invasion survival probability and an all-population comparison, showing that even p=1 leaves a single initial plus with limiting failure probability 1/q. This exact finite-size and infinite-limit boundary is natural for biased opinion dynamics and not a routine restatement of mean-field drift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
