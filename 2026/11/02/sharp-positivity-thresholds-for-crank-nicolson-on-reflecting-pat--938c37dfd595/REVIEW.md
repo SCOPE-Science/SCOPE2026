@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The end-step identity \(C_n=2(I+sL_n)^{-1}-I\) reduces the matrix sign question to resolvent diagonals. The explicit four-image Neumann Green kernel is verified by the tridiagonal recurrence, reflecting endpoint equations and source jump; the central-minimum inequality follows from a two-term convex geometric sum. Spectral resolvent monotonicity proves a unique finite threshold for every \(n\ge3\) and all-step positivity for \(n=2\). Exact comparisons of successive central diagonals prove strict decrease with path length. Expanding the two different polynomial equations near \(z=1/3\) yields the distinct constants \(4\) and \(20/3\) with an \(O(n9^{-n})\) error. The complete all-length proof, not the finite replay, establishes the result. An extracted standard-library verifier checked 105 full exact-rational matrix identities and the threshold trends.
+## correctness
 
-## Originality — PASS, with priority qualification
-The general Markov resolvent-return positivity criterion is existing literature and supplies the starting reduction, not the stated novelty. A published Dirichlet-difference theorem of Higueras and Roldán (arXiv:2301.01066, Theorem 1, Section 6.1, full PDF examined) has a different endpoint stencil and an increasing cutoff sequence with a different limiting constant. It does not establish the central obstruction, decreasing Neumann thresholds, parity-specific root equations or exponentially small finite-size corrections of this result. Gao and Sun, DOI 10.1002/num.21760, study higher-order compact Neumann schemes; their abstract and reference list were available but their full paper was not. That unresolved full-text comparison remains a specific priority risk. The self-contained claim is confined to the evaluated reflecting-path threshold, not any novel general Cayley or Markov result.
+PASS
 
-## Value — PASS
-For cell-centered no-flux diffusion, nonnegative concentrations should remain nonnegative under each numerical end-step, independently of the initial data. The standard sufficient local-sign step restriction does not give the sharp horizon. This finding gives exact finite-mesh cutoffs, identifies the central site where positivity first fails, proves a best possible all-mesh threshold of \(\kappa\Delta t/\Delta x^2=3/2\), and resolves finite-size sensitivity to parity. The contrast with known Dirichlet cutoffs shows that the boundary condition changes both the limiting threshold and the direction of mesh dependence; these are natural non-arbitrary quantities useful for checking positivity-preserving implementations.
+For the unit-mass symmetric reflecting path L_n, C_n(s)=2(I+sL_n)^-1-I; the irreducible M-matrix inverse has positive off-diagonals so positivity is equivalent to its smallest return diagonal >=1/2. The four-image reflected Green kernel with z satisfying s=z/(1-z)^2 solves interior recurrence, both Neumann endpoint relations and the source jump exactly. Its diagonal min is unique at the center (or central pair), H_n(z)=(1-z)/(1+z)*(1+z^n)/(1-z^n) for odd n, or *(1+z^(n-1))(1+z^(n+1))/(1-z^(2n)) for even n. The spectral measure makes H strictly decreasing from 1 to 1/n, so n=2 never fails at finite s and n>=3 has one crossing. Solving H=1/2 gives the stated parity-specific polynomial root, the ratios H_(n+1)/H_n<1 show sigma_n strictly decreases, and Taylor expansion about z=1/3 yields sigma_n=3/4+4*3^-n+O(n9^-n) for odd n or 3/4+(20/3)*3^-n+O(n9^-n) for even n. Independent direct tridiagonal inversions and root searches at n=3...8 confirmed the formula and trends; infinite claims are analytic.
 
-## Scope and remaining uncertainties
-The theorem applies only to the symmetric unit-weight reflecting path Laplacian, not higher-order compact schemes, Robin boundary rows or arbitrary weighted grids. Full text of one related Neumann compact-scheme article was not available, so hidden specialist priority is not ruled out. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Cayley/resolvent test C=2G-I and general reversible-chain crossing law are already publicly established and are explicitly acknowledged; here the new material is the complete reflecting-path Green kernel evaluation, center minimizer, exact finite-n polynomial thresholds, mesh monotonicity and two parity corrections. Higueras–Roldán arXiv:2301.01066 analyze Dirichlet difference rows with different endpoint control and asymptotics. Gao–Sun Neumann higher-order compact heat scheme is a plausible source but not fully accessible; without whole-text comparison it remains a documented priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+Reflecting/no-flux heat discretizations have different boundary rows and positivity thresholds from Dirichlet schemes. This complete finite-path threshold classification identifies the controlling center node, a sharp mesh-uniform CFL bound kappa*dt/dx^2<=3/2, and genuinely nontrivial parity-sensitive finite-size corrections. It provides natural positive-semigroup numerical analysis data not supplied by the general resolvent criterion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

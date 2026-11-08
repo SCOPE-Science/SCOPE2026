@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T00:07:49.309252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unit-mass symmetric reflecting path L_n, C_n(s)=2(I+sL_n)^-1-I; the irreducible M-matrix inverse has positive off-diagonals so positivity is equivalent to its smallest return diagonal >=1/2. The four-image reflected Green kernel with z satisfying s=z/(1-z)^2 solves interior recurrence, both Neumann endpoint relations and the source jump exactly. Its diagonal min is unique at the center (or central pair), H_n(z)=(1-z)/(1+z)*(1+z^n)/(1-z^n) for odd n, or *(1+z^(n-1))(1+z^(n+1))/(1-z^(2n)) for even n. The spectral measure makes H strictly decreasing from 1 to 1/n, so n=2 never fails at finite s and n>=3 has one crossing. Solving H=1/2 gives the stated parity-specific polynomial root, the ratios H_(n+1)/H_n<1 show sigma_n strictly decreases, and Taylor expansion about z=1/3 yields sigma_n=3/4+4*3^-n+O(n9^-n) for odd n or 3/4+(20/3)*3^-n+O(n9^-n) for even n. Independent direct tridiagonal inversions and root searches at n=3...8 confirmed the formula and trends; infinite claims are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General reversible-chain theory supplies monotonic existence of a threshold and spectral enclosure for any reversible graph, but no finite-path closed value in the inspected full text.",
+          "Higueras and Roldan Theorem 1 uses a Dirichlet second-difference matrix and increasing thresholds tending to 2(2-sqrt2) in physical CFL units; reflecting graph uses degree-one endpoints and decreasing thresholds to 3/2."
+        ],
+        "reasoning": "The path claim specializes the general criterion and adds non-automatic exact closed formulas and asymptotics. Dirichlet theorem is not stronger for the stated boundary operator.",
+        "searches": [
+          "Resultary: Crank Nicolson entrywise positivity reflecting Neumann path Laplacian finite size thresholds",
+          "Resultary 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "arXiv:2301.01066 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md, verify.py, exact matching source tree",
+        "Resultary full 2026/10/4 Crank–Nicolson resolvent law RESULT.md blob e80df580a416835b8625ae6c5b461f14cf547448",
+        "Higueras and Roldan arXiv:2301.01066 PDF Theorem 1",
+        "Gao and Sun DOI:10.1002/num.21760 publisher abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published general result explicitly leaves individual thresholds as s_i defined via resolvent spectral sums except evaluated special chain families; the final claim solves the specific reflecting path with parity finite-size coefficients.",
+          "Dirichlet endpoint rows of Higueras–Roldan change the matrix and extremal diagonal, making their sharp bound different."
+        ],
+        "reasoning": "Neither prior statement logically gives the two explicit finite-n path root equations or 3^-n corrections without a substantive evaluation. Gao–Sun text inaccessible; do not assert its full noncoverage.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a full RESULT.md",
+          "arXiv:2301.01066 primary Theorem 1",
+          "Resultary: Crank Nicolson entrywise positivity reflecting Neumann path Laplacian finite size thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary full RESULT proves C=2(I+sL)^-1-I and the general reversible return-diagonal threshold criterion, with examples for two-state chains and complete graphs.",
+          "The new reflecting path proof evaluates the full image Green kernel and identifies the central return minimum and parity root equations."
+        ],
+        "reasoning": "The general return-diagonal criterion is a prior equivalent reduction, not by itself a formula for the reflecting path family. The latter requires explicit recurrence and reflection evaluation. Dirichlet paths differ in endpoint diagonal rows and do not transfer directly.",
+        "searches": [
+          "Resultary: Crank Nicolson entrywise positivity reflecting Neumann path Laplacian finite size thresholds",
+          "Resultary 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a RESULT.md",
+          "arXiv:2301.01066 Dirichlet heat CN positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General chain source computes 2-state/complete graph but no evaluated reflecting path tables.",
+          "Finite-n sigma_n are algebraic roots for every n>=3 rather than a handful of numerical cutoffs."
+        ],
+        "reasoning": "The formula is a complete natural all-n classification. No matching exact table was identified, but undiscovered specialist Neumann tables remain possible.",
+        "searches": [
+          "Resultary: Crank Nicolson entrywise positivity reflecting Neumann path Laplacian finite size thresholds",
+          "sharp Neumann reflecting path Crank Nicolson positivity sigma_n central polynomial table",
+          "Gao Sun compact difference heat equation Neumann positivity exact threshold"
+        ]
+      },
+      "rationale": "The exact Cayley/resolvent test C=2G-I and general reversible-chain crossing law are already publicly established and are explicitly acknowledged; here the new material is the complete reflecting-path Green kernel evaluation, center minimizer, exact finite-n polynomial thresholds, mesh monotonicity and two parity corrections. Higueras–Roldán arXiv:2301.01066 analyze Dirichlet difference rows with different endpoint control and asymptotics. Gao–Sun Neumann higher-order compact heat scheme is a plausible source but not fully accessible; without whole-text comparison it remains a documented priority risk, not an automatic failure.",
+      "residual_risks": [
+        "An inaccessible specialist Neumann-scheme primary source may have the exact simple reflecting-path cutoff or equivalent finite-size formula.",
+        "Broad general reversible resolvent theory already covers existence/monotonicity in s; originality is restricted to explicit reflecting path values and asymptotics.",
+        "No results for ghost-point non-symmetric Neumann stencil, variable diffusion, or higher-dimensional grids."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion and reversible threshold proved but only two-state/complete-graph evaluated, no path roots",
+          "evidence": [
+            "Theorem establishes general test R_ii>=1/2, not the explicit reflecting path H_n and parity corrections."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Full RESULT.md at Git blob e80df580a416835b8625ae6c5b461f14cf547448",
+          "method": "Fetched and read primary full text through read-only GitHub connector",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Direct potentially dominating general theorem"
+        },
+        {
+          "assessment": "Sharp Dirichlet finite-difference thresholds, distinct from reflecting combinatorial path",
+          "evidence": [
+            "Different endpoint rows, thresholds increase rather than decrease with n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Full accessible primary PDF, particularly Theorem 1 and positivity proof; rendered page screenshot",
+          "method": "Read PDF full relevant sections",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Same CN method with heat boundary conditions"
+        },
+        {
+          "assessment": "Describes compact higher-order Neumann scheme; cannot assert entire text lacks matching special threshold",
+          "evidence": [
+            "Inaccessible plausible specialist source retained as priority risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/num.21760",
+          "material_read": "Publisher abstract and bibliographic description only; full PDF not obtained",
+          "method": "Primary abstract and citations",
+          "title": "Compact difference schemes for heat equation with Neumann boundary conditions (II)",
+          "trigger": "Potential same Neumann endpoint boundary scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reflecting/no-flux heat discretizations have different boundary rows and positivity thresholds from Dirichlet schemes. This complete finite-path threshold classification identifies the controlling center node, a sharp mesh-uniform CFL bound kappa*dt/dx^2<=3/2, and genuinely nontrivial parity-sensitive finite-size corrections. It provides natural positive-semigroup numerical analysis data not supplied by the general resolvent criterion alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, verify.py, exact matching source tree",
+    "Resultary full 2026/10/4 Crank–Nicolson resolvent law RESULT.md blob e80df580a416835b8625ae6c5b461f14cf547448",
+    "Higueras and Roldan arXiv:2301.01066 PDF Theorem 1",
+    "Gao and Sun DOI:10.1002/num.21760 publisher abstract only"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unit-weight combinatorial Laplacian on connected reflecting path n>=2, symmetric cell-centered no-flux endpoint rows, real s>=0.",
+    "Entrywise nonnegativity concerns complete one-step Crank–Nicolson update, not intermediate stages or accuracy."
+  ],
+  "residual_risks": [
+    "An inaccessible specialist Neumann-scheme primary source may have the exact simple reflecting-path cutoff or equivalent finite-size formula.",
+    "Broad general reversible resolvent theory already covers existence/monotonicity in s; originality is restricted to explicit reflecting path values and asymptotics.",
+    "No results for ghost-point non-symmetric Neumann stencil, variable diffusion, or higher-dimensional grids."
+  ],
+  "schema_version": 1
+}

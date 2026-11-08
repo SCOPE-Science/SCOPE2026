@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter and no third-party packages. The file checks exact rational inverses for the symmetric path matrices, central resolvent minima, positivity decisions, and transition-matrix row sums, at 105 \((n,z)\) settings with \(2\le n\le16\). It also checks the exact height-three (three-vertex) threshold, twenty finite threshold roots, monotonicity, and the two leading asymptotic constants.
+## correctness
 
-The infinite claims are independently deduced from the Green-kernel formula, strict spectral monotonicity, exact inequalities and polynomial expansions in the proof; computations cannot replace those arguments. At the exact transition only central diagonal entries can vanish, while off-diagonal entries remain positive. Numerical root comparisons use floating-point precision and are supplementary, not certificates for all lengths.
+PASS
 
-The relevant Neumann compact-scheme source was inspected at publisher abstract/reference level only, and an originality assessment cannot exclude an equivalent formula in uninspected specialist literature. Independent mathematical validation has not been performed.
+For the unit-mass symmetric reflecting path L_n, C_n(s)=2(I+sL_n)^-1-I; the irreducible M-matrix inverse has positive off-diagonals so positivity is equivalent to its smallest return diagonal >=1/2. The four-image reflected Green kernel with z satisfying s=z/(1-z)^2 solves interior recurrence, both Neumann endpoint relations and the source jump exactly. Its diagonal min is unique at the center (or central pair), H_n(z)=(1-z)/(1+z)*(1+z^n)/(1-z^n) for odd n, or *(1+z^(n-1))(1+z^(n+1))/(1-z^(2n)) for even n. The spectral measure makes H strictly decreasing from 1 to 1/n, so n=2 never fails at finite s and n>=3 has one crossing. Solving H=1/2 gives the stated parity-specific polynomial root, the ratios H_(n+1)/H_n<1 show sigma_n strictly decreases, and Taylor expansion about z=1/3 yields sigma_n=3/4+4*3^-n+O(n9^-n) for odd n or 3/4+(20/3)*3^-n+O(n9^-n) for even n. Independent direct tridiagonal inversions and root searches at n=3...8 confirmed the formula and trends; infinite claims are analytic.
+
+## originality
+
+PASS
+
+The exact Cayley/resolvent test C=2G-I and general reversible-chain crossing law are already publicly established and are explicitly acknowledged; here the new material is the complete reflecting-path Green kernel evaluation, center minimizer, exact finite-n polynomial thresholds, mesh monotonicity and two parity corrections. Higueras–Roldán arXiv:2301.01066 analyze Dirichlet difference rows with different endpoint control and asymptotics. Gao–Sun Neumann higher-order compact heat scheme is a plausible source but not fully accessible; without whole-text comparison it remains a documented priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+Reflecting/no-flux heat discretizations have different boundary rows and positivity thresholds from Dirichlet schemes. This complete finite-path threshold classification identifies the controlling center node, a sharp mesh-uniform CFL bound kappa*dt/dx^2<=3/2, and genuinely nontrivial parity-sensitive finite-size corrections. It provides natural positive-semigroup numerical analysis data not supplied by the general resolvent criterion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
