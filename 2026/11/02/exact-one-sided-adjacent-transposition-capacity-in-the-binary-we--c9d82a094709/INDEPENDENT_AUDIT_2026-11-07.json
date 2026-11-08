@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:44:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 7062b13cefd21976319dfe7d13b16a800345b46e",
+        "verify.py Git blob 4bdb5e583768982c180764e52eb4530f46fca274",
+        "independent_checks.py: transposition n2..9 full alpha"
+      ],
+      "rationale": "An output for a weight-two (i,j) is the same pair, or (i-1,j) if i>0, or (i,j-1) if j>i+1. Intersection of balls iff the coordinate difference is one of six nearest-neighbor displacements of the triangular grid. The residue i+2j mod3 is an independent coloring; color 2 has floor(n(n+1)/6) vertices. Each three-top-row strip S_m admits exactly m triangles and edge+singleton cliques, bounding an independent set by m+2, and induction using n-3 closes the upper bound; n=2,3,4 bases checked. Independent exhaustive maximum independent set search verified n=2..9.",
+      "residual_risks": [
+        "Only linear words, weight two and at most one 01->10; no stronger channel or all-optimal-code classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100",
+          "RESULT.md Git blob 7062b13cefd21976319dfe7d13b16a800345b46e"
+        ],
+        "reasoning": "Wang/Vu/Tan consider general asymmetric transposition plus deletion redundancy constructions; Gómez Soto et al. optimize bidirectional two-token packing, a strictly stronger channel and thus only a lower bound on the directed maximum. Kløve 1995 peak-shift is plausible but full text inaccessible; no noncoverage claim.",
+        "searches": [
+          "Resultary semantic search: one sided asymmetric adjacent transposition 01 to 10 weight two code exact maximum packing",
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: one sided asymmetric adjacent transposition 01 to 10 weight two code exact maximum packing",
+        "https://arxiv.org/abs/1711.03682",
+        "https://arxiv.org/html/2301.11680v2",
+        "https://doi.org/10.1109/18.370100"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100",
+          "RESULT.md Git blob 7062b13cefd21976319dfe7d13b16a800345b46e"
+        ],
+        "reasoning": "An optimum for a bidirectional channel does not imply the one-sided optimum: error balls shrink and feasible packings enlarge. Generic asymptotic redundancy bounds neither imply the exact floor(n(n+1)/6) equality nor its all-size sharp strip construction.",
+        "searches": [
+          "Resultary semantic search: one sided asymmetric adjacent transposition 01 to 10 weight two code exact maximum packing",
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100",
+          "RESULT.md Git blob 7062b13cefd21976319dfe7d13b16a800345b46e"
+        ],
+        "reasoning": "Mapped 01->10 shifts to directed one-step token moves, intersecting error balls to a triangular-lattice confusability graph, and compared token graph packing and peak-shift terminology. Bidirectional token graph differs: n=4 maximum 2 vs one-sided 3.",
+        "searches": [
+          "Resultary semantic search: one sided asymmetric adjacent transposition 01 to 10 weight two code exact maximum packing",
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100",
+          "RESULT.md Git blob 7062b13cefd21976319dfe7d13b16a800345b46e"
+        ],
+        "reasoning": "Searched asymmetrical shift, weight-two exact packing, adjacent code capacity, OEIS A085680 (bidirectional), and Resultary (hits for different binary 1-codes and three-token path packing). No identical one-sided all-n table verified in inspected sources.",
+        "searches": [
+          "Resultary semantic search: one sided asymmetric adjacent transposition 01 to 10 weight two code exact maximum packing",
+          "https://arxiv.org/abs/1711.03682",
+          "https://arxiv.org/html/2301.11680v2",
+          "https://doi.org/10.1109/18.370100"
+        ]
+      },
+      "rationale": "Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: An optimum for a bidirectional channel does not imply the one-sided optimum: error balls shrink and feasible packings enlarge. Generic asymptotic redundancy bounds neither imply the exact floor(n(n+1)/6) equality nor its all-size sharp strip construction.",
+      "residual_risks": [
+        "Kløve 1995 peak-shift paper was not obtained in full text (institutional access returned vpn_disconnected); it could contain an equivalent directed weight-two special case.",
+        "Only linear words, weight two and at most one 01->10; no stronger channel or all-optimal-code classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bidirectional swap errors have larger balls, so their packing optimum does not imply the maximum for strictly directed 01->10; e.g. n=4 capacities differ.",
+          "evidence": [
+            "https://arxiv.org/abs/1711.03682"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.03682",
+          "material_read": "Primary article mathematical setup and exact bidirectional packing theorem inspected in full-text PDF",
+          "method": "Full-text theorem/proof and channel-ball inclusion comparison",
+          "title": "The packing number of the double vertex graph of the path graph",
+          "trigger": "Same weight-two path-token representation and packing, but bidirectional adjacent swaps"
+        },
+        {
+          "assessment": "Provides general asymptotic/redundancy constructions with deletions but not the weight-two exact all-n capacity or three-row clique upper bound.",
+          "evidence": [
+            "https://arxiv.org/html/2301.11680v2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.11680v2",
+          "material_read": "HTML full-text sections defining asymmetric shift and redundancy constructions inspected",
+          "method": "Primary HTML statement comparison",
+          "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+          "trigger": "Directly names directed adjacent transpositions"
+        },
+        {
+          "assessment": "UNINSPECTED primary full text: may contain a broader exact code theorem or special case; residual priority risk, not treated as noncoverage.",
+          "evidence": [
+            "https://doi.org/10.1109/18.370100"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/18.370100",
+          "material_read": "Bibliographic title/abstract only; full text could not be accessed after arXiv/open-access checks and institutional retrieval reported vpn_disconnected",
+          "method": "Bibliographic/OA lookup then authorized Oxford attempt",
+          "title": "Codes correcting a single insertion/deletion of a zero or a single peak-shift",
+          "trigger": "Potentially equivalent single peak-shift channel with constant-weight coding; close historical predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob 7062b13cefd21976319dfe7d13b16a800345b46e",
+        "verify.py Git blob 4bdb5e583768982c180764e52eb4530f46fca274",
+        "independent_checks.py: transposition n2..9 full alpha",
+        "https://arxiv.org/abs/1711.03682",
+        "https://arxiv.org/html/2301.11680v2",
+        "https://doi.org/10.1109/18.370100"
+      ],
+      "rationale": "Determines the exact finite-blocklength unique-decoding capacity of an asymmetric one-step timing-error channel in a natural constant-weight layer, with a simple explicit optimal code and bounded-work decoder for every n. Different behavior from the much-studied two-direction shift makes the sharp answer genuinely informative.",
+      "residual_risks": [
+        "Kløve 1995 peak-shift paper was not obtained in full text (institutional access returned vpn_disconnected); it could contain an equivalent directed weight-two special case.",
+        "Only linear words, weight two and at most one 01->10; no stronger channel or all-optimal-code classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Kløve 1995 peak-shift paper was not obtained in full text (institutional access returned vpn_disconnected); it could contain an equivalent directed weight-two special case.",
+    "Only linear words, weight two and at most one 01->10; no stronger channel or all-optimal-code classification."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The directed error-ball overlap is exactly the six-neighbor triangular adjacency condition on ordered one-position pairs. The congruence class is pairwise nonconfusable. The explicit three-row partition consists of triangles, one edge, and one singleton and yields an exact upper bound at each induction step. Checked all boundary cases \(n=2,3,4\) and the floor recurrence. `verify.py` reproduces all finite checks claimed in the result, including exact independent-set enumeration at lengths through nine; the proof, not the census, establishes the infinite statement.
+PASS
 
-## Originality
+An output for a weight-two (i,j) is the same pair, or (i-1,j) if i>0, or (i,j-1) if j>i+1. Intersection of balls iff the coordinate difference is one of six nearest-neighbor displacements of the triangular grid. The residue i+2j mod3 is an independent coloring; color 2 has floor(n(n+1)/6) vertices. Each three-top-row strip S_m admits exactly m triangles and edge+singleton cliques, bounding an independent set by m+2, and induction using n-3 closes the upper bound; n=2,3,4 bases checked. Independent exhaustive maximum independent set search verified n=2..9.
 
-**PASS with documented residual risk.** The closest two-token result concerns both swap directions; its length-four optimum differs (two versus three). The 2023 asymmetric-shift treatment provides constructions for general combined channels, not this sharp fixed-composition theorem. A 2024 three-token study concerns a different weight and bidirectional channel. Other records and accessible earlier mathematical claims were compared for the same result and for stronger implications. A hidden equivalent specialization in the older peak-shift literature remains plausible; Kløve's 1995 complete text was not accessible in this comparison.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** One-sided bit-shift noise is a recognized coding channel. Exact maximum code size at all lengths for a natural sparse constant-weight layer quantifies its combinatorial correction capacity, and the proof gives a constructive decoder plus a reusable three-row clique-packing method. The outcome is not just a weight-two count or an immediate substitution into a bidirectional bound.
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: An optimum for a bidirectional channel does not imply the one-sided optimum: error balls shrink and feasible packings enlarge. Generic asymptotic redundancy bounds neither imply the exact floor(n(n+1)/6) equality nor its all-size sharp strip construction.
 
-## Scope and risk
+## value
 
-All statements assume at most one `01` to `10` swap, zero-based labeled linear positions, exactly two ones and no reverse swaps. The result establishes optimal cardinality and an explicit attaining family, not an enumeration of all optimum codes. Search cannot prove absolute priority; no independent external audit has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the exact finite-blocklength unique-decoding capacity of an asymmetric one-step timing-error channel in a natural constant-weight layer, with a simple explicit optimal code and bounded-work decoder for every n. Different behavior from the much-studied two-direction shift makes the sharp answer genuinely informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
