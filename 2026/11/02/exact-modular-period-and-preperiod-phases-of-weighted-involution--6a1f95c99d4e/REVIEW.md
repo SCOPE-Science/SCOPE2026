@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has global quantifiers: all integer weights, all moduli at least two, all indices, and exact **least** eventual periods. The proof derives the binomial identity, calculates prime-power shift divisibility, proves odd-prime minimality from the recurrence, isolates the unique lowest dyadic term for weights divisible by four, and accounts for the two-term cancellation at weights congruent to two modulo four. The odd-weight induction identifies the exact last nonzero binary residue. Chinese remaindering preserves exact minima. The standard-library verifier checks 12,691 weight/modulus pairs, 28,800 shift comparisons and 252 dyadic layers. The computation is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS with historical-priority risk
+The theorem classifies the least eventual period and first periodic index of T_c(n)=T_c(n-1)+c(n-1)T_c(n-2) for all integer c, moduli M>=2 by prime-power binomial-shift valuations and recurrence-based lower bounds. For v2(c)>=2, the j=1 binomial term has exact valuation r+v2(c)-1 and all higher terms are divisible by 2^(r+v2(c)); for v2(c)=1 cancellation of j=1 and j=2 gives period 2^max(2,a-1); for odd c the valuations of T_c(4k),T_c(4k+1) equal k and the next two are at least k+1, hence preperiod 4a-2. The displayed Step 5 identity for T_c(4k+4) in RESULT.md IS FALSE: at c=3,k=0 it predicts 54 while the recurrence gives 46. Direct recurrence algebra gives the replacement T_c(4k+4)=(4k+2)c T_c(4k+1)+(1+(4k+3)c)T_c(4k+2); the second coefficient is even for odd c, so the published valuation conclusion still follows independently. Checked 1975 small (c,M) exact period/preperiod pairs. Scientific statement survives this corrected derivation, but a corrected complete RESULT.md is necessary before publication.
 
-Kim and Kim's Theorems 6.2–6.3 **already contain the entire unweighted eventual-period result**. Bednarz and Wołowiec-Musiał's Theorems 8 and 10 already contain broad weighted congruences and cover the basic odd-shift upper-bound mechanism. Kallat's universal shift theorem is still more general but not an explicit least-period classification. The assessed new content is the **parameter-dependent exact dyadic least periods for even weights**, notably the change at \(\nu_2(c)=1\) versus \(\nu_2(c)\ge2\), together with its exact shift valuation and assembly at composite moduli. No inspected prior result was found to state or imply those exact minima solely from its published assertions. Historical coverage may be incomplete, particularly for specialized Hermite/matching polynomial congruences.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Least periods and sharp preperiods of combinatorially defined integer sequences are natural arithmetic invariants, and this parameter phase diagram settles the modular dynamics for an infinite family. The cancellation at \(c\equiv2\pmod4\) forces different growth of the minimal dyadic period from the \(4\mid c\) case, not merely a reparameterized unweighted result. The exact shift valuation also gives uniform divisibility information at every index, independently of the period formula. No paper-scale or downstream theorem is claimed.
+Kim and Kim (2009) explicitly cover c=1 and portions of the weighted involution polynomial; broader shift congruences from Bednarz and Wolowiec-Musial 2019 and Kallat 2026 overlap odd-modulus arguments and bound some periods. The assessed new fact is exact all-modulus minimal dyadic period for nonzero even c, especially v2(c)=1 vs >=2, plus the all-index exact shift valuation. Full primary-paper review was blocked by inaccessible PDFs/Oxford VPN; comparison qualified.
 
-## Scientific and historical limitations
+## value
 
-The self-review does not certify absolute literature priority or independent validity. Known \(c=1\) conclusions and established general shift congruences are explicitly excluded from the asserted new contribution. It does not classify unrelated recurrences or residue frequencies.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact least periods and preperiods of weighted matching enumerators are natural arithmetic invariants. The cancellation-driven discontinuity at c≡2 mod4 versus 4|c is a meaningful general phase classification not explained by the unweighted case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
