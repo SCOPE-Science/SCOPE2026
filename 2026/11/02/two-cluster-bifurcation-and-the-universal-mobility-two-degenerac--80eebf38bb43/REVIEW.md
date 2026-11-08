@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-cluster chemical solution, logistic mass identity and reversible transfer flux yield an analytic scalar equation equivalent to stationarity near the positive uniform equilibrium. Exact Taylor coefficients give the generic simple-root crossing, the mobility-two negative quadratic germ, and the balanced even germ. Analytic implicit-function arguments and strict local concavity prove counts and amplitudes for any fixed \(N,p,q\). A standalone exact symbolic checker and direct full-ODE numerical residual checks corroborate the reduction. The tests do not replace the infinite-parameter proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The full text of Kim–Zhang–Zhao–Cooney, arXiv:2610.31049v1, was inspected for its finite-graph equations and threshold (§§2–3), graphon weakly nonlinear method (§5.2), and the express complete-graphon limitation (Remark 5.5); none gives this finite-clique two-cluster branch law or the exceptional mobility ratio \(2\). An earlier two-patch classification treats balanced groups of cardinality one and cannot yield unbalanced \(p\ne q\) behavior. Shemtaga–Shen–Sukhtaiev, arXiv:2310.00756, addresses PDEs on metric graphs, not finite-node exponential edge preferences. Semantic findings searches and literature web searches uncovered no dominating formula. Generic equivariant theory may imply portions of the branch shapes, but not the model-specific critical cancellation or amplitude constants without additional computation. Historical priority remains uncertain.
+PASS
 
-## Mathematical value — PASS
-The onset of heterogeneous states is a motivated missing nonlinear counterpart to the finite-graph linear instability threshold. The equality \(\eta_n=2r\) annihilates the generic unbalanced quadratic symmetry-breaking term **for every cluster-size ratio**, causing a universal change in the onset exponent, whereas equal-sized clusters enjoy an exact exchange symmetry and exhibit their own explicit exponent. This supplies a structural partition-by-partition parameter boundary and quantitative amplitudes rather than a small arbitrary numerical case.
+PASS: Read the final fixed-partition equilibrium theorem and reconstruct chemical steady-state solve, mass relation s(1-s)=ab z^2, plus exact B(z,tau) equivalence. The independently recalculated critical coefficients B(0,tau)=bd(tau-1/2-1/d), B_z=b(1-2a)(d-2)/4, B_zz/2=-2b/3 at d=2, and balanced coefficient -(d^3+3d+2)/(12d^2) verify the three local cases. IFT, strict concavity and even-in-z IFT give unique crossing or two/no square-root branches; quantifiers restricted to fixed N,p and locally positive equilibrium.
 
-## Limits and follow-up risk
-Only locally near the positive uniform state, for a chosen two-level subspace of a complete unit-weight graph. No full multi-cluster equilibrium census or nonlinear stability is proved. Wide historical search cannot guarantee global novelty; no independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the source model and linear instability are not new; the fixed-partition nonlinear scalar germ, universal cancellation d=2 for unbalanced partitions, and leading amplitude are distinct from abstract-described linear and graphon nonlinear work. The same-model 2026 primary paper full text was unavailable; this materially limits priority confidence, explicitly not proof of novelty.
+
+## value
+
+PASS
+
+PASS: resolves natural symmetry-breaking branch count immediately beyond the finite-clique linear-instability threshold and explains the mobility-two cancellation across all cluster partitions with exact amplitudes; not a full-network multi-cluster or stability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

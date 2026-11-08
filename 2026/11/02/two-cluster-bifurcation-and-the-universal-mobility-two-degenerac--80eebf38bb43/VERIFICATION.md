@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The analytic proof is contained in `RESULT.md` and is independent of numerical root-finding. Running `python check_two_cluster.py` with SymPy and SciPy checks, by exact symbolic identities, the mass constraint, the critical parameter, the linear unbalanced coefficient, and two distinct quadratic coefficients. It also reconstitutes the original differential equations on complete graphs with three and four vertices for sampled partitions and parameters, verifies local sample roots, and checks residuals below \(2\times10^{-10}\). These computations passed when the scientific package was prepared.
+# Independent mathematical audit
 
-The sampling grid for the direct solver is restricted to a small gap neighborhood. It does not claim a global exhaustive equilibrium count; additional distant roots may exist. Local all-parameter equilibrium counts follow instead from exact analytic reduction plus the implicit-function theorem and, at mobility two, strict concavity. Symbolic algebra is not independent validation. Independent audit: not performed.
+## correctness
+
+PASS
+
+PASS: Read the final fixed-partition equilibrium theorem and reconstruct chemical steady-state solve, mass relation s(1-s)=ab z^2, plus exact B(z,tau) equivalence. The independently recalculated critical coefficients B(0,tau)=bd(tau-1/2-1/d), B_z=b(1-2a)(d-2)/4, B_zz/2=-2b/3 at d=2, and balanced coefficient -(d^3+3d+2)/(12d^2) verify the three local cases. IFT, strict concavity and even-in-z IFT give unique crossing or two/no square-root branches; quantifiers restricted to fixed N,p and locally positive equilibrium.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: the source model and linear instability are not new; the fixed-partition nonlinear scalar germ, universal cancellation d=2 for unbalanced partitions, and leading amplitude are distinct from abstract-described linear and graphon nonlinear work. The same-model 2026 primary paper full text was unavailable; this materially limits priority confidence, explicitly not proof of novelty.
+
+## value
+
+PASS
+
+PASS: resolves natural symmetry-breaking branch count immediately beyond the finite-clique linear-instability threshold and explains the mobility-two cancellation across all cluster partitions with exact amplitudes; not a full-network multi-cluster or stability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
