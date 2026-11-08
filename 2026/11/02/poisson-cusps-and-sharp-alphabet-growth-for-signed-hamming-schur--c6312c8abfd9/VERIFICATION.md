@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check.py` in the directory containing the embedded files. The checker uses only Python's standard library. It independently generates all graph vertices and adjacent pairs for eleven bounded Hamming graph cases, constructs an integer tensor eigenbasis, and verifies the signed matrix action at every coordinate. It then checks \(3392\) exact rational comparisons of the independent spectral-trace and binomial-boundary formulas and \(3328\) strict increasing-alphabet comparisons. Four independently stated small exact values are also checked.
+## correctness
 
-Observed output:
+PASS
 
-`SIGNED_HAMMING_SCHUR_CHECK_OK exact_spectrum_mass_pairs= 3392 strict_alphabet_steps= 3328 direct_tensor_eigenmodes= 346 small_exact_values=4`
+Pinned RESULT.md constructs normalized trace|M|/q^d factorization and an orthogonal spectral sign witness, then diagonalizes the Cartesian Hamming adjacency through tensor eigenspaces. A centered binomial positive-part telescoping identity gives the single-boundary mass at floor(d/q), including integer boundaries. Piecewise derivative proves strict q monotonicity. Poisson and binomial local CLT give the two limits; at integer cusp the two boundary probabilities agree but left/right derivatives differ. Independent exact rational spectral sums agree with formula and strictly grow for 2≤d≤34, 2≤q≤21 (660 pairs).
 
-The proof, rather than finite arithmetic, establishes the exact norm, all-parameter monotonicity, the coupled Poisson limit, and Gaussian asymptotics. The real norm agrees with the complex norm because the extremal witness is real orthogonal and the factorization upper bound is real. The historical comparison is subject to the explicitly stated limitation concerning inaccessible 1999 bicirculant full text.
+## originality
+
+PASS
+
+The transitive-symmetric Schur trace criterion and Hamming eigenvalues are prior mathematical facts; the new claim is the particular two-parameter signed distance-one norm, strict alphabet monotonicity, sparse sign limit, and Poisson cusp formula. A published degree-two Hamming-projection norm studies a different operator from the full J-2A sign Schur multiplier.
+
+## value
+
+PASS
+
+A natural sparse sign family exhibits near-maximal norm despite a vanishing fraction of negative entries, and a clean Poisson-to-Gaussian spectral phase diagram with exact cusp locations; these give reusable concrete Schur multiplier benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

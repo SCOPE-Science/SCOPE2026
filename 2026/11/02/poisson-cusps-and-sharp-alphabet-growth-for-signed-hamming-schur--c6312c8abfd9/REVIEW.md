@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fully quantified claim covers integers \(d,q\ge2\) and all positive coupled limits \(d/q\to\lambda\). The proof derives the transitive Schur-norm identity using an explicit orthogonal witness and a row/column factorization, computes every signed graph eigenvalue with its multiplicity, and checks the delicate trivial eigenvalue sign. A telescoping binomial identity gives the exact boundary-mass formula. Strict alphabet growth follows from a piecewise derivative plus continuity at integral breakpoints, not from finite sampling. At integral Poisson parameters the two neighboring masses coincide, avoiding a hidden subsequence exception. Local limit theory gives the Gaussian regime. The separate exact-arithmetic checker reconstructs tensor eigenmodes of the original matrices and checks thousands of rational identities. Remaining scientific limits: no claims for other graph shells, arbitrary signs, or other Schatten norms.
+PASS
 
-## Originality — PASS, with historical limits
+Pinned RESULT.md constructs normalized trace|M|/q^d factorization and an orthogonal spectral sign witness, then diagonalizes the Cartesian Hamming adjacency through tensor eigenspaces. A centered binomial positive-part telescoping identity gives the single-boundary mass at floor(d/q), including integer boundaries. Piecewise derivative proves strict q monotonicity. Poisson and binomial local CLT give the two limits; at integer cusp the two boundary probabilities agree but left/right derivatives differ. Independent exact rational spectral sums agree with formula and strictly grow for 2≤d≤34, 2≤q≤21 (660 pairs).
 
-The central symmetry-to-trace reduction is **not new**: Mathias (1993) proves it for constant-diagonal absolute values, and Davidson–Donsig (2005, Section 4) treats transitive group actions and computes Kneser graph examples. The Hamming graph eigenvalues are also standard. Full available versions of Davidson–Donsig, Holbrook–Johnston–Schoch, and Christensen were compared by mathematical object, operator norm, formula, and asymptotic claim. The 2003 Fourier/tensor paper was read in its accessible article text. These sources do not state the specific global signed Hamming binomial/monotonicity/Poisson-cusp phase classification. A related published degree-two Hamming Fourier projector norm addresses a different operator (projection of functions, not Schur multiplication by \(J-2A\)). No directly covering claim was identified in searched published mathematical records. Historical-priority risk remains because full text of Hladnik's 1999 bicirculant article was not obtained; its abstract supports a broad Fourier norm method, and equivalent explicit Hamming specializations could be recorded under other terminology. Novelty is a best-knowledge comparison, not an assertion of exhaustive priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural two-parameter q-ary Hamming family admits a complete exact operator-norm classification. Beyond substituting a known eigenvalue list into a general norm theorem, the one-boundary-mass identity gives a strict alphabet monotonicity law, a sharp nonattained finite-\(d\) supremum, and a sparse-negative phenomenon showing operator amplification need not vanish with the density of modified signs. The coupled Poisson scaling has a corner at every positive integer while the fixed-alphabet scaling is Gaussian. These parameter transitions explain two genuinely different operator-norm regimes. The classification remains narrow and does not imply new general factorization theory.
+The transitive-symmetric Schur trace criterion and Hamming eigenvalues are prior mathematical facts; the new claim is the particular two-parameter signed distance-one norm, strict alphabet monotonicity, sparse sign limit, and Poisson cusp formula. A published degree-two Hamming-projection norm studies a different operator from the full J-2A sign Schur multiplier.
 
-## Scope and verification
+## value
 
-The checker tests independent exact finite cases; no finite test is represented as a proof of an infinite assertion. Primary sources' general reductions are credited. The 1999 bicirculant full text is a specified unresolved historical risk, not a claim of noncoverage based on a snippet. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural sparse sign family exhibits near-maximal norm despite a vanishing fraction of negative entries, and a clean Poisson-to-Gaussian spectral phase diagram with exact cusp locations; these give reusable concrete Schur multiplier benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
