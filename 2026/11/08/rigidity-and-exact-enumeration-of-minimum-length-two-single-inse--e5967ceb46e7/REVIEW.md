@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For any prospective cover, compulsory diagonal pairs reduce covering to forbidden transitive triples in a loopless digraph. The two neighborhood-disjointness inequalities yield an exact arc maximum. Equality forces reciprocity in even order and Mantel equality gives a balanced complete bipartite graph; removing a minimum-degree vertex reduces odd order to even order and its two independent neighborhoods force the same partition. These steps cover all finite alphabets of size at least two. The checker independently enumerates minimum-layer digraphs through five symbols and directly checks their codebooks; these computations do not substitute for the proof.
+
+**Originality — PASS on inspected comparisons, with residual historical-priority risk.** The preceding 2025 result establishes density one half and explicitly constructs the balanced code, implying the scalar minimum size. That scalar fact is excluded from the novelty assertion. The claim reviewed here is the stronger all-optima rigidity and exact labeled enumeration, including exclusion of asymmetric minimizers. Neither the inspected 2025 source nor the fully accessed June 2026 manuscript states an equivalent finite optimizer classification. The earlier 2021 general framework does not provide it. A prior unindexed directed-graph extremal equality theorem or implicit earlier argument could still cover it.
+
+**Value — PASS.** A natural extremal code problem is determined structurally, not just in optimum cardinality: every optimum is a two-class equivalence-relation code, the entire labeled optimum family is counted, and there is exactly one relabeling type. The rigidity requires analysis of arbitrary nonsymmetric directed selections and is not a routine substitution into a known bound.
+
+**Closest literature and limitations.** Xie–Sun–Ge (2026) and Pikhurko–Verbitsky–Zhukovskii (2025) concern covering bounds and extremal density; their known minimum-size implication is acknowledged rather than relabeled as a new finding. No assertion is made about higher insertion radii, larger center lengths, or independent verification. Historical priority is not conclusively settled.
+
+Self-review: passed. Independent audit: not yet performed.

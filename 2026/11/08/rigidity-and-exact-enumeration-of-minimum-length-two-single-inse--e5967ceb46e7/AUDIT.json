@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces covering to a forbidden three-arc directed pattern. For every arc, disjoint in/out neighborhood pairs yield a global 2qE bound, complemented by Cauchy to give E<=q²/2. Even-order equality forces bidirectionality and Mantel equality; odd-order extremizers reduce by removing a degree-(q-1) vertex, whose two independent neighborhoods each saturate one bipartition side and must coincide. The construction attains the bound; orbit enumeration follows. Independent standard-library exhaustive q=2..5 replay confirmed all optimum-layer codebooks, without treating finite checks as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2025 Theorem 3 implies general density at least one half and gives a balanced symmetric code. This dominates the scalar minimum claim but contains no stated finite all-optimizers classification.",
+        "2026 Theorem IV.1 gives the general lower bound for R insertions; it does not classify equality cases of length two."
+      ],
+      "reasoning": "Prior general bounds cover the optimum size and witness, which are acknowledged as known. The proposed all-optimizer classification is not a corollary of scalar optimality, because a bound alone does not rule out asymmetric minimizers.",
+      "searches": [
+        "published-finding corpus: q-ary insertion covering code length 2 covering radius 1 sequence covering pairs",
+        "published-finding corpus: all minimum single insertion covering codes length two arbitrary alphabet unique up to relabeling two equal parts squares",
+        "Xie–Sun–Ge 2026 Sections I, IV",
+        "Pikhurko–Verbitsky–Zhukovskii 2025 Sections I, IV–V"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15379",
+      "https://pikhurko.github.io/E/PikhurkoVerbitskyZhukovskii25tit.pdf",
+      "https://cmrr-star.ucsd.edu/static/pubs/Covering_Codes_Using_Insertions_or_Deletions.pdf",
+      "published-finding corpus 9607d49b27ed",
+      "published-finding corpus 967f04fec949"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The balanced construction plus the 2025 density lower bound implies min|C|=ceil(q²/2), so that component is covered.",
+        "The new proof adds equality rigidity for every directed codebook, including odd q, giving the exact binomial labeled count.",
+        "No compared source provides a theorem that every extremizer is symmetric or that there is exactly one alphabet-relabeling orbit."
+      ],
+      "reasoning": "A scalar optimum and one symmetric construction do not logically force uniqueness. The present classification is strictly stronger, since it excludes all other cardinality-minimizing codebooks.",
+      "searches": [
+        "arxiv:2409.06425 Section V r=2",
+        "arxiv:2606.15379 Section IV",
+        "published-finding corpus: minimum length two q-ary single insertion covering code all words length three exact size tournament transitive triangles",
+        "published-finding corpus: all minimum single insertion covering codes length two arbitrary alphabet unique up to relabeling two equal parts squares"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Covering each ordered distinct-letter triple translates to absence of arcs a->b,a->c,b->c in the complementary digraph.",
+        "published-finding corpus closest 9607d49b27ed addresses the reverse deletion-covering channel."
+      ],
+      "reasoning": "Reversal, symmetric-code and complement-digraph formulations were compared. Known symmetric two-block constructions prove attainability, not the symmetry of every optimizer; neither the published-finding corpus hits nor inspected papers stated that rigidity.",
+      "searches": [
+        "published-finding corpus: minimum length two q-ary single insertion covering code all words length three exact size tournament transitive triangles",
+        "published-finding corpus: directed graph maximum arcs with no transitive oriented triangle with reciprocals q vertices",
+        "web: one-insertion covering codes classification all optimal",
+        "web: S(n,3,2) unique optimal codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records include an odd-alphabet deletion-covering number (9607d49b27ed), not enumeration of single-insertion covering optima.",
+        "The finite count obtained here is the number of *all* optimal length-two insertion codebooks for each q, not a tabulation of optimum cardinalities."
+      ],
+      "reasoning": "Searched records and inspected publications did not contain the formula for all labeled optimal covers; an unindexed table or classification remains possible.",
+      "searches": [
+        "published-finding corpus: uniqueness extremal directed graphs no transitive triangles allowing bidirectional arcs balanced bipartite",
+        "published-finding corpus: complete classification of finite optimal (q,3,2) single-insertion covering codes",
+        "web: two-letter insertion covering number optimal codebook classification"
+      ]
+    },
+    "rationale": "The main claim is finite-alphabet optimizer rigidity and exact labeled count, not the previously known scalar lower bound or balanced construction. The full inspected 2025 and 2026 manuscripts provide bounds and symmetric constructions but not arbitrary nonsymmetric optimum classification. An independent short directed-graph equality analysis establishes the latter. Residual unindexed-literature risk remains.",
+    "residual_risks": [
+      "An earlier unindexed result on maximal directed graphs avoiding transitive triples may imply the same equality classification.",
+      "Historical-priority coverage cannot be established definitively from bounded literature searches; no independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides lower bound and constructions; no statement classifying all minimum length-two codebooks",
+        "evidence": [
+          "Manuscript page 1 explicitly dates arXiv v1 June 13 2026.",
+          "Section IV Theorem IV.1 gives general bound I(q,n,R)>=q^n/(binom(n+R,R)-1).",
+          "Its comparison to Pikhurko et al. is about covering density, not equality-case rigidity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "Full 14-page publicly posted manuscript, including Sections I–IV and stated contributions; source accessible via lawful PDF extraction",
+        "method": "Read extracted page text and compared definitions, lower bounds, parameter specialization and equality claims",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Recent covering-code framework and likely sharp finite implications"
+      },
+      {
+        "assessment": "Scalar optimum and balanced symmetric witness covered; no theorem enumerates or rules out asymmetric finite minimizers",
+        "evidence": [
+          "Section V gives s([0,1],3,2)=1/2 and an explicit two-part symmetric code.",
+          "Lemma 2 states finite minimum normalized by q² is at least its limiting density.",
+          "The article invokes Mantel for symmetric Turán density but does not identify all nonsymmetric finite codebook optimizers."
+        ],
+        "identifier_or_url": "https://pikhurko.github.io/E/PikhurkoVerbitskyZhukovskii25tit.pdf",
+        "material_read": "Full seven-page author-accessible paper, notably Sections I, IV, V, VI and its r=2 discussion",
+        "method": "Read primary PDF text and visually checked Section V page with r=2 equality and Mantel comparison",
+        "title": "New bounds for the optimal density of covering single-insertion codes via the Turán density",
+        "trigger": "Closest original density theorem and balanced two-block construction"
+      },
+      {
+        "assessment": "General framework and bounds do not imply optimizer classification",
+        "evidence": [
+          "General single insertion covering size estimates do not identify all equality cases."
+        ],
+        "identifier_or_url": "https://cmrr-star.ucsd.edu/static/pubs/Covering_Codes_Using_Insertions_or_Deletions.pdf",
+        "material_read": "Accessible primary PDF, introductory definitions and insertion-cover bounds",
+        "method": "Inspected source definitions and bounds with this fixed short-word specialization in view",
+        "title": "Covering Codes Using Insertions or Deletions",
+        "trigger": "Original covering-code setup and code size bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5967ceb-46e7-4d97-b6c3-574a48b841f9",
+  "value": {
+    "rationale": "This is the natural exact classification of every minimum codebook for the basic one-insertion covering channel, including non-symmetric candidates. Rigidity, one relabeling orbit, and exact labeled enumeration are structural invariants not supplied by the previously known scalar bound or a single balanced construction.",
+    "status": "PASS"
+  }
+}
