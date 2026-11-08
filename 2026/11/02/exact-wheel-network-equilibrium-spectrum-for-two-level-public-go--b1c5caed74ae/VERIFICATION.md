@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and bounds
+# Independent mathematical audit
 
-`python3 verify_wheels.py` requires Python 3 and its standard library only. The program constructs wheel neighbor sets explicitly, examines every binary activity profile for rim sizes \(3\le m\le13\) and thresholds \(2\le r\le m+2\), and compares against the stated formulas. It independently counts maximal independent sets of cycles for \(3\le m\le18\), checks all their sizes, and evaluates the Perrin recurrence through \(m=100\).
+## correctness
 
-Observed output:
+PASS
 
-```
-OK: 99 wheel parameter cases; 425952 full binary profiles; 16 independently enumerated cycle tables; 98 Perrin values; unique equilibrium only at (m,r)=(7,3) within tests
-```
+For inactive hub and r>=3, the rim response reduces to the indicator of zero active rim neighbors, hence the active rim is a maximal independent set with cyclic gaps 2 or 3. The number with k active vertices is M_m(k)=m/k*C(k,m−2k), 0 outside m/3<=k<=m/2; hub inactive forbids exactly k=r. Active hub gives all-inactive rim, plus all-active special case m=r=3. For r=2, rim equations over F2 are x_(i−1)+x_i+x_(i+1)=1−h, yielding x_(i+3)=x_i and 3-period classifications; hub conditions generate stated indicators. Unique equilibrium occurs precisely at m=7,r=3 after checking all possible independent set sizes. Perrin recurrence and dominant root yield asymptotics r fixed≥3; r=2 bounded. Independent exhaustive Nash action enumeration for every m=3..12 and r=2..m+2 agrees.
 
-The mathematical proof in RESULT.md handles all integers in the stated domain. The script checks finite instances only; it does not certify an infinite theorem, publication originality, or the absence of other equilibrium notions.
+## originality
+
+PASS
+
+Klimm–Stahlberg and Gilboa–Nisan/Gilboa prove general complexity for picky or nonmonotone binary response functions, not an exact wheel spectrum. Perrin enumeration of cycle maximal independent sets is classical and explicitly subtracted/filtered by strategic hub compatibility. The new modular r=2 spectrum and unique eight-vertex exception are not implied by the general complexity classification.
+
+## value
+
+PASS
+
+A natural complete graph-family equilibrium classification under a nonmonotone public-goods rule, exposing a qualitative transition between bounded and exponential multiplicity and a unique-equilibrium parameter pair. It adds hub strategic constraints to the classical Perrin independent-set count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
