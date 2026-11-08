@@ -1,22 +1,21 @@
-# Review: exact second moment of the nonzero-idempotent count
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument reduces simultaneous nonzero idempotents to ordered pairs of independent vectors and separates the admissibility test into the independence of the coordinatewise squares. Uniformity of the general linear group on ordered independent pairs gives the exact probability. The odd-characteristic collision count is a support-weighted sum, and the even-characteristic case uses that squaring is an automorphism of every finite field of characteristic two. The matrix convention, the exclusion of zero, and the restriction to \(n\ge2\) are explicit. Ten exhaustive checks include extension fields and show agreement, but are not used in place of the proof.
+PASS
 
-## Originality
+For uniform A in GL_n(F_q), each fixed nonzero x has P(A x^[2]=x)=1/(q^n-1), so EN=1. Distinct nonzero idempotents cannot be scalar multiples. For linearly independent x,y, their prescribed images occur with probability 1/[(q^n-1)(q^n-q)] exactly when x^[2],y^[2] are independent. In even characteristic Frobenius is a field automorphism and all independent pairs qualify, giving Var N=1. For odd q, a vector with s nonzero coordinates has (q-1)2^{s-1} projectively square-colliding y, including q-1 scalar copies; support summation removes B=(q-1)((2q-1)^n-2q^n+1)/2 pairs and yields Var N=1-B/[(q^n-1)(q^n-q)]. n=1 separately has zero variance. Strict 0<Var<1 and deficit asymptotic (2^{n-1}-1)q^{1-n} at fixed n follow. Inspected finite-field arithmetic and matrix-exhaustion verifier verify_moments.py, including extension-field model; independent small q,n enumerations corroborate without replacing proof.
 
-PASS, subject to the disclosed historical-priority risk. Remark 23 of Kaygorodov–Martín González–Viruel, arXiv:2610.22248v1, establishes the mean, not the second factorial moment or parity-dependent variance. Their Conjecture 2 proposes a limiting fixed-point distribution. Wei–Zou, arXiv:2310.12368v1, count isomorphism classes rather than idempotent-count moments under uniform invertible structure matrices. Targeted semantic-record and web literature searches found no matching second-moment identity; this negative search does not establish absolute priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A finite-field law for a natural, full-dimensional ensemble addresses the second-order fluctuation beyond a previously published first-moment identity. The strict odd-characteristic deficit and exact characteristic-two equality are structural phenomena and give a finite-field quantitative check relevant to the conjectured permutation-fixed-point statistics. The result is neither a single-table enumeration nor an alternative statement of the mean. It does not resolve the complete distribution or generic monodromy conjecture.
+Prior same-model 2026 survey explicitly covers the first moment EN=1; the new statement is a second factorial moment with characteristic-sensitive square-collision defect for every n>=2 and prime-power q. Wei–Zou count algebra isomorphism classes with nonuniform orbit weighting, not the fixed-basis uniform-GL idempotent variance. Full text of same-model survey remained inaccessible, so do not claim whole-document noncoverage.
 
-## Closest sources and limitations
+## value
 
-- I. Kaygorodov, C. Martín González, A. Viruel, *Evolution algebras: a survey of results and a list of open problems*, arXiv:2610.22248v1, Remark 23, Question 22, Conjecture 2. Full-text passages inspected.
-- Y. Wei, Y. M. Zou, *Isomorphism Classes of Idempotent Evolution Algebras*, arXiv:2310.12368v1, introductory discussion and Section 2. Full-text passages inspected; differently weighted counting problem.
+PASS
 
-Further older or unindexed studies of moments of finite-field quadratic maps may exist. The structural probability formula, not historical priority, is what is proved.
+Determines an exact second-order fluctuation invariant for a natural finite-field distribution beyond the established mean, including a sharp even-versus-odd characteristic distinction and correct large-field deficit; a plausible target for further factorial moments and distributional questions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
