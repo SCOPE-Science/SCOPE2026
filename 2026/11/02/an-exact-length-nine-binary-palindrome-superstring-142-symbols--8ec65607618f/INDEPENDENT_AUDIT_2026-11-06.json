@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:03:08.822889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact set of 32 binary length-nine palindromes, use symmetric minimal suffix-prefix overlap shifts c_ij. Any circular containing word gives a tour of distinct chosen palindrome start positions, so its length bounds below a Hamiltonian-cycle overlap cost. Independently regenerated all 496 unordered pair shifts from 32 explicit palindromes, verified symmetric costs, sum of integer vertex potentials 81 and exactly seven positive edge deficits summing 20. Since a Hamiltonian cycle uses degree two at each vertex and any unordered edge at most once, its cost is >=2*81-20=142. Independently scanned all 134 non-wrapping windows in the supplied 142-character binary witness and found all 32 distinct palindromes; thus linear and circular minima both equal 142. This is a complete finite dual certificate, not solver optimality or partial search.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici–Kociumaka–Radoszewski–Rytter–Waleń concern shortest common superstring with reversals; Orenstein–Shamir cover DNA k-mers up to Watson–Crick reverse complementation, distinct from all length-nine ordinary binary palindromes."
+        ],
+        "reasoning": "General SCS hardness and algorithms do not give the exact 32-palindrome lower bound, and neither inspected abstract states it.",
+        "searches": [
+          "arXiv:1511.08431",
+          "DOI:10.1093/bioinformatics/btt230"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A330022",
+        "https://oeis.org/A390882",
+        "arXiv:1511.08431",
+        "DOI:10.1093/bioinformatics/btt230",
+        "Resultary query: binary palindrome shortest superstring n=9 142 upper bound optimal minimum certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior upper bound 142, plus overlap Hamiltonian reduction, is insufficient for optimality absent a lower bound. The explicit 32-potentials and seven-deficit inequality supply the missing certificate."
+        ],
+        "reasoning": "Neither upper bound nor generic overlap algorithm logically implies 142 minimum without checking every edge bound.",
+        "searches": [
+          "https://oeis.org/A330022",
+          "arXiv:1511.08431"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A330022 gives the binary-palindrome shortest-superstring sequence, explicitly only a greedy upper bound at n=9.",
+          "The palindrome-overlap graph formulation of the SCS problem is standard and appears in the OEIS comment."
+        ],
+        "reasoning": "Compared Hamiltonian path/tour overlap optimization and reverse-complement cover variants; the exact 142 lower bound for all ordinary palindromes is the new claimed fact.",
+        "searches": [
+          "https://oeis.org/A330022",
+          "arXiv:1511.08431"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A330022 explicitly states a(9)<=142, and its 2025-11-22 comment says some upper bounds are probably tight; it does not assert a proven exact value at n=9.",
+          "A390882 enumerates counts of shortest superstrings for smaller orders, not an n=9 certified minimum."
+        ],
+        "reasoning": "Separates a published 142 candidate table from a proof of exact equality.",
+        "searches": [
+          "https://oeis.org/A330022",
+          "https://oeis.org/A390882"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as a certified optimal 142 length-nine all-palindromes superstring, not as first discovery of an upper-bound construction. OEIS A330022 explicitly records a(9)<=142 as a greedy upper bound and says it is probably tight, rather than furnishing a matching lower bound. General shortest common superstring with reversals concerns a different target set and does not supply this exact lower-bound certificate.",
+      "residual_risks": [
+        "OEIS could be updated or earlier unindexed computations could already include an optimality proof.",
+        "No all-n solution, no uniqueness, no enumeration of shortest witnesses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "At n=9 entry prints 142 but expressly says greedy a(9)<=142; no claimed lower bound",
+          "evidence": [
+            "Comment dated Nov 22 2025 says greedy supersequence gives upper bounds through n=13 and probably some tight; n=9 142 explicitly upper bound."
+          ],
+          "identifier_or_url": "https://oeis.org/A330022",
+          "material_read": "Full live entry including comments, upper-bound wording, 2025 update, references and history",
+          "method": "Read entire short OEIS page text and compared purported equality to bound qualifier",
+          "title": "OEIS A330022: Length of shortest binary string containing all palindromes of length n as substrings",
+          "trigger": "exact numerical value 142 potentially already recorded as optimum"
+        },
+        {
+          "assessment": "Broader algorithmic object, no verified exact n=9 all-binary-palindrome equality",
+          "evidence": [
+            "SCS with reversals is not the same optimization as all ordinary binary palindromes without reversal equivalence."
+          ],
+          "identifier_or_url": "arXiv:1511.08431",
+          "material_read": "Primary abstract and frozen RESULT.md summary; full arXiv HTML unavailable",
+          "method": "Compared target-set reversal semantics and output as described",
+          "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+          "trigger": "overlap graph / reversal equivalence could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest unresolved exact palindrome-cover length at order nine is a natural discrete extremal invariant explicitly listed as an upper bound. An independently checkable dual feasible potential certificate proves exact optimality, converting an existing construction into a sharp benchmark for short-superstring algorithms. Its fixed finite nature is mathematically motivated by the exact target family and tabulated open boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://oeis.org/A330022",
+    "https://oeis.org/A390882",
+    "arXiv:1511.08431",
+    "DOI:10.1093/bioinformatics/btt230",
+    "Resultary query: binary palindrome shortest superstring n=9 142 upper bound optimal minimum certificate"
+  ],
+  "disposition": "passed",
+  "limitations": "Only binary palindromes of length nine, ordinary contiguous factors and circular vs linear minima; does not classify optimal words or prove any uniform statement for larger n. Indexed but unlocated earlier lower bound proofs remain possible.",
+  "residual_risks": [
+    "OEIS could be updated or earlier unindexed computations could already include an optimality proof.",
+    "No all-n solution, no uniqueness, no enumeration of shortest witnesses."
+  ],
+  "schema_version": 1
+}
