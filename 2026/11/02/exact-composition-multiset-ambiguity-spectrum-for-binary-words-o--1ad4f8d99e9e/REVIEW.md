@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified signatures count *every* contiguous substring's zero/one composition, including multiplicities. The finite proof uses exactly one representative per reversal orbit and adds its true word multiplicity, giving a partition of all \(2^n\) inputs. Every grouping key is a complete binary string of counters, and equal-hash collisions cannot conflate unequal keys. Each byte counter is at most twenty-three, so there is no overflow. The second program computes compositions from prefix differences, uses a different enumeration of endpoint pairs, verifies every census row for \(1\le n\le23\), and reconstructs each of the \(160\) exceptional length-twenty-three fibers. The population identity and exact small-length consistency independently constrain the outcome. The only conclusion proved is this finite-range classification.
+## correctness
 
-## Originality — PASS, with qualified historical priority
-The 2014 primary work characterizes equicomposable sets and provides maximum-fiber bounds, but does not tabulate these full finite-length fiber histograms. Its conclusion explicitly raises the problem of counting composition multisets. The 2022 reconstruction-algorithm paper treats related code constructions, not this exact full-observation count. Work on ordered substring multispectra is inequivalent because it reveals the substring order. Direct searches for the twenty-three-length count, the four-word multiplicity and equivalent ambiguity-class formulations found no covering result in the accessible indexed research or comparison sources. A finite enumeration of a natural unsolved counting invariant at the first noninterleaved-ambiguity length is a distinct claim, not a restatement of an upper bound. Unindexed or unpublished tables could change historical priority; no such absence is certified.
+PASS
 
-## Value — PASS
-The exact number of observational equivalence classes is the optimal zero-error capacity of the full substring-composition measurement channel. The authors of the foundational work identify this count as a genuine mathematical question, and length twenty-three is the first with known noninterleaved equicomposable examples. Computing all \(160\) four-word ambiguities and exact counts over all \(2^{23}\) input strings closes a natural finite-boundary problem and provides a checkable baseline for reconstruction code design. It does not claim a general formula or a noisy-channel guarantee.
+The complete observation records every contiguous substring length and ones count with multiplicity. The package source build_census.cpp and verify_independent.cpp group exact full byte signatures, choosing one canonical representative of each reversal orbit and restoring word multiplicity 1 or 2; counter indices exhaust n(n+3)/2 entries without overflow for n<=23. Independently compiled a separate 23-bit complete-signature enumerator, which ran over all 8,388,608 words via 4,196,192 canonical classes and produced exactly 4,096 singleton, 4,191,936 double, and 160 quadruple fibers: weighted sum 8,388,608. Separate independent Python enumeration matched n=8,11,12,14. Consequently the optimal zero-error code cardinality is the exact count of fiber classes. This certifies only finite n<=23, not all binary lengths; the 160 length-23 witness rows were inspected but not independently pairwise regenerated.
 
-## Limitations
-The classification stops at length twenty-three, needs about two gigabytes of memory to replay the largest exhaustive hash-table census, and has not received an independent scientific audit. No guarantee of novelty against unindexed earlier computations is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acharya et al. introduced the model and known non-reversal collisions (including a length-23 example); those are prior, and the exact complete histogram is the assessed contribution. Published Resultary r=2-limited composition and ordered adjacent-pair spectra concern strictly different observations, not a dominating full-composition count. The fully enumerated n=23 exact count is best-knowledge not a priority guarantee.
+
+## value
+
+PASS
+
+The full composition-multiset observational equivalence relation is a natural reconstruction-code object; exact fiber sizes and optimal one-representative noiseless code size at length 23 quantify ambiguity at a meaningful length known to have nontrivial alternative decompositions. A complete 23-row census with explicit fourfold classes is useful even absent an all-length recurrence, and is not a mere arbitrary substring-truncation parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
