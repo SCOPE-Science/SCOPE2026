@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact quadratic Rota–Baxter equations are derived on all natural-basis pairs. After isolating the zero solution by its invertible Jacobian, the remaining solution scheme is isomorphic by reciprocal coordinates to a squaring-periodic point scheme with \(t\ne1\). Its cyclotomic root multiplicities give the claimed geometric points, length, and tangent dimensions. At zero weight the field-point recurrence is complete. All algebra automorphisms are monomial and have only cyclic shifts as permutation parts, establishing the conjugacy formula. The standalone checker exhaustively verified 44 prime-field parameter cases and three binary extension cases. Finite checks are not an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-Qaralleh–Mukhamedov–Khakimov's 2026 nilpotent chain has the neighboring scalar recurrence but no closed-cycle perfect algebra; Ladra–Murodov's 2019 work treats complex dimension two; the nearest accessible dimension-two classification does not cover rank at least three. The 2026 survey explicitly presents Rota–Baxter varieties on perfect evolution algebras as Question 39. Searches for equivalent squaring-periodic formulations, more general coverage, exact tables and implications located no fully covering source, but older unindexed theory remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem determines an intrinsic, naturally defined operator subvariety uniformly rather than computing arbitrary examples. It finds sharp nonreduced geometric fibers in modular characteristic, distinguishes geometric points from scheme length, and determines finite-field conjugacy orbits via the full automorphism group. These precise facts address a natural diagonal case of a current classification problem. The general non-diagonal operator variety and the weight-zero scheme remain outside the claim.
+For E_n with e_i^2=e_{i+1}, substitution proves exactly r_i^2=(2r_i+lambda)r_{i+1}, every n>=3 over every field. At lambda!=0, zero is isolated by invertible cyclic Jacobian; on the open all-r_i-nonzero locus t_i=1+lambda/r_i obeys t_{i+1}=t_i^2, so after removing t=1 the coordinate ring splits into t=0 and t^(2^n-1)=1 components. In positive characteristic p, the p-adic multiplicity of M=2^n-1 yields M0+1 geometric points, length M-p^a+2, and exactly M0-1 nonreduced geometric points when p^a>1; field-rational lambda=0 solutions follow by cyclic multiplication. All automorphisms of this perfect evolution algebra are monomial rotations and cyclotomic diagonal factors; only rotations act on diagonal R and Burnside gives g+1 operators and 1+(1/n)*sum_s gcd(g,2^s-1) orbits over Fq. Independent prime-field direct basis equations reproduce (p,n)=(3,4),(5,3),(7,3),(7,6), weight 1, plus rotation counts. The finite counts do not prove scheme local-length statements; their ring derivation does.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original specific final mathematical result after explicitly excluding known foundational subclaims. All four equivalence/coverage/table/implication comparisons use stated primary reading, semantic search and uncertainty; no failure-of-search-as-proof assertion. The original claim is accepted without publication or unearned provenance.
+
+## value
+
+PASS
+
+A scheme-theoretic, every-characteristic classification distinguishes reduced and modular nonreduced strata and counts rational conjugacy classes for a natural perfect cyclic evolution algebra family. The first nonreduced example n=4,p=3 is a real boundary; these are motivated infinitesimal invariants rather than mere periodic-point enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
