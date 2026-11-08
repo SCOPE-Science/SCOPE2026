@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The explicitly computed integer matrix identity \(A^4=I+2B\) implies a four-step parity period and a dyadic shift congruence of strength \(2^{r-1}\). The binomial remainder after splitting a length-\(2^{r+1}\) window is divisible by \(2^r\) for odd powers and \(2^{r+1}\) for even powers. The parity-period count proves the needed extra factor, and exact length-eight base congruences establish both upper and lower bounds, for all starts and all exponent parameters. Direct modular and arbitrary-precision checks in `checker.py` passed. Finite experiments alone are not the proof.
+
+**Originality — PASS within inspected evidence.** The 2022 Gryszka full article and its early author preprint contain congruences of sums of FIRST powers of Tribonacci-type recurrences along arithmetic progressions; their statements do not imply nonlinear dyadic sliding-window gcd valuations. The full Bilu et al. paper analyzes valuations of individual Tribonacci terms, not these sums. Mbirika–Spilker studies SECOND-order generalized Fibonacci squares, not powers of order-three Tribonacci. Targeted mathematical-record searches and closely related scientific claims were compared by implication, not merely by title. No covering theorem was identified, but semantic rankings and inaccessible papers do not prove uniqueness. The principal residual risk is an unindexed general congruence result that may imply this special case.
+
+**Mathematical value — PASS.** This is a sharp, uniform classification across a natural tower of window lengths and every nonlinear exponent, including a nontrivial odd-versus-even dichotomy and an all-starts strengthening. The parameter choices arise from the exact period-four residue dynamics of a classical number-theoretic recurrence, not an arbitrary finite slice. It determines the two-adic component of a natural infinite-window gcd invariant and provides a reusable lifting argument. The odd part of the gcd and other recurrences are not addressed.
+
+Independent literature completeness and independent mathematical validation remain open. The scientific assessment applies to the stated theorem; it does not constitute independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
