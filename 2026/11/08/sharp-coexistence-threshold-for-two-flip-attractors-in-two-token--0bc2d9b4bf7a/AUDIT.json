@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "At each axial cycle the first variation of every token dot product vanishes, making attention weights constant to first order. Both exact one-step Jacobians and their symmetric/antisymmetric spectra follow, with a negative unnormalized vertical coefficient separately ensuring genuine sign flips. Each full two-step Jacobian is the square of the one-step tangent matrix by global odd symmetry. The larger eigenvalue supplies the exact if-and-only-if hyperbolic sink criterion; the split criterion automatically implies the synchronized one. The symbolic characteristic-polynomial checker and direct-map derivative comparisons were executed successfully. Boundary multiplier one is not called attracting.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.28448v1 concerns a negative-definite scalar value map V=-I, and describes period-two cluster-exchange and flips.",
+        "arXiv:2604.26085 concerns a continuous-time gradient-flow model with a symmetry between attention and value matrices.",
+        "arXiv:2610.13518v1 Section V-B considers relaxing step-size bounds only for equilibrium stability and makes no period-two assertion."
+      ],
+      "reasoning": "Prior repulsive-attention flip phenomena are acknowledged, but the V=-I specialization does not imply a hyperbolic coexistence criterion for a mixed-sign value matrix with positive principal eigenvalue. Continuous-time gradient flow does not entail the discrete sign-reversing two-cycles. The exact Section V-B is now inspected and gives only an equilibrium-stability remark.",
+      "searches": [
+        "Semantic research index: normalized attention dynamics bipartite consensus period two isotropic value matrix 2026",
+        "Semantic research index: normalized multiagent Oja step size periodic orbits stable period 2 matrix negative eigenvalue",
+        "Semantic research index: Nonequilibrium Phases of Repulsive Self-Attention Chaos Attention Condensation Emergent Locality two-cluster exchange fixed negative value matrix",
+        "Open-literature search: normalized self-attention dynamics stable 2-cycle period two negative eigenvalue value matrix oversmoothing",
+        "Open-literature search: discrete self attention softmax dynamics periodic orbits two cycle spherical normalization transformer large step"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13518v1, original HTML inspected through Section VII including Section V-B on large step sizes",
+      "arXiv:2609.28448v1, original abstract and figure-caption extracts",
+      "arXiv:2604.26085, original abstract",
+      "https://pith.science/paper/2610.13518, secondary paper review",
+      "Indexed literature queries recorded in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The accessible part of Altafini arXiv:2610.13518v1 presents normalized dynamics and classification of equilibrium types, including bipartite equilibria.",
+        "Gao--Yang--Chen arXiv:2609.28448 identifies cluster flip and exchange patterns for V=-I but does not establish the mixed-sign positive-principal-eigenvalue stability frontier in accessible material.",
+        "The proved theorem needs the nontrivial comparison of the synchronous and split tangent eigenmodes of two distinct period-two orbits; static equilibrium classifications do not directly imply these Floquet values."
+      ],
+      "reasoning": "The new statement is not merely a special case of a prior equilibrium theorem: its points are exchanged after one iteration, and their stability is governed by the second iterate at a negative normalization factor. The cited repulsive scalar-value results exhibit related behavior but not a stronger mixed-sign all-parameter formula. The full later large-step section was inspected and does not contain this claim; global historical priority is still not established.",
+      "searches": [
+        "Semantic research index: Altafini asymptotic discrete self-attention stable period two large step coexistence softmax sharp inverse temperature",
+        "Semantic research index: sharp coexistence stable synchronized and split period-two cycles discrete normalized self-attention with one positive one negative value eigenvalue",
+        "Semantic research index: period two softmax attention mixed sign value matrix eigenvalues n equals two d equals two",
+        "Open-literature search: Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers Longer step size periodic orbit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.13518v1 defines the same residual normalized softmax map with a symmetric value matrix and discusses equilibrium linearizations.",
+        "The simultaneous flip-orbit statement is about nonstationary two-step fixed points of the second iterate, not fixed points of the original map."
+      ],
+      "reasoning": "Searched period-two, sign-flip, antipodal exchange, two-token and tanh parameter formulations. Full original-orbit equivalence would require the two-step stability inequalities with signed value eigenvalues; none of the returned indexed research summaries or inspected earlier statements provided those inequalities.",
+      "searches": [
+        "Semantic research index: discrete time normalized self attention dynamics exact two token angle recurrence global convergence limit cycles softmax circular Altafini",
+        "Semantic research index: attracting period two orbits large-step self attention on sphere two tokens negative eigenvalue bipartite anti-consensus softmax threshold tanh",
+        "Semantic research index: period two dynamics of self attention value matrix diag positive negative residual and normalized softmax two token",
+        "Semantic research index: self attention two tokens exact flip cycles tanh beta b lambda threshold eta signed eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical research-index hits describe a two-cycle family for scalar Signum and a two-cycle bifurcation in a replicator map, neither using softmax token dynamics or a mixed-sign value matrix."
+      ],
+      "reasoning": "No applicable exact-parameter table, database entry or recorded theorem was identified. A failed semantic search is not proof of universal novelty, so residual historical-priority risk remains.",
+      "searches": [
+        "Semantic research index: self attention discrete transformer negative value eigenvalue two coexisting stable sign flip cycles consensus antipodal",
+        "Semantic research index: softmax bipartite two-cluster period-two negative eigenvalue two tokens sharp stability threshold",
+        "Semantic research index: nonlinear normalized attention sphere principal positive eigendirection local period-two attractors hyperbolic"
+      ]
+    },
+    "rationale": "Inspected original model statement and portions of its equilibrium theory, inspected published summaries of larger-step discussion, compared a distinct negative-definite repulsive self-attention paper, and performed targeted indexed research, published literature and implication searches. The present theorem determines a precise joint parameter boundary and two Floquet spectra for distinct locally attracting nonstationary orbits when the value spectrum has opposite signs; the inspected preceding theorems address equilibria, continuous-time flow, or the different V=-I regime. Full later sections of the directly motivating paper remained intermittently inaccessible, so absolute priority is not claimed and that risk is identified.",
+    "residual_risks": [
+      "Although original arXiv:2610.13518v1 Sections II–VII were inspected and do not state a period-two coexistence theorem, its detailed static Jacobians might be adapted to such an analysis; the new theorem supplies those two-step calculations explicitly.",
+      "Complete text of arXiv:2609.28448 was not obtained; the stated negative-definite restriction is documented in the abstract, but broader reductions have not been independently ruled out.",
+      "Semantic database search and accessible historical records cannot prove world-wide novelty or historical publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The same model is defined by Eq. (1). The detailed stability lemmas concern fixed-point Jacobians. Section V-B (lines 788–790) discusses the sufficient step restrictions for equilibrium stability, but does not treat nonstationary two-cycle orbits; no formula for the joint two-cycle threshold was found in the original paper.",
+        "evidence": [
+          "https://arxiv.org/html/2610.13518v1, Sections II, III-B, IV-B, V-B, VI, VII, especially Section V-B lines 788–790: longer step-size remarks concern equilibrium conditions only.",
+          "https://arxiv.org/html/2610.13518v1, Eq. (1) at lines 69–74 exactly matches the normalized attention model."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13518",
+        "material_read": "Original arXiv HTML directly inspected throughout abstract and Sections I–VII, including model Eq. (1), Theorems 1–3, Lemmas 13–15, Section IV-B equilibrium Jacobians, full Section V-B Longer step size, numerical experiments and conclusions; references and appendix headings inspected.",
+        "method": "Direct full original arXiv HTML, targeted inspection of all relevant stability and larger-step sections, supplementary indexed abstract",
+        "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+        "trigger": "Same exact update and possible larger-step coverage"
+      },
+      {
+        "assessment": "Definite earlier examples of flip and cluster exchange, but negative-definite V=-I only, unlike mixed-sign V with positive principal eigenvalue. Cannot exclude unpublished extensions.",
+        "evidence": [
+          "arXiv:2609.28448, abstract as reproduced by The Latest in AI; captions for figures 1, 3 and 6."
+        ],
+        "identifier_or_url": "https://thelatestinai.com/papers/2609.28448",
+        "material_read": "Abstract and detailed captions for the paper’s phase and exchange-orbit figures; the complete PDF was inaccessible.",
+        "method": "Public summary of original abstract/figure captions",
+        "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+        "trigger": "Same general mechanism of stable flipped and exchanging token clusters"
+      },
+      {
+        "assessment": "Continuous-time gradient-flow setup, so cannot force the claimed two-step discrete sign-flip orbit.",
+        "evidence": [
+          "arXiv:2604.26085 abstract (28 April 2026)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.26085",
+        "material_read": "Original indexed abstract",
+        "method": "Web academic search abstract",
+        "title": "Spectral Selection in Symmetric Self-Attention Dynamics",
+        "trigger": "Possible stronger spectral theorem in a different attention dynamic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0bc2d9b4-bf7a-4345-b048-3649ba27ed7e",
+  "value": {
+    "rationale": "The exact joint inverse-temperature/residual-step boundary identifies coexistence of two distinct nonstationary sink types in the minimal two-token model despite a positive principal value eigenvalue. It quantifies both full Floquet spectra and an intrinsic tradeoff absent from ordinary equilibrium stability criteria; it is not an arbitrary one-parameter numerical slice. The claim deliberately does not imply a complete attractor classification.",
+    "status": "PASS"
+  }
+}
