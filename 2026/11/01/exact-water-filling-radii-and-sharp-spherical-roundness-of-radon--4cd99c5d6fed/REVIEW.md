@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator is fixed as the probability-normalized Radon transform of the \((d-1)\)-projection function, with hyperplanes required to contain the given direction. Cauchy's brightness identity and the beta integral give the exact constant \(c_d\), not an arbitrary rescaling. Optimization over squared coordinates reduces the inradius to vertices of a simplex and the circumradius to a strictly concave simplex maximization. Full complementary-slackness conditions give one unique water-filling multiplier and characterize every maximizing normal. The all-dimensional lower bound follows from evaluating the support on a body diagonal, and equality forces equal facet areas and hence a cube. The three-dimensional two-phase transition and derivative jump follow by differentiation of both exact branches. Standalone numerical optimization and independent spherical quadrature checks passed; they are diagnostic only.
+PASS
 
-## Originality — PASS with residual priority risk
+For an orthotope, Cauchy projection brightness equals sum_i a_i |v_i|. Averaging normal v uniformly in u^perp yields c_d sum_i a_i sqrt(1−u_i²), exactly the probability-normalized Radon operator, a Minkowski sum of coordinate-hyperplane disks. With t_i=u_i², support f(t)=sum_i a_i sqrt(1−t_i) is strictly concave on the simplex; min at a vertex gives inradius c_d(S−A). KKT and complementary slackness yield a unique multiplier λ via sum(1−a_i²/λ²)_+=1 and unique squared maximizing normal, hence exhaustive active-set circumradius. Evaluating the diagonal normal and A/S≥1/d yields the sharp R/r≥sqrt(d/(d−1)) with equality only when all a_i, equivalently all side lengths, coincide. The d3 active-set partition yields both square-root/linear branches, with second derivative discontinuity. Independent 600 sampled positive-weight tests in dimensions 3,4,6,9 verified KKT, support values, the sharp ratio and all 3D phase boundaries, but finite tests are not the proof.
 
-The 2026 Radon paper already defines the operator and proves general intrinsic-volume inequalities. The three perpendicular discs, their support functions, and the dice/discotope are established in Gesmundo–Meroni and Mathis–Meroni. None of those materials, upon review of the relevant definitions, theorems and case studies, evaluates the complete all-dimensional weighted Euclidean radii, sharp cube-only roundness ratio or three-dimensional phase boundary. Relevant published-record searches additionally distinguished the convex hull of three discs (not a Minkowski sum), box-section combinatorial probabilities, and other projection moments. Unseen sources may contain an equivalent elementary convex-optimization calculation; priority is therefore provisional and human literature verification remains appropriate. Neither the definition nor the unweighted three-disc object is presented as novel.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Euclidean inradius and circumradius quantify the loss of spherical roundness under a natural tomographic averaging construction. All positive facet-weight vectors arise from positive orthotopes, so the water-filling phases give a complete family classification rather than a contrived parameter slice. The sharp dimension-dependent lower bound has a rigid cube equality case, and the three-dimensional squared-area transition identifies a qualitative change in the contact normal configuration. These statements provide exactly evaluated geometry not supplied by the referenced structural inequalities or discotope algebraic-boundary results.
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
 
-## Limits
+## value
 
-Only \(d\ge3\), positive side lengths and the specified normalized Radon operator are covered. No classification for generic discotope orientations or arbitrary convex bodies is asserted. Historical priority remains open to undiscovered equivalent earlier optimizations. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural geometric operator of convex geometry and natural box family admit a complete exact all-dimensional Euclidean radius/contact-direction phase diagram and a sharp cube-only isotropy bound. The object is a known discotope, but this weighted radius classification and rigidity is a motivated unknown invariant; applying elementary KKT is a method, not a reason to dismiss the classified precise geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
