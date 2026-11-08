@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:42:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For e in [0,1), fixed 0<rho<1-e, isotropic impact parameter, uniform periastron and relative transit-duration power alpha in [0,3], the full geometric probability times duration^alpha has normalized integral Y_alpha=D^(alpha/2-1) I_(1-alpha) with I_s=(2pi)^-1 integral(1+e sin omega)^s. I independently reconstructed the tangent-half-angle change of variables followed by inversion proving I_s=D^(s+1/2) I_(-s-1), hence exact Y_alpha=Y_(3-alpha). Strictly positive variance of log(1+e sin omega) under the tilted phase law gives strictly convex log Y and the unique alpha=3/2 minimizer for e>0 (all alpha equal at e=0). Jensen makes the nonlinear order-of-averaging correction I_(-1/2)>1, and midpoint/quad numerical integration at e=.2,.5,.85 corroborates the symmetric yields, with Y_1.5(.5)=1.133293690137242. Dominated convergence yields the fixed-exponent Gamma ratio for alpha<3/2, and the elliptic-integral K asymptotic gives the critical sqrt(2)/pi D^-1/4 log(8/sqrt D), with reflection above 3/2. The e->1 limit is formal because rho must simultaneously shrink to preserve nonsaturated geometry. Finite numerical samples are not the continuous-exponent proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burke gives a complete conditional eccentric transit-duration distribution and corresponding mean duration, so all moments can be obtained by integration.",
+          "The cited survey calculation uses an averaged duration factor raised to 3/2 and is distinguishable from integrating duration^3/2 within transit selection."
+        ],
+        "reasoning": "Full distribution theory is broader raw information and could be used to derive any prescribed moment; it does not logically state the global exponent minimization, strict positive correction to the proxy, or critical log crossover without further analysis. The present claim credits the model and distribution.",
+        "searches": [
+          "Burke 2008 arXiv:0801.2579v1 §§4–6, esp. Eq.14",
+          "Barnes 2007 arXiv:0708.0243v1",
+          "Kipping 2014 arXiv:1408.1393",
+          "Beatty Gaudi 2008 arXiv:0804.1150"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 4fa89fb30ed647d49de1eafdca73879ef28d1121 and verification/check.py 726b0fd6f95c857bdc1f4d68ccbf6a118a02eb91",
+        "Burke arXiv:0801.2579 full PDF relevant pages; Barnes arXiv:0708.0243; Beatty and Gaudi arXiv:0804.1150; Kipping arXiv:1408.1393",
+        "Classical Legendre/complete elliptic integral identities",
+        "Actual Resultary semantic selection-law query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Burke predicts duration-dependent selection by multiplying separately averaged factors; for alpha=3/2 this produces D^-1/4 rather than D^-1/4 I_-1/2.",
+          "Jensen proves the ratio is >1 for all e>0, so the two objective functionals are genuinely different."
+        ],
+        "reasoning": "Knowing the distribution permits computation but the published product-of-averages is not the exact expectation of duration^alpha. The strict exponent-dual minimization and logarithmic borderline are logically additional analyses, not generalizations of the empirical proxy by wording alone.",
+        "searches": [
+          "Burke 2008 Sect.5 Euclidean transit survey yield proxy",
+          "Barnes 2007 eccentric transit geometry",
+          "Kipping 2014 eccentric transit selection priors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I_s is a Legendre/hypergeometric integral satisfying a classical index symmetry.",
+          "The alpha transformation is s=1-alpha and s -> -s-1, yielding reflected alpha -> 3-alpha."
+        ],
+        "reasoning": "Classical special-function identities already cover the algebraic phase-moment transformation, but do not automatically present a transit-weight selection objective, its unique minimizing exponent, mean-proxy discrepancy and limit regime as an applied theorem. A broad special-functions table is prior mathematics, not new.",
+        "searches": [
+          "Resultary: eccentric transit probability duration weighted yield exponent duality reflection alpha 3 minus alpha elliptic logarithmic",
+          "Legendre P_s=P_-s-1 eccentric transit phase moment transformation",
+          "arXiv:0801.2579 eccentric duration distribution all moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact numerical e=.5 factor is evaluated from the integral, not asserted independently as a discovery.",
+          "Burke supplies the full duration density; classical elliptic tables supply K asymptotics."
+        ],
+        "reasoning": "No checked transit survey table gave the alpha-reflected family and strict minimizer, while standard function tables explicitly subsume separate algebraic ingredients. Search nonmatches cannot prove novelty.",
+        "searches": [
+          "Burke 2008 arXiv:0801.2579 Eq.14 and §§4–6",
+          "Resultary exact alpha reflection transit selection query",
+          "Classical complete elliptic integral K(k) tables"
+        ]
+      },
+      "rationale": "PASS, qualified. Barnes and Burke already derive the eccentric transit geometry, conditional duration distribution and aggregate duration factors. The Legendre-function reflection is a classical algebraic identity, but the sharp phase-weighted exponent reflection/minimization and logarithmic transition for this specific selection functional were not found stated in the checked full primary source; priority relative to possible later survey calculations remains qualified.",
+      "residual_risks": [
+        "Later observational yield literature could have derived this precise nonlinear duration moment or used the Legendre symmetry without this terminology.",
+        "Power-law detection-volume weighting is not a thresholded survey completeness model, and fixed rho prevents taking e all the way to one.",
+        "Independent numerical quadrature is finite corroboration; source claims no realistic forecast error bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_AND_DISTRIBUTION_NOT_FINAL_OPTIMIZATION",
+          "evidence": [
+            "Full duration density and averaged relative-duration factor precede this claim; no complete alpha-reflection/minimizer theorem was identified in inspected full text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.2579",
+          "material_read": "Full 2008 primary eight-page PDF; duration-density Eq.14 and Sections 4–6 including field-survey yield model",
+          "method": "Opened PDF and inspected page images and the actual equations, not only search snippets",
+          "title": "Impact of Orbital Eccentricity on the Detection of Transiting Extrasolar Planets",
+          "trigger": "Same eccentric transit probability, conditional duration and detection-volume proxy"
+        },
+        {
+          "assessment": "PRIOR_GEOMETRY",
+          "evidence": [
+            "Geometric enhancement D^-1 and phase dependence are established; they do not determine power-weight integration in alpha."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0708.0243",
+          "material_read": "Abstract and geometric transit equations in accessible primary material",
+          "method": "Read available source passages",
+          "title": "Effects of Orbital Eccentricity on Extrasolar Planet Transit Detection and Lightcurves",
+          "trigger": "Fundamental geometric eccentric transit enhancement"
+        },
+        {
+          "assessment": "RELATED_PRIORS_NOT_IMPLICATION",
+          "evidence": [
+            "Geometric orientation/argument-of-periastron selection does not calculate global alpha minmax."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.1393",
+          "material_read": "Abstract and relevant geometric eccentricity prior formulation",
+          "method": "Read accessible primary text/scope",
+          "title": "Bayesian priors for the eccentricity of transiting planets",
+          "trigger": "Potentially broader eccentric selection formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact reflection, global minimizing exponent, strict difference between mean-of-power and power-of-mean, and singular logarithmic crossover answer a natural question about duration-sensitive selection in eccentric exoplanet transit surveys. The theorem refines a widely used product-of-averages proxy with a quantitative and physically motivated correction, rather than merely restating the classical transit-duration distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Formal high-e asymptotic requires rho<1-e, hence moving rho limit.",
+    "Only idealized constant-speed unsaturated transit probability and duration-power weight; no astrophysical threshold completeness.",
+    "Full distribution is known; historical first articulation of exponent reflection not guaranteed."
+  ],
+  "schema_version": 1
+}
