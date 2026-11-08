@@ -1,19 +1,21 @@
-# Review of the optimal prism proper conflict-free colouring census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A two-column transition state records every proper rung/row edge and tests both open-neighbourhood uniqueness conditions. Closed length-\(n\) walks are in bijection with named valid colourings of the labelled prism. The finite, explicitly defined transfer matrices have dimensions 18 and 84. An independent standard-library checker constructs them and certifies every characteristic-polynomial coefficient using integer traces and Newton identities. Formal log-differentiation therefore proves the all-length generating functions. Direct labelled assignment tests over 6,498,957 assignments, constructive closed walks, and exact characteristic checks corroborate the proof. Finite tests are not substituted for the universal transfer identity.
+PASS
 
-## Originality — PASS, qualified
+The submitted q-colour transfer uses ordered adjacent columns (18 and 84 states for q=3,4) and tests exactly both cubic open-neighbourhood non-monochromatic conditions. Its length-n closed walks biject to labelled proper conflict-free prism colourings for all n>=3. An independently written integer dynamic-matrix computation reconstructed both charpolys via Newton sums over full dimensions (18+84=102 nonleading coefficients) and exact tr(T^n) for small n: for q=4, 264,384,3600,17472 at n=3..6; q=3 gives 12 exactly on multiples of 3. Formal log derivative of det(I-tT) supplies the all-n series. Shared-base cycles of lengths 3,4,5 give four-colour existence for every n>=3; 2-colours cannot satisfy cubic open-neighbourhood singleton condition. The x^3-4x^2-6x+4 root rho in (5,6) dominates other factors for asymptotic A4~rho^n; all proper four-colourings have dominant rate 7.
 
-Madaras and Šurimová (2023), Theorem 3, prove prism homogeneous-colouring existence ranges, including the \(3\mid n\) threshold; that threshold is credited. They do not give the all-length counts. Allagan and collaborators (2026) derive the ordinary prism chromatic polynomial, whose transfer counts colourings without the conflict-free neighbourhood constraint. Qi, Song and Cao (2026) study proper conflict-free list-colouring of high-girth sparse graphs, not these labelled counts. Comparison by dynamic-colouring terminology and ordinary-versus-constrained transfer implications did not identify the same determinant or exact sequence. A general, unlocated enumeration may still subsume the formula. Some indirect sources were available only as abstracts.
+## originality
 
-## Value — PASS
+PASS
 
-The result completely enumerates the minimum-palette admissible colourings of an infinite, standard cubic family, not just the minimum number of colours. The unexpected full four-colour determinant and explicit spectral rate give a quantitative measure of how strongly the local uniqueness condition restricts ordinary proper colourings. A complete count, sharp three-colour multiplicity, and conditional exponential decay are mathematically motivated invariants of the same model.
+The existence threshold for 2-homogeneous prism colouring is not claimed new; the assessed claim is exact number of named proper conflict-free three/four-colourings, the 84-state spectrum, and exponential constrained-colouring probability. Existing ordinary prism chromatic polynomial counts unconstrained proper colourings; the 2023 homogeneous result has palette-existence statements but not multiplicities. Resultary's crown-graph conflict-free results concern a different graph family. An unlocated general dynamic-colouring chromatic polynomial might imply these numbers, and search absence is not priority proof.
 
-## Scientific limits
+## value
 
-The theorem covers labelled cycle prisms of length at least three with three or four available named colours. It does not describe arbitrary palettes, list-colouring, or orbit counts. Independent historical-priority and mathematical assessments are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cycle prisms are a standard infinite cubic family and the natural next invariant beyond minimum palette size is the complete named-colouring enumerator, with an exact characteristic polynomial and sharp exponential admissibility rate. A complete transfer enumeration is mathematically useful for dynamic/PCF graph colourings, rather than an arbitrary tiny finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
