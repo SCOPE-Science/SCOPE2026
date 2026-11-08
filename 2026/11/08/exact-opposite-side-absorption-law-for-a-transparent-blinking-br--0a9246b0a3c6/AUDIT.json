@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The two gate-conditioned backward equations contain the same position reset and unequal switching rates. At the transparent inactive interface, f_I and its derivative agree; at the absorbing active interface, f_A(0-)=1 and f_A(0+)=0. Weighted sum u=beta f_A+alpha f_I and difference v=f_A-f_I decouple into constant-coefficient ODEs with decay rates sqrt(r/D) and sqrt((r+alpha+beta)/D). Boundedness, derivative matching, active jumps and evaluation at the reset point uniquely give B=(k/ell-1)/2, C=r B exp(-ell*x0)/(alpha+beta), and U=-alpha(B+C), hence both conditional side probabilities and their equilibrium mixture. Uniform eventual absorption makes the bounded solution the actual probability. Reparameterization H(a,s)=1-1/a+exp(-a*s)/(a(a+1)) gives H_s<0 and a^2 H_a=1-Q>0 because Q(a,0)<1 and Q_s<0; this proves all strict monotonicity statements and endpoint limits. Symbolic identities and independent finite-difference backward equations verified the constants numerically; finite grids are not treated as infinite proofs. The exact scope and singular-limit qualifications are stated in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.13414 allows open/closed gate interface passage with continued diffusion, rather than termination at active encounter; under closed gate it reflects.",
+        "arxiv:2009.02739 analyzes mean hitting times and a gate-reset protocol, not the same side-of-arrival event."
+      ],
+      "reasoning": "A full-line transparent-inactive/absorbing-active model is not obtained from a reflecting-inactive/absorbing-active half-line model by parameter substitution. Nor does a permeable-open/impermeable-closed transport interface have the same absorbing boundary condition. Generic resolvent methods could derive the formula but are not a published stronger statement of the result.",
+      "searches": [
+        "2025 Zbik Dybiec Capala Palmowski Sokolov first hit blinking target side resetting probability",
+        "exact first-hitting side splitting probability transparent dichotomous target Brownian resetting opposite side",
+        "arxiv:2601.13414 Sections 1-4",
+        "arxiv:2009.02739 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2512.09739 full HTML including primary source Fig. 5 discussion",
+      "arxiv:2107.02148 abstract and primary-paper model contrast",
+      "arxiv:2009.02739 abstract and primary-paper gate-reset contrast",
+      "arxiv:2601.01588 accessible full text",
+      "arxiv:2601.13414 accessible full text",
+      "Published indexed semantic claim search, seven separate directional/gating queries",
+      "Accessible current-week claim ledger, 32 preceding claims, with attention to Brownian/reset/first-passage families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2512.09739 derives ordinary absorption-time transforms, whose marginalization over arrival side loses the odd spatial boundary data required here.",
+        "arxiv:2107.02148 and arxiv:2601.01588 confine the particle to one side for the inactive target, precluding the claimed left arrival."
+      ],
+      "reasoning": "The full two-sided backward problem has discontinuous active-sector boundary data f_A(0-)=1 and f_A(0+)=0; ordinary time-to-absorption transforms have symmetric boundary reward 1 and do not directly imply this directional event. Algebraically deriving a new boundary-value solution is nontrivial and its strict global derivatives are not consequences of a reported time marginal. Reflecting prior models have zero left-absorption probability rather than the positive formula.",
+      "searches": [
+        "gated target direction of arrival switching from active inactive Brownian split hitting left right",
+        "exact first-hitting side splitting probability transparent dichotomous target Brownian resetting opposite side",
+        "arxiv:2512.09739 Sections III.1 and III.3, appendix B",
+        "arxiv:2107.02148 abstract",
+        "arxiv:2601.01588 Sections 1 and 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arxiv:2512.09739 §III.3 the observable is the opposite-side fraction 1-pi_ic, but the full HTML reports it numerically and gives no closed analytic formula.",
+        "arxiv:2601.01588 sets a reflecting boundary in the inactive state, so opposite-side absorption is impossible."
+      ],
+      "reasoning": "The observable was searched under left/right hitting fraction, directional first-absorption probability, splitting probability and gate-conditioned arrival. A matching physical observable does not make an unproved formula covered; the source Fig. 5 is simulation, not the displayed analytic classification. General renewal formulations do not explicitly imply the quantified parameter monotonicity.",
+      "searches": [
+        "Brownian particle Poisson resetting transparent blinking target absorption from opposite side exact splitting probability stationary gate",
+        "gated target direction of arrival switching from active inactive Brownian split hitting left right",
+        "arxiv:2512.09739 Section III.3 Fig. 5",
+        "arxiv:2601.01588 introduction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source displays numerical hit-side curves rather than a symbolic table of exact directional values.",
+        "Indexed search results closest by embedding include unrelated finite Bernoulli and transport identities, not the switching Brownian side probability."
+      ],
+      "reasoning": "No exact tabulated formula for the same observable and parameters was located. The claim does not rest on the absence of exact matching words: the figure and model were explicitly evaluated for implied coverage. Searches cannot certify an exhaustive absence.",
+      "searches": [
+        "Brownian particle Poisson resetting transparent blinking target absorption from opposite side exact splitting probability stationary gate",
+        "fast switching target symmetric one quarter probability opposite side singular limit Brownian",
+        "symmetric blinking target reset left versus right absorption fast gate switching",
+        "directional arrival probability Brownian gating with position reset and active inactive switching",
+        "arxiv:2512.09739 Fig. 5"
+      ]
+    },
+    "rationale": "The motivating 2025 preprint introduced the exact transparent-target, gate-preserving-reset model and displays directional fractions only as simulated data in its comparison section; it does not give the closed conditional left-side formula, stationary mixture, global parameter monotonicity or fast-gating directional limit. Distinct prior works study reflecting gated targets, gated transport interfaces with opposite gate behavior, first-passage-time transforms or generic resetting. The present claim implies no rebranding of first passage time or splitting probability methods. A substantial semantic search of indexed published claims and an accessible own-claim ledger found no comparable left-side formula. Priority remains uncertain because broad mathematical literature may contain equivalent boundary-value results and because the source narrative about a simulated trend has not been reconciled.",
+    "residual_risks": [
+      "No exhaustive mathematical priority certificate; unindexed or differently described directional splitting law could exist.",
+      "The motivating source narrates a switching-rate trend for numerical hit fractions that is opposite in sign to this continuum formula; the operational counting convention and potential finite-step biases require outside reconciliation.",
+      "The 2026 renewal-interface articles have different absorbing and reflection conventions; a formal reduction not identified could affect novelty assessment.",
+      "Numerical checks do not prove continuum inequalities; those rely on the analytical proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same target model and numeric observable, but directional formulas/strict global classification not presented. Qualitative trend comment requires reconciliation with continuum theorem; first-public date verified 2025-12-10.",
+        "evidence": [
+          "Model states inactive target transparent, gate persists through reset, and alpha=A-to-I, beta=I-to-A.",
+          "Section III.3 says side probabilities are difficult to calculate analytically and plots them in Fig. 5.",
+          "Section IV summarizes formulas for first-passage times and means rather than a directional theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.09739",
+        "material_read": "Full HTML introduction, model and gate-rate conventions, analytic time-transform sections, simulation algorithm, Section III.3 side-arrival discussion, conclusions and appendix headings/formulas; submission date separately checked at https://arxiv.org/abs/2512.09739",
+        "method": "Directly compared boundary conditions, reset protocol and stated analytic observables with conditional side-reward backward equations",
+        "title": "Hitting the blinking target under stochastic resetting",
+        "trigger": "Same model, same left/right observable in Fig. 5; strongest possible coverage"
+      },
+      {
+        "assessment": "Reflecting inactive target forbids opposite-side arrival; provides time-statistic precedent but not directional law.",
+        "evidence": [
+          "2021 paper studies mean reaction/hitting time for gated diffusive particles with resetting.",
+          "Motivating 2025 paper explicitly distinguishes reflecting inactive case from its transparent inactive model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+        "material_read": "Public abstract and model distinction explicitly described in motivating preprint introduction",
+        "method": "Compared reflective inactive target with transparent inactive crossing condition",
+        "title": "Search of stochastically gated targets with diffusive particles under resetting",
+        "trigger": "Earlier almost identical target and resetting model"
+      },
+      {
+        "assessment": "No same transparent-side absorption theorem identified; alternative gate-reset setting.",
+        "evidence": [
+          "2020 work targets MFPT in gated system.",
+          "Motivating 2025 source notes target state can be renewed at reset in that earlier setup."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+        "material_read": "Public abstract and primary 2025 paper comparison of gate-reset assumption",
+        "method": "Checked role of target renewal and first-passage-time observable",
+        "title": "Diffusive search for a stochastically-gated target with resetting",
+        "trigger": "Earlier gated-target resetting and renewal work"
+      },
+      {
+        "assessment": "Studied closed/reflecting gated boundary and FPT/renewal statistics, not positive probability of negative-side arrival at a transparent blinking point.",
+        "evidence": [
+          "Introduction describes reflection if gate closed and absorption if gate open.",
+          "Section 3 studies half-line and bounded-domain MFPT."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.01588",
+        "material_read": "Accessible full HTML text introductory theory and descriptions of sections 2–4 including half-line and finite-interval boundaries",
+        "method": "Compared conditional boundary behavior and whether the target can be crossed when inactive",
+        "title": "Renewal theory for Brownian motion with stochastically gated targets",
+        "trigger": "Potential general renewal coverage for current gated-target observable"
+      },
+      {
+        "assessment": "Nonabsorbing transport across interface with side-specific half-line resets; not the absorbing transparent-target side event.",
+        "evidence": [
+          "Open gate transmits and closed gate reflects, without terminating diffusion on open crossing.",
+          "Bulk resetting in each half-line is to that side, not universally to a fixed positive x0."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.13414",
+        "material_read": "Accessible HTML-rendered text for abstract, introductory comparison, Sections 2 and 4 setup and reset protocols",
+        "method": "Compared the open-transmitting/closed-reflecting interface with closed-transmitting/open-absorbing point target",
+        "title": "Renewal theory for Brownian motion across a stochastically gated interface",
+        "trigger": "Two-sided switching interface with spontaneous resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0a9246b0-a3c6-4742-9a20-ff8f3df837f1",
+  "value": {
+    "rationale": "The source singles out side-of-absorption probability as a difficult numerical observable and analyzes its dependence on resetting/gating. The exact conditional and stationary laws now give both a fully specified directional observable and global strict monotonicities at all positive physical parameters; the fast-gating value pi_I/2 reveals a singular observable not captured by ordinary FPT-time convergence. This has a concrete interpretation for orientation-resolved reactive hitting or search, and is a natural structural classification of the model rather than a contrived thin parameter slice. No experimental validation or theory beyond the stated point-target setup is asserted.",
+    "status": "PASS"
+  }
+}
