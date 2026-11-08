@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:57:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any selected pivots S, Sherman–Morrison gives residual D_{S^c}+(b^{-1}+sum_{i in S}d_i^{-1})^{-1}11^T. The exceptional index excluded/included fixes sum=k versus k-1+a^{-1}, hence exactly the event-based trace pair T0,T1. At j previous normal pivots, residual-diagonal sampling avoids exceptional with factor (n-1-j)(1+u_j)/[(n-1-j)(1+u_j)+a+u_j], u_j=(b^{-1}+j)^{-1}; multiplication is p0. Algebra yields T0-T1=(a-1)[1-(n-k)/((a x+1)(x+1))], x=b^{-1}+k-1. Greedy picks exception first and gives T1; expected random minus greedy=p0(T0-T1); the exact boundary is sharp and globally minimizes trace among two subset types. For n=t^3,a=t,b=t²,k=1: greedy~t^4, randomized~2t^3, ratio~t/2 while every correlation tends uniformly one and diagonal ratio tends one. Independently computed exact SymPy Schur complements for every k-subset with n=5,7 and two rational (a,b) pairs; all matched formulas. Finite checks are not proof of asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Epperly–Tropp–Webber arXiv:2207.06503 algorithm and Appendix C.2",
+          "Steinerberger arXiv:2404.11487",
+          "Epperly arXiv:2608.20633"
+        ],
+        "reasoning": "General randomized Cholesky expected trace bounds permit a broad range of outcomes and do not uniquely force the exact two-atom law or sharp inequality. Chen et al. greedy example fails on block-diagonal factors and is not a strictly stronger same-correlation theorem.",
+        "searches": [
+          "randomly pivoted cholesky one large diagonal rank-one common-factor correlation greedy trace reversal exact residual",
+          "residual diagonal sampling pivoted Cholesky exact Schur complement two masses compound symmetry matrix"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 12a103bf15a7e630d699ce3cbc789649e0a7b118",
+        "Chen–Epperly–Tropp–Webber, Randomly Pivoted Cholesky, arXiv:2207.06503 (full PDF and greedy Appendix C.2)",
+        "Steinerberger, Randomly Pivoted Partial Cholesky: Random How? arXiv:2404.11487 (bibliographic and abstract material)",
+        "Epperly, A new analysis of the randomly pivoted Cholesky algorithm arXiv:2608.20633 (abstract and bibliographic material)",
+        "Resultary searches: randomly pivoted cholesky one large diagonal rank-one common-factor correlation greedy trace reversal exact residual; residual diagonal sampling pivoted Cholesky exact Schur complement two masses compound symmetry matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Epperly–Tropp–Webber arXiv:2207.06503 algorithm and Appendix C.2",
+          "Steinerberger arXiv:2404.11487",
+          "Epperly arXiv:2608.20633"
+        ],
+        "reasoning": "Schur complement and greedy-failure existence are known premises. Their combination does not by itself imply the probability-product formula, exact finite k global optimum or correlations-tending-one counterfamily.",
+        "searches": [
+          "randomly pivoted cholesky one large diagonal rank-one common-factor correlation greedy trace reversal exact residual",
+          "residual diagonal sampling pivoted Cholesky exact Schur complement two masses compound symmetry matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Epperly–Tropp–Webber arXiv:2207.06503 algorithm and Appendix C.2",
+          "Steinerberger arXiv:2404.11487",
+          "Epperly arXiv:2608.20633"
+        ],
+        "reasoning": "One-defect compound-symmetry covariance families are dual to diagonal-plus-rank-one kernels; the Schur-complement identity is classical, so novelty is claimed only for the exact random law/optimizer boundary/unbounded fully-correlated failure together.",
+        "searches": [
+          "randomly pivoted cholesky one large diagonal rank-one common-factor correlation greedy trace reversal exact residual",
+          "residual diagonal sampling pivoted Cholesky exact Schur complement two masses compound symmetry matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chen–Epperly–Tropp–Webber arXiv:2207.06503 algorithm and Appendix C.2",
+          "Steinerberger arXiv:2404.11487",
+          "Epperly arXiv:2608.20633"
+        ],
+        "reasoning": "This is a symbolic law for unbounded (n,k,a,b), not a finite database result. Resultary index returned only different adaptive-cross-approximation and pivot analyses, no exact one-defect sampling table.",
+        "searches": [
+          "randomly pivoted cholesky one large diagonal rank-one common-factor correlation greedy trace reversal exact residual",
+          "residual diagonal sampling pivoted Cholesky exact Schur complement two masses compound symmetry matrix"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compared exact claim and possible implications with relevant primary literature and two actual semantic published-record searches; a failed search is not proof of novelty. Schur complement and greedy-failure existence are known premises. Their combination does not by itself imply the probability-product formula, exact finite k global optimum or correlations-tending-one counterfamily.",
+      "residual_risks": [
+        "An earlier diagonal-plus-rank-one exact sampling result may implicitly encompass the two-atom law, although the specific correlation-one separation was not identified.",
+        "Exact arithmetic, trace-error Nyström, strictly positive rank-one common factor and one exceptional diagonal are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its worst-case greedy separation uses identity-plus-all-ones block structure, not uniform correlations tending one; no exact present two-event trace law seen",
+          "evidence": "arXiv:2207.06503, Algorithm RPCholesky and Appendix C.2",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "Available full paper including algorithm and Appendix C.2 greedy discussion, read substantive passages",
+          "method": "Full PDF accessed; theorem and appendix pages inspected via searches/screenshots",
+          "title": "Randomly Pivoted Cholesky: Practical Approximation of a Kernel Matrix with Few Entry Evaluations",
+          "trigger": "Introduces precisely residual-diagonal random pivoting and greedy counterexample"
+        },
+        {
+          "assessment": "Provides related motivation about pivot weights; full-text originality exclusion is not asserted",
+          "evidence": "arXiv:2404.11487 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2404.11487",
+          "material_read": "Abstract/metadata only, not entire full text",
+          "method": "Search result and OA overview",
+          "title": "Randomly Pivoted Partial Cholesky: Random How?",
+          "trigger": "Alternate pivot randomization analysis"
+        },
+        {
+          "assessment": "General expected error results may be broader but no evidence seen of present exact family-wise distribution; material priority risk remains",
+          "evidence": "arXiv:2608.20633 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20633",
+          "material_read": "Abstract/metadata only",
+          "method": "Scholarly web result",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "Recent broad RPCholesky guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-step residual law, necessary-and-sufficient pivoting reversal and unbounded failure under near-perfect correlations expose limitations of a widely used numerical heuristic under strikingly benign-looking covariance structure. It is not a generic worst-case failure restatement because earlier block-diagonal constructions have vanishing cross-correlations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob 12a103bf15a7e630d699ce3cbc789649e0a7b118",
+    "Chen–Epperly–Tropp–Webber, Randomly Pivoted Cholesky, arXiv:2207.06503 (full PDF and greedy Appendix C.2)",
+    "Steinerberger, Randomly Pivoted Partial Cholesky: Random How? arXiv:2404.11487 (bibliographic and abstract material)",
+    "Epperly, A new analysis of the randomly pivoted Cholesky algorithm arXiv:2608.20633 (abstract and bibliographic material)",
+    "Resultary searches: randomly pivoted cholesky one large diagonal rank-one common-factor correlation greedy trace reversal exact residual; residual diagonal sampling pivoted Cholesky exact Schur complement two masses compound symmetry matrix"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exact trace-error on this diagonal-plus-common-factor SPD family; cannot infer spectral error, general PSD performance or arbitrary growing-pivot separations."
+  ],
+  "residual_risks": [
+    "An earlier diagonal-plus-rank-one exact sampling result may implicitly encompass the two-atom law, although the specific correlation-one separation was not identified.",
+    "Exact arithmetic, trace-error Nyström, strictly positive rank-one common factor and one exceptional diagonal are essential."
+  ],
+  "schema_version": 1
+}
