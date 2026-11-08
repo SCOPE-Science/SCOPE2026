@@ -1,0 +1,15 @@
+# Scientific self-review
+
+## Correctness — PASS
+For normalized Gaussian Fock space in every fixed complex dimension \(d\ge1\), radiality gives the Gamma moment formula and finite-degree multiplicities. At slow frequencies, Gamma concentration makes the spectral eigenvalue sample the original periodic profile. At critical frequency, the central limit theorem yields Gaussian Fourier multipliers \(e^{-m^2/8}\). At supercritical frequency, the phase derivative diverges on the standardized Gamma window; repeated integration by parts with uniformly controlled Gamma-density derivatives yields arbitrarily fast polynomial decay for every nonzero Fourier mode, even after the degree multiplicity is included. Weighted Weyl equidistribution supplies both the complete essential spectral ranges and the limiting empirical measures. The strict positivity of the symbol and precise parameter ranges are accounted for. Finite quadrature supports but is not substituted for these arguments.
+
+## Originality — PASS, qualified best knowledge
+Dileep–Fang–Tien's 2026 full text studies mixed-norm boundedness, compactness and essential norms, not this complete phase-speed trichotomy. Looi's 2026 full text already contains a dimension-free critical single-cosine attenuation, which is expressly not claimed independently. Grudsky–Vasilevski's 2002 full text already establishes certain high-speed compactness examples, but not the all-periodic-profile three-regime spectral law, weighted empirical eigenvalue measures, or the all-Schatten centered collapse. Bdarneh's work gives a general spectral representation; Xu–Dong's Schatten–Lorentz statements do not specify these oscillatory asymptotics. A published logarithmic-spectrum result treats slowly oscillating decaying symbols. Semantic mathematical-result searches for frequency regimes, gamma smoothing, compactness, Schatten quasi-ideals and spectral equivalences identified no covering result, but search failure does not certify priority. A more general older oscillatory Toeplitz theorem could partially imply the classification.
+
+## Mathematical value — PASS
+The theorem identifies a sharp boundary between macroscopic noncompact spectral oscillation and smoothing strong enough for every Schatten quasi-class; at the boundary it computes the exact Gaussian Fourier filter and gives a nontrivial spectral-measure law in all finite dimensions. The combined phase portrait is substantially stronger than an isolated compactness example or routine normalization of known gamma moments, and it provides a reusable quantitative diagnostic for highly oscillatory positive symbols.
+
+## Limits
+Only finite trigonometric profiles and fixed-dimensional normalized Gaussian Fock spaces are classified. The result does not imply an exact general mixed-norm essential norm or an all-symbol classification. The single-frequency critical and qualitative fast-oscillation phenomena have antecedents. Independent mathematical priority and correctness checks remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
