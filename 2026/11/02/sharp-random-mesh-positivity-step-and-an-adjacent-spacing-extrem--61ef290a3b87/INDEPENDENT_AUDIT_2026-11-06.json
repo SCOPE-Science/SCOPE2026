@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:15:06.660835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For piecewise-linear Dirichlet FEM the lumped mass at interior node j is (H_(j-1)+H_j)/2 and stiffness diagonal 1/H_(j-1)+1/H_j, giving ratio H_(j-1)H_j/2. All Euler off-diagonal entries are nonnegative, so the smallest ratio is the pathwise necessary/sufficient positivity step; an explicit independent 3-cell rational mesh yields threshold 1/49. Uniform order-statistic gaps have exponential representation H_i=E_i/S_n. With p(t)=P(E_iE_(i+1)<t)=t log(1/t)+O(t), neighboring rare events meet with probability O(t), distant ones are independent. Blocking at b_n=floor(sqrt(log n)) shows P(n log n Z_n>z)->e^-z, hence 2n^3 log n tau->Exp(1). Dirichlet pair beta integrals give finite inverse moments precisely for q<1; a single gap reciprocal diverges for q>=1. Finite Monte Carlo source diagnostics are not asymptotic proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General FE positivity conditions apply to deterministic meshes, while random-perturbed mesh error analyses usually assume a different mesh distribution. Standard 1-dependent rare-event Poisson results could imply the limiting exponential law after checking product tails and overlap; explicit applications to this exact FEM step were not located."
+        ],
+        "reasoning": "General FE positivity conditions apply to deterministic meshes, while random-perturbed mesh error analyses usually assume a different mesh distribution. Standard 1-dependent rare-event Poisson results could imply the limiting exponential law after checking product tails and overlap; explicit applications to this exact FEM step were not located.",
+        "searches": [
+          "Resultary: uniform random order statistic spacings minimum adjacent product exponential n log n forward Euler lumped finite element mesh",
+          "web: minimum adjacent products exponentials extreme value log n",
+          "web: random spacings adjacent products minimum asymptotic exponential distribution"
+        ]
+      },
+      "checked_sources": [
+        "https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf",
+        "https://arxiv.org/abs/1702.05910",
+        "https://arxiv.org/abs/2103.06204",
+        "https://arxiv.org/abs/2010.08789",
+        "Resultary search: uniform random order-statistic spacings adjacent product",
+        "Assigned source result: https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/sharp-random-mesh-positivity-step-and-an-adjacent-spacing-extrem--61ef290a3b87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chatzipantelidis et al. provide general positivity framework, but not an independent-uniform-knots random extreme law; Nagaraja et al. study adjacent spacings around a chosen order statistic rather than the global minimum of adjacent spacing products. The present proof supplies the missing rare-event overlap bound and normalization."
+        ],
+        "reasoning": "Chatzipantelidis et al. provide general positivity framework, but not an independent-uniform-knots random extreme law; Nagaraja et al. study adjacent spacings around a chosen order statistic rather than the global minimum of adjacent spacing products. The present proof supplies the missing rare-event overlap bound and normalization.",
+        "searches": [
+          "Resultary: uniform random order statistic spacings minimum adjacent product exponential n log n forward Euler lumped finite element mesh",
+          "web: minimum adjacent products exponentials extreme value log n",
+          "web: random spacings adjacent products minimum asymptotic exponential distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum of adjacent gap products is not the usual minimum spacing or maximal minimum spacing. Standard uniform order-statistic exponential-spacing representation supplies the starting point, but its usual one-spacing extremes scale differently from the adjacent-product minimum."
+        ],
+        "reasoning": "The minimum of adjacent gap products is not the usual minimum spacing or maximal minimum spacing. Standard uniform order-statistic exponential-spacing representation supplies the starting point, but its usual one-spacing extremes scale differently from the adjacent-product minimum.",
+        "searches": [
+          "Resultary: uniform random order statistic spacings minimum adjacent product exponential n log n forward Euler lumped finite element mesh",
+          "web: minimum adjacent products exponentials extreme value log n",
+          "web: random spacings adjacent products minimum asymptotic exponential distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An all-n pathwise identity and asymptotic distribution are not a finite table. Searches for adjacent exponential products and random spacings did not find an exact lookup or database with this n^3 log n coefficient. Lack of hits alone is not novelty proof."
+        ],
+        "reasoning": "An all-n pathwise identity and asymptotic distribution are not a finite table. Searches for adjacent exponential products and random spacings did not find an exact lookup or database with this n^3 log n coefficient. Lack of hits alone is not novelty proof.",
+        "searches": [
+          "Resultary: uniform random order statistic spacings minimum adjacent product exponential n log n forward Euler lumped finite element mesh",
+          "web: minimum adjacent products exponentials extreme value log n",
+          "web: random spacings adjacent products minimum asymptotic exponential distribution"
+        ]
+      },
+      "rationale": "The natural coupling of the exact standard FE Euler positivity threshold to an extreme-value law of adjacent Dirichlet gaps yields a specific n^3 log n scale and limit distribution. Deterministic mesh positivity and general local spacing convergence are known; this exact one-dependent minimum product law was not located in searches.",
+      "residual_risks": [
+        "General 1-dependent Poisson extreme-value theorems could subsume the stochastic lemma once tail estimates are supplied.",
+        "Unrestricted random meshes are non-quasiuniform; conclusion does not apply to bounded shape-regular perturbations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General deterministic positivity theory, not the random uniform-knot adjacent-product extreme distribution",
+          "evidence": "Introduction states SG/LM/FVE and positivity; section 4 specifies rational time integrators and positivity criteria",
+          "identifier_or_url": "https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf",
+          "material_read": "Primary PDF introduction, sections on matrix H=M^{-1}S, semidiscrete/fully discrete positivity and 1D restriction description; Theorems 4.4-4.8",
+          "method": "web PDF text inspection; later screenshot request unavailable with HTTP 502",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Same heat FEM, lumped mass, positivity question"
+        },
+        {
+          "assessment": "Local spacing neighborhoods and exponential limit, not identified as global minimum of neighboring spacing products",
+          "evidence": "Abstract explicitly examines spacings around central/intermediate/extreme chosen order statistics",
+          "identifier_or_url": "https://arxiv.org/abs/1702.05910",
+          "material_read": "Primary abstract and scope only, not full text",
+          "method": "web primary arXiv abstract",
+          "title": "Spacings Around An Order Statistic",
+          "trigger": "Highly adjacent extreme-value distribution source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies a sharp and unexpectedly severe random-mesh stability/positivity degradation, with a computable limiting law and an exact reciprocal integrability boundary. Both quantities are directly relevant to selecting explicit time steps on unstructured random meshes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf",
+    "https://arxiv.org/abs/1702.05910",
+    "https://arxiv.org/abs/2103.06204",
+    "https://arxiv.org/abs/2010.08789",
+    "Resultary search: uniform random order-statistic spacings adjacent product",
+    "GitHub immutable RESULT.md and verifier blobs at https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/sharp-random-mesh-positivity-step-and-an-adjacent-spacing-extrem--61ef290a3b87"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Convergence law is weak asymptotic only and may converge slowly; no finite-n exact exponential distribution or roundoff analysis.",
+    "General 1-dependent Poisson extreme-value theorems could subsume the stochastic lemma once tail estimates are supplied.",
+    "Unrestricted random meshes are non-quasiuniform; conclusion does not apply to bounded shape-regular perturbations."
+  ],
+  "schema_version": 1
+}
