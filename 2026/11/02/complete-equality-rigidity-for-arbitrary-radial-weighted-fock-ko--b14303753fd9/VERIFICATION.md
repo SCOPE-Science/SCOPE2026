@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the equality theorem
+# Independent mathematical audit
 
-The proof is analytic and covers all entire pairs and every nonzero nonnegative measurable radial density with all finite moments. The key boundary condition is strict non-atomicity of the radial measure, making the scaled backward shift's adjoint strictly contractive on the positive-degree tail. The quotient construction is algebraic and does not require polynomial multiplication to be bounded on the Hilbert completion. The Schur defect identity is an exact operator equality, and the maximum-modulus step excludes nonconstant Schur tails for all such weights.
+## correctness
 
-The standalone `CHECK.py` uses exact rational arithmetic to test moment log-convexity, the shift's unique norm-attainment property, and the claimed linear equality pair on two explicit nonmonotone weights: a gamma density with shape 50, and a bounded annular density. It illustrates but does not prove the universal theorem. Run using `python3 CHECK.py` with the Python standard library.
+PASS
 
-The primary complete proof is in `RESULT.md`. Neither finite checks nor failed database searches establish infinite correctness or independent originality certification. No independent mathematical validation has been performed.
+The non-atomic moment law has strict log-convexity m_j^2<m_{j-1}m_{j+1}; the weighted backward shift R B has norm one attained only at e1 and has adjoint restriction norm tau2<1. Exterior quotient is rational Schur after z=R/w, and reversed polynomial coefficient identities give f=Phi(T)g. Factor the Schur defect for Y=T U(T); equality yields a unit vector attaining the backward-shift norm, forces U(T)^*e1 to have norm one, and strict interior maximum modulus on the adjoint-invariant tail forces U to be unimodular constant. Therefore f,g are the stated linear pair. Direct identity |g|^2-|f|^2=|c|^2(1-|a|^2)(|z|^2-R^2) and m1=R²m0 check sufficiency and boundary. Independent nonmonotone moment gap and linear equality calculations checked, not substitutes for proof.
 
-Standalone checker observed output: 'nonmonotone gamma : 43 exact assertions passed annular ring : 43 exact assertions passed total: 86 exact assertions passed'.
+## originality
+
+PASS
+
+The all-radial sharp-radius result establishes inequality and exact R but explicitly disclaims equality classification. The earlier full equality classification covers non-increasing W and the standard Gaussian, and is strictly subsumed by the current arbitrary measurable radial-density quantifier. Two relevant Resultary original RESULT.md files were read in full and their domains compared. No known broader all-density equality theorem found, with acknowledged possible historical equivalence.
+
+## value
+
+PASS
+
+Extremizer rigidity under entirely arbitrary radial densities is a natural equality problem at the sharp known Korenblum radius, resolves nonmonotone/gapped and annular weight cases and is not a radius restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
