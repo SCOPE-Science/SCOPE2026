@@ -1,27 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event of a zero update is equivalent to equalities along the selected-neighbor functional graph. Counting weak components gives the exact number of admissible binary inputs. On a cyclic ring, every nonconstant orientation has exclusively adjacent two-cycles, while the two uniform orientations have one long directed cycle each. This yields the full correction to the transfer-matrix trace. The recurrence with parameters \(t\) and \(-t\) gives the strictly positive even-power polynomial. All asymptotic statements follow from the unique dominating eigenvalue. Exact-rational enumeration and rank checks provide separate finite diagnostics.
+PASS
 
-## Originality — PASS, with historical priority risk
+Each random rule orientation defines n equalities x_i=x_{i+sigma_i}; for a nonconstant orientation the functional neighbor graph has one weak component per + to - adjacent directed 2-cycle, whereas either uniform orientation has one full n-cycle. The transfer-matrix trace with T=[[lambda,2(1-lambda)],[lambda,1-lambda]] plus two uniform-orientation corrections equals 2^n times extinction probability. Its spectral recurrence S_n(t)+S_n(-t), t=lambda(1-lambda), has only positive even powers t^{2j}; n=3 flat, n>=4 strictly increasing, hence sole optimum lambda=1/2 and endpoints minima. Dominant alpha_plus>1 proves large-n exponential ratio. An independently coded exhaustive update enumeration versus exact rational polynomial passed 30 size/mix comparisons; infinite claim is analytic.
 
-The primary article on the same mathematical model [1] was inspected through its accessible full text: it defines the ring, the two XOR rules and conditional independence, studies the stationary state and establishes four-step reachability and eventual absorption at the balanced parameter. The new claim concerns the **exact one-step uniform-input extinction law for all mixture parameters**, including strict maximization and exponential gain. It does not follow quantitatively from the earlier almost-sure absorption statement, which supplies neither a one-step ensemble probability nor its dependence on the mixing parameter. Earlier related papers [2–3] concern different mixtures or block approximations. Searches for the exact rule combination, extinction event, transfer-matrix formula, functional-graph kernel and parameter optimum did not identify an equivalent assertion; historical priority nevertheless remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact finite-size probability is a natural rare-event observable in the absorbing-state problem that motivated [1]. The proof converts exponentially many local rule choices and initial configurations into a two-dimensional transfer calculation and reveals a strict nonlinear advantage of random mixing, absent on three sites but exponential in system size for larger rings. This supplies a reproducible benchmark for finite-size absorption experiments and distinguishes sitewise stochasticity from simply running either deterministic rule. It is not proposed as an eventual-absorption phase transition or an estimate for arbitrary initial data.
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: A prior unpublished transfer-matrix calculation of first-step absorption for diploid XOR rules could have an equivalent formula; finite literature lookup cannot certify global novelty. Initial law is uniform and site choices independent; not a hitting-time statement.
 
-## Scope and boundaries
+## value
 
-All ring sizes \(n\ge3\) and mixture parameters \(0\le\lambda\le1\) are treated. The optimization is strict only for \(n\ge4\). No conclusion is claimed for non-uniform initial laws, temporally-global rule choice, general graphs or multi-step extinction times. Priority beyond the inspected literature remains provisional.
+PASS
 
-## Closest literature
+A natural exact one-update absorption probability in the same stochastic cellular automaton as the published long-time extinction theorem; the finite-size transfer law, sharp balancing optimum and exponentially large improvement quantify a genuinely different transient observable.
 
-[1] Cirillo, Vliem, Schuricht and Spitoni, arXiv:2602.13839 (2026), Sections II–V and Theorems 1–2, accessible full text.
-
-[2] Cirillo, Nardi and Spitoni, arXiv:2102.07626 (2021), abstract and scope of mixtures with the null rule.
-
-[3] Cirillo, Lancia and Spitoni, arXiv:2408.09201 (2024), abstract on block-approximation stationary measures.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

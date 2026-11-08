@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The accompanying `verify_extinction.py` is a standalone Python 3 program requiring only the standard library. Execute `python3 verify_extinction.py` from this directory.
+# Independent mathematical audit
 
-The program checks 295 parameter/size combinations. On rings of size \(3\) through \(9\), direct enumeration iterates over every initial configuration and every sitewise rule-choice vector, rather than using the transfer-matrix expression under test. Separately, a Gaussian elimination procedure counts the nullity of each selected-neighbor XOR matrix over \(\mathbb F_2\). Exact fractions are used for rule-selection probabilities. On rings of size \(10\) through \(49\), the polynomial formula is tested against an independent second-order recurrence. Monotonicity is additionally probed on a rational grid for rings of size \(4\) through \(49\).
+## correctness
 
-The actual bundled program was executed successfully and printed a PASS result. Its computations are finite checks only, not a substitute for the functional-graph and transfer-matrix proof covering all ring sizes and all real mixing parameters. The event is one-step extinction from a uniform initial input, not almost-sure eventual extinction. No external scientific audit has been performed.
+PASS
+
+Each random rule orientation defines n equalities x_i=x_{i+sigma_i}; for a nonconstant orientation the functional neighbor graph has one weak component per + to - adjacent directed 2-cycle, whereas either uniform orientation has one full n-cycle. The transfer-matrix trace with T=[[lambda,2(1-lambda)],[lambda,1-lambda]] plus two uniform-orientation corrections equals 2^n times extinction probability. Its spectral recurrence S_n(t)+S_n(-t), t=lambda(1-lambda), has only positive even powers t^{2j}; n=3 flat, n>=4 strictly increasing, hence sole optimum lambda=1/2 and endpoints minima. Dominant alpha_plus>1 proves large-n exponential ratio. An independently coded exhaustive update enumeration versus exact rational polynomial passed 30 size/mix comparisons; infinite claim is analytic.
+
+## originality
+
+PASS
+
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: A prior unpublished transfer-matrix calculation of first-step absorption for diploid XOR rules could have an equivalent formula; finite literature lookup cannot certify global novelty. Initial law is uniform and site choices independent; not a hitting-time statement.
+
+## value
+
+PASS
+
+A natural exact one-update absorption probability in the same stochastic cellular automaton as the published long-time extinction theorem; the finite-size transfer law, sharp balancing optimum and exponentially large improvement quantify a genuinely different transient observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
