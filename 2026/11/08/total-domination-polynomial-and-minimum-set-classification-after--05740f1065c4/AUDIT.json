@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact equivalence J(n,2)-v = L(K_n-ab) reduces all total dominating sets to selected-edge graphs with no K2 component and at most one isolate, or precisely isolates a,b. Labelled exponential decomposition gives the h_j polynomial and the edge-transitive deletion derivative gives the full polynomial. For m selected edges, c nontrivial components, q cycle rank and r incident labels, r=m+c-q<=m+floor(m/2); this proves the lower bound. Each residue class forces the listed acyclic tree component types, and constructions attain the bound for all n>=4. Cayley tree counts and the incidence double count establish every minimizer formula. The independent direct-graph checker reproduces every coefficient for n=4..7 and the exact first nonzero coefficient for n=8,9. Infinite statements are proved combinatorially, not inferred from those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cornet, Dravec and Torres, arXiv:2610.04675, full available text, Introduction and Section 3, especially Theorem 14: exact value gamma_t(J(n,2)) for intact graph.",
+        "OEIS A304561 comments and formula enumerate original minimum sets with one isolated underlying vertex or none; no statement concerns an absent Johnson vertex."
+      ],
+      "reasoning": "The published scalar theorem and the exact undeleted enumeration have weaker scopes. In the deficient graph, the new isolated-pair option I={a,b} makes previously forbidden selected-edge sets valid, and the all-size polynomial is not an implication of either undeleted scalar or counts without additional structural analysis. No inspected broader theorem states the deficient full polynomial.",
+      "searches": [
+        "Johnson graph J(n,2) total domination minimum total dominating sets enumeration edge dominating sets complete graphs line graph",
+        "total domination in Johnson graphs 2026 Cornet Dravec Torres original Theorem 14",
+        "total edge domination polynomial complete graphs minus edge",
+        "triangular graph vertex deletion total domination"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.04675",
+      "https://oeis.org/A304561",
+      "https://oeis.org/A303048",
+      "https://oeis.org/A303227",
+      "https://arxiv.org/abs/1910.02431"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior known value gamma_t(J(n,2))=ceil(2(n-1)/3) is not presented as new.",
+        "Prior known minimum counts for original J(n,2) are only used to count the old configurations avoiding a prescribed edge; new configurations with isolates a,b are separately classified.",
+        "For n=3k or 3k+2 the new minimum is one below the known undeleted minimum, and for n=3k+1 the new graph has extra minimizers; these facts are not stated in the earlier sources."
+      ],
+      "reasoning": "An intact-graph total dominating set avoiding the deleted vertex remains total dominating, but the converse fails: an allowed pair of isolated base labels appears only after deleting exactly their connecting Johnson vertex. This non-equivalence is precisely quantified by h_{n-2}(z); there is no logical implication from the published intact-graph counts to this correction without a further theorem.",
+      "searches": [
+        "arXiv:2610.04675 Theorem 14 and proof for J(n,2)",
+        "OEIS A304561 commentary for n mod 3 equality cases",
+        "vertex-deleted triangular graph total domination polynomial exact count min sets J(n,2)-v"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity J(n,2)=L(K_n) and its induced deletion J(n,2)-v=L(K_n-ab) is used explicitly in the proof.",
+        "The 2019 total-edge-domination paper arXiv:1910.02431 gives general definitions and computational-complexity results in its accessible abstract, not a stated family enumeration."
+      ],
+      "reasoning": "A vertex-deletion claim on J(n,2) is equivalent to an edge-deletion claim for total edge domination of K_n. Explicit searches under both formulations did not identify an equation, minimizer classification or exact coefficients for K_n-ab; the standard equivalence alone does not establish them.",
+      "searches": [
+        "vertex-deleted triangular graph total domination polynomial exact count min sets J(n,2)-v; line graph of complete graph minus one edge",
+        "total edge domination in complete graph with one edge removed K_n-e: minimum size and exact enumeration",
+        "all-set polynomial total domination vertex-deleted Johnson J(n,2) edge transitivity derivative relation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A304561 records the exact numbers and the forest types of minimum sets on the intact J(n,2); the entry originated in 2018.",
+        "https://oeis.org/A303048 records the total number, not the cardinality polynomial, of total dominating sets on intact J(n,2).",
+        "https://oeis.org/A303227 concerns inclusion-minimal, rather than minimum-size, total dominating sets on intact J(n,2)."
+      ],
+      "reasoning": "The original-graph minimum sequence is explicitly known and excluded from the novelty claim. The exact database records checked do not enumerate total dominating sets of the graph after deleting a vertex, do not list the new first coefficients 8,3,16,635,90,..., and do not state the extra two-isolate contribution.",
+      "searches": [
+        "OEIS A304561 minimum total dominating sets n-triangular graph",
+        "OEIS A303048 total dominating sets n-triangular graph",
+        "OEIS A303227 minimal total dominating sets triangular graph",
+        "8 3 16 635 90 minimum total dominating sets vertex deleted triangular graph"
+      ]
+    },
+    "rationale": "The closest research paper (arXiv:2610.04675, Theorem 14) determines the scalar total domination number on the UNDELETED J(n,2), while previously published OEIS A304561 and A303048 give counts for undeleted graphs. A related recoverable claim also classifies undeleted optimizers. The present one-vertex-deleted graph has an additional two-isolate family, a distinct full cardinality polynomial, and different minimum/optimizer counts; those conclusions are not supplied by the undeleted source statements or numerical tables. Literature and mathematical-record searches under equivalent line-graph and total-edge-domination formulations found no covering result. Historical priority remains provisional.",
+    "residual_risks": [
+      "An unindexed or inaccessible work may contain an equivalent one-vertex-deletion enumeration; no claim of exhaustive literature coverage is made.",
+      "The complete 2019 general total-edge-domination paper was not inspected; its abstract is less directly relevant than the full 2026 Johnson paper and the exact 2018 databases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers only the undeleted scalar J(n,2) case; does not state the full polynomial or the one-vertex-deletion theorem.",
+        "evidence": [
+          "Theorem 14 determines gamma_t(J(n,2))=ceil(2(n-1)/3), for n>=4; the following subsection starts the k=3 case."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.04675",
+        "material_read": "The available full HTML document was inspected: Introduction, Section 3 and Theorem 14 with proof, plus searches for deletion, removal, polynomial and appendices.",
+        "method": "Direct article text inspection, with particular comparison of Theorem 14 to the deficient-graph polynomial and minimum-set classification.",
+        "title": "Domination and Total Domination in Johnson graphs",
+        "trigger": "Primary October 2026 paper gives gamma_t(J(n,2)) and is the closest object/parameter match."
+      },
+      {
+        "assessment": "Strong prior coverage of the entire intact minimum-set count, but no deficient-graph sets or deleted-vertex polynomial.",
+        "evidence": [
+          "Entry comments distinguish the three residue classes for original minimum total domination; formulas dated 2018."
+        ],
+        "identifier_or_url": "https://oeis.org/A304561",
+        "material_read": "Entire sequence description, values, comments, formulas and references.",
+        "method": "Direct record inspection and comparison of graph identity and permitted isolate profiles.",
+        "title": "OEIS A304561: number of minimum total dominating sets in the n-triangular graph",
+        "trigger": "Exact-value database and forest decomposition for the same intact Johnson family."
+      },
+      {
+        "assessment": "Covers all-cardinality TOTAL COUNT on intact J(n,2), not the coefficient polynomial of J(n,2)-v.",
+        "evidence": [
+          "Record explicitly describes the intact triangular graph, with an all-set total counting sequence."
+        ],
+        "identifier_or_url": "https://oeis.org/A303048",
+        "material_read": "Entire entry including the inclusion-exclusion formula and cross references.",
+        "method": "Direct database inspection of object and parameters.",
+        "title": "OEIS A303048: number of total dominating sets in the n-triangular graph",
+        "trigger": "Exact all-size total count could potentially dominate new total-set enumeration."
+      },
+      {
+        "assessment": "Inclusion-minimal sets of the intact graph; neither the deleted graph nor all-size counts.",
+        "evidence": [
+          "The title says minimal total dominating sets, distinct from minimum-size sets and from the vertex-deleted graph."
+        ],
+        "identifier_or_url": "https://oeis.org/A303227",
+        "material_read": "Entire record including exponential generating function and object description.",
+        "method": "Direct database comparison of quantifiers and graph identity.",
+        "title": "OEIS A303227: number of minimal total dominating sets in the n-triangular graph",
+        "trigger": "Potential confusion of minimal and minimum enumerators."
+      },
+      {
+        "assessment": "The abstract describes complexity and a tree algorithm; no full-document noncoverage is inferred.",
+        "evidence": [
+          "The reported results concern NP-completeness, linear-time tree algorithms and general bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02431",
+        "material_read": "Title, abstract and bibliographic record only; complete text was not obtained.",
+        "method": "Abstract and relevant-search comparison only.",
+        "title": "The complexity of total edge domination and some related results on trees",
+        "trigger": "Equivalent total-edge-domination terminology could hide a stronger general result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "05740f10-65c4-4b37-bf37-73ceb92fea3b",
+  "value": {
+    "rationale": "Vertex deletion is a canonical robustness operation on an edge-transitive graph family. The new object has an exact entire total-domination polynomial for every n>=4, not merely a scalar optimum. Its sharp mod-3 sensitivity and exhaustive forest structure/count of minimum sets expose the two-isolate families that are impossible in the original graph. These precise parameters are motivated by how a single missing Johnson vertex changes allowable total domination; the all-size distribution is independently useful for exact enumerative questions. The previously published intact-graph counts are identified as prior and are not the asserted new result.",
+    "status": "PASS"
+  }
+}
