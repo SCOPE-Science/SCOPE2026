@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model uses three logistic feedback equations from [1, Eqs. (8)–(10)]. Because the derivative of environmental log odds cancels the logistic prefactor, the weighted coefficients of the independent strategy fractions cancel identically and yield \(\dot{\mathcal I}=\kappa\). This is a pointwise identity on the entire admissible state domain, with no averaging or closed-orbit hypothesis. The positive denominators establish the stated nonresonance inequality. Boundedness of the log odds on compact interior environmental sets excludes compact forward invariance and recurrence; bounded one-sided environmental log odds prove the oriented boundary-neighborhood conclusion. The explicit resonance example satisfies all five equilibrium equations for every \(0<u<1\), and the payoff matrices satisfy the source's strict inequalities. Symbolic checks in `verify.py` and a high-accuracy numerical integration test reproduce these identities. The nonrecurrence conclusion applies only where all environmental coordinates stay interior, and the oriented boundary result is a union, not selection of one face.
+PASS
 
-## Originality — PASS, with documented residual risk
+For positive feedback ratios the three environmental equations are logistic with affine forcing by x and y, hence d(logit(n_i))/dt equals the forcing. Coefficients a=(1+theta12)/(2(1+theta1)) and b=(1+theta12)/(2(1+theta2)) cancel both strategy variables identically in logit(n12)-a*logit(n1)-b*logit(n2), giving constant kappa=a+b-1 and exact I(t)=I(0)+kappa*t. Independent symbolic simplification verified the derivative and exact zero at the claimed resonance theta12=(theta1+theta2+2theta1*theta2)/(2+theta1+theta2). If kappa nonzero, any compact forward-invariant subset of fully interior environmental states would bound I, contradiction; one-sided logit bounds yield the precise finite-time oriented union of epsilon-boundary neighborhoods, not selection of an individual face. For theta1=1, theta2=3, theta12=5/3, delta=1/2 and the given two payoff matrices, the exact curve (x,y,n1,n2,n12)=(1/2,1/4,1-u,1-u,u) satisfies the five equations for every 0<u<1. Payoffs and strategies need not be stationary for the drift identity.
 
-The nearest primary source [1] is the exact five-variable model and its Fig. 8 uses the two particular nonresonant feedback triples tested here. The full paper was read in its model equations, environmental-feedback cases, equilibrium table, oscillation discussion, and mathematical appendices. Its stability inequalities contain the same feedback combination, but its printed findings do not derive a globally exact affine log-odds drift, quantify oriented boundary entry, or eliminate every compact fully interior recurrent set in the generic asymmetric model. The earlier two-population paper [2] has one shared environmental variable rather than three; [3] and [4] analyze different feedback equations. A prior specialized invariant in an equal-feedback synchronized reduction does not imply an invariant for independent, unequal community feedbacks; the new nonzero affine slope also has no analog in that restriction. Primary literature and semantic mathematical-record comparisons have not identified a theorem implying the claim. Residual risk is an equivalent result under a different representation or in literature not indexed or fully accessible.
+## originality
 
-## Value — PASS
+PASS
 
-The originating five-dimensional work presents apparent sustained oscillatory regimes, but the exact global feedback identity shows their numerical traces cannot be compact recurrent sets strictly inside the environment cube for either of the paper's concrete feedback triples. It adds a sharp feedback-ratio boundary and a finite-time scale for entering oriented boundary neighborhoods, a structural result applicable to arbitrary admissible payoff matrices and strategy paths. The explicit fully interior equilibrium continuum on resonance shows the obstruction is not a parameter-generic triviality. It does not establish eventual convergence to a specific boundary face, a stability classification, or absence of boundary cycles.
+Best-of-knowledge PASS: this 5-dimensional global affine-logit drift, exclusion of compact fully interior recurrence and its quantitative oriented boundary consequence are not stated in the inspected Betz–Fu–Masuda model analysis. Their equilibrium stability inequality contains the same feedback combination, which is credited; equal-feedback three-dimensional invariant and single-environment models are not generalizations implying this independent three-environment drift. A differently named coboundary identity might exist elsewhere.
 
-## Closest sources and verification
+## value
 
-[1] Betz, Fu and Masuda, arXiv:2404.17082v2, model Eqs. (5)–(10), Fig. 8, Table 2 and appendices. [2] Gong, Gao and Cao, CDC 2018, DOI:10.1109/CDC.2018.8619801. [3] Gong et al., arXiv:2205.10734. [4] Liu, Cao and Wu, arXiv:2210.10552. Exact claims and comparisons are documented in `AUDIT.json`. `verify.py` passed symbolic algebra, the symbolic equilibrium family, two exact rational source-parameter checks, and numerical trajectory integration with maximal affine-law residual \(2.96\times10^{-12}\). Independent audit is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The original source reports numerical oscillatory or aperiodic regimes, including specific parameters that have nonzero kappa. A payoff-independent identity resolves which apparent cycles cannot be true compact interior recurrence, provides a sharp feedback-ratio boundary and an explicit time scale to boundary neighborhoods. This is a decisive structural dynamical fact, not a mere numerical orbit observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
