@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The specified eight-state continuous-time generator is irreducible for positive boundary rates. The explicit eight positive stationary weights sum to the normalizer and solve all eight generator balance equations identically as polynomials in the nonnegative resetting rate. Exact algebra yields the three covariances. Descartes' rule of signs together with signs at resetting rates 0, 1 and 3 establishes exactly two positive distal-covariance zeros. Exact rational intervals isolate them. Explicit inequalities establish strictly negative neighboring covariances at every resetting rate at least 1. Perturbation persistence follows from continuity of the unique finite-chain invariant law. The included standalone checker reproduces the algebra and separately solves rational finite-state systems. The universal proof does not rely on a finite numerical scan.
+PASS
 
-## Originality
+PASS: Reconstructed the complete eight-state continuous-time generator for bit-order n3n2n1: injection into empty site 1 at 1/2, exit site 3 at 1/6, right-hop rate 1, and each occupied donor site 2 or 3 resetting independently to vacant site 1 at rate rho. Independently verified the provided eight polynomial stationary weights sum to 2(3rho+5)(6rho^2+44rho+55), solve all eight balance equations Q^T w=0, and yield C13=3F/H^2, F=54rho^4+18rho^3-231rho^2-125rho+125. Descartes signs +,+,-,-,+ give at most two positive roots; opposite signs at rho=0,1,3 give exactly two simple roots near 0.532486743 and 2.043310541. Exact adjacent polynomials prove C12,C23<0 for rho>=1. Irreducibility of finite chain for alpha,beta>0 and continuity of stationary law prove at least two crossings after small boundary-rate changes; no claim of exactly two for all nearby rates or long chains.
 
-**PASS, conditional on the inspected literature.** Pelizzola and Pretti's *Totally asymmetric simple exclusion process with local resetting and open boundary conditions* (Journal of Physics A **55**, 454001, published November 11, 2022; DOI 10.1088/1751-8121/ac9d72; OA preprint arXiv:2402.13698) defines the self-review, develops a continuum mean-field approximation, and discusses nearest-neighbor covariances from simulation, not an exact three-site distal covariance or its two sign reversals. Pelizzola, Pretti and Zamparo (arXiv:2012.10993) study periodic boundaries and particle-number conservation rather than these open-boundary rates. Miron and Reuveni (arXiv:2011.08241) study symmetric hopping and provide a mean-field/simulation analysis; their abstract was inspected, not their complete article. Indexed literature and related published research-record searches did not expose a statement entailing the present exact finite-chain phase diagram. Solvability of a finite generator by general linear algebra is a method, not in itself a previously stated sign theorem. An unindexed exact finite-state specialization remains a priority risk, and search absence does not certify global novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The nonadjacent pair is the minimal-distance witness to nonlocal resetting correlations in a three-site chain. The exact positive–negative–positive return is a robust qualitative effect, not a small coefficient improvement or an arbitrary choice of numerical cutoff. It contradicts the tempting extrapolation that distal correlations must share neighboring-pair signs: on the whole reentrant tail, neighboring pairs remain anticorrelated. The open-neighborhood persistence makes this a non-isolated counterexample relevant to evaluating finite-size correlation closure in driven interacting-particle models. It does not assert a bulk phase transition or resolve all boundary-rate regimes.
+PASS, best of knowledge: original Pelizzola–Pretti model has open boundaries and local particle-specific reset and studies large-scale mean-field and nearest-neighbor covariances, not the exact nonadjacent three-site polynomial sign changes. Related periodic/reset-diffusion models are not the same chain. An unpublished exhaustive three-site computation remains an originality risk.
 
-## Literature limits and verification
+## value
 
-Compared statements and mechanisms, not merely titles: the 2022 open-boundary work's mean-field closure suppresses covariance, the 2020 periodic model differs in conservation and boundaries, and the 2020 symmetric-reset work differs in transport direction. The exact finite-size covariance polynomial is fully reproduced from the stated transition generator. The algebraic checker uses exact rational arithmetic, and its finite parameter examples are corroboration rather than proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Minimal three-site exclusion process permitting a nonadjacent correlation exhibits reentrant positive–negative–positive sign and coexistence with strict negative adjacent correlations, which challenges an intuitive distance/negative-correlation extrapolation. Exact rate thresholds and robustness to boundary perturbation make the finite example a motivated structural counterexample despite no thermodynamic-limit claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

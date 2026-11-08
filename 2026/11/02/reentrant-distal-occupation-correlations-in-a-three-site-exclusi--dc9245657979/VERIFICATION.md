@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-The standalone `verify.py` uses exact rational polynomial arithmetic with no third-party dependencies. It constructs the physical three-site generator from independent injection, extraction, rightward hops and each eligible particle-specific reset. It verifies all row sums, every stationarity balance polynomial, normalization and the three exact pair-covariance numerator identities against formulas in `RESULT.md`. The two positive covariance threshold roots are counted analytically using Descartes' rule and strict exact-rational signs; root-isolation and neighboring-covariance signs are checked exactly.
+## correctness
 
-An independent rational Gaussian elimination routine constructs eight stationary solutions at resetting rates \(0,1/5,1/2,1,2,3,10,100\) and compares all eight components with the displayed algebraic formula. The finite samples confirm calculations but are not used as proofs of statements for all nonnegative resetting rates.
+PASS
 
-To reproduce: extract `verify.py` alongside the other files and run `python3 verify.py`. The exact parameter scope and all unproved generalizations are recorded in `RESULT.md`. Independent external validation has not been performed.
+PASS: Reconstructed the complete eight-state continuous-time generator for bit-order n3n2n1: injection into empty site 1 at 1/2, exit site 3 at 1/6, right-hop rate 1, and each occupied donor site 2 or 3 resetting independently to vacant site 1 at rate rho. Independently verified the provided eight polynomial stationary weights sum to 2(3rho+5)(6rho^2+44rho+55), solve all eight balance equations Q^T w=0, and yield C13=3F/H^2, F=54rho^4+18rho^3-231rho^2-125rho+125. Descartes signs +,+,-,-,+ give at most two positive roots; opposite signs at rho=0,1,3 give exactly two simple roots near 0.532486743 and 2.043310541. Exact adjacent polynomials prove C12,C23<0 for rho>=1. Irreducibility of finite chain for alpha,beta>0 and continuity of stationary law prove at least two crossings after small boundary-rate changes; no claim of exactly two for all nearby rates or long chains.
+
+## originality
+
+PASS
+
+PASS, best of knowledge: original Pelizzola–Pretti model has open boundaries and local particle-specific reset and studies large-scale mean-field and nearest-neighbor covariances, not the exact nonadjacent three-site polynomial sign changes. Related periodic/reset-diffusion models are not the same chain. An unpublished exhaustive three-site computation remains an originality risk.
+
+## value
+
+PASS
+
+PASS: Minimal three-site exclusion process permitting a nonadjacent correlation exhibits reentrant positive–negative–positive sign and coexistence with strict negative adjacent correlations, which challenges an intuitive distance/negative-correlation extrapolation. Exact rate thresholds and robustness to boundary perturbation make the finite example a motivated structural counterexample despite no thermodynamic-limit claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
