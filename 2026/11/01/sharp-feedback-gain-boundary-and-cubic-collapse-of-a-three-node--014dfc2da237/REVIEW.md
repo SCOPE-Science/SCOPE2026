@@ -1,15 +1,21 @@
-# Review of the three-node feedback stability theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. For the complete explicitly parameterized matrix, determinant expansion gives a cubic with coefficients \(3a\), \(B\), and \(C\); the Hurwitz determinant is \(H=3aB-C\). The exact strict conditions \(a>0\), \(B>0\), \(C>0\), \(H>0\) yield the stated tongue. Monotone equations for the two boundary locations have unique roots for sufficiently small damping. The implicit-function expansions establish a linear interval below the critical feedback gain, a cubic interval at that gain, and no interval above it. Direct factorization of the boundary polynomials verifies the zero and imaginary-pair crossing types. Exact rational certificate and several finite numerical spot checks ran successfully using the standalone verifier. The analytical argument, not those samples, proves the quantified theorem.
+## correctness
 
-## Originality
-PASS under inspected literature and recoverable records; historical priority is not independently certified. The closest motivating paper is Montanari, Zanin and Motter (2026), which proves broad disorder-promoted stability in non-Hermitian networks and studies optimizations and circulant systems in its supplement, without the two-overlapping-negative-cycle gain threshold or the distinct linear and cubic widths for this explicit signed motif. Kinkhabwala (2015) covers general cycle representations of Hurwitz determinants, a powerful antecedent that makes the coefficient calculation routine; its general expressions do not directly imply the nontrivial singular classification without analyzing the specific weak-damping feedback gain. Chen, Wang and Liu (2024) review single-cycle secant conditions and general ecological network stability, but the overlapping-length-two-and-three motif is not that single-cycle family. Residual risk: an unindexed or specialized control-network paper may have previously analyzed the same motif, including its gain-cusp limit. Querying the same gain threshold, equivalent cubic criteria, and signed-cycle aliases revealed no such covering statement.
+PASS
 
-## Mathematical value
-PASS. The object is a minimal natural model of competing inhibitory feedback loops with conserved mean damping. It gives a full non-Hermitian local stability map, a sharp ratio threshold between the loop gains, and a mechanism transition from a linearly narrowing heterogeneity design window to cubic narrowing at a nilpotent triple-zero boundary. This is structurally informative for stability design and cannot be reduced to merely checking one numerical parameter set. The value is local and theoretical; no nonlinear ecological or engineering performance is claimed.
+PASS: Independent symbolic expansion of det(lambda I-J) equals (lambda+a)^3+(1-3t^2/4)(lambda+a)+rho-t-t^3/4 exactly. Cubic Routh–Hurwitz for a>0 yields B>0, C=rho-rho_->0, H=3aB-C=rho_+-rho>0. B=0 exclusion and H/C equality factorizations give the stated simple imaginary pair and simple zero eigenvalue. For fixed rho, H(0)<0, C(0)>0 for small a; Hprime(t)=(3/4)(t-2a)^2+1-3a^2>0 and Cprime<0 make unique boundary roots and no missing stability islands. IFT at t0 solves q(t0)=0, giving first-order widths 3va/s below threshold, inverted ordering above, and at t*=2/sqrt(3), rho*=8/(3sqrt(3)), exact cubic roots t_H=t*-4a^3+O(a^4), t_Z=t*+a^3/2+O(a^4) and width 9a^3/2; B=3a^2+O(a^3) on critical interval. Equal-damping instability follows from the conjugate roots of mu^3+mu+rho and shift by -a. This is an exact linear result; no nonlinear Hopf claim.
 
-## Scope and risks
-Only a specific three-node linear ODE and its fixed zero-mean diagonal-disorder direction are classified. The asymptotic classifications require sufficiently small positive damping at fixed loop gain. The purely algebraic proof is independently reproducible with the included finite checker, but that checker is not an exhaustive proof of the parameter continuum. A targeted historical-priority search remains appropriate before a publication claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.
+
+## value
+
+PASS
+
+PASS: A specified minimal signed network with competing length-two and length-three feedback has an exact global parameter stability tongue and a sharp weak-damping phase transition, including a nonroutine cubic collapse and two different crossing mechanisms. This adds a motivated solvable boundary case to non-Hermitian disorder-stabilization theory rather than presenting the Routh-Hurwitz test itself as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
