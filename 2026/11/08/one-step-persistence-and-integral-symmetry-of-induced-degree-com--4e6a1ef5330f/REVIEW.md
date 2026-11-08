@@ -1,0 +1,15 @@
+# Mathematical review: induced-degree complexes of complete bipartite graphs
+
+## Correctness — PASS
+The face condition on a mixed set of sizes \(a,b\) is exactly \(\max(a,b)\le r\). Its decomposition into the two full part-simplices and the join of their truncated skeleta is an equality of simplicial complexes. The top integral skeleton cycles are exterior powers of augmentation lattices. The join calculation is torsion-free, while the relative long exact sequence gives the lower homology modules with their actual permutation actions, independently of a non-equivariant wedge splitting. The only possible transition between nonzero homology degrees at consecutive thresholds is \(r=2\) in degree three; integral triangle-join generators explicitly bound in the threshold-three complex. The \(r=0,1\) cases are treated separately. Signed Lefschetz and prime-field boundary checks independently corroborate the general argument for finite parameters. Critical risks checked: empty summands, low thresholds, swap orientation, and degree-three cross-threshold disappearance.
+
+## Originality — PASS relative to inspected sources
+The nearest pre-2016 relevant paper, Guo–Zhao–Lai–Mao, arXiv:1505.04867 (2015), defines induced-maximum-degree independence and treats extremal cardinalities but contains no topological or equivariant persistence formula. Deshpande–Singh, arXiv:2001.05448 (2020), Theorem 3.5, is for induced connected-component size at most \(r\), and Singh, arXiv:2006.13632 (2020), is for *edge*-selected bounded-degree/matching complexes. Neither theorem implies the mixed-sphere topology, integral symmetry lattices and one-step vanishing maps of this exact vertex-based filtration. Indexed semantic searches for aliases (higher independence, dissociation, vertex induced degree, complete bipartite, homology, persistence) returned nearby but different constructions. Prior exact statements, not titles, were compared. A possible equivalent unindexed proof, especially of the non-equivariant wedge decomposition, is a residual publication-priority risk; this assessment does not assert exclusive first discovery.
+
+## Value — PASS
+The graph-theoretically natural relaxation from independence to all induced-degree bounded vertex sets produces a complete and unexpectedly ephemeral integral persistence calculation for an infinite two-parameter family. Mixed homology dimensions occur at a common threshold, and the potentially persistent third degree at successive thresholds actually has a zero inclusion map. Exact permutation lattices distinguish integral symmetry from mere Betti numbers. These are structural results for a canonical family, not a renaming of extremal independent-set formulas.
+
+## Scientific limits
+The source is a finite graph family and not a theorem for arbitrary graphs; non-equivariant wedge decompositions do not establish equivariant homotopy equivalences. Finite checks supplement but do not replace the proof. Published and indexed overlaps were examined, but completeness of all external literature cannot be guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.
