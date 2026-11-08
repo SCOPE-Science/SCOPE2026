@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof establishes uniform residues by independent multiquadratic sign changes and Weyl's criterion; derives an explicit large-prime tail \(O_G(X/B+\sqrt X)\) from the quadratic irrational lower bound \(\|h\sqrt{u/v}\|\gg1/h\); and combines finite CRT sieve densities with an absolutely convergent positive graph Euler product. For edges between two floor coordinates, the ratio \(\sqrt{r_i/r_j}\) is irrational quadratic and each floor value corresponds to at most one input at a prescribed multiple, since its slope exceeds one. The exact standalone checker confirms multiple sample cases. No finite test is used as an infinite proof.
+
+**Originality — PASS, with residual historical risk.** Holdridge (arXiv:2611.02223v1, Theorems 1.2–1.3) and Bergelson–Richter (arXiv:1611.08044) prove single joint-GCD conditions, not graphwise simultaneous pair GCDs. Arias de Reyna–Heyman (arXiv:1403.2769, Theorem 1) and Fernández–Fernández (arXiv:1310.3802, Section 1) give the **same Euler factors** for unrestricted independently ranging tuples, not the one-dimensional quadratic Beatty vector. This exact prior-implication separation matters: a known local product does not establish its frequency on a thin deterministic curve. Searches of related mathematical claims did not identify a covering theorem for this orbit. An unindexed equivalent sieve remains a residual priority risk.
+
+**Mathematical value — PASS.** The theorem is a natural deterministic analogue of graphwise coprimality for random integer vectors, at exactly the frontier separating one joint gcd from many simultaneous edgewise gcds in recent work. It establishes a general graph-density principle and resolves a concrete three-way correlation, rather than only recovering known constants from random samples. The large-prime pair lemma is the structural mechanism enabling the one-parameter limit. Its fixed prime-square-root and non-effective-error limitations are explicitly stated.
+
+Closest literature: Holdridge (2026), Arias de Reyna–Heyman (2014), Fernández–Fernández (2013), and Bergelson–Richter (2016). The verdict is a self-review, not an external priority certificate.
+
+Self-review: passed. Independent audit: not yet performed.
