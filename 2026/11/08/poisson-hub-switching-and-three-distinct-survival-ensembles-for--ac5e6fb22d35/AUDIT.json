@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, 2<=k<n, a full labelled state belongs to A or B; all safe jump rates and killing rates lump exactly into Q=[[-k,k],[r,-k]]. Matrix exponentiation gives two exact survivor functions. The positive full-state eigenfunction sqrt(k) on A and sqrt(r) on B satisfies Qh=-(k-sqrt(kr))h at every configuration. A finite-horizon Markov argument gives the Doob transformed rates s in both directions, hence a Poisson hub-switch clock. Normalized Q semigroup gives terminal Yaglom hub frequency sqrt(k)/(sqrt(k)+sqrt(r)); suppressing colliding jumps gives stationary B probability k/(k+r). Verified finite-state checker covers 50965 assertions for n=3..7, 2<=k<n; all-parameter statements rely on the analytic proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shiatis Theorem 1.4 covers the relationship of noncolliding and exclusion dynamics for k-separable Markov chains; explicit examples analyze asymmetric walkers on rings and Z, not a star.",
+        "The present calculation distinguishes three distributions and establishes that the hub-switch count is exactly Poisson for every 2<=k<n. The source theorem does not state their specific rates.",
+        "Topological persistence results for configuration spaces on metric stars are not probability laws for Markovian collision avoidance."
+      ],
+      "reasoning": "General Doob-transform machinery is prior and fully acknowledged. The new result is an explicit finite-family solution requiring a separate strong lumping, eigenpair and comparison of the Q-process, Yaglom ensemble and suppressed-jump chain; no inspected source supplies this solution.",
+      "searches": [
+        "Shiatis, arXiv:2610.00741v1, Sections 1.1–1.4 and 2",
+        "\"noncolliding\" \"star graph\" \"Doob transform\" random walks",
+        "\"star graph\" \"conditioned\" \"non-colliding\" \"particles\" Markov",
+        "arxiv:2610.00741 Exclusion vs Noncolliding Dynamics in Markov Processes Rohan Shiatis principal eigenfunction star graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00741v1",
+      "doi:10.2307/3212311"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.4 gives a general RN derivative; its star specialization needs the specific rates k and r and the positive eigenfunction h(A)=sqrt(k),h(B)=sqrt(r).",
+        "Classical quasi-stationarity supplies asymptotic definitions but not the star-specific survival formulas or the inequality 1/2<sqrt(k)/(sqrt(k)+sqrt(r)<k/(k+r)."
+      ],
+      "reasoning": "The claimed exact star law does not follow as a mere change of notation from a quoted formula: the key eigenpair, rate equalization, Poisson switching, and three-way occupation comparison are calculated. The derivation is short thanks to strong symmetry and may have been implicit in unindexed prior work; no priority beyond this best-knowledge evidence is asserted.",
+      "searches": [
+        "Shiatis arxiv:2610.00741v1 Theorem 1.4 and Section 1.3",
+        "Darroch-Seneta 1967 bibliographic metadata: On quasi-stationary distributions in absorbing continuous-time finite Markov chains",
+        "\"star graph\" \"quasi-stationary\" \"exclusion\" particle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source formula is a Doob transform with a positive killed-generator eigenfunction. The star result additionally calculates that eigenfunction and obtains equal total hub-class rates and an exact Poisson jump count.",
+        "Related single-particle spider mixing results concern a different stochastic object and do not provide the stated multi-particle survival law."
+      ],
+      "reasoning": "Neither a relabelled single-walk result nor a general transform identity supplies this exact hub process without the star-specific full-state lumpability and eigenfunction calculation.",
+      "searches": [
+        "star graph k independent continuous time simple random walks conditioned never to collide hub occupancy Poisson alternating hazard lambda k minus square root",
+        "noncolliding walkers star graph center occupation one half conditioned Q process quasi-stationary distribution exclusion",
+        "Q process star graph multiple independent random walks no collision hub occupancy conditioned survival"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted record returns concern metric-star topology, star quantum walks, spider one-particle walks or unrelated occupancy examples; no published k-particle star spectral or hub rate table appeared.",
+        "No exact star-graph formula was identified in the comparable published literature searched."
+      ],
+      "reasoning": "This is a symbolic all-n,k stochastic law rather than a finite numerical table, and no matching tabulation appeared in the accessible primary literature inspected.",
+      "searches": [
+        "k labelled exclusion process on star conditioned no collision Doob eigenfunction occupancy center and Poisson switching",
+        "Doob h transform star graph exclusion process n leaves k labeled particles constant alternating Poisson",
+        "star graph noncolliding exclusion survival laws comparison"
+      ]
+    },
+    "rationale": "The source general Doob-transform theorem covers the abstract relation but does not calculate the complete k-particle star eigenpair, exact Poisson hub-flip process, terminal-time Yaglom hub marginal, and sharp difference from exclusion. The explicit full-parametric structural result is not found among inspected source examples, the targeted primary-literature comparisons. Generic finite-state eigenvector methods are acknowledged; exact prior examples beyond accessible material remain a risk.",
+    "residual_risks": [
+      "A mathematically routine application of finite killed-chain spectral theory can have unpublished or unindexed precedent.",
+      "The full text of Darroch-Seneta 1967 was not inspected and could contain unanticipated special examples.",
+      "Full labelled dynamics may be reducible at k=n-1; the claim is deliberately restricted to hub projections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_METHOD_NOT_STAR_FORMULAS",
+        "evidence": [
+          "The source gives h-transform density and cycle/line explicit h-functions, but no star-specific k-particle survivor matrix or Poisson hub-switch rate.",
+          "It acknowledges that h is a killed-process positive eigenfunction and that finite graphs have exponential survival."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00741v1",
+        "material_read": "Full publicly accessible HTML; introductory definitions, Theorem 1.4, Sections 1.3-1.4, Section 2 definition/conditioning setup, and related-work discussion.",
+        "method": "Read HTML text and checked for star and complete-bipartite examples; compared generator identities, eigenfunction requirements and example graph families.",
+        "title": "Exclusion vs Noncolliding dynamics in Markov processes",
+        "trigger": "The exact abstract h-transform and examples could subsume the star result."
+      },
+      {
+        "assessment": "CLASSICAL_BACKGROUND_UNINSPECTED_FULL_TEXT_PRIORITY_RISK",
+        "evidence": [
+          "A 1967 classical finite absorbing-chain quasi-stationarity reference; exact star formula coverage remains unknown without the full article."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3212311",
+        "material_read": "Bibliographic metadata/abstract-level catalogue information only; full text not inspected.",
+        "method": "Compared known general finite-chain scope with the star generator; did not make an absence claim about inaccessible article contents.",
+        "title": "On quasi-stationary distributions in absorbing continuous-time finite Markov chains",
+        "trigger": "Classical original reference for finite-state quasi-stationarity and Yaglom laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac5e6fb2-2d35-430d-9982-5cbc3b80bfdf",
+  "value": {
+    "rationale": "Stars are the canonical finite graphs with one bottleneck vertex: collision avoidance differs most sharply from collision suppression there. The complete family of exact survival, Poisson hub switching and three strictly ordered hub laws is a natural solvable interacting-walk benchmark for all particle counts. The exact TV difference (k-r)/(2(k+r)) tends to 1/2 along high-occupancy limits, a macroscopic observable discrepancy. This is not a low-order numerical example or merely a restatement of the general h-transform.",
+    "status": "PASS"
+  }
+}
