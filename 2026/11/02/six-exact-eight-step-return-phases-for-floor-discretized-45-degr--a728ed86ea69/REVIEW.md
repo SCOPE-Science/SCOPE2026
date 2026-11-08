@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The map and quantization convention are explicit. Exact algebra gives the first four phases, then a seven-cell exhaustive subdivision of the fractional part yields the six return vectors. The only attainable breakpoint is checked as an exact eight-cycle. The least-period proof excludes periods one, two and four. Weyl equidistribution gives the natural density. A standard-library checker verifies the universal cells by exact inequalities in \(\mathbb Q(\sqrt2)\), not just samples. Residual mathematical risks are limited to independent checking of the handwritten floor-case table; no numerical extrapolation is used.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest source is Hannusch–Pethő, arXiv:2109.01828v1, §5 and the 2022/2023 journal version. Theorem 5.2 there claims a larger sufficient interval, but the fully explicit seed \(a=5\) satisfies its assumptions and fails its conclusion. The new six-phase **necessary-and-sufficient** return table is not established there and cannot be deduced from that incorrect sufficiency assertion. Akiyama–Pethő (arXiv:1206.3868) treats a different lattice map. Searches of the accessible mathematical record and previous overlapping statements identified no complete six-phase return law. Unindexed notes or a later correction remain possible publication-priority risks.
+PASS
 
-## Mathematical value — PASS
-Periodicity and orbit counting for floor-discretized rotations are central questions of the motivating source. An exhaustive exact classification on the natural positive integer axis, a sharp positive density of distinct eight-cycles, and a concrete counterexample locating the defect in a published sufficient range constitute a motivated correction and structural answer, not merely a recomputation of one previously known orbit.
+PASS. Reconstructed exact floor update on Q(sqrt2) affine cells. Seven open intervals bounded by five algebraic breakpoints and 1/sqrt2 give six R^8(a,0) displacements; only attainable boundary a=2 is an exact eight-cycle. Return interval (1−1/√2,sqrt2−1] implies least period8 (earlier iterates exclude 2,4), distinct cycles, and natural density 3/sqrt2−2 by irrational equidistribution. Exact seed a=5 returns (4,-1), confirming the nearest cited theorem overstates sufficiency. Finite 2..20000 checks alone are not infinite proof.
 
-## Scope and limits
-No statement about arbitrary lattice seeds, global orbit boundedness, all period-eight cycles, or the global periodicity conjecture is claimed. No independent validation or publication priority guarantee is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: compared the exact coordinatewise-floor map against the full open publisher paper and older different companion map. The six-phase complete return table is stronger than, and directly corrects, the published insufficient Theorem 5.2 range; a=5 satisfies its displayed hypotheses yet does not return. No discovered correction/erratum supplies the new table; later notes could still predate it.
+
+## value
+
+PASS
+
+PASS. Floor-discretized rotation periodicity is the source problem; a complete axial return law, sharp positive density, and a concrete correction of a published sufficient criterion form a motivated structural result, without claiming global lattice dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
