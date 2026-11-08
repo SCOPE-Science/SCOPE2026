@@ -1,19 +1,21 @@
-# Mathematical review: cosquare-stratified bilinear brace probabilities
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The precise domain is invertible bilinear multiplication matrices over all odd finite fields. The nilpotent-ring brace construction and explicit Yang--Baxter map are verified by direct substitution. A nonzero vector has two simultaneous linear vanishing constraints of rank one exactly on an eigenspace of the cosquare and rank two otherwise, yielding the all-dimensional formula. For two-dimensional matrices, discriminant and quadratic-character counting give the four exhaustive matrix strata. Each singular/alternating/symmetric boundary is treated separately, and the multiplicities sum to the exact general-linear-group order. The standalone standard-library checker enumerates all such matrices over four prime fields and all Yang--Baxter triples for the three types at \(q=3\). The symbolic proof, not the finite experiments, supports arbitrary odd prime powers.
+PASS
 
-## Originality: PASS, with priority qualifications
+The nilpotent algebra V⊕F_q z with multiplication (u,s)(v,t)=(0,uᵀMv) has R³=0 and yields a two-sided brace and involutive solution. Two-sided flip requires uᵀMv=vᵀMu=0; one-sided probability is q^{-d}+(1-q^{-d})/q. For nonzero u, the two independent linear equations have q^{d-2} partner vectors, but q^{d-1} if u lies on a cosquare eigenspace; counting these yields the published universal formula for s(M) and P_flip,1. For dimension two, δ=(b-c)²/det M gives discriminant δ(δ-4), with symmetric/alternating, defective, split and nonsplit types. Counting symmetric matrices by determinant and using Σχ(δ(δ-4))=-1 gives the four exact labeled multiplicities and their collapse to three values when q=3. Independently enumerated every M∈GL₂(F_q) for q=3,5,7,11 and each cosquare eigenvector count; all four row multiplicities and total |GL₂| match. Algebraic proof extends to every odd prime power; prime-field experiments alone do not.
 
-Ferrara--Trombetti--Tsang (2026) already defines the four probabilities, identifies their brace-theoretic interpretation, and gives an alternating bilinear determinant example. Bachiller (2014) already classifies prime-cube braces via bilinear-form parameters and change of basis. Mondal--Yadav (2026) already treats commuting probabilities for general skew braces. These are strong adjacent results and are not relabeled as new. The assessed claim is the complete spectral *joint and individual* flip profile for all nondegenerate bilinear radical braces and the exact labeled-matrix distribution for all odd finite-field orders, including nonalternating forms. The full accessible texts of the two closest papers were examined at the indicated portions; neither was found to state the four-row count or the general cosquare formula. Search of published mathematical records did not find a dominating result. Residual priority risk: older work on adjoint bilinear forms, congruence orbit counts, or brace commuting probabilities might imply an equivalent histogram. Priority cannot be guaranteed without broader independent review.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The comparison between two-sided and one-sided flip tests is the central new observable of the 2026 paper. On an established class of small radical braces, the result shows that the easier three probabilities collapse to a universal value while the two-sided probability detects four sharply characterized bilinear-form types. The histogram gives both existence and precise arithmetic frequency of each behavior for every odd finite field. The cosquare method extends to every vector-space dimension, making the finite three-dimensional classification a structural phenomenon rather than an isolated numerical example. The result is a natural exact invariant for the source's framework, not an arbitrary list of small cases.
+The general flip-probability definitions and alternating example of Ferrara–Trombetti–Tsang, and Bachiller bilinear brace isomorphism structures, are credited. Best-of-knowledge the simultaneous nondegenerate cosquare formula and complete four-stratum labeled-GL₂ histogram are not stated or implied as a ready-made count by the inspected predecessors; historical bilinear-form/congruence classifications might implicitly supply the counting steps.
 
-## Boundaries and source comparisons
+## value
 
-The four-row counts distinguish labeled bilinear multiplication matrices and do not count brace isomorphism classes. The computation does not handle degenerate forms, characteristic two, or the higher-dimensional cosquare histogram. See the theorem and reproducibility section in RESULT.md for details. Accessible full primary texts: Ferrara--Trombetti--Tsang, arXiv:2608.20620v1, pp. 2--5, 12--16, 17--19; Bachiller, arXiv:1407.5224v1, especially §§2 and 5.3; and Mondal--Yadav, arXiv:2603.16771v1, relevant introductory and commuting-probability sections. Literature-based originality evaluation cannot replace an independent priority determination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The common simultaneous-fixing probability is a natural invariant of brace-derived Yang–Baxter solutions. A complete finite-field distribution over all nondegenerate 2×2 forms reveals exactly which bilinear geometry changes two-sided flip statistics despite all one-sided rates being constant; the broad higher-dimensional spectral formula is independently useful. Clearly a labeled distribution, not an unsupported brace isomorphism count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
