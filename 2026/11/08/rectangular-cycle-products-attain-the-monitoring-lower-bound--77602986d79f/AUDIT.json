@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Proved cycle short-gap sufficiency, applied the established Cartesian fiber criterion for the 3m lower bound, constructed exactly 3m selected cells, and bounded all row gaps by explicit ceiling inequalities, with both small exceptions given finite explicit row certificates. A standalone edge-deletion BFS verifier independently checks eight small graph instances and a parameter sweep checks 5,551 construction cases. No finite extrapolation is used in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haslegrave Theorem 1 gives only a lower and upper bracket for arbitrary factors and equality for factors with unique minimal MEG-sets; cycles C_k for k>=5 have multiple minimum MEG-sets.",
+        "Haslegrave Theorem 4 states the same-factor cycle identity only.",
+        "arXiv:2409.19067 focuses on algorithms, complexity and approximations, with no rectangular-torus claim in inspected abstract/overview."
+      ],
+      "reasoning": "The general product theorem is quantitatively weaker for unequal cycles; its unique-minimal hypothesis does not apply. The square-specific construction cannot simply be substituted for different cycle lengths without an aspect-ratio argument. The new floor-map and exception templates resolve the missing case.",
+      "searches": [
+        "arXiv:2210.08955 Section 2 Theorems 1,4",
+        "arXiv:2409.19067 introduction and listed contributions"
+      ]
+    },
+    "checked_sources": [
+      "Dev et al., Monitoring edge-geodetic sets in graphs, arXiv:2210.03774v3, Section 3.2 (the scalar cycle theorem and proof); v1 first posted 2022-10-07.",
+      "Haslegrave, Monitoring edge-geodetic sets: hardness and graph products, arXiv:2210.08955v3, Section 2, Theorem 1 and Theorem 4 with proof; v1 first posted 2022-10-17.",
+      "Foucaud et al., Algorithms and complexity for monitoring edge-geodetic sets in graphs, arXiv:2409.19067v2, abstract and introductory overview of results.",
+      "published-finding corpus semantic searches on rectangular tori, unequal cycle products, cyclic row-column monitoring and monitoring edge-geodetic Cartesian products."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously known: meg(C_k)=3 for k>=5; product theorem lower bound is 3max(n,m), upper bound 3n+3m-9.",
+        "Previously known: equality at n=m via diagonal modular sums.",
+        "New construction: independent balanced resampling of three cycle residues across any unequal aspect ratio and two exceptional explicit shift sequences."
+      ],
+      "reasoning": "Neither scalar cycle theorem nor square-torus case determines the optimum at unequal factors; all those cases are explicitly the new scope. The new claim implies the old diagonal value as a special case but does not rely on that value to prove the unequal result.",
+      "searches": [
+        "arXiv:2210.03774 Section 3.2",
+        "arXiv:2210.08955 Section 2 Theorems 1 and 4",
+        "published-finding corpus: monitoring edge-geodetic number rectangular torus C_m Cartesian C_n exact 3 max(m,n)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haslegrave arXiv:2210.08955 Section 2 defines the edge-monitored-by-every-shortest-path formulation and names square discrete tori.",
+        "published-finding corpus best hits concern alternative multiset-dimension or cut complexes, not the all-shortest-path edge-monitoring optimum."
+      ],
+      "reasoning": "The same object can be called a rectangular discrete torus or unequal Cartesian product of cycles; MEG can be phrased by distance change after edge deletion. The searches included these variants and found the equal-factor theorem but no unequal-factor identity.",
+      "searches": [
+        "published-finding corpus: monitoring edge-geodetic number rectangular torus C_m Cartesian C_n exact 3 max(m,n)",
+        "published-finding corpus: MEG sets of unequal cycle Cartesian products discrete tori",
+        "Web: \"monitoring edge-geodetic\" \"torus\" \"cycles\" Cartesian product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit directly states meg(C_n square C_m)=3max(n,m) for all unequal n,m>=5.",
+        "Closest toroidal published-finding corpus records concern topology or cut-complex parameters, not MEG."
+      ],
+      "reasoning": "This is a negative search report, not a proof of priority; exact numeric tables or unindexed independent treatments remain possible.",
+      "searches": [
+        "published-finding corpus: monitoring edge-geodetic number rectangular torus C_m Cartesian C_n exact 3 max(m,n)",
+        "published-finding corpus: MEG sets of unequal cycle Cartesian products discrete tori",
+        "published-finding corpus: cyclic row-column monitoring 3-transversal rectangular graph product",
+        "published-finding corpus: monitoring edge-geodetic number of cycles and Cartesian products Haslegrave 2022"
+      ]
+    },
+    "rationale": "Haslegrave has exactly the square-torus value and a broader but non-sharp two-parameter product bracket, while Dev et al. has the cycle invariant. The first all-unequal-rectangle identity and balanced construction are not implied by those statements; targeted published-finding corpus and primary-literature comparisons found no direct coverage, with provisional priority risk explicitly noted.",
+    "residual_risks": [
+      "Unindexed literature or a later equal-strength rectangular-torus formula could exist.",
+      "The 2024-25 algorithms paper was not examined theorem-by-theorem; its stated focus differs from this calculation.",
+      "Finite verification only, and independent mathematical audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly covers factor cycles, not Cartesian products of unequal cycles in the inspected relevant sections.",
+        "evidence": [
+          "arXiv:2210.03774v3, page 4, Theorem 3.4: for k>=5, meg(C_k)=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.03774",
+        "material_read": "Definition 1.1 and Section 3.2, including Theorem 3.4 and proof; introduction and listed classes.",
+        "method": "Open text extracted from primary arXiv full PDF and inspected page 4 screenshot.",
+        "title": "Monitoring edge-geodetic sets in graphs",
+        "trigger": "Original definition and cycle theorem; same monitoring predicate."
+      },
+      {
+        "assessment": "Theorem 4 is explicitly restricted to equal cycle lengths; general Theorem 1 does not force the value for unequal cycles.",
+        "evidence": [
+          "arXiv:2210.08955v3, pages 2-5, Theorem 1 and Theorem 4 (meg(C_m square C_m)=3m)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.08955",
+        "material_read": "Full relevant Section 2, Theorem 1 proof, Corollary 3, Theorem 4 and its proof; adjacent discussion of strong products.",
+        "method": "Read text from primary arXiv full PDF and inspected page 4 screenshot (arXiv PDF page 3).",
+        "title": "Monitoring edge-geodetic sets: hardness and graph products",
+        "trigger": "Closest result on Cartesian products and discrete torus."
+      },
+      {
+        "assessment": "Inspected sections concern algorithmic and hardness results, not an explicit rectangular-cycle evaluation; remaining full text was not reviewed in detail.",
+        "evidence": [
+          "arXiv:2409.19067v2, Section 1, contributions list."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.19067",
+        "material_read": "Abstract, introductory overview of prior studies and contribution map (first three PDF pages).",
+        "method": "Read PDF text and inspected page 2 screenshot.",
+        "title": "Algorithms and complexity for monitoring edge-geodetic sets in graphs",
+        "trigger": "Later same-parameter work, potential stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77602986-d79f-4260-9d3d-04e59ebde9df",
+  "value": {
+    "rationale": "Sharpness of monitoring-product bounds across all cycle aspect ratios is a natural unresolved regime left open by the published square example. The lower bound could have had a growing gap; the explicit balanced incidence design proves equality uniformly and isolates two small aspect-ratio exceptions of the basic pattern. This resolves a natural exact infinite-family optimization problem, not a mere renaming or tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
