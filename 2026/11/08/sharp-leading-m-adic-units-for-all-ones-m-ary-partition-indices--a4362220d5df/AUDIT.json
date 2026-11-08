@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A direct generating-function extraction proves the target is [q]H_{r-1}. The integer binomial basis coefficients have exact first two leading forms; an induction proves a_{k,j} is divisible by m^(k+j-1). The only possible second low-degree obstruction is alpha_3(1)=binom(m,3), divisible by m when gcd(m,6)=1, yielding a scalar congruence modulo m^(k+2) for a_{k+1,1}. The unit is invertible modulo m, proving sharpness. The attached standalone checker reproduced 29 units, four direct counts, and 24 polynomial identities. Finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rødseth–Sellers (2001), Theorem 1, eq. (4), gives vanishing modulo m^{r-1} for odd m at this class; Lemmas 1–2 give the integral basis and coefficient divisibility, but do not supply a closed leading unit modulo m.",
+        "Żmija (2024), Theorem 1.3 and Lemmas 2.1–2.5 give general M-ary lower-modulus divisibility and the same basis method, not the full-strength all-depth normalized unit."
+      ],
+      "reasoning": "Rødseth–Sellers covers a broader set of indices but at lower modulus only; Żmija covers generalized M-ary bases but with a weaker modulus and no exact unit. Broad parameter coverage does not dominate the new stronger residue statement.",
+      "searches": [
+        "m ary partitions b_m(m^r-1) congruence modulo m^r coefficient sharp Rodseth Sellers",
+        "\"m-ary partitions\" \"sharp\" \"m^r\" congruence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.04495v1; Theorem 1.3 and Lemmas 2.1–2.5",
+      "Rødseth–Sellers 2001 DOI 10.1006/jnth.2000.2594; Theorem 1 and complete full-text proof",
+      "arXiv:1710.04303; introduction, Section 6",
+      "published-finding corpus indexed result 2026-09 mathematical-index record 028: a different elongated-diamond partition function",
+      "published-finding corpus indexed result 2026-09 indexed Thue–Morse valuation record: different Thue–Morse coefficients"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rødseth–Sellers (2001), Theorem 1, eq. (4), gives vanishing modulo m^{r-1} for odd m at this class; Lemmas 1–2 give the integral basis and coefficient divisibility, but do not supply a closed leading unit modulo m.",
+        "Żmija (2024), Theorem 1.3 and Lemmas 2.1–2.5 give general M-ary lower-modulus divisibility and the same basis method, not the full-strength all-depth normalized unit.",
+        "Żmija (2017), Section 6, explicitly describes a general algorithm for residues modulo higher powers and proves an explicit description modulo m^2, not the stated arbitrary-depth sharp unit."
+      ],
+      "reasoning": "Divisibility modulo m^(r-1) leaves m possibilities for the next digit, including zero; hence the prior congruences do not imply the displayed nonzero residue, which is derived using extra weighted coefficient bounds. The 2017 general higher-power procedure is computationally expressive, but no published all-r implication was identified.",
+      "searches": [
+        "Rødseth Sellers Churchhouse m-ary partition valuation sharp lower bound at all-ones digit m^r-1, residue 2^-(r-2)",
+        "Sharpness of Rodseth Sellers m-ary partition congruence b_m(m^r-1) exact valuation r-1 for odd m prime to 3",
+        "\"m-ary partitions\" \"exact\" \"valuation\" prime powers minus 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rødseth–Sellers (2001), Theorem 1, eq. (4), gives vanishing modulo m^{r-1} for odd m at this class; Lemmas 1–2 give the integral basis and coefficient divisibility, but do not supply a closed leading unit modulo m.",
+        "Żmija (2017), Section 6, explicitly describes a general algorithm for residues modulo higher powers and proves an explicit description modulo m^2, not the stated arbitrary-depth sharp unit."
+      ],
+      "reasoning": "Equivalent prime-specialization is nu_p(b_p(p^r-1))=r-1; equivalent leading-digit statement is (b_m(m^r-1)/m^(r-1)) mod m = ((m+1)/2)^(r-2). The cited work does not state either all-depth formula; general computation methods are not an exact implication without the additional argument.",
+      "searches": [
+        "m-ary partition exact m-adic order at m^k-1: b_m(m^k-1)/m^(k-1) modulo m for gcd(m,6)=1",
+        "Rødseth Sellers Churchhouse m-ary partition valuation sharp lower bound at all-ones digit m^r-1, residue 2^-(r-2)",
+        "Exact m-adic leading unit b_m(m^r-1)/m^(r-1) congruent to inverse power of 2 modulo m for m coprime 6; m-ary partitions at all-one base-m digit endpoints",
+        "\"b_m(m^r-1)\" exact valuation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned records including 2026-09 mathematical-index record 028 (mod-49 elongated-diamond partitions) and 2026-09 indexed Thue–Morse valuation record; neither concerns uncolored m-ary b_m(m^r-1).",
+        "Żmija (2017), Section 6, explicitly describes a general algorithm for residues modulo higher powers and proves an explicit description modulo m^2, not the stated arbitrary-depth sharp unit."
+      ],
+      "reasoning": "The indexed matches concern other partition functions or digital sequences. Directly related m-ary paper covers low-power residues, but does not supply an exact all-depth database/table for the leading unit. No failed search is regarded as uniqueness proof.",
+      "searches": [
+        "m-ary partition exact m-adic order at m^k-1: b_m(m^k-1)/m^(k-1) modulo m for gcd(m,6)=1",
+        "Exact m-adic leading unit b_m(m^r-1)/m^(r-1) congruent to inverse power of 2 modulo m for m coprime 6; m-ary partitions at all-one base-m digit endpoints",
+        "Sharpness of Rodseth Sellers m-ary partition congruence b_m(m^r-1) exact valuation r-1 for odd m prime to 3"
+      ]
+    },
+    "rationale": "Published sources prove divisibility and describe extraction machinery, but the precise first nonzero m-adic digit and its nonvanishing for arbitrary depths are a separate consequence requiring an extra weighted coefficient induction. No indexed covering assertion was found; older and unindexed equivalents remain residual risks.",
+    "residual_risks": [
+      "An unindexed statement or a previously unnoticed exact specialization of older work could express the same unit; this is not ruled out by search.",
+      "The older 1970 Rødseth original was not independently read in full, but its relevant congruence is restated explicitly in the inspected 2001 paper.",
+      "General higher-power computation methods could in principle be specialized to derive this identity; the novelty claim is the explicit uniform congruence and proof, not its logical independence from all published algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact all-depth normalized unit; COVERS classical divisibility and operator identities",
+        "evidence": "Rødseth–Sellers (2001), Theorem 1, eq. (4), gives vanishing modulo m^{r-1} for odd m at this class; Lemmas 1–2 give the integral basis and coefficient divisibility, but do not supply a closed leading unit modulo m.",
+        "identifier_or_url": "https://www.d.umn.edu/~jsellers/p14.pdf",
+        "material_read": "Entire author-hosted 14-page PDF (abstract, Theorem 1, all six lemmas, proof, references), including pages 5–7 change-of-basis formula and page 12 divisibility conclusion",
+        "method": "Read searchable PDF text and visually inspected PDF screenshots of primary lemma and later proof",
+        "title": "On m-ary Partition Function Congruences: A Fresh Look at a Past Problem",
+        "trigger": "Same function, exact all-ones indices, potentially stronger 2001 congruences"
+      },
+      {
+        "assessment": "NOT_COVERING sharp all-depth unit, despite broader M-ary divisibility",
+        "evidence": "Żmija (2024), Theorem 1.3 and Lemmas 2.1–2.5 give general M-ary lower-modulus divisibility and the same basis method, not the full-strength all-depth normalized unit.",
+        "identifier_or_url": "https://arxiv.org/html/2403.04495v1",
+        "material_read": "Full accessible paper including Theorem 1.3, Lemmas 2.1–2.5 and proof, introduction, and references",
+        "method": "Read primary arXiv HTML and open-access publisher full text; verified submission date and MSC via arXiv abstract",
+        "title": "High order congruences for M-ary partitions",
+        "trigger": "Motivating literature on generalized partition congruences"
+      },
+      {
+        "assessment": "GENERAL METHOD but no exact all-depth claim at these indices",
+        "evidence": "Żmija (2017), Section 6, explicitly describes a general algorithm for residues modulo higher powers and proves an explicit description modulo m^2, not the stated arbitrary-depth sharp unit.",
+        "identifier_or_url": "https://arxiv.org/abs/1710.04303",
+        "material_read": "Introduction and Section 6 (including Theorem 6.1 and comments on computation for higher moduli); primary arXiv HTML",
+        "method": "Read primary HTML and matched claims to arbitrary-depth unit statement",
+        "title": "Recurrence sequences connected with the m-ary partition function and their divisibility properties",
+        "trigger": "Paper explicitly claims a method for arbitrary-power residue descriptions"
+      },
+      {
+        "assessment": "DIFFERENT FUNCTION: colored powers, not the uncolored b_m; not used as whole-document absence evidence",
+        "evidence": "Uses factors (1-x)^(-m) and higher powers raised to m(p-1), rather than the uncolored Euler product.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-020-00256-z",
+        "material_read": "Abstract and definition of colored generating function (not full paper)",
+        "method": "Inspected accessible abstract and displayed generating-function definition",
+        "title": "On p-adic valuations of certain m colored p-ary partition functions",
+        "trigger": "Title may suggest exact valuation coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4362220-d5df-45f6-931f-1740d4004292",
+  "value": {
+    "rationale": "Sharpens a classical m-ary partition congruence for an infinite natural family: exact nonzero leading m-adic digit at every depth, exact prime-adic valuations for all p>=5, and a multiplicative-order profile for normalized units. The unit is motivated by the precision gap between known lower divisibility and exact valuation, not an arbitrary finite slice. The special restriction to gcd(m,6)=1 is motivated by a genuine binomial obstruction at 3.",
+    "status": "PASS"
+  }
+}
