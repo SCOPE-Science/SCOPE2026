@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of finite statements and asymptotic reductions
+# Independent mathematical audit
 
-`python3 CHECKER.py` (Python standard library only) returned `exact checks 70`, with exact equality of two independent computations for two-core infection probability and expected peripheral outbreak count. The compared infection-rate values were 1/4, 1/2, 1, 3/2, and 2; peripheral sizes were every integer from 1 through 7. The independent computation is a continuous-time state-recursion with rational transition rates; the displayed formulas are binomial-integral expressions.
+## correctness
 
-Additional deterministic convergence diagnostics at c=0.5, 1, and 2 and n=500, 2000, and 10000 approached the limiting core-infection probabilities c²/(1+c²) and limiting peripheral means c(1+c²/(1+c²)). These finite diagnostics are not an infinite proof. The infinite theorem depends on the conditional multivariate law of small numbers, the vanishing multiple-arc contribution controlled using only E[J]<∞, and the uniform-over-subsets binomial concentration step in RESULT.md.
+PASS
 
-The full Laplace expression follows by conditioning on the first core duration. For generic nonexponential infectious periods, only the general graph-valued limit is claimed. No independent audit, publication-priority certificate, or external mathematical validation has been obtained.
+Sample independent infectious durations and directed exponential first-contact delays, opening a directed edge when contact precedes recovery; infected vertices equal graph reachability. For fixed core b and lambda_n→0,n lambda_n→∞, n lambda_n²→xi∈[0,∞], shared periphery paths yield conditionally independent core-arc counts Poisson(xi mu R_i), because simultaneous two-arc contributions vanish using only E[J]<∞. Core reachability converges; binomial uniform-over-2^b-core-subsets concentration proves X_n/(n lambda_n)⇒sum_{i∈C}R_i. For xi=∞ each core arc occurs whp; xi=0 none. b=2 with Exp(1) periods gives core2 prob c²/(1+c²) and Y=c(R1+B R2). Tagged-periphery argument yields exact finite binomial formulas; independently implemented rational finite-state CTMC recurrence matches these formulas for n=1..4 and lambda=1/3,1/2,2.
+
+## originality
+
+PASS
+
+The epidemic-percolation directed graph representation is fully prior (Kenah and Robins). The asymptotic sparse two-step core-to-core Poisson directed cascade and joint peripheral scaling with fixed b are not the same statement as large within-community or persistent SIS results. Qualified PASS with historical multitype asymptotic coverage still possible.
+
+## value
+
+PASS
+
+Sharp n^{-1/2} cross-core cascade scale and explicit mixture outbreak law are natural informative finite-core SIR limits, including non-exponential infectious times and exact finite two-core formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

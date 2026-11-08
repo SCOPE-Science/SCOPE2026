@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim concerns the joint distribution of the infected fixed core and the peripheral infected count under the explicitly stated rare-contact limits. The exact epidemic-percolation path representation is valid for independent infectious periods. Every core-to-core route is a chain of two-edge paths, and the probability of one specified two-edge path is asymptotic to \(\lambda_n^2\mu R_i\). The rare-event proof explicitly controls simultaneous contributions by one peripheral vertex to distinct core arcs, including the common-origin case that needs only \(\mathbb E J<\infty\), giving independent Poisson arc counts conditional on core lifetimes. A finite-union conditional binomial concentration bound controls the infected peripheral count for the random reachable core set; no false independence is presumed. The two-core Laplace expression and exact finite Markovian formulas are reconstructed by conditioning on the initial core lifetime. The embedded Python checker agrees exactly with independent finite-state continuous-time Markov recursions in 70 rational-arithmetic comparisons. Numerical scaling diagnostics are supporting evidence only, not an infinite-population proof.
+PASS
 
-## Originality — PASS (best-knowledge, with explicit residual risk)
+Sample independent infectious durations and directed exponential first-contact delays, opening a directed edge when contact precedes recovery; infected vertices equal graph reachability. For fixed core b and lambda_n→0,n lambda_n→∞, n lambda_n²→xi∈[0,∞], shared periphery paths yield conditionally independent core-arc counts Poisson(xi mu R_i), because simultaneous two-arc contributions vanish using only E[J]<∞. Core reachability converges; binomial uniform-over-2^b-core-subsets concentration proves X_n/(n lambda_n)⇒sum_{i∈C}R_i. For xi=∞ each core arc occurs whp; xi=0 none. b=2 with Exp(1) periods gives core2 prob c²/(1+c²) and Y=c(R1+B R2). Tagged-periphery argument yields exact finite binomial formulas; independently implemented rational finite-state CTMC recurrence matches these formulas for n=1..4 and lambda=1/3,1/2,2.
 
-Kenah and Robins' 2006 epidemic-percolation representation is a foundational ingredient, not a novelty assertion. Ball–Sirl–Trapman, first publicly available in April 2022, study epidemic outbreaks in many large internally coupled communities, under different within/between-community scalings; their model does not imply the fixed-width, exclusively bipartite, \(n^{-1/2}\) two-step directed-core limit. Omic and collaborators already analyze the \(1/\sqrt{mn}\) scale on complete bipartite graphs but for the SIS steady-state setting, not this SIR final-size law. Direct searches for SIR final-outcome laws on finite-width complete bicliques and equivalent directed two-step core limits found no claim that contains the stated joint limit and explicit two-core law. The reviewed source material supports absence of an identified implication, not an exhaustive uniqueness theorem. A related SIS full text and other possible historical sources have not been exhaustively ruled out, and independent priority verification is still needed.
+## originality
 
-## Value — PASS
+PASS
 
-A complete bipartite graph with a fixed number of high-degree core vertices and many peripheral vertices is a natural degenerate multi-type epidemic geometry. The fact that the same weak infection scale controls the directed core cascade while peripheral outbreak size remains mesoscopic is not captured by conventional law-of-large-numbers final-size arguments. The theorem describes the full stochastic core out-component and its correlated outbreak size, has two rigorously justified scale boundaries, and supplies an interpretable explicit probability, Laplace transform and exact finite-size companion formula for two core vertices. This is an exact structural limit rather than an arbitrary parameter computation or a trivial single-step probability.
+The epidemic-percolation directed graph representation is fully prior (Kenah and Robins). The asymptotic sparse two-step core-to-core Poisson directed cascade and joint peripheral scaling with fixed b are not the same statement as large within-community or persistent SIS results. Qualified PASS with historical multitype asymptotic coverage still possible.
 
-## Checked literature and limitations
+## value
 
-The closest sources were Kenah–Robins [arXiv:q-bio/0610057], Ball–Sirl–Trapman [arXiv:2204.06902], and Omic–Kooij–Van Mieghem [DOI:10.4108/ICST.BIONETICS2007.2399]; Fransson–Trapman [arXiv:1802.05011], Magal–Seydi–Webb [DOI:10.1137/16M1065392], and Hernández–Risau-Gusman [DOI:10.1103/PhysRevE.88.052801] inform the broader literature boundary. The main external risk is unlocated older work on fixed-core heterogeneous SIR final sizes; the full Omic–Kooij–Van Mieghem SIS paper was inspected and ruled out by a different infection mechanism; a complete historical SIR literature census has not been completed. The scientific claims explicitly exclude growing core size, constant-rate infection, correlated clocks, and epidemic-duration laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp n^{-1/2} cross-core cascade scale and explicit mixture outbreak law are natural informative finite-core SIR limits, including non-exponential infectious times and exact finite two-core formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

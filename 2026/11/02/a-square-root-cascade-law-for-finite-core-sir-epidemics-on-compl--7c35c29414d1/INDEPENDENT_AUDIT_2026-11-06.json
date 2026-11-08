@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sample independent infectious durations and directed exponential first-contact delays, opening a directed edge when contact precedes recovery; infected vertices equal graph reachability. For fixed core b and lambda_n→0,n lambda_n→∞, n lambda_n²→xi∈[0,∞], shared periphery paths yield conditionally independent core-arc counts Poisson(xi mu R_i), because simultaneous two-arc contributions vanish using only E[J]<∞. Core reachability converges; binomial uniform-over-2^b-core-subsets concentration proves X_n/(n lambda_n)⇒sum_{i∈C}R_i. For xi=∞ each core arc occurs whp; xi=0 none. b=2 with Exp(1) periods gives core2 prob c²/(1+c²) and Y=c(R1+B R2). Tagged-periphery argument yields exact finite binomial formulas; independently implemented rational finite-state CTMC recurrence matches these formulas for n=1..4 and lambda=1/3,1/2,2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ball et al large internally transmitting subcommunities; Omic et al SIS persistence and threshold; assigned theorem fixed core with transmissions only across bipartite cut and permanent recovery."
+        ],
+        "reasoning": "The graph or epidemic family can overlap but previously compared limit parameter regimes and output laws do not give the stated joint conditional directed-cascade distribution.",
+        "searches": [
+          "Ball Sirl Trapman SIR epidemics populations with large sub-communities arXiv:2204.06902",
+          "Omic Kooij Van Mieghem virus spread complete bipartite graphs SIS"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:q-bio/0610057 and associated open article",
+        "arXiv:2204.06902 abstract and scope",
+        "doi:10.4108/ICST.BIONETICS2007.2399",
+        "Resultary query: stochastic SIR epidemic complete bipartite K_{n,b} finite core square root n lambda squared directed cascade outbreak law",
+        "Frozen SIR RESULT.md, CHECKER.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kenah–Robins implies exact open-path representation but no fixed-core n→∞ Poisson arc limit. Ball–Sirl–Trapman assumes large internally transmitting subcommunities, Omic SIS distinct recovery."
+        ],
+        "reasoning": "The prior results do not state the complete b-core joint final law; rigorous Poisson collision control and random-core-dependent peripheral approximation are independent steps.",
+        "searches": [
+          "Kenah Robins arXiv:q-bio/0610057",
+          "arXiv:2204.06902",
+          "Omic 2008 complete bipartite graph SIS DOI:10.4108/ICST.BIONETICS2007.2399"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is exactly representable as directed epidemic-percolation reachability; this representation is preexisting."
+        ],
+        "reasoning": "The rare-two-step conditional Poisson arc limit is a nontrivial scaling consequence beyond the general exact path equivalence.",
+        "searches": [
+          "stochastic SIR epidemic complete bipartite K_{n,b} finite core square root n lambda squared directed cascade outbreak law",
+          "Kenah Robins epidemic percolation network path reachability",
+          "two type Reed Frost complete bipartite finite core outbreak"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Pr(core2 infected)=1-E(1+lambda K)^-1 and E X_n formula directly follow time-resolved Markovian model; no matching results in inspected Resultary output."
+        ],
+        "reasoning": "These are precise natural two-core formulas, not mere numerical table recomputation; lack of search hits is not absolute priority.",
+        "searches": [
+          "Resultary semantic search: stochastic SIR epidemic complete bipartite K_{n,b} finite core square root n lambda squared directed cascade outbreak law",
+          "finite core two core c²/(1+c²) epidemic law complete biclique"
+        ]
+      },
+      "rationale": "The epidemic-percolation directed graph representation is fully prior (Kenah and Robins). The asymptotic sparse two-step core-to-core Poisson directed cascade and joint peripheral scaling with fixed b are not the same statement as large within-community or persistent SIS results. Qualified PASS with historical multitype asymptotic coverage still possible.",
+      "residual_risks": [
+        "General multitype epidemics on sparse bipartite networks may implicitly cover conditional Poisson core arcs.",
+        "Core b must remain fixed, and finite E[J] is crucial for shared-periphery collision bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact directed reachability anticipated; joint finite-core rare-two-step limit not inferred as already established.",
+          "evidence": [
+            "Directed percolation network equivalence to SIR final epidemic."
+          ],
+          "identifier_or_url": "arXiv:q-bio/0610057; doi:10.1103/PhysRevE.76.036113",
+          "material_read": "Author abstract and accessible full-text sections on epidemic percolation framework",
+          "method": "Primary article/open full-text passages comparison",
+          "title": "Second look at the spread of epidemics on networks",
+          "trigger": "Exact core directed-edge path representation"
+        },
+        {
+          "assessment": "Large subcommunities and within-group infection differ from fixed-width no-within-part complete bipartite graph; broader theorems a residual risk.",
+          "evidence": [
+            "Large-subcommunity asymptotic hypothesis is not fixed-width core setting."
+          ],
+          "identifier_or_url": "arXiv:2204.06902",
+          "material_read": "ArXiv available abstract and model/statement summaries; complete full text not obtained",
+          "method": "Primary abstract and scope comparisons",
+          "title": "SIR epidemics in populations with large sub-communities",
+          "trigger": "Possible broader weak-intercommunity epidemic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp n^{-1/2} cross-core cascade scale and explicit mixture outbreak law are natural informative finite-core SIR limits, including non-exponential infectious times and exact finite two-core formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General multitype epidemics on sparse bipartite networks may implicitly cover conditional Poisson core arcs.",
+    "Core b must remain fixed, and finite E[J] is crucial for shared-periphery collision bounds.",
+    "Only the frozen assigned source-tree package was assessed; no repository edits, external expert attestation or Lean certification are claimed.",
+    "All finite computations are diagnostic; analytical arguments support all limiting conclusions."
+  ],
+  "schema_version": 1
+}
