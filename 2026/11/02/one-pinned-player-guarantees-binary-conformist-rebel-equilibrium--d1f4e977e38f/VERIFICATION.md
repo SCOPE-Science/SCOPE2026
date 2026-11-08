@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The self-contained C++17 program `verify_cycle.cpp` performs direct best-response enumeration, without relying on the four-state proof representation. Compile and run in the directory containing the file:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 -Wall -Wextra -pedantic verify_cycle.cpp -o verify_cycle
-./verify_cycle
-```
+PASS
 
-Expected output:
+Derive exact local binary best-response condition on adjacent disagreement bits y: either they differ or both equal type bit. For each contiguous nonpinned path with fixed endpoint actions, parity(last XOR, last bit) reachability starts from states (0,0),(1,1), reaches 3 of 4 after one internal vertex, and >=3 after each further vertex; hence both endpoint parities possible, joining all pinned blocks gives a PNE. In alternating one-pin case, z_i=y_i XOR t_i forms a weakly decreasing binary word 1^ell 0^(n-ell); XOR closure forces ell congruent n/2 mod2, giving stated exact count. Direct independent bitwise payoff enumeration checked every pinned type vector for n=3,4,5,6 and all alternate single pin choices through n=10. It is finite corroboration only.
 
-```text
-exhaustive 4-type instances n=3..8: 87360, with stubborn=86856, no PNE=2
-exact alternating single-pin counts n=4..16: 280
-randomized stubborn-cycle checks n=9..15: 7000
-ternary R-C-R-S0 cycle equilibria=0
-VERIFY_OK checks=94641
-```
+## originality
 
-The first enumerator ranges over all \(4^n\) types for each \(3\le n\le8\). It directly checks each action profile and both candidate best responses where appropriate. The second enumerator compares the observed exact count to \(n/2\) or \(n/2+1\) for every allowed original alternating phase, pin site and fixed action with even \(n\le16\). The third test uses a fixed built-in pseudo-random state for deterministic reproducibility. The last directly searches all \(3^4\) three-action profiles. These are finite tests and cannot establish the general result on their own. The formal parity-state induction and transformed-edge parity argument appear in `RESULT.md`. External independent validation has not been performed.
+PASS
+
+Cao–Yang 2014 treats unpinned binary alternating cycles and their nonexistence; later 2026 conformist/rebel/stubborn papers introduce relevant game types and discuss ring conditions in a multiple-strategy regime. Their accessible abstracts and secondary description do not establish unconditional existence for every binary pinned ring or this exact one-pin equilibrium count. Full 2026 primary texts were not retrievable, so best-of-knowledge only.
+
+## value
+
+PASS
+
+Pinning one vertex is a meaningful intervention for resolving the classical alternating 4k+2 no-PNE obstruction; the theorem proves unconditional binary restoration and gives a nontrivial length-dependent count, rather than an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

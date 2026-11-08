@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes exactly two available actions, unit contributions from the two neighbors on a simple undirected ring, arbitrary conformist/rebel patterns and prescribed stubborn actions. The local best-response equivalence in disagreement bits handles ties without assuming strict incentives. The four-state parity argument proves both endpoint parities possible on every chain, including the one-pin case where endpoint actions coincide, so all pinned blocks admit compatible assignments. For the exact single-pin count, the forbidden rise of the transformed difference word gives exactly \(n+1\) candidate patterns; cyclic XOR closure selects exactly the stated parity class and the fixed value removes global spin ambiguity. The supplied C++ program recomputes equilibria directly; it covers exhaustive four-type assignments through eight vertices, exact pin cases through sixteen, and a three-action counterexample. Finite checks do not certify the infinite theorem; the symbolic argument is the basis for acceptance.
+PASS
 
-## Originality — PASS with priority uncertainty
+Derive exact local binary best-response condition on adjacent disagreement bits y: either they differ or both equal type bit. For each contiguous nonpinned path with fixed endpoint actions, parity(last XOR, last bit) reachability starts from states (0,0),(1,1), reaches 3 of 4 after one internal vertex, and >=3 after each further vertex; hence both endpoint parities possible, joining all pinned blocks gives a PNE. In alternating one-pin case, z_i=y_i XOR t_i forms a weakly decreasing binary word 1^ell 0^(n-ell); XOR closure forces ell congruent n/2 mod2, giving stated exact count. Direct independent bitwise payoff enumeration checked every pinned type vector for n=3,4,5,6 and all alternate single pin choices through n=10. It is finite corroboration only.
 
-Cao–Yang's 2014 Theorem 4 handles only two types and no pinned agents; its classification of the previously frustrated alternating rings is explicitly credited, not repackaged. Cao et al. (2019) analyze two-type best-response dynamics on rings. Cao–Sanchez–Zhang (2026) introduce binary three-type games but prove sufficient general criteria that need not hold on alternating pinned rings; their Section 3 does not state this unconditional cycle result or count. Pei–Cao–Zhang (2026) explicitly restrict the ring theorem to at least three actions, and a direct four-vertex ternary obstruction confirms it cannot imply the binary restoration claim. Searches are not a uniqueness proof: unindexed equivalent work and incompletely accessible literature remain residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The established binary fashion-game obstruction is a nonexistence phenomenon caused by an alternating ring. Fixing one vertex removes the obstruction for every binary type assignment on every cycle, not just near-alternating examples; moreover the formerly obstructed length family gains exactly \(n/2\) pure equilibria. This gives a sharp and quantitatively explicit intervention result for coordination/anti-coordination networks, as well as a meaningful two-versus-three-action boundary. The result does not assume or imply convergence to one of the restored equilibria.
+Cao–Yang 2014 treats unpinned binary alternating cycles and their nonexistence; later 2026 conformist/rebel/stubborn papers introduce relevant game types and discuss ring conditions in a multiple-strategy regime. Their accessible abstracts and secondary description do not establish unconditional existence for every binary pinned ring or this exact one-pin equilibrium count. Full 2026 primary texts were not retrievable, so best-of-knowledge only.
 
-## Closest literature and limitations
+## value
 
-The main primary comparisons are Cao and Yang (2014, ring classification), Cao et al. (2019, two-type dynamics), Cao, Sanchez and Zhang (2026, binary three-type sufficient conditions), and Pei, Cao and Zhang (2026, multi-action ring classification). The exact proof is for simple unweighted cycles and binary actions, and no claim is made for arbitrary networks or three-action restoration. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pinning one vertex is a meaningful intervention for resolving the classical alternating 4k+2 no-PNE obstruction; the theorem proves unconditional binary restoration and gives a nontrivial length-dependent count, rather than an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
