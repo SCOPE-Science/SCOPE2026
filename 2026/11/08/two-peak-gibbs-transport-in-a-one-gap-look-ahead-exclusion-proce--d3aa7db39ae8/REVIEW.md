@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The canonical gap product law is invariant because the weighted transfer rate is w(n-I) and outgoing fluxes pair with cyclically shifted incoming fluxes. Under the grand-canonical law the mean allowed rate is exactly z^I; strict log-partition convexity gives monotone density parametrization. The k-asymptotic C1 limits on opposite sides of z=e^{-theta}, plus strict derivative signs at four ordered points, force two maxima separated by a minimum for each I. For I=2,k=7,s=100, the derivative polynomial P and Mobius polynomial Q give at most three positive roots by three Descartes sign changes; four exact rational point evaluations force at least three simple roots, so exactly two strict maxima and one minimum. The included standalone Python verifier independently recomputes polynomial and 24 canonical stationarity tests, not an infinite proof. The derivative identity and root-count certificate were run from the actual package script before acceptance. No numerical finite-domain test is treated as proof for arbitrary ring size or jump length.
+
+## Originality — PASS (qualified)
+
+The original 2026 source proves invariant Gibbs weights and the general fugacity current, but the inspected main text and appendices do not state or imply by a quoted theorem the existence of two local flux maxima under a single favored distant headway, nor the all-I exponential-strength construction or the finite-parameter exact root count. A 2018 interacting-oligomer study already found two maxima under strong repulsion in a different nearest-neighbor system using cluster mean-field theory; thus neither the phenomenon in all traffic models nor all multiple-peak diagrams is claimed as novel. Searches of indexed findings and 77 accessible recent mathematical-physics claims revealed no matching classification. Possible broader or unindexed exact-Gibbs flux theorems remain a residual priority risk. The closest directly applicable source is [Nhung, Ngoc and Thi, arXiv:2604.01796](https://arxiv.org/abs/2604.01796), whose Proposition III.1 is explicitly reused. The strongest pre-existing two-peak analogue is [Midha et al. (2018)](https://doi.org/10.1088/1742-5468/aac139), which uses a different microscopic model and cluster closure. Exact correspondence and full text of the former and relevant passages of the latter were compared. The previous 77 accessible claims were checked; inaccessible other-week history does not establish priority.
+
+## Value — PASS
+
+The shape of the fundamental current-density relation determines whether a constitutive transport law has one or several locally optimal operating densities. The result gives a complete exact certificate for a natural finite-range preferred-headway model and a robust all-jump-length family; it separates genuine multiple-peak stationary Gibbs transport from mere nonconcavity, from headway-distribution bimodality, and from approximate cluster calculations. This structural phenomenon is not just a numerical evaluation of the known partition function. The exact witness gives a reproducible sharp structural counterexample to single-peaked transport in the specified Gibbs class, while the family theorem shows this is not a small-parameter accident.
+
+## Scientific scope and remaining risks
+
+The steady current is defined under the canonical Gibbs ensemble; irreducibility, initial-condition selection, hydrodynamic stability, open boundaries and metastability are not asserted. The all-jump-length statement is existential in the preferred-gap range. Known two-peak flux diagrams exist in other models. Originality remains qualified by possible unindexed general results and the uninspected full text of some less-direct zero-range literature.
+
+Self-review: passed. Independent audit: not yet performed.
