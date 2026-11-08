@@ -1,17 +1,21 @@
-# Scientific review: three random-shadow perimeter moments for boxes
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exactly for positive three-dimensional rectangular-box side lengths and isotropic unoriented orthogonal planar views. The planar zonotope perimeter identity reduces each view to three projected edge lengths. Uniform-sphere marginal and conditional integrals give each coefficient of the first three population moments. The second-order inverse coefficient is strictly positive because two distinct projected unit-edge lengths are not almost surely identical. Cauchy–Schwarz together with the exact degree-six sphere moment gives the sharp-enough upper bound \(\beta\le2/\sqrt{21}\), proving the third-order inverse coefficient \(2\beta-9\pi/32\) strictly negative. Newton's identities then recover the sides, including repeated ones. Distinct noncongruent positive boxes with equal first two moments establish sharpness. The standalone hull-based checker supplies corroborating geometric and algebraic diagnostics; it is not substituted for the proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority limitations
-Closest published coverage: Finch (2012, `arXiv:1203.2464v1`) obtains first and second perimeter moments of a unit cube, not an arbitrary-box three-moment inverse. The prior arbitrary-dimensional orthotope perimeter-moment record `5f6a2c7bb90c` supplies the first two moments, but stops below the third all-distinct correlation. The orthotope finite-moment tomography record `cb0a2e3c75db` concerns the distribution of **hyperplane projected volume**, not perimeter; no deterministic conversion between those distributional observables is stated or used. The joint shadow area–perimeter covariance record `357f1ce92466` is similarly a different observable. Kim–Yaskin–Zvavitch (2015, `arXiv:1512.07289v1`) concern direction-unlabeled **projection area** for general convex bodies. Neither their broad negative results nor the above formulas imply the present perimeter-only inverse theorem.
+PASS
 
-The relevant Vickers–Brown (2001, DOI `10.1098/rspa.2000.0667`) abstract discusses projected shape identification for other solids; its full text was unavailable and remains a concrete originality risk. Additional unindexed or differently termed stereology could have formulated the same special-family inverse theorem. Search noncoverage is not a proof of universal novelty.
+For every positive orthogonal box, the random half-perimeter of its orthogonal planar shadow is sum a_i sqrt(1-U_i^2). Symmetric spherical moments give m1=(pi/4)p1, m2=alpha p1^2+(2/3-alpha)p2, m3=beta p1^3+3(5pi/32-beta)p1p2+(2beta-9pi/32)p3. Since E(X1-X2)^2>0, alpha<2/3; Cauchy–Schwarz plus E product(1-U_i^2)=4/21 gives 2beta<=4/sqrt21<9pi/32. Thus invert all three p_k and Newton cubic to recover unordered positive sides, including multiplicities. An explicit distinct pair of shapes with same p1,p2 and a local circle establish sharpness. Independent sphere integration yielded alpha≈0.59321360684 beta≈0.42181219067, negative third coefficient ≈−0.03994855, and cross-checked near-exact inversion; quadrature error is not proof.
 
-## Mathematical value — PASS
-Randomly rotated unlabelled silhouettes are a natural geometric-tomography measurement, particularly where orientations are unrecorded. Projected shadow perimeter is distinct from area and avoids needing joint observables. An exact *minimal* number of scalar population moments sufficient to reconstruct an entire nontrivial three-parameter family is a substantive inverse result, not a numerical table or a trivial substitution. The proof identifies and rigorously separates the previously unavailable third correlation coefficient, and the two-moment nonidentifiability example establishes the precise boundary of recoverability. No claim of practicality for noisy finite samples is made.
+## originality
 
-## Limitations and next checks
-The spherical triple-product constant is defined by a convergent exact integral, not evaluated in elementary constants. Numerical conditioning near cubes may be poor; no finite-sample stability or optimal estimator is asserted. Independent historical-priority inspection of inaccessible related stereology texts would improve confidence. The argument is confined to orthogonal boxes in dimension three.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. First two orthotope shadow perimeter moments determine p1,p2 only and leave a circle of positive side triples; the third independent coefficient determines p3 and hence all roots of the Newton cubic, so prior first-two formulas do not imply uniqueness.
+
+## value
+
+PASS
+
+Minimal exact moment tomography for a natural three-parameter convex-body family using orientation-unlabeled shadow perimeter is a genuine identifiability boundary; first two moments provably fail and the third always restores uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

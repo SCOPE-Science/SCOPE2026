@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the perimeter-moment inverse theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory as this document. It requires only the Python 3 standard library.
+## correctness
 
-The checker independently computes planar projected convex hulls of the eight box vertices and their polygonal perimeters for 320 deterministic random directions and compares them with the exact zonotope projection formula. It verifies the rational sixth-coordinate spherical moment \(4/21\), the nonvanishing bounds, the moment-to-power-sum inversion on four different positive boxes (including repeated side lengths), and the exact two-moment nonuniqueness example. Midpoint quadrature is used solely as a numerical approximation to the universal constants.
+PASS
 
-Expected successful output begins with `VERIFY_OK hull_checks 320`. Finite tests, floating point agreement, and quadrature are not proofs that the theorem holds for all box dimensions or all viewing directions. The analytic proof in RESULT.md gives universal scope; the verifier supplies reproducibility diagnostics.
+For every positive orthogonal box, the random half-perimeter of its orthogonal planar shadow is sum a_i sqrt(1-U_i^2). Symmetric spherical moments give m1=(pi/4)p1, m2=alpha p1^2+(2/3-alpha)p2, m3=beta p1^3+3(5pi/32-beta)p1p2+(2beta-9pi/32)p3. Since E(X1-X2)^2>0, alpha<2/3; Cauchy–Schwarz plus E product(1-U_i^2)=4/21 gives 2beta<=4/sqrt21<9pi/32. Thus invert all three p_k and Newton cubic to recover unordered positive sides, including multiplicities. An explicit distinct pair of shapes with same p1,p2 and a local circle establish sharpness. Independent sphere integration yielded alpha≈0.59321360684 beta≈0.42181219067, negative third coefficient ≈−0.03994855, and cross-checked near-exact inversion; quadrature error is not proof.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. First two orthotope shadow perimeter moments determine p1,p2 only and leave a circle of positive side triples; the third independent coefficient determines p3 and hence all roots of the Newton cubic, so prior first-two formulas do not imply uniqueness.
+
+## value
+
+PASS
+
+Minimal exact moment tomography for a natural three-parameter convex-body family using orientation-unlabeled shadow perimeter is a genuine identifiability boundary; first two moments provably fail and the third always restores uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

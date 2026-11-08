@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:19:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every positive orthogonal box, the random half-perimeter of its orthogonal planar shadow is sum a_i sqrt(1-U_i^2). Symmetric spherical moments give m1=(pi/4)p1, m2=alpha p1^2+(2/3-alpha)p2, m3=beta p1^3+3(5pi/32-beta)p1p2+(2beta-9pi/32)p3. Since E(X1-X2)^2>0, alpha<2/3; Cauchy–Schwarz plus E product(1-U_i^2)=4/21 gives 2beta<=4/sqrt21<9pi/32. Thus invert all three p_k and Newton cubic to recover unordered positive sides, including multiplicities. An explicit distinct pair of shapes with same p1,p2 and a local circle establish sharpness. Independent sphere integration yielded alpha≈0.59321360684 beta≈0.42181219067, negative third coefficient ≈−0.03994855, and cross-checked near-exact inversion; quadrature error is not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:1203.2464 sections on cube perimeter",
+          "arxiv:1512.07289 projection-volume distribution"
+        ],
+        "reasoning": "Resultary 5f6a2c7bb90c computes first two perimeter moments for all-dimensional orthotopes; cb0a2e3c75db reconstructs sides from projected hyperplane volume moments, and 357f1ce92466 studies joint area–perimeter covariance. Those summaries do not imply the third marginal perimeter moment or its strict coefficient.",
+        "searches": [
+          "Resultary: random orthogonal projections box perimeter first three moments recover side lengths orthotope",
+          "arxiv:1203.2464 sections on cube perimeter"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1203.2464 sections on cube perimeter",
+        "arxiv:1512.07289 projection-volume distribution",
+        "Resultary:5f6a2c7bb90c; Resultary:cb0a2e3c75db; Resultary:357f1ce92466",
+        "doi:10.1098/rspa.2000.0667 abstract only",
+        "Resultary semantic query: random orthogonal projections box perimeter first three moments recover side lengths orthotope",
+        "Frozen RESULT.md/verify.py and independent sphere moment quadrature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1203.2464 sections on cube perimeter",
+          "arxiv:1512.07289 projection-volume distribution"
+        ],
+        "reasoning": "First two orthotope shadow perimeter moments determine p1,p2 only and leave a circle of positive side triples; the third independent coefficient determines p3 and hence all roots of the Newton cubic, so prior first-two formulas do not imply uniqueness.",
+        "searches": [
+          "Resultary: random orthogonal projections box perimeter first three moments recover side lengths orthotope",
+          "arxiv:1203.2464 sections on cube perimeter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:1203.2464 sections on cube perimeter",
+          "arxiv:1512.07289 projection-volume distribution"
+        ],
+        "reasoning": "The observation is random planar perimeter (not projection area, width, wireframe perimeter or projected hyperplane volume), and equality of first three population moments determines the unordered sides; Newton power sums are the exact inverse.",
+        "searches": [
+          "Resultary: random orthogonal projections box perimeter first three moments recover side lengths orthotope",
+          "arxiv:1203.2464 sections on cube perimeter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:1203.2464 sections on cube perimeter",
+          "arxiv:1512.07289 projection-volume distribution"
+        ],
+        "reasoning": "The earlier unit-cube first/second perimeter moments are a special case already known. Exact alpha,beta spherical moments are not an indexed uniqueness table; nonzero beta-dependent coefficient enables a new 3D inverse.",
+        "searches": [
+          "Resultary: random orthogonal projections box perimeter first three moments recover side lengths orthotope",
+          "arxiv:1203.2464 sections on cube perimeter"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. First two orthotope shadow perimeter moments determine p1,p2 only and leave a circle of positive side triples; the third independent coefficient determines p3 and hence all roots of the Newton cubic, so prior first-two formulas do not imply uniqueness.",
+      "residual_risks": [
+        "Earlier specialized projection perimeter moment identifiability may exist in inaccessible interiors, notably Vickers–Brown (2001).",
+        "Exact population moments and orthogonal boxes only; no finite-sample stability or arbitrary-body identification.",
+        "Independent 120x240 numerical quadrature has visible rounding error, used only to corroborate strict analytical signs and inversion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unit-cube perimeter mean and variance; inspected material does not supply the three arbitrary-box marginal perimeter moments and inverse uniqueness.",
+          "evidence": "Earlier first two cube moments explicitly credited.",
+          "identifier_or_url": "arxiv:1203.2464",
+          "material_read": "Original PDF intro, unit cube planar perimeter sections and second-moment calculation inspected with page screenshot.",
+          "method": "Primary arXiv PDF with page-image inspection",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Primary paper on random projected cube perimeter moments"
+        },
+        {
+          "assessment": "Provides first two perimeter moments in all dimensions, not evidence of the third arbitrary 3D-box moment in summary; whole-document noncoverage not asserted.",
+          "evidence": "Dominates first two moment formulas for orthotopes but not demonstrated to imply third inverse theorem.",
+          "identifier_or_url": "Resultary:5f6a2c7bb90c",
+          "material_read": "Resultary published record title and abstract/summary read; full mathematical text not inspected.",
+          "method": "Published research summary only",
+          "title": "Haar-random planar projection perimeter moments of all orthotopes",
+          "trigger": "Potentially broader published exact perimeter moment result"
+        },
+        {
+          "assessment": "General projection-volume distributions are different from perimeter-only moment identification for rectangular boxes.",
+          "evidence": "Different statistic and class; negative general-body results do not contradict box identifiability.",
+          "identifier_or_url": "arxiv:1512.07289",
+          "material_read": "Primary arXiv bibliographic and abstract/material on projection volume comparison reviewed.",
+          "method": "Primary arXiv material",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Potential ambiguity of orientation-unlabeled inverse tomography"
+        },
+        {
+          "assessment": "Could contain relevant interior comparison; no whole-document noncoverage assertion.",
+          "evidence": "Recorded historical priority uncertainty for 2001 paper.",
+          "identifier_or_url": "doi:10.1098/rspa.2000.0667",
+          "material_read": "Abstract only; full text not obtained.",
+          "method": "Primary publisher abstract",
+          "title": "The Distribution of Projected Area and Perimeter of Convex, Solid Particles",
+          "trigger": "Plausible older distributional perimeter theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal exact moment tomography for a natural three-parameter convex-body family using orientation-unlabeled shadow perimeter is a genuine identifiability boundary; first two moments provably fail and the third always restores uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier specialized projection perimeter moment identifiability may exist in inaccessible interiors, notably Vickers–Brown (2001).",
+    "Exact population moments and orthogonal boxes only; no finite-sample stability or arbitrary-body identification.",
+    "Independent 120x240 numerical quadrature has visible rounding error, used only to corroborate strict analytical signs and inversion."
+  ],
+  "schema_version": 1
+}
