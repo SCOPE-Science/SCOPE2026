@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The recurrence is reconstructed from genuine unequal time nodes, its Floquet cubic is checked by exact symbolic arithmetic, and four real-cubic Schur inequalities are proved with explicit coefficient bounds. At the boundary the simple unit multiplier and the strict stability of the other two multipliers follow from the quadratic factor. A real multiplier greater than one certifies instability beyond the boundary. The ratio phase diagram and the sharp one-step amplification are then direct consequences. The embedded verifier confirms the algebra and independently checks hundreds of cases, but finite experiments are not used to prove the universal theorem.
+PASS
 
-## Originality
+Independently integrate quadratic Lagrange polynomials at nodes 0,-previous,-current to obtain the exact variable-step AB3 companion matrix and 2-step product; independent SymPy symbolic expansion reproduced all three claimed cubic characteristic coefficients and exact determinant at z=1. With C>0, B<1, C<1, A>C>0 under s<6/(5+2q), the cubic Schur inequalities reduce to that one determinant. At equality the unit root is simple and residual quadratic strictly stable; above root >1 by sign at z=1. q=r/(1+r)^2 yields reciprocal ratio intervals, and a rank-one r^-1 limit of large-step transfer yields the norm constant. These are for fixed positive ratio and real negative test eigenvalue, not uniform transient robustness for arbitrary step grids.
 
-PASS on inspected and accessible evidence, with a stated priority risk. Grote–Mitkova (2011, arXiv:1109.4480) work with constant-step Adams coefficients and spatial local substepping. Hadjimichael–Ketcheson–Lóczi–Németh (2015, arXiv:1504.04107) address optimal SSP multistep formulas, not the negative-real Floquet spectrum of fixed interpolatory AB3. Marciniak–Jankowska (2019, DOI:10.1007/s11075-019-00774-y) develop interval enclosures, not this scalar stability phase diagram. Related older Adams/Nordsieck works by Gear–Tu, Skeel–Jackson and Calvo–Lisbona–Montijano are material priority risks: full text for Calvo–Lisbona–Montijano (1989) was not accessible. None of the inspected material provides a covering implication. Absence from keyword searching alone is not novelty evidence.
+## originality
 
-## Value
+PASS
 
-PASS. The exact two-component stable-ratio regions, sharp 10% improvement in mean negative-real stability ceiling, and unbounded one-step perturbation amplification expose a concrete tension between spectral stability and usable adaptive-stepping robustness. This is a natural numerical-ODE stability question for a commonly used interpolatory method, not an arbitrary parameter slice. The result gives complete positive-step classification in this motivated periodic setting and a counterexample to interpreting improved Floquet stability as uniform transient safety.
+Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.
 
-## Scope and limitations
+## value
 
-The theorem applies to the scalar real-negative test eigenvalue, period-two interpolation, and unrestricted histories. It makes no claims for nonlinear PDEs, complex spectra, nonperiodic grids or an SSP property. The contrast endpoint is a nonattained supremum. The 1989 specialist full-text priority comparison remains unresolved; the scientific assessment is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact spectral stability phase diagram for alternating genuine variable-step AB3 and sharp counterexample to interpreting two-step decay as stepwise transient robustness resolves a motivated numerical-methods issue; unexpected split stable ratio regimes and precise 11/10 mean-step gain are concrete invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

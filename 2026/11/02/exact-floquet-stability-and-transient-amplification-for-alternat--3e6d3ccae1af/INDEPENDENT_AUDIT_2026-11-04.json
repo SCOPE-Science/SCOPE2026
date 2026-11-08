@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:43:29.209364Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/verify_ab3_alternating.py"
+      ],
+      "rationale": "Independently integrate quadratic Lagrange polynomials at nodes 0,-previous,-current to obtain the exact variable-step AB3 companion matrix and 2-step product; independent SymPy symbolic expansion reproduced all three claimed cubic characteristic coefficients and exact determinant at z=1. With C>0, B<1, C<1, A>C>0 under s<6/(5+2q), the cubic Schur inequalities reduce to that one determinant. At equality the unit root is simple and residual quadratic strictly stable; above root >1 by sign at z=1. q=r/(1+r)^2 yields reciprocal ratio intervals, and a rank-one r^-1 limit of large-step transfer yields the norm constant. These are for fixed positive ratio and real negative test eigenvalue, not uniform transient robustness for arbitrary step grids.",
+      "residual_risks": [
+        "Only negative-real scalar test equation and exactly periodic grid, not arbitrary ODE or grid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing work covers ratio-dependent stability conditions and often sufficient bounds, but no verified stronger theorem implies the displayed exact s,q Schur boundary."
+        ],
+        "reasoning": "Source contents inspected establish relevant contexts; full text of closest 1989 paper was unavailable and is a priority caveat, not automatic scientific failure.",
+        "searches": [
+          "Calvo Lisbona Montijano 1989 DOI:10.1137/0726052",
+          "Skeel Jackson 1983 DOI:10.1137/0720056",
+          "Hadjimichael et al 2015 arxiv:1504.04107"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/verify_ab3_alternating.py",
+        "Calvo–Lisbona–Montijano DOI:10.1137/0726052 (1989)",
+        "Skeel–Jackson DOI:10.1137/0720056 (1983)",
+        "Gear–Tu DOI:10.1137/0711079 (1974)",
+        "Grote–Mitkova arxiv:1109.4480 (2011)",
+        "Hadjimichael–Ketcheson–Lóczi–Németh arxiv:1504.04107 (2015)",
+        "Resultary semantic alternating-step Adams Bashforth Floquet stability query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stability under unrestricted grid variation/SSP is a different quantifier than spectral decay for exactly alternating positive steps."
+        ],
+        "reasoning": "Known conditions might imply some subregions; without a verified same-quantifier exact monodromy criterion, the complete boundary and one-step divergence are not shown to be covered.",
+        "searches": [
+          "SSP variable-step formulas",
+          "1983 general grid stability",
+          "1989 interpolatory Adams stability abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The genuine AB3 Lagrange interpolation is the same method under different state bases; its period monodromy eigenvalues are basis invariant."
+        ],
+        "reasoning": "An Nordsieck-form paper could contain exactly this result; publisher abstract alone cannot exclude it.",
+        "searches": [
+          "period-two variable-node interpolatory AB3 recurrence",
+          "Nordsieck variable-step stability",
+          "Floquet multipliers of companion matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equal-step ratio r=1 gives classic s=12/11; no located table of the entire reciprocal two-region phase or sharp transient norm."
+        ],
+        "reasoning": "A numerical stability plot cannot by itself replace the analytic Schur criterion; prior Nordsieck tables may contain partial or exact information.",
+        "searches": [
+          "Grote–Mitkova 2011 constant AB3 coefficients",
+          "Calvo et al 1989 possibly tabulated variable-grid stability",
+          "Resultary period-two AB3 Floquet semantic query"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.",
+      "residual_risks": [
+        "Highest originality risk: inaccessible 1989 Calvo–Lisbona–Montijano article may contain a mathematically equivalent period-two AB3 result. Do not assert full-text noncoverage.",
+        "Only negative-real scalar test equation and exactly periodic grid, not arbitrary ODE or grid."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material priority risk: abstract states necessary/sufficient ratio conditions in various step policies; cannot claim full article does not cover alternating period-two scalar AB3. Best-of-knowledge comparison based on stated scope and other accessible sources.",
+          "evidence": "SIAM J Numer Anal 26 (1989) 946–962, DOI 10.1137/0726052. Oxford status vpn_disconnected, job ac7fc852b849f15a855dbe9cec5c913d.",
+          "identifier_or_url": "https://doi.org/10.1137/0726052",
+          "material_read": "Publisher abstract, bibliography, methods description; full text inaccessible; arXiv and lawful OA search did not locate it; authorized Oxford institutional fetch returned vpn_disconnected",
+          "method": "Read publisher abstract, search preprint/OA, attempt Oxford Download once valid page count; no bypass",
+          "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+          "trigger": "Highly relevant same interpolatory Adams class and variable step stability; possible dominating general theorem"
+        },
+        {
+          "assessment": "SSP monotonicity criterion differs from exact negative-real scalar Floquet spectral stability",
+          "evidence": "2015 paper studies strong stability preserving steps and formulae; theorem categories are not exact 2-step real-axis Floquet law.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.04107",
+          "material_read": "Accessible abstract and section-level descriptions; not confirmed complete full primary text",
+          "method": "Compare SSP inequalities, variable formula order versus Floquet scalar decay",
+          "title": "Strong stability preserving explicit linear multistep methods with variable step size",
+          "trigger": "Variable step Adams method stability possibly covering AB3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/verify_ab3_alternating.py",
+        "Calvo–Lisbona–Montijano DOI:10.1137/0726052 (1989)",
+        "Skeel–Jackson DOI:10.1137/0720056 (1983)",
+        "Gear–Tu DOI:10.1137/0711079 (1974)",
+        "Grote–Mitkova arxiv:1109.4480 (2011)",
+        "Hadjimichael–Ketcheson–Lóczi–Németh arxiv:1504.04107 (2015)",
+        "Resultary semantic alternating-step Adams Bashforth Floquet stability query"
+      ],
+      "rationale": "An exact spectral stability phase diagram for alternating genuine variable-step AB3 and sharp counterexample to interpreting two-step decay as stepwise transient robustness resolves a motivated numerical-methods issue; unexpected split stable ratio regimes and precise 11/10 mean-step gain are concrete invariants.",
+      "residual_risks": [
+        "Highest originality risk: inaccessible 1989 Calvo–Lisbona–Montijano article may contain a mathematically equivalent period-two AB3 result. Do not assert full-text noncoverage.",
+        "Only negative-real scalar test equation and exactly periodic grid, not arbitrary ODE or grid."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-floquet-stability-and-transient-amplification-for-alternat--3e6d3ccae1af/verify_ab3_alternating.py",
+    "Calvo–Lisbona–Montijano DOI:10.1137/0726052 (1989)",
+    "Skeel–Jackson DOI:10.1137/0720056 (1983)",
+    "Gear–Tu DOI:10.1137/0711079 (1974)",
+    "Grote–Mitkova arxiv:1109.4480 (2011)",
+    "Hadjimichael–Ketcheson–Lóczi–Németh arxiv:1504.04107 (2015)",
+    "Resultary semantic alternating-step Adams Bashforth Floquet stability query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For genuine variable-node AB3 on y'=-lambda y with exactly two-periodic positive steps, s=lambda(h1+h2)>0, q=h1 h2/(h1+h2)^2, the period map is Schur stable iff 0<s<6/(5+2q), with exact equality and ratio phase, mean-step nonattained 3/5 gain versus equal-step 6/11, and lim_{r->infty} ||T(h2,h1)||_2/r=5 sqrt(2)s/6.",
+  "limitations": [
+    "Highest originality risk: inaccessible 1989 Calvo–Lisbona–Montijano article may contain a mathematically equivalent period-two AB3 result. Do not assert full-text noncoverage.",
+    "Only negative-real scalar test equation and exactly periodic grid, not arbitrary ODE or grid.",
+    "METADATA.json and AUDIT.json each contain a public-intended scope_run_id operational provenance field; complete semantically cleared guarded replacement bytes were not prepared in this read-only audit.",
+    "All final public-intended bytes were not sanitized and verified end-to-end; publication must be withheld."
+  ],
+  "residual_risks": [
+    "Highest originality risk: inaccessible 1989 Calvo–Lisbona–Montijano article may contain a mathematically equivalent period-two AB3 result. Do not assert full-text noncoverage.",
+    "Only negative-real scalar test equation and exactly periodic grid, not arbitrary ODE or grid."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Material priority risk: abstract states necessary/sufficient ratio conditions in various step policies; cannot claim full article does not cover alternating period-two scalar AB3. Best-of-knowledge comparison based on stated scope and other accessible sources.",
+      "evidence": "SIAM J Numer Anal 26 (1989) 946–962, DOI 10.1137/0726052. Oxford status vpn_disconnected, job ac7fc852b849f15a855dbe9cec5c913d.",
+      "identifier_or_url": "https://doi.org/10.1137/0726052",
+      "material_read": "Publisher abstract, bibliography, methods description; full text inaccessible; arXiv and lawful OA search did not locate it; authorized Oxford institutional fetch returned vpn_disconnected",
+      "method": "Read publisher abstract, search preprint/OA, attempt Oxford Download once valid page count; no bypass",
+      "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+      "trigger": "Highly relevant same interpolatory Adams class and variable step stability; possible dominating general theorem"
+    },
+    {
+      "assessment": "SSP monotonicity criterion differs from exact negative-real scalar Floquet spectral stability",
+      "evidence": "2015 paper studies strong stability preserving steps and formulae; theorem categories are not exact 2-step real-axis Floquet law.",
+      "identifier_or_url": "https://arxiv.org/abs/1504.04107",
+      "material_read": "Accessible abstract and section-level descriptions; not confirmed complete full primary text",
+      "method": "Compare SSP inequalities, variable formula order versus Floquet scalar decay",
+      "title": "Strong stability preserving explicit linear multistep methods with variable step size",
+      "trigger": "Variable step Adams method stability possibly covering AB3"
+    }
+  ]
+}

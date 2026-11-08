@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof in `RESULT.md` derives the transfer matrix from polynomial interpolation and proves the complete two-periodic stability criterion using the real-cubic Schur test. Run `python verify_ab3_alternating.py` in an environment with SymPy and NumPy; the checker reconstructs the coefficients symbolically, checks the exact characteristic polynomial and critical boundaries, and independently tests 998 random noncritical matrices. It also verifies the standard fixed-step reduction and the contrast asymptotic. All these checks passed when run on the embedded artifact.
+# Independent mathematical audit
 
-The analytic argument, not finite numerical sampling, covers all positive steps and arbitrary real initial triples. The check does not verify nonlinear convergence, complex stability, arbitrary grids, independent mathematical audit, or historical publication uniqueness.
+## correctness
+
+PASS
+
+Independently integrate quadratic Lagrange polynomials at nodes 0,-previous,-current to obtain the exact variable-step AB3 companion matrix and 2-step product; independent SymPy symbolic expansion reproduced all three claimed cubic characteristic coefficients and exact determinant at z=1. With C>0, B<1, C<1, A>C>0 under s<6/(5+2q), the cubic Schur inequalities reduce to that one determinant. At equality the unit root is simple and residual quadratic strictly stable; above root >1 by sign at z=1. q=r/(1+r)^2 yields reciprocal ratio intervals, and a rank-one r^-1 limit of large-step transfer yields the norm constant. These are for fixed positive ratio and real negative test eigenvalue, not uniform transient robustness for arbitrary step grids.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.
+
+## value
+
+PASS
+
+An exact spectral stability phase diagram for alternating genuine variable-step AB3 and sharp counterexample to interpreting two-step decay as stepwise transient robustness resolves a motivated numerical-methods issue; unexpected split stable ratio regimes and precise 11/10 mean-step gain are concrete invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
