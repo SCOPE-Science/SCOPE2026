@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The recurrence addition identity and a quadratic algebraic norm yield rigorous index and jump bounds. More directly, a seven-case split for coefficient a=2,3,4,5..9,10,11..19,>=20 excludes all unlisted decimal edges using monotonicity and explicit first jumps. Exact integer checker independently reproduces the graph for 299 coefficient values, crosschecks 4321 general-base finite searches, and verifies 6525 addition identities and 64815 norms. The universal classification does not rely on finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kominers, arXiv:2512.06446v1, Theorem 4.2 covers Lucas sequences U(P,Q) with |Q|=1, positive terms and positive discriminant, including the current Q=-1, P=a>=2; it dominates a claim of mere termination.",
+        "Kominers §4.3 explicitly mentions Pell walks terminate, but no numerical list of every decimal Pell edge or general a graph appears in inspected material.",
+        "Miller et al. arXiv:2204.08138v2 prove length at most two specifically for Fibonacci (a=1)."
+      ],
+      "reasoning": "Broad coverage of existence/termination is explicitly credited to Kominers and removed as a novelty claim. That theorem makes no edge-by-edge statement or exact coefficient classification; a finite graph can have many different edge structures. The accepted exact graph is therefore not a corollary of the broad termination claim.",
+      "searches": [
+        "Lucas U_n(P,-1) right truncatable digits generalized base b finite walk exact index cutoff Binet algebraic norm, digit appending recurrence Pell",
+        "digit concatenation graph recurrence U(n+2)=a U(n+1)+U(n), complete decimal classification all coefficients, 1 to 10 to 101 or 109",
+        "arXiv:2204.08138v2 Theorems 1.2, 1.3, 2.4",
+        "arXiv:2010.14932v2 §1.3, Appendix A",
+        "arXiv:2512.06446v1 §4, Theorem 4.2 (complete accessible primary text)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.08138v2 full HTML",
+      "arXiv:2010.14932v2 targeted HTML sections and search",
+      "OEIS A000129 sequence and selected comments",
+      "published-finding corpus searches recorded above",
+      "Open web title/phrase/alias queries recorded above",
+      "Previous accessible mathematical research claims inspected for statement-level overlap",
+      "arXiv:2512.06446v1 complete accessible rendered text; Theorem 4.2 is a stronger general finiteness theorem but not an exact graph classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2204.08138v2 establishes maximum Fibonacci walk length two at coefficient 1.",
+        "arXiv:2512.06446v1 Theorem 4.2 guarantees all the present Lucas graphs terminate but its conclusion permits arbitrary finite graph structures and cannot logically specify any exact decimal edge list.",
+        "The complete current classification gives the specific exceptional chains 1->10->109 for a=3 and 1->10->101 for a=10 and excludes all other coefficient cases."
+      ],
+      "reasoning": "The known 2025 stronger theorem subsumes only the finiteness subclaim, which is treated as background. The single accepted new claim is exactly the full decimal graph for each coefficient a>=2. Generic finite-walk bounds do not imply the explicit edges or sharp maximal coefficient classification. The recurrence-specific proof is separately checked.",
+      "searches": [
+        "arXiv:2204.08138v2 full mathematical text and proof",
+        "arXiv:2010.14932v2 relevant introduction and appendix",
+        "published-finding corpus semantic searches: decimal right-digit extension walks on generalized Fibonacci sequences U_{n+2}=a U_{n+1}+U_n coefficient a, Pell recurrence, longest paths, complete append-edge classification",
+        "published-finding corpus semantic searches: complete classification decimal right-truncatable Pell or generalized Fibonacci numbers concatenation digit extension graph U(n+2)=cU(n+1)+U(n) all c>=2 ; edges 1->12, 2->29; 1->10->109; 1->10->101",
+        "arXiv:2512.06446v1 §4, Theorem 4.2 (complete accessible primary text)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miller et al., arXiv:2204.08138v2, Thm 1.2, give an ordinary Fibonacci (coefficient a=1) decimal length bound, not an all-coefficient edge list.",
+        "Kominers, arXiv:2512.06446v1, Theorem 4.2, gives eventual termination of all bounded-digit walks on a wider Lucas family, covering every a>=2, but does not list the decimal edges or classify the maximal coefficient-specific chains.",
+        "published-finding corpus queries using right-truncatable, base-b concatenation, Pell and Lucas names returned no exact all-parameter decimal graph."
+      ],
+      "reasoning": "The claimed invariant is the complete decimal edge set as a function of the recurrence coefficient, equivalently the right-truncatable digraph. General finiteness and generic walk-length bounds are weaker statements and do not imply which edges occur, nor distinguish the only two length-three coefficients.",
+      "searches": [
+        "decimal right-digit extension walks on generalized Fibonacci sequences U_{n+2}=a U_{n+1}+U_n coefficient a, Pell recurrence, longest paths, complete append-edge classification",
+        "Walking to Infinity Fibonacci Pell numbers digits appended right walks terminal paths 3-Fibonacci coefficient 3",
+        "web: \"generalized Fibonacci\" \"walking to infinity\" append digits",
+        "web: \"Pell\" \"walking to infinity\" digits appended right",
+        "arXiv:2204.08138v2: §§1-2",
+        "arXiv:2010.14932v2: §§1,A.2",
+        "arXiv:2512.06446v1 §4, Theorem 4.2 (complete accessible primary text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000129 lists Pell terms 0,1,2,5,12,29,...; it supports a=2 sample edges but does not supply the full all-a edge classification.",
+        "The 2025 Lucas-walk theorem gives no tabulation of the specific decimal graphs for coefficients 2,3,4,5..9,10,11..19,>=20.",
+        "No exact all-coefficient edge table was found in the actually inspected published-finding corpus results or targeted phrase queries."
+      ],
+      "reasoning": "The exact edge table requires the complete coefficient case analysis; a Pell integer sequence table and generic termination bounds do not provide it. The a=3 and a=10 three-vertex chains are not results about Pell terms. There is residual risk that an unindexed digit-truncatable table contains the same values.",
+      "searches": [
+        "OEIS:A000129 (Pell numbers) https://oeis.org/A000129",
+        "web: \"right truncatable\" \"Pell numbers\" append digit",
+        "web: \"generalized Fibonacci\" \"digit\" \"append\" walks recurrence",
+        "arXiv:2512.06446v1 §4, Theorem 4.2 (complete accessible primary text)"
+      ]
+    },
+    "rationale": "Primary full-text inspection shows Miller et al. (2022) treated decimal append walks only for the ordinary Fibonacci sequence; the earlier 2020 prime/square-free walking paper covers other sets. Crucially, Kominers (arXiv:2512.06446, 2025) proves general termination of bounded-digit Lucas walks (Theorem 4.2, explicitly including Pell) and is acknowledged as dominating the simple finiteness consequence; the accepted claim is narrowed to the exact all-coefficient decimal edge graph, which the inspected theorem does not determine. published-finding corpus queries for right-truncatable Pell/Lucas and digit concatenation graphs found no equivalent exact classification. Unindexed equivalent tables remain a risk.",
+    "residual_risks": [
+      "Unindexed Horadam/Lucas digit-concatenation literature or unpublished notes could contain equivalent results.",
+      "The OEIS page is long; selected inspected content is insufficient to exclude every linked table across the whole database.",
+      "The general-base bound is sufficient, not optimal; its elementary form may have appeared as a standard lemma under different terminology.",
+      "A separately published exact classification under right truncatable Lucas or generalized Fibonacci terminology could still cover the graph; the strongest readily accessible general Lucas theorem does not."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for a>=2; settles a=1 and related bounded suffix claims only",
+        "evidence": "Theorem 1.2 at lines 57-59 and proof at 116-133 establish length <=2 for Fibonacci; Theorem 1.3 at 61-64 concerns a bounded number of digits.",
+        "identifier_or_url": "arXiv:2204.08138v2; https://arxiv.org/html/2204.08138v2",
+        "material_read": "Full arXiv HTML, abstract, definitions, Theorems 1.2-1.3, Lemmas 2.1-2.4, proofs, conclusions and references",
+        "method": "Full-text HTML inspection of the primary manuscript; compared recurrence coefficients, quantifiers, digit operations, and maximal walk claims",
+        "title": "Walking to Infinity on the Fibonacci Sequence",
+        "trigger": "Direct motivating right-appended Fibonacci walk, potential overlap through a stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING for recurrence-parameter digit-extension graphs; studies primes, square-free, perfect squares and Mersenne-primes",
+        "evidence": "Introduction at lines 67-159; Appendix A.2 at 663-697; references at 698-715.",
+        "identifier_or_url": "arXiv:2010.14932v2; https://arxiv.org/html/2010.14932v2",
+        "material_read": "HTML Introduction and results summary (§§1.1-1.3), Appendix A Mersenne-prime theorem and references, plus full-text searches for Pell/Fibonacci",
+        "method": "Section inspection and targeted full-document text searches, checking what sets and bases the results address",
+        "title": "Walking to Infinity Along Some Number Theory Sequences",
+        "trigger": "Foundational earlier walking-to-infinity study cited in the motivating paper"
+      },
+      {
+        "assessment": "Sequence data agrees with 1->12 and 2->29 but does not provide the claimed general parameter classification",
+        "evidence": "A000129 lines 14-20 give 0,1,2,5,12,29,70,... and the Pell recurrence.",
+        "identifier_or_url": "OEIS A000129; https://oeis.org/A000129",
+        "material_read": "Sequence definition, initial table, comments and leading reference material (web text)",
+        "method": "Sequence-page inspection and comparison with graph statements",
+        "title": "Pell numbers",
+        "trigger": "Exact recurrence for coefficient a=2 and potential existing table"
+      },
+      {
+        "assessment": "COVERS the broad termination property; DOES_NOT_COVER the claimed exact all-coefficient decimal edge graph. Narrowed new claim accordingly.",
+        "evidence": "Theorem 4.2 at lines 166-206 proves termination for |Q|=1, and §4.3 lines 207-210 specifically mentions Pell; no exact decimal graph appears in the inspected proof or discussion.",
+        "identifier_or_url": "arXiv:2512.06446v1; https://arxiv.org/abs/2512.06446",
+        "material_read": "Full accessible rendered manuscript, including §§1-4.3, proofs and statement of Theorem 4.2; special attention to the Pell discussion",
+        "method": "Full-text semantic implication comparison: Lucas parameter (P,Q)=(a,-1), base, bounded-digit termination vs complete decimal graph",
+        "title": "Uniform Bounds for Digit-Appending Fibonacci Walks",
+        "trigger": "Closest plausible stronger paper explicitly claiming generalized Lucas walks in arbitrary bases, surfaced by targeted direct novelty query"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b24624a-1831-4ece-a85a-2e7809b25d8d",
+  "value": {
+    "rationale": "The 2022 Fibonacci walk problem and 2025 general Lucas termination result make exact digit-extension behavior a natural invariant. The new theorem exhaustively determines every decimal edge across the entire infinite positive-integer coefficient family, locating two and only two exceptional three-vertex walks (coefficients 3 and 10); neither generic termination nor Fibonacci-only bounds provides that information. This is a complete, sharp parameter classification with structural explanation, not a finite ad-hoc slice. The supporting general-base norm estimate is not itself counted as new value.",
+    "status": "PASS"
+  }
+}
