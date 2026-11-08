@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The two monodromies have the same positive determinant. An explicit polynomial identity expresses their trace difference as the determinant of the commutator; Perron monotonicity at fixed determinant turns it into an exact spectral sign criterion. Three exact signed-square specializations prove each universal assertion, and exact rational calculations exhibit both possible threshold reversals with valid maturation probabilities. The period-four minimality follows from the complete classification of binary cyclic words through length four. The included source checker was replayed successfully. The argument does not extrapolate from its finite checks.
+
+## Originality — PASS within accessed evidence, with priority risk
+The exact phenomenon of schedule dependence and the AABB/ABAB comparison is already present in Mertens, van den Bosch and Heesterbeek (2002), and is **not** claimed as original. Caswell and Trevisan (1994), Caswell (2019), and Cushing and Ackleh (2011) establish the wider periodic-product and threshold framework. The narrowly assessed claim is the three-way universal biological stage-dependent sign classification for the specified Leslie family and opposing exact persistence examples. No accessible inspected source stated or forced those precise universal signed-square reductions, although general matrix algebra makes them readily derivable. The 2002 and 1994 full texts could not be inspected; this is a substantive historical-priority limitation and independent literature audit remains necessary. The 2019 open-access chapter and substantial text of the 2011 open-access article were compared for implications.
+
+## Value — PASS, limited to a model-specific structural classification
+The one-vital-rate restriction is biologically motivated: it distinguishes changes in recruitment by younger and older stages from changes in juvenile maturation. It yields different *universal* ordering policies and two exact cases with opposite qualitative growth-versus-decline verdicts, rather than just a numerical schedule difference. The four-phase minimality explains why two-season studies cannot reveal this same fixed-frequency ordering effect. This is a concise structural lemma in a known research area, not a claim of new general seasonal sequence dependence or empirical prediction.
+
+Self-review: passed. Independent audit: not yet performed.
