@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The joint Dirichlet moment identity is obtained by integrating monomials over the uniform simplex. Its exact factorial covariance limits yield \(\sigma_{33}=360\), \(\sigma_{35}=28800\), \(\sigma_{55}=3254400\). The sine Taylor remainder is bounded by a constant times \(U_{7,n}\), whose \(L^2\) norm is \(O(n^{-6})\). Quadratic completion gives the unique optimum and its sharp limiting variance; the covariance determinant gives the correlation defect. The included exact checker validates the nonstandard constants and independent random-gap calculations corroborate signs and finite-sample behavior. Universal claims are proved analytically, not inferred from simulations.
+PASS
 
-## Originality — PASS (provisional priority)
+For iid uniform circle points the cyclic spacings have Dirichlet(1,...,1) law. Exact moments of U_k=sum D_i^k imply sigma_{33}=360, sigma_{35}=28800, sigma_{55}=3254400, and the positive Schur complement 950400. Taylor expansions S=pi-(pi^3/6)U3+(pi^5/120)U5+O_L2(n^-6), A=pi-4(pi^3/6)U3+16(pi^5/120)U5+O_L2(n^-6) justify the exact quadratic variance minimizer. Independently checked rational arithmetic establishes n^2(lambda*-1/3)->16 pi^2/3; optimized n^9 variance ->1056 pi^10 versus known fixed 3616 pi^10; determinant identity for Cov(S,A) yields n^4(1-Corr)->297 pi^4/10. Variance(B)>0 because B=A-S is nonconstant on the open gap simplex for each n>=3; no MSE or unbiasedness claim.
 
-The classical \(1/3\) extrapolation coefficient and \(3616\pi^{10}\) variance constant were previously established. The full accessible 2021 and 2023 papers were compared at statement level. The 2023 paper contains a covariance matrix for low-order spacing powers and a broad asymptotic expansion framework, so part of the present proof can be obtained from known tools; this is acknowledged. The exact finite-\(n\) variance optimum, its second-order correction, the strictly smaller \(1056\pi^{10}\) asymptotic variance, and the sharp \((297/10)\pi^4\) correlation coefficient were not located as statements in the inspected sources. A possibly relevant 2018 article was not available in complete text; its potential coverage remains a risk, and historical priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a motivated question left open by the conventional fixed-weight cancellation: how much of the residual randomness can be removed without adding another observable? The precise answer is a positive \(80/113\) fraction of the leading residual variance, achieved by a natural \(n^{-2}\) perturbation rather than an arbitrary parameter slice. The exact correlation defect independently quantifies why the two geometric observables remain almost collinear even after classical first-order cancellation. This concerns variance rather than total estimation error and has a deliberately narrow domain.
+Fixed 1/3 cancellation and 3616 pi^10 are established in earlier Xu/Wang work; 2023 Wang–Li–Xu has full nonlinear extrapolation and joint CLT tools for U3/U5. In its accessible full article, Lemma 5 and Theorem 18 treat spacing moments and fixed/nonlinear extrapolations involving the circumscribed polygon, not the finite-n population variance optimum of the two inscribed observables or this correlation defect. The three new constants are nevertheless accessible by applying known Dirichlet covariances and a Schur complement; novelty is a specific optimization statement, not new asymptotic covariance machinery. 2018 closely related full article was inaccessible (VPN disconnected). Best-of-knowledge PASS with a strong implication/priority caveat.
 
-## Risks and scope
+## value
 
-Prior general Dirichlet central limit theorems are strong ingredients, not independent confirmation of novelty. The 2018 paper's unavailable complete text and any unindexed variance-refinement literature remain historical-priority risks. The coefficient optimized is a population coefficient and the explicit version contains \(\pi\). There is no external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The established 1/3 blend cancels leading fluctuations but leaves residual variance. The natural population-variance optimizer, constrained to the same two observable geometric statistics, reduces the known leading residual variance by 80/113; its n^-2 weight shift and separate correlation decay give exact quantitative covariance geometry. This is a motivated complete two-statistic optimization, notwithstanding that the corrected coefficient contains pi and is not a standalone estimator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

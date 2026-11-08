@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:00:31.892203Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid uniform circle points the cyclic spacings have Dirichlet(1,...,1) law. Exact moments of U_k=sum D_i^k imply sigma_{33}=360, sigma_{35}=28800, sigma_{55}=3254400, and the positive Schur complement 950400. Taylor expansions S=pi-(pi^3/6)U3+(pi^5/120)U5+O_L2(n^-6), A=pi-4(pi^3/6)U3+16(pi^5/120)U5+O_L2(n^-6) justify the exact quadratic variance minimizer. Independently checked rational arithmetic establishes n^2(lambda*-1/3)->16 pi^2/3; optimized n^9 variance ->1056 pi^10 versus known fixed 3616 pi^10; determinant identity for Cov(S,A) yields n^4(1-Corr)->297 pi^4/10. Variance(B)>0 because B=A-S is nonconstant on the open gap simplex for each n>=3; no MSE or unbiasedness claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 article includes general Dirichlet moment and asymptotic normality theory; 2018 source concerns exactly random cyclic polygons but its full text was unavailable."
+        ],
+        "reasoning": "Broader probabilistic tools can be specialized to these constants, but inspected theorem statements do not assert the variance-only finite-n minimization and correlation-defect limit. An earlier exact statement cannot be ruled out in inaccessible 2018 source.",
+        "searches": [
+          "DOI:10.33993/jnaat522-1360",
+          "DOI:10.19139/soic-2310-5070-1193",
+          "DOI:10.1016/j.spl.2018.05.007"
+        ]
+      },
+      "checked_sources": [
+        "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+        "https://doi.org/10.19139/soic-2310-5070-1193",
+        "https://doi.org/10.1016/j.spl.2018.05.007",
+        "Resultary semantic query: random cyclic polygon semiperimeter area variance optimized covariance blend Dirichlet extrapolation pi"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theorems establish Dirichlet spacing asymptotics and classical first-order cancellation; the present proof retains next-order covariance and optimizes a two-observable linear blend."
+        ],
+        "reasoning": "Existing theorems supply ingredients and could make this a short corollary, but they do not state the inspected finite-n criterion or exact improved asymptotics. Originality is confined to this motivated optimization and quantified correlation, not elementary regression algebra.",
+        "searches": [
+          "Wang–Li–Xu 2023 Lemma 5 and Theorem 18",
+          "Xu–Meng–Li 2019",
+          "Wang–Xu–Liu 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The blend is S-lambda(A-S), so the optimum is exactly Cov(S,A-S)/Var(A-S).",
+          "The 2023 paper considers nonlinear extrapolations in S,A and the circumscribed polygon observable."
+        ],
+        "reasoning": "The finite-n minimizer is a regression coefficient, not the fixed extrapolation cancellation or the bias/MSE optimality of a larger observable family. This can be a simple consequence of known covariance formulas; priority is qualified.",
+        "searches": [
+          "random cyclic polygon semiperimeter area variance optimized covariance blend Dirichlet extrapolation pi",
+          "Wang–Li–Xu 2023 Section 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known fixed-blend 3616 pi^10 coefficient appears in prior literature; the searched published Resultary records concern other polygon sampling distributions or Minkowski symmetrization."
+        ],
+        "reasoning": "Neither the known 3616 value nor unrelated area-perimeter tables already specifies the new 1056 variance, 16 pi^2/3 weight, or 297 pi^4/10 correlation limit; the algebraic derivability is acknowledged.",
+        "searches": [
+          "random cyclic polygon semiperimeter area variance optimized covariance blend Dirichlet extrapolation pi",
+          "Resultary area–perimeter random polygon minimax sampling law in ellipses"
+        ]
+      },
+      "rationale": "Fixed 1/3 cancellation and 3616 pi^10 are established in earlier Xu/Wang work; 2023 Wang–Li–Xu has full nonlinear extrapolation and joint CLT tools for U3/U5. In its accessible full article, Lemma 5 and Theorem 18 treat spacing moments and fixed/nonlinear extrapolations involving the circumscribed polygon, not the finite-n population variance optimum of the two inscribed observables or this correlation defect. The three new constants are nevertheless accessible by applying known Dirichlet covariances and a Schur complement; novelty is a specific optimization statement, not new asymptotic covariance machinery. 2018 closely related full article was inaccessible (VPN disconnected). Best-of-knowledge PASS with a strong implication/priority caveat.",
+      "residual_risks": [
+        "Covariance tools are largely known, and the new variance optimum may be a short unmentioned corollary of earlier general frameworks; originality is qualified.",
+        "The 2018 same-object primary paper was inaccessible; estimator coefficient contains pi, and the optimization is variance, not mean-squared error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides strong asymptotic and nonlinear extrapolation framework, not an explicit variance-only population-optimal two-observable n^-2 coefficient",
+          "evidence": "Published online 2023-12-22; abstract minimizes approximation error under alpha+4 beta-2 gamma=0; theorem 18 addresses uniform spacing.",
+          "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+          "material_read": "Full accessible HTML text, including abstract, Lemma 5, Section 4 and Theorem 18",
+          "method": "Read full paper web HTML and inspected the statements/moment formulas",
+          "title": "Nonlinear Random Extrapolation Estimates of pi under Dirichlet Distributions",
+          "trigger": "Same random inscribed polygons, Dirichlet spacings, and extrapolation constants"
+        },
+        {
+          "assessment": "Fixed cancellation is prior; no claim of complete absence of an n-dependent optimizer",
+          "evidence": "Earlier paper reports optimized extrapolation weight in its own criterion.",
+          "identifier_or_url": "https://doi.org/10.19139/soic-2310-5070-1193",
+          "material_read": "Available citation and described classical fixed-blend theorem in package; full text not separately inspected",
+          "method": "Bibliographic and package comparison",
+          "title": "Random Polygons and Optimal Extrapolation Estimates of Pi",
+          "trigger": "Earlier fixed extrapolation weight 1/3"
+        },
+        {
+          "assessment": "Cannot exclude coverage of exact covariance refinement",
+          "evidence": "2018 Statistics & Probability Letters source; access blocked.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2018.05.007",
+          "material_read": "Bibliographic description only; complete text not obtained",
+          "method": "arXiv/OA lookup then authorized Oxford retrieval returned vpn_disconnected",
+          "title": "Random Cyclic Polygons from Dirichlet Distributions and Approximations of Pi",
+          "trigger": "Earlier same-object study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The established 1/3 blend cancels leading fluctuations but leaves residual variance. The natural population-variance optimizer, constrained to the same two observable geometric statistics, reduces the known leading residual variance by 80/113; its n^-2 weight shift and separate correlation decay give exact quantitative covariance geometry. This is a motivated complete two-statistic optimization, notwithstanding that the corrected coefficient contains pi and is not a standalone estimator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Covariance tools are largely known, and the new variance optimum may be a short unmentioned corollary of earlier general frameworks; originality is qualified.",
+    "The 2018 same-object primary paper was inaccessible; estimator coefficient contains pi, and the optimization is variance, not mean-squared error."
+  ],
+  "schema_version": 1
+}
