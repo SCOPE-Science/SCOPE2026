@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every missing translate, one strict facet inequality bounds its captured mass by an open facet halfspace. Every such halfspace threshold can be approximated by a translate aligned at a relative-interior facet point; the other finitely many facets have uniform positive slack s, and compact support within radius R ensures inclusion once t≥2R/s. Continuity from below proves the exact open-halfspace supremum including boundary atoms. Positive everywhere density gives a strict bounded-polytope versus halfspace inequality at any finite t. The actual standalone exact rational checker passed 1,480 empirical facet-witness tests in two through five dimensions and a non-axis-aligned triangle; computations do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.26108 Theorem 5.2 uses asymptotic t→∞ plus zero boundary mass for tangent cones; Theorem 5.6 assumes a rolling-ball condition and gives an O(1/t)-type bound for a different smooth regime.",
+        "arXiv:2610.26108 Section 7.4 computes empirical depth by cell arrangements."
+      ],
+      "reasoning": "No broader inspected theorem covers finite stabilization for all polytopes with a cutoff depending solely on support radius and explicit facet slacks. Pointwise convergence alone does not imply finite uniform stabilization, nor does it address atomic hyperplane mass.",
+      "searches": [
+        "arXiv:2610.26108 Section 5 Theorem 5.2 and Section 7.4",
+        "Molchanov Nagy 2026 translation depth of convex bodies polyhedral finite limit",
+        "\"large convex body\" \"translate depth\" \"compact support\" facets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.26108, first public submission 2026-10-19, Sections 2, 5–7",
+      "DOI:10.1080/10485252.2023.2236721, published online 2023-07-20, Introduction and §3.1",
+      "Published result: Exact three-slice halfspace depth by reflected-core pairing",
+      "Published result: Sharp finite-sample normalization of halfsphere-polytope facet deficits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.2 proves limiting tangent-cone behavior under a boundary-nullness condition, and the exact empirical calculation in Section 7.4 uses arrangements.",
+        "The new proof uses a positive strict slack on every nonincident facet to cover every supported halfspace slice with one finite translate for all query points; this explicit inclusion step is not present in the inspected paper.",
+        "The Gaussian strict inequality exhibits a noncompact-support obstruction to any finite equality."
+      ],
+      "reasoning": "The new all-dimensional formula is not a mere substitution into an existing finite-time formula: it identifies finitely many facet normals, supplies a uniform numeric time, permits atoms, and proves a strict failure mode. Its generality exceeds the earlier support-in-a-simplex marginal computation.",
+      "searches": [
+        "arXiv:2610.26108 Theorems 5.2 and 5.6; Sections 6.3, 7.4",
+        "translative depth polytope finite-scale exact stabilization compactly supported measure facet-normal halfspaces",
+        "Molchanov Nagy 2026 translation depth of convex bodies polyhedral finite limit",
+        "2023 flag halfspace depth DOI:10.1080/10485252.2023.2236721"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Molchanov–Nagy (2026), eq. (2.2), fixes the translate-depth definition. Their Theorem 5.2 states a limit, not finite equality.",
+        "Pokorný–Laketa–Nagy (2023/2024), introduction and Section 3.1, analyze halfspace depth and flag halfspaces but not finite translated polytope testing bodies."
+      ],
+      "reasoning": "The search included aliases translative depth, polytope testing, tangent-cone depth, restricted directional halfspace depth and finite exact dilation. No inspected equivalence directly yields the quantitative all-query, all-measure cutoff.",
+      "searches": [
+        "translative depth polytope finite-scale exact stabilization compactly supported measure facet-normal halfspaces",
+        "finite dilation threshold for polyhedral testing bodies tangent cone depth compact support",
+        "\"polyhedral depth\" \"finite\" \"test bodies\" \"facets\" \"compact support\"",
+        "arXiv:2610.26108 §§2.2, 5.1–5.2, 7.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record search produced related but noncovering items including the published finding “Exact three-slice halfspace depth by reflected-core pairing” (three-slice halfspace depth) and the published finding “Sharp finite-sample normalization of halfsphere-polytope facet deficits” (random-polytope facet-depth expectations).",
+        "The earlier specialized simplex translate-depth classification is for test simplex S and measures supported inside S; it does not state a cutoff for arbitrary polytopes."
+      ],
+      "reasoning": "The proposed statement is an infinite all-polytope quantitative identity rather than an invariant retrieved from a finite table. No exact matching or dominating database claim was found; the search results do not constitute a mathematical uniqueness proof.",
+      "searches": [
+        "translative depth polytope finite-scale exact stabilization compactly supported measure facet-normal halfspaces",
+        "finite dilation threshold for polyhedral testing bodies tangent cone depth compact support",
+        "Molchanov Nagy 2026 translation depth of convex bodies polyhedral finite limit"
+      ]
+    },
+    "rationale": "The 2026 primary paper establishes only pointwise asymptotic tangent-cone convergence under a boundary-null hypothesis (Theorem 5.2) and an arrangement method for empirical polytope depth (Section 7). Neither states or establishes the uniform finite cutoff over all query points for arbitrary compactly supported, potentially atomic laws. The earlier flag-halfspace literature discusses classical halfspace depth, not a finite exact dilation theorem for translated polytopes. Targeted searches of published mathematical findings, primary literature, and relevant prior claims identified no equivalent or stronger coverage. Priority remains provisional.",
+    "residual_risks": [
+      "Older work using terminology such as directional halfspace depth or polyhedral depth might imply this finite cutoff without naming translated testing polytopes.",
+      "The explicit cutoff is not optimal; a stronger uniform cutoff may be known for special facet arrangements.",
+      "Only the relevant portions of the secondary 2023 full article were inspected, so absence from its remaining text is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers asymptotic limit and arrangement algorithm; no exact uniform finite cutoff or arbitrary-atom polyhedral formula was found in these relevant portions.",
+        "evidence": [
+          "arXiv:2610.26108 equations (2.2)–(2.3), Theorem 5.2, Theorem 5.6, Section 7.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.26108",
+        "material_read": "Full-text HTML including definitions in §2.2, tangent-cone and quantitative convergence theorems in §§5.1–5.2, covariograms in §6.3, and empirical polytope algorithm in §7.4.",
+        "method": "Read the available primary full-text rendering and checked targeted terms including polytope, cube, uniform distribution and finite stabilization.",
+        "title": "Depth based on translates of a convex body: geometry, floating bodies, and empirical theory",
+        "trigger": "Same translated-body depth operator and closest possible direct coverage."
+      },
+      {
+        "assessment": "Provides classical halfspace-depth context, but the inspected material does not assert a finite dilation stabilization for translated polytopes.",
+        "evidence": [
+          "Introduction and §3.1: flag halfspaces and sample halfspace medians"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10485252.2023.2236721",
+        "material_read": "Publisher open-access HTML abstract, Introduction, and §3.1 of halfspace-depth applications.",
+        "method": "Read full article rendering at the displayed portions and compared the object and tested halfspaces with the translated-polytope operator.",
+        "title": "Another look at halfspace depth: flag halfspaces with applications",
+        "trigger": "Possible equivalent treatment of strict/open boundary conventions for probability halfspaces."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d872e165-1aa3-4eb8-9345-98750cf057b5",
+  "value": {
+    "rationale": "Upgrades large-dilation asymptotic convergence of an important convex-geometric depth operator to all-query exact equality after a computable finite scale for every polytope, without any atomless assumption. It reduces large-scale empirical polytope depth to finitely many 1D projection ranks. The Gaussian strictness separation identifies a mathematically real compact-support boundary, rather than a merely technical regularity condition. This is a structural geometric result, not a narrow parameter calculation.",
+    "status": "PASS"
+  }
+}
