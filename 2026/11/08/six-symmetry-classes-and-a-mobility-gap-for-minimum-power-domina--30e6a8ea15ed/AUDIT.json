@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The 2011 sharp bounds imply gamma_P(Q5)=4. The exact finite verification covers every four-vertex subset of a 32-vertex graph, using correct monotone power-domination closure (both synchronous and sequential versions). The Python script partitions all 3600 successes into six exact group orbits, checks every possible single-token exchange, counts 70400 oriented TJ moves and none with adjacent endpoints, and performs six representative BFS searches; isometry-invariance extends their eccentricity values to all states. The C++17 script independently reconstructs the 3600 states, 35200 edges and zero TS edges and exhaustively computes all 3600 eccentricities. Both programs were compiled/executed from included paths and the output was checked. These finite computations prove only the finite classification, no unbounded claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dean et al. 2011 Theorem 1 gives inequalities implying gamma_P(Q5)=4, not a full-state enumeration.",
+        "Benson et al. 2015 §3 Theorem 3.1/3.2 gives a power-domination/zero-forcing inequality.",
+        "Bjorkman et al. 2026 §5 concerns TJ realization and general results, while §6 Problem 6.2/6.3 explicitly identifies TS research as future work."
+      ],
+      "reasoning": "The strongest accessible general theorems establish minimum size or reconfiguration frameworks, not a domination/metric of the specific 3600-state graph. A general upper/lower bound or graph-realization theorem does not imply six orbit sizes, 35200 edges or diameter six.",
+      "searches": [
+        "power dominating sets hypercube enumeration Q5 3600 minimum sets",
+        "exact number minimum power dominating sets hypercube Q5 and token jumping connected 35200 edges degree distribution",
+        "Power Domination Reconfiguration Bjorkman Ferrero Hogben 2026 full text §2 §5 §6",
+        "Zero forcing and power domination for graph products arXiv:1510.02421"
+      ]
+    },
+    "checked_sources": [
+      "https://kjtian.github.io/PDSHypercube.pdf",
+      "https://arxiv.org/abs/1510.02421",
+      "https://link.springer.com/article/10.1007/s44007-025-00187-5",
+      "https://ar5iv.labs.arxiv.org/html/1510.02421",
+      "https://www.yumpu.com/en/document/view/27830454/a-note-on-on-the-power-dominating-sets-of-hypercubes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dean et al. 2011 Theorem 1 yields gamma_P(Q5)=4; it does not count all size-four PDSs.",
+        "Bjorkman et al. 2026 poses general TS reconfiguration as an open direction; its examples do not imply Q5 specifics.",
+        "Pai and Chiu (2012) abstract reports known gamma_P values and refutation of a hypercube minimum-number conjecture, but complete text unavailable."
+      ],
+      "reasoning": "The theorem explicitly excludes the already implied minimum cardinality. Full enumeration and exact reconfiguration graph are additional facts, not corollaries of the compared known cardinality bounds or general frameworks. The Pai–Chiu note could conceivably contain a relevant enumeration; its lack of full access is disclosed as a residual risk.",
+      "searches": [
+        "power domination reconfiguration cube hypercube monitoring sensor adjacent moves",
+        "For the five-dimensional hypercube Q5, 3600 optimal size-four power-dominating sensor sets split into six symmetry orbits, adjacent token sliding frozen, while unrestricted one-token exchanges give a connected graph with diameter six",
+        "On the Power Dominating Sets of Hypercubes Dean Ilic Ramirez Shen Tian PDF theorem 1 and conclusion",
+        "Power Domination Reconfiguration 2026 §5 and §6",
+        "A Note on On the Power Dominating Sets of Hypercubes Pai Chiu 2012 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hamming cube Q5 is the Cartesian power K2^square5; the explicit object is the minimum PDS state family, not a dominating/zero-forcing set family. Dean et al. 2011, pp. 488–491, studies hypercube power domination; Benson et al. 2015 §1 and §3 relate it to zero forcing."
+      ],
+      "reasoning": "Search compared alternative host notations (5-cube, Q_5, hypercube, Cartesian power) and power domination/zero-forcing terms; zero forcing is only a related lower-bound tool and does not itself classify optimal power-dominating placements. No equivalent full-state and move-graph theorem was identified.",
+      "searches": [
+        "power domination minimum sets hypercube Q4 Q5 4 dimensional 5-dimensional frozen token sliding reconfiguration",
+        "For the five-dimensional hypercube Q5, 3600 optimal size-four power-dominating sensor sets split into six symmetry orbits, adjacent token sliding frozen, while unrestricted one-token exchanges give a connected graph with diameter six",
+        "minimum power dominating sets hypercube Q5 automorphism orbits classification up to translation coordinate permutations and reconfiguration graph",
+        "\"power dominating\" \"Q5\" \"3600\"",
+        "\"power domination\" \"five-dimensional hypercube\" reconfiguration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact numerical strings 3600 and 35200 combined with the five-cube/power-domination aliases produced no published exact table; the reachable record collection returned related but different parameters including power domination on threshold graphs and book graphs."
+      ],
+      "reasoning": "No indexed table of the six specific orbits, slide immobility, or TJ degree/eccentricity spectra was found. Absence of search results is not proof of global novelty; this check supports limited best-knowledge novelty only.",
+      "searches": [
+        "For the five-dimensional hypercube Q5, 3600 optimal size-four power-dominating sensor sets split into six symmetry orbits, adjacent token sliding frozen, while unrestricted one-token exchanges give a connected graph with diameter six",
+        "exact number minimum power dominating sets hypercube Q5 and token jumping connected 35200 edges degree distribution",
+        "\"power domination\" \"Q_5\" \"token jumping\" diameter",
+        "\"power domination\" \"hypercube\" \"token sliding\" \"Q5\""
+      ]
+    },
+    "rationale": "The new result is the complete 3600-state, six-orbit classification and exact TS/TJ transition geometry of the five-cube, not the previously established cardinality four. The four-page 2011 hypercube paper provides cardinality bounds but not a classification of optimal sets. The 2015 product-graph source provides a generalized power-domination lower bound; the 2026 general reconfiguration source provides a universal framework and separate examples, with TS for power domination proposed for further study. Searches of relevant named aliases and a searchable record collection revealed no exact five-cube orbit or metric census. The incompletely accessible Pai–Chiu conference note and non-indexed computations are residual priority risks, not represented as checked full texts.",
+    "residual_risks": [
+      "The full Pai–Chiu 2012 conference note was not retrieved; it may contain additional state-count detail not visible in its abstract.",
+      "Unindexed or independently conducted finite enumerations could establish some of the exact same figures; searches and accessible history cannot establish global uniqueness.",
+      "The result is a single finite host classification, not a theorem for all hypercubes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_KNOWN_MINIMUM_ONLY; does not state the new six-orbit or TS/TJ results.",
+        "evidence": [
+          "Theorem 1 pp. 488–489 bounds gamma_P(Q_n); Theorem 2 p.490 lower bound and Theorem 3 p.490 upper bound; discussion conjectures value of gamma_P, without minimum-placement census."
+        ],
+        "identifier_or_url": "https://kjtian.github.io/PDSHypercube.pdf",
+        "material_read": "Complete four-page author-hosted paper, pages 488–491 including definitions, Theorems 1–3 and references.",
+        "method": "Opened textual PDF extraction and visually inspected all four pages.",
+        "title": "On the Power Dominating Sets of Hypercubes",
+        "trigger": "Exact same host family and power-domination parameter"
+      },
+      {
+        "assessment": "BROADER_BOUND_NOT_CLASSIFICATION; relevant general result does not imply the six-orbit and move-graph counts.",
+        "evidence": [
+          "§3 Theorems 3.1–3.2 recover and generalize lower bounds; other claims concern graph products rather than complete Q5 placement classification."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1510.02421",
+        "material_read": "HTML full-text introduction/definitions, §3 and related references to hypercube result; inspected document for hypercube and reconfiguration terms.",
+        "method": "Read public full-text HTML and searched in-document for hypercube.",
+        "title": "Zero forcing and power domination for graph products",
+        "trigger": "Full-text primary graph-products and hypercube power-domination lower-bound source"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_Q5; does not provide the new state census or metric.",
+        "evidence": [
+          "Introduction contrasts TAR, TJ and TS; §5 gives generic TJ results and examples; §6 Problems 6.2–6.3 state TS reconfiguration study as an open direction."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44007-025-00187-5",
+        "material_read": "Full open-access HTML with particular attention to introduction, definitions, §5 token jumping, §6 future problems; in-document searches for hypercube and token sliding.",
+        "method": "Read and searched indexed full HTML; compared specific implications of general results.",
+        "title": "Power Domination Reconfiguration",
+        "trigger": "Closest recent primary source on TS/TJ reconfiguration of PDS"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIMARY_PRIORITY_RISK; do not infer noncoverage from abstract alone.",
+        "evidence": [
+          "Abstract discusses known hypercube power-domination numbers and refutes Dean et al. conjecture, but no full material was inspected."
+        ],
+        "identifier_or_url": "https://www.yumpu.com/en/document/view/27830454/a-note-on-on-the-power-dominating-sets-of-hypercubes",
+        "material_read": "Accessible abstract/bibliographic text only; full conference paper inaccessible.",
+        "method": "Searched for lawful full text and reviewed indexed abstract; page viewer required JavaScript.",
+        "title": "A Note on “On the Power Dominating Sets of Hypercubes”",
+        "trigger": "Plausible original same-family conference paper addressing hypercube power domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30e6a8ea-15ed-44cb-9f82-574e53d68fee",
+  "value": {
+    "rationale": "The five-cube is the first dimension for which four monitoring units are required, following the smaller two-unit cube, and is the first natural nontrivial enumeration layer after the known hypercube cardinality bounds. Complete classification of its optimal placements by all Hamming symmetries and their move graph is a motivated robustness/reconfiguration invariant. The unexpected gap between total local slide immobility and global unrestricted exchange connectivity of exact radius five/diameter six is structurally informative; the exact degree spectrum supplies reusable finite benchmarks. The result is not just a known cardinality or an arbitrary numerical slice; no larger-dimensional extrapolation is suggested.",
+    "status": "PASS"
+  }
+}
