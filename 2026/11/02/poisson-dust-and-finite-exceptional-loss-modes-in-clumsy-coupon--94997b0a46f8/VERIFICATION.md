@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and claim boundaries
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 standard library. The recorded console output is stored in `CHECK_OUTPUT.txt`. The checker carries out exact rational finite Markov hitting-time calculations against the integral-derived generating function, rational one-defect transforms, and numerical convergence of finite heterogeneous profiles to the product-chain Laplace transform.
+## correctness
 
-The infinite result relies on the mathematical argument in RESULT.md: independent last-appearance marks, a stationary-target renewal convolution, uniform log-product convergence, a dominated limiting transform, and the coupon Gumbel theorem. Finite experiments do not certify these infinite steps, publication priority, or independence of evaluation. Only the explicitly stated domains and weak-convergence conclusions are proved. Independent audit was not performed.
+PASS
+
+Conditional on coupon-label history to full appearance, each type’s final refresh mark is independent stationary Bernoulli(p_i), independent of the label history and future marks. Thus C_m and W_m are independent. Poissonization with independent rate-one clocks gives all-present return kernel H_m(e^-t), and renewal at stationary hit yields a0/[s∫u^(s−1)H_m(u)du]. Max diffuse p→0 and bounded sum imply H_m→exp(c(u−1))∏(1−q_j+q_j u) uniformly; dominated convergence proves Laplace convergence. The continuous-time immigration–death plus finite flags process identifies a proper limit and the atom at zero. Gumbel coupon collector plus exact independence yields stated sum. Independent exact rational subset-state hitting equations reproduce finite PGF examples.
+
+## originality
+
+PASS
+
+Attrill–Garoni Theorem 4.10 already supplies common-loss p_m with mp_m→c and its Gumbel+immigration–death law; that r=0 homogeneous special case is not novel. The new statement allows arbitrary asymptotically diffuse loss profiles plus finitely many macroscopic exceptional types, identifies their survival as distinct two-state components and gives exact heterogeneous PGF. Published nonuniform global-reset coupon models have different sampling and reset mechanics.
+
+## value
+
+PASS
+
+The theorem identifies exactly which types of heterogeneity disappear under a critical scaling and which remain visible. A one-exception example produces a different atom from a homogeneous dust model, and exact finite transform supports calculation of real waiting distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

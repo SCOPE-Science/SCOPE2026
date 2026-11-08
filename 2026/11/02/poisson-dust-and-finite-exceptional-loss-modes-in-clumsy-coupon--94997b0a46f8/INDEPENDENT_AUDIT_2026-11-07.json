@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:49:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on coupon-label history to full appearance, each type’s final refresh mark is independent stationary Bernoulli(p_i), independent of the label history and future marks. Thus C_m and W_m are independent. Poissonization with independent rate-one clocks gives all-present return kernel H_m(e^-t), and renewal at stationary hit yields a0/[s∫u^(s−1)H_m(u)du]. Max diffuse p→0 and bounded sum imply H_m→exp(c(u−1))∏(1−q_j+q_j u) uniformly; dominated convergence proves Laplace convergence. The continuous-time immigration–death plus finite flags process identifies a proper limit and the atom at zero. Gumbel coupon collector plus exact independence yields stated sum. Independent exact rational subset-state hitting equations reproduce finite PGF examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard stationary return-kernel convolution is classical.",
+          "Gast studies random scanning of identical absorbing chains rather than nonabsorbing independent type refreshes."
+        ],
+        "reasoning": "General Markov hitting formulas make the derivation natural, but do not establish this heterogeneous asymptotic profile without the product and rare-dust analysis.",
+        "searches": [
+          "Resultary: clumsy coupon collector heterogeneous type-dependent loss probabilities critical limit exception Poisson queue",
+          "arxiv:1107.3385",
+          "stationary product Markov chain hitting resolvent"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md e1c596a1eb05392557de01bd092134e0d1bab6a3",
+        "Pinned check.py b89c365d62c9c6e50b88522b457d4af961235eb1",
+        "arxiv:2605.14206 §4 Theorem 4.10",
+        "arxiv:2605.14511",
+        "Resultary nonuniform global-reset hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneous result is recovered when r=0, p_i=c/m.",
+          "For r=1, c=0 the limit is (1−q)δ0 + q Exp(1−q), not the homogeneous dust law with c=q."
+        ],
+        "reasoning": "The independent exceptional finite state is a rigorous obstruction to treating all heterogeneous losses by one average, so the new claim is stronger than homogeneous scaling without pretending r=0 is novel.",
+        "searches": [
+          "arxiv:2605.14206 §§3–4 Theorem 4.10",
+          "Resultary: clumsy coupon collector heterogeneous type-dependent loss probabilities critical limit exception Poisson queue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Attrill–Garoni homogeneous mp_m→c gives G+τ_c, included as a known r=0 common-p special case.",
+          "Long addresses homogeneous fixed loss and global reset variants, not finite persistent type-specific losses."
+        ],
+        "reasoning": "Homogeneous limit is genuinely covered. The precise finite-exception laws are not obtained by equating total loss mass with c+∑q_j because the zero atoms differ.",
+        "searches": [
+          "Resultary: clumsy coupon collector heterogeneous type-dependent loss probabilities critical limit exception Poisson queue",
+          "arxiv:2605.14206 Theorem 4.10",
+          "arxiv:2605.14511"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nonuniform reset collector changes sampling weights and uses common global reset, whereas here each selected coupon is refreshed with its type-specific loss.",
+          "The one-exception law has mass 1−q at zero, versus exp(−q) for pure dust mass q."
+        ],
+        "reasoning": "Known table/problem uses distinct dynamics and so does not imply this exact hitting-time law.",
+        "searches": [
+          "Resultary: clumsy coupon collector heterogeneous type-dependent loss probabilities critical limit exception Poisson queue",
+          "Resultary hit 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+        ]
+      },
+      "rationale": "Attrill–Garoni Theorem 4.10 already supplies common-loss p_m with mp_m→c and its Gumbel+immigration–death law; that r=0 homogeneous special case is not novel. The new statement allows arbitrary asymptotically diffuse loss profiles plus finitely many macroscopic exceptional types, identifies their survival as distinct two-state components and gives exact heterogeneous PGF. Published nonuniform global-reset coupon models have different sampling and reset mechanics.",
+      "residual_risks": [
+        "Unindexed general stationary-hitting theorem may already imply heterogeneous product-chain formula.",
+        "Nonuniform coupon selection or q_j tending to 1 are not included.",
+        "No convergence of scaled moments asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_HOMOGENEOUS_SPECIAL_CASE",
+          "evidence": "Critical common-loss limit and immigration–death process already known; no nonuniform finite exceptional type profile in reviewed theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.14206",
+          "material_read": "Primary full PDF, especially Sections 3–4 and Theorem 4.10",
+          "method": "Full PDF read and screenshot of Theorem 4.10",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "Closest same stochastic dynamics"
+        },
+        {
+          "assessment": "RELATED_NOT_FULLY_READ",
+          "evidence": "Fixed homogeneous-loss/global-reset model distinct from independent selected-type heterogeneous marks.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+          "material_read": "Abstract and indexed model statements; full text not verified",
+          "method": "Bibliographic cross-comparison",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Competing collector process"
+        },
+        {
+          "assessment": "DIFFERENT_ABSORBING_CHAIN",
+          "evidence": "Bounds for identical absorbing chains do not directly provide the nonabsorbing mixed stationary hit law.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.3385",
+          "material_read": "Abstract and model description only",
+          "method": "Bibliographic model comparison",
+          "title": "Computing hitting times via fluid approximation",
+          "trigger": "General random scanning hitting technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies exactly which types of heterogeneity disappear under a critical scaling and which remain visible. A one-exception example produces a different atom from a homogeneous dust model, and exact finite transform supports calculation of real waiting distributions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md e1c596a1eb05392557de01bd092134e0d1bab6a3",
+    "Pinned check.py b89c365d62c9c6e50b88522b457d4af961235eb1",
+    "arxiv:2605.14206 §4 Theorem 4.10",
+    "arxiv:2605.14511",
+    "Resultary nonuniform global-reset hit"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact independence of ordinary appearance time and post-appearance recovery waiting time in heterogeneous clumsy coupon collection, exact stationary hitting PGF, and finite-persistent-defect plus diffuse-loss critical Gumbel/hitting-time limit.",
+  "limitations": [
+    "Only fixed number of exceptional types, q_j<1; diffuse residual sum finite and max→0.",
+    "Uniform iid coupon labels and time-independent independent marks."
+  ],
+  "residual_risks": [
+    "Unindexed general stationary-hitting theorem may already imply heterogeneous product-chain formula.",
+    "Nonuniform coupon selection or q_j tending to 1 are not included.",
+    "No convergence of scaled moments asserted."
+  ],
+  "schema_version": 1
+}
