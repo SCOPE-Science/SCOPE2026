@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The exact log-odds difference preserves order. The cycle is uniquely parameterized by a=8 atanh(t)/t; both transverse derivatives are 1+h and both tangential derivatives are 1-h with 0<h<2. The analytic center/odd normal form has summable squared imbalance and center errors before threshold, giving N=log(1/epsilon)/log(1+h)+O(1). Finite smooth preperiods yield a positive nonzero normal factor for every diagonal start not eventually equal to 1/2. Differentiation of h(t) proves strict monotonicity and sigma exp(a/4)->1 proves the high-gain exponent. Source theorem 3.9 supplies global diagonal convergence; finite numerical tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bielawski et al. treat EWA for a continuum of agents with a memory-loss variable.",
+        "Palaiopanos et al. study constant-step algorithms in congestion games and establish periodic/chaotic phenomena rather than this two-player original-iteration escape coefficient."
+      ],
+      "reasoning": "A general unstable-manifold principle predicts logarithmic escape given hyperbolicity, but does not directly provide the present map-specific strict high-gain dependence and phase-universal coefficient. No inspected source stated a dominating theorem for this map and observable.",
+      "searches": [
+        "arXiv:2201.10992 memory loss congestion games 2022",
+        "arXiv:1703.01138 multiplicative weights 2017",
+        "Chotibut Falniowski Misiurewicz Piliouras 2018 symmetric two-player multiplicative weights game delayed symmetry breaking logarithmic exit time"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1807.06831v1 (full accessible HTML)",
+      "arXiv:2201.10992 (selected full-text sections)",
+      "arXiv:1703.01138 (abstract)",
+      "arXiv:1906.02486 (abstract)",
+      "Published record summary: Singular symmetry-breaking threshold for the period-two orbit of a replicator map"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.9 identifies attraction on the invariant diagonal, not the time required to leave it under a transverse perturbation.",
+        "Theorem 4.1 gives a uniform finite-block transverse growth lower bound without an exact Lyapunov exponent or bounded offset.",
+        "Theorem 4.6 establishes convergence of genuinely off-diagonal orbits to equilibria without the sharp first-exit clock."
+      ],
+      "reasoning": "Neither individual prior theorem nor their immediate qualitative corollaries implies the exact time coefficient, strict gain monotonicity and high-gain exp(-a/4) scaling. The analytic bounded-distortion proof is the additional mathematical step.",
+      "searches": [
+        "arXiv:1807.06831v1 Theorems 3.9 4.1 4.6",
+        "arXiv:1906.02486 routing games aggregate dynamics",
+        "singular symmetry-breaking threshold for period-two orbit of a replicator map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chotibut et al., Equation (16), supplies normal multiplier along all diagonal points; Theorem 4.1 supplies finite-block expansion but no sharp first-separation time.",
+        "The logit coordinate changes the transverse norm by a factor bounded away from zero and infinity in the local cycle tube, so the same leading exit coefficient applies to logit separation."
+      ],
+      "reasoning": "The article contains the derivative ingredients but not the bounded-additive logarithmic hitting-time asymptotic. Coordinate equivalence does not turn the qualitative original theorems into the claimed quantitative theorem.",
+      "searches": [
+        "arXiv:1807.06831v1 Section 4 and Equation (16)",
+        "two-agent congestion game off diagonal x-y epsilon symmetry breaking near attracting diagonal two-cycle 2018 a>8 transverse multiplier",
+        "learning dynamics exact transverse multiplier periodic two strategy congestion game near symmetry large learning rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published replicator result concerns a parameter-asymmetry bifurcation threshold at a different two-strategy map, with an attracting symmetric period-two orbit at all finite couplings.",
+        "Other nearby results concern bounded-confidence switching or continuous separatrix delay, not the present two-agent update."
+      ],
+      "reasoning": "No retrieved exact table or record contains the map-specific escape coefficient as a covered special case. Semantic retrieval is incomplete and therefore absence of a hit is not treated as proof of novelty.",
+      "searches": [
+        "high learning rate slowdown of off-diagonal escape from diagonal period-two orbit symmetric congestion multiplicative weights",
+        "diagonal saddle periodic orbit nonlinear map exit time from initial distance epsilon log epsilon transverse multiplier",
+        "published mathematical findings on replicator-map symmetry-breaking period-two stability"
+      ]
+    },
+    "rationale": "The exact first-iteration separation clock and high-gain exponent are distinguished from the primary paper's normal Jacobian (Equation 16), finite-block repulsion (Theorem 4.1), diagonal attraction (Theorem 3.9), and global asymmetric selection (Theorem 4.6). The inspected later work uses a distinct continuum-agent memory update; other relevant papers and published findings were searched and compared by implication. Publication priority remains subject to unindexed and abstract-only sources.",
+    "residual_risks": [
+      "Abstract-only comparisons cannot exclude longer unpublished or full-text statements.",
+      "A generic hyperbolic saddle exit theorem might specialize to the leading logarithm; the map-specific exponential high-gain scaling and all-phase coefficient distinguish the considered claim, but publication priority requires independent literature review.",
+      "No independent review has verified all analytic estimates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary source: covers the map, cycle, normal derivative and convergence, not the exact first-separation escape law",
+        "evidence": [
+          "Equations (6), (7), (15), (16); Theorems 3.9, 4.1, 4.6, Corollary 4.7."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1807.06831v1",
+        "material_read": "Full arXiv HTML, introduction, dynamical map, symmetric diagonal Section 3.2, off-diagonal Section 4 including displayed equations, proofs and references",
+        "method": "Direct source text and theorem-level implication comparison",
+        "title": "Family of chaotic maps from game theory",
+        "trigger": "Same two-agent game map and claims of diagonal repulsion"
+      },
+      {
+        "assessment": "Different continuum-agent EWA model with memory loss, not first-separation time of a two-agent map",
+        "evidence": [
+          "Continuous-agent model and memory-loss formulation in the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.10992",
+        "material_read": "Accessible full HTML introduction and relevant model/dynamics sections",
+        "method": "Compare state space, update rule, hypotheses and claimed implications",
+        "title": "Unpredictable dynamics in congestion games: memory loss can prevent chaos",
+        "trigger": "Follow-up congestion-game dynamics and potential stronger asymptotics"
+      },
+      {
+        "assessment": "No decisive coverage established at this inspection depth; residual novelty risk retained",
+        "evidence": [
+          "Paper abstract describes limit cycles and chaos in congestion games."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.01138",
+        "material_read": "Abstract and bibliographic information, not full primary text",
+        "method": "Abstract-level comparison only",
+        "title": "Multiplicative Weights Update with Constant Step-Size in Congestion Games: Convergence, Limit Cycles and Chaos",
+        "trigger": "Earlier multiplicative-weights instability study"
+      },
+      {
+        "assessment": "Does not visibly address state-space separation clock for the present map; full-text priority uncertainty retained",
+        "evidence": [
+          "Paper abstract concerns route to chaos in routing-game dynamics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.02486",
+        "material_read": "Abstract and bibliographic information, not full text",
+        "method": "Abstract-level comparison only",
+        "title": "The route to chaos in routing games: When is price of anarchy too optimistic?",
+        "trigger": "Potential alternative or stronger routing dynamics result"
+      },
+      {
+        "assessment": "Study concerns parameter-asymmetry threshold in a different replicator map, not trajectory separation in the two-agent game map",
+        "evidence": [
+          "Summary: exact symmetry yields an attracting period-two replicator orbit for all finite couplings, unlike transverse repulsion in this map."
+        ],
+        "identifier_or_url": "Published mathematical finding, 2026-10-11",
+        "material_read": "Title and publicly retrieved summary only, not full source",
+        "method": "Compare perturbation, dynamical object, and claimed stability implication",
+        "title": "Singular symmetry-breaking threshold for the period-two orbit of a replicator map",
+        "trigger": "Closest semantic match to symmetry breaking near a period-two orbit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac69d0b9-c5ad-46b8-9fb4-127e3d51ad07",
+  "value": {
+    "rationale": "A natural quantifier of how long the symmetric mixed-strategy regime persists after a small player discrepancy, measured in actual game updates. The theorem proves a sharp leading coefficient for every nonexceptional synchronized starting strategy (not just one cycle point), with bounded additive error, and identifies the counterintuitive exponentially slow transverse escape as gain increases. It complements but does not rebrand published qualitative convergence results.",
+    "status": "PASS"
+  }
+}
