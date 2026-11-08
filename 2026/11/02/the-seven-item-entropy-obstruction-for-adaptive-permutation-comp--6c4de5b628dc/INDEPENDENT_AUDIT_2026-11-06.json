@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:01:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all labeled total orders, a depth-d complete comparison tree has 2^d distinct consistent leaves, giving floor(log2 n!) bound. Independently constructed exact permutation-incidence bitsets and evaluated the full OR-over-comparisons/AND-over-answer-branches dynamic recurrence for n=1 through n=7. Recovered Littlestone dimensions (0,1,2,4,6,9,11), with 77,927 exact cached seven-item state/depth evaluations; thus depth twelve is impossible, depth eleven attainable. The source supplies an additional 2048-leaf complete witness and a distinct transitive-poset linear-extension DP. VC dimension n-1 follows because arbitrary orientations of a forest extend to linear orders while a cyclic orientation does not. Grafting independent six-item shattered blocks yields Ldim(6s)>=9s and gap>=3s+1 for every s>=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "N. Alon, S. Moran, S. Moran, Sorting from Counterexamples, arXiv:2608.21579v1, accessible full HTML Introduction/Related Work: counterexample oracle differs from pairwise comparison",
+          "Agarwal, Agarwal, Assadi, Khanna, Learning with Limited Rounds of Adaptivity: ... Ranking from Pairwise Comparisons, PMLR 65 (2017), resource-bound model",
+          "Ghazi, Golowich, Kumar, Manurangsi, Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132 (2021), general bounds"
+        ],
+        "reasoning": "Generic Littlestone cardinality and closure inequalities apply to this class but leave the n=7 deficit undecided; algorithmic ranking top-k bounds target other resources and quantifiers.",
+        "searches": [
+          "Littlestone dimension permutations strict orders comparison queries seven elements mistake tree entropy upper bound",
+          "arxiv:2608.21579v1 Sorting from Counterexamples",
+          "PMLR 65 (2017) ranking from pairwise comparisons"
+        ]
+      },
+      "checked_sources": [
+        "N. Alon, S. Moran, S. Moran, Sorting from Counterexamples, arXiv:2608.21579v1, accessible full HTML Introduction/Related Work: counterexample oracle differs from pairwise comparison",
+        "Agarwal, Agarwal, Assadi, Khanna, Learning with Limited Rounds of Adaptivity: ... Ranking from Pairwise Comparisons, PMLR 65 (2017), resource-bound model",
+        "Ghazi, Golowich, Kumar, Manurangsi, Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132 (2021), general bounds",
+        "Read-only Resultary semantic query on Littlestone dimensions of permutation comparisons (2026-11-06)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N. Alon, S. Moran, S. Moran, Sorting from Counterexamples, arXiv:2608.21579v1, accessible full HTML Introduction/Related Work: counterexample oracle differs from pairwise comparison",
+          "Agarwal, Agarwal, Assadi, Khanna, Learning with Limited Rounds of Adaptivity: ... Ranking from Pairwise Comparisons, PMLR 65 (2017), resource-bound model",
+          "Ghazi, Golowich, Kumar, Manurangsi, Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132 (2021), general bounds"
+        ],
+        "reasoning": "The forest comparison-support characterization implies VCdim=n−1, which is excluded from novelty. Neither that static fact nor the upper cardinality bound implies Ldim(7)=11 or block-amplified adaptive gap.",
+        "searches": [
+          "Littlestone dimension permutations strict orders comparison queries seven elements mistake tree entropy upper bound",
+          "arxiv:2608.21579v1 Sorting from Counterexamples",
+          "PMLR 65 (2017) ranking from pairwise comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "N. Alon, S. Moran, S. Moran, Sorting from Counterexamples, arXiv:2608.21579v1, accessible full HTML Introduction/Related Work: counterexample oracle differs from pairwise comparison",
+          "Agarwal, Agarwal, Assadi, Khanna, Learning with Limited Rounds of Adaptivity: ... Ranking from Pairwise Comparisons, PMLR 65 (2017), resource-bound model",
+          "Ghazi, Golowich, Kumar, Manurangsi, Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132 (2021), general bounds"
+        ],
+        "reasoning": "The exact concept class is permutation comparisons / consistent orientations of a complete comparison graph. A counterexample-oracle sorting game selects whole permutations rather than Boolean pair queries, so matching sorting terminology is insufficient.",
+        "searches": [
+          "Littlestone dimension permutations strict orders comparison queries seven elements mistake tree entropy upper bound",
+          "arxiv:2608.21579v1 Sorting from Counterexamples",
+          "PMLR 65 (2017) ranking from pairwise comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "N. Alon, S. Moran, S. Moran, Sorting from Counterexamples, arXiv:2608.21579v1, accessible full HTML Introduction/Related Work: counterexample oracle differs from pairwise comparison",
+          "Agarwal, Agarwal, Assadi, Khanna, Learning with Limited Rounds of Adaptivity: ... Ranking from Pairwise Comparisons, PMLR 65 (2017), resource-bound model",
+          "Ghazi, Golowich, Kumar, Manurangsi, Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132 (2021), general bounds"
+        ],
+        "reasoning": "The exact n=1..7 finite Ldim table was compared against a live Resultary semantic search and PMLR/arXiv primary references. No indexed identical table identified; older poset-game tables are a residual risk.",
+        "searches": [
+          "Littlestone dimension permutations strict orders comparison queries seven elements mistake tree entropy upper bound",
+          "arxiv:2608.21579v1 Sorting from Counterexamples",
+          "PMLR 65 (2017) ranking from pairwise comparisons"
+        ]
+      },
+      "rationale": "Known VC dimension of permutation comparisons follows from forest supports and is expressly background. Alon–Moran–Moran 2026 studies sorting when the learner proposes a *whole permutation* and receives a counterexample, not a single adaptively chosen pairwise query. Agarwal et al. analyze limited-round top-k ranking with different resources; Littlestone closure bounds are not exact classifications. Resultary semantic lookup found no same seven-element decision-tree table. Earlier balanced comparison/poset literature could contain an equivalent finite classification, hence qualified originality.",
+      "residual_risks": [
+        "The finite n=7 upper bound is backed by exhaustive exact state search; reproducibility depends on correct bitset set membership and branching, not a formal proof assistant.",
+        "Older online sorting, balanced-order splitting or linear-extension literature may imply table without using Littlestone terminology.",
+        "No global all-n Littlestone formula; independent computation does not imply one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Learner submits full permutation and receives a counterexample, not the pairwise adaptive Boolean query model; no implication of n=7 exact Ldim",
+          "evidence": [
+            "Introduction and Related Work explain different oracle and complexity notion"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.21579v1",
+          "material_read": "Accessible full HTML Introduction and Related Work including model and proof overview",
+          "method": "Primary HTML inspection",
+          "title": "Sorting from Counterexamples",
+          "trigger": "2026 paper about sorting and comparisons, possibly dominating theorem"
+        },
+        {
+          "assessment": "Limited adaptivity/noisy top-k ranking cannot be used as exact complete binary shattering value",
+          "evidence": [
+            "PMLR 65 (2017) title/abstract and ranking problem setting"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v65/agarwal17c.html",
+          "material_read": "Conference publication abstract and source package ranking context; full technical text not exhaustively read",
+          "method": "Accessible conference page and domain comparison",
+          "title": "Learning with Limited Rounds of Adaptivity: Coin Tossing, Multi-Armed Bandits, and Ranking from Pairwise Comparisons",
+          "trigger": "Same comparisons with different adaptive ranking goals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first entropy-bound failure at seven alternatives is a natural exact extremal threshold of adaptive comparison learning. Its exhaustive finite obstruction is a complete classification, while the block construction yields an unbounded adaptive-versus-static shattering separation in a canonical concept class.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "N. Alon, S. Moran, S. Moran, Sorting from Counterexamples, arXiv:2608.21579v1, accessible full HTML Introduction/Related Work: counterexample oracle differs from pairwise comparison",
+    "Agarwal, Agarwal, Assadi, Khanna, Learning with Limited Rounds of Adaptivity: ... Ranking from Pairwise Comparisons, PMLR 65 (2017), resource-bound model",
+    "Ghazi, Golowich, Kumar, Manurangsi, Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132 (2021), general bounds",
+    "Read-only Resultary semantic query on Littlestone dimensions of permutation comparisons (2026-11-06)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite n=7 upper bound is backed by exhaustive exact state search; reproducibility depends on correct bitset set membership and branching, not a formal proof assistant.",
+    "Older online sorting, balanced-order splitting or linear-extension literature may imply table without using Littlestone terminology.",
+    "No global all-n Littlestone formula; independent computation does not imply one."
+  ],
+  "residual_risks": [
+    "The finite n=7 upper bound is backed by exhaustive exact state search; reproducibility depends on correct bitset set membership and branching, not a formal proof assistant.",
+    "Older online sorting, balanced-order splitting or linear-extension literature may imply table without using Littlestone terminology.",
+    "No global all-n Littlestone formula; independent computation does not imply one."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: the seven-item comparison-tree obstruction
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact values up to seven are supported by six explicitly provided, complete binary comparison trees and their leaf-permutation witnesses. For sizes through six, the number of permutations supplies matching upper bounds. At seven, a complete recursion over seven-item transitive partial orders excludes an eleven-level continuation after any initial answer, hence excludes a depth-twelve full tree. A separate brute bitset recursion over all 5,040 permutations returns the same upper bound. These checks use exact finite arithmetic; the separate unrestricted proofs of forest support and block concatenation justify the VC baseline and the unbounded-gap inequality.
+## correctness
 
-**Originality — PASS subject to stated priority risk.** The distinguishing new claim is the exact adaptive sequence, especially the first failure of the \(\lfloor\log_2(n!)\rfloor\) ceiling at seven and the gap amplification. The general finite-poset VC formula already covers the static \(n-1\) result and is explicitly treated as background. Direct searches for Littlestone dimensions of permutation comparison classes, adaptive sorting trees, and equivalent full-binary order-query trees produced no stronger covering result in the accessible literature and research index. Agarwal et al. (2017) concern limited-round top-\(k\) noisy ranking, Alon et al. (2018) furnish broad learning-theoretic context, Ghazi et al. (2021) prove general closure estimates, and Alon et al. (2026) examine counterexample-oracle learning where the learner submits entire rankings. The inspected statements do not entail the seven-item computation. A broader historical search of classical sorting/teaching-dimension terminology remains warranted; no uniqueness-of-discovery guarantee is asserted.
+PASS
 
-**Mathematical value — PASS.** The comparison-query dimension is the optimal adversarial online mistake-bound invariant for unknown total orders. A sharp first departure from the information-theoretic upper bound is a natural, non-arbitrary boundary; the independent finite obstruction explains why mere hypothesis count is insufficient. Grafting six-item trees into unrestricted larger-order classes proves a linear adaptive-minus-static separation, not just an isolated small counterexample.
+For all labeled total orders, a depth-d complete comparison tree has 2^d distinct consistent leaves, giving floor(log2 n!) bound. Independently constructed exact permutation-incidence bitsets and evaluated the full OR-over-comparisons/AND-over-answer-branches dynamic recurrence for n=1 through n=7. Recovered Littlestone dimensions (0,1,2,4,6,9,11), with 77,927 exact cached seven-item state/depth evaluations; thus depth twelve is impossible, depth eleven attainable. The source supplies an additional 2048-leaf complete witness and a distinct transitive-poset linear-extension DP. VC dimension n-1 follows because arbitrary orientations of a forest extend to linear orders while a cyclic orientation does not. Grafting independent six-item shattered blocks yields Ldim(6s)>=9s and gap>=3s+1 for every s>=1.
 
-**Limits.** The exhaustive exclusion is finite and proves only the stated seven-item threshold. No arbitrary-size closed formula is established. Exact computation, source-level reproducibility, and a complete finite witness do not replace independent scientific audit or definitive historical-priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known VC dimension of permutation comparisons follows from forest supports and is expressly background. Alon–Moran–Moran 2026 studies sorting when the learner proposes a *whole permutation* and receives a counterexample, not a single adaptively chosen pairwise query. Agarwal et al. analyze limited-round top-k ranking with different resources; Littlestone closure bounds are not exact classifications. Resultary semantic lookup found no same seven-element decision-tree table. Earlier balanced comparison/poset literature could contain an equivalent finite classification, hence qualified originality.
+
+## value
+
+PASS
+
+The first entropy-bound failure at seven alternatives is a natural exact extremal threshold of adaptive comparison learning. Its exhaustive finite obstruction is a complete classification, while the block construction yields an unbounded adaptive-versus-static shattering separation in a canonical concept class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
