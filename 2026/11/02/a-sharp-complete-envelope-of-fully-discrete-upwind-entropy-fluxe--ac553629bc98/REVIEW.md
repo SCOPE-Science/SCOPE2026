@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(N\ge3\), independent choice of the two neighbors yields necessary upper and lower bounds on the shared entropy flux after applying the physical consistency condition. The exact entropy production identity establishes sufficiency for **every** state vector and every cell. The upper and lower endpoints themselves are admissible. At Courant number greater than one they contradict each other for unequal pair states. The polynomial corollary follows from a degree-two divisibility factorization. The comparison interval was derived directly from Section 3.2 of the motivating primary source. A standard-library exact-rational checker passed 12,072 supplementary cases. No infinite theorem is inferred from finite tests.
+PASS
 
-## Originality — PASS under documented access limits
+For periodic N>=3 upwind forward Euler v_i=(1-nu)u_i+nu u_{i-1} and consistent shared H(a,a)=U(a)=a^2/2, choose neighboring states (left,center,right)=(a,a,b) to force H(a,b)<=U(a), and (a,b,b) to force H(a,b)>=U(a)-(1-nu)(a-b)^2/2. At nu>1 these inequalities contradict each other for any a!=b. For 0<nu<=1 let J=U-H; the pointwise envelope is exactly 0<=J(a,b)<=(1-nu)(a-b)^2/2. Direct identity for any neighboring triple gives cell dissipation nu[(1-nu)(a-left)^2/2 +J(a,right)-J(left,a)]>=0, proving necessity and sufficiency without smoothness of H or bounded-state assumptions. Consistent quadratic polynomial H are exactly U(a)-k(a-b)^2 with 0<=k<=(1-nu)/2. Substituting the source half-cell bounds yields k<=1/2-nu, strictly narrower and void for nonconstant interfaces when nu>1/2. Independent rational counterexamples/witnesses check bounds; finite checks are not the universal proof.
 
-The motivating source gives a sufficient half-cell interval and does not assert necessary conditions for all consistent two-point entropy fluxes. Substituting the upwind flux and quadratic entropy gives a strict, exactly computable difference between its sufficient range and the complete range obtained here; for \(1/2<\nu\le1\) the sufficient range is empty for nonconstant interface pairs while the complete interval remains nonempty. Other flux-correction theories were inspected for potential stronger coverage. Historical-publishing priority is not certified: classical fully discrete entropy flux theories may use equivalent language, and relevant literature beyond accessible primary material remains a residual risk. Ordinary upwind stability and Jensen's inequality are not claimed as new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete pointwise envelope is a natural classification without smoothness or polynomial assumptions; it is a sharp local feasibility boundary, not a selected benchmark parameter. Its exact distinction from a contemporary projection-based sufficient interval has potential use in understanding stability budgets and Courant restrictions. The result does not establish an alternative high-order DG algorithm or performance improvement.
+Best-of-knowledge PASS subject to particularly significant coverage risk: the motivating 2026 source supplies a sufficient half-cell inequality, not an advertised complete classification in material accessible here. It was not possible to inspect its full text; therefore no whole-paper noncoverage is asserted. Classical entropy-flux theory may contain an equivalent necessary-and-sufficient specialization.
 
-## Closest literature and limits
+## value
 
-The closest direct comparison is Liu, Jiang, and Zhang, arXiv:2610.30535v1, Section 3.2, equations (20)--(23). Other examined relevant sources include Kuzmin, Hajduk and Rupp, arXiv:2107.11283, and Kivva, arXiv:2004.02258. The proof concerns unrestricted real first-order upwind data with the fixed quadratic entropy. It is not a counterexample to the source's sufficient theorem. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exact necessary-and-sufficient interval for every consistent shared 2-point entropy flux, including nonsmooth functions, identifies a genuine conservatism and empty-but-feasible regime in a natural numerical entropy stability construction. The classification is useful in designing/validating entropy-flux limiters despite its deliberately simple scalar model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

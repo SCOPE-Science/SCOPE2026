@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For periodic N>=3 upwind forward Euler v_i=(1-nu)u_i+nu u_{i-1} and consistent shared H(a,a)=U(a)=a^2/2, choose neighboring states (left,center,right)=(a,a,b) to force H(a,b)<=U(a), and (a,b,b) to force H(a,b)>=U(a)-(1-nu)(a-b)^2/2. At nu>1 these inequalities contradict each other for any a!=b. For 0<nu<=1 let J=U-H; the pointwise envelope is exactly 0<=J(a,b)<=(1-nu)(a-b)^2/2. Direct identity for any neighboring triple gives cell dissipation nu[(1-nu)(a-left)^2/2 +J(a,right)-J(left,a)]>=0, proving necessity and sufficiency without smoothness of H or bounded-state assumptions. Consistent quadratic polynomial H are exactly U(a)-k(a-b)^2 with 0<=k<=(1-nu)/2. Substituting the source half-cell bounds yields k<=1/2-nu, strictly narrower and void for nonconstant interfaces when nu>1/2. Independent rational counterexamples/witnesses check bounds; finite checks are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These concern entropy-stabilizing flux-correction/limiter frameworks for general hyperbolic equations, with broader methods but no exact present elementary 2-point classification established by accessible abstracts."
+        ],
+        "reasoning": "Generality of the equation/limiter alone is not a dominating theorem for all consistent H; avoid claiming full text disproof without material access.",
+        "searches": [
+          "Kuzmin–Hajduk–Rupp arXiv:2107.11283",
+          "Kivva arXiv:2004.02258"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.30535",
+        "https://arxiv.org/abs/2107.11283",
+        "https://arxiv.org/abs/2004.02258",
+        "Resultary: fully discrete upwind cell entropy inequality exact numerical entropy flux pointwise necessary sufficient interval quadratic entropy",
+        "Liu–Jiang–Zhang arXiv:2610.30535v1 Section 3.2 identified in source bibliography",
+        "Kuzmin–Hajduk–Rupp arXiv:2107.11283",
+        "Kivva arXiv:2004.02258",
+        "Resultary exact fully discrete quadratic upwind entropy-flux interval query",
+        "arXiv:2610.30535v1 paper metadata",
+        "Liu–Jiang–Zhang arXiv:2610.30535v1",
+        "Kuzmin–Hajduk–Rupp arXiv:2107.11283",
+        "Kivva arXiv:2004.02258"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known half-cell sufficiency is weaker and cannot imply necessity; general flux correction approaches can be compatible with but do not automatically classify every state-independent shared two-point H."
+        ],
+        "reasoning": "No decisive derivation from accessible prior statements. A full-paper verification of the directly relevant source was blocked, retained explicitly as major residual risk, so PASS is best-of-knowledge rather than definitive historical priority.",
+        "searches": [
+          "Liu–Jiang–Zhang arXiv:2610.30535v1",
+          "Kuzmin–Hajduk–Rupp arXiv:2107.11283",
+          "Kivva arXiv:2004.02258"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source result specializes half-cell sufficient interval to U(a)-(1/2-nu)(a-b)^2 <= H <= U(a); the claimed all-state necessary-and-sufficient lower endpoint is U(a)-(1-nu)(a-b)^2/2."
+        ],
+        "reasoning": "For 0<nu<=1/2 the half-cell interval is a strict subset and for nu>1/2 can be empty while exact admissible interval nonempty, so the stated sufficient criterion alone does not imply the exhaustive classification; full motivating paper inaccessible, possibility of later stronger statements remains open.",
+        "searches": [
+          "Resultary: fully discrete upwind cell entropy inequality exact numerical entropy flux pointwise necessary sufficient interval quadratic entropy",
+          "Liu–Jiang–Zhang arXiv:2610.30535v1 Section 3.2 identified in source bibliography"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned other entropy articles, no exact (1-nu)/2 envelope table. Accessible paper abstract does not provide a two-point flux exhaustive table."
+        ],
+        "reasoning": "A negative semantic search is not a priority determination; this check is qualified by inaccessible full text and older classical numerical entropy theory.",
+        "searches": [
+          "Resultary exact fully discrete quadratic upwind entropy-flux interval query",
+          "arXiv:2610.30535v1 paper metadata"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS subject to particularly significant coverage risk: the motivating 2026 source supplies a sufficient half-cell inequality, not an advertised complete classification in material accessible here. It was not possible to inspect its full text; therefore no whole-paper noncoverage is asserted. Classical entropy-flux theory may contain an equivalent necessary-and-sufficient specialization.",
+      "residual_risks": [
+        "Directly relevant motivating paper full text inaccessible (authorized VPN disconnected) and older flux-correction results not fully inspected; noncoverage is NOT asserted for their unread portions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full text inaccessible: CANNOT assert this full paper is not covering; compare only specifically identified half-cell criterion and record unresolved coverage risk",
+          "evidence": "Reported primary Eq (20)–(23) half-cell criterion is only a sufficient bound; direct full-text inspection unavailable.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30535",
+          "material_read": "Public abstract/metadata and specific Section 3.2 equations as transcribed and algebraically specialized in assigned RESULT; full primary paper NOT independently read",
+          "method": "Lawful open-access HTML/PDF attempts unsuccessful; authorized institutional attempt returned VPN disconnected, job 19db698263ae214a97deaa756079e185",
+          "title": "High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations (Liu, Jiang, Zhang)",
+          "trigger": "Motivating near-exact model and half-cell conditions"
+        },
+        {
+          "assessment": "General limiter framework, possible precise specialization remains residual risk",
+          "evidence": "Title/abstract concern flux-correction inequalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.11283",
+          "material_read": "Abstract and accessible summary; not complete full text",
+          "method": "Primary arXiv metadata/abstract",
+          "title": "Limiter-based entropy stabilization of semi-discrete and fully discrete schemes for nonlinear hyperbolic problems (Kuzmin, Hajduk, Rupp)",
+          "trigger": "Potential older dominating entropy stabilization theorem"
+        },
+        {
+          "assessment": "Relevant scalar flux correction but no accessible exact universal H statement; full noncoverage cannot be claimed",
+          "evidence": "Scalar entropy stability via numerical flux correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.02258",
+          "material_read": "Abstract and accessible summary, not the complete text",
+          "method": "Primary arXiv metadata/abstract",
+          "title": "Entropy stable flux correction for scalar hyperbolic conservation laws (Kivva)",
+          "trigger": "Exact scalar fully discrete entropy flux prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete exact necessary-and-sufficient interval for every consistent shared 2-point entropy flux, including nonsmooth functions, identifies a genuine conservatism and empty-but-feasible regime in a natural numerical entropy stability construction. The classification is useful in designing/validating entropy-flux limiters despite its deliberately simple scalar model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar first-order linear upwind + quadratic entropy only; periodic N>=3, physical consistency, one forward Euler step; does not extend automatically to high-order DG or bounded-state domains.",
+    "Directly relevant motivating paper full text inaccessible (authorized VPN disconnected) and older flux-correction results not fully inspected; noncoverage is NOT asserted for their unread portions.",
+    "Unchanged confidential public metadata/audit field prevents automatic publication; this is a transport/privacy blocker, not a scientific C/O/V failure.",
+    "This scientific review is neither expert attestation nor Lean verification and makes no invented certification claim."
+  ],
+  "schema_version": 1
+}
