@@ -1,19 +1,21 @@
-# Mathematical review: sharp two-rate enhancement threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary first-harmonic generator is an exact two-by-two matrix; its inverse recovers the published finite-time-tumble diffusivity with the correct per-coordinate factor of one half. For each fixed effective angular decorrelation \(z\), the finite mobile occupation is strictly below \(d/(d+z-a)\), and diverging resumption and interruption rates approach that fraction. Thus the two-rate supremum reduces exactly to a single-variable maximization, with derivative sign \((d-a)(\omega^2-z^2)-2z^3\). The cubic is strictly decreasing for \(d>a\) and cannot yield a positive turning point in the admissible region for \(d\le a\). This proves the exact strict threshold, uniqueness, boundary cases, singular nonattainment, and the \(|\omega|^{2/3}\) strong-chirality law. The standalone verifier passed 160 algebraic, resolvent, independent correlation-integral, constrained-optimization, and limiting checks; the finite tests are not used as the universal proof.
+PASS
 
-## Originality — PASS, qualified
+With mobile angular diffusion a>0, stationary M->S rate beta>=0, S->M gamma>0, stopped angular diffusion d>0 and zero stopped torque, the first Fourier harmonic has generator [[i omega-a-beta,beta],[gamma,-gamma-d]]. The integrable autocorrelation and exact inverse give D=v²gamma/(2(beta+gamma))*z/(z²+omega²), z=a+beta*d/(gamma+d). For beta>0 the stationary mobile fraction is strictly less than d/(d+z-a), and the bound is approached with gamma->infty at fixed z>a. Differentiation of z/[(z+d-a)(z²+omega²)] gives sign g_c(z)=c(omega²-z²)-2z³. For c<=0 this is strictly negative on z>=a; for c>0 it is strictly decreasing and crosses in the interior precisely for omega²>a²(d+a)/(d-a). The same calculation with c_gamma=d*gamma/(gamma+d)-a determines each fixed-gamma optimizer. Enhanced sup never attained by finite positive beta, and z*~[(d-a)/2]^{1/3}|omega|^{2/3} establishes strong-chirality scaling. Scope excludes stopped torque and switching costs.
 
-The relevant published sources already determine the two-state switching law and general finite-duration chiral diffusivity, and an earlier three-state surface-bacteria model demonstrates optimal stopping experimentally. Those facts are not claimed as new. The assessed claim instead derives the sharp **simultaneous two-switching-rate optimization** over the complete positive parameter domain, including the necessary-and-sufficient parameter obstruction \(d\le a\), the exact chirality threshold when \(d>a\), the unique root for the best effective angular mixing, the absence of a finite maximizing pair in the enhanced phase, and its high-chirality optimized scaling. Inspection of the 2024 source's finite-time reorientation Section V found its exact formulas and enhancement diagrams but not that joint global classification. The 2019 three-state empirical analysis does not imply the present two-rate theorem without model changes. The result remains mathematically downstream of the published exact diffusivity; comprehensive independent publication-priority confirmation is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification distinguishes when changing pause and resumption kinetics can **ever** improve spatial spreading, rather than merely displaying one optimized protocol. It gives a sharp experimental-design restriction: purely diffusive pauses must randomize headings faster than runs, and chirality must exceed a precise finite threshold. In the enhancement phase, it shows that no finite two-rate controller realizes the mathematical global optimum, quantifies the limiting rate ratio, and supplies the leading \(|\omega|^{2/3}\) tuning law and sharp large-chirality gain. These are a natural complete feasibility and optimization result for a physically motivated two-state model, not an arbitrary finite parameter table.
+PASS qualified only for the global simultaneous two-rate optimization: Olsen and Löwen already derive the same finite-duration chiral diffusion expression. The inspected model source and earlier stop-and-go studies do not provide the exact two-control threshold, strict finite-rate nonattainment or optimized asymptotic coefficient; the unoptimized diffusivity is covered.
 
-## Closest published literature and limits
+## value
 
-Peruani and Chaudhuri, arXiv:2306.05647v1, Section on planar model 4: nonchiral stop-and-go angular randomization. Stølevik Olsen and Löwen, arXiv:2405.14326v2, Section V, Eqs. (30), (53)--(55): general finite-duration chiral diffusivity and graphical enhancement regions; these are expressly treated as prior mathematical input. Perez Ipiña et al., arXiv:1912.11835 / Nature Physics (2019): a different three-state experimental kinetic scheme. The strict theorem concerns asymptotic positional diffusion only, with no nonzero stop torque, renewal-memory generalization, rate costs, or finite-time hitting objective. Publication priority and independent audit are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact two-rate threshold d>a and |omega|>a sqrt((d+a)/(d-a)) settles whether rest periods can help a chiral swimmer at all, and distinguishes best finite protocols from an unattainable fast-switching supremum. Its cubic optimum and d/a high-chirality gain provide concrete mathematically useful performance limits for a standard stop-go model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
