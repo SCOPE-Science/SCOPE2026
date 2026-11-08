@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Install the declared dependency in `verification/requirements.txt`, then run `python verification/verify.py` from the package root. The script passes 145 exact symbolic/rational assertions on SymPy 1.14.0. Its claims include independent Bernoulli-state enumeration for the gain function, exact formulas for the six-person reward polynomial, its stationary points and levels, the four strictly interior algebraic roots at \(c=b/3\), vector-field sign alternation, and a symbolic discriminant for the only potentially exceptional five-person coefficient pattern.
+## correctness
 
-The proof covers arbitrary positive real rewards and costs using Descartes' rule, cubic root classification, and a direct critical-point analysis. Exact finite rational tests alone would not establish the universal result; they supplement the proof. No exhaustive classification of models outside the two-stage strictly interior assumptions is claimed. There has been no independent audit or independent numerical reproduction beyond the indicated checks.
+PASS
+
+PASS. Exact binomial pivotality derives G(x). For N≤4 endpoint signs and degree exclude >2 distinct interior roots; for N=5 Descartes excludes 4 roots except k=(2,4), where Q(t)=A−3At+3Bt²−Bt³ has discriminant −108AB(A−B)²≤0 and unique positive critical point, proving unimodality. For N=6 k=(2,5), the centered quartic F/b=5/16+(5/2)y²−15y⁴ has maxima 5/12, valley 5/16 and four simple alternating stable/unstable roots precisely for 5b/16<c<5b/12. Symbolic checks verify algebra only.
+
+## originality
+
+PASS
+
+PASS, qualified: known one-good volunteer games and general Bernstein sign-variation theory do not state the tight N≤5 two-threshold obstruction or the exact N=6 two-peak cost window. The five-player exceptional cubic discriminant is additional to generic variation bounds. Some older specialized multigood literature may be inaccessible.
+
+## value
+
+PASS
+
+PASS. Smallest group size permitting two attracting mixed volunteer frequencies under two positive monotone threshold goods is a natural sharp dynamical boundary; N5 obstruction and N6 exact cost window are useful reproducible model classifications, not empirical extrapolations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
