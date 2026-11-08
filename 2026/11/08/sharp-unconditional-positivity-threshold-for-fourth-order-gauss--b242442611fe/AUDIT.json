@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Four mutually orthogonal Laplacian projectors have eigenvalues 0, b(pt+q), bp, b(p+q). Exact rational projectors yield the three offdiagonal entry identities. Positive denominators and F(z)>0 prove diagonals positive, and the clique offdiagonal quadratic has positive terms precisely when qt≤p+2q. Above that threshold its leading coefficient is negative while the other coefficients are positive, implying exactly one positive sign crossing. The replayed SymPy verifier confirms rational identities and 384 exact full-matrix and 108 negative-witness cases, supplemental to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2012 positive-systems paper supplies a generator-dependent sufficient finite-step test under Hurwitz stability; a conservative weighted graph Laplacian has a zero eigenvalue, so its Theorem 3 does not directly apply, still less classify all h.",
+        "Lóczi–Ketcheson establishes zero [2/2] universal absolute-monotonicity radius, a worst-case result that cannot exclude positivity for this restricted graph family.",
+        "Existing unweighted graph cases do not determine the threshold under independently varying clique-to-cross edge ratios."
+      ],
+      "reasoning": "The strongest inspected general results are either sufficient local conditions, universal negative obstructions, or unweighted special cases. The new statement includes all t≥0 and both signs of the sharp threshold; these are not logical consequences of the inspected stronger-looking statements.",
+      "searches": [
+        "published-finding corpus: weighted graph Laplacian rational Padé approximant positivity semigroup preserving step size on complete bipartite graph",
+        "published-finding corpus: weighted join clique independent set Laplacian eigenvalue rational Runge Kutta Gauss Legendre positivity threshold",
+        "Web: \"weighted split graph\" \"fourth-order\" Padé positivity",
+        "Web: \"complete split graph\" \"positivity-preserving\" time discretization"
+      ]
+    },
+    "checked_sources": [
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://arxiv.org/abs/1303.6651",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+      "https://doi.org/10.1016/j.dam.2016.01.003"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zappavigna et al. (2012), Theorem 3 assumes a Hurwitz stable Metzler generator and derives a sufficient h≤h*. Here −L is conservative with a zero eigenvalue, and the goal is an all-h if-and-only-if classifier.",
+        "Lóczi–Ketcheson (2013/2014): R_{2/2,4}=0, not a statement about this restricted graph.",
+        "Public published-finding corpus 2026 eight-state Padé result: directed pure-birth small-step obstruction and exact stochasticity window, not a symmetric split graph all-step threshold.",
+        "Current computation: T_CC has numerator 12x[α(p+2q−qt)x²+6αx+12t], with α=pt+q and x=bh."
+      ],
+      "reasoning": "A conservative weighted graph generator is not Hurwitz, so the conditional finite-step positivity theorem cannot be directly specialized to it. The generic worst-case negativity and directed eight-state result cannot determine the edge-orbit-weighted all-step boundary. Unweighted split and triangle cases are proper special cases, not the entire claim.",
+      "searches": [
+        "published-finding corpus: complete bipartite graph fourth order Gauss Legendre rational heat equation entrywise positivity preservation for all step sizes positivity threshold unequal parts",
+        "published-finding corpus: Gauss Legendre fourth order Padé all step positivity on weighted complete split graphs clique of p vertices joined to q independent vertices, within clique edge weight t relative to cross edge weight 1 exact threshold t at 2+p/q",
+        "Web: \"Gauss-Legendre\" \"complete split\" matrix stochastic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zappavigna et al., full preprint Sections 4 and Theorem 3, https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "Lóczi–Ketcheson, 2013 arXiv preprint (2014 journal), Section 2.2.1, https://arxiv.org/abs/1303.6651",
+        "The weighted split family has three nonzero eigenvalue subspaces and a clique-transition numerator with a sharp coefficient sign change; this is neither a uniform-in-generator absolute-monotonicity radius nor a discrete-time fastest-mixing optimization."
+      ],
+      "reasoning": "Aliases include the two-stage fourth-order Gauss–Legendre method, diagonal [2/2] Padé discretization, complete split graph K_p join independent K_q, and symmetric Laplacian heat flow. The inspected general absolute-monotonicity and nonconservative positive-system statements do not entail this all-step edge-orbit-weighted threshold.",
+      "searches": [
+        "published-finding corpus: Gauss Legendre fourth order Padé all step positivity on weighted complete split graphs clique of p vertices joined to q independent vertices, within clique edge weight t relative to cross edge weight 1 exact threshold t at 2+p/q",
+        "published-finding corpus: graph-heat positivity threshold K_p join edgeless K_q weighted clique all h fourth order rational method",
+        "Web: \"Gauss Legendre\" \"split graph\" \"positivity\" Laplacian",
+        "Web: \"Padé\" \"split graph\" \"positivity\" heat"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching all-step parameter table, database formula or published classification appeared among the inspected published-finding corpus hits or primary-source results.",
+        "Das–Liu (2016), https://doi.org/10.1016/j.dam.2016.01.003, has an accessible abstract concerning unweighted spectral determination, not a time-step positivity table."
+      ],
+      "reasoning": "A missing search hit does not prove priority; nevertheless the inspected exact sources do not tabulate the threshold t=2+p/q or the unique post-threshold crossing. The inaccessible spectrum paper is explicitly retained as a lower-probability access risk.",
+      "searches": [
+        "published-finding corpus: Gauss Legendre fourth order Padé all step positivity on weighted complete split graphs clique of p vertices joined to q independent vertices, within clique edge weight t relative to cross edge weight 1 exact threshold t at 2+p/q",
+        "Web: \"weighted complete split\" \"Gauss-Legendre\" diffusion",
+        "Web: \"Complete split graph determined by its (signless) Laplacian spectrum\" pdf"
+      ]
+    },
+    "rationale": "A source-by-source comparison of the 2012 Padé positive-systems paper, the 2013 [2/2] absolute-monotonicity paper, a relevant public Markov-Padé research finding, the 2016 split-spectrum bibliographic record, and recoverable historical statements found no theorem whose hypotheses and conclusion imply the complete two-parameter weighted split threshold. The unweighted and other proper special cases are excluded from independent novelty claims. Full specialist coverage cannot be guaranteed.",
+    "residual_risks": [
+      "Exact full text for Das–Liu (2016) was not accessible through the checked open routes; its published abstract concerns a different spectral-determination question.",
+      "An unindexed weighted-network Padé positivity result could establish this special structure; no exhaustive priority claim is made.",
+      "Historical records were used only for overlap and never re-certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general sufficient finite-step conditions and negative examples, but no exact all-step weighted complete-split threshold.",
+        "evidence": [
+          "Section 4 Theorem 3 expresses h* from Metzler-matrix and squared-matrix entries; no ratio t≤2+p/q.",
+          "January 3, 2012 on preprint title page; 2012 publication.",
+          "Theorem 3 explicitly assumes Hurwitz stability and provides a finite sufficient h*; conservative graph heat requires an all-h comparison beyond its hypotheses."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Author-hosted complete preprint, with introduction, relevant Section 4 including Theorem 3 and the eight-state counterexample examined; document-wide searches for split graph and Laplacian.",
+        "method": "Examined relevant text and rendered PDF pages, and searched the full document for graph-family aliases. Theorem 3 assumes a Hurwitz-stable Metzler generator, whereas the conservative graph generator has an eigenvalue at zero.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Directly treats higher-order diagonal Padé methods and preservation of positive linear systems."
+      },
+      {
+        "assessment": "No weighted split graph all-step classification; R_{2/2,4}=0 does not imply or subsume the current structural bound.",
+        "evidence": [
+          "Section 2.2.1 states R_{2/2,4}=0.",
+          "The study concerns rational-function absolute-monotonicity maxima and general RK methods."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "Introduction and Section 2.2.1 of the accessible complete journal PDF; rendered pages and text searches across the PDF for Laplacian, split graph and Markov; arXiv metadata confirms first posting March 26, 2013.",
+        "method": "Inspected relevant sections and screen-rendered pages; document-wide text searches showed no graph-Laplacian or split-graph treatment. This is not a claim of page-by-page reading of all unrelated parameter sections.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Defines fourth-order [2/2] Padé rational map and its positivity/absolute-monotonicity limitations."
+      },
+      {
+        "assessment": "No logical coverage: its construction is an eight-state pure-birth chain and its theorem is a minimal state-space obstruction.",
+        "evidence": [
+          "The RESULT defines a directed upper-bidiagonal generator Q* and a dimension-8 small-step failure; no split graph conductance classification."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+        "material_read": "Entire public RESULT.md, including theorem, proof and context.",
+        "method": "Read repository file and compared directed conservative generator and short-step window with symmetric weighted graph all-step question.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "High semantic similarity in published research index for the same Padé stability map."
+      },
+      {
+        "assessment": "Abstract concerns unweighted spectral determination rather than the fourth-order Padé positivity problem. Full-text restriction is retained as a literature risk, not treated as proof of absence.",
+        "evidence": [
+          "Accessible abstract identifies spectrum-determination results for CS(n,α) and signless Laplacian; it mentions no weighted method or all-step entrywise signs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2016.01.003",
+        "material_read": "Bibliographic record and abstract; primary full text could not be inspected from the checked lawful access paths.",
+        "method": "Searched exact title with PDF and publisher/academic repository routes, read author-affiliation record and abstract.",
+        "title": "Complete split graph determined by its (signless) Laplacian spectrum",
+        "trigger": "Same graph family and Laplacian spectral analysis; possible hidden broad spectral formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2424426-11fe-4366-8109-8e9a80adf953",
+  "value": {
+    "rationale": "A complete natural network family has a sharp p/q-dependent boundary for all-step preservation of nonnegative heat states. Beyond it, making clique connections too strong yields a unique explicit time of sign loss despite classical A-stability and exact continuous-time positivity. The threshold is structural and has a nontrivial infinite parameter dependence; it is not an arbitrary small instance or merely a re-expression of the eigenvalues.",
+    "status": "PASS"
+  }
+}
