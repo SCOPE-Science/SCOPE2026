@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:16:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md full proof; Git blob 5cc37ce2d6b331e8d076c1b2fa1744dc0e249498",
+        "verify.py Git blob 4ce132a96806438873ba1937b0ace29208a97a57"
+      ],
+      "rationale": "First-reset renewal gives survival Laplace transform [1−exp(−a sqrt((s+r)/D))]/[s+r exp(−b sqrt((s+r)/D))]. Differentiating at s=0 yields both passage-time moments and CV²−1=[e^(−t)/(1−e^(−t))](2−Hq(t)). Hq rises from 1 to infinity for 0<q≤1. For q≥1, differentiation gives (log Hq)″≤−1/t²+1/[4sinh²(t/2)]<0; for q>1 its unique maximum strictly decreases from >2 near q=1 to <2 by q=2. This proves precisely one, two, tangential one, or zero CV=1 crossings, with unique q_c≈1.228631400481950585 and t_c≈4.133452638304952835. Domain: fixed a,b,D,r>0 and absorbing Brownian halfline.",
+      "residual_risks": [
+        "Numerical q_c,t_c are approximations to uniquely characterized real tangency.",
+        "Ensemble fixes initial position a, does not average over reset location."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing general Laplace transforms or mean first-passage optimizations can recover moment ingredients, but the full four-regime crossing count requires strict log-concavity and monotonicity of the level maximum."
+        ],
+        "reasoning": "The strongest same-model general transform is credited; source material read did not provide a dominating exact crossing-classification theorem.",
+        "searches": [
+          "Julian-Salgado–Dagdug–Boyer arXiv:2311.11897 Sections II–III",
+          "Mendez–Flaquer-Galmes–Campos arXiv:2401.01125",
+          "Abundo arXiv:2505.19759"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Brownian reset-distance semantic search returned no matching case",
+        "Abundo arXiv:2505.19759 mean optimization with distinct sites"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can differentiate the pre-existing transform to get CV; the exact global number of roots as q varies is an additional shape theorem. Mean-optimal renewal restart CV=1 is at a selected optimum, not a CV-vs-r phase classification."
+        ],
+        "reasoning": "Claim is not the old transform; the derived strict logarithmic concavity and unique qc organize the possible root patterns.",
+        "searches": [
+          "arXiv:2311.11897 Eq. 3 first-passage transform",
+          "arXiv:1512.01600 optimal restart CV=1 theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent CV=1 condition can be written second moment = 2 mean squared, a level Hq(t)=2, or dispersion Fano-type crossing; renewal and generator approaches agree."
+        ],
+        "reasoning": "Mismatched deterministic initial a and reset b is essential; results averaging initial sites over reset distribution do not imply this phase map.",
+        "searches": [
+          "arXiv:2311.11897 first resetting survival transform",
+          "arXiv:2401.01125 coefficient of variation",
+          "Resultary Brownian resetting coefficient of variation reentrance query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior numeric table giving the universal pair (q_c,t_c) and two positive reset-rate crossings was identified in the checked literature."
+        ],
+        "reasoning": "A negative result is qualified by the partial accessibility of older specialized resetting publications.",
+        "searches": [
+          "Resultary reset-distance CV threshold query",
+          "arXiv:2311.11897 and arXiv:2401.01125"
+        ]
+      },
+      "rationale": "The underlying first-passage survival transform is explicitly known in two-site resetting literature; the asserted extra result is the four-regime CV crossing classification and strict shape lemma, not a new transform. Source with averaged starting/reset distributions is not the same ensemble.",
+      "residual_risks": [
+        "Specialized resetting literature may contain implicit CV-based parameter diagrams or exact root-count results; primary-source coverage not exhaustive.",
+        "Full text of every same-model CV study was not inspected end-to-end."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying renewal transform covered; inspected results target MFPT, no matching four-regime CV crossings",
+          "evidence": [
+            "Eq. 3 supplies transform; original result credits it."
+          ],
+          "identifier_or_url": "arXiv:2311.11897",
+          "material_read": "Sections II–III and explicit Laplace survival transform Eq. 3 and mean-time optimization",
+          "method": "primary full text reading",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Same mismatched-start single-site process as setting one reset probability to zero"
+        },
+        {
+          "assessment": "CV results use a reset-distributed initial condition or other ensemble; cannot assume whole paper lacks all mismatched-start consequences",
+          "evidence": [
+            "The distinction between fixed a and reset-law averaged start is substantive."
+          ],
+          "identifier_or_url": "arXiv:2401.01125",
+          "material_read": "Relevant transform and discussion of initial-location averaging; full-document coverage not established by read material",
+          "method": "primary article relevant-section reading",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Same stochastic reset family with CV analysis"
+        },
+        {
+          "assessment": "Mean-optimal restart identity does not give all-rate mismatched reset-site crossings",
+          "evidence": [
+            "CV=1 at optimal renewal restart is a restricted condition."
+          ],
+          "identifier_or_url": "arXiv:1512.01600",
+          "material_read": "Optimal-restart theorem statement and hypotheses",
+          "method": "primary theorem-level reading",
+          "title": "Optimal stochastic restart renders fluctuations in first passage times universal",
+          "trigger": "CV=1 is a known restart identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Julián-Salgado et al survival transform Eq. 3",
+        "Reuveni optimal-restart CV theorem, different initial/reset setup"
+      ],
+      "rationale": "A global sharp reset-distance bifurcation in first-passage dispersion, including a two-crossing reentrant phase and universal exact tangency, supplies a practically relevant regime map beyond mean-optimal resetting and avoids extrapolating CV=1 optimal-restart folklore to mismatched starts.",
+      "residual_risks": [
+        "Scope restricted to Poisson reset point and unbiased diffusion; not universal for arbitrary restart schemes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic a,b with one absorbing barrier, unbiased one-dimensional Brownian and Poisson resets only.",
+    "Numerical threshold approximations cannot replace strict shape proof.",
+    "Operational provenance and misleading first_public_date in public-facing files."
+  ],
+  "schema_version": 1
+}
