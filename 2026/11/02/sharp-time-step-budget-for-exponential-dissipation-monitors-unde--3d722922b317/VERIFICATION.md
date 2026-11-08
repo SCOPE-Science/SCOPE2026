@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and boundaries
 
-Run `python verification.py` with Python 3 and `mpmath` installed. The reproducibility code independently constructs exact equidistributed nodes using cumulative-monitor inversion, constructs their consecutive-log expression, verifies ordering and strict maximum-ratio equivalences for randomized finite grids, checks a range of imposed caps, and prints root and representative minimum counts. The completed execution reported **PASS: 1296 independent high-precision comparisons** and \(u_{1+\sqrt2}=0.3588231634265831584937248220685824078596914898275061065\ldots\).
+# Independent mathematical audit
 
-The universally quantified proof is analytic: a positive Laplace-transform identity and strict log-convexity imply the endpoint is the maximum; the limiting range and strict monotonicity give the unique cutoff. Finite tests verify implementations and examples but do not certify infinite parameter ranges. No independent audit, independent replication, or higher-order integrator validation has been performed. No statement about the full adaptive discretization follows automatically from this ideal-mesh theorem.
+## correctness
+
+PASS
+
+Exact cumulative integral of |E prime|^p yields unique nodes and steps h_j=H(nu+N-j-1)/(lambda p), H=log(1+1/x). Strict log-convexity of H as a nondegenerate positive Laplace mixture makes F(x)=H(x)/H(x+1) strictly decreasing from infinity to one. Thus maximum ratio is the last, the unique root u_R defines the strict cutoff N>u_R(D^p-1), and floor+1 is exact, including integer boundaries. High-precision independent calculations confirmed all illustrative sizes.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.
+
+## value
+
+PASS
+
+Exact strict step-ratio compatibility quantifies the cost of two physically motivated energy-rate monitors on an analytic benchmark and isolates the last interval as unique bottleneck. The distinction between linear D and square-root D step costs is a useful, sharply parameterized feasibility criterion; no claim of a general BDF2 necessity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

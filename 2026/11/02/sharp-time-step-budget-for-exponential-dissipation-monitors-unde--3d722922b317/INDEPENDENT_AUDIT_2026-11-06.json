@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:15:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-time-step-budget-for-exponential-dissipation-monitors-unde--3d722922b317/RESULT.md",
+        "2026/11/02/sharp-time-step-budget-for-exponential-dissipation-monitors-unde--3d722922b317/verification.py"
+      ],
+      "rationale": "Exact cumulative integral of |E prime|^p yields unique nodes and steps h_j=H(nu+N-j-1)/(lambda p), H=log(1+1/x). Strict log-convexity of H as a nondegenerate positive Laplace mixture makes F(x)=H(x)/H(x+1) strictly decreasing from infinity to one. Thus maximum ratio is the last, the unique root u_R defines the strict cutoff N>u_R(D^p-1), and floor+1 is exact, including integer boundaries. High-precision independent calculations confirmed all illustrative sizes.",
+      "residual_risks": [
+        "The integer cutoff concerns exact, unregularized power-monitor equidistribution and a chosen strict cap. It is not a necessary numerical BDF2 stability condition nor an assertion about full solver behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BDF2 may be stable on grids that violate chosen R; assigned theorem treats stipulated strict cap, not necessity of BDF2 bound"
+        ],
+        "reasoning": "General stability under fewer restrictions cannot eliminate the exact monitor+cap constraint; monitor equidistribution is a different problem.",
+        "searches": [
+          "Resultary: equidistributed exponential energy dissipation monitor adjacent ratio time steps minimal grid",
+          "web: Shergill Williams 2610.30454 energy-rate equidistribution BDF2; Li Liao BDF2 stability arbitrary grids",
+          "Li–Liao 2022 BDF2 stability arbitrary time grids",
+          "Liao–Zhang 2019 BDF2 ratio assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Shergill–Williams 2026 arXiv original abstract; Oxford vpn_disconnected",
+        "Li–Liao 2022 title/abstract",
+        "Liao–Zhang 2019 bibliographic record",
+        "Resultary semantic search for exponential monitor ratio (7 nonmatching hits)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source supplies monitor family and ratio-control motivation; full text inaccessible to verify whether it contains the precise one-mode integer formula"
+        ],
+        "reasoning": "Equidistribution and a cap do not logically fix the minimal N without analyzing the nonuniform ratio sequence; the analytic derivation is additional, though elementary. Historical implicit coverage remains possible.",
+        "searches": [
+          "Resultary: equidistributed exponential energy dissipation monitor adjacent ratio time steps minimal grid",
+          "web: Shergill Williams 2610.30454 energy-rate equidistribution BDF2; Li Liao BDF2 stability arbitrary grids",
+          "Shergill–Williams 2026 arxiv abstract",
+          "BDF2 arxiv:2201.00527"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior paper explicitly introduces both p=1 and p=1/2 monitors and adaptive step-ratio caps; new theorem supplies exact minimum N for ideal exponential decay"
+        ],
+        "reasoning": "Monitor idea is not original, but its exact sharp one-mode incompatibility threshold and monotonic worst-ratio identification are independently derived.",
+        "searches": [
+          "Resultary: equidistributed exponential energy dissipation monitor adjacent ratio time steps minimal grid",
+          "web: Shergill Williams 2610.30454 energy-rate equidistribution BDF2; Li Liao BDF2 stability arbitrary grids",
+          "Shergill–Williams arXiv:2610.30454 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent high-precision inversion F(u_R)=1+sqrt2 gives u_R=0.358823163426583; cutoff examples N=36,4,358823,359 verified"
+        ],
+        "reasoning": "No equivalent published table or universal cutoff was found in searched primary material. A classical one-dimensional graded-mesh ratio theorem may contain this computation implicitly.",
+        "searches": [
+          "Resultary: equidistributed exponential energy dissipation monitor adjacent ratio time steps minimal grid",
+          "web: Shergill Williams 2610.30454 energy-rate equidistribution BDF2; Li Liao BDF2 stability arbitrary grids",
+          "exponential monitor equidistribution minimum N ratio adjacent grid"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.",
+      "residual_risks": [
+        "Strong same-monitor 2026 full text inaccessible via lawful OA/Oxford, leaving material historical-priority risk.",
+        "The cap is stipulated and not a universal BDF2 stability necessity; result applies only to an ideal exponential mode."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source introduces |E dot| and sqrt|E dot| equidistribution and solver step restrictions, but abstract alone cannot exclude a hidden exact exponential-grid cutoff. Residual risk explicit.",
+          "evidence": "Abstract names both monitors and conditional ratio restrictions, not the solved exact N_min formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30454",
+          "material_read": "ArXiv abstract dated 2026-10-21; full PDF/HTML and lawful OA mirrors unavailable; authorized Oxford returned vpn_disconnected",
+          "method": "arxiv primary abstract, OA alternate searches, authorized Oxford",
+          "title": "Energy-rate equidistribution for adaptive SSAV–BDF2 integration of gradient flows (Shergill–Williams, 2026)",
+          "trigger": "Same energy-rate monitor and two exponents; strongest relevant paper"
+        },
+        {
+          "assessment": "Different BDF2 stability framework allows grids beyond classical cap; does not cover imposed strict-cap compatibility for a unique equidistributed exponential monitor grid.",
+          "evidence": "Distinguishes algorithmic sufficient ratio cap from inherent stability necessity.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "ArXiv bibliographic abstract/scope only",
+          "method": "web search and repository references",
+          "title": "Stability of variable-step BDF2 and BDF3 methods (Li–Liao, 2022)",
+          "trigger": "Potential broader theorem negating ratio bound necessity"
+        },
+        {
+          "assessment": "Step-ratio assumption, no explicit uniquely equidistributed exponential monitor N formula established.",
+          "evidence": "Different quantifiers: analysis of a numerical scheme vs exact mesh constraint for a fixed monitor.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.11182",
+          "material_read": "ArXiv title/abstract and assigned source bibliography only",
+          "method": "literature search",
+          "title": "Analysis of adaptive BDF2 scheme for diffusion equations (Liao–Zhang, 2019)",
+          "trigger": "Step-ratio bound prior literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sharp time-step budget for exponential dissipation monitors under an adjacent-ratio cap",
+        "web: Shergill Williams 2610.30454 energy-rate equidistribution BDF2; Li Liao BDF2 stability arbitrary grids"
+      ],
+      "rationale": "Exact strict step-ratio compatibility quantifies the cost of two physically motivated energy-rate monitors on an analytic benchmark and isolates the last interval as unique bottleneck. The distinction between linear D and square-root D step costs is a useful, sharply parameterized feasibility criterion; no claim of a general BDF2 necessity.",
+      "residual_risks": [
+        "Strong same-monitor 2026 full text inaccessible via lawful OA/Oxford, leaving material historical-priority risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The integer cutoff concerns exact, unregularized power-monitor equidistribution and a chosen strict cap. It is not a necessary numerical BDF2 stability condition nor an assertion about full solver behavior.",
+    "Scientific PASS is best-of-knowledge, not public certification. All publication operations withheld, not_ready, because public provenance/status files need verified sanitization."
+  ],
+  "schema_version": 1
+}
