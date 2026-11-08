@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The finding is proved by an exact all-parameter classification of ordered-pair extension possibilities and the corresponding three-round game-type recurrence. Finite computations are corroboration only; no finite sample is used as a proof of stabilization.
+## correctness
 
-Run `python3 verify_profiles.py` to enumerate every ordered-pair third-vertex adjacency pattern for all \(66\) unordered path-length pairs \(2\le m\le n\le12\). The script independently compares the resulting sets of rank-two pointed profiles with the five-class table. Its expected output is included in `verify_profiles.out`.
+PASS
 
-Run `python3 verify_recursive.py` to calculate full first-order rank-three types by recursively extending atomic equality/adjacency diagrams, without using the geometric pair-code classification. This independently checks \(27\) grids, including the five representative graphs, all unordered dimensions up to seven and selected larger boundaries through \(8\)-by-\(8\). Its expected output is in `verify_recursive.out`.
+The proof applies back-and-forth induction to third-vertex extension profiles for ordered pairs, including equality cases, and then to sets of pointed profiles. Manhattan geometry restricts pair types by adjacency, distance two and common neighbors, with explicit exceptional small grids and a finite neighbor-union bound guaranteeing common nonneighbors elsewhere. Independent first-principles profile code on all 2<=m<=n<=12 found precisely five classes, singleton (2,2),(2,3),(2,4),(3,3) and all other grids including (2,5) and (3,4). The source coordinate argument (not bounded enumeration) establishes the infinite last class and sharp representative bound 10.
 
-Both checks were executed directly from these source files and passed. The standalone programs require only Python 3 standard library modules. They do not prove any claim for larger parameter values beyond the cases enumerated. The infinite-dimensional conclusions depend on the complete case analysis in the proof.
+## originality
 
-Independent mathematical auditing and exhaustive historical-priority verification have not been performed.
+PASS
+
+The specific 2D pure-adjacency rank-three equivalence partition appears not covered by inspected general EF bounds or the exact one-dimensional paths/cycles theory.
+
+## value
+
+PASS
+
+P_m square P_n is a natural planar graph family, and rank-three indistinguishability of a thin ladder and thicker grid is not immediate from degree or size. The sharp five-theory classification and ten-vertex uniform representative bound are motivated structural logic facts, not a random finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
