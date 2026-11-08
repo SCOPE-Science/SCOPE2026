@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the affine-uniform ellipse acuteness law
+# Independent mathematical audit
 
-The exact law is proved by integrating the signed difference of two independent uniform semicircle chord directions. A separate Taylor-series calculation confirms the dilogarithm identity. All right-angle boundary configurations have probability zero for nondegenerate ellipses.
+## correctness
 
-`python checker.py` performs deterministic Simpson quadrature comparisons at six axis ratios and direct random-coordinate Euclidean tests at five axis ratios (85,000 triples each), as well as endpoint and asymptotic diagnostics. The actual run returned `ALL_CHECKS_PASSED`.
+PASS
 
-These tests support arithmetic and normalization but do not independently certify analytic limits, originality, or mathematical value. The main proof is self-contained modulo classical integral and dilogarithm identities. No external or independent audit was conducted.
+Three independent uniformly sampled eccentric anomalies on axis-aligned ellipse (a cosθ,b sinθ), a>=b>0, are NOT uniform arclength points. For a fixed first angle α, two independent differences U,V uniform (0,π), and Δ=U−V has triangular density. The chord inner product under diag(a,b) has sign cosΔ+τ cos(2m) for τ=(a²−b²)/(a²+b²); uniform α makes m uniform mod π independent of Δ. Integrating the obtuse probability gives one angle P_obtuse=1/4+[1/(2π²)]Li₂(τ²), by arcsin² Taylor series and averaged cosine even moments. Three mutually exclusive obtuse events imply P_acute=1/4−3/(2π²)Li₂(τ²). Positive series coefficients establish strict shape monotonicity, Taylor expansion τ=tanh(log r) gives near-circle expansion, and dilog reflection near τ²=1 gives slender asymptotic 6/(π² r²)(2log r+1−log4)+O(log r/r⁴). Independent 400-node Gaussian quadrature of arcsin² for r=1,1.5,2,4,10 matched formula to ~1e−14; Monte Carlo in inspected checker is only corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: chord-direction integration for affine-angular ellipse acuteness, not known dilogarithm itself. Residual priority and access risks retained.
+
+## value
+
+PASS
+
+Obtains the exact natural Euclidean acuteness statistic for independently sampled points on a noncircular ellipse under the affine image of angular-uniform circle sampling, distinguishing the physically different arclength law. The exact dilogarithm anisotropy profile and sharp end asymptotics quantify a significant geometric transition. Known identical offcenter-circle containment probability is acknowledged and not separately claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

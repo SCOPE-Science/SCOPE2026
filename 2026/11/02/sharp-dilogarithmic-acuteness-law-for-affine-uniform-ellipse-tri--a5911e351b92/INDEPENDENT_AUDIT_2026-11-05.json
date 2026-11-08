@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:04:09.815575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Three independent uniformly sampled eccentric anomalies on axis-aligned ellipse (a cosθ,b sinθ), a>=b>0, are NOT uniform arclength points. For a fixed first angle α, two independent differences U,V uniform (0,π), and Δ=U−V has triangular density. The chord inner product under diag(a,b) has sign cosΔ+τ cos(2m) for τ=(a²−b²)/(a²+b²); uniform α makes m uniform mod π independent of Δ. Integrating the obtuse probability gives one angle P_obtuse=1/4+[1/(2π²)]Li₂(τ²), by arcsin² Taylor series and averaged cosine even moments. Three mutually exclusive obtuse events imply P_acute=1/4−3/(2π²)Li₂(τ²). Positive series coefficients establish strict shape monotonicity, Taylor expansion τ=tanh(log r) gives near-circle expansion, and dilog reflection near τ²=1 gives slender asymptotic 6/(π² r²)(2log r+1−log4)+O(log r/r⁴). Independent 400-node Gaussian quadrature of arcsin² for r=1,1.5,2,4,10 matched formula to ~1e−14; Monte Carlo in inspected checker is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akopyan–Edelsbrunner–Nikitenko focus on spherical random triangles and three-dimensional ellipsoid homeoids; Helman–Garcia–Reznik on deterministic ellipse-inscribed triangle center loci; public 2024–25 ellipse acuteness discussion uses arclength rather than eccentric anomaly."
+        ],
+        "reasoning": "These adjacent topics do not by themselves calculate the exact affine-angular Euclidean acuteness law. The known offcenter-circle formula is stronger as an evaluation of the dilogarithm function, but is not stated for this ellipse event.",
+        "searches": [
+          "arXiv:2007.07783",
+          "arXiv:2010.09408",
+          "Resultary: uniform random ellipse inscribed triangle acute probability dilogarithm eccentric anomaly affine circle sampling"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob b1fb945ccc58b29496a77128820706d7e4d903dc",
+        "checker.py Git blob 4dfa2681199d6670b6460f2f8e54e1f182a72ab1",
+        "2018 offcenter circle containment solution",
+        "Ismailov 2026 arxiv:2601.02929",
+        "Resultary search: Resultary: uniform random ellipse inscribed triangle acute probability dilogarithm eccentric anomaly affine circle sampling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Circle containment probability with point offset ρ is F(ρ)=1/4−3 Li₂(ρ²)/(2π²). Substitution ρ=τ reproduces the result numerically; however no inspected text establishes a measure-preserving map of sample triples that sends containment to affine-ellipse acuteness, or the independent chord sign argument."
+        ],
+        "reasoning": "Prior explicit formula makes the special-function evaluation known; whether it implies the ellipse law depends on proving an additional geometric reduction, which is supplied by independently analyzing the ellipse. Such a reduction may already exist unindexed.",
+        "searches": [
+          "https://arxiv.org/abs/2601.02929",
+          "https://math.stackexchange.com/questions/2641793/probability-that-a-random-triangle-with-vertices-on-a-circle-contains-an-arbitra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier offcenter-circle containment law numerically equals 1/4−3 Li₂(τ²)/(2π²). The random event uses containment of a fixed interior circle point, whereas this theorem asks whether every Euclidean angle is acute after a fixed anisotropic affine transformation."
+        ],
+        "reasoning": "Identical one-variable probability functions can be transported as an identity, but the experiments are not eventwise equivalent by a fixed affine map; the chord-dot-product derivation supplies a new geometric interpretation. Potential general transformation of random-triangle geometric events remains a real novelty risk.",
+        "searches": [
+          "Resultary: uniform random ellipse inscribed triangle acute probability dilogarithm eccentric anomaly affine circle sampling",
+          "Math StackExchange 2018 random circle triangle containing off-center point Li2",
+          "arXiv:2601.02929 Ismailov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact dilogarithm function appears in the 2018 circle point-containment calculation, so its numerical table is not novel; no inspected table labels it as the eccentric-anomaly ellipse acute-triangle probability."
+        ],
+        "reasoning": "No novelty is claimed for the special-function sequence itself. The new mathematical identity is the event interpretation plus its proof and shape-order consequences; implicit coverage by a transformation remains the key risk.",
+        "searches": [
+          "Resultary: uniform random ellipse inscribed triangle acute probability dilogarithm eccentric anomaly affine circle sampling",
+          "https://math.stackexchange.com/questions/2641793/probability-that-a-random-triangle-with-vertices-on-a-circle-contains-an-arbitra",
+          "arXiv:2601.02929"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: chord-direction integration for affine-angular ellipse acuteness, not known dilogarithm itself. Residual priority and access risks retained.",
+      "residual_risks": [
+        "A known equivalence between affine-angular ellipse acuteness and offcenter-circle containment could render this a corollary rather than an independent priority claim.",
+        "The apparently identical prior probability curve is a major originality caveat; no new claim to its dilogarithm evaluation itself.",
+        "Sampling by ellipse arclength is excluded and would have different probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains matching scalar function for distinct off-center circle containment event; not presented as eccentric-anomaly ellipse acuteness",
+          "evidence": [
+            "Off-center distance ρ enters Li₂(ρ²), matching ellipse anisotropy τ after substitution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+          "material_read": "Original arXiv PDF: probability model, main theorem and dilogarithm expression, first-page screenshot",
+          "method": "Arxiv full PDF read through mathematical statement and proof text",
+          "title": "With what probability does an inscribed triangle contain a given point?",
+          "trigger": "Exact identical dilogarithm profile and potential dominating prior"
+        },
+        {
+          "assessment": "Same dilogarithm evaluated for containment; priority of function acknowledged",
+          "evidence": [
+            "Already supplies F(ρ), so P(τ) is an identity of numeric laws, not novelty of Li₂."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/2641793/probability-that-a-random-triangle-with-vertices-on-a-circle-contains-an-arbitra",
+          "material_read": "Published 2018 public solution and probability expression",
+          "method": "Accessible discussion text",
+          "title": "Probability that a random triangle with vertices on a circle contains an arbitrary point",
+          "trigger": "Earliest known explicit same formula"
+        },
+        {
+          "assessment": "Sphere/homeoid context, not complete inspection for negative universal claim",
+          "evidence": [
+            "Sphere acute probability 1/4 is classical; its random object and measure differ from planar ellipse affine-angular sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.07783",
+          "material_read": "Abstract and available article result descriptions; not every appendix",
+          "method": "Arxiv abstract and accessible selected sections",
+          "title": "The Beauty of Random Polytopes Inscribed in the 2-sphere",
+          "trigger": "Nearby random acute triangles and ellipsoid results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Obtains the exact natural Euclidean acuteness statistic for independently sampled points on a noncircular ellipse under the affine image of angular-uniform circle sampling, distinguishing the physically different arclength law. The exact dilogarithm anisotropy profile and sharp end asymptotics quantify a significant geometric transition. Known identical offcenter-circle containment probability is acknowledged and not separately claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md Git blob b1fb945ccc58b29496a77128820706d7e4d903dc",
+    "checker.py Git blob 4dfa2681199d6670b6460f2f8e54e1f182a72ab1",
+    "2018 offcenter circle containment solution",
+    "Ismailov 2026 arxiv:2601.02929",
+    "Resultary search: Resultary: uniform random ellipse inscribed triangle acute probability dilogarithm eccentric anomaly affine circle sampling"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A known equivalence between affine-angular ellipse acuteness and offcenter-circle containment could render this a corollary rather than an independent priority claim.",
+    "The apparently identical prior probability curve is a major originality caveat; no new claim to its dilogarithm evaluation itself.",
+    "Sampling by ellipse arclength is excluded and would have different probability.",
+    "No GitHub modifications or dispatcher closeout were made; publication has not occurred."
+  ],
+  "schema_version": 1
+}
