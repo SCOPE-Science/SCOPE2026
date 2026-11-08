@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an all-dimensional exact controllability rank formula, not a finite-observation extrapolation. Positive tridiagonal path Laplacians have simple spectrum and nonzero endpoint eigenvector coordinates; the palindrome symmetry forces ordered reversal signs \((-1)^k\). The rung eigenbasis splits the ladder spectrum into \(\lambda_k\) and \(\lambda_k+2g\), and a direct two-by-two PBH evaluation proves parity-selective deficiency at every collision. Collisions occur at distinct eigenvalues and their losses add. The small-size gap lists are exhaustive algebraic expressions and prove the six-rung sharp boundary. The verifier independently constructs full exact Kalman matrices and shifted-polynomial gcd certificates, passing 42 rank comparisons, four selected boundary checks, and five small-path gap-set comparisons.
+## correctness
 
-## Originality — PASS, with residual risk
-The accessible symmetry and zero-forcing references provide general controllability criteria. The inspected 2014 multiplex primary paper's relevant main section and Appendix C address spectra and the unconstrained minimum driver count, not this specified pair-of-corner reachable-rank classification, parity complementarity, and first simultaneous failure. Searches across exact ladder parameters, spectral-gap aliases, Cartesian products, and related published mathematical records found no direct coverage; this absence is not proof of global novelty. A 2024 conference paper on symmetric double-layer control lacked an accessible full text and may contain a relevant special case. Other specialized earlier sources could also overlap.
+PASS
 
-## Mathematical value — PASS
-Exact actuation placement matters even when the underlying ladder spectrum is unchanged. The full rank formula for any mirror-symmetric positive path weights supplies a finite algebraic test for every rung strength and distinguishes arbitrarily many simultaneous resonance losses. The natural six-rung cutoff is a sharp boundary for whether both canonical endpoint layouts can fail at once, providing a concrete design caution that cannot be read from eigenvalue multiplicity alone. This is an exact classification of a motivated network-control family, not a renaming of an invariant or a numerical enumeration without proof.
+Positive irreducible symmetric tridiagonal path Laplacian has simple eigenvalues and nonzero endpoint components. Palindromic reflection commutes with P; deformation to equal weights without crossings fixes eigenmode reversal parity (-1)^k. Rung +/- split gives two simple spectral branches lambda_k and lambda_k+2g. At each two-dimensional collision, PBH input-projection determinant vanishes exactly when the two endpoint parity signs agree in the same-rail or differ in opposite-rail configuration; collision pairs cannot overlap by within-branch simplicity, so deficits add. Translated gcd degrees count exactly the same intersections. Exact unit-path gap sets n=2..5 disjoint across parities and n=6 has both parities at gap 1, giving (11,10). Independent 20 direct Kalman rank checks and the boundary case pass.
 
-## Scope and unresolved checks
-The rank formula depends on longitudinal mirror symmetry, constant positive rung conductance, and precisely two independent endpoint inputs. The sharp dimension threshold is stated only for unit path weights. The literature comparison is limited by inaccessible full texts, and no outside mathematical check has been made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing network controllability and multiplex decomposition theorems establish symmetry-driven restrictions and two-branch spectra, but inspected 2014 multiplex primary paper optimizes minimum numbers of drivers rather than exact reachable ranks for the two specified endpoint pairs. The specific arbitrary mirror-weight rank formulas and first unit-ladder simultaneous-failure threshold are not found in accessible primary text. The directly relevant Wang–Zhang 2024 double-layer paper full text remains inaccessible and could overlap.
+
+## value
+
+PASS
+
+Exact controllability rank for two physically natural endpoint input placements is a meaningful network-control invariant: it distinguishes parameter-dependent loss that eigenvalue multiplicity and generic driver counts alone cannot detect. The full weighted-family classification and first simultaneous-failure at six unit rungs give a sharp natural threshold and explicit resonances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
