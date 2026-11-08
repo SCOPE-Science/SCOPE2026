@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four counters measure both agents' own welfare and both cross-bundle evaluations. Under disjoint pairs, removing one good destroys at most one valued pair, giving necessary-and-sufficient EF1 inequalities. The coloured multigraph has maximum degree two, and the transfer recursion processes every edge exactly once; its state-identification argument preserves all possible completions. Pareto filtering uses all achievable own-utility pairs rather than simply welfare maximization. The cycle boundary and the disconnected obstruction are proved separately. The standalone checker compared 1,700 independent complete enumerations against the transfer output. The finite checks are not used as a substitute for the infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** The closest identified paper is Pyne et al., arXiv:2610.15801 (2026-10-11), which explicitly includes the four-good alternating-cycle impossibility example. That example is prior art, not claimed as novel. Its Sections 2–4 and available appendix give general SPOC complexity/approximation results but not an exact two-agent fair-efficient feasibility algorithm on free-matroid pair lists, nor the full alternating-cycle boundary or the disconnected eight-good obstruction. Teh, arXiv:2607.23367, concerns strictly increasing marginal values and therefore does not imply a result for pair complements with zero singleton utility. Searches for matching-union, two-agent pair-complement DP, SPOC, Pareto and EF1 equivalents did not reveal a dominating statement. As with any result using standard degree-two dynamic-programming structure, a differently named or unindexed equivalent algorithm remains a priority risk.
+PASS
 
-**Value — PASS.** The literature shows that complementarity destroys the usual EF1/PO compatibility and complicates exact optimization. For the natural two-agent free-matroid pair-complement subclass, the theorem gives an exact polynomial-time decision and construction method rather than only an approximate fairness guarantee. Its one-cycle phase boundary and contrasting disconnected eight-good obstruction show precisely why no blanket compatibility theorem follows merely from removing the published four-good example.
+For disjoint pairs within each agent, deleting any one good eliminates at most one completed complementary pair, so EF1 is equivalent to cross-signature c<=a+1 and d<=b+1. Two coloured matchings form a multigraph of maximum degree two; alternating paths and cycles, including shared parallel pairs, can be processed edge-by-edge by a transfer DP retaining four utility/cross-valuation counters and two boundary labels. Identical states have identical possible future increments; this establishes full signature coverage and O(g^5) transitions/O(g^4) live states. Pareto filtering over all attainable own-utility pairs, rather than maximal welfare alone, correctly decides EF1+PO. A 2ell alternating cycle has only two perfect matching monopolies at welfare ell; a balanced contiguous split yields EF1 welfare ell−1, PO for ell>=3, while ell=2 is impossible, ell=1 succeeds. Independent full enumeration confirmed cycles ell=1..5 and the eight-good shared-pair-plus-six-cycle obstruction with PO frontier {(4,0),(3,1),(1,3),(0,4)}.
 
-**Scientific limits.** Pair sets must be internally disjoint for each agent and all complement values must be unit additive; no claim extends to general matroid ranks, larger complements or three agents. The full research priority question remains subject to outside scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality. Pyne–Viswanathan–Yang–Zick 2026 Proposition 2.1 explicitly supplies the four-good alternating-cycle EF1+PO impossibility; that is recognized as known, not new. The fully rendered same-model source develops arbitrary binary SPOC hardness and welfare approximations/EFX, but its statements and inspected sections do not give the exact two-agent free-matroid disjoint-pair signature DP, all-cycle phase boundary or eight-good disconnected obstruction. A strictly increasing valuation EF1+PO result requires positive singleton marginal values and cannot apply to pair complements. A differently phrased bounded-treewidth fair-allocation DP may be a priority antecedent.
+
+## value
+
+PASS
+
+Pair complements create a substantive fairness/efficiency incompatibility even with only two agents, as the primary 2026 paper demonstrates. The disjoint-pair/free-matroid subclass is a natural boundary of this hardness. An exact O(g^5) decision and witness construction for all inputs, a sharp connected-cycle phase law, and an unexpected disconnected obstruction clarify which structural conditions do and do not restore fair efficient allocations; these are nontrivial algorithmic and structural facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

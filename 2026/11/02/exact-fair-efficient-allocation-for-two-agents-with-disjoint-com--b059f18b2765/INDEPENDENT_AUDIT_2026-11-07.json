@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:44:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md full transfer induction, cycle and disconnected proofs",
+        "pinned checker.py state keys, cycle closing logic, exhaustive comparator inspected"
+      ],
+      "rationale": "For disjoint pairs within each agent, deleting any one good eliminates at most one completed complementary pair, so EF1 is equivalent to cross-signature c<=a+1 and d<=b+1. Two coloured matchings form a multigraph of maximum degree two; alternating paths and cycles, including shared parallel pairs, can be processed edge-by-edge by a transfer DP retaining four utility/cross-valuation counters and two boundary labels. Identical states have identical possible future increments; this establishes full signature coverage and O(g^5) transitions/O(g^4) live states. Pareto filtering over all attainable own-utility pairs, rather than maximal welfare alone, correctly decides EF1+PO. A 2ell alternating cycle has only two perfect matching monopolies at welfare ell; a balanced contiguous split yields EF1 welfare ell−1, PO for ell>=3, while ell=2 is impossible, ell=1 succeeds. Independent full enumeration confirmed cycles ell=1..5 and the eight-good shared-pair-plus-six-cycle obstruction with PO frontier {(4,0),(3,1),(1,3),(0,4)}.",
+      "residual_risks": [
+        "Requires exactly two agents and each agent’s own pair set a matching, unit weight additive over completed pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pyne et al. hardness proof uses many agents and matroid complement rank; approximation results do not imply exact efficient PO+EF1 detection for two additive-pair agents.",
+          "Teh strictly increasing valuations exclude zero value for singleton goods in purely complementary pairs."
+        ],
+        "reasoning": "Unrestricted SPOC hardness is no obstacle to a specialized exact 2-agent algorithm, but does not imply it. Generic treewidth DP may exist and could dominate the algorithmic portion; no directly encompassing result identified.",
+        "searches": [
+          "Pyne et al. arXiv:2610.15801 §§2–4 and appendix",
+          "Teh arXiv:2607.23367 strictly increasing valuations",
+          "bounded-treewidth fair-division complementary pair Pareto EF1 DP query"
+        ]
+      },
+      "checked_sources": [
+        "Pyne–Viswanathan–Yang–Zick arXiv:2610.15801 full rendered 2026 primary text",
+        "Teh arXiv:2607.23367 abstract only",
+        "Published Resultary semantic query for EF1+PO paired complements/alternating matchings; nearest results address other fairness problems"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem under audit recovers exactly the previously published ℓ=2 impossibility, and additionally proves ℓ≠2 classification and polynomial exact feasibility DP.",
+          "A general 1/k welfare approximation and EFX allocation need not be Pareto optimal or EF1+PO."
+        ],
+        "reasoning": "Known four-good negative witness is a special case of the claimed classification, not a proof of the classification. Strict positive marginal assumptions invalidate direct implications to zero-singleton complement valuations.",
+        "searches": [
+          "Pyne arXiv:2610.15801 Proposition 2.1 proof",
+          "Pyne 2026 §§3–4 complexity and approximation theorems",
+          "Teh arXiv:2607.23367 assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair-complement valuations are free-matroid SPOC_2 and can be encoded as a degree-two two-coloured interaction graph.",
+          "Published four-goods counterexample is the length-four alternating cycle exactly, not a new result."
+        ],
+        "reasoning": "An exact coloured path/cycle DP for EF1 and PO would count as equivalent even without SPOC terminology; among inspected mathematical statements only the local obstruction, not the full signature enumeration, was identified.",
+        "searches": [
+          "Published Resultary semantic query (current run): two agent EF1 Pareto efficient disjoint complement pairs matchings alternating cycle dynamic programming",
+          "two-agent free-matroid SPOC_2 Pareto EF1 matching-union alternating path cycle algorithm",
+          "Pyne et al. arXiv:2610.15801 Proposition 2.1 and Definition SPOC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pyne et al. table summarizes hardness, approximate EFX and PO+EF1 nonexistence; it has no indexed cycle length boundary and no g^4 exact signature table.",
+          "The four-item case is known but its existence/nonexistence does not logically characterize ℓ=1 or ℓ>=3 and disconnected 1+3 components."
+        ],
+        "reasoning": "An isolated small-instance impossibility is strictly weaker than a complete all-cycle boundary and all-input constructive DP. The eight-good counterexample is not a size-threshold claim for arbitrary valuations.",
+        "searches": [
+          "Published Resultary semantic query (current run): two agent EF1 Pareto efficient disjoint complement pairs matchings alternating cycle dynamic programming",
+          "Pyne et al. 2026 Proposition 2.1 exact four-item example",
+          "two-agent alternating-cycle EF1 PO length ell table matching complements"
+        ]
+      },
+      "rationale": "Qualified originality. Pyne–Viswanathan–Yang–Zick 2026 Proposition 2.1 explicitly supplies the four-good alternating-cycle EF1+PO impossibility; that is recognized as known, not new. The fully rendered same-model source develops arbitrary binary SPOC hardness and welfare approximations/EFX, but its statements and inspected sections do not give the exact two-agent free-matroid disjoint-pair signature DP, all-cycle phase boundary or eight-good disconnected obstruction. A strictly increasing valuation EF1+PO result requires positive singleton marginal values and cannot apply to pair complements. A differently phrased bounded-treewidth fair-allocation DP may be a priority antecedent.",
+      "residual_risks": [
+        "A generic degree-two/treewidth signature-DP theorem for specialized EF1+PO could already imply the construction.",
+        "The ℓ=2 counterexample is known and is not treated as the novel finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_SPECIAL_CASE_NOT_GENERAL_CLASSIFICATION",
+          "evidence": [
+            "Proposition 2.1: A pairs (1,2),(3,4); B pairs (1,3),(2,4). Only PO allocations monopolize all four; none EF1. The paper does not supply a general exact two-agent matched-pair feasibility DP in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15801",
+          "material_read": "Full arXiv-rendered text: §1 main results, §2 SPOC definition and Proposition 2.1 proof, §3 hardness/welfare methods, §4 EFX and appendix descriptions",
+          "method": "Read primary rendered full text and checked theorem implications",
+          "title": "Fair Allocation with Dichotomous Preferences over Item Complements",
+          "trigger": "Exact model match and four-good obstruction"
+        },
+        {
+          "assessment": "ASSUMPTIONS_INAPPLICABLE",
+          "evidence": [
+            "Pair-complement valuations have zero marginal singleton values, so strict increase is false."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23367",
+          "material_read": "ArXiv title, abstract, and strictly increasing valuation hypothesis; full mathematical text not inspected",
+          "method": "Bibliographic/abstract comparison",
+          "title": "Fair Division with Strictly Increasing Valuations: A Tight Threshold for Two-Agent EF1 and PO",
+          "trigger": "Potential broad two-agent existence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md full DP and small-cycle/disconnected constructions",
+        "Pyne et al. Proposition 2.1 and Sections 3–4 prior context"
+      ],
+      "rationale": "Pair complements create a substantive fairness/efficiency incompatibility even with only two agents, as the primary 2026 paper demonstrates. The disjoint-pair/free-matroid subclass is a natural boundary of this hardness. An exact O(g^5) decision and witness construction for all inputs, a sharp connected-cycle phase law, and an unexpected disconnected obstruction clarify which structural conditions do and do not restore fair efficient allocations; these are nontrivial algorithmic and structural facts.",
+      "residual_risks": [
+        "Generality stops at two agents with additive disjoint-pair values; no NP-hard general SPOC problem is solved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two agents, unit additive complementary pairs disjoint within each agent, complete allocation.",
+    "The four-good ℓ=2 obstruction is explicitly known from Pyne et al.; only new wider classification and algorithm assessed."
+  ],
+  "schema_version": 1
+}
