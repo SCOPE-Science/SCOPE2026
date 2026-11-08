@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Intrinsic products of right translations recover the regular translation group by twice the underlying abelian group. Equivariance under that translation group forces a single subgroup automorphism and a finite collection of coset shifts. The doubled-shift conditions are both necessary and sufficient, and fiber-counting under the surjective doubling map proves the exact formula. The affine iff is proved by exhausting the two-primary possibilities: cyclic, Klein four, noncyclic with exponent at least four (explicit nonlinear coset shift), and elementary two-groups of rank at least three (nonlinear permutation). Exhaustive small cases and a complete independent normal-form census for \(C_4^2\) agree.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 Bardakov–Sangare question about even-factor products motivates the precise non-Latin specialization, while their Latin theorem assumes invertible doubling. Sangare's earlier theorem treats odd-order abelian cores and does not state the complete two-primary affine iff. Hou's 2011 article claims a general Alexander-quandle automorphism-group description; its inaccessible full text might logically imply the cardinality formula, and that priority risk is expressly unresolved. The main structural new assertion is the sharp affine-rigidity classification with explicit nonaffine constructions, not an assertion that Alexander-quandle automorphisms were previously unknown. Mathematical-record comparisons and accessible textual sources did not exhibit this exact iff.
+PASS
 
-**Value — PASS.** The recent literature asks for even-even dihedral product automorphisms; this resolves a whole parameter family quantitatively, and explains a qualitative two-adic boundary separating affine-rigid and nonaffine cores. The explicit coset-shear witness describes the mechanism rather than only a sporadic example. The smallest both-even nontrivial case has a fourfold automorphism excess over affine symmetries.
+Right-translation products are intrinsic translations by H=2A, forcing every quandle automorphism to be H-equivariant through a unique lambda in Aut(H). The coset normal form F(r_c+h)=a+b_c+lambda(h) with 2b_c=lambda(2r_c) is necessary/sufficient; delta fibers each have size s and permitted b_c on each nonzero coset form H[2]-torsors, yielding the factorial and d-exponent count. Splitting A2 from its odd part proves the rigidity iff: cyclic and C2^2 admit only affine maps, while rank >=2 with elements of order >=4 admits a nonadditive coset shear and elementary C2^r, r>=3, admits arbitrary nonaffine permutations. Independently brute-force enumerated all permutations for A=C2^2, C2×C4, C4 and C2^3, recovering counts 24,128,8,40320. These finite tests do not establish all-A formula.
 
-The proof is restricted to finite abelian cores. Published broader Alexander-quandle results remain an originality caveat, not a correctness caveat. See `VERIFICATION.md` for the exact computational scope. No independent proof audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hou (2011) announces the full automorphism group of general Alexander quandles and is a serious potentially dominating predecessor; exact specialization and implication were not verifiable because full text was inaccessible and authorized access returned vpn_disconnected. Bardakov–Sangare (October 2026) proves Latin cases and explicitly asks about even-factor dihedral products, so the specific even non-Latin counts and affine-rigidity iff are not covered by that paper. Best-of-knowledge qualified PASS rests on the explicit open even question and inspected non-Latin gap, not a claim of exhaustive priority over Hou.
+
+## value
+
+PASS
+
+The published open even-factor problem is a natural concrete target: the theorem gives all finite abelian cores simultaneously, an exact group-order law and a qualitative Sylow-two boundary, with constructive witnesses. It explains why R4×R4 has 6144 rather than 1536 affine automorphisms, a structural mechanism unavailable from isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
