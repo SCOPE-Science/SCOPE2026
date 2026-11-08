@@ -1,0 +1,15 @@
+# Scientific review of the cyclic-quartic superspecial-parameter classification
+
+## Correctness (C): PASS
+
+For every prime \(p\equiv3\pmod4\), smoothness follows from the squarefree four-factor branch polynomial, and the plane-cohomology Frobenius coefficient formula reduces all nine Hasse–Witt entries to a single exactly evaluated binomial coefficient. The resulting one-by-one semilinear block determines both the Cartier \(a\)-number and stable \(p\)-rank; the remaining Prym dimension-two block is zero. A separable degree-two isogeny splits the elliptic quotient and Prym at odd primes. The hypergeometric differential equation establishes squarefreeness of the Deuring polynomial away from the excluded branch values for every eligible prime, including three. The exact standalone polynomial checker independently validates the needed coefficients and squarefreeness identities in twelve prime characteristics; it is finite corroboration, not a substitute for the universal proof.
+
+## Originality (O): PASS, with priority risk
+
+Goodson (arXiv:1705.02404, Section 5) treats exactly the same generalized Legendre quartic, but provides hypergeometric periods and point counts, not the explicit \(p\equiv3\pmod4\) complete Cartier-rank or superspecial parameter divisor. Li–Mantovan–Pries–Tang (arXiv:1805.06914, Section 6.1) already establish the allowable Newton polygon types for the family M[7]; these are acknowledged as prior, and their table alone does not imply the exact parameter equation or reduced count. Cavalieri–Pries (arXiv:2308.14891, Corollary 6.4) compute nonordinary mass and \(a\)-numbers for M[7] only under \(p\equiv1\pmod4\), the opposite congruence class. The general Deuring root count for Legendre elliptic curves is classical, and the new mathematical connection is the *entire* Cartier structure and marked reduced superspecial divisor of the nonhyperelliptic genus-three pencil. An undiscovered equivalent explicit statement, or a previously unnoticed reduction of a broader classification, remains a priority risk. Searches of currently accessible historical claims found a dihedral hyperelliptic genus-three pencil with Legendre-type rank invariants, but its inertia/curve type and rank conditions differ, and it does not imply this claim.
+
+## Mathematical value (V): PASS
+
+This is a complete arithmetic stratum determination for a one-dimensional Moonen special family in precisely the non-generically-ordinary residue class not addressed by the motivating mass formula. The exact reduced parameter divisor supplies a constructive superspecial smooth *plane quartic* for every prime in the residue class, with a uniform Prym interpretation and a sharp change of Cartier \(a\)-number. Its coefficient-degree \((p-1)/2\) is intrinsic to the natural marked Legendre branch coordinate rather than an arbitrary finite-window census. This is distinct from the mere known enumeration of possible Newton polygons. It does not claim new moduli-isomorphism counts or new Deuring theory.
+
+Self-review: passed. Independent audit: not yet performed.
