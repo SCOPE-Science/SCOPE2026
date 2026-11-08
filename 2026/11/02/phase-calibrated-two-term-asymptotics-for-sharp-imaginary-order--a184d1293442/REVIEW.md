@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from an indexed continuous phase of \(I_{i\nu}\), a two-term convergent small-argument expansion, and the exact Riccati identity for the normalized modified-Bessel Turán quotient. The phase index is justified by an everywhere nonzero complex \(I\)-solution and its Wronskian. The key coefficient \((\nu^2+9)/(4(1+\nu^2)^2)\) follows by implicit differentiation at the unique interior phase; substituting into the critical identity yields the additive constant. The proof explicitly excludes order-uniform claims. The separate high-precision script provides supplementary, not decisive, checks.
+PASS
 
-## Originality — PASS under inspected literature
+For every fixed real ν>0 and all sufficiently large decreasingly indexed nodal intervals of K_{iν}, the first positive-zero indexing follows from the nonvanishing phase-monotone I_{iν} Wronskian and continuous Γ phase. The exact Turán normalization T=(ν²+z²)/x²−1, Riccati z′=−xT and stationarity 1+(1+z)T=0 imply z(α)=−1−1/τ. Uniform oscillatory small-x series with s=ν log(2/x)+ην gives z=−ν cot s+x²[ν² csc²s/(4A)+(1+ν cot s)/(2A)]+Oν(x⁴), A=1+ν². At s=nπ+atanν the x² coefficient is 1/4+1/A; implicit differentiation (A/ν≠0) fixes c=(A+8)/(4A²) in α=q(1+cq²+O(q⁴)), q=2 exp[(ην−nπ−atanν)/ν]. Then exact τ=A/α²+2/A−1+O(α²) gives τ=A/q²−3/2−2/A+O(q²). Independent high-precision mpmath critical-point solutions at ν=1.25, n=2,3,4 confirm convergence of normalized q⁴ and q² errors. Bounds are fixed-ν, not uniform ν→0,∞. Script check.py was read, not treated as proof.
 
-The directly motivating 2026 paper proves the same nodal optimizer exists uniquely, its minima increase, geometric *successive ratios*, and an optimizer-times-minimum product limit. These do not determine the gamma-phase absolute prefactor, relative positional correction, or additive constant. Earlier Macdonald-zero and imaginary-order-zero works address different observables. Closest published mathematical records on cylinder Bessel and Coulomb nodal Turán minima have different limiting regimes and cannot imply this fixed-imaginary-order result. Searches cannot exclude all implicit historical derivations; that remains the principal originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact sharp constants are natural quantitative spectral/inequality data. Index calibration resolves the scale ambiguity inherent in ratio limits, and the finite additive correction distinguishes otherwise indistinguishable geometric growth laws. The work gives a nontrivial second-order refinement to a recently established exact-extremum problem without claiming more general applications than the evidence supports.
+The same-object Aktaş–Baricz 2026 Theorem 5.4 supplies existence, uniqueness, ratio and product limits, so those ingredients are PRIOR; this final claim is the index-calibrated small-x two-term location and finite additive minimum correction, which do not follow from ratio limits alone without additional phase/critical computation. Its primary full body was inaccessible despite arXiv/OA search and authorized retrieval reporting vpn_disconnected; do not pretend it was read or certify whole-document noncoverage. At best-of-knowledge the calibrated expansion survives, with a material source-inspection priority risk.
 
-## Boundaries and remaining risks
+## value
 
-The asymptotics are for a fixed strictly positive order and large nodal index; finite-index exact constants and uniform double-scaling are not established. Other older specialized literature may still contain an implicit equivalent derivation; no exhaustive historical verification is asserted. Independent audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The increasing optimal nodal constants have an exponentially large leading term whose ratio limits cannot reveal a finite additive offset. Exact Γ-phase normalization, first relative minimizer correction, and convergent sharp-minimum offset provide a motivated, quantitatively useful special-function asymptotic invariant rather than a trivial restatement of known existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
