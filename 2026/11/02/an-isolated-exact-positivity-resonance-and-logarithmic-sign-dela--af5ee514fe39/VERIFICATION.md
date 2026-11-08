@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` performs exact symbolic checks of the fixed-step characteristic factorization, the backward-Euler starter coincidence, and the conjugate-root quartic at \(r=\sqrt5\). It proves disjoint root disks by arithmetic bounds evaluated in \(\mathbb Q(\sqrt5)\) using a checked rational enclosure. These finite exact certificates support the spectral premises of the analytical proof in RESULT.md.
+## correctness
 
-The program also runs 170-digit scalar recurrences on both sides of the resonance to test the predicted sign phenomenon and first-negative indices, as supplementary illustrations. Finite recurrence tests are not proofs of infinite sign changes or of the delay asymptotic; the needed Vandermonde and oscillation estimates are provided analytically in RESULT.md. No external independent audit has been performed.
+PASS
 
-Reproduce from this directory with `python verify.py` using SymPy and mpmath. The claim requires exact arithmetic and four backward-Euler starting steps; the code does not simulate roundoff stability or alternate starting procedures.
+For the specified five-step BDFL coefficients and exactly 4 backward-Euler starts q(r)^j, the characteristic polynomial F_r(z) obeys the exact factorization F_r(q(r))=r^2(sqrt5−3)(7−sqrt5)(r−sqrt5)(r^2+(5+3sqrt5)/2)/[176(1+r)^5]. It vanishes for positive r only at sqrt5, making y_n=t0^n >0 at resonance. An independently checked quartic factor at r0 has simple conjugate pairs of moduli approximately 0.4985061885 and 0.3490165002, both >t0=(sqrt5−1)/4. Rational Rouché disk certificates establish separation and first-pair argument close to pi/2; Vandermonde modal coefficients have dominant complex amplitude proportional to (r−r0), yielding infinitely many positive/negative terms and N_negative=log(1/|r−r0|)/log(rho0/t0)+O(1). Independent SymPy factored F_r(q) and located roots; finite numeric recurrence supports but does not prove infinite signs.
+
+## originality
+
+PASS
+
+Jensen–Ketcheson–Lóczi introduce this five-step L-stable method and study accuracy, L-stability, and TR-BDF2 starts, not proven by accessible abstract to cover the present backward-Euler-starter positivity resonance. Related exact delayed-sign-loss BDF2 Resultary finding concerns a different two-step recurrence and square-root rather than logarithmic detuning delay. Best-of-knowledge O PASS with explicit substantial risk because source arXiv full PDF and OA inaccessible and authorized Oxford download blocked (vpn_disconnected); no whole-document noncoverage inference.
+
+## value
+
+PASS
+
+An exact isolated all-time positive orbit embedded inside a stable method with nearby eventually oscillating trajectories, and sharp logarithmic sign onset, is a meaningful rare resonance/boundary for numerical positivity diagnostics, beyond a routine stability root computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:52:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md exact factor, quartic and Rouché certificate, analytic modal proof",
+        "assigned verify.py source inspected",
+        "independent SymPy factorization/numeric root separation"
+      ],
+      "rationale": "For the specified five-step BDFL coefficients and exactly 4 backward-Euler starts q(r)^j, the characteristic polynomial F_r(z) obeys the exact factorization F_r(q(r))=r^2(sqrt5−3)(7−sqrt5)(r−sqrt5)(r^2+(5+3sqrt5)/2)/[176(1+r)^5]. It vanishes for positive r only at sqrt5, making y_n=t0^n >0 at resonance. An independently checked quartic factor at r0 has simple conjugate pairs of moduli approximately 0.4985061885 and 0.3490165002, both >t0=(sqrt5−1)/4. Rational Rouché disk certificates establish separation and first-pair argument close to pi/2; Vandermonde modal coefficients have dominant complex amplitude proportional to (r−r0), yielding infinitely many positive/negative terms and N_negative=log(1/|r−r0|)/log(rho0/t0)+O(1). Independent SymPy factored F_r(q) and located roots; finite numeric recurrence supports but does not prove infinite signs.",
+      "residual_risks": [
+        "Exact-arithmetic scalar constant-step result for this starter only, not floating-point nor TR-BDF2, general nonlinear or vector methods.",
+        "Rouché disks establish roots only near r0 and do not classify all positive r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A-/L-stability provides |eigenvalues|<1, not sign preservation; BDF2 root theorems do not entail five-step r0."
+        ],
+        "reasoning": "General stable multistep root theory gives modal ingredients, not exact starter-specific resonance or logarithmic detuning constant.",
+        "searches": [
+          "arXiv:2610.22685",
+          "classical multistep characteristic-root condition",
+          "Resultary BDF2 positivity boundary"
+        ]
+      },
+      "checked_sources": [
+        "Jensen–Ketcheson–Lóczi arXiv:2610.22685, public abstract/metadata (complete primary text unavailable)",
+        "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+        "Resultary: BDFL five step backward Euler startup positivity resonance square root five sign delay oscillatory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proves L-stable optimized method, whereas BDF2 theorem treats a different recurrence and critical damping root collision."
+        ],
+        "reasoning": "Neither stability nor BDF2 positivity asymptotic logically implies this BDFL recurrence sqrt5 exact mode and logarithmic delay. Full source-paper uncertainty remains.",
+        "searches": [
+          "arXiv:2610.22685 abstract and source-starter descriptions",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BDF2 sign-delay result has a different recurrence and asymptotic sqrt(1/delta); here special real eigenmode cancellation yields logarithmic delay."
+        ],
+        "reasoning": "Compared eigenmode/starter resonance and delayed positivity aliases; no exact equivalent in accessible text, but original full paper not read.",
+        "searches": [
+          "Resultary: BDFL five step backward Euler startup positivity resonance square root five sign delay oscillatory",
+          "arXiv:2610.22685 abstract",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Five-step method coefficient table fixes a_j and beta, but a table alone cannot imply roots of F_r(q) or sign-delay law."
+        ],
+        "reasoning": "Not an existing precomputed table of positivity histories; exact root identity plus nonzero dominant amplitude is needed.",
+        "searches": [
+          "arXiv:2610.22685 Table 1 as quoted in audited RESULT.md",
+          "Resultary: BDFL five step backward Euler startup positivity resonance square root five sign delay oscillatory"
+        ]
+      },
+      "rationale": "Jensen–Ketcheson–Lóczi introduce this five-step L-stable method and study accuracy, L-stability, and TR-BDF2 starts, not proven by accessible abstract to cover the present backward-Euler-starter positivity resonance. Related exact delayed-sign-loss BDF2 Resultary finding concerns a different two-step recurrence and square-root rather than logarithmic detuning delay. Best-of-knowledge O PASS with explicit substantial risk because source arXiv full PDF and OA inaccessible and authorized Oxford download blocked (vpn_disconnected); no whole-document noncoverage inference.",
+      "residual_risks": [
+        "Full method paper arXiv:2610.22685 and OA copies were inaccessible in this run; Oxford returned vpn_disconnected. Could contain a special backward-Euler start formula; no full-document noncoverage conclusion.",
+        "Classical multistep positivity literature might already imply the same isolated sqrt5 coincidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No claim of whole-paper noncoverage; specifically recorded priority/access risk",
+          "evidence": "Submitted October 15 2026; abstract and accessible title/description",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+          "material_read": "Public arXiv abstract and method overview only; full PDF/HTML inaccessible despite OA attempts",
+          "method": "arXiv page/OA attempts followed by authorized Oxford retrieval, vpn_disconnected",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Defines exact five-step method and L-stability and starting procedures"
+        },
+        {
+          "assessment": "Different two-step scheme, r=1/2 boundary, inverse-square-root delay; not the five-step isolated exact eigenmode",
+          "evidence": "Resultary summary with N_- ~ pi sqrt(2/(r-1/2))",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "material_read": "Published Resultary mathematical finding summary, not full proof",
+          "method": "Resultary semantic search",
+          "title": "Exact delayed sign loss just beyond BDF2 positivity boundary",
+          "trigger": "Same question delayed sign loss for positive scalar decay"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jensen–Ketcheson–Lóczi arXiv:2610.22685, public abstract/metadata (complete primary text unavailable)",
+        "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+        "Resultary: BDFL five step backward Euler startup positivity resonance square root five sign delay oscillatory",
+        "assigned RESULT.md exact factor, quartic and Rouché certificate, analytic modal proof"
+      ],
+      "rationale": "An exact isolated all-time positive orbit embedded inside a stable method with nearby eventually oscillating trajectories, and sharp logarithmic sign onset, is a meaningful rare resonance/boundary for numerical positivity diagnostics, beyond a routine stability root computation.",
+      "residual_risks": [
+        "Resonance is a special parameter and starter, but logarithmic sign-delay gives a quantitative diagnostic missed by finite short runs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only the specified exact five-step recurrence, scalar decay and four backward-Euler starts; local detuning and asymptotic first-negative index, not a global positivity classification.",
+  "schema_version": 1
+}
