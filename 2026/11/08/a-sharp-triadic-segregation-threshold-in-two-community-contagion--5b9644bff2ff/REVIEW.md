@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+The claim concerns the deterministic, equal-community, triangle-only two-variable SIS mean-field equations of Landry and Restrepo (arXiv:2302.13967, equations (15)–(16)). Introducing mean \(s\) and half-difference \(d\) gives exact equations. Every unequal-prevalence equilibrium for \(0\leq\varepsilon<1\) is interior, and the equilibrium constraints yield both its positive transmission rate and \(d^2\) uniquely from \((s,\varepsilon)\). Explicit exact formulas for the Jacobian trace and determinant reduce hyperbolic stability to the sign of polynomial \(P\). A factorization establishes that \(P>0\) forces negative trace, and minimization of its boundary \(F(s)\) gives exactly \(\varepsilon_*=(9+24\sqrt3)/61\). Below this cutoff all asymmetric equilibria are saddles; above it an explicit feasible family of sinks exists. A separate exact rational quadratic-field checker evaluates original equations and derivatives at 544 admissible parameter pairs (120 stable, 424 saddle), and the explicit rational parameter witness has trace \(-1\) and determinant \(6/25\). The finite computations are corroboration and not the infinite proof.
+
+## Originality — PASS, with limits
+Landry and Restrepo introduce and analyze exactly these two-community equations; they treat symmetric branches and numerical disparity maps at selected mixed pairwise/triadic coefficients, but the inspected results and appendices do not assert this global-in-transmission sharp pure-triadic assortativity threshold. Cisneros-Velarde and Bullo derive sufficient epidemic stability and bistability criteria in a broader simplicial framework without a covering necessity-and-sufficiency exact assortativity constant for these equations. Cui and collaborators study general directed hypergraph SIS spreading with indirect pathways; its accessible introduction and general scope do not identify this constant, though the complete treatment was not comprehensively inspected. Exact-formula, symmetry-breaking, hypergraph contagion, and source-title mathematical searches identified no result whose statement implies this threshold. This is a best-knowledge originality assessment, not proof that no unindexed or unpublished equivalent exists.
+
+## Mathematical value — PASS
+The source's numerical phase diagram demonstrates the practical motivation: when can balanced but preferentially intra-community triangular contagion spontaneously sustain unequal endemic prevalence? The result identifies the exact smallest feasible triangle assortativity for a *stable* asymmetric phase at any transmission rate, not just the existence of nonstable solutions or numerical observations. The global exclusion plus attainable construction and exact closed algebraic threshold provide a natural, interpretable boundary for the original model. No general theorem for other contagion mechanisms is claimed.
+
+## Closest literature and limitations
+- N. W. Landry and J. G. Restrepo, *Opinion disparity in hypergraphs with community structure*, arXiv:2302.13967; equations (15)–(20), Figures 3–5 and Appendix C. Primary same-equation comparison.
+- P. Cisneros-Velarde and F. Bullo, *Multi-group SIS Epidemics with Simplicial and Higher-Order Interactions*, arXiv:2005.11404; broad sufficient criteria rather than the exact constant for this two-community slice.
+- S. Cui and collaborators, *General SIS diffusion process with indirect spreading pathways on a hypergraph*, arXiv:2306.00619; relevant but model-specific differences and incompletely inspected remainder constitute residual priority uncertainty.
+
+This is a local hyperbolic stability claim only; no nonlinear stability at \(\varepsilon_*\), basin structure, or stochastic finite-population dynamics is established. Independent verification remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
