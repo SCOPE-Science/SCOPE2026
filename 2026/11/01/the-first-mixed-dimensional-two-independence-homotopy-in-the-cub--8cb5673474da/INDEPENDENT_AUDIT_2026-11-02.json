@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T07:47:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two exactly equivalent membership predicates (maximum induced degree <=1, forbidden center-with-two-neighbors triple) exhaust each of 2^(2^d) vertex subsets through d4. Independent enumeration reproduced d4 3054 nonempty faces and dimension f-vector (16,120,464,964,960,440,80,10). The inspected complete verify.py constructs an acyclic discrete Morse matching, checks all 13568 directed Hasse incidences via topological sort, leaves 1 zero-cell, 16 three-cells and a single four-cell. Signed exact integral projection of the single critical 4-cell 0x4a30 to 16 critical 3-cells is identically zero. Its 3-skeleton is wedge^16 S3 and Hurewicz gives pi3~=H3, making the attaching map null and proving the asserted integral mixed wedge, not merely mod2 Betti agreement. Our independent bounded computation fully enumerated faces but the complete supplied Morse projection was source-inspected rather than separately run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taylan paths/cycles/forests, Deshpande–Singh multipartite/whiskered/trees, 2021 chordal results; Q4 contains induced 4-cycles."
+        ],
+        "reasoning": "None of these published general results has Q4 within its proven graph hypotheses.",
+        "searches": [
+          "two independence dissociation complex of hypercube Q4 induced maximum degree one homotopy wedge",
+          "arxiv:1501.06754",
+          "arxiv:2001.05448",
+          "arxiv:2106.10863"
+        ]
+      },
+      "checked_sources": [
+        "Taylan arxiv:1501.06754 full primary PDF",
+        "Deshpande and Singh arxiv:2001.05448 full primary PDF",
+        "Abdelmalek et al arxiv:2106.10863 (scope from cited primary, full not separately reread)",
+        "Adamaszek and Adams arxiv:2103.01040 and Adams/Shukla/Singh arxiv:2212.05871 (different Rips/Cech)",
+        "Resultary lookup two independence dissociation complex of hypercube Q4 induced maximum degree one homotopy wedge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rips faces require pairwise distances, Cech faces joint metric-ball intersection, unlike the triple-forbidden induced degree condition."
+        ],
+        "reasoning": "No natural simplicial equivalence or reduction is established from these graphs/complexes to the submitted exact Q4 Ind_2 homotopy type.",
+        "searches": [
+          "two independence dissociation complex of hypercube Q4 induced maximum degree one homotopy wedge",
+          "arxiv:2103.01040",
+          "arxiv:2212.05871",
+          "arxiv:2001.05448"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ind_2(Q4) = induced-degree<=1 = induced P3-devoid = dissociation complex; all equivalent forbidden triples share one center."
+        ],
+        "reasoning": "Alias searches target same 16-vertex four-cube; graph family statements in the inspected literature do not contain it.",
+        "searches": [
+          "two independence dissociation complex of hypercube Q4 induced maximum degree one homotopy wedge",
+          "Taylan arxiv:1501.06754 Section3",
+          "Deshpande–Singh arxiv:2001.05448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ordinary Ind(Q4) has different face predicate and homotopy wedge7 S3; Q4 Cech nerve has metric-ball intersection predicate, not max induced degree 1."
+        ],
+        "reasoning": "These are exact same-graph tables but not same complex or an implication to its integer attaching matrix.",
+        "searches": [
+          "two independence dissociation complex of hypercube Q4 induced maximum degree one homotopy wedge",
+          "Resultary 9947aaad144c ordinary Q4 independence",
+          "Resultary 2191472bb52e Q4 Cech nerve"
+        ]
+      },
+      "rationale": "Taylan P3-devoid paper classifies paths, cycles and forests, not Q4; Deshpande–Singh higher-independence formulas cover complete multipartite, fully whiskered, path/cycle/tree graphs, none the four-cube; chordal theorem cannot apply since Q4 has induced squares. Q4 ordinary independence, Čech and Rips complexes have different face rules, so even same graph and homological dimensions do not imply present two-independence result. Search included dissociation and induced-P3-devoid synonyms. No known exact same-complex Q4 homotopy statement identified.",
+      "residual_risks": [
+        "Unindexed computation of dissociation complex for Q4 or periodic 4x4 grid may exist.",
+        "Full integral Morse differential was inspected in source, but current independent bounded checker only reproduced face membership and face count rather than running signed projection.",
+        "Claim only classifies d<=4; no extrapolation to larger cubes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Analyzed graph families do not contain four-dimensional cube.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.06754",
+          "material_read": "Accessible complete primary PDF; definitions and Theorems 3.10/3.14 plus path/cycle/forest scope, relevant proof page viewed",
+          "method": "Primary PDF text and page screenshot",
+          "title": "Matching Trees for Simplicial Complexes and Homotopy Type of Devoid Complexes of Graphs",
+          "trigger": "Exact P3-devoid alias"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Q4 is not in listed complete multipartite, whiskered, path, cycle or perfect tree family.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Complete primary PDF including intro, Theorems3.5,3.8 and path/cycle/tree case analysis; selected page screenshot",
+          "method": "Primary PDF text and page screenshot",
+          "title": "Higher Independence Complexes of Graphs and Their Homotopy Types",
+          "trigger": "Plausibly dominating higher-independence theorem"
+        },
+        {
+          "assessment": "SOURCE_PACKAGE",
+          "evidence": "Critical 4-cell has zero signed gradient-path boundary in the inspected exact code; finite domain explicitly d<=4.",
+          "identifier_or_url": "Git blob 2cbc34cba533ed7813144291f3b9bb3ddd5e63ba",
+          "material_read": "Full RESULT.md, entire scripts/verify.py, metadata and source scientific review",
+          "method": "Git tree/blob reading with independently generated full f-vectors",
+          "title": "Q4 two-independence signed Morse certificate",
+          "trigger": "Exact claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Q4 is a canonical graph, and dimensions d1-d4 form a natural ascending sequence; the first occurrence of genuinely mixed homotopy in d4 is a motivated structural cutoff, not an arbitrary combinatorial slice. An explicit exact finite integral homotopy type of the natural dissociation complex can be useful without an all-dimensional theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Taylan arxiv:1501.06754 full primary PDF",
+    "Deshpande and Singh arxiv:2001.05448 full primary PDF",
+    "Abdelmalek et al arxiv:2106.10863 (scope from cited primary, full not separately reread)",
+    "Adamaszek and Adams arxiv:2103.01040 and Adams/Shukla/Singh arxiv:2212.05871 (different Rips/Cech)",
+    "Resultary lookup two independence dissociation complex of hypercube Q4 induced maximum degree one homotopy wedge"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the induced-maximum-degree-at-most-one complexes Ind_2(Q_d), d=1..4, the integral homotopy types are point, wedge^3 S1, wedge^3 S2 and wedge^16 S3 vee S4, with first mixed-degree homology at d=4.",
+  "limitations": [
+    "Unindexed computation of dissociation complex for Q4 or periodic 4x4 grid may exist.",
+    "Full integral Morse differential was inspected in source, but current independent bounded checker only reproduced face membership and face count rather than running signed projection.",
+    "Claim only classifies d<=4; no extrapolation to larger cubes.",
+    "Scientifically completed qualified best-of-knowledge audit, not formal proof certification or exhaustive worldwide priority proof.",
+    "Publication withheld pending complete privacy sanitization and release verification."
+  ],
+  "residual_risks": [
+    "Unindexed computation of dissociation complex for Q4 or periodic 4x4 grid may exist.",
+    "Full integral Morse differential was inspected in source, but current independent bounded checker only reproduced face membership and face count rather than running signed projection.",
+    "Claim only classifies d<=4; no extrapolation to larger cubes."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "Analyzed graph families do not contain four-dimensional cube.",
+      "identifier_or_url": "https://arxiv.org/abs/1501.06754",
+      "material_read": "Accessible complete primary PDF; definitions and Theorems 3.10/3.14 plus path/cycle/forest scope, relevant proof page viewed",
+      "method": "Primary PDF text and page screenshot",
+      "title": "Matching Trees for Simplicial Complexes and Homotopy Type of Devoid Complexes of Graphs",
+      "trigger": "Exact P3-devoid alias"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "Q4 is not in listed complete multipartite, whiskered, path, cycle or perfect tree family.",
+      "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+      "material_read": "Complete primary PDF including intro, Theorems3.5,3.8 and path/cycle/tree case analysis; selected page screenshot",
+      "method": "Primary PDF text and page screenshot",
+      "title": "Higher Independence Complexes of Graphs and Their Homotopy Types",
+      "trigger": "Plausibly dominating higher-independence theorem"
+    },
+    {
+      "assessment": "SOURCE_PACKAGE",
+      "evidence": "Critical 4-cell has zero signed gradient-path boundary in the inspected exact code; finite domain explicitly d<=4.",
+      "identifier_or_url": "Git blob 2cbc34cba533ed7813144291f3b9bb3ddd5e63ba",
+      "material_read": "Full RESULT.md, entire scripts/verify.py, metadata and source scientific review",
+      "method": "Git tree/blob reading with independently generated full f-vectors",
+      "title": "Q4 two-independence signed Morse certificate",
+      "trigger": "Exact claim"
+    }
+  ]
+}

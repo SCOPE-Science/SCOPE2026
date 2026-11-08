@@ -1,15 +1,21 @@
-# Scientific review: first mixed-dimensional cubical two-independence homotopy
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The vertex set, face rule, matching order, orientation and finite domain are fully explicit. Exhaustive independent induced-degree and forbidden-triple tests agree on all subsets through dimension four. Every pair is a codimension-one incidence and an exhaustive directed-Hasse topological sort proves acyclicity. The Morse critical-cell profiles are one vertex plus respectively no cells, three one-cells, three two-cells, and sixteen three-cells plus one four-cell. A signed integer gradient-path computation gives the complete sixteen-by-one fourth differential as zero. Since the three-skeleton is a wedge of three-spheres, integral Hurewicz identifies the resulting null attaching map, proving the mixed sphere wedge. Independent mod-two ranks reproduce the homology, but are not used in place of the integral attaching calculation.
+## correctness
 
-## Originality
-**PASS on inspected evidence, with publication-priority risk.** The 2015 path-devoid paper studies paths, cycles and forests; the 2020 higher-independence classification covers complete multipartite, whiskered, path, cycle and perfect-tree graphs, but not hypercubes. A 2021 chordal-graph result is inapplicable to this graph. The published hypercube metric Čech and Rips calculations instead use metric-ball and pairwise-distance faces. The closest indexed ordinary four-cube independence calculation uses the stronger induced-degree-zero condition; the four-cube Čech calculation concerns a distinct nerve. Targeted searches under dissociation, two-independence, forbidden-three-path and periodic grid terminology found no direct or implying classification. Unindexed or unavailable equivalent results cannot be ruled out.
+PASS
 
-## Value
-**PASS.** The graph is the canonical four-dimensional cube, not a parameter-picked finite graph. The sequence through dimensions one to four provides a natural exact cutoff: the first three stages are contractible or equidimensional wedges, but the fourth acquires both a large degree-three component and a degree-four generator. This supplies a concrete counterexample to extrapolating equidimensional higher-independence behavior from low cubical dimensions, while eight-vertex maximal faces coexist with homotopy concentrated in dimensions three and four. An exact topological classification is a meaningful structural benchmark even without an all-dimensional formula.
+Two exactly equivalent membership predicates (maximum induced degree <=1, forbidden center-with-two-neighbors triple) exhaust each of 2^(2^d) vertex subsets through d4. Independent enumeration reproduced d4 3054 nonempty faces and dimension f-vector (16,120,464,964,960,440,80,10). The inspected complete verify.py constructs an acyclic discrete Morse matching, checks all 13568 directed Hasse incidences via topological sort, leaves 1 zero-cell, 16 three-cells and a single four-cell. Signed exact integral projection of the single critical 4-cell 0x4a30 to 16 critical 3-cells is identically zero. Its 3-skeleton is wedge^16 S3 and Hurewicz gives pi3~=H3, making the attaching map null and proving the asserted integral mixed wedge, not merely mod2 Betti agreement. Our independent bounded computation fully enumerated faces but the complete supplied Morse projection was source-inspected rather than separately run.
 
-## Closest work and limits
-The nearest general higher-independence papers are Taylan (arXiv:1501.06754) and Deshpande–Singh (arXiv:2001.05448). The closest published same-graph research records concern ordinary independence, hypercube Čech nerves and cubical cut complexes; their face conditions are different. The proof is finite, and no conclusion is drawn for dimensions five or higher. Independent mathematical review and definitive priority checking remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Taylan P3-devoid paper classifies paths, cycles and forests, not Q4; Deshpande–Singh higher-independence formulas cover complete multipartite, fully whiskered, path/cycle/tree graphs, none the four-cube; chordal theorem cannot apply since Q4 has induced squares. Q4 ordinary independence, Čech and Rips complexes have different face rules, so even same graph and homological dimensions do not imply present two-independence result. Search included dissociation and induced-P3-devoid synonyms. No known exact same-complex Q4 homotopy statement identified.
+
+## value
+
+PASS
+
+Q4 is a canonical graph, and dimensions d1-d4 form a natural ascending sequence; the first occurrence of genuinely mixed homotopy in d4 is a motivated structural cutoff, not an arbitrary combinatorial slice. An explicit exact finite integral homotopy type of the natural dissociation complex can be useful without an all-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible verification
-Run `python3 scripts/verify.py` from the directory containing the embedded package files. The code uses Python 3.10+ standard library only; the complete captured output is `verification_output.txt`.
+# Independent mathematical audit
 
-Two separate face tests exhaust all \(4\), \(16\), \(256\), and \(65,536\) subsets for cubical dimensions \(1,2,3,4\), respectively. The nonempty face counts are \(3,10,76,3054\). The matching leaves one critical vertex and, respectively, zero, three one-, three two-, and sixteen three- plus one four-dimensional cells. All \(2,12,184,13568\) nonempty covering incidences are directed according to the matching; complete topological sorts visit every face, verifying acyclicity.
+## correctness
 
-The integral calculation evaluates all sixteen Morse boundary coefficients of the single critical four-cell and finds all zero. Independent simplicial mod-two boundary ranks for the fourth complex are \((15,105,359,589,370,70,10)\) in differential degrees one through seven and give reduced Betti ranks sixteen and one in degrees three and four. Mod-two computations alone do not prove the integral attaching-map result; the signed integer Morse projection supplies it. No statement is verified beyond dimensions one through four, and no independent mathematical audit is represented.
+PASS
+
+Two exactly equivalent membership predicates (maximum induced degree <=1, forbidden center-with-two-neighbors triple) exhaust each of 2^(2^d) vertex subsets through d4. Independent enumeration reproduced d4 3054 nonempty faces and dimension f-vector (16,120,464,964,960,440,80,10). The inspected complete verify.py constructs an acyclic discrete Morse matching, checks all 13568 directed Hasse incidences via topological sort, leaves 1 zero-cell, 16 three-cells and a single four-cell. Signed exact integral projection of the single critical 4-cell 0x4a30 to 16 critical 3-cells is identically zero. Its 3-skeleton is wedge^16 S3 and Hurewicz gives pi3~=H3, making the attaching map null and proving the asserted integral mixed wedge, not merely mod2 Betti agreement. Our independent bounded computation fully enumerated faces but the complete supplied Morse projection was source-inspected rather than separately run.
+
+## originality
+
+PASS
+
+Taylan P3-devoid paper classifies paths, cycles and forests, not Q4; Deshpande–Singh higher-independence formulas cover complete multipartite, fully whiskered, path/cycle/tree graphs, none the four-cube; chordal theorem cannot apply since Q4 has induced squares. Q4 ordinary independence, Čech and Rips complexes have different face rules, so even same graph and homological dimensions do not imply present two-independence result. Search included dissociation and induced-P3-devoid synonyms. No known exact same-complex Q4 homotopy statement identified.
+
+## value
+
+PASS
+
+Q4 is a canonical graph, and dimensions d1-d4 form a natural ascending sequence; the first occurrence of genuinely mixed homotopy in d4 is a motivated structural cutoff, not an arbitrary combinatorial slice. An explicit exact finite integral homotopy type of the natural dissociation complex can be useful without an all-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
