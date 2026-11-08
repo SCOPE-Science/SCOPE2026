@@ -1,11 +1,21 @@
-# Scientific review — uniform cross-polytope sums
+# Independent mathematical audit
 
-**Correctness (PASS).** The support function is calculated independently from summands and as a signed-subset halfspace support. The exact halfspace description reduces centered inradius to \(\min_j B_j/\sqrt j\). The proved log-concavity lemma makes this sequence one-peaked, and strict endpoint comparisons exclude all intermediate minima. The two endpoint distances cross precisely at \(n=k^2\). Active sign and coordinate hyperplanes are shown to support genuine facets; opposite normal pairs prove uniqueness of the optimal center. A standalone integer verifier corroborates the shape of the inequalities for all \(3\le k\le n\le150\), without being used as an infinite proof.
+## correctness
 
-**Originality (PASS, provisional priority).** The 2026 generating paper (arXiv:2608.16037) covers lattice and Ehrhart enumeration of general coordinate cross-polytope sums and supplies their general inequalities in Proposition 3.5. That prior result implies an unevaluated minimum over candidate facet distances, but it does not state the sharp endpoint reduction, square-law threshold or tangent-facet classification. The signed-permutohedron literature (arXiv:2209.06752) gives a broader type-B framework, not the square-law endpoint characterization. An online result on vertex-transitive zonotopes does not cover the complete family for \(k\ge3\), which includes non-zonotopal cross-polytopes. Semantic mathematical-record searches for uniform hypergraph sums, insphere radii, signed-permutohedra and square-law facet transitions found no equivalent claim. Residual historical-coverage risk remains, especially from general orbit-polytope theory.
+PASS
 
-**Mathematical value (PASS).** Uniform rank layers of the complete Boolean hypergraph form an intrinsic and infinite subfamily of the recently studied cross-polytope sums. Exact inradius is a natural metric invariant. A phase transition in the *types and exponentially differing counts* of tangent facets, governed by the simple threshold \(n=k^2\), is a meaningful geometric classification, not a normalization or a small numerical refinement.
+PASS. For n>=k>=3 and the unweighted complete k-uniform rank layer, reconstruct support h(u)=sum_{j=k}^n C(j-1,k-1)a_j for sorted absolute coordinates, hence the full signed-subset halfspace system sum_{i in J}epsilon_i x_i<=B_j with B_j=C(n,k)-C(n-j,k). Centered insphere distance is min_j B_j/sqrt(j). The binomial increment sequence A_j=C(n-j-1,k-1) is nonincreasing and log-concave, and the proved ratio argument makes S_j/sqrt(j) first increase then decrease, hence the minimum is at j=1 or j=n. Strict intermediate inequalities follow from the strict last decrease, and when n>=k^2 from the strict first increase. Endpoint distances are C(n-1,k-1) and sqrt(n)/k times this number; equality is exactly n=k^2. Full-dimensional exposed sign simplices and coordinate facets justify counts 2^n,2^n+2n,2n; opposite active normals spanning R^n force unique center zero. For k=n recover the usual cross-polytope. The inspected integer verifier tests n<=150 only as corroboration, not as infinite proof.
 
-**Limits.** Equal weights and all \(k\)-subsets are essential hypotheses; no claim is made for general hypergraphs. The finite verification is corroboration only, and the literature comparison is not an independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on accessible best-of-knowledge evidence. General coordinate-cross-polytope support and facet inequalities are substantially prior (Wang et al Proposition 3.5); the claimed increment is the evaluated Euclidean distance minimum, exact n=k^2 phase boundary, uniqueness and tangent *facet* counts for all n>=k>=3. Related type-B/signed permutohedra and other inball phases concern broader frameworks or different polytope families and do not logically determine these values. Full Wang article was unavailable in this session; only abstract, metadata and technical accessible overview were inspected, so explicit previously unstated distance corollaries remain a material priority risk.
+
+## value
+
+PASS
+
+PASS. The complete rank-k hypergraph is a canonical infinite class of Minkowski sums; Euclidean inradius and its contact face orbits are intrinsic invariants. The precise k^2 threshold switches the contact count between exponentially many sign facets and 2n coordinate facets, a structural phase classification not a tiny arithmetic gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
