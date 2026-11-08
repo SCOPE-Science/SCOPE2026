@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Seven-state generator reward equations are derived and recomputed exactly from the stated transition intensities; their closed forms and the swap identity are symbolically verified. At fixed budget, expected extinction time is strictly increasing in the product ab. The occupied-time derivative has two positive roots by exact endpoint signs and Descartes, exactly one admissible; the sign under swapping excludes negative biases. Bounds, limiting biases and all boundaries are proved; twenty independent Fraction linear solves confirm the formulas on rational rate cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1016/j.tpb.2010.06.007: dispersal-strength and connectivity asymmetries, with no mathematical fixed-budget optimization identified in available abstract",
+        "DOI 10.1098/rspb.2015.0203: spectral-radius and in/out-degree analysis rather than exact finite-state absorbing-chain rewards",
+        "DOI 10.1006/tpbi.1995.1034: 1995 finite transition-matrix method, quasi-stationary occupancy and patch-removal application, distinct from continuous-time directional fixed-budget reward maximization"
+      ],
+      "reasoning": "The source objectives are large-network viability and spectral growth, rather than exact three-patch absorbing-chain accumulated occupancy. The 2010 paper remains a material residual risk because its full text could not be read; no whole-document noncoverage is asserted.",
+      "searches": [
+        "\"Effects of colonization asymmetries on metapopulation persistence\" 2010 Vuilleumier Bolker Lévêque",
+        "\"The effects of connectivity on metapopulation persistence: network symmetry and degree correlations\" 2015",
+        "\"metapopulation\" \"asymmetry\" \"cumulative occupancy\" fixed rates",
+        "\"A stochastic metapopulation model with variability in patch size and position\" Day Possingham 1995"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1006/tpbi.1995.1034",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC1634917/",
+      "https://pubmed.ncbi.nlm.nih.gov/20609370/",
+      "https://pubmed.ncbi.nlm.nih.gov/25833858/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4426627/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Vuilleumier and Possingham (2006) use 100-patch simulation and finite-time viability (not these reward functions)",
+        "Earlier two-patch closed model optimizes extinction-time survival under different state space; an immigration model optimizes stationary regional and joint occupancy",
+        "The 2015 network result uses dispersal matrix spectral radius; this does not specify the finite three-patch absorbing reward functional",
+        "Day and Possingham (1995), sections 2–3 and 6: construction of general state-transition matrix and exact extinction/occupancy calculations, but no optimization over outward/inward rate allocation for the time-integrated reward"
+      ],
+      "reasoning": "Neither the two-patch state space nor a spectral persistence criterion implies the exact seven-state accumulated-reward function or its unique bias. Reverse-arrow extinction equivalence is expressly treated as established background rather than an originality claim.",
+      "searches": [
+        "Vuilleumier Possingham 2006 Does colonization asymmetry matter metapopulations full text",
+        "prior two-patch colonization allocation survival ordering and two-patch immigration allocation",
+        "Shtilerman Stone 2015 in-out degree correlation persistence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vuilleumier and Possingham (2006), §2 and §4: simulated viability in 100-patch directional networks; not finite expected integrated occupancy",
+        "Contact-process transposition self-duality gives arrow reversal invariance of all-occupied survival, but not a cumulative-occupancy budget optimum"
+      ],
+      "reasoning": "The dual survival law is recognized as covered prior mathematics. The new optimization differentiates a state reward integrated until absorption and yields a unique positive outward bias; that conclusion does not follow merely from contact-process duality.",
+      "searches": [
+        "\"three patch metapopulation\" \"total occupancy time\" \"optimal\" colonization asymmetry",
+        "\"directed contact process\" \"total infection time\" star \"extinction\" optimal",
+        "\"contact process\" \"reversed\" \"survival\" \"fully infected\" directed graph duality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database search produced related population extinction and ecology titles, but no candidate claiming the seven-state reward pair or optimization cubic",
+        "The available 2006 full text contains no exact three-patch allocation table"
+      ],
+      "reasoning": "No exact data table or symbolic classifier was identified among the searched records. Failure to retrieve one is not itself proof of novelty; the claim is distinguished by direct statement-level comparisons with specific prior models.",
+      "searches": [
+        "finite habitat colonization extinction CTMC graph expected regional extinction persistence star three patch asymmetry",
+        "three-site star metapopulation contact process directional asymmetric colonization a center to leaves versus b leaves to center fixed rate sum optimal expected total occupied patch-time",
+        "star graph total infection time extinction time directed contact process"
+      ]
+    },
+    "rationale": "Day and Possingham (1995) establish finite-state metapopulation transition-matrix methods but not the present continuous-time directional allocation theorem. Vuilleumier and Possingham (2006) was read in full and studies a different finite-horizon simulation objective. The 2015 spectral-radius work and earlier two-patch results do not imply the seven-state reward optimization. Classical contact-process transposition is explicitly treated as known. The strongly related 2010 article was available only as abstract, leaving historical-priority risk; no contrary coverage was found in accessible evidence.",
+    "residual_risks": [
+      "Full 2010 Vuilleumier–Bolker–Lévêque article inaccessible; its precise special-case results are unverified.",
+      "Broader unpublished and specialized contact-process reward optimization could contain equivalent formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior matrix method and small-state occupancy calculations are acknowledged as known; no directional budget constrained integrated occupancy optimum is provided in the material examined",
+        "evidence": [
+          "Day and Possingham (1995) §2: discrete-time extinction then colonization transition matrices",
+          "§3: extinction distribution and quasi-stationary occupancy; §6: patch removal and geometry comparisons"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/tpbi.1995.1034",
+        "material_read": "Public author-posted full-text HTML: introduction, model §2, matrix analysis §3 and conclusions §6",
+        "method": "Compared the stated transition structure, exact extinction and quasi-stationary occupancy quantities, and patch-removal applications against the claimed fixed-sum directional reward optimization",
+        "title": "A stochastic metapopulation model with variability in patch size and position",
+        "trigger": "Early primary finite patch-occupancy transition-matrix model possibly covering the reward calculation"
+      },
+      {
+        "assessment": "Simulation uses 100 patches and time-stepped finite-horizon viability, not exact 3-patch mean extinction and integrated occupancy budget optimization",
+        "evidence": [
+          "Methods: 100 habitats, stepwise extinction then colonization; viability after 1000 steps, §2",
+          "Discussion: simulation conclusions about network asymmetry and viability, §4"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1634917/",
+        "material_read": "Full accessible HTML including methods, simulations, results, and discussion (sections 1–4)",
+        "method": "Read article HTML sections 1–4 and compare models, objectives and conclusions",
+        "title": "Does colonization asymmetry matter in metapopulations?",
+        "trigger": "Direct study of directional metapopulation colonization and persistence"
+      },
+      {
+        "assessment": "Possible historical priority overlap remains unresolved at fine detail. Abstract describes broad island, stepping-stone and distance-dependent metapopulation simulations, not the exact present reward theorem. No whole-text noncoverage claimed.",
+        "evidence": [
+          "2010 Theoretical Population Biology abstract, PMID 20609370: colonization asymmetries and metapopulation viability"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tpb.2010.06.007",
+        "material_read": "Bibliographic record and abstract only; full text not accessible",
+        "method": "Searched available lawful OA/preprint copies; abstract compared. Institutional full-text retrieval unavailable.",
+        "title": "Effects of colonization asymmetries on metapopulation persistence",
+        "trigger": "Close title and objective: directional dispersal strength and persistence"
+      },
+      {
+        "assessment": "The spectral-radius criterion and in/out degree correlation findings do not imply the exact three-patch cumulative occupancy optimizer",
+        "evidence": [
+          "2015 Proceedings of the Royal Society B article: sections 3 and 5 discuss spectral radius and in-out degree correlation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspb.2015.0203",
+        "material_read": "Abstract, introduction, substantive excerpts of sections 3 and 5 available via publicly indexed full text",
+        "method": "Read accessible section excerpts and contrast the spectral-radius object with the exact finite-state transient reward",
+        "title": "The effects of connectivity on metapopulation persistence: network symmetry and degree correlations",
+        "trigger": "Competing concept of persistence under dispersal asymmetry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58ff8424-a6ea-4606-94f6-60a24b97c3eb",
+  "value": {
+    "rationale": "Distinct, standard conservation objectives (time to extinction vs integrated occupied patch-time) select provably different dispersal allocations on the smallest nontrivial branching topology for every positive rate budget. The exact cubic gives a natural complete all-budget classification, unique optimum, bounds and limits. This is a structural objective conflict, not merely a trivial parameter substitution; the gain magnitude is acknowledged as modest for some budgets and no empirical impact claim is made.",
+    "status": "PASS"
+  }
+}
