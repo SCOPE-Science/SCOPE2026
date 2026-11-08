@@ -1,0 +1,19 @@
+# Scientific review: exact fixed-mean Gaussian reset-clock optimization
+
+## Correctness — PASS
+
+The mathematical object is the conditional endpoint symmetric Kullback–Leibler divergence between two centered Gaussian marginals in one-dimensional Ornstein–Uhlenbeck relaxation. The variance ODE gives the reward \(f(t)=c^2(1-e^{-\omega t})^2/[2(1+c(1-e^{-\omega t}))]\), with \(c>0\), \(\omega>0\). Direct differentiation gives a cubic curvature numerator \(2-4y-3cy^2-c^2y^3\), strictly decreasing on \([0,1]\) and changing sign once. The tangent-equation residual is first strictly increasing and then strictly decreasing, with opposite signs at the inflection point and infinity, proving a unique tangency for every admissible lower bound below the inflection point. Its chord spliced to the post-tangency graph is the exact concave majorant; Jensen and strict equality conditions classify **all** fixed-mean optimizer distributions. The renewal-reward limit requires only independent waiting times of finite prescribed mean because the reward is bounded. No experiment is used as a proof of the universal statement. `CHECK.py` passed 11,424 deterministic supporting checks.
+
+## Originality — PASS, with qualification
+
+The May 27, 2026 source of the Gaussian endpoint-KL setting, arXiv:2605.28445, studies periodic and exponential reset clocks and asymptotic rate limits, not the constrained optimization over all renewal laws with a positive minimum interval and fixed mean. A related previously recorded result establishes Poisson-clock uniqueness in the same Gaussian reward, and another compares Poisson and periodic clocks; neither implies the complete fixed-mean optimal **two-point** law or the sharp boundary separating stochastic from deterministic optimizers. Sources on finite-time trap erasure (arXiv:2310.11267 and Communications Physics 8, 355) optimize a different physical work functional or trap control, while the 2023 pathwise entropy study addresses a distinct observable. Classical concave-envelope theory is not claimed as original. Residual risk: a general prior theorem may subsume this specialization when combined with the known reward formula, or a closely related finite-width-reset analysis may have escaped indexing.
+
+## Value — PASS
+
+A fixed mean interval corresponds to a fixed long-run reset frequency, and a strictly positive minimum dwell time is a natural constraint when reset hardware cannot trigger arbitrarily quickly. The result gives a complete exact answer for whether timing jitter can improve the information-theoretic endpoint-cycle reward, identifies its unique optimal distribution in every parameter regime, and computes the threshold from a single scalar equation. It is not merely a new numerical value or a renamed Jensen inequality: the nonlinear reward's exact single-inflection property and its associated physical clock phase diagram determine when the constraint changes the globally optimal type of reset schedule. For \(c=\omega=1\), \(\delta=0.2\), \(\mu=0.4\), the optimized random clock increases the divergence rate by approximately \(2.95\%\). The result does **not** imply a corresponding optimization of total entropy production, work, or a finite-duration reset apparatus.
+
+## Closest literature and remaining limits
+
+Farago, arXiv:2605.28445, supplies the Gaussian-cycle endpoint divergence framework. Olsen et al., arXiv:2310.11267, and Gupta et al., Communications Physics 8, 355 (2025), study actual resetting-work costs. Mori et al., Phys. Rev. Research 5, 023103 (2023), study stochastic physical entropy production for random reset positions. These observables and constraints are not interchangeable. The result is conditional on iid clock intervals and instantaneously restored independent Gaussian reset draws, not adaptive or feedback scheduling.
+
+Self-review: passed. Independent audit: not yet performed.
