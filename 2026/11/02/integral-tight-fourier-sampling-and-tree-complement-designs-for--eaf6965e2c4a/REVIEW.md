@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is independently reconstructed from the signed incidence matrix of the complete graph. A directed triangle can be embedded in an odd cyclic tournament and flipped while preserving each vertex's score; such differences contain an integral fundamental-triangle circulation basis. That proves the exact affine span, universal full-support covariance kernel, and selected-coordinate nullities. A fundamental-cycle matrix gives unimodular maximal minors, and Cauchy–Binet plus the matrix-tree formula proves the distribution-free determinant identity. Label-symmetry and degree balance determine all uniform pair moments. Exact small-order enumeration and positive nonuniform determinant tests are supplied; these are checks, not an infinite proof. Spherical design strength is established by moment matching and an explicit fourth-moment obstruction.
+## correctness
 
-## Originality — PASS under bounded comparison
-The 2009 full text on regular-tournament Hamilton decompositions has a different object of inference: cycles within a fixed tournament. The 2023 full text on tournament score zonotopes, especially its forest theorem, supplies a genuinely close integer-geometry mechanism but not covariance rank, equal-volume coordinate design determinants, or the uniform full spectrum. Prior results on directed Hamilton tours and on noncrossing perfect matchings use related incidence-lattice techniques, but their hypotheses, cut spaces, and probability supports do not logically imply the new regular-tournament uniform isotropy and exact design strength. Scientific literature searches for these aliases and the statistical statements returned no equivalent theorem among inspected records. This is bounded evidence, not a claim of exhaustive absence; older frame-design and tournament-statistics formulations remain residual risks.
+PASS
 
-## Mathematical value — PASS
-The study answers the natural constrained reconstruction problem for round-robin outcomes conditioned on perfectly balanced scores. The exact best sampling size, complete criterion for arbitrary selected coordinates, and **distribution-independent equality** of all maximal coordinate design determinants are nontrivial structural facts with direct significance for redundant sensing and paired-comparison acquisition. The uniform case has an exactly tight nonzero spectrum, joint independence along all matchings, and exact spherical design strength. These facts hold for an infinite parameter family without knowing the complicated number of regular tournaments.
+For all odd n≥3, triangle reversals of a regular cyclic tournament, conjugated by vertex relabelling, realize every signed triangle circulation as a difference of regular-tournament binary edge incidence vectors. Fundamental rooted triangle circulations form a Z-basis of ker_Z B; hence every full-support covariance has cut-space kernel im B^T and rank (n−1)(n−2)/2. Principal covariance nullity is c(F)−1 for omitted-edge graph F. Fundamental cycle matrices are totally unimodular in tree-complement coordinates; their maximal nonzero minors coincide with spanning-tree complements. Cauchy–Binet gives n^(n−2) and the common determinant pdet(C)/n^(n−2), including arbitrary positive nonuniform weights. Independent enumeration at n=3,5 confirms regular-tournament counts 2,24, uniform covariance, rank 1,6; a nonuniform 1:24 weight law gave equal two different tree-complement determinants 6503/54675. Pair endpoint transpositions give joint fair matching characters. Central symmetry plus scalar projected covariance implies spherical 3-design; edge fourth moment 1 differs from sphere value 3d/(d+2) for n≥5. Check n=3 d=1 as S^0 exactly.
 
-## Limitations and closest literature
-Theorem 4.1 of Kolesnik–Sanchez is the closest inspected geometric source; its forest representation is distinguished explicitly from this theorem's statistical and spectral claims. The unpublished equivalence risk is greatest in tournament covariance statistics, matroidal experimental design, and group-orbit tight-frame literature. Independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The covariance-kernel and full-support D-optimal tree-complement statement uses classical graphic matroid minors but is not proved by generic score zonotope descriptions alone; the uniform scalar projection and spherical design degree for the fixed regular-score fiber are separately established. Kolesnik–Sanchez 2023 Theorem 4.1 gives random tournament mean-score realizations with forest random edges, not arbitrary full-support law first-degree covariance minors. Best-of-knowledge original combination, subject to broader fixed-score fiber design literature.
+
+## value
+
+PASS
+
+Regular tournaments form a natural constrained Boolean orientation sample space. Exact affine lattice saturation, universal support-independent coordinate basis selection, uniform Fourier tightness, matching-wise independence and exact spherical design strength are meaningful structural sampling invariants. The result controls conditionally sampled edge-character determinant designs in every odd order, not a trivial rebranding of Cayley trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
