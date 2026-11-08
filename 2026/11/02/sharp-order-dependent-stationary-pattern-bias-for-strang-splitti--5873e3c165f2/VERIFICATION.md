@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md` and establishes the exact result for arbitrary finite connected unweighted regular bipartite graphs, all positive time steps, and all integer odd-power indices. The auxiliary `CHECK.py` was executed with Python 3 and SymPy and returned:
+## correctness
 
-```
-PASS: 7704 symbolic and numerical probes; odd-power p=1..4 and 4-cycle exact subflows
-```
+PASS
 
-Symbolically checked relations include both fixed-point hyperbolic formulas, their ratio and critical crossing, and their quadratic small-step coefficients for the first four odd nonlinearities. Numerical checks compare direct subflow composition against the closed scalar maps and the complete four-cycle graph-heat projection for 640 seeded parameter instances; they also check fixed points, stationary bias signs and local derivative formulas. These finite checks supplement rather than prove the arbitrary-graph or arbitrary-power assertions. The proof itself relies on invariant eigenspaces, exact solution of a scalar separable reaction flow, reciprocal-power linearization, and monotonicity of \(\sinh z/z\).
+For every connected finite unweighted d-regular bipartite graph, its checkerboard sign vector is an eigenvector Ls=2ds. All odd reaction powers preserve the invariant line. The exact scalar reaction flow R_t(x)=e^t x/(1+(e^{2pt}-1)|x|^{2p})^(1/(2p)), and diffusion scales by exp(-lambda t). Composition of either Strang order is F(x)=a x/(1+b|x|^{2p})^(1/(2p)), a=e^{(1-lambda)tau}>1,b>0; the reciprocal power recurrence is affine contraction, proving exactly three fixed points, sign-conditional attraction and derivative exp(-2p(1-lambda)tau). Algebra gives claimed hyperbolic x_D and x_R powers; sinh(z)/z strict increase yields crossover at lambda=1/2 and order relation. Addition identity gives x_R^{2p}/x_D^{2p}=cosh(p tau/2)/cosh(p(1-2lambda)tau/2); logarithmic growth rate is one half min(lambda,1-lambda), independent of p. Independent 27 cases validated amplitudes and ratio; analytic proof covers all p, graph sizes and positive steps. Transverse stability deliberately not claimed.
 
-No theorem is asserted outside the checkerboard invariant line; transverse stability, fully spatially continuous PDE effects and finite-precision implementation behavior have not been established. An independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.
+
+## value
+
+PASS
+
+A sharp, unconditional-in-step, graph-wide classification of equilibrium bias for a natural invariant nonlinear reaction–diffusion mode is useful for numerical splitting choices: switching symmetric order can invert bias, and reaction-outside preserves the continuous equilibrium exactly at a nontrivial threshold. Full fixed point dynamics and power-independent exponential separation add structural content beyond the general fact that splitting perturbs equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
