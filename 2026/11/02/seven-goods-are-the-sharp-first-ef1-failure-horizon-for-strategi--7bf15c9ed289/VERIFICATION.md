@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py certificate.json` from this directory. It uses only Python 3's standard library and exact integer arithmetic.
+## correctness
 
-The verifier tests that each agent strictly ranks all 128 bundles; recomputes the complete subgame-perfect continuation sets using two independent directions (top-down memoization and bottom-up state traversal); compares both sets at each of 128 states; establishes exactly two root outcomes; and verifies the single root outcome \((41,68,18)\), or \((\{g_1,g_4,g_6\},\{g_3,g_7\},\{g_2,g_5\})\), has an EF1 violation by agent B against A.
+PASS
 
-It then recursively builds a specific complete off-path strategy profile that supports that root allocation and checks unilateral one-shot deviations at every encountered history, including 13,700 tree nodes. Perfect-information backward induction (and the one-shot deviation principle for finite games) turns those node checks into the stated pure SPNE witness. The exact B-to-A utility comparison is 1092 against the minimum 1161 after deleting an A-good. The executable checks the stored `certificate.json` against independent recomputation.
+At every agent i first pick, any currently available good is a unilateral-deviation lower bound on her realized monotone bundle value. Every j has at most two picks and at most one preceding i, so deleting one j good leaves an empty set or one good available to i; EF1 follows for all n,m<=2n. The exact pure-SPNE continuation recurrence T(S)=max_g min_{Y in E_g(S)} v_i(Y_i) has necessity by off-path SPNE selection and sufficiency by choosing minimizing continuations after deviations. Independent exact 128-mask dynamic recursion with the additive 128*b+binary perturbation gave root masks (13,96,18) and (41,68,18); bad outcome B pays 1092 while any deletion from A leaves >=1161 (gap 69). Finite exhaustive checking is relevant only to the 7-good witness; first-pick argument proves the universal quantifiers.
 
-# Limits
+## originality
 
-The code verifies the seven-good finite certificate. The \(m\le2n\) protection for all monotone valuations is proved analytically in RESULT.md, not established by finite enumeration. The calculations do not prove publication priority, uniqueness of the unfair equilibrium, or a characterization of all possible valuation matrices.
+PASS
+
+Target result is the universal m<=2n safety boundary and a 7-good existential sequential-SPNE witness, not existence of online EF1 failure per se. The 9-good known online SPNE witness and offline simultaneous-report 8-good PNE are distinct. Best-of-knowledge novelty of the sharp boundary with residual risk from unavailable primary full text and unindexed equivalent small examples.
+
+## value
+
+PASS
+
+A natural and sharp first-failure threshold for strategic sequential EF1, lowering the known online-SPNE counterexample from nine to seven goods while proving a two-round safety theorem for all normalized monotone valuations. This is not a mere extra isolated test, and the claim correctly restricts itself to existence of an unfair equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

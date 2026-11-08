@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:44:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At every agent i first pick, any currently available good is a unilateral-deviation lower bound on her realized monotone bundle value. Every j has at most two picks and at most one preceding i, so deleting one j good leaves an empty set or one good available to i; EF1 follows for all n,m<=2n. The exact pure-SPNE continuation recurrence T(S)=max_g min_{Y in E_g(S)} v_i(Y_i) has necessity by off-path SPNE selection and sufficiency by choosing minimizing continuations after deviations. Independent exact 128-mask dynamic recursion with the additive 128*b+binary perturbation gave root masks (13,96,18) and (41,68,18); bad outcome B pays 1092 while any deletion from A leaves >=1161 (gap 69). Finite exhaustive checking is relevant only to the 7-good witness; first-pick argument proves the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The related online SPNE result gives a nine-good unfair example with uniqueness of its root equilibrium; it is no theorem asserting a seven-good minimum.",
+          "The offline 8-good result operates in a distinct game."
+        ],
+        "reasoning": "A known larger counterexample does not imply the minimal seven-good existential threshold, and two-agent or PROP1 guarantees do not imply EF1 with arbitrary n and monotone valuations.",
+        "searches": [
+          "Resultary semantic search: online round-robin strategic draft perfect-information SPNE EF1 7 goods 3 agents minimal counterexample",
+          "Goldberg–Hollender–Tyrovolas (2026), Theorem 17",
+          "Amanatidis et al. (2026), Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.18309v1",
+        "arXiv:2610.23686v1",
+        "frozen RESULT.md, verify.py, certificate.json at source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior nine-good online example proves eventual failure, not the lower bound m<=2n or minimal failure at 7.",
+          "Prior eight-good offline mechanism does not entail any sequential SPNE statement."
+        ],
+        "reasoning": "No observed theorem in the reviewed available material logically implies both the universal lower horizon and the finite 7-good SPNE witness; full-primary-text priority remains conditional.",
+        "searches": [
+          "arXiv:2609.18309v1",
+          "arXiv:2610.23686v1",
+          "Resultary semantic search: online round-robin strategic draft perfect-information SPNE EF1 7 goods 3 agents minimal counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sequential SPNE is a perfect-information continuation equilibrium; simultaneous-report PNE fixes full bid rankings before all turns.",
+          "RESULT.md: 128-state recurrence yields two root allocations and one EF1 violation."
+        ],
+        "reasoning": "Online adaptive SPNE and static ranking PNE cannot be identified by matching the EF1 label; the first-pick theorem depends on the sequential extensive form.",
+        "searches": [
+          "Resultary semantic search: online round-robin strategic draft perfect-information SPNE EF1 7 goods 3 agents minimal counterexample",
+          "arXiv:2609.18309v1",
+          "arXiv:2610.23686v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently checked 128 equilibrium subset states and the two root partitions; no published seven-good enumeration found in the returned semantic results."
+        ],
+        "reasoning": "Search and local finite enumeration support a new sharp cutoff, but failure to find a published seven-good table is not proof of priority.",
+        "searches": [
+          "Resultary semantic search: online round-robin strategic draft perfect-information SPNE EF1 7 goods 3 agents minimal counterexample",
+          "arXiv:2609.18309v1",
+          "arXiv:2610.23686v1"
+        ]
+      },
+      "rationale": "Target result is the universal m<=2n safety boundary and a 7-good existential sequential-SPNE witness, not existence of online EF1 failure per se. The 9-good known online SPNE witness and offline simultaneous-report 8-good PNE are distinct. Best-of-knowledge novelty of the sharp boundary with residual risk from unavailable primary full text and unindexed equivalent small examples.",
+      "residual_risks": [
+        "Closest SPNE primary full text unavailable, so uninspected appendix could contain a sharper minimality observation.",
+        "Other unpublished or unindexed small SPNE examples could cover 7 goods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant 9-good SPNE existence and uniqueness; whole-document absence of 7-good result NOT certified.",
+          "evidence": [
+            "arXiv:2609.18309v1; assigned RESULT.md §Relationship to prior work"
+          ],
+          "identifier_or_url": "arXiv:2609.18309v1",
+          "material_read": "Public metadata/abstract and the theorem description reproduced with specific theorem-number reference in assigned RESULT/REVIEW; full primary body was NOT obtained.",
+          "method": "arXiv public search and lawful OA attempted; Oxford institutional PDF request returned vpn_disconnected.",
+          "title": "Equilibria of Round-Robin: Computational Hardness and Fairness for Few Subadditive Agents",
+          "trigger": "Same online strategic SPNE and EF1 objects"
+        },
+        {
+          "assessment": "Offline direct-revelation Nash result is not online SPNE.",
+          "evidence": [
+            "arXiv:2610.23686v1; assigned RESULT.md literature comparison"
+          ],
+          "identifier_or_url": "arXiv:2610.23686v1",
+          "material_read": "Public abstract and assigned cited Proposition 1 context; full body NOT obtained",
+          "method": "Primary public abstract and source metadata",
+          "title": "Revisiting the Fairness of Pure Nash Equilibria of Round-Robin",
+          "trigger": "Same fairness criterion but different game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural and sharp first-failure threshold for strategic sequential EF1, lowering the known online-SPNE counterexample from nine to seven goods while proving a two-round safety theorem for all normalized monotone valuations. This is not a mere extra isolated test, and the claim correctly restricts itself to existence of an unfair equilibrium.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.18309v1",
+    "arXiv:2610.23686v1",
+    "frozen RESULT.md, verify.py, certificate.json at source tree"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed cyclic one-good picking, m<=2n guarantees EF1 for every pure SPNE under normalized monotone valuations; for n=3,m=7 strictly positive additive valuations with strict bundle rankings admit an unfair SPNE, establishing the first failure horizon (existential, not every equilibrium).",
+  "limitations": [
+    "One unfair root SPNE of two, not all-equilibria unfairness.",
+    "Only normalized monotone valuations and fixed sequential cyclic picking for lower theorem."
+  ],
+  "residual_risks": [
+    "Closest SPNE primary full text unavailable, so uninspected appendix could contain a sharper minimality observation.",
+    "Other unpublished or unindexed small SPNE examples could cover 7 goods."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Relevant 9-good SPNE existence and uniqueness; whole-document absence of 7-good result NOT certified.",
+      "evidence": [
+        "arXiv:2609.18309v1; assigned RESULT.md §Relationship to prior work"
+      ],
+      "identifier_or_url": "arXiv:2609.18309v1",
+      "material_read": "Public metadata/abstract and the theorem description reproduced with specific theorem-number reference in assigned RESULT/REVIEW; full primary body was NOT obtained.",
+      "method": "arXiv public search and lawful OA attempted; Oxford institutional PDF request returned vpn_disconnected.",
+      "title": "Equilibria of Round-Robin: Computational Hardness and Fairness for Few Subadditive Agents",
+      "trigger": "Same online strategic SPNE and EF1 objects"
+    },
+    {
+      "assessment": "Offline direct-revelation Nash result is not online SPNE.",
+      "evidence": [
+        "arXiv:2610.23686v1; assigned RESULT.md literature comparison"
+      ],
+      "identifier_or_url": "arXiv:2610.23686v1",
+      "material_read": "Public abstract and assigned cited Proposition 1 context; full body NOT obtained",
+      "method": "Primary public abstract and source metadata",
+      "title": "Revisiting the Fairness of Pure Nash Equilibria of Round-Robin",
+      "trigger": "Same fairness criterion but different game"
+    }
+  ]
+}
