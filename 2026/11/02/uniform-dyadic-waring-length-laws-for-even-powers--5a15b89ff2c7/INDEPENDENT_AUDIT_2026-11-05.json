@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:47:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every even integer k>=4, s=v2(k), m=s+2, B=2^m<=2^k. Odd kth powers in Z2 are exactly 1+B Z2 and even kth powers lie in 2^k Z2. For t<B represented sums split disjointly into h+B Z2 for 1<=h<=t (h odd bases), plus 2^k times the same t-summand set; no cancellation between branches. Consequently A_{k,t}(n)=min(t+1,2^n) for n<=m, t2^{n-m}+1 for m<n<=k, and t2^{n-m}+A(n-k) for n>k; t=B covers all residues. Induction gives the exact periodically bounded discrepancy from c2^n with c=t/[B(1-2^-k)]. Stripping valuation in blocks k gives pointwise minimal length rho if nonzero normalized rho mod B, else B. Disjoint Haar layers give probability 2^k/[B(2^k-1)] for each t<B and (2^k-B)/[B(2^k-1)] for t=B. Restriction k>=4 even, zero-length at a=0 and t=0 treated explicitly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kowalczyk–Miska give exact maximum and odd-unit kth-power image; Arias–Borja–Anaya give lifting machinery and k=4 t<=15 counts."
+        ],
+        "reasoning": "The known fourth-power case is covered and explicitly excluded from novelty; neither inspected paper gives all k even with uniform recurrence and complete Haar law.",
+        "searches": [
+          "arXiv:2206.09904 Theorem 6.11",
+          "JIS 26 (2023) Article 23.8.1 Propositions 4,8,32"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2206.09904",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+        "https://doi.org/10.1080/00029890.1977.11994269",
+        "Resultary semantic search: dyadic Waring even kth powers exact representation length distribution Z2 finite modulo"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known odd-unit power group 1+B Z2 and k=4 finite formulas supply the underlying mechanism."
+        ],
+        "reasoning": "The whole distribution follows from an additional disjoint all-even recursion, not merely a renaming of the k=4 table; the derivation is short, and priority risks remain.",
+        "searches": [
+          "Kowalczyk–Miska proof of Theorem 6.11",
+          "Arias–Borja–Anaya Proposition 32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count A_{k,t}(n) is a cumulative minimal-length distribution; its complement and probabilities follow by differences."
+        ],
+        "reasoning": "All alternative formulations of the same modulus count, including minimum summand length and Haar-law equivalents, were compared against the predecessor fourth-power table.",
+        "searches": [
+          "Resultary: dyadic Waring even kth powers exact representation length distribution Z2 finite modulo",
+          "JIS 26 (2023) Proposition 32"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact table for k=4 and 3<=t<=15 matches tested specialization; no table for every even k found."
+        ],
+        "reasoning": "A known subcase cannot be counted as original; the unrestricted even-exponent uniform result is distinct.",
+        "searches": [
+          "JIS 2023 Proposition 32",
+          "Resultary: dyadic Waring even kth powers exact representation length distribution Z2 finite modulo"
+        ]
+      },
+      "rationale": "Qualified PASS: unit kth-power image and extremal Waring number over Z2 are known from Kowalczyk–Miska; Arias–Borja–Anaya already compute the k=4 finite census for 3<=t<=15. The all-even-k exact finite modulus and full probability distribution are not given there, but are elementary developments of this prior structural fact; older Small 1977 paper full text unavailable.",
+      "residual_risks": [
+        "1977 C. Small full paper was not read; it may include a dominating all-even-exponent modular counting formula.",
+        "The advance is an elementary consequence of a known unit-power image, and an unindexed equivalent general formula may exist.",
+        "The theorem is strictly local to two and even k>=4; no global integer Waring numbers or representation multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MAXIMUM_AND_POWER_IMAGE; not uniform complete distribution",
+          "evidence": "Theorem 6.11 gives extremal dyadic Waring lengths and odd kth-power image, no A_{k,t}(n) for all even k.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.09904",
+          "material_read": "Full arXiv paper including Theorem 6.11 and proof, with page screenshot",
+          "method": "Full PDF page/theorem comparison",
+          "title": "On Waring numbers of henselian rings",
+          "trigger": "Same local ring and even exponents; known maximal lengths"
+        },
+        {
+          "assessment": "COVERS_k4_SPECIAL_CASE",
+          "evidence": "Proposition 32 gives k=4 counts, so those instances are not new; all-even exponent formulas and Haar distribution not identified.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "Full published PDF including Propositions 4,8,31,32; inspected Prop32 page screenshot",
+          "method": "Full PDF theorem comparison",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Exact fourth-power count and general modular lifting"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "No whole-document noncoverage inferred from abstract or metadata.",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1977.11994269",
+          "material_read": "Bibliographic metadata and secondary citations only, not full 1977 paper",
+          "method": "Bibliographic/secondary comparison",
+          "title": "Waring's Problem Mod n",
+          "trigger": "Older potentially dominating modular Waring generality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete uniform finite-modulus counting and entire Haar minimal-length distribution for all even exponents is a natural arithmetical representation invariant, substantially finer than maximal length alone and extends a known fourth-power census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "1977 C. Small full paper was not read; it may include a dominating all-even-exponent modular counting formula.",
+    "The advance is an elementary consequence of a known unit-power image, and an unindexed equivalent general formula may exist.",
+    "The theorem is strictly local to two and even k>=4; no global integer Waring numbers or representation multiplicities."
+  ],
+  "schema_version": 1
+}

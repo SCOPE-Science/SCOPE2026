@@ -1,15 +1,21 @@
-# Scientific review: uniform dyadic Waring-length laws
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unit-power image follows from \(\mathbb Z_2^\times\cong\{\pm1\}\times(1+4\mathbb Z_2)\) and the exact image of multiplication by the even exponent on the logarithm of principal units. Since \(2^{\nu_2(k)+2}\) divides \(2^k\), at any budget smaller than \(B\) the number of odd bases is uniquely determined modulo \(B\), while the all-even branch reduces exactly to a smaller dyadic modulus. This proves the full finite recursion and its closed solution; a disjoint geometric valuation decomposition yields the 2-adic law. A separate bitset enumerator verified 1,056 finite cases; 390 fourth-power checks match the published Proposition 32. Risks: enumeration is not an infinite proof; the proof supplies the unrestricted argument.
+PASS
 
-## Originality — PASS within available primary sources
+For every even integer k>=4, s=v2(k), m=s+2, B=2^m<=2^k. Odd kth powers in Z2 are exactly 1+B Z2 and even kth powers lie in 2^k Z2. For t<B represented sums split disjointly into h+B Z2 for 1<=h<=t (h odd bases), plus 2^k times the same t-summand set; no cancellation between branches. Consequently A_{k,t}(n)=min(t+1,2^n) for n<=m, t2^{n-m}+1 for m<n<=k, and t2^{n-m}+A(n-k) for n>k; t=B covers all residues. Induction gives the exact periodically bounded discrepancy from c2^n with c=t/[B(1-2^-k)]. Stripping valuation in blocks k gives pointwise minimal length rho if nonzero normalized rho mod B, else B. Disjoint Haar layers give probability 2^k/[B(2^k-1)] for each t<B and (2^k-B)/[B(2^k-1)] for t=B. Restriction k>=4 even, zero-length at a=0 and t=0 treated explicitly.
 
-Kowalczyk--Miska (2022) Theorem 6.11 already gives the maximum local Waring length for all even exponents, and its proof already identifies the odd-unit power image; neither is claimed as new. Arias--Borja--Anaya (2023) Proposition 32 already counts sums for fourth powers, and those values are explicitly credited. Proposition 26 also supplies a sixth-power two-summand specialization. The inspected source sections, targeted mathematical-record searches and relevant historical claims did not yield the full closed census for all even exponents or its exact minimal-length frequencies. The mathematical comparison is of the implied quantitative statements, not titles alone. A 1977 Small paper was accessible only bibliographically; earlier implicit coverage remains a risk and absolute priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The published modular counting question is answered for every even exponent and every permissible summand budget at powers of two, not merely for one invariant or a hand-picked finite range. The complete probability law exhibits equal weights across all nonfinal lengths, the exceptional fourth-power disappearance of the final atom, and a bounded periodic discrepancy at finite modulus. Its independent mathematical use is as an exact distribution of local Waring lengths in additive congruence problems. No global Waring-number classification or other-prime claim is made.
+Qualified PASS: unit kth-power image and extremal Waring number over Z2 are known from Kowalczyk–Miska; Arias–Borja–Anaya already compute the k=4 finite census for 3<=t<=15. The all-even-k exact finite modulus and full probability distribution are not given there, but are elementary developments of this prior structural fact; older Small 1977 paper full text unavailable.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Complete uniform finite-modulus counting and entire Haar minimal-length distribution for all even exponents is a natural arithmetical representation invariant, substantially finer than maximal length alone and extends a known fourth-power census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

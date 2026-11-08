@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify.py` executes using Python 3 and its standard library only. It forms the residue set of \(k\)-th powers modulo \(2^n\), then uses cyclic bitset convolution to exhaustively enumerate the represented sums. This construction does not use the claimed union-of-cosets proof. It checks each represented-residue count for \(k\in\{4,6,8,10,12,14\}\), \(1\le n\le12\), and each \(1\le t\le2^{\nu_2(k)+2}\), totaling 1,056 cases. It also independently implements the published Proposition 32 fourth-power formulas for \(1\le n\le30\), \(3\le t\le15\), and compares their counts with the proposed recurrence, totaling 390 comparisons.
+## correctness
 
-Expected success lines: `VERIFY_OK total=1056` and `PUBLISHED_FORMULA_COMPATIBILITY_OK comparisons=390`. The modular checks are exhaustive for their finite rings but do not directly verify the theorem's infinitely many exponents/moduli or the 2-adic Haar probability identities. Those claims depend on the exact group-theoretic proof. The 1977 historical modular Waring paper was not available in full text for priority comparison. Independent audit has not been performed.
+PASS
+
+For every even integer k>=4, s=v2(k), m=s+2, B=2^m<=2^k. Odd kth powers in Z2 are exactly 1+B Z2 and even kth powers lie in 2^k Z2. For t<B represented sums split disjointly into h+B Z2 for 1<=h<=t (h odd bases), plus 2^k times the same t-summand set; no cancellation between branches. Consequently A_{k,t}(n)=min(t+1,2^n) for n<=m, t2^{n-m}+1 for m<n<=k, and t2^{n-m}+A(n-k) for n>k; t=B covers all residues. Induction gives the exact periodically bounded discrepancy from c2^n with c=t/[B(1-2^-k)]. Stripping valuation in blocks k gives pointwise minimal length rho if nonzero normalized rho mod B, else B. Disjoint Haar layers give probability 2^k/[B(2^k-1)] for each t<B and (2^k-B)/[B(2^k-1)] for t=B. Restriction k>=4 even, zero-length at a=0 and t=0 treated explicitly.
+
+## originality
+
+PASS
+
+Qualified PASS: unit kth-power image and extremal Waring number over Z2 are known from Kowalczyk–Miska; Arias–Borja–Anaya already compute the k=4 finite census for 3<=t<=15. The all-even-k exact finite modulus and full probability distribution are not given there, but are elementary developments of this prior structural fact; older Small 1977 paper full text unavailable.
+
+## value
+
+PASS
+
+Complete uniform finite-modulus counting and entire Haar minimal-length distribution for all even exponents is a natural arithmetical representation invariant, substantially finer than maximal length alone and extends a known fourth-power census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
