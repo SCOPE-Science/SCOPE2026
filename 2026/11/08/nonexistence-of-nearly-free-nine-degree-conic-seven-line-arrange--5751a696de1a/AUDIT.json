@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "evidence": [
+      "Gałecka 2022 Props 4.1,4.4 and Theorems 3.2,3.4",
+      "Hirzebruch 1985 Section 6 equation (9)",
+      "verify_constraints.py",
+      "RESULT.md Steps 1–5"
+    ],
+    "rationale": "Assume near freeness. Gałecka's exact syzygy bounds force mdr=4, whence the nearly-free Tjurina formula gives tau=47; Bézout gives n+2t+3s=35 so s+t=12,n=t-1. Gałecka Proposition 4.4 yields t≤4. Decomposing s=u+v and counting conic incidences of seven lines yields u≥5. Hirzebruch 1985 Section 6 Eq. (9), with verified t7=t6=t5=0 for the seven-line subarrangement, bounds 9u+4v≤56, but 9u+4v=4(12−t)+5u≥57. All assumptions, local multiplicities, quantifiers and formula constants were checked. The packaged standard-library verifier reproduces zero feasible integer incidence profiles; it is not the proof of the two external inequalities.",
+    "risks": [
+      "Proof relies explicitly on established quoted inequalities over the complex numbers; changing the singularity class invalidates the argument."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Măcinic–Pokora (arXiv:2309.15228) specifically treats plus-one generated curves with defect 2, rather than nearly free defect 1.",
+        "Pokora (arXiv:2608.05662) constructs degree-nine one-conic/seven-line nearly free curves but with ordinary quadruple points, which are excluded here.",
+        "The 2026 result is broader in singularity types but not a statement of nonexistence in the restricted simple-singularity subclass."
+      ],
+      "reasoning": "Inclusion in a larger class is not itself dominating coverage: the cited near-free example has four ordinary quadruple points, so it does not satisfy the necessary hypotheses. The cited defect-two classification does not entail the missing defect-one nonexistence.",
+      "searches": [
+        "2024 2025 one conic seven lines near-free ordinary triple tacnode degree nine",
+        "https://arxiv.org/abs/2309.15228",
+        "https://arxiv.org/abs/2608.05662"
+      ]
+    },
+    "checked_sources": [
+      "Gałecka 2022 arXiv:2204.13969 and journal full text",
+      "Hirzebruch 1985 MPI preprint 85-39 Section 6 Eq. (9)",
+      "Măcinic–Pokora 2023 arXiv:2309.15228 full HTML",
+      "Bannai–Kawana–Masuya–Tokunaga 2024 arXiv:2410.04969 HTML",
+      "Pokora 2026 arXiv:2608.05662 HTML"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gałecka supplies the degree-nine near-free syzygy bound, Tjurina formula, and the conic–line inequality 8k+n+(3/4)s ≥ d+(5/2)t.",
+        "The seven-line-only arrangement has line triples u and doubles 21−3u−v; Hirzebruch’s original strong inequality forces 9u+4v ≤ 56.",
+        "The conic incidence bound forces u ≥ 5 while Gałecka’s inequality forces t ≤ 4, and thus 9u+4v ≥ 57."
+      ],
+      "reasoning": "The conjunction of two published inequalities applied to different subarrangements, together with the new incidence reduction, proves the claimed global exclusion. Neither inequality in isolation excludes the configuration. Other covering formulations were sought by statement and parameter rather than titles alone.",
+      "searches": [
+        "seven complex projective lines one smooth conic no nearly-free degree-nine arrangement with only A1 A3 D4 singularities",
+        "one conic seven lines maximal Tjurina 47 impossible ordinary triple points tacnodes",
+        "https://archive.mpim-bonn.mpg.de/id/eprint/2262/1/preprint_1985_39.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gałecka (2022) Section 5 specifically reports the degree-nine case undecided.",
+        "One-conic/seven-line translates exactly to degree 9 and one nonlinear irreducible component; the published necessary inequalities do not establish nonexistence.",
+        "Hirzebruch (1985), Section 6 equation (9), gives the strong coefficient 3/4 for triple points in line-only arrangements."
+      ],
+      "reasoning": "A theorem ruling out the exact one-conic/seven-line configuration, or all degree-nine nearly free conic–line arrangements with these three singularities, would cover this claim. The inspected likely references do not supply that theorem; the new proof creates a contradiction from cross-component and line-only inequalities.",
+      "searches": [
+        "degree nine nearly free conic line arrangement one smooth conic seven lines only nodes tacnodes ordinary triple points no such arrangements",
+        "Galecka 2022 degree 9 one conic 7 lines nearly free Hirzebruch inequality",
+        "https://link.springer.com/article/10.1007/s40590-022-00461-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 paper constructs degrees 3–7 and rules out degrees 10–12, leaving degree 9 explicit.",
+        "Bannai–Kawana–Masuya–Tokunaga (arXiv:2410.04969) study seven-line/one-conic examples with different singularity profiles; they do not tabulate a nearly-free degree-nine classification."
+      ],
+      "reasoning": "The searched tables and classification texts do not provide an exhaustive nonexistence entry for this precise class. The source's degree-nine necessary conditions leave possibilities unresolved and therefore do not entail the stronger nonexistence claim.",
+      "searches": [
+        "Gałecka nearly free conic-line arrangements degree 9 open problem 2022 2023",
+        "https://arxiv.org/abs/2410.04969",
+        "https://link.springer.com/article/10.1007/s40590-022-00461-4"
+      ]
+    },
+    "rationale": "The published 2022 motivating paper expressly leaves degrees eight and nine undecided; its inequalities alone give necessary numerical constraints. The present conclusion eliminates all one-conic/seven-line degree-nine candidates by applying the separate strong Hirzebruch line-only inequality to the seven-line subarrangement and combining it with a conic incidence bound. This is not implied by the original degree-nine necessary conditions; fuller historical priority remains a residual risk.",
+    "residual_risks": [
+      "An unindexed older incidence argument combining line-only Hirzebruch with conic–line inequalities may prove equivalent nonexistence.",
+      "A 2026 paper on homological conic–line arrangements, arXiv:2606.31452, had abstract-level review only; its announced focus is defect three and degree at most six, but uninspected sections cannot be certified not covering.",
+      "Full-text global search is not exhaustive; lack of a match does not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_PREMISES_NOT_COVERING_FINAL_CLAIM",
+        "evidence": [
+          "Section 5 expressly says degrees eight and nine remain undecided.",
+          "Proposition 4.4 supplies the conic–line inequality and near-free exponents imply tau=47."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40590-022-00461-4",
+        "material_read": "Full openly accessible HTML: Sections 1–5, notably Section 3 Theorems 3.2/3.4; Section 4 Propositions 4.1/4.4 and Problem 4.3; Section 5 open-case statement.",
+        "method": "Read source mathematical statements and corresponding proof conditions",
+        "title": "On the nearly freeness of conic-line arrangements with nodes, tacnodes, and ordinary triple points",
+        "trigger": "Exact subject, degree-nine open case, and requisite near-free inequalities"
+      },
+      {
+        "assessment": "SUPPORTS_NONSTANDARD_LEMMA_NOT_COVERING_THE_SPECIAL_CONIC_PROBLEM",
+        "evidence": [
+          "Theorem (9) states t2+(3/4)t3 ≥ number_of_lines + nonnegative higher-point contribution if top three intersection multiplicities vanish.",
+          "The seven lines have no fourfold or higher intersections, so its hypotheses hold."
+        ],
+        "identifier_or_url": "https://archive.mpim-bonn.mpg.de/id/eprint/2262/1/preprint_1985_39.pdf",
+        "material_read": "Section 6, printed page 8, including derived inequality (9), hypotheses and caveat about large concurrency; page image visually inspected.",
+        "method": "Full original passage and page-image inspection of theorem statement",
+        "title": "Singularities of Algebraic Surfaces and Characteristic Numbers",
+        "trigger": "Strong Hirzebruch inequality for seven-line subarrangements"
+      },
+      {
+        "assessment": "DIFFERENT_DEFECT_NO_COVERING",
+        "evidence": [
+          "The focus is the plus-one generated defect-two condition; nearly free is defect one.",
+          "It leaves some degree-nine possibilities open in its own category."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.15228",
+        "material_read": "HTML full text, especially preliminaries and Theorem 3.4 on defect 2 and degree nine.",
+        "method": "Compared definitions, level/defect hypotheses, and degree-nine conclusions",
+        "title": "On plus-one generated conic-line arrangements with simple singularities",
+        "trigger": "Potential dominating homological classification in same objects"
+      },
+      {
+        "assessment": "EXISTENCE_IN_OTHER_SINGULARITY_COMBINATORICS_NOT_COVERING",
+        "evidence": [
+          "Describes nonisomorphic Zariski pairs with one conic and seven lines.",
+          "No nearly-free degree-nine exclusion with the three prescribed singularity types is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.04969",
+        "material_read": "HTML full text: introduction, examples, and Sections 2–3 including seven-line/one-conic incidence discussion.",
+        "method": "Compared singularity counts, arrangements, and theorem aims",
+        "title": "Zariski pairs of conic-line arrangements with a unique conic",
+        "trigger": "Same component counts, possible exact geometric examples"
+      },
+      {
+        "assessment": "DOES_NOT_COVER: ORDINARY_QUADRUPLE_POINTS",
+        "evidence": [
+          "Example has weak type including four ordinary quadruple points, plus nodes and an ordinary triple.",
+          "Those singularities violate the A1/A3/D4-only condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.05662",
+        "material_read": "HTML introduction and sections containing construction and listed weak combinatorics of example.",
+        "method": "Directly checked its example singularity basket against the new restricted hypothesis",
+        "title": "On the Numerical Terao Conjecture",
+        "trigger": "2026 near-free degree-nine example with exactly seven lines and one conic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5751a696-de1a-4112-975e-27cfa452cd92",
+  "value": {
+    "evidence": [
+      "Gałecka 2022 Problem 4.3 and Section 5 degree-nine open question",
+      "RESULT.md complete obstruction"
+    ],
+    "rationale": "Degree nine with these three singularity types was explicitly left open in the motivating 2022 classification. This is not an arbitrary small subcase: one conic with seven lines is the structurally simplest nonlinear-component decomposition of degree nine, and removing it reduces the open classification to configurations involving multiple conics. The argument introduces a useful incidence mechanism: combine an inequality for the whole conic–line arrangement with the stronger line-only Hirzebruch inequality; it eliminates all remaining compatible weak combinatorics. This is a complete natural partial classification, not only a necessary condition or a computed witness.",
+    "risks": [
+      "No claim of resolution for degree-nine arrangements containing two or more conics."
+    ],
+    "status": "PASS"
+  }
+}
