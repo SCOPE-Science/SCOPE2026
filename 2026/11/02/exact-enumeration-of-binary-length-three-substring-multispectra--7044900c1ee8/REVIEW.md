@@ -1,15 +1,21 @@
-# Review of the exact binary length-three multispectrum enumerator
+# Independent mathematical audit
 
-## Correctness
-PASS (self-review). For each linear binary word, the eight length-three multiplicities are directed arc counts on the four-state order-two de Bruijn graph. Existence requires a single weakly connected positive support and exactly one of the thirteen endpoint imbalance patterns. The proof separates isolated loops, applies inclusion-exclusion on six nonloop arc supports, evaluates the remaining two-dimensional integer-flow sums by geometric series, and derives a rational function. The degree bound of 28 for the explicitly specified denominator times the generating function makes the degree-40 integer coefficient check exhaustive for the final identity. Independent word-level enumeration through length 16 and a separate flow enumeration through 40 read positions agree. The pole analysis proves the growth coefficient and minimal quasipolynomial period 12. Risk: all proof and checker logic share the same mathematical formulation, and no independent formal or external validation has occurred.
+## correctness
 
-## Originality
-PASS (qualified, self-review). The 2014 original manuscript by Kiah, Puleo and Milenkovic (https://arxiv.org/abs/1410.8837), expanded in 2015 (https://arxiv.org/abs/1502.00517), studies precisely this observation model and uses de Bruijn graphs and Ehrhart theory. Its numerical constant \(1/288\) is for the connected balanced closed-flow lattice, not the complete lengthwise collection of open-path profiles. The open proceedings paper by Jacquet, Knessl and Szpankowski (https://doi.org/10.46298/dmtcs.2768) addresses Markov-type asymptotics. Related recorded findings on length-two read vectors and ternary length-two profile rankings do not imply this eight-coordinate exact rational enumerator. The 2012 expanded Markov-type paper (https://doi.org/10.1109/TIT.2012.2191476) was not available in complete text; historical priority is not certified. Full search comparisons and limitations are recorded in AUDIT.json.
+PASS
 
-## Value
-PASS (self-review). The count is exactly the maximal number of binary sequences distinguishable by a full unordered multiplicity-preserving length-three readout: it is a direct reconstruction-code invariant, not an arbitrary finite statistic. Determining it for every length, with a structural support/flow proof and minimal quasipolynomial period, meaningfully refines earlier asymptotic and restricted-profile results.
+A word’s eight read multiplicities are edge counts of a walk in the 4-vertex order-two binary de Bruijn digraph. Euler existence requires weak connectedness of positive support and exactly one of 13 allowable 0 or start−end imbalance vectors, with no multiplicity for alternative trails. Splitting the six nonloop arcs from 000/111 loops, support inclusion–exclusion and three free integral flow parameters gives rational geometric series. The text provides explicit C_T coefficients, sums and a degree ≤28 bound for D0(z)H(z), with D0=(1−z)^3(1−z²)(1−z³)(1−z⁴). Independently recomputed all Euler-flow counts and compared all GF coefficients through degree 40; the explicitly derived polynomial degree ceiling 28 then turns that agreement into a certificate, not an inference from a finite word list. Independent literal enumeration of 2^n binary strings for n=2..13 matched first 12 predicted counts 1,8,15,28,52,92,151,240,363,532,757,1048. Cyclotomic noncancellation implies minimal quasipolynomial period 12 and leading 13 n^4/288.
 
-## Limitations
-This theorem is specific to binary linear words and error-free complete read multiplicities; it does not cover noise, missing read counts, arbitrary larger read sizes, or within-profile ambiguity multiplicities. All scientific checks are self-review only. Historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kiah–Puleo–Milenkovic 2014/2015 give the exact read-profile observation model, Ehrhart framework and a 1/288 closed/balanced-flow asymptotic constant. They do not supply the full open Euler-trail profile enumerator or the claimed explicit rational GF in inspected sections; the 13 possible imbalances explain why the leading constant here is 13/288. Jacquet–Knessl–Szpankowski give Markov type asymptotics, and a published binary read-length-two census is not the read-length-three answer. The 2012 expanded Markov type journal version remains a priority risk.
+
+## value
+
+PASS
+
+The count is exactly the maximum error-free code size for complete unordered multiplicity-preserving binary 3-gram reads, a reconstruction invariant singled out by DNA sequence-profile literature. All-length explicit GF, sharp quasipolynomial period and 13/288 leading constant go beyond the known restricted balanced counts and general rationality; motivated exact combinatorial problem rather than an arbitrary coefficient slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
