@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable verification and scope
+# Independent mathematical audit
 
-`fan_direct_check.cpp` builds the fan directly from its labelled adjacency lists. For each \(2\le n\le8\), it scans every integer chip assignment satisfying \(0\le c(v)<2\deg(v)\), executes two simultaneous updates and counts states with \(U^2(c)=c\ne U(c)\). Dividing by two produces the orbit counts \(6,30,128,525,2064,7915,29760\). The output file `DIRECT_CHECK.txt` gives the number of configurations scanned at each size. The finite box is exhaustive for primitive two-cycles, as proved from the required alternating firing indicators and exact height intervals; however, these tests are only a finite check of the infinite-family statement.
+## correctness
 
-`fan_transfer_check.py` independently enumerates binary cut words, constructs the four-state transfer matrix and endpoint vectors, symbolically checks the rational fan generating function, and reconstructs the wheel closed-rim trace/determinant identity. It verifies exact agreement of all fan cut-word counts for \(2\le n\le15\) and checks algebraically that the ratio of the dominant constants is \(1-2/\sqrt{13}\). Its standard output is `SYMBOLIC_CHECK.txt`.
+PASS
 
-To reproduce, compile with a C++17 compiler using `g++ -O3 -std=c++17 fan_direct_check.cpp -o fan_direct_check` and run `./fan_direct_check`. With Python 3 and SymPy installed, run `python fan_transfer_check.py`. The archived outputs are observations from these programs, not replacement proofs.
+Connectedness forces two phase firing indicators to sum to one per vertex on a primitive two-cycle. Each prescribed cut contributes product_v k_v independent admissible chip-height choices; 1/2 sum over cuts counts unlabelled temporal phases. Hub-waiting phase fixes a unique fan word and weighted E T^(n-2) R transfer. Rational differentiation yields the displayed fan generating function; periodic wheel trace computes comparison. Dominant pole and its order give strict loss with asymptotic ratio 1-2/sqrt(13). Independent graph adjacency cut enumerator reproduces fan counts n=2:6,3:30,4:128,5:525 and prism/wheel distinct setup; no finite test substitutes for inversion.
 
-The package provides a symbolic all-\(n\) argument and bounded independent computations, but no independently performed external audit, no exhaustive literature guarantee and no claim about periods other than primitive two.
+## originality
+
+PASS
+
+Best-knowledge PASS for the explicit fan rational orbit generating function and strict one-edge boundary response, not the general cut-degree two-cycle formula or transfer method. Generic period-length classifications, complete-graph models and sink sandpiles have different objects/invariants. Closely related wheel transfer has periodic rather than open-boundary contraction.
+
+## value
+
+PASS
+
+Precisely quantifies how opening a single rim edge changes a natural whole-family orbit count, with a nonzero limiting fractional loss and unchanged exponential rate. This is a boundary sensitivity theorem rather than routine graph renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

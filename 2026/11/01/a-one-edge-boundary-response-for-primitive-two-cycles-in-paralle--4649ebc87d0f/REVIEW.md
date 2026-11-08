@@ -1,15 +1,21 @@
-# Review of the fan–wheel two-cycle boundary response
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph definition, phase convention, unrestricted nonnegative chip heights and temporal-orbit normalization are explicit. On every connected graph a two-step return forces the two firing indicators to sum to a constant; primitive period two forces complementary firing. Each prescribed cut contributes the product of its cross-neighbor counts because each vertex's admissible chip-height interval has that exact length. For the fan, the unique hub-waiting phase removes temporal double-counting. The displayed endpoint vectors and four-state transfer matrix give the exact rational fan generating function by formal inversion. The wheel comparison is rederived rather than assumed. A dominant double pole for the fan and a simple pole for the normalized wheel give the exact limiting edge-response constant. Two separate executable checks confirm the matrix identities, binary-word sums and explicit chip updates. Verification cannot substitute for the symbolic all-size proof.
+## correctness
 
-## Originality — PASS, with documented risk
-Jiang (arXiv:1003.0943, Sections 2–4) proves general equal-firing and confinement principles, but does not supply the fan orbit generating function. Levine (arXiv:0811.2800) analyzes complete-graph activity and rotation-number dynamics. Selig (arXiv:2202.06487, especially Sections 2 and 5) enumerates recurrent states in a different, sink-based stabilization process on fans. A known wheel primitive-two census and its four-state matrix do not state the open-boundary fan count, endpoint correction or limiting edge-loss constant. Searches for fan, cone-over-path, period-two chip-firing census, cut-weight partition functions and the exact initial integer sequence did not expose an equivalent result. This is evidence of noncoverage, not proof of historical uniqueness. A general 1992 chip-firing source was not accessible in full and an unindexed equivalent remains a risk.
+PASS
 
-## Mathematical value — PASS
-Removing exactly one rim edge from a growing wheel is a natural structural perturbation; it is not an arbitrary selection of graph size or color pattern. The precise limit says the microscopic primitive-two orbit population loses about fifty-five percent despite preserving its exponential growth rate. This isolates a macroscopic boundary sensitivity of a deterministic graph dynamical invariant. Both the exact fan count for all path lengths and the limiting comparison are needed to quantify that effect; neither the wheel polynomial alone nor the broad existence/period theorems give it. No general result on other periods or basins is asserted.
+Connectedness forces two phase firing indicators to sum to one per vertex on a primitive two-cycle. Each prescribed cut contributes product_v k_v independent admissible chip-height choices; 1/2 sum over cuts counts unlabelled temporal phases. Hub-waiting phase fixes a unique fan word and weighted E T^(n-2) R transfer. Rational differentiation yields the displayed fan generating function; periodic wheel trace computes comparison. Dominant pole and its order give strict loss with asymptotic ratio 1-2/sqrt(13). Independent graph adjacency cut enumerator reproduces fan counts n=2:6,3:30,4:128,5:525 and prism/wheel distinct setup; no finite test substitutes for inversion.
 
-## Scientific limitations
-The result concerns only labelled primitive two-cycles under conservative synchronous chip-firing. It does not count fixed points or other periods, does not divide by graph automorphisms, and does not characterize transients. The general cut-weight identity and transfer technique are treated as proof tools, not separately advertised original findings. Independent external validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for the explicit fan rational orbit generating function and strict one-edge boundary response, not the general cut-degree two-cycle formula or transfer method. Generic period-length classifications, complete-graph models and sink sandpiles have different objects/invariants. Closely related wheel transfer has periodic rather than open-boundary contraction.
+
+## value
+
+PASS
+
+Precisely quantifies how opening a single rim edge changes a natural whole-family orbit count, with a nonzero limiting fractional loss and unchanged exponential rate. This is a boundary sensitivity theorem rather than routine graph renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
