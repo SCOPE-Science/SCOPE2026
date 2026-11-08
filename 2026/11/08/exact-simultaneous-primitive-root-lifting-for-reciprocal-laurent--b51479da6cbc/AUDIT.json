@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For a primitive field seed \\(a\\) the two Fermat quotient constraints are independent affine equations in the first lift variable except when their unique forbidden roots coincide; the derivative of \\(x+\\varepsilon x^{-1}\\) does not vanish for \\(p\\ge7\\). Thus there are exactly \\(p-2+\\delta\\) successful lifts to \\(p^2\\). Primitive roots modulo \\(p^2\\) remain primitive under all higher lifts, so the factor is exactly \\(p^{k-2}\\). Direct seed-existence exceptions checked at 3, 5, 7, 13, 61; seed existence at all remaining primes is Corollary 2 of arxiv:1711.06392. Code verified 44 prime-square cases, 24 prime-cube fibers, but finite cases do not prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen et al., arxiv:1711.06392, focuses on finite fields, whose multiplicative groups at size p^k differ from unit groups of integer residue rings.",
+        "Carella, arxiv:2501.10399, studies a given integer’s primitive-root behavior at levels p and p² under average over primes."
+      ],
+      "reasoning": "The broader simultaneous primitive-element literature need not imply exact counts for x and x±x^{-1} modulo p^k. In the two full-text source comparisons, neither stronger coverage nor a directly dominating local ring theorem was identified.",
+      "searches": [
+        "simultaneously primitive elements modulo prime powers rational function f(x) x plus minus reciprocal primitive roots lifting",
+        "finite field primitive element g±g inverse primitive every prime power lift to integer residue ring",
+        "primitive roots modulo prime powers polynomial images simultaneously primitive Hensel Laurent maps",
+        "simultaneous primitive roots modulo p^k and polynomial values f(g) primitive root lifts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.0290 (Conjecture 4.10)",
+      "arxiv:1711.06392 (Corollary 2(i),(ii))",
+      "arxiv:2501.10399 (setting and primary theorem statements)",
+      "Published result on cyclotomic Hensel roots with exact 2-adic isometry (unrelated algebraic objects)",
+      "Published result on prime-power binomial congruence towers (different equation and invariant)",
+      "Published finite-field Artin–Schreier counterexample family (different field setting)",
+      "Published result on prime-power modular-hyperbola exponential orthogonality (different primitive-root property)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun’s Conjecture 4.10 is a proposed conclusion, not a published proof.",
+        "Cohen et al. Corollary 2 gives nonempty G_±(p) for all but the finite listed field sizes, sufficient as a premise but not the p-power lifting conclusion.",
+        "The p-adic lifting proof here uses two independently derived affine Fermat-quotient obstructions and the prime-square primitive-root criterion."
+      ],
+      "reasoning": "The new result uses an existing field theorem plus a new local lifting computation; neither the conjecture nor finite-field corollary by itself entails exact p−2+δ multiplicities without this argument. There is no asserted logical independence from all possible earlier theory.",
+      "searches": [
+        "Sun Conjecture 4.10 primitive root g modulo p^a such that g+g^{-1} also primitive: simultaneous Hensel lifts of primitive elements",
+        "simultaneously primitive elements modulo prime powers rational function f(x) x plus minus reciprocal primitive roots lifting",
+        "exact count of simultaneous primitive root lifts modulo p^2 for rational functions x ± x^{-1}: one or two forbidden Hensel lifts",
+        "Cohen Oliveira e Silva Sutherland Trudgian Corollary 2 primitive a inverse sum difference arxiv 1711.06392"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun, arxiv:1405.0290, Conjecture 4.10, states prime-power existence for primitive roots of a reciprocal sum/difference.",
+        "Cohen et al., arxiv:1711.06392, Corollary 2, states the analogous field existence and finite exception lists."
+      ],
+      "reasoning": "An exact prime-power fiber enumeration would imply Sun’s existence claim. The inspected finite-field statement supplies only a seed and lacks ring-lift constraints. No equivalent pair-lift count found in the recorded searches; lack of hits alone does not prove uniqueness.",
+      "searches": [
+        "Sun Conjecture 4.10 primitive root g modulo p^a such that g+g^{-1} also primitive: simultaneous Hensel lifts of primitive elements",
+        "simultaneously primitive elements modulo prime powers rational function f(x) x plus minus reciprocal primitive roots lifting",
+        "Zhi-Wei Sun Conjecture 4.10 (2014-04-20) solved: primitive roots g and g plus inverse primitive modulo p^a, minus inverse",
+        "\"g+g^{-1}\" \"p^a\" primitive root Sun conjecture proof",
+        "primitive roots g+g^-1 modulo p^k both primitive roots Hensel Sun conjecture 4.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct verifier computes first lifts for all primitive seeds across 44 sign/prime cases, and both obstruction-overlap types occur.",
+        "The published finite-field exception table concerns existence in F_p rather than total or per-seed lift multiplicity in integer residue rings."
+      ],
+      "reasoning": "The exact p−2 versus p−1 first-lift dichotomy is a parameterized theorem, not a claim about a fixed known table; no exact prime-power Laurent-fiber table was identified. Computational checks establish consistency, not priority.",
+      "searches": [
+        "2014 Zhi Wei Sun conjecture 4.10 primitive modulo prime powers lift solution",
+        "exact count of simultaneous primitive root lifts modulo p^2 for rational functions x ± x^{-1}: one or two forbidden Hensel lifts",
+        "\"primitive roots\" \"x+x^{-1}\" \"p^2\" exact count",
+        "\"Conjecture 4.10\" \"primitive roots\" \"p\" Sun"
+      ]
+    },
+    "rationale": "The motivating explicit prime-power primitive-root conjecture is Sun arxiv:1405.0290, Conjecture 4.10. Cohen et al. arxiv:1711.06392 Corollary 2 proves field-level seed existence, not the prime-power ring lift counts. Carella arxiv:2501.10399 considers a different averaged cross-level primitive root problem. Relevant research record results concern cyclotomic Hensel lifts, additive geometry of modular hyperbolas, or p-adic congruence towers, rather than simultaneous primitive Laurent values. Unindexed historical equivalents remain a residual priority risk.",
+    "residual_risks": [
+      "A prior unindexed solution of Sun Conjecture 4.10 or an equivalent elementary two-obstruction lifting lemma could cover the existence statement or even the multiplicity formula.",
+      "The finite-field seed classification is imported from Corollary 2; this package does not reprove its nontrivial field-existence argument.",
+      "Some historically relevant texts were available only as abstracts or bibliographic records, so no absence claim is made about their full contents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Poses the prime-power existence question; does not provide the desired proof or exact fiber count.",
+        "evidence": "Conjecture 4.10 asks for g and g ± g^{-1} primitive modulo each p^a; first arXiv posting 2014-04-21.",
+        "identifier_or_url": "https://arxiv.org/abs/1405.0290",
+        "material_read": "Conjecture 4.10 and the adjacent remarks in the accessible PDF revision; abstract and submission history checked.",
+        "method": "Public arXiv full text examined with the conjecture page inspected.",
+        "title": "New observations on primitive roots modulo primes",
+        "trigger": "The published conjectural statement for primitive roots of reciprocal sums/differences"
+      },
+      {
+        "assessment": "Provides exactly the field-level seed existence and exceptions used by the new result; does not cover the ring-mod-p-power fiber calculation.",
+        "evidence": "Finite field exceptions plus {2,3,4,5,7,9,13,25,121}; minus {2,3,4,5,9,13,25,61,121}.",
+        "identifier_or_url": "https://arxiv.org/abs/1711.06392",
+        "material_read": "The statements and exception lists of Corollary 2(i),(ii), including the stated finite-field domain, and contextual proof setup in the accessible PDF.",
+        "method": "Open-access arXiv full text; central corollary visually inspected.",
+        "title": "Linear combinations of primitive elements of a finite field",
+        "trigger": "Potential stronger coverage of simultaneous primitive elements"
+      },
+      {
+        "assessment": "Investigates fixed integer primitive at levels p and p² averaged across primes, not x and reciprocal Laurent image simultaneously primitive with exact local counts.",
+        "evidence": "Its simultaneous condition is on primitive roots across modulus levels, not on an inverse function pair at a fixed prime.",
+        "identifier_or_url": "https://arxiv.org/abs/2501.10399",
+        "material_read": "Abstract, opening theorem statements and the described primitive-root averaging setup in the open-access PDF.",
+        "method": "Open-access arXiv full-text opening and scope examination.",
+        "title": "Simultaneous Primitive Roots over Finite Rings",
+        "trigger": "Title suggests possible coverage of simultaneous primitive roots over prime-power rings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b51479da-6cbc-44ca-90e1-c183c7dab41e",
+  "value": {
+    "rationale": "Solves Sun’s specific named prime-power existence conjecture by combining an independently established finite-field seed theorem with a uniform exact lift count. The new structural invariant is the coincidence/noncoincidence of the two forbidden p² lifts, yielding p−1 versus p−2 choices for each finite-field primitive seed and all exponents. This is a motivated complete local classification, not arbitrary finite enumeration; it does not claim a closed count of seeds or least primitive witnesses.",
+    "status": "PASS"
+  }
+}
