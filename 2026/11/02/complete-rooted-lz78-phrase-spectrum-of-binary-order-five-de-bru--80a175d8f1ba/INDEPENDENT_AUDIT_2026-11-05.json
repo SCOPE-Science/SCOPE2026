@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:14:55.888108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five-bit successor permutations have exactly 2^16 admissible feedback functions g(t); a feedback function produces one circular de Bruijn word iff state 00000 lies in a full 32-state orbit. This bijection exhausts cycles up to rotation without bit complement/reversal quotient. Independent fresh feedback enumeration generated 2048 distinct cycles and parsed all 32 roots of each by a set-based shortest unseen prefix parser, giving c=11:80, 12:7586, 13:55690, 14:2180 and joint (L,H) counts (11,13):6,(11,14):44,(12,13):746,(12,14):1172,(13,13):30,(13,14):50. Source verifier additionally implements distinct Euler tours and trie parsing; both inspected line by line. The finite proof is exhaustive because 2^16 is the complete parametrization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohn–Helfgott 1997 asymptotic asymmetry; Dutta et al 2013 random access LZ78"
+        ],
+        "reasoning": "Asymptotic separation for concatenated/telescoping words and algorithmic random access do not determine all 65536 rooted parses at fixed n=5.",
+        "searches": [
+          "binary de Bruijn sequences order 5 LZ78 parsing phrases rooted rotations exact counts",
+          "Ziv–Lempel 1978 incremental parsing definition",
+          "Cohn and Helfgott 1997 author-uploaded article intro/Theorem1 description"
+        ]
+      },
+      "checked_sources": [
+        "Ziv–Lempel 1978 incremental parsing definition",
+        "Cohn and Helfgott 1997 author-uploaded article intro/Theorem1 description",
+        "Dutta et al 2013 arXiv:1301.2495 parsing algorithm description",
+        "Resultary semantic query: binary de Bruijn sequences order 5 LZ78 parsing phrases rooted rotations exact counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical formula gives 2048 cycles at n=5 but no LZ78 counts; new 65536 parses partition accordingly"
+        ],
+        "reasoning": "Classical cycle count is an input to rather than a derivation of the phrase-spectrum table.",
+        "searches": [
+          "binary de Bruijn sequences order 5 LZ78 parsing phrases rooted rotations exact counts",
+          "Ziv–Lempel 1978 incremental parsing definition",
+          "Cohn and Helfgott 1997 author-uploaded article intro/Theorem1 description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ziv–Lempel incremental dictionary construction; distinct LZ77/LZ76 and end-of-input conventions"
+        ],
+        "reasoning": "The exact parser specified includes a repeated final suffix as a phrase; alternate parsers do not define equivalent tabulations without explicit conversion.",
+        "searches": [
+          "binary de Bruijn sequences order 5 LZ78 parsing phrases rooted rotations exact counts",
+          "Ziv–Lempel 1978 incremental parsing definition",
+          "Cohn and Helfgott 1997 author-uploaded article intro/Theorem1 description"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary string-compression semantic search found no same table; 2^16 independent exhaustive feedback table and hash in source"
+        ],
+        "reasoning": "Exact self-contained census is verified; failure to find preexisting table is not proof none exists.",
+        "searches": [
+          "binary de Bruijn sequences order 5 LZ78 parsing phrases rooted rotations exact counts",
+          "Ziv–Lempel 1978 incremental parsing definition",
+          "Cohn and Helfgott 1997 author-uploaded article intro/Theorem1 description"
+        ]
+      },
+      "rationale": "Classical de Bruijn cycle count 2048 and incremental LZ78 algorithm are prior art. Cohn–Helfgott study asymptotic reversal asymmetry using de Bruijn-based constructions, and Dutta et al random-access parsing, neither materially inspected statement supplies this exact rooted order-five spectrum. Published record semantic search returned related string attractors not the same statistic. Best-of-knowledge novelty of the complete finite joint table with parsing-convention specificity.",
+      "residual_risks": [
+        "unindexed finite compressor benchmark tables possible"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREEXISTING_METHOD: establishes LZ78 but not the finite order-five rooted spectrum",
+          "evidence": "New claim is exhaustive joint statistic, not parsing algorithm.",
+          "identifier_or_url": "https://www.philippe-fournier-viger.com/spmf/lz78.pdf",
+          "material_read": "Original LZ78 parsing definition cited in package and accessible source description",
+          "method": "read accessible original-method summary; did not conduct complete full-paper comparison",
+          "title": "Compression of Individual Sequences via Variable-Rate Coding",
+          "trigger": "Original definition of incremental dictionary parsing"
+        },
+        {
+          "assessment": "PARTIALLY_RELATED: asymptotic reversal constructions, not complete 2048-cycle table",
+          "evidence": "Cohn and Helfgott study constructions of concatenated/telescoped de Bruijn words.",
+          "identifier_or_url": "https://doi.org/10.1109/SEQUEN.1997.666926",
+          "material_read": "Author-uploaded article visible introductory discussion and theorem description",
+          "method": "inspected author-uploaded accessible material; not claimed full document coverage",
+          "title": "Asymmetry in Ziv/Lempel 78 Parsing",
+          "trigger": "de Bruijn sequences and LZ78 in same paper"
+        },
+        {
+          "assessment": "PREEXISTING_METHOD: random access algorithms, not order-five rooted enumeration",
+          "evidence": "No complete 65,536 traversal census identified in materially read portions.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.2495",
+          "material_read": "Abstract and public algorithm description",
+          "method": "inspected abstract and algorithm description",
+          "title": "A simple online competitive adaptation of Lempel-Ziv compression with efficient random access support",
+          "trigger": "Trie LZ78 terminology and convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Root sensitivity of incremental LZ78 on canonical maximally factor-rich cyclic binary words is a natural compression invariant; the complete first nontrivial exact distribution, extremizers and 30 root-invariant cycles give a reusable baseline rather than an arbitrary unmotivated checksum. Restriction to order five is explicit and all 2048 cycles are enumerated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "binary order five only; rotations distinguish rooted words; repeated terminal phrase counted; no closing 4 bits appended",
+    "finite exhaustive exact statement with complete feedback parametrization, not any claim of higher-order asymptotics",
+    "unindexed finite compressor benchmark tables possible"
+  ],
+  "schema_version": 1
+}
