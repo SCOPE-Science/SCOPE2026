@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with Python 3.10 or later. The verifier uses no external dependencies. It exhaustively constructs all labeled spanning trees using Prüfer sequences, adds every possible missing edge, deduplicates exact edge lists, and checks all binary profiles on every connected unicyclic graph of orders three through six for the response rule \(T_3\). It also tests the tree inductive states against brute-force equilibria for all labeled trees up to six vertices and \(q\in\{2,3,4,5,6\}\), and verifies the explicit obstruction family for \(q\in\{3,4,5,6,7,8\}\).
+# Independent mathematical audit
 
-The finite checks do not certify the infinite tree existence theorem or the entire all-parameter obstruction family; those are proved by induction and a complete four-case argument in `RESULT.md`. The finite minimality statement for \(q=3\) is exhaustive because the Prüfer/tree-plus-edge generation covers *every* labeled connected unicyclic graph up to six vertices. The program checks existence and nonexistence exactly, not approximate equilibrium or welfare.
+## correctness
+
+PASS
+
+Rebuilt rooted subtree feasible-state induction S_v(0) nonempty, S_v(1) subset {0}, and S_v(1) empty implies S_v(0)={0,1}; contiguous child-sum interval and exclusion {0,q} prove existence and allow linear backtracking. Triangle double-hub case split (a,b)=(00,01,10,11) rules out all profiles for q>=3. For sharp q3 finite bound, independent Prüfer enumeration enumerated exactly 1,15,222,3660 distinct labeled connected unicyclic graphs for n=3,4,5,6, and brute-force checked every binary profile; each admits equilibrium. Witnesss q3 has seven vertices. Uniform q proof does not rely on small enumeration.
+
+## originality
+
+PASS
+
+Klimm–Stahlberg full primary arXiv 2301.11849 establishes NP-complete unrestricted equilibrium existence for exactly picky pattern T=10^k10*; its Theorem 5.11 and related work address algorithmic complexity, not universal forest existence or sharp minimal unicyclic obstruction. General treewidth decision algorithms cannot guarantee that every input tree is a yes instance. The exact seven-vertex census may be covered by an old specialized small-game table, risk explicitly retained.
+
+## value
+
+PASS
+
+The forest-vs-one-cycle existence boundary is a structural theorem with constructive linear algorithm and a sharp small obstruction for the first nontrivial picky threshold. It identifies a meaningful tractability/existence frontier even though NP-hardness on unrestricted graphs is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

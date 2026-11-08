@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rooted-tree feasibility sets obey three explicit invariants. Their induction uses the fact that each feasible child-count set is an integer interval, and that two consecutive integers cannot both lie in \(\{0,q\}\) when \(q\ge2\). The obstruction is an exhaustive four-case proof on two hub actions. The smallest-case claim uses exact generation of all labeled connected unicyclic graphs through six vertices and brute-force checks of each profile, with no probabilistic sampling. A standalone program independently implements the finite comparisons. Scope limitations appear in `RESULT.md`.
+PASS
 
-## Originality
+Rebuilt rooted subtree feasible-state induction S_v(0) nonempty, S_v(1) subset {0}, and S_v(1) empty implies S_v(0)={0,1}; contiguous child-sum interval and exclusion {0,q} prove existence and allow linear backtracking. Triangle double-hub case split (a,b)=(00,01,10,11) rules out all profiles for q>=3. For sharp q3 finite bound, independent Prüfer enumeration enumerated exactly 1,15,222,3660 distinct labeled connected unicyclic graphs for n=3,4,5,6, and brute-force checked every binary profile; each admits equilibrium. Witnesss q3 has seven vertices. Uniform q proof does not rely on small enumeration.
 
-**PASS, subject to literature priority risk.** Klimm–Stahlberg (arXiv:2301.11849) and Gilboa (arXiv:2301.11580) treat NP-completeness on unrestricted graphs. Yu et al. (arXiv:1911.05788) provide a generic decision procedure for trees but do not assert unconditional equilibrium existence for the picky pattern; Maiti–Dey (arXiv:2012.01880) assert existence on paths, cycles and bicliques, not all branching trees. The inspected sources do not imply the constructive tree theorem or the sharp unicyclic \(q=3\) boundary. Related mathematical-programming and graphical-game results may remain unlocated, so absolute priority is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The same finite nonmonotone best-response family has an NP-complete unrestricted equilibrium problem, but on *all forests* equilibrium existence becomes unconditional, with a linear-time witness. Adding one cycle can genuinely eliminate equilibria; the seven-vertex sharp threshold for the first nontrivial \(q=3\) case identifies the smallest obstruction and separates branching trees from cyclic networks. This is a structural boundary rather than a generic tree-DP implementation or an arbitrary finite sample.
+Klimm–Stahlberg full primary arXiv 2301.11849 establishes NP-complete unrestricted equilibrium existence for exactly picky pattern T=10^k10*; its Theorem 5.11 and related work address algorithmic complexity, not universal forest existence or sharp minimal unicyclic obstruction. General treewidth decision algorithms cannot guarantee that every input tree is a yes instance. The exact seven-vertex census may be covered by an old specialized small-game table, risk explicitly retained.
 
-## Limits and nearest literature
+## value
 
-The minimum-order result applies to \(q=3\) unicyclic graphs only, while the construction for other \(q\ge3\) is an upper bound on possible obstruction order. Source proximity and remaining priority risks are recorded in `AUDIT.json`. General dynamic convergence and optimal welfare are not studied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The forest-vs-one-cycle existence boundary is a structural theorem with constructive linear algorithm and a sharp small obstruction for the first nontrivial picky threshold. It identifies a meaningful tractability/existence frontier even though NP-hardness on unrestricted graphs is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
