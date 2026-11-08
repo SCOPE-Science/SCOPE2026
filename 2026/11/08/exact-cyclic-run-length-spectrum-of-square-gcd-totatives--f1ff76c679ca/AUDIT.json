@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For any p^a, square-gcd residues are precisely those of even truncated p-valuation. Among r<=p consecutive integers, 0 or 1 is divisible by p, giving (p-r)p^(a-1)+r beta(p^(a-2)) for a>=2, while p^1 requires all units. Among p<r<=2p, exactly 2p-r start classes contain one p-multiple and r-p classes contain two whose difference p forbids simultaneous p^2 divisibility; all 2p-run lengths fail. CRT multiplies exact local factors. The first and second finite differences of W_n count maximal cyclic runs because at least one residue is inadmissible. Direct exact checker independently enumerated 899 moduli, 16077 window checks, 65343 maximal-run comparisons; these are corroborative, not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 generalized totient article gives Schemmel counts for runs of units; its related s-prime case excludes divisibility beyond a fixed p-adic threshold, not all odd valuations.",
+        "For modulus 9 and length 2 the classical Schemmel unit-block count is 3 but the square-gcd count is 5.",
+        "Costello-Watts arXiv:1209.3464 was withdrawn, and its abstract treats consecutive coprimality with primorials, not square-gcd admissibility."
+      ],
+      "reasoning": "Schemmel exactly covers the squarefree case, acknowledged as prior. The 2010 generalized-totient article full HTML did not state or imply the required two-piece prime-power correction at arbitrary a, or maximal-run multiplicities. The p-adic even-valuation set is neither the units nor the s-prime set, as the explicit 9-modulus countercomparison shows. Unreadable/withdrawn material carries residual risk rather than a claim of exclusion.",
+      "searches": [
+        "doi:10.1155/2010/648165 Section 2 on Schemmel, Nageswara Rao, Klee, Lucas, Stevens",
+        "arXiv:1209.3464 abstract",
+        "Exact count R_n(r) of starts of r consecutive integers with gcd(j,n) a perfect square, square-totient Jacobsthal run profile formula and longest run min(p-1,2p-1)",
+        "Square-gcd totatives cyclic runs: p^a residue sets of even valuation, exact number of length r blocks and run multiplicities second differences",
+        "Generalized Schemmel totient square gcd beta(n), count runs of consecutive square-totative residues modulo prime powers, full maximal run spectrum",
+        "Local intervals of gcd(x+j,n) a perfect square for every j; exact 2p-1 maximum length and beta(p^(a-2)) correction",
+        "Nageswara Rao consecutive s-prime totient contrasted with even p-adic valuation square-gcd cyclic block distribution"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2010/648165 open-access HTML, especially introduction and Section 2",
+      "arXiv:1111.4842 abstract and accessible mathematical HTML",
+      "OEIS A206369 visible complete entry",
+      "arXiv:1209.3464 metadata, withdrawn notice and abstract",
+      "published-finding corpus published-record semantic search, six specific queries recorded in named checks",
+      "Accessible prior own archival claims, for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known Schemmel: for p^a, S_r(p^a)=(p-r)p^(a-1) when r<p, and zero when r>=p.",
+        "New formula at a>=2: L_{p,a}(r)=(p-r)p^(a-1)+r beta(p^(a-2)) for r<=p, and (2p-r)beta(p^(a-2)) for p<r<=2p.",
+        "Concrete distinction: S_2(9)=3 versus W_9(2)=5; also W_9(5)=1 while S_5(9)=0."
+      ],
+      "reasoning": "Prior formulas are recovered as special cases but cannot imply a positive extension to r>p or any exact exponent-even correction. The proved positive interval through 2p-1, general CRT product, and second-difference maximal run counts are genuine extra conclusions. No published-finding corpus match to a dominating formula was found.",
+      "searches": [
+        "doi:10.1155/2010/648165 Section 2",
+        "arXiv:1111.4842 Sections 1-3",
+        "square-totient arithmetic function beta(n) maximum length consecutive residues whose gcd with n is a perfect square, Jacobsthal analogue, complete local formula",
+        "Exact count R_n(r) of starts of r consecutive integers with gcd(j,n) a perfect square, square-totient Jacobsthal run profile formula and longest run min(p-1,2p-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tóth 2011 arXiv:1111.4842 defines beta and identifies the one-point square-gcd totient, not joint counts for successive residues.",
+        "OEIS A206369 records beta(n)=count of gcd-square residues and the squarefree reduction."
+      ],
+      "reasoning": "A multi-point refinement of beta is not implied by beta alone; same-size cyclic sets can have different run spectra. The exact CRT formula accounts for all simultaneous intervals and has an explicit p-adic correction absent from beta.",
+      "searches": [
+        "square-totient arithmetic function beta(n) maximum length consecutive residues whose gcd with n is a perfect square, Jacobsthal analogue, complete local formula",
+        "square gcd residues modulus n cyclic autocorrelation count of pairs gcd(x,n) and gcd(x+h,n) squares and sharp zero criterion",
+        "longest consecutive run of residues with gcd square with modulus, square-totient function",
+        "arXiv:1111.4842 Sections 1-3",
+        "OEIS A206369 formula and comments",
+        "Generalized Schemmel totient square gcd beta(n), count runs of consecutive square-totative residues modulo prime powers, full maximal run spectrum",
+        "Local intervals of gcd(x+j,n) a perfect square for every j; exact 2p-1 maximum length and beta(p^(a-2)) correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A206369 tabulates beta(n), one-point count, and records no consecutive-block spectrum.",
+        "Local finite enumeration in the standalone verifier independently confirms exact counts for 899 moduli but is not a prior published table."
+      ],
+      "reasoning": "The output is an all-modulus exact theorem, not an extraction from the beta sequence or a finite table. Known one-point table and squarefree Schemmel values cannot determine the exponent-dependent counts for general prime powers.",
+      "searches": [
+        "OEIS A206369; arXiv:1111.4842",
+        "OEIS A206369 alternating sum of divisors beta local longest consecutive runs square gcd",
+        "published-finding corpus semantic queries: longest consecutive run of residues with gcd square with modulus, square-totient function"
+      ]
+    },
+    "rationale": "Full comparison of Tóth beta and OEIS one-point count, plus classic Schemmel and generalized totient confirms the squarefree/unit case is known, but none of the accessible compared material implies the positive square-gcd correction beyond units, sharp 2p-1 local extremum or all-length run multiplicities. Six actual semantic published-finding corpus queries returned no directly covering item; the search is evidence not uniqueness proof. A withdrawn consecutive-coprimality preprint is unavailable in full, preserving priority risk.",
+    "residual_risks": [
+      "Semantic or different-terminology formulation of the full multi-point square-gcd run count could have escaped keyword and embedding search.",
+      "Costello–Watts withdrawn preprint full mathematical body was not accessible; its abstract alone is not grounds for a definitive noncoverage assessment.",
+      "Generalized totient literature beyond inspected 2010 paper might contain an unnoticed framework specializing to this particular even-valuation condition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Schemmel consecutive units and related s-coprimality, but not arbitrary even valuations of individual gcds or square-gcd cyclic run spectrum. The squarefree special case is subsumed.",
+        "evidence": [
+          "First published 2010-09-14; Section 2 identifies Schemmel as the count of consecutive units and Nageswara Rao as consecutive s-prime residues.",
+          "At modulus 9, block length 2, square-gcd count 5 differs from Schemmel count 3."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2010/648165",
+        "material_read": "Substantial readable open-access HTML: Introduction, Section 2, and connected descriptions of generalized totients. Some displayed formulae rendered incompletely in the extracted text.",
+        "method": "Opened publisher open-access HTML; compared stated objects and counted local admissibility conditions",
+        "title": "Combinatorial Aspects of the Generalized Euler’s Totient",
+        "trigger": "Potentially broader generalized Euler, Schemmel and s-prime count that might imply this formula"
+      },
+      {
+        "assessment": "One-point count beta(n) is recovered at r=1, not an equivalent all-length formula.",
+        "evidence": [
+          "arXiv submission 2011-11-21; MSC 11A25; beta(p^a)=p^a-p^(a-1)+...+(-1)^a."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.4842",
+        "material_read": "arXiv full HTML, Introduction and Sections 2–3 on beta and the square-gcd interpretation; arXiv submission metadata.",
+        "method": "Compared beta prime-power formula and square-gcd interpretation with new multi-point counts",
+        "title": "A survey of the alternating sum-of-divisors function",
+        "trigger": "Defines precisely the admissible square-gcd one-point totient and its prime-power factors"
+      },
+      {
+        "assessment": "Covers beta(n) and square-gcd interpretation, not full run spectrum.",
+        "evidence": [
+          "OEIS notes a(n)=# {1<=j<=n : gcd(j,n) is a perfect square}."
+        ],
+        "identifier_or_url": "https://oeis.org/A206369",
+        "material_read": "Full visible entry, comments, formula and references",
+        "method": "Compared entries/one-point formula with all-length cyclic block counts",
+        "title": "OEIS A206369",
+        "trigger": "Exact database or table possibility"
+      },
+      {
+        "assessment": "Abstract discusses consecutive coprimality with a primorial, rather than square-gcd even valuations. Insufficient full text for a definitive no-coverage statement; historical risk retained.",
+        "evidence": [
+          "First submitted 2012-09-16; subsequently withdrawn due to a reported error on page 6; no PDF available."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.3464",
+        "material_read": "arXiv metadata, withdrawal notice and abstract only; no complete full text",
+        "method": "Compared abstract description and scope, recorded inaccessible full text",
+        "title": "Jacobsthal's function and a generalisation of Euler's totient",
+        "trigger": "Potentially closest consecutive-residue/generalized-totient work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f1ff76c6-79ca-468c-871a-9fac8e973357",
+  "value": {
+    "rationale": "The established square-gcd arithmetic function naturally invites counting adjacent admissible residues and maximal clusters, analogous to Schemmel and Jacobsthal. Exact and sharp formulas for every modulus give a complete nontrivial prime-power correction, distinguishing existing unit-only formulas and revealing the 2p-1 limit with exact maximal-run histogram; this is neither arbitrary finite sampling nor a rebranding of the one-point beta count. Uses are local modeling of consecutive residue constraints; no unproved asymptotic or downstream application is asserted.",
+    "status": "PASS"
+  }
+}
