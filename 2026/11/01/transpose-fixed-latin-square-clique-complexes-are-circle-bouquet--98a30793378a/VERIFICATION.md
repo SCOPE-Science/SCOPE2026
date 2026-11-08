@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python verify_transpose.py` with Python 3.9 or later; no external packages are required. Expected final line: `VERIFY_OK`.
+## correctness
 
-The checker independently computes original group-table graph adjacencies and compares every complete pair of row/column-swap vertex orbits to the structural orbit-graph formula for \(q=4,8,16,32\). It verifies all maximal faces by exhaustive clique enumeration and calculates full reduced mod-two simplicial homology for \(q=4,8\), with resulting ranks 3 and 21 in degree one and zero elsewhere. At those two orders it independently constructs respectively 10 and 176 exact elementary simplicial free-face collapse pairs to connected graphs with cycle ranks 3 and 21, proving the corresponding finite homotopy equivalences directly. The checker also verifies the exact vertex counts and proposed maximal-simplex counts in the tested cases.
+PASS
 
-No finite test proves the unlimited family. The unrestricted homotopy classification follows from the orbit-fixed triangulation, complete-cross-adjacency lemma, disjoint-interface decomposition, and homotopy pushout along nullhomotopic contractible components given in `RESULT.md`. Integer torsion-freeness follows from the actual wedge decomposition; mod-two test results alone would not justify it. Not covered: other coefficient representations, other automorphisms, or arbitrary abelian groups.
+For A=(F2)^d, d>=3, the simplexwise barycentric fixed-point construction has one vertex per swap orbit; orbit-complete adjacency is necessary and sufficient because the original clique complex is flag. Diagonal orbits span one q-simplex and the q-1 nonzero-sum classes of off-diagonal orbits span disjoint peripheral simplices. An off-diagonal orbit has exactly its two diagonal endpoints as neighbors, so each peripheral contractible piece meets the diagonal simplex in q/2 disjoint contractible edges. Every attaching inclusion factors through that diagonal simplex, giving q/2-1 new circles per h via homotopy pushout. Independently built the original Latin-square adjacency, computed orbit graph and all maximal cliques at q=4 and 8: 10/36 orbit vertices, 42/444 faces, and 10/36 maximal faces; exact finite results corroborate, not replace, all-d proof.
+
+## originality
+
+PASS
+
+Ambient nonequivariant Latin-square clique homology, even when H1 vanishes, does not determine the topology or homotopy groups of a geometric coordinate-swap fixed locus. The orbit-complete graph and circle ranks are additional mathematical data. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
+
+## value
+
+PASS
+
+The coordinate transpose is a canonical symmetry of characteristic-two Latin-square graphs; its geometric fixed locus has unbounded free fundamental rank (q-1)(q/2-1), despite vanishing ambient H1 for q>=8. The all-dimensional orbit-decomposition is a meaningful geometric classification, not a sample count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

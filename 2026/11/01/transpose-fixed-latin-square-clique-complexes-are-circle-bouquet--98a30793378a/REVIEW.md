@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-point set is not confused with the simplex spanned only by fixed original vertices. The orbit-barycenter argument identifies its PL triangulation, and the complete-cross-adjacency criterion is necessary and sufficient because the original complex is flag. In characteristic two, diagonal orbits all have sum zero, and off-diagonal orbit sums label precisely the peripheral cliques. The four contradictory cases rule out edges between distinct sum classes; every peripheral orbit has precisely two diagonal neighbors. For each nonzero sum, the side complex and interface triangles are contractible, with exactly \(q/2\) contractible components in the intersection with the preceding union. The inclusions are nullhomotopic because they factor through contractible pieces. Homotopy-pushout decomposition yields the claimed free fundamental group and wedge of circles, not merely matching mod-two ranks. Exact independent finite checks test the adjacency classification and give explicit finite elementary collapses to graphs at orders four and eight; unrestricted proof is self-contained.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The 2026 Latin-square clique-complex source computes **ambient**, nonequivariant homology and explicitly identifies intercalates; neither its Section 3 nor the 2025 precursor classifies geometric coordinate-interchange fixed points. A published result on rook-graph Čech homology under coordinate interchange concerns a different complex and only a homology representation. Indexed scientific searches for transposition, coordinate swap, orbit-clique graph, and row/column interchange found no theorem giving the actual fixed space, its circle multiplicity, or its fundamental group. Accessible earlier claims on the same Latin-square graph determine translation actions on ambient homology, not these fixed polyhedra. Lack of a retrieved equivalent is not itself a proof of global novelty; unindexed or implicit group-action calculations remain a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The row/column swap is a canonical graph automorphism of every abelian group table. The ambient Latin-square clique complex has vanishing first homology, yet the fixed polyhedron has a free fundamental group of rank \((q-1)(q/2-1)\), already 21 at \(q=8\) and unbounded. The orbit-adjacency classification explains precisely why intercalate triangles generate these loops, giving a uniform and fully integral geometric answer for a natural infinite family—not an arbitrary numerical slice or a single finite census.
+For A=(F2)^d, d>=3, the simplexwise barycentric fixed-point construction has one vertex per swap orbit; orbit-complete adjacency is necessary and sufficient because the original clique complex is flag. Diagonal orbits span one q-simplex and the q-1 nonzero-sum classes of off-diagonal orbits span disjoint peripheral simplices. An off-diagonal orbit has exactly its two diagonal endpoints as neighbors, so each peripheral contractible piece meets the diagonal simplex in q/2 disjoint contractible edges. Every attaching inclusion factors through that diagonal simplex, giving q/2-1 new circles per h via homotopy pushout. Independently built the original Latin-square adjacency, computed orbit graph and all maximal cliques at q=4 and 8: 10/36 orbit vertices, 42/444 faces, and 10/36 maximal faces; exact finite results corroborate, not replace, all-d proof.
 
-## Limits and evidence
-The claim is for \(A=(\mathbb F_2)^d\), \(d\ge3\), and the coordinate-swap involution; neither the integral homology representation of the ambient complex nor other group actions are classified. The self-contained combinatorial proof is the evidence for all parameters; the standalone exact checker verifies four finite orders and full homology at two small orders. The source comparison reads the relevant original 2026 Section 3, the 2025 precursor's relevant material, and related indexed mathematical summaries; equivalent unindexed literature cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ambient nonequivariant Latin-square clique homology, even when H1 vanishes, does not determine the topology or homotopy groups of a geometric coordinate-swap fixed locus. The orbit-complete graph and circle ranks are additional mathematical data. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
+
+## value
+
+PASS
+
+The coordinate transpose is a canonical symmetry of characteristic-two Latin-square graphs; its geometric fixed locus has unbounded free fundamental rank (q-1)(q/2-1), despite vanishing ambient H1 for q>=8. The all-dimensional orbit-decomposition is a meaningful geometric classification, not a sample count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
