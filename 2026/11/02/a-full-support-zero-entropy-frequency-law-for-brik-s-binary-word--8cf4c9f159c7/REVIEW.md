@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit complete-window recurrence has a bounded removal term and a bounded join term; the normalized counts converge with an explicit tail estimate. The arbitrary-prefix comparison reduces the remaining prefix problem to a shorter index and yields squared-logarithmic discrepancy. Recurrent copies of any factor force an exponentially larger surviving count than the eventual discarded-prefix budget. Finally, the periodic-block subsequence embedding has an exact deletion count, giving a vanishing per-symbol entropy bound. These deductions were checked independently of the finite experimental output.
+PASS
 
-## Originality — PASS (best-knowledge, residual priority risk)
+The final recurrence B_1=101, B_{i+1}=B_i B_i[i+1..|B_i|], and length 2^{i-1}+i+1 fix all normalization conventions. For a fixed length-m cylinder, whole-factor counts satisfy N_{i+1}=2N_i-D_i+J_i with 0<=D_i<=i and 0<=J_i<=m-1; summing scaled errors proves N_i=2^{i-1}mu+O(i+m). Comparing arbitrary prefixes to a shorter initial index (contracting by <=3/4) bounds the accumulated discrepancy by O_u((1+log N)^2). A factor occurring arbitrarily late has doubling descendants until its starting index p, overwhelming the eventual loss budget p+1; this proves strict positive frequency for every allowed factor, with forbidden 00 absent. To prove h_mu=0 the recursion embeds B_I as a subsequence of B_j^{2^{I-j}}, deleting 2^{I-j}(j+1)-I-1 symbols; at most m times this count damages length-m windows. Thus H_m<=1+log_2|B_j|+m min(1,m(j+1)/2^{j-1}); m=2^{floor(j/2)} makes H_m/m tend to zero. Subadditivity makes the full entropy rate zero. Recurrent/full-language input from Shallit is explicitly assumed; not derived from computer checks. Independent finite reconstruction through level16 agrees with length, no-00 and factor-frequency behavior, not an infinite proof.
 
-The nearest primary source, Shallit (2026, arXiv:2605.07542v1), proves recurrence, the full no-`00` factor language and only the one-letter density. Those do not imply the proposed positive cylinder frequencies or entropy-zero law. General rank-one and finite-symbolic-rank literature was compared at the level of mathematical scope; the latter's zero-topological-entropy setting is not the same as this positive-topological-entropy orbit closure. No searched indexed record or available primary theorem gave this same-object claim. An inaccessible full text and other unindexed sources remain priority risks; absence from a search is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The distinction between exponential factor complexity/topological entropy and zero entropy of a natural fully supported empirical measure is a nontrivial structural property, not just another small parameter count. Convergence of **all** factor frequencies and their strict positivity substantially improve the previously established lone-symbol frequency, and the discrepancy estimate makes the assertion effectively testable. The result may inform study of atypical generic points and nonuniformly recurrent symbolic sequences. No ergodicity or independent certification is claimed.
+Best-of-knowledge PASS. Shallit's original Brik-word paper identifies the same sequence, exact recursive lengths, recurrence, language avoiding 00, and single-letter frequency; those facts do not imply limits/positivity for every cylinder nor the entropy of that empirical invariant measure. The new all-cylinder logarithmic-square discrepancy and full-support zero-entropy law are additional assertions. Rank-one and finite-symbolic-rank techniques are contextual; general existence of zero-entropy full-support measures is not a computation of this sequence's empirical frequencies.
 
-## Scientific limitations
+## value
 
-The result is confined to the stated binary recursion. The original paper supplies the recurrence and factor-language facts; those are explicitly identified. The checker only tests finite words and cannot prove infinite-time behavior. Priority remains subject to independent publication review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural invariant measure induced by a specifically studied recursive word, with a meaningful paradox: its orbit closure has exponential Fibonacci block growth and positive topological entropy while its actual cylinder-frequency measure is fully supported and has zero metric entropy. Existence, positivity and quantified all-cylinder discrepancy go substantially beyond its known one-letter density; this is a structural statement usable in symbolic-dynamics questions, not a routine factor count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, verify.py, SLOGAN.txt, METADATA.json, AUDIT.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Independent Python recurrence and cylinder-window checks on B_i through i=16 (|B_16|=65554); no-00 and 1111 frequency 0.00024407358818683833.",
+        "Reconstructed the exact template deletion deficit and the resulting bounded-bad-window entropy inequality from the package proof."
+      ],
+      "rationale": "The final recurrence B_1=101, B_{i+1}=B_i B_i[i+1..|B_i|], and length 2^{i-1}+i+1 fix all normalization conventions. For a fixed length-m cylinder, whole-factor counts satisfy N_{i+1}=2N_i-D_i+J_i with 0<=D_i<=i and 0<=J_i<=m-1; summing scaled errors proves N_i=2^{i-1}mu+O(i+m). Comparing arbitrary prefixes to a shorter initial index (contracting by <=3/4) bounds the accumulated discrepancy by O_u((1+log N)^2). A factor occurring arbitrarily late has doubling descendants until its starting index p, overwhelming the eventual loss budget p+1; this proves strict positive frequency for every allowed factor, with forbidden 00 absent. To prove h_mu=0 the recursion embeds B_I as a subsequence of B_j^{2^{I-j}}, deleting 2^{I-j}(j+1)-I-1 symbols; at most m times this count damages length-m windows. Thus H_m<=1+log_2|B_j|+m min(1,m(j+1)/2^{j-1}); m=2^{floor(j/2)} makes H_m/m tend to zero. Subadditivity makes the full entropy rate zero. Recurrent/full-language input from Shallit is explicitly assumed; not derived from computer checks. Independent finite reconstruction through level16 agrees with length, no-00 and factor-frequency behavior, not an infinite proof.",
+      "residual_risks": [
+        "The proof uses Shallit's established recurrence and full factor-language theorems; no claim of ergodicity, uniqueness or uniform recurrence. O_u constant depends on the fixed word. Finite level16 check is only corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rank-one symbolic systems are a relevant general setting, but established finite-symbolic-rank entropy frameworks do not identify the Brik prefix-deletion empirical measure."
+        ],
+        "reasoning": "No inspected general theorem entails an all-cylinder O(log²N) discrepancy and full-support entropy-zero measure for this distinct recursion without proving its hypotheses.",
+        "searches": [
+          "Brik sequence binary word cylinder frequencies entropy full support zero entropy",
+          "Gao and Ziegler 2019 rank-one subshifts DOI 10.1112/tlm3.12016"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, verify.py, SLOGAN.txt, METADATA.json, AUDIT.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Shallit 2026 arXiv:2605.07542v1 full HTML mathematical statements",
+        "Gao–Ziegler 2019 context DOI 10.1112/tlm3.12016",
+        "Resultary query: Brik sequence binary word cylinder frequencies entropy full support zero entropy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shallit supplies necessary combinatorial premises, but recurrence and the full golden-mean factor language admit measures with different entropy; single-letter density cannot imply every factor frequency."
+        ],
+        "reasoning": "The proof introduces a summable occurrence-count error argument and deletion-template block entropy estimate absent from the named source result, so the full claim is not a corollary of its stated conclusions.",
+        "searches": [
+          "Brik sequence binary word cylinder frequencies entropy full support zero entropy",
+          "Shallit arXiv:2605.07542v1 Proposition 1, Theorems 3,7,10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shallit proves the density of ones, Proposition 1 lengths, Theorems 3 and 7 recurrence and no-00 language; no theorem there determines all word-cylinder frequency limits."
+        ],
+        "reasoning": "A one-letter frequency and language description cannot determine the distribution of all length-m cylinders or its Kolmogorov-Sinai entropy; the target is genuinely more specific to the recurrence.",
+        "searches": [
+          "Brik sequence binary word cylinder frequencies entropy full support zero entropy",
+          "Shallit arXiv:2605.07542v1 Theorem 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic findings returned generic binary-shift/entropy studies, not Brik-word frequencies; SCOPE code search returned no matching files in its indexed search."
+        ],
+        "reasoning": "The claim is an infinite family of limiting cylinder laws rather than a fixed catalog entry; search negative is not a guarantee, and a hidden Brik factor-frequency table could still cover the claim.",
+        "searches": [
+          "Brik sequence binary word cylinder frequencies entropy full support zero entropy",
+          "Resultary semantic Brik sequence query; GitHub SCOPE repository Brik query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Shallit's original Brik-word paper identifies the same sequence, exact recursive lengths, recurrence, language avoiding 00, and single-letter frequency; those facts do not imply limits/positivity for every cylinder nor the entropy of that empirical invariant measure. The new all-cylinder logarithmic-square discrepancy and full-support zero-entropy law are additional assertions. Rank-one and finite-symbolic-rank techniques are contextual; general existence of zero-entropy full-support measures is not a computation of this sequence's empirical frequencies.",
+      "residual_risks": [
+        "Potential unpublished or separately indexed Brik cylinder-frequency formula or general variable-prefix-deletion theorem; failed searches alone do not prove novelty.",
+        "Reliance on Shallit 2026 language and recurrence as externally proved input; not independently re-proved here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR PREMISES, NOT FULL CLAIM",
+          "evidence": "Proposition 1 gives |B_i|, Theorems 3 and 7 give recurrence and factor language, Theorem 10 calculates only the 1 frequency; no all-cylinder limit, discrepancy or metric entropy formula established.",
+          "identifier_or_url": "arXiv:2605.07542v1",
+          "material_read": "Full arXiv HTML body including Proposition 1 and Theorems 3,7,10, and comparison to target",
+          "method": "read full text",
+          "title": "Brik's sequence: a strange recursion",
+          "trigger": "Exactly same binary prefix-deletion recursion, lengths, recurrence and language"
+        },
+        {
+          "assessment": "NOT DIRECTLY IMPLICATING",
+          "evidence": "No implication of the exact prefix-deletion Brik generic measure or its effective cylinder discrepancy identified.",
+          "identifier_or_url": "doi:10.1112/tlm3.12016",
+          "material_read": "Related general setting and scope reviewed; not used as a Brik-specific full theorem",
+          "method": "contextual literature comparison",
+          "title": "Topological mixing properties of rank-one subshifts",
+          "trigger": "Related symbolic-dynamics zero-entropy proof framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, verify.py, SLOGAN.txt, METADATA.json, AUDIT.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Shallit 2026 arXiv:2605.07542v1 full HTML mathematical statements",
+        "Gao–Ziegler 2019 context DOI 10.1112/tlm3.12016",
+        "Resultary query: Brik sequence binary word cylinder frequencies entropy full support zero entropy"
+      ],
+      "rationale": "Natural invariant measure induced by a specifically studied recursive word, with a meaningful paradox: its orbit closure has exponential Fibonacci block growth and positive topological entropy while its actual cylinder-frequency measure is fully supported and has zero metric entropy. Existence, positivity and quantified all-cylinder discrepancy go substantially beyond its known one-letter density; this is a structural statement usable in symbolic-dynamics questions, not a routine factor count.",
+      "residual_risks": [
+        "Motivated natural scoped theorem only; not a general result outside the exact stated hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof uses Shallit's established recurrence and full factor-language theorems; no claim of ergodicity, uniqueness or uniform recurrence. O_u constant depends on the fixed word. Finite level16 check is only corroboration.",
+    "Potential unpublished or separately indexed Brik cylinder-frequency formula or general variable-prefix-deletion theorem; failed searches alone do not prove novelty.",
+    "Reliance on Shallit 2026 language and recurrence as externally proved input; not independently re-proved here."
+  ]
+}
