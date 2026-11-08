@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical proof is provided in `RESULT.md`. The exact-rational direct enumeration (`verification/check_three_sites.py`) independently evaluates report-pair probabilities and optimal costs, and tests the closed formula and bounds across thousands of multiplicity/gap configurations. A separate symbolic script (`verification/check_algebra.py`) checks the rational derivative signs and convexity algebra.
+# Independent mathematical audit
 
-Run both scripts with Python 3. The symbolic script needs `sympy`; no other third-party library is needed. Finite testing is not an exhaustive verification of arbitrary population sizes or real gap ratios; the analytical proof supplies those quantifiers. Publication priority beyond the listed literature is not independently certified.
+## correctness
+
+PASS
+
+Exact probability of each of three occupied-site pair types gives numerator ABC(2uv+(u+v)min(u,v))/(ABu+BCv+AC(u+v)); unrestricted median two-facility OPT is min(Au,Bmin(u,v),Cv). Each gap-ratio branch is monotone or has constant derivative sign so extremum at equal gaps or infinite-gap limit; integer count optimization and convex minimizer give n=15 switch. Independently enumerated pair lotteries for n=3..14 over representative rational gaps and verified threshold classes n=3..79. Infinite n and all real gaps rely on the derivative/inequality proof.
+
+## originality
+
+PASS
+
+Original Ma–Peng and Chan–Lin–Wang mechanisms and their general ratio 4 are prior and explicitly acknowledged. They do not give the complete fixed-population, exactly-three-sites optimization or geometry switch at n=15 in their checked theorem statements; an asymptotic approach to 4 does not determine each D_n. Other finite-n results may overlap at isolated small n.
+
+## value
+
+PASS
+
+The exact population-size threshold and attainment/nonattainment distinction for the established mechanism is a sharp small-support extremal geometry result; it fills the finite-size gap left by the universal four-factor estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
