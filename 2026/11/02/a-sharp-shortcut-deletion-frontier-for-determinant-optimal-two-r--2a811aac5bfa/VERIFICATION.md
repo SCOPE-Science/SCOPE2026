@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Use the bundled Python 3 program \(\texttt{verify.py}\), requiring NumPy, SciPy, and SymPy. Run \(\texttt{python verify.py}\) from the directory containing the program. The program independently constructs the reduced weighted Laplacian, computes determinants, checks matrix-tree polynomial identities symbolically, and compares the claimed optimum to unconstrained individual-edge alternatives.
+# Independent mathematical audit
 
-Completed output:
+## correctness
 
-`VERIFIED {'exact': 6, 'determinant': 80, 'feasible': 1200, 'optimized': 27, 'threshold': 80}`
+PASS
 
-The six exact cases consist of four nonuniform rational symbolic determinant identities, one exact boundary allocation with determinant \(1/125\), and one exact interior allocation with determinant \(9/1024\). The 80 determinant checks compare the analytical polynomial with direct reduced-Laplacian matrix determinants at lengths two through five in each route and five shortcut price regimes. The 1,200 feasible tests vary each original edge independently, and the 27 SLSQP tests optimize the full individual-edge weight vector rather than the class-reduced variables.
+Matrix–Tree yields T=z E_(a-1)(u) E_(b-1)(v)+E_(a-1)(u) product(v)+product(u) E_(b-1)(v) for independently variable edges. Because the graph is simple, the conductance-to-reduced-Laplacian map is injective; log det is strictly concave over positive-definite reduced Laplacians, giving unique optimum with positive determinant. The polynomial is invariant under independent within-route permutations, so uniqueness forces equal route conductances x,y despite no graph automorphism assumption. For T=x^(a-1)y^(b-1)(a*y+b*x+ab*z), Euler and KKT give the rational interior solution and the unique decreasing root of G(r)=1/r-(a-1)/(a^2p-r)-(b-1)/(b^2q-r). The shortcut-free positive quadratic for x/y and its KKT directional derivative give sharp support at all r; envelope identity yields quadratic contact. Independently computed a=2,b=3 reduced-Laplacian determinants and exact optima for r=1 and boundary r=3/2; these finite checks support the all-length proof.
 
-All checks completed without assertion failures. The Python script and its specified library versions are not a formal proof of the infinite family, and stochastic comparisons cannot establish exact uniqueness. Those claims are proved symbolically in \(\texttt{RESULT.md}\). No independent audit was performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. A general convex optimization framework states existence/KKT but does not logically identify the unique threshold or critical quadratic contact without the problem-specific tree polynomial and exact solution.
+
+## value
+
+PASS
+
+The theta graph is the smallest natural overlapping-cycle conductor design beyond cactus decomposition. The exact budget-price frontier for deleting the backup shortcut, uniqueness without individual-edge symmetry constraints, and quadratic transition law quantify a motivated information-determinant design tradeoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns all integer route lengths \(a,b\ge2\) and all positive prices and budget. The full weighted Matrix–Tree polynomial is derived for independently variable conductances, not assumed from symmetry. Injectivity of the reduced-Laplacian conductance map on simple graphs and strict concavity of \(\log\det\) yield unrestricted uniqueness. Invariance of the polynomial under within-route edge permutations then forces the full optimizer into three classes. Explicit KKT solutions in the interior and at the zero-shortcut boundary produce the quadratic cutoff and both allocation formulas. The envelope derivative gives the quadratic value contact. The standalone code independently checks actual Laplacian determinants and numerical unrestricted optima. Its finite tests are not the infinite proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Matrix–Tree yields T=z E_(a-1)(u) E_(b-1)(v)+E_(a-1)(u) product(v)+product(u) E_(b-1)(v) for independently variable edges. Because the graph is simple, the conductance-to-reduced-Laplacian map is injective; log det is strictly concave over positive-definite reduced Laplacians, giving unique optimum with positive determinant. The polynomial is invariant under independent within-route permutations, so uniqueness forces equal route conductances x,y despite no graph automorphism assumption. For T=x^(a-1)y^(b-1)(a*y+b*x+ab*z), Euler and KKT give the rational interior solution and the unique decreasing root of G(r)=1/r-(a-1)/(a^2p-r)-(b-1)/(b^2q-r). The shortcut-free positive quadratic for x/y and its KKT directional derivative give sharp support at all r; envelope identity yields quadratic contact. Independently computed a=2,b=3 reduced-Laplacian determinants and exact optima for r=1 and boundary r=3/2; these finite checks support the all-length proof.
 
-The weighted Matrix–Tree theorem, strict log-determinant concavity, and KKT conditions are prior tools, not novel claims. Khosoussi et al. (arXiv:1604.01116, first posted 2016-04-05) develop graph spanning-tree maximization under discrete edge selection and convex relaxations; relevant primary sections were inspected. Their general framework does not state the present explicit theorem for independently adjustable priced theta-network edges. A prior cactus-design classification does not apply: its cycles are edge-disjoint, while the two cycles here share the direct shortcut. Searches also covered theta graphs, chorded cycles, D-optimal edge conductance, determinant design, and equivalent polynomial formulations. No equivalent/dominating result was identified, but specialized literature could remain unseen.
+## originality
 
-## Value — PASS
+PASS
 
-A two-route connection with a direct backup link is a canonical bicyclic network beyond the independently optimizable blocks of cactus graphs. The exact price at which the backup link loses all value, its dependency on both route lengths, unrestricted uniqueness, and the quadratic onset describe a motivated design tradeoff rather than an arbitrary table entry. Even for equal long-route prices, \(r_c=ab\,s/(a+b-1)\) is an interpretable finite-size conductance-price law.
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. A general convex optimization framework states existence/KKT but does not logically identify the unique threshold or critical quadratic contact without the problem-specific tree polynomial and exact solution.
 
-## Limits and closest literature
+## value
 
-The theorem does not cover price changes from edge to edge within one long route or three long routes. Finite tests do not replace analytical proof; scholarly priority is not exhaustively established. The main relevant source is Khosoussi et al., arXiv:1604.01116 (especially the matrix-tree and edge-selection optimization sections). Ghosh–Boyd–Saberi (DOI 10.1137/050645452) is adjacent but optimizes total effective resistance, not the information determinant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theta graph is the smallest natural overlapping-cycle conductor design beyond cactus decomposition. The exact budget-price frontier for deleting the backup shortcut, uniqueness without individual-edge symmetry constraints, and quadratic transition law quantify a motivated information-determinant design tradeoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:49:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Matrix–Tree yields T=z E_(a-1)(u) E_(b-1)(v)+E_(a-1)(u) product(v)+product(u) E_(b-1)(v) for independently variable edges. Because the graph is simple, the conductance-to-reduced-Laplacian map is injective; log det is strictly concave over positive-definite reduced Laplacians, giving unique optimum with positive determinant. The polynomial is invariant under independent within-route permutations, so uniqueness forces equal route conductances x,y despite no graph automorphism assumption. For T=x^(a-1)y^(b-1)(a*y+b*x+ab*z), Euler and KKT give the rational interior solution and the unique decreasing root of G(r)=1/r-(a-1)/(a^2p-r)-(b-1)/(b^2q-r). The shortcut-free positive quadratic for x/y and its KKT directional derivative give sharp support at all r; envelope identity yields quadratic contact. Independently computed a=2,b=3 reduced-Laplacian determinants and exact optima for r=1 and boundary r=3/2; these finite checks support the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi et al. provide general weighted spanning-tree MAXDET edge-selection design and convex relaxations; Ghosh–Boyd–Saberi study another network objective (effective resistance)."
+        ],
+        "reasoning": "General MAXDET theory gives convexity tools, not the exact all-a,b,p,q,r price threshold under independently variable conductances. Cactus arguments do not cover shared-cycle theta edges.",
+        "searches": [
+          "Khosoussi Sukhatme Huang Dissanayake arxiv:1604.01116",
+          "Ghosh Boyd Saberi minimizing effective resistance DOI 10.1137/050645452"
+        ]
+      },
+      "checked_sources": [
+        "Khosoussi–Sukhatme–Huang–Dissanayake arXiv:1604.01116 full relevant text",
+        "Ghosh–Boyd–Saberi DOI:10.1137/050645452",
+        "Resultary query: theta network spanning tree determinant budget conductance shortcut deletion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted Matrix–Tree and KKT are classical; the particular full independent-edge optimization is a strict logdet consequence with explicit nontrivial theta route allocation."
+        ],
+        "reasoning": "A general convex optimization framework states existence/KKT but does not logically identify the unique threshold or critical quadratic contact without the problem-specific tree polynomial and exact solution.",
+        "searches": [
+          "arxiv:1604.01116 weighted spanning-tree maximization",
+          "DOI:10.1137/050645452 effective resistance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximizing determinant of a reduced weighted Laplacian is the D-optimal spanning-tree design problem, and its theta polynomial is T=z E_(a-1)(u)E_(b-1)(v)+..."
+        ],
+        "reasoning": "General determinant formulation subsumes the objective, but does not state this exact rational conductance allocation or shortcut deletion price. The equivalence is acknowledged rather than presented as novel.",
+        "searches": [
+          "theta network spanning tree determinant budget conductance shortcut deletion",
+          "weighted Matrix–Tree theorem D-optimal Laplacian design theta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found theta gnarledness and cactus spanning-tree material but no specific determinant-price design table."
+        ],
+        "reasoning": "A small graph or cactus determinant table does not imply the fully parameterized theta threshold.",
+        "searches": [
+          "Resultary: theta network spanning tree determinant budget conductance shortcut deletion",
+          "theta graph optimal weighted spanning tree budget price cutoff"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. A general convex optimization framework states existence/KKT but does not logically identify the unique threshold or critical quadratic contact without the problem-specific tree polynomial and exact solution.",
+      "residual_risks": [
+        "An unindexed specialist theta-graph D-optimal conductance design may predate the exact formulas.",
+        "Does not apply to varying per-edge prices within each long route or a general three-long-route theta graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_OPTIMIZATION_PRIOR",
+          "evidence": "Does not present route-homogeneous all-positive vs deleted shortcut exact all-price theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "Primary full PDF matrix-tree formulation, weighted spanning-tree selection and convex relaxation sections",
+          "method": "primary PDF material plus page screenshot",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Same determinant objective and design operations"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "The sum of resistance distances differs from log spanning-tree determinant, so not a dominating result.",
+          "identifier_or_url": "https://doi.org/10.1137/050645452",
+          "material_read": "Abstract and primary formulation of total effective resistance; not full paper",
+          "method": "DOI summary",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Possible equivalent spectral network objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theta graph is the smallest natural overlapping-cycle conductor design beyond cactus decomposition. The exact budget-price frontier for deleting the backup shortcut, uniqueness without individual-edge symmetry constraints, and quadratic transition law quantify a motivated information-determinant design tradeoff.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Khosoussi–Sukhatme–Huang–Dissanayake arXiv:1604.01116 full relevant text",
+    "Ghosh–Boyd–Saberi DOI:10.1137/050645452",
+    "Resultary query: theta network spanning tree determinant budget conductance shortcut deletion"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a two-terminal theta graph with long routes of lengths a,b>=2 and one direct shortcut, with independently adjustable edge conductances priced p,q within routes and shortcut price r, a fixed budget B has a unique spanning-tree-determinant maximizing design. The shortcut is present exactly for r below an explicit quadratic threshold r_c, equal to ab*s/(a+b-1) when p=q=s; near the threshold its optimal weight vanishes linearly and logarithmic determinant advantage quadratically.",
+  "limitations": [
+    "Homogeneous prices within each long route; independently adjustable conductance otherwise",
+    "Spanning tree determinant, not total effective resistance or optimal mixing"
+  ],
+  "residual_risks": [
+    "An unindexed specialist theta-graph D-optimal conductance design may predate the exact formulas.",
+    "Does not apply to varying per-edge prices within each long route or a general three-long-route theta graph."
+  ],
+  "schema_version": 1
+}
