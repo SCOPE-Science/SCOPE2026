@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The seven-vertex Fano independence complex has exactly 21 edges and 28 noncollinear triangles. An explicit primitive rank-fifteen integer boundary submatrix yields an integral rank-thirteen top-cycle lattice. Signed simplex permutations calculate all 168 homology actions. The independent reduced Lefschetz traces give \(\chi_H=(13,-3,1,1,-1)\), and the conjugation action on eight Sylow-seven subgroups gives the irreducible seven-dimensional \(\chi_7=(7,-1,1,-1,0)\). Exact arithmetic proves \(C^2=24C\) and Smith factors \(6,6,6,24,24,24,24\). The canonical-lattice quotient follows by a displayed exact homomorphism, not a numerical conjecture. The embedded verifier and expected-data certificate were executed from their actual packaged paths.
+## correctness
 
-**Originality — PASS, with residual risk.** Section 4 of De Loera et al. (2013) analyzes the identical matroid's orientability rather than its equivariant integral top homology. The general theorems of Moci–Pezzoli (arXiv:2001.03760, Sections 2–6) establish complex-representation dualities, not a natural integral splitting index. The same Fano cap complex's previously calculated shortest cycle carriers are logically insufficient to determine its \(G\)-invariant rational isotypic saturation quotient. Related Heawood independence-complex results involve a different simplicial complex. Searches for integral lattice gluing, group-module decompositions, and the exact group \((\mathbb Z/4)^3\) identified no covering publication. Publication priority remains vulnerable to an unindexed or otherwise inaccessible equivalent computation.
+PASS
 
-**Value — PASS.** The Fano matroid is the canonical smallest binary projective-plane matroid, and its homology is a natural integral representation of the full collineation group. Rational characters cannot detect whether canonical rational summands split an integral homology lattice. The exact \((\mathbb Z/4\mathbb Z)^3\) obstruction is an invariant about integral equivariance, not a cosmetic recasting of a Betti number or a randomly chosen finite parameter. The central projector and Smith calculation offer a reproducible method for analogous matroid homology lattices.
+PASS. The independence complex of the seven nonzero F_2^3 vectors has 7 vertices, 21 edges and 28 nondependent triangles. Rebuilt its 21×28 integral boundary, established 15 primitive pivot columns with unit Smith factors and 13 integral 2-cycles, and recomputed all 168 signed GL_3(F_2) actions on the natural homology lattice. The conjugation action on eight Sylow-seven subgroups gives chi_7=(7,-1,1,-1,0); the central sum C obeys C²=24C, rank(C)=7, and SNF(C)=(6,6,6,24,24,24,24,0^6). Because the saturated lattice L7 is the saturation of C(H), C(H)/24L7 ≅ ⊕ Z/(24/d_i)=(Z/4)^3. The isomorphism H/(L7+L6)→C(H)/24L7 is well-defined and has the stated kernel; index=64, and no rational calculation substitutes for integral Smith form. Independent code reconstructed these values from the source definitions, not a packaged VERIFY_OK string.
 
-**Limits.** The full integral representation extension class as a group module is not classified beyond the stated abelian gluing quotient, and there is no independent validation or exhaustive literature-priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Compared the actual integral/homotopy claim, its intrinsic invariant and implications against published exact/nearby records, Resultary semantic search and mathematically relevant primary text. Distinguishes general methods and other complex functors from an exact integral calculation; inaccessible or unindexed priorities remain explicitly qualified.
+
+## value
+
+PASS
+
+PASS. The natural integral homology representation of the smallest nontrivial binary projective geometry has a canonical representation-theoretic isotypic splitting over Q, and the failure of the saturated summands to split over Z is an intrinsic extension/gluing invariant. Identifying its exact (Z/4)^3 type, rather than just the well-known homology rank or rational character, is a motivated, reusable arithmetic datum for equivariant matroid topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
