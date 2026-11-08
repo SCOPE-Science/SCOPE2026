@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The result starts from the exact sawtooth expression for the composite trapezoid error of a one-jump step family. Direct integration proves the covariance, which diagonalizes into uncorrelated nested-grid increments and yields the exact quadratic risk. Conditional expectation given the sample vector proves the universal MSE optimum. For geometric Romberg coefficients, the displayed Pochhammer-product interpolation formula and strict alternating-tail difference inequalities prove increasing normalized risk at *every* depth; the uniform superexponential bound ensures a finite limit. An independent exact-rational verifier checked 375 finite assertions, including direct integration; those computations are supplements, not infinite proofs. The ratio's comparison baseline is the same finest grid, not the same total number of function evaluations across depths.
+
+## Originality — PASS (subject to historical priority)
+The directly relevant jump-discontinuity treatment by Berrut and Trummer, full accessible 2022 online article, develops correction based on *known* jump locations and does not state this phase-averaged nested covariance, all-depth strict Romberg risk sequence, or Bayes interpretation for an unknown jump. Wu's 2020 randomized trapezoidal article addresses a different continuous-function regularity class. Camargo treats positive classical Romberg weights; a relevant published generalized-integer-Romberg record treats weight positivity and optimal bounded-sample-error conditioning. Its complete scientific result was compared and does not imply the phase-MSE theorem. Actual semantic and parameter-alias searches against published-finding corpus found no matching claim. The elementary conditional mean is explicitly not claimed a freestanding mathematical advance. The possibility of an older error-analysis source containing an equivalent covariance or variance penalty is a live risk; inaccessible specialized works were not represented as inspected.
+
+## Value — PASS
+Discontinuities violate the even-power smooth-error model on which classical Richardson extrapolation relies. The new exact MSE law answers a motivated practical question: does increasing Romberg depth improve the quality of an integral estimate when a jump is unlocated but samples are available? It proves a strict normalized penalty and quantifies its saturation, while establishing the strongest baseline optimality within the fixed step-family sampling experiment. The criterion is scientifically precise and falsifiable, and the result is not presented as a guarantee for arbitrary discontinuities.
+
+## Scope and priority limits
+The statistical model fixes a uniform single jump, and the extrapolation comparison holds at the same finest-grid spacing. No claim is made for multijump functions, adaptive meshes, arbitrary nonsmooth families, or floating-point effects. General historical extrapolation literature is broad; exact equivalence remains possible and independent literature assessment is advisable.
+
+Self-review: passed. Independent audit: not yet performed.
