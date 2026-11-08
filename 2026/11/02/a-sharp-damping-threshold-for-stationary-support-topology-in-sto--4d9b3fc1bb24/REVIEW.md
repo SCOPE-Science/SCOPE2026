@@ -1,19 +1,21 @@
-# Scientific review: exact damping/topology transition for stochastic Chebyshev descent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to an even-stage, positively damped first-order Chebyshev Runge--Kutta update using a single fair component sample in every internal stage. Its exact affine map follows from the explicit Chebyshev stage recurrence. The Chebyshev extremum inequality gives strict contraction at all specified steps. The random-series representation proves uniqueness and the variance identity; the support follows by two-map interval coverage and disjoint-cylinder arguments. Polynomial alternation establishes exactly \(s\) noninterval stepsize windows when \(T_s(1+\varepsilon/s^2)\le2\), and their merger when that quantity exceeds two. The sharp variance maximum occurs at a negative Chebyshev extremum and gives exactly the same threshold. Source code `verify.py` replayed 25,394 checks, including independent exact-rational internal-stage computations and exhaustive finite sign histories. The infinite statements are analytical, not extrapolations from these tests.
+PASS
 
-## Originality — PASS, with stated limits
+The published first-order Chebyshev stage recurrence specialized to common-curvature, same-component-per-outer-step gives exact affine X_next=rX+(1-r)b xi with r=T_s(omega0-omega1 t)/C, omega0=1+eps/s², C=T_s(omega0)>1. For even s and 0<t<2omega0/omega1, |r|<1, yielding unique W1-stationary Bernoulli series, mean zero and variance b²(1-r)/(1+r). Its two affine similarity images overlap/cover convex hull iff |r|>=1/2; otherwise two disjoint Cantor branches (or two points at r=0), with uniform law at |r|=1/2. Chebyshev zeros/extrema imply exactly s disconnected |T_s|<C/2 windows for C<=2 and one for C>2 (strict equality at C=2 separates). Minimum r=-1/C occurs at interior odd extrema, giving attained worst variance b²(C+1)/(C-1) and unique eps_s=s²(cosh(arcosh2/s)-1). Independently verified 48 exact-rational stages for s=2,4,6,8 and several eps/t; not an infinite-stage proof.
 
-The primary SRKCD paper introduces the algorithm, damping and underlying scalar stability polynomial, not the claimed invariant-support window count or its variance-bound coincidence (Stillfjord--Williamson, arXiv:2201.12782, relevant portions of the full-text HTML inspected). The support criterion for a scalar Bernoulli convolution is classical and expressly excluded from the novel contribution (Peres--Solomyak 1996; Jordan--Shmerkin--Solomyak 2011; Baker et al. 2026). General invariant-measure theory for random fixed-point iterations is also acknowledged (Hermer--Luke--Sturm 2023). An earlier undamped same-stage-client SRKCD result proves coincident neutral-mode resonance and variance blowup for heterogeneously curved components, but explicitly excludes positive damping; it does not establish the present all-even-stage strict-contraction support phase diagram or finite uniform variance cap. Prior results on independently resampled stage curvature and on unrelated proximal-gradient Cantor measures likewise do not determine this threshold. Search and direct comparison did not establish an equivalent published simultaneous phase diagram. A broad hidden-equivalence literature risk remains; absence of a matching search hit is not a proof of worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The numerical problem is motivated: the source method introduces damping to avoid degeneration at internal Chebyshev stability extrema, but generic diminishing-step convergence estimates do not quantify stationary error under a fixed learning rate. This theorem supplies a sharp **uniform-in-step stationary noise guarantee** and identifies the exact damping parameter at which the topology of all attainable stationary-error supports changes. The coincidence of the threshold \(3b^2\) and merger from \(s\) separate stepsize bands to one band is a structural all-stage classification, not merely a single numerical test or a change of notation. The result is an exact benchmark for damping selection, not a convergence guarantee for general machine-learning losses.
+Best-of-knowledge original contribution limited to complete claimed classification and quantitative threshold; classical ingredients and exact previously known special cases credited. Primary comparisons distinguish same mathematical objects from similar names; remaining equivalence risk explicitly documented.
 
-## Comparison and scientific limitations
+## value
 
-The deterministic RKC polynomial, Chebyshev interlacing, general Bernoulli-convolution attractor theorem and general contraction/Markov-operator argument are known ingredients. The claim is their precise combination for the fixed-step sampled SRKCD family, with the new explicit sharp damping cutoff. The result does **not** assert an absolutely continuous law at every interval-support parameter: Pisot-type exceptions can be singular. It is limited to one dimension, identical component curvature, symmetric offsets, fair independent outer samples, positive damping, even stage count, and the full open stability interval. A specialist check of literature on stochastic stabilized integrators and self-similar invariant measures is a remaining publication-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A practical constant-stepsize stochastic integrator with damping has both a sharp uniform stationary-noise ceiling and a nontrivial invariant-support topological phase diagram. Their exact coincident damping transition explains a natural numerical-stability versus noise/topology tradeoff for every even stage count, beyond routine contraction algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

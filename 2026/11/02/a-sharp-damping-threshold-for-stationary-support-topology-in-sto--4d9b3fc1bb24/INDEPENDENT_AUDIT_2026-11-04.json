@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:55:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published first-order Chebyshev stage recurrence specialized to common-curvature, same-component-per-outer-step gives exact affine X_next=rX+(1-r)b xi with r=T_s(omega0-omega1 t)/C, omega0=1+eps/s², C=T_s(omega0)>1. For even s and 0<t<2omega0/omega1, |r|<1, yielding unique W1-stationary Bernoulli series, mean zero and variance b²(1-r)/(1+r). Its two affine similarity images overlap/cover convex hull iff |r|>=1/2; otherwise two disjoint Cantor branches (or two points at r=0), with uniform law at |r|=1/2. Chebyshev zeros/extrema imply exactly s disconnected |T_s|<C/2 windows for C<=2 and one for C>2 (strict equality at C=2 separates). Minimum r=-1/C occurs at interior odd extrema, giving attained worst variance b²(C+1)/(C-1) and unique eps_s=s²(cosh(arcosh2/s)-1). Independently verified 48 exact-rational stages for s=2,4,6,8 and several eps/t; not an infinite-stage proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stillfjord–Williamson arxiv:2201.12782 uses same-stage sample and Chebyshev stability but decreasing-step rates, not a fixed-step support topology theorem.",
+          "General random contraction theory gives uniqueness and random-series existence."
+        ],
+        "reasoning": "Neither broad theorem includes the number of disconnected step windows or equality of the topology merger with worst-variance crossing C=2; result is a specialized structural synthesis rather than new contraction theory.",
+        "searches": [
+          "Stillfjord Williamson SRKCD 2201.12782 stage recursion convergence",
+          "nonexpansive Markov operators random function iterations stationary invariant distribution"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2201.12782",
+        "Peres–Solomyak 1996 Mathematical Research Letters 3:231–239",
+        "Jordan–Shmerkin–Solomyak 2011 doi:10.1017/S0305004111000466",
+        "Hermer–Luke–Sturm Journal of Convex Analysis 30 (2023)",
+        "Resultary query: stochastic RKC Chebyshev damping Bernoulli convolution stationary support"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SRKCD source provides polynomial and fixed-sample coefficients.",
+          "Classical IFS overlap fact gives the |r|=1/2 threshold for any given r."
+        ],
+        "reasoning": "Together these prior ingredients permit a short but nontrivial Chebyshev alternation argument; the complete all-even-s stage/topology/variance coincidence was not stated in inspected source, so independent contribution is narrowly delineated.",
+        "searches": [
+          "arxiv:2201.12782 SRKCD original first order stability",
+          "Peres Solomyak 1996 Bernoulli convolutions support overlaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary affine map is a Bernoulli convolution with signed contraction r and scale b(1-r).",
+          "Classical two-map overlap threshold 1/2 is a known fact."
+        ],
+        "reasoning": "The pointwise Bernoulli support criterion is prior; the new claimed object is its exact pullback through all Chebyshev step/damping values and sharp universal variance limit.",
+        "searches": [
+          "stochastic RKC Chebyshev damping Bernoulli convolution stationary support Cantor interval topology",
+          "Bernoulli convolution support interval iff contraction ratio one half Chebyshev RKC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Bernoulli rotation invariant-graph result concerns a circle map and has a different attractor.",
+          "Chebyshev extrema and Bernoulli-convolution threshold are standard tables/identities."
+        ],
+        "reasoning": "No exact published table of all even-stage damping thresholds and window counts was found, though values are derivable from standard primitives and indexing may miss work.",
+        "searches": [
+          "stochastic RKC Chebyshev damping Bernoulli convolution stationary support Cantor interval topology",
+          "Resultary: Bernoulli rotation ordered invariant graphs full interval",
+          "RKC Chebyshev stationary Bernoulli convolution Cantor windows exact count"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution limited to complete claimed classification and quantitative threshold; classical ingredients and exact previously known special cases credited. Primary comparisons distinguish same mathematical objects from similar names; remaining equivalence risk explicitly documented.",
+      "residual_risks": [
+        "Combination of classical Bernoulli-convolution support and Chebyshev extrema may have been previously spelled out under alternative terminology.",
+        "For |r|>1/2, support interval does not imply density or absolute continuity; Pisot-type singularity possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING stated positive-damping invariant-support window theorem.",
+          "evidence": "Stability polynomials and decreasing-stepsize convergence are established, but stationary constant-step Bernoulli attractor component count/variance threshold are not stated in inspected portions.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12782",
+          "material_read": "Full author-hosted PDF sections 2-3, stage recurrence, scalar Chebyshev stability polynomial, convergence discussion and relevant appendix.",
+          "method": "Lawful OA PDF full-text reading; screenshot attempted",
+          "title": "SRKCD: a stabilized Runge–Kutta method for stochastic optimization",
+          "trigger": "Exact sampled Chebyshev RKC stages/damping and stochastic convergence"
+        },
+        {
+          "assessment": "Classical overlap ingredient; not whole-document comparison.",
+          "evidence": "Supports the known independent Bernoulli-convolution literature; no scheme-specific all-step phase diagram inferred.",
+          "identifier_or_url": "https://www.microsoft.com/en-us/research/publication/absolute-continuity-bernoulli-convolutions-simple-proof/",
+          "material_read": "Publication summary and theorem context, not complete primary PDF.",
+          "method": "Publication page/context reading",
+          "title": "Absolute continuity of Bernoulli convolutions, a simple proof",
+          "trigger": "Classical overlap/singularity of two-branch affine invariant laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A practical constant-stepsize stochastic integrator with damping has both a sharp uniform stationary-noise ceiling and a nontrivial invariant-support topological phase diagram. Their exact coincident damping transition explains a natural numerical-stability versus noise/topology tradeoff for every even stage count, beyond routine contraction algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar equal-curvature two-offset fair sampled quadratic objective, same sampled component throughout stages, positive damping, even s, 0<t<H.",
+    "Does not assert absolute continuity for q>1/2, odd-stage behavior, arbitrary nonlinear objectives, or floating-point effects."
+  ],
+  "schema_version": 1
+}
