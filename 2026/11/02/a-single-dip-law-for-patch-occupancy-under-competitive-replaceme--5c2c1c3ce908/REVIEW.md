@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite irreducible reversible resident generator, the augmented model has a unique stationary distribution. A direct stationary balance yields \(p_0(b)=v h(b)/(b+v)\). Positive spectral weights in the reversible empty-state return law give strict concavity of \(h\), the positive finite integral \(T\), and a strictly decreasing turning-point function \(F\). Endpoint signs prove the complete global classification, including equality and all positive parameter boundaries. The two-resident-state example is exact, and independently solved stationary systems have been compared with the resolvent using rational arithmetic.
+PASS
 
-## Originality — PASS within inspected evidence, with residual historical-priority risk
+For a finite irreducible reversible resident generator Q with empty state 0 and constant invader reset rate b and return-to-empty extinction rate v, stationary balance solves p_I=b/(b+v), p_0=v*h(b)/(b+v), h(b)=b[(bI−Q)^{-1}]_{00}. Reversible diagonal spectral resolution gives h(b)=π0+Σ c_j b/(b+λ_j), c_j>=0, Σc_j=1−π0>0, λ_j>0; thus h''(b)<0. The derivative sign is that of F=(b+v)h'−h, with F'<0, F(0+)=vT−π0 and F(∞)=−1, T=Σc_j/λ_j. Therefore O(b)=1−p_0 rises for v<=π0/T and otherwise falls then rises through exactly one minimum. For two-state resident Q=[[-1,1],[1,-1]], v=10, π0/T=2 and O(2)=3/8; independent exact differentiation confirms global min. This all-finite-state result follows from spectral positivity, not selected numerical checks.
 
-The reset-resolvent identity is known, not claimed. Pakes (1997) establishes general killing/resurrection renewal theory; the accessible record does not establish the sharp competition-occupancy dichotomy. The Pakes full text was inaccessible after open-source searches and an institutional-access attempt, so possible stronger coverage cannot be excluded. Orrock and Watling (2010), inspected in full, formulate a competition-colonization model with distinct assumptions and ecological conclusions. Meylahn and colleagues (2015) give general Markov-resetting methods but not the explicit \(vT/\pi_0\) one-dip law; Rose and colleagues (2018) give general spectral-resetting statements. The result remains provisional regarding historical priority, not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The conclusion is a phase classification for every finite reversible resident community, not merely an exact solution of a three-state chain. It compresses the threshold for the counterintuitive occupancy response into an interpretable single baseline relaxation integral and proves there can be no second reversal. The exact smallest-state example establishes that more invading individuals can coincide with less total habitat occupation. Those properties provide a natural test for ecological competition models, subject to the stated idealizations.
+Best-of-knowledge PASS for the explicitly motivated ecological occupancy one-dip criterion vT/π0 for arbitrary reversible resident networks with full competitive invasion. Resolvent/renewal resetting representation and spectral mixtures are prior mathematical tools (Pakes, Meylahn et al, Rose et al); the ecological one-turn necessary/sufficient sharp threshold is a particular conclusion absent from inspected open primary work. The complete 1997 Pakes article was inaccessible; potential equivalent reset-shape theorem remains a material risk, not automatic failure.
 
-## Limits and nearby literature
+## value
 
-Assumes one patch, fully replacing invader, independent constant invader pressure, exponential invader extinction and reversible resident dynamics. Does not validate field intervention or assert the nonreversible case. Relevant sources are Pakes (1997; online record 2007), Orrock and Watling (2010), Meylahn et al. (2015) and Rose et al. (2018), all cited in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even a competitively superior invader with strictly increasing own abundance can initially lower the fraction of occupied patches. The theorem gives the exact extinction-pressure frontier and excludes multiple dips for any finite reversible resident baseline, a useful qualitative classification and sharp counterexample for competition/occupancy models. Assumes one homogeneous patch, not a spatial metacommunity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
