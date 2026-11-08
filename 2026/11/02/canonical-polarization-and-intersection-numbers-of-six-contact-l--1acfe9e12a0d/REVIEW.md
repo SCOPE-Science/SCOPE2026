@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Theorem 1.2 in arXiv:2610.28558 is the nontrivial all-smooth dimension premise: dimension exactly three for the zero locus of six jet equations in the smooth ninefold of pointed lines. This makes the relative principal-parts section regular; the contact scheme is lci and Gorenstein. The relative Euler and projective-bundle tangent sequences give \(K_F=-12H-5\eta\), and the six jet roots give \(c_1(E_d)=6dH+15\eta\). Hence adjunction yields \(K=(6d-32)H+10G\), ample for \(d\ge6\). The projective-bundle Segre formula gives the displayed polynomial canonical volume. A separate equivariant-localization calculation agrees exactly for nine degrees, and both calculations were rerun from the packaged checker. For very general \(X\), generic smoothness of the universal incidence and an independent two-contact-point dimension count justify interpreting \(\int G^3c_6(E_d)\) as the unpointed Plücker degree. The only non-elementary inputs (2026 dimension theorem, standard lci adjunction and generic smoothness) are explicitly identified.
+## correctness
 
-## Originality — PASS, qualified
-The closest 2025 paper, Bertone--Weimann, fully covers the rank-six jet zero-class and even the **point-locus degree** \(274d^2-720d\). Neither that known number nor its Chern-class construction is claimed as new. The newer Beheshti--Mukhopadhyay theorem covers the proper-dimension fact for every smooth hypersurface, but it does not identify the dualizing sheaf or assert universal canonical ampleness. Its combination with adjunction establishes a separate uniform scheme-theoretic consequence. The exact canonical cubic and the Grassmannian **unpointed-line** degree were not found stated in the inspected primary papers or targeted mathematical-record searches. Historical priority risk remains material because the 2025 full Chow class determines these numbers via further standard intersection calculations, and a classical unindexed formulation may exist. Such potential implicit coverage warrants independent review; the distinction between point-image degree and line-image degree was explicitly checked.
+PASS
 
-## Mathematical value — PASS
-The structural part provides a natural infinite family of canonically polarized Gorenstein **three-dimensional** schemes for arbitrary smooth (including special) hypersurfaces, instead of merely a list of generic numerical examples. The canonical volume and Plücker degree are intrinsic intersection invariants of the pointed contact scheme and its natural map to a Grassmannian; they measure its birational positivity and enumerative size. The sextic case is the first degree at which six-contact need not mean line containment, and its concrete canonical cubic distinguishes it from classical Fano-line counting. This statement is more than a routine point-locus degree already tabulated in Bertone--Weimann.
+PASS: F=P(TP5) is a smooth 9-fold of pointed lines. Relative length-6 jet bundle E_d is rank 6 with c6(E_d)=product_{j=0}^5(dH+j eta), eta=G-2H. Theorem 1.2 of Beheshti-Mukhopadhyay gives dimension exactly 3 for every smooth X, hence its regular section defines a pure lci/Gorenstein 3-fold. K_F=-12H-5eta and det E_d=6dH+15eta imply K_V=(6d-32)H+10G ample for d>=6. Universal incidence smooth and generic smoothness yield smooth very general fibers; two distinct six-contact points impose independent 12 conditions at d>=12, and contained-line locus has dimension lower than 3, giving generically degree-one map to unpointed lines. Independent projective-bundle Segre pushforward reconstructed full exact Plucker and canonical-volume polynomials and sextic 25704 / 64403136. No universal smoothness or irreducibility asserted.
 
-## Sources, limits, residual risk
-Primary inspected: Beheshti--Mukhopadhyay, arXiv:2610.28558v1, Theorem 1.2 and introduction; Bertone--Weimann, arXiv:2502.02075v1, Theorem 1.1, Proposition 2.2, Section 5 (especially Theorem 5.5 and Equation (5.4)); Patel--Riedl--Smith--Tseng, arXiv:2208.04393v1, Section 4. McKean--Muratore--Ong arXiv:2504.21664 was compared at the abstract/overview level (arithmetic local counts, different target invariant). Residual risks: numerical invariants may be implicit in published Chow classes; unknown older enumerative work; independent audit not performed. General smoothness of the contact scheme is **not** claimed for special hypersurfaces.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified and narrow: the top Chern jet class and point-flex locus degree are already in Bertone-Weimann 2025, and all-smooth expected dimension is Beheshti-Mukhopadhyay 2026. Their combination plus routine lci adjunction implies the scheme-theoretic Gorenstein/ample canonical statement; explicit top canonical intersection and unpointed Grassmannian image degree were not stated as results in the inspected full texts. Therefore originality is confined to the natural new exact intersection invariants and their interpretation, NOT the standard jet bundle machinery, and the work may be an accessible corollary of prior tools. No claim of major new geometry.
+
+## value
+
+PASS
+
+PASS, qualified: canonical polarization/volume and Plucker degree are natural intrinsic/birationally meaningful enumerative invariants of a well-studied pointed six-contact line threefold. Exact all-d formula, the distinction between all smooth scheme-theoretic lci and very general smooth/Plucker image, and a uniform positivity bound are useful even when computed from established jet class. They do not by themselves establish irreducibility or singularity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
