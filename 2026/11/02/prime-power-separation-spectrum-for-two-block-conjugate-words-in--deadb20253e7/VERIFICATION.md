@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 check.py` with standard-library Python 3. The supplied `check_output.txt` is the recorded output for the embedded executable.
+## correctness
 
-For \(m=2,3,4,5,6\), the verifier explicitly enumerates all permutations, computes all power images modulo the exponent of \(S_m\), forms centralizer intersections, and tests every ordered exponent-residue pair. The respective numbers are \(4\), \(36\), \(144\), \(3600\) and \(3600\) checked pairs. The checker also tests 10,000 ordinary positive-exponent pairs for the possible least degrees, constructive extremal pairs through prime power \(37\), and seven explicit noncommuting permutation pairs in degrees \(3,4,5,7,8,9,11\). All tests in the recorded execution passed.
+PASS
 
-A finite permutation enumeration cannot establish the theorem for arbitrarily large degrees. The infinite assertion depends on the normal-subgroup classification of symmetric groups, the characterization of their exponent as \(\operatorname{lcm}(1,\ldots,m)\), and the fact that the exponent jumps exactly at prime powers. The supplied tests cover the algebraic exceptional cases and representative higher degrees but are not an external mathematical audit or a comprehensive publication-priority check.
+Automaton acceptance separation is equivalent to A^a B^b != B^b A^a for some permutations. Power-generated H_t is normal; H_t=1 iff L_m|t. For m>=5 every nontrivial normal subgroup of S_m contains nonabelian A_m, so pairwise centralization fails; for m=3,4 the abelian A_3 and V_4 cases give the listed exceptional congruences. The function L_m increases precisely at prime powers, and explicit exponent witnesses prove the least-degree spectrum. For q>=7, failure at q−1 forces an exponent multiple of L_{q−1}, yielding sharp length and uniqueness. Exhaustive independent S3–S5 residue-pair checks corroborate, not replace normal-subgroup proof.
+
+## originality
+
+PASS
+
+The S3 x²y²=y²x² identity, S_m normal-subgroup lattice, symmetric-group exponents, and general permutation-word separation were known. The relevant full 2017 paper studies other shortest identities and general lower bounds; it does not present an exhaustive two-block parameter criterion, all attainable least state counts, and sharp word-length optimization. Best-of-knowledge PASS with 2026 Xu–Regan and other group-identity priority caveats.
+
+## value
+
+PASS
+
+The family is the simplest nontrivial conjugate pair of distinct words for reversible automata, and a complete infinite parameter-state classification gives an exact arithmetic spectrum of prime powers and optimal witnesses; a motivated model problem in separation complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
