@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The included `verify.py` requires `mpmath >= 1.3` (`requirements.txt`) and is run with `python verify.py`. It evaluates the exact scaled log-moment-generating-function series at four tilt values as reset fractions shrink, differentiates the limiting dilogarithm, numerically solves the Legendre stationary equation, checks rate-function symmetry and strict positivity at seven positive displacements, checks the sixth-order coefficient, and checks the linear distant tail. It passed **41 finite assertions** on the prepared package.
+# Independent mathematical audit
 
-All universal assertions—including convergence as the reset fraction vanishes, the full large-deviation principle, and strict comparison at every nonzero real displacement—are proved analytically in `RESULT.md`. A finite arithmetic test is not an asymptotic or universal certificate. For an independent re-derivation, start with the Brownian convolution and the independent exponential holding times, then recompute the cumulant-limit Riemann sum, verify the exponential-tilt LDP, and inspect the positive function \(G(z)=z^2-2z+2(1-e^{-z})\) used for strict ordering.
+## correctness
 
-No independent audit has been performed. The publication-priority assessment is qualified by the possibility of a more general unpublished or unlocated large-deviation result.
+PASS
+
+The stationary Poisson convolution gives conditional Gaussian variance as a sum of geometrically damped exponential holding times, hence an exact positive product for the MGF on |theta|<1. A Riemann sum gives the Li2 cumulant limit with steep derivative and exponential tightness; exponential tilting proves the full LDP, not just weak convergence. The stated Itô diffusion has stationary power-law density giving J by Laplace bounds. Strict I>J follows from the positive function z^2-2z+2(1-e^-z), whose derivative is positive, and series inversion yields the sixth-order gap. An independent SymPy series inversion and rate expansion matched coefficients. No path-space or finite-s error statement is inferred.
+
+## originality
+
+PASS
+
+The exact stationary transform of proportionally reset Brownian diffusion is in Tal-Friedman–Roichman–Reuveni; Galla gives the weak-reset Itô diffusion and stationary law. The joint fast/weak-reset stationary LDP and strict global rate comparison were not identified in the inspected primary results. Classical Gärtner–Ellis/tilting tools are not novel, so priority pertains to the exact comparison law.
+
+## value
+
+PASS
+
+A quantitative failure of Gaussian diffusion approximation for stationary rare events, despite central agreement, is a motivated diagnostic for weak-reset models. The strict all-w separation and sixth-order onset are stronger than an isolated asymptotic example and identify the approximation limit clearly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

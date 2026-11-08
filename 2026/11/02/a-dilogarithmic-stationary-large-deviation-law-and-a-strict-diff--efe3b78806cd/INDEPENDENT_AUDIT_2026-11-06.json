@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:45:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary Poisson convolution gives conditional Gaussian variance as a sum of geometrically damped exponential holding times, hence an exact positive product for the MGF on |theta|<1. A Riemann sum gives the Li2 cumulant limit with steep derivative and exponential tightness; exponential tilting proves the full LDP, not just weak convergence. The stated Itô diffusion has stationary power-law density giving J by Laplace bounds. Strict I>J follows from the positive function z^2-2z+2(1-e^-z), whose derivative is positive, and series inversion yields the sixth-order gap. An independent SymPy series inversion and rate expansion matched coefficients. No path-space or finite-s error statement is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tal-Friedman et al. analyze stationary distribution and Gaussian limit; Galla derives diffusion approximation for weak resets.",
+          "Neither inspected theorem is a global LDP at the joint stationary rare-displacement scaling with an inequality between jump and effective diffusion rate functions; general LDP principles prove the technique but not the displayed explicit strict comparison."
+        ],
+        "reasoning": "The existing product and diffusion model are broader starting formulas but do not supply their joint rare-scale rate inequality.",
+        "searches": [
+          "arxiv:2205.03363 full paper",
+          "arxiv:2602.21635 full HTML and supplementary S1.1",
+          "arxiv:2501.01139 targeted stationary tails"
+        ]
+      },
+      "checked_sources": [
+        "Tal-Friedman–Roichman–Reuveni 2022 arxiv:2205.03363 PDF",
+        "Galla 2026 arxiv:2602.21635 full HTML and supplemental",
+        "Resultary semantic search on stochastic partial resetting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Input formulas imply the scaled CGF and J after a limiting argument.",
+          "Neither cited source directly states strict I>J or sixth-order onset. The present claim is a nontrivial joint consequence of two established models, not independently new stochastic-process definitions."
+        ],
+        "reasoning": "Neither cited source directly states strict I>J or sixth-order onset. The present claim is a nontrivial joint consequence of two established models, not independently new stochastic-process definitions.",
+        "searches": [
+          "arxiv:2205.03363 product Eq(5)",
+          "arxiv:2602.21635 S1 stationary density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact product under r=lambda/s and a=1-s becomes the claimed MGF after analytic continuation and rescaling.",
+          "Galla stationary Student-type density specializes to the proposed comparator."
+        ],
+        "reasoning": "Both input transforms are old. Their difference is not an alternative formulation of the strict rare-scale rate ordering.",
+        "searches": [
+          "arxiv:2205.03363 Eq(5) stationary Fourier product",
+          "arxiv:2602.21635 Eq(4)-(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits were unrelated diffusion comparison, stochastic inequalities, and Bellman formulas; no exact stationary LDP table located."
+        ],
+        "reasoning": "No relevant published index table for the Li2 rate versus logarithmic comparator was identified, without claiming exhaustive search.",
+        "searches": [
+          "Resultary query: partial proportional resetting Brownian stationary large deviation dilogarithm effective diffusion approximation rate function strict inequality",
+          "web search exact rare reset dilogarithm Legendre"
+        ]
+      },
+      "rationale": "The exact stationary transform of proportionally reset Brownian diffusion is in Tal-Friedman–Roichman–Reuveni; Galla gives the weak-reset Itô diffusion and stationary law. The joint fast/weak-reset stationary LDP and strict global rate comparison were not identified in the inspected primary results. Classical Gärtner–Ellis/tilting tools are not novel, so priority pertains to the exact comparison law.",
+      "residual_risks": [
+        "General transform-based LDP work may have already evaluated the Li2 rate under alternative scaling terminology.",
+        "As s tends to zero, pointwise stationary density ratios and path-space LDPs are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transform is preexisting; its joint stationary rate inequality to an Itô diffusion was not identified.",
+          "evidence": [
+            "Eq(5), section II; web:turn883104view0/turn918037view0"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03363",
+          "material_read": "Original PDF pages 1-4 including Section II, equation (5), summary of Gaussian weak reset",
+          "method": "Read product Fourier transform and stochastic stationary sum, compared the rate/scaling regimes",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "same proportional Poisson resetting model and exact transform"
+        },
+        {
+          "assessment": "Provides the comparator and ordinary small-s approximation, not the claimed rare-scale strict LDP comparison.",
+          "evidence": [
+            "Eq(4)-(5), Supplemental S1.1; web:turn693066view0"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Full arXiv HTML contents incl equations (3)-(5), supplemental S1 and search for large deviations",
+          "method": "Read derivation and stationary Fokker-Planck density and checked scope of conclusions",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "identical high-frequency weak-reset diffusion comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A quantitative failure of Gaussian diffusion approximation for stationary rare events, despite central agreement, is a motivated diagnostic for weak-reset models. The strict all-w separation and sixth-order onset are stronger than an isolated asymptotic example and identify the approximation limit clearly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tal-Friedman–Roichman–Reuveni 2022 arxiv:2205.03363 PDF",
+    "Galla 2026 arxiv:2602.21635 full HTML and supplemental",
+    "Resultary semantic search on stochastic partial resetting"
+  ],
+  "disposition": "passed",
+  "final_claim": "For stationary Brownian diffusion under rate lambda/s contractions by factor 1-s, W_s=sqrt(lambda*s/D) X_s satisfies a full LDP of speed 1/s with rate I(w)=sup_{|theta|<1}{theta*w-Li_2(theta^2)/2}; the stationary Itô diffusion surrogate has rate J(w)=log(1+w^2/2); I(w)>J(w) for w!=0, with local gap w^6/36+O(w^8) and I(w)=|w|-pi^2/12+o(1) at infinity.",
+  "limitations": [
+    "Historical priority is best-of-knowledge, not exhaustive literature certification.",
+    "Bounded computation does not replace the analytic proof.",
+    "General transform-based LDP work may have already evaluated the Li2 rate under alternative scaling terminology.",
+    "As s tends to zero, pointwise stationary density ratios and path-space LDPs are not established."
+  ],
+  "residual_risks": [
+    "General transform-based LDP work may have already evaluated the Li2 rate under alternative scaling terminology.",
+    "As s tends to zero, pointwise stationary density ratios and path-space LDPs are not established."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Exact transform is preexisting; its joint stationary rate inequality to an Itô diffusion was not identified.",
+      "evidence": [
+        "Eq(5), section II; web:turn883104view0/turn918037view0"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2205.03363",
+      "material_read": "Original PDF pages 1-4 including Section II, equation (5), summary of Gaussian weak reset",
+      "method": "Read product Fourier transform and stochastic stationary sum, compared the rate/scaling regimes",
+      "title": "Diffusion with Partial Resetting",
+      "trigger": "same proportional Poisson resetting model and exact transform"
+    },
+    {
+      "assessment": "Provides the comparator and ordinary small-s approximation, not the claimed rare-scale strict LDP comparison.",
+      "evidence": [
+        "Eq(4)-(5), Supplemental S1.1; web:turn693066view0"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2602.21635",
+      "material_read": "Full arXiv HTML contents incl equations (3)-(5), supplemental S1 and search for large deviations",
+      "method": "Read derivation and stationary Fokker-Planck density and checked scope of conclusions",
+      "title": "A diffusion approximation for systems with frequent weak resetting",
+      "trigger": "identical high-frequency weak-reset diffusion comparator"
+    }
+  ]
+}

@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Gaussian mixture from independent Brownian increments and exponential reset intervals gives the stationary transform from [2]; the proof checks the contraction hypothesis, product domain, and factor \(\lambda s/D\) in the rare-position normalization. The mesh parameter is \(-\log(1-s)\); the limiting scaled cumulant function is half the dilogarithm. Its derivative maps the open tilt domain onto the whole real line, allowing a full LDP with explicit exponential tightness and tilting-based lower bounds. The effective Itô stationary zero-flux density has a different logarithmic large-deviation rate. The derivative comparison reduces to a scalar strictly positive function whose derivative has proved sign. Taylor inversion and boundary evaluation of the dilogarithm give the sixth-order and distant asymptotics. Finite numerical checks (41) support arithmetic, not proof of any infinite-dimensional or asymptotic statement.
+## correctness
 
-## Originality — PASS (best knowledge, not certified)
-Galla [1], in the fast-weak-reset regime, supplies the effective Itô model and stationary density but no stationary rare-scale rate comparison. Tal-Friedman–Roichman–Reuveni [2] supplies the exact partial-reset stationary transform; the product is explicitly prior, and its fixed-intensity weak-reset Gaussian limit does not state the two-model strict large-deviation comparison. Di Bello et al. [3] derive fixed-parameter far tails and time-dependent large deviations but not this joint weak-reset stationary-scale statement. A prior related investigation of positive linear drift and partial resetting gives fixed-reset stationary algebraic-tail exponent comparisons, but those fixed-positive-drift statements do not imply the zero-drift dilogarithmic scaling or the global strict rate gap. Actual mathematical-record semantic searches did not identify a dominating result; absence from search results alone is not a novelty proof. Residual risk includes a general transform-based LDP or general small-jump WKB comparison unlocated in the checked literature.
+PASS
 
-## Value — PASS
-A natural operational question is whether the Gaussian-noise approximation to frequent tiny reset events controls statistically rare stationary displacements. The theorem produces **two exact nonquadratic rates**, proves they are strictly ordered for every nonzero scaled displacement, identifies their first difference only at sixth order, and finds distinct large-position growth (linear versus logarithmic). The result separates genuine global rate-function failure from agreement of typical Gaussian behavior and stationary second moments. This is a substantive boundary on the approximation, not a restatement of the pre-existing transform.
+The stationary Poisson convolution gives conditional Gaussian variance as a sum of geometrically damped exponential holding times, hence an exact positive product for the MGF on |theta|<1. A Riemann sum gives the Li2 cumulant limit with steep derivative and exponential tightness; exponential tilting proves the full LDP, not just weak convergence. The stated Itô diffusion has stationary power-law density giving J by Laplace bounds. Strict I>J follows from the positive function z^2-2z+2(1-e^-z), whose derivative is positive, and series inversion yields the sixth-order gap. An independent SymPy series inversion and rate expansion matched coefficients. No path-space or finite-s error statement is inferred.
 
-## Closest literature and remaining limits
-[1] Tobias Galla, *A diffusion approximation for systems with frequent weak resetting*, arXiv:2602.21635v1 (2026-02-25), main Eq. (4)-(5), supplement S1.1.
+## originality
 
-[2] Tal-Friedman, Roichman and Reuveni, *Diffusion with Partial Resetting*, arXiv:2205.03363, Sec. II Eq. (5).
+PASS
 
-[3] Di Bello et al., *Partial versus total resetting for Lévy flights in d dimensions*, arXiv:2501.01139, stationary tails and long-time deviation sections.
+The exact stationary transform of proportionally reset Brownian diffusion is in Tal-Friedman–Roichman–Reuveni; Galla gives the weak-reset Itô diffusion and stationary law. The joint fast/weak-reset stationary LDP and strict global rate comparison were not identified in the inspected primary results. Classical Gärtner–Ellis/tilting tools are not novel, so priority pertains to the exact comparison law.
 
-The statement does not imply finite-s density ratios, first-passage control, or results for nonconstant reset amplitudes. Only the specified stationary model is proved. Originality is best-knowledge and an independent priority audit is still needed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A quantitative failure of Gaussian diffusion approximation for stationary rare events, despite central agreement, is a motivated diagnostic for weak-reset models. The strict all-w separation and sixth-order onset are stronger than an isolated asymptotic example and identify the approximation limit clearly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
