@@ -1,17 +1,21 @@
-# Review of the diameter-endpoint germ
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim assumes independent volume-uniform points of a regular full-dimensional Euclidean simplex in a **fixed dimension at least four**, and defines the deficit relative to the edge-length diameter. The barycentric squared-distance identity has the correct factor one-half. Its unique diameter maximizers are the ordered distinct-vertex pairs. Near any such pair, the local quadratic form and the factor \(1/4\) in the barycentric Jacobian are explicit. The radial variable has a unique small increasing-branch root, and compactness supplies a uniform neighborhood on which the algebraic localization is exhaustive. Lagrange inversion and bounded Dirichlet moments justify an absolutely convergent endpoint expansion. The scalar identities for the first correction and the dimension-four second correction were reconstructed with exact rational arithmetic. The checkable companion program verifies these coefficients and an independent numerical form of the local integral. Mathematical proof, not finite sampling, establishes the infinite series.
+## correctness
 
-## Originality — PASS, qualified by literature access
-The full accessible arXiv HTML of Wang (2026; arXiv:2610.01916v1) concerns the same distance-distribution functional, but presents near-zero-distance expansion and structural Minkowski results, not the all-order near-diameter regular-simplex germ. Ciccariello (2014; arXiv:1407.2788) gives a complete correlation function for the **three-dimensional regular tetrahedron**, and Zhuang–Pan (2012; arXiv:1207.1511) treat the two-dimensional equilateral triangle. The new claim explicitly excludes these covered low dimensions. Lao (2010) studies the maximum among interdependent distances in sampled cubes and polygons, not the distribution of one pair in a regular \(d\)-simplex. Aramyan–Yeranyan (2021) relates generic chord and pair-distance distributions, but its accessible description supplies no high-dimensional simplex endpoint evaluation; its full text remains an access uncertainty.
+PASS
 
-The closest indexed published simplex result gives an exact beta distribution for the **difference-body Minkowski gauge** of the random displacement. That norm differs nontrivially from Euclidean distance even on the same simplex difference body: the boundary vectors \(v_0-v_1\) and \(v_0-(v_1+v_2)/2\) have the same difference-body gauge one but Euclidean lengths \(\ell\) and \(\sqrt3\ell/2\), respectively. Thus the beta theorem cannot supply the all-order Euclidean endpoint distribution by a one-variable change of scale. No checked statement implies the present exact coefficients. Equivalent older high-dimensional radial-covariogram formulas remain an explicit historical-priority risk; the searches do not prove global uniqueness.
+PASS: For fixed d>=4 and independent uniform barycentric coordinates, regular-simplex distance has exact normalized identity ||X−Y||²/ell²=1/2 Σ(p_i−q_i)². Strict convexity leaves exactly d(d+1) ordered diameter-vertex pairs. Near each, 2d local nonnegative coordinates with two variables scaled by 2 have Jacobian 1/4 and exact squared-distance deficit r−r²Q(theta). A compactness exclusion of other maximizers and a uniform monotone small root yield an exact local cone integral, not merely a heuristic Laplace asymptotic. Lagrange inversion of r=s+Qr² and Dirichlet(1,...,1) moments justify the convergent rational s=2t−t² series. Independently constructed rational generator vectors for each d=4..10 give Σ||c||²=4d−3, ||Σc||²=2d², leading coefficient d(d+1)2^(2d−2)(d!)²/(2d)!, and relative linear coefficient 3(d−1)/(2d+1). Independently multiplied all rational quadratic monomials in d=4 (306 resulting monomials) giving E Q²=533/5280 and second relative coefficient 34/15; E Q=5/16 and leading 128/7. These exact checks corroborate, but do not replace, compactness and convergence proof. Scope is two independent point distances, not a sample maximum.
 
-## Mathematical value — PASS
-The near-diameter law is a natural extreme-tail geometric invariant complementary to the well-studied small-distance profile. The theorem identifies the first nontrivial all-dimensional exact constants, the strictly positive \(2d\)-order tail, and an **entire rational, positive-coefficient germ in the squared-distance deficit** with a finite constructive moment algorithm. The exceptional high-dimensional problem is not a random numerical slice: it controls how rarely two independent uniform simplex points nearly realize a diametral chord, provides an exact benchmark for higher-dimensional covariogram calculations, and supplies the first explicit dimension-four correction beyond leading order. The novelty and value are limited to the claimed exact formulas, not to classical barycentric identities or Lagrange inversion alone.
+## originality
 
-## Risks and limits
-No assertion covers \(d\le3\), general simplices, dependent sample diameters, or the full global distance distribution. The local convergence threshold is not optimized. Bibliographic completeness is limited by search indexing and the unavailable full text of some general chord-distribution sources. Independent external mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: Wang 2026 introduces the same radial covariogram random-pair functional and its near-zero-distance expansion but not the regular-simplex saturation endpoint germ. Complete known planar triangle and 3D tetrahedron formulae are below the claimed d>=4. Published beta difference-body-gauge distance theorem is NOT Euclidean distance: unit gauge can have distinct Euclidean norms on a simplex. Broader chord-distribution relations have not been shown to imply the displayed exact constants. Historical radial-covariogram results not accessible in full remain explicitly risky.
+
+## value
+
+PASS
+
+PASS: The distribution tail at the natural Euclidean diameter for a canonical simplex is a nontrivial extreme-distance invariant in every fixed d>=4, complementing classical triangle/tetrahedron formulas. The explicit leading, next, and d4 second corrections plus an all-order rational moment prescription are useful finite exact benchmarks for high-dimensional covariograms rather than an arbitrary special numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

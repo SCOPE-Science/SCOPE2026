@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:02:30.696368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For fixed d>=4 and independent uniform barycentric coordinates, regular-simplex distance has exact normalized identity ||X−Y||²/ell²=1/2 Σ(p_i−q_i)². Strict convexity leaves exactly d(d+1) ordered diameter-vertex pairs. Near each, 2d local nonnegative coordinates with two variables scaled by 2 have Jacobian 1/4 and exact squared-distance deficit r−r²Q(theta). A compactness exclusion of other maximizers and a uniform monotone small root yield an exact local cone integral, not merely a heuristic Laplace asymptotic. Lagrange inversion of r=s+Qr² and Dirichlet(1,...,1) moments justify the convergent rational s=2t−t² series. Independently constructed rational generator vectors for each d=4..10 give Σ||c||²=4d−3, ||Σc||²=2d², leading coefficient d(d+1)2^(2d−2)(d!)²/(2d)!, and relative linear coefficient 3(d−1)/(2d+1). Independently multiplied all rational quadratic monomials in d=4 (306 resulting monomials) giving E Q²=533/5280 and second relative coefficient 34/15; E Q=5/16 and leading 128/7. These exact checks corroborate, but do not replace, compactness and convergence proof. Scope is two independent point distances, not a sample maximum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciccariello (arXiv:1407.2788) treats 3D regular tetrahedron; this claim begins d>=4.",
+          "Aramyan–Yeranyan 2021 describes a generic distance/chord relation but no inspected high-dimensional regular-simplex endpoint formula."
+        ],
+        "reasoning": "Earlier full low-dimensional formulas and a generic transform do not supply the d>=4 explicit tail without additional simplex chord integration.",
+        "searches": [
+          "Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments",
+          "regular tetrahedron two-point correlation 2014 Ciccariello",
+          "Aramyan Yeranyan 2021 random distance chord length formula"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 tree ec76479a82fc1d8c663c2ad006f49d3a6eebd60e RESULT.md and verify.py",
+        "Wang arXiv:2610.01916v1 HTML Eqs 1.1,1.3,1.7",
+        "Resultary prior beta difference-body gauge 4609b4d88176 complete RESULT.md",
+        "arXiv:1407.2788 regular tetrahedron abstract, Aramyan–Yeranyan 2021 bibliographic claim",
+        "Resultary query Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full published beta-gauge RESULT.md blob d1aff4ef1cb1887b332e384bdbed2c25ce01b8cb expressly says Euclidean distance is excluded.",
+          "On one simplex, equal difference-body gauge 1 holds for both v0−v1 and v0−(v1+v2)/2, but Euclidean lengths are ell and sqrt(3)ell/2."
+        ],
+        "reasoning": "The gauge-beta distribution cannot be transformed to the Euclidean distance law using a single scalar norm factor; low-distance general expansions cannot determine far endpoint coefficients.",
+        "searches": [
+          "Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments",
+          "Resultary: a sharp beta stochastic bound for difference-body distances (4609b4d88176)",
+          "Wang arXiv 2610.01916 near zero expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang Eq. (1.1),(1.3) defines the same pair-distance CDF under a different volume-radius scaling.",
+          "The submitted tail is about D_K near the true regular-simplex Euclidean diameter, rather than near zero (Wang Eq. (1.7))."
+        ],
+        "reasoning": "Inspected radial-covariogram and pair-distance aliases, with exact normalization changes. An identical statistic alone does not imply the new exact local coefficients.",
+        "searches": [
+          "Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments",
+          "arxiv:2610.01916v1 random pair distance covariogram D_K rho",
+          "Euclidean random-point distance regular simplex near maximal edge length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct exact rational independent calculation gives 128/7, 5/16, 533/5280 and 34/15.",
+          "Resultary beta-gauge theorem gives Beta(d,d+1) for gauge γ_(K−K)(X−Y), not Euclidean norm, so no matching exact table."
+        ],
+        "reasoning": "Search of numerical aliases did not find a covering all-d Euclidean exact table; this negative search does not certify novelty.",
+        "searches": [
+          "Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments",
+          "128/7 t^8 regular 4 simplex pair distance 34/15",
+          "Resultary query Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Wang 2026 introduces the same radial covariogram random-pair functional and its near-zero-distance expansion but not the regular-simplex saturation endpoint germ. Complete known planar triangle and 3D tetrahedron formulae are below the claimed d>=4. Published beta difference-body-gauge distance theorem is NOT Euclidean distance: unit gauge can have distinct Euclidean norms on a simplex. Broader chord-distribution relations have not been shown to imply the displayed exact constants. Historical radial-covariogram results not accessible in full remain explicitly risky.",
+      "residual_risks": [
+        "Complete 2021 chord/pair-distance full text was not obtained/read here, so its applicability cannot be absolutely excluded; generic abstract lacks the exact high-dimensional coefficient.",
+        "Unindexed older higher-dimensional simplex covariograms may derive the same endpoint germ; negative search is only bounded best-of-knowledge.",
+        "Convergence radius is nonexplicit and dimension-specific; d≤3 and nonregular simplices are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ENDPOINT",
+          "evidence": "Eq 1.7 is a near-zero asymptotic; paper examines structural inequalities and Minkowski variations, not high-d simplex near-diameter exact rational germ.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01916v1",
+          "material_read": "Introduction Eq. (1.1)–(1.7), theorem scope and random pair covariogram discussion",
+          "method": "Read HTML introduction and theorem/functional definitions; compare small-distance vs saturation regime",
+          "title": "A Brunn–Minkowski Theory for the Distribution of Random Pairs of Points in Convex Bodies",
+          "trigger": "Direct same random-pair Euclidean functional and likely dominating statement"
+        },
+        {
+          "assessment": "NOT_EQUIVALENT",
+          "evidence": "Gauge law does not yield Euclidean distance since level sets differ even for regular simplices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176",
+          "material_read": "Entire RESULT.md proof, scope, beta comparison and exclusions",
+          "method": "GitHub source blob d1aff4ef1cb1887b332e384bdbed2c25ce01b8cb; explicitly compared norms",
+          "title": "A sharp beta stochastic bound for difference-body distances",
+          "trigger": "Same simplex and two-uniform-points statistic under different norm"
+        },
+        {
+          "assessment": "COVERS_ONLY_OUTSIDE_DOMAIN",
+          "evidence": "Explicitly 3D regular tetrahedron, while final claim is d>=4; full text priority risk documented.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2788",
+          "material_read": "Title, abstract and bibliographic description; full text not inspected in this run",
+          "method": "Read arXiv abstract/record, limit claim to dimension 3",
+          "title": "The correlation functions of the regular tetrahedron and octahedron",
+          "trigger": "Very close 3D simplex all-distance correlation formula"
+        },
+        {
+          "assessment": "INSUFFICIENT_FULLTEXT_BOUNDED_RISK",
+          "evidence": "Available relation alone does not supply verified d>=4 coefficients; further direct full-text comparison remains priority risk.",
+          "identifier_or_url": "https://doi.org/10.31559/glm2020.9.2.3",
+          "material_read": "Bibliographic claim and available description, full article not read",
+          "method": "Compared stated general transform to need for exact simplex chord law",
+          "title": "Chord length distribution and the distance between two random points in a convex body in Rn",
+          "trigger": "General theorem might imply particular endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The distribution tail at the natural Euclidean diameter for a canonical simplex is a nontrivial extreme-distance invariant in every fixed d>=4, complementing classical triangle/tetrahedron formulas. The explicit leading, next, and d4 second corrections plus an all-order rational moment prescription are useful finite exact benchmarks for high-dimensional covariograms rather than an arbitrary special numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 tree ec76479a82fc1d8c663c2ad006f49d3a6eebd60e RESULT.md and verify.py",
+    "Wang arXiv:2610.01916v1 HTML Eqs 1.1,1.3,1.7",
+    "Resultary prior beta difference-body gauge 4609b4d88176 complete RESULT.md",
+    "arXiv:1407.2788 regular tetrahedron abstract, Aramyan–Yeranyan 2021 bibliographic claim",
+    "Resultary query Euclidean distance between two uniform regular simplex points near diameter endpoint tail high dimension all order Dirichlet moments"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Two independent volume-uniform points of a regular d-simplex, d>=4 fixed, only sufficiently small positive distance deficit t.",
+    "Finite symbolic moment checks d4..10 do not prove analytic uniform localization for all d; the proof does."
+  ],
+  "residual_risks": [
+    "Complete 2021 chord/pair-distance full text was not obtained/read here, so its applicability cannot be absolutely excluded; generic abstract lacks the exact high-dimensional coefficient.",
+    "Unindexed older higher-dimensional simplex covariograms may derive the same endpoint germ; negative search is only bounded best-of-knowledge.",
+    "Convergence radius is nonexplicit and dimension-specific; d≤3 and nonregular simplices are excluded."
+  ],
+  "schema_version": 1
+}
