@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over every positive integer parameter and every rational prime. For odd \(p\), divisibility is equivalent to the order condition on \(-\alpha^2\), and the order divides \(p\pm1\); odd-index LTE establishes exact valuations on the support. Möbius inversion leaves only four families, proving the least repair factor by denominator calculation and the negative transform by \(2r\). At \(p=2\), a direct recurrence congruence gives the exact two-level pattern. Quadratic Frobenius and independent real/imaginary quadratic characters yield the all-parameter good-prime criterion and density. A standalone exact-integer script corroborates 140 parameter/prime pairs through index 120; it does not replace the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The 2026 primary source explicitly asks in Section 4 for extensions beyond classical Fibonacci/Lucas, while the closest published general companion note proves a **split square-discriminant** case and explicitly leaves nonsquare discriminants untreated. The new half-trace family has discriminant \(4(u^2+1)\), always nonsquare, and a nontrivial density-\(1/4\) inert obstruction. Exact character criterion, uniform density in the parameter, minimal repairs, and dyadic dichotomy are not covered by those statements. Published research-record comparisons also surfaced a Lucas period result, which is not an equivalent Dold statement. Priority risk remains from unindexed generalized-Lucas work and an uninspected 2014 global linear-recurrence source.
+PASS
 
-## Mathematical value — PASS
-The recent local Dold program distinguishes prime-part congruences, their minimal repairs and realizability. This establishes a complete classification on a natural infinite Pell-type trace family, not an arbitrary finite slice. The uniform good density \(3/4\) despite variation of the real quadratic field, the exact residue obstruction, the minimal non-Dold multipliers, and the distinct dyadic phenomenon provide structural arithmetic information missing from the classical and split branches. These do not depend on computational-only evidence.
+For u>=1, T0=1,T1=u,T_{n+2}=2uT_{n+1}+T_n and each prime p, normalized local p-parts A_n=p^vp(T_n) are studied by Möbius Dold divisibility. At odd p|u²+1 the local sequence is 1. Otherwise ratio x=-alpha² in Fp² has order m|p±1; if m odd there is no p divisibility, else m=2r and p|T_n exactly at n=r*h with h odd. Odd-index LTE yields vp(T_{rh})=c+vp(h), with Möbius transforms supported at r,2r,rp^j,2rp^j and negative at 2r. Their denominators yield optimal repair factor 2r/gcd(2r,p-1). Frobenius and quadratic reciprocity give bad Dold p exactly inert p≡3 mod4; independent quadratic characters (-1/p) and ((u²+1)/p) imply natural density 1/4 for bad primes and 3/4 good. At p=2, odd u gives constant one, even u has A_odd=2^vp(u), A_even=1 and F=2, negative at n=2. Finite verifier is not a density proof.
 
-## Closest literature and limits
-Most relevant: Chuysurichay–Jaidee–Panraksa–Ward (2026), arXiv:2609.24544v1, sections 1–3; the published split-companion Lucas p-part result; and the published even-even period equality note. Exact finite tests do not prove infinite quantifiers. The original 2014 global classification and other possible broader literature are not exhaustively resolved; independent priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Chuysurichay–Jaidee–Panraksa–Ward (2026) treat classical Fibonacci/Lucas and pose companion extensions; the published split-root companion Lucas theorem fully inspected here assumes positive square discriminant and cannot cover D=u²+1 nonsquare. The normalized even-P Pell trace family has an inert-prime obstruction and new all-u density; an unlocated general nonsplit Lucas theorem remains a priority risk.
+
+## value
+
+PASS
+
+Complete optimal local Dold repair multipliers and a universal arithmetic density for every positive u give natural local dynamical congruence invariants, including a sharp inert-prime obstruction and realizability distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
