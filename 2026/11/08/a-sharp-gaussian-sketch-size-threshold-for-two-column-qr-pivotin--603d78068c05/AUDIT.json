@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "For each full-rank two-column real input, the two possible original-column projection errors have the exact ratio t². The Gaussian sketched-norm decision is the sign of a two-dimensional indefinite quadratic form summed independently across sketch rows. Its positive/negative eigenvalues yield an exact ratio of independent chi-square variables and a symmetric beta CDF. Explicit monotonicity proves orthogonality is worst; beta-density comparison gives the sharp k=2 uniform threshold; the k=4 rational derivative gives its unique sharp extremum; small-beta asymptotics give all high-contrast limits. No finite simulation is used as proof. verify.py passed 1,316 supplementary diagnostic assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1804.05138 derives pseudo-diagonal-dominance bounds via a JL guarantee.",
+        "arxiv:2311.08316 gives full CQRRPT rank-revealing/stability results.",
+        "published-finding corpus 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee concerns the expected-error factor in a different adaptive pivoting algorithm.",
+        "arxiv:1505.08115 §4.1 describes Gaussian-sampled block permutation, §4.3 oversampling, without an exact one-pivot mean-risk optimization.",
+        "arxiv:1512.02671 §3.1 studies randomized first-pivot selection and heuristic oversampling, without the beta CDF global risk constant."
+      ],
+      "reasoning": "A high-probability norm distortion inequality and a rank-revealing condition do not determine the exact expected Frobenius loss; finite failure-probability bounds do not specify this pairwise correlated event. Multistage ARP has a different pivot distribution, so its worst-case product is not a dominating statement for this single max-norm Gaussian QR pivot.",
+      "searches": [
+        "randomized column subset selection first sketched pivot minimum Gaussian sketch rows for bounded expected Frobenius loss over all two-column inputs",
+        "arxiv:1804.05138 Theorem 2",
+        "arxiv:2311.08316 Appendix A",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "arxiv:1505.08115 §4.1 and §4.3",
+        "arxiv:1512.02671 §3.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.08316 §§1.4,2, Appendix A (full text)",
+      "arxiv:2008.04447 §3.1 and full text",
+      "arxiv:1804.05138 Algorithm 2, §III-C and full text",
+      "arxiv:1509.06820 (abstract only)",
+      "published-finding corpus record 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (indexed claim)",
+      "published-finding corpus record 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659 (indexed claim)",
+      "published-finding corpus record 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80 (indexed claim)",
+      "arxiv:1505.08115 (full rendered text §§4.1,4.3,5)",
+      "arxiv:1512.02671 (full rendered text §§1,3.1,3.2,4)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2008.04447, §3.1 Bayesian Analysis: single-column norm uncertainty is analyzed, not the correlated pairwise selection event.",
+        "arxiv:1804.05138, §III-C, Theorem 2: establishes pseudo-diagonal dominance with high probability from Johnson–Lindenstrauss bounds.",
+        "arxiv:2311.08316, §2 and Appendix A: broader CQRRPT rank-revealing/stability conclusions, not this exact one-step loss.",
+        "arxiv:1505.08115 presents sketched block-column-selection and oversampling; no sharp expected truncated two-column projection loss is stated.",
+        "arxiv:1512.02671 describes randomized norm pivots and notes concentration, without the exact four-row worst-case mean loss."
+      ],
+      "reasoning": "The exact k=4 supremum requires optimizing (w-1)I_{1/(1+w)}(2,2) over all norm ratios and proving the worst correlation is zero; the cited JL and rank-revealing conclusions neither assert nor yield that equality. They operate in broader or algorithmically different regimes but are not stronger theorems on this exact loss objective. The old sketched-column norm distribution is acknowledged as a component, not a substitute for the pairwise correlated calculation.",
+      "searches": [
+        "Gaussian QR column-pivoting two-column matrix exact failure probability incomplete beta as function of column correlation sketch dimension uniform expected relative projection error 2",
+        "randomized column subset selection first sketched pivot minimum Gaussian sketch rows for bounded expected Frobenius loss over all two-column inputs",
+        "arxiv:2008.04447 §3.1",
+        "arxiv:1804.05138 §III-C Theorem 2",
+        "arxiv:2311.08316 Appendix A",
+        "arxiv:1505.08115 §4.1–4.3",
+        "arxiv:1512.02671 §3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same pivot event is equivalently a difference of correlated Gaussian quadratic forms or the tail of an F(k,k) variable after diagonalization.",
+        "arxiv:2008.04447 examines a sketch-norm posterior rather than the joint two-column loss event."
+      ],
+      "reasoning": "The F/chi-square/Beta change of variables is explicitly accounted for in the proof and novelty claim. A statement of the one-column posterior does not by itself determine the correlated pairwise pivot misselection probability or the sharp all-geometry expected-loss extrema; no equivalent statement was identified in inspected material.",
+      "searches": [
+        "Gaussian QR column-pivoting two-column matrix exact failure probability incomplete beta as function of column correlation sketch dimension uniform expected relative projection error 2",
+        "randomized QRCP Gaussian pivot coherent columns signed correlation spectral ratio χ² ratio exact pivot misselection probability phase transition k=2",
+        "arxiv:2008.04447 §3.1 Bayesian Analysis",
+        "arxiv:1509.06820 abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus retrieved records included sharp-multistage-arp-error-products, deflation-history-weighted-mass-aca, and sharp-frobenius-growth-complete-pivot-aca, none with this event/statistic in the surfaced claims.",
+        "The inspected published QRCP papers analyze algorithmic guarantees but do not list the exact two-column all-correlation risk table or sharp four-row constant."
+      ],
+      "reasoning": "No exact table for these Gaussian sketched-norm pairwise mean-risk constants was located in the searched indexed claims or inspected source sections. Search absence alone is not a proof of novelty; the remaining plausible precursor is recorded as a risk.",
+      "searches": [
+        "Gaussian QR column-pivoting two-column matrix exact failure probability incomplete beta as function of column correlation sketch dimension uniform expected relative projection error 2",
+        "randomized QRCP diagonal matrix oversampling norm pivot catastrophic expected error sketch dimension two",
+        "chi-square sketched column norms expected approximation-error ratio Gaussian two-column diagonal"
+      ]
+    },
+    "rationale": "Primary full-text comparisons isolate a result absent from the papers’ stated theorems: exact correlated two-column Gaussian-norm first-pivot probability, its expected original-column projection loss, the universal one-versus-two sketch-row threshold, and the sharp four-row global mean-risk constant. Classical chi-square/beta formulas and broader randomized-QR guarantees are not claimed as novel. The 2015 original precursor was abstract-only; historical precedence remains a concrete qualification. The full texts of Martinsson (2015) and HQRRP (2015) were also inspected and motivate randomized block pivot selection without stating the exact correlated two-column risk classification.",
+    "residual_risks": [
+      "The older 2015 randomized QRCP original was abstract-only; an equivalent derivation may appear in its full text or associated appendices.",
+      "Unsearched specialized probability/numerical linear algebra sources may independently derive the correlated Gaussian first-pivot beta law or exact four-row constant.",
+      "The contribution is restricted to a single Gaussian-norm pivot and one-column Frobenius projection; it cannot be extended from these proofs to full adaptive QRCP algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong full-algorithm QRCP guarantees, but no exact beta first-pivot risk threshold or four-row constant located in the inspected full text",
+        "evidence": [
+          "2023-11-14 arXiv first posting",
+          "Section 2 describes CQRRPT algorithm; Appendix A establishes rank-revealing and stability-related properties"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+        "material_read": "Full rendered arXiv text, notably Introduction, Sections 1.4 and 2, and Appendix A rank-revealing arguments",
+        "method": "Statement/algorithm/theorem and implication comparison against exact two-column conditional selection and original-column projection risk",
+        "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices (CQRRPT)",
+        "trigger": "Direct Gaussian-sketch norm first-pivot method, recent motivating literature"
+      },
+      {
+        "assessment": "Individual sketched-column norm/Bayesian bounds are close ingredients but the joint correlated first-pivot selection distribution and risk extremum are not stated",
+        "evidence": [
+          "§3.1: exact expression for uncertainty in individual column norms",
+          "§3.2: sample pivoting methodology"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.04447",
+        "material_read": "Full rendered arXiv text, particularly §§3.1–3.2 and discussion of sketch-norm uncertainty",
+        "method": "Compared individual-column posterior to joint two-column pivot event and global expected loss",
+        "title": "Randomized Projection for Rank-Revealing Matrix Factorizations and Low-Rank Approximations",
+        "trigger": "Primary early Gaussian randomized QRCP method and norm uncertainty"
+      },
+      {
+        "assessment": "The probabilistic reliability theorem is not an exact pairwise distribution/mean-error theorem",
+        "evidence": [
+          "Theorem 2 yields pseudo-diagonal dominance with failure level Δ and required oversampling"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.05138",
+        "material_read": "Full rendered arXiv text, §III-A Algorithm 2 and §III-C Theorem 2 and supporting proof",
+        "method": "Compared high-probability pseudo-diagonal bounds with exact one-step mean projection loss",
+        "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations",
+        "trigger": "High-probability analysis of Gaussian sketch QR pivot reliability"
+      },
+      {
+        "assessment": "Potential historical coverage unresolved; expressly retained as publication-precedence risk",
+        "evidence": [
+          "2015-09-23 arXiv first posting",
+          "Abstract concerns Gaussian sampling and column pivot updates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+        "material_read": "Abstract only; full text not materially read",
+        "method": "Inspected public summary to establish provenance, not to certify absence of an equivalent result",
+        "title": "Randomized QR with Column Pivoting",
+        "trigger": "Older primary precursor likely closest historical source"
+      },
+      {
+        "assessment": "Method motivates the problem but no all-correlation beta pivot distribution or sharp risk optimum is given",
+        "evidence": [
+          "2015-05-29 first arXiv posting; §4.1 gives Gaussian sampling/QR pivot step; §4.3 introduces oversampling"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.08115",
+        "material_read": "Full rendered public text, especially §4.1 Gaussian permutation-based pivot selection, §4.3 oversampling and §5 blocked QR",
+        "method": "Compared algorithmic permutation and sample size discussion against exact two-column first-pivot decision and expected original-column projection loss",
+        "title": "Blocked rank-revealing QR factorizations: How randomized sampling can be used to avoid single-vector pivoting",
+        "trigger": "Earliest foundational Gaussian-sampled block-pivot approach"
+      },
+      {
+        "assessment": "Sketching mechanism and heuristic oversampling discussed but not the exact risk distribution and four-row mean-loss constant",
+        "evidence": [
+          "2015-12-08 first arXiv posting; §3.1 sketches via Gaussian sampling, focuses on empirical oversampling"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.02671",
+        "material_read": "Full rendered public text, §§1, 3.1, 3.2 and §4 numerical experiments",
+        "method": "Compared Gaussian sketched-norm pivot intuition and empirical reliability with exact pairwise correlated risk and sketch-size threshold",
+        "title": "Householder QR Factorization with Randomization for Column Pivoting (HQRRP)",
+        "trigger": "Same Gaussian-sampled pivot mechanism and related oversampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "603d7806-8c05-4e49-b89a-b67f174774ca",
+  "value": {
+    "rationale": "The problem is the natural two-column minimum case of Gaussian-sketched QRCP and asks for a global, expected original-column projection-loss calibration, rather than a preset arbitrary example. It establishes a sharp qualitative threshold (one sketch row has unbounded input-uniform mean loss, two suffice for universal ceiling two), an attained sharp four-row constant, and exact all-geometry failure rates. These quantify oversampling design and expose a distinction between high-probability reliability and rare-event expected approximation quality; the finite case serves as an exact algorithm benchmark.",
+    "status": "PASS"
+  }
+}
