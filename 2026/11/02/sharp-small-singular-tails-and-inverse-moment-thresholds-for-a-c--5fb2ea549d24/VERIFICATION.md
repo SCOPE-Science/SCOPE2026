@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python verifier.py` with Python 3.10 or later. The script uses only the Python standard library and a fixed random seed. It checks the closed-form \(L=2\) CDF, two exact first constants, direct Gram and condition-number algebra on seeded phase samples, the second-order local expansion at shrinking scales, and a Monte Carlo comparison with the theorem's coefficient. The script prints the actual counts of assertions and draws; the Monte Carlo checks are corroborative and are not a proof of the limiting theorem. The analytic proof in RESULT.md supplies the all-sample-count small-ball limit, the moment-integrability criterion including its borderline, and the Gaussian comparison.
+## correctness
 
-The proofs assume exact arithmetic and independent continuous uniform phases. No verification is asserted for general high-dimensional target operators or for finite-precision code execution. Independent audit has not been performed.
+PASS
+
+Gram exactly [[L,conj(Z)],[Z,L]], eigenvalues L±|Z|. Near alignment, fix one phase and use m=L-1 independent uniform relative phases. Quadratic defect is 1/2 phi^T(I-11^T/L)phi with determinant 1/L and strictly positive spectrum; compactness excludes other contributing strata, scaling and dominated convergence give sharp ellipsoid volume coefficient. Layer cake gives sharp negative moment threshold and exact condition-number identity. Independently verified Gram spectral formula, small-ball coefficient and matrix determinants for L=2..7, with L=2 CDF check. Fixed L only, complex Gaussian comparator well justified by Schur complement.
+
+## originality
+
+PASS
+
+The exact low-entropy circular sketch is from Lynch-Davies and Webb (2026), whose full Section 4.2 is about isotropy and numerical SVD rather than the two-row small-eigenvalue edge constant. Ryan–Debbah study joint growing-size Vandermonde moments; Kunis–Nagel deterministic clustered Vandermonde lower bounds. Directional-statistics random-resultant edge laws are an unexcluded equivalent antecedent.
+
+## value
+
+PASS
+
+Sharp failure/validity of inverse-Gram moments at the first small sample sizes distinguishes circular phase sampling from familiar complex Gaussian sketches. This has practical import for when pseudoinverse-based expectations exist, while not asserting a full randomized SVD error bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
