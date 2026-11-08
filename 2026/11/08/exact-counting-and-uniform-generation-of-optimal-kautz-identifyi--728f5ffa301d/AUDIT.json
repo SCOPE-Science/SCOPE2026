@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The lower bound comes from two outgoing arcs sharing all predecessors. At equality, domination of every omitted arc forces one selected incoming and outgoing arc at each lower-order vertex, hence a cycle cover. Exactly its two-cycles cause coincident two-element signatures. At n>=4 the three digons constrain disjoint pairs of local line-graph switches, each allowing three of four assignments; n=3 admits only zero or one backtracking base switch. The all-order count and explicit uniform sampler follow. Verified by standard-library enumeration at n=2,3,4,5 and a separately written C++ graph/signature verifier at n=3,4,5; all relative package sources are rerunnable.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.3.5 of Martínez Barona establishes minimum size 3*2^(n-2) for Kautz K(2,n).",
+        "Its Theorem 4.3.1 gives a general necessary-and-sufficient arc-code recognition criterion.",
+        "Neither states a formula for all optimum codebooks or a uniform counting/generation algorithm in the inspected relevant chapters."
+      ],
+      "reasoning": "The known minimum-cardinality theorem dominates the size part of the statement, which is used solely as context and not treated as new. The new claim is the exact enumeration and uniform generation of all optimum labeled codes. The general characterization alone does not supply these counts or the factorization into 3 independent forbidden switch events.",
+      "searches": [
+        "published-finding corpus: minimum in-neighborhood identifying codes of Kautz digraph complete classification cardinality",
+        "Web: Kautz digraph identifying codes radius one bounds minimum code size paper",
+        "Web: \"Kautz\" \"identifying codes\" minimum"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1412.5842",
+      "https://www.tesisenred.net/bitstream/handle/10803/669726/TBMB1de1.pdf?isAllowed=y&sequence=1",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p105"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 primary result bounds and constructs codes in the de Bruijn family, so does not imply the Kautz optimum enumeration.",
+        "The 2020 thesis proves the Kautz optimum size and general line-digraph recognition; counting all valid Kautz 1-factors requires identifying and excluding three two-cycle constraints, with a distinct dependence structure at n=3.",
+        "The standard unrestricted local switch count is 2^|V(K(2,n-2))|; it includes inadmissible codes and does not equal the new count."
+      ],
+      "reasoning": "The minimum-size component is already known. The novel enumerator and rejection-free sampler are not a direct numeric specialization of a cited source: even a general arc-identifying criterion must be supplemented with an explicit Kautz digon analysis, the disjointness proof for n>=4 and exceptional n=3 count. Independent priority review is outstanding.",
+      "searches": [
+        "Web full text arxiv.org/pdf/1412.5842 Theorems 3.5 3.8 3.11",
+        "Web full text tesisenred.net TBMB1de1.pdf Theorems 4.3.1 4.3.2 4.3.5",
+        "Web: permanent of Kautz digraph number cycle covers 2 power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Martínez Barona (2020), Theorem 4.3.1 characterizes arc-identifying sets in line digraphs; Theorem 4.3.5 gives the Kautz minimum size, not an extremizer count.",
+        "Boutin et al., arXiv:1412.5842, Theorems 3.5, 3.8 and 3.11 concern directed de Bruijn identifying codes and short-cycle phenomena."
+      ],
+      "reasoning": "Radius-one incoming identification can be expressed as arc-identification in a line digraph. The general recognition criterion is a close ancestor of the structural bijection; it does not calculate the number of eligible cycle covers or give the local uniform sampler. These outcomes require counting the three two-cycle obstructions separately at n=3 and n>=4.",
+      "searches": [
+        "published-finding corpus: all minimum identifying codes directed Kautz graphs perfect matching cycle covers permanent enumeration",
+        "Web: \"Kautz digraph\" \"identifying code\" incoming neighbourhood",
+        "Web: \"Kautz\" \"identifying codes\" -debruijn"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table for 2,4,27,1728 or an all-n optimum-code enumeration appeared among the returned close record hits.",
+        "Among closest published-finding corpus hits are 2026/10/4/SCOPE-all-identifying-codes-of-thick-chain-graphs--78225de9eb51 and 2026/9/21/SCOPE-near-extremal-identifying-open-code-skeleton-lift--788e94616891; their objects are undirected chain graphs and twice-subdivided skeletons, not Kautz line digraphs."
+      ],
+      "reasoning": "The closest research-record results solve different graph families, and no returned record lists Kautz optimum counts. A negative search is not proof of global novelty; the primary-source comparisons and the stated residual risk limit the conclusion.",
+      "searches": [
+        "published-finding corpus: exact number of optimal one identifying codes Kautz digraph 27 1728 closed incoming neighborhoods",
+        "published-finding corpus: Kautz identifying codes all extremizers 2-cycle-free cycle covers local switches",
+        "Web: number optimal identifying codes Kautz digraph 27 1728 2-cycles"
+      ]
+    },
+    "rationale": "The 2014 de Bruijn full-text bounds and the 2020 Kautz line-digraph thesis give related minimum-size and code-recognition criteria, but neither inspected treatment provides a closed enumeration of all labeled optimum codes at all orders or a uniform rejection-free sampler. The new switch-exclusion count (including two genuinely different small-order exceptions) is an additional result. Priority outside the inspected corpus remains a risk.",
+    "residual_risks": [
+      "A 2020 thesis gives a general arc-code characterization from which the counting question may be derivable; the claimed advance is the explicit all-order enumerator and uniform sampler, not the minimum cardinality.",
+      "Other unpublished or unindexed treatments of restricted Kautz cycle covers could precede the enumeration.",
+      "The first-source date refers to the checked 2014 source establishing the research setting, not a publication date for this new finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant foundational method but de Bruijn rather than Kautz; does not give new enumeration/sampling result",
+        "evidence": [
+          "arxiv 1412.5842, Theorem 3.5 and Theorem 3.11, source lines 332-364 and 1009-1070"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.5842",
+        "material_read": "PDF abstract and substantive Theorems 3.5, 3.8, 3.11 and surrounding explanation; source first submitted December 18, 2014",
+        "method": "Parsed full-text PDF portions, checked statement versus claim and inspected title page image",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Foundational primary source for the same incoming radius-one signature mechanism and its lower bound"
+      },
+      {
+        "assessment": "Establishes earlier minimum size and a general recognition criterion. The pertinent inspected text does not state exact all-order number of optimum codes or uniform sampler; close theoretical antecedent creates priority risk.",
+        "evidence": [
+          "Thesis 2020 pp. 58-62 (PDF parsed lines around 2117-2285), Theorem 4.3.1, 4.3.5 and conclusion around 2996-3013"
+        ],
+        "identifier_or_url": "https://www.tesisenred.net/bitstream/handle/10803/669726/TBMB1de1.pdf?isAllowed=y&sequence=1",
+        "material_read": "PDF text: abstract, chapter-4 theorem statements and proofs 4.3.1-4.3.5, and chapter-6 conclusion. Visual PDF retrieval was unavailable.",
+        "method": "Read accessible PDF extracted full-text sections, comparing minimum-size theorem to claimed new enumeration and sampler",
+        "title": "(1,<=ell)-identifying codes in digraphs and graphs",
+        "trigger": "Closest explicit prior Kautz graph identification theorem and more general arc-identification criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "728f5ffa-301d-4934-ac8f-f57e0703e1c2",
+  "value": {
+    "rationale": "The family is a standard low-diameter interconnection network and the smallest identifying codes minimize sensor count. A closed expression for the entire optimum design space, including exceptional short orders, and exact uniform generation answer natural algorithmic counting/sampling questions without brute-force search. The three independent short-cycle exclusions are structural rather than an arbitrary finite slice; this is separate from the previously known optimum size. The scope is exactly radius-one ternary Kautz and no broader performance claim is made.",
+    "status": "PASS"
+  }
+}
