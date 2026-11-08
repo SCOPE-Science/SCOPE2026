@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:54:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d9ddd3b88ae9cd85195fc845ca81ba006292bbe7",
+        "assigned verify.py blob 1c2a35831140dbae918eecb745db23ee8bc5ad3e",
+        "independent check_rhombic.py: 55-digit 3-chamber normalization, moment and endpoint tests"
+      ],
+      "rationale": "The exact halfspace definition gives rho(u)=2/(a+b) for ordered |u| coordinates. The twelve facet-normal spherical Voronoi cells, with angular boundary h(phi)=cos(phi)+sqrt2 sin(phi), partition the geodesic angle into three regimes at radii 2sqrt(2/3) and sqrt3; the Jacobian d alpha/dr gives precisely the three density formulas with coefficient 12sqrt2/(pi r^2). Differentiation yields jump 8sqrt3/pi at sqrt3, and local squares around six coordinate-axis directions yield tail 3 eps^2/(2pi)+O(eps^3). The polar area identity E area(K∩H)=pi E rho^2, followed by 48 gnomonic chambers and two elementary exact integrals, gives 8sqrt3 log(1+sqrt3)-2pi. Independently integrated all three density pieces at 55-digit precision (masses 0.803847577293368,0.136273417736563,0.0598790049700692, sum1); density second moment, gnomonic integral and closed expression agree to >50 digits, and tail ratios converge to 3/(2pi). These checks corroborate the analytic proof.",
+      "residual_risks": [
+        "All formulae normalized to given Euclidean K; noncentral sections and full area distribution are not determined. Numerical checks cannot certify the proof, which is the explicit Voronoi/gnomonic derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable proposes general polyhedral coarea width density, with rhombic-dodecahedral width example (full text unavailable).",
+          "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only provides general algorithm for pointwise slice/slab moments, mentions cube cases.",
+          "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue focuses sharp surface-area/inradius extremality for parallelohedra."
+        ],
+        "reasoning": "General density machinery and slice-moment algorithms could in principle compute a special case, but existence of an algorithm without evaluated object-specific coefficients is not automatically coverage of this exact density and constant. The accessed sources do not provide the cuboctahedral reciprocal-width specialization.",
+        "searches": [
+          "rhombic dodecahedron random radial distance central plane section mean area spherical Voronoi distribution",
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable",
+          "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only",
+          "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue"
+        ]
+      },
+      "checked_sources": [
+        "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable",
+        "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only",
+        "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue",
+        "Resultary search rhombic dodecahedron random radial distance central plane section mean area spherical Voronoi distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable abstract says own-width density of regular rhombic dodecahedron; not demonstrably polar cuboctahedral width.",
+          "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue extremal theorem compares surface area and inradius; cannot produce Haar radial density.",
+          "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only generic slice formulas do not visibly report rotational Haar mean for this body."
+        ],
+        "reasoning": "The cited statements do not mathematically imply all claimed evaluated constants without new spherical Voronoi and gnomonic integrations. The inaccessible full Abas paper could contain a dominating polar example, so retain explicit risk instead of asserting full noncoverage.",
+        "searches": [
+          "rhombic dodecahedron random radial distance central plane section mean area spherical Voronoi distribution",
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable",
+          "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only",
+          "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable abstract explicitly discusses rhombic dodecahedral width law; width of K is 2h_K, whereas R=1/h_{K°}.",
+          "Current proof provides density of the radial gauge and exact mean Haar central-section area, not own-width distribution."
+        ],
+        "reasoning": "Polarity yields a plausible alias to **inverse polar-cuboctahedral support/width law**; no inspected accessible primary statement establishes that alias with these exact three chambers or the mean-section integral. Same polytope name is insufficient for implication.",
+        "searches": [
+          "rhombic dodecahedron random radial distance central plane section mean area spherical Voronoi distribution",
+          "random width rhombic dodecahedron cuboctahedron polar radial distribution",
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returns regular rhombic dodecahedron spectral polytope/radial shell and sections of other polytopes, not these exact analytic laws.",
+          "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable abstract is the only highly plausible 2026 width-density match."
+        ],
+        "reasoning": "No actual checked exact table with all three transition radii, jump and central-section mean was identified. This is a bounded search result, not proof of novelty; full width paper remains a material uncertainty.",
+        "searches": [
+          "rhombic dodecahedron random radial distance central plane section mean area spherical Voronoi distribution",
+          "rhombic dodecahedron exact average central plane section area",
+          "cuboctahedron width density rhombic radial distribution"
+        ]
+      },
+      "rationale": "The most plausible 2026 prior, Abas, includes an exact law for the **width of the rhombic dodecahedron**, whereas the audited R is a **radial gauge of the dodecahedron** (a reciprocal support/width of its polar cuboctahedron, up to normalization). These are not the same random variable; its abstract does not explicitly give this polar law or the mean central Euclidean section area. General slice-moment algorithms of Brandenburg et al. are not the explicit Haar-integrated evaluated formula. Full Abas text was inaccessible via lawful arXiv/OA attempts and authorized Oxford (VPN disconnected); therefore best-of-knowledge PASS is conditional on material access risk and is not a whole-paper noncoverage claim.",
+      "residual_risks": [
+        "Full potentially relevant 92-page Abas 2026 paper could contain an equivalent polar-cuboctahedral width law; blocked institutional VPN, cannot assert whole-text noncoverage.",
+        "A general evaluated formula in unindexed convex-geometry literature might dominate the constant even without matching the title."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_MATERIAL_NOT_READ",
+          "evidence": "Abstract explicitly gives rhombic-dodecahedral own width density, not radial gauge/mean area. Full 92-page text may contain an unmentioned polar cuboctahedral width law and remains an originality risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26202",
+          "material_read": "arXiv abstract and lawful indexing/author summary only; no complete PDF text obtained",
+          "method": "ArXiv and lawful OA search; authorized institutional Oxford retrieval attempted but returned vpn_disconnected; human login bypass not attempted",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Most plausible near-title/full-parameter predecessor for geometric density"
+        },
+        {
+          "assessment": "BROAD_FRAMEWORK_NOT_EXPLICIT_SPECIALIZATION",
+          "evidence": "General algorithm and cube applications, no evaluated spherical Haar mean for this dodecahedron in accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.25643",
+          "material_read": "arXiv full abstract and research summary; complete original paper not inspected",
+          "method": "Public bibliographic abstract review",
+          "title": "Critical moments of slices and slabs of the cube (and other polyhedral norms)",
+          "trigger": "Broad all-polytope slice-moment algorithm potentially subsumes an instance"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Surface-area/inradius extremality among parallelohedra, not random radial or planar sectional area distribution.",
+          "identifier_or_url": "https://cvgmt.sns.it/paper/7990/",
+          "material_read": "Cvgmt preprint listing and abstract with theorem description, not full manuscript",
+          "method": "Official author repository abstract/catalogue",
+          "title": "The rhombic dodecahedral conjecture",
+          "trigger": "Exact same polytope appears as extremal example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable",
+        "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only",
+        "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue",
+        "assigned full spherical Voronoi and gnomonic analytic derivation"
+      ],
+      "rationale": "The regular rhombic dodecahedron is a canonical Voronoi parallelohedron, and its random radial gauge/central Euclidean section is a natural stochastic-geometric invariant. Three exact phase transitions, a nontrivial derivative jump, sharp endpoint tail, and the closed Haar sectional mean provide precise object-specific information not furnished by the generic definitions or basic volume relations.",
+      "residual_risks": [
+        "Single exact body and normalization, no random noncentral section law or general parallelohedron theorem; priority risk conditional on unavailable full width paper."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md blob d9ddd3b88ae9cd85195fc845ca81ba006292bbe7",
+    "assigned verify.py blob 1c2a35831140dbae918eecb745db23ee8bc5ad3e",
+    "independent check_rhombic.py: 55-digit 3-chamber normalization, moment and endpoint tests",
+    "O. Abas, Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability, arXiv:2609.26202 (2026), abstract only; full text unavailable",
+    "M.-C. Brandenburg, J. A. De Loera, Y. Luo, C. Meroni, Critical moments of slices and slabs of the cube (and other polyhedral norms), arXiv:2603.25643 (2026), abstract only",
+    "A. Cesaroni and M. Novaga, The rhombic dodecahedral conjecture, cvgmt.sns.it/paper/7990 (2026), abstract/catalogue",
+    "Resultary search rhombic dodecahedron random radial distance central plane section mean area spherical Voronoi distribution",
+    "assigned full spherical Voronoi and gnomonic analytic derivation"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "One specified regular rhombic dodecahedron, Haar plane orientations and central sections only. Oxford institutional full text access was blocked, not a correctness failure."
+  ]
+}

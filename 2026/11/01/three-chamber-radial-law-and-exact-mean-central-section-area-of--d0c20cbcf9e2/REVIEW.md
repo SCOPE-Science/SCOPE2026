@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The twelve pairwise-coordinate facet inequalities imply the exact radial identity \(\rho_K(u)=2/(a+b)\), where \(a\ge b\ge c\) are the ordered absolute coordinates of a unit normal. Voronoi cells of the twelve facet normals reduce the spherical distribution to the elementary angular aperture \(\cos\phi+\sqrt2\sin\phi\), whose three interval regimes yield the stated normalized density. The polar-area identity for a planar section and a 48-chamber gnomonic integral independently yield the closed expected area. The jump at the second threshold and quadratic endpoint tail follow from explicit derivatives and local tangent-coordinate geometry. The attached verifier executed successfully, with 18,000 geometric section reconstructions and independent high-precision moment integrals. No finite experiment is used as a proof of a universal statement.
+PASS
 
-## Originality — PASS with unresolved historical priority
+The exact halfspace definition gives rho(u)=2/(a+b) for ordered |u| coordinates. The twelve facet-normal spherical Voronoi cells, with angular boundary h(phi)=cos(phi)+sqrt2 sin(phi), partition the geodesic angle into three regimes at radii 2sqrt(2/3) and sqrt3; the Jacobian d alpha/dr gives precisely the three density formulas with coefficient 12sqrt2/(pi r^2). Differentiation yields jump 8sqrt3/pi at sqrt3, and local squares around six coordinate-axis directions yield tail 3 eps^2/(2pi)+O(eps^3). The polar area identity E area(K∩H)=pi E rho^2, followed by 48 gnomonic chambers and two elementary exact integrals, gives 8sqrt3 log(1+sqrt3)-2pi. Independently integrated all three density pieces at 55-digit precision (masses 0.803847577293368,0.136273417736563,0.0598790049700692, sum1); density second moment, gnomonic integral and closed expression agree to >50 digits, and tail ratios converge to 3/(2pi). These checks corroborate the analytic proof.
 
-The September 2026 rhombic-dodecahedral minimization paper addresses surface area at prescribed inradius, not directional radial laws. Existing nearby random-width formulas for cubes, octahedra, and rhombic dodecahedra do not automatically identify the reciprocal-width law of the *polar cuboctahedron*, nor evaluate its exact spherical aperture or central-section expectation. Brandenburg and collaborators' general pointwise section-volume algorithm does not compute the Haar mean here. The general 2026 width-density theory is mathematically close and could potentially contain the same specialization in its unread full text: only its detailed abstract was accessible. It states a general co-area mechanism and explicit cases for other bodies, but no specific explicit cuboctahedral law. This serious historical-priority risk must be revisited before asserting independent discovery or publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The rhombic dodecahedron is the optimal inradius-fixed parallelohedron for surface area, and its FCC Voronoi interpretation makes uniform random directions and sections natural probes. The result provides a fully evaluated distribution with two distinct singularity mechanisms, exact probability masses for three chambers, an endpoint tail coefficient, and a nonobvious closed expression for its mean central-sectional area. These natural exact invariants are more than a generic algorithm or an unevaluated integral and furnish a quantitative stereological reference for a canonical crystal cell.
+The most plausible 2026 prior, Abas, includes an exact law for the **width of the rhombic dodecahedron**, whereas the audited R is a **radial gauge of the dodecahedron** (a reciprocal support/width of its polar cuboctahedron, up to normalization). These are not the same random variable; its abstract does not explicitly give this polar law or the mean central Euclidean section area. General slice-moment algorithms of Brandenburg et al. are not the explicit Haar-integrated evaluated formula. Full Abas text was inaccessible via lawful arXiv/OA attempts and authorized Oxford (VPN disconnected); therefore best-of-knowledge PASS is conditional on material access risk and is not a whole-paper noncoverage claim.
 
-## Scope and remaining verification
+## value
 
-The result concerns the single regular shape and Haar-uniform orientation; it does not determine a random section's complete area distribution. Independent external mathematical audit and complete historical-priority assessment remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regular rhombic dodecahedron is a canonical Voronoi parallelohedron, and its random radial gauge/central Euclidean section is a natural stochastic-geometric invariant. Three exact phase transitions, a nontrivial derivative jump, sharp endpoint tail, and the closed Haar sectional mean provide precise object-specific information not furnished by the generic definitions or basic volume relations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

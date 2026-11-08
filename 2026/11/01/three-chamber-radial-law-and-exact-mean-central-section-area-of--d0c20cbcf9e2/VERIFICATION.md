@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy, and mpmath installed. The program needs no internet access and fixes its random seed. The following checks were successfully run with the packaged program:
+## correctness
 
-- The three exact density pieces numerically integrate to total probability one at 50-digit working precision; the first chamber has the stipulated exact cumulative formula.
-- The second moment calculated directly from the density equals the closed mean central-section area divided by \(\pi\), and the independent gnomonic integral equals the same analytic expression.
-- Every one of 18,000 deterministic-seed random unit directions gives matching radial distances from the sorted-coordinate expression and the twelve supporting halfspaces.
-- For each sampled normal, the polygon formed by intersecting its plane with the independently enumerated 24 polyhedron edges has four, six, or eight vertices. Its Euclidean shoelace area produces a sample mean close to the exact predicted mean.
-- The empirical frequencies in the three radial chambers agree with exact integrated masses within specified finite-sample tolerances; the density is continuous at its two interior boundaries.
+PASS
 
-The finite-sample area and frequency tolerances are diagnostic, not uncertainty bounds for the exact mathematical statements. The analytic proof is contained in RESULT.md. No independent mathematical audit has been performed.
+The exact halfspace definition gives rho(u)=2/(a+b) for ordered |u| coordinates. The twelve facet-normal spherical Voronoi cells, with angular boundary h(phi)=cos(phi)+sqrt2 sin(phi), partition the geodesic angle into three regimes at radii 2sqrt(2/3) and sqrt3; the Jacobian d alpha/dr gives precisely the three density formulas with coefficient 12sqrt2/(pi r^2). Differentiation yields jump 8sqrt3/pi at sqrt3, and local squares around six coordinate-axis directions yield tail 3 eps^2/(2pi)+O(eps^3). The polar area identity E area(K∩H)=pi E rho^2, followed by 48 gnomonic chambers and two elementary exact integrals, gives 8sqrt3 log(1+sqrt3)-2pi. Independently integrated all three density pieces at 55-digit precision (masses 0.803847577293368,0.136273417736563,0.0598790049700692, sum1); density second moment, gnomonic integral and closed expression agree to >50 digits, and tail ratios converge to 3/(2pi). These checks corroborate the analytic proof.
+
+## originality
+
+PASS
+
+The most plausible 2026 prior, Abas, includes an exact law for the **width of the rhombic dodecahedron**, whereas the audited R is a **radial gauge of the dodecahedron** (a reciprocal support/width of its polar cuboctahedron, up to normalization). These are not the same random variable; its abstract does not explicitly give this polar law or the mean central Euclidean section area. General slice-moment algorithms of Brandenburg et al. are not the explicit Haar-integrated evaluated formula. Full Abas text was inaccessible via lawful arXiv/OA attempts and authorized Oxford (VPN disconnected); therefore best-of-knowledge PASS is conditional on material access risk and is not a whole-paper noncoverage claim.
+
+## value
+
+PASS
+
+The regular rhombic dodecahedron is a canonical Voronoi parallelohedron, and its random radial gauge/central Euclidean section is a natural stochastic-geometric invariant. Three exact phase transitions, a nontrivial derivative jump, sharp endpoint tail, and the closed Haar sectional mean provide precise object-specific information not furnished by the generic definitions or basic volume relations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
