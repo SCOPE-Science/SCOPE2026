@@ -1,11 +1,21 @@
-# Scientific review of the Möbius-ladder coloring classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-row twisted model is exactly the cyclic graph with antipodal chords. For all \(m\ge5\), the three displayed local constraints enumerate every kind of square edge. The four-clique lower bound and support-complement recurrence prove that exactly the lengths \(m\equiv2\pmod4\) permit four colors. The exceptional cases are established independently: at \(m=3,4\) the squares are complete, and at \(m=8\) an independent-set parity contradiction forces at least six colors. Directly checked color words and the length-four insertion complete every remaining residue class. The standalone verifier reconstructs the graph directly rather than trusting the local characterization, and returns `VERIFY_OK`. The verification is corroborative; the proof covers infinitely many lengths.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** Gutiérrez and Ugarte's 2026 study establishes the cubic three-dynamic/square equivalence and several different graph classes but has no Möbius-ladder classification. Madaras and Šurimová's three-homogeneous prism result concerns untwisted Cartesian products, not Möbius ladders. Yao and Ma's 2018 Möbius theorem counts strong *edge* colors, which equals coloring the square of the line graph rather than the original graph square. MathWorld identifies the Möbius square as a circulant but supplies no chromatic-number formula. Searches of distance-two, 3-dynamic, homogeneity, circulant, and prior mathematical records found no covering assertion. The close similarity of certain congruences to the 2018 edge-coloring theorem is noted; it does not logically yield the vertex-coloring theorem. Alternative terminology or inaccessible older sources could still affect priority.
+PASS
 
-**Mathematical value — PASS.** This is a complete infinite-family classification for a natural vertex-transitive cubic graph family newly motivated by work on cubic dynamic coloring. It gives an exact modulus-four existence law for four colors and isolates an exceptional six-color, sixteen-vertex obstruction, with explicit optimal colorings in every parameter regime. A structural twisted-periodic argument and a reusable four-column insertion explain the formula rather than merely tabulating cases. The analogous ordinary prism family has a distinct boundary condition, so this is not a parameter-renaming deduction.
+For simple Möbius M_{2m}, m≥3, cubic three-dynamic coloring equals proper vertex coloring of square. Reconstructed twisted two-row local constraints: adjacent column supports require four different colors and same-row distance-two conflicts. Four colors force c_{i+2}=swap(c_i), hence m≡2 mod4; explicit period-four construction proves sufficiency. Small M_6²=K6, M_8²=K8, and m=8 has α(M_16²)≤3 by parity and twisted seam, while a six-color word exists. Three verified five-color seeds at m=5,7,12 plus locally verified four-column insertion yield all other m≥5. Independent DSATUR exact graph-square coloring computed m=3..12 values 6,8,5,4,5,6,5,4,5,5 as claimed. The infinite m result uses structural insertion proof, not a finite search.
 
-**Scope and risks.** The theorem does not treat general cubic graphs, non-Möbius twists, or optimal-coloring multiplicities. Historical priority is not independently certified. The independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from statement-level comparison of actual primary sources and published mathematical-record search; no inspected accessible stronger theorem states or directly implies the same complete claim. Source-access and historical alias risks retained; nonhits do not establish priority. Yao–Ma 2018 strong edge numbers m=3:9 m=4:10 while present vertex square values are 6,8
+
+## value
+
+PASS
+
+A complete all-size chromatic phase diagram of the natural Möbius ladder (including the exceptional 16-vertex obstruction) is useful for cubic graph-square/dynamic coloring. The twisted-seam rigidity and constructive residue-class insertion explain the exact invariant rather than report an arbitrary graph instance or lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
