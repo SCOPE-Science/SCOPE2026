@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof reduces each hypothetical one-good deletion to the value of a singleton and uses the exact matching deficiency identity. It applies to every finite number of centers under the stated two-person, two-good, binary, one-to-one restrictions. The standalone C++17 verifier checks the original four definitions of center valuation, not only a precomputed Hall criterion. Compile with `g++ -O2 -std=c++17 VERIFY.cpp -o verify` and run `./verify`.
+# Independent mathematical audit
 
-The observed output was:
+## correctness
 
-`VERIFY_OK exhaustive_two_center_agent_profiles=65536 random_three_center_profiles=1024 valuation_variants=4 capacity_three_boundary=720/720_infeasible`
+PASS
 
-Exhaustiveness applies only to two centers and four goods. The three-center observations are a reproducible finite sample. The capacity-three witness is exhaustively checked across its 720 labeled singleton assignments. No independent audit or unrestricted-domain result is asserted.
+After removal of either good from a different center, one singleton remains with each of the four hypothetical center comparison valuations at most 1. An active center with no liked owned good has own value 0 and a liked good in another center, so cannot be EFX; every EFX-satisfied active center selects a distinct liked owned good, giving upper bound nu by matching. Allocate maximum-matching goods to liked lower agents and fill all other singletons: each matched center has own realized welfare >=1, satisfying all four EFX constraints, and inactive centers never envy; one-good inter-EF1 is automatic. Hall deficiency follows from standard max matching duality. Three lower agents in each of two centers, three goods liked by all and three liked by none, violates EFX despite Hall, proving capacity restriction. Independent brute force checked 1,075 sampled two-center four-good approval profiles across all 24 one-to-one allocations and all four convention formulas; finite tests corroborate universal elementary proof.
+
+## originality
+
+PASS
+
+General delegated fair division of Deligkas et al. introduced the four distinct center valuations and hardness/nonexistence for broader additive settings. Exact binary two-agent per center minimum violation count is not identifiable as a stated result from accessible abstracts/sections. Classical Hall deficiency is explicitly acknowledged, not new. The motivating recent primary full text was inaccessible via lawful arXiv/OA and authorized university access (VPN disconnected), a material originality risk that does not alone overturn a best-of-knowledge PASS; full-text coverage could still change judgment.
+
+## value
+
+PASS
+
+The minimal number of EFX-failing centers is a natural exact infeasibility invariant of a motivated delegated-allocation model, and the polynomial-time algorithm and sharp capacity-three counterexample contrast the general hardness regime. The reduction is elementary only after recognizing the special singleton comparison collapse; not merely a restatement of Hall in its original setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

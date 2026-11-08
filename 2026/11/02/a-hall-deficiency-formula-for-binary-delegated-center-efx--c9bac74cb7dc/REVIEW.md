@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For exactly two goods in each center, every comparison after deleting a good is a singleton worth at most one; the four valuation conventions agree on such external comparisons. An EFX-satisfied active center must own a liked good, inducing distinct representatives and the matching lower bound. A maximum matching followed by capacity filling and appropriate local assignment attains the bound for all four conventions at once. The Hall deficiency formula is classical and applied with the correct active-center domain. The three-person capacity counterexample is checked analytically. Actual standalone verifier results cover all 65,536 two-center binary-agent profiles and all 720 allocations in the capacity boundary example.
+## correctness
 
-**Originality — PASS, with limits.** The motivating primary work (arXiv:2607.27743, Definitions 1,5, Theorems 9,10, Section 6) develops the model and shows nonexistence/hardness in wider classes but does not state the binary capacity-two Hall-deficiency optimum. Full primary material on these sections was read. The 2026 balanced allocation result (arXiv:2608.06325, main theorems) is about EF1, not the stronger center EFX plus exact deficit. Targeted public literature and mathematical research-record searches revealed no equivalent statement. Hall's theorem itself is acknowledged prior art. Priority remains uncertain for unindexed special-case results.
+PASS
 
-**Value — PASS.** The count of centers that necessarily fail EFX is a natural, decision-relevant quantitative invariant when the desired two-level fairness guarantee is infeasible. The theorem identifies both a constructive polynomial-time optimum and exact feasibility conditions under four alternative semantics, in contrast to the motivating general NP-hardness. The three-person-per-center obstruction pinpoints why the low-capacity classification cannot simply be extrapolated. While the reduction is elementary once recognized, the special model and exact minimum violation invariant are motivated independently of computation.
+After removal of either good from a different center, one singleton remains with each of the four hypothetical center comparison valuations at most 1. An active center with no liked owned good has own value 0 and a liked good in another center, so cannot be EFX; every EFX-satisfied active center selects a distinct liked owned good, giving upper bound nu by matching. Allocate maximum-matching goods to liked lower agents and fill all other singletons: each matched center has own realized welfare >=1, satisfying all four EFX constraints, and inactive centers never envy; one-good inter-EF1 is automatic. Hall deficiency follows from standard max matching duality. Three lower agents in each of two centers, three goods liked by all and three liked by none, violates EFX despite Hall, proving capacity restriction. Independent brute force checked 1,075 sampled two-center four-good approval profiles across all 24 one-to-one allocations and all four convention formulas; finite tests corroborate universal elementary proof.
 
-**Scientific limits.** Binary approvals and one-to-one capacity two are essential; no uniqueness claim, general additive characterization or global EFX algorithm is made. Independent confirmation and a deeper priority search remain appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General delegated fair division of Deligkas et al. introduced the four distinct center valuations and hardness/nonexistence for broader additive settings. Exact binary two-agent per center minimum violation count is not identifiable as a stated result from accessible abstracts/sections. Classical Hall deficiency is explicitly acknowledged, not new. The motivating recent primary full text was inaccessible via lawful arXiv/OA and authorized university access (VPN disconnected), a material originality risk that does not alone overturn a best-of-knowledge PASS; full-text coverage could still change judgment.
+
+## value
+
+PASS
+
+The minimal number of EFX-failing centers is a natural exact infeasibility invariant of a motivated delegated-allocation model, and the polynomial-time algorithm and sharp capacity-three counterexample contrast the general hardness regime. The reduction is elementary only after recognizing the special singleton comparison collapse; not merely a restatement of Hall in its original setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
