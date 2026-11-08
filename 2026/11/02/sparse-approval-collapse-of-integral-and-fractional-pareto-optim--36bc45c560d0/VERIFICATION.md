@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` with a standard Python 3 interpreter. The verifier uses exact `fractions.Fraction` arithmetic and only Python standard-library modules. It checks all 10 two-seat committees for the three-approval witness and 1024 supports of distinct singleton/doubleton approval ballots on 4 candidates across all committee sizes with denominator-2 or denominator-3 fractional vectors. Expected counts: 10,544 integral PO committees and 460,068 tested fractional alternatives. An independently checked four-candidate two-approval example defeats single-swap-only Pareto improvement.
+## correctness
 
-These are finite tests, not an infinite proof. The exact all-size argument is the exchange lemma and layer-cake proof in `RESULT.md`. Independent scientific audit has not been performed.
+PASS
+
+For unit approval ballots of size <=2 and any finite committee size, set selected losses a_c=1-x_c and unselected gains b_d=x_d, with equal sums by seat constraint. Ballots fully selected force losses zero; crossing doubletons impose b_d>=a_c. Threshold sets P_t and Q_t preserve weak improvements. Exchange lemma: |P_t|>|Q_t| permits padding the threshold committee to strict integral dominance, handling approved outside candidates in or out of Q. Thus for a PO W, |P_t|<=|Q_t| at all thresholds; equality of integrals makes these counts equal a.e. Layer-cake integration of utility gains then converts a strictly fractionally dominating x into a strictly improving size-k threshold committee, contradiction. Converse trivial. Boundary witness with ballots {acd,ace,ade,bc,bd,be,cd}, W={ab}, x=(0,1/2,1/2,1/2,1/2) checked against all ten integral two-seat alternatives: fractional dominance but no integral dominance.
+
+## originality
+
+PASS
+
+The source theorem proves a sparse universal PO=fPO boundary that is not directly a case of established cloning-closed single-dominance-only or interval-domain criteria; the known unrestricted PO/fPO separation is credited rather than claimed new.
+
+## value
+
+PASS
+
+A complete all-instance equivalence at the sharp natural approval-ballot length two is a useful boundary for committee efficiency, and the domain fails the single-swap condition used by prior structured-domain equivalence theorems. The exchange-and-layer-cake mechanism is reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:57:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit approval ballots of size <=2 and any finite committee size, set selected losses a_c=1-x_c and unselected gains b_d=x_d, with equal sums by seat constraint. Ballots fully selected force losses zero; crossing doubletons impose b_d>=a_c. Threshold sets P_t and Q_t preserve weak improvements. Exchange lemma: |P_t|>|Q_t| permits padding the threshold committee to strict integral dominance, handling approved outside candidates in or out of Q. Thus for a PO W, |P_t|<=|Q_t| at all thresholds; equality of integrals makes these counts equal a.e. Layer-cake integration of utility gains then converts a strictly fractionally dominating x into a strictly improving size-k threshold committee, contradiction. Converse trivial. Boundary witness with ballots {acd,ace,ade,bc,bd,be,cd}, W={ab}, x=(0,1/2,1/2,1/2,1/2) checked against all ten integral two-seat alternatives: fractional dominance but no integral dominance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker proves welfare characterization of fPO and restricted equivalence, but its domain hypotheses are not satisfied by all sparse degree-two ballots.",
+          "Aziz et al. treat integral committee Pareto optimality, not universal equality with fPO under all pair ballots."
+        ],
+        "reasoning": "General fPO characterization is a tool for studying optima but does not by itself force every discrete PO committee to be fractional PO.",
+        "searches": [
+          "Becker et al. arXiv:2606.11160 Theorem 10 and Appendix A.4",
+          "Resultary: fractional Pareto optimality committee approval ballots at most two candidates PO fPO",
+          "Aziz Lang Monnot arXiv:1803.06644"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py and Git tree eab49d5a01f88345ae75b1f506e0192c682c9223",
+        "Becker et al. arXiv:2606.11160 full author OA PDF",
+        "Schünke arXiv:2605.30490",
+        "Aziz Lang Monnot arXiv:1803.06644",
+        "Resultary: fractional Pareto optimality committee approval ballots at most two candidates PO fPO"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sparse two-approval profiles need not be interval-structured nor SDO; the four-candidate five-ballot counterexample refutes reducing the theorem to Becker's SDO premise."
+        ],
+        "reasoning": "The new theorem extends PO=fPO equivalence to all pair-ballot profiles by a separate mechanism; existing unrestricted separations confirm three-approval failures are not a novel existence assertion.",
+        "searches": [
+          "Becker et al. 2026 Theorem 10",
+          "Schünke 2026 interval domains",
+          "Resultary: fractional Pareto optimality committee approval ballots at most two candidates PO fPO"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Becker et al. Theorem 10 proves PO=fPO for cloning-closed SDO domains; the two-approval domain need not be single-dominance-only: W={a,b} is Pareto dominated by {c,d} under five size-two ballots, but no one-candidate swap dominates."
+        ],
+        "reasoning": "The theorem is not implied by SDO alone; its direct threshold exchange argument handles multiple simultaneous substitutions. Interval-structured domains are distinct from unrestricted pair ballots.",
+        "searches": [
+          "Resultary: fractional Pareto optimality committee approval ballots at most two candidates PO fPO",
+          "Becker et al. arXiv:2606.11160",
+          "Schünke arXiv:2605.30490"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a universal class theorem, not a finite-profile census; the five-candidate three-approval example witnesses sharpness rather than establishing general novelty."
+        ],
+        "reasoning": "No larger published finite table implying the sharp ballot-size boundary was located. A finite grid is only a check, not an exhaustive proof of all ballot multisets or real fractional committees.",
+        "searches": [
+          "Resultary: fractional Pareto optimality committee approval ballots at most two candidates PO fPO",
+          "Becker et al. 2026 restricted-domain theorem",
+          "SCOPE published voting records search"
+        ]
+      },
+      "rationale": "The source theorem proves a sparse universal PO=fPO boundary that is not directly a case of established cloning-closed single-dominance-only or interval-domain criteria; the known unrestricted PO/fPO separation is credited rather than claimed new.",
+      "residual_risks": [
+        "An earlier unindexed equivalent domain theorem may exist in multiwinner voting and ordinal efficiency literature.",
+        "The result depends crucially on 0/1 unit approvals and fixed size; it does not apply to arbitrary positive cardinal weights or ballots of length three."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering all two-approval ballots, because their SDO condition fails in an explicit size-two-ballot example",
+          "evidence": "Theorem 10 requires cloning-closed single-dominance-only domains; pair ballots can admit no-single-swap Pareto improvements.",
+          "identifier_or_url": "arXiv:2606.11160; https://pub.dss.in.tum.de/brandt-research/fPO.pdf",
+          "material_read": "Full 40-page author OA text, sections on fractional efficiency, domain theorems, Theorem 10 and Appendix A.4",
+          "method": "Read PDF text and the relevant theorem/proof sections",
+          "title": "Fractional Pareto-Optimality in Multiwinner Voting",
+          "trigger": "Direct same notion of fPO and PO"
+        },
+        {
+          "assessment": "Studies structured interval domains, not established universal pair-ballot boundary",
+          "evidence": "Interval geometry is an additional constraint not implied by cardinality <=2.",
+          "identifier_or_url": "arXiv:2605.30490",
+          "material_read": "Abstract and cited interval/single-dominance theorem descriptions",
+          "method": "Primary abstract and statement-level source comparison",
+          "title": "Pareto Optimality in Approval-Based Multiwinner Voting",
+          "trigger": "Approval committee Pareto optimality and domain structures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete all-instance equivalence at the sharp natural approval-ballot length two is a useful boundary for committee efficiency, and the domain fails the single-swap condition used by prior structured-domain equivalence theorems. The exchange-and-layer-cake mechanism is reusable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/verify.py and Git tree eab49d5a01f88345ae75b1f506e0192c682c9223",
+    "Becker et al. arXiv:2606.11160 full author OA PDF",
+    "Schünke arXiv:2605.30490",
+    "Aziz Lang Monnot arXiv:1803.06644",
+    "Resultary: fractional Pareto optimality committee approval ballots at most two candidates PO fPO"
+  ],
+  "disposition": "passed",
+  "limitations": "An earlier unindexed equivalent domain theorem may exist in multiwinner voting and ordinal efficiency literature.; The result depends crucially on 0/1 unit approvals and fixed size; it does not apply to arbitrary positive cardinal weights or ballots of length three.",
+  "residual_risks": [
+    "An earlier unindexed equivalent domain theorem may exist in multiwinner voting and ordinal efficiency literature.",
+    "The result depends crucially on 0/1 unit approvals and fixed size; it does not apply to arbitrary positive cardinal weights or ballots of length three."
+  ],
+  "schema_version": 1
+}
