@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The six-state two-phase Markov kernel is obtained from the explicit fitness-weighted parent/neighbor update, with two absorbing states and strictly transient four-state complement for all r>0. An exact four-by-four Cramer determinant representation expands to two polynomial identities, verified coefficient-by-coefficient by the dependency-free included verifier. Both difference signs follow from r-1 and strictly positive polynomial factors; independent unreduced eight-state rational checks agree in 40 samples. Finite checking is supplemental to exact polynomial identity, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhaumik–Masuda derive a general matrix equation for arbitrary finite switching graphs and compare selected fitness and dwell settings, including the three-node configuration at dwell 1,10,50.",
+        "Static-star exact formulas and a fixed-network amplification paper do not address the star/triangle alternation at dwell 2."
+      ],
+      "reasoning": "The numerical computation framework encompasses the instance algorithmically and is credited; it does not explicitly imply the strict inequality for every real fitness nor identify the minimum positive integer dwell. Generic computability is not treated as proof that the mathematical sign assertion appears in prior work.",
+      "searches": [
+        "minimal holding time threshold amplification star complete graph switching evolutionary dynamics birth death",
+        "evolutionary fixation of mutant on deterministic switching temporal network star versus complete graph under birth death updating, suppression amplification with holding times",
+        "https://link.springer.com/article/10.1007/s00285-023-01987-5 (Sections 3 and 4, Appendix B)",
+        "https://arxiv.org/abs/2003.05462",
+        "https://arxiv.org/abs/2401.14914"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.00170",
+      "https://link.springer.com/article/10.1007/s00285-023-01987-5",
+      "https://arxiv.org/abs/2003.05462",
+      "https://arxiv.org/abs/2401.14914",
+      "published-finding corpus semantic search results (queries listed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A distinct two-path switching model has two edges in each phase rather than the triangle’s three edges in the second; its statements cannot directly specialize to this configuration.",
+        "Bhaumik–Masuda Appendix B confirms the tau=1 suppression and tau=10 and 50 amplification only; the theorem adds an exact tau=2 all-fitness cutoff."
+      ],
+      "reasoning": "The tau=1 qualitative regime and eventual longer-dwell amplification are previously known, so those are not credited as new. The new content is precise minimum dwell 2 together with exact rational sign for every fitness r>0. This is not an instance of the distinct two-path statement and is not directly inferred from checking three or nine fitness values.",
+      "searches": [
+        "three-vertex switching star triangle complete network birth-death fixation probability tau=1 tau=2 crossover amplifier suppressor exact rational 2023 Bhaumik Masuda",
+        "evolutionary fixation of mutant on deterministic switching temporal network star versus complete graph under birth death updating, suppression amplification with holding times",
+        "https://arxiv.org/abs/2304.00170"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published model uses the same product of Markov transition matrices and compares uniform-initial-mutant fixation against the Moran baseline. The paper reports dwell lengths 1,10,50 for a three-vertex star/triangle arrangement; no dwell-2 sign or rational formula is stated in inspected sections and appendix.",
+        "A comparison configuration switching between two paths has a different second-phase edge set; it cannot be identified with the present star/triangle configuration."
+      ],
+      "reasoning": "The Markov-chain equivalence is acknowledged. An exact general algorithm does not itself state the sharp all-fitness two-update sign theorem; the distinct two-path problem is not equivalent by relabeling because its second graph has two rather than three edges.",
+      "searches": [
+        "three-vertex switching star triangle complete network birth-death fixation probability tau=1 tau=2 crossover amplifier suppressor exact rational 2023 Bhaumik Masuda",
+        "switching temporal graphs star and complete three vertices two steps fixation all fitness r difference Moran",
+        "alternating P3 K3 Moran process fixation tau 2",
+        "https://arxiv.org/abs/2304.00170 (Section 3.2, Appendix B and C)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus queries yielded mathematically dissimilar highest matches, including the bounded-confidence switching-lifetime record and discounted-hitting-domination record; no indexed matching fixation claim appeared in the returned results.",
+        "The initiating Appendix B figure uses only dwell lengths 1,10,50 rather than an exact tau=2 table."
+      ],
+      "reasoning": "No exact published table entry or published-finding corpus claim was identified for the all-fitness tau=2 inequality. Negative search results alone do not establish global novelty; unindexed computations remain a risk.",
+      "searches": [
+        "three-vertex switching star triangle complete network birth-death fixation probability tau=1 tau=2 crossover amplifier suppressor exact rational 2023 Bhaumik Masuda",
+        "switching temporal graphs star and complete three vertices two steps fixation all fitness r difference Moran",
+        "minimal holding time threshold amplification star complete graph switching evolutionary dynamics birth death",
+        "alternating P3 K3 Moran process fixation tau 2",
+        "evolutionary fixation of mutant on deterministic switching temporal network star versus complete graph under birth death updating, suppression amplification with holding times",
+        "P3 K3 alternating Moran birth-death two-step amplifies fitness all real r",
+        "two update star complete switching smallest 3 population suppressor amplifier 2023",
+        "https://arxiv.org/abs/2304.00170 (full HTML: search tau=2 and Appendix B)"
+      ]
+    },
+    "rationale": "The motivating source already documents tau=1 suppression and tau=10/50 amplification for the three-vertex star/triangle switching network. The exact all-r tau=2 amplifying threshold and smallest integer dwell are not stated in the inspected relevant full-text sections. A mathematical comparison with an alternate different-hub path switch shows non-equivalence: the second-phase edge sets differ and no symmetry reduction transfers the claim. Published general Markov formulations permit computation but do not directly state this sharp inequality. Residual unindexed-equivalent risk remains.",
+    "residual_risks": [
+      "A private, unindexed or obscure exact tau=2 computation may already establish the same all-fitness sign reversal.",
+      "Some distant sources were only checked by abstract; no claim is made about their full-text contents.",
+      "The originating paper general matrix identity algorithmically contains each finite instance, though its qualitative minimal-dwell comparison was not found as a stated theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same star-to-triangle setting covered, tau1 suppress and tau10/50 amplify reported; the minimum tau=2 and global symbolic sign inequality not stated.",
+        "evidence": [
+          "First-public date 2023-03-31 on arxiv abstract",
+          "Appendix B three-vertex Fig.7(a) values tau=1,10,50",
+          "Eq.7 product transition and Eq.8 uniform initialization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.00170",
+        "material_read": "Arxiv full rendered text: model, Sections 3.2, 3.5, 4.2.1, Appendix B and transition formulas; searched tau=2 and n=3.",
+        "method": "Full-text web reading and targeted searches in arxiv original posting",
+        "title": "Fixation probability in evolutionary dynamics on switching temporal networks",
+        "trigger": "Exact model and plausible covering paper; first public posting 2023-03-31"
+      },
+      {
+        "assessment": "Numerical comparisons only for tau 1,10,50 in three-vertex star/complete Appendix B; no all-fitness exact first-dwell reversal.",
+        "evidence": [
+          "Section 3.2 equations for fixation",
+          "Appendix B Fig.7(a) three-vertex star/triangle observations",
+          "Sections 3.5 numerical fitness sampling policy"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-023-01987-5",
+        "material_read": "Full HTML main text sections 2–4, 4.2.1, Appendix B/C and journal mathematics classification.",
+        "method": "Full-text web reading, find searches for tau2 and related strings",
+        "title": "Fixation probability in evolutionary dynamics on switching temporal networks (journal version)",
+        "trigger": "Current peer-reviewed full text and appendix might contain added exact coverage"
+      },
+      {
+        "assessment": "Static star only; insufficient for a whole-document exclusion but no same dynamic switching claim in inspected material.",
+        "evidence": [
+          "Abstract states fixed star graph for birth–death and death–birth processes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.05462",
+        "material_read": "Abstract and bibliographic description only; static-graph focus",
+        "method": "Arxiv abstract search result",
+        "title": "Exact fixation probabilities for the Birth-Death and Death-Birth frequency-dependent Moran processes on the star graph",
+        "trigger": "Potential stronger static star calculation"
+      },
+      {
+        "assessment": "No decisive overlap found from available material; source does not directly study alternating dwelling in the abstract.",
+        "evidence": [
+          "Abstract states graph amplifiers under two updating rules"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.14914",
+        "material_read": "Abstract only; the construction addresses static graphs, not temporal switching.",
+        "method": "Arxiv abstract reading",
+        "title": "Amplifiers of selection for the Moran process with both Birth-death and death-Birth updating",
+        "trigger": "Potential broader fixation amplification result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e658fb66-1de7-4864-b43c-c4e77637dd9c",
+  "value": {
+    "rationale": "The smallest nontrivial population already changes from strict selection suppression to strict amplification when the holding time increases by one reproduction update. This closes the natural integer gap between previously reported dwell-one suppression and dwell-ten amplification, with global fitness-uniform inequalities rather than a numerical sampling grid. Comparison to previously analyzed two-path switches shows the second contact topology materially changes the first possible amplification horizon. The result is a mathematically motivated finite-size threshold, not an arbitrary enumeration.",
+    "status": "PASS"
+  }
+}
