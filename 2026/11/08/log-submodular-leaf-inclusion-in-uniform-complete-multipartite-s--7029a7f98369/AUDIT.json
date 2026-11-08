@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "The classical Laplacian spectrum gives the exact multipartite tree count. Forced leaves graft individually to a residual tree; the resulting inclusion probability is a product of affine-decrement factors. Each factor satisfies the discrete log-submodular two-addition inequality, with all boundary cases treated explicitly; this proves all graph sizes. A separately coded exhaustive tree enumerator and 666620 exact checks on 127 graph shapes passed. Finite tests support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eğecioğlu--Remmel 1994 explicitly considers asymptotic leaf counts and multivariate weights (abstract); Lewis 1999 studies degree distributions (abstract).",
+        "Remmel--Williamson 2002 has full multivariate generating-function machinery for multipartite trees, and Wang--Ge arXiv:2602.03602 gives a determinant formula for forests fixed in advance.",
+        "Li--Chen--Yan 2023 counts containing prescribed forests for complete multipartite graphs, with explicit cases of three or four parts; only abstract/journal metadata accessible."
+      ],
+      "reasoning": "Broader generating functions may recover each joint probability as a coefficient, but they do not automatically state the strict conditional inequality. The proof here derives a uniform product and applies exact concavity simultaneously to every forced-leaf set, with sharp bipartite equality. Because older full texts were inaccessible, an unlocated prior extraction remains a material risk, not a demonstrated implication of their statements.",
+      "searches": [
+        "\"A Bijection for Spanning Trees of Complete Multipartite Graphs\" leaf asymptotic",
+        "\"The number of spanning trees of a complete multipartite graph\" Lewis degree distribution",
+        "Spanning Trees and Function Classes Remmel Williamson 2002 multipartite degree generating functions",
+        "\"Enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest\" Li Chen Yan 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/jgt.22954",
+      "https://doi.org/10.37236/1650",
+      "https://arxiv.org/abs/2602.03602",
+      "https://sites.cs.ucsb.edu/~omer/personal/abstracts/multipartite.html",
+      "https://doi.org/10.1016/S0012-365X(98)00260-X",
+      "https://doi.org/10.1002/jgt.22812"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical count N^(k-2) prod (N-n_i)^(n_i-1) appears explicitly in Wang--Ge 2026 page 2 and is used as known, not new.",
+        "A previous related result studies rank-one pairwise leaf covariances under a single weighted edge tilt of complete bipartite graphs; it does not imply the all-set inequality for unweighted arbitrary complete multipartite graphs.",
+        "Previously accessible mathematical findings on spanning trees and leaf dependence showed no all-subset log-submodular inclusion law."
+      ],
+      "reasoning": "The prior counting formulas determine total spanning-tree counts and in some versions all degree coefficients, so the product formula itself is not proposed as an independently new enumeration. The surviving statement is the universal sign inequality, strictness, equality classification, and conditional forced-leaf implication. Those conclusions require the additional grafting/concavity derivation and are not stated in the fully inspected related sources; an older unpublished or inaccessible derivation cannot be excluded.",
+      "searches": [
+        "arXiv 2602.03602 Wang Ge spanning forest full text 2026",
+        "Spanning Trees and Function Classes Remmel Williamson 2002 pdf Example 3.2",
+        "\"The number of spanning trees of a complete multipartite graph\" Lewis 1999 distribution vertices given degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches of indexed published mathematical findings returned no exact leaf-inclusion theorem. The closest complete-multipartite spanning-tree result concerns overlap corrections for domination-polynomial coefficients, a different invariant.",
+        "Remmel--Williamson 2002 Example 3.2 concerns multivariate edge/degree generating functions, not the stated log-submodularity inequality in its read multipartite section."
+      ],
+      "reasoning": "The claim is log-submodularity of the inclusion-probability set function F(S), equivalently the monotonicity of conditional probabilities of new leaf events after forcing additional leaves. Neither title nor a generic coefficient formula establishes this strict lattice inequality and its equality cases without an extra comparison argument; targeted searches found no equivalent statement.",
+      "searches": [
+        "complete multipartite uniform spanning tree leaf set inclusion probabilities log-submodular negative lattice; conditioning on other vertices being leaves reduces chance of leaf",
+        "pairwise negative correlation and multiway upper orthant inequalities for degree-one vertices of random multipartite spanning trees",
+        "leaf sets of uniformly random spanning trees log-submodular, exact bipartite equality and multipartite strictness",
+        "\"leaf\" \"log-submodular\" \"spanning tree\" complete multipartite",
+        "\"leaf inclusion\" \"complete multipartite\" tree negative dependence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A close published result on negative regression compares degree and vertex distance in uniform Cayley trees, not correlations of prescribed leaves in multipartite trees.",
+        "The 2023 published source and 1994 source discuss enumeration rather than a table of conditional leaf-inclusion inequalities."
+      ],
+      "reasoning": "No exact database or table of all forced-leaf log-submodular inequalities was found. This is an algebraic theorem for every set and graph size, not a finite tabulation; the small-graph checker has no priority role.",
+      "searches": [
+        "uniform spanning tree complete multipartite graph pairwise covariance of degree-one leaves; strict negative correlations, bipartite independent cross-part leaves",
+        "random spanning tree leaf indicators complete multipartite K_n1,...,nk exact joint leaf probabilities and negative dependence",
+        "spanning trees containing prescribed leaves in complete multipartite graphs covariance and leaf events",
+        "leaf covariances uniformly random complete bipartite graph independence cross classes",
+        "\"leaves\" \"complete multipartite\" \"spanning trees\" covariance independence"
+      ]
+    },
+    "rationale": "Accessible full texts from 2002 and 2026 and targeted searches did not state the all-set strict negative lattice law. The result is distinguished from known multipartite tree counts, degree generating functions, forest inclusion counts, and narrower previously recorded leaf covariance laws. Older 1994/1999 and the 2023 principal paper could not be fully read; historical-priority risks are explicit, and generic degree coefficients are credited rather than recast as new.",
+    "residual_risks": [
+      "The 1994 Eğecioğlu--Remmel paper explicitly studies asymptotic leaves but its full text was unavailable.",
+      "Lewis (1999) studies degree distributions; an unlocated derivation of the lattice inequality may exist.",
+      "Li--Chen--Yan (2023) full text was unavailable; its abstract is not enough to exclude all overlap.",
+      "Broad multipartite degree generating functions may yield the conditional-sign law after additional coefficient manipulation; independent historical priority is unverified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad degree-generating functions are present, but no stated log-submodular forced-leaf inclusion theorem or bipartite strictness classification was found.",
+        "evidence": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+          "Example 3.2, pages 15--20: multipartite rooted spanning forest generating functions."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/1650",
+        "material_read": "Full 24-page publicly accessible PDF, especially introduction, Example 3.2 (multipartite case), and formulas (22)--(25).",
+        "method": "Read textual PDF and inspected the displayed formulas on pages 17--18.",
+        "title": "Spanning Trees and Function Classes",
+        "trigger": "Multivariate rooted-tree degree/edge generating functions for complete multipartite graphs plausibly cover every prescribed leaf coefficient."
+      },
+      {
+        "assessment": "Provides general fixed-forest counts and quotes the classical multipartite tree-count formula; no leaf-event lattice inequality or conditional monotonicity found.",
+        "evidence": [
+          "https://arxiv.org/pdf/2602.03602",
+          "Page 2 gives the product N^(k-2) times part-degree factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.03602",
+        "material_read": "Full 11-page arXiv PDF, including the introduction, classical multipartite tree product, and main determinant constructions; searched full extracted text for leaf, degree and probability.",
+        "method": "Read text and inspected pages 2 and 9 visually.",
+        "title": "On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+        "trigger": "General forest-inclusion formula could dominate specialized leaf counts."
+      },
+      {
+        "assessment": "Abstract reports fixed-forest counts for three and four parts, not forced-leaf conditional inequalities. Cannot rule out an unobserved full-text section.",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.22954",
+          "First published March 30, 2023."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22954",
+        "material_read": "Journal abstract, bibliographic metadata, references, and stated scope; full article unavailable through open web and institutional route disconnected.",
+        "method": "Checked arXiv and open-access alternatives first; inspected accessible journal abstract; attempted authorized university retrieval but VPN not connected.",
+        "title": "Enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+        "trigger": "Primary 2023 model-specific fixed-forest enumeration could contain an equivalent consequence."
+      },
+      {
+        "assessment": "Could contain additional leaf-dependence properties, but no stated finite all-set negative lattice result in available material.",
+        "evidence": [
+          "Congressus Numerantium 100 (1994), 225--243; https://sites.cs.ucsb.edu/~omer/personal/abstracts/multipartite.html"
+        ],
+        "identifier_or_url": "https://sites.cs.ucsb.edu/~omer/personal/abstracts/multipartite.html",
+        "material_read": "Author-hosted abstract, bibliographic information and claim of leaf asymptotic study; full paper not located.",
+        "method": "Searched exact title and PDF sources and read author-hosted abstract.",
+        "title": "A Bijection for Spanning Trees of Complete Multipartite Graphs",
+        "trigger": "1994 paper explicitly reports leaf asymptotics and weighted multivariate enumeration."
+      },
+      {
+        "assessment": "A full degree distribution may subsume probability computations; whether it includes the new strict all-set inequality is unresolved.",
+        "evidence": [
+          "Discrete Mathematics 197--198 (1999), 537--541."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(98)00260-X",
+        "material_read": "Indexed abstract and bibliographic references; full article not accessible.",
+        "method": "Searched exact title and publisher/DOI forms.",
+        "title": "The number of spanning trees of a complete multipartite graph",
+        "trigger": "1999 article reportedly derives distribution of vertex degrees in multipartite trees."
+      },
+      {
+        "assessment": "Contains known bipartite forest enumeration but not the general all-set log-submodularity and strict multipartite transition.",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.22812"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22812",
+        "material_read": "Accessible journal abstract with displayed fixed-forest counting formula.",
+        "method": "Read web article abstract and formula.",
+        "title": "Spanning trees in complete bipartite graphs containing a fixed spanning forest",
+        "trigger": "The complete-bipartite boundary is the equality case of the theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7029a7f9-8369-4740-bc0f-5d41029f2e2b",
+  "value": {
+    "rationale": "The precise new invariant is the all-subset forced-leaf probability and its universal strict negative-lattice sign law; this is stronger than pairwise covariance and has a sharp complete-bipartite equality boundary. The nonuniversality of leaf correlations in uniform trees is witnessed by the positive adjacent leaf covariance 1/25 on C5. The result is a natural complete classification for every finite complete multipartite graph, not a finite arbitrary slice or isolated computation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,17 @@
+# Self-review
+
+**Result:** Log-submodular leaf inclusion in uniform complete-multipartite spanning trees.
+
+## Correctness — PASS
+The proof uses the classical Laplacian spectrum to give the total tree count, then removes any prescribed leaf set and independently grafts each deleted leaf to the residual core. This yields the exact all-subset inclusion probability, including disconnected residuals, singleton residuals and the empty residual. Every factor is a nonnegative power of a decreasing affine set-count function, and the elementary identity \((a-1)^2-a(a-2)=1\) proves the lattice inequality, strictness and bipartite equalities for arbitrary integer part sizes. The checker independently enumerates spanning trees for 54 graph types and conducts 666,620 exact rational comparisons over 127 types through ten vertices. Finite checks are not substituted for the infinite family proof.
+
+## Originality — PASS (historical priority qualified)
+The 1994 Eğecioğlu–Remmel multipartite bijection and the 2002 Remmel–Williamson full generating function give a broad degree-enumeration framework; Lewis (1999) examines vertex degree distributions, while Li–Chen–Yan (2023) and Wang–Ge (2026) address fixed-forest counts. These are substantively related, not absent or irrelevant. The all-subset strict/equality classification for *forced leaves*, as an inequality rather than a generating formula, was not identified in the materially inspected 2002 and 2026 full texts, or the available abstracts and targeted searches. Obtaining the sign from a general enumeration requires the forced-leaf factorization and concavity argument; generic degree-coefficient access is acknowledged as broader information. Full 1994, 1999 and 2023 texts were unavailable and are material residual historical-priority risks; the available record does not establish a direct published domination of the stated inequality.
+
+## Value — PASS
+This is an all-subset negative lattice theorem, not just a single covariance or an arbitrary numerical instance. It provides sharp criteria for strict conditional leaf interactions and for bipartite equality, valid at every graph size. Uniform spanning trees do not satisfy analogous leaf-correlation signs on every graph: adjacent leaf indicators on \(C_5\) have covariance \(1/25>0\). The result therefore identifies a genuine structural boundary for a natural probabilistic graph family, and it makes exact forced-leaf probabilities and conditional probabilities available as closed products.
+
+## Primary scientific sources and residual risks
+The 2023 paper of Li–Chen–Yan establishes fixed-forest spanning-tree enumerations for complete multipartite graphs. Remmel–Williamson (2002), *Spanning Trees and Function Classes*, was examined in its freely available complete text, particularly the multipartite generating functions in Example 3.2. Wang–Ge (2026), *On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest*, was examined in full and directly verifies the classical tree product used here. The older 1994 and 1999 degree-enumeration sources were only available as abstracts in this investigation, and the 2023 journal article full text was inaccessible. No assertion of exhaustive historical uniqueness is made. The theorem does not claim full negative association of the leaf-indicator family.
+
+Self-review: passed. Independent audit: not yet performed.
