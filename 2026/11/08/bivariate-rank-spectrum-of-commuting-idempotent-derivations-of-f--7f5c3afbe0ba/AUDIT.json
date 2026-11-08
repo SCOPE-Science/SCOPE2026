@@ -1,0 +1,188 @@
+{
+  "correctness": {
+    "rationale": "For any associative derivation D of M_n, innerness is established via matrix units. In odd characteristic, the image of an idempotent derivation is a square-zero two-sided ideal, hence zero by simplicity. In characteristic two, ad(A)^2=ad(A²) and idempotence is equivalent to A²+A scalar. Separability of this quadratic gives the split/irreducible dichotomy and the precise single rank law. If two idempotent inner derivations commute, their implementer commutator is scalar and lies in im(D)∩ker(D), so vanishes. Counting implementing matrices in each centralizer and dividing by q scalar shifts yields H and K; split and irreducible ranks are computed by eigenblock dimensions (for nonsplit, both field embeddings are used). The full coefficient-by-coefficient formula was independently checked by enumeration of normalized implementers over F2,F3,F4 at dimensions 2,3,4 as recorded in verify.py and verification_output.txt; finite checks are evidence, not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bahturin and Zaicev, Group gradings on matrix algebras, accessible abstract states an algebraically closed field of characteristic zero, incompatible with the characteristic-two finite-field count.",
+        "Diniz et al. arXiv:2610.20113 accessible abstract assumes every finite subgroup of the grading group is cyclic, excluding the Klein-four grading group.",
+        "Khazal et al. M2 full text provides a complete smaller-dimensional graded-algebra classification but is not a joint count for all n.",
+        "Caenepeel–Dăscălescu–Năstăsescu arXiv:math/0107148 gives the general classification-of-forms framework for arbitrary finite abelian grading groups, a strong structural antecedent, but not the requested labeled bivariate finite-field formula.",
+        "Diniz–Pellegrino arXiv:2004.02285 Theorem 4.3 counts all G-grading isomorphism classes (including groups not cyclic) over algebraically closed fields; this is a broader abstract classification but not the labeled finite-field statistic."
+      ],
+      "reasoning": "The 2001 classification of Galois forms and the 2020 general isomorphism-class formula are genuine broader grading-theoretic predecessors. They classify gradings up to algebra automorphism and explain the existence of descent forms. Their stated outputs do not include counts of every field-linear ordered pair of degree derivations by two ranks. Converting to a labeled joint census requires automorphism stabilizer sizes, actual finite-field centralizer fiber calculations, and rank separation. Historical priority still carries a significant risk that a published strengthening performs those calculations.",
+      "searches": [
+        "Idempotent derivations of full matrix algebras over finite fields in characteristic two: inner derivations ad(A) with A squared plus A scalar, split and nonsplit quadratic structures, rank distribution.",
+        "Classification and enumeration of projection derivations D squared equals D on M_n(F_q), including irreducible Artin-Schreier quadratic centralizers and group orbits.",
+        "Field-linear idempotent derivations on central simple associative algebras characteristic 2, finite field exact census.",
+        "Complete bivariate rank distribution of ordered commuting idempotent derivations of full matrix algebras over finite fields characteristic two, split and nonsplit Artin-Schreier orbits",
+        "Bahturin Zaicev Group gradings on matrix algebras (2002)",
+        "Diniz et al. Identities and isomorphisms of finite graded matrix algebras arXiv:2610.20113"
+      ]
+    },
+    "checked_sources": [
+      "Khazal/Boboc/Dascal̆escu full paper DOI 10.1017/S0004972700037667",
+      "Ayupov/Arzikulov arXiv:1303.6033 full paper",
+      "Bahturin/Zaicev DOI 10.4153/CMB-2002-031-4 abstract",
+      "Diniz et al. arXiv:2610.20113 abstract (full text inaccessible)",
+      "Full published record 2026/10/11/SCOPE-cyclic-monomial-rigidity-and-necklace-count-at-the-quadratic-com--4510ac7aff16",
+      "published-finding corpus semantic searches q1-q9 with closest result IDs specified",
+      "Caenepeel–Dăscălescu–Năstăsescu arXiv:math/0107148 full primary paper, Theorem 3.4",
+      "Diniz–Pellegrino arXiv:2004.02285 full primary paper, Theorem 4.3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complete RESULT.md of published record 2026/10/11/SCOPE-cyclic-monomial-rigidity-and-necklace-count-at-the-quadratic-com--4510ac7aff16 concerns invertible T satisfying (ad_A-pc)(ad_A+qc)T=0 over C at a resonance threshold n=p+q; no idempotent pair or positive-characteristic finite-field joint count appears.",
+        "Khazal et al. Theorem 3.1 implies the general absence of genuinely independent Klein-four M2 grading types in characteristic two, but not the current labeled quantitative formula.",
+        "Ayupov-Arzikulov innerness results support a premise of the proof, not the conclusion of the counting theorem.",
+        "The 2001 Galois descent theorem 3.4 supplies a route to classify forms, while the 2020 theorem 4.3 counts isomorphism classes of gradings; neither theorem as written implies the displayed bivariate coefficient polynomial without extra orbit-stabilizer and field arithmetic arguments."
+      ],
+      "reasoning": "Neither the resonance theorem nor the M2 grading-type theorem implies the all-dimensional bivariate coefficient formula without substantial additional field-specific and centralizer analysis. Potential hidden implications of general grading classification remain residual risk.",
+      "searches": [
+        "quadratic polynomial equations for inner derivations ad(X): ad(X)^2=ad(X), idempotent inner derivation, characteristic 2 central scalar matrix",
+        "Commuting inner derivations ad(A), ad(B) which are idempotent, scalar commutator rigidity and full finite-field counts",
+        "2026/10/11/SCOPE-cyclic-monomial-rigidity-and-necklace-count-at-the-quadratic-com--4510ac7aff16",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-cyclic-monomial-rigidity-and-necklace-count-at-the-quadratic-com--4510ac7aff16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An ordered pair of commuting idempotent derivations in characteristic two induces a Klein-four grading through joint eigenspaces; conversely, such a grading yields degree projections that are idempotent derivations.",
+        "Khazal et al., Theorem 3.1, classifies the characteristic-two Klein-four gradings of M2 up to isomorphism as induced by C2; this covers low-dimensional grading types but not counts of labeled pairs or their joint ranks for all n.",
+        "Ayupov-Arzikulov, full preprint, concerns matrix-ring derivations and 2-local derivations without a bivariate finite-field census.",
+        "Caenepeel et al. Theorem 3.4 is a bijection of grading isomorphism classes with suitable Galois-extension isomorphism classes; neither this theorem nor the adjacent discussion gives bivariate ranks of labeled derivation pairs.",
+        "Diniz–Pellegrino Theorem 4.3 counts isomorphism classes of gradings, explicitly over an algebraically closed field, not individual Fq-linear ordered pairs."
+      ],
+      "reasoning": "The equivalence with Klein-four grading is explicitly recognized. Classification of isomorphism classes does not by itself specify counts on a fixed algebra with both ranks retained; the global all-dimensional bivariate count requires centralizer fiber enumerations including nonsplit quadratic forms. No checked statement asserts these counts.",
+      "searches": [
+        "Commuting pairs of idempotent derivations on M_n(F_q), equivalent C2 by C2 gradings, rank generating polynomial",
+        "Commuting inner derivations ad(A), ad(B) which are idempotent, scalar commutator rigidity and full finite-field counts",
+        "Khazal Boboc Dascal̆escu Group gradings of M2(k) DOI 10.1017/S0004972700037667, Theorems 1.1 and 3.1",
+        "Ayupov Arzikulov 2-Local derivations on matrix rings over associative rings arXiv:1303.6033",
+        "Caenepeel Dascal̆escu Nastasescu On gradings of matrix algebras and descent theory arXiv math/0107148 Theorem 3.4",
+        "Diniz Pellegrino On the number of gradings on matrix algebras arXiv:2004.02285 Theorem 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/10/4/SCOPE-adjoint-rank-spectra-of-two-maximal-class-filiform-lie-algebras--48cdbeaf7d86 describes adjoint ranks in filiform Lie algebras, not associative matrix derivations.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-binary-rank-distribution-in-the-first-odd-generalized-comm--060eea525277 gives one generalized-commutator rank distribution for M3(F2), not a pair of idempotent associative derivations.",
+        "published-finding corpus record 2026/9/19/SCOPE-square-class-completion-graded-involutions-m2--162d7332757e gives graded involution classes of M2, not joint derivation-rank statistics.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17 gives idempotent-nilpotent product fibers, not derivation pairs.",
+        "Accessible own ledger names/claims concern Jordan averaging, Nijenhuis, Rota-Baxter, square-zero and Lie-algebra derivations, and triangular left ideals; none is the full matrix associative pair-count claim."
+      ],
+      "reasoning": "Similar parameters and keywords concern distinct operations. No exact published table with every pair rank for all n,q was retrieved. Small n numerical checks are not independently claimed to be novel.",
+      "searches": [
+        "number of idempotent derivations on M_n(F_q) characteristic two rank spectrum split nonsplit",
+        "projection derivations of matrix algebra characteristic two trace Artin Schreier",
+        "Complete bivariate rank distribution of ordered commuting idempotent derivations of full matrix algebras over finite fields characteristic two, split and nonsplit Artin-Schreier orbits",
+        "2026/10/4/SCOPE-adjoint-rank-spectra-of-two-maximal-class-filiform-lie-algebras--48cdbeaf7d86",
+        "2026/10/4/SCOPE-exact-binary-rank-distribution-in-the-first-odd-generalized-comm--060eea525277",
+        "2026/9/19/SCOPE-square-class-completion-graded-involutions-m2--162d7332757e",
+        "2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17"
+      ]
+    },
+    "rationale": "The claimed theorem is the complete ordered labeled bivariate rank polynomial for every finite full matrix algebra; it is distinct from grading-isomorphism classifications, isolated rank spectra or quadratic complex commutator resonance. The complete 2001 Caenepeel–Dăscălescu–Năstăsescu matrix-grading descent classification and 2020 Diniz–Pellegrino isomorphism-class counts are strong prior frameworks, explicitly credited, but their inspected theorems do not state the labeled simultaneous finite-field rank distribution. A closest complete source (Khazal/Boboc/Dascal̆escu) classifies M2 grading types including characteristic-two Klein-four cases but supplies no all-n finite-field pair/rank census. The complete matrix-ring derivation preprint by Ayupov/Arzikulov supplies structural background, not these multiplicities. published-finding corpus queries for aliases, quadratic centralizers, joint ranks and (C2)^2 gradings returned no implication covering the theorem. Historical priority remains provisional because more general grading enumeration may indirectly imply the formula.",
+    "residual_risks": [
+      "A general finite-field Klein-four grading enumeration, if it already explicitly tabulates labeled simultaneous degrees, might imply the bivariate formula; not all such literature can be exhaustively checked.",
+      "The recent Diniz et al. full text was inaccessible; its explicit cyclic-subgroup hypothesis makes direct coverage unlikely but no whole-document negative claim is made.",
+      "Same-model proof and small finite checks are not an independent expert verification.",
+      "The full finite-abelian grading theory of Caenepeel et al. plus orbit-stabilizer computations might be developed elsewhere into the present joint rank formula; no all-literature priority proof is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers graded-isomorphism types and the M2 Klein-four collapse; does not state the all-dimensional rank-refined labeled finite-field pair census.",
+        "evidence": [
+          "Theorem 3.1: every Klein-four grading of M2 in characteristic two is induced by a C2 grading.",
+          "Theorem 1.1 distinguishes split and nonsplit C2 structures, which are antecedents to our centralizer dichotomy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700037667",
+        "material_read": "Complete eight-page primary paper, with Theorem 1.1 and Theorem 3.1 and concluding page inspected.",
+        "method": "Read the freely accessible publisher PDF text and page images; compared exact hypotheses and implications.",
+        "title": "Group gradings of M2(k)",
+        "trigger": "Closest primary classification of characteristic-two Klein-four gradings on full matrix algebras."
+      },
+      {
+        "assessment": "Matrix derivation structure supplied as known premise; simultaneous projection pairs and their finite-field rank coefficients are not addressed.",
+        "evidence": [
+          "Investigates 2-local derivations and conditions for innerness; no conditional idempotent-pair count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6033",
+        "material_read": "Full open preprint introduction and theorem/proof sections.",
+        "method": "Opened arXiv full text and compared the precise derivation identities and conclusions.",
+        "title": "2-Local derivations on matrix rings over associative rings",
+        "trigger": "Primary structure of derivations on matrix algebras, including inner derivation results."
+      },
+      {
+        "assessment": "Abstract explicitly assumes algebraically closed characteristic-zero fields, which cannot directly cover characteristic-two finite fields; general grading literature remains a risk.",
+        "evidence": [
+          "Characteristic zero scope stated in abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-2002-031-4",
+        "material_read": "Accessible abstract and bibliographic scope only; full manuscript not inspected.",
+        "method": "Read publisher and public bibliographic abstracts and their characteristic hypothesis.",
+        "title": "Group gradings on matrix algebras",
+        "trigger": "Possible stronger general grading classification dominating the claim."
+      },
+      {
+        "assessment": "Its assumption that all finite subgroups are cyclic excludes the (C2)^2 grading group of the current result; overlap from other arguments remains unverified.",
+        "evidence": [
+          "Abstract specifies groups in which all finite subgroups are cyclic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.20113",
+        "material_read": "Complete accessible abstract; full paper inaccessible in this attempt.",
+        "method": "Read full indexed abstract and attempted the arXiv PDF; inspected the stated group hypothesis.",
+        "title": "Identities and isomorphisms of finite graded matrix algebras",
+        "trigger": "Contemporary plausible broad classification of finite graded matrix algebras."
+      },
+      {
+        "assessment": "A complex invertible resonance eigenvalue-cycle theorem; does not cover finite characteristic-two idempotent derivation pair counts.",
+        "evidence": [
+          "Equation (ad_A-pcI)(ad_A+qcI)T=0 over C with invertible T and n=p+q; spectral necklaces and power identities."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-cyclic-monomial-rigidity-and-necklace-count-at-the-quadratic-com--4510ac7aff16",
+        "material_read": "Full published RESULT.md, including finding, assumptions, four proof steps, limitations and references.",
+        "method": "Fetched whole RESULT via read-only GitHub connector; compared characteristic, polynomial, objects, quantifiers, and output invariants.",
+        "title": "Cyclic-monomial rigidity and necklace count at the quadratic commutator resonance threshold",
+        "trigger": "Closest semantically indexed quadratic inner-derivation claim; may imply a stronger count."
+      },
+      {
+        "assessment": "The 2001 result is genuinely broad and covers Galois-descent isomorphism classifications of relevant gradings; however the theorem does not furnish counts of individually labeled pairs stratified by both ranks. Primary structural antecedent credited.",
+        "evidence": [
+          "Theorem 3.4 establishes a bijection between isomorphism classes of forms of good gradings and suitable Galois-extension isomorphism classes.",
+          "Paper discusses cyclic grading classifications and concrete M2 examples, not an all-n finite-field bivariate derivation-pair rank count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0107148",
+        "material_read": "All relevant sections of the accessible 14-page arXiv manuscript, notably introduction, classification of good gradings, Theorem 3.4 and surrounding proof, and Galois-form examples.",
+        "method": "Read full arXiv PDF text with visual inspection of pages 1 and 9, and checked theorem statement directly.",
+        "title": "On gradings of matrix algebras and descent theory",
+        "trigger": "Direct earlier classification of all finite-abelian-group gradings of full matrix algebras, a plausible theorem dominating the new claim."
+      },
+      {
+        "assessment": "Provides a formula for the number of isomorphism classes of matrix-algebra gradings over algebraically closed fields; not a labeled bivariate rank count over Fq.",
+        "evidence": [
+          "Theorem 4.3 explicitly states count of isomorphism classes and algebraically closed field hypothesis.",
+          "Its E and N quantities are grading-isomorphism class counts, not the number of field-linear derivation-pair operations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.02285",
+        "material_read": "Complete eight-page arXiv preprint, including introduction, definition of E(G,m) and N(G,m), and Theorem 4.3 with its proof.",
+        "method": "Read original PDF text and inspect page images, especially the theorem on page seven.",
+        "title": "On the number of gradings on matrix algebras",
+        "trigger": "Plausible complete existing enumeration of finite-group matrix gradings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f5c3afb-e0ba-4fb8-8d2f-650da3830fd1",
+  "value": {
+    "rationale": "The bivariate polynomial is a natural complete joint rank distribution for ordered commuting projection derivations (equivalently Klein-four grading eigenspaces in characteristic two), not a routine independent product of single-rank counts. Conditional fibers change sharply between split projections and irreducible Artin-Schreier quadratic implementers, and the nonsplit centralizer over F_{q²} has a distinct rank law. The formula covers every n and q and gives an explicit quantitative refinement of grading-isomorphism classifications. Small cases n=2,3,4 are illustrative, while its arbitrary-n exactness supplies future algebraic and probabilistic applications.",
+    "status": "PASS"
+  }
+}
