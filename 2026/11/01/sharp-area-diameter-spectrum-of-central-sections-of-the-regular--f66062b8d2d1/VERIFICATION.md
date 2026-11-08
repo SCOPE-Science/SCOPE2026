@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the area–diameter spectrum
+# Independent mathematical audit
 
-The proof is the direct polygon-area computation and exact one-variable derivative sign in `RESULT.md` for every \(0\le q\le t\le1\). Its critical algebra is verified by coefficient identities in the accompanying `verify.py` script using SymPy, together with exact rational polygon-area vectors for ordered normal-coordinate triples and a second numerical algorithm enumerating all intersected octahedron edges.
+## correctness
 
-Run `python3 -m pip install -r requirements.txt` followed by `python3 verify.py` from the extracted package directory. The executed script printed `VERIFY_OK 10218 checks`. It verified the exact derivative identity, endpoint comparison, normal diameter, polynomial critical-point signs, exceptional boundary values, rational areas, independent polygon enumeration, and a deterministic sampling of interval extremality. Finite sampled comparisons are corroborative; the proof in `RESULT.md` establishes the continuum theorem and equality classes without any statistical inference.
+PASS
 
-The full texts of arXiv:2609.24131 and arXiv:2606.07163 were inaccessible during originality comparison. Their publication metadata and abstracts were read; the published full text of the nearest mathematical diameter record was read and compared directly. The conclusion is only self-review; independent audit status remains unperformed.
+For the central plane O∩(q,t,1)^perp with 0<=q<=t<=1, independently checked its six edge-intersection polygon vertices, area B(q,t) and diameter D(q)=2sqrt(1+q²)/(1+q). Exact symbolic differentiation of B(q,t)^2 equals a negative positive-factor multiple of P_q(t), where P_q is concave with P_q(q)=3q(1-q)>0 and P_q(1)=-3q²(1-q)<0. Therefore for 0<q<1 its unique positive root T(q) lies strictly inside (q,1), and B is decreasing then increasing. The endpoint gap B(q,q)^2-B(q,1)^2=2(1-q)^3/(1+q)^3>0 proves unique maximum at t=q. Continuity supplies every intermediate area. The q=0,1 degenerate sections yield D=2 with area [sqrt2,2] and D=sqrt2 with A=3sqrt3/4; inversion of D checked. Symbolic identities and independent numerical polygon checks corroborated exact analysis; no finite sample substitutes for continuum sign proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical implication comparison of actual primary material and published records. Novelty is provisional, with explicit unresolved historical-source risks.  The prior exact octahedron diameter formula is explicitly excluded from the novelty assertion.
+
+## value
+
+PASS
+
+This solves the entire sharp two-invariant area–diameter feasibility region for central sections of a canonical polytope, including a rigid unexpected asymmetric interior minimizer, a distinct symmetric maximizer and endpoint degeneracies. The conditional classification is mathematically stronger and different from the known marginal diameter law, and serves as an exact benchmark for convex section geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
