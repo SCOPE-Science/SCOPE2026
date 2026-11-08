@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each pair, all three vectors a,b,a+b occur as packet edge differences, giving the universal half-diameter lower bound. Integer shell separation yields the exact threshold \\(2^{1/p}\\), and the standard coordinate frame attains it inside a unit square. For \\(p>1\\) the short shell is precisely the eight nonzero {-1,0,1}^2 vectors, and the two independent configurations count 8+16 frames, all determinant one. For \\(p=1\\) the explicit linear isometry U=(x+y,x-y) to the planar sup norm makes each triangle circumradius half its diameter, so the three \\(\\ell_1\\) norm inequalities are exactly necessary/sufficient. Exhausting the four unit, four diagonal, and four doubled-unit vectors gives 24+16+8=48 ordered frames, with determinant multiplicities 24 and 24. The extra vectors have even coordinate sum and determinant two, hence span the unique checkerboard index-two lattice. Standalone verify.py ran successfully on exact integer finite shells; infinite optimality is proved analytically rather than inferred from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xue establishes the global numerical optimum for all coordinate ell_p balls and all dimensions, which strictly covers the new theorem's scalar value.",
+        "Grozev--Nikolov contains a more general simplexes-in-parallelotopes containment criterion but no diamond-frame index enumeration."
+      ],
+      "reasoning": "Explicitly exclude the known numerical optimum from originality. Stronger prior numerical coverage does not imply the all-minimizers classification, counting and sublattice index. Read the relevant primary statements and proofs, not just titles.",
+      "searches": [
+        "arXiv:2610.39034 Section 3.1 equation (3.2)",
+        "arXiv:2606.14584 Section 2",
+        "arXiv:2610.21572 Lemma 5",
+        "permutation simplices fitting ℓ1 diamond in planar integer lattice, minimax radius, all frames",
+        "checkerboard parity sublattice diamond norm optimal Kuhn permutation triangles two dimensions 24 index two bases",
+        "sharp Kuhn fitting radius ℓ_p^2 Z2 complete optimal frames determinant jump p=1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39034v1, Definition 1.1, Proposition 2.5, Eq. 3.2, surrounding results",
+      "arXiv:2606.14584v1, Introduction and Section 2",
+      "arXiv:2610.21572v1, entire four-page text",
+      "Accessible earlier standard-cube optimizer claim item 1a9ae509-9955-4153-98db-c823605a6a38",
+      "published-finding corpus semantic records associated with the cited query strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The equality case 48 ordered frames / 24 index-two is not a logical consequence of knowing only the scalar optimum from Xue.",
+        "The independent frame span index-two classification follows from the exact ell_1 triangle circumradius identity plus integer-shell enumeration, neither provided by the covering criteria cited.",
+        "The earlier cube classification covers standard-coordinate square geometry and proves all its optimizers unimodular, so it does not imply the diamond endpoint, where determinant-two optimizers exist."
+      ],
+      "reasoning": "The only strongly overlapping statement is the minimum radius, acknowledged as known. The new claim concerns *all attaining frames* and the nonprimitive phase transition. Tested the apparent square/diamond duality: the linear isometry maps Z^2 to a nonstandard sublattice, blocking direct implication.",
+      "searches": [
+        "arXiv:2610.39034 Definition (1.1) and equation (3.2)",
+        "arXiv:2606.14584 Proposition 2.2",
+        "arXiv:2610.21572 Theorem 2 and Lemma 5",
+        "checkerboard lattice Kuhn",
+        "Complete planar Kuhn packet minimizers of the Manhattan diamond: index-two checkerboard frames at the endpoint, all ell_p Banach norm p>1 only unimodular",
+        "Fei Xue On kappa-covering minima optimizer frame diamond checkerboard l1 integer lattice"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An ell_1 ball is linearly isometric to a sup-norm ball under U(x,y)=(x+y,x-y), but U(Z^2) is the index-two checkerboard lattice rather than standard Z^2.",
+        "The accessible standard-cube frame classification proves only the p=infinity endpoint for Z^2; its equality set cannot simply be transported without also changing the lattice."
+      ],
+      "reasoning": "Investigated the diamond-to-square isometry and possible lattice reductions. The altered lattice defeats reduction to the standard-cube result. No equivalent fixed-diamond optimizer classification was found; an older implicit classification is a residual risk.",
+      "searches": [
+        "optimal Kuhn packet frame l1 diamond unit ball Z2 dimension two 48 ordered frames 24 primitive 24 index two",
+        "two-dimensional κ-covering minima square diamond Manhattan norm optimizers sublattice index 2",
+        "permutation simplices fitting ℓ1 diamond in planar integer lattice, minimax radius, all frames",
+        "checkerboard parity sublattice diamond norm optimal Kuhn permutation triangles two dimensions 24 index two bases",
+        "sharp Kuhn fitting radius ℓ_p^2 Z2 complete optimal frames determinant jump p=1",
+        "all minimizing frame classifications p-ball dimension 2 centrally symmetric diamond cube Kuhn packet",
+        "arXiv:2610.39034 equation (3.2)",
+        "arXiv:2606.14584 Proposition 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record results chiefly concerned covering radii, unrelated lattice-reduced quadrilaterals, and Banach moduli, not a table of 48 ordered diamond-optimal frames.",
+        "The exact finite shell computation is independently reproducible from verify.py, not copied from a numerical table."
+      ],
+      "reasoning": "Searched by object, numerical counts and checkerboard-index alias, and found no exact database/table entry covering the claim. Negative search by itself does not prove historical originality.",
+      "searches": [
+        "Kuhn frames",
+        "Kuhn packet optimal frame",
+        "checkerboard lattice Kuhn",
+        "planar diamond optimal Kuhn frame",
+        "Kuhn packet optimal frames l1 diamond Z2 sublattice index 2 covering minima",
+        "Kuhn simplex fitting crosspolytope checkerboard lattice minimum diameter"
+      ]
+    },
+    "rationale": "The numerical value for all p was already proved by Xue (2026, Eq. 3.2), and the standard-cube \\(p=\\infty\\) optimizer classification was known in an accessible related record; neither is presented as novel. The specific all-minimizers classification at the diamond endpoint, 24 additional index-two ordered frames all spanning the checkerboard lattice, and the sharp \\(p=1\\) discontinuity have not been located in inspected primary Kuhn-frame covering papers, the accessible related-claim history, or targeted semantic records. The diamond-to-square norm equivalence changes the lattice, so it does not imply this fixed-lattice frame classification. A historical equivalent may remain undiscovered.",
+    "residual_risks": [
+      "The counts may admit an equivalent older elementary description under tiling or norm-center language not indexed by current searches.",
+      "The prior cube result already gives p=infinity equality cases; the known Xue value is explicitly not claimed as new.",
+      "Independent historical expert priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS THE NUMERICAL OPTIMUM 2^(1/p-1), explicitly credited. Does not classify all minimizing frames, index-two checkerboard generators, or multiplicities. A value-only claim would be covered, but the complete equality-case theorem is not implied by the displayed general minima formula.",
+        "evidence": [
+          "Definition (1.1) permits proper sublattice frames and independently translated simplices; Section 3.1 Eq. (3.2) states kappa_i(B_p^n,Z^n)=i^(1/p)/2.",
+          "Proposition 2.5 identifies the planar optimum with classical covering minima; no equality-case enumeration is given in the relevant passages."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.39034",
+        "material_read": "Full available arXiv HTML, particularly definition (1.1), Propositions 2.2 and 2.5, and Section 3.1 equation (3.2), as well as the remainder on general bounds",
+        "method": "Read full source text; compared numerical formula and quantified equality statements directly",
+        "title": "On κ-covering minima",
+        "trigger": "Primary introduction of the exact common-frame packet radius and its coordinate ell_p computation"
+      },
+      {
+        "assessment": "Provides a planar translated-simplex covering criterion and higher-dimensional minimal covering bodies. Its theorem does not enumerate the optimizer frames for the fixed diamond or identify the checkerboard optimizer jump.",
+        "evidence": [
+          "Section 2 Proposition 2.2: convex hull of translated standard planar Kuhn triangles gives a lattice covering.",
+          "Theorem 1.1 concerns 3-dimensional covering construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.14584",
+        "material_read": "ArXiv HTML introduction and Sections 1-2, including planar Propositions 2.1-2.2 and 3-dimensional Theorem 1.1",
+        "method": "Compared the planar triangulation criterion against the fixed-frame fit minimizer equivalences",
+        "title": "Minimal Covering Bodies and a Minkowski-Type Criterion for Lattice Coverings",
+        "trigger": "Kuhn triangulations and planar covering principle might imply the optimization classification"
+      },
+      {
+        "assessment": "Theorem 2 gives lattice covering for parallelotopes containing a cube facet plus opposite vertex, while Lemma 5 gives a pairwise-difference containment criterion for parallelotopes. The theorem does not classify Kuhn-optimal frames for ell_1 diamond; parallelotope transform would also transform the integer lattice, so the standard cube equality theorem cannot be transferred verbatim.",
+        "evidence": [
+          "Theorem 2 is a sufficient integer-translate covering statement for prescribed cube vertices.",
+          "Lemma 5 concerns translating one simplex into a parallelotope, not enumeration of fixed-lattice common-frame optimality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21572v1",
+        "material_read": "Full 4-page arXiv HTML paper, including Theorem 2 and Lemma 5, plus both proofs",
+        "method": "Compared objects, equality criteria and ambient body geometry",
+        "title": "Lattice coverings by parallelotopes containing cube vertices",
+        "trigger": "Parallelotope/simplex containment can yield a stronger optimizer theorem by a norm equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd86244b-6f0d-4c5f-9440-f64a2cd8b00a",
+  "value": {
+    "rationale": "The original frame-based definition expressly allows nonbasis independent lattice vectors; deciding whether this freedom matters is structural, not a routine scalar evaluation. The natural ell_p family displays an exact boundary transition: every smoother \\(p>1\\) optimizer is unimodular, whereas the nonsmooth Manhattan ball has precisely twelve additional unordered index-two checkerboard minimizers despite a continuous optimum value. This complete equality classification and generator-lattice identification supplies information not contained in the previously known numerical covering minimum.",
+    "status": "PASS"
+  }
+}
