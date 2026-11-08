@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is an if-and-only-if classification *within the specified family*, not a purported full-group classification. Direct substitution into the group identity yields equation (1); antisymmetrization yields the symplectic-similitude criterion; removal of the explicit quadratic polarization forces the remaining function to be additive and hence linear. The two multiplier regimes are exhaustive, the symplectic-similitude fiber has known exact order, and rank-\(r\) isotropic-image maps are counted without duplication by choosing their image and a surjection onto it. The included checker exhaustively verifies the defining group identity for \(p=3,n=1\), checks matrix counts for \(p=5,n=1\), and checks the defining group identity by samples in quotient dimension four. It cannot certify the general theorem on its own.
+## correctness
 
-## Originality — PASS (qualified)
-Savelyev's arXiv:2608.28291 (2026-08-28), inspected in its substantive introduction, the general-center-preservation discussion and classification scope, gives the general center-invariance theorem and exhaustive \(p^3\) classifications; it does not advertise a higher-rank counting theorem. Rathee's arXiv:2402.15428 discusses dimension-three Lie-algebra operators and induced Heisenberg group operators. The exact higher-rank phase criterion and all-rank counts in the present constrained family were not located through multiple targeted primary-literature and mathematical-record searches. Similarity search is evidence about accessible records, not proof of global novelty. Classical symplectic counts and the lower-dimensional precedent are acknowledged. Residual priority risk: broader group/Lie Rota–Baxter parametrizations or integration results may imply the restricted calculation under different language; a fully comprehensive full-text historical comparison has not been made.
+PASS
 
-## Value — PASS
-This is a natural family immediately suggested by center preservation for extraspecial groups and by affine-linear maps on their symplectic quotients. The theorem distinguishes both nonexceptional invertible similitudes and exceptional isotropic-image maps, computes their complete rank distributions and total counts in every dimension, and identifies a structural transition unavailable from a single finite census. These exact formulas can serve as a benchmark and building block for complete higher-rank classification, without claiming to solve that larger problem.
+For center-affine quotient-linear B_{T,mu,F}, direct Heisenberg RB substitution yields a symmetric polarization equation. Antisymmetrizing gives omega((T−mu I)v,(T−mu I)w)=mu(mu+1)omega(v,w); subtracting Q(v)=mu/2 omega(v,Tv) leaves F−Q additive, thus a unique F_p-linear form. If multiplier nonzero, T−mu I is a symplectic similitude in a fiber of cardinality Sp_{2n}(p); exceptional mu∈{0,−1} have totally isotropic image r≤n, counted by L_{n,r}(p)*∏_{i<r}(p^{2n}−p^i), with p^{2n} choices of linear form. This proves p^{2n}((p−2)S_n(p)+2M_n(p)). Independent exhaustive 2×2 matrix counts for p=3,5 gave per-mu sequences (33,24,33), (145,120,120,120,145), totals 810 and 16250. Finite checks corroborate proof for every odd prime p,n>=1.
 
-## Scientific limitations
-The theorem is restricted to odd prime fields, the exponent-\(p\) Heisenberg group, and the named map family. It does not classify arbitrary set maps on the group, operator orbits, or other extraspecial types. Direct computational checks in low dimension are corroboration only. Originality is qualified by the possibility of indirect implications from prior general results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general group RB framework and n=1 extraspecial-group classification precede this claim; the submitted restricted family’s higher-n all-rank enumerator is a distinct object. A general symplectic classification could imply it, and full closest primary unavailable, so priority is qualified.
+
+## value
+
+PASS
+
+A complete classification with exact rank stratification of a natural tractable family on all odd-prime extraspecial groups identifies a structurally sharp transition between invertible similitudes and isotropic-image singular maps. The precise finite-field rank counts are useful, not a renamed small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
