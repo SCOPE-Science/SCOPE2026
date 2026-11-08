@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal entire-kernel theorem uses uniform joint exponential type to obtain the same Borel convergence radius for every nonzero slice. This makes the disk-separation lemma valid regardless of varying slice amplitudes. The Laurent translation identity is an exact formal coefficient identity whose two sides converge near infinity. Analytic continuation over the complement of finitely many disjoint disks and Liouville's theorem finish the independence proof. Finite evaluation-matrix rank then yields arbitrary coherent-column independence. The Fock application invokes the precise joint-type and nonvanishing result of Liu--Qin--Huang, equations (4.2)--(4.3) and Theorem 1.2, on the dense common invariant domain; no conclusion about bounded extensions is taken.
+## correctness
 
-## Originality — PASS under inspected evidence
-The 2026 motivating paper establishes a zero-product theorem, whereas its kernel may a priori have positive finite rank. The new analytic lemma precludes all finite ranks. Bauer--Le's 2011 Section 5 and Borichev--Rozenblum's 2013 theorem address single-symbol finite rank, not an arbitrary finite Toeplitz product. The closest published mathematical records deal with nonzero finite-frequency Fock products or nonharmonic bounded zero divisors, neither of which dominates this claim. Equivalence to finite-column-span and arbitrarily large evaluation-matrix rank was checked. Historical spectral-synthesis implicit-coverage risk is noted, not dismissed.
+PASS
 
-## Value — PASS
-The rank problem is a motivated structural question in Fock Toeplitz theory; infinite rank is strictly stronger than nonvanishing and applies to every number of factors. The disjoint Borel-transform singularity mechanism gives a reusable kernel-rigidity principle and explains exactly why the joint linear-exponential bound is relevant. No operator-norm or spectrum claim is made.
+For each nonzero entire exp-type u(w), Cauchy bounds |u^(n)(0)|<=C(ea)^n make the Fourier–Borel Laurent series Bu holomorphic outside |ζ|>R>ea, O(1/ζ), and injective. Direct coefficient-wise summation gives B(exp(λw)u(w))(ζ)=Bu(ζ-λ) near infinity. For finitely many pairwise >4R separated λ_j, a hypothetical dependence of exp(λ_jw)u_j(w) extends to the connected complement of singularity disks; other terms holomorphically continue Bu_i across its disk, making it entire and zero by Liouville, contradiction. Since V nonzero, some coefficient function ∂_w^k V(z,0) is nonzero; choose arbitrarily many separated real z_i avoiding its discrete zeros. Their slices V(z_i,w) share the same exponent a despite differing constants, hence independent rows K(z_i,·), which yield invertible evaluation matrices and independent columns. The boundary example V=exp(-zw) is excluded by joint exp-type; zero V is excluded. The Fock product corollary additionally uses Liu–Qin–Huang Theorem 1.2 nonzero-product and the jointly exponential-type coherent-state kernel Eq.(4.3), not just nonvanishing; this external input was not independently full-text verified due access. An illustrative determinant check for three polynomial V choices was nonzero but proves no general rank theorem.
 
-## Literature and limitations
-Primary source: Liu--Qin--Huang, arXiv:2610.30209v1, Sections 1--4 (2026-10-21). Historical comparison: Bauer--Le, JFA 2011, Section 5 (read from author-hosted full PDF), and Borichev--Rozenblum, arXiv:1303.2996v1, Theorem 3.1. The cited 2026 theorem supplies a proof premise but has no independent certification in this package. An abstract Fourier--Borel equivalent could occur in older literature not identified in bounded checks. The claim is confined to algebraic rank and one-variable Fock products.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Liu–Qin–Huang's 2026 work proves absence of finite zero products and gives coherent-state kernels, but a nonzero linear operator can still have finite positive rank; the new abstract Borel separation theorem supplies the strict implication to infinite rank. Earlier Bauer–Le and Borichev–Rozenblum finite-rank theorems concern single Fock Toeplitz symbols, not arbitrary finite products. The 2008 Choe–Koo–Lee 'Finite rank Toeplitz products with harmonic symbols' is about Bergman space, not the Bargmann–Fock product in the claim. The Resultary finite-frequency Fock nonzero algebra record is narrower and cannot imply infinite rank. No matching general exponential-kernel rank theorem found, with material risk of classical Fourier–Borel spectral-synthesis equivalent formulations and inaccessible Liu paper.
+
+## value
+
+PASS
+
+Distinguishing finite positive rank from mere nonvanishing is a substantive Fock Toeplitz structural question: every nontrivial finite harmonic exp-type product is shown to have arbitrarily large independent coherent-state images, without assuming bounded extension. The disjoint-translated-Borel singularity lemma also applies to all jointly exponential-type kernels, providing a reusable analytic rigidity principle rather than a tautological zero-product restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

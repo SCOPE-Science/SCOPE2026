@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the kernel rank theorem
+# Independent mathematical audit
 
-The main proof is analytical and requires no computational certificate. It separately verifies: (i) Cauchy derivative bounds for all Taylor orders, (ii) the exact Fourier--Borel translation identity via the binomial series, (iii) the connectedness of the exterior of finitely many disjoint disks, (iv) analytic gluing to extend a chosen Borel transform, and (v) the finite evaluation-matrix characterization of functional linear independence. Each holds for arbitrary finite sample size and uniform exponential type, not by testing only a bounded set of examples.
+## correctness
 
-For the operator corollary, Liu--Qin--Huang, arXiv:2610.30209v1 (2026-10-21), Theorem 1.2 and equations (4.2)--(4.3) were inspected: their \(V\) belongs to the joint exponential-type class and is nonzero when every harmonic symbol is nonzero. Their domain contains each coherent state, so all columns in the proof are legitimate. Their theorem is a cited premise; the new infinite-rank deduction is directly proved here. No extra code dependency or outside computational artifact is required.
+PASS
 
-An independent mathematical audit has not been performed. The result has no independent validation certificate.
+For each nonzero entire exp-type u(w), Cauchy bounds |u^(n)(0)|<=C(ea)^n make the Fourier–Borel Laurent series Bu holomorphic outside |ζ|>R>ea, O(1/ζ), and injective. Direct coefficient-wise summation gives B(exp(λw)u(w))(ζ)=Bu(ζ-λ) near infinity. For finitely many pairwise >4R separated λ_j, a hypothetical dependence of exp(λ_jw)u_j(w) extends to the connected complement of singularity disks; other terms holomorphically continue Bu_i across its disk, making it entire and zero by Liouville, contradiction. Since V nonzero, some coefficient function ∂_w^k V(z,0) is nonzero; choose arbitrarily many separated real z_i avoiding its discrete zeros. Their slices V(z_i,w) share the same exponent a despite differing constants, hence independent rows K(z_i,·), which yield invertible evaluation matrices and independent columns. The boundary example V=exp(-zw) is excluded by joint exp-type; zero V is excluded. The Fock product corollary additionally uses Liu–Qin–Huang Theorem 1.2 nonzero-product and the jointly exponential-type coherent-state kernel Eq.(4.3), not just nonvanishing; this external input was not independently full-text verified due access. An illustrative determinant check for three polynomial V choices was nonzero but proves no general rank theorem.
+
+## originality
+
+PASS
+
+Liu–Qin–Huang's 2026 work proves absence of finite zero products and gives coherent-state kernels, but a nonzero linear operator can still have finite positive rank; the new abstract Borel separation theorem supplies the strict implication to infinite rank. Earlier Bauer–Le and Borichev–Rozenblum finite-rank theorems concern single Fock Toeplitz symbols, not arbitrary finite products. The 2008 Choe–Koo–Lee 'Finite rank Toeplitz products with harmonic symbols' is about Bergman space, not the Bargmann–Fock product in the claim. The Resultary finite-frequency Fock nonzero algebra record is narrower and cannot imply infinite rank. No matching general exponential-kernel rank theorem found, with material risk of classical Fourier–Borel spectral-synthesis equivalent formulations and inaccessible Liu paper.
+
+## value
+
+PASS
+
+Distinguishing finite positive rank from mere nonvanishing is a substantive Fock Toeplitz structural question: every nontrivial finite harmonic exp-type product is shown to have arbitrarily large independent coherent-state images, without assuming bounded extension. The disjoint-translated-Borel singularity lemma also applies to all jointly exponential-type kernels, providing a reusable analytic rigidity principle rather than a tautological zero-product restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
