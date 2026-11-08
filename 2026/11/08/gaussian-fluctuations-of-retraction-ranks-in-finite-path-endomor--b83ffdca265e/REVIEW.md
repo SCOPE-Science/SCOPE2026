@@ -1,0 +1,11 @@
+# Review of the path retraction rank theorem
+
+**Correctness — PASS.** The statement counts distinct labeled graph endomorphisms whose neighboring images differ by exactly one. Idempotence is equivalent to fixing an image interval; the two outside tails contribute an exact convolution. The sine spectral formula includes the negative principal eigenvalue when the path size is odd, and the proof explicitly bounds this parity correction and the remaining modes before using Laplace's method. The resulting normal variance and centering are derived, not inferred from finite experiments. The executable checks exact counts independently through eleven vertices; this is corroboration, not infinite proof.
+
+**Originality — PASS relative to inspected evidence.** The 2018 path-endomorphism monoid paper computes generator ranks and related structure, not a random idempotent's image-rank central limit theorem. The 2012 path-homomorphism paper computes unrestricted walk counts. The 2012 path/cycle endo-regularity thesis already proves the fixed-interval idempotent criterion; that background is expressly credited. A distinct weak-cycle result has a cubic-root concentration scale, but its statement neither includes these strict path endomorphisms nor supplies their non-lazy Gaussian fluctuations. No identical local Gaussian theorem was found in the actual literature and research-record searches. Priority beyond inspected sources is unverified.
+
+**Mathematical value — PASS.** Idempotents are precisely the retractions in this transformation monoid, and image size is the natural measure of a retract's dimension. The theorem resolves the full finite rank count and shows the nontrivial coexistence of a sublinear cubic-root typical rank and Gaussian fluctuations on the smaller sixth-root scale. It refines coarse concentration and links semigroup structure to spectral boundary effects. It is neither a parameter relabeling nor a finite-table exercise.
+
+**Residual risks.** A general, unpublished transfer-matrix saddle-point theorem could subsume the local limit. The published structural statements themselves are not new. The result is restricted to strict undirected paths. Exhaustive computational coverage is finite, and independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

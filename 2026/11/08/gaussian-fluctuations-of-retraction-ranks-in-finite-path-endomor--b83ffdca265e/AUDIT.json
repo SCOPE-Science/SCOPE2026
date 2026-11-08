@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "An idempotent strict path endomorphism fixes precisely its image interval. Independent endpoint-starting walks on the two complementary tails yield the exact finite convolution. The sine eigenbasis of the path adjacency matrix gives coefficients 2(1+cos(j*pi/(r+1)))/(r+1) for odd j. The negative top-modulus eigenvalue, when present, has coefficient O(r^-3) versus the positive principal O(r^-1). Uniform summable subprincipal-mode bounds justify the rank-window asymptotic. The saddle has unique minimizer c=(pi^2/log 2)^(1/3) and second derivative 3 log 2/c, proving the Gaussian sixth-root fluctuations. Exact independent brute-force enumeration matched the transfer recurrence for n=2..11. No finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1807.00590v1 (retraction complexity context)",
+        "DOI:10.1007/s00373-012-1261-0 (unrestricted path walks)"
+      ],
+      "reasoning": "General homomorphism counts and retraction complexity address broader object classes, but their stated results do not supply asymptotics for the rank of a uniform idempotent strict path endomorphism. Transfer-matrix saddle-point methods are standard and could offer a broader implicit coverage risk.",
+      "searches": [
+        "For the endomorphism monoid of the undirected path P_n, an idempotent has a fixed interval of length r; its count is convolution of edge-adjacency walk survival numbers, and a uniformly sampled idempotent has image rank asymptotic (pi^2/log 2)^(1/3) n^(1/3).",
+        "random idempotent graph endomorphism of a finite simple path has image size cubic root of n, adjacency spectral radius 2 cosine pi over r+1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.09307v1",
+      "DOI:10.1007/s00373-012-1261-0",
+      "2012 Endo-Regularity of Paths and Cycles chapter 3",
+      "arXiv:1807.00590v1 (context; not fully inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1810.09307v1 (generating ranks and structure)",
+        "2012 endo-regularity thesis Lemma 3.1.8 (idempotent fixed-image interval)",
+        "DOI:10.1007/s00373-012-1261-0 (path walks)",
+        "Distinct earlier result on weak undirected cycle endomorphisms (lazy walks, cubic-root first-order scale)"
+      ],
+      "reasoning": "The thesis fixed-interval lemma plus known spectral identities is used as a premise, not claimed original. The published path paper computes generation properties of monoids, not a sampled retraction image-rank distribution. The weak-cycle idempotent result has a different adjacency rule and graph; its cube-root scale is close in spirit but does not entail the explicit strict-path Gaussian statement. However a general uninspected theorem could cover the result.",
+      "searches": [
+        "idempotent endomorphisms finite undirected path rank spectrum retractions length random n^{1/3} probability",
+        "For the endomorphism monoid of the undirected path P_n, an idempotent has a fixed interval of length r; its count is convolution of edge-adjacency walk survival numbers, and a uniformly sampled idempotent has image rank asymptotic (pi^2/log 2)^(1/3) n^(1/3).",
+        "path graph endomorphism idempotent retraction fixed interval rank asymptotic cubic root n spectral radius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1810.09307v1; 2012 endo-regularity thesis §3.1",
+        "DOI:10.1007/s00373-012-1261-0"
+      ],
+      "reasoning": "Searched path graph idempotents, retracts, images, walks and rank distributions. The thesis establishes the fixed interval but gives no identified sixth-root central limit law; the 2018 preprint distinguishes monoid generator rank from operator image rank. Equivalent local law not found in inspected material.",
+      "searches": [
+        "idempotent endomorphisms finite undirected path rank spectrum retractions length random n^{1/3} probability",
+        "retractions of finite path graph idempotent path monoid rank n to power one-third spectral asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exhaustive finite comparison for n=2 through 11 recorded in verify.py; exact rank histograms at n=30,100,300"
+      ],
+      "reasoning": "No exact finite table was found that implies the all-n convolution plus Gaussian CLT. Finite histograms alone cannot prove an infinite limit; direct checks here are independent corroboration.",
+      "searches": [
+        "path graph endomorphism idempotent retraction fixed interval rank asymptotic cubic root n spectral radius",
+        "path monoid idempotent endomorphism retract random image size"
+      ]
+    },
+    "rationale": "The identified prior sources provide endomorphism-monoid structure, generator rank, walk counts, and the fixed-interval criterion; these are cited as background. The new mathematical claim is an exact rank-indexed retraction count together with its centered, explicit-variance Gaussian limit on the sixth-root scale. The closest related weak-cycle retraction count permits edge contraction, concerns a different graph and monoid, and does not imply the non-lazy strict-path Gaussian limit. Search absence is not a uniqueness proof; residual priority uncertainty remains.",
+    "residual_risks": [
+      "An unidentified general transfer-matrix or graph-retraction local limit theorem may subsume the claimed Gaussian law.",
+      "Overlap with the separate weak-cycle cubic-root idempotent-count result must be acknowledged; the strict-path local normal law is distinct.",
+      "Unrestricted path homomorphism enumeration and the fixed-interval retraction lemma are established prior results.",
+      "No independent mathematical audit or publication-priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generation rank of the endomorphism monoid and its structural description, not the distribution of image sizes among idempotents",
+        "evidence": [
+          "Authors classify and generate End(P_n); rank there is minimum generator size, distinguished from operator-image rank here."
+        ],
+        "identifier_or_url": "arXiv:1810.09307v1; https://research.unl.pt/ws/files/18723855/endpn.pdf",
+        "material_read": "Author manuscript title, abstract, introduction and relevant structural/rank material in full PDF",
+        "method": "Accessible author PDF text and page screenshot inspection",
+        "title": "Ranks of monoids of endomorphisms of a finite undirected path",
+        "trigger": "Same monoid and ambiguous rank terminology"
+      },
+      {
+        "assessment": "Counts unrestricted path homomorphisms and walk quantities; does not identify a random-idempotent rank CLT",
+        "evidence": [
+          "Path homomorphism enumeration supplies related adjacency-walk counts but not idempotent-image rank probability."
+        ],
+        "identifier_or_url": "DOI:10.1007/s00373-012-1261-0",
+        "material_read": "Accessible paper full PDF, including main counting statements",
+        "method": "Open-access text and screenshot inspection",
+        "title": "A Note on Counting Homomorphisms of Paths",
+        "trigger": "Relevant exact walks/homomorphism counts"
+      },
+      {
+        "assessment": "Explicitly covers the fixed interval criterion, credited as prior; no inspected Gaussian rank-limit claim",
+        "evidence": [
+          "Lemma 3.1.8 establishes necessary idempotent interval condition."
+        ],
+        "identifier_or_url": "https://archive.lib.cmu.ac.th/full/T/2012/math20712np_ch3.pdf",
+        "material_read": "Relevant chapter PDF and Lemma 3.1.8",
+        "method": "Full PDF text and targeted screenshot inspection",
+        "title": "Endo-Regularity of Paths and Cycles, chapter 3",
+        "trigger": "Possible prior fixed-interval idempotent classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b83ffdca-265e-41fd-b456-d67a9b9e51b8",
+  "value": {
+    "rationale": "Retract-image rank is a fundamental semigroup invariant, and its exact spectrum is naturally motivated by endomorphism/idempotent structure. The full convolution, stretched-exponential total, and nondegenerate sixth-root Gaussian fluctuations quantify the rank of a typical retract and give sharp variance beyond merely locating the dominant cubic-root scale. The result is an infinite-family probabilistic theorem, not a short finite-table recomputation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
