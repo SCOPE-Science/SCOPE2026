@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "proof_checks": [
+      "original coefficient specialization",
+      "both Eisenstein translate hypotheses",
+      "Q identity",
+      "negative-root argument",
+      "field tower degree",
+      "prime 2 and prime 3 boundaries"
+    ],
+    "rationale": "For prime \\(p\\), the identity \\(P_p(X)=S_p(X)^2+pX^{p-1}\\) is independently reconstructed from the coefficient definition. Both \\(P_p\\) and \\(H_p\\) are monic of degree \\(2p-2\\), congruent to \\((X-1)^{2p-2}\\) modulo \\(p\\), and take value \\(p(p+1)\\) at \\(1\\); their translates are Eisenstein at \\(p\\). The identity \\(Q_p(X)=(1+X^2)H_p(X^2)\\) is verified algebraically. For \\(p\\equiv3\\pmod4\\), the sign condition \\(H_p(-1)=1-p^2<0<H_p(0)\\) yields a negative real root \\(\\alpha\\) generating a real number field of degree \\(2p-2\\). Adjoining its square root has degree two, proving irreducibility of \\(H_p(X^2)\\), which has degree \\(4p-4\\). Finite exact checks cover primes at most 47; the proof is unrestricted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1410.2054v1 Sections 1–2: prime-factor decomposition for Fourier transforms, no Lambert polynomial irreducibility assertion.",
+        "Dilcher–Robins, DOI 10.1007/s11139-014-9579-2: accessible abstract identifies coefficients gcd(n,j)^k rather than the divisor-count-weighted triangular coefficients. Full text not obtained."
+      ],
+      "reasoning": "General Fourier-transform factorization does not yield rational-polynomial irreducibility of either numerator. The gcd-power family is coefficientwise distinct; an implication from its special prime-power theorem would require an unlocated identification or transformation. This is a residual but not decisive historical comparison.",
+      "searches": [
+        "\"Zeros and irreducibility of polynomials with gcd powers as coefficients\" pdf Dilcher Robins",
+        "\"Dilcher\" \"Robins\" gcd coefficients polynomial pdf 2014",
+        "\"van der Kamp\" \"Lambert\" \"irreducibility\" polynomial totient prime",
+        "\"Prime number decomposition of the Fourier transform of a function of the greatest common divisor\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1201.3139v1",
+      "arxiv:1410.2054v1",
+      "doi:10.1007/s11139-014-9579-2 (abstract only)",
+      "targeted polynomial formula and literature searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "van der Kamp, arxiv:1201.3139v1 §§4.10–4.11, gives P, Q formulas and observes apparent irreducibility, so the published claims do not establish the theorem.",
+        "Holleboom arxiv:1410.2054v1 addresses arithmetic Fourier-transform decomposition rather than the irreducibility of P or Q.",
+        "Dilcher–Robins abstract gives a different coefficient-defined family and a prime-power irreducibility statement restricted to that different family."
+      ],
+      "reasoning": "The new proof converts the original prime-index coefficient formulas to shifted-Eisenstein polynomials; for the companion it also proves that adjoining a square root of a negative real conjugate doubles the field degree. Neither property follows by a stated implication from the inspected prior theorems. Full-text inaccessibility is recorded rather than silently treated as noncoverage.",
+      "searches": [
+        "arxiv:1201.3139v1 sections 4.10 4.11 irreducibility",
+        "arxiv:1410.2054v1 \"polynomial\" \"Lambert\" \"irreducib\"",
+        "\"Zeros and irreducibility of polynomials with gcd powers as coefficients\" irreducibility prime power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1201.3139v1 §§4.10–4.11 defines P and Q and describes irreducibility only as an expectation.",
+        "No located direct equivalence for the first numerator or the quadratic-substitution companion in targeted searches."
+      ],
+      "reasoning": "The formulas use the same coefficient definitions as the original. Translation and folding are invertible or explicitly tracked operations; potential alternate names include generalized-totient Lambert numerator, reciprocal prime-index polynomial and polynomial composition H(X²). No located result states an equivalent irreducibility theorem.",
+      "searches": [
+        "\"On the Fourier transform of the greatest common divisor\" \"irreducible\" prime Eisenstein",
+        "\"p[a]\" \"irreducible\" \"van der Kamp\" polynomial prime",
+        "\"((x^p-1)/(x-1))^2\" \"p x\" irreducible",
+        "\"S_p(x)^2+p x^(p-1)\" irreducible"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit small-prime coefficient searches did not identify a table or database proving the uniform irreducibility statements.",
+        "The primary article plots roots for indices 35 and 37, but numerical plots do not imply irreducibility."
+      ],
+      "reasoning": "A finite polynomial table, a factorization example, or a root plot cannot cover the quantification over every prime or the entire congruence family. No exact stronger symbolic coverage was located.",
+      "searches": [
+        "site:oeis.org \"1, 2, 3, 4, 10, 4, 3, 2, 1\"",
+        "\"x^4+2*x^3+6*x^2+2*x+1\" irreducible",
+        "\"x^8+2*x^7+3*x^6+4*x^5+10*x^4\" irreducible"
+      ]
+    },
+    "rationale": "The original source explicitly proposes irreducibility of the two Lambert numerators but supplies no proof for the prime-index cases; the new statement proves every prime for \\(P_p\\) and primes \\(p\\equiv3\\pmod4\\) for the companion quotient. A near-topic paper studies a distinct gcd-power polynomial family. Searches of explicit formulas, aliases, research records, and relevant primary literature yielded no covering theorem. Historical priority is not certified.",
+    "residual_risks": [
+      "An independently discovered or differently named prime-index argument may be overlooked.",
+      "Full text of Dilcher–Robins (2015) could not be inspected; its abstract indicates a distinct family, not a decisive unresolved direct implication.",
+      "The general composite-index and p congruent 1 mod 4 quotient cases remain unsolved by this theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same objects and suggests both irreducibility properties; no proof for these prime-index claims found in the inspected sections.",
+        "evidence": [
+          "arxiv:1201.3139v1 §§4.10–4.11; equations (43),(44) and the paragraphs following them."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1201.3139",
+        "material_read": "Introduction, generalized totient identity, full Sections 4.10 and 4.11 and relevant bibliography",
+        "method": "Open-access HTML reading and formula-by-formula comparison, including the identity relating P and Q",
+        "title": "On the Fourier transform of the greatest common divisor",
+        "trigger": "Identical generalized-totient Lambert numerator definitions and explicit irreducibility remarks"
+      },
+      {
+        "assessment": "Relevant to Fourier-transform values; no Lambert numerator or polynomial irreducibility theorem was located.",
+        "evidence": [
+          "arxiv:1410.2054v1 Theorem 1, Sections 1–2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.2054",
+        "material_read": "Abstract, introduction, Theorem 1 and the prime-decomposition argument; searched body for polynomial, Lambert and irreducibility",
+        "method": "Open-access HTML inspection and targeted full-text term search",
+        "title": "Prime number decomposition of the Fourier transform of a function of the greatest common divisor",
+        "trigger": "Same underlying Fourier transform; possible stronger prime decomposition"
+      },
+      {
+        "assessment": "The abstract describes coefficients \\(\\gcd(n,j)^k\\), unlike the divisor-count-weighted triangular coefficients here. Historical-priority uncertainty remains without full text.",
+        "evidence": [
+          "The Ramanujan Journal 36 (2015), 227–236, DOI 10.1007/s11139-014-9579-2, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11139-014-9579-2",
+        "material_read": "Bibliographic metadata and published abstract only; full text inaccessible after open-access search and an institutional-access attempt requiring user input",
+        "method": "Abstract and bibliographic search; no full-text noncoverage assertion",
+        "title": "Zeros and irreducibility of polynomials with gcd powers as coefficients",
+        "trigger": "Explicit title about gcd-polynomial irreducibility and nearby prime-power results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ddd2f79e-fde7-4d41-8750-84a056fe583a",
+  "value": {
+    "rationale": "Two explicit irreducibility expectations about naturally defined generalized-totient Lambert numerators are resolved on unbounded prime-index families. The first covers every prime \\(p\\), and the second covers the infinite congruence family \\(p\\equiv3\\pmod4\\); the quotient case requires a real-embedding obstruction beyond the Eisenstein step. This supplies a uniform arithmetic mechanism rather than a few irreducible examples, while leaving composite indices and the \\(p\\equiv1\\pmod4\\) composition honestly open.",
+    "status": "PASS"
+  }
+}
