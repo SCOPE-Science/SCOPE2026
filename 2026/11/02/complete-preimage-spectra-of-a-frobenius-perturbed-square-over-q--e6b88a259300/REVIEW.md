@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The Frobenius equation yields an exact quartic that caps fibers at four. Distinct collision pairs are parameterized without omissions by their difference. Every ordered triple of distinct preimages corresponds bijectively to a product-one distinct triple in the norm-one subgroup. The opposite-pair criterion correctly characterizes whether the triple has a fourth preimage. The pair, triple, and mass identities determine every fiber. Exact independent field enumeration over 19 odd prime-power orders agreed with all five formulas. There is no assumption that finite tests imply the general result.
+## correctness
 
-**Originality: PASS (provisional, literature-dependent).** The entire accessible preprint of Mullen, Wan, and Wang (arXiv:1210.8119v1) supplies a general value-set upper bound but not the full multiplicity spectrum of this map. Qin and Hong (arXiv:1303.2229) characterize various permutation-polynomial constructions, not the full fiber distribution in the present nonpermutation family. Both coordinate descriptions and direct exponent forms were searched; no dominating statement was identified. Closest indexed findings concern different polynomial graphs or analytic invariants. Search absence alone is not novelty proof. Specialist results on exact fibers of low-degree quadratic polynomial maps remain a residual risk.
+PASS
 
-**Mathematical value: PASS.** The exact 0-through-4 fiber census, natural image-size invariant, and the sharp distinction between a cubic-residue effect on individual fibers and its cancellation in the total image size are structural statements for a natural family across all odd finite fields. The classification is not merely an instance of a generic value-set upper bound and includes extension fields of arbitrary odd characteristic.
+Eliminating x^q=y-x² yields quartic X^4−2yX²+X+y²−y^q so all fibers have <=4 distinct roots. For each nonzero h=x-z the equal-image pair relation x+z=−h^(q−1) determines exactly one ordered pair, giving sum r(r-1)N_r=q²−1. Distinct triple preimages biject with ordered distinct norm-one αβγ=1 in cyclic U of order m=q+1, count m²−3m+2g. A triple fails to extend to fourth point precisely for an opposite α,β; there are 3(m−2g) such triples. Thus N3=(m−2g)/2, N4=(m²−6m+8g)/24; pair, mass and target identities yield all remaining N_r. The argument uses 2 invertible, valid for odd q including characteristic3. Independent exhaustive quadratic-coordinate evaluation verified every target multiplicity for 10 odd primes. Unrestricted proof is algebraic, not extrapolated from tests.
 
-The theorem does not cover characteristic two, other Frobenius perturbations, or the identification of every target by name. Its general proof is algebraic rather than computational.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General finite-field polynomial value-set bounds of Mullen–Wan–Wang and polynomial permutation constructions of Qin–Hong are different: an upper bound or bijectivity criterion does not give the five multiplicity classes of this non-permutation map. Exact map and affine-coordinate aliases were searched with no dominating indexed formula established. Claimed originality is qualified by incomplete specialist priority survey.
+
+## value
+
+PASS
+
+The full fiber distribution is a natural invariant of a simple Frobenius-perturbed polynomial across the entire odd-prime-power family; it separates cubic residue behavior in N1-N4 while image size is uniform, a structural arithmetic distinction not mechanically implied by a value-set bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
