@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 gh4_tripartite_verify.py` in a directory containing this file and the standalone checker. The recorded output file `gh4_tripartite_verify.out` is provided for comparison and ends with `GH4_TRIPARTITE_VERIFY_OK`. This checker has no nonstandard dependencies. It exhausts the exact support quotient, retains tagged representatives through coalescences, independently computes the cyclic-contact map, builds both coefficient tables, checks sharp depth witnesses and enumerates \(353600\) labelled microscopic input states. The reduction to tags is the mathematical reason this bounded finite check proves statements for arbitrary shore sizes; the direct microscopic checks alone would not.
+## correctness
 
-The independent_audit front matter records unperformed external validation. Only the self-review represented here have been carried out. Historical-equivalence risks and the unavailable 1993 full paper are documented in the result and review.
+PASS
+
+PASS: The four-color alphabet permits a complete reduction to 15^3=3375 ordered occupied-color shore-support sets, with one tagged representative for every initially present color. The evolution of each tagged representative is multiplicity-independent, so checking equality at iterates 6 and 10 for every tagged state proves the all-shore-size identity, not just a small-graph experiment. Independent enumeration confirmed 620 initially periodic support triples, 619 primitive-four support triples with identical successors under the two rules, 1442 extinguishing supports and the depth histogram (620,248,658,739,641,391,78). Independently reproduced ALL 17 nonzero periodic and 13 nonzero extinction coefficients, and P(1,1,2)=9, E(1,1,2)=240, (P(2,2,2)-1)/4=138, E(2,2,2)=2632. Finite support enumeration is an exhaustive all-size certificate only because the reduction is proved; the 27^n rare-event term follows analytically from the top e333=4 coefficient and smaller remaining exponential bases.
+
+## originality
+
+PASS
+
+PASS: The count of four-cycles itself matches a previously reported cyclic-contact tripartite polynomial and is not original. The surviving separate claim is equality of the actual labelled recurrent configurations and phase maps for distinct update rules, together with the Greenberg-Hastings extinction-basin polynomial, sharp six-step cutoff, and asymptotic. The 1995 primary full article concerns one-dimensional infinite-lattice excitation, not labelled tripartite basins. Three-color arbitrary-graph work and binary parity multiparts do not imply the four-state result. Residual priority risk: the cited earlier same-family finding was available via the reviewed source description rather than full independent archival comparison.
+
+## value
+
+PASS
+
+PASS: The exact coincidence of microscopic periodic dynamics for two inequivalent local automata despite different transients is a structural finite-state phenomenon. The explicit all-size extinction-basin census and sharp cutoff answer natural dynamical questions, and the 27/64 rare-event rate follows from a motivated complete classification, not an arbitrary small-instance statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

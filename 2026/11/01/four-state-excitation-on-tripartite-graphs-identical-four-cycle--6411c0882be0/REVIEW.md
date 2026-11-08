@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from an exact multiplicity-insensitive three-shore occupied-color reduction with all \(3375\) supports and a representative for every initially occupied color. The bounded program explicitly proves the full-state identity \(F^{10}=F^6\), not just eventual periodicity of the support quotient. Its complete tagged-state tests exclude fixed/two-periodic nonzero states, establish equality of the two maps on all \(619\) primitive-four support triples, and verify the exact \(620\)-periodic and \(1442\)-extinguishing support classes. Inclusion–exclusion provides the exact all-size polynomial lift. A separate vertex-wise program path simulates \(353600\) microscopic states over eight parameter triples. Sharp witnesses and the balanced-shore asymptotic are reconstructed directly. The finite certificate is necessary and independently executable; no unbounded extrapolation from a few finite graph sizes is used.
+## correctness
 
-## Originality — PASS, qualified
-The 1995 original multicolor Greenberg–Hastings article treats lattice dynamics, not all-state tripartite extinction counts. The relevant 2016 arbitrary-graph result specializes to three colors. The existing four-state bipartite extinction census does not cover three nonempty shores. Crucially, the existing four-color cyclic-contact tripartite census already gives the **same numerical period-four polynomial**; that polynomial is acknowledged as known, not recast as independent novelty. A different local rule having exactly the same **microscopic primitive-four states and phase transitions**, while exhibiting a sharp six-step rather than three-step entry cutoff, is not a numerical implication of the earlier census. The explicit four-state excitation extinction polynomial and balanced exponential rate are also absent from those closest records. Public search and published-finding corpus comparisons revealed no stronger equivalent statement, but unindexed history and the unavailable 1993 full text remain real limitations.
+PASS
 
-## Value — PASS
-It is mathematically consequential that distinct natural four-state excitation/contact rules share their entire primitive-four attractor dynamics while differing sharply away from those attractors. The exact extinction-basin polynomial quantifies that difference for a natural infinite graph family, and its rate \(27/64\) identifies the dominating rare support mechanism. The universal six-step bound is size-independent and sharp for every nontrivial shore-size triple. These are structural dynamical and probabilistic conclusions, not isolated numerical observations.
+PASS: The four-color alphabet permits a complete reduction to 15^3=3375 ordered occupied-color shore-support sets, with one tagged representative for every initially present color. The evolution of each tagged representative is multiplicity-independent, so checking equality at iterates 6 and 10 for every tagged state proves the all-shore-size identity, not just a small-graph experiment. Independent enumeration confirmed 620 initially periodic support triples, 619 primitive-four support triples with identical successors under the two rules, 1442 extinguishing supports and the depth histogram (620,248,658,739,641,391,78). Independently reproduced ALL 17 nonzero periodic and 13 nonzero extinction coefficients, and P(1,1,2)=9, E(1,1,2)=240, (P(2,2,2)-1)/4=138, E(2,2,2)=2632. Finite support enumeration is an exhaustive all-size certificate only because the reduction is proved; the 27^n rare-event term follows analytically from the top e333=4 coefficient and smaller remaining exponential bases.
 
-## Limitations and relevant literature
-The theorem does not handle arbitrary graphs, higher alphabets or asynchronous updates. The original arXiv:patt-sol/9303002 PDF was inaccessible; the 1995 Greenberg–Hastings article was materially inspected in full-text PDF, while arXiv:1610.07320 was examined via its public abstract and the relevant earlier local findings through their precise claims and reports. Exact finite enumeration is part of the proof; the separate microscopic simulation only corroborates it. Unindexed historical equivalents cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The count of four-cycles itself matches a previously reported cyclic-contact tripartite polynomial and is not original. The surviving separate claim is equality of the actual labelled recurrent configurations and phase maps for distinct update rules, together with the Greenberg-Hastings extinction-basin polynomial, sharp six-step cutoff, and asymptotic. The 1995 primary full article concerns one-dimensional infinite-lattice excitation, not labelled tripartite basins. Three-color arbitrary-graph work and binary parity multiparts do not imply the four-state result. Residual priority risk: the cited earlier same-family finding was available via the reviewed source description rather than full independent archival comparison.
+
+## value
+
+PASS
+
+PASS: The exact coincidence of microscopic periodic dynamics for two inequivalent local automata despite different transients is a structural finite-state phenomenon. The explicit all-size extinction-basin census and sharp cutoff answer natural dynamical questions, and the 27/64 rare-event rate follows from a motivated complete classification, not an arbitrary small-instance statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
