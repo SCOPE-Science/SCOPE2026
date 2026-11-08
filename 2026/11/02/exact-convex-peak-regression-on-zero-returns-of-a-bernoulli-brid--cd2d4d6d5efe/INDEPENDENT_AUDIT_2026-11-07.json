@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:46:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-convex-peak-regression-on-zero-returns-of-a-bernoulli-brid--cd2d4d6d5efe/RESULT.md",
+        "2026/11/02/exact-convex-peak-regression-on-zero-returns-of-a-bernoulli-brid--cd2d4d6d5efe/bridge_peak_verifier.py"
+      ],
+      "rationale": "For a uniform bridge of 2n steps n>=2, exchangeability gives expected internal up/down adjacent peaks n/2. Under any k specified strictly interior even-time zero pins, the blocks are independent uniform bridges whose peaks contribute n/2 and their k joins contribute k/4, proving the location-free pinning identity. Expanding z^R across all pin subsets yields E[P z^R]=(n/2)G(z)+(z−1)G'(z)/4. Signed first-return excursions have generating function 1−sqrt(1−4t), with exactly r+1 excursions when R=r; Lagrange inversion yields q_r ratio 2(r+2)(n−r−1)/(2n−r−2). Coefficient comparison gives E[P|R=r]=(n−1)/2+r(r+2)/[4(2n−r−2)]. Its continuous extension has positive first and second derivative across 0..n−1, with n=2 endpoint checked directly; covariance = (4^n/binom(2n,n)−2)/4 follows from pinning and central binomial convolution. Independently enumerated 4704 balanced paths across small n and checked conditioning; original script separately checks broader sizes. No enumerative finite range is substituted for proof.",
+      "residual_risks": [
+        "Only one-step symmetric ±1 bridges, conditioning on 2n endpoint zero; exact zero-set conditioning is different from prescribed additional pins.",
+        "Strict discrete convexity is vacuous when fewer than 3 allowable return counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kreweras title concerns joint distributions of three bridge parameters and could dominate this conditional mean; the mathematical chapter was not accessible.",
+          "Mortimer–Prellberg explicitly describe nonpreservation of contact count by the bilateral transform."
+        ],
+        "reasoning": "No accessible stronger theorem with signed bridge peak-return joint distribution was identified, but Kreweras coverage remains unresolved due to access, without automatically rejecting O.",
+        "searches": [
+          "Kreweras 1986 DOI:10.1007/BFb0072516 metadata",
+          "Mortimer–Prellberg arXiv:1208.3061 primary PDF",
+          "Godrèche arXiv:1611.01434"
+        ]
+      },
+      "checked_sources": [
+        "published Resultary semantic query: Bernoulli random walk bridge expected number peaks conditional on zero returns interior visits exact convex regression (12 inspected hits)",
+        "https://arxiv.org/pdf/math/0601624",
+        "https://arxiv.org/pdf/1208.3061",
+        "https://arxiv.org/abs/1611.01434",
+        "https://doi.org/10.1007/BFb0072516"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Peak marginal and return marginal individually do not fix their correlation or conditional regression.",
+          "Nonnegative Dyck path contact counts are not signed bilateral bridge zero-return counts."
+        ],
+        "reasoning": "Joint pinning identity and derivative formula are not recovered from known one-variable marginals or a non-contact-preserving bijection.",
+        "searches": [
+          "Labarbe–Marckert Proposition 1",
+          "Mortimer–Prellberg Theorems 1 and 3",
+          "Godrèche zero returns section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning peaks on R number of zeros is a joint bivariate excursion/peak statistic, not either marginal.",
+          "A signed-bridge contact-preserving bijection would potentially transform this into a contact/odd-step statistic; the inspected bilateral map does not preserve contact count."
+        ],
+        "reasoning": "The arbitrary prescribed set of pinned return times gives a stronger bivariate-moment identity than a mere expectation after conditioning on total bridge endpoint.",
+        "searches": [
+          "published Resultary semantic query: Bernoulli random walk bridge expected number peaks conditional on zero returns interior visits exact convex regression (12 inspected hits)",
+          "Labarbe–Marckert 2006 peaks and Bernoulli bridges",
+          "Mortimer–Prellberg 2012 Dyck/bilateral Dyck contact bijection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known peak-only counts use binomial squares, not q_r and cross moment E[P 1_{R=r}].",
+          "No matching signed bridge conditional peak expectation table found among twelve published nearest results; bounded search is not novelty proof."
+        ],
+        "reasoning": "An exact joint table would dominate the regression even if stated with different variables; candidate Kreweras table requires inspection.",
+        "searches": [
+          "published Resultary semantic query: Bernoulli random walk bridge expected number peaks conditional on zero returns interior visits exact convex regression (12 inspected hits)",
+          "Labarbe–Marckert Proposition 1 binomial-square peak counts",
+          "Original RESULT.md signed excursion coefficients"
+        ]
+      },
+      "rationale": "PASS, qualified. Labarbe–Marckert calculate peak marginal distributions, and Godrèche treats zero-return excursion lengths. Mortimer–Prellberg provide path bijections but their bilateral transformation need not preserve zero contacts, so its peak bijection does not imply this joint conditioning. Kreweras 1986 is a plausible same-object multi-parameter bridge joint distribution; full chapter unavailable, genuine priority risk; no decisive coverage established from available evidence.",
+      "residual_risks": [
+        "Kreweras 1986 historical joint-bridge chapter inaccessible (Oxford vpn_disconnected). It may contain a dominating generating function or exact statistic.",
+        "Other classical signed path joint-enumeration formulas may be equivalent under nonobvious variable changes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PEAK_MARGINAL_ONLY_IDENTIFIED",
+          "evidence": [
+            "Proposition 1 gives peak-only bridge distribution; not a cited conditional law in R from this inspected statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601624",
+          "material_read": "Full primary PDF, introductory definitions and Proposition 1 peak enumeration; relevant sections inspected",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Asymptotics of Bernoulli random walks, bridges, excursions and meanders with a given number of peaks",
+          "trigger": "Same Bernoulli bridge, peaks"
+        },
+        {
+          "assessment": "DOES_NOT_DIRECTLY_IMPLY_SIGNED_CONTACT_REGRESSION",
+          "evidence": [
+            "Bilateral extension explicitly fails to preserve contact counts, so one cannot infer the signed bridge joint law from the nonnegative Dyck theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.3061",
+          "material_read": "Full primary paper, Theorems 1 and 3, discussion of beta map and contact non-preservation",
+          "method": "arXiv PDF, text and page image",
+          "title": "A Bijection on Bilateral Dyck Paths",
+          "trigger": "Plausible bijective equivalence for peaks and contacts"
+        },
+        {
+          "assessment": "RETURN_MARGINAL_CONTEXT_ONLY",
+          "evidence": [
+            "Describes tied-down renewal/excursion law, not checked joint peak conditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.01434",
+          "material_read": "Abstract and referenced Section 2.5 return framework",
+          "method": "OA abstract and source comparison",
+          "title": "Longest interval between zeros of the tied-down random walk, the Brownian bridge and related renewal processes",
+          "trigger": "Zero-return and excursion marginal study"
+        },
+        {
+          "assessment": "UNRESOLVED_HIGH_RELEVANCE_PRIOR",
+          "evidence": [
+            "Title is closely relevant; full multi-parameter statistics and theorem scopes not inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BFb0072516",
+          "material_read": "Chapter bibliographic metadata only; mathematical chapter unavailable",
+          "method": "ArXiv/preprint/OA attempted; Oxford authorized returned vpn_disconnected",
+          "title": "Joint distributions of three descriptive parameters of bridges",
+          "trigger": "Older joint bridge parameters potentially include peaks and contacts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-convex-peak-regression-on-zero-returns-of-a-bernoulli-brid--cd2d4d6d5efe/RESULT.md",
+        "2026/11/02/exact-convex-peak-regression-on-zero-returns-of-a-bernoulli-brid--cd2d4d6d5efe/bridge_peak_verifier.py",
+        "published Resultary semantic query: Bernoulli random walk bridge expected number peaks conditional on zero returns interior visits exact convex regression (12 inspected hits)",
+        "https://arxiv.org/pdf/math/0601624"
+      ],
+      "rationale": "Peak versus zero-return dependence is a natural pair of path-shape statistics. An exact location-independent pinning identity and all-n strictly convex conditional regression explain their interaction structurally; the covariance follows as a useful exact invariant, not just a low-order example.",
+      "residual_risks": [
+        "Does not establish full stochastic ordering of peak distributions given return counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one-step symmetric ±1 bridges, conditioning on 2n endpoint zero; exact zero-set conditioning is different from prescribed additional pins.",
+    "Strict discrete convexity is vacuous when fewer than 3 allowable return counts.",
+    "Kreweras 1986 historical joint-bridge chapter inaccessible (Oxford vpn_disconnected). It may contain a dominating generating function or exact statistic.",
+    "Other classical signed path joint-enumeration formulas may be equivalent under nonobvious variable changes.",
+    "Does not establish full stochastic ordering of peak distributions given return counts."
+  ],
+  "schema_version": 1
+}
