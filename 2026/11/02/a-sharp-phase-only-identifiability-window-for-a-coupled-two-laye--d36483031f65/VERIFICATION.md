@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Verification of the exact phase-fold theorem
+# Independent mathematical audit
 
-## Analytic proof obligations
+## correctness
 
-The model parameters \(C,D,\lambda,\omega,\kappa\) and the forcing amplitude are strictly positive. For the unique forced sinusoidal state, \(H^{-1}=\lambda+i\omega C+i\omega D\kappa/(\kappa+i\omega D)\). Rationalization yields real and imaginary parts with strictly positive denominators and establishes the open right semicircle. Differentiation of \(\phi=\arg(H^{-1})\) gives an exactly factored numerator whose sign is the sign of \((C+D)\kappa^2+2\lambda D\kappa-\omega^2CD^2\). This polynomial is negative at zero, strictly increasing and unbounded above, so has one and only one positive root. The endpoint phase values, phase-preimage counts, strict bounded-interval frequency window, and gain resolution follow from this structure. The complete algebra and boundary quantifiers appear in RESULT.md.
+PASS
 
-## Executed reproducibility check
+Derive the exact harmonic inverse response Z=lambda+i omega C+i omega D*kappa/(kappa+i omega D). Rationalizing gives the open right semicircle X>lambda and Y increasing. Differentiating arg Z leaves positive denominator and the bracket (C+D)kappa^2+2 lambda D kappa-omega^2 C D^2, strictly increasing from negative at kappa=0 to positive as kappa grows: exactly one fold. Restricting to [a,b] puts the fold strictly within iff Omega(a)<omega<Omega(b). The monotonic branches prove phase multiplicities with correct open endpoints, and fractional-linear injectivity proves different gains for two phase aliases. Independently checked rational exact semicircle/derivative and the two gains for kappa=1/2 and 3/2. No inference about unknown other physical parameters.
 
-Run `python verify.py` using Python 3 and its standard library only. The replayed output is:
+## originality
 
-```
-VERIFY_OK assertions=149742
-phase twins tangent 8/11; k*=0.927050983125
-climate two-boundary period window: (82.1910947, 141.8322641) years
-```
+PASS
 
-Exact fractions check 19,000 sampled parameter tuples for the semicircle equation, strict real/imaginary bounds, inverse response and derivative-factorization signs. A second exact-rational sweep over 18,000 parameter tuples checks the strictly bounded frequency-window equivalence, plus the analytical phase-twin certificate. The numerical examples are checked with independent complex-arithmetic evaluation. Numerical tests are not a proof of statements covering all positive reals.
+Geoffroy et al. (2013) Appendix D explicitly derive harmonic frequency response, gain and phase of exactly the two-reservoir model. Those formulas cover the transfer itself; the assessed additional result fixes frequency, varies exchange kappa, proves the global unique phase fold and exact alias-count and interval-design classification. A classical two-node thermal or electrical circuit phase-ambiguity theorem could cover it and remains a residual risk.
 
-## Reproducible algebraic anchor
+## value
 
-For \(C=\lambda=\omega=1\) and \(D=3\), the distinct exchange coefficients \(\kappa=1/2\) and \(\kappa=3/2\) give \(Z=(55+40i)/37\) and \(Z=(11+8i)/5\), hence both yield \(\tan\phi=8/11\) while inverse-transfer squared magnitudes differ as \(125/37\) and \(37/5\). These are exact identities, not fitted observations.
+PASS
 
-## Scope and unfinished validation
+The phase-only inverse-identifiability obstruction is a natural uncertainty in harmonic calibration: a single phase observation gives exactly two physically different couplings within a sharp experimentally checkable region, and adding amplitude removes this ambiguity. This is more than a raw derivative evaluation because it supplies a global inverse classification and boundary-frequency prescription.
 
-Only the linear, positive, known-parameter, two-layer deterministic case is proved. Stochastic parameter estimation, empirical climate data, broader-network historical priority and unknown auxiliary climate coefficients are not covered. Independent mathematical validation has not been performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
