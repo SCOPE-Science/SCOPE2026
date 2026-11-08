@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python 3 interpreter. The program uses no external packages and constructs all open-neighborhood bitmasks directly from the deleted-matching adjacency condition. It enumerates **every** vertex subset of each crown graph for \(2\le n\le9\), checks the original locating-domination predicate (nonempty and distinct signatures among unselected vertices), then compares full cardinality counts with both an independent pair-occupancy test and integer binomial coefficients.
+## correctness
 
-The first checked total counts, for \(n=2,3,4,5,6,7,8,9\), are respectively \(9,36,149,588,2103,7178,23913,78552\). The corresponding minimum sizes are \(2,3,4,4,5,6,7,8\). Integer coefficient checks additionally verify the minimum-count expression and total count for all \(5\le n\le200\). Successful execution prints `VERIFY_OK`.
+PASS
 
-These are exhaustive checks **only** for the enumerated finite graphs and exact algebraic evaluations at finite parameter values. The all-parameter proof and the Poisson limit require the symbolic arguments in `RESULT.md`; the program does not certify them independently. Independent audit has not been performed.
+For Cr_n=K_{n,n} minus a matching, the unselected a_i signatures are V\{i} in the b-side and the unselected b_j signatures U\{j} in the a-side. Signature distinctness is equivalent to at most one completely unselected matched pair; nonemptiness contributes precisely the small-side exclusions. For n≥4 this gives (2z+z²)^n+n(2z+z²)^(n-1)-2n² z^(n-1)-2nz^n. The n=3 overlap correction restores six z² terms; n=2 is two disjoint edges. Independent direct-neighborhood subset enumeration n=2..7 agreed coefficient by coefficient. The first nonzero coefficient for n≥5 is n(2^(n-1)-2n) at degree n-1; at n=4 this vanishes, consistent with the boundary. Independent vertex omissions of probability q give Bin(n,q²) empty pairs and negligible small-side exceptions for q=c/√n; hence (1+c²)e^(-c²). Infinite formula is proved combinatorially, not by finite testing.
+
+## originality
+
+PASS
+
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
+
+## value
+
+PASS
+
+The complete locating-dominating cardinality distribution is a natural exact invariant of a standard graph family, extending far beyond the minimum number. It provides the exact count of optimal sensor configurations and a sharp Poisson omission threshold for independent detection-sensor failures; neither follows from generic locating-domination minimum bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

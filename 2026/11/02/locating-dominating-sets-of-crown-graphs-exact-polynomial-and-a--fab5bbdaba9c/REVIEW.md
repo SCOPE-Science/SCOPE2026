@@ -1,15 +1,21 @@
-# Scientific review: exact crown-graph locating-domination enumeration
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-sided indexed-neighborhood identities reduce locating-domination to at most one entirely omitted matched pair, together with explicit small-side exceptions. Counting all such profiles and subtracting the two disjoint invalid families gives the claimed all-size polynomial for every \(n\ge4\), with separate exact treatment of \(n=2,3\). The minimum coefficient follows by coefficient extraction and a positive-count inequality for \(n\ge5\). The reliability formula is the Bernoulli evaluation of that polynomial, and its limiting profile follows from the binomial-to-Poisson limit. Exhaustive tests of every vertex subset for \(2\le n\le9\) and exact coefficient checks to \(n=200\) independently support the proof without replacing it.
+## correctness
 
-## Originality
-PASS subject to stated priority uncertainty. The accessible full primary manuscript by Hernando–Mora–Pelayo (arXiv:1711.01951v1) treats locating-domination numbers in bipartite graphs and complements, rather than a crown-graph cardinality distribution. Bousquet–Deschamps–Lehtilä–Parreau investigate oriented variants, while Chakraborty–Foucaud–Henning–Laihonen address domination/locating-domination partitions. The closest published crown-graph result located in the mathematical-record search counts *edge-metric bases*, which distinguish edges by distances rather than distinguishing unselected vertices by their selected open-neighborhoods. Likewise, restrained domination of crown graphs lacks the required signature uniqueness. Neither stronger implication nor equivalence covering the proposed polynomial was established in the inspected sources. Publication priority remains uncertain because unindexed or uninspected sources may contain the same enumeration.
+PASS
 
-## Mathematical value
-PASS. A natural two-parameter deployment graph is analyzed at the level of all feasible sensor configurations, not only the minimum number of sensors. The exact classification identifies every optimum and every cardinality coefficient, and yields an independent-failure reliability law with a nontrivial Poisson transition on the natural scale \(n^{-1/2}\). These outputs are useful even if an optimal-size bound alone were already known.
+For Cr_n=K_{n,n} minus a matching, the unselected a_i signatures are V\{i} in the b-side and the unselected b_j signatures U\{j} in the a-side. Signature distinctness is equivalent to at most one completely unselected matched pair; nonemptiness contributes precisely the small-side exclusions. For n≥4 this gives (2z+z²)^n+n(2z+z²)^(n-1)-2n² z^(n-1)-2nz^n. The n=3 overlap correction restores six z² terms; n=2 is two disjoint edges. Independent direct-neighborhood subset enumeration n=2..7 agreed coefficient by coefficient. The first nonzero coefficient for n≥5 is n(2^(n-1)-2n) at degree n-1; at n=4 this vanishes, consistent with the boundary. Independent vertex omissions of probability q give Bin(n,q²) empty pairs and negligible small-side exceptions for q=c/√n; hence (1+c²)e^(-c²). Infinite formula is proved combinatorially, not by finite testing.
 
-## Limitations and scientific risks
-The proof is for ordinary locating domination, not identifying codes, open locating-total domination or edge-metric resolution. The asymptotic reliability theorem assumes independent equal-probability vertex selection. An earlier unindexed equivalent characterization or polynomial could supersede novelty. The verification program checks finite instances only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
+
+## value
+
+PASS
+
+The complete locating-dominating cardinality distribution is a natural exact invariant of a standard graph family, extending far beyond the minimum number. It provides the exact count of optimal sensor configurations and a sharp Poisson omission threshold for independent detection-sensor failures; neither follows from generic locating-domination minimum bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
