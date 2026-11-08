@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The sign-invariance, constructive legal canonical sorting in every fiber, exhaustive classification of two singleton sign classes, and explicit safe crossings of every quotient-cube coordinate reconstruct a complete proof for every n>=4; n=3 handled separately. The awkward j=i-1 case is repaired by one legal adjacent swap, with the c(i)!=i+1 sublemma verified from sorted L/R blocks. Separate Python and C++17 implementations check all graph properties to n=8/9, and all constructive signatures to n=14; a nonisometric six-symbol witness has a seven-move route and inversion lower bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baril–Vajnovszki (2004), DOI 10.1016/j.dam.2003.06.002, pp. 207–221, author-hosted full text https://jl.baril.u-bourgogne.fr/derange.pdf",
+        "Jain (2021), DOI 10.13140/RG.2.2.35817.42088, public full text https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "The 2004 Gray-code abstract and transition Lemma 4 allow two transpositions or a length-three cycle, not one allowed position-range-two transposition. Jain Theorem 1 covers all-position transpositions, a strict supergraph."
+      ],
+      "reasoning": "Connectivity in a graph allowing arbitrary-position transpositions does not imply connectivity under position distance at most two, while a Gray code with multiple-step transitions does not constitute a single-edge path in either local graph. Jain already observes adjacent-only frozen states; the claimed unique count and complete hypercube quotient go substantially beyond that observation.",
+      "searches": [
+        "Jain Transpositions in Derangements graph adjacent elements frozen Gray codes Baril Vajnovszki transpositions positional distance bounded",
+        "Baril Vajnovszki Gray code for derangements 2003 first available online",
+        "derangements adjacent swap transposition 2-displacement connected graph"
+      ]
+    },
+    "checked_sources": [
+      "Baril–Vajnovszki (2004), DOI 10.1016/j.dam.2003.06.002, pp. 207–221, author-hosted full text https://jl.baril.u-bourgogne.fr/derange.pdf",
+      "Jain (2021), DOI 10.13140/RG.2.2.35817.42088, public full text https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+      "S. M. Johnson (1963), DOI 10.2307/2003846 (bibliographic baseline only)",
+      "OEIS A348075 (different statistic, index comparison)",
+      "Semantic searches of published combinatorics results on permutohedron metrics, derangement enumerations, and restricted-swap connectivity (no exact coverage found)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jain (2021), DOI 10.13140/RG.2.2.35817.42088, public full text https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "Baril–Vajnovszki (2004), DOI 10.1016/j.dam.2003.06.002, pp. 207–221, author-hosted full text https://jl.baril.u-bourgogne.fr/derange.pdf",
+        "Jain available full text defines switches as transpositions of arbitrary pairs and proves that graph connected for n>3; its note on p. 5 supplies frozen examples only.",
+        "Baril–Vajnovszki 2004 Lemma 4 and Corollary 5 describe transitions involving up to four positions."
+      ],
+      "reasoning": "The unrestricted-transposition connectivity and existence of some frozen states are logically weaker than the present all-order fiber classification, precisely two isolates, threshold r=2 and quotient graph \\(Q_{n-2}\\). Conversely, merely knowing there are 2^(n−2) sign patterns would not imply that each sign class is connected or that every cube edge can be crossed with a legal distance-two operation; both are proved constructively here.",
+      "searches": [
+        "derangement restricted adjacent transposition graph quotient hypercube sign vectors range two position swap connectivity for n>=4",
+        "derangements D_n no fixed point adjacent transpositions swap neighboring positions graph has exactly \\(2^{n-2}\\) components indexed by each symbol lying to left or right of its fixed point",
+        "derangement permutations adjacent transpositions components graph forbidden fixed points \"adjacent\" \"connected\"",
+        "derangements adjacent swap transposition 2-displacement connected graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baril–Vajnovszki (2004), DOI 10.1016/j.dam.2003.06.002, pp. 207–221, author-hosted full text https://jl.baril.u-bourgogne.fr/derange.pdf",
+        "Jain (2021), DOI 10.13140/RG.2.2.35817.42088, public full text https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "Jain full text pp. 4–5 explicitly distinguishes adjacency-only swaps from unrestricted transpositions; search for exact signed-displacement/hypercube formulation did not identify a published theorem."
+      ],
+      "reasoning": "Equivalent formulations include perfect matchings of the crown graph with a forbidden diagonal and column-order swaps, and a forbidden-diagonal induced subgraph of the permutohedron. The matchings are subject to position-specific forbidden edges, unlike the standard derangement Cayley graph where the vertices are all permutations and the edges represent relative derangements. None of the compared statements implies the sign-fiber and quotient-hypercube theorem.",
+      "searches": [
+        "Derangement graph of permutations avoiding fixed points with only adjacent position swaps: \\(2^{n-2}\\) connected components left/right displacement signatures and exactly two isolated vertices",
+        "forbidden diagonal permanent perfect matchings adjacent column swaps components sorted left right of diagonal",
+        "\"derangements\" \"2^{n-2}\" \"components\" \"adjacent\"",
+        "\"derangements\" \"hypercube\" \"adjacent\" \"swaps\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A348075, https://oeis.org/A348075, tabulates shortest-cycle lengths of derangements, not edges/components of the local-swap graph.",
+        "Standalone exhaustive programs reconstruct component counts 2,4,8,16,32,64,128 for orders 3–9 and quotient-edge counts 0,4,12,32,80,192,448."
+      ],
+      "reasoning": "The classical derangement-number sequence counts vertices only and does not determine adjacency, connectivity or the quotient. An indexed exact table covering the claimed component/quotient results was not found; this lack of a hit is not treated as proof of priority.",
+      "searches": [
+        "site:oeis.org \"derangements\" \"connected components\" adjacent transpositions",
+        "\"derangements\" \"2^{n-2}\" \"components\" \"adjacent\"",
+        "\"derangements\" \"hypercube\" \"adjacent\" \"swaps\""
+      ]
+    },
+    "rationale": "The exact graph is the induced subgraph of the adjacent-transposition permutohedron on derangements, with a distinct range-two supergraph. Baril–Vajnovszki use unrestricted and occasionally multiple swaps/three-cycles; Jain proves connectivity for arbitrary transpositions and explicitly notes adjacent-swap frozen states, which are not new. Neither inspected primary result provides the all-order \\(2^{n-2}\\) component partition, its complete left/right invariants and two unique isolated vertices, or the sharp distance-two hypercube quotient. Matching-object and stronger-implication checks, semantic research-record searches, and direct literature/OEIS index searches revealed no covering theorem. Priority remains qualified for unindexed work.",
+    "residual_risks": [
+      "An older or not-indexed article could have established the same sign-component and quotient theorem under different terminology.",
+      "The author-hosted 2004 article may have been publicly available before the exact dated journal issue; a definitive earliest online day was not documented.",
+      "The 1963 original Johnson primary text was not obtained; its bibliographic scope is a baseline and not relied on as a whole-document novelty exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: transitions are one or two unrestricted transpositions or three-cycles, not a path in the one-local-swap graph; no sign-fiber or range-two quotient classification identified in inspected material.",
+        "evidence": [
+          "Baril–Vajnovszki (2004), DOI 10.1016/j.dam.2003.06.002, pp. 207–221, author-hosted full text https://jl.baril.u-bourgogne.fr/derange.pdf",
+          "Sections 1–3 and Lemma 4, Corollary 5 (transitions differing in up to four positions)."
+        ],
+        "identifier_or_url": "https://jl.baril.u-bourgogne.fr/derange.pdf",
+        "material_read": "Complete abstract and introduction; definitions of transposition and one-line notation; recursive Gray-code construction and transition lemmas in article pp. 207–213; later algorithm description reviewed for scope.",
+        "method": "Author-hosted open PDF, text read and page-one screenshot inspected.",
+        "title": "Gray code for derangements",
+        "trigger": "Same derangement objects; possible Gray-code connectivity stronger than local swap theorem."
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: existence of frozen adjacent-only states is explicitly prior, but every transposition is allowed in the paper’s graph. It does not state the 2^(n−2) component classification, unique isolates or range-two hypercube quotient.",
+        "evidence": [
+          "Jain (2021), DOI 10.13140/RG.2.2.35817.42088, public full text https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+          "Text pp. 4–5 and Theorem 1; p. 5 remark that only adjacent switches cannot generate all derangements."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "material_read": "Public uploaded full-text HTML including abstract, Definitions 1, 5, 6, Theorem 1, section on spanning walks, observation on adjacent-only frozen derangements, and later connectivity proof (pp. 1–8).",
+        "method": "Public author-uploaded text rendered in HTML; substantive primary text read, not only abstract.",
+        "title": "Transpositions in Derangements",
+        "trigger": "Closest exact graph on same derangement vertex set; graph connectedness and adjacency-only examples."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: classical adjacent swaps on all permutations do not impose no-fixed-point feasibility; residual possibility of other treatments remains.",
+        "evidence": [
+          "S. M. Johnson (1963), DOI 10.2307/2003846; the restricted graph is a proper induced subgraph."
+        ],
+        "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/Generation_of_Permutations_by_Adjacent_Transposition",
+        "material_read": "Bibliographic and descriptive record and associated 1963 DOI only; no full primary manuscript claim of derangement-restricted components was established.",
+        "method": "Bibliographic record, not counted as a whole-document negative comparison.",
+        "title": "Generation of Permutations by Adjacent Transposition",
+        "trigger": "Classical adjacent transposition baseline; possible implicit graph connectivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f608872f-11aa-40a0-bab2-6d3933e88c31",
+  "value": {
+    "rationale": "A natural no-fixed-point/forbidden-diagonal constraint induces a nontrivial locality-dependent reconfiguration problem. The theorem supplies a complete infinite family component invariant, shows the exact unique frozen states, proves that enlarging allowable swap distance from one to two is sufficient and necessary for connectivity at all n>=4, and identifies the entire quotient as a hypercube. The metric counterexample confirms this is not a routine isometric restriction of the permutohedron; it provides a structured benchmark for local assignment transformations rather than a mere enumeration of derangements.",
+    "status": "PASS"
+  }
+}
