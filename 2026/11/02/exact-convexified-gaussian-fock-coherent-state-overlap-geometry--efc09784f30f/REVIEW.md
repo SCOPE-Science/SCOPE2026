@@ -1,19 +1,21 @@
-# Scientific review: Exact convexified Gaussian Fock coherent-state overlap geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fock normalized kernel identity gives the exact exponential spiral. The support-function proof considers both the initial point and every possible subsequent local maximum, reduces all ties to the unique crossing of an explicitly monotone function, and excludes the later windings. The closed arc and tangent chord therefore give the entire convex boundary. Green's theorem, exact tangent lengths, radial contraction and endpoint expansions yield the formulas and inequalities. The irrational spectral comparison follows from diagonalization on Fock monomials. The dependency-free checker passed 120446 supplementary numerical and finite sampling assertions; no infinite theorem is inferred merely from sampling.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For normalized Fock kernels the rotation overlap is exp((exp(i theta)−1)|z|²)=e^{(−a+i)t}, a=tan(theta/2)>0. For F_a(t)=e^{at}(cos t−a sin t), derivative is −(1+a²)e^{at} sin t, proving unique T∈(pi,2pi) with F_a(T)=1; this enforces a tangent chord 1 to s_a(T). For each normal the first positive stationary support point t0∈[0,2pi) dominates later winding maxima by e^{−2pi a}; comparing against point 1 via F_a(t0) determines exposed arc 0<t0<T and a single terminal chord, and the origin is in the convex hull. Green area and arc-length give A=(1−e^{−2aT})/(4a)−e^{−aT}sin(T)/2 and P=sqrt(1+a²)(1−e^{−aT})/a+|1−s_a(T)|. Radial contraction e^{−(b−a)t} proves strict inclusion K_b⊊K_a, and expansion T=2pi−2sqrt(pi a)+O(a^{3/2}) gives small-a area pi−2pi²a+O(a^{3/2}); large-a near pi+atan(1/a) gives 1/(4a) up to exponentially small term. Dense irrational-rotation eigenvalues e^{in theta} give full disk numerical range, contrasting strict Berezin hull. Independently sampled 75 support normals; numerical checks do not prove the global support argument.
 
-Augustine, Garayev and Shankar, arXiv:2401.03176, Section 2, establish the same original Fock Berezin spiral and classify when it is convex. Those statements do not determine this optimized closed convex hull, the terminal tangency, the exact area and perimeter, or the disk area gap. Clos, Pentzien and Rodriguez, arXiv:2609.10361 (September 9, 2026), analyze a different Bergman-space automorphism setting. The 2026 full text was inaccessible, so no claim of full-document noncoverage is made. Classical logarithmic-spiral references give arc length but no checked global convex-hull formula. Published semantic research-record matches were compared by mathematical invariants, not by title alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coherent-state diagonal overlap is a canonical computable approximation to the operator numerical range. A closed-convex-hull area and perimeter, strict parameter order and exact sharp loss from the irrational-rotation numerical-range disk are natural global properties of that approximation. The exact one-contact-point classification isolates the geometry missing from prior qualitative convexity results.
+PASS with qualification. Augustine–Garayev–Shankar 2024 derive precisely the Fock overlap exponential spiral and unconvexified Berezin convexity condition, which are prior and credited. The inspected theorem does not state the unique tangent closing chord, its exact area/perimeter, strict nesting or sharp small-angle numerical-range deficit. These are classical Euclidean logarithmic spiral convex-hull geometry questions; an older equivalent hull formula could dominate the novel geometry even absent Fock wording. A 2026 Bergman operator preprint is also unread in full, leaving risk, not definitive noncoverage.
 
-## Limitations and residual risks
+## value
 
-The setting is planar Gaussian Fock rotations, not general affine symbols or anisotropic multivariate Fock kernels. The full text of the September 2026 Bergman paper was not available, and unindexed equivalent classical convex-hull work may exist. No independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Berezin versus numerical-range geometry is a motivated exact operator-theory invariant. A complete exposed boundary, area and perimeter for all positive damping and a precise irrational-angle area gap are directly useful quantitative data beyond the previously known nonconvexity test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
