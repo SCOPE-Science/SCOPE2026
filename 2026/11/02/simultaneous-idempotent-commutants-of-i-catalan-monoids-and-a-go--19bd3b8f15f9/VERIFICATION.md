@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted directory. The checker uses only the Python standard library. It enumerates all order-preserving extensive partial injections on \([n]\) by independent domain and image subsets; compositions are computed as partial-function dictionaries and compared directly. The checker verifies the Narayana-convolution distribution of the number of strict edges for \(1\le n\le8\), the Catalan total sizes, and the exact commutation count with one independently selected partial identity through \(n=7\), with two through \(n=5\), and with three through \(n=4\). Expected final output:
+## correctness
 
-`VERIFY_OK: all rank histograms n=1..8; direct products k=1 n<=7, k=2 n<=5, k=3 n<=4`
+PASS
 
-These checks are exhaustive only in the displayed finite ranges. The universal generating function and singularity regimes require, and are established by, the symbolic arguments in `RESULT.md`; the checker does not constitute exhaustive or independent proof for arbitrary dimension. The one-idempotent count equals the known OEIS A225887 sequence and is not presented as a novel numerical result. Independent mathematical audit has not been performed.
+PASS: For an extensive injective partial map, f^2=f iff f is a partial identity. Commutation of f with e_B is equivalent to B being invariant across every strict arrow i->f(i); the increasing partial-injection graph is disjoint directed paths, with n-r(f) components and c_E(f)=2^(n-r(f)). Rank-r strict injections enumerate by ballot/reflection as Narayana 1/m binom(m,r)binom(m,r+1), and fixed-point gap insertion gives S=1+zS(1-u+uS), F=S/(1-zS). Hence all k-fold idempotent tuple counts equal 2^(kn)F_n(2^-k). Analytic positive root z=(1-u)/(2-u) enters the physical sheet iff u<(3-sqrt5)/2, and meets the branch singularity at equality; standard transfer produces three stated asymptotic regimes. Independent n<=5 direct element enumeration+commutation and F4 checks passed; this does not alone prove the asymptotic.
+
+## originality
+
+PASS
+
+The k=1 pair-count sequence and asymptotic coincide exactly with known OEIS A225887 and cannot be claimed original. Narayana enumerators, Catalan cardinality, and weighted path machinery are classical. The idempotent relative-centralizer *spectrum* and joint k>=2 counts/phase transition were not identified as stated or immediately implied in inspected same-monoid or OEIS literature. Best-of-knowledge with explicit alternate weighted-path risk.
+
+## value
+
+PASS
+
+PASS: The count c_E(f) is a canonical algebraic centralization invariant of a natural finite Catalan monoid. Its entire spectrum and the probability that an element centralizes k independently chosen idempotents are exact natural questions, not arbitrary numerical slices. The golden-ratio analytic transition sharply separates k=1 from all k>=2 and is not determined by the known k=1 sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
