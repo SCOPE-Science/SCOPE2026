@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:52:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the two-step chip changes gives Lf=0, so connectedness and primitivity force exactly one firing per vertex across the two phases. A nontrivial first-phase shore A supports exactly prod_v c_v(A) first-phase states, where c_v is its number of neighbors across the cut. Division by two counts temporal orbits. Deleted matching edges each affect two cross-degrees and yield the displayed binomial sum by splitting-pair count s, intact-pair count p and unmatched-vertex count t. Under complete-graph cut weights binom(N,a)b^a a^b, central cut sizes have exponential concentration; conditional split indicators give E[S|a]=2kab/[N(N-1)] and exactly E[S(1/a+1/b)|a]=2k/(N-1). Their conditional variance is O(N), so second-order exponential Taylor and the O(1/N) logarithmic replacement deliver a constant uniform in k. I independently enumerated all shores for N=4..9 and reproduced samples of finite counts and uniform scaled errors. Finite enumeration is not the proof of the uniform asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Period lengths and possible firing patterns do not determine the total number of two-cycle orbits for every matching deletion size.",
+          "The complete bipartite deletion law mentioned by the source is a different graph class with a different central cut-size measure."
+        ],
+        "reasoning": "Strong period-classification theorems could dominate existence questions, but not this enumeration and uniform e^{-2k/N} relative statistic without additional asymptotic analysis.",
+        "searches": [
+          "Jiang 1003.0943 On the period lengths of the parallel chip-firing game",
+          "Jiang Scully Zhang 1211.6786 Motors and impossible firing patterns",
+          "Levine 0811.2800 Parallel chip firing complete graph"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026:RESULT.md (blob cc7a5210ac0ebd174ea93bc6f93e7c7a25e0e340)",
+        "SCOPE2026:verify_counts.py (blob ceb6b9acc5c87d59d183af7108037678925e5d17)",
+        "SCOPE2026:verify_direct.cpp (tree ef7dbc7049c0c135b35ac09584da0fd66575187f; source listed but not fully inspected)",
+        "arxiv:0811.2800",
+        "arxiv:1003.0943",
+        "arxiv:1211.6786",
+        "doi:10.1016/0304-3975(92)90316-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Looped and loopless chip-firing conventions yield different state update thresholds, so a looped dynamics statement cannot be substituted silently.",
+          "The asymptotic uses conditional split probabilities p1,p2 for disjoint edges and weighted-cut concentration."
+        ],
+        "reasoning": "Neither broad period existence nor the generic cut count supplies the matching-deletion probability estimate required for the uniform O(1/N) theorem.",
+        "searches": [
+          "Levine looped complete-graph circle map conventions",
+          "Jiang multipartite periods",
+          "Bitar Goles parallel chip firing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source establishes Q(G)=half the sum over nontrivial cuts of products of all cross-degrees.",
+          "Generic cut formulas are related but do not directly give conditional weighted asymptotic expectation for deleted matchings."
+        ],
+        "reasoning": "An equivalent formulation would be a weighted complete-graph cut-average ratio with deleted-matching split indicators. Such a specialized uniform asymptotic was not located in checked prior results.",
+        "searches": [
+          "Resultary:parallel chip firing primitive period-two cycles complete graph minus matching e^(-2k/N)",
+          "Bitar Goles parallel chip firing games graphs 1992",
+          "Levine 0811.2800 complete graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pinned exact N=6 counts 11160,7440,5020,3400 and N=8 matching counts were independently checked by cut enumeration for tested sizes.",
+          "No external database table giving the uniform limit or these matching-family enumerations was identified."
+        ],
+        "reasoning": "A finite table cannot imply a uniform N→infinity ratio. The exact finite sum may be derived from the known general cut identity, so its specialization is not separately claimed as deep novelty.",
+        "searches": [
+          "Resultary:chip firing K_N matching deleted orbit count",
+          "SCOPE:chip firing two cycle matching defect",
+          "small graph primitive parallel chip firing orbit count tables"
+        ]
+      },
+      "rationale": "The cut product and some complete-graph period-two counting principles are known; the accepted contribution is the exact matching-deletion specialization together with its uniform, parameter-sensitive relative exponential loss. The cited complete-graph Levine paper employs a self-loop convention in the inspected introductory discussion, while firing-pattern/period-length theorems do not count weighted two-cycles. A previous bounded-degree deletion law for complete bipartite graphs has a different base weighted-cut measure and does not imply this complete-graph constant.",
+      "residual_risks": [
+        "Older cut-indexed chip-firing two-cycle asymptotics, including non-arXiv literature, could imply the same matching-family ratio; searches cannot prove global absence.",
+        "Finite direct-chip enumerator source was listed at the pinned tree but not independently executed; the continuum proof depends on Laplacian and probability arguments rather than captured logs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct relevance to activity regimes, but self-loop convention and focus on periods/rotation do not establish the matching-deletion weighted census in material read",
+          "evidence": "The main circle-map complete-graph convention includes self-loops; inspected theorem is not a statement of Q_{N,k}.",
+          "identifier_or_url": "arxiv:0811.2800",
+          "material_read": "PDF title, introduction and initial definition distinguishing complete-graph with self-loops from loopless update; no exhaustive reading of appendices",
+          "method": "Opened accessible PDF and inspected first page and introductory text",
+          "title": "Parallel chip-firing on the complete graph: Devil’s staircase and Poincaré rotation number",
+          "trigger": "Same chip-firing family, potentially dominating theorem"
+        },
+        {
+          "assessment": "Related firing patterns, but no verified coverage of the family count from available material",
+          "evidence": "Pattern possibility does not count chip intervals supporting each cut.",
+          "identifier_or_url": "arxiv:1211.6786",
+          "material_read": "Bibliographic abstract and cited claim context; full text not independently opened",
+          "method": "Literature search and inspected assigned mathematical source",
+          "title": "Motors and impossible firing patterns in the parallel chip-firing game",
+          "trigger": "Potential broader firing-pattern classification"
+        },
+        {
+          "assessment": "Period length information does not imply uniform weighted cycle-count change",
+          "evidence": "No matching-deletion count or e^{-2k/N} formula in inspected material.",
+          "identifier_or_url": "arxiv:1003.0943",
+          "material_read": "Bibliographic abstract-level material and source discussion, not whole paper",
+          "method": "Source/literature review",
+          "title": "On the period lengths of the parallel chip-firing game",
+          "trigger": "Possible period-two classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting only O(N) edges from K_N is a natural sparse structural perturbation, yet it produces the nonvanishing limiting e^{-1} count ratio for a perfect matching. The exact orbit census and uniform error quantify a dynamical effect not visible in a mere existence-of-period theorem or a single finite test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026:RESULT.md (blob cc7a5210ac0ebd174ea93bc6f93e7c7a25e0e340)",
+    "SCOPE2026:verify_counts.py (blob ceb6b9acc5c87d59d183af7108037678925e5d17)",
+    "SCOPE2026:verify_direct.cpp (tree ef7dbc7049c0c135b35ac09584da0fd66575187f; source listed but not fully inspected)",
+    "arxiv:0811.2800",
+    "arxiv:1003.0943",
+    "arxiv:1211.6786",
+    "doi:10.1016/0304-3975(92)90316-8"
+  ],
+  "disposition": "passed",
+  "final_claim": "For ordinary parallel degree-threshold chip firing on the connected loopless graph K_N with any k pairwise-disjoint edges removed (N>=4), the exact primitive temporal two-orbit count has the given finite triple binomial formula, and Q_{N,k}/Q_{N,0}=exp(-2k/N)+O(1/N) uniformly for 0<=k<=floor(N/2).",
+  "limitations": [
+    "Older cut-indexed chip-firing two-cycle asymptotics, including non-arXiv literature, could imply the same matching-family ratio; searches cannot prove global absence.",
+    "Finite direct-chip enumerator source was listed at the pinned tree but not independently executed; the continuum proof depends on Laplacian and probability arguments rather than captured logs."
+  ],
+  "residual_risks": [
+    "Older cut-indexed chip-firing two-cycle asymptotics, including non-arXiv literature, could imply the same matching-family ratio; searches cannot prove global absence.",
+    "Finite direct-chip enumerator source was listed at the pinned tree but not independently executed; the continuum proof depends on Laplacian and probability arguments rather than captured logs."
+  ],
+  "schema_version": 1
+}
