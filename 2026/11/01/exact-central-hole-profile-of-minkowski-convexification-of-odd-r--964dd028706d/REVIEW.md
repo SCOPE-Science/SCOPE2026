@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For odd \(m\ge5\), the opposite support number is \(\cos(\pi/m)\). This yields the central exclusion. In each nearest-vertex wedge, a truncated sector is the convex hull of five explicit points. Their membership in the corresponding translate follows from two convex combinations and one opposing-edge inequality. These steps give set equality; the polygon area and a separate outer-edge argument give the exact threshold and full stated formula. Numerical geometry checks agree, but are not substituted for analytic proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Meyer (arXiv:2610.26744v1, Sections 1–2 and 5) treats exposed-set criteria for eventual convexification, not the complete quantitative regular odd-polygon hole profile. Artstein-Avidan–Falah–Slomka (arXiv:2407.20604v1, Sections 1, 3–4 and 7) supply the Schneider normalization, general polygon bounds, simplex case, and zonotope cases, but not this odd regular \(m\ge5\) profile in the inspected text. Semantic mathematical-record searches and public terminology searches found nearby regular-polygon asymmetry, vertex convexity, and finite skeleton convexification statements, but their conclusions do not imply the one-hole identity and exact area law. Historical priority remains unproved: an older unindexed packing or covering source could contain the equivalent geometry.
+PASS
 
-## Value — PASS
-The question of **how** a finite vertex set becomes convex under continuous Minkowski addition is a natural quantitative refinement of existence-only criteria. The theorem determines the complete missing region for an infinite nontrivial family, a sharp dilation cutoff, and an exact quadratic area law, including high-order polygon-to-circle behavior. These are structurally useful beyond a one-off numerical calculation and are not asserted to solve general convexification.
+For every odd m>=5, h_P(-v_j)=cos(pi/m). Thus each vertex translate excludes the strict interior of the concentric polygon with vertex-normal support h=1-t cos(pi/m). In the nearest-vertex sector, the intersection of (1+t)P with X>=h is a five-vertex polygon: A=(1+t,0), E_±=(1+t)(cos²theta,±cos theta sin theta), H_±=(h,±h tan theta). A and E_± belong to v_0+tP by explicit convex combinations; H_± lie on its opposite edge because 1<=2t cos theta for t>=1. Convexity establishes coverage outside the hole, including its boundary. At t=sec theta the center becomes covered; addition of (t-sec theta)P proves all larger dilations convexify. For 0<=t<1 an outer polygon edge has a central uncovered segment, so no earlier convexification. The inradius-area calculation gives m(1-t cos theta)^2 tan theta, and normalization and theta-series give the exact relative law and both fourth-order asymptotics. No finite geometry experiment is used as proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the precise changing central-hole identity and area law, not for the inherited Schneider index definition, general Carathéodory bound or existence of finite convexification. Direct primary-paper comparisons and subject searches found no dominating result; historical closed-form odd-regular specializations remain a residual risk.
+
+## value
+
+PASS
+
+PASS: exact birth and closure of the unique central hole for every odd regular order, including a sharp Schneider transition and quantitative all-scale area obstruction, is a natural geometric missing-data problem. This is not a renamed generic convexification inequality; it measures a meaningful shape and defect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
