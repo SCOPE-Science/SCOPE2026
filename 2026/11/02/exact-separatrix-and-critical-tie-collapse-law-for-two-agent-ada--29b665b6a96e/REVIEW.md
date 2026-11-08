@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The two-person flow is derived directly from the normalized source model, with a symmetric positive tie and fixed unit self-weights. The conserved quantity follows by exact differentiation. The shape and endpoint behavior of its scalar potential give a complete and exclusive three-regime phase portrait for every admissible initial condition. Taylor expansion at the transverse crossing and the reduced gap equation give the \(t^{-1}\)/\(t^{-2}\) critical coefficients. The package's numerical ODE and conserved-quantity checks corroborate the proof but do not replace it.
+## correctness
 
-**Originality (O): PASS under inspected-source, best-knowledge comparison.** The 2023 model paper reports numerical consensus-to-clustering transitions under logistic weights without determining the two-person threshold or algebraic critical scales. The 2026 follow-up proves broad long-time clustering and tie-limit alternatives, but the inspected general statements do not fix which alternative occurs for a given positive initial two-person tie. The 2021 signed-social-appraisal model is a different dynamical system. Searches for separatrices, first integrals, adaptive relationship decay and equivalent phase laws yielded no covering result. This is a finite, nonexhaustive literature review; a specialized equivalence remains possible.
+PASS
 
-**Value (V): PASS.** This is a natural minimal case of the adaptive-network polarization mechanism in the motivating paper. It supplies a sharp and computable bistability boundary, identifies the limiting disagreement for initial ties below threshold, and obtains nontrivial universal critical exponents and coefficients; it distinguishes a true dynamical separatrix from a merely observed simulation transition. The claim is deliberately confined to the two-person model, not asserted as a network-wide theorem.
+For two normalized symmetric opinion equations d’=-2w*phi(d)*d/(1+w), w’=w(1-w)(2phi(d)-1), with C2 decreasing positive phi crossing one half transversely at r_c∈(0,2), the exact integral H(d)=∫(2phi-1)/(2d phi) dd gives invariant C=atanh(w)+H(d). H has maximum 0 at r_c and diverges negatively near zero; this yields the exact threshold w_c=tanh[-H(d0)] for d0>r_c, polarization for weaker ties, critical d→r_c and w→0, consensus otherwise. Taylor H≈phi’(r_c)(d-r_c)^2/r_c proves t(d-r_c)→1/(-phi’(r_c)) and t^2 w→1/[r_c(-phi’(r_c))]. Independent numerical integrations on both sides of the boundary confirmed invariant conservation and phase outcomes; limiting exponents derive analytically.
 
-**Scientific limitations.** The regime boundary is proven only under symmetric logistic tie dynamics, fixed unit diagonal weights, and the stated smooth monotone interaction hypothesis. For an exponential interaction, the full opinion range exhibits a polarization phase only when \(\alpha>(\log2)/2\). No classification is claimed for larger populations, other edge updates, degenerate crossings or directed ties. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. The exact integrated invariant supplies a decision rule and universal critical coefficients absent from source numerical plots and newer broad qualitative alternatives. A convergence dichotomy cannot imply the sharp boundary alone. Priority qualified: A specialist analysis might independently integrate the two-dimensional ODE and derive the same atanh+H potential.
+
+## value
+
+PASS
+
+The source model previously displayed consensus-versus-clustering numerically or via broad asymptotic alternatives; this exact two-agent phase portrait identifies the critical initial social tie and sharp algebraic tie-collapse constants. It is a motivated singular separatrix phenomenon, not a generic ODE restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
