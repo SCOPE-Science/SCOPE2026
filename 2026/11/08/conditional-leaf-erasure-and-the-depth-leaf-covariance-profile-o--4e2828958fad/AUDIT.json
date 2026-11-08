@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For each arrival t, the event that the fixed set S has no children is precisely the restriction P_t outside earlier S; because the original P_t are independent, conditioning preserves independence and makes each surviving birth attach uniformly to an earlier surviving birth. This proves the whole-tree erasure law for all n and fixed S. The known depth pgf is independently derived from the parent recursion. Telescoping gives P(i leaf)=(i-1)/(n-1), proving each indexed covariance and their sum, with appropriate zero cases. A verified leaf-variance recurrence proves the correlation limit. The exact standalone verifier passes 17,014 distribution and moment assertions on every recursive tree through n=8. Enumeration is not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson 2004/2005 Theorem 1.1 and Section 4: joint asymptotic fluctuations of global counts of vertices of every outdegree.",
+        "Previously published total-path-length versus fixed-leaf-indicator covariance gives a summed first moment; the root-degree versus leaf-count covariance concerns direct attachments, not vertex depths."
+      ],
+      "reasoning": "An unconditioned vector of degree counts does not encode birth-label depth after a rare fixed-leaf conditioning event. A covariance of the sum of all depths with one indicator is a linear projection; it cannot uniquely determine individual conditional depth distributions or the complete induced-tree law. The prior published conditional root-attachment/path-length assertion similarly does not control the leaf-survival event or reconstruct the reduced-tree distribution.",
+      "searches": [
+        "random recursive tree covariance depth of label j number of leaves minus (j-2)/(2(n-1))",
+        "uniform recursive tree leaf survival indicators joint factorial moments node depth",
+        "doi:10.1002/rsa.20046",
+        "arxiv:1906.02720",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ]
+    },
+    "checked_sources": [
+      "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+      "https://doi.org/10.1002/rsa.20046 (verified first publicly published on 2004-11-16)",
+      "https://www.finanz.math.tugraz.at/~prodinger/levelinc3.pdf",
+      "https://doi.org/10.1002/rsa.20161",
+      "https://arxiv.org/abs/1906.02720",
+      "https://doi.org/10.1214/aoap/1177005874 (abstract only)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The manuscript by Panholzer–Prodinger establishes the unconditional product depth pgf for label j, and Janson establishes degree-count asymptotics.",
+        "A previously published depth-sum/leaf-indicator formula does not specify the individual depth–indicator covariance matrix, much less a full reduced-tree distribution.",
+        "Saunders 2019 Theorem 2.1 assumes a stochastic deletion kernel and imposes equal-column-sum conditions to retain unconditional equiprobability by size."
+      ],
+      "reasoning": "The present all-set terminal-conditioning invariance is stronger than any listed marginal or first mixed moment, and the new exact per-label covariance follows from it. General deletion-kernel equiprobability is a different conditional measure and does not imply fixed-label leaf-survival erasure. No examined stronger theorem was found that would subsume the final claim.",
+      "searches": [
+        "random recursive tree conditional depth law given set of old vertices are terminal leaves, law record sum with shifted birth rank",
+        "random recursive tree covariance depth of label j number of leaves minus (j-2)/(2(n-1))",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "doi:10.1002/rsa.20161",
+        "doi:10.1002/rsa.20046"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Panholzer–Prodinger author manuscript, Section 5, formula (37): the unconditional fixed-label depth law has the same Bernoulli-record product but no conditioning on terminal vertex identities.",
+        "Saunders 2019 Sections 2 and 4.2: deleting according to an independent transition rule preserves an equiprobable distribution conditional on tree size, a different conditional event from selected original labels remaining childless."
+      ],
+      "reasoning": "A distribution for one depth alone does not determine the tree conditional on fixed labelled vertices being leaves. The asserted conditional law shifts an arbitrary surviving label by the number of earlier forced leaves and describes the entire reduced tree. Random state-based deletion and fixed-vertex conditional erasure are not equivalent operations.",
+      "searches": [
+        "uniform recursive tree condition on several specified birth labels being leaves, delete them, relabel remaining yields uniform recursive tree",
+        "random recursive tree conditional depth law given set of old vertices are terminal leaves, law record sum with shifted birth rank",
+        "recursive trees leaves conditioning fixed vertices are leaves reduced trees exact law",
+        "https://www.finanz.math.tugraz.at/~prodinger/levelinc3.pdf",
+        "doi:10.1002/rsa.20161"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-sequence and title-equivalent searches identified no table of reduced recursive-tree distributions conditional on prescribed original birth labels remaining leaves.",
+        "The independently derived conditional probability formula depends on every subset of labels, not just a single n-indexed numeric sequence."
+      ],
+      "reasoning": "No inspected database or table entry gave the all-subsets conditional law or all-index covariance. Lack of a database hit is treated only as bounded negative evidence, not as a novelty certificate.",
+      "searches": [
+        "uniform recursive tree condition on several specified birth labels being leaves, delete them, relabel remaining yields uniform recursive tree",
+        "random recursive tree conditional depth law given set of old vertices are terminal leaves, law record sum with shifted birth rank",
+        "random recursive tree covariance depth of label j number of leaves minus (j-2)/(2(n-1))",
+        "uniform recursive tree leaf survival indicators joint factorial moments node depth",
+        "random recursive tree joint depth of vertex and number of leaves covariance"
+      ]
+    },
+    "rationale": "The established published comparisons provide marginal birth-label depth distributions, overall outdegree/leaf-count fluctuations, and different random-deletion laws. None of the inspected mathematical statements or accessible earlier claims implies the full fixed-terminal-label conditioned uniform-tree law, its joint generating functions for arbitrary sets, or the position-specific depth/leaf covariance profile. The comparison is not a proof of universal priority; an inaccessible earlier subtree-leaf article and broad enumeration literature are residual historical risks.",
+    "residual_risks": [
+      "Full text of Mahmoud and Smythe (1991) and some historical survey/book treatments was not available, so historical priority remains qualified.",
+      "The all-set conditional erasure law follows from a short independent-parent argument and might be implicit in a general sampling-consistency theorem not found during bounded searches.",
+      "Search results and the inspected passages do not constitute independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes global count fluctuations, not conditional fixed-label leaf-survival erasure or individual birth-label depth distribution under that event",
+        "evidence": [
+          "Theorem 1.1 derives asymptotic count covariance generating function; Section 4 constructs an urn from degree classes; no marked terminal-label conditioning appears in the relevant arguments."
+        ],
+        "identifier_or_url": "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+        "material_read": "Author manuscript introduction, Theorem 1.1, Section 4 including urn construction and covariance calculation, references",
+        "method": "Parsed full-text PDF, selected sections and theorem statements read and compared",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Directly relevant global leaf-count and outdegree covariance theorem"
+      },
+      {
+        "assessment": "Precisely establishes the unconditional birth-label depth law and very-simple-family growth consistency, but does not mark an arbitrary set of forced-terminal original labels",
+        "evidence": [
+          "Formula (37) and lines 1401–1468 give the unconditioned depth pgf and its moments; Theorem 6 gives independence of ambient size n, not the erasure conditioning law."
+        ],
+        "identifier_or_url": "https://www.finanz.math.tugraz.at/~prodinger/levelinc3.pdf",
+        "material_read": "Author manuscript abstract, Sections 1, 2, 5.2, 6 and final generating-function formulas, plus page 2 image",
+        "method": "Full-text PDF extraction and page screenshot, comparison of Theorem 6 and formula (37)",
+        "title": "The level of nodes in increasing trees revisited",
+        "trigger": "Exact fixed-label depth generating function might imply conditional depth assertions"
+      },
+      {
+        "assessment": "Conditions on tree size during an insert/delete growth chain; does not condition fixed birth-labelled vertices to have remained leaves in a pure uniform recursive tree",
+        "evidence": [
+          "Theorem 2.1 uses equal column sums for a deletion kernel; Section 4.2 gives moments under a size-conditioned equiprobable growth chain."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.02720",
+        "material_read": "Full arXiv HTML sections 1, 2 (Theorem 2.1), 4.2, and 5",
+        "method": "ArXiv OA full-text reading with theorem-versus-hypothesis comparison",
+        "title": "A Class of Random Recursive Tree Algorithms with Deletion",
+        "trigger": "Related conditional equiprobability after tree deletions could dominate the result"
+      },
+      {
+        "assessment": "Material read addresses leaf counts within rooted fringe subtrees rather than fixed-terminal-label conditional erasure, but full-text exclusion cannot be asserted",
+        "evidence": [
+          "The accessible abstract mentions Eulerian formulas for number of leaves/internal nodes in the subtree rooted at a fixed label; does not provide a statement of the selected-leaf conditional reduced-tree law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+        "material_read": "1991 bibliography and publicly accessible abstract about fixed-label fringe-subtree size and its leaves, not complete paper",
+        "method": "Abstract-level and bibliographic comparison; publisher complete body not accessible",
+        "title": "On the Distribution of Leaves in Rooted Subtrees of Recursive Trees",
+        "trigger": "Plausible old same-model leaf-count research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e282895-8fad-4c3a-82ef-321fd62f91c8",
+  "value": {
+    "rationale": "Conditional removal of designated terminal birth labels is a motivated structural sampling-consistency question for recursive genealogies. The exact law describes an entire probability measure and a family of set-indexed joint depth/leaf-event generating functions, not an arbitrary special numerical case. Its strict stochastic depth reduction and universal negative birth-label depth/total-leaf covariance profile supply directly interpretable finite-scale dependence. This is not a generic marginal result or a relabeling of the earlier sum-of-depths covariance.",
+    "status": "PASS"
+  }
+}
