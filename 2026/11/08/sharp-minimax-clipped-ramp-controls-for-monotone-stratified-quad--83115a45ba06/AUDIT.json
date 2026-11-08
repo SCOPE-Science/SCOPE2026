@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof gives an exact unit-step reduction by Stieltjes mixtures and convexity, then a least-favorable uniform central jump prior yields an L² square-completion lower bound. The candidate clips local u−1/2 at 1/(2n); its conditional step-risk derivative is positive, zero, and negative on the three intervals, making the lower bound tight and establishing uniqueness. All normalization factors and equality cases are explicit. A standalone rational checker executed 3,217 passing assertions; the proof does not rely on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.01554 assumes continuous derivatives of order r and uses numerical-derivative-based controls; monotone step functions are excluded.",
+        "arXiv:1804.01197 control functions depend on molecular orbitals and its optimizations concern application-specific variances, not universal monotone worst case."
+      ],
+      "reasoning": "Generic combination of sampling methods is prior art, but neither source states a stronger general theorem implying the sharp universal clipped-ramp risk for discontinuous monotone integrands.",
+      "searches": [
+        "web: minimax additive control variates stratified Monte Carlo monotone functions precise variance exact",
+        "web: optimal control function stratified random quadrature monotone integrands minimax step function",
+        "arxiv:2210.01554 section 1 and section 2",
+        "arxiv:1804.01197 sections II.C–D",
+        "published-finding corpus MCP: Basak Bect Vazquez sharp monotone integration hybrid control variate stratification optimal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.00423",
+      "arxiv:2210.01554",
+      "arxiv:1804.01197",
+      "doi:10.1090/S0002-9939-1992-1086337-X",
+      "published mathematical-research semantic search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Basak–Bect–Vazquez sharp risks: global unstratified control 1/(12n), uncorrected stratification 1/(4n²), versus new joint additive-control risk (3n²−3n+1)/(12n⁴).",
+        "Novak (1992) studies broader randomized/adaptive complexity; abstract and quoted introduction do not yield the unique fixed-design additive control characterization."
+      ],
+      "reasoning": "The 2022 results imply separate baselines but do not assert or algebraically imply the optimized hybrid control over all L² functions. Broader random algorithm bounds do not logically identify a unique optimizer in the fixed sampling/linear-additive subclass.",
+      "searches": [
+        "arxiv:2203.00423 Theorems 3.1 and 4.1",
+        "arxiv:1804.01197 sections II.B-II.D",
+        "arxiv:2210.01554 Sections 1–2",
+        "web: Erich Novak 1992 Quadrature formulas for monotone functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2203.00423 pp.3-5 has separate CV and stratification theorems, without their joint infinite-dimensional minimax optimization.",
+        "arXiv:1804.01197 pp.2-5 combines variance reduction with controls chosen for molecular orbitals; no monotone-test-function saddle law."
+      ],
+      "reasoning": "A change of notation, local coordinates, or duality does not turn the separate risk bounds into the exact joint optimizer. The clipped ramp is characterized by a central uniform least-favorable jump distribution and is unique in the full L2 control class, not solely among linear controls.",
+      "searches": [
+        "minimax worst case variance clipped centered linear control variate equal stratified Monte Carlo integration bounded monotone functions unbiased",
+        "Basak Bect Vazquez 2203.00423 stratified control variate hybrid step function sharp risk",
+        "web: \"stratified sampling\" \"control variate\" \"monotone functions\" minimax clipped",
+        "web: \"clipped\" \"stratified\" \"control variate\" integration monotone",
+        "published-finding corpus MCP: minimax clipped ramp equal-stratum Monte Carlo bounded monotone integrand variance (3n²-3n+1)/(12n⁴)",
+        "published-finding corpus MCP: one point each stratum uniformly random monotone function deterministic additive control clipped ramp central interval least favorable step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic search returned bounded-outcome stratified experimentation, rounded allocation, and generic control results rather than the stated equality for numerical quadrature.",
+        "Accessible current mathematical research claims were compared for stratified, control-variate, and bounded-monotone integration statements; no matching item found."
+      ],
+      "reasoning": "No located exact database or prior-table entry supplies the constant or unique clipped-ramp optimizer; a failed search is not itself a novelty proof.",
+      "searches": [
+        "minimax worst case variance clipped centered linear control variate equal stratified Monte Carlo integration bounded monotone functions unbiased",
+        "step functions single jump uniform strata minimax variance clipping ramp optimal additive controls",
+        "web: site:github.com/published-finding corpus/2026 \"control variate\" \"stratified\" \"monotone\""
+      ]
+    },
+    "rationale": "PDF text and relevant pages of three primary mathematical/computational papers were compared by mathematical implication: Basak et al. prove separate unstratified control and uncontrolled stratification constants; Bayne and Chakraborty use application-specific controls for molecular integrals; Chopin and Gerber assume smooth integrands and derivative-based corrections. None of the inspected statements entails the unique clipped-ramp minimax optimum over all fixed stratumwise L2 controls. Semantic mathematical-research search did not identify the equivalent theorem. Specialist precedence remains possible.",
+    "residual_risks": [
+      "An equivalent clipped-control solution may be present in older, nonindexed optimal-recovery or robust-control-variate literature.",
+      "The 1992 Novak paper was not fully inspected; no claim of whole-document noncoverage.",
+      "The result fixes independent uniform strata and additive integrand-independent controls; other unbiased estimators may be stronger."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 3.1 and 4.1 NOT_COVERING the fixed-stratum all-L² joint minimax: separately analyze linear control and uncorrected equal stratification.",
+        "evidence": [
+          "Theorem 3.1 gives 1/(12n) with unstratified global linear control.",
+          "Theorem 4.1 gives 1/(4n²) for stratified rule without the additive control."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.00423",
+        "material_read": "PDF pp. 1–6 including assumptions, Theorems 2.1, 3.1 and 4.1 and their proofs, conclusion.",
+        "method": "Primary PDF text and page-5 screenshot.",
+        "title": "Integration of bounded monotone functions: Revisiting the nonsequential case, with a focus on unbiased Monte Carlo (randomized) methods",
+        "trigger": "Same bounded monotone function class and both separate estimators."
+      },
+      {
+        "assessment": "DIFFERENT_ASSUMPTIONS in inspected theorem and estimator setup (smoothness/derivatives); a full-exhaustiveness claim about uninspected appendices is not made.",
+        "evidence": [
+          "Requires f in C^r and controls based on numerical derivatives.",
+          "Does not establish a universal max-over-monotone step-function risk constant."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.01554",
+        "material_read": "PDF pp. 1–3, abstract/introduction, theorem setup and relevant HTML Section 2; appendices not examined.",
+        "method": "Primary PDF text and title-page screenshot.",
+        "title": "Higher-order Monte Carlo through cubic stratification",
+        "trigger": "Combination of stratification and controls might dominate the formula."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE in inspected primary setup (molecular integral variance reduction rather than all bounded monotone risks); no full-document uniqueness claim.",
+        "evidence": [
+          "Sections II.C and II.D optimize a scale applied to known molecular-integral control functions.",
+          "No monotone function class, bounded discontinuous step lower bound or unique all-L2 clipped optimizer."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.01197",
+        "material_read": "PDF pp. 1–5 (introduction, theory and control-variate formula), plus conclusion pp. 8–9.",
+        "method": "Primary PDF text and title-page screenshot.",
+        "title": "Development of composite control-variate stratified sampling approach for efficient stochastic calculation of molecular integrals",
+        "trigger": "Closest explicit hybrid method combining control variates with stratification."
+      },
+      {
+        "assessment": "UNRESOLVED specialist precedence, no identified direct coverage of the fixed additive-control minimax statement.",
+        "evidence": [
+          "Paper considers randomized/adaptive quadrature, but the available excerpts do not identify the clipped-ramp all-L² control characterization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1992-1086337-X",
+        "material_read": "Abstract and accessible introductory excerpt from the author-uploaded text; full primary document not completely inspected.",
+        "method": "Bibliographic and accessible abstract/intro review.",
+        "title": "Quadrature formulas for monotone functions",
+        "trigger": "Foundational stochastic/adaptive monotone quadrature and possibility of stronger general results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83115a45-ba06-4e2f-8c0a-b92734dbc50a",
+  "value": {
+    "rationale": "The universal bounded-monotone integration problem naturally requires a preselected variance reducer when integrands may jump and evaluation is costly. The result closes an infinite-dimensional minimax optimization over all separate stratumwise controls, giving a unique nonlinear rule and exact finite-n gains: for n=2, 7/192 versus 1/16 uncontrolled (5/12 relative reduction), and below the unstratified two-point CV benchmark 1/24. The asymptotic n^−2 rate remains unchanged, and no downstream theorem or unrestricted estimator optimality is claimed.",
+    "status": "PASS"
+  }
+}
