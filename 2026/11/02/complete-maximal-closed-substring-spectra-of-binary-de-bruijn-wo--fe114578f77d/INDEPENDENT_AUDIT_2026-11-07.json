@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:53:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The DFS over the directed de Bruijn graph starts with the unique zero edge and visits each unused binary m-gram exactly once in every accepted Eulerian circuit; rooting at its unique zero edge gives each rotation class exactly once, with all windows verified independently. The finite family sizes 1,1,2,16,2048 match the classical de Bruijn formula. Maximal closedness was independently recomputed for all possible substring occurrences using their proper borders and left/right single-character extensions and separately via a suffix-LCP strict-record characterization. Independently authored code traversed all 2048 order-five cycles and reproduced every histogram count; no extrapolation beyond m=5. The weighted sum is 2048*(2957/64) and both extrema have 8 witnesses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complexity upper bounds and compact representations apply broadly but leave input-sensitive exact output counts undetermined."
+        ],
+        "reasoning": "A strong broad theorem would cover this census only if it explicitly gave exact counts per de Bruijn cycle; no such implication in the accessible statements.",
+        "searches": [
+          "arxiv:2607.00612 online enumeration O(n log n)",
+          "arxiv:2607.02838 compact enumeration from RLE",
+          "arxiv:2410.00209 asymptotic maximal closed repeats"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 5579b2e7168ea89a050574ae7a4fb0cef198c495, verify.py 9df483da5c8068ae3c502d27fef866e9512dda16",
+        "Independent Python full enumeration all 2048 order-five cycles, direct border tests",
+        "arxiv:2607.00612 accessible full-text reproduction (ResearchGate)",
+        "arxiv:2607.02838 accessible full-text reproduction (ResearchGate)",
+        "Resultary 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical count gives 2048 rotation classes at order five; the MCS algorithms provide ways to enumerate them but not the 15 multiplicities."
+        ],
+        "reasoning": "No matching explicit order-five histogram was found; exact enumeration supplies a new finite result with transparent reproducible certificate.",
+        "searches": [
+          "arxiv:2607.00612",
+          "arxiv:2607.02838",
+          "de Bruijn cycle formula 2^(2^(m−1)−m)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed-repeat representation is equivalent to MCS occurrence, but the described published statements are algorithms/complexity bounds rather than exact distributions on rooted de Bruijn words."
+        ],
+        "reasoning": "The invariant can be called maximal closed repeats; a general output algorithm does not determine histogram on a special input class.",
+        "searches": [
+          "arxiv:2607.00612 maximal closed substrings",
+          "arxiv:2607.02838 maximal closed repeats aliases",
+          "arxiv:2410.00209 Closed Repeats"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact finite census concerns distinct closed factors of unrestricted binary words, not occurrence counts of nonextendible closed substrings on canonical de Bruijn cycles."
+        ],
+        "reasoning": "The published de Bruijn count 2048 determines the domain, not this histogram; an unindexed supplementary file may contain the numbers.",
+        "searches": [
+          "Resultary: maximal closed substrings of binary de Bruijn cycles Eulerian circuits order 5 histogram",
+          "Resultary: exact binary closed-rich maxima at lengths25–27",
+          "web: MCS de Bruijn cycle order 5 distribution"
+        ]
+      },
+      "rationale": "Shibata et al. 2026 define and algorithmically enumerate maximal closed substring occurrences; Umezaki et al. study run-length-encoded enumeration; Kosolobov treats asymptotic closed repeats. The accessible full-text reproductions of both algorithm papers were examined by their definitions, principal theorems, methods, examples and targeted exact-word search; they do not give a de Bruijn canonical-cut 2048-cycle histogram. A nearby Resultary published record computes maximum numbers of distinct closed factors among arbitrary binary words of length 25–27; it is a different universe/statistic and does not imply these MCS occurrence counts. This is best-of-knowledge; alternate inaccessible appendices, supplementary benchmark tables, or datasets could still contain a covering enumeration.",
+      "residual_risks": [
+        "Accessible full-text ResearchGate reproductions of both MCS papers were materially read, but inaccessible original PDF renderings, additional versions, appendices or supplementary benchmarks might still conceal a de Bruijn census.",
+        "An unpublished program benchmark or specialised de Bruijn dataset may precompute identical numbers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_ALGORITHM_ONLY_UNVERIFIED_FULL",
+          "evidence": "Accessible full preprint text treats LCST algorithm O(n log n) and associated LZ77 techniques, with no de Bruijn term by full-text search; uninspected alternate versions or supplements remain possible.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.00612",
+          "material_read": "Accessible full preprint text reproduced on ResearchGate: introduction and definitions, LCST lemmas, Theorem 4 proof and appendices; searched entire accessible text for de Bruijn (no match)",
+          "method": "Web lawful open-access full-text reproduction and targeted sections, while direct arXiv PDF open was disabled",
+          "title": "Online computation of maximal closed substrings",
+          "trigger": "Same invariant and modern online algorithm"
+        },
+        {
+          "assessment": "ALGORITHM_BACKGROUND_PRIORITY_RISK",
+          "evidence": "Theorems classify RLE compact representations and worst-case quadratic constructions; inspected full-text reproduction has no de Bruijn mention. Separate supplemental tables not ruled out.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02838",
+          "material_read": "Full readable 12-page preprint reproduced on ResearchGate, including introduction, MCS/RLE definitions, Theorems 1 and 2, construction of quadratic worst-case strings, and algorithmic proof; searched all accessible text for de Bruijn (no match)",
+          "method": "Web lawful full-text ResearchGate reproduction with focused reading of theorem/proof and whole-text de Bruijn query; direct arXiv PDF open disabled",
+          "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+          "trigger": "Same occurrence statistic and MCR synonym"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number of maximal closed substring occurrences directly measures output size for a studied enumeration task, and binary de Bruijn cycles are canonical maximally factor-diverse stress cases. The full 2048-word order-five exhaustive cutoff is natural (next order has 67,108,864 rotations), with a nontrivial continuous 40..54 distribution and 35% output variation at fixed input length, not an arbitrary partial experiment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 5579b2e7168ea89a050574ae7a4fb0cef198c495, verify.py 9df483da5c8068ae3c502d27fef866e9512dda16",
+    "Independent Python full enumeration all 2048 order-five cycles, direct border tests",
+    "arxiv:2607.00612 accessible full-text reproduction (ResearchGate)",
+    "arxiv:2607.02838 accessible full-text reproduction (ResearchGate)",
+    "Resultary 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+  ],
+  "disposition": "passed",
+  "final_claim": "The exact histogram of occurrence counts of maximal closed substrings, using unique all-zero cyclic rotation and m−1-symbol extension, is classified for every binary de Bruijn word of order 1<=m<=5. At m=5 all 2048 cycles yield values 40..54 with exact multiplicities (8,16,112,204,252,304,308,264,176,124,108,84,52,28,8), mean 2957/64.",
+  "limitations": [
+    "Only canonical linearization of cyclic de Bruijn words orders 1..5; not invariant under arbitrary cyclic cut, and no m>=6 statement.",
+    "Finite exhaustive classification is complete for explicitly bounded domain, not an infinite sequence result."
+  ],
+  "residual_risks": [
+    "Accessible full-text ResearchGate reproductions of both MCS papers were materially read, but inaccessible original PDF renderings, additional versions, appendices or supplementary benchmarks might still conceal a de Bruijn census.",
+    "An unpublished program benchmark or specialised de Bruijn dataset may precompute identical numbers."
+  ],
+  "schema_version": 1
+}

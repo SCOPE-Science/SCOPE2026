@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the included file. The program needs only the Python 3 standard library. A successful run prints `DEBRUIJN_MCS_CENSUS_VERIFY_OK` after checking all five exact histogram tables.
+## correctness
 
-The code enumerates all Eulerian circuits of the binary order-\(m\) de Bruijn graph, rooted at the unique all-zero edge, for each \(1\leq m\leq5\). It verifies every cyclic length-\(m\) factor, the canonical length, and uniqueness. It checks *every closed-substring interval* and its immediate extensions, then computes the same set of endpoint pairs by a separate longest-common-prefix/next-occurrence method. Their agreement is asserted for every canonical word, not just sample inputs. The order-five enumeration list checksum, with ASCII linearizations separated by newline in depth-first zero-before-one order, is `b47b0bf70bc81346dc18f851456e7c19754b65a4a8294a61312f3b02a099ceb1`.
+PASS
 
-The order-five frequency counts sum to 2048 and the checker provides explicit minimum and maximum witnesses. This is a complete finite proof through order five, provided the elementary exhaustive algorithms are interpreted as written. It does not certify any higher-order recurrence, independent publication priority, or external validation.
+The DFS over the directed de Bruijn graph starts with the unique zero edge and visits each unused binary m-gram exactly once in every accepted Eulerian circuit; rooting at its unique zero edge gives each rotation class exactly once, with all windows verified independently. The finite family sizes 1,1,2,16,2048 match the classical de Bruijn formula. Maximal closedness was independently recomputed for all possible substring occurrences using their proper borders and left/right single-character extensions and separately via a suffix-LCP strict-record characterization. Independently authored code traversed all 2048 order-five cycles and reproduced every histogram count; no extrapolation beyond m=5. The weighted sum is 2048*(2957/64) and both extrema have 8 witnesses.
+
+## originality
+
+PASS
+
+Shibata et al. 2026 define and algorithmically enumerate maximal closed substring occurrences; Umezaki et al. study run-length-encoded enumeration; Kosolobov treats asymptotic closed repeats. The accessible full-text reproductions of both algorithm papers were examined by their definitions, principal theorems, methods, examples and targeted exact-word search; they do not give a de Bruijn canonical-cut 2048-cycle histogram. A nearby Resultary published record computes maximum numbers of distinct closed factors among arbitrary binary words of length 25–27; it is a different universe/statistic and does not imply these MCS occurrence counts. This is best-of-knowledge; alternate inaccessible appendices, supplementary benchmark tables, or datasets could still contain a covering enumeration.
+
+## value
+
+PASS
+
+The exact number of maximal closed substring occurrences directly measures output size for a studied enumeration task, and binary de Bruijn cycles are canonical maximally factor-diverse stress cases. The full 2048-word order-five exhaustive cutoff is natural (next order has 67,108,864 rotations), with a nontrivial continuous 40..54 distribution and 35% output variation at fixed input length, not an arbitrary partial experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
