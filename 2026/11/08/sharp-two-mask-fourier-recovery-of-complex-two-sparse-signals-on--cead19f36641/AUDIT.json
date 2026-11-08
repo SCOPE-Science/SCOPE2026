@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The exact inverse-DFT autocorrelation identity identifies two distinct cross-correlations in odd dimension. Their common geometric-mask ratio gives the ordinary support-index sum. Invertibility of 2 modulo odd n and the observed lag determine the unordered support. Two zero-lag equations have distinct positive mask coefficients and give individual magnitudes; the cross term fixes relative phase. Separate arguments treat zero and one-sparse signals, the lower bound for one arbitrary mask and an exact antipodal real-mask obstruction in every even dimension. The attached finite checker passed 2,866 direct tests and 905 support signatures but is supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang–Li arXiv:2608.02450 Thm 1 uses logarithmically many random masks for all complex inputs",
+        "Guerrero–Pinilla–Arguello 2020 Thm 1 and §V use many designed random coded apertures and sparse initialization",
+        "Li–Li 2021 abstract discusses random masked Fourier bounds; full text not inspected"
+      ],
+      "reasoning": "A theorem identifying every complex input from the same two fixed masks would dominate this claim, but the accessible broad full-signal sources do not have those two masks or two-pattern guarantee. Uniformity on every sparse support is also stronger than generic identifiability in earlier two-mask oversampled models. Potential Li–Li implicit special cases remain a risk.",
+      "searches": [
+        "uniform recovery of every complex two sparse vector from exactly two unoversampled cyclic Fourier diffraction patterns with two deterministic positive real amplitude masks odd lengths",
+        "even cyclic order antipodal two-sparse complex phase retrieval impossibility arbitrary real masks",
+        "phase retrieval from Fourier measurements with masks Huiping Li Song Li 2021",
+        "Phase Recovery Guarantees from Designed Coded Diffraction Patterns optical imaging 2020 sparse"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.02450 §§1–1.1: random logarithmic masks for general complex signals",
+      "arxiv:1303.4458: masked Fourier phase retrieval constructions",
+      "arxiv:1510.07713: two-mask oversampled generic constructions",
+      "arxiv:1308.3058: unmasked sparse phase retrieval ambiguity classes",
+      "doi:10.1109/TIP.2020.2985208: authored article §IV and §V sparse estimation",
+      "doi:10.3934/ipi.2021028: only abstract/table accessible",
+      "Public indexed cyclic short-time Fourier findings on 2-sparse STFT support, frequency deletion, and window orbit ambiguities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1510.07713 two-pattern construction collects at least 2n Fourier magnitudes per pattern and assumes generic/nonzero data",
+        "arXiv:1308.3058 unmasked sparse retrieval still allows spatial translation and reflection",
+        "Indexed two-sparse cyclic STFT correspondence classifies support sizes, not recovery from two diagonal masks",
+        "Li–Li 2021 already notes even-order real-mask impossibility"
+      ],
+      "reasoning": "The theorem is not an inference from generic oversampled recovery because it asserts all one- and two-support vectors, including small or vanishing coordinates, with exactly n samples per pattern. STFT time-shifted window data cannot be reinterpreted as only two fixed diagonal masks without changing the observations. The even-order negative half is explicitly classified as known context, while the exact odd-order mask design and tightness are the asserted new mathematical content.",
+      "searches": [
+        "two coded diffraction masks arbitrary two sparse signals support recovery phase retrieval minimal deterministic",
+        "sparse Fourier phase retrieval two illuminations masks support autocorrelation prime cyclic",
+        "uniform recovery of every complex two sparse vector from exactly two unoversampled cyclic Fourier diffraction patterns with two deterministic positive real amplitude masks odd lengths",
+        "even cyclic order antipodal two-sparse complex phase retrieval impossibility arbitrary real masks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.02450 defines coded Fourier diffraction intensity; arXiv:1303.4458 defines masked power spectra; arXiv:1510.07713 has oversampled two-mask constructions"
+      ],
+      "reasoning": "The candidate can be restated as injectivity of two circular-autocorrelation maps on rank-one Hermitian matrices supported on an unknown 2×2 principal block. The inspected theorems have additional oversampling, genericity, randomization or full-signal hypotheses, so none proves this fixed two-pattern, no-oversampling, uniform claim.",
+      "searches": [
+        "two coded diffraction masks arbitrary two sparse signals support recovery phase retrieval minimal deterministic",
+        "phase retrieval from two Fourier diffraction patterns exponential amplitude masks every complex two sparse vector",
+        "sparse Fourier phase retrieval two illuminations masks support autocorrelation prime cyclic",
+        "uniform recovery of every complex two sparse vector from exactly two unoversampled cyclic Fourier diffraction patterns with two deterministic positive real amplitude masks odd lengths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-mask odd-cycle two-sparse classification appeared among the queried indexed research records",
+        "arXiv:1510.07713 surveys mask-count constructions but not an exact table for this specific support class"
+      ],
+      "reasoning": "The claim is an infinite odd-dimension construction and universal impossibility lower bound, not a finite catalogue result. Current indexed-source search found unrelated finite STFT support spectra and phase-retrieval classes, not an equivalent mask-count table. Absence of a search hit is only limited evidence.",
+      "searches": [
+        "phase retrieval from two Fourier diffraction patterns exponential amplitude masks every complex two sparse vector",
+        "uniform recovery of every complex two sparse vector from exactly two unoversampled cyclic Fourier diffraction patterns with two deterministic positive real amplitude masks odd lengths",
+        "geometric progression diagonal mask Fourier autocorrelation pair support sum parity odd even two-sparse",
+        "even cyclic order antipodal two-sparse complex phase retrieval impossibility arbitrary real masks"
+      ]
+    },
+    "rationale": "The newly proved item is the uniform two-pattern positive real bounded-contrast cyclic Fourier intensity identification theorem for all complex at-most-two-sparse inputs at every odd order, with exact decoder and sharp minimum pattern number. Full-text reading of the closest contemporary coded-diffraction, masked phase retrieval, oversampled deterministic, sparse unmasked, and designed aperture sources did not show a theorem implying it. The known even-order real-mask obstruction is not asserted as novel. One potentially close older full text could not be obtained, hence residual originality risk remains; searches are not a proof of uniqueness.",
+    "residual_risks": [
+      "Complete article text of Li–Li (2021), DOI 10.3934/ipi.2021028, was unavailable despite arXiv/open-access search and an authorized institutional-access attempt; an implicit relevant result in it cannot be excluded.",
+      "Earlier deterministic sparse coded-diffraction designs could implicitly imply the same geometric-mask construction or a stronger two-mask injectivity theorem.",
+      "Search results and indexed records cannot prove novelty; independent literature and mathematical audit are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact deterministic two-pattern guarantee on all two-sparse inputs: uses random masks and a logarithmic number of patterns for arbitrary signals.",
+        "evidence": [
+          "arXiv:2608.02450, introduction §1 and §1.1, main theorem and Assumption 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.02450",
+        "material_read": "Full HTML including introduction, measurement model, random mask assumptions and main theorem",
+        "method": "Direct reading of lawful arXiv full text",
+        "title": "PhaseLift for Coded Diffraction Patterns: Optimal Sampling Rate",
+        "trigger": "Most recent full-signal coded-diffraction mask complexity paper and motivation"
+      },
+      {
+        "assessment": "General masked phase-retrieval designs and hypotheses differ; no theorem inspected that specializes to universal two unoversampled positive masks for all complex two-sparse signals.",
+        "evidence": [
+          "arXiv:1303.4458, abstract, theorem statements and proof framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.4458",
+        "material_read": "Full freely available arXiv manuscript, masking constructions and main theorems",
+        "method": "Read arXiv full text and central statements",
+        "title": "Phase retrieval from power spectra of masked signals",
+        "trigger": "Foundational diagonal-mask Fourier phase retrieval"
+      },
+      {
+        "assessment": "Its two-mask deterministic construction uses at least twice ambient Fourier measurements per mask and different nonvanishing or genericity hypotheses; cannot imply the present two length-n patterns on every two-sparse vector.",
+        "evidence": [
+          "arXiv:1510.07713, masked Fourier phase-retrieval section"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.07713",
+        "material_read": "Full arXiv text, with particular focus on masked Fourier section and two-mask measurement counts",
+        "method": "Read online arXiv full text",
+        "title": "Phase Retrieval: An Overview of Recent Developments",
+        "trigger": "Surveys deterministic few-mask proposals including a two-mask construction"
+      },
+      {
+        "assessment": "Unmasked Fourier sparse uniqueness has translation and flip ambiguities; no diagonal-coded deterministic two-mask support-identification statement.",
+        "evidence": [
+          "arXiv:1308.3058, uniqueness criteria and sparse-support discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.3058",
+        "material_read": "Full arXiv HTML and relevant uniqueness discussion",
+        "method": "Read publicly available arXiv full text",
+        "title": "Phase retrieval for sparse signals: Uniqueness conditions",
+        "trigger": "Sparse Fourier phaseless uniqueness and translation/flip ambiguity"
+      },
+      {
+        "assessment": "Designs random admissible apertures; its guarantees require many masks/projections and concern optimization-based support estimates, not the stated universal two-mask cyclic autocorrelation decoder.",
+        "evidence": [
+          "Guerrero–Pinilla–Arguello 2020, Theorems 1–2, §§IV–V"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIP.2020.2985208",
+        "material_read": "Author-shared complete article text, including Theorems 1–2, mask design, Section V.B-C on sparsity and support estimation",
+        "method": "Read authorized publicly visible author-shared manuscript text and direct sections",
+        "title": "Phase Recovery Guarantees From Designed Coded Diffraction Patterns in Optical Imaging",
+        "trigger": "Designed physical coded apertures plus sparse reconstruction"
+      },
+      {
+        "assessment": "The abstract discusses general random-mask results and even-order real-mask obstruction, but limited access leaves the complete comparison unresolved. The even-order phenomenon is deliberately not claimed as original.",
+        "evidence": [
+          "Li–Li 2021, publisher abstract and Table 1, complete article not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/ipi.2021028",
+        "material_read": "Publisher abstract, theorem-level summary and bibliographic page; full proof/manuscript inaccessible",
+        "method": "Searched for author preprint and lawful open-access full text; institutional download unavailable because access connection was not established",
+        "title": "Phase retrieval from Fourier measurements with masks",
+        "trigger": "Explicit even-dimension real-mask obstruction and sparse reconstruction within the same acquisition family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cead19f3-6641-440c-a524-0d286ecc975b",
+  "value": {
+    "rationale": "The exact worst-case minimum number of complete coded Fourier patterns for all complex two-sparse signals is a natural nontrivial sparsity-specific acquisition question. Two deterministic, experimentally attenuating rather than amplifying masks with arbitrary prescribed positive contrast suffice in each odd dimension, with direct low-cost reconstruction and a tight lower bound. This distinguishes universal sparse identifiability from high-probability or generic full-signal results and isolates a real-mask parity boundary. No unsupported claim about noisy stability or higher sparsity is made.",
+    "status": "PASS"
+  }
+}
