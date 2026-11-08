@@ -1,19 +1,21 @@
-# Scientific review: algebraic disconnected six-cycle law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is existential and finite. The sextic has a zero in a strictly monotone rational interval; each of the six orbit masses is strictly positive there. The 32 supported labeled graphs all have at most four of six cycle edges and therefore are disconnected. The uniform orbit law has the exact specified edge marginal. All 36 nontrivial vertex-disjoint edge-family moment equalities are checked as polynomial congruences modulo the sextic; these imply full 1-independence by inclusion-exclusion. Replayed standalone rational checker passes. No optimality conclusion is inferred.
+PASS
 
-## Originality — PASS (qualified)
+For C6 dihedral orbit distribution with six explicitly listed total weights polynomial in t, independent exact symbolic computation gives unique sextic root in rational interval (0.597345,0.597346) by sign and monotone derivative, all six weights strictly positive there, and total weight 1. Six orbits support 32 labeled edge configurations, each with <=4 open edges hence disconnected. Independently checked all 36 vertex-disjoint nonempty edge-family moment factorization identities in Q[t]/(F(t)), giving full 1-independence by inclusion-exclusion, not merely pairwise edge independence. All marginals equal p*. Independent thinning extends zero connectivity to 0<=p<=p*. No upper-bound optimality asserted.
 
-Day–Falgas-Ravry–Hancock, arXiv:1909.13771, Section 11.5 explicitly predicts approximately 0.59733 from numerical nonlinear optimization for the six-cycle and leaves its connectivity function open. Sections 8.1 and 8.3 give the general nonlinear formulation and coarse general bound, not the six-orbit algebraic weights, sextic, or exact proof of the witness. A previous rigorous matching polynomial construction was not found in the checked primary text, related literature searches, mathematical research records, or accessible primary literature. The numerical prediction already belongs to the cited paper: this claim is its exact constructive certification, not discovery of an unanticipated decimal value or proof of sharpness. Residual risk remains for other uncatalogued exact witnesses or results.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural first unsolved cycle in a standard graph-dependence problem. Its exact algebraic lower-bound witness establishes the strict rigorous inequality \(p_{\rm zero}(C_6)>0.597345>1/\sqrt3\), validates a numerical regime through a compact six-orbit law, and gives reusable rational-algebraic data for further sharp-threshold analysis. It is not an arbitrary sample-size invariant or merely an unchecked numerical fit.
+Day-Falgas-Ravry-Hancock 2019/2020 already numerically suggested C6 threshold around .59733 and offered nonlinear finite-configuration programs; this is not a new decimal discovery or full threshold solution. In materially inspected full primary paper, the exact sextic positive orbit mass witness and rigorous improvement were not found in the relevant C6 sections. No equivalent matching exact certificate from inspected Resultary or primary literature. Priority of unindexed algebraic witnesses remains uncertain.
 
-## Sources and limitations
+## value
 
-Primary: A. N. Day, V. Falgas-Ravry, R. Hancock, arXiv:1909.13771 (2019), Sections 8.1, 8.3, 11.5. Background: Balister–Bollobás, *Critical Probabilities of 1-Independent Percolation Models*, 2012. Exact historical priority remains uncertain. The optimal threshold and complete \(f_{1,C_6}\) remain open in the cited literature; no claim of independent validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+C6 is the first cycle beyond already solved small instances in a natural 1-independent percolation connectivity problem. This concise exact algebraic probability law turns a previously numerical suggested scale ~0.59733 into a rigorous nontrivial lower bound p_zero(C6)>=0.597345547..., strictly beyond 1/sqrt(3). Exact six-orbit certificate can aid future sharp threshold work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
