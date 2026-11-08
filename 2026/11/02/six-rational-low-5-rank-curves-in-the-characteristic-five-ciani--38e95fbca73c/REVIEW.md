@@ -1,15 +1,21 @@
-# Scientific assessment: characteristic-five Ciani low-rank locus
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the smooth normalized marked Ciani coefficient space in characteristic five, with discriminant factors explicitly stated. The proof computes the three elliptic quotient Hasse polynomials directly from the binary quartic coefficient rule; the degree-eight quotient isogeny identifies the Jacobian's rank and \(a\)-number. The difference identities force a signed equality of two coefficients whenever two quotients are supersingular. Solving the remaining quadratic gives exactly six parametrized smooth curves, with denominator and smoothness exclusions checked. The common triple-zero condition reduces to a separable quadratic over \(\mathbb F_{25}\), and the differential calculation proves transverse three-branch incidence. Rational-point formulas follow by counting deleted parameters and triple crossings. Both exact-symbolic and direct \(\mathbb F_5\)/\(\mathbb F_{25}\) enumerators reproduce the algebraic predictions; finite enumeration is not used to claim completeness over the algebraic closure.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-The Ciani family and its automorphisms predate this work; Lercier–Ritzenthaler–Rovetta–Sijsling (arXiv:1403.0562) describe its parameter and moduli structure. Ohashi (arXiv:2201.12996) explicitly proves the smoothness criterion and three-elliptic degree-eight isogeny, and studies **superspecial** curves and their maximality/minimality. Ohashi cites Brock's 1993 thesis for superspecial enumerations. Those statements are background, not asserted as new. The result assessed here is the complete rank-one locus (two supersingular quotients): six rational components, their eight transverse meetings, and exact extension-field counts. Inspected primary-paper statements and targeted mathematical-record searches did not exhibit that precise coverage; mere availability of general quotient equations does not supply the component decomposition or counts without the new characteristic-five elimination. The Brock thesis could not be read in full, so residual priority uncertainty is explicitly retained.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural codimension-two arithmetic-geometric rank classification in a familiar three-dimensional genus-three family at the first odd characteristic beyond the linear Hasse case. It gives the exact topology of the low-rank parameter locus and a uniform finite-field census, including the parity switch from twelve rank-one coefficients over \(\mathbb F_5\) to 96 rank-one plus eight superspecial coefficients over \(\mathbb F_{25}\). The result distinguishes the pairwise supersingularity incidence geometry from a mere check of isolated superspecial points; it is potentially useful when comparing Ekedahl–Oort strata and low-rank specializations of marked Ciani curves.
+For smooth marked genus-3 Ciani quartics in characteristic 5, the prime-to-5 degree-8 isogeny to three elliptic quotients reduces p-rank to the number of ordinary factors. Hasse polynomials Fx,Fy,Fz have pairwise differences (a²+1)(b²-c²), etc., whose first factors are units on the smooth parameter locus. Each double vanishing splits into two rational parametrizations; after excluding singular values each is A1 minus five points. Distinct components intersect only at eight transverse triple zeros over F25; counts N0(5^m)=8[even m], N1(5^m)=6(5^m-3)-36[even m]. Independently checked all three polynomial difference identities modulo5, rational component parametrizations and excluded smoothness factors with exact polynomial reduction. A separate GF25 implementation enumerated all smooth triples: at q=5 rank1=12 and rank0=0; at q=25 rank1=96 and rank0=8. Finite counts corroborate the algebraic parametrization, not its all-extensions proof.
 
-## Limitations and closest sources
-The formulas concern normalized **marked coefficient triples**, not geometric isomorphism classes or the quotient moduli space. They do not enumerate rank-two and ordinary parameters, and do not determine a characteristic-independent theorem. Relevant primary sources: Lercier et al., arXiv:1403.0562 (first posted 2014-03-03); Ohashi, arXiv:2201.12996 (2022), particularly Sections 2–4; the Brock 1993 thesis was not available for full inspection. No independent verification of the science has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: Ohashi arXiv:2201.12996 explicitly provides smoothness criterion and prime-to-characteristic decomposition into elliptic quotients; these premises are not new. Ohashi studies superspecial Ciani quartics, not the complete 5-rank-one six-rational-component incidence as stated in the inspected proof statements. Lercier et al. arXiv:1403.0562 work in general moduli parametrizations; it does not directly supply this characteristic-five marked coefficient-stratum formula in the compared statements. Exact claimed additions have not been shown covered by the inspected published results; residual priority risks remain explicit.
+
+## value
+
+PASS
+
+A complete natural p-rank-one stratum and incidence classification inside a classical marked genus-three family, together with exact coefficient counts for every extension field; geometric components and triple crossings add information not implied by elliptic isogeny alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
