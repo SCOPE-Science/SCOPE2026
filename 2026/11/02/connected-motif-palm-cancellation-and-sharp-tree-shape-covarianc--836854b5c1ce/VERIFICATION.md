@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Exact independent enumeration
+# Independent mathematical audit
 
-The accompanying `verify_component_motif.py` uses integer-weight enumeration over all \(2^{\binom n2}\) simple labeled graphs for sizes \(n=4,5\). It enumerates component isomorphism classes independently of the proof and counts induced and non-induced connected motif occurrences by vertex injections; all probabilities and covariances use `fractions.Fraction` and exact integer graph-state weights. Run `python3 verify_component_motif.py`; it must print `PASS 94 independent exhaustive probability identities; no sampling` after checking the stated 94 identities.
+## correctness
 
-The verification includes \(H\) equal to a single edge, three-vertex path, triangle, four-vertex path, four-vertex star, four-cycle, and four-clique, and \(F\) equal to an edge, a three-vertex path, or a triangle. It checks the two motif conventions and rational edge probabilities \(1/5,1/2,4/5\), plus extra sign-transition cases. Both direct finite enumeration and the closed form agree. These are finite checks; the all-size proof uses conditional component isolation and strict one-variable monotonicity.
+PASS
 
-## Proof boundaries
+Condition on each specified H-component vertex set A: all crossing edges are absent, exterior Bernoulli(p) graph is independent, inside H contributes t_F(H), and connected F cannot straddle A. Subtract unconditional motif expectation and sum indicators to derive exact Cov(C_H,X_F)=E[C_H](t_F(H)-Q_F p^e(1-p)^s), with E[C_H]>0 and Q_F>0. The p-factor is monotone if s=0 and strictly unimodal if s>0; all endpoints t=0, t=Q and r=M are treated. For P3 inside an h-tree t=W=sum_v C(d_v,2); degree-excess transfer gives sharp unique path/star extremes, and the n>=h+1 induced ratio lies below 4/27. Independent complete rational G(n,p) enumerations reproduce eight mixed component/motif examples for n=4,5, both induced and noninduced. This is a universal conditional-expectation proof, not a deduction from those eight tests.
 
-The connectedness hypothesis is essential for eliminating a motif copy straddling a component boundary. No claim about disconnected motifs, fixed-edge graphs, or independence at a zero covariance is made. The two-sign rule for induced noncliques follows from the unique maximum of \(p^e(1-p)^s\); the sharp tree-shape bounds follow from the degree-excess sum \(\sum_v(d_v-1)=h-2\). The literature check is not a priority certification; the inaccessible full text of Frank (1979) remains a historical risk.
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the connected-component-versus-connected-motif Palm factorization, exact induced sign phases, and sharp tree-shape extremes, not for generic overlap/covariance conditioning or already-known isolated-edge/triangle special cases. Exact basic covariance techniques are old; the mathematical content is the unified local t_F(H) law with the two-switch and tree envelope. A broad old moment theorem could conceivably imply it implicitly.
+
+## value
+
+PASS
+
+Connected-component type versus motif occurrence are natural random-graph observables; the exact sign of their dependence matters for motif-based inference. The full all-connected H,F identity gives a reusable component Palm law, while induced motifs exhibit a genuinely different two-transition regime, and paths/stars are uniquely extremal tree shapes. These exact structural boundaries are more than a normalization check, although the conditional expectation technique is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

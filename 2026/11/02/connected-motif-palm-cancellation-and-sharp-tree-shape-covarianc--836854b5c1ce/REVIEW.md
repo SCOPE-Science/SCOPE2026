@@ -1,11 +1,21 @@
-# Review of the connected-motif component covariance theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The definitions distinguish components from subgraph copies and distinguish induced from non-induced motif counts. Conditioning on a specified connected component forces every crossing edge to be absent; a connected motif using vertices on both sides would require such an edge. All-inside copies become deterministic and all-outside copies retain their independent-edge law. Summing exact conditional means gives the covariance identity for all admissible sizes and probabilities. The sign cases follow from a strictly increasing monomial or a strictly unimodal beta-type monomial. The tree specialization is established by degree-excess convexity, with unique path and star endpoints. The standalone exact verifier passes 94 independent exhaustive probability checks across both conventions and the path/star sign reversal.
+## correctness
 
-**Originality — PASS with residual risk.** The closest broad primary overlap treatment inspected is Ellis–Ferry (2009/2010), whose result is the variance of ordinary subgraph copies, not mixed covariance with isolated connected-component counts. Ginoza–Mugler (2009) studies motif correlations in degree-preserving network randomizations, not the present Bernoulli-edge component-isolation formula. A published total-component/triangle covariance formula applies to the aggregate component count, not to each prescribed component type or the induced double-switch. An earlier exact isolated-edge/triangle calculation already covers the corresponding special case and is expressly not claimed as a new contribution. Frank (1979) studies general motif-count covariances; only its abstract was accessible, and its full text is an explicit historical-priority risk. No checked item was shown to imply the unified induced/non-induced component theorem with the sharp tree-shape envelope.
+PASS
 
-**Mathematical value — PASS.** The all-connected-pattern identity gives a complete zero/one/two-switch classification, including the non-monotone induced case. For fixed-order tree components, it distinguishes trees of the same size by the number of internal wedges, yields exact extremizers and a sparse \(p\asymp1/n\) threshold scale, and exhibits opposite covariance signs at the same graph density. This matters for interpreting joint motif counts and isolated component frequencies in random-network null models. No independence, testing-power, or concentration improvement is asserted.
+Condition on each specified H-component vertex set A: all crossing edges are absent, exterior Bernoulli(p) graph is independent, inside H contributes t_F(H), and connected F cannot straddle A. Subtract unconditional motif expectation and sum indicators to derive exact Cov(C_H,X_F)=E[C_H](t_F(H)-Q_F p^e(1-p)^s), with E[C_H]>0 and Q_F>0. The p-factor is monotone if s=0 and strictly unimodal if s>0; all endpoints t=0, t=Q and r=M are treated. For P3 inside an h-tree t=W=sum_v C(d_v,2); degree-excess transfer gives sharp unique path/star extremes, and the n>=h+1 induced ratio lies below 4/27. Independent complete rational G(n,p) enumerations reproduce eight mixed component/motif examples for n=4,5, both induced and noninduced. This is a universal conditional-expectation proof, not a deduction from those eight tests.
 
-The prior-work risk is limited rather than erased; the mathematical statement and exact finite checks are reproducible, but priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the connected-component-versus-connected-motif Palm factorization, exact induced sign phases, and sharp tree-shape extremes, not for generic overlap/covariance conditioning or already-known isolated-edge/triangle special cases. Exact basic covariance techniques are old; the mathematical content is the unified local t_F(H) law with the two-switch and tree envelope. A broad old moment theorem could conceivably imply it implicitly.
+
+## value
+
+PASS
+
+Connected-component type versus motif occurrence are natural random-graph observables; the exact sign of their dependence matters for motif-based inference. The full all-connected H,F identity gives a reusable component Palm law, while induced motifs exhibit a genuinely different two-transition regime, and paths/stars are uniquely extremal tree shapes. These exact structural boundaries are more than a normalization check, although the conditional expectation technique is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
