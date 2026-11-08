@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every finite functional forward orbit is a lasso. The root-preserving bounded morphism exists precisely when the target preperiod is no larger than the source preperiod and its period divides the source period; the reverse implication is proved by a finite binary-colour separator with an explicit depth bound. Maximal signature antichains are therefore complete invariants. The same explicit two-frame construction proves optimality in every source size. A separate exhaustive checker verified the arithmetic inclusion rule against all colour-word languages for every labelled total function on at most four worlds, including 65,536 ordered pairs at size four. The checker also examined every pair of lasso types with at most four points. The proof, rather than enumeration, covers all sizes.
+## correctness
 
-**Originality — PASS within inspected evidence.** The motivating 2026 finite-modal-definability article discusses more general preservation/definability questions and universal-modality finite-frame theorems, not the stated ordinary-modal arithmetic antichain normal form and sharp depth bound. Standard bounded morphisms explain one implication but do not supply the finite explicit separator, all-frame arithmetic completeness, or optimal depth. The closest accessible published finding about partial-function modal quotient frames classifies a different invariant. No equivalent complete theorem was located in the inspected material, but older deterministic Kripke-frame literature may contain a logically stronger reformulation; no absolute priority claim is made.
+PASS
 
-**Value — PASS.** This is a full, effective, all-cardinality classification of validity theories in a natural, structurally important finite model family. It reduces logical implication and equivalence to divisibility and integer inequalities, realizes every admissible invariant, and gives an optimal uniform modal-depth complexity bound. These are motivated structural and quantitative facts, not an arbitrary finite census.
+Each forward orbit of a finite total functional Kripke frame has a unique lasso signature (t,p). The root-following map from source lasso (T,P) onto target (t,p) is a surjective bounded morphism exactly when t<=T and p divides P; pullback of arbitrary valuations establishes validity-inclusion sufficiency. Conversely, for a target world whose (t,p) is not dominated by any source world, colour its t+p distinct orbit points with distinct complete binary words using ceil(log2|V|) propositional letters. With L=max_source(t+p)<=|W|, the formula Theta=AND_(i=0..L) Box^i chi_(orbit-index-i) is true at the target and impossible at a source root: source recurrence at indices T,T+P<=L forces equal colour codes, which implies t<=T,p|P, a contradiction. Thus NOT Theta has depth<=|W| and separates. Maximal signature antichains exactly classify theories and every finite nonempty one is realized by a disjoint union of lassos. Source tail of n worlds ending in a fixed point vs cycle of n+1 worlds have identical valuation words for depths<n, while Box^(n-1)p ↔ Box^n p distinguishes at depth n. Inspected the all-size argument and the finite checker; finite enumeration is corroborative, not a proof for arbitrary frames. Logic is plain basic one-agent modal logic; no universal modality.
 
-**Limits and closest literature.** The theorem is restricted to nonempty finite serial functional one-agent frames and the basic modal language. Its ancestor is the standard bounded-morphism preservation principle, and its motivating finite-definability source is van Benthem–ten Cate–Yang (arXiv:2603.12171v1, Section 5.1). Historical equivalences through monounary algebra classifications warrant further expert review. Finite computation does not certify the infinite assertion; its symbolic proof is given in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard bounded-morphism pullback and lasso representation are prior modal logic. The all-frame validity inclusion by maximal (tail,cycle) divisibility antichains, realizability and sharp |W| separation depth were not in inspected 2026 finite-modal-definability work. An equivalent older monounary algebra or deterministic-frame classification is a genuine historical priority risk.
+
+## value
+
+PASS
+
+Classification of global validity-theory inclusion for a natural entire class of finite deterministic frames, by a finite arithmetic antichain, is a structural theorem with effective tests and a sharp optimal modal-depth separator. This is more than routine preservation: it supplies converse, realizability and quantitative separation, of independent logical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
