@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:07:46.551917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer b>=2, n>=1, start s>=0 and step d>=1, the difference-of-powers gcd identity forces the distance between r ones to be >=G_r=(b^(r-1)-1)/(b-1). The witness s=0,d=b-1 attains the exact H_b(n) logarithmic envelope. At critical n=1+G_r equality forces adjacent normalized exponents and the unique pattern at G_1,...,G_r, with r=1,2 treated directly. For words with at least three ones, exponent gap f<=floor(log_b(n-1)), the first two one indices (i,j) and f fix the entire factor, and s>=0 implies j>b^f i. Thus the injective encoding gives the stated finite double sum and the O_b(n^2) upper bound; no matching lower bound is claimed. I independently enumerated s<85, d<43 for bases 2-5, lengths 1-16, verifying H, critical uniqueness and subquadratic sample counts. Finite grids are not exhaustive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A upper r^n exp(o(n)) gives for r=1 only exp(o(n)), a strictly weaker rate than O(n^2); 2006 Toeplitz/period doubling computations treat other binary words."
+        ],
+        "reasoning": "A general asymptotic theorem covering the automatic class does not imply a specific polynomial exponent without additional numerical uniformity; no special class theorem inspected that yields the exact pure-power statements.",
+        "searches": [
+          "Konieczny–Müllner Theorem A arXiv:2309.03180 (2026 version)",
+          "Avgustinovich–Cassaigne–Frid 2006 Sequences of low arithmetical complexity"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob 1e2671f9a33f8e33e7a4ecd9615a37b21a6d94c0",
+        "verify.py Git blob 883e0c202599482fd97ff05ac3436b3cc8c3d90d",
+        "arXiv:2309.03180 full ar5iv text",
+        "Avgustinovich-Cassaigne-Frid (2006) relevant abstract/metadata",
+        "Resultary note id SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prefix support ≤log_2(N) controls an ordinary initial interval, not maximal support along high-step APs; subexponential general bound is weaker than n^2 and does not constrain the maximum number of ones to the exact G_r staircase."
+        ],
+        "reasoning": "Neither result logically implies the normalized power-difference gcd lower bound, the (i,j,f) encoding, or its O(n^2) language size.",
+        "searches": [
+          "arXiv:2309.03180 Theorem A and definition (4)",
+          "Resultary: SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arithmetical subword complexity P_b(n) is exactly the notion in Konieczny–Müllner equation (4); their Theorem A yields r^n exp(o(n)), with r=1 for synchronizing sparse indicators, not polynomial quantitative bound. Prefix support counts in the Resultary note do not account for arbitrary AP steps."
+        ],
+        "reasoning": "Compared definitions using arbitrary integer arithmetic progression factors, sparse automatic base-b digit strings and the exact geometric support; no equivalent statement of the three detailed conclusions is evident.",
+        "searches": [
+          "Resultary semantic query: arithmetical subword complexity powers of b sparse indicator arithmetic progression factors quadratic maximum ones",
+          "arXiv:2309.03180",
+          "Resultary: SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The referenced examples and general r-alphabet theorem do not tabulate AP factor words for c_b(t)=1_{t+1=b^a}, nor the unique extremal critical factors."
+        ],
+        "reasoning": "A finite or database entry for AP complexity might exist under sparse automatic sequences; not located, retained as priority risk.",
+        "searches": [
+          "Resultary semantic query: arithmetical subword complexity powers of b sparse indicator arithmetic progression factors quadratic maximum ones",
+          "arXiv:2309.03180 arithmetical factor examples",
+          "Resultary prefix-support note 2026/10/4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The known effective-alphabet theorem gives subexponential growth for r=1 but not an explicit quadratic AP-factor bound, exact occupancy, or critical rigidity for pure-power support. The published characteristic-support prefix envelope counts ordinary positions and is not equivalent to maximization over progressions with arbitrary steps.",
+      "residual_risks": [
+        "A specialized old result on sparse automatic sequences or pure powers may supply the same AP complexity estimate despite different terminology.",
+        "The stated quadratic complexity is only an upper bound; neither exact P_b(n) nor a matching n^2 lower bound is proved.",
+        "Finite progression grid is not all starts and steps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General asymptotic Theorem A, weaker for r=1 than explicit quadratic upper bound; no inspected exact G_r occupancy",
+          "evidence": [
+            "Theorem A states r^ell <= p_AP <= p_polynomial <= r^ell exp(o(ell)); cannot imply polynomial bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.03180",
+          "material_read": "Full ar5iv HTML text, introduction/Definitions (4)-(5), effective alphabet (Example 1.2), Theorem A and proof sections",
+          "method": "Read searchable primary HTML 432 lines",
+          "title": "Arithmetical subword complexity of automatic sequences",
+          "trigger": "Same definition of arithmetic-progression factor; potential broader result"
+        },
+        {
+          "assessment": "Related but different nonrecurrent pure-power indicator; not a whole-text exclusion",
+          "evidence": [
+            "Earlier published examples concern uniformly recurrent Toeplitz words; uninspected details remain residual risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ita:2006041",
+          "material_read": "Citation, public abstract and discussion of Toeplitz/period-doubling examples; full article not inspected",
+          "method": "Bibliographic/abstract comparison",
+          "title": "Sequences of low arithmetical complexity",
+          "trigger": "Known exact low-complexity arithmetic words"
+        },
+        {
+          "assessment": "Ordinary prefix envelope, not arbitrary AP factor language",
+          "evidence": [
+            "The statement counts support in first N prefix positions; it does not bound all sampled progressions or P_b(n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20",
+          "material_read": "Resultary full result summary, not source proof",
+          "method": "Resultary semantic search metadata",
+          "title": "Sharp logarithmic support envelope for Abelian pattern Sturmian words",
+          "trigger": "Exact support b=2 in prior published record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Arithmetic-progression complexity is a standard and substantially harder invariant than contiguous subword complexity for automatic words. Exact progression occupancy, unique jump-length extremizers and an unexpectedly polynomial rather than generic subexponential language bound give genuinely useful natural combinatorics of a sparse automatic sequence. The precise limitations are explicit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md Git blob 1e2671f9a33f8e33e7a4ecd9615a37b21a6d94c0",
+    "verify.py Git blob 883e0c202599482fd97ff05ac3436b3cc8c3d90d",
+    "arXiv:2309.03180 full ar5iv text",
+    "Avgustinovich-Cassaigne-Frid (2006) relevant abstract/metadata",
+    "Resultary note id SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "P_b(n)=O_b(n^2) is upper only and limsup is an upper coefficient, not exact asymptotic.",
+    "Arithmetic progressions require s>=0 and d>=1; critical-rigidity statement only at n=1+G_r."
+  ],
+  "schema_version": 1
+}
