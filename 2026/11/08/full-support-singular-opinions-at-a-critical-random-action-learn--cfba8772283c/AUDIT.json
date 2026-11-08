@@ -1,0 +1,178 @@
+{
+  "correctness": {
+    "rationale": "The Markov kernel is exactly specified and takes values in [0,1]. Monotone uniform coupling gives strict W1 contraction. Stationary moments follow from conditional expectation/variance. Positive branch probabilities yield the exact IFS support, with open-set dimension above the gap threshold. At alpha=1/2, a two-sided iid-driven construction ensures an ergodic binary action factor, and the current state is its past binary expansion; SMB plus H(X)<log2 establishes singularity and Pinsker plus exact variance bounds the measure dimension. Nonatomicity follows from a uniformly bounded cylinder probability. A standalone exact-rational implementation checked 550 finite identities. No finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barnsley--Demko--Elton--Geronimo (1988) supplies general place-dependent IFS invariant-measure methods, not the specific balanced-zealot model and its closed stationary moments.",
+        "Nicol--Sidorov--Broomhead (2002) describes entropy bounds for iid-choice IFS; the present branch choices are opinion-state dependent and require entropy-rate computation.",
+        "Abrahamsson--Danev--Larsson 2020 Section III-B treats one stubborn source with convergence to its opinion.",
+        "Cao--Cortez 2024 Sections 1.1, 4.1, 4.2 treat pairwise mean-field persuasion and a uniform critical stationary law."
+      ],
+      "reasoning": "General contraction and entropy theorems provide tools and can recover portions after a nontrivial specialization. The complete exact variance, feedback-conditioned entropy identity, critical full-support singularity, and quantified dimension bound are not stated in inspected broader results. They are not asserted as new general IFS principles.",
+      "searches": [
+        "place dependent probabilities dyadic iterated function system invariant measure singular unless probabilities half",
+        "stationary law for scalar affine Bernoulli self-reinforcement two zealots random action consensus fractal measure",
+        "arxiv:2012.15154",
+        "arxiv:2408.01624"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1704.01660",
+      "arxiv:1912.04183",
+      "arxiv:2012.15154",
+      "arxiv:2408.01624",
+      "doi:10.1023/A:1016224000145",
+      "https://www.numdam.org/item/AIHPB_1988__24_3_367_0/",
+      "arxiv:2401.16574",
+      "doi:10.1145/2538508",
+      "doi:10.1137/24M1682269"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 model allows self-loops but its irreducible consensus claim excludes two absorbing opposing agents.",
+        "The one-stubborn-agent paper concludes convergence to that single forced action; two opposite actions have a strictly nonzero limiting variance.",
+        "Cao--Cortez critical equilibrium is uniform and their Cantor case is a different external-branch model.",
+        "General place-dependent IFS results establish a framework without this particular network identity or its exact critical dimension loss."
+      ],
+      "reasoning": "The new claim is not implied by simply adding a stubborn actor to the one-stubborn convergence theorem. Reducing to IFS requires determining a current-state Bernoulli selection rule and its stationary moments; a positive entropy defect at critical overlap is then proved by stationary-past coding, not by the generic Cantor-support theorem. Existing standard tools are acknowledged.",
+      "searches": [
+        "arxiv:1704.01660",
+        "arxiv:2012.15154",
+        "arxiv:2408.01624",
+        "https://www.numdam.org/item/AIHPB_1988__24_3_367_0/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leshem--Scaglione eq. (1) is a stochastic network-action update; its main consensus result assumes an irreducible interaction matrix.",
+        "Cao--Cortez arxiv:2408.01624 Proposition 4.3 at equal persuasion and zero mean produces a uniform interval measure, not state-feedback dyadic singularity.",
+        "No inspected equivalent theorem gave the two opposite stubborn-source self-action process with the variance and entropy deficit."
+      ],
+      "reasoning": "Affine normalization has exactly the two dyadic similarities of a Bernoulli convolution, but the branch law is a nonconstant conditional probability. Therefore the fair Bernoulli convolution, classical iid binary expansions, and symmetric mean-field stationary law cannot imply this probability measure directly.",
+      "searches": [
+        "random actions opinion model two stubborn agents Bernoulli stationary distribution singular self feedback",
+        "random action Leshem Scaglione opposite stubborn agents stationary singular continuous full interval at learning rate one half",
+        "arxiv:1704.01660",
+        "arxiv:2408.01624"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible random-actions and opposite-stubborn binary-voter literature does not tabulate the state-dependent dyadic stationary law or its critical entropy deficit.",
+        "The cited 2024 preprint has a uniform critical case for an externally averaged branch probability, which is a directly opposite behavior, not a matching table entry."
+      ],
+      "reasoning": "The parameterized model has no discrete enumeration or database row determining these exact moments or its singular stationary law; the search was for theorem coverage, not just exact matching numbers.",
+      "searches": [
+        "random actions opinion dynamics stubborn agents invariant measure fractal dyadic self confidence probability opinions",
+        "opposing zealots self-action random opinions stationary Cantor attractor moment variance state-dependent IFS",
+        "arxiv:1704.01660",
+        "arxiv:2408.01624",
+        "doi:10.1145/2538508"
+      ]
+    },
+    "rationale": "A 2017 random-actions network rule and a 2020 one-stubborn-agent convergence result do not classify the stationary law with two opposite absorbing actions. The related Cao--Cortez 2024 mean-field symmetric branch probability is constant at one half and its alpha=1/2 law is uniform; here the self-action branch probability is the current opinion and the alpha=1/2 law is singular with an explicit entropy deficit. Classical IFS and entropy methods are prior ingredients. No statement implying the combined model-specific result was identified in inspected sources or relevant research records; priority remains provisional.",
+    "residual_risks": [
+      "A general place-dependent IFS entropy theorem might imply the critical singularity after a specialized parameter reduction; its full implication lattice is not exhausted.",
+      "The full 2024 later random-actions revision was unavailable; only its abstract was inspected.",
+      "The full Nicol--Sidorov--Broomhead 2002 entropy paper was not accessible, so only the abstract was compared.",
+      "Unindexed older or later work may have the precise three-agent model or stronger theorem; publication priority is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the core model and allows self action; no stationary two-opposite-stubborn self-feedback classification found",
+        "evidence": [
+          "arXiv HTML Eq. (1), lines 32-49: Bernoulli actions and self-influence; irreducible trust assumed",
+          "Section 2 lines 157-190 treats different gated four-node fluctuation example"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.01660",
+        "material_read": "full accessible arXiv HTML text including Eq. (1), main consensus analysis, bounded-confidence Section 2, simulation discussion",
+        "method": "Read text, update equation, assumptions, and theorem/illustration passages",
+        "title": "The impact of random actions on opinion dynamics",
+        "trigger": "Originating random-actions stochastic network update"
+      },
+      {
+        "assessment": "One stubborn source with convergence; not two opposing sources with nontrivial stationary law",
+        "evidence": [
+          "Section III-B lines 83-103 forces action 0 for one agent",
+          "results section states one-source convergence claims"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.15154v1",
+        "material_read": "accessible arXiv HTML Sections III-B, IV and adjacent general arguments",
+        "method": "Read definitions, hypotheses, one-zealot update and results",
+        "title": "On the Impact of Random Actions on Opinion Dynamics",
+        "trigger": "Single-stubborn random-actions convergence and possible broader theorem"
+      },
+      {
+        "assessment": "The available abstract describes single stubborn-agent consensus; full text remains a residual access/coverage risk",
+        "evidence": [
+          "Abstract specifies consensus in presence of a stubborn agent, with no two-opposite-source stationary theorem stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.16574",
+        "material_read": "available abstract only; full text not obtained",
+        "method": "Read abstract and metadata",
+        "title": "Strong Convergence of a Random Actions Model in Opinion Dynamics",
+        "trigger": "Possible more general stubborn-agent result"
+      },
+      {
+        "assessment": "Different pairwise-interaction mean-field model; constant symmetric branch law gives a uniform equilibrium at the critical value, directly contrasting with the present feedback-driven singularity",
+        "evidence": [
+          "Section 1.1 update uses other agent opinion in branch probability",
+          "Proposition 4.3: uniform critical equilibrium",
+          "Proposition 4.4: Cantor support above one half"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.01624",
+        "material_read": "full accessible arXiv HTML including Sections 1.1, 3, 4.1, 4.2, Proposition 4.3 and 4.4",
+        "method": "Compared exact stochastic update and the critical and fractal stationary formulas",
+        "title": "Fractal opinions among interacting agents",
+        "trigger": "Same fractal phase boundary and critical equilibrium in a related opinion model"
+      },
+      {
+        "assessment": "General uniqueness/support machinery overlaps. No direct specialized exact random-actions stationary-variance or critical entropy theorem identified in read material; unexamined pages remain a limitation",
+        "evidence": [
+          "1988 Annales IHP 24(3):367-394; introductory and theorem framework describes general place-dependent probabilities"
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/AIHPB_1988__24_3_367_0/",
+        "material_read": "abstract, initial main-text hypotheses/results and late discussion in authorized full PDF; not all pages line-by-line",
+        "method": "Opened lawful full PDF, inspected text and selected page screenshots",
+        "title": "Invariant measures for Markov processes arising from iterated function systems with place-dependent probabilities",
+        "trigger": "Strong general mathematical framework for state-dependent IFS"
+      },
+      {
+        "assessment": "Entropy dimension bounds for iid chosen maps; potential extension to state-dependent branch processes not excluded; priority risk explicitly retained",
+        "evidence": [
+          "Abstract discusses singularity under entropy versus Lyapunov exponent and contract-on-average systems"
+        ],
+        "identifier_or_url": "https://doi.org/10.1023/A:1016224000145",
+        "material_read": "journal bibliographic abstract only; full text access restricted",
+        "method": "Reviewed abstract and available metadata",
+        "title": "On the Fine Structure of Stationary Measures in Systems Which Contract-on-Average",
+        "trigger": "Entropy-singularity and dimension domination"
+      },
+      {
+        "assessment": "Binary-valued voter-type agent opinions differ from the continuously updated self-action probability chain here",
+        "evidence": [
+          "Abstract reports opposing stubborn agents and stationary fluctuations of binary opinions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/2538508",
+        "material_read": "accessible abstract only",
+        "method": "Compared model class (binary voter variant) and second-moment target",
+        "title": "Binary Opinion Dynamics with Stubborn Agents",
+        "trigger": "Known two-opposite-zealot nonconsensus model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cfba8772-283c-4716-99c2-3465825706b6",
+  "value": {
+    "rationale": "Two fixed opposed actions generate a nontrivial stochastic stationary opinion distribution whose support transitions at alpha=1/2. The newly resolved critical law has full interval accessibility but is still singular continuous with a strict explicit entropy-dimension deficit; this contrasts with the fair-branch uniform critical law in a close published model. The variance and contraction rates are exact and depend on interpretable self-trust and learning parameters, providing a motivated analysis of state-feedback opinion fragmentation.",
+    "status": "PASS"
+  }
+}
