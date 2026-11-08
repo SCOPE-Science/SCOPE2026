@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each selected outer vertex, the exact defensive condition is \\(k_i\\ge\\lfloor m_i/2\\rfloor+1-h\\), where \\(h\\) is hub occupancy. With the hub present, the exact hub condition is \\(\\sum_i k_i\\ge\\lfloor N/2\\rfloor\\). If the hub is absent, proper petal alliances force just one petal at its threshold. If the hub is present, a petal above its center-present threshold contains a proper hub-free defensive subset. Thus \\(k_i\\) is zero or \\(\\lfloor m_i/2\\rfloor\\). Summing those caps and using the parity identity yields \\(q\\le1\\), with all caps attained. The reverse direction excludes every proper subset by its hub status. All labelled choices are counted exactly and all boundary sizes (including singleton petals) are covered. An independent definition-level verifier checked 495 profiles and 1,462,825 vertex subsets; this finite check is not treated as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General enumeration of globally minimal defensive alliances on arbitrary graphs is possible by brute force in arxiv:2312.11963, but its displayed results are algorithmic rather than a parameterized closed polynomial for this family.",
+        "The result with ID 2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a is for complete multipartite graphs and strong alliances, not ordinary defensive alliances of one-hub clique sums.",
+        "The result with ID 2026/10/4/SCOPE-all-global-offensive-k-alliances-of-complete-multipartite-graphs--d292e8e512b0 concerns offensive alliances, which constrain vertices outside the set rather than the selected vertices."
+      ],
+      "reasoning": "The general brute-force algorithm does not supply the structural classification or binomial coefficient formula. Cograph/neighbor-diversity algorithmic coverage does not imply the sharp odd-petal cutoff or all coefficients without additional analysis. Strong and offensive alliance results have materially different inequalities.",
+      "searches": [
+        "\"defensive alliances\" \"cographs\" enumeration minimal",
+        "\"upper defensive alliance\" \"windmill\" \"friendship\"",
+        "2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a",
+        "2026/10/4/SCOPE-all-global-offensive-k-alliances-of-complete-multipartite-graphs--d292e8e512b0",
+        "arxiv:2312.11963"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1811.10089",
+      "arxiv:2202.02010",
+      "arxiv:2312.11963",
+      "2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a",
+      "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+      "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b",
+      "2026/10/4/SCOPE-all-global-offensive-k-alliances-of-complete-multipartite-graphs--d292e8e512b0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new formula is for inclusion-minimal sets and records each size. Ibrahim (2018) contains a distinct connected-induced-subgraph polynomial and only a vertex-degree characterization of friendship graphs in proposition 36.",
+        "Feng–Fernau–Mann (2023 first public) proves general enumeration complexity and has special tree/cograph examples, not the one-hub unequal-clique classification.",
+        "Gaikwad–Maity (2022 first public) has FPT algorithms for the maximum globally minimal size, not a stated exact number of minimal sets by cardinality in the material accessible."
+      ],
+      "reasoning": "Known ordinary defensive-alliance feasibility criteria imply the starting degree inequalities, but the all-subset minimality classification, hub parity obstruction, product enumerator, and unbounded missing-cardinality interval require the additional proof here. No exact prior statement among inspected sources logically entails all coefficients as an explicit theorem. The full Gaikwad–Maity text remained inaccessible, so residual literature risk is retained.",
+      "searches": [
+        "arxiv:1811.10089",
+        "arxiv:2202.02010",
+        "arxiv:2312.11963",
+        "\"globally minimal defensive alliances\" \"friendship graph\" OR \"windmill graph\"",
+        "globally minimal defensive alliances clique bouquet windmill block graph flower all sizes counts parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feng–Fernau–Mann, arxiv:2312.11963, pp. 1–6 and sections on trees and general enumerators, distinguishes global versus local minimality but has no friendship or windmill instance theorem.",
+        "Gaikwad–Maity, arxiv:2202.02010, accessible abstract and sections discuss optimization of globally minimal alliance size via neighborhood diversity; no exact clique-windmill all-size count was located."
+      ],
+      "reasoning": "Critical or inclusion-minimal defensive alliance means no nonempty proper defensive subset, which is exactly globally minimal (not dominating-global). Search included both terms and the friendship and one-point clique-sum aliases. No inspected source states an equivalent parity-gated enumerator. The inaccessible full optimization article remains a named priority risk.",
+      "searches": [
+        "Minimal defensive alliances on friendship graphs windmill graphs cliques bouquet enumeration cardinality polynomial",
+        "globally minimal defensive alliances clique bouquet windmill block graph flower all sizes counts parity",
+        "\"globally minimal defensive alliance\" \"windmill\"",
+        "\"minimal defensive alliance\" \"clique bouquet\" graph",
+        "arxiv:2312.11963",
+        "arxiv:2202.02010"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ibrahim, arxiv:1811.10089, section 4.10, gives a friendship-graph characterization using only the singleton coefficient of a connected-subgraph defensive-surplus polynomial.",
+        "The result with ID 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc counts maximal induced-degree-at-most-one vertex sets of windmills, not defensive alliances.",
+        "The result with ID 2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b counts zero-forcing sets of friendship graphs, not critical defensive alliances."
+      ],
+      "reasoning": "The relevant friendship-graph polynomial in the inspected article is not an exact database or table of globally minimal defensive alliances; its coefficients aggregate connected vertex sets by their weakest defensive surplus, not by inclusion-minimality. No table or indexed exact count with the claimed two-size distribution was found. Failed retrieval alone is not proof of uniqueness.",
+      "searches": [
+        "Inclusion-minimal or critical defensive alliances in one-vertex sums of cliques K1 join union of cliques, friendship graph F_n",
+        "Global minimal defensive alliance size polynomial for friendship graphs F_n r triangles and unbounded gaps",
+        "\"minimal defensive alliance\" \"friendship\" graph",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus searches, published research comparisons, and primary literature did not find the all-size inclusion-minimal defensive-alliance polynomial or the odd-petal extinction phenomenon. The strongest inspected papers address generic enumeration, neighborhood-diversity optimization, or a different connected-set surplus polynomial; same-object friendship results do not supply an inclusion-minimal distribution. An inaccessible full optimization paper leaves priority provisional; no unearned uniqueness assertion is made.",
+    "residual_risks": [
+      "Complete text of Gaikwad–Maity arxiv:2202.02010/publisher version was inaccessible; comparison based on accessible portions only.",
+      "Unindexed or inaccessible special-family enumerators could conceivably imply the result.",
+      "General defensive alliance and connected-subgraph polynomials may encode indirect information, but no inspected explicit implication to the claimed globally minimal polynomial was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general algorithmic results and contrasting global/local phenomena; no one-hub clique-sum polynomial in inspected results.",
+        "evidence": [
+          "Definition and Observation 1 on globally minimal sets (printed p. 4).",
+          "Theorem 1 and complete-bipartite construction (printed pp. 4–5).",
+          "Theorems 3–4 and sections 5–6 on trees (printed pp. 12–14)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.11963",
+        "material_read": "Abstract, definitions, input-sensitive enumeration and complete bipartite example, tree enumeration/extension results, local tree examples, and selected sections on reductions (PDF pp. 1–6, 11–14, 16–20).",
+        "method": "Primary full-text PDF sections read and page images examined.",
+        "title": "Enumerating Minimal Defensive Alliances",
+        "trigger": "Directly studies global and local minimal defensive alliances and enumeration."
+      },
+      {
+        "assessment": "Counts connected subsets by size and surplus, not globally minimal defensive sets; friendship-graph result identifies the graph from its singleton coefficient.",
+        "evidence": [
+          "Definition 1 on printed p. 2.",
+          "Section 4.10, Proposition 36, on printed pp. 14–15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.10089",
+        "material_read": "Abstract, definition and connected-induced-subgraph surplus polynomial, and section 4.10 on friendship graphs (printed pp. 1–3, 13–14), including its proposition 36.",
+        "method": "Primary full-text PDF relevant sections and page images examined; searched for inclusion-minimality terminology.",
+        "title": "Defensive alliance polynomial",
+        "trigger": "Same defensive-alliance notion and friendship-graph case; plausible enumerator equivalence."
+      },
+      {
+        "assessment": "Excerpts establish general complexity/optimization results, not an exact windmill polynomial; complete-paper noncoverage is not certified.",
+        "evidence": [
+          "Public abstract: FPT by neighborhood diversity and hardness for rooted global minimality.",
+          "Available excerpts describe maximum-size ILP formulation, not exact size distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02010",
+        "material_read": "Abstract and accessible excerpts of the introduction, neighborhood-diversity optimization formulation, and summary; complete preprint/publisher full text unavailable.",
+        "method": "Academic metadata and accessible article excerpts; attempted lawful full-text access unsuccessfully.",
+        "title": "Globally Minimal Defensive Alliances: A Parameterized Perspective",
+        "trigger": "Possible stronger coverage through neighborhood-diversity parameterization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9ba36a4-b31b-4a94-b5c6-fc10a5ebbf2c",
+  "value": {
+    "rationale": "A natural family of chordal/cograph clique-windmills with unrestricted unequal petal sizes receives a complete classification of all critical defensive coalitions, despite nonmonotone alliance feasibility. The parity obstruction at the hub and friendship graphs with only sizes \\(2\\) and \\(r+1\\) yield a structural extinction theorem and unbounded gaps; the formula supplies exact multiplicities and distinguishes the global notion from the local one. These are meaningful finite-combinatorial results, not a parameter substitution or a claim of general complexity advances.",
+    "status": "PASS"
+  }
+}
