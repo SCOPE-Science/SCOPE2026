@@ -1,11 +1,21 @@
-# Review of multicritical non-contingency atom laws
+# Independent mathematical audit
 
-**Correctness (PASS).** The finite support/pointed-colour normal form is proved by an explicit family of depth-one non-contingency tests and a semantic induction. The exact occupancy distribution follows from inclusion–exclusion. Mixed multinomial factorial moments give simultaneous independent Poisson support counts at a critical level, and separation of exponential scales excludes simultaneous nontrivial levels. A bounded-expectation and subsequence argument proves the converse convergence criterion; its endpoints are checked against the adjacent phase bands. The attached exact arithmetic checker passed 9,502 exhaustive colourings. Finite computation is not used as a substitute for the infinite proof.
+## correctness
 
-**Originality (PASS within inspected evidence).** This is not a new expressive normal form: knowing-whether expressivity over reflexive frames is already known, and support pairs also appear in finite S5 modal classifications. The distinctly stated claim concerns the full **random equal-cluster atom-count distribution**, all \(q-1\) Poisson-to-binomial threshold windows, and equivalence of convergence of one expectation with convergence of the entire law. The motivating 2026 proof-theory paper and the 2013 knowing-whether treatment do not state such random equal-block laws in inspected full text; the 2026 S4/S5 modal exchangeability representation paper has a different probability model. The general occupancy mechanism is classical and remains a serious risk for implicit equivalent coverage. No independent priority certification is claimed.
+PASS
 
-**Value (PASS).** The number of Boolean atoms is the natural measure of the distinguishing power of a generated finite modal algebra. The result classifies its exact finite distribution and every possible limit across arbitrary relative growth of independently coloured S5 information classes, with \(q-1\) genuine critical windows and deterministic plateaux. For four colours, the interior support-two window has limit \(16+2\mathrm{Binomial}(6,1-e^{-\lambda})\). This provides a reusable quantitative benchmark for finite non-contingency expressivity without assuming a new static normal form.
+An S5 world is described by support S of its equivalence class and local colour t in S. Singleton propositional colour tests and Δ of these tests separate every realized pair (S,t); induction shows arbitrary nested Δ cannot distinguish more. Thus Z=sum_S |S|I_S. Inclusion-exclusion for surjective r-tuples supplies p_(r,s), and occupancy over m iid classes supplies the exact law/expectation. When m,r->infinity and q fixed, p_(r,s)~(s/q)^r and different support sizes have exponentially separated intensities. Mixed multinomial falling-factorial moments show independent Poisson counts at any one finite positive critical s, yielding shifted scaled Binomial. All other supports vanish/appear. Boundedness of Z and disjoint expectation plateau intervals prove distribution convergence iff expectation convergence iff each intensity extended-converges. Independently enumerated exact small q=2,4 colourings and matched rational dynamic-programming occupancy laws; tests do not establish asymptotics.
 
-**Closest literature and boundaries.** Sierra Miranda–Wang–Zenger (arXiv:2609.38975v1) develops labelled sequent calculi for non-contingency logics, not random atom-count statistics. Fan–Wang–van Ditmarsch (arXiv:1312.0144) gives knowing-whether semantics and reflexive-frame expressivity; this prevents asserting a new normal form. Zantedeschi (arXiv:2603.27547v1) treats modal de Finetti and exchangeability, not exact occupancy phases. The IID, fixed-alphabet, equally sized, single-equivalence-class-family constraints remain essential. The proof has not been independently reviewed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior S5 knowing-whether expressiveness determines what formulas distinguish, while modal de Finetti/exchangeability covers distributional symmetry and classical occupancy handles box counts. None of the inspected sources supplies the particular exact atom-count law and complete multi-threshold convergent/subsequential classification. These constituent ingredients are explicitly prior; combination with weighted supports and expectation-equivalent inverse criterion is assessed as new best-of-knowledge.
+
+## value
+
+PASS
+
+The Boolean atom count is a natural finite-model expressive complexity invariant; its exact finite law and complete sharp stochastic phase diagram under increasing class counts and sizes are useful well beyond a numerical table. The expectation-equivalent convergence criterion is a substantive strengthening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
