@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:00:39.541505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each admissible geometric PGF f_i(s)=1-m_i(1-s)/(1+a_i(1-s)), a_i>0,0<m_i<=1+a_i, composition is F_{M,C} with M=prod m_i and C=sum_i a_pi(i) prod_{j>i}m_pi(j). Adjacent exchange changes C by T a_i a_j (theta_j-theta_i), theta=(m-1)/a, T>0, so descending theta uniquely orders unequal-score seasons to minimize C globally, maximizing M/(1+C) terminal survival, minimizing convex order via stop-loss M(C/(1+C))^t, minimizing variance M(1+2C-M), and when repeated M>1 maximizing (M-1)/C perpetual survival. Opposite order extrema and equal-score ties follow. Independent exact Fraction composition/example (3,7),(2,2) yields best M=6,C=13 vs C=16, terminal 3/7 vs6/17, perpetual 5/13 vs5/16. The finite check is not a real-parameter exhaustive proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keiding–Nielsen Theorem 2.1 provides general varying-environment survival formulas; Sections 3–4 study random environments, and a two-composition comparison appears later, but no theorem orders arbitrary fixed multisets by theta.",
+          "Kersting covers more general varying environments for extinction criteria, without explicit same-multiset permutation extremum in the inspected descriptions."
+        ],
+        "reasoning": "A formula applicable to any order allows computing objective values but does not by itself state or derive the sharp globally optimal permutation without the swap ordering proof.",
+        "searches": [
+          "Keiding–Nielsen complete open text via Cambridge archive",
+          "doi:10.1239/jap/1175267168",
+          "arXiv:1703.01960"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md f20c0fb71e812ddf45cc4fa56d4bc77dde8019df",
+        "Frozen CHECK.py 265a78a7374ebd4810d0f39b667ff86f073955bc",
+        "Keiding–Nielsen 1973 technical report/1975 Journal of Applied Probability 12, 135–141, doi:10.2307/3212415 (complete article material read)",
+        "Mountford (1971) J. Theoretical Biology 32, 75–79",
+        "Pellerey (2007) doi:10.1239/jap/1175267168",
+        "Kersting arXiv:1703.01960",
+        "Resultary query: varying environment geometric offspring linear fractional branching processes optimal order seasons extinction probability survival"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact closure and extinction equations do imply the formula for any prescribed calendar, including the two-season instance, and must be credited.",
+          "They do not explicitly establish the all-permutation comparison, theta tie/strictness criterion, convex-order law and supercritical repeated-calendar optimum together."
+        ],
+        "reasoning": "Checked corollary-level implications: an adjacent-swap inequality follows by extra manipulation, but global sorted extremizer and strict equality classification are not given as established results by the inspected primary text. This qualifies, rather than certifies, novelty.",
+        "searches": [
+          "Keiding–Nielsen full original scientific article, Sections 1–4, Theorem 2.1",
+          "doi:10.1239/jap/1175267168",
+          "Mountford 1971 population survival"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keiding–Nielsen equations for linear fractional compositions establish M,C survival law; sorting a fixed multiset by the ratio (m-1)/a requires the adjacent-commutator sign, not a restatement of the composition itself.",
+          "The final statement compares deterministic orderings, whereas random-environment stochastic comparisons change dependence structures/distributions."
+        ],
+        "reasoning": "Tested the closest equivalent varying-geometric-offspring formulation and the pre-existing linear-fractional change of variables before assessing the new global sort claim.",
+        "searches": [
+          "Keiding and Nielsen, Branching Processes with Varying and Random Geometric Offspring Distributions (1973 report/1975 article)",
+          "doi:10.2307/3212415",
+          "varying environment geometric offspring linear fractional branching processes optimal order seasons extinction probability survival"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated population models and seasonal dynamics; the inspected Keiding–Nielsen article contains no explicit all-n sorted-calendar table/theorem."
+        ],
+        "reasoning": "A bounded published-table search was negative; it cannot rule out unpublished ecological ordering notes or an overlooked appendix elsewhere.",
+        "searches": [
+          "varying environment geometric offspring linear fractional branching processes optimal order seasons extinction probability survival",
+          "Stanford technical report COV NSF 6 (November 1973)",
+          "doi:10.2307/3212415"
+        ]
+      },
+      "rationale": "Keiding–Nielsen 1973/1975 is a very close primary antecedent and explicitly proves fractional-linear composition and varying-environment extinction formulas. Its newly accessed complete 193-line article mathematical statements in Sections 1–4 do not assert a fixed-multiset permutation sorting theorem, sharp adjacent equality or convex-order extrema; an example compares two compositions locally, so the source is credited rather than declared unrelated. Prior general process theory is distinct from globally optimizing a deterministic season ordering.",
+      "residual_risks": [
+        "Very close Keiding–Nielsen prior composition theorem makes originality of an elementary sorting corollary vulnerable to earlier overlooked formulations; no claim of historical certainty.",
+        "Random environment stochastic comparison or specialized ecology literature could contain an equivalent fixed-calendar reorder inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CLOSURE_AND_SURVIVAL_BUT_NO_STATED_GLOBAL_SORT",
+          "evidence": "Theorem 2.1 supplies the varying-environment compositions and survival expressions. Later example contrasts two compositions locally; read material does not state a global deterministic fixed-multiset theta ordering or convex-order minimization.",
+          "identifier_or_url": "Keiding and Nielsen, Stanford COV NSF 6 (1973); Journal of Applied Probability 12 (1975) 135–141, doi:10.2307/3212415",
+          "material_read": "Full available Cambridge scholarly extracted-text article, all 193 lines, Sections 1–4, especially Theorem 2.1 (lines 39–48) and explicit composition example (lines 138–151)",
+          "method": "Lawful publisher-hosted accessible textual primary full-text reading; screenshot of scanned rendition timed out",
+          "title": "Branching Processes with Varying and Random Geometric Offspring Distributions",
+          "trigger": "Exactly same varying linear-fractional geometric-offspring PGF, decisive priority source"
+        },
+        {
+          "assessment": "PARTIAL_READ_NO_WHOLE_DOCUMENT_NONCOVERING",
+          "evidence": "The described comparison changes random environmental dependence; older full text not independently inspected, retained as residual risk.",
+          "identifier_or_url": "doi:10.1239/jap/1175267168 (Pellerey 2007)",
+          "material_read": "Public abstract and research summary / citation details, no full body checked in this run",
+          "method": "Public primary bibliographic abstract and frozen source comparison",
+          "title": "Comparison results for branching processes in random environments",
+          "trigger": "General branching comparison order theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deterministically arranging a fixed set of stochastic reproductive seasons is a natural ecological/branching optimal-design question; the exact global sorting score using reproduction and geometric scale can reverse naive mean ordering and controls survival and convex dispersion simultaneously. This adds useful ordered-calendar information to known varying-environment PGF machinery.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md f20c0fb71e812ddf45cc4fa56d4bc77dde8019df",
+    "Frozen CHECK.py 265a78a7374ebd4810d0f39b667ff86f073955bc",
+    "Keiding–Nielsen 1973 technical report/1975 Journal of Applied Probability 12, 135–141, doi:10.2307/3212415 (complete article material read)",
+    "Mountford (1971) J. Theoretical Biology 32, 75–79",
+    "Pellerey (2007) doi:10.1239/jap/1175267168",
+    "Kersting arXiv:1703.01960",
+    "Resultary query: varying environment geometric offspring linear fractional branching processes optimal order seasons extinction probability survival"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Prescribed deterministic finite multiset, independent geometric offspring, single founder; no field-population calibration, stochastic feedback, or density dependence; repeated survival only M>1."
+  ],
+  "residual_risks": [
+    "Very close Keiding–Nielsen prior composition theorem makes originality of an elementary sorting corollary vulnerable to earlier overlooked formulations; no claim of historical certainty.",
+    "Random environment stochastic comparison or specialized ecology literature could contain an equivalent fixed-calendar reorder inequality."
+  ],
+  "schema_version": 1
+}

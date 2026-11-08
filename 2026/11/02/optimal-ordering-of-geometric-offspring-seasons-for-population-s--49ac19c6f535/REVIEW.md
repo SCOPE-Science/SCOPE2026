@@ -1,19 +1,21 @@
-# Scientific review: optimal geometric-offspring season ordering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The composition identity for \(F_{M,C}\) is checked by direct rational-function substitution; it gives exactly \(M=\prod_i m_i\) and \(C=\sum_i a_i\prod_{j>i}m_j\). The adjacent-swap difference has the exact sign \(Ta_ia_j(\theta_j-\theta_i)\) with \(T>0\). Thus bubble sorting proves global extrema for every calendar length, including sharp tie conditions. The exact composite PGF gives survival, zero-inflated geometric masses, stop-loss, variance and repeated-cycle survival by standard fixed-point calculation. The code corroborated 152,229 assertions on admissible rational cases; no finite enumeration was used in place of a universal proof. The parameter inequalities ensure every offspring PGF is a probability law. This establishes correctness within the explicitly defined model, not empirical validity.
+PASS
 
-## Originality
+For each admissible geometric PGF f_i(s)=1-m_i(1-s)/(1+a_i(1-s)), a_i>0,0<m_i<=1+a_i, composition is F_{M,C} with M=prod m_i and C=sum_i a_pi(i) prod_{j>i}m_pi(j). Adjacent exchange changes C by T a_i a_j (theta_j-theta_i), theta=(m-1)/a, T>0, so descending theta uniquely orders unequal-score seasons to minimize C globally, maximizing M/(1+C) terminal survival, minimizing convex order via stop-loss M(C/(1+C))^t, minimizing variance M(1+2C-M), and when repeated M>1 maximizing (M-1)/C perpetual survival. Opposite order extrema and equal-score ties follow. Independent exact Fraction composition/example (3,7),(2,2) yields best M=6,C=13 vs C=16, terminal 3/7 vs6/17, perpetual 5/13 vs5/16. The finite check is not a real-parameter exhaustive proof.
 
-**PASS within searched evidence, provisionally.** Mountford (1971) treats ecological survival in a variable environment. Keiding and Nielsen (1973 report, 1975 article) introduce this *exact* general family of varying geometric-offspring processes, so closure and survival formulas are not new. Pellerey (2007) establishes stochastic comparisons for different random-environment dependence structures, and Kersting (2017 preprint) treats general varying-environment extinction criteria. The assessed distinct result is the globally sharp calendar-permutation extremum ranked by \((m_i-1)/a_i\), with its adjacent equality criterion and the same finite-/periodic-survival and convex-risk ordering. No direct equivalent was found in targeted literature and published-result searches. However, the full Keiding–Nielsen archival report and journal text were unavailable through accessible full-text pathways, so their possible undocumented permutation discussion remains the main historical-priority risk. Absence of a search hit is not proof of novelty. Independent historical review remains necessary.
+## originality
 
-## Value
+PASS
 
-**PASS.** Seasonal ordering is a natural intervention in simple demographic models: the total expected reproductive multiplication is fixed, but extinction risk depends on when stochastic reproductive variability occurs. The theorem solves the entire finite-calendar arrangement problem, including ties and worst case, and rules out the intuitive but false rule to place the highest-mean season first. The example with means three and two demonstrates a material strict reversal. It also reveals a direct criterion for long-run lineage survival under repeated management cycles. Its value is a structural theorem, not a field-validated population-management prescription.
+Keiding–Nielsen 1973/1975 is a very close primary antecedent and explicitly proves fractional-linear composition and varying-environment extinction formulas. Its newly accessed complete 193-line article mathematical statements in Sections 1–4 do not assert a fixed-multiset permutation sorting theorem, sharp adjacent equality or convex-order extrema; an example compares two compositions locally, so the source is credited rather than declared unrelated. Prior general process theory is distinct from globally optimizing a deterministic season ordering.
 
-## Limitations
+## value
 
-The model has independent geometric-family offspring and no density feedback, immigration or endogenous seasonal changes. Parameter estimates and finite-sample uncertainty are not addressed. Priority remains provisional because an early same-family full text could not be read in full. The present assessment is not independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deterministically arranging a fixed set of stochastic reproductive seasons is a natural ecological/branching optimal-design question; the exact global sorting score using reproduction and geometric scale can reverse naive mean ordering and controls survival and convex dispersion simultaneously. This adds useful ordered-calendar information to known varying-environment PGF machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
