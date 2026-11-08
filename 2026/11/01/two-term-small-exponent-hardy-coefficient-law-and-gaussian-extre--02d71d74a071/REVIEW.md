@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each fixed coefficient order \(k\), the published outer-extremizer representation reduces the problem to optimizing \([z^k]P^{2/p}\) over normalized degree-\(k\) polynomials. For \(2/p>k\), the coefficient expansion has positive generalized-binomial weights; taking absolute values gives a global upper bound. The scaled objective has a unique, nondegenerate Gaussian limit maximizer, with uniform tail control. Implicit-function uniqueness, positivity of every coefficient, the restored outer condition, and phase rigidity close the argument. The second-order Taylor calculation yields the stated coefficient \(((k-1)^2+1)/8\) in the original \(p\) parameter. The included checker validates finite algebra but is not an infinite proof.
+## correctness
 
-## Originality — PASS under searched evidence
-The 2026 Brevig–Søvik theorem (arXiv:2610.21788) establishes outerness and the coefficient-polynomial representation, which are cited as inputs. Brevig–Saksman (arXiv:1905.09547) gives low-degree sharp cases rather than an all-index small-exponent two-term expansion; the 2022 Wiener-trick paper addresses a constrained coefficient problem. Semantic record searches of Hardy coefficient norms, Gaussian extremizer profiles, and small-exponent asymptotics returned no dominating equivalent. The closest harmonic Hardy findings concern different spaces and exponents. Unindexed or implicit historical priority remains a risk.
+PASS
 
-## Value — PASS
-The problem is the sharp coefficient functional in an established family of analytic quasi-Banach Hardy spaces. The all-index correction, eventual uniqueness and explicit limiting function answer how extremizers organize near the singular zero-exponent boundary. The necessary positive second-mode perturbation reveals a structural effect invisible to the one-mode trial family.
+For every fixed k>=1 and p downarrow 0, the cited outer-polynomial extremizer representation reduces the sharp H^p Taylor coefficient functional to the degree-k unit H2 coefficient sphere. Generalized binomial coefficients are positive for s=2/p>k, so replacing polynomial coefficients by absolute values gives a valid upper bound; the eventual optimal polynomial is zero-free and hence admissible. The exponential tail bound confines rescaled u_j=sqrt(s)a_j, and the limit exp(-||u||^2/2)u_1^k/k! has the unique maximizer (sqrt(k),0,..), strictly negative Hessian (-2c,-c,...). Analytic implicit-function perturbation yields u_2=(k-1)/sqrt(s)+O(1/s), the correction ((k-1)^2+1)/(4s), eventual phase/rotation uniqueness, and P_s(w/sqrt(s))^s -> exp(-k/2+sqrt(k)w) compactly. Independent symbolic consistency verified the direct second-order term -k^2/4+k/2 and u2 optimization (k-1)^2/2 against the predicted coefficient for k=1..4; these finite checks are not proof of all k.
 
-## Limitations
-The index is fixed; there is no uniformity for growing indices. This is a scientific result with finite verification aids and no independent audit or guarantee of absolute historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-term asymptotic for every fixed Taylor index, eventual uniqueness modulo scalar/rotation, and Gaussian microscopic profile are not stated by the outer-polynomial reduction or the isolated low-degree coefficient results materially compared. Best-of-knowledge PASS subject to unindexed priority risk.
+
+## value
+
+PASS
+
+The boundary p->0 of a natural sharp analytic Hardy coefficient problem exposes a universal coherent-state exponential profile, exact second asymptotic term for every fixed k, and symmetry uniqueness. The nonzero transverse a_2 perturbation is a substantive structural correction beyond the one-mode trial bound; a future worker studying small-exponent sharp constants needs that actual coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
