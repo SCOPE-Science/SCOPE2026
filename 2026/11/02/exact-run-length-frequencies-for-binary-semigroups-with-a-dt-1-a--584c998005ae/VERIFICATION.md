@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify_gap_blocks.py` from a directory containing the standalone verification file. It has no third-party dependencies and uses Python's exact integers.
+## correctness
 
-For every \(2\le d\le12\) and \(2\le t\le16\), it computes representability through additive dynamic programming up to the conductor. It independently checks every integer's membership against the Apéry-residue formula \(n\ge k_{n\bmod a}b\), where \(k_r\equiv-tr\pmod a\), \(0\le k_r<a\). It enumerates all maximal missing blocks and compares their frequency distribution to the theorem. It separately takes successive differences of exact semigroup-membership indicators, locates nonzero polynomial exponents, and checks their full exponent-spacing distribution, number, and weighted degree. A second route uses explicit two-dimensional enumeration of \(ua+vb\) for 30 smaller parameter choices, independent of the dynamic program.
+PASS
 
-Actual execution output:
+For integers d,t>=2, the Apéry residue thresholds h_{dj}=j and h_{dj+s}=(t+1)(d-s)+1+j follow from the unique reduced b-coefficient modulo a=dt+1. Rows m<t have the exact long suffix lengths d(t-m), while later interior gaps of length l<d last t+1 rows per interval, including the d-1 boundary case. Thus missing blocks occur t(t+1) times at each length 1..d-1 and once at each dj, j=1..t. Symmetry of the coprime two-generator semigroup and (1-x)1_S coefficient switches double each count for polynomial consecutive-nonzero-exponent spacings. Independent direct semigroup enumeration agrees for 25 pairs d=2..6,t=2..6. The proof handles d=2 and the initial/end rows; no finite extrapolation is needed.
 
-```text
-VERIFY_OK general_cases=165 checked_integers=1058035 gap_blocks=109065 independent_enumeration_cases=30 exact_integer=yes
-EXAMPLE d=2 t=2 a=5 b=7 gap_block_counts=[(1, 6), (2, 1), (4, 1)]
-EXAMPLE d=3 t=2 a=7 b=10 gap_block_counts=[(1, 6), (2, 6), (3, 1), (6, 1)]
-EXAMPLE d=4 t=3 a=13 b=17 gap_block_counts=[(1, 12), (2, 12), (3, 12), (4, 1), (8, 1), (12, 1)]
-```
+## originality
 
-**Mathematical boundary.** The script tests finite parameter ranges and does not establish the infinite theorem. The unrestricted proof in `RESULT.md` depends on the explicit Apéry thresholds, an exhaustive row/block argument, and standard two-generator numerical-semigroup symmetry. The formula has not been independently audited or certified by an external mathematical verifier. Earlier literature may contain an equivalent implicit special case.
+PASS
+
+Bachman 2026 Theorem 2 gives the SET of allowed lengths using the Euclidean algorithm, not multiplicities. Cafure–Cesaratto 2025/2026 Theorem 1.2 gives frequencies for b congruent ±1 modulo the smaller generator, whereas 2<=d=b mod a<=a-2 here; Theorem 1.1 gives partial second-largest information. Moree supplies the general semigroup-polynomial identity. The all-parameter multiset formula for the non±1 congruence family was not found as a logical implication of those inspected statements. An older detailed word decomposition may conceal an equivalent evaluated distribution.
+
+## value
+
+PASS
+
+A complete symbolic run-length multiplicity distribution for a two-parameter family of numerical semigroups and binary inclusion-exclusion polynomials is a natural nontrivial refinement of the already researched set of attainable gap lengths; it is reusable for coefficient-word and spacing statistics, not a random isolated numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

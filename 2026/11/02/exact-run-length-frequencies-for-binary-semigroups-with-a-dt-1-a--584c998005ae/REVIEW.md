@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is derived from the exact Apéry representative of each residue modulo \(a=dt+1\). The two residue types have thresholds \(h_{dj}=j\) and \(h_{dj+s}=(t+1)(d-s)+1+j\). These establish isolated early suffix blocks of lengths \(d,2d,\ldots,td\), and the count \(t(t+1)\) for every remaining positive length below \(d\). The boundary cases \(m=0\), \(m=t\), \(d=2\), and the last possible missing row are included. The standard two-generator symmetry and semigroup-polynomial coefficient identity double the entire distribution for polynomial exponent spacings. A standalone exact-integer checker independently verified 165 parameter pairs and more than one million integer memberships, with 30 additional explicit-enumeration cases. No finite enumeration is used as the unrestricted proof.
+## correctness
 
-**Originality — PASS, with priority caveat.** The directly relevant 2026 work of Bachman (arXiv:2605.17157, Theorem 2) classifies the **set** of possible lengths but does not evaluate their frequencies; this theorem determines their full multiset in a nontrivial two-parameter family. The 2025 Cafure–Cesaratto multiplicity theorem (arXiv:2507.19381, Theorem 1.2) covers the residue cases \(b\equiv\pm1\pmod a\), whereas here \(2\le b\bmod a\le a-2\). Their second-largest-gap theorem supplies partial information for other residues but does not imply the exact small-gap counts. Moree's older foundational semigroup-polynomial equivalence and symmetry are explicitly treated as prior results. Targeted literature and mathematical-record searches did not uncover an equivalent evaluated frequency law. Residual risk: an implicit equivalent formula might be deducible from older detailed coefficient-word descriptions or appear in an uncatalogued source; independent historical-priority assessment is not performed.
+PASS
 
-**Mathematical value — PASS.** Counting frequencies, not just possible lengths or extremal lengths, is a motivated refinement of recent research on binary inclusion-exclusion polynomial gaps. The result completely evaluates a natural integer-valued statistic for infinitely many generator pairs, including genuinely non-\(\pm1\) residue cases, and yields the exact number of nonzero coefficients. Its sharp split into uniform short-length multiplicities and singleton long lengths is not determined by the known gapset alone. For \(d=4,t=3\), both generators \(13,17\) are prime, providing a corresponding concrete binary cyclotomic example.
+For integers d,t>=2, the Apéry residue thresholds h_{dj}=j and h_{dj+s}=(t+1)(d-s)+1+j follow from the unique reduced b-coefficient modulo a=dt+1. Rows m<t have the exact long suffix lengths d(t-m), while later interior gaps of length l<d last t+1 rows per interval, including the d-1 boundary case. Thus missing blocks occur t(t+1) times at each length 1..d-1 and once at each dj, j=1..t. Symmetry of the coprime two-generator semigroup and (1-x)1_S coefficient switches double each count for polynomial consecutive-nonzero-exponent spacings. Independent direct semigroup enumeration agrees for 25 pairs d=2..6,t=2..6. The proof handles d=2 and the initial/end rows; no finite extrapolation is needed.
 
-**Limits and closest literature.** The proof does not give a distribution for arbitrary coprime generator pairs. The generalized coefficient identity and semigroup symmetry are classical and not claimed as discoveries. Sources compared in full accessible text: Bachman (2026), Cafure–Cesaratto (2025), and Moree (2013). Priority risk remains because general coefficient algorithms and word expansions may conceal an implicit equivalent special case. Computational tests are corroborative, not exhaustive across all \(d,t\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bachman 2026 Theorem 2 gives the SET of allowed lengths using the Euclidean algorithm, not multiplicities. Cafure–Cesaratto 2025/2026 Theorem 1.2 gives frequencies for b congruent ±1 modulo the smaller generator, whereas 2<=d=b mod a<=a-2 here; Theorem 1.1 gives partial second-largest information. Moree supplies the general semigroup-polynomial identity. The all-parameter multiset formula for the non±1 congruence family was not found as a logical implication of those inspected statements. An older detailed word decomposition may conceal an equivalent evaluated distribution.
+
+## value
+
+PASS
+
+A complete symbolic run-length multiplicity distribution for a two-parameter family of numerical semigroups and binary inclusion-exclusion polynomials is a natural nontrivial refinement of the already researched set of attainable gap lengths; it is reusable for coefficient-word and spacing statistics, not a random isolated numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

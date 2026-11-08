@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:09:30.271253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For integers d,t>=2, the Apéry residue thresholds h_{dj}=j and h_{dj+s}=(t+1)(d-s)+1+j follow from the unique reduced b-coefficient modulo a=dt+1. Rows m<t have the exact long suffix lengths d(t-m), while later interior gaps of length l<d last t+1 rows per interval, including the d-1 boundary case. Thus missing blocks occur t(t+1) times at each length 1..d-1 and once at each dj, j=1..t. Symmetry of the coprime two-generator semigroup and (1-x)1_S coefficient switches double each count for polynomial consecutive-nonzero-exponent spacings. Independent direct semigroup enumeration agrees for 25 pairs d=2..6,t=2..6. The proof handles d=2 and the initial/end rows; no finite extrapolation is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bachman Theorem 2 is explicitly a set-valued classification; the first relevant page and the theorem were read.",
+          "Cafure–Cesaratto abstract and Section 4 Theorem 1.2 limit full frequencies to congruence ±1 for distinct odd prime generators."
+        ],
+        "reasoning": "No checked stronger theorem supplies all frequencies when b mod a=d with 2<=d<=a-2; general algorithms can compute cases but do not directly evaluate the infinite two-parameter frequency rule.",
+        "searches": [
+          "arxiv:2605.17157 Theorem 2 possible gap lengths",
+          "arxiv:2507.19381 Theorems 1.1 and 1.2 congruent residue cases",
+          "Binary cyclotomic semigroup polynomial consecutive gap run length frequency multiplicities a=dt+1 b=a+d"
+        ]
+      },
+      "checked_sources": [
+        "Git blob c13e2eb5f9a47ed983a93c5aa54a514d6f0e2bbb RESULT.md; verify_gap_blocks.py c9ef96ce1e325c6174936eb2d6d06058d3d5aca1",
+        "https://arxiv.org/pdf/2605.17157",
+        "https://arxiv.org/pdf/2507.19381",
+        "https://arxiv.org/abs/1308.3972",
+        "Resultary semantic query: Binary cyclotomic semigroup polynomial consecutive gap run length frequency multiplicities a=dt+1 b=a+d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bachman supplies only support of the length multiset.",
+          "Cafure–Cesaratto characterizes frequency on b≡±1 (mod a), a disjoint parameter regime from this family.",
+          "Source RESULT.md establishes exact threshold row lengths, then uses standard symmetry to double frequencies."
+        ],
+        "reasoning": "Set of possible lengths, genus and maximum-gap data do not imply the individual frequencies without new Apéry threshold counting. Classical symmetry implies the doubling but not the counts.",
+        "searches": [
+          "arxiv:2605.17157 Theorem 2 Section 4",
+          "arxiv:2507.19381 Theorem 1.2 Section 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial exponent spacing multiset doubles the missing-block multiset by two-generator symmetry.",
+          "Bachman 2026 discusses semigroup blocks and exponent gaps as dual formulations."
+        ],
+        "reasoning": "The semigroup and binary inclusion-exclusion variants are the same weighted frequency claim; the known duality does not give the explicit multiplicity vector for the specific family.",
+        "searches": [
+          "Binary cyclotomic semigroup polynomial consecutive gap run length frequency multiplicities a=dt+1 b=a+d",
+          "arxiv:1308.3972 semigroup polynomial transition coefficients",
+          "arxiv:2605.17157 semigroup gap-length duality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source example (a,b)=(13,17) yields 24 occurrences each of lengths 1,2,3 in exponent spacings and two each of 4,8,12.",
+          "No matching pre-existing exact all-parameter frequency table was retrieved by source and semantic searches."
+        ],
+        "reasoning": "Finite tables and gap calculators could corroborate but would not constitute the all-parameter theorem. The negative search is retained as limited retrieval evidence, not novelty proof.",
+        "searches": [
+          "numerical semigroup consecutive gap length multiplicity two generators",
+          "Binary cyclotomic semigroup polynomial consecutive gap run length frequency multiplicities a=dt+1 b=a+d",
+          "binary cyclotomic polynomial 13 17 gap frequency table"
+        ]
+      },
+      "rationale": "Bachman 2026 Theorem 2 gives the SET of allowed lengths using the Euclidean algorithm, not multiplicities. Cafure–Cesaratto 2025/2026 Theorem 1.2 gives frequencies for b congruent ±1 modulo the smaller generator, whereas 2<=d=b mod a<=a-2 here; Theorem 1.1 gives partial second-largest information. Moree supplies the general semigroup-polynomial identity. The all-parameter multiset formula for the non±1 congruence family was not found as a logical implication of those inspected statements. An older detailed word decomposition may conceal an equivalent evaluated distribution.",
+      "residual_risks": [
+        "A differently expressed result in older explicit coefficient-word literature may indirectly specialize to this frequency law.",
+        "Cafure–Cesaratto primarily treats odd primes, but the source theorem works for all coprime generators; residual general semigroup frequency literature not exhaustively checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers set of gap lengths, not full multiplicities",
+          "evidence": [
+            "Theorem 2 states gap support as a set, so frequency remains undetermined."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.17157",
+          "material_read": "Theorem 2 and its Euclidean gap-set definitions, Section 4 coefficient transition identity; first page inspected",
+          "method": "accessible arXiv PDF targeted full-text pages",
+          "title": "Gaps of Binary Numerical Semigroups and of Binary Inclusion-Exclusion Polynomials",
+          "trigger": "same binary semigroup gap object, plausible stronger all-parameter classification"
+        },
+        {
+          "assessment": "complete frequency cases b≡±1 (mod a); disjoint from d>=2 family",
+          "evidence": [
+            "Theorem 1.2 proof is in §4.2 and assumes residues ±1; general Theorem 1.1 treats second gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.19381",
+          "material_read": "Abstract; Theorem 1.1/1.2 references; sections 3.3 and 4.1-4.2 and page 1 screenshot",
+          "method": "accessible 19-page primary PDF, searched and inspected relevant pages",
+          "title": "Gaps in binary cyclotomic polynomials",
+          "trigger": "same polynomial gap frequencies"
+        },
+        {
+          "assessment": "known duality premise only, not an asserted new frequency theorem",
+          "evidence": [
+            "Q_ab=(1-x) generating function of the two-generator semigroup is classical."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.3972",
+          "material_read": "Abstract and the equality of polynomial generating series as stated in pinned RESULT; original full paper not reread",
+          "method": "bibliographic/claim comparison",
+          "title": "Numerical semigroups, cyclotomic polynomials and Bernoulli numbers",
+          "trigger": "fundamental semigroup-polynomial equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete symbolic run-length multiplicity distribution for a two-parameter family of numerical semigroups and binary inclusion-exclusion polynomials is a natural nontrivial refinement of the already researched set of attainable gap lengths; it is reusable for coefficient-word and spacing statistics, not a random isolated numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git blob c13e2eb5f9a47ed983a93c5aa54a514d6f0e2bbb RESULT.md; verify_gap_blocks.py c9ef96ce1e325c6174936eb2d6d06058d3d5aca1",
+    "https://arxiv.org/pdf/2605.17157",
+    "https://arxiv.org/pdf/2507.19381",
+    "https://arxiv.org/abs/1308.3972",
+    "Resultary semantic query: Binary cyclotomic semigroup polynomial consecutive gap run length frequency multiplicities a=dt+1 b=a+d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A differently expressed result in older explicit coefficient-word literature may indirectly specialize to this frequency law.",
+    "Cafure–Cesaratto primarily treats odd primes, but the source theorem works for all coprime generators; residual general semigroup frequency literature not exhaustively checked."
+  ],
+  "schema_version": 1
+}
