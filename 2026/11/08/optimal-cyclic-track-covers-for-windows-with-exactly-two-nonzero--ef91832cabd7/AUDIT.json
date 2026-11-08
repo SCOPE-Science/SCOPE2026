@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every q>=2,n>=3 the circular support gap d is invariant under admissible shift. Each component contracts to the bidirected complete bipartite digraph on 2(q-1) junctions or (when n is even and d=n/2) the complete digraph with loops on q-1 junctions. Directed Matrix-Tree gives cofactors s^(2s-2) and s^(s-2) (s>1; s=1 handled separately); BEST gives A_s and B_s. Exactly floor(n/2) disjoint components force that many tracks, and independent tours give the claimed product. All boundary cases and rotations are specified. A standalone exact integer checker reconstructed 31 components and directly enumerated fixed-first-edge tours for selected cases; finite checks corroborate the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruskey–Sawada–Williams 2012, §2, explicitly contrasts the non-Eulerian exact-only graph with Eulerian adjacent-weight shorthand graphs.",
+        "Campbell et al. 2026, Theorems 5 and 7 and §3.1: bounded-weight sequence results do not specify exact-weight-two optimal covers.",
+        "Own ledger entries 143 and 148 concern respectively at-most-two windows for arbitrary length and at-least-two windows of length three."
+      ],
+      "reasoning": "The existence and enumeration of a single Euler circuit in a strictly larger language does not count Euler circuits in each strongly connected component of the exact-weight-two sublanguage; neither previously established at-most/two-weight-range formula yields the product count.",
+      "searches": [
+        "web: \"fixed weight\" \"cycle\" \"number of\" \"de Bruijn\" necklace exact count components",
+        "web: Ruskey Sawada Williams 2012 De Bruijn sequences for fixed weight binary strings pdf",
+        "published-finding corpus: universal cycles all words exactly two nonzero positions length n count matrix tree"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.11954v1 (full relevant sections)",
+      "arXiv:2603.11934v1 (intro and relevant text)",
+      "Ruskey–Sawada–Williams 2012 DOI:10.1137/100808782 (accessible full-text sections)",
+      "Mitchell–Wild arXiv:2607.22350 (abstract; full text denied)",
+      "published-finding corpus published records (six semantically distinct actual queries)",
+      "Accessible current-week research ledger (claims for items 69, 143, 148)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item 69 computes the minimum deterministic register length for periodic repetition of an individual two-nonzero word; this neither partitions all windows into Eulerian components nor determines tour counts.",
+        "Own item 143 counts single universal cycles of all windows with at most two nonzero symbols; item 148 counts length-three windows with at least two nonzeros.",
+        "Ruskey et al. and Campbell et al. use different word representations or weight ranges, while the present product is for full-length exactly two nonzero windows."
+      ],
+      "reasoning": "Statement implication is genuinely different: feedback-register size is about individual periodic words, a larger-language tour count is not an exact subgraph tour count, and a weight-range construction does not count multitrack covers of an exact weight language. The present proof adds exact strongly connected components, their contracted graphs and BEST counts.",
+      "searches": [
+        "own ledger claims for items 69, 143, 148; queried from accessible current-week ledger",
+        "published-finding corpus: exact enumeration fixed weight binary de Bruijn universal cycles weight two",
+        "web: fixed-content universal cycles Euler tour enumeration two ones exact Hamming weight only necklace cover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ruskey–Sawada–Williams 2012 text, lines near its introduction and de Bruijn graph section: exact-weight graph disconnected; shorthand uses \\(n-1\\)-windows and two adjacent weights.",
+        "Campbell–Janik-Jones–Sawada 2026 PDF p.2 and §3.1: separates full-weight from shorthand/bounded-weight constructions; no exact full-length track-count formula in inspected material.",
+        "published-finding corpus semantic hits were about cyclic codes, ordinary de Bruijn spectra, or bounded-weight sequences rather than the component-cover count."
+      ],
+      "reasoning": "The exact-weight-two full-length overlap graph is not the standard shorthand graph, nor a word-orbit enumeration under rotations alone. Its minimum tour cover and number of all possible covers require the newly established component reduction and in-tree enumeration.",
+      "searches": [
+        "published-finding corpus: exact count Eulerian cycles fixed Hamming weight two de Bruijn graph alphabet q universal cycles necklaces",
+        "published-finding corpus: fixed Hamming weight exactly two nonzero de Bruijn windows minimal number cyclic tracks Euler circuit enumeration",
+        "web: \"exactly two nonzero\" \"universal cycles\" de Bruijn",
+        "web: \"fixed weight\" \"components\" \"Euler\" \"de Bruijn\" two ones"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "In the accessible own ledger the nearest source-gap item 69 gives shift-register feedback memory length for an individual two-nonzero periodic word, not the number of complete exact-weight-two cyclic covers.",
+        "No returned published-finding corpus entry gave the family \\(\\lfloor n/2\rfloor\\) with two BEST factors; the closest results were unrelated cyclic orbit and de Bruijn-code counts."
+      ],
+      "reasoning": "The natural exact-cover invariant was checked against actual indexed records and the accessible local claim history. A negative semantic search is evidence of non-overlap only within that search coverage, not evidence of universal nonexistence of prior tables.",
+      "searches": [
+        "published-finding corpus: two-nonzero q-ary words shorter cyclic spacing d component universal cycle count",
+        "published-finding corpus: balanced complete bipartite directed graph Euler tours fixed Hamming weight two cyclic windows",
+        "web: \"necklace\" \"Euler circuits\" \"fixed weight\" \"cycles\" de Bruijn"
+      ]
+    },
+    "rationale": "The new statement counts the complete family of minimum circular covers of the full-length exactly-two-nonzero language, with exact gap-resolved numbers. The 2012 fixed-weight shorthand construction and 2026 bounded-weight universal cycles do not imply the disjoint-component BEST enumerators or the minimum-cover product; own adjacent-weight and sparse/dense enumerations are likewise different. Actual semantic-index and source searches were performed. An inaccessible related preprint and unindexed prior work remain explicit priority risks.",
+    "residual_risks": [
+      "The full Mitchell–Wild arXiv:2607.22350 manuscript was not accessible; despite the distinct weight-range framing, a hidden appendix could contain a relevant exact count.",
+      "Unindexed older fixed-weight de Bruijn papers, tables, or broader Euler-tour enumeration propositions may contain an equivalent corollary.",
+      "The semantic-search index does not prove originality by absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full-length fixed weight is reported non-Eulerian beyond trivial cases, then replaced by a shorthand/two-weight language. No enumeration of minimal exact-two-weight cycle covers in these read sections.",
+        "evidence": [
+          "https://www.researchgate.net/publication/265351686_De_Bruijn_Sequences_for_Fixed-Weight_Binary_Strings",
+          "https://doi.org/10.1137/100808782"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100808782",
+        "material_read": "Available author-uploaded full-text sections 1 and 2, including the B^2(4) disconnected graph example and Theorem 2.4 for adjacent-weight graphs; open-problem section 7",
+        "method": "Accessible full-text extraction hosted at ResearchGate (original 2012 manuscript)",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Nearest classic fixed-weight overlap-graph construction"
+      },
+      {
+        "assessment": "Distinguishes exact-weight full windows and shorthand, develops existence and construction for bounded-weight languages, not the product count for minimal exact-two-nonzero track covers.",
+        "evidence": [
+          "arXiv:2603.11954v1, first public 2026-03-12",
+          "https://arxiv.org/pdf/2603.11954"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.11954",
+        "material_read": "PDF pages 1–3 and §§2–3, including §3.1 (fixed-weight/weight range) and Theorems 1, 5 and 7; references and related-work discussion",
+        "method": "Accessible arXiv PDF text and page screenshot",
+        "title": "Universal cycle constructions for k-subsets and k-multisets",
+        "trigger": "Earliest 2026 initiating source on bounded-weight de Bruijn universals"
+      },
+      {
+        "assessment": "Its principal aim is ranking and unranking specific bounded-weight sequences, not enumeration of all optimal covers of the strict exactly-two-nonzero language.",
+        "evidence": [
+          "arXiv:2603.11934v1, first public 2026-03-12",
+          "https://arxiv.org/pdf/2603.11934"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.11934",
+        "material_read": "PDF abstract, introduction, definitions and discussion of fixed-weight shorthand representatives on pp. 1–2; relevant text searched for Euler and fixed-weight",
+        "method": "Accessible arXiv PDF text and page screenshot",
+        "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+        "trigger": "Same-day close theoretical problem on bounded-weight sequence decoding"
+      },
+      {
+        "assessment": "The accessible description addresses existence of weight-range cycles, not a full-length fixed-weight-two multitrack count, but full-text noncoverage cannot be certified.",
+        "evidence": [
+          "https://pure.royalholloway.ac.uk/en/publications/weight-constrained-universal-sequences/",
+          "https://arxiv.org/abs/2607.22350"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.22350",
+        "material_read": "Author-portal abstract describing three weight functions and adjacent-weight constructions; requested full manuscript PDF but received HTTP 403",
+        "method": "Author institutional portal abstract and attempted direct lawful PDF",
+        "title": "Weight-constrained cut-down de Bruijn sequences",
+        "trigger": "Closest recent nonbinary weight-range generalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef91832c-abd7-47b7-943c-19ce4564c673",
+  "value": {
+    "rationale": "For strict full-length exact-weight-two languages the known one-track obstruction makes minimum cyclic track covers a natural missing invariant. The theorem gives the least track count, complete all-alphabet and all-length multiplicities, gap-specific circuit sizes and exact antipodal transition. Its strong reduction to complete bipartite versus looped complete digraph is structural; the formula counts every optimal design rather than producing an arbitrary code or a single example.",
+    "status": "PASS"
+  }
+}
