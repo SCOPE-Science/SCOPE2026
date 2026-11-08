@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The package contains the two complete, standalone source files `verify_circular_pal_lengths.py` and `verify_circular_pal_lengths.cpp`; they do not rely on downloaded tables or third-party libraries. Their inputs are exactly the order-five binary state graph and the definitions of palindromes and de Bruijn cycles in `RESULT.md`.
+## correctness
 
-Run `python3 verify_circular_pal_lengths.py`. The program independently constructs the cycle set by full feedback-table enumeration and by Euler-tour enumeration, then compares interval-palindrome dynamic programming with center-expansion shortest paths across all 65,536 roots. Its successful output begins with `VERIFY_OK` and includes the full rooted, best-root and joint spectra.
+PASS
 
-Compile `c++ -O2 -std=c++17 verify_circular_pal_lengths.cpp -o verify_pal` and run `./verify_pal`. The separate C++17 program independently enumerates Euler tours and repeats all spectrum and extremal assertions. It too returned `VERIFY_OK` on execution.
+Every order-five cycle uniquely yields a 16-bit feedback function g(s) so five-state successor T(as)=s(a xor g(s)) is a permutation; the full 32-state orbit containing 00000 is equivalent to being a de Bruijn cycle. Independent C++ implementation exhaustively tested all 2^16 tables, found exactly 2048 accepted, and enumerated all 32 rotations each. A recurrence d(j)=1+min_{i<j,pal(u[i:j])} d(i) computes minimum blocks by induction on j. Independent implementation reproduced every Pmin histogram entry, 65536-root histogram, 14 joint cells and the two exact maximum representatives; independently checked extremal strings reverse/complement-related by cyclic shift. This is a complete finite mathematical certificate for n=5, not extrapolation to n>5.
 
-The finite coverage argument is: all \(2^{16}\) feedback tables are tested, every de Bruijn cycle yields exactly one such full-period feedback table, and all 32 possible cuts of every accepted cycle are evaluated. The center-expansion and interval recurrence are exact integer algorithms, not Monte Carlo approximations. No external solver certificates, analytic continuation, or unbounded inference are required.
+## originality
 
-These checks establish reproducibility of the specified finite computation. They do not by themselves establish novelty beyond all historical literature or independent external validation. No higher-order or other-alphabet result is certified.
+PASS
+
+Qualified PASS for the complete order-five optimal palindromic-partition spectrum, joint best/worst cut census, and extremal rigidity. Prior general algorithms calculate palindromic length of a given word; the highly relevant 2006 work on de Bruijn palindromes counts factors by length and occurrence, not minimal partitions over all cycles. Historical unindexed exact census remains possible.
+
+## value
+
+PASS
+
+Minimum palindrome factorization is a standard complexity invariant; binary de Bruijn cycles form a natural family with identical local factor coverage. Their sharp 4-to-9 variation and complete joint distribution quantify nonlocal ordering and cyclic-cut dependence and supply a reproducible finite classification useful as a benchmark, not arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

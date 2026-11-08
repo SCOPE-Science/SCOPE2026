@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact finite classification. Every order-five cycle is uniquely represented by a binary feedback table whose five-bit successor permutation is a single cycle; the table search exhausts all 65,536 possibilities. An independent Euler-tour enumeration with a fixed initial edge recovers exactly the same 2,048 cycles. For each of the 65,536 linear roots, a recurrence over palindromic terminal factors computes the exact optimum by induction, while an independent doubled-string center-expansion and cut-graph method yields identical results. The Python and separate C++17 source programs both replayed to `VERIFY_OK` with all spectrum and representative assertions. The four- and nine-block examples witness the two extreme levels; the lower and upper exclusions follow from complete coverage, not these witnesses alone.
+PASS
 
-## Originality — PASS, with priority limitations
+Every order-five cycle uniquely yields a 16-bit feedback function g(s) so five-state successor T(as)=s(a xor g(s)) is a permutation; the full 32-state orbit containing 00000 is equivalent to being a de Bruijn cycle. Independent C++ implementation exhaustively tested all 2^16 tables, found exactly 2048 accepted, and enumerated all 32 rotations each. A recurrence d(j)=1+min_{i<j,pal(u[i:j])} d(i) computes minimum blocks by induction on j. Independent implementation reproduced every Pmin histogram entry, 65536-root histogram, 14 joint cells and the two exact maximum representatives; independently checked extremal strings reverse/complement-related by cyclic shift. This is a complete finite mathematical certificate for n=5, not extrapolation to n>5.
 
-The accessible full mathematical texts of Frid–Puzynina–Zamboni (arXiv:1210.6179) and Fici–Gagie–Kärkkäinen–Kempa (arXiv:1403.2431) address respectively infinite-word behavior and general linear algorithms. Anisiu–Anisiu–Kása (2006) analyze palindromic factor occurrences and counts in finite words and de Bruijn constructions. None states the three integer spectra or describes the two extremal order-five cycles. Computing a single palindromic length with a known algorithm does not already give the joint distribution over all distinct cyclic strings and cuts. Related published mathematical results located by semantic searches concern palindrome duplications, palindromic richness, or other sequence statistics, not this invariant. This assessment is limited by search completeness and possible unindexed historical tables.
+## originality
 
-## Value — PASS
+PASS
 
-Palindromic length is an established measure of string decomposition complexity. De Bruijn cycles are a natural comparison family because all members have identical length-five circular factor coverage, yet the exact optimum can vary from four to nine and the worst root can need ten factors. The complete first sizeable family of 2,048 cycles isolates dependence on ordering and choice of root, provides two structurally related extremizers, and supplies a reproducible benchmark for circular palindromic factorization. The claim is a natural complete finite classification, not an arbitrary slice or a reimplementation of a known algorithm. General formulas for higher orders are not inferred.
+Qualified PASS for the complete order-five optimal palindromic-partition spectrum, joint best/worst cut census, and extremal rigidity. Prior general algorithms calculate palindromic length of a given word; the highly relevant 2006 work on de Bruijn palindromes counts factors by length and occurrence, not minimal partitions over all cycles. Historical unindexed exact census remains possible.
 
-## Closest literature and risks
+## value
 
-- Frid, Puzynina and Zamboni, *On minimal factorizations of words as products of palindromes*, arXiv:1210.6179: original definition and infinite-word results, no finite de Bruijn-cycle spectrum.
-- Fici, Gagie, Kärkkäinen and Kempa, *A Subquadratic Algorithm for Minimum Palindromic Factorization*, arXiv:1403.2431: general dynamic programming and faster algorithms; no exact all-cycle order-five distribution.
-- Anisiu, Anisiu and Kása, *Properties of palindromes in finite words* (2006): palindromic-factor complexity rather than palindromic partition minima.
+PASS
 
-Remaining risks are unindexed literature, historical unpublished calculations, and absence of independent mathematical validation. No claim of uniqueness beyond the inspected evidence or across other orders is made.
+Minimum palindrome factorization is a standard complexity invariant; binary de Bruijn cycles form a natural family with identical local factor coverage. Their sharp 4-to-9 variation and complete joint distribution quantify nonlocal ordering and cyclic-cut dependence and supply a reproducible finite classification useful as a benchmark, not arbitrary sample.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

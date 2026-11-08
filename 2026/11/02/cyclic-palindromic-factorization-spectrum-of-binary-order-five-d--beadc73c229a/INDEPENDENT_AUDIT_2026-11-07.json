@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:43:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every order-five cycle uniquely yields a 16-bit feedback function g(s) so five-state successor T(as)=s(a xor g(s)) is a permutation; the full 32-state orbit containing 00000 is equivalent to being a de Bruijn cycle. Independent C++ implementation exhaustively tested all 2^16 tables, found exactly 2048 accepted, and enumerated all 32 rotations each. A recurrence d(j)=1+min_{i<j,pal(u[i:j])} d(i) computes minimum blocks by induction on j. Independent implementation reproduced every Pmin histogram entry, 65536-root histogram, 14 joint cells and the two exact maximum representatives; independently checked extremal strings reverse/complement-related by cyclic shift. This is a complete finite mathematical certificate for n=5, not extrapolation to n>5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici et al. provide algorithms for arbitrary given words; Frid et al. analyze general/infinite-word palindromic lengths."
+        ],
+        "reasoning": "General algorithms make the invariant computable, but do not directly imply these enumerated cardinalities without performing an exhaustive all-cycle calculation; source uses full feedback-table coverage.",
+        "searches": [
+          "Resultary semantic: binary order five de Bruijn cycles palindromic length factorization minimum spectrum 2048",
+          "web: Fici Gagie Karkkainen Kempa subquadratic minimum palindromic factorization 1403.2431",
+          "web: Frid Puzynina Zamboni minimal factorizations palindromes 1210.6179"
+        ]
+      },
+      "checked_sources": [
+        "Full actual RESULT.md and both source checker file paths",
+        "Resultary semantic query: binary order five de Bruijn cycles palindromic length factorization minimum spectrum 2048",
+        "Anisiu–Anisiu–Kása full institute original paper (2006)",
+        "Fici et al. arxiv:1403.2431",
+        "Frid et al. arxiv:1210.6179"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard last-palindrome DP and de Bruijn Euler-tour formula are acknowledged ingredients.",
+          "No inspected theorem directly maps known palindrome-factor statistics into all-cycle optimal partition frequencies."
+        ],
+        "reasoning": "The exact histogram requires computing 65,536 cut-specific optima; correctness of a known per-word algorithm alone does not entail the specific distribution as a previously published mathematical fact.",
+        "searches": [
+          "web: Fici palindromic factorization algorithms",
+          "web: Anisiu Properties of palindromes in finite words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anisiu–Anisiu–Kása 2006 original full HTML counts palindromic factors/length complexity in finite words and De Bruijn constructions, not minimum palindromic block factorizations.",
+          "The two invariants differ: factor occurrence counts do not determine minimum exact-cover partition."
+        ],
+        "reasoning": "Searched all-rotations palindrome-block number and its aliases; no equivalent whole-family table encountered. An occurrence spectrum cannot be substituted for a partition spectrum.",
+        "searches": [
+          "Resultary semantic: binary order five de Bruijn cycles palindromic length factorization minimum spectrum 2048",
+          "web: de Bruijn sequence palindromic length all cycles length 32 minimum partition",
+          "web: Anisiu Anisiu Kasa 2006 Properties of palindromes in finite words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed database/table of P_min, rooted and joint 2,048-cycle spectra was located; the public 2006 paper does have palindrome-count formulas but for a different invariant."
+        ],
+        "reasoning": "The claimed table is explicitly finite; checked concrete numbers against independent exhaustive search rather than treating failure to find a table as novelty proof. A historical unindexed table is a residual risk.",
+        "searches": [
+          "web: palindromic length de Bruijn cycles order 5 exact table",
+          "Resultary semantic: binary order five de Bruijn cycles palindromic length factorization minimum spectrum 2048",
+          "web: Anisiu De Bruijn palindrome count table"
+        ]
+      },
+      "rationale": "Qualified PASS for the complete order-five optimal palindromic-partition spectrum, joint best/worst cut census, and extremal rigidity. Prior general algorithms calculate palindromic length of a given word; the highly relevant 2006 work on de Bruijn palindromes counts factors by length and occurrence, not minimal partitions over all cycles. Historical unindexed exact census remains possible.",
+      "residual_risks": [
+        "Possible unindexed computation of all length-32 binary de Bruijn palindromic partitions; search not novelty proof.",
+        "No all-orders or nonbinary statement; fixed order five only.",
+        "C++ certificate completely re-enumerated relevant finite search; independent algorithm still relies on standard exhaustive finite-model semantics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING target minimal partition census",
+          "evidence": "Counts palindrome occurrences / distinct factors and complexity by length, not fewest contiguous palindrome blocks over every root.",
+          "identifier_or_url": "M.-C. Anisiu, V. Anisiu, Z. Kása, Pure Math. Appl. 17 (2006), https://ictp.acad.ro/properties-of-palindromes-in-finite-words/",
+          "material_read": "Full author-provided HTML text including de Bruijn construction, palindrome complexity, conclusion and definitions; searched for factorization (none)",
+          "method": "Author-affiliated institute full text HTML",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Mentions De Bruijn words and palindromes explicitly"
+        },
+        {
+          "assessment": "could give algorithmic method, not found published aggregate table",
+          "evidence": "Optimal palindromic factorization of input word, no exact order-five de Bruijn all-cycle spectrum in inspected material.",
+          "identifier_or_url": "arxiv:1403.2431",
+          "material_read": "Title, abstract and algorithm description from public search; full primary proof not inspected",
+          "method": "Open bibliographic material",
+          "title": "A Subquadratic Algorithm for Minimum Palindromic Factorization",
+          "trigger": "Exactly same per-word optimization objective"
+        },
+        {
+          "assessment": "different infinite-word class and unanswered table priority",
+          "evidence": "Infinite word bounds vs fixed binary order-five de Bruijn cyclic spectrum.",
+          "identifier_or_url": "arxiv:1210.6179",
+          "material_read": "Bibliographic abstract and problem statement; full text not read",
+          "method": "Open bibliographic search",
+          "title": "On minimal factorizations of words as products of palindromes",
+          "trigger": "Foundational definition and potential bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum palindrome factorization is a standard complexity invariant; binary de Bruijn cycles form a natural family with identical local factor coverage. Their sharp 4-to-9 variation and complete joint distribution quantify nonlocal ordering and cyclic-cut dependence and supply a reproducible finite classification useful as a benchmark, not arbitrary sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full actual RESULT.md and both source checker file paths",
+    "Resultary semantic query: binary order five de Bruijn cycles palindromic length factorization minimum spectrum 2048",
+    "Anisiu–Anisiu–Kása full institute original paper (2006)",
+    "Fici et al. arxiv:1403.2431",
+    "Frid et al. arxiv:1210.6179"
+  ],
+  "disposition": "passed",
+  "final_claim": "Across all 2048 binary order-five de Bruijn cycles modulo rotations, P_min minimum palindrome-block count over all circular cuts takes values 4..9 with exact frequencies 48,534,942,416,106,2; complete 65536-root and joint P_min,P_max spectra, two sharp extremizers.",
+  "limitations": [
+    "Possible unindexed computation of all length-32 binary de Bruijn palindromic partitions; search not novelty proof.",
+    "No all-orders or nonbinary statement; fixed order five only.",
+    "C++ certificate completely re-enumerated relevant finite search; independent algorithm still relies on standard exhaustive finite-model semantics.",
+    "Publication plan not_ready is a public-file privacy/transport blocker, not a scientific rejection.",
+    "Signed continuation checkpoint is sequencing evidence, not scientific certification."
+  ],
+  "residual_risks": [
+    "Possible unindexed computation of all length-32 binary de Bruijn palindromic partitions; search not novelty proof.",
+    "No all-orders or nonbinary statement; fixed order five only.",
+    "C++ certificate completely re-enumerated relevant finite search; independent algorithm still relies on standard exhaustive finite-model semantics."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING target minimal partition census",
+      "evidence": "Counts palindrome occurrences / distinct factors and complexity by length, not fewest contiguous palindrome blocks over every root.",
+      "identifier_or_url": "M.-C. Anisiu, V. Anisiu, Z. Kása, Pure Math. Appl. 17 (2006), https://ictp.acad.ro/properties-of-palindromes-in-finite-words/",
+      "material_read": "Full author-provided HTML text including de Bruijn construction, palindrome complexity, conclusion and definitions; searched for factorization (none)",
+      "method": "Author-affiliated institute full text HTML",
+      "title": "Properties of palindromes in finite words",
+      "trigger": "Mentions De Bruijn words and palindromes explicitly"
+    },
+    {
+      "assessment": "could give algorithmic method, not found published aggregate table",
+      "evidence": "Optimal palindromic factorization of input word, no exact order-five de Bruijn all-cycle spectrum in inspected material.",
+      "identifier_or_url": "arxiv:1403.2431",
+      "material_read": "Title, abstract and algorithm description from public search; full primary proof not inspected",
+      "method": "Open bibliographic material",
+      "title": "A Subquadratic Algorithm for Minimum Palindromic Factorization",
+      "trigger": "Exactly same per-word optimization objective"
+    },
+    {
+      "assessment": "different infinite-word class and unanswered table priority",
+      "evidence": "Infinite word bounds vs fixed binary order-five de Bruijn cyclic spectrum.",
+      "identifier_or_url": "arxiv:1210.6179",
+      "material_read": "Bibliographic abstract and problem statement; full text not read",
+      "method": "Open bibliographic search",
+      "title": "On minimal factorizations of words as products of palindromes",
+      "trigger": "Foundational definition and potential bound"
+    }
+  ]
+}
