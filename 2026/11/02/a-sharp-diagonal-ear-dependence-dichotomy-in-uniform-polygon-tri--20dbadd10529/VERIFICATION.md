@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this file and `verify.py`; Python 3 standard library suffices. The verifier constructs exact Catalan ear-count laws from combinatorial binomial moments and separately enumerates triangulations by recursive decomposition, then checks all conditional laws for every diagonal in polygons of four through eleven vertices. It also checks exact means, polynomial normalization, the sign classification for all integer parameters with \(2\le n\le80\), and the octagon two-tail counterexample.
+## correctness
 
-Observed execution: `PASS 13138 exact assertions; 6916 triangulations explicitly enumerated`.
+PASS
 
-The enumeration is finite and provides cross-checks only. The universal theorem relies on the bijective proof and elementary rational sign analysis in `RESULT.md`. No independent mathematical audit has yet been performed. Historical priority and all-parameter proof validity remain subject to external review.
+A fixed diagonal splits independent Catalan triangulations C_a C_b. Original ear tips are nonendpoint boundary-arc vertices; j simultaneous tips are nonadjacent subsets of a path, counted by binom(r-j+1,j), and deletion leaves C_(r-j) triangulations. Hence H_r factorial moments and the conditional product follow. Unconditional tips are nonadjacent subsets on a cycle; one-point ratio p_r=(r+1)/(2(2r-1)) gives the rational Δ numerator 2n²+n−1−(n+7)ab. For a=1 its numerator (n−2)(n−3); for a,b≥2 use ab≥2(n−2) to get negativity for n≥4. n=2,3 are zero; octagon probabilities (16,16,1)/33 vs (16,8,1)/25 on E=2,3,4 exhibit crossing tails. Independently generated exact triangulations for polygons n=2..7 and compared every fixed diagonal conditional law and sign; combinatorial proof supplies all n.
+
+## originality
+
+PASS
+
+Global ear count and Catalan marginal formulas are old (Hurtado–Noy; Mansour–Rastegar). The original joint conditioning on a specified labeled diagonal, complete sign dichotomy and sharp stochastic-order counterexample were not located in the inspected original work; fixed diagonal is not a rotation-invariant local triangle weight. Broader generating-function recurrences might imply the result after further nontrivial extraction.
+
+## value
+
+PASS
+
+A natural dependence question for two fundamental Catalan triangulation statistics is classified at every size and location, with a precise warning that a signed mean association does not imply stochastic domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
