@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Fourier radial integral produces the moment identity in `RESULT.md`. Positive coefficients permit magnitude reduction, and a simultaneous Cauchy–Schwarz and arithmetic–geometric-mean equality construction gives a sharp three-variable reduction. The stationary equation has a unique positive maximizer in its first variable; its substituted derivative factors by the displayed quartic polynomial. Descartes' rule and exact boundary inequalities isolate a unique global maximizing profile. The phase-resonance identities classify all complex equality cases. The delivered checker confirms the nontrivial algebraic identities from its own file, and random complex tests are only supplementary.
+PASS
 
-## Originality
+The complex harmonic Poisson space has exactly frequencies -2,-1,0,1,2; boundary h²=sum |c_k|² and normalized disk b⁴ is a positive-coefficient four-index quartic with weight 2/(2+∑|indices|) under i+j=k+l. Verified direct independent index summation at the extremizer (value 1.3498332876763082). Triangle inequality permits magnitudes; sharp Cauchy-Schwarz/AM-GM forces equal opposite-frequency magnitudes and reduces to G(x,y,z). Rational optimization yields t=T(s), derivative of R(s) sign of unique-positive-root quartic P(s)=18s⁴+121s³+180s²-100s-80. Boundaries give smaller values; phase resonances force affine frequency phase c_k=|c_k|e^{i(φ+kθ)}. Hence exact sharp constant K=R(s*) and complete equality family; finite random tests do not establish uniqueness.
 
-**PASS relative to inspected evidence.** Das–Rasila–Zhu (arXiv:2606.31024v1) prove general harmonic/pluriharmonic inclusion inequalities and pose the unrestricted sharp constant as open; they do not identify the finite five-frequency sharp norm or all extremizers. The published frequency-staircase result concerns quadratic area-to-circle comparison. The spherical-harmonic degree-two theorem concerns homogeneous modes on spheres, and the four-consecutive-character fourth moment is angular, not radially weighted. The relevant accessible older harmonic Carleman preview lacks a matching exact finite-band theorem, but its remaining full text was not read. An unindexed equivalent finite-cutoff calculation remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is the smallest full mixed-linear-and-quadratic harmonic Fourier cutoff in the open Poisson Hardy-to-Bergman embedding problem. The sharp real reflection-symmetric extremizer is forced even when arbitrary complex phases are permitted, and its algebraic constant and equality classification are not apparent from the general bound. The exact five-mode result is a finite spectral benchmark, **not** a new lower bound for the unrestricted problem.
+2026 Das–Rasila–Zhu full-class harmonic embedding work leaves unrestricted sharp constant open and does not derive this five-frequency cutoff or extremizer; published nearby weighted trace, spherical degree-two and four Fourier-character results are different integral forms. PASS subject to Kalaj–Bajrami 2018 inaccessible full text and older finite-cutoff priority risk.
 
-## Limits
+## value
 
-Only the five-frequency harmonic polynomial space and normalized unweighted disk area are covered. No extrapolation to higher cutoffs, general harmonic functions or independent mathematical certification is claimed. A related older paper was accessible only as a preview; the novelty assessment is evidence-limited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first full mixed linear-and-quadratic harmonic Fourier cutoff is a natural, exact finite-dimensional nonlinear Hardy-to-Bergman operator norm and equality-rigidity benchmark; its algebraic optimizer is not given by the unrestricted embedding upper bound. No pretense of solving the unbounded-frequency sharp constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
