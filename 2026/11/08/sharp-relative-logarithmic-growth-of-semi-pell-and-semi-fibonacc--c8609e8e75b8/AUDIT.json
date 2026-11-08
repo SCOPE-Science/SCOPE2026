@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The two recurrences equal unmarked odd binary partition counts and the marked moment sum; the checker independently verifies this up to N=129. The proof bounds f(N) between 2^{m²/2-O(m log m)} and 2^{m²/2+O(m)}, then bounds the fraction of partitions with at most (1-epsilon)m occupied positive levels by 2^{-epsilon²m²/2+O(m log m)}. The size-biasing moment is squeezed between (1-o(1))2^{(1-epsilon)m} and 2^m for each epsilon>0, yielding log(p/f)/log N→1. All quantifiers restrict to positive odd N→infinity; no finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Keith–Munagi, Power compositions and semi-Pell compositions, §§1–5 (full accessible text), proves generating functions, bijections and congruences, not relative asymptotics.",
+        "Ballantine–Beck, full relevant pp.1,20–22,35–36, discusses partition families, congruences and an explicit open growth-rate comparison.",
+        "Historical general theory of binary partitions is acknowledged but no directly dominating theorem was verified in the inspected sources."
+      ],
+      "reasoning": "A sufficiently sharp general asymptotic for weighted odd-multiplicity binary partitions could imply the result, but neither inspected primary paper offers such an estimate. Elementary leading log-squared growth alone would not imply a relative exponent because the desired difference has order log N, smaller than the O(log N log log N) error in separate estimates.",
+      "searches": [
+        "\"odd binary overpartitions\" \"asymptotic\" number of part sizes",
+        "\"odd binary partitions\" overpartitions growth asymptotic",
+        "\"semi-Pell\" \"asymptotic\" \"semi-Fibonacci\" partition",
+        "Subexponential growth comparison of self-similar Fibonacci and Pell numbers via counting overlined parts"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.11493v1, Sections 1, 6 and 12",
+      "Keith–Munagi 2023 full accessible PDF, Sections 1, 2, 4, 5",
+      "OEIS A030067",
+      "OEIS A129095",
+      "Andrews 2019 article landing page and abstract",
+      "2026 indexed mathematical research semantic searches on relative asymptotics and binary-partition markings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ballantine–Beck §12: question about relative asymptotic growth of odd-indexed self-similar sequences.",
+        "Ballantine–Beck §6: p(N) enumerates odd binary overpartitions with mandatory largest overline.",
+        "Keith–Munagi §5: recurrence and generating function for semi-Pell; §4: congruence results.",
+        "Andrews 2019 journal abstract: unmarked partition identity and parity theorem; full PDF link returned 404."
+      ],
+      "reasoning": "The new support concentration theorem supplies information about the typical number of occupied levels that is not implied just by known recurrence/partition enumerations. The cited 2023 source itself asks for asymptotic growth comparison. Andrews 2019 has a plausible related but inaccessible original PDF; based on its abstract and the later explicit problem, the residual risk is disclosed rather than falsely declaring its complete text checked.",
+      "searches": [
+        "arXiv:2303.11493v1 §12 asymptotic growth rates",
+        "arXiv:2303.11493v1 §6 Semi-Pell partitions",
+        "https://combinatorialpress.com/article/ojac/vol18/276.pdf §§1–2,5",
+        "https://www.rsmams.org/journals/jrsmams/article/373"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ballantine–Beck arXiv:2303.11493v1, §§1,6,12: exact definitions and a future-work request to compare odd-indexed growth rates.",
+        "OEIS A030067 and A129095: recurrences and cross references but no relative exponent in inspected entries.",
+        "Relevant semantic index results concerned unrelated weighted partitions or divisor bipartitions, not these two functions."
+      ],
+      "reasoning": "The possible equivalent statements include log(p(N)/f(N))~log N, p(N)=N^{1+o(1)}f(N), and support-weight moment E[2^r]=N^{1+o(1)}. The inspected pertinent sources do not assert any of them, nor an estimate strong enough to yield them verbatim.",
+      "searches": [
+        "\"semi-Pell\" \"semi-Fibonacci\" \"asymptotic\" ratio growth",
+        "\"semi-Pell\" \"semi-Fibonacci\" ratio polynomial n log",
+        "For semi-Pell sp(n) and semi-Fibonacci sf(n), the ratio sp(2n+1)/sf(2n+1) = (2n+1)^{1+o(1)}; overpartitions odd binary powers asymptotic logarithmic relative growth",
+        "odd binary partitions, numbers of distinct occupied powers, typical support almost every possible power, weighted by 2^(number of distinct powers), semi-Pell / semi-Fibonacci ratio asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A129095 records semi-Pell recurrence and sequence bisection, links to Ballantine–Beck and Keith–Munagi.",
+        "OEIS A030067 records the semi-Fibonacci recurrence and unweighted partition interpretations."
+      ],
+      "reasoning": "Tables of finitely many terms, generating-function identities, and monotonicity of odd-indexed terms cannot by themselves imply the claimed uniform asymptotic ratio for all large odd N. The exact pairwise logarithmic exponent was not found.",
+      "searches": [
+        "https://oeis.org/A129095",
+        "https://oeis.org/A030067",
+        "\"A129095\" \"A030067\" asymptotic growth comparison"
+      ]
+    },
+    "rationale": "Ballantine–Beck 2023 Section 12 explicitly calls for comparison of odd-indexed growth rates; its Section 6 supplies the semi-Pell overpartition model but does not state an N^{1+o(1)} relative exponent. Keith–Munagi, Sections 1, 2 and 5, supply a composition model and generating function but not this asymptotic. OEIS A129095 and A030067 list recurrences, related tables and identities but no relative asymptotic growth law. The original part is the near-complete support concentration argument, yielding the ratio exponent; the sequence definitions and individual partition models are expressly credited. Search risk remains for general weighted binary-partition results indexed under other names.",
+    "residual_risks": [
+      "A more general indexed or unindexed weighted binary-partition asymptotic theorem may imply the special ratio without mentioning the sequence names.",
+      "The Andrews 2019 full PDF link did not open; landing abstract alone cannot certify all its contents.",
+      "No claim of a sharper multiplicative asymptotic, constants, or comparison of the other self-similar families."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains both definitions and asks for growth-rate comparison; no claimed relative exponent in relevant text",
+        "evidence": [
+          "p.1 Definition 1 and discussion",
+          "p.20 Definition 8",
+          "p.21 overpartition representation",
+          "p.35 §12, growth comparison open question"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.11493",
+        "material_read": "PDF pages 1–2, 20–22, and 35–36, including introduction, Section 6 and concluding remarks; screenshots of pages 1, 21 and 35",
+        "method": "Opened accessible full-text PDF, read relevant body ranges and inspected page images",
+        "title": "Partitions enumerated by self-similar sequences",
+        "trigger": "Directly asks for comparing odd-indexed asymptotic growth; supplies both partition interpretations"
+      },
+      {
+        "assessment": "Does not assert the semi-Pell/semi-Fibonacci relative logarithmic exponent",
+        "evidence": [
+          "§1 recurrence (1.2)",
+          "§2 Theorem 1",
+          "§5 semi-Pell compositions; §4 congruences"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+        "material_read": "Accessible full-text Sections 1, 2, 4 and 5 including all results about the semi-Pell case; screenshot of page 1",
+        "method": "Opened full-text PDF and inspected numbered sections and searched for asymptotic",
+        "title": "Power compositions and semi-Pell compositions",
+        "trigger": "Earlier semi-Pell recurrence, generating function and composition interpretations"
+      },
+      {
+        "assessment": "No target ratio asymptotic; identifies preexisting individual sequence",
+        "evidence": [
+          "recurrence, comment about increasing bisection, links to arXiv and 2023 paper"
+        ],
+        "identifier_or_url": "https://oeis.org/A129095",
+        "material_read": "Entire accessible record, including comments, links and formula",
+        "method": "Read HTML sequence entry",
+        "title": "OEIS A129095, semi-Pell numbers",
+        "trigger": "Exact sequence database and aliases"
+      },
+      {
+        "assessment": "No target ratio asymptotic in inspected entry",
+        "evidence": [
+          "recurrence, odd-index monotonicity and linked partition models"
+        ],
+        "identifier_or_url": "https://oeis.org/A030067",
+        "material_read": "Accessible record: definition, comments and linked papers",
+        "method": "Read HTML sequence entry",
+        "title": "OEIS A030067, semi-Fibonacci numbers",
+        "trigger": "Exact companion sequence and aliases"
+      },
+      {
+        "assessment": "Original full paper not accessed; abstract states unmarked interpretation and parity, not relative weighted comparison",
+        "evidence": [
+          "2019 abstract, MSC 11P81; PDF link inaccessible"
+        ],
+        "identifier_or_url": "https://www.rsmams.org/journals/jrsmams/article/373",
+        "material_read": "Journal article landing page, abstract, classification, links; PDF download link returned 404",
+        "method": "Read accessible journal metadata and attempted full PDF",
+        "title": "Binary and semi-Fibonacci partitions",
+        "trigger": "Original unmarked binary partition interpretation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8609e8e-75b8-4589-99b2-5e9fc47c5e6c",
+  "value": {
+    "rationale": "The 2023 motivating paper explicitly poses comparison of odd-indexed growth rates. Determining the full exponent one for the ratio p(N)/f(N), while both counts have the same leading quadratic logarithmic scale, provides a structural answer for a natural pair rather than a small table or routine coefficient substitution. Near-full occupied-level concentration is the key reusable lemma. It does not solve the finer constant-level comparison or other self-similar families.",
+    "status": "PASS"
+  }
+}
