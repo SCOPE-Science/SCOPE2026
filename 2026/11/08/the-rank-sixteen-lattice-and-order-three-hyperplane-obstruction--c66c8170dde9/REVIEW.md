@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Table 3 and Proposition 3.5 of Naskręcki–Pokora provide all pairwise intersections among the specified lines. K3 adjunction gives diagonal \(-2\), and exact characteristic-polynomial/Smith computations give rank \(16\), signature \((1,15)\), and invariant factors \(1^{10},2^4,6,18\). The published identity \(D\sim6H\) puts the ample class in the rational line span, so Hodge index proves that Gram-matrix nullity equals genuine divisor dependence rather than an unaccounted radical. The explicit twelve-line indicator satisfies \(Gu=3\mathbf1\); the exact modular witness rules out integral \(Ga=\mathbf1\), establishing precise order three. All computations are replayed from included data and source code.
+
+**Originality — PASS, provisional.** The motivating primary paper gives incidence triples, logarithmic Chern invariants, and \(D\sim6H\), but no rank or Smith data for the integral twenty-four-line divisor lattice. Bauer–Schmitz determine a different full-rank twenty-line spanning set; this does not imply the present subgroup's invariants. The known full sixty-four-line spectrum does not imply the integral discriminant group for this half. Höhn's \(D_4\) automorphism model is highly relevant, but its full text was unavailable; historical priority therefore remains qualified rather than certified.
+
+**Mathematical value — PASS.** The newly discovered twenty-four-line half is singled out naturally by its sharp logarithmic-geography example. Its precise embedded Picard sublattice, finite discriminant group and hyperplane-class obstruction are natural K3 divisor invariants, relevant to lattice-theoretic characterizations of configurations and to the effective cubic-section splitting. The result is not merely a repetition of the arrangement's weak incidence numbers or a decimal invariant computed from a published table.
+
+**Risks and limits.** The primitive saturation beyond the hyperplane class and the complement lattice are not computed. The mathematical proof is self-review and not independently audited. The later \(D_4\) preprint's inaccessible full text is a specific remaining originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
