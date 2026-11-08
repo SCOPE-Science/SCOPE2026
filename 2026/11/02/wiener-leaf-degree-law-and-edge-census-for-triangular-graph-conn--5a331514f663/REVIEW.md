@@ -1,11 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The direct edge-set interpretation of connected domination in the triangular graph forces a tree on all but one root vertex at the optimal cardinality. Replacing one chosen edge either exchanges an edge along a fundamental cycle or replaces a leaf by the previously omitted root vertex. These cases are disjoint and complete, producing the Wiener–leaf law. Prüfer leaf counts and Cayley edge-cut enumeration yield the full edge count. Reconfiguration through centered stars proves connectivity. Explicit star/path degrees plus a four-leaf double broom prove the regularity boundary, including the degenerate equality at \(n=9\). A separate checker enumerated \(33,864\) subsets across four base orders, matched every degree and edge count, and independently checked actual connectivity.
+## correctness
 
-**Originality — PASS with recorded priority risk.** The existing triangular-graph connected-domination optimum/count in OEIS A373395 is expressly **not** part of the originality claim. Full accessible material of the 2022 survey on reconfiguration and the publicly accessible 2019 foundational abstract treat the general reconfiguration framework and complexity, not the specialized degree law or census. Searches of indexed mathematical records for the line-graph alias, support-changing tree exchanges, Wiener index, leaves, exact edge count, and regularity revealed no statement implying the present combined theorem. The closest alternative graph-invariant results concern unrelated objective functions or fixed-support tree polytopes. Unindexed tree-exchange papers or equivalent formulas remain a genuine unresolved publication-priority risk.
+PASS
 
-**Mathematical value — PASS.** The formula distinguishes two structural forms of an optimal solution's flexibility: internal fundamental-cycle exchanges measured by total tree distances and changes of omitted ground vertex controlled by leaves. Global summation gives the exact reconfiguration graph size in edges, while the regularity theorem identifies the first exceptional near-equality at eight supporting vertices; the persistent double-broom-versus-path four-move excess demonstrates that maximum Wiener index does not mean maximum flexibility. These are structural and all-solution results, not a routine substitution into the known minimum number alone.
+Minimum connected dominating sets of T_n=L(K_n) correspond exactly to spanning trees on n-1 of n ground vertices: selected edges must meet every edge and be connected, hence at most one omitted ground vertex and at least n-2 edges. For a tree F on m=n-1 vertices, fixed omitted-vertex jumps insert a non-tree edge and delete one of d_F(u,v) edges along its unique cycle, contributing W(F)-(m-1). Support-changing jumps remove precisely a leaf edge and attach the formerly omitted vertex to one of m-1 survivors, contributing (m-1)ell(F). Their sum is W(F)+(m-1)(ell(F)-1). The connectivity argument via fundamental-cycle tree exchanges and changing omitted vertex using common-center stars works even for m=2. Prüfer leaf enumeration and weighted edge-cut enumeration of tree Wiener indices yield the closed global edge sum. Star/path degrees differ by -(m-8)(m-3)(m-1)/6; a double broom settles the m=8 coincidence with a universal +4 degree gap. Independently enumerated all labeled trees via Prüfer strings for m=2..6, calculated actual W and leaf counts, and matched the edge totals 3,36,540,9420,187845. The all-n theorem rests on bijections, not on tested m.
 
-**Scientific limits.** The theorem concerns minimum solutions and token jumps only. It neither supplies exact diameter nor a statement about token slides. The matched finite checks do not certify infinite claims independently, and a specialized differently named tree-exchange formula may predate this presentation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The minimum size/count and standard tree exchanges are known. The assessed result is the full token-jump solution-graph degree formula, all-order edge census, connectedness across changing supports and regularity/witness. A specialized tree-base-exchange graph result might cover it under alternate terminology.
+
+## value
+
+PASS
+
+The exact edge count and local degree of the natural optimal-solution reconfiguration graph are mathematically meaningful and needed to analyze connectivity, random moves and regularity. The formula shows an interplay of two independently natural tree statistics, Wiener index and leaves, and the double-broom demonstrates that neither alone controls exchange degree. This is an all-parameter classification, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
