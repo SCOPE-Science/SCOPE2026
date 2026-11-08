@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The published eventual-periodicity theorem for valuation dynamics supplies a finite effective preperiod and period. Multiplying derivative factors over a valuation cycle produces an integral \(p\)-adic unit \(\Lambda\). The lifting identity for principal units proves that the closure of its positive powers is a finite union of complete principal-unit cosets. Scaling by each cycle value gives the exact disjoint-ball formula, while distinct valuation levels separate cycle components and transient terms. Additive-ball counting then proves the Haar measure and exact eventual modular histogram. Edge cases are explicitly addressed (zero input, valuation less than \(p\), \(\Lambda=1\), odd primes and \(p=2\), signed inputs, finite transients). The standalone modular checker passed 6,399 profiles. Infinite validity depends on proof, not experiments.
+## correctness
 
-## Originality — PASS within inspected evidence
-Emmons–Xiao (2022), Theorem 8, determines eventual periodicity of valuations, while their Theorem 10 characterizes real growth. Emmons–Xiao (2023), Sections 2 and 5, proves \(p\)-adic-field valuation dynamics and continuity. Neither inspected source supplies the value-level \(p\)-adic orbit closure, its explicit disjoint balls, Haar measure, or exact eventual residue-class count. Other mathematical results on related but distinct questions address arithmetic-subderivative cycles for two primes, inverse multiplicities, or initial valuation period statistics and do not imply this closure theorem. This is an original *synthesis/classification* built on established valuation periodicity and standard lifting: the main residual risk is implicit derivability or treatment elsewhere in the arithmetic-dynamical literature, not an asserted new valuation-periodicity theorem.
+PASS
 
-## Mathematical value — PASS
-Exact closures and measures are natural local invariants of iterated arithmetic partial derivatives. They distinguish ordinary divergent integer dynamics from positive-density, open \(p\)-adic orbit closures; answer the complete modular-attainment question uniformly across every integer initial value and every prime; and give an exact residue count after a computable cutoff. The result is more than restating the source's valuation-periodicity classification: it describes the entire orbit in \(\mathbb Z_p\), using unit dynamics not determined by valuation patterns alone without further argument.
+For integer-started D_p(x)=x ν_p(x)/p, valuation recurrence a→a−1+ν_p(a) implies finite orbit for a0<p and eventual periodic positive valuation cycle otherwise by previously published Emmons–Xiao Theorem 8. Across its least period ell, multiplier Λ=p^(-ell) product b_j is a positive p-adic unit, and x_(t+j+k ell)=z_j Λ^k. If Λ=1 finite; otherwise e=ord_p Λ for odd p, ord_4 Λ for p=2, c=ν_p(Λ^e−1), and LTE implies closure of Λ powers is disjoint union of e principal-unit cosets modulo p^c. Scaling by each z_j gives clopen balls z_jΛ^r+p^(b_j+c)Z_p. Distinct cycle/transient valuations guarantee disjointness, so Haar measure=eΣ_j p^(-b_j-c) and C_N=t+eΣ_j p^(N-b_j-c) at stated large N threshold. Independently computed small modular orbit counts including (p,x,N)=(2,16,11),(2,64,13),(3,729,10),(5,9765625,13) and compared to ball counts. Negative integers same valuation argument. These finite modular tests support but do not establish the infinite closure.
 
-## Scope and risks
-The result applies only to integer starts; it does not classify arbitrary rational or field-extension starts. The core periodicity premise is published and explicitly attributed. The cyclic-unit subgroup lemma is elementary; novelty rests on the combined orbit-closure theorem and exact modular statistics. Inaccessible or unidentified prior studies could contain implicit equivalent consequences.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Emmons–Xiao establish eventual valuation periodicity and ordinary real orbit trichotomy, and later extend D_p to local fields with continuity and valuation discussion. The current theorem classifies closures of full integer-value orbits in Z_p, their disjoint balls, Haar measures and exact residue-class counts. The general principal-unit lifting lemma is standard and credited, but its application to each derivative valuation cycle produces an evaluated new orbit-geometric classification.
+
+## value
+
+PASS
+
+Exact p-adic orbit closure and modular density are natural dynamical invariants, complementing already-known real growth/valuation periodicity. Positivity of Haar measure for every infinite integer orbit is a useful structural phenomenon; the result is neither a trivial valuation renaming nor merely a computed small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
