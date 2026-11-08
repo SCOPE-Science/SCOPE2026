@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "PASS: In each power-of-two cyclic direction, multiplication by x+x^{-1}=x^{-1}(x+1)^2 has rank n-2j in power j and consists of two nilpotent blocks of size n/2. The tensor module is 2^d copies of a rectangular truncated polynomial ring. Replacing a largest-side generator t_k by w=sum_i t_i, the Frobenius identity at H=max_i(n_i/2) gives t_k^H=w^H; this is an invertible coordinate substitution, so spatial adjacency has N/H blocks J_H(0). For F=[[A,I],[I,0]], the identity F^2+I=diag(A,A)F gives (F+I)^{2H}=0, while ker(F+I) has dimension ker(A)=N/H. Dimension and block-length bounds force exactly N/H Jordan blocks J_{2H}(1). Fixed counts and exact least-period differences then follow. Exact independent physical-grid and polynomial-basis verifiers replayed on d=3 and d=4 cases; their finite scope is not conflated with proof of all d.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martin et al. Theorem 4.8 assumes all circumferences are not multiples of the field characteristic, so cannot dominate the current all-even parameter regime.",
+        "Chang et al. Theorem 5.3 gives a generalized Jordan computation via tensor products for first-order null-boundary rules; it is not a ready-made two-time-level periodic orbit classification."
+      ],
+      "reasoning": "More general algebraic tools are acknowledged, but a method that could in principle calculate a special answer is not a published stronger theorem giving or logically immediately implying this explicit all-d>=3 two-layer block decomposition. The nearest exact special cases have smaller spatial dimension or use a different time rule.",
+      "searches": [
+        "reversible additive cellular automata square torus 2^m 2^n exact permutation order max side length and fixed point counts",
+        "doi:10.1007/BF01223745 Theorem 4.7 Theorem 4.8",
+        "doi:10.1007/s10955-017-1799-6 Theorem 5.3"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1103/RevModPhys.55.601",
+      "doi:10.1007/BF01223745",
+      "doi:10.1088/0305-4470/37/45/006",
+      "arxiv:1609.09572",
+      "doi:10.1007/s10955-017-1799-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original algebraic cellular-automata treatment states that the full multidimensional state-transition structure is more complicated and provides a two-dimensional first-order in-degree example, not the two-layer hypertorus count.",
+        "Its one-dimensional second-order rule is already known; no new one-dimensional claim is made.",
+        "The multidimensional Kronecker-sum article is about single-step null-boundary dynamics, not the reversible phase-space operator F."
+      ],
+      "reasoning": "The current conclusion consists of both A~J_H(0)^(N/H) and F~J_(2H)(1)^(N/H) plus all t fixed counts for all d>=3. Earlier d=2 one-time results do not cover d>=3, and one-dimensional wave formulas do not alone force the multidimensional Jordan decomposition without the independent change-of-variables argument. Published generic methods are credited, but no inspected stronger result implies the exact stated parameter-uniform conclusion.",
+      "searches": [
+        "doi:10.1007/BF01223745 §4D and §4E",
+        "linear cellular automata over binary field on Cartesian product of power of two cycles nilpotent adjacency rank Jordan all equal blocks",
+        "second-order reversible nearest-neighbor wave cellular automaton on d-dimensional periodic grid where all side lengths are powers of two, uniform unipotent Jordan blocks and exact cycle counts",
+        "doi:10.1007/s10955-017-1799-6 §5",
+        "doi:10.1088/0305-4470/37/45/006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Section 4D of Martin et al. uses multivariate Laurent polynomials for one-time-level automata; Section 4E gives general higher-order recurrences without the stated d>=3 two-layer similarity.",
+        "Macfarlane identifies one-dimensional reversible matrix automata, but does not classify a multidimensional periodic wave.",
+        "The related general Jordan-method article uses single-layer Toeplitz/Kronecker-sum dynamics and null boundary conditions."
+      ],
+      "reasoning": "Aliases considered include additive second-order cellular automata, reversible wave automata, unipotent toroidal dynamics, group-ring modules, Kronecker sums, Jordan blocks and fixed-point zeta functions. None of the inspected statements establishes the full same-object all-d>=3 two-layer power-of-two hypertorus orbit formula; the one-dimensional case is explicitly prior work.",
+      "searches": [
+        "second-order reversible nearest-neighbor wave cellular automaton on d-dimensional periodic grid where all side lengths are powers of two, uniform unipotent Jordan blocks and exact cycle counts",
+        "linear cellular automata over binary field on Cartesian product of power of two cycles nilpotent adjacency rank Jordan all equal blocks",
+        "doi:10.1007/BF01223745 §4D §4E",
+        "doi:10.1088/0305-4470/37/45/006",
+        "arxiv:1609.09572"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding titled \"A mod-four orbit census for parity automata on distance-two Boolean cubes\" concerns a first-order parity rule on a different graph.",
+        "The published finding titled \"Exact powers-of-two torus orders for all-to-all coupled cat maps\" concerns complete-graph coupled maps, not a nearest-neighbor two-layer wave.",
+        "The published finding titled \"Complete cycle census for additive-affine helical Yang--Baxter automata\" concerns an unrelated site-carrier update law."
+      ],
+      "reasoning": "Actual research-record queries checked exact parameter and temporal-count terminology, and primary discussions of additive automata, without finding a table of the present high-dimensional wave Jordan multiplicities or fixed counts. Database search absence alone is not proof of uniqueness; specific nearby objects were compared and excluded by update law.",
+      "searches": [
+        "second-order reversible nearest-neighbor wave cellular automaton on d-dimensional periodic grid where all side lengths are powers of two, uniform unipotent Jordan blocks and exact cycle counts",
+        "linear cellular automata over binary field on Cartesian product of power of two cycles nilpotent adjacency rank Jordan all equal blocks",
+        "reversible additive cellular automata square torus 2^m 2^n exact permutation order max side length and fixed point counts",
+        "graph cellular automata exact temporal periods on Hamming graphs q-ary hypercubes linear neighbor sum"
+      ]
+    },
+    "rationale": "PASS, qualified: Claim is restricted to the new d>=3 power-of-two periodic-boundary, two-time-level wave similarity and complete orbit census. Martin-Odlyzko-Wolfram (1984) explicitly develop group algebra for multidimensional first-order rules and discuss higher-order linear rules, but Theorem 4.8 assumes side lengths indivisible by the characteristic, and Section 4E does not derive the present combined multidimensional wave rank/Jordan formula. Macfarlane (2004) restricts to one-dimensional reversible waves. Chang et al. (2017) analyze one-time-level multidimensional Kronecker sums principally with null boundary, and general Jordan algorithms do not state the claimed periodic-boundary two-layer exact uniform blocks. Previously available one-dimensional waves and two-dimensional first-order torus results are excluded from originality, not counted as fresh discoveries. Targeted published-record searches yielded no stronger covering formula; an unindexed equivalent algebraic derivation remains possible.",
+    "residual_risks": [
+      "A previously unindexed equivalent algebraic deduction or a formula hidden outside searched sources cannot be excluded.",
+      "The earlier 2016 arXiv related preprint was assessed only at abstract/metadata depth, not certified for full noncoverage; the inspected full published related article makes direct coverage unlikely.",
+      "The same-style Jordan reduction methods are classical; novelty is claimed only for the explicit joint multidimensional two-layer full classification and counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general polynomial methods and two-dimensional one-step examples, not the present d>=3 power-of-two two-layer uniform Jordan and orbit formula. Theorem 4.8 excludes lengths divisible by the characteristic.",
+        "evidence": [
+          "https://content.wolfram.com/sw-publications/2020/07/algebraic-properties-cellular-automata.pdf",
+          "Commun. Math. Phys. 93 (1984), pages 243–245, sections 4D–4E."
+        ],
+        "identifier_or_url": "doi:10.1007/BF01223745",
+        "material_read": "Full open-access text, especially introduction and sections 4D (multidimensional) and 4E (higher order), theorems 4.7 and 4.8, hypotheses, examples and footnote.",
+        "method": "Read publisher-layout open-access full-text transcription of the author-archived article.",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Classic algebraic methods include both multidimensional additive rules and higher-order recurrences, plausibly dominating the current theorem."
+      },
+      {
+        "assessment": "One-dimensional reversible automata and single-seed weights, not periodic d>=3 power-of-two hypertorus state-census formulas.",
+        "evidence": [
+          "https://citeseerx.ist.psu.edu/document?doi=f3921158b9871d8db8d16cde33822fabde049a6b&repid=rep1&type=pdf",
+          "J. Phys. A 37 (2004), 10791–10814."
+        ],
+        "identifier_or_url": "doi:10.1088/0305-4470/37/45/006",
+        "material_read": "Open-access full text: abstract, introduction, RCA1–3 definitions, matrix approach and final discussion.",
+        "method": "Read accessible author/full-text scholarly PDF transcription.",
+        "title": "Linear reversible second-order cellular automata and their first-order matrix equivalents",
+        "trigger": "Exact same second-order reversible local rule and its matrix reduction may subsume the result."
+      },
+      {
+        "assessment": "Theorem 5.3 is a generalized Jordan-method representation for single-layer automata under null boundary conditions; periodic-boundary two-time-level wave Jordan/primitive-cycle formulas were not present in the inspected work.",
+        "evidence": [
+          "https://www.researchgate.net/publication/308809225_Reversibility_Problem_of_Multidimensional_Finite_Cellular_Automata",
+          "J. Stat. Phys. 168 (2017), 208–231, especially §5."
+        ],
+        "identifier_or_url": "doi:10.1007/s10955-017-1799-6",
+        "material_read": "Public author-uploaded full-text rendition: abstract, sections 3–5 and Theorems 4.4, 5.1–5.3 and their boundary assumptions.",
+        "method": "Read author-provided full text accessible as document transcription, checking matrix and theorem definitions.",
+        "title": "Reversibility Problem of Multidimensional Finite Cellular Automata",
+        "trigger": "Kronecker-sum generalized Jordan computations on high-dimensional grids could directly cover the spatial block claim."
+      },
+      {
+        "assessment": "General null-boundary reversibility algorithms are the stated focus; complete text not used to assert an exhaustive noncoverage comparison.",
+        "evidence": [
+          "https://arxiv.org/abs/1609.09572",
+          "Initial public metadata 2016-09-30; priority risk retained."
+        ],
+        "identifier_or_url": "arxiv:1609.09572",
+        "material_read": "Abstract and scholarly metadata identifying primary null-boundary reversible linear cellular automata question.",
+        "method": "Read arXiv abstract and publication metadata; not treated as full-text noncoverage evidence.",
+        "title": "Reversibility Problem of Multidimensional Finite Cellular Automata (earlier related preprint)",
+        "trigger": "Public preprint predating current threshold and potentially related to published generalized Jordan method."
+      },
+      {
+        "assessment": "Classical general cellular-automata setting, not an exact three-or-more-dimensional reversible wave classification; not relied upon alone to establish novelty.",
+        "evidence": [
+          "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.55.601",
+          "Published 1983-07-01."
+        ],
+        "identifier_or_url": "doi:10.1103/RevModPhys.55.601",
+        "material_read": "Full abstract, bibliographic publication date, and article opening contextualizing one-dimensional elementary cellular automata.",
+        "method": "Journal landing page plus open-access transcription.",
+        "title": "Statistical Mechanics of Cellular Automata",
+        "trigger": "Earliest precisely day-dated foundational primary source for archival classification and historical context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccf3c5ed-d526-49bd-b310-151bff4bdf53",
+  "value": {
+    "rationale": "PASS: This natural nearest-neighbor reversible wave on every characteristic-two power-of-two hypertorus of dimension >=3 has an unexpected uniform unipotent representation. Global period depends only on the longest circumference, not dimension or the other side lengths, while the complete orbit populations depend exactly on transverse volume. The proof uses an essential multivariate Frobenius coordinate transformation and yields complete infinite-family fixed-point and primitive-cycle information, not a single numerical example or a restatement of reversibility.",
+    "status": "PASS"
+  }
+}
