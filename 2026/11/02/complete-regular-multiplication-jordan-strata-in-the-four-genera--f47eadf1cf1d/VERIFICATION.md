@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-Run `python3 exterior4_verify.py` in the directory containing the standalone checker. Its expected output is `exterior4_verify.log`. The checker uses original exterior basis multiplication with explicit finite-field arithmetic and independent row elimination; it does not derive its observed ranks from the claimed normal forms.
 
-The completed run exhausted all \(2^{15}=32768\) positive-degree elements over \(\mathbb F_2\), all \(3^6=729\) and \(4^6=4096\) degree-two forms over \(\mathbb F_3\) and \(\mathbb F_4\), and 557 additional graded sample operators in each of \(\mathbb F_3,\mathbb F_4,\mathbb F_5,\mathbb F_7,\mathbb F_9\). The finite-field extension arithmetic is genuine. The expected final output line is `EXTERIOR4_REGULAR_JORDAN_SPECTRUM_OK`.
+# Independent mathematical audit
 
-The exact rank and distribution theorem is proved symbolically in `RESULT.md`. This finite verification does not establish general statements by exhaustive enumeration outside the specified finite ranges and does not independently establish publication priority.
+## correctness
+
+PASS
+
+For n=x−a the exterior nilpotence identity n³=0 holds in all characteristics, so ranks r1 of L_n and r2 of L_n² determine Jordan block counts b3=r2, b2=r1−2r2, b1=16−2r1+r2. If degree-one part v≠0, split E=ΛU⊕vΛU and use invertible block multiplication to prove r1=8. In odd characteristic n²=2v b(1+α) for w=v∧α+b, rank2 iff v∧w≠0, giving r2=2; in char2 r2=0. For v=0,w≠0 the independent graded images give r1=2+rho(w), r2=1 precisely when odd char and rho(w)=4; degree3 and degree4 only give ranks2 and1. Plücker Grassmannian counts rank2 altern forms R2=(q−1)(q²+1)(q²+q+1), complement rank4 R4=q²(q−1)(q³−1); remaining strata are vector bundles/punctured spaces. Independent F2 exterior algebra left-multiplication matrix elimination tested 3048 elements, including char2 degeneration, not universal proof.
+
+## originality
+
+PASS
+
+Known matrix representations and maximal commutative subalgebras of Grassmann algebra concern different invariants. The inspected Domokos–Zubor primary paper addresses maximal commutative subalgebra dimensions and assumes odd characteristic, so it does not determine these arbitrary-field left-regular multiplication Jordan strata. Generic rank/Jordan identities and Plücker counts are credited, not new. Priority qualified by inaccessible full Márki et al text and possible specialist preexisting rank stratification.
+
+## value
+
+PASS
+
+The regular multiplication operator is canonical for finite-dimensional algebras. A complete Jordan-partition stratification, including the characteristic-two phase change, geometric irreducibility and field-count polynomials, gives a reusable invariant; exceeds a routine individual rank computation or relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

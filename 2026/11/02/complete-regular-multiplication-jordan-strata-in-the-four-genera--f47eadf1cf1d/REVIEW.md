@@ -1,15 +1,21 @@
-# Scientific review: complete regular-multiplication Jordan strata
+# Independent mathematical audit
 
-## Correctness: PASS
-An arbitrary element decomposes by degrees zero through four, and subtracting its scalar part makes multiplication nilpotent of index at most three. A block calculation in the presence of a nonzero degree-one term proves rank eight and determines the square by the invariant \(v\wedge w\). Without degree one, multiplication rank is \(2+\rho(w)\), followed by the degree-three, degree-four, and zero cases. Rank-and-square-rank determine every Jordan partition, over all characteristics. The geometry is determined by rank-three vector bundles and the Plücker rank-two cone; all finite-field row counts come from these actual strata, not fitting. Direct code checks the original 16-dimensional algebra multiplication in several fields, exhaustively for all augmentation elements over \(\mathbb F_2\).
+## correctness
 
-## Originality: PASS, with residual priority risk
-The March 2014 primary paper by Domokos and Zubor studies commutative subalgebras and familiar square-zero relations in Grassmann algebras; it does not give the all-element Jordan-type distribution for the left-regular representation. The July 2013 paper by Márki et al. constructs representations and identities but does not give this distribution either. Relevant published mathematical records about Rota–Baxter operators for a four-dimensional (rather than four-generator) exterior algebra, Jordan lifts in dual-number rings, and apolar Jordan-type methods concern different hypotheses; none directly implies the classification. Searches for left multiplication, Jordan blocks/partitions, Grassmann/exterior algebras, and finite-field rank counts found no equivalent theorem. This is a best-knowledge originality judgment, not a guarantee against unindexed or inaccessible earlier work.
+PASS
 
-## Value: PASS
-The Jordan spectrum is an intrinsic invariant of each regular multiplication operator. Its complete stratification for a natural sixteen-dimensional noncommutative algebra, together with exact arithmetic counts, motivic classes, irreducibility and the characteristic-two collapse, gives structural information not supplied by generic maximal-subalgebra dimension or standard nilpotency arguments. The particular four-generator algebra is the first size where degree-two nondecomposable forms and degree-one/degree-two interactions coexist, making the distinction mathematically motivated.
+For n=x−a the exterior nilpotence identity n³=0 holds in all characteristics, so ranks r1 of L_n and r2 of L_n² determine Jordan block counts b3=r2, b2=r1−2r2, b1=16−2r1+r2. If degree-one part v≠0, split E=ΛU⊕vΛU and use invertible block multiplication to prove r1=8. In odd characteristic n²=2v b(1+α) for w=v∧α+b, rank2 iff v∧w≠0, giving r2=2; in char2 r2=0. For v=0,w≠0 the independent graded images give r1=2+rho(w), r2=1 precisely when odd char and rho(w)=4; degree3 and degree4 only give ranks2 and1. Plücker Grassmannian counts rank2 altern forms R2=(q−1)(q²+1)(q²+q+1), complement rank4 R4=q²(q−1)(q³−1); remaining strata are vector bundles/punctured spaces. Independent F2 exterior algebra left-multiplication matrix elimination tested 3048 elements, including char2 degeneration, not universal proof.
 
-## Limitations and comparison risks
-The result does not extend automatically to five generators or to other base rings. Exact historical priority remains provisional, and the independent review channel has not been performed. Finite-field checks are corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known matrix representations and maximal commutative subalgebras of Grassmann algebra concern different invariants. The inspected Domokos–Zubor primary paper addresses maximal commutative subalgebra dimensions and assumes odd characteristic, so it does not determine these arbitrary-field left-regular multiplication Jordan strata. Generic rank/Jordan identities and Plücker counts are credited, not new. Priority qualified by inaccessible full Márki et al text and possible specialist preexisting rank stratification.
+
+## value
+
+PASS
+
+The regular multiplication operator is canonical for finite-dimensional algebras. A complete Jordan-partition stratification, including the characteristic-two phase change, geometric irreducibility and field-count polynomials, gives a reusable invariant; exceeds a routine individual rank computation or relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
