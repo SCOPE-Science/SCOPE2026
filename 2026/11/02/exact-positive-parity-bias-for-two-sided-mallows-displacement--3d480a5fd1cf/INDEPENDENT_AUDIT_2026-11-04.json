@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:54:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md proof and boundary hypotheses",
+        "Actual pinned verification script and VERIFICATION.md (finite evidence only)",
+        "Independent reconstruction and exact/numeric checks in /mnt/data/scope_checks_20261104.py",
+        "Pinned 2026/11/02/exact-positive-parity-bias-for-two-sided-mallows-displacement--3d480a5fd1cf",
+        "Independently computed conditional signed mixture and proposed product at six values t=.05,.12,.25,.42,.60,.80 with high precision agreement."
+      ],
+      "rationale": "PASS: At stationary two-sided Mallows t=Q^-1 (0<t<1), D=R-L, P(R=r)=(1-t)t^r, conditional E[z^L|R=r]=prod_{k=r+1}∞(1-t^k)/(1-zt^k). At z=-1 obtain absolutely convergent signed geometric series. Factoring (t;t)_∞/(-t;t)_∞ and applying q-binomial with a=z=-t yields Δ=E[(-1)^D]=((t;t)_∞/(-t;t)_∞)^2. Infinite products converge strictly positive for each t<1; each factor decreases strictly, giving desired sign, Q monotonicity and endpoint limits. The published identification of c_o,c_e with even/odd displacement probability supplies interpretation. Independently summed conditional law and product for t=.05,.12,.25,.42,.6,.8, agreement at displayed precision; finite results are corroboration, not a proof.",
+      "residual_risks": [
+        "Proof requires balanced stationary two-sided Mallows process, finite inversion counts, fixed Q>1; does not establish finite permutation rate or Q→1 joint scaling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He et al prove limiting fixed point constants, not strict sign/monotonicity; their Section 10 asks exactly those questions.",
+          "Gnedin–Olshanski give full distribution but do not explicitly evaluate alternating Fourier coefficient."
+        ],
+        "reasoning": "A fuller law can logically determine a statistic, yet does not automatically give its sharp product and sign monotonicity; substantive closed evaluation qualifies as a mathematical contribution, though reduces originality risk.",
+        "searches": [
+          "He Müller Verstraaten 2023 Theorem 1.6 Section 10 Mallows cycle limit",
+          "Gnedin Olshanski 2012 full two-sided displacement distribution"
+        ]
+      },
+      "checked_sources": [
+        "Gnedin–Olshanski 2012 arxiv:1103.1498 theorem 5.1",
+        "He–Müller–Verstraaten 2023 arxiv:2201.11610 theorem 1.6, Section 10",
+        "He arxiv:2112.09789 merged preprint cycle context",
+        "NIST DLMF section17.5",
+        "Resultary query on two-sided Mallows q-product parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Mallows law yields a signed series; application of q-binomial a=z=-t evaluates it as a strictly positive product.",
+          "2023 authors explicitly left c_o>c_e and monotonicity open."
+        ],
+        "reasoning": "The new closed form plus consequences goes beyond the statements in both primary papers despite using known identities; it solves a precise prior question, not a renamed theorem.",
+        "searches": [
+          "arxiv:1103.1498 Theorem 5.1 equations (20)-(23)",
+          "arxiv:2201.11610 Theorem 1.6 Section 10",
+          "NIST DLMF 17.5 q-binomial theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin–Olshanski 2012 exact law for R,L determines parity in principle but does not present the evaluated product.",
+          "Classical q-binomial gives sum-to-product identity for a=z=-t."
+        ],
+        "reasoning": "The old joint law is input to, but not a stated or immediate logical claim of, strict parity bias; q-binomial specialization and inequality are needed. If a separate q-series source recorded this exact evaluation, equivalence would defeat novelty; not located.",
+        "searches": [
+          "two sided Mallows displacement parity Q infinite q-Pochhammer products c_o c_e monotonicity fixed point He Müller Verstraaten",
+          "Gnedin Olshanski Theorem 5.1 two-sided Mallows displacement conditional generating function",
+          "q-binomial q-Pochhammer Mallows parity product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corpus search surfaced unrelated q-series and parity results, not this displacement product.",
+          "Primary open problem persisted in 2023 published Section 10."
+        ],
+        "reasoning": "No independent database/table with the product formula was found; absence of indexed coverage is not a guarantee.",
+        "searches": [
+          "Resultary semantic query two sided Mallows displacement parity Q infinite q-Pochhammer products c_o c_e monotonicity fixed point He Müller Verstraaten",
+          "c_o(Q)-c_e(Q) product ((q;q)_infty/(-q;q)_infty)^2 Mallows"
+        ]
+      },
+      "rationale": "PASS: Gnedin and Olshanski 2012 Theorem 5.1 provides displacement distribution and conditional inversion-count law, not the extracted parity product; He, Müller and Verstraaten 2023 Theorem 1.6 identifies c_o/c_e, while Section 10 explicitly poses strict sign and monotonicity as open. Evaluating the published mixture via q-binomial is a substantive resolution of that explicit question. An older q-hypergeometric restatement could have already evaluated the same moment; historical priority qualified.",
+      "residual_risks": [
+        "Proof requires balanced stationary two-sided Mallows process, finite inversion counts, fixed Q>1; does not establish finite permutation rate or Q→1 joint scaling.",
+        "A classical basic-hypergeometric identity with the same specific parameterization might already identify the probability product; not found in bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INPUT; conditional PGF and R geometric known, parity infinite product not stated in inspected theorem.",
+          "evidence": "Gnedin–Olshanski Adv Appl Math 48 (2012) theorem 5.1.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.1498",
+          "material_read": "Primary PDF theorem 5.1 and proof including equations (20)–(23), conditional inversion-count distribution; visual page screenshot checked.",
+          "method": "Read primary PDF with PDF screenshot at the relevant page and textual theorem statements.",
+          "title": "The two-sided infinite extension of the Mallows model for random permutations",
+          "trigger": "same object and complete displacement distribution"
+        },
+        {
+          "assessment": "DIRECT_MOTIVATION; open strict inequality and parameter monotonicity, resolved by present product.",
+          "evidence": "He–Müller–Verstraaten Random Structures & Algorithms 63 (2023), Theorem 1.6, Section 10.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.11610",
+          "material_read": "Full accessible publisher HTML including Theorem 1.6 and Section 10 open problems.",
+          "method": "Read publisher HTML and examined open-question section.",
+          "title": "Cycles in Mallows random permutations",
+          "trigger": "same limiting fixed point constants and explicit questions"
+        },
+        {
+          "assessment": "PRIOR_IDENTITIES: q-binomial is classical; application to displacement parity is assessed.",
+          "evidence": "Sum_{r>=0} ((a;t)_r/(t;t)_r)z^r=(az;t)_∞/(z;t)_∞ for |z|<1.",
+          "identifier_or_url": "https://dlmf.nist.gov/17.5",
+          "material_read": "Standard q-binomial identity itself and parameters a=z=-t as in source proof; no special Mallows interpretation claimed.",
+          "method": "Read standard identity cited in mathematical proof.",
+          "title": "NIST DLMF q-binomial series",
+          "trigger": "basic hypergeometric identity might cover product algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual pinned RESULT.md mathematical motivation",
+        "Gnedin–Olshanski 2012 arxiv:1103.1498 theorem 5.1"
+      ],
+      "rationale": "PASS: Closed infinite product establishes sign and monotonicity of two natural limiting Mallows fixed-point constants, directly resolving documented open questions. The product is not novel q-binomial theory and the scope is fixed Q>1 rather than a moving-parameter regime.",
+      "residual_risks": [
+        "Proof requires balanced stationary two-sided Mallows process, finite inversion counts, fixed Q>1; does not establish finite permutation rate or Q→1 joint scaling.",
+        "A classical basic-hypergeometric identity with the same specific parameterization might already identify the probability product; not found in bounded search."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Proof requires balanced stationary two-sided Mallows process, finite inversion counts, fixed Q>1; does not establish finite permutation rate or Q→1 joint scaling.",
+    "A classical basic-hypergeometric identity with the same specific parameterization might already identify the probability product; not found in bounded search."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment: Mallows displacement parity product
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact theorem is for fixed \(Q>1\) with stationary two-sided parameter \(t=Q^{-1}\). Gnedin–Olshanski's geometric law for right inversion counts, their conditional generating function for left inversion counts, and the balanced displacement equality are all explicitly identified. Evaluating the conditional generating function at \(-1\), taking the absolutely convergent geometric mixture, and applying the classical \(q\)-binomial theorem at \(a=z=-t\) produces the claimed product without an unlicensed limit interchange. Absolute convergence of the logarithmic product proves strict positivity, and factorwise comparison proves strict monotonicity for all parameters. Limits as \(t\to0\) and \(t\to1\) have separate elementary bounds. The supplied checker reproduces 19 integer-exact formal coefficients and independent finite numerical calculations; those are corroboration rather than infinite proofs.
+## correctness
 
-**Originality — PASS, qualified.** Theorem 5.1 and equations (20)–(23) of Gnedin and Olshanski (arXiv:1103.1498, full text inspected) provide the input distribution but do not state the parity-product evaluation. Theorem 1.6 and Section 10 of He, Müller and Verstraaten (arXiv:2201.11610 / DOI 10.1002/rsa.21169, full text inspected) explicitly name the strict parity inequality and strict parameter monotonicity as unresolved. The present mathematical contribution is the exact closed product and these consequences, not the displacement distribution, a finite permutation limit theorem, or a new \(q\)-binomial identity. Related Mallows-cycle literature and mathematical research-record searches did not identify a prior matching theorem. Residual risk: an unlocated alternate evaluation in classical basic-hypergeometric literature or subsequent preprints may have historical priority; absence in searches is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The exact formula resolves two explicitly stated qualitative questions about a natural invariant of an established stochastic ranking model. Beyond establishing the direction of the parity effect for every fixed \(Q>1\), it determines its entire parameter dependence and endpoint limits, with a short reproducible proof. This is not a mere restatement of an already published sign theorem or an arbitrary numerical slice.
+PASS: At stationary two-sided Mallows t=Q^-1 (0<t<1), D=R-L, P(R=r)=(1-t)t^r, conditional E[z^L|R=r]=prod_{k=r+1}∞(1-t^k)/(1-zt^k). At z=-1 obtain absolutely convergent signed geometric series. Factoring (t;t)_∞/(-t;t)_∞ and applying q-binomial with a=z=-t yields Δ=E[(-1)^D]=((t;t)_∞/(-t;t)_∞)^2. Infinite products converge strictly positive for each t<1; each factor decreases strictly, giving desired sign, Q monotonicity and endpoint limits. The published identification of c_o,c_e with even/odd displacement probability supplies interpretation. Independently summed conditional law and product for t=.05,.12,.25,.42,.6,.8, agreement at displayed precision; finite results are corroboration, not a proof.
 
-**Limits.** Only the stationary two-sided displacement and its associated fixed-parameter limiting means are treated; no finite-size rates, moving-parameter regime, or higher-cycle result is claimed. Mathematical priority has not been exhaustively established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Gnedin and Olshanski 2012 Theorem 5.1 provides displacement distribution and conditional inversion-count law, not the extracted parity product; He, Müller and Verstraaten 2023 Theorem 1.6 identifies c_o/c_e, while Section 10 explicitly poses strict sign and monotonicity as open. Evaluating the published mixture via q-binomial is a substantive resolution of that explicit question. An older q-hypergeometric restatement could have already evaluated the same moment; historical priority qualified.
+
+## value
+
+PASS
+
+PASS: Closed infinite product establishes sign and monotonicity of two natural limiting Mallows fixed-point constants, directly resolving documented open questions. The product is not novel q-binomial theory and the scope is fixed Q>1 rather than a moving-parameter regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
