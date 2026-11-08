@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Normalized Gaussian STFT and area convention yield known exact Hermite eigenvalues. Integration by parts gives a sign-exact adjacent spectral difference, yielding all maximizers and switch degeneracies; differentiating at each tie gives a strictly positive cusp jump. Uniform Stirling expansion for bounded index offset verifies the full oscillatory \\(O(s^{-2})\\) bracket remainder, and monotone unbounded logarithmic mean verifies all cluster values. The standalone checker provides 1320 numeric corroborations, not an infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galbis, Theorem 1, bounds norms for all radial bounded integrable Fock Toeplitz symbols by a quantity depending on integrability.",
+        "Nicola–Tilli, Theorem 1.1 and Corollary 1.2, optimize over classes of symbols with different constraints.",
+        "Marceca–Romero, Theorem 1.1 and Section 4, control eigenvalue counts rather than exact maximizing order for a ring."
+      ],
+      "reasoning": "These more general operator settings yield bounds or spectral counts, not the exact sharp eigenmode, crossing radii or fixed-width second coefficient for the annulus. Generality of the ambient operator class does not by itself imply the new pointwise equality classification.",
+      "searches": [
+        "arxiv:2102.02031",
+        "arxiv:2207.08624",
+        "arxiv:2104.06150"
+      ]
+    },
+    "checked_sources": [
+      "Knutsen 2019 arXiv:1907.00848 Section 2.3, Section 3.1 and Proposition 3.1",
+      "Galbis 2021 preprint arXiv:2102.02031; open-access 2022 journal Theorem 1",
+      "Marceca and Romero 2021 arXiv:2104.06150 Section 1 and Section 4.3",
+      "Nicola and Tilli 2022 arXiv:2207.08624 Theorem 1.1 and Corollary 1.2",
+      "Daubechies 1988 foundational operator as reproduced in Knutsen; original not fully inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knutsen Section 3.1 proves that the maximizing index is one of two neighbors when the inner area lies between successive integers.",
+        "Knutsen Proposition 3.1 gives a leading norm term plus a two-sided error of the same order as the oscillatory term.",
+        "Galbis Theorem 1 is a uniform upper bound, not an exact norm for this fixed annulus."
+      ],
+      "reasoning": "Knowing one of two indices and a coarse error does not logically determine which index wins for each parameter or the sign and full cluster range of the next coefficient. The new results follow from additional explicit difference and Stirling analysis. Still, an unlocated equivalent incomplete-gamma or mixed-Poisson formula cannot be ruled out.",
+      "searches": [
+        "Knutsen 2019 Daubechies localization operator annulus maximum eigenvalue floor pi r squared plus one",
+        "Norm estimates for selfadjoint Toeplitz operators on the Fock space radial symbol annulus 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knutsen arXiv:1907.00848, full Section 3.1, gives Hermite Poisson integrals for a unit-area ring.",
+        "The same integral is the probability mass function of a Poisson variable mixed over a uniform rate interval."
+      ],
+      "reasoning": "The probability-mixture interpretation is genuinely equivalent, and its possible prior explicit modal law is the main residual risk. The directly inspected ring proposition identifies two neighboring candidates but not the exact log-mean switch, all optimizer eigenspaces, cusp jumps and oscillatory correction.",
+      "searches": [
+        "Gaussian time frequency localization annulus ring exact Hermite maximizer threshold logarithmic mean",
+        "Poisson mixture uniform on interval mode divided logarithm endpoint",
+        "uniform mixed Poisson distribution mode log mean interval"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Knutsen, arXiv:1907.00848, Section 3.1: unit ring eigenvalues explicitly written; the maximum is restricted to two modes and has a first-order estimate.",
+        "Exact switch radii are derived here as analytic equality conditions, not assembled from a finite numeric table."
+      ],
+      "reasoning": "The checked primary literature has the exact eigenvalue integral but does not list or classify all mode switches or give the oscillatory next norm coefficient. No numerical database of such radii was treated as a novelty certificate.",
+      "searches": [
+        "Daubechies localization operator ring exact largest Hermite mode Knutsen refinements 2021",
+        "Gaussian localization ring Hermite norm exact maximizer full mode transitions radius threshold"
+      ]
+    },
+    "rationale": "The exact Gaussian annulus eigenintegrals are known (Knutsen 2019); the inspected original same-object ring proof identifies only two candidate modes and an undetermined next-order norm error. The exact global log-mean mode selection, all cusp locations/slopes, and explicit oscillatory correction are not implied by the inspected statements; no direct duplicate was found in closely related operator sources. Historical priority remains provisional, particularly through Poisson-uniform-mixture literature.",
+    "residual_risks": [
+      "The exact modal index might already be named as a theorem about uniformly mixed Poisson distributions under different notation.",
+      "The full historical corpus of radial Fock Toeplitz and incomplete-gamma mode theorems has not been exhaustively checked.",
+      "The proposed mode rule relies on the known spectral diagonalization and its independent priority is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUND PRIOR spectral diagonalization, two-candidate norm and leading asymptotic; no exact log-mean switch and no nonconstant second coefficient",
+        "evidence": "arXiv full text, Section 3.1, lines associated with equations for ring eigenvalues and Proposition 3.1 (2019).",
+        "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+        "material_read": "Sections 1, 2.3, 3.1 including Proposition 3.1 and proof; article HTML and matching open-access journal article",
+        "method": "Open-access full-text HTML, checked exact annulus formulas and proposition",
+        "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets",
+        "trigger": "Same Gaussian annular localization and adjacent Hermite order competition"
+      },
+      {
+        "assessment": "General norm upper bound; does not decide exact annulus Hermite mode or oscillatory next coefficient",
+        "evidence": "Galbis 2022 Theorem 1 and formula reducing radial symbols to Hermite integrals.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11785-021-01187-3",
+        "material_read": "Open-access article introduction, Theorem 1, proof discussion and radial-integral formula",
+        "method": "Full-text public Springer article HTML",
+        "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+        "trigger": "Potential stronger radial Toeplitz norm theorem"
+      },
+      {
+        "assessment": "Spectral-count deviations, not exact ring top eigenindex, cusp slopes or next-order oscillation",
+        "evidence": "Marceca–Romero Section 1 and Section 4.3 (disk benchmark).",
+        "identifier_or_url": "https://arxiv.org/html/2104.06150v5",
+        "material_read": "Article introduction, statements of concentration bound and Section 4.3 disk benchmark, plus section searches",
+        "method": "Open-access arXiv full-text HTML",
+        "title": "Spectral deviation of concentration operators for the short-time Fourier transform",
+        "trigger": "Broader spectral concentration bounds potentially subsuming annular mode identification"
+      },
+      {
+        "assessment": "Optimizes norm under symbol constraints; does not provide this fixed-annulus Hermite spectrum comparison",
+        "evidence": "Nicola–Tilli Theorem 1.1, Corollary 1.2 and discussion of Gaussian/truncated Gaussian extremal symbols.",
+        "identifier_or_url": "https://arxiv.org/abs/2207.08624",
+        "material_read": "Full arXiv HTML: introduction, statements of Theorem 1.1, Corollary 1.2, and discussion of optimized symbols",
+        "method": "Open-access arXiv HTML",
+        "title": "The norm of time-frequency and wavelet localization operators",
+        "trigger": "General sharp norm inequalities for Gaussian STFT operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c0c5a98-ddf3-4d2d-9236-bee38449dc31",
+  "value": {
+    "rationale": "The Gaussian fixed-area annulus is an established canonical time-frequency concentration benchmark. The complete mode staircase and eigenspace classification identify optimal concentrating signals for all annuli, cusp sizes measure sensitivity to radius, and the explicit phase-dependent second term demonstrates the absence of a constant next-order norm coefficient. These are motivated exact structural and asymptotic facts that improve the specifically identified two-candidate/\\(O(R^{-3})\\) results, without claiming new general radial diagonalization.",
+    "status": "PASS"
+  }
+}
