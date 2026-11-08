@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(k\ge2\), the proof fixes the same strict burning model as the 2026 primary source (sources unburned at the end of the preceding round) and uses its equivalent distance/coverage condition. The exact capacity identity \(\sum t_i+q=k^2-n\) forces complete tilings or one-defect configurations. In the only subtle case, a radius-zero final neighborhood contained in another neighborhood would be an illegal previous ignition unless it lies on that neighborhood's endpoint; this excludes interior overlaps. Every enumerated arrangement has source distances at least the sum of the corresponding radii and is therefore legal. All path/cycle formulas, including \(k=2\), follow from bijective counting. A standalone standard-library verifier independently simulated round-by-round propagation and matched all formulas directly for \(k=2,3,4\), with further constructive tests for \(k=5,6\). The mathematical proof, not experiments, establishes the universal quantifier.
+PASS
 
-## Originality — PASS (best-knowledge, historical priority unverified)
+Reconstructed graph-burning timing: sources must be unburned at previous round end; legal iff d(v_i,v_j)>=j−i and radius-(k−i) balls cover the graph. Sum of ideal odd interval lengths is k²; k²−n=sum truncations+overlap excess, both nonnegative. Deficit 0 partitions arcs; deficit 1 forces a single clipped path end or one shared arc endpoint, with interior singleton overlaps forbidden by source legality. Permutations of distinct temporal labels yield k! square-path; cycle rotation yields n(k−1)!; at deficit 1 path overlap k!(k−1) plus 2(k−1)(k−1)! endpoint truncations, cycle overlap nk!; incident singleton junctions give redundant counts. Verified k=2 C3 and P3 boundary. Independent direct propagation enumeration checked k=2,3 and all 8 path/cycle-size combinations; finite checks are not the all-k proof.
 
-Abiad and Mallee, *Propagation processes on (hyper)graphs: where zero forcing and burning meet*, arXiv:2602.13149 (2026), is the closest examined full-text source. Its Theorem 2.4 supplies the known coverage characterization, Proposition 4.4 uses a redundant final ignition to preserve burning number under a strong product, and the subsequent paragraph excludes redundant final ignitions for square-order paths. These premises are acknowledged rather than reclaimed. The paper does not give near-square optimal-sequence counts, counts split by redundancy, or the exhaustive one-defect structural classification. The 2024 ESA row-generation paper concerns finding optimal burning lengths rather than enumerating every optimal ignition tuple. The 2026 Prado–Colares abstract concerns dominance rules and an optimization formulation rather than a complete count. Related public mathematical records on four-round burning in a fixed graph family and on threshold-two burning have different graphs and/or propagation rules and do not imply the present statements. Targeted searches found no covering result, but absence of hits is not proof of priority; other terminology or inaccessible materials remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact count of optimal strategies is distinct from determining their minimum length. The 2026 analysis specifically singles out redundancy of the last ignition as a condition with consequences for graph products and notes its failure for square-order paths. The present first-defect classification quantifies how this condition emerges one vertex below the square capacity limit for both paths and cycles, proves two exact factorial enumerations with their redundant subcounts, and isolates the underlying tiling/overlap rigidity. The one-vertex deficit is therefore a motivated sharp boundary, rather than an arbitrary finite slice or a recomputation of the already-known burning number. No results about other deficits or graph classes are asserted.
+Standard graph-burning radius characterization, path/cycle burning number, and square-order path nonredundancy are prior results. The complete labelled near-capacity count and final-source redundancy profile were not found in inspected 2026 primary article, survey, or published-finding semantic search. This is best-of-knowledge, not exhaustive historical priority.
 
-## Closest literature and residual limitations
+## value
 
-Primary motivating manuscript fully inspected: A. Abiad and P. Mallee (2026), DOI 10.1007/s00026-026-00820-2, online Sections 2 and 4. Supporting sources include the 2021 graph-burning survey, 2024 ESA optimization article and a June 2026 graph-burning preprint. The 2018 article on graph-product burning was identified but its complete publisher text was not accessible; its accessible discussion does not claim an enumeration. A second 2026 programming article was accessible only in summarized form during inspection. These limits do not constitute a proof that no earlier equivalent enumeration exists. Self-review cannot replace independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural exact enumeration of optimal contagion schedules at maximal and first submaximal coverage and an exact structural boundary between perfect tilings and one-defect configurations. The proportions quantify legally redundant interventions, not an arbitrary index or known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

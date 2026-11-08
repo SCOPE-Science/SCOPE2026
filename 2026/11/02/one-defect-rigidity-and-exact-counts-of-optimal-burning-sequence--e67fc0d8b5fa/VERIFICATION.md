@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.8+ and only the standard library. The program performs a direct propagation simulation for every ordered candidate ignition tuple for \(k=2,3,4\) on both labelled paths and cycles, at both orders \(k^2\) and \(k^2-1\). Its separate constructive generator produces the interval tilings, one-overlap arrangements and endpoint truncations, then checks uniqueness and legality under the original propagation rule.
+## correctness
 
-Direct counts by \(k=2,3,4\) for the one-defect path are \(4,20,108\), with redundant-last subcounts \(2,8,36\). The corresponding cycle counts are \(6,48,360\), with redundant-last subcounts \(6,32,180\). At the square order the corresponding path totals are \(2,6,24\), and cycle totals \(4,18,96\), all with zero redundant last ignitions. The generator additionally checks the four claimed families at \(k=5,6\), without attempting an infeasible exhaustive direct search there. Success terminates in `VERIFY_OK`.
+PASS
 
-The infinite theorem is proved in `RESULT.md`: nonnegative counting of total interval-capacity defect, elimination of an interior singleton overlap using the legal-source distance condition, uniqueness of the induced interval order, and enumeration of the two permissible defect types. Finite checks alone would not prove that classification for arbitrary \(k\). Neither output from other runs nor external computational certificates are required.
+Reconstructed graph-burning timing: sources must be unburned at previous round end; legal iff d(v_i,v_j)>=j−i and radius-(k−i) balls cover the graph. Sum of ideal odd interval lengths is k²; k²−n=sum truncations+overlap excess, both nonnegative. Deficit 0 partitions arcs; deficit 1 forces a single clipped path end or one shared arc endpoint, with interior singleton overlaps forbidden by source legality. Permutations of distinct temporal labels yield k! square-path; cycle rotation yields n(k−1)!; at deficit 1 path overlap k!(k−1) plus 2(k−1)(k−1)! endpoint truncations, cycle overlap nk!; incident singleton junctions give redundant counts. Verified k=2 C3 and P3 boundary. Independent direct propagation enumeration checked k=2,3 and all 8 path/cycle-size combinations; finite checks are not the all-k proof.
+
+## originality
+
+PASS
+
+Standard graph-burning radius characterization, path/cycle burning number, and square-order path nonredundancy are prior results. The complete labelled near-capacity count and final-source redundancy profile were not found in inspected 2026 primary article, survey, or published-finding semantic search. This is best-of-knowledge, not exhaustive historical priority.
+
+## value
+
+PASS
+
+Natural exact enumeration of optimal contagion schedules at maximal and first submaximal coverage and an exact structural boundary between perfect tilings and one-defect configurations. The proportions quantify legally redundant interventions, not an arbitrary index or known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

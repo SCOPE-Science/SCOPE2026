@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:12:25.936191Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/one-defect-rigidity-and-exact-counts-of-optimal-burning-sequence--e67fc0d8b5fa/RESULT.md",
+        "2026/11/02/one-defect-rigidity-and-exact-counts-of-optimal-burning-sequence--e67fc0d8b5fa/verify.py"
+      ],
+      "rationale": "Reconstructed graph-burning timing: sources must be unburned at previous round end; legal iff d(v_i,v_j)>=j−i and radius-(k−i) balls cover the graph. Sum of ideal odd interval lengths is k²; k²−n=sum truncations+overlap excess, both nonnegative. Deficit 0 partitions arcs; deficit 1 forces a single clipped path end or one shared arc endpoint, with interior singleton overlaps forbidden by source legality. Permutations of distinct temporal labels yield k! square-path; cycle rotation yields n(k−1)!; at deficit 1 path overlap k!(k−1) plus 2(k−1)(k−1)! endpoint truncations, cycle overlap nk!; incident singleton junctions give redundant counts. Verified k=2 C3 and P3 boundary. Independent direct propagation enumeration checked k=2,3 and all 8 path/cycle-size combinations; finite checks are not the all-k proof.",
+      "residual_risks": [
+        "Finite checks only corroborate, not replace the all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem certifies admissibility and length, not multiplicity; no implication of enumerators without a new one-defect counting argument.",
+          "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+          "https://arxiv.org/abs/2602.13149"
+        ],
+        "reasoning": "Abiad–Mallee 2026 Section 2 and Proposition 4.4",
+        "searches": [
+          "Resultary query: optimal graph burning sequences paths cycles k^2-1 one overlap redundancy exact counts",
+          "Primary/related search: graph burning general characterization, path/cycle burning numbers, exact optimization"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+        "https://arxiv.org/abs/2602.13149",
+        "https://math.ryerson.ca/~abonato/papers/BurningSurvey_0922.pdf",
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.4 plus arithmetic k² capacity enables the proof but does not itself derive labelled sequence multiplicities or R/B ratios; Prop 4.4 uses existence rather than count.",
+          "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+          "https://arxiv.org/abs/2602.13149"
+        ],
+        "reasoning": "C_k² k²(k−1)! and C_(k²−1) (k²−1)k!, not explicit in primary prior work",
+        "searches": [
+          "Resultary query: optimal graph burning sequences paths cycles k^2-1 one overlap redundancy exact counts",
+          "Primary/related search: Abiad Mallee Theorem 2.4 and Prop 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The radius-ball tiling rephrasing is equivalent by Theorem 2.4; sampled source only covers lengths and optimality, not the first-defect count.",
+          "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+          "https://arxiv.org/abs/2602.13149"
+        ],
+        "reasoning": "Theorem 2.4 source characterization vs four explicit factorial sequences with last-source redundancy",
+        "searches": [
+          "Resultary query: optimal graph burning sequences paths cycles k^2-1 one overlap redundancy exact counts",
+          "Primary/related search: number of minimum burning sequences, distance-ball tilings, legal burning schedules"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary hit d0cab96518f2 concerns cover-free family numbers on paths/cycles, a different invariant. No indexed same enumerator located.",
+          "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+          "https://arxiv.org/abs/2602.13149"
+        ],
+        "reasoning": "Resultary 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+        "searches": [
+          "Resultary query: optimal graph burning sequences paths cycles k^2-1 one overlap redundancy exact counts",
+          "Primary/related search: published-finding SCOPE covering paths cycles numbers and graph burning"
+        ]
+      },
+      "rationale": "Standard graph-burning radius characterization, path/cycle burning number, and square-order path nonredundancy are prior results. The complete labelled near-capacity count and final-source redundancy profile were not found in inspected 2026 primary article, survey, or published-finding semantic search. This is best-of-knowledge, not exhaustive historical priority.",
+      "residual_risks": [
+        "Unindexed burning-sequence enumeration might provide the four factorial counts under different terminology.",
+        "Survey PDF was not materially read beyond search excerpt; no priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms adopted timed-burning model, distance/coverage condition, redundant last ignition usage; neither cited theorem states factorial counting",
+          "evidence": "Theorem 2.4 distance/coverage; Proposition 4.4 strong-product burning, not near-square enumerators",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+          "material_read": "Section 2 Definition/Theorem 2.4 and Section 4 Proposition 4.4; treatment of path square-order nonredundancy",
+          "method": "Open-access full-text HTML, inspected sections with actual statement and proof",
+          "title": "Abiad–Mallee, Propagation Processes on (Hyper)graphs: Where Zero Forcing and Burning Meet",
+          "trigger": "Exact burning-sequence characterization, redundant sources"
+        },
+        {
+          "assessment": "Provides standard burning number background; possible older enumerations remain unexcluded",
+          "evidence": "Graph burning survey highlights nonuniqueness P4 and length, not sufficient for priority decision",
+          "identifier_or_url": "https://math.ryerson.ca/~abonato/papers/BurningSurvey_0922.pdf",
+          "material_read": "Search result excerpt and abstract only; full PDF NOT inspected",
+          "method": "Indexed search/excerpt; no whole-document conclusion",
+          "title": "Bonato, A survey of graph burning",
+          "trigger": "Alias search for exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00026-026-00820-2",
+        "https://arxiv.org/abs/2602.13149"
+      ],
+      "rationale": "Natural exact enumeration of optimal contagion schedules at maximal and first submaximal coverage and an exact structural boundary between perfect tilings and one-defect configurations. The proportions quantify legally redundant interventions, not an arbitrary index or known table recomputation.",
+      "residual_risks": [
+        "Unindexed burning-sequence enumeration might provide the four factorial counts under different terminology.",
+        "Survey PDF was not materially read beyond search excerpt; no priority guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every k>=2, the exact counts (B,R) of legally timed optimal k-round burning sequences and those with redundant last source are P_k²=(k!,0), C_k²=(k²(k−1)!,0), P_(k²−1)=((k−1)(k+2)(k−1)!,2(k−1)(k−1)!), C_(k²−1)=((k²−1)k!,2(k²−1)(k−1)!), with one-defect endpoint-overlap/truncation classification.",
+  "limitations": [
+    "Unindexed burning-sequence enumeration might provide the four factorial counts under different terminology.",
+    "Survey PDF was not materially read beyond search excerpt; no priority guarantee.",
+    "Science complete on immutable tree; publication plan not import-ready because operational public metadata identifiers and inherited first-publication dates need complete guarded sanitation. External expert/Lean statuses unchanged."
+  ],
+  "schema_version": 1
+}
