@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:43:45.997940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2502.03889",
+        "https://doi.org/10.1103/PhysRevE.104.014121",
+        "assigned RESULT.md at Git blob 49e2f3f5f9a71010a48b292e631722f18923fbdf"
+      ],
+      "rationale": "With dX=(sigma^2/2)Xdt+sigma XdW between rate-r resets to x0, log(X/x0) is driftless Brownian. For ages a and lag t conditional Gaussian signs have correlation h(a,t)=(2/pi)atan(sqrt(a/t)), strictly increasing in a. Equilibrium initial backward age E~Exp(r), fresh age at s is min(E,s), and future resets are independent. This coupling yields strict stationarity-versus-fresh lag-covariance ordering throughout every positive integration triangle, therefore V_eq(T)>V_fresh(T). Stationary sign correlation is erfc(sqrt(rt)); two-time integration gives the supplied erfc closed form. Fresh Poisson-excursion Dirichlet lengths and arcsine variance 1/8 give (z-1+e^-z)/(4z^2). Independent mpmath quadrature at z=0.1,1,5,30 agrees with each form and limits, including z^2 gap ->1/16 and small-time ratio 2. Bound strictly <1/4 via nondegenerate threshold fractions. Proof applies all positive r,sigma,T.",
+      "residual_risks": [
+        "This zero-log-drift sign threshold and exponential reset-clock argument does not extend automatically to arbitrary drift, threshold or non-Poisson resets.",
+        "The bundled verify.py imports SciPy despite one description saying standard-library-only; independent calculation did not rely on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "den Hollander–Majumdar–Meylahn–Touchette treats resetting additive functionals using fresh reset preparation; stochastic resetting GBM literature establishes stationarity/nonergodicity of X but not the threshold-fraction comparison."
+        ],
+        "reasoning": "General additive-function/renewal formulas can imply an integral representation, not the strict age-ordering at every finite horizon without verifying age-monotonicity. A general stochastic-order theorem remains possible.",
+        "searches": [
+          "https://arxiv.org/abs/1801.09909",
+          "https://doi.org/10.1103/PhysRevE.104.014121",
+          "Brownian resetting equilibrium age sign time-average variance stationary vs fresh two time covariance"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2502.03889",
+        "https://doi.org/10.1103/PhysRevE.104.014121",
+        "https://arxiv.org/abs/1801.09909"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior first-arcsine occupation law and reset-time interval mixing imply V_fresh. The new comparison follows from h(min(E,s),t)<h(E,t) and double integration; stationary formula has boundary limits V_eq ->1/4 and z^2(V_eq−V_fresh)->1/16."
+        ],
+        "reasoning": "The classical fresh law does not force the strict comparison of the two temporal observation ensembles. Initializing stationary reset age and comparing it to the truncated age is an additional monotonic coupling.",
+        "searches": [
+          "https://arxiv.org/pdf/2502.03889",
+          "https://arxiv.org/abs/1801.09909",
+          "https://doi.org/10.1103/PhysRevE.104.014121"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reset excursion occupation statistic is Lévy positive occupation/first arcsine law. Taźbierski–Magdziarz supplies exact fresh-reset laws but uses reset at the beginning and does not compare a stationary backward age E with min(E,s)."
+        ],
+        "reasoning": "Stochastic process under log mapping is the same reset Brownian model; the two *initialization distributions* are not equivalent. The inequality is a new comparison over both initialization measures.",
+        "searches": [
+          "https://arxiv.org/pdf/2502.03889",
+          "Resultary: Brownian motion Poisson resetting equilibrium age stationary occupation threshold variance fresh reset arcsine time average"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh occupation first-law distribution and hence moments are documented in 2025 source; searched published-claim corpus returns different renewal age/correlation theorems, not this two-preparation exact all-horizon inequality."
+        ],
+        "reasoning": "No novelty credit for tabulating fresh moments. No matching exact stationary-vs-fresh variance comparison table was found; absence is not proof of originality.",
+        "searches": [
+          "https://arxiv.org/pdf/2502.03889",
+          "Resultary: Brownian motion Poisson resetting equilibrium age stationary occupation threshold variance fresh reset arcsine time average"
+        ]
+      },
+      "rationale": "Qualified PASS only for the strict entire-window variance ordering between equilibrium-reset-age and fresh-reset preparation, the initial factor-two limit and sharp 1/(16z^2) excess. Fresh-reset arcsine occupation formulas and generic two-time resetting densities are acknowledged prior.",
+      "residual_risks": [
+        "General finite-time renewal occupation covariance formula or age-order theorem could imply the conclusion in broader stochastic-process literature.",
+        "GBM reset publication full text not materially read in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fresh-reset occupation distribution known; stationary-versus-fresh all-duration variance comparison not in the examined Section II",
+          "evidence": [
+            "arXiv 2502.03889 Section II and equations 1–26"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.03889",
+          "material_read": "Primary nine-page PDF; abstract, Section II first-law formulation, reset order statistics, explicit density and occupation moment section inspected; page 1 and page 3 visually inspected",
+          "method": "Searchable original arXiv PDF and screenshots",
+          "title": "Arcsine laws for Brownian motion with Poissonian resetting",
+          "trigger": "Same positive occupation and Poisson reset model"
+        },
+        {
+          "assessment": "Defines reset GBM and wealth ergodicity regimes; cannot establish a missing occupation-variance comparison from abstract alone",
+          "evidence": [
+            "Phys Rev E 104 014121 (2021)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.104.014121",
+          "material_read": "Publisher primary abstract and parameters inspected, not full paper",
+          "method": "Publisher abstract",
+          "title": "Geometric Brownian motion under stochastic resetting: A stationary yet nonergodic process",
+          "trigger": "Same GBM reset model"
+        },
+        {
+          "assessment": "Important prior methodological coverage of fresh reset occupation; no whole-document noncoverage claim",
+          "evidence": [
+            "arXiv:1801.09909"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+          "material_read": "Bibliographic and abstract-level comparison only; full text not materially read",
+          "method": "ArXiv bibliographic result",
+          "title": "Large deviations of additive functionals of Markov processes with resetting",
+          "trigger": "Broader additive occupation functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2502.03889",
+        "https://doi.org/10.1103/PhysRevE.104.014121"
+      ],
+      "rationale": "A sharp natural preparation effect for time-averaged binary observables: strict variance ordering persists at every horizon and a quantitative 1/z^2 residual remains after the common 1/z leading variance. Finite variance of the indicator persists even where moments of the multiplicative level diverge.",
+      "residual_risks": [
+        "Only drift-neutral log dynamics and reset-level threshold are treated; broader universality is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only positive r,sigma,T at zero log drift.",
+    "Bundled verification script requires SciPy although its descriptor says otherwise."
+  ],
+  "schema_version": 1
+}
