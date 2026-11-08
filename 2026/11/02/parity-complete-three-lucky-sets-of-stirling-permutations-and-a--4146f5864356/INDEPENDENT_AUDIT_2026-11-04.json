@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:07:26.153367Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=3 and 2<=i<j<=2n-1 with at least one index odd, the four explicit Stirling-permutation constructions show existence of exact lucky set {1,i,j} iff i is odd or i<n. Necessary obstruction for even i>=n with odd j uses original source Proposition 3.8 and Lemma 4.3(a); odd-odd case uses the proven two-lucky input and the rank-lifting operation, odd-even and even-odd use explicit nested block insertions, with inserted 1 at a block boundary preserving Stirling nesting and parking luck. Both-even i+j<=2n is sufficient via explicit block word only, not a complete classification. Counting disjoint parity cases gives (n-1)(n-2)+h*n-h(h+1)/2, h=floor((n-1)/2). Independently implemented every case from mathematical word formulas and directly checked duplicate-label nesting, exact lucky parking indices and admissible labels for 7,694 eligible pairs over n=3..25. Frozen verify.py further describes 112,520 construction checks n3..60 and exact exhaustivity n<=8; these finite results supplement, not replace, the case proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Every subset containing car 1 is achievable for unrestricted parking functions (Harris–Martinez), while Stirling permutations impose a restrictive duplicated-label and nesting condition.",
+          "Source Theorem 3.3 raises order and adds a final odd lucky index; alone does not settle new odd-even and even-odd constructions."
+        ],
+        "reasoning": "The unrestricted-parking-function result is not coverage of the constrained Stirling subclass. Source constructions imply some cases (especially odd-odd), which are credited; they do not imply the full mixed parity theorem as an immediate corollary.",
+        "searches": [
+          "https://arxiv.org/abs/2410.08057",
+          "https://arxiv.org/html/2403.03280v1"
+        ]
+      },
+      "checked_sources": [
+        "Journal of Integer Sequences Vol.27 Tenner/Colmenarejo et al. full primary text",
+        "arXiv:2403.03280v1 (preprint theorem numbering)",
+        "arXiv:2410.08057 Harris–Martinez",
+        "Resultary semantic search: Stirling permutations parking lucky three-set parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously published Theorem 4.1 handles exact two-lucky sets and Proposition 3.8/Lemma 4.3 give key necessary restrictions; a source proposition gives a special three-lucky family.",
+          "The new Case B builds every odd i/even j; Case C fills even i<n/odd j; Case D gives both-even sufficient region."
+        ],
+        "reasoning": "The earlier obstructions plus stability provide important ingredients and cover odd-odd derivations but do not force sufficiency for every newly asserted parity pattern. More recent unindexed lucky-set work remains a priority risk.",
+        "searches": [
+          "https://arxiv.org/html/2403.03280v1",
+          "https://arxiv.org/abs/2410.08057"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lucky positions are *car arrival indices* under the first vacant parking slot rule, not parking-space labels or classical record positions.",
+          "The source studies admissible lucky sets of Stirling permutations with duplicated nested labels, matching exactly the present object."
+        ],
+        "reasoning": "Compared arXiv and journal theorem numbering and same exact parking statistics. The full odd-containing triple characterization was not found among the source's two-lucky and isolated three-lucky results.",
+        "searches": [
+          "Resultary semantic: Stirling permutations parking lucky cars three element exact sets indices parity",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL27/Tenner/tenner12.pdf",
+          "https://arxiv.org/html/2403.03280v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source presents explicitly enumerated necessary/sufficient small lucky sets and a few three-element cases.",
+          "The current formula counts all realizable triples in the odd-containing sector for every n>=3, not just enumerated small orders."
+        ],
+        "reasoning": "Finite ordered lists and small counts do not entail the universal constructive characterization; the new exact sector count follows from the case partition.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL27/Tenner/tenner12.pdf",
+          "Resultary semantic: Stirling permutations parking lucky cars three element exact sets indices parity"
+        ]
+      },
+      "rationale": "Colmenarejo et al. (arXiv:2403.03280; journal JIS 2024) give complete two-lucky sets, operations preserving lucky sets, and selected three-lucky examples, plus necessary obstructions, but the inspected Section 4 does not establish the entire parity sector or the broad both-even sufficient construction. Some odd-odd triples are straightforward consequences of earlier results and not separately claimed. Harris–Martinez on arbitrary parking functions has a larger object class and its every-subset theorem does not imply the duplicate nested-word case. The newly constructed mixed-parity range is the assessed remainder.",
+      "residual_risks": [
+        "Potential later unindexed three-lucky complete classification after the inspected paper; novelty remains best-of-knowledge.",
+        "Both-even pairs with i+j>2n are neither accepted nor rejected by the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior paper resolves exact two-lucky but leaves general three-lucky problem, with isolated necessary conditions and examples",
+          "evidence": [
+            "Journal section corresponding to arXiv v1 Theorem 4.1, Proposition 3.8, Lemma 4.3 and Proposition 4.4."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Tenner/tenner12.pdf",
+          "material_read": "Section on lucky sets, two-lucky characterization, selected three-lucky results, related lemmas",
+          "method": "Primary journal PDF read with page screenshot checks; arXiv v1 aligned",
+          "title": "On the Lucky and Displacement Statistics of Stirling Permutations",
+          "trigger": "Same Stirling-word parking model and exact three-lucky question"
+        },
+        {
+          "assessment": "Different unrestricted parking-word domain, does not imply Stirling nested-duplication constraints",
+          "evidence": [
+            "Unrestricted parking functions can realize many sets impossible under Stirling constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.08057",
+          "material_read": "Introduction and fixed lucky set statement",
+          "method": "Available arXiv abstract and relevant theorem comparison",
+          "title": "Parking functions with a fixed set of lucky cars",
+          "trigger": "Seemingly stronger universal admissibility claim for arbitrary parking functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source paper poses the exact three-lucky-set admissibility question for Stirling permutations. A necessary-and-sufficient characterization for the entire large odd-containing parity sector, exact count, and natural both-even positive region make measurable progress on a specific open enumerative classification. It does not pretend to settle the remaining both-even sector.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Journal of Integer Sequences Vol.27 Tenner/Colmenarejo et al. full primary text",
+    "arXiv:2403.03280v1 (preprint theorem numbering)",
+    "arXiv:2410.08057 Harris–Martinez",
+    "Resultary semantic search: Stirling permutations parking lucky three-set parity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "N&S classification only for odd-containing triples. Both even i+j<=2n is sufficient but not necessary; no full even-even classification. n3..25 independent check covers finite instances, not infinite proof.",
+    "Potential later unindexed three-lucky complete classification after the inspected paper; novelty remains best-of-knowledge.",
+    "Both-even pairs with i+j>2n are neither accepted nor rejected by the theorem."
+  ],
+  "schema_version": 1
+}
