@@ -1,19 +1,21 @@
-# Scientific review: cycle–record joint polynomial
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise statement fixes a uniform permutation on \(n\ge2\) labels, defines \(C\) as its disjoint-cycle count and \(R_i\) as an upper record at the specified one-line position \(2\le i\le n\), and identifies the exact polynomial \(\mathbb E[t^C R_i]\). The proof reconstructs every arrow-completion probability: a prescribed partial permutation with \(c\) closed components leaves \(n-i\) open path components; a uniform injection has closed-cycle PGF \((t+m-k)^{\overline k}/m^{\underline k}\) by sequential permutation insertion. Conditioning on the maximum \(M\) among the first \(i\) images, with the exceptional fixed-point case \(M=i\), gives equation (8) in RESULT.md; rising-factorial telescoping produces the boxed identity. Differentiating at \(t=1\), summing, and dividing by the Ewens normalization proves all listed corollaries. Positive covariance and strict tilt-sign boundaries hold for all stated parameters. The proof covers the degenerate first position explicitly. The accompanying standard-library verifier enumerates all \(46{,}232\) permutations through size eight, independently checking 196 exact coefficients, 28 exact covariances and 112 weighted-event probabilities. The enumeration corroborates but is not substituted for the general proof.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+Labeled prescribed arrows form closed cycles and open paths, and uniform completion has independent rising-factorial cycle polynomial. The closed-cycle count for a uniform injection [i-1]→[m-1] follows by sequential insertion. Conditioning on the maximum M of the first i images has hypergeometric weights, with a special M=i fixed point, producing an extra (t-1)^(overline i); a telescoping rising-factorial sum yields the stated exact polynomial. Differentiation at t=1 and normalization by Ewens cycle PGF establish the covariance and probability, with R_1 deterministic. Independent enumeration of n≤7 and injections verifies coefficients, not generality.
 
-The classical Foata correspondence relates the *marginal* distributions of records and cycles through a transformation of the permutation, not their joint law on the same original permutation. Gnedin (arXiv:math/0611538, sections on initial ranks, upper records, and Ewens-type measures) and Gnedin–Gorin (arXiv:1202.3680, record-dependent laws) were compared at the level of actual measured statistics. Parviainen (arXiv:math/0610616, introduction and Sections 1–3) develops cycles jointly with patterns of the flattened **standard cycle form**, which is a different event from a record at a specified position in the original one-line permutation. Jin (arXiv:2210.08789, opening theorem statements) concerns several Euler–Stirling statistics, but the inspected generating functions do not mark the original permutation's disjoint-cycle count jointly with its positional upper-record event. Related indexed results quantify cycle count against inversion indicators, but pairwise inversion covariances do not determine the probability of the *intersection* of all comparisons defining a record. The searched accessible historical claims did not give the same polynomial or a stronger statement implying it. Historical literature may still contain an equivalent identity, especially under other bijections or names; unsuccessful searches and partition boundaries are not proofs of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural joint-distribution question for two classical permutation statistics, motivated by the misleading fact that their one-dimensional laws agree. Equation (1) gives every cycle-count coefficient conditional on an upper record at a chosen location, not just a small numerical moment. Its sparse correction to the product of marginal laws explains the strictly positive but asymptotically vanishing dependence and gives an exactly calibrated one-parameter Ewens perturbation for **each** position. The law supplies nontrivial finite-sample statistics and a rigorous boundary between equidistribution under a bijection and dependence in one common permutation, rather than an arbitrary parameter slice.
+Best-of-knowledge priority assessment after actual same-object comparisons; covered ingredients are credited, and explicit residual risks remain. equivalent_formulations: Marginal record-cycle distribution equality does not determine E[t^C R_i] for the SAME permutation. broader_coverage: Joint enumeration of transformed cycle-form patterns is not equivalent to a fixed original one-line record event without an additional implication, which was absent in inspected passages. exact_database_or_table: Covariance of individual inversions cannot determine covariance with the conjunction making an upper record, so these are not exact-table coverage. claim_vs_prior_implication: No surveyed prior theorem yields the stated conditional joint generating polynomial or its Ewens sign law merely by specialization or substituting parameter names.
 
-## Scope and limitations
+## value
 
-The theorem does not compute the full multivariate record-vector/cycle-type distribution or establish an association inequality for the entire record vector. The \(n^{-1}\) total covariance asymptotic applies to the uniform measure. No external independent audit, exhaustive historical bibliography, or claim of mathematical independence has been performed. The strongest unresolved priority risk is an equivalent identity encoded under a different permutation correspondence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit joint cycle–record coefficients and positional Ewens law answer a natural dependence question between equidistributed yet non-independent classical statistics on the SAME permutation. The formula supplies every joint coefficient, not merely an isolated low moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

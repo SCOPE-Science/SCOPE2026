@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The complete finite verification is in the accompanying `verify.py`, executable with Python 3 and no additional packages. Its direct enumeration compares each coefficient of the joint generating polynomial against independent counts of cycles and one-line upper records for all sizes from 2 through 8; it also checks exact positional covariances and Ewens probabilities for four parameter values. On execution the program reports `VERIFY_OK` and the number of comparisons.
+# Independent mathematical audit
 
-A finite census does not prove the unrestricted result. The general argument uses (a) contraction of fixed permutation arrows into path components, (b) the weighted-cycle formula for uniform injections, (c) a hypergeometric maximum-rank decomposition, and (d) rising-factorial telescoping. The polynomial holds for every complex evaluation variable, and the Ewens conclusion requires a positive real parameter. Historical-priority risk remains; this verification does not constitute an external independent audit.
+## correctness
+
+PASS
+
+Labeled prescribed arrows form closed cycles and open paths, and uniform completion has independent rising-factorial cycle polynomial. The closed-cycle count for a uniform injection [i-1]→[m-1] follows by sequential insertion. Conditioning on the maximum M of the first i images has hypergeometric weights, with a special M=i fixed point, producing an extra (t-1)^(overline i); a telescoping rising-factorial sum yields the stated exact polynomial. Differentiation at t=1 and normalization by Ewens cycle PGF establish the covariance and probability, with R_1 deterministic. Independent enumeration of n≤7 and injections verifies coefficients, not generality.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority assessment after actual same-object comparisons; covered ingredients are credited, and explicit residual risks remain. equivalent_formulations: Marginal record-cycle distribution equality does not determine E[t^C R_i] for the SAME permutation. broader_coverage: Joint enumeration of transformed cycle-form patterns is not equivalent to a fixed original one-line record event without an additional implication, which was absent in inspected passages. exact_database_or_table: Covariance of individual inversions cannot determine covariance with the conjunction making an upper record, so these are not exact-table coverage. claim_vs_prior_implication: No surveyed prior theorem yields the stated conditional joint generating polynomial or its Ewens sign law merely by specialization or substituting parameter names.
+
+## value
+
+PASS
+
+The explicit joint cycle–record coefficients and positional Ewens law answer a natural dependence question between equidistributed yet non-independent classical statistics on the SAME permutation. The formula supplies every joint coefficient, not merely an isolated low moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
