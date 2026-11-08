@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit affine-normal-form symbolic integration verifies the conditional mean, squared-area and opposite-corner-imbalance identities exactly for any strictly convex labeled quadrilateral. Taking expectations yields a fixed \(2\times2\) rational matrix whose characteristic polynomial, eigenvalues and spectral solution were checked. The variance inequality is strict at every positive step outside parallelograms, because the initial imbalance coefficient is proportional to the positive difference of the two eigenvalue powers. The independent proof of almost-sure normalized-area collapse uses a uniform variance gap and square-root contraction, not an extrapolation of numerical tests. Simulations corroborate but are not used to certify universal identities.
+PASS
 
-## Originality — PASS, historical priority provisional
+For any strictly convex counterclockwise quadrilateral Q, its signed adjacent-three-vertex triangle areas c_i obey c0+c2=c1+c3=A. D=(c0-c2)^2+(c1-c3)^2≥0 vanishes iff opposite sides match a parallelogram. Via orientation-preserving affine coordinates v0=(0,0),v1=(1,0),v2=(s,h),v3=(0,1), with s,h>0 and s+h>1, A=(s+h)/2 and D=[(2−s−h)^2+(h−s)^2]/4. Rebuilding all four new vertices v′_i=v_i+u_i(v_{i+1}−v_i), with independent uniform u_i, the shoelace polynomial and corner determinants integrate exactly to E[A′|Q]=A/2, E[(A′)^2|Q]=(37/144)A²+(7/288)D, E[D′|Q]=(7/72)A²+(1/16)D. I independently reconstructed the symbolic 4-variable integrations from the geometry and verified all three identities exactly using SymPy, as well as the 2x2 characteristic polynomial with eigenvalues λ±=(23±7√5)/144. Matrix spectral decomposition gives coefficients C±=1/2±1/√5±δ/(4√5), δ=D0/A0², and the strictly positive fixed-area variance gap δ(λ+^t−λ-^t)/(4√5) for t>=1; equality precisely parallelograms. W_t=2^tA_t/A0 is a mean-one nonnegative martingale; E[W_t²] grows as ((23+7√5)/36)^t. Since Y=2A′/A∈(0,2), E[Y|Q]=1 and Var(Y|Q)=1/36+7D/(72A²)≥1/36, the elementary concavity bound E sqrt Y≤1−1/[72(1+sqrt2)^2] gives geometric decay of E sqrt W_t, implying W_t→0 a.s. by Markov and Borel–Cantelli. This proof does not infer almost-sure collapse merely from unbounded second moment.
 
-The principal exact overlap is Nguyen and Volkov, *A universal result for consecutive random subdivision of polygons* (arXiv:1506.04942): they introduced the *same general iterated edgewise model* and analyzed flatness and random-matrix Lyapunov behavior. That model and their results are prior work, not new claims. The second lead is Maesumi, *Triangle Inscribed-Triangle Picking* (arXiv:1804.11007, originally 2018-04-30), which determines moments and a distribution for an independently sampled *inscribed triangle in one step*. The supplied two-state operator instead governs all iterations of a *quadrilateral*. A related published record on iterative random Minkowski symmetrization concerns a different operation. Statement-level and implication-level searches found no evaluated predecessor for this exact rational matrix, all-step variance rigidity or normalized-area contrast; absence from an index is not proof of uniqueness. Volkov's 2011 preprint on random geometric subdivisions uses a different midpoint-selection quadrilateral model; potentially unindexed or alternative formulations remain genuine historical-priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural invariant is the area of a random polygon formed by repeatedly choosing one independent uniform point on every side. Its second moment does not close on area alone; the additional intrinsic opposite-corner area imbalance makes the evolution exactly solvable. The closed spectrum gives every finite-step variance, an exact rigidity inequality for all initial convex quadrilaterals, and a sharp exponential discrepancy between mean-normalized typical area and its second moment. This is substantive stochastic geometry beyond elementary midpoint area, one-step expectations or code-only enumeration.
+Qualified PASS for the explicit quadrilateral conditional second-moment operator and resulting variance/intermittency classification, NOT for the random subdivision mechanism, deterministic Varignon mean-half-area analogy or generic Lyapunov flattening. Nguyen–Volkov explicitly study the same random edgewise subdivision in full generality, but the reviewed primary material focuses on projective flattening and Lyapunov rates, not the exact two-statistic area operator. Wider specialist moment literature may contain equivalent formula.
 
-## Limits
+## value
 
-The result assumes strictly convex four-sided polygons, independent uniform edge fractions, and mean-annealed moments. No full area distribution, higher-dimensional analogue or quenched Lyapunov exponent is established. An independent mathematical audit or conclusive bibliographic priority review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The random independent-side subdivision process is established prior work. The new exact two-statistic quadratic moment closure, complete spectral formula, sharp parallelogram minimum variance and coexistence of martingale mean preservation with typical collapse and divergent second moment are natural, motivated quantitative facts for its four-sided case, beyond a routine deterministic midpoint identity or finite numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

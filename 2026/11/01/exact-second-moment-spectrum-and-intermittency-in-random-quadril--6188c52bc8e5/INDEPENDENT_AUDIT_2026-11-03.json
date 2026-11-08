@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T06:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any strictly convex counterclockwise quadrilateral Q, its signed adjacent-three-vertex triangle areas c_i obey c0+c2=c1+c3=A. D=(c0-c2)^2+(c1-c3)^2≥0 vanishes iff opposite sides match a parallelogram. Via orientation-preserving affine coordinates v0=(0,0),v1=(1,0),v2=(s,h),v3=(0,1), with s,h>0 and s+h>1, A=(s+h)/2 and D=[(2−s−h)^2+(h−s)^2]/4. Rebuilding all four new vertices v′_i=v_i+u_i(v_{i+1}−v_i), with independent uniform u_i, the shoelace polynomial and corner determinants integrate exactly to E[A′|Q]=A/2, E[(A′)^2|Q]=(37/144)A²+(7/288)D, E[D′|Q]=(7/72)A²+(1/16)D. I independently reconstructed the symbolic 4-variable integrations from the geometry and verified all three identities exactly using SymPy, as well as the 2x2 characteristic polynomial with eigenvalues λ±=(23±7√5)/144. Matrix spectral decomposition gives coefficients C±=1/2±1/√5±δ/(4√5), δ=D0/A0², and the strictly positive fixed-area variance gap δ(λ+^t−λ-^t)/(4√5) for t>=1; equality precisely parallelograms. W_t=2^tA_t/A0 is a mean-one nonnegative martingale; E[W_t²] grows as ((23+7√5)/36)^t. Since Y=2A′/A∈(0,2), E[Y|Q]=1 and Var(Y|Q)=1/36+7D/(72A²)≥1/36, the elementary concavity bound E sqrt Y≤1−1/[72(1+sqrt2)^2] gives geometric decay of E sqrt W_t, implying W_t→0 a.s. by Markov and Borel–Cantelli. This proof does not infer almost-sure collapse merely from unbounded second moment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen–Volkov prove arbitrary d and broad fraction distributions become flat, with Lyapunov exponents and random matrix products; this broad qualitative convergence does not explicitly determine exact E[A_t²] or convex quadrilateral variance extremizer."
+        ],
+        "reasoning": "A stronger generic statement about projective shape need not imply an exact area second moment; different observables and scalar normalization. No contrary specific area formula found in examined primary text.",
+        "searches": [
+          "Nguyen Volkov A universal result for consecutive random subdivision of polygons arXiv:1506.04942 full PDF",
+          "Volkov Random geometric subdivisions arXiv:1112.0932",
+          "web: polygon subdivision area second moments martingale parallelogram"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md SHA 6351811f82a837fbc0e494fb4b075791264321c7",
+        "Frozen Git verify.py SHA 42b299df5c1ee80447d45de17eb666d8c2af23c8",
+        "arXiv:1506.04942",
+        "arXiv:1804.11007",
+        "arXiv:1112.0932",
+        "Resultary random polygon moment semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source 2x2 moment matrix has off-diagonal 7/288 and 7/72, proving shape dependence beyond a scalar iid area multiplier; a deterministic midpoint law only yields the expectation in special deterministic fractions."
+        ],
+        "reasoning": "Exactly computing the all-time spectral coefficients, sharp D=0 equality and normalized martingale collapse is not a direct corollary of known projective shape flattening or triangle-picking moments; it requires conditional four-variable polynomial integration and a uniform square-root contraction.",
+        "searches": [
+          "Nguyen Volkov 2015 random matrix Lyapunov flattening theorem",
+          "Maesumi 2018 one-step inscribed-triangle moments",
+          "classical Varignon half-area theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nguyen–Volkov same all-edges independent random point mechanism, including d=4 and uniform sampling as a special case. Volkov 2013 studies midpoint subquadrilateral choice and triangle random points; Maesumi a one-step triangle sample."
+        ],
+        "reasoning": "The process itself is wholly anticipated. The claimed new object is explicit conditional quadratic area/shape moment closure and all-time variance, which is not identical to flattening or one-step triangle area moments.",
+        "searches": [
+          "arXiv:1506.04942 consecutive random subdivision polygons Nguyen Volkov",
+          "arXiv:1112.0932 Volkov random geometric subdivisions",
+          "arXiv:1804.11007 Maesumi triangle inscribed triangle picking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Maesumi table is one-step triangle area statistics, not a quadrilateral two-variable moment recurrence. Targeted searches of Nguyen–Volkov source for variance and second moment did not reveal matching exact formulas."
+        ],
+        "reasoning": "No matching published table identified, but this is not an assertion that all polygon moment literatures are absent.",
+        "searches": [
+          "Resultary semantic random independent uniform subdivision quadrilaterals area variance second moments",
+          "arXiv:1506.04942 PDF search variance second moment",
+          "arXiv:1804.11007 triangle moment tables"
+        ]
+      },
+      "rationale": "Qualified PASS for the explicit quadrilateral conditional second-moment operator and resulting variance/intermittency classification, NOT for the random subdivision mechanism, deterministic Varignon mean-half-area analogy or generic Lyapunov flattening. Nguyen–Volkov explicitly study the same random edgewise subdivision in full generality, but the reviewed primary material focuses on projective flattening and Lyapunov rates, not the exact two-statistic area operator. Wider specialist moment literature may contain equivalent formula.",
+      "residual_risks": [
+        "Broader random-matrix/polygon-shrinking literature may implicitly contain the same area moment recurrence; target search is not exhaustive.",
+        "Mean-normalized almost-sure collapse does not identify exact quenched Lyapunov rate or full distribution; requires iid uniform edge fractions and strict quadrilateral convexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "mechanism covered; target exact area moment not located in inspected material",
+          "evidence": "The paper treats iid fraction polygon shrinking, flat limiting shapes and Lyapunov rates; source does not present the reviewed explicit 2x2 conditional quadrilateral area moment in material examined.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.04942",
+          "material_read": "primary 35-page arXiv PDF introduction, model definition, theorem section and targeted PDF text search for variance and second moment",
+          "method": "lawful arXiv PDF with rendered-page inspection and text search",
+          "title": "A universal result for consecutive random subdivision of polygons",
+          "trigger": "same random iterative edgewise subdivision, greatest coverage risk"
+        },
+        {
+          "assessment": "different one-step triangular construction",
+          "evidence": "Its moments involve a randomly inscribed triangle in a fixed triangle, not iterated quadrilateral shape-sensitive moments.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.11007",
+          "material_read": "primary nine-page arXiv PDF first page, setting, and relevant moment results",
+          "method": "lawful arXiv PDF with rendered-page inspection",
+          "title": "Triangle Inscribed-Triangle Picking",
+          "trigger": "nearby exact sampled polygon area moments"
+        },
+        {
+          "assessment": "distinct quadrilateral process with different subdivision rule",
+          "evidence": "The cited quadrilateral process includes choosing among midpoint-produced subquadrilaterals, not independently randomizing all four current edges at every step.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.0932",
+          "material_read": "public abstract and journal bibliographic description",
+          "method": "arXiv abstract / university publisher summary",
+          "title": "Random geometric subdivisions",
+          "trigger": "older related quadrilateral dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The random independent-side subdivision process is established prior work. The new exact two-statistic quadratic moment closure, complete spectral formula, sharp parallelogram minimum variance and coexistence of martingale mean preservation with typical collapse and divergent second moment are natural, motivated quantitative facts for its four-sided case, beyond a routine deterministic midpoint identity or finite numerical table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only strictly convex planar four-gons with independent uniform side fractions at every step.",
+    "No statement about other sampling distributions, nonconvex polygons or complete distributional limit laws."
+  ],
+  "schema_version": 1
+}
