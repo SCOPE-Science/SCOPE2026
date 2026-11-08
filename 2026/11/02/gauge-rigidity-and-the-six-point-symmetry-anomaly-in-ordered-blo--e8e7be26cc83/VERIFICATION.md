@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. The program forms the monoid directly from all increasing partial injections on the block indices, attaches every symmetric-group label to each selected arrow, and constructs products by composition of labeled partial arrows. It then generates the proposed complete parameter family, verifies that its images are distinct bijections, and checks the semigroup automorphism equation for every ordered pair of elements.
+## correctness
 
-Observed results:
+PASS
 
-```
-VERIFY_OK k=2 m=2 elements=13 explicit_automorphisms=4 all_pairs_checked=676
-VERIFY_OK k=3 m=2 elements=63 explicit_automorphisms=8 all_pairs_checked=31752
-VERIFY_OK k=2 m=3 elements=61 explicit_automorphisms=72 all_pairs_checked=267912
-```
+For k,m>=2 identify Boolean semilattice of idempotents; compatibility of rank-one block arrows forces the induced atom permutation to be identity or simultaneous reversal. Composition of rank-one arrows forms a connected Brandt groupoid and forces labels F_ij(g)=a_j phi(g) a_i^-1 with one phi in Aut(S_m), a_1=1; all higher-rank arrows are their unique natural-order join. Conversely the formulas preserve composability and multiplication. Hence |Aut(M_km)|=2(m!)^(k-1)|Aut(S_m)| and spatial iff phi inner; exceptional Out(S_6)=C2 gives precisely half nonspatial when m=6. Independent exact construction checked all 676 multiplication equations for (k,m)=(2,2) and 31752 for (3,2), with 4 and 8 distinct automorphisms, respectively. Finite checks do not establish all k,m or outer S6: intrinsic groupoid proof and cited S6 classification do.
 
-The program does not enumerate every abstract automorphism independently; completeness follows from the proof using idempotents, natural-order joins, and rank-one groupoid multiplication. No finite computation checks all block sizes or constructs the exceptional automorphism of the six-point symmetric group. Its existence and uniqueness modulo inner automorphisms is a classical theorem proved in the cited work of McCammond. No independent audit has been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. No equivalent automorphism-group theorem for this precise monoid was located in the actual semantic search; rank/presentation of same monoid does not imply full abstract automorphism group automatically.
+
+## value
+
+PASS
+
+Complete uniform ordered-block inverse-monoid automorphism classification is an intrinsic structural invariant beyond existing rank/presentation results; sharply isolates the unique six-point nonspatial exception, a natural boundary not reducible to a small arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
