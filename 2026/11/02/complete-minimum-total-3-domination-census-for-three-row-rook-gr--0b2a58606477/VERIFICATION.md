@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` is a human-checkable argument covering all integers \(n\ge2\). Its critical equality is the exact count \(r_i+c_j-2x_{ij}\) of selected open neighbors of a cell. The row-two forcing lemma, size-eight and size-nine case partitions, and disjoint labeled counting are the decisive steps.
+## correctness
 
-The bundled Python 3.9+ checker `verify.py` has no nonstandard dependencies. Run `python3 verify.py` in the directory of the extracted scientific files. It constructs each rook graph independently from its adjacency relation and checks every candidate subset of cardinality at most the predicted minimum for \(2\le n\le7\). It verifies the predicted total min-set count at each such size and the absence of smaller feasible sets.
+PASS
 
-A separate enumerator uses all eight possible three-row column masks and frequency compositions with exact multinomial coefficients for \(8\le n\le12\). It counts only feasible size-nine sets and compares with the claimed closed formula.
+For x_ij∈{0,1}, open selected neighbors at (i,j) are exactly r_i+c_j−2x_ij. If some row has two selected cells their two columns must be fully selected, and every other column nonempty. At 6,7,8,9-cell thresholds these constraints classify optima: n2 all cells; n3 two full columns and one double; n4 two full and same-row singles; n>=5 three full or one full+three doubles with missing-row permutation; additionally n5 two full+three same-row singles. Counts: 1,9,18,160, and binom(n,3)+n(n−1)(n−2)(n−3) for n>=6; gamma values 6,8,8,9. Independent direct adjacency-bitmask enumeration of all subsets of sizes 1 through the proposed optimum for n2..6 (187573 examined) agreed. Full proof uses row-rigidity, not bounded enumeration.
 
-Observed execution:
+## originality
 
-```text
-VERIFY_OK: 6 exhaustive graphs, 5 independent column-multiset counts
-```
+PASS
 
-**Scope and limits:** The computational checks are bounded and do not prove the theorem for infinitely many lengths. The proof supplies the infinite reasoning. No independent formal proof assistant, external referee, or independent scientific audit has assessed this theorem. The numerical stabilization for \(n\ge5\) is already established in the cited 2017 article; originality pertains only to the full extremizer classification and counts.
+The scalar n>=5 minimum 9 was proved by Bermudo–Sánchez–Sigarreta (2017) and is not new. Carballosa–Wisby (2020/2022) give product lower bounds and square cases but not an optimizer census. The full three-row extremizer families, n5 special class, and exact quartic labeled count are not implied by these scalar bounds. Historic unindexed minimum-set enumeration remains possible.
+
+## value
+
+PASS
+
+A natural complete classification of all optimal configurations in the canonical line graph L(K_{3,n}), including a 5-column exceptional family and count needed for extremal sampling/reliability polynomials. It is more than repeating the known scalar gamma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

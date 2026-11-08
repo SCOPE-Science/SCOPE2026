@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:11:17.026432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x_ij∈{0,1}, open selected neighbors at (i,j) are exactly r_i+c_j−2x_ij. If some row has two selected cells their two columns must be fully selected, and every other column nonempty. At 6,7,8,9-cell thresholds these constraints classify optima: n2 all cells; n3 two full columns and one double; n4 two full and same-row singles; n>=5 three full or one full+three doubles with missing-row permutation; additionally n5 two full+three same-row singles. Counts: 1,9,18,160, and binom(n,3)+n(n−1)(n−2)(n−3) for n>=6; gamma values 6,8,8,9. Independent direct adjacency-bitmask enumeration of all subsets of sizes 1 through the proposed optimum for n2..6 (187573 examined) agreed. Full proof uses row-rigidity, not bounded enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bermudo et al Prop 3.2 covers gamma3t(K3□Kn)=9 for n>=5; Carballosa–Wisby Prop4.1 general bound."
+        ],
+        "reasoning": "Known scalar bound is weaker than a labeled optimizer classification; no inspected all-extremizer theorem implies M_n.",
+        "searches": [
+          "total 3 domination K3 cartesian Kn rook graph exact minimum sets number census 9",
+          "Bermudo Sánchez Sigarreta 2017 total k domination Cartesian product Theorem 3.1 Proposition 3.2",
+          "Carballosa Wisby 2020 total k domination cartesian complete graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 85834a22d2f3a31bcdf412a107f03d7edd8b9814",
+        "Bermudo–Sánchez–Sigarreta DOI 10.1007/s10998-017-0191-2 Prop3.2",
+        "Carballosa–Wisby arXiv:2001.07850 §4",
+        "Resultary search total 3 domination K3 cartesian Kn rook graph exact minimum sets number census 9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2017 scalar theorem yields minimum cardinality 9 for n>=5, but the formula for all families follows from an independent equality-case classification."
+        ],
+        "reasoning": "Acknowledges already known minimum number; asserts originality only for complete optimizer census and multiplicities.",
+        "searches": [
+          "total 3 domination K3 cartesian Kn rook graph exact minimum sets number census 9",
+          "Bermudo Sánchez Sigarreta Proposition 3.2 total 3-domination",
+          "Carballosa Wisby Proposition 4.1 rook graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K3□Kn ≅ L(K_{3,n}); r_i+c_j−2x_ij counts distinct selected incident edges at an endpoint."
+        ],
+        "reasoning": "Checked the line-graph reformulation; no referenced result enumerated all optima as edge families, while scalar total-k-domination numbers do not determine counts.",
+        "searches": [
+          "total 3 domination K3 cartesian Kn rook graph exact minimum sets number census 9",
+          "line graph K3n total 3 domination minimum edge subset multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Carballosa–Wisby Section4 gives selected values/bounds, not the claimed minimum-configuration count."
+        ],
+        "reasoning": "The finite n5 special count 160 and quartic n>=6 not shown as an exact table in the inspected sources.",
+        "searches": [
+          "total 3 domination K3 cartesian Kn rook graph exact minimum sets number census 9",
+          "minimum total three domination sets rook graph exact number 160 380 875"
+        ]
+      },
+      "rationale": "The scalar n>=5 minimum 9 was proved by Bermudo–Sánchez–Sigarreta (2017) and is not new. Carballosa–Wisby (2020/2022) give product lower bounds and square cases but not an optimizer census. The full three-row extremizer families, n5 special class, and exact quartic labeled count are not implied by these scalar bounds. Historic unindexed minimum-set enumeration remains possible.",
+      "residual_risks": [
+        "Earlier enumerative rook-graph extremizer paper or reliability-polynomial coefficient could cover the exact count.",
+        "Only K3□Kn total open 3-domination; no other k or all nonminimum sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SCALAR_NOT_EXTREMIZERS",
+          "evidence": "Prop 3.2 implies minimum nine for K3□Kn in range n>=5; no all-optima count given in inspected material.",
+          "identifier_or_url": "DOI:10.1007/s10998-017-0191-2",
+          "material_read": "Accessible full-text/primary text search, especially Theorem 3.1, Proposition 3.2 and lower bounds",
+          "method": "Primary text and exact statement comparison",
+          "title": "Total k-domination in Cartesian product graphs",
+          "trigger": "Same Cartesian products, scalar k=3"
+        },
+        {
+          "assessment": "SCALAR_BOUNDS_NOT_CENSUS",
+          "evidence": "Prop 4.1 gives size lower bounds and selected square-product cases; no labeled minimum-set quartic multiplicity.",
+          "identifier_or_url": "arXiv:2001.07850",
+          "material_read": "Full accessible PDF, introduction, §4, Proposition 4.1 and associated table",
+          "method": "Primary PDF text/page image reading",
+          "title": "Total k-domination in Cartesian product of complete graphs",
+          "trigger": "Same rook graph model and k=3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete classification of all optimal configurations in the canonical line graph L(K_{3,n}), including a 5-column exceptional family and count needed for extremal sampling/reliability polynomials. It is more than repeating the known scalar gamma.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier enumerative rook-graph extremizer paper or reliability-polynomial coefficient could cover the exact count.",
+    "Only K3□Kn total open 3-domination; no other k or all nonminimum sets."
+  ],
+  "schema_version": 1
+}
