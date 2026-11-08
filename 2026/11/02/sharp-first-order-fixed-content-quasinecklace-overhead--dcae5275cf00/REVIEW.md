@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Gap encoding is bijective because the binary following-symbol condition is vacuous and the final-symbol condition forces a terminal one. The Burnside count handles periodic rotations. The leading error analysis separates double maximum ties from higher ties, uses a finite binomial inclusion-exclusion sum with its correct beta-integral coefficient, and shows all nonidentity rotations contribute below the main order. Direct source-definition enumeration and an independently implemented gap-orbit census agree on the finite test range. Asymptotic claims are proved symbolically, not inferred from tests.
+PASS
 
-## Originality
+For binary words with exactly r>=1 ones and m>=0 zeros, the gap representation 0^{g1}1...0^{gr}1 bijects quasinecklaces with nonnegative r-compositions with first coordinate maximum. Burnside enumerates necklaces by cyclic gap orbits. Verified Q_r(m)=sum_h [x^{m-h}](1+...+x^h)^{r-1}; N_r(m)=sum_{d|gcd(r,m)}phi(d)binom(m/d+r/d-1,r/d-1)/r; r=1,2 equal; r=3 excess floor(m/2)-floor(m/3). For FIXED r>=3, count ties of exactly two maximum gaps, inclusion-exclusion and beta integral yield (Q-N)~m^{r-2}/(2r(r-2)!) with O_r(m^{r-3}) error; nonidentity periodic tuples contribute only O_r(m^{r-3}); hence Q/N=1+(r-1)/(2m)+O_r(m^-2). Independent integer enumeration of gap vectors and necklace orbits for 1<=r<=6, 0<=m<=12 matched both exact formulas, and inspected source verifier check_quasinecklace.py. Finite samples are not the asymptotic proof; periodic and zero-zero gap edge cases were checked.
 
-PASS under best available literature evidence. The 2026 primary paper introduces quasinecklaces and proves a general constant-factor candidate bound with a recurrence for unrestricted counts, but does not state the exact fixed-content formula or sharp first-order ratio. The 2017 pseudo-necklace generator addresses a different, smaller auxiliary language, and the older fixed-density necklace generator does not count quasinecklace false positives. Search coverage is not a proof of absolute publication priority; unindexed equivalent enumerations remain a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Fixed-content generation is an explicit application of the new quasinecklace algorithm. The result replaces a constant-factor candidate guarantee by an asymptotically exact ratio, determines the leading correction, and identifies the precise first fixed-content obstruction at three ones. It quantifies avoidable candidate tests in a natural algorithmic enumeration problem; it does not assert a total-runtime improvement.
+Best-of-knowledge PASS: new fixed-CONTENT binary coefficient/excess and sharp first-order candidate overhead beyond the prior unconstrained constant-factor bound. The generating construction and quasinecklace definition are prior art; no independence of sources or blanket priority is claimed.
 
-## Scope and evidence
+## value
 
-The proof applies to all positive fixed ones counts in the exact formulas, and to each fixed count at least three in the asymptotic formula; binary alphabets only. The checker corroborates finite inputs. Relevant primary sources and their distinction are documented in `RESULT.md` and `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-weight output-sensitive overhead of a natural necklace-generation candidate class is an intrinsic, parameterized enumeration; the explicit first correction quantifies asymptotically wasted candidates, and exact smallest weight excess locates genuine loss of uniqueness. Nontrivial tie-pattern analysis is needed beyond generic necklace Burnside counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

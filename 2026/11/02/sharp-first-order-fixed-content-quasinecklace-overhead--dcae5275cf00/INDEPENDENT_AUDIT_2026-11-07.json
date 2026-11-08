@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:02:32.636354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary words with exactly r>=1 ones and m>=0 zeros, the gap representation 0^{g1}1...0^{gr}1 bijects quasinecklaces with nonnegative r-compositions with first coordinate maximum. Burnside enumerates necklaces by cyclic gap orbits. Verified Q_r(m)=sum_h [x^{m-h}](1+...+x^h)^{r-1}; N_r(m)=sum_{d|gcd(r,m)}phi(d)binom(m/d+r/d-1,r/d-1)/r; r=1,2 equal; r=3 excess floor(m/2)-floor(m/3). For FIXED r>=3, count ties of exactly two maximum gaps, inclusion-exclusion and beta integral yield (Q-N)~m^{r-2}/(2r(r-2)!) with O_r(m^{r-3}) error; nonidentity periodic tuples contribute only O_r(m^{r-3}); hence Q/N=1+(r-1)/(2m)+O_r(m^-2). Independent integer enumeration of gap vectors and necklace orbits for 1<=r<=6, 0<=m<=12 matched both exact formulas, and inspected source verifier check_quasinecklace.py. Finite samples are not the asymptotic proof; periodic and zero-zero gap edge cases were checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior O(1) multiplicative quasinecklace bound and unconstrained recurrence do not fix the 1/m correction with fixed r; 2017 pseudo-necklaces are a different subset."
+        ],
+        "reasoning": "A general total-length constant-factor bound does not dominate the weight-conditioned first asymptotic correction.",
+        "searches": [
+          "arXiv:2607.05324 Theorems 4 and 9",
+          "Sawada-Williams-Wong 2017 colexicographic pseudo-necklaces"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.05324",
+        "DOI:10.1016/j.jda.2017.10.002",
+        "DOI:10.1137/S0097539798344112",
+        "Git blob f0ac0778239d96a6752dbb2b58aee32c470c94af",
+        "Git blob 51a88e813c220aadbc80c5369d7a5057b9813237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact necklace Burnside baseline is standard and implied by cyclic compositions; prior quasinecklace proportionality allows many asymptotic ratios and cannot imply the displayed (r-1)/2 coefficient."
+        ],
+        "reasoning": "The new ratio implies a sharper estimate of fixed-content candidate overhead than the origin states; reverse implication fails.",
+        "searches": [
+          "arXiv:2607.05324, §3.1 and §4.2",
+          "Ruskey-Sawada fixed density necklace generation 2000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 paper defines quasinecklaces and Q_k(n) unconstrained in word length; its equivalence under binary zero-gap encodings yields a different fixed-r statistic."
+        ],
+        "reasoning": "Gap-composition Q_r(m) and its ratio to fixed-r necklaces are not obtained by renaming the total-length quasinecklace Q_2(n).",
+        "searches": [
+          "Resultary: binary fixed-weight quasinecklaces leading asymptotic overhead necklaces Gabrić Sawada",
+          "arXiv:2607.05324, Definition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary hit fixed-content bracelet orbit profiles for Simon circular quotients concerns dihedral color bracelets, not quasinecklaces; no prior fixed-content table was located."
+        ],
+        "reasoning": "The claim is a full fixed-r family, not a recomputation of a found database entry. Non-detection alone is not a priority proof.",
+        "searches": [
+          "Resultary: binary fixed-weight quasinecklaces leading asymptotic overhead necklaces Gabrić Sawada",
+          "fixed density quasinecklace weight enumerator m r exact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: new fixed-CONTENT binary coefficient/excess and sharp first-order candidate overhead beyond the prior unconstrained constant-factor bound. The generating construction and quasinecklace definition are prior art; no independence of sources or blanket priority is claimed.",
+      "residual_risks": [
+        "Earlier unpublished or differently named fixed-weight quasinecklace counts could coincide.",
+        "The asymptotic proof is fixed r only; no uniform error for r increasing with m.",
+        "Candidate-count overhead is not time per generated necklace."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States quasinecklace inclusion, generic cardinality factor, unconstrained formula and generation; inspected sections do not determine the fixed-content 1/m coefficient",
+          "evidence": "Definition 3, Theorems 4/9; no fixed-(r,m) counterpart of m^(r-2)/(2r(r-2)!).",
+          "identifier_or_url": "arXiv:2607.05324 (Gabrić and Sawada, 2026)",
+          "material_read": "Accessible author-posted complete primary text; inspected Definition 3, main theorems, counting/construction sections 3.1 and 4.2 and appendices with weight discussion",
+          "method": "Full primary document read at relevant mathematical statements and compared gap-count restriction",
+          "title": "Necklaces and Lyndon words in colexicographic order",
+          "trigger": "Defines exact quasinecklace class and potential stronger enumeration"
+        },
+        {
+          "assessment": "Studies pseudo-necklaces, not exact 2026 quasinecklace cardinality",
+          "evidence": "Different auxiliary class; uninspected details are a priority risk.",
+          "identifier_or_url": "DOI:10.1016/j.jda.2017.10.002 (2017)",
+          "material_read": "Abstract and published bibliographic information; full paper not independently inspected",
+          "method": "Abstract-level comparison, no whole-document novelty claim",
+          "title": "Necklaces and Lyndon words in colexicographic and binary reflected Gray code order",
+          "trigger": "Potential equivalent pseudo-necklace generator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-weight output-sensitive overhead of a natural necklace-generation candidate class is an intrinsic, parameterized enumeration; the explicit first correction quantifies asymptotically wasted candidates, and exact smallest weight excess locates genuine loss of uniqueness. Nontrivial tie-pattern analysis is needed beyond generic necklace Burnside counting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.05324",
+    "DOI:10.1016/j.jda.2017.10.002",
+    "DOI:10.1137/S0097539798344112",
+    "Git blob f0ac0778239d96a6752dbb2b58aee32c470c94af",
+    "Git blob 51a88e813c220aadbc80c5369d7a5057b9813237"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier unpublished or differently named fixed-weight quasinecklace counts could coincide.",
+    "The asymptotic proof is fixed r only; no uniform error for r increasing with m.",
+    "Candidate-count overhead is not time per generated necklace.",
+    "All original Git tree object SHA and relevant file blob identities were read and matched the returned assignment; no GitHub write was performed.",
+    "Scientific PASS is distinct from publication readiness and does not certify external formal verification or historical priority."
+  ],
+  "residual_risks": [
+    "Earlier unpublished or differently named fixed-weight quasinecklace counts could coincide.",
+    "The asymptotic proof is fixed r only; no uniform error for r increasing with m.",
+    "Candidate-count overhead is not time per generated necklace."
+  ],
+  "schema_version": 1
+}
