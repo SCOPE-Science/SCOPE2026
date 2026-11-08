@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:13:43.941695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N≥2 and 0<alpha<a*<beta, S_N(x)=sum_(j=0)^(N-1)(1-x)^j has strictly negative derivative for x in (0,1), and x*=u/(u+1), a*=kappa/(delta S(x*)) is the unique interior equilibrium. Differentiate Bernoulli D(s||t)=(s ln(s/t)+(1-s)ln((1-s)/(1-t))) in x and rescaled a; the cross terms cancel exactly, giving dot V=delta a/epsilon (u-(u+1)x)(S(x*)-S(x))<0 when x≠x*. Independent Sympy differentiation of the original vector field and proposed V gave exact zero residual. The divergence blows up at both boundaries, so each V sublevel is compact and invariant, giving all-time existence. On the invariant subset x=x*, xdot=0 only at a=a*, hence LaSalle yields global convergence and no other compact interior recurrence for every epsilon>0. The Jacobian trace −P/epsilon and determinant Q/epsilon yield sharp focus at epsilon>P²/(4Q), node below and repeated Jordan node at equality. Only interior starts/positive parameters are claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zino adaptive gain systems concern other adjustment laws and mostly pairwise game feedback, not this N-player reward payoff.",
+          "General LaSalle invariance principles apply only after constructing a proper monotone Lyapunov function in the given rectangle."
+        ],
+        "reasoning": "It might be an instance of broader monotone two-dimensional or passivity theory; neither generic LaSalle nor local eigenvalue stability automatically gives this global all-speeds result.",
+        "searches": [
+          "Zino et al adaptive gain control replicator dynamics arXiv:2306.14469",
+          "Zino et al equilibrium selection using adaptive gain control arXiv:2407.09305",
+          "Generic replicator-feedback monotone two-dimensional dynamical systems"
+        ]
+      },
+      "checked_sources": [
+        "Hua and Liu, Coevolutionary dynamics of population and institutional rewards in public goods games, arXiv:2308.09530 (2023), Eq. (6), Section 4, Appendix",
+        "Zino et al, On Adaptive-Gain Control of Replicator Dynamics in Population Games, arXiv:2306.14469",
+        "Zino et al, Equilibrium Selection in Replicator Equations Using Adaptive-Gain Control, arXiv:2407.09305",
+        "Resultary query 4 top stochastic coalition and unrelated feedback examples; no exact N-player public-goods model with KL global convergence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hua Liu establishes existence of interior equilibrium, local Jacobian stability and sample trajectory convergence.",
+          "The present all-epsilon global convergence requires cancellation in D(x*||x), D(p*||p) and compact sublevels; the node-to-focus threshold P²/(4Q) comes from exact 2x2 discriminant."
+        ],
+        "reasoning": "Local asymptotic stability is not global basin characterization, and the source numerics do not rule out distant attractors or cycles; the additional proper Lyapunov proof fills that logical gap.",
+        "searches": [
+          "Hua Liu, Coevolutionary dynamics of population and institutional rewards in public goods games arXiv:2308.09530 (2023) Equation 6 Section 4",
+          "Zino et al adaptive gain control replicator dynamics arXiv:2306.14469"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact original ODE is Eq. (6) with payoff S_N(x), feedback (a-alpha)(beta-a)(u-(u+1)x), and epsilon timescale.",
+          "The proposed Lyapunov V is a weighted sum of Bernoulli KL divergences; its derivative reduces to delta a/epsilon [u-(u+1)x][S(x*)-S(x)]."
+        ],
+        "reasoning": "This is a full interior global attractor theorem for every positive epsilon, not merely linear eigenvalues or a Lyapunov simulation. The published source discusses local stability and examples, but inspected equations lack this global coercivity certificate.",
+        "searches": [
+          "Resultary: public goods game adaptive institutional reward replicator feedback global asymptotic stability KL Lyapunov all time scales Hua Liu",
+          "Hua Liu, Coevolutionary dynamics of population and institutional rewards in public goods games arXiv:2308.09530 (2023) Equation 6 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Illustrative local/numerical trajectories of the original source cannot constitute an exact global-in-parameter theorem.",
+          "Independent symbolic derivative cancellation across general S and explicit N>1 monotonicity proves no parameter-specific finite table is needed."
+        ],
+        "reasoning": "Published plots and local Jacobian tables are qualitatively weaker than a coercive exact all-initial-state argument.",
+        "searches": [
+          "Resultary query 4 related dynamical stability",
+          "Hua Liu source fig 2 and Eq 6"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as a global theorem for the exact Hua-Liu Eq. 6. That article introduces the same adaptive institutional reward model and shows local stability plus numerical convergence; those statements do not imply global all-feedback-speed attraction. Zino related adaptive-gain controllers operate with different laws and do not directly dominate.",
+      "residual_risks": [
+        "General monotone replicator-feedback Lyapunov principles may already imply the exact construction, requiring historical priority check beyond inspected papers.",
+        "Numerical trajectory computations are illustrations only, not a substitute for proper Lyapunov or LaSalle proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MODEL_LOCAL_NOT_GLOBAL_ALL_SPEEDS",
+          "evidence": "Source gives linear/local analysis and selected trajectories but no proved KL entropy Lyapunov and global attraction for every positive epsilon.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.09530",
+          "material_read": "Accessible full arXiv paper with Eq. (6), model parameters, Section 4 equilibrium/stability and displayed numerical trajectories; inspected substantive mathematical content",
+          "method": "Web full HTML/text math reading",
+          "title": "Coevolutionary dynamics of population and institutional rewards in public goods games",
+          "trigger": "Exact same source ODE Eq. 6, interior equilibrium, speed parameter"
+        },
+        {
+          "assessment": "DIFFERENT_ADAPTIVE_GAIN_LAW",
+          "evidence": "Related passivity/stability theme but different population feedback equation and payoff structure.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.14469",
+          "material_read": "ArXiv abstract and relevant source-level model synopsis, not whole-article proof",
+          "method": "ArXiv index/abstract reading",
+          "title": "On Adaptive-Gain Control of Replicator Dynamics in Population Games",
+          "trigger": "Possible stronger adaptive feedback global stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single proper entropy certificate ruling out cycles and attracting all interior initial conditions for an entire parameter/time-scale family is a meaningful dynamical classification, especially in feedback games where local stability and simulations can be misleading. Sharp node-to-focus epsilon identifies a natural local qualitative transition within the globally attracting region.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hua and Liu, Coevolutionary dynamics of population and institutional rewards in public goods games, arXiv:2308.09530 (2023), Eq. (6), Section 4, Appendix",
+    "Zino et al, On Adaptive-Gain Control of Replicator Dynamics in Population Games, arXiv:2306.14469",
+    "Zino et al, Equilibrium Selection in Replicator Equations Using Adaptive-Gain Control, arXiv:2407.09305",
+    "Resultary query 4 top stochastic coalition and unrelated feedback examples; no exact N-player public-goods model with KL global convergence."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Parameter restrictions c>0,1<r<N,delta,u,epsilon>0,0<alpha<a*<beta; no boundary, stochastic, delayed or uniform-in-start convergence-time statements."
+  ],
+  "residual_risks": [
+    "General monotone replicator-feedback Lyapunov principles may already imply the exact construction, requiring historical priority check beyond inspected papers.",
+    "Numerical trajectory computations are illustrations only, not a substitute for proper Lyapunov or LaSalle proof."
+  ],
+  "schema_version": 1
+}
