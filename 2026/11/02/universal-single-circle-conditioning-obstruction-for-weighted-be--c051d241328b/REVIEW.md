@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted Bergman moment identity gives the exact monomial Gram diagonal. Rayleigh bounds and strict log concavity of the binomial moment sequence reduce arbitrary positive angular designs to a unique balancing radius. Equality is characterized by a smallest-eigenvalue rigidity argument and a square-unitary Fourier design calculation. Stirling's formula yields the sharp fixed-weight divergence rate and coefficient. The standalone checker passes 920 finite numerical assertions and cannot substitute for the all-order proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+PASS. Read frozen RESULT.md and verify.py. In orthonormal basis sqrt(w_k)z^k, w_k=(α+2)_k/k!, any positive angular measure has Gram diagonal d_k=w_k r^(2k), so Rayleigh gives condition≥max d/min d. Strict log-concavity of d_k forces endpoint minima and unique balancing t_N=w_N^(-1/N). Equality requires e0 to be a smallest-eigenvalue eigenvector, annihilating all Fourier moments 1..N; conversely vanishing moments diagonalize Gram. For N+1 positive nodes, square Fourier isometry gives equal weights at rotated regular polygon. Gamma-ratio and consecutive term maximization yield K~e^(-α-1)/Γ(α+2)(N/log N)^(α+1). Independently checked 16 (alpha,N) combinations and off-optimum radii; asymptotic proof is analytic.
 
-The most relevant accessible full primary text is Gröchenig–Ortega-Cerdà, *Marcinkiewicz–Zygmund Inequalities for Polynomials in Bergman and Hardy Spaces*, arXiv:2005.14176 (first posted May 28, 2020). It establishes the qualitative Bergman sampling regime and monomial model, but not the all-positive-design exact minimax value or weighted equality classification. Related Szegő orbit-frame results concern Blaschke multiplier kernels and a determinant objective; a Gaussian Fock single-circle minimax analogue has different factorial moments and exponential deterioration. No exact weighted Bergman covering statement was located through targeted database and bibliographic searches. Classical polynomial quadrature precedent remains a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An angular measurement budget cannot repair the ill-conditioning from a single measurement radius, even with continuous angular access. The theorem quantifies this with the exact finite-degree optimum, characterizes all optimal angular designs, and determines the growing power-logarithmic obstruction and the optimal boundary layer in every fixed power-weighted Bergman space. This is a natural measurement-design classification, not an arbitrary parameter slice.
+PASS at best knowledge. Gröchenig–Ortega-Cerdà's Bergman/Hardy MZ inequalities establish norms and radial sampling framework, not the single-radius finite-degree global minimax with all-positive-angular-measure rigidity. Fock analogy has different monomial weights. Classical optimal experimental design may contain an equivalent formula; risk explicitly retained.
 
-## Scope and limitations
+## value
 
-The theorem applies to finite-degree analytic polynomials and a single centered circle. No multiradius or noise-stability claim is made, and the large-degree formula holds with the weight exponent fixed. Independent mathematical priority and validation work remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Sharp obstruction to fixing ill-conditioning by angular oversampling, complete optimal design geometry and N-growth for a natural weighted Bergman polynomial sampling problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite checks and analytical verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package. It uses only the Python standard library and returns `FINITE_CHECKS_OK 920` after checking finite-degree weighted Bergman monomial diagonals, exact-angle Fourier cancellation to floating-point tolerance, optimal-radius inequalities, nonregular weighted sampling designs and large-degree asymptotic consistency. The checks are finite numerical consistency tests; they are not an independent mathematical audit or a proof of the all-degree limit. The analytical proof is in `RESULT.md` and does not depend on numerical extrapolation. Finite eigenvalues are computed with a real-symmetric Jacobi routine applied to the complex-Hermitian Gram matrix embedding.
+## correctness
 
-The only source dependencies for the mathematics are the explicitly normalized Bergman monomial norm and classical gamma-ratio asymptotics. No external programs, proprietary data or unverifiable numerical certificates are needed.
+PASS
+
+PASS. Read frozen RESULT.md and verify.py. In orthonormal basis sqrt(w_k)z^k, w_k=(α+2)_k/k!, any positive angular measure has Gram diagonal d_k=w_k r^(2k), so Rayleigh gives condition≥max d/min d. Strict log-concavity of d_k forces endpoint minima and unique balancing t_N=w_N^(-1/N). Equality requires e0 to be a smallest-eigenvalue eigenvector, annihilating all Fourier moments 1..N; conversely vanishing moments diagonalize Gram. For N+1 positive nodes, square Fourier isometry gives equal weights at rotated regular polygon. Gamma-ratio and consecutive term maximization yield K~e^(-α-1)/Γ(α+2)(N/log N)^(α+1). Independently checked 16 (alpha,N) combinations and off-optimum radii; asymptotic proof is analytic.
+
+## originality
+
+PASS
+
+PASS at best knowledge. Gröchenig–Ortega-Cerdà's Bergman/Hardy MZ inequalities establish norms and radial sampling framework, not the single-radius finite-degree global minimax with all-positive-angular-measure rigidity. Fock analogy has different monomial weights. Classical optimal experimental design may contain an equivalent formula; risk explicitly retained.
+
+## value
+
+PASS
+
+PASS. Sharp obstruction to fixing ill-conditioning by angular oversampling, complete optimal design geometry and N-growth for a natural weighted Bergman polynomial sampling problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
