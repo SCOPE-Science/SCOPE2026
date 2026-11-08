@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:55:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, fully read from the verified Git tree 11c3010b0c2b7f43d0ddb7feeb5d55774b142013 (Git blob b29defd1c221b367a0e985cddcc226b699e8f5ef).",
+        "Assigned verify.py Git blob f883b9feb4221d0e23ba606ea4590728c5af49a2, inspected; self-review and verification statements were not substituted for proof.",
+        "Independent standard-library modular line-mask enumeration, /mnt/data/scope_worker02_run_20261103T1143/independent_check.py (private); all 1,906,884 p=7 five-subsets exhausted and both witnesses verified."
+      ],
+      "rationale": "The exact statement is D_5=5 and D_7=6 for the affine F_p^2 torus under pair-line covering. For s<=4, at most s+C(s,2)(p-2) points are covered, giving 22<25 and 34<49. For a five-point set in F_7^2, a collinear triple leaves at most 4+7*5=39 external points covered (<44). For a five-point arc, the 10 secants each contribute 5 external incidences (50 total); among their 15 endpoint-disjoint line pairs at most eight are parallel because there are eight directions and each has at most two arc-secants. At least seven nonparallel intersections lie outside S and are at distinct points (at most two secants through any external point), so at most 50-7=43 external points are covered, whereas 44 are needed. The two displayed explicit witnesses were independently re-evaluated with exact modular bitmasks; their pair-lines cover all 25 or 49 points. A separately implemented complete enumeration of C(49,5)=1,906,884 five-subsets found no dominator; this checks the finite classification but is not the basis for the structural lower-bound proof.",
+      "residual_risks": [
+        "No classification is asserted for primes other than 5 and 7.",
+        "The independent finite census alone would not establish a general prime-order theorem; the stated analytical proof is specifically for p=7."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary torus paper gives size bounds rather than exact D_5 and D_7; the four-point construction applies to even orders or multiples of three, not primes 5 or 7.",
+          "General projective saturating-set upper bounds operate in PG(2,q), not the affine torus, and do not supply both precise minimum values."
+        ],
+        "reasoning": "Neither an asymptotic bound nor projective coverage automatically specializes to the exact affine optima. Checked theorems and domains rather than only their titles.",
+        "searches": [
+          "Resultary semantic search: Aichholzer Eppstein Hainzl geometric dominating sets smallest prime torus 5 7 exact",
+          "Resultary semantic search: finite affine plane secant covering complete set lines pair points minimal saturating set 2-saturating sets",
+          "arXiv:2203.13170 Theorems 5, 8 and composite-order constructions",
+          "arXiv:1505.01426 results on general PG(2,q) saturating sets"
+        ]
+      },
+      "checked_sources": [
+        "Aichholzer, Eppstein, Hainzl, Geometric Dominating Sets, arXiv:2203.13170, full accessible HTML (sections 1,5, conclusion), published Computational Geometry 108 (2023) 101913.",
+        "Fowler, Groot, Pandya, Snapp, The no-three-in-line problem on a torus, arXiv:1203.6604, full accessible HTML (introduction and results).",
+        "Bartoli, Giulietti, Davydov, Marcugini, Pambianco, On upper bounds on the smallest size of a saturating set in a projective plane, arXiv:1505.01426, full accessible HTML (definition and introductory theorems).",
+        "Bartoli, Marcugini, Pambianco, Classification of minimal 1-saturating sets in PG(2,q), q<=23, arXiv:1203.1133, full accessible HTML (definition, introductory classification, references).",
+        "Resultary: three actual semantic queries listed under the named checks; nearest hits were distinct graph domination, finite geometry and projective saturation records."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-invariant bounds in Aichholzer–Eppstein–Hainzl do not imply sharp lower/upper equality at p=5 or p=7.",
+          "Fowler et al. maximize the size of a no-three-collinear subset and thus do not minimize a secant covering set.",
+          "Projective 1-saturation entails additional points at infinity and so cannot directly rule out smaller affine-only candidates."
+        ],
+        "reasoning": "Contrasted domains, quantifiers, special cases and optimization direction. No inspected stronger theorem yields the two exact affine numbers as a corollary.",
+        "searches": [
+          "Resultary semantic search: exact geometric domination number of discrete torus finite affine planes F_5^2 F_7^2, line pairs cover all points",
+          "Resultary semantic search: Aichholzer Eppstein Hainzl geometric dominating sets smallest prime torus 5 7 exact",
+          "Resultary semantic search: finite affine plane secant covering complete set lines pair points minimal saturating set 2-saturating sets",
+          "arXiv:2203.13170 secant domination definition, torus bounds and conclusion",
+          "arXiv:1203.6604 formulation and extremal results",
+          "arXiv:1203.1133 definition and classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For prime p, reduced integer torus lines are exactly affine lines of AG(2,p); each selected pair generates a secant, so D_p is minimum point-set affine 1-saturation/line-pair domination.",
+          "arXiv:2203.13170 has the same torus point/line domination definition and nonexact prime-order general results.",
+          "arXiv:1505.01426 defines projective saturating sets: PG(2,p) also requires covering points at infinity, changing the quantified universe."
+        ],
+        "reasoning": "Compared the selection objective and covered universe, including the projective line-at-infinity distinction. Searched affine saturation and pair-secants as aliases; no inspected equivalent formulation establishes both values.",
+        "searches": [
+          "Resultary semantic search: exact geometric domination number of discrete torus finite affine planes F_5^2 F_7^2, line pairs cover all points",
+          "Resultary semantic search: Aichholzer Eppstein Hainzl geometric dominating sets smallest prime torus 5 7 exact",
+          "Resultary semantic search: finite affine plane secant covering complete set lines pair points minimal saturating set 2-saturating sets",
+          "arXiv:2203.13170 Sections 1 and 5",
+          "arXiv:1505.01426 Introduction and Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned finite-space graph domination and projective incidence records, not a table of the affine secant-cover minima D_5,D_7.",
+          "arXiv:1203.1133 classifies minimal 1-saturating sets of PG(2,q), q<=23, a projective rather than affine set-cover invariant.",
+          "The torus general-bounds article poses exact torus domination values as a question rather than supplying these values."
+        ],
+        "reasoning": "A projective minimal-saturating table is not interchangeable with the affine geometric-domination table because affine candidates may leave infinity uncovered. No applicable exact affine table was found among inspected material; absence from search is not proof of priority.",
+        "searches": [
+          "Resultary semantic search: exact geometric domination number of discrete torus finite affine planes F_5^2 F_7^2, line pairs cover all points",
+          "Resultary semantic search: Aichholzer Eppstein Hainzl geometric dominating sets smallest prime torus 5 7 exact",
+          "Resultary semantic search: finite affine plane secant covering complete set lines pair points minimal saturating set 2-saturating sets",
+          "arXiv:1203.1133 small-q projective classification and tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for two exact values in the same affine-torus geometric domination invariant as Aichholzer–Eppstein–Hainzl. That paper states general lower and upper bounds, plus four-point constructions for other orders, and asks for exact torus values; its inspected statements do not yield D_5=5 or D_7=6. No-three-in-line studies maximum point counts under a prohibition on collinearity, rather than minimum pair-secant domination. Projective 1-saturating-set surveys and tables concern PG(2,q), including the line at infinity; their tabulated parameters are not the affine covering number, and do not directly imply either exact affine value. Three Resultary semantic searches found no statement-equivalent or dominating published record. This is a bounded priority assessment, not proof of global novelty.",
+      "residual_risks": [
+        "Best-of-knowledge originality is not certified global priority; niche finite-geometry census or differently named affine 1-saturating set classification could contain these values.",
+        "Projective small-q classification might have uninspected auxiliary affine lemmas even though its stated table is not directly equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the exact two values in the inspected article; general bounds and other-order constructions do not force D_5 or D_7.",
+          "evidence": [
+            "arXiv:2203.13170 Sections 1 and 5, Theorems 5 and 8, conclusion; journal DOI 10.1016/j.comgeo.2022.101913"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.13170",
+          "material_read": "Full accessible arXiv HTML: definition, torus reductions and Section 5 prime/composite bounds, closing exact-value question.",
+          "method": "Compared secant-line definition, theorem parameter ranges and numerical implications.",
+          "title": "Geometric Dominating Sets",
+          "trigger": "Identical torus domination invariant, same prime-order setting."
+        },
+        {
+          "assessment": "Not implication-covering: different quantified extremal problem.",
+          "evidence": [
+            "arXiv:1203.6604 introduction and results on the maximum no-three-in-line objective"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.6604",
+          "material_read": "Full accessible arXiv HTML: introduction, definition, maximization results and small-order computations.",
+          "method": "Distinguished selecting an uncollinear maximum set from selecting a covering minimum set.",
+          "title": "The no-three-in-line problem on a torus",
+          "trigger": "Same discrete torus line geometry and small odd prime orders."
+        },
+        {
+          "assessment": "Related broader family but does not imply the exact affine D_5,D_7.",
+          "evidence": [
+            "arXiv:1505.01426 Definition 1.1 and Theorems 1.2–1.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.01426",
+          "material_read": "Full accessible arXiv HTML: introduction, definition and general upper-bound theorems.",
+          "method": "Checked finite projective point coverage versus affine torus and parameter implications.",
+          "title": "On upper bounds on the smallest size of a saturating set in a projective plane",
+          "trigger": "1-saturating projective sets cover points by secants, the strongest natural alternate terminology."
+        },
+        {
+          "assessment": "Projective table is not a determination of the affine invariant; risk of indirect implications remains, no exact covering seen.",
+          "evidence": [
+            "arXiv:1203.1133 Definition 1, 2 and introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.1133",
+          "material_read": "Complete short accessible arXiv HTML: definitions, introduction, small-q classification, references.",
+          "method": "Compared projective line-at-infinity requirements and candidate affine covering sets.",
+          "title": "Classification of minimal 1-saturating sets in PG(2,q), q<=23",
+          "trigger": "Small-order projective tables could plausibly dominate exact affine minimum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Aichholzer–Eppstein–Hainzl, arXiv:2203.13170, conclusion asks for exact domination values.",
+        "Assigned RESULT.md explicit sharp witnesses and structural obstruction for p=7.",
+        "Independent exhaustive exact arithmetic p=7 classification used to corroborate p=7 lower bound."
+      ],
+      "rationale": "The discrete-torus geometric domination number is the natural minimum size of a point set whose pair-secants cover the finite affine plane, and its exact evaluation is explicitly motivated as an open direction in the primary definition paper. The two first odd prime cases outside the composite four-point family have distinct sharp answers, D_5=5 and D_7=6, and p=7 requires a nontrivial forced secant-intersection obstruction. The exact pair supplies motivated finite calibration instances for incidence bounds, secant-cover algorithms and further classification; no general-prime breakthrough is claimed or required for these exact natural values.",
+      "residual_risks": [
+        "Contribution is restricted to two small prime orders and does not improve asymptotic general-prime bounds.",
+        "Possible hidden earlier exact-value table would undermine value as a novel contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only F_5^2 and F_7^2 are classified; no general p formula or asymptotic claim.",
+    "The original verification program was inspected but not executed; a distinct exact program checked the witnesses and all p=7 five-subsets.",
+    "Historical priority is best-of-knowledge and cannot be guaranteed from bounded literature searches.",
+    "Two public-facing source JSON files contained private operational IDs; full sanitized replacements with SHA-256 and Git blob guards are included for review. No GitHub write was made."
+  ],
+  "schema_version": 1
+}
