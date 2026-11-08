@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS (same-model).** The commutator kernel equals \((x-t)/[x(1-t)]\) below the diagonal, bounded by \(1\), hence Hilbert–Schmidt. Jacobi orthogonality and weighted-unitary completeness prove that both explicitly given polynomial families are ONBs. The terminating hypergeometric identity proves the image of each right singular vector exactly, giving all singular values without an enumeration assumption. The spectral-radius estimate uses domination by powers of Volterra integration. The exact polynomial and weighted orthogonality identities were additionally checked with the bundled standalone checker (44+392 exact rational cases). Finite checks do not prove the theorem.
+
+**Originality — PASS, qualified best-knowledge comparison.** Belli–Gül–Ross–Siskakis (arXiv:2604.19691, full HTML and accessible original) analyze the same \(C\) but not the coordinate commutator or its Jacobi SVD; their 2026 \(L^p\) sequel is likewise focused on spectra, norm, semigroups and invariant spaces. Deng–Fischer–Hofmann (arXiv:2401.11411, inspected full-text presentation) and the related Hardy–Volterra commutator result concern \(x^{-1}\int_0^x(x-t)f(t)\,dt\), missing the present denominator \(1-t\). Thus their quadratic singular asymptotics or implicit determinant do not assert the same singular values. Further searches considered Jacobi identities, weighted Volterra operators, and alternate wording; an older exact weighted singular-system theorem remains a priority risk. A lack of matching search hits is not proof of uniqueness.
+
+**Mathematical value — PASS.** This gives an exact full singular system (vectors and multiplicities) for a canonical commutator of a newly studied normal integration operator. It converts qualitative compactness to precise approximation-number decay, nuclear and Hilbert–Schmidt norms, a sharp half-Schatten threshold, and contrasts quasinilpotence with a nontrivial infinite singular spectrum. These are natural operator-ideal invariants, not arbitrary numerical slices.
+
+**Limitations and risk.** The theorem is specific to the coordinate multiplier and \(L^2\), and its Jacobi ingredients are classical. A historical representation-theoretic equivalence could affect priority; no external independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
