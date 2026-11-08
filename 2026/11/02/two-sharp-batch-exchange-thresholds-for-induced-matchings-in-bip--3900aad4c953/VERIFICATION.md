@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The all-parameter result is established by the symbolic classification of optimum induced matchings and their pairwise intersections in `RESULT.md`. These included finite programs provide independent implementation checks, not infinite certificates.
+# Independent mathematical audit
 
-Run in this extracted directory:
+## correctness
 
-```
-python3 verify.py
-python3 verify_alt.py
-```
+PASS
 
-The first independently constructs the subdivided \(K_{m,n}\), enumerates every size-\(m+n-2\) edge subset, tests inducedness from the underlying adjacency relation, and checks all optimum configurations and exchange components for each budget. It completed successfully for \((m,n)=(3,3),(3,4),(4,3),(3,5),(4,4)\) with `INDEPENDENT_FINITE_CERTIFICATE_OK`.
+For all integers m,n>=3, inducedness excludes at least one original vertex on each side whenever both edge types occur; pure-type matchings are smaller than k=m+n-2. Equality forces one unused A-row r and B-column c, uniquely M_(r,c) with m-1 column-A edges and n-1 row-B edges. Intersections of two such maxima give exact simultaneous exchange costs 0,m,n,k, hence all four stated reconfiguration-graph regimes, including m=n where middle interval is empty. Girth eight and degree 4mn/(mn+m+n)<4 follow from subdivision. Independently checked clique/induced-matching enumerations for (m,n)=(3,3),(3,4), confirming optimum counts and exchange multiplicities; the symbolic classification, not these finite tests, proves all m,n.
 
-The second independently builds the edge-compatibility graph and enumerates its maximal cliques, then calculates replacement-cost multiplicities from pairwise set differences. It completed for the same parameters with `ALT_INDEPENDENT_CERTIFICATE_OK`. The respective maximum-optimum counts were \(9,12,12,15,16\). The pairwise cost multiplicities agreed with \(m\binom n2\) at cost \(m\), \(n\binom m2\) at cost \(n\), and \(2\binom m2\binom n2\) at cost \(m+n-2\), with costs combined when equal.
+## originality
 
-Boundaries: these scripts do not establish novelty, do not constitute external independent validation, and do not enumerate arbitrarily large parameter values. Those limits are reflected in the mathematical proof and literature comparison.
+PASS
+
+Comparing mathematical statements rather than titles, full primary text and domain distinctions indicate the exact final all-parameter claim is not covered by the inspected prior theorems. Earlier frameworks explicitly acknowledged; historical priority is best-of-knowledge, not independently certified. Optimization and algorithmic complexities, not the batch-reconfiguration graph of maxima in once-subdivided bicliques Generalized token movement rules but not optimum-only exchange metric or all-threshold graph isomorphisms for this family
+
+## value
+
+PASS
+
+The sharp growing simultaneous replacement budget is a natural obstruction to navigating optimum induced matchings. The theorem completely classifies every exchange graph of a nontrivial infinite bounded-average-degree, girth-eight family and distinguishes first connectivity from complete mixing. The result is not a mere restatement of a known matching number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
