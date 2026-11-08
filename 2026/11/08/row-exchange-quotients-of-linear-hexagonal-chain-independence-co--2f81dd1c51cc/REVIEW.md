@@ -1,0 +1,17 @@
+# Scientific review: row-exchange quotient of a hexagonal-chain independence complex
+
+## Correctness — PASS
+For every positive chain length, the fixed geometric set is exactly the simplex of midpoints of the even-column row pairs, a direct consequence of the listed graph edges. The published nonequivariant homotopy theorem gives exactly two free integral homology generators in degree equal to the chain length. The proof then uses an explicit, applicable two-periodic integral group-ring resolution, a finite free relative chain complex outside the fixed locus, the Lefschetz formula, and a classification of rank-two involution lattices. These establish the regular integral module and torsion-free quotient homology in every length. Armstrong's orbit-space theorem and Hurewicz–Whitehead establish the full homotopy type for lengths at least two. The small first case has an independently replayed six-pair elementary collapse to a connected unicyclic graph. The reconstructed finite checks agree for lengths one through six, without serving as the infinite proof.
+
+## Originality — PASS, with identifiable residual risk
+The closest motivating article [1] proves only the nonequivariant two-sphere wedge for the identical graph family. The closest mathematical record [2] determines a full **rational** Klein-four character (including a row-exchange trace of zero) but explicitly disclaims integral representation and quotient-homotopy classifications. In particular its rational trace cannot decide between the regular integral lattice and the split trivial-plus-sign lattice. Neither source determines the integral homology or homotopy type of the geometric row-exchange quotient. Searches for orbit quotients, equivalent row reflections, regular integral modules, and stronger equivariant statements did not identify a dominating result. Full originality is not provable by search; hidden or implicit older coverage remains a residual risk.
+
+## Mathematical value — PASS
+The quotient is a canonical topological object in the recently classified family of planar hexagonal-chain independence complexes. Classifying its complete **integral homotopy type** for every chain length resolves both the potential two-torsion and the fundamental-group issue, which cannot be read from known rational reflection characters. The uniform relative-chain method also explains structurally why the involution exchanges a primitive integral pair of generators. This is more than a restatement of the known sphere-wedge rank or a finite table computation.
+
+## Evidence and boundaries
+The full arguments and exact quantifiers are in `RESULT.md`; the independent finite reconstruction is executable via `python3 verify_hex_quotient.py`, with recorded output in `verification_output.txt`. The proof depends on the published nonequivariant classification and applies to geometric row-exchange quotients, not Borel quotients or other graph symmetries. The checker verifies the first two quotient chain complexes and the general fixed-face pattern only through length six; the all-length integral conclusion is mathematical, not extrapolative.
+
+References: [1] Chandrakar–Singh, arXiv:2512.21318v1, Theorem 3.1 (2025-12-24); [2] *Reflection characters of linear hexagonal-chain independence complexes* (2026-10-11), published mathematical record; [3] Armstrong (1965), DOI:10.1017/S0305004100038974.
+
+Self-review: passed. Independent audit: not yet performed.
