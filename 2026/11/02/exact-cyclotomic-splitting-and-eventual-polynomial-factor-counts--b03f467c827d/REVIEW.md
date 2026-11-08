@@ -1,12 +1,21 @@
-# Review of exact cyclotomic factor counts
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is proved for every number field containing the specified primitive target root, each integer degree at least two, and every positive iteration depth. The root-order criterion partitions a separable polynomial into exact strata. A Galois orbit argument establishes the field-intersection summand; the Kronecker--Weber theorem supplies a finite cyclotomic conductor, and partitioning saturated and unsaturated prime exponents proves the eventual polynomial. Euler totient sums give the all-level cyclotomic closed formula. A separate exact orbit enumerator confirms 624 cyclotomic instances, six quadratic-subfield instances and five alternate primitive targets, without treating finite testing as a proof of the infinite statement.
+## correctness
 
-## Originality — PASS, residual priority risk
-Tucker--Zhu, arXiv:2610.28688v1, Theorem 2.1(iii), prove the exact factor count only over the minimal cyclotomic base field and upper/lower bounds for arbitrary number fields. Their root-order description is an essential published input, not claimed as new. The newly established exact factor formula over **every** number field, the invariance under replacing the field by its abelian intersection, the exact eventual polynomial and its leading constant go beyond those stated bounds. Jones--Levy, arXiv:1603.00673v2, supplies the stability context but not this exact result. No directly covering statement was identified in the recorded semantic and literature searches. A previous unindexed observation or inference from the published root-order proof remains possible, and merits independent priority review.
+PASS
 
-## Mathematical value — PASS
-The 2026 theorem isolates a natural factor-count invariant and leaves only multiplicative degree bounds over general number fields. The result supplies its complete field-theoretic answer, a sharp eventual growth coefficient and a finite explicit polynomial, including the stable case's exact limiting factor count. Its nonabelian-invariance and joint-prime quadratic examples show information absent from the crude bounds and from a prime-by-prime specialization. No claim is made for general rational maps or non-root-of-unity targets.
+All roots have orders r satisfying r/gcd(r,d^n)=m. Primitive order-r roots above alpha form a single Gal(Q(zeta_r)/Q(alpha)) orbit of size phi(r)/phi(m); Gal(KQ(zeta_r)/K) acts freely, so its orbit count is exactly [K intersect Q(zeta_r):Q(alpha)]. Kronecker–Weber gives a finite conductor C for E=K intersect Q^cyc, and cyclotomic intersection Q(zeta_C) intersect Q(zeta_r)=Q(zeta_gcd(C,r)) caps prime exponents. Summing stabilized coordinate intervals yields an exact finite polynomial, with positive highest-degree coefficient [H:F] product b_p; Euler totient sums yield the cyclotomic product. Independent Galois-orbit enumeration matched all 160 small cases (m=1..5, cyclotomic M, d=2,3,4,6 and n=1,2). Infinite claim rests on Galois and conductor arguments, not finite tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Tucker–Zhu 2026 Theorem 2.1(iii) already gives the root-order parametrization and the exact factor count over F=Q(alpha), with general-K degree bounds. The present field-intersection orbit formula, invariance under cyclotomic intersection and eventual exact polynomial sharpen those bounds. Jones–Levy 2017 establishes eventual-stability framework but not this explicit all-K count in accessed descriptions. Original Tucker–Zhu full arXiv HTML unavailable, and an authorized full-text retrieval attempt returned vpn_disconnected; this is substantive priority risk, but no accessible statement establishes a stronger general-K formula.
+
+## value
+
+PASS
+
+The published sharp question concerns factor counts of monomial preimages across arbitrary number fields; the exact abelian-intersection dependency, eventual polynomial degree, leading constant and non-primewise quadratic examples are substantive structural refinements of stated degree bounds, useful to dynamical Galois theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

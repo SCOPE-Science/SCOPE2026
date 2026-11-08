@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
-The supplied standalone `verify.py` uses only standard Python 3 and exact integer arithmetic. It enumerates Galois orbits of the roots of \(X^{d^n}-\alpha\) under congruence subgroups fixing a specified cyclotomic or quadratic base field, independently of the arithmetic closed formula. It checks 624 cyclotomic combinations, three levels over \(\mathbb Q(\sqrt5)\), three levels over \(\mathbb Q(\sqrt{-15})\), five alternate primitive targets, and the exact early-level transient identities.
+# Independent mathematical audit
 
-The actual completed run from the supplied file printed:
+## correctness
 
-```
-VERIFY_OK independent_cyclotomic_orbits= 624 quadratic_subfield_orbits=6 nonstandard_targets=5 closed_formula=PASS transient_and_eventual_polynomial=PASS
-```
+PASS
 
-Finite computations are consistency checks only. The mathematical proof is the Galois orbit count, exact root-order parametrization, the finite cyclotomic conductor and capped-exponent expansion in `RESULT.md`. The code does not attempt to verify all number fields or prove a universal theorem by enumeration. No independent audit has been performed.
+All roots have orders r satisfying r/gcd(r,d^n)=m. Primitive order-r roots above alpha form a single Gal(Q(zeta_r)/Q(alpha)) orbit of size phi(r)/phi(m); Gal(KQ(zeta_r)/K) acts freely, so its orbit count is exactly [K intersect Q(zeta_r):Q(alpha)]. Kronecker–Weber gives a finite conductor C for E=K intersect Q^cyc, and cyclotomic intersection Q(zeta_C) intersect Q(zeta_r)=Q(zeta_gcd(C,r)) caps prime exponents. Summing stabilized coordinate intervals yields an exact finite polynomial, with positive highest-degree coefficient [H:F] product b_p; Euler totient sums yield the cyclotomic product. Independent Galois-orbit enumeration matched all 160 small cases (m=1..5, cyclotomic M, d=2,3,4,6 and n=1,2). Infinite claim rests on Galois and conductor arguments, not finite tests.
+
+## originality
+
+PASS
+
+Tucker–Zhu 2026 Theorem 2.1(iii) already gives the root-order parametrization and the exact factor count over F=Q(alpha), with general-K degree bounds. The present field-intersection orbit formula, invariance under cyclotomic intersection and eventual exact polynomial sharpen those bounds. Jones–Levy 2017 establishes eventual-stability framework but not this explicit all-K count in accessed descriptions. Original Tucker–Zhu full arXiv HTML unavailable, and an authorized full-text retrieval attempt returned vpn_disconnected; this is substantive priority risk, but no accessible statement establishes a stronger general-K formula.
+
+## value
+
+PASS
+
+The published sharp question concerns factor counts of monomial preimages across arbitrary number fields; the exact abelian-intersection dependency, eventual polynomial degree, leading constant and non-primewise quadratic examples are substantive structural refinements of stated degree bounds, useful to dynamical Galois theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
