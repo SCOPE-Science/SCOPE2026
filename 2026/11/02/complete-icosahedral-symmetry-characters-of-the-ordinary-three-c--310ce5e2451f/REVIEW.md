@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise ordinary cut-complex definition determines 140 disconnected triples and 3,906 nonempty faces. Exhaustive construction of the Alexander dual, exact rational boundary ranks (11, 49, 30), and twelve-vertex Alexander duality force rational homology dimensions one in degree seven and six in degree eight. The alternating icosahedral rotation group has no nontrivial rational one-dimensional characters. Signed fixed-face Lefschetz sums on every group element recover the rational degree-eight six-dimensional character on rotations. The character table identifies a rational irreducible; centrality and the involution's Lefschetz trace uniquely force antipodal sign in both degrees. Full automorphism enumeration and a direct modular cycle check separately corroborate the representation. See `RESULT.md` and `verify.py`.
+## correctness
 
-## Originality — PASS against inspected evidence
-The foundational cut-complex paper arXiv:2304.13675 studies equivariant representations for several families but does not calculate the icosahedral instance. The sequel arXiv:2407.08158 handles disjoint unions, squared paths, grids, cycles and paths. The total-cut paper arXiv:2209.13503 concerns a distinct construction. The closest published icosahedral three-cut result (public record 2026-10-11, published-finding corpus identifier ending `fb104995d472`) obtains the nonequivariant sphere wedge but explicitly stops short of determining equivariant homology. The current representation and quotient claims are not logically implied by the wedge dimensions; obtaining them requires new signed trace and inversion analysis. Residual risk: an unindexed or inaccessible equivalent equivariant computation could exist.
+PASS
 
-## Value — PASS
-This completes the rational action of the full exceptional icosahedral symmetry group on **both** nonzero degrees of a natural, nonshellable Platonic cut complex. The degree-eight class group is a rationally irreducible six-dimensional module whose complexification splits into Galois-related three-dimensional representations, while the degree-seven line carries a distinct symmetry role. The quotient distinction (a surviving rational seven-dimensional class for rotations, no rational reduced homology after full/antipodal quotient) is mathematically invisible in published nonequivariant Betti numbers. This is a motivated full-symmetry classification, not a parameter relabeling or a routine numerical increment.
+Direct independent graph enumeration using the frozen 30-edge list yields exactly 140 disconnected triples, Alexander-dual K f=(12,66,80,30), ordinary cut f=(12,66,220,495,792,924,792,465,140), rational boundary ranks (11,49,30), hence reduced H7 dimension1 and H8 dimension6 by combinatorial Alexander duality. Independently enumerated all 120 graph automorphisms, 60 rotations, their stable-simplex signed Lefschetz numbers (5,-3,-1,0) for rotation orders (1,2,3,5), inversion coset (-5,3,1,0) for orders (2,2,6,10). The A5 perfectness plus character table forces H8=W char(6,-2,0,1,1), H7 rotationally trivial; centrality and Lefschetz(a)=-5 force antipodal sign -1 on both. Rational invariants then give specified quotient homologies. Checked actual verify.py finite-field cycle action as corroboration; rational character conclusions rest on rational ranks and Lefschetz theory, not mod1009 alone.
 
-## Limitations and uncertainty
-The assertion is restricted to rational homology of the ordinary three-cut complex of one graph. It does not prove quotient contractibility or determine integral representations. Independent audit has not been performed. The published source comparison is extensive but cannot rule out unindexed equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier published calculation of the exact same ordinary icosahedral three-cut complex already proves the nonequivariant wedge S7 ∨ 6S8 and f-vector; those are known, not claimed new. Its full Resultary RESULT.md explicitly says no equivariant homology. Bayer et al.'s cut complex theory and equivariant computations on other graph families do not supply the A5×C2 representation for this graph. The present sign-twisted rational characters and distinct quotient homologies are nontrivial refinements.
+
+## value
+
+PASS
+
+Full rational G-module structure identifies how icosahedral symmetries act on the two topological spheres degrees, distinguishing A5, antipodal, and full symmetry quotient rational homologies. This is a natural symmetry invariant of an established, nontrivially homological Platonic example, not a recomputation of ordinary Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

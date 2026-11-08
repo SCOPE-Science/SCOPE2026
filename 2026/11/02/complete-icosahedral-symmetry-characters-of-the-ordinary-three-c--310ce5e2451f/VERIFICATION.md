@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. It reconstructs the specified twelve-vertex thirty-edge icosahedral graph and all 140 disconnected triples, then enumerates all 3,906 nonempty cut-complex simplices and the Alexander-dual simplices.
+## correctness
 
-The Alexander-dual signed boundary ranks are computed over the rational numbers, with exact `Fraction` pivots. Their values in dimensions one, two and three are 11, 49 and 30. Independently, the cut-complex boundary ranks in dimensions seven and eight are 330 and 134 over the prime field of characteristic 1009, consistent with rational Betti numbers one and six. The checker exhibits a cycle outside the degree-eight boundary image, checks its boundary directly and verifies its signed image in the homology quotient under all 120 graph automorphisms.
+PASS
 
-Signed fixed-simplex traces are recalculated under all 120 automorphisms. Rotations have reduced Lefschetz values 5, -3, -1, 0 in order classes 1, 2, 3, 5; opposite-vertex inversion multiplied by those rotations gives -5, 3, 1, 0. The mathematical proof identifies the rational characters from these traces, exact rational Betti numbers and the A5 character table, rather than extrapolating from finite-field computations.
+Direct independent graph enumeration using the frozen 30-edge list yields exactly 140 disconnected triples, Alexander-dual K f=(12,66,80,30), ordinary cut f=(12,66,220,495,792,924,792,465,140), rational boundary ranks (11,49,30), hence reduced H7 dimension1 and H8 dimension6 by combinatorial Alexander duality. Independently enumerated all 120 graph automorphisms, 60 rotations, their stable-simplex signed Lefschetz numbers (5,-3,-1,0) for rotation orders (1,2,3,5), inversion coset (-5,3,1,0) for orders (2,2,6,10). The A5 perfectness plus character table forces H8=W char(6,-2,0,1,1), H7 rotationally trivial; centrality and Lefschetz(a)=-5 force antipodal sign -1 on both. Rational invariants then give specified quotient homologies. Checked actual verify.py finite-field cycle action as corroboration; rational character conclusions rest on rational ranks and Lefschetz theory, not mod1009 alone.
 
-Successful execution prints `ICOSAHEDRAL_THREE_CUT_FULL_EQUIVARIANT_EXACT_OK`. This does not constitute independent validation. No integral homology-representation, quotient-contractibility or unindexed-literature claims are certified.
+## originality
+
+PASS
+
+An earlier published calculation of the exact same ordinary icosahedral three-cut complex already proves the nonequivariant wedge S7 ∨ 6S8 and f-vector; those are known, not claimed new. Its full Resultary RESULT.md explicitly says no equivariant homology. Bayer et al.'s cut complex theory and equivariant computations on other graph families do not supply the A5×C2 representation for this graph. The present sign-twisted rational characters and distinct quotient homologies are nontrivial refinements.
+
+## value
+
+PASS
+
+Full rational G-module structure identifies how icosahedral symmetries act on the two topological spheres degrees, distinguishing A5, antipodal, and full symmetry quotient rational homologies. This is a natural symmetry invariant of an established, nontrivially homological Platonic example, not a recomputation of ordinary Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
