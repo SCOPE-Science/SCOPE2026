@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The event-to-complement bijection converts (SN) into a finite transversal condition and remains valid when a witness set is empty. For two agents, the opposite-colour stars are pairwise disjoint, justifying the product and the independent unconstrained factor. For the three-agent reduction, every owner facet is in the rectangular star, so outside witnesses must use exactly the edges of the bipartite graph, and each side of its bipartition must be covered. The reduction is bijective. Membership in \(\#\mathrm P\) uses a direct polynomial-time check. Published #Bipartite-Edge-Cover hardness supplies the hard source problem; the output-count reduction is parsimonious. The checker compared exhaustive event counts on 116 two-agent and 145 three-agent small instances.
+## correctness
 
-## Originality — PASS within inspected sources
-Shanxia Wang (2026, arXiv:2604.02673v1) defines (SN), the secrecy truth clause, owner-local normalization and a finite two-agent example. These are premises, not claimed innovations. The relevant complete-source sections do not state the count formula or sharp complexity threshold. Amarilli, Monet and Senellart (2017, Appendix D) already establish the hardness of counting bipartite edge covers; the new contribution is the exact realization in the semantic model combined with tractability for two agents. Searches under secrecy-event, facet-star, transversal, neighborhood counting, agent threshold and edge-cover variants found no direct prior implication in the inspected records. A historical equivalence in less accessible specialized literature remains a priority risk.
+PASS
 
-## Value — PASS
-Owner-knowledge makes only star-containing secrecy events semantically relevant, so counting them measures the freedom available to a local secrecy modality, not arbitrary unused neighbourhood choices. The theorem gives a complete, polynomial-time degree formula throughout the two-agent class and locates an exact hardness transition at three agents, even when the owner's local-state space is as small as two points. This links genuine expressivity of the new secrecy semantics to an established combinatorial counting boundary.
+The outside complement W=F\U of any owner-effective event U⊇St(v) must meet each external b-colored witness star St(v_b(X))\St(v); this is a direct equivalence to Wang’s SN clause at every owner facet X. In a two-agent simple bipartite graph the neighbor-specific witness sets D_b consist of edges (u,b) with u≠v, are pairwise disjoint, each with d(b)−1 elements; free edges contribute 2^{|E|−Σ_b d(b)}. For three agents, a full B×C owner v-star and w-facets indexed by bipartite H mean selecting the outside w-facets is precisely selecting an edge cover meeting every vertex of B and C, including isolated-vertex zero counts. This parsimonious reduction and the cited known #Bipartite-Edge-Cover hardness establish #P hardness; explicit facet enumeration establishes #P membership. Globally shared added-color vertices do not change this witness requirement since nonempty covers are already forced. Independently enumerated K_{2,2} edge covers=7 and a 2-agent 2×2 model event count=1. The proof is conditional on semantic SN and arbitrary potential event truth sets, not fixed-valuation definability.
 
-## Scope and limitations
-The input is a finite pure chromatic complex given by its facets. The invariant counts events potentially realizable by adjusting a propositional valuation; a fixed valuation may express fewer events. The theorem is about exact counting, not modal validity or approximation. The computer check is finite and not an infinite proof. Independent scientific audit has not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment: the exact new claim was compared by implications with same-object primary results; known definitions/source results are credited, and no directly covering proved theorem was identified in the inspected material. This is not exhaustive priority certification. A two-to-three-agent counting threshold for effective simplicial secrecy events. Together with the explicitly verified parsimonious rectangle construction they yield #P hardness; the product formula additionally uses disjoint two-agent witness sets. Neither source alone is the conclusion.
+
+## value
+
+PASS
+
+A sharp tractability boundary at two versus three agents for a semantically motivated capacity, with a closed degree product at two colors and an exact #P-hardness encoding at three. The contrast identifies structural reasons—disjoint versus intersecting witness sets—for a genuine counting complexity transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
