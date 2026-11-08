@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:57:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For phases normalized a0=a3=1, Fourier orthogonality reduces the sixth-power L6 moment to 256+6(cos 3α+cos 3β)+84(cos(α−2β)+cos(2α−β))+144cos(α+β). Setting x=cos((α+β)/2) and y=cos(3(α−β)/2), independently attainable over [-1,1]², gives M6=112+288x²+12x(4x²+11)y. First minimize in y, then strictly convex φ(t)=112+288t²−48t³−132t on t=|x|∈[0,1] has unique t*=2−sqrt(111)/6, proving min 616−148sqrt(111)/3 and all phase/linear-ramp extremizers. Independently computed Fourier coefficients of P^3 at multiple non-symmetric phases and the optimizing symmetric family, agreeing with the exact identity. Binary sign enumeration gives minimum 112. Algebraic-integer obstruction for 2cos(theta*)=(12−sqrt(111))/3 forbids equality for root-of-unity phases; fourth moment 19 at cosθ=1/4 versus sixth value 385/4 proves strict tradeoff. Applies only to four consecutive circle frequencies, normalized Haar.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sixth-moment prior allows variable magnitudes and maximizes the norm; Balister et al prove existence for arbitrarily long binary polynomials under L∞ bounds."
+        ],
+        "reasoning": "Neither stronger-looking coefficient scope supplies a lower bound for this unit-phase normalized minimum, and asymptotic binary existence does not imply the exact four-tap algebraic constant.",
+        "searches": [
+          "Balister et al flat Littlewood polynomials",
+          "Resultary sharp sixth-moment Fourier norm full coefficient theorem"
+        ]
+      },
+      "checked_sources": [
+        "K.-U. Schmidt, On a problem due to Littlewood concerning polynomials with unimodular coefficients, arXiv:1302.2766",
+        "Balister, Bollobás, Morris, Sahasrabudhe and Tiba, Flat Littlewood Polynomials Exist, arXiv:1907.09464, Annals of Mathematics 192 (2020)",
+        "Sankuru and Babu, Designing unimodular sequence with good auto-correlation properties via Block Majorization-Minimization method, arXiv:2001.06267",
+        "Resultary 2026/10/11/SCOPE-sharp-sixth-moment-fourier-norm-via-four-term-even-moment-symmet--f3e238ebf219",
+        "Resultary 2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known M4 minimum only supplies monotonic Lp inequalities too weak for the sharp sixth minimum; maximum M6 is opposite extremal direction."
+        ],
+        "reasoning": "The claimed sixth minimizer and root-of-unity obstruction require the independent two-angle sixth-moment calculation and cannot be obtained by reversing an upper bound.",
+        "searches": [
+          "Schmidt arXiv:1302.2766 full text",
+          "Resultary sixth moment maximum and fourth minimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier orthogonality converts the integral to degree-three convolution energy, a different functional from the fourth-moment autocorrelation energy."
+        ],
+        "reasoning": "There is an equivalent convolution-count formulation for M6, which was checked; related extremizers of M4 or unrestricted-coefficient M6 maximum are not automatically M6 phase-only minima.",
+        "searches": [
+          "Schmidt fourth moment correlation energy",
+          "Resultary fourth phase moment",
+          "Resultary sixth moment maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact prior table gives fourth moment 19; submitted exact sixth moment is 616−148sqrt(111)/3 and binary min112."
+        ],
+        "reasoning": "Different exponent and equality orbit; older short-sequence phase tables are a residual possibility, not established coverage.",
+        "searches": [
+          "Resultary four-point phase-only fourth moment exact 19",
+          "search unimodular length four sixth moment minimum tables"
+        ]
+      },
+      "rationale": "Prior published Resultary work solves fourth moment for a four-point frequency progression and a different sharp sixth-moment maximum over arbitrary complex coefficients, not this phase-constrained sixth-moment minimum. Schmidt relates fourth moments to correlation energy, Balister et al treat asymptotic binary flatness, and Sankuru/Babu optimized fourth-moment integrated sidelobes. A historical short-polyphase exact table remains a real risk but no inspected theorem implies the sixth minimizer or algebraic phase-alphabet obstruction.",
+      "residual_risks": [
+        "Older indexed/unindexed short polyphase code-design tables might derive an equivalent continuous-phase L6 constant.",
+        "No results claimed for nonconsecutive support or higher lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MOMENT_AND_SCALE",
+          "evidence": "Discusses fourth moments and asymptotic unimodular polynomials, not sharp four-tap sixth minimum.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.2766",
+          "material_read": "Full accessible arXiv HTML: statement, proofs and fourth-moment/autocorrelation formulation",
+          "method": "Primary full-text mathematical inspection",
+          "title": "On a problem due to Littlewood concerning polynomials with unimodular coefficients",
+          "trigger": "Most relevant unimodular moment theory"
+        },
+        {
+          "assessment": "MAXIMUM_NOT_MINIMUM",
+          "evidence": "Deals with M6 upper extremizer among variable amplitudes, no lower bound of the needed strength.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-sixth-moment-fourier-norm-via-four-term-even-moment-symmet--f3e238ebf219",
+          "material_read": "Published Resultary theorem summary, magnitude symmetrization and maximizing polynomial statement",
+          "method": "Resultary published record",
+          "title": "Sharp sixth-moment Fourier norm via four-term even-moment symmetrization",
+          "trigger": "Same four consecutive frequencies and same moment order"
+        },
+        {
+          "assessment": "FOURTH_NOT_SIXTH",
+          "evidence": "The fourth minimum is credited as a comparison and is not the sixth minimizer.",
+          "identifier_or_url": "2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c",
+          "material_read": "Published Resultary mathematical summary giving M4 min 19 for progressions",
+          "method": "Resultary published record",
+          "title": "Four-point support geometry quantizes the phase-only fourth Fourier moment",
+          "trigger": "Exact four-mode unit phases with close objective"
+        },
+        {
+          "assessment": "DIFFERENT_ASYMPTOTIC_DOMAIN",
+          "evidence": "Existence at large n does not calculate exact min for length four.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.09464",
+          "material_read": "Accessible abstract and theorem-level descriptions of long binary L∞ polynomial constructions",
+          "method": "Primary source abstract/theorem summary",
+          "title": "Flat Littlewood Polynomials Exist",
+          "trigger": "Potential broad bounded Fourier norm theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-tap consecutive Fourier support is a canonical first nontrivial phase-design instance. A sharp continuous-phase L6 minimum with equality manifold, binary gap and root-of-unity unattainability is a natural exact extremal invariant, further separating sixth and fourth moment optimizers. The claim does not depend on promised downstream engineering gains.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "K.-U. Schmidt, On a problem due to Littlewood concerning polynomials with unimodular coefficients, arXiv:1302.2766",
+    "Balister, Bollobás, Morris, Sahasrabudhe and Tiba, Flat Littlewood Polynomials Exist, arXiv:1907.09464, Annals of Mathematics 192 (2020)",
+    "Sankuru and Babu, Designing unimodular sequence with good auto-correlation properties via Block Majorization-Minimization method, arXiv:2001.06267",
+    "Resultary 2026/10/11/SCOPE-sharp-sixth-moment-fourier-norm-via-four-term-even-moment-symmet--f3e238ebf219",
+    "Resultary 2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older indexed/unindexed short polyphase code-design tables might derive an equivalent continuous-phase L6 constant.",
+    "No results claimed for nonconsecutive support or higher lengths."
+  ],
+  "residual_risks": [
+    "Older indexed/unindexed short polyphase code-design tables might derive an equivalent continuous-phase L6 constant.",
+    "No results claimed for nonconsecutive support or higher lengths."
+  ],
+  "schema_version": 1
+}
