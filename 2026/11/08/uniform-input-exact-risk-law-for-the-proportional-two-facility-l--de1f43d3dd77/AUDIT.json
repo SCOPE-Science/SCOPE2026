@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact normalizer h≥1/4 yields a continuous uniform empirical-kernel limit. The two-median optimum tends to 1/8. The selected-pair density integrates to one, its exact two cost moments follow from polynomial identities and one arctangent integral; local density/geometry gives linear and cubic sharp tails. A standalone rational checker and independent quadrature support the algebra; the infinite claim uses the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chan et al. establish the tight 3.5186 worst-case mixture guarantee and a gap-product theorem; Ma–Peng give 11/3 worst-case mixture bounds.",
+        "Aziz et al. study truthfulness and guarantees for multi-facility anchor-volume extensions, not i.i.d. performance of the two-facility baseline."
+      ],
+      "reasoning": "Worst-case guarantees upper-bound every profile but do not fix a distribution-specific stochastic limit, exact variance, or both local tail coefficients. The current claim compares exact profile-averaged and realized lottery behavior under i.i.d. uniform sites.",
+      "searches": [
+        "arxiv:2608.22484 §3 full relevant text and mixture approximation proof",
+        "arxiv:2608.09061 §3 and worst-case examples",
+        "arxiv:2608.16550 §§3,5",
+        "\"Proportional\" \"facility\" \"uniformly distributed\" \"average-case\" two facilities"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.09061",
+      "arxiv:2608.22484",
+      "arxiv:2608.16550",
+      "doi:10.1145/1807342.1807393 (bibliographic and mediated model only)",
+      "Analysis and optimization of multi-dimensional percentile mechanisms (excerpt)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proportional chooses an unbiased anchor, while Global Pair chooses an anchor proportional to distance-degree; the distribution of two open sites consequently changes.",
+        "Percentile mechanisms place two fixed population-quantile facilities, unlike either random-anchor scheme."
+      ],
+      "reasoning": "The old mechanism and worst-case bound imply only a bound of four on its conditional mean ratio; they do not entail a value 7π/12−4/9 or moments and endpoint rates. The pairwise gap-product result supplies only the comparator. The fixed-percentile expected-cost optimizers are different mechanisms.",
+      "searches": [
+        "arxiv:2608.09061 Definitions 2.3 and 3.1; Theorems 3.3–3.5",
+        "arxiv:2608.22484 Definitions 3–5 and Theorem 2",
+        "\"Analysis and optimization of multi-dimensional percentile mechanisms\" uniformly distributed 0.25 0.75"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both first-uniform-anchor and distance-degree-biased pair rules share the second-stage distance weighting, but their anchor marginals are different; arxiv:2608.09061 §3.",
+        "The limiting Proportional density depends on 1/h(u)+1/h(v), not the constant weighting factor in the Global Pair law."
+      ],
+      "reasoning": "The Proportional conditional-selection kernel is not equivalent to Pairwise-Distance under uniform inputs; the factor h(u) varies from 1/4 to 1/2. Previously obtained separation-biased results cannot imply the claimed Proportional moments without a new computation.",
+      "searches": [
+        "\"Proportional mechanism\" \"uniform distribution\" \"two\" \"facility location\" average approximation",
+        "\"random anchor\" \"proportional\" \"π\" \"expected cost\" facility",
+        "arxiv:2608.09061 §3; arxiv:2608.22484 §3, definitions of Proportional/Global Pair"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved paper or table gives 7π/12−4/9, 154/75, or the two tail constants for this mechanism.",
+        "Accessible comparisons report worst-case ratios and the distinct gap-product pair law."
+      ],
+      "reasoning": "The quantity is not a fixed small-instance table or precomputed arithmetic sequence; it is an asymptotic mechanism-specific distribution and its endpoint geometry. Absence of a search hit is not a uniqueness proof.",
+      "searches": [
+        "\"proportional mechanism\" \"7π\" \"two facilities\"",
+        "\"Proportional\" \"Global Pair\" \"uniform\" \"expected\"",
+        "\"proportional mechanism\" \"uniform\" \"average-case\" facility 2 centers",
+        "semantic query: proportional random anchor uniform line two facility exact approximation ratio"
+      ]
+    },
+    "rationale": "The earliest recent literature compares worst-case performance of Proportional and the distinct Global Pair lottery. This work obtains the uniform-anchor input distribution, exact realised moments, sharp tail coefficients and population-level ratio; none follows from worst-case guarantees or the gap-product law alone. Relevant primary texts and source-alias searches were compared by implication, not title. Original 2010 full text was unavailable and remains a priority risk.",
+    "residual_risks": [
+      "The full original 2010 article was not accessible for complete independent inspection.",
+      "Unindexed or unpublished work may already derive these constants.",
+      "The pairwise-distance comparison law is known separately; the novelty here resides in Proportional and its exact stochastic laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for i.i.d. uniform ratios, exact moments, and tail law in inspected relevant sections",
+        "evidence": [
+          "Definition 3.1 and §3 comparison of anchor distributions; Theorem 3.5 is a worst-case bound",
+          "§3.2 dispersion guarantees, not stochastic input law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.09061",
+        "material_read": "Accessible full-text §§1–3, statements and technical parts of §3, approximation tightness examples and references",
+        "method": "Read searchable primary text and compare the kernels, hypotheses and theorem conclusions",
+        "title": "Breaking the 4-Approximation Barrier in Strategyproof Two-Facility Location",
+        "trigger": "Directly defines and compares Proportional and Global Pair"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant sections; sharp bounds are worst-case, gap-product gives a different rule for fixed pair",
+        "evidence": [
+          "Definitions 3–5 and Theorem 2: exact worst-case mixture ratio",
+          "Discussion of two-stage anchor discrepancy"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22484",
+        "material_read": "Accessible full-text abstract, §§1–3 including Definitions 3–5, Theorem 2 and parts of §§3.1–3.3",
+        "method": "Read primary text and check whether its results imply uniform-population distributions",
+        "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+        "trigger": "Tight fixed-mixture theorem and two-facility Gap-Product relation"
+      },
+      {
+        "assessment": "No exact uniform-agent two-facility Proportional distribution in relevant read sections",
+        "evidence": [
+          "§3 defines three-facility anchor-gap sampling",
+          "§5 worst-case approximation and §6 incentives"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.16550",
+        "material_read": "Accessible full-text introductory definitions, §3, §5 cost analysis, §6 boundary conclusions",
+        "method": "Compare probability weights and claims with k=2 specialization",
+        "title": "Anchoring for Truthfulness: The Random-Anchor Volume Mechanism for Multi-Facility Location",
+        "trigger": "Potential stronger random-anchor scheme"
+      },
+      {
+        "assessment": "NOT_FULLY_ASSESSED; residual priority risk explicitly retained",
+        "evidence": [
+          "Subsequent primary papers cite the original four-approximation and the uniform-anchor two-stage definition"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1807342.1807393",
+        "material_read": "Bibliographic record and descriptions quoted in later primary proofs; full 2010 article not accessible in this round",
+        "method": "Checked citation and mechanism statement as repeated by Ma–Peng and Chan–Lin–Wang; did not infer full-text negative",
+        "title": "Asymptotically Optimal Strategy-Proof Mechanisms for Two-Facility Games",
+        "trigger": "Original mechanism and possible earlier typical-input calculation"
+      },
+      {
+        "assessment": "Different mechanism, no implication of Proportional ratio law",
+        "evidence": [
+          "Quarter and three-quarter quantile locations are deterministic under uniform model"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/262165542_Analysis_and_optimization_of_multi-dimensional_percentile_mechanisms",
+        "material_read": "Accessible excerpt on uniform prior and optimal percentile locations",
+        "method": "Compare fixed-percentile outputs with random-anchor rule",
+        "title": "Analysis and optimization of multi-dimensional percentile mechanisms",
+        "trigger": "Uniform-input two-facility average-cost benchmark"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de1f43d3-dd77-4a55-a423-c71ae434a038",
+  "value": {
+    "rationale": "The output establishes natural population-level, ex-ante and realised performance of a foundational truthful two-facility lottery, including mean, variance, and both extreme tails, permitting an explicit average-versus-worst-case mixture comparison. The statistics are intrinsic to the rule, not arbitrary finite parameter slices.",
+    "status": "PASS"
+  }
+}
