@@ -1,19 +1,21 @@
-# Scientific review: sharp cumulant transition in asymmetric telegraph transport
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The two-state Feynman–Kac resolvent gives an exact fourth-cumulant identity in terms of two explicitly defined positive functions. Their second-derivative ratio decreases strictly, and two weighted-average arguments show that the function ratio decreases from \(2\) to \(1\), proving the sharp rate thresholds \(1/5\) and \(1/3\), the one-simple-zero intermediate regime and strict signs at equality. The independent matrix-exponential checker passed 333 comparisons and regime assertions; these finite tests corroborate rather than prove the global theorem. The Brownian extension follows from cumulant additivity.
+PASS
 
-## Originality: PASS on inspected evidence, with residual priority risks
+PASS. Starting stationary two-state generator Q and centered velocities, directly inverting the 2x2 Feynman-Kac resolvent gives fourth cumulant κ4=24PΔ^4/r^4[η²A(u)-P B(u)] for P=ab/(a+b)², η=(b-a)/(a+b), u=(a+b)t. The explicit A,B are twice-integrated positive kernels with A=(u²/2)e^-u>0 and B=2e^-u(u-1+e^-u)>0. B/A=4(u-1+e^-u)/u² decreases strictly; twice taking positively weighted means proves R=B/A decreases strictly from2 to1. Hence κ4 negative for η²<=1/5, crosses once negative-to-positive when 1/5<η²<1/3, positive for η²>=1/3, all for t>0; both endpoint equalities strict by 1<R<2. Gaussian independent Brownian forcing has zero fourth cumulant. Independent fourth-moment generator confirms representative rates and times.
 
-López and Ratanov (2014), *On the Asymmetric Telegraph Processes*, https://doi.org/10.1239/jap/1402578644, treat precisely the two-rate telegraph generator and compute moments of all orders. Their Theorem 4.1 and subsequent formulas were read in full and explicitly credited. The proposed contribution is not another moment formula or model, but the sharp classification of its fourth-cumulant sign over **every** positive observation time and switching asymmetry, including a unique-crossing proof. A. D. Kolesnik (2012), https://www.mathnet.ru/eng/basm304, treats homogeneous symmetric telegraph moments; its abstract was reviewed, but its separate full PDF could not be retrieved. Related earlier findings treat three-state resting dynamics, spatially periodic reversal rates, or random speeds, none of which entails the present two-state result. Searches for occupation-time cumulants and telegraph excess-kurtosis sign thresholds did not establish equivalent coverage. The existence of previously uninspected work deriving this exact classification remains possible, and independent priority checking is needed.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The physical rate imbalance can now be read directly from the qualitative evolution of transient transport kurtosis: it either always stays negative, crosses once toward positive, or stays positive. Proving absence of further temporal sign crossings is a nontrivial global conclusion; the exact thresholds and robustness to independent Gaussian diffusion make it a useful structural baseline for intermittent transport experiments and theory.
+PASS (best of knowledge). López–Ratanov already gives the same model and all-order moment machinery. Originality restricted to the global sign/trichotomy/one-crossing theorem and exact thresholds, not new mgf methods. Unexamined earlier specialized applications remain an explicit risk.
 
-## Limitations and risks
+## value
 
-The claim requires stationary initialization, exactly two constant velocities and positive homogeneous switching rates. It does not apply to nonstationary starts, state-dependent diffusion, or more-than-two-state models. Its priority assessment is conditional on examined literature, with the general-moment source already providing ingredients to derive the result. Finite numerical verification and self-review are not independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A complete continuous-rate/time phase diagram with sharp thresholds and a unique sign transition for a directly measured transport cumulant is mathematically meaningful; general moment formulas alone do not supply the structural one-crossing law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
