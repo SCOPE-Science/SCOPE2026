@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three exhaustive parameter regimes are proved with their exact quantifiers. For \(n\le a\), Proposition 4.8 of Bei et al. supplies the already-known existence proof; for \(n\ge b\), the new greedy+matching construction is proved for arbitrary normalized monotone valuation functions and yields connected \(\mathrm{EF1}_{\mathrm{outer}}\); for \(a<n<b\), a unit-additive counting argument forbids even ordinary EF1. The matching inequalities use exactly \(t=a+b-n\le a\le b\). The standalone reproducibility program passed 58,546 matching-subset conditions, 11,100 constructed monotone allocation tests, and 116 impossible-range parameter checks. Finite tests corroborate, rather than replace, the symbolic proof. No assumption of additivity is imposed in either positive range.
+## correctness
 
-**Originality — PASS, with residual risk.** The specific infinite-family full spectrum is assembled using previously known lower-range and cutset-negative coverage, which are explicitly credited. The claimed new assertion is the general upper-range \(n\ge b\) construction for arbitrary heterogeneous monotone utilities, with connected \(\mathrm{EF1}_{\mathrm{outer}}\) and at most two items per bundle. In Chen--Zwicker's inspected full text, Observation 2 and Theorem 5 yield only \(n\ge |V|-2\) (subject to the theorem's condition); Bei et al. Proposition 4.8 requires both part sizes at least \(n\); neither implies the novel family \(b\le n<|V|-2\) when \(a\ge3\). Exact implication comparisons against the accessible primary literature and actual published research-index records revealed no stronger theorem covering the high-agent biclique range. The 2026 Bousquet et al. full text remained unavailable; an overlapping theorem therein cannot be excluded solely from its abstract, so priority is not independently established.
+PASS
 
-**Value — PASS.** This completes the natural universal connected-EF1 agent-count spectrum on an infinite, parameterized nontraceable graph family, with arbitrarily long forbidden intervals and an explicit algorithm reaching the earliest possible upper yes-band. The proof improves the graph-general high-agent threshold from two unallocated vertices to as many as the smaller part size, and allows fully heterogeneous nonadditive monotone preferences. It clarifies the distinct roles of connectivity, number of agents, and valuation breadth in graph-based resource division; it is not just a finite table or an arbitrary subcase.
+For 1<=a<=b and 1<=n<=a+b with possibly different monotone normalized valuations, prove three complementary ranges. For n<=a, Bei et al. Proposition 4.8 applies; n=1 is immediate. For n>=b, t=a+b-n<=a, after each agent chooses her best available singleton, the x leftover L vertices fit among b-y chosen R vertices and the y leftover R among a-x chosen L: both inequalities follow from t<=a<=b. Attach each leftover to a different opposite-side chosen singleton. Every bundle is a singleton or an edge, and each agent i may remove the chosen vertex of j, leaving a leftover that was available at i's pick, so even EF1_outer follows without additivity. For a<n<b, an R-only singleton is forced; unit additive envy implies every other bundle size<=2, at most a size-2 bundles, and n+a<a+b is a contradiction. Independently checked all residual cardinality inequalities in 36,769 cases; no finite check is used as an infinite proof.
 
-**Limitations and closest literature.** The exact domain is complete bipartite graphs, normalized monotone utility, nonempty connected bundles and \(1\le n\le a+b\). Low-range existence and middle-range obstruction build on Bei et al. (arXiv:1908.05433) and Chen--Zwicker (arXiv:2402.05884). Bilò et al. (arXiv:1808.09406) provide nearby traceable-graph theory. The inaccessible full text of Bousquet et al. (arXiv:2608.29902) leaves a specific residual comparison risk. External independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with priority qualification. Existing Bei et al. gives the low-agent band and Chen–Zwicker gives a generic cutset obstruction/limited high-n consequences. Neither inspected result supplies a high-agent construction for all n>=b at unbounded a under arbitrary heterogeneous monotone valuations. A highly relevant 2026 paper on EF1_outer and graph classes could implicitly contain such a result; only its abstract was accessible, so that remains a substantial explicit priority risk.
+
+## value
+
+PASS
+
+The universal n-spectrum of connected fair division is a natural structural parameter, and this result resolves a possibly unbounded forbidden interval using an EF1_outer construction under the strongest relevant arbitrary monotone heterogeneous model; it is not merely a table of small additive examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

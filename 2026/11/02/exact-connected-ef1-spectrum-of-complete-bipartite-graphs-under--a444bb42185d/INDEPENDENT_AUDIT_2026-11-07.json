@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:46:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-connected-ef1-spectrum-of-complete-bipartite-graphs-under--a444bb42185d/RESULT.md",
+        "2026/11/02/exact-connected-ef1-spectrum-of-complete-bipartite-graphs-under--a444bb42185d/verify_biclique.py"
+      ],
+      "rationale": "For 1<=a<=b and 1<=n<=a+b with possibly different monotone normalized valuations, prove three complementary ranges. For n<=a, Bei et al. Proposition 4.8 applies; n=1 is immediate. For n>=b, t=a+b-n<=a, after each agent chooses her best available singleton, the x leftover L vertices fit among b-y chosen R vertices and the y leftover R among a-x chosen L: both inequalities follow from t<=a<=b. Attach each leftover to a different opposite-side chosen singleton. Every bundle is a singleton or an edge, and each agent i may remove the chosen vertex of j, leaving a leftover that was available at i's pick, so even EF1_outer follows without additivity. For a<n<b, an R-only singleton is forced; unit additive envy implies every other bundle size<=2, at most a size-2 bundles, and n+a<a+b is a contradiction. Independently checked all residual cardinality inequalities in 36,769 cases; no finite check is used as an infinite proof.",
+      "residual_risks": [
+        "Low range invokes precisely the cited published connected ordinary EF1 theorem; outer EF1 is asserted only in high range.",
+        "Graph must be complete bipartite, n nonempty bundles, valuations monotone and normalized."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bei proposition covers n<=min(a,b), and special 3-agent case only.",
+          "Chen–Zwicker high-n conditions reach n>=N-1, sometimes N-2; for arbitrary a, n=b=N-a may be smaller.",
+          "Bousquet abstract mentions outer-connected allocations and nontraceable families; full mathematical scope unread."
+        ],
+        "reasoning": "No actually inspected theorem yields the universal biclique high-agent band; an inaccessible plausible 2026 general theorem might, so full-text comparison remains a risk.",
+        "searches": [
+          "Bei et al. arXiv:1908.05433 Proposition 4.8 and Theorem 4.9",
+          "Chen–Zwicker arXiv:2402.05884 Theorem 1, Observation 2 and Theorem 5",
+          "Bousquet et al. arXiv:2608.29902 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1908.05433",
+        "https://arxiv.org/html/2402.05884v1",
+        "https://arxiv.org/abs/2608.29902",
+        "published Resultary semantic query: connected EF1 K a b complete bipartite graphs arbitrary monotone nonadditive high agent count sharp spectrum outer EF1 (12 inspected hits)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Low band and likely the intermediate cutset negative band are established antecedents, explicitly not claimed as new.",
+          "The new positive statement is all n>=b with EF1_outer; general n=N-1 or N-2 does not imply it for large a."
+        ],
+        "reasoning": "Conjunction of old lower/negative bands with a distinct constructive upper band yields a full spectrum; cannot infer upper band from the named older results without a new argument.",
+        "searches": [
+          "Bei et al. Proposition 4.8; Theorem 4.9",
+          "Chen–Zwicker Theorem 1 and Section 5",
+          "Bousquet et al. abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For arbitrary monotone utilities, singleton-greedy and opposite-side matching gives EF1_outer in n>=b; strict zero-gap at b=a.",
+          "Resultary nearest b-spectrum of crown graphs concerns a different sequence-b spectrum, not connected EF1 fair partition of bicliques."
+        ],
+        "reasoning": "Connected-EF1 guarantee for all valuations is a universal agent-count property; sequence b-spectrum of crown graphs and unit additive instances are logically weaker/different.",
+        "searches": [
+          "published Resultary semantic query: connected EF1 K a b complete bipartite graphs arbitrary monotone nonadditive high agent count sharp spectrum outer EF1 (12 inspected hits)",
+          "Chen–Zwicker arXiv:2402.05884, cutsets and EF1; search connected EF1 outer graph partition biclique matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed table is the entire n=1..a+b interval, with a forbidden gap of b-a-1.",
+          "No exact table of universal monotone-value biclique n-spectrum was found among 12 nearest published search hits; absence is not proof."
+        ],
+        "reasoning": "Small special tables at n=3 or additive valuations cannot establish universal heterogeneous monotone spectrum.",
+        "searches": [
+          "published Resultary semantic query: connected EF1 K a b complete bipartite graphs arbitrary monotone nonadditive high agent count sharp spectrum outer EF1 (12 inspected hits)",
+          "Bei et al. biclique n=3 classification and Chen–Zwicker examples"
+        ]
+      },
+      "rationale": "PASS with priority qualification. Existing Bei et al. gives the low-agent band and Chen–Zwicker gives a generic cutset obstruction/limited high-n consequences. Neither inspected result supplies a high-agent construction for all n>=b at unbounded a under arbitrary heterogeneous monotone valuations. A highly relevant 2026 paper on EF1_outer and graph classes could implicitly contain such a result; only its abstract was accessible, so that remains a substantial explicit priority risk.",
+      "residual_risks": [
+        "Bousquet–Connor–Totschnig–Zeitoun 2026 full text inaccessible (authorized retrieval vpn_disconnected); may cover all biclique high-agent cases implicitly.",
+        "Search of 12 published semantic nearest results is bounded and is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_LOW_BAND",
+          "evidence": [
+            "Proposition 4.8 covers n<=a; Thm 4.9 treats 3 agents, not arbitrary large n>=b."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.05433",
+          "material_read": "Full primary PDF relevant Proposition 4.8 and Theorem 4.9",
+          "method": "arXiv PDF text and page image",
+          "title": "The Price of Connectivity in Fair Division",
+          "trigger": "Same complete-bipartite graph and universal valuations"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE_NEGATIVE_AND_NEAR_N",
+          "evidence": [
+            "Section 5 positively covers N−1 and some N−2 agent cases; full upper band n>=b for unbounded a not established by these statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.05884v1",
+          "material_read": "Full primary HTML: Theorem 1 and Section 5 Observation 2, Theorem 5",
+          "method": "OA full HTML",
+          "title": "Cutsets and EF1 Fair Division of Graphs",
+          "trigger": "General cutset obstruction and larger-agent existence"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK",
+          "evidence": [
+            "Abstract discusses EF1_outer for certain graph families, potentially relevant. No whole-paper noncoverage claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.29902",
+          "material_read": "Abstract and metadata only; full preprint unavailable",
+          "method": "arXiv preprint + OA search attempted, then Oxford authorized attempt returned vpn_disconnected",
+          "title": "Fair Division of Graphs: Beyond Traceability",
+          "trigger": "2026 same connected outer EF1 and graph spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-connected-ef1-spectrum-of-complete-bipartite-graphs-under--a444bb42185d/RESULT.md",
+        "2026/11/02/exact-connected-ef1-spectrum-of-complete-bipartite-graphs-under--a444bb42185d/verify_biclique.py",
+        "https://arxiv.org/pdf/1908.05433",
+        "https://arxiv.org/html/2402.05884v1"
+      ],
+      "rationale": "The universal n-spectrum of connected fair division is a natural structural parameter, and this result resolves a possibly unbounded forbidden interval using an EF1_outer construction under the strongest relevant arbitrary monotone heterogeneous model; it is not merely a table of small additive examples.",
+      "residual_risks": [
+        "Novelty and value are conditional on specialist priority confirmation of the 2026 closely related work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Low range invokes precisely the cited published connected ordinary EF1 theorem; outer EF1 is asserted only in high range.",
+    "Graph must be complete bipartite, n nonempty bundles, valuations monotone and normalized.",
+    "Bousquet–Connor–Totschnig–Zeitoun 2026 full text inaccessible (authorized retrieval vpn_disconnected); may cover all biclique high-agent cases implicitly.",
+    "Search of 12 published semantic nearest results is bounded and is not priority proof.",
+    "Novelty and value are conditional on specialist priority confirmation of the 2026 closely related work."
+  ],
+  "schema_version": 1
+}
