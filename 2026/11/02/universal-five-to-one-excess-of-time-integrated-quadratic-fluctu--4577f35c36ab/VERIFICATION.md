@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility of the quadratic variance comparison
+# Independent mathematical audit
 
-Run the included standard-library-only `verify.py` via `python3 verify.py`. It computes the stationary polynomial generator recurrence for all monomials through total degree four, verifies the quadratic Poisson equation, and compares two separate variance formulas: a centered Green–Kubo/Poisson inner product and a jump-plus-diffusion predictable quadratic-variation expectation. It evaluates the Gaussian fourth-order fluctuation rate both from its closed form and by direct integration of the squared known autocovariance, treating coincident relaxation and reset rates separately.
+## correctness
 
-The program ran successfully on the packaged source with **150 exact-rational parameter tuples**, checking variable confinement rates, reset rates, diffusivities and couplings. It checks the exact benchmark at unit parameters, positivity at sampled positive rationals and the algebraic branch of the monotonicity certificate. Its stdout reads:
+PASS
 
-```
-PASS: 150 exact rational parameter tuples; 2 independent Green-Kubo identities
-PASS: 2 covariance-matched Gaussian integrals; positivity and monotonicity certificates
-PASS: unit-rate variances and universal ratio 68/15
-```
+The exact stationary monomial recursion follows by applying L=(-mu*x+kappa*y)∂x +D∂yy +r[f(x,0)-f(x,y)]; its quadratic h solves -Lh=x²-M20. Stationary Green–Kubo 2E[(x²-M20)h] and direct carré-du-champ 2D(Bx+2Cy)²+r(Bxy+Cy²)² give equal long-time rates, martingale CLT follows from ergodicity, bounded polynomial moments and Lindeberg. Matched OU covariance is identical because E[Y0Yt]=2D/r exp(-rt); Gaussian Wick integration gives SigmaG, with explicitly positive excess 8D²κ⁴(21r²+24rmu+8mu²)/[mu²r³(r+mu)³(r+2mu)]. The ratio derivative is negative using a stated globally positive polynomial. Independently computed unit rates Sigma_reset=68/3 and SigmaG=5 and checked derivative identity.
 
-The complete continuous-parameter positivity proof, uniqueness of stationary law and central limit theorem are analytic arguments in `RESULT.md`. Rational tests alone do not constitute those proofs. No independent or external audit was conducted.
+## originality
+
+PASS
+
+The originating active particle article proves model moments, stationary covariance and ordinary time-dependent statistics, explicitly credited; it does not derive the integrated fourth-order Green–Kubo variance excess, its exact positive formula and sharp five-to-one parameter-identifying monotonicity. Generic resetting and OU frameworks do not directly supply this comparison.
+
+## value
+
+PASS
+
+The theorem distinguishes two processes invisible to all second-order position statistics by a canonical integrated quadratic observable, gives an exact variance-rate amplification and uniquely recovers the reset/confinement ratio; natural for stochastic identification, not merely renaming an existing covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
