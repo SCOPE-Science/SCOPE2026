@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finding is a finite exact conditional-expectation identity for \(G(n,m)\), with explicit hypotheses: no isolated vertices in the non-induced motif, \(2\le v\le n-1\), and \(e\le m\le\binom{n-1}{2}\). Conditioning on a specified isolated vertex yields a uniform graph on the other vertices, and summing this conditional motif mean yields the covariance formula. The analogous independent-edge calculation has the opposite sign. Cancelling adjacent falling factorials proves the tree sequence has one sign transition for \(n\ge7\); uniform logarithmic expansion establishes the limiting root. The included verifier independently checked 33,856 labeled graphs, 10,187 exact-rational assertions, and all finite tree adjacent-ratio identities through \(n=100\). Finite experiments were not used as proof of the infinite family.
+## correctness
 
-**Originality — PASS with priority risk.** The closest inspected primary result, Stark–Wormald (arXiv:1608.05193), contains the standard marginal motif mean, which is specifically credited; it addresses absence probabilities and motif clusters, not the mixed isolated-vertex moment. Chatterjee–Varadhan (arXiv:1008.1946) treats graphon large deviations and triangle-count phases rather than this exact finite covariance or tree-size transition. Published-record searches using explicit joint-covariance, hypergeometric, tree-threshold, and matching-alias terms did not find an equivalent stronger claim. The sign transition is not implied by the cited asymptotic nonexistence or large-deviation results without a distinct joint-event calculation. A generic mixed-moment identity in broader random-graph literature may already imply the formula, so historical priority is not certified.
+PASS
 
-**Mathematical value — PASS.** The core result is a complete sign phase diagram for two natural random-graph statistics, with a notable fixed-edge versus independent-edge reversal. The tree theorem has a universal finite single-crossing structure and a non-obvious sharp macroscopic threshold \(\alpha_*=0.79681213002002\ldots\), independent of tree shape and, within its feasible range, edge density. This identifies a concrete limitation of transferring motif–isolation dependence between standard null models. The marginal motif expectation alone is standard and is not the claimed contribution.
+Conditional on a specified isolated vertex in G(n,m), all m edges are uniform on n-1 vertices; because motif H has no isolated vertices, every motif copy avoids that vertex. The ratio of conditional to unconditional E[X_H] is (n-v)/n*(N)_e/(P)_e, producing the claimed covariance factor for e<=m<=P with positive means. For m<e or m>P one variable is identically zero. Independent-edge G(n,p) leaves all other edges independent and yields negative -v/n factor. For trees, exact adjacent ratio and n=7 rational values (1,8/7,114/91,114/91,969/1001) checked; unimodality, final <1 for n>=7, and log R→log(1−alpha)+2alpha establish unique finite and asymptotic sign transitions. Finite checks corroborate, not replace, conditional counting and analytic bounds.
 
-All sources and limits are recorded in the result and audit metadata; no historical uniqueness certification or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
+
+## value
+
+PASS
+
+This gives a complete exact sign classification independent of the edge count and tree shape, with a sharp macroscopic tree-size threshold reversing the G(n,p) sign. The observable pair (isolates, motif embeddings) is standard in random graphs and a uniform model-dependent covariance phase transition is a natural precise statistic to know.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

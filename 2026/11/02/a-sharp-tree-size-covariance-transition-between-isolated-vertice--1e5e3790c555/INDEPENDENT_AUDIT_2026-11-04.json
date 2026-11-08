@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:43:54.602038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on a specified isolated vertex in G(n,m), all m edges are uniform on n-1 vertices; because motif H has no isolated vertices, every motif copy avoids that vertex. The ratio of conditional to unconditional E[X_H] is (n-v)/n*(N)_e/(P)_e, producing the claimed covariance factor for e<=m<=P with positive means. For m<e or m>P one variable is identically zero. Independent-edge G(n,p) leaves all other edges independent and yields negative -v/n factor. For trees, exact adjacent ratio and n=7 rational values (1,8/7,114/91,114/91,969/1001) checked; unimodality, final <1 for n>=7, and log R→log(1−alpha)+2alpha establish unique finite and asymptotic sign transitions. Finite checks corroborate, not replace, conditional counting and analytic bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stark–Wormald gives E X_H and nonexistence probabilities.",
+          "Sah–Sawhney Theorem/Section 4 gives local limits for subgraph counts in G(n,m) under dense hypotheses and fixed H."
+        ],
+        "reasoning": "The fixed-H dense local limit does not dominate the exact n,m,v,e joint covariance over all admissible m and tree sizes v=Theta(n).",
+        "searches": [
+          "Stark Wormald 2016 motif nonexistence G(n,m)",
+          "Sah Sawhney 2022 graph factor local limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1608.05193 — Open paper introduction/definition of expected subgraph copies and main nonexistence theorems",
+        "https://doi.org/10.1112/jlms.12523 — Open-access full HTML: abstract, Sections 2.5, 3 and 4, definitions and main statements on fixed-edge subgraph counts",
+        "https://arxiv.org/abs/1008.1946 — Open-access source introduction and graphon/LDP result statements",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 — Search-returned mathematical statement and summary, not full package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard E X_H is derived from injection counting; E[I X_H] additionally requires isolation conditioning with different graph capacity P.",
+          "G(n,p) has a negative covariance, G(n,m) can have either sign."
+        ],
+        "reasoning": "The sign flip and universal tree transition are not consequences of the cited asymptotic count theorems without the new conditional quotient; they may be algebraically short but capture a motivated exact dependence phenomenon.",
+        "searches": [
+          "Stark Wormald 2016 Section 1",
+          "Chatterjee Varadhan 2010 dense LDP",
+          "Sah Sawhney 2022 Sections 3-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact conditional expectation quotient (n-v)/n*(N)_e/(P)_e derived from hypergeometric sampling.",
+          "Sah–Sawhney analyzes subgraph polynomials without an isolate event."
+        ],
+        "reasoning": "An equivalent formulation as mixed factorial moments or conditional-on-isolation expectations was searched; a known marginal motif expectation alone does not state the signed mixed covariance, and the threshold remains additional.",
+        "searches": [
+          "covariance isolated vertices count tree subgraph fixed edge Erdos Renyi G n m sign tree-size transition",
+          "conditional motif count given isolated vertex G(n,m)",
+          "Sah Sawhney G(n,m) subgraph local limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related component–triangle count is a different observable; no exact isolated-vertex/tree-size table found in bounded search."
+        ],
+        "reasoning": "The mathematical claim is the full expression and threshold, not a recomputed value in a fixed table. Search absence gives residual historical risk.",
+        "searches": [
+          "G(n,m) covariance isolated vertices count fixed subgraph tree threshold 0.796812",
+          "published Resultary component triangle covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.",
+      "residual_risks": [
+        "General mixed-factorial subgraph moment literature may have recorded the same conditional identity in other notation.",
+        "At alpha=alpha_* the leading asymptotic sign test is inconclusive; no sign claim there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COMPONENT_NON_COVERING_MIXED_COVARIANCE",
+          "evidence": "Gives the expectation of motif counts and nonexistence probabilities; no explicit isolation/motif mixed covariance or macroscopic tree threshold in inspected main statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05193",
+          "material_read": "Open paper introduction/definition of expected subgraph copies and main nonexistence theorems",
+          "method": "primary full-text section-level reading",
+          "title": "The probability of nonexistence of a subgraph in a moderately sparse random graph (Stark and Wormald, 2016)",
+          "trigger": "Same G(n,m) motif expectations and hypergeometric sampling"
+        },
+        {
+          "assessment": "PRIOR_TECHNIQUES_NOT_DIRECT_COVERAGE",
+          "evidence": "General local limit framework treats connected subgraph counts in G(n,m); the isolated-vertex count and exact finite mixed covariance sign for growing motifs are not its stated result.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12523",
+          "material_read": "Open-access full HTML: abstract, Sections 2.5, 3 and 4, definitions and main statements on fixed-edge subgraph counts",
+          "method": "primary HTML section-by-section theorem comparison",
+          "title": "Local limit theorems for subgraph counts (Sah and Sawhney, 2022)",
+          "trigger": "More general fixed-edge graph factor and subgraph statistics"
+        },
+        {
+          "assessment": "DIFFERENT_REGIME",
+          "evidence": "Dense large deviations of graphons and subgraph densities do not imply the finite exact isolated-vertex mixed moment.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.1946",
+          "material_read": "Open-access source introduction and graphon/LDP result statements",
+          "method": "full text relevant main theorem sections",
+          "title": "The large deviation principle for the Erdős–Rényi random graph (Chatterjee and Varadhan, 2010)",
+          "trigger": "Broad random graph correlation/phase literature"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_OBSERVABLE",
+          "evidence": "Covariance of component count and triangles in bond percolation differs from isolated-vertex count and arbitrary motif copies in fixed-edge G(n,m).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Search-returned mathematical statement and summary, not full package",
+          "method": "semantic search and direct statement comparison",
+          "title": "Three-point connectivity exactly controls component–triangle covariance (published research finding)",
+          "trigger": "Nearest indexed component–motif correlation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete exact sign classification independent of the edge count and tree shape, with a sharp macroscopic tree-size threshold reversing the G(n,p) sign. The observable pair (isolates, motif embeddings) is standard in random graphs and a uniform model-dependent covariance phase transition is a natural precise statistic to know.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies to non-induced H without isolated vertices, positive-overlap edge-count range; not induced motif covariance or critical asymptotic line alpha=alpha_*.",
+    "General mixed-factorial subgraph moment literature may have recorded the same conditional identity in other notation.",
+    "At alpha=alpha_* the leading asymptotic sign test is inconclusive; no sign claim there."
+  ],
+  "schema_version": 1
+}
