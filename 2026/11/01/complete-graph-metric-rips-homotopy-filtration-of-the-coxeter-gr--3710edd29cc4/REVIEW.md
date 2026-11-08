@@ -1,15 +1,21 @@
-# Scientific review of the Coxeter graph Rips filtration
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is constructed from all 28 noncollinear Fano triples and disjointness edges. The standalone checker obtains 42 edges, girth seven, diameter four, and enumerates every face of the radius-three clique complex, not a truncated skeleton. The declared pivot matching has 5,404 pairs and 88 critical cells: exactly one zero-cell and 87 four-cells. It verifies acyclicity by visiting all 10,896 vertices of the oriented Hasse graph and all 48,916 incidence arrows in a topological ordering. These facts prove a wedge of 87 four-spheres by the ordinary acyclic-matching/CW reduction; the independent mod-two ranks corroborate but do not replace the integral argument. The radius-two inclusion equivalence is already a theorem of Adamaszek and is also checked locally by a 112-pair relative collapse; graph diameter four completes the filtration. No infinite-family assertion is made.
+## correctness
 
-## Originality — PASS, subject to literature-access risk
-The new mathematical content is the exact radius-three Coxeter-graph homotopy type (and ensuing full persistent barcode), not the radius-two stability already implied by Adamaszek's Proposition 2.2. The original paper's cycle formulas and girth condition do not imply the four-dimensional 87-sphere result: girth seven is below the threshold ten required for radius three, and the graph is not a cycle. A retrieved indexed finding on Coxeter-graph independence homology concerns a different simplicial complex; a retrieved third-power Rips result on the Tutte–Coxeter graph concerns a different graph of order 30. Relevant source comparisons were made at the level of hypotheses and conclusions. Full text of those two indexed records was inaccessible, but both summaries identify disjoint mathematical objects and lack a transfer theorem. There remains a risk from unindexed equivalent calculations, and the result has not been independently priority-certified.
+PASS
 
-## Mathematical value — PASS
-The Coxeter graph is a canonical distance-transitive cubic graph of girth seven and diameter four. Its radius-two graph-power homotopy is stable by a classical girth theorem, but its next metric threshold unexpectedly changes degree and multiplicity: 15 persistent one-cycles are replaced by 87 independent four-cycles. Determining all integral homotopy stages and all-field persistence for this named distance-regular example provides a motivated, complete invariant, rather than a parameter-picked numerical curiosity. The full-radius classification is exact and reproducible. The result neither asserts a general-family theorem nor needs one for its natural finite-object value.
+The 28 vertices are exactly the noncollinear Fano triples; disjointness gives 42 edges, girth 7 and diameter 4. Independently regenerated all graph-power clique faces at radius 3, obtaining face vector (28,294,1456,3514,3864,1596,144), 10,896 nonempty simplices and 48,916 codimension-one face incidences. The specified 28-pivot matching pairs 5,404 faces and leaves one critical vertex plus 87 critical four-cells; a separate topological sort of the entire reversed-matched directed Hasse diagram visits all 10,896 faces, proving acyclicity rather than trusting a rank log. Forman Morse reduction gives a CW complex with only one zero-cell and 87 four-cells, hence wedge^87 S4 integrally. The graph has rank42−28+1=15 at r1, and Adamaszek Proposition 2.2 (girth≥7 for second power) gives r2 collapsibility to r1, corroborated by the 28 closed-neighborhood tetrahedral collapse structure. Diameter 4 gives a simplex at r4. Thus all real inclusive thresholds and the specified persistence bars follow, with no torsion claim based merely on mod-two ranks.
 
-## Limitations and closest literature
-See Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433, Proposition 2.2 and Sections 3, 6 and 7. The nearby published-finding corpus records cover the ordinary independence complex of the Coxeter graph and the radius-three Rips complex of the distinct Tutte–Coxeter graph. Exact integral representation lattices and symmetry-quotient topology are not determined. Accessible-search completeness is limited, and no independent external audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-versus-prior comparison found no work proving the complete final claim; specifically distinguishes stronger source statements, aliases, exact tables and non-implications. No failed search is regarded as proof of priority.
+
+## value
+
+PASS
+
+The named 28-vertex cubic Coxeter graph is a canonical highly symmetric small graph with sharp graph-power transition: girth-stable 15 loops persist through r2, then exactly 87 independent 4-spheres appear at r3 before the full r4 simplex. This complete all-scale integral homotopy type and persistence for a natural finite graph is independently useful; no arbitrary parameter slicing or general-family theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

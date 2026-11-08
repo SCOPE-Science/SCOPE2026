@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-The proof-bearing program is `verify.py`, and its actual executed output is `verified_output.txt`. Invoke `python verify.py`. It uses only standard-library modules and regenerates all inputs from the explicit Fano-plane construction; no previously generated simplex table or intermediate certificate is read.
+## correctness
 
-It verifies 28 vertices, 42 edges, graph girth seven, diameter four, 28 closed-neighborhood tetrahedra at radius two, and the radius-three face vector \((28,294,1456,3514,3864,1596,144)\). The exact deterministic radius-three matching uses the 28 pivot indices printed in `RESULT.md`; it has 5,404 disjoint pairs and precisely one critical vertex and 87 critical four-dimensional cells. It constructs **every** cover relation of the face poset, reverses the matching arrows, and performs a complete topological sort of 10,896 faces across 48,916 incidences. Any directed cycle causes the executable to fail its assertion. The radius-three mod-two boundary-rank calculation is independently computed, but is only a cross-check: the fully acyclic matching yields the stronger integral wedge homotopy conclusion.
+PASS
 
-The radius-two homotopy equivalence follows from Adamaszek's published high-girth theorem, and can additionally be verified via the 28 relative tetrahedral collapses described in `RESULT.md`. Barcodes follow using the actual inclusion at radii one to two and the contractible radius-four stage. Exact scripts do not settle publication priority or independently certify the proof.
+The 28 vertices are exactly the noncollinear Fano triples; disjointness gives 42 edges, girth 7 and diameter 4. Independently regenerated all graph-power clique faces at radius 3, obtaining face vector (28,294,1456,3514,3864,1596,144), 10,896 nonempty simplices and 48,916 codimension-one face incidences. The specified 28-pivot matching pairs 5,404 faces and leaves one critical vertex plus 87 critical four-cells; a separate topological sort of the entire reversed-matched directed Hasse diagram visits all 10,896 faces, proving acyclicity rather than trusting a rank log. Forman Morse reduction gives a CW complex with only one zero-cell and 87 four-cells, hence wedge^87 S4 integrally. The graph has rank42−28+1=15 at r1, and Adamaszek Proposition 2.2 (girth≥7 for second power) gives r2 collapsibility to r1, corroborated by the 28 closed-neighborhood tetrahedral collapse structure. Diameter 4 gives a simplex at r4. Thus all real inclusive thresholds and the specified persistence bars follow, with no torsion claim based merely on mod-two ranks.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-versus-prior comparison found no work proving the complete final claim; specifically distinguishes stronger source statements, aliases, exact tables and non-implications. No failed search is regarded as proof of priority.
+
+## value
+
+PASS
+
+The named 28-vertex cubic Coxeter graph is a canonical highly symmetric small graph with sharp graph-power transition: girth-stable 15 loops persist through r2, then exactly 87 independent 4-spheres appear at r3 before the full r4 simplex. This complete all-scale integral homotopy type and persistence for a natural finite graph is independently useful; no arbitrary parameter slicing or general-family theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
