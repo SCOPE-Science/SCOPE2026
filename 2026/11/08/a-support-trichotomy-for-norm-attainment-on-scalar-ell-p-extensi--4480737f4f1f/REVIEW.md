@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The norm bound is an exact consequence of the difference operator estimate \(\|A\|=2\) and the positive probability functional bound \(\|L_a\|=1\). Finite-support vectors with one far-out sign reversal saturate the difference norm while their functional values approach one for every summable probability sequence, establishing sharpness independently of a finite truncation. The bidual identification and formula follow from elementary \(\ell_1\) duality and finite-sum biduality. For finite \(p\), attaining the sum norm requires *both* components to attain their individual bounds, and positive weighted averaging forces all supported coordinates to share one sign. This yields the complete finite/proper-infinite/full support trichotomy. The endpoint argument uses an exact maximum norm and a cited published theorem. No probabilistic, asymptotic-numerical, or unproved lemma is required.
+
+## Originality — PASS (qualified)
+Dantas–Jung–Martín, arXiv:2609.00794, Theorem 3.3 and Remark 3.4 prove the universal property for \(c_0\) and \(c_0\)-sums. Their Theorem 5.1 proves destruction by *some* equivalent norm on each infinite-dimensional space, not a quantifier over every near-isometric neighborhood of the original norm. Our statement treats the explicit one-coordinate \(\ell_p\) renorming family with distortion tending to one, and classifies norm attainment of the operator and its second adjoint in terms of the support of the positive functional. Nearby indexed results on positive rank-one maps and convolution graphs concern quasi-norm-attainment in different target geometries, not this sharp bidual classification. Full texts for some nearby indexed records were not accessible in this review; a broader priority result is a residual risk.
+
+## Mathematical value — PASS
+The theorem pinpoints the stability boundary of an active Banach-space property: the original \(c_0\) geometry enjoys universal second-adjoint attainment but arbitrarily close one-scalar \(\ell_p\)-renormings do not. The exact three-stratum support classification distinguishes ordinary, bidual-only, and absent norm attainment in a single naturally parameterized family, and the contrast persists for all finite exponents while disappearing at the maximum-norm endpoint. It is not claimed as a classification of arbitrary renormings or as an improvement over the scope of the published universal equivalent-renorming theorem.
+
+## Priority qualifications and limitations
+A classical generic renorming argument could conceivably imply local instability by an unrecognized reduction. The comparison with published near-attainment records is currently based on searchable scientific summaries rather than complete primary texts; this is a priority limitation, not an asserted proof of uniqueness. The research is limited to real Banach spaces, nonnegative probability sequences, and one scalar \(\ell_p\)-summand.
+
+Self-review: passed. Independent audit: not yet performed.
