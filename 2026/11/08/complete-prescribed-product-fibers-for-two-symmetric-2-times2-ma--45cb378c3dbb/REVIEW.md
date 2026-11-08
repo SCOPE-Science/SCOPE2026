@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+For each of seven disjoint similarity-invariant target strata, the proof counts all ordered symmetric factors with no invertibility assumption. The cyclic symmetrizer calculation gives invertible-first-factor counts; singular first factors are counted separately for rank-one and zero targets. The proof includes characteristic-two and rank-zero boundaries. The independent exhaustive checker compared the exact fiber of every target in seven fields, including three genuine extension fields. The symbolic total-target and total-pair identities were verified by a degree-bounded exact certificate. These computations corroborate, rather than replace, the all-prime-powers proof.
+
+## Originality — PASS (provisional historical priority)
+The full 1959 Taussky–Zassenhaus text establishes symmetric symmetrizers and the cyclic case. The 2007 Horn–Sergeichuk arXiv preprint focuses on transpose congruence. The accessible introduction and method descriptions of Dopico–Uhlig address symmetrizer algorithms. None inspected passage gives a prescribed-product count, much less the rank-one/zero target multiplicities. Classical existence of symmetric products, cyclic centralizer facts, and similarity-class sizes are not claimed as new. The exact ordered-fiber histogram is a logically stronger quantitative question: classical existence alone cannot determine witness counts, and invertible symmetrizers alone omit rank-one/rank-one and zero-factor contributions. Searches of mathematical literature and prior published exact-factorization records found no stronger result that would imply the complete table. The 1981 symmetric-matrix partition paper remains an abstract-only comparison; its equation was unavailable, so historical priority is not independently certified.
+
+## Value — PASS
+The number of decompositions of a prescribed matrix into structured factors is a natural invariant of a classical surjective multiplication map. This result resolves its entire first nontrivial dimension across all finite fields and all target matrices, records systematic singular-fiber enhancements and complete target stratum multiplicities, and distinguishes split, non-split, Jordan, and trace-zero behavior. It is an exact natural classification rather than an arbitrary finite slice or a numerical interpolation. It does not claim a higher-dimensional theorem or independent priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
