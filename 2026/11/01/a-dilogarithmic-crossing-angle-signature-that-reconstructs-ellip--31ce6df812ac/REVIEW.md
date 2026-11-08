@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The affine crossing equivalence, cyclic-gap Dirichlet law, and \(\operatorname{Beta}(2,2)\) distribution of the difference of chord directions were reconstructed. The squared-sine angle formula follows from the determinant identity for affine-deformed directions. Independent rotational integration with the Poisson kernel and exact beta-weighted Fourier coefficients produces the stated dilogarithm. The integral representation of the dilogarithm yields a strictly negative derivative of its correction; the two endpoint expansions follow from the power series and the standard dilogarithm endpoint identity. The check program corroborates, but finite experiments do not establish, the all-parameter theorem.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Four independent uniform eccentric anomalies map from the circle to the ellipse by a non-singular diagonal affine map, preserving interior crossing and its 1/3 probability. Conditional on cyclic alternation, normalized consecutive gaps are Dirichlet(1,1,1,1), and the difference Δ between the two circular chord directions satisfies Δ/π~Beta(2,2) with density 6t(π-t)/π³. The affine squared-sine determinant identity and a uniformly convergent Poisson/Fourier expansion reduce the conditional moment to I_j=-3/(π²j²) and the displayed Li₂ formula. The integral for H(x)=((1-x)²/x)Li₂(x) differentiates to a strictly negative integrand, giving dQ/dx<-1/2, unique axis-ratio inversion, quadratic near-circular behavior and the cancellation of the 1/r² slender term. Separate independent beta–Poisson numerical integration matched the Li₂ expression for r=1,1.5,2,5,20 to at most 1.2×10^-14; r=100,1000 crosschecked the logarithmic remainder. Quadrature and asymptotic diagnostics are corroborative, not proofs.
 
-The closest literature is Barahona Torres, Manrique-Mirón, and Treviño-Aguilar (2019, arXiv:1911.05576), which proves a sine law for a **different** two-chord sampling scheme; Bortolotto and Ramos (2024, arXiv:2406.06771), concerning crossing probabilities; and Bortolotto and Souza (2025, arXiv:2504.12866), giving the radial location of a chord intersection. Those known ingredients, including the dilogarithm appearance in the last paper, are acknowledged. Their inspected statements do not entail the four-endpoint ellipse conditional angle moment, global shape-injectivity, or endpoint expansions. Nearby exact ellipse observables and previous three-point acuteness and yes/no circle-chord studies do not imply this four-point angular statistic. The relevant full texts and distinctions are recorded in `AUDIT.json`; more comprehensive specialist comparison could change the novelty assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The crossing frequency is exactly one third for all ellipse shapes, so it cannot identify anisotropy. In contrast, the conditional squared-sine angle moment strictly and uniquely determines the axis ratio, with a sharp monotonicity differential inequality, a quadratic circular deficit, and explicit logarithmic corrections in the slender-ellipse regime. The result is a complete inverse shape classification for a natural population geometric observable rather than a reformulation of existing crossing frequencies.
+Best-of-knowledge originality after primary comparisons: The exact inverse/derivative and endpoint asymptotics are not corollaries of the inspected preceding statements. The exact mathematical assumptions/implications, not titles or absence of search matches alone, determine this decision.
 
-## Scope and residual risk
+## value
 
-Assumes four independent uniform eccentric anomalies, two straight chords, and conditioning on interior crossing. No theorem for uniform arclength, uncertain finite-sample inversion, or nonelliptical boundaries. The exact identity and self-review do not imply independent verification or publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Crossing probability equals 1/3 for every eccentricity, so it contains no shape information; nevertheless the natural orthogonality score E[sin²(angle)|crossing] determines the complete ellipse axis ratio from a single population moment. The strict derivative bound makes inversion well-posed in the shape parameter, while the two degeneration expansions characterize the rigid and slender limits. The result is more than a substitution into a known crossing-frequency formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

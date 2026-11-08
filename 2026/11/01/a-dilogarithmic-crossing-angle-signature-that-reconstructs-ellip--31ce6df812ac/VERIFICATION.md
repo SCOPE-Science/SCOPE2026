@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the conditional crossing-angle identity
+# Independent mathematical audit
 
-Run `python3 checker.py` from this package's directory using Python 3 standard library. The deterministic checker calculates the first eight circular-gap cosine coefficients using independent Simpson integration, compares the dilogarithm formula with a separate Beta–Poisson integral at eight aspect ratios, numerically checks strict order and the inverse range, and simulates the original four endpoint labels at four ellipse aspect ratios. Monte Carlo rejects all nonalternating endpoint patterns before computing the Euclidean determinant-to-norm squared-sine angle; it also verifies the crossing frequency near one third. The deterministic output ends in `ALL_CHECKS_PASSED`.
+## correctness
 
-The analytic proof, including the exact probability, the global derivative inequality, the unique inversion, and both endpoint asymptotics, is in `RESULT.md`. Finite quadrature and random sampling are corroborative, not proof of an infinite-dimensional or universal identity. The code does not produce an independent audit, certify publication priority, or provide finite-sample error guarantees.
+PASS
+
+Four independent uniform eccentric anomalies map from the circle to the ellipse by a non-singular diagonal affine map, preserving interior crossing and its 1/3 probability. Conditional on cyclic alternation, normalized consecutive gaps are Dirichlet(1,1,1,1), and the difference Δ between the two circular chord directions satisfies Δ/π~Beta(2,2) with density 6t(π-t)/π³. The affine squared-sine determinant identity and a uniformly convergent Poisson/Fourier expansion reduce the conditional moment to I_j=-3/(π²j²) and the displayed Li₂ formula. The integral for H(x)=((1-x)²/x)Li₂(x) differentiates to a strictly negative integrand, giving dQ/dx<-1/2, unique axis-ratio inversion, quadratic near-circular behavior and the cancellation of the 1/r² slender term. Separate independent beta–Poisson numerical integration matched the Li₂ expression for r=1,1.5,2,5,20 to at most 1.2×10^-14; r=100,1000 crosschecked the logarithmic remainder. Quadrature and asymptotic diagnostics are corroborative, not proofs.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after primary comparisons: The exact inverse/derivative and endpoint asymptotics are not corollaries of the inspected preceding statements. The exact mathematical assumptions/implications, not titles or absence of search matches alone, determine this decision.
+
+## value
+
+PASS
+
+Crossing probability equals 1/3 for every eccentricity, so it contains no shape information; nevertheless the natural orthogonality score E[sin²(angle)|crossing] determines the complete ellipse axis ratio from a single population moment. The strict derivative bound makes inversion well-posed in the shape parameter, while the two degeneration expansions characterize the rigid and slender limits. The result is more than a substitution into a known crossing-frequency formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
