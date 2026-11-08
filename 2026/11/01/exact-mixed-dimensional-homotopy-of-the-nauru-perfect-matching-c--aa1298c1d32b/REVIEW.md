@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, 120 perfect matchings, and all 346,822 faces including empty are specified and verified in the executable. Successive toggle matchings are acyclic by the element-matching theorem and an exhaustive topological sort of 2,282,760 incidences. Exact signed Morse matrices have ranks 16 and 19 with unimodular maximal-rank minors +1 and −1; the exact product is zero. Cellular attachment arguments in RESULT.md convert the integral chain calculation into the asserted mixed-dimensional homotopy equivalence. The reverse-toggle mod-two computation independently reproduces the two nonzero Betti ranks. The claim is strictly graph-specific.
+PASS
 
-## Originality — PASS against inspected evidence
+PASS. For the explicitly labeled Nauru GP(12,5), the two independent least/greatest-uncovered-vertex matching enumerators agree on 120 perfect matchings of 24 vertices and 36 edges. Their full downward closure has 346,822 faces including the empty simplex, with f-vector (1,36,558,4692,21861,55872,85680,85176,57258,26208,7920,1440,120) in dimensions -1..11. Independently reconstructed the vertex-by-vertex edge-toggle Morse matching with 173,357 face pairs and precisely 22 critical 3-simplices, 67 critical 4-simplices, 19 critical 5-simplices; a complete directed Hasse topological sort visits all 346,822 faces and all 2,282,760 incidences, so acyclicity is exhaustive. Independently rebuilt signed 22x67 and 67x19 integral Morse boundaries from oriented face deletions and gradient elimination; ranks 16 and 19, zero composite and explicit maximal-rank unit minors of determinants +1 and -1 imply torsion-free reduced H3=Z^6,H4=Z^32. The Morse CW model has one base point and no positive cells below dimension three. Its 4-skeleton splits as 6 copies S3 and 51 copies S4 after primitive degree-4 attaching maps; π4 of that wedge is (Z/2)^6⊕Z^51 (no dimension-four Whitehead cross products). The 19 primitive 5-cell free coordinates can be canceled after absorbing their Z/2 components through homotopy self-equivalences that modify the S4 inclusions by maps into the S3 wedge. Therefore the actual homotopy type is ∨6 S3 ∨32 S4, not inferred from Betti numbers alone. Supplied full certificate.json entries/minor indices were read and independently reconstructed; CHECK_LOG alone would not suffice.
 
-The closest foundational work is Bayer, Jelić Milutinović and Vega, arXiv:2209.02803v1, whose honeycomb-patch theorems do not treat the toroidal Nauru graph. Chandrakar and Singh, arXiv:2407.05809, establish line-tiling and 2-row grid results with different hypotheses. The later Agarwal–Basak Möbius and circular-ladder theorem is a distinct graph-family classification; only its abstract could be inspected. Results in the indexed published record concerning Nauru's independence complex or perfect matching complexes of different graphs do not imply this new attaching-matrix classification. Alias, parameter, stronger-theorem, database and prior-implication searches are documented in AUDIT.json. Unindexed prior calculations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The Nauru graph is a canonical symmetric cubic graph and a natural next graph for the topology of perfect matching extendibility. The result gives its full integral homotopy type, not just finite-field homology: a wedge of six three-spheres and thirty-two four-spheres. Its mixed-dimensional structure is a useful exact model alongside the known cube, Petersen, and other cubic examples. The contribution is a complete natural finite classification, not an all-parameter theorem.
+PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: published Nauru independence complex is not a perfect-matching complex; known honeycomb/ladder perfect-matching theorems do not include the cyclic Nauru graph.
 
-## Sources and limitations
+## value
 
-Primary PDF sources inspected at relevant definitions and theorem sections: arXiv:2209.02803v1 (28-page PDF) and arXiv:2407.05809v2 (23-page PDF). The abstract of arXiv:2608.30601 was compared; its full PDF was unavailable from the checked endpoint, and an unindexed equivalent result remains a bibliographic risk. The proof requires the actual certificate and verifier; a recorded output alone does not establish correctness. No external independent review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. GP(12,5) is a natural named symmetric cubic graph, and perfect-matching complexes are a motivated topological invariant. The complete integral mixed-dimensional sphere-wedge homotopy classification is genuinely informative beyond a face-count or mod-two census and could serve as an exact reference case for future generalized Petersen and perfect-matching-complex work. The finite nature of the object does not diminish its exact structural mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
