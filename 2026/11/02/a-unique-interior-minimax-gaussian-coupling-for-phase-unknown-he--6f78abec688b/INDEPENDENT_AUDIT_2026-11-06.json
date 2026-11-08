@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:58:23.479761Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-unique-interior-minimax-gaussian-coupling-for-phase-unknown-he--6f78abec688b/RESULT.md",
+        "actual Git tree c9afb09ab3b79c8410e07bd4d024a324d29a39a9",
+        "actual Resultary query Resultary: Gaussian antithetic coupled Brownian heat Fourier cosine sine phase unknown minimax variance optimal correlation"
+      ],
+      "rationale": "PASS. For U,V joint centered normal with variance q and correlation r, cos-cos and sin-sin covariance identities yield C=(1-z)^2/2+z(cosh(qr)-1), S=(1-z^2)/2+z sinh(qr), z=e^-q. Reflection kills cross cosine-sine covariance, so maximum over arbitrary phi of Var[(cos(U+phi)+cos(V+phi))/2] is max(C,S)/2. On [-1,0], C strictly decreasing and S strictly increasing in r, with C(-1)>S(-1), C(0)<S(0); their unique intersection e^(-qr)=2-z yields r*=-log(2-z)/q strictly in (-1,0). On (0,1] S exceeds the zero-correlation maximum, proving global uniqueness. Substitution gives (1-z)^2/(2(2-z)), and endpoint comparisons/limits follow from elementary inequalities and Taylor series. Independently expanded characteristic functions and re-expressed hyperbolic terms in exponentials for symbolic equality checks; finite quadrature claims in the package are corroborative only.",
+      "residual_risks": [
+        "Only two jointly Gaussian marginally correct heat displacements and one Fourier frequency; not optimal among non-Gaussian couplings or across computational cost.",
+        "Unknown older harmonic antithetic formulas could cover an equivalent result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abkin–Daripa optimize a different indicator/field-level objective; Chattopadhyay–Liu–Panigrahi optimize cross-validation asymptotics and Singh analyzes correlated importance samples."
+        ],
+        "reasoning": "No inspected broader theorem supplies this finite-q globally unique interior Gaussian correlation and its all-phase worst variance; Gaussian-only constraint is material.",
+        "searches": [
+          "Resultary: Gaussian antithetic coupled Brownian heat Fourier cosine sine phase unknown minimax variance optimal correlation",
+          "arXiv:2608.08089 antithetic randomization for cross validation",
+          "Singh Fourier analysis of correlated Monte Carlo 2019"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01120",
+        "https://arxiv.org/abs/2608.08089",
+        "https://doi.org/10.1111/cgf.13613",
+        "Resultary: Gaussian antithetic coupled Brownian heat Fourier cosine sine phase unknown minimax variance optimal correlation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sign-switched reflection versus synchronous coupling allows only boundary correlation choices for a different objective; present unique minimizer lies strictly inside (-1,0), so boundary-only optimization cannot imply it."
+        ],
+        "reasoning": "Calculating cos/sin joint covariance and solving equal-mode variances is additional analysis; earlier field-problem and CV results do not establish this claim.",
+        "searches": [
+          "arXiv:2610.01120 proposition on sign-switched sampling",
+          "arXiv:2608.08089 paper subject"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is minimizing largest eigenvalue of the two-dimensional phase covariance matrix diag(C,S)/2; its balancing correlation is an interior point.",
+          "Abkin–Daripa Proposition 3.1 uses sign-switch coupling for a spatial field gradient reconstruction, not worst-case unknown Fourier phase."
+        ],
+        "reasoning": "Phase minimax is a two-observable simultaneous covariance problem, not pointwise fixed-sign antithetic variance control.",
+        "searches": [
+          "Resultary: Gaussian antithetic coupled Brownian heat Fourier cosine sine phase unknown minimax variance optimal correlation",
+          "arXiv:2610.01120 Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The optimum is an analytic function -log(2-e^-q)/q rather than a finite tabulation; Resultary hits were distinct Fourier coefficient phase problems."
+        ],
+        "reasoning": "No equivalent exact function table was located; absence is not proof.",
+        "searches": [
+          "Resultary: Gaussian antithetic coupled Brownian heat Fourier cosine sine phase unknown minimax variance optimal correlation",
+          "search: minimax correlated Gaussian cosine sine antithetic Fourier two-sample analytic table"
+        ]
+      },
+      "rationale": "Best-knowledge originality of exact unique interior Gaussian minimax over all unknown phases; general antithetic methods and sign-switch rules do not compute this scalar phase balancing.",
+      "residual_risks": [
+        "A broadly applicable unlocated two-observable Gaussian antithetic minimax theorem could encompass the formula.",
+        "Interior coupling uses two normal draws rather than one reflection draw, and Fourier heat multiplier is analytically known; practical efficiency is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ESTIMAND_AND_LOSS",
+          "evidence": [
+            "Optimizes sign-conditioned contributions to spatial reconstruction, not minimax variance of a single Fourier cosine for arbitrary phase."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01120",
+          "material_read": "ArXiv primary full-text Introduction, coupling setup, Proposition 3.1 and application calculations materially examined; direct PDF screenshot of Proposition 3.1",
+          "method": "ArXiv HTML/PDF text and direct PDF screenshot",
+          "title": "Sign-Switched Antithetic Coupling for Signed Gradient-Particle Methods",
+          "trigger": "Closest two-displacement sign-dependent Brownian coupling study"
+        },
+        {
+          "assessment": "RELATED_OTHER_LOSS",
+          "evidence": [
+            "Cross-validation functional is different from the finite-parameter harmonic heat estimator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.08089",
+          "material_read": "Abstract/metadata and reported objective only; full-paper exclusion not claimed",
+          "method": "Primary abstract search",
+          "title": "On the optimality of antithetic randomization for cross-validation",
+          "trigger": "Potential dominating Gaussian antithetic result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01120",
+        "https://arxiv.org/abs/2608.08089",
+        "https://doi.org/10.1111/cgf.13613"
+      ],
+      "rationale": "PASS. A phase-unknown heat Fourier observable has a natural two-dimensional cosine/sine covariance geometry, making worst-phase variance a motivated robust design criterion. A strictly interior unique correlation with exact minimax risk and a sharp contrast with antithetic/independent sampling is an actionable benchmark for coupled Brownian estimators, even though the Fourier multiplier itself is analytically known and generation cost not optimized.",
+      "residual_risks": [
+        "Only two jointly Gaussian marginally correct heat displacements and one Fourier frequency; not optimal among non-Gaussian couplings or across computational cost.",
+        "Unknown older harmonic antithetic formulas could cover an equivalent result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two jointly Gaussian marginally correct heat displacements and one Fourier frequency; not optimal among non-Gaussian couplings or across computational cost.",
+    "Unknown older harmonic antithetic formulas could cover an equivalent result."
+  ],
+  "schema_version": 1
+}
