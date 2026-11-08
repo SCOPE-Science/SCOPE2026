@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T00:12:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md SHA 075ab24fd3f8f486edeaa7cb142b68b8db4030dc, entire 35-class table and sign derivation",
+        "frozen verify.py SHA f6283a3534edb5de00731c0b0c1aafb88318d26c read in full; enumerate legal color-set cells, fixed-cell class signs, connectivity, character projections",
+        "independent exact integer recomputation from displayed conjugacy-class trace table returned +1,-1"
+      ],
+      "rationale": "The Petersen graph is KG(5,2), so its automorphism group S5 acts on ten vertices; target color S4 acts on product-of-simplex Hom(P,K4). Every cell is a ten-tuple of nonempty color sets with disjointness at graph edges. The source standalone verifier recursively enumerates 12960 proper colorings, then expands allowed color sets to the entire 221520-cell polyhedral Hom complex with dimension vector (12960,53280,80400,54960,17400,2400,120); a one-color-recoloring BFS proves connectedness. An element (sigma,tau) acts on each fixed source-coordinate cycle of length ell by Koszul permutations of simplex factors and internal color permutation; after Euler sign the contribution is (-1)^(|A|-1)sgn(tau^ell|A). Inspecting the exact exhaustive 35-class trace algorithm and independently reprojecting its published 7x5 integer trace table against class sizes and S5 Specht character chi_(3,2)=C(f,2)+t-f yields +1 on S^(3,2) box trivial and -1 on its conjugate S^(2,2,1) box sign4. Rational semisimplicity and Hopf trace imply occurrence in at least one positive even and one positive odd degree, respectively. This virtual result deliberately does not identify individual graded Betti numbers or integral torsion.",
+      "residual_risks": [
+        "Source-level full 221520-cell exhaustive computation was examined but not independently repeated; independent projection checks start from the displayed integer table.",
+        "Virtual rational character only forces parity existence, not actual homology degrees or multiplicity distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babson–Kozlov arXiv:math/0310056 treats certain forest, complement-of-forest and complete-source cases; Petersen is none of them.",
+          "Čukić–Kozlov arXiv:math/0410335 gives connectivity at least n-d-2: for n=4,d=3 this is -1, not an equivariant parity determination."
+        ],
+        "reasoning": "The general Hom-space connectivity and homotopy machinery is broader in parameter notation but its specific conclusions do not imply these two signed irreducible multiplicities.",
+        "searches": [
+          "arxiv:math/0310056 Complexes of graph homomorphisms forest complete graph target",
+          "arxiv:math/0410335 Higher connectivity graph coloring complexes Petersen maximum degree 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0310056 Babson–Kozlov",
+        "arXiv:math/0410335 Čukić–Kozlov",
+        "Resultary query Petersen graph Hom(P,K4) equivariant Lefschetz character rational homology parity symmetric group"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hom(P,K4) has the source Petersen graph with an S5 action and four color target; the general connectivity theorem gives no nonzero positive homology information here.",
+          "Known Petersen configuration, independence and cutting complexes have different face rules."
+        ],
+        "reasoning": "Neither a connectivity lower bound nor results about other Petersen invariants imply coexistence of positive-degree even/odd rational Specht constituents. The explicit virtual class projections supply the nontrivial inference.",
+        "searches": [
+          "Babson Kozlov Hom graph coloring complex homotopy classification",
+          "Cukic Kozlov graph coloring complex connectivity lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Babson–Kozlov arXiv:math/0310056 establishes the polyhedral Hom complex and graph/source color symmetries.",
+          "Hopf trace identifies signed cellular fixed-cell counts and virtual homology representation, so the original result can be sought under equivariant Euler characteristic rather than Hom-space Betti numbers."
+        ],
+        "reasoning": "The claimed precise 35-class class function and two Specht Fourier coefficients are equivalent to an equivariant Lefschetz character calculation, not a new construction of the Hom complex or a complete graded homology claim.",
+        "searches": [
+          "Petersen graph Hom(P,K4) equivariant Lefschetz character rational homology parity symmetric group",
+          "Babson Kozlov graph homomorphism complex Petersen K4 character S5 S4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on Petersen configuration-space and three-cut S5 modules are different topological objects; none returned the 35-class Hom(P,K4) character.",
+          "The complete character is computed from 221520 Hom cells and not deduced from the f-vector alone."
+        ],
+        "reasoning": "An identical earlier equivariant Euler table would cover the claim, but none was identified in inspected primary material or related published-result search; failed search is not categorical priority proof.",
+        "searches": [
+          "Petersen graph Hom(P,K4) S5 x S4 character table 35 conjugacy classes",
+          "Resultary Petersen graph Hom(P,K4) equivariant Lefschetz character rational homology parity symmetric group"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison for this exact mathematical object, not novelty from titles or failed search. Closest sources and any inaccessible material are explicitly compared below; no assertion of exhaustive global priority.",
+      "residual_risks": [
+        "An unindexed source could already compute the exact Hom(P,K4) equivariant Euler class.",
+        "No graded Betti or integral torsion classification is inferred or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_CHARACTER",
+          "evidence": [
+            "Contains Hom machinery, but no located full S5 x S4 Petersen/K4 virtual-character decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0310056",
+          "material_read": "Full-text accessible; definition of Hom and relevant classification/fold sections inspected",
+          "method": "arXiv PDF text and page inspection",
+          "title": "Complexes of graph homomorphisms",
+          "trigger": "Foundational Hom-space homotopy results may imply the exact instance"
+        },
+        {
+          "assessment": "WEAKER_IMPLICATION",
+          "evidence": [
+            "d=3,n=4 gives -1 connectivity only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0410335",
+          "material_read": "Full-text accessible; statement of (n-d-2) connectivity theorem and hypotheses inspected",
+          "method": "arXiv PDF text",
+          "title": "Higher connectivity of graph coloring complexes",
+          "trigger": "Potential dominating general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Babson–Kozlov arXiv:math/0310056 Hom-space topology",
+        "Čukić–Kozlov arXiv:math/0410335 existing connectivity limitation"
+      ],
+      "rationale": "An explicit complete source/target symmetric-group virtual character of a central graph-coloring Hom complex identifies an unusual mixed-parity obstruction invisible from connectivity bounds and ungraded Euler characteristic. It determines nontrivial representation-specific positive-degree homology existence without pretending to give a full homology classification, making the precise fact a useful equivariant test case rather than an arbitrary tiny coefficient.",
+      "residual_risks": [
+        "Value is restricted to the virtual character and forced parity; cannot infer particular nonzero degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No independent rerun of all 221520 Hom cells in this run; full grade-by-grade homology and integral torsion not established."
+  ],
+  "schema_version": 1
+}
