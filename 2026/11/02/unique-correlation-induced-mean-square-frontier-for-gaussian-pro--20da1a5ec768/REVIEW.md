@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact method specializes from the published affine-forward-map discretization. The conditional Gaussian-noise expansion gives a stationary path-product moment formula. A positive compact Mehler-kernel operator converts this formula to an exact spectral-radius criterion with nonzero overlap of the top positive eigenfunction. The normalized Hermite decomposition proves a strictly increasing spectral radius, using the nonintegrability of the inverse multiplier on its zero sphere to rule out equality. Strong OU-semigroup convergence proves divergence of the spectral radius near unit correlation; the independence endpoint and rational witness are computed exactly. `verify.py` independently checks \(95\) finite exact-rational identities; infinite-horizon claims rest on the analytical steps, not these tests.
+PASS
 
-## Originality
+Conditioning on independent X innovations gives EX_n²/(2h)=1+Σ_{k=0}^{n−2}<g,K_ρ^k g> for g(z)=|1−(c/J)·||z||²|. Mehler P_ρ is positive self-adjoint on Hermite chaoses, so K_ρ=M_g P_ρ M_g is positive Hilbert–Schmidt and positivity-improving for ρ<1; its simple top eigenfunction overlaps g. Thus bounded moments iff Λ_J(c,ρ)<1, with linear/exponential top-eigenvalue growth on/above 1. Hermite coefficients prove strict monotonicity for 0≤ρ1<ρ2<1: equality would require gu constant, impossible since 1/g is non-L² near its zero sphere. Gaussian operator continuity, Λ(0)=1−2c+(1+2/J)c², and ρ↑1 test functions supported at large ||z|| prove unique frontier for 0<c<2J/(J+2). Independent exact Wick/Hermite check recovers 25/24 Rayleigh witness for J=1,c=1/2,ρ=1/2.
 
-PASS on available evidence, subject to a substantive historical-priority risk. The 2026 source treats a compact-state multiscale sampler and leaves noncompact Gaussian settings outside its proved scope. The 2021 original method describes numerical stiffness without this correlation monotonicity law. The 2024 SGD paper studies independently sampled batches, so it cannot directly imply the OU-persistent path-product threshold. The 1993 correlated-Gaussian LMS paper reports exact expectation recursions and mean-square step-size bounds and may contain a related specialization; its full text was not accessible during this comparison. The accessible abstract is insufficient to establish or exclude exact coverage, and a specialist comparison remains warranted. Classic Markov multiplicative functional spectral arguments are acknowledged.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A unique transition in noise temporal correlation, for every finite number of probes, is an exact design boundary for step sizes and OU time scales in a recently analyzed derivative-free sampling method. It explains why stable fresh-probe second moments do not guarantee stable finite-correlation second moments, even in the simplest Gaussian target. The theorem is not an assertion about general ergodicity or correctness of the numerical approximation under other assumptions.
+PASS best of knowledge for unique stationary-OU correlation phase boundary of this real-line sampler, not for general multiplicative transfer theory or the numerical method.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Temporal persistence changes mean-square stability despite fixed standard Gaussian marginals, and unique threshold gives a useful sharp phase diagram and exact instability witness for a natural derivative-free quadratic sampler; not merely a numerical simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

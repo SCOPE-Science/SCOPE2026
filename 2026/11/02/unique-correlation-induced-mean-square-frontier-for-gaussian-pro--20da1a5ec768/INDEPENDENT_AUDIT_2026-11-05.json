@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:41:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on independent X innovations gives EX_n²/(2h)=1+Σ_{k=0}^{n−2}<g,K_ρ^k g> for g(z)=|1−(c/J)·||z||²|. Mehler P_ρ is positive self-adjoint on Hermite chaoses, so K_ρ=M_g P_ρ M_g is positive Hilbert–Schmidt and positivity-improving for ρ<1; its simple top eigenfunction overlaps g. Thus bounded moments iff Λ_J(c,ρ)<1, with linear/exponential top-eigenvalue growth on/above 1. Hermite coefficients prove strict monotonicity for 0≤ρ1<ρ2<1: equality would require gu constant, impossible since 1/g is non-L² near its zero sphere. Gaussian operator continuity, Λ(0)=1−2c+(1+2/J)c², and ρ↑1 test functions supported at large ||z|| prove unique frontier for 0<c<2J/(J+2). Independent exact Wick/Hermite check recovers 25/24 Rayleigh witness for J=1,c=1/2,ρ=1/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mulayoff–Michaeli treat independently sampled batches in their mean-square stability results.",
+          "General Kac/Markov transfer-operator spectral principle predates work."
+        ],
+        "reasoning": "Independence across times is material: the OU transition P_ρ and strict correlation monotonicity are not implied by i.i.d. batch covariance. Existing spectral operator theory is a proof ingredient, not claimed novel.",
+        "searches": [
+          "Mulayoff Michaeli 2024 Exact Mean Square Linear Stability Analysis SGD",
+          "OU correlated Gaussian probes finite J mean square stability Langevin step unique correlation threshold spectral radius"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.17037v1",
+        "https://arxiv.org/abs/2102.00540",
+        "https://proceedings.mlr.press/v247/mulayoff24a.html",
+        "https://doi.org/10.1109/ICASSP.1993.319549",
+        "https://statistics.berkeley.edu/tech-reports/427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Della Noce–Vaes explicitly identify noncompact extension as outside their theorem.",
+          "The iid ρ=0 multiplier 1−2c+(1+2/J)c² is elementary; ρ>0 requires path correlations and principal eigenvalue monotonicity."
+        ],
+        "reasoning": "Source sampler plus i.i.d. stability does not prove a unique correlation-induced second-moment instability frontier. The older Douglas result is not ruled out from its abstract alone and remains a significant uncertainty.",
+        "searches": [
+          "Della Noce Vaes 2026 torus noncompact extension OU",
+          "Douglas 1993 time-correlated Gaussian adaptive filter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Della Noce–Vaes 2026 defines same slow/fast sampler; their theorems restrict to compact torus.",
+          "Douglas 1993 abstract gives colored Gaussian LMS mean-square expectation formulas."
+        ],
+        "reasoning": "LMS transfer operators may be an equivalent formulation; no inspected LMS result asserts the strict ρ-monotone top eigenvalue crossing for the present scalar quadratic sampler. Full Douglas paper absent, so risk explicit.",
+        "searches": [
+          "OU correlated Gaussian probes finite J mean square stability Langevin step unique correlation threshold spectral radius",
+          "colored input LMS AR1 Gaussian exact mean square threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Λ_J(c,ρ) threshold table or rational J=1,c=.5,ρ=.5 transition in inspected sources; the exact Rayleigh witness is separately checked."
+        ],
+        "reasoning": "A database search miss is not proof; the contribution is a uniform theorem, not an isolated numerical eigenvalue.",
+        "searches": [
+          "Gaussian OU quadratic SGD exact mean-square stability table critical correlations",
+          "OU correlated Gaussian probes finite J mean square stability Langevin step unique correlation threshold spectral radius"
+        ]
+      },
+      "rationale": "PASS best of knowledge for unique stationary-OU correlation phase boundary of this real-line sampler, not for general multiplicative transfer theory or the numerical method.",
+      "residual_risks": [
+        "Full text of Douglas 1993, a plausible broad mean-square stability theorem, was not inspected; it could subsume a model specialization.",
+        "The result concerns second moments, not almost-sure stability, ergodicity, or general nonlinear samplers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Their proven convergence theory is on torus; exact real-line Gaussian-probe correlation criticality is not included in inspected theorems",
+          "evidence": "The same numerical algorithm is prior, not the spectral correlation threshold.",
+          "identifier_or_url": "https://arxiv.org/html/2610.17037v1",
+          "material_read": "Full primary HTML including algorithm in §2, convergence assumptions/theorems in §3 and discussion/conclusion of torus versus noncompact case",
+          "method": "Read primary method and full accessible main text; compare state-space, scalar harmonic specialization and moment criterion",
+          "title": "Analysis of a zeroth-order multiscale sampler: strong convergence, convergence of ergodic averages and weak convergence",
+          "trigger": "Identical slow-Euler, exact fast-OU model"
+        },
+        {
+          "assessment": "Independently drawn batches do not imply correlated OU spectral transition",
+          "evidence": "Independent-batch mean-square stability is known.",
+          "identifier_or_url": "https://proceedings.mlr.press/v247/mulayoff24a.html",
+          "material_read": "Primary paper accessible abstract/method and section specifying independent batch sampling",
+          "method": "Read accessible preprint/paper primary exposition and compare temporally correlated OU path-product operators",
+          "title": "Exact Mean Square Linear Stability Analysis for SGD",
+          "trigger": "Possible broader exact mean-square stochastic-gradient criterion"
+        },
+        {
+          "assessment": "Serious historical risk: abstract suggests general exact covariance recursions for correlated Gaussian input, but does not expose strict correlation monotonicity/unique finite-J phase threshold",
+          "evidence": "Douglas 1993 correlated Gaussian LMS is a plausible stronger comparator whose full theorems remain uninspected.",
+          "identifier_or_url": "https://doi.org/10.1109/ICASSP.1993.319549",
+          "material_read": "Accessible abstract and bibliographic details only; full conference article not accessible",
+          "method": "Abstract inspected; no whole-document negative coverage claim",
+          "title": "Exact expectation analysis of the LMS adaptive filter for correlated Gaussian input data",
+          "trigger": "Potential older same stochastic Gaussian multiplier/moment instability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Temporal persistence changes mean-square stability despite fixed standard Gaussian marginals, and unique threshold gives a useful sharp phase diagram and exact instability witness for a natural derivative-free quadratic sampler; not merely a numerical simulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar quadratic real-line model, finite Gaussian probe budget, stationary OU probes; no general noncompact ergodicity conclusion.",
+    "Older correlated-input adaptive filter literature is a substantive priority risk.",
+    "Full text of Douglas 1993, a plausible broad mean-square stability theorem, was not inspected; it could subsume a model specialization.",
+    "The result concerns second moments, not almost-sure stability, ergodicity, or general nonlinear samplers."
+  ],
+  "schema_version": 1
+}
