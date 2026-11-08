@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Brownian killed-interval BVP gives A,B; competing exponential reset gives C. Independent cycles prove Pr(N=n,M<m)=A C^n. Explicit exact expansions yield the Gumbel, size-biased geometric, and low-rate Bernoulli limits. The discrete total-variation claim follows from normalized limiting masses; the low-rate remainder is controlled by Pr(N>=2)=q^2. Reproducible finite checks pass but are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Singh and Pal (2021) study a joint maximum/argmaximum/reset-interval law at a fixed deterministic observation time, with no target absorption.",
+        "Hartmann et al. (2023) study a fixed-time maximum and independent resetting Brownian ensembles, with Gumbel large-time behavior."
+      ],
+      "reasoning": "Both works use related renewal extremal machinery, but their stated observation horizons differ from the first-absorption stopping rule. The new count/maximum coupling conditioned on target absorption and its low-rate boundary are not immediate corollaries of their published statements; generic renewal-extension risk remains.",
+      "searches": [
+        "joint distribution maximum displacement and number of resets before first passage Brownian Poisson resetting",
+        "Brownian motion first passage before resetting conditional maximum N reset events large reset count Gumbel rare high maximum size-biased geometric",
+        "arxiv:2102.07111 Sections II-III, VI",
+        "arxiv:2309.17432"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.15929",
+      "arxiv:2304.09348",
+      "arxiv:2102.07111",
+      "arxiv:2309.17432"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo equation (12) is recovered after summing A C^n over n.",
+        "Sunil equation (21) is recovered by sending the upper threshold to infinity.",
+        "The two published marginal formulas permit different couplings; the theorem proves the particular Brownian excursion coupling and its nonuniform limits."
+      ],
+      "reasoning": "The claim strictly refines two known marginals. Neither marginal implies the other variable’s conditional distribution. Fixed-time extremal results have different stopping and counting laws. A complete general renewal-triple distribution could dominate this claim, but none was established by relevant text inspections.",
+      "searches": [
+        "Brownian resetting first passage maximum conditional number of resets geometric cycles Gumbel limit extremal fluctuations",
+        "joint distribution maximum displacement and number of resets before first passage Brownian Poisson resetting",
+        "Brownian motion first passage before resetting conditional maximum N reset events large reset count Gumbel rare high maximum size-biased geometric",
+        "arxiv:2304.09348 Sec 2 and App C",
+        "arxiv:2306.15929 Secs III-VIII"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo et al. derive the unconditioned maximum distribution A/(A+B) before hitting the target and the maximum/argmaximum joint transform, not a reset-number refinement.",
+        "Sunil et al. derive the stopped reset-number geometric law p q^n and a joint transform for reset count, completion time and additive cost."
+      ],
+      "reasoning": "Knowing these two marginal distributions does not determine Pr(N=n,M<m). The new excursion trichotomy gives the coupling A C^n, which yields conditional Gumbel, size-biased count and singular Bernoulli limits. No inspected equivalent formulation establishes that coupling or these three conditional limits.",
+      "searches": [
+        "Brownian resetting first passage maximum conditional number of resets geometric cycles Gumbel limit extremal fluctuations",
+        "Guo Yan Chen 2306.15929 Brownian first-passage maximum number of resets geometric joint conditioning",
+        "arxiv:2306.15929 equations (11)-(12)",
+        "arxiv:2304.09348 equations (10)-(21)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full Guo text reports formulas for the stopped maximum and its time but not a stopped-maximum/reset-count table.",
+        "The Sunil text reports the stopped reset-number mass and total-return-cost formulas but does not tabulate the stopped path maximum."
+      ],
+      "reasoning": "No exactly matching published value table or coefficient sequence was found among the checked sources. This is a distribution-level theorem, so matching one marginal or a generic Gumbel limit is not itself exact coverage.",
+      "searches": [
+        "first-passage reset excursion extreme maximum number of restart attempts conditioned maximum rare event negative binomial",
+        "joint maximum number of resets first passage Brownian resetting conditional maximum Gumbel",
+        "Brownian resetting extrema number resets size biased geometric maximum first passage",
+        "arxiv:2306.15929 full text reset-number search",
+        "arxiv:2304.09348 full text maximum search"
+      ]
+    },
+    "rationale": "The exact stopped maximum/reset-count coupling A C^n and three conditional limits are not supplied by Guo's stopped-maximum marginal, Sunil's stopped-count marginal, or Singh-Pal's fixed-horizon joint law. Detailed implication comparisons and a residual general-renewal priority risk are recorded.",
+    "residual_risks": [
+      "A general unindexed theorem for renewal excursion maxima with terminal absorption could subsume the conditional formulas.",
+      "Hartmann et al. 2023 was screened by abstract only; the fixed-time formulation appears outside the claim, but full-text comparison remains a priority risk.",
+      "Search results do not certify uniqueness or publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unconditioned stopped maximum and its attainment time, not joint maximum/reset count or conditional extreme-count laws.",
+        "evidence": "Equations (11)-(12) give A/(A+B), while Section VII addresses M and t_m; conclusions identify precisely these observables.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.15929",
+        "material_read": "Full accessible extracted text, Sections II-VIII including exit probability (11)-(12), maximum distribution, joint maximum/argmaximum formula (33), and conclusions.",
+        "method": "Read accessible full-text extraction and checked reset-number, geometric, Gumbel and joint-count phrases.",
+        "title": "Extremal statistics for a resetting Brownian motion before its first-passage time",
+        "trigger": "Same absorbing-target Brownian model and path maximum."
+      },
+      {
+        "assessment": "Provides Pr(N=n) and a count/time/additive-cost transform; not the all-time stopped maximum coupling.",
+        "evidence": "Equations (10), (11), (21) derive geometric N; Sections 3-6 treat additive reset costs.",
+        "identifier_or_url": "https://arxiv.org/html/2304.09348v2",
+        "material_read": "Accessible HTML Sections 1-6, the renewal equation and count law in Section 2, cost calculations, and appendices on numerical reproduction and cost tails.",
+        "method": "Read full-text sections and checked full document for the word maximum.",
+        "title": "The cost of stochastic resetting",
+        "trigger": "Same first-passage Brownian resetting and explicit number-of-resets observable."
+      },
+      {
+        "assessment": "The N-refined extremal formula is for fixed observation time t, not stopping at the first target hit; its physical N counts reset intervals differently.",
+        "evidence": "Section II describes a fixed horizon t and N intervals, and Section VI restates fixed-horizon maximum and argmaximum.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.07111",
+        "material_read": "Accessible extracted full text, Sections II-III and VI, and related formula/conclusion passages.",
+        "method": "Inspected definition of N and time horizon in Section II and maximum results and conclusions.",
+        "title": "Extremal statistics for stochastic resetting systems",
+        "trigger": "Potentially dominating general renewal law including extremum and reset count."
+      },
+      {
+        "assessment": "Explicitly fixed observation time/independent ensembles; not treated as a whole-document noncoverage certificate.",
+        "evidence": "Abstract describes centered maximum at large fixed time and ensemble maximum distributions.",
+        "identifier_or_url": "https://arxiv.org/abs/2309.17432",
+        "material_read": "Accessible abstract and source metadata; full text not inspected.",
+        "method": "Abstract and title/claim comparison only.",
+        "title": "The distribution of the maximum of independent resetting Brownian motions",
+        "trigger": "Gumbel law for related resetting Brownian maxima."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c254f452-edd9-4ccd-b48d-8c73be1b0c9b",
+  "value": {
+    "rationale": "The stopped path maximum measures excursion risk whereas N measures resets consumed. Their exact coupling proves stochastic growth of risk with reset count, an explicit logarithmic high-budget Gumbel center, a rare-event size-bias mechanism, and a nonuniform low-rate Bernoulli crossover. These directly address motivated cost/risk questions not answered by either known marginal law.",
+    "status": "PASS"
+  }
+}
