@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:17:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 6ffa6b02e200984499f9224f8d3439861511561d",
+        "Checker source blob 7e4492d1abd3d5b2da5787bd2dceb2e4201ee109",
+        "Independent exhaustive 4096 and 65536 labelled edge relation assignments for n=3 and n=4, consistency exactly 2397 and 32377",
+        "Independent seven-orbit transition T construction, g vector and exact (T−4I)(T−2I)(T²−17T+48I)g=0 checked",
+        "Read full primary original exact source Conjecture 20 and its model definition"
+      ],
+      "rationale": "Every two-input Boolean function is an arbitrary 2×2 Boolean allowed-relation matrix, uniformly one of 16. Cyclic consistency is equivalent to a nonzero diagonal in the Boolean matrix product of n edge relations. Row/column permutations divide 16 relations into seven orbit types with representatives 0,1,3,5,6,7,15, and enumerating each of 16 right factors yields exactly the stated 7×7 integer T. The final accept vector has g_i=16−2^(4−w_i), w_i allowed pairs, and identity mask 9 falls into orbit rep 6. Direct exact integer verification of the polynomial annihilator (T−4I)(T−2I)(T²−17T+48I)g=0 proves all-n fourth-order recurrence; starting counts N1=12,N2=175,N3=2397,N4=32377 yield N_n=U_n−4^n−2^(n−1), U_n=17U_(n−1)−48U_(n−2). Direct independent exhaustive enumeration of 16^3=4096 and 16^4=65536 edge-table systems confirms N3=2397,N4=32377; separate orbit and annihilator reconstruction confirms unrestricted n by recurrence. Horak–Semaev's published Conjecture 20 instead predicts N3=2337; its different negative term is refuted, with general probability gap 15/(2·8^n). This relies on labelled simple cycles n>=3 and truly uniform truth tables; no finite experiment is substituted for exact annihilator identity.",
+      "residual_risks": [
+        "The reference conjecture claims finite small-n evidence favoring its expression; direct re-enumeration contradicts it. The discrepancy merits careful future comparison of model conventions though paper definition uses the same uniform two-variable Boolean polynomials.",
+        "The n=1,2 transfer counts are algebraic auxiliary quantities, not simple graph cycles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horak and Semaev, Inconsistency Probability of Sparse Equations over F2, arxiv:2603.24890v1, Section 4.5 Conjecture 20: proposes s^n+t^n−4^(−n)−8^(1−n), which predicts 2337/4096 for C3; independent truth-table enumeration yields 2397/4096.",
+          "Dovgal, de Panafieu and Ravelomanana, Exact enumeration of satisfiable 2-SAT formulae, arxiv:2108.08067v2, model counts CNF clauses under global totals or independent potential clause selection, not one independent arbitrary binary truth table at each fixed cycle edge.",
+          "Exact seven-orbit Boolean-matrix transfer and integer annihilator give all n>=3, so correction is not a numerical guess."
+        ],
+        "reasoning": "Horak–Semaev directly motivates this exact cycle quantity but does not prove correct count; the conjecture numerically fails the direct C3 census. General 2-SAT enumeration is broad in formula size but changes the underlying measure and does not yield this fixed-support truth-table law without additional conditioning.",
+        "searches": [
+          "Horak Semaev Inconsistency Probability of Sparse Equations over F2 Conjecture 20 cycle",
+          "uniform random Boolean relation truth table cycle satisfiable count 2397 32377",
+          "random binary CSP on cycle Boolean matrix semigroup seven orbit transfer recurrence 17 48",
+          "Dovgal de Panafieu Ravelomanana exact enumeration satisfiable 2 SAT formulae 2023"
+        ]
+      },
+      "checked_sources": [
+        "Horak–Semaev arxiv:2603.24890 full original Section 4.5 Conjecture 20",
+        "Dovgal–de Panafieu–Ravelomanana arxiv:2108.08067v2 original PDF",
+        "Resultary cycle Boolean constraint enumeration semantic query",
+        "GitHub repo search binary constraints cycles",
+        "Independent exact 7-orbit T and annihilator reconstruction and exhaustive n=3,4 enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horak and Semaev, Inconsistency Probability of Sparse Equations over F2, arxiv:2603.24890v1, Section 4.5 Conjecture 20: proposes s^n+t^n−4^(−n)−8^(1−n), which predicts 2337/4096 for C3; independent truth-table enumeration yields 2397/4096.",
+          "Dovgal, de Panafieu and Ravelomanana, Exact enumeration of satisfiable 2-SAT formulae, arxiv:2108.08067v2, model counts CNF clauses under global totals or independent potential clause selection, not one independent arbitrary binary truth table at each fixed cycle edge.",
+          "Exact seven-orbit Boolean-matrix transfer and integer annihilator give all n>=3, so correction is not a numerical guess."
+        ],
+        "reasoning": "The false conjectural last term is not a theorem or logical implication. Even with a 2-SAT encoding, a global clause enumerator does not directly produce the independent relation system distribution. The seven-orbit transfer is a fresh derivation under the exact fixed-cycle sample space.",
+        "searches": [
+          "Horak Semaev Inconsistency Probability of Sparse Equations over F2 Conjecture 20 cycle",
+          "uniform random Boolean relation truth table cycle satisfiable count 2397 32377",
+          "random binary CSP on cycle Boolean matrix semigroup seven orbit transfer recurrence 17 48",
+          "Dovgal de Panafieu Ravelomanana exact enumeration satisfiable 2 SAT formulae 2023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horak and Semaev, Inconsistency Probability of Sparse Equations over F2, arxiv:2603.24890v1, Section 4.5 Conjecture 20: proposes s^n+t^n−4^(−n)−8^(1−n), which predicts 2337/4096 for C3; independent truth-table enumeration yields 2397/4096.",
+          "Dovgal, de Panafieu and Ravelomanana, Exact enumeration of satisfiable 2-SAT formulae, arxiv:2108.08067v2, model counts CNF clauses under global totals or independent potential clause selection, not one independent arbitrary binary truth table at each fixed cycle edge.",
+          "Exact seven-orbit Boolean-matrix transfer and integer annihilator give all n>=3, so correction is not a numerical guess."
+        ],
+        "reasoning": "Polynomial truth tables over F2 and arbitrary allowed binary relation matrices are equivalent. Horak–Semaev Section 4.5 is the same sample space but its explicitly conjectured formula is mathematically unequal to the new count for n>=3. CNF 2-SAT formula distributions of Dovgal et al are not uniform over all per-edge Boolean relations.",
+        "searches": [
+          "Horak Semaev Inconsistency Probability of Sparse Equations over F2 Conjecture 20 cycle",
+          "uniform random Boolean relation truth table cycle satisfiable count 2397 32377",
+          "random binary CSP on cycle Boolean matrix semigroup seven orbit transfer recurrence 17 48",
+          "Dovgal de Panafieu Ravelomanana exact enumeration satisfiable 2 SAT formulae 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source’s proposed C3 count differs by 60; direct all-4096 count is 2397, all-65536 C4 count is 32377.",
+          "Resultary published-index search for the exact uniform-edge cycle and corrected 2397 count returned other binary probability models, no covering table."
+        ],
+        "reasoning": "No previously validated published exact all-n table of this particular random truth-table cycle law was found. The theorem gives recurrence, not just the first two entries.",
+        "searches": [
+          "random boolean CSP C3 2397 4096 count consistency",
+          "Conjecture 20 Horak Semaev C3 2337",
+          "Resultary uniform random Boolean binary constraint relations cycle exact consistency probability correction"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.",
+      "residual_risks": [
+        "The original 2026 paper asserts its conjecture passes small-n checks despite the present n=3 difference; reconcile its code or interpretation of equality constraints in future priority/model comparisons.",
+        "General Boolean relation-semigroup enumeration might have been published under matrix products, automata or random CSP notation without the same 17,48 characteristic polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONJECTURE_CONTRADICTED",
+          "evidence": "Conjecture predicts 2337/4096, direct enumeration and exact transfer give 2397/4096; source notes finite tests supporting its conjecture, a specific unresolved discrepancy to document.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.24890",
+          "material_read": "Full primary manuscript, including uniform Boolean polynomial model, Section 4.5 Conjecture 20 and surrounding experimental claim",
+          "method": "Full 21-page PDF and screenshot of Conjecture 20; compare its formula and n=3 direct model",
+          "title": "Inconsistency Probability of Sparse Equations over F2",
+          "trigger": "exact same model and claim being corrected"
+        },
+        {
+          "assessment": "DIFFERENT_DISTRIBUTION global CNF clause sample rather than per-cycle arbitrary relation uniformity",
+          "evidence": "Its unrestricted 2-SAT enumerators do not immediately imply truth-table weighted cycle relation count.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.08067",
+          "material_read": "Full original 29-page primary article and sampling model setup",
+          "method": "Full PDF, model definitions, screenshot of opening pages",
+          "title": "Exact enumeration of satisfiable 2-SAT formulae",
+          "trigger": "possibly dominating random binary satisfiability enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact consistency enumeration for random binary constraints on cycles",
+        "Frozen RESULT.md at actual verified Git tree 063f91139fe8b68479355d8678a574846e649455"
+      ],
+      "rationale": "A mathematically natural exact correction to a recent explicit conjecture for independent random binary constraints on cycles. It supplies a closed all-length sequence, a seven-orbit Boolean-semigroup transfer and rigorous counterexample, not a tiny isolated numerical discrepancy; the recurrence has independent use in random CSP consistency probabilities.",
+      "residual_risks": [
+        "The seven-state quotient method is standard transfer mathematics; value lies in evaluated uniform edge-model law and corrected conjecture, not the existence of transfer matrices in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The reference conjecture claims finite small-n evidence favoring its expression; direct re-enumeration contradicts it. The discrepancy merits careful future comparison of model conventions though paper definition uses the same uniform two-variable Boolean polynomials.",
+    "The n=1,2 transfer counts are algebraic auxiliary quantities, not simple graph cycles.",
+    "The original 2026 paper asserts its conjecture passes small-n checks despite the present n=3 difference; reconcile its code or interpretation of equality constraints in future priority/model comparisons.",
+    "General Boolean relation-semigroup enumeration might have been published under matrix products, automata or random CSP notation without the same 17,48 characteristic polynomial."
+  ]
+}

@@ -1,15 +1,21 @@
-# Scientific review: exact cycle consistency enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all independently selected binary-relation truth tables on the labelled edges of a simple cycle. Relation composition is equivalent to existence of a cyclic satisfying assignment. The seven row/column-permutation orbit classes are exhaustive and the transition rows are checked for each possible representative, rather than guessed from sample outputs. The explicit matrix identity \((T-4I)(T-2I)(T^2-17T+48I)g=0\), the exact initial counts, and recurrence uniqueness establish the formula for all \(n\ge3\). Independent brute force and inclusion-exclusion independently confirm the first two graph cases; finite checks are not the infinite proof.
+## correctness
 
-## Originality — PASS with stated historical limitations
-Horak and Semaev (arXiv:2603.24890v1, Section 4.5, Conjecture 20) study this same uniform model and propose a different exact formula. Their expression predicts \(2337/4096\) at the three-cycle, whereas the theorem proves \(2397/4096\). Dovgal, de Panafieu, and Ravelomanana (arXiv:2108.08067v2) count satisfiable 2-CNF clause sets in different random models rather than fixed-cycle uniform relation systems. Semantic literature searches did not locate a stronger equal-claim theorem. A wider earlier binary-CSP transfer theorem is a remaining historical-priority risk; these searches do not prove global novelty.
+PASS
 
-## Mathematical value — PASS
-The all-parameter formula settles and corrects a live enumerative conjecture about sparse Boolean equations. It quantifies the precise error and gives a reusable seven-state exact counting mechanism. That is more than checking one negative case or making a trivial normalization adjustment: it establishes the entire infinite series by a nontrivial finite semigroup reduction.
+Every two-input Boolean function is an arbitrary 2×2 Boolean allowed-relation matrix, uniformly one of 16. Cyclic consistency is equivalent to a nonzero diagonal in the Boolean matrix product of n edge relations. Row/column permutations divide 16 relations into seven orbit types with representatives 0,1,3,5,6,7,15, and enumerating each of 16 right factors yields exactly the stated 7×7 integer T. The final accept vector has g_i=16−2^(4−w_i), w_i allowed pairs, and identity mask 9 falls into orbit rep 6. Direct exact integer verification of the polynomial annihilator (T−4I)(T−2I)(T²−17T+48I)g=0 proves all-n fourth-order recurrence; starting counts N1=12,N2=175,N3=2397,N4=32377 yield N_n=U_n−4^n−2^(n−1), U_n=17U_(n−1)−48U_(n−2). Direct independent exhaustive enumeration of 16^3=4096 and 16^4=65536 edge-table systems confirms N3=2397,N4=32377; separate orbit and annihilator reconstruction confirms unrestricted n by recurrence. Horak–Semaev's published Conjecture 20 instead predicts N3=2337; its different negative term is refuted, with general probability gap 15/(2·8^n). This relies on labelled simple cycles n>=3 and truly uniform truth tables; no finite experiment is substituted for exact annihilator identity.
 
-## Reproducibility and limits
-Run `python3 verify.py`. The verifier uses only integer operations and independently tests every one of the \(69632\) systems for cycle lengths three and four, plus inclusion-exclusion and the transfer recurrence. The result is limited to labelled simple cycles under independent uniform two-variable Boolean truth-table sampling, not arbitrary graphs or biased constraints. Independent assessment and comprehensive historical-priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+A mathematically natural exact correction to a recent explicit conjecture for independent random binary constraints on cycles. It supplies a closed all-length sequence, a seven-orbit Boolean-semigroup transfer and rigorous counterexample, not a tiny isolated numerical discrepancy; the recurrence has independent use in random CSP consistency probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
