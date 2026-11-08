@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Two programs were saved as `verify_python.py` and `verify_cpp.cpp`, with their actual execution outputs as `verify_python_output.txt` and `verify_cpp_output.txt`. Source programs were inspected and then run as actual standalone files.
+## correctness
 
-The Python checker evaluates every initial state and proposed output on odd labelled cycles from 3 through 19 vertices, including all inverse fiber sizes, total recurrent states, fixed points, full primitive two-cycle basins and the claimed unique maximum. All assertions passed.
+PASS
 
-The separately implemented C++ checker uses a different native-bitmask update and integer Fibonacci implementation, and checks the same complete properties through 21 vertices, including 2,097,152 initial states at that maximum size. All assertions passed. Reproduce with `python3 verify_python.py`, `c++ -std=c++17 -O2 verify_cpp.cpp -o check`, and `./check`.
+Proved F^3=F on undirected loopless graphs from antitonicity and x<=F²(x). For odd n, j->2j permutes sites and z_j=1-x_(2j-1) converts each output constraint to adjacent AND y’_j=z_j z_(j+1). A zero output counts independent cyclic sets Lucas_n; output all ones has one precursor; a single zero between ones is impossible; longer cyclic zero runs of length L have F_(L-1) internal independent-set assignments, which factor across runs. For nonconstant output, product <=F_(n-2); each nontrivial attractor union has at most 2F_(n-2)<Lucas_n+1 precursors. Independently exhausted every input/output for odd n=3..15 (n=15 has 32768 states), verifying all 2^n fiber equations. Infinite theorem rests on combinatorial run reduction, not only finite states.
 
-The proof's noncomputational steps are the cyclic step-two reindexing, forced endpoint analysis for each zero run, the Fibonacci path count, the antitone identity \(F^3=F\), and the Fibonacci inequality establishing the strict basin maximum. All are written in RESULT.md. Exhaustive tests for finitely many sizes are checks, not proofs of the all-size theorem.
+## originality
 
-No external or independent audit was performed. The historical comparison is qualified because one closely relevant finite-cylinder source was available only in abstract.
+PASS
+
+Jen (1988/1989) and Fukś developed periodic CA attractor and preimage transfer methods and Rule-5 update dynamics is known; previous square-conjugate open-NOR findings on bipartite graphs and paths have individual path fibers but do not imply odd-cycle cyclic run counts or unique Lucas-basin ranking. Best-of-knowledge the explicit odd-ring all-fiber evaluation survives.
+
+## value
+
+PASS
+
+The exact predecessor distribution and unique dominant attraction basin on a canonical elementary cellular automaton answers a natural finite-dynamical-systems question at every odd ring size, including sharp exponential basin probability, not a mere generic time-two recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
