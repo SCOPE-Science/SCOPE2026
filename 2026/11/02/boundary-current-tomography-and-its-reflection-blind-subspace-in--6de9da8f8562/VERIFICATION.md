@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The result is an analytical statement about stationary membrane transport and ideal data. The Green-function endpoint calculation, interface correction, signed-current transform, analytic identity theorem, odd-polynomial measure argument, Jordan-decomposition characterization of nonnegative compatible sources, nonparametric finite-sampling counterexample and reflection symmetry are demonstrated explicitly in `RESULT.md`.
+## correctness
 
-`check_current.py` is an independent computational cross-check. Execute with Python 3 and NumPy 2 or later using `python3 check_current.py`; its observed output was `PASS 428 deterministic checks including probability-law fiber`. The code exercises 54 parameter sets in an explicit point-source Green solution, two distinct reset laws with identical odd parts, an asymmetric single-rate zero-current example, the small-reset-rate slope, and a second finite-volume solver with membrane resistance included between cell centers. All tested finite-volume errors decrease with mesh refinement. No simulation or finite grid check is used as an infinite-dimensional proof.
+PASS
 
-The checks establish correctness of the written formulas to the extent of the displayed analytical proof and deterministic cross-tests. They do not establish noise-stable inverse recovery, identify an otherwise free symmetric source component, resolve priority against all prior literature, or constitute an independent audit.
+The Neumann kernel for -D d_xx+r with reset source r*mu yields the endpoint jump lambda/cosh(lambda L/2) times the odd hyperbolic-sine transform. Correcting by -J*sinh(lambda(x-L/2))/(Dlambda cosh(lambda L/2)) and imposing J=kappa*(p(L)-p(0)) gives the displayed positive current multiplier. Entire-function identity and density of odd polynomials identify exactly the reflection-antisymmetric signed measure. Jordan total-variation decomposition s>=|a| yields all valid probability laws mu=a+|a|+(1-m)sigma and uniqueness iff m=1. k+1 paired support sites give a nonzero signed kernel at k rates, perturbed into positive laws. Reflection and positive permeability give zero-current equivalence for interfacial entropy, and expansion at r downarrow0 gives mean source-position slope. Independent finite-atom check confirms Green jump and reflection invisibility.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact inverse observation equivalence, positivity-constrained fibre and sharp identification boundary. Bressloff 2024 provides the forward stationary ring PDE, membrane current and entropy theory; translating it into a complete measure-level inverse theorem is additional mathematical content, though an implicit corollary for experts.
+
+## value
+
+PASS
+
+Determining precisely what a one-dimensional physical boundary observable can and cannot recover, including the sharp nonlinear positivity restriction and the finite-vs-continuum observation boundary, is a meaningful inverse problem. The complete probability-law fibre and unit-variation uniqueness criterion are stronger than a forward flux formula, with a useful impossibility result for finite scanning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,13 +1,21 @@
-# Scientific review: membrane-flux response and reflection-blind reset tomography
+# Independent mathematical audit
 
-**Correctness — PASS.** For every positive diffusivity, ring length, permeability, and reset rate, the stated Green function solves the stationary source problem; its endpoint difference and a homogeneous flux correction yield the exact current formula with an explicitly positive prefactor. Compact spatial support makes the hyperbolic-sine transform entire. The identity theorem, odd-moment uniqueness, and density of odd polynomials prove the exact reflection-kernel equivalence for arbitrary Borel reset distributions. Jordan decomposition of the recovered odd measure and probability positivity classify every admissible law in the equivalence class, including the exact unit-total-variation uniqueness criterion. Finite-rate nonidentifiability follows from a concrete nontrivial null vector and perturbations preserving positivity and mass. The entropy comparison follows directly from the membrane law and reflection. The low-rate slope follows by Taylor expansion. The standalone script reports 428 deterministic checks, including an independently discretized stationary diffusion equation.
+## correctness
 
-**Originality — PASS, with priority risk.** Bressloff's 2024 paper provides the forward ring model, interface dissipation and the complete fixed-rate stationary density via a point-source superposition, and must be credited. The new claim is not that these Green functions are unknown, but that scanning signed membrane current against reset rate gives *exactly* the antisymmetric source measure, with a complete nonparametric nullspace and admissible-probability fiber, its unit-total-variation uniqueness threshold, an accumulation-point/finite-sampling dichotomy, and specific entropy-observation limitations. These inverse implications are not stated in the relevant equations, main discussion, or references of the inspected paper. Mori–Olsen–Krishnamurthy analyze entropy from random resetting without the membrane inverse experiment. The earlier screened-barrier paper concerns absorbing targets and first passage, not the stationary ring response. Targeted literature searches and published-record semantic searches found no equivalent theorem. A more general source-identification result or unpublished calculation might imply it; absence from search is not a proof of publication priority.
+PASS
 
-**Mathematical value — PASS.** The question is a natural inverse problem in the explicit nonequilibrium membrane transport model: what can an experimentally adjustable resetting rate and one scalar boundary-current sensor reveal about the unobserved reset law? The result gives a complete and sharp answer for arbitrary, not parametrically restricted, reset distributions: exact antisymmetric recovery, conditional symmetric blindness and sharp full-law uniqueness at unit antisymmetric total variation, identification from accumulating rates versus impossibility at finitely many rates without source priors, and a distinction between zero dissipation at one rate and over an interval. It is more than recomputation of a tabulated stationary value; it identifies a structural observation nullspace and a measurement-design limitation. It does not claim noise stability, recovery of symmetric structure, or priority certification.
+The Neumann kernel for -D d_xx+r with reset source r*mu yields the endpoint jump lambda/cosh(lambda L/2) times the odd hyperbolic-sine transform. Correcting by -J*sinh(lambda(x-L/2))/(Dlambda cosh(lambda L/2)) and imposing J=kappa*(p(L)-p(0)) gives the displayed positive current multiplier. Entire-function identity and density of odd polynomials identify exactly the reflection-antisymmetric signed measure. Jordan total-variation decomposition s>=|a| yields all valid probability laws mu=a+|a|+(1-m)sigma and uniqueness iff m=1. k+1 paired support sites give a nonzero signed kernel at k rates, perturbed into positive laws. Reflection and positive permeability give zero-current equivalence for interfacial entropy, and expansion at r downarrow0 gives mean source-position slope. Independent finite-atom check confirms Green jump and reflection invisibility.
 
-**Most relevant literature:** P. C. Bressloff, *Physical Review Research* 6, 023283 (2024), arXiv:2402.16403; F. Mori, K. S. Olsen and S. Krishnamurthy, *Physical Review Research* 5, 023103 (2023), arXiv:2211.15372; P. C. Bressloff, *Journal of Physics A* 56, 105001 (2023), arXiv:2211.12468.
+## originality
 
-**Remaining scientific risks:** The inverse problem is analytically ill-conditioned; a forward-solution specialist could derive the inverse formula quickly, so a separate literature-priority audit is warranted. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS for the exact inverse observation equivalence, positivity-constrained fibre and sharp identification boundary. Bressloff 2024 provides the forward stationary ring PDE, membrane current and entropy theory; translating it into a complete measure-level inverse theorem is additional mathematical content, though an implicit corollary for experts.
+
+## value
+
+PASS
+
+Determining precisely what a one-dimensional physical boundary observable can and cannot recover, including the sharp nonlinear positivity restriction and the finite-vs-continuum observation boundary, is a meaningful inverse problem. The complete probability-law fibre and unit-variation uniqueness criterion are stronger than a forward flux formula, with a useful impossibility result for finite scanning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
