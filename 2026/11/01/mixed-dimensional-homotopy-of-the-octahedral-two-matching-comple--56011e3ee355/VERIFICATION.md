@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite proof verification
+# Independent mathematical audit
 
-Execute `python3 verify_octahedral_two_matching.py` with standard-library Python. The script prints all exact assertion results and the marker `HOMOTOPY_WEDGE_3_S3_AND_7_S4_VERIFIED`; the attached `verify_octahedral_two_matching.out` records a successful execution.
+## correctness
 
-The independent tests enumerate all 4096 edge subsets using degree counts and forbidden triple stars. Full simplicial boundary-squared checks hold over the integers. The greedy matching is tested on all 2940 directed face incidences for acyclicity, and its 378 algebraic cancellations use exact pivots ±1. The surviving signed differential has the displayed rank-three unit minor and two zero rows plus a fourth-row relation; an independent mod-two boundary calculation confirms reduced Betti numbers 3 and 7 in dimensions 3 and 4.
+PASS
 
-The homotopy conclusion also uses the mathematical identification of 4-cell attaching maps into a wedge of 3-spheres with integral degree vectors. Nothing here certifies arbitrary graphs or future parameter values. Independent external audit has not been performed.
+The graph has exactly twelve edges across three opposite vertex-pairs; a face is any selected edge set with degree <=2 at every graph vertex, equivalently avoiding each incident edge triple. An independent exact enumeration found 772 faces including the empty face. A sequential twelve-edge toggle matching has 378 pairs, sixteen critical faces (six in dimension three, ten in four) and an acyclic orientation over all 2940 Hasse incidences. Independently implemented generic integral unit-pivot Schur cancellations of all pairs, obtaining a 6x10 Morse d4 with rank three and Smith factors (1,1,1), hence H3=Z^3 and H4=Z^7 without torsion. Since the resulting CW complex has only 0-,3-,4-cells and pi3 of its 3-skeleton is Z^6, primitive attaching degrees can be diagonalized/cancelled to give the claimed wedge. No homotopy conclusion is inferred from mod-two Betti numbers alone.
+
+## originality
+
+PASS
+
+The searched two-matching literature treats leaves, wheels, caterpillars and complete/complete bipartite families. Octahedral K_{2,2,2} is complete tripartite, not the standard complete or complete bipartite case. The ordinary matching complex and discrete Morse-vector-field complex on the same octahedral graph are different constructions and do not yield this 2-matching wedge. No inspected stronger theorem implies the exact mixed wedge; best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The regular octahedral graph is a basic Platonic graph and the first small canonical complete tripartite example outside commonly computed K_n/K_{p,q} two-matching families. Its nonpure complex surprisingly has a torsion-free mixed-dimensional integral wedge; a complete homotopy type, rather than just Betti numbers, supplies a meaningful benchmark and boundary case for higher matching-complex classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
