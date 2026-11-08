@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each fixed r, binomial inclusion probabilities give exact covariance q_u-q_a q_b. Nested-set factorization gives nonnegative signs. For incomparable sets, covariance is negative before r=u; after that H_r=q_u/(q_a q_b) has consecutive ratio deviation (ab-c(r+1))/[(r+1)(r+1-u)], giving a single peak. H_n=1 and exact H_{n-1} sign nc-ab yield the full global classification, strict boundaries, and at most one zero at integer stages. This algebra is a proof for every admissible finite n, unlike finite checks. Replayed checker.py: 17,743 exact cardinality/stage checks, 1,650 parameter cases, and 1,737 independently enumerated random-subset comparisons. Scope and limits in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Memmott et al. 2004 original full text, https://www.bio.bris.ac.uk/research/community/article_PDF/Memmottetal2004.pdf: method and curve analysis of random pollinator knockout.",
+        "Kaiser-Bunbury et al. 2010 original full text, https://www.biochem-caflisch.uzh.ch/sites/default/files/publist/pdfs/smuff10.pdf: weighted and qualitative robustness with rewiring.",
+        "Bane et al. 2018 original full text, https://nora.nerc.ac.uk/id/eprint/521791/1/N521791JA.pdf: distributions of aggregate robustness from randomized removal orders."
+      ],
+      "reasoning": "All three primary sources cover the ecological mechanism and some broader biological model classes but their actually read methods/results focus on single-network mean survival, robustness distributions, and variable extinction rules. None states the all-n,a,b,c,r single-switch covariance classification in the specific uniform fixed-count model; broader ecological scope does not imply the exact claimed pairwise result.",
+      "searches": [
+        "Memmott Waser Price 2004 tolerance pollination network extinction random removal without replacement",
+        "Kaiser Bunbury Muff 2010 robustness quantitative pollinator behaviour rewiring",
+        "Bane Pocock James 2018 knockout extinction models ecological robustness variance distribution",
+        "fixed-stage covariance of two secondary plant extinction indicators under uniform without-replacement pollinator loss intersection neighbor sets sign reversal as removal count increases"
+      ]
+    },
+    "checked_sources": [
+      "Memmott–Waser–Price 2004 DOI:10.1098/rspb.2004.2909 full lawful author PDF",
+      "Kaiser-Bunbury et al. 2010 DOI:10.1111/j.1461-0248.2009.01437.x full lawful author PDF",
+      "Bane–Pocock–James 2018 DOI:10.1002/ece3.4529 full lawful OA PDF",
+      "Joag-Dev–Proschan 1983 DOI:10.1214/aos/1176346079 published abstract only",
+      "Published-record semantic search comparisons on coextinction covariance, hypergeometric set inclusion and fixed-composition sign shifts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A mean surviving-plant curve gives only the sum of marginal probabilities and does not determine pairwise covariance.",
+        "Distribution of integrated robustness over deletion permutations does not in general determine every pairwise fixed-stage covariance, especially without explicit species-pair conditioning.",
+        "Negative association for disjoint sampled coordinate families cannot entail the observed positive overlap case.",
+        "Previously computed extinction-rank covariance on the same incidence structure is negative for n=26,a=b=5,c=1, despite positive fixed-stage covariance at r=25."
+      ],
+      "reasoning": "Neither the mean robustness curves of 2004/2010 nor aggregate robustness distributions of 2018 logically force exact covariance of specified pairs at fixed r. Under overlapping partner sets, general negative association requires a disjoint-support hypothesis that is absent. Even a result for the same network and parameters concerning extinction-rank random variables does not imply fixed-stage one-switch signs; the explicit opposed-sign parameters demonstrate separation.",
+      "searches": [
+        "plant-pollinator secondary extinction pair survival covariance one switch threshold overlap versus expected hypergeometric",
+        "network robustness pair covariance overlap set inclusion fixed size random subset as sample fraction changes",
+        "sampling without replacement probability overlapping subset events positively negatively correlated sign unique change",
+        "negative association random sampling without replacement increasing events overlapping sets covariance sign threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For an r-subset of n primary taxa, the inclusion probability of a given s-subset is binom(r,s)/binom(n,s), a multivariate-hypergeometric identity.",
+        "Joag-Dev and Proschan (1983), DOI 10.1214/aos/1176346079, negative association for disjoint increasing subfamilies; not the sign of overlapping event-indicator pairs.",
+        "Rank-covariance identity for the same incidence sizes can have negative sign even when stage covariance is positive: n=26,a=b=5,c=1, rank covariance -9/220, stage r=25 covariance +1/676."
+      ],
+      "reasoning": "The basic inclusion probabilities are classical, and covariance of two increasing events is a potentially equivalent problem. The added universal discrete-time phase classification follows from a specific unimodality argument not supplied by the inspected coextinction literature. Independence-of-removal / disjoint-coordinate association implications do not cover shared partner sets; an integrated extinction-rank covariance is not a stronger equivalent, as the opposite-sign example establishes.",
+      "searches": [
+        "negative association random sampling without replacement increasing events overlapping sets covariance sign threshold",
+        "overlapping subset inclusion event covariance sign sample without replacement threshold intersection ab/n r",
+        "pollinator secondary extinction covariance random removal without replacement nested overlap analytic sign",
+        "two species sharing pollinators coextinction covariance hypergeometric random fixed count removal overlap size threshold",
+        "sampling without replacement probability overlapping subset events positively negatively correlated sign unique change"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Memmott et al. 2004: empirical knockout curves of two networks, not an exhaustive parameter table.",
+        "Bane et al. 2018: simulation-based robustness distributions over several networks, not exact pair-overlap sign tables.",
+        "The self-contained exact checker enumerates all feasible incidence cardinalities n=2..12 solely as verification, not as a literature lookup or proof for unbounded n."
+      ],
+      "reasoning": "No directly covering tabulation, formula table, or exhaustive classification for arbitrary n and partner-overlap parameters appeared in the inspected material. This is an evidence-limited negative search, not a claim of uniqueness of all mathematical descriptions.",
+      "searches": [
+        "fixed-stage covariance of two secondary plant extinction indicators under uniform without-replacement pollinator loss intersection neighbor sets sign reversal as removal count increases",
+        "pairwise covariance plant persistence after fixed number of pollinator species removal uniform random permutation overlap hypergeometric exact one switch positive negative",
+        "ecological robustness variance pairwise plant survivorship random pollinator removal hypergeometric"
+      ]
+    },
+    "rationale": "A full pairwise coextinction covariance one-switch law was not found in the compared 2004 binary knockout source, the 2010 quantitative/rewiring source, or the 2018 aggregate robustness-distribution source. The classic hypergeometric/negative-association theorem requires disjoint coordinate supports for negative covariance. Exact comparison to an existing rank-covariance result shows distinct random variables and opposite signs on the same n,a,b,c. The verdict is qualified: uninspected generic event-reliability literature may contain an equivalent theorem; negative search is not a novelty certificate.",
+    "residual_risks": [
+      "An algebraically equivalent condition may be stated in older generic reliability, urn-model, or set-inclusion association literature outside the inspected sources; independent historical priority remains unverified.",
+      "The 1983 negative-association primary article was examined at abstract level only, so whole-document noncoverage is not asserted.",
+      "The binary removal rule is an idealized ecological null model and does not establish empirical coextinction predictions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives mean extinction curves from 300 random knockout sequences, but no pairwise survival covariance formula or stage-dependent sign regime",
+        "evidence": [
+          "PDF pp. 1–3, especially methods: random pollinator removal without replacement, secondary plant disappearance upon last-partner loss; results plot mean species survivorship"
+        ],
+        "identifier_or_url": "https://www.bio.bris.ac.uk/research/community/article_PDF/Memmottetal2004.pdf",
+        "material_read": "Full article: abstract, materials/methods, random-removal assumptions, results, figures, and discussion",
+        "method": "Lawful author PDF rendered and inspected across body; checked description of random pollinator removal, plant-loss rule, and summary curves",
+        "title": "Memmott, Waser and Price (2004), Tolerance of pollination networks to species extinctions",
+        "trigger": "Same binary static removal model, first public 2004-12-06"
+      },
+      {
+        "assessment": "Quantitative/multi-scenario robustness comparisons, not exact binary pair-covariance sign diagrams",
+        "evidence": [
+          "PDF pp. 1, 3; qualitative/quantitative removal and interaction rewiring"
+        ],
+        "identifier_or_url": "https://www.biochem-caflisch.uzh.ch/sites/default/files/publist/pdfs/smuff10.pdf",
+        "material_read": "Full article: abstract, methodology including qualitative/quantitative cases and random-removal scenarios, results/discussion",
+        "method": "Lawful author PDF rendered and inspected including p. 3 qualitative/quantitative models",
+        "title": "Kaiser-Bunbury et al. (2010), The robustness of pollination networks to the loss of species and interactions",
+        "trigger": "Direct extension of static robustness model to quantitative links, temporal snapshots and rewiring"
+      },
+      {
+        "assessment": "Studies distributions of integrated robustness and rank-degree association; does not derive covariance between a fixed pair of plant survival indicators at each fixed knockout count",
+        "evidence": [
+          "PDF pp. 1, 6; sections 2.5 and 2.7.2 about robustness distributions and extinction rank"
+        ],
+        "identifier_or_url": "https://nora.nerc.ac.uk/id/eprint/521791/1/N521791JA.pdf",
+        "material_read": "Open full paper: introduction, models, methods, robustness distributions, rank/degree analysis, discussion",
+        "method": "Lawful OA PDF inspected including p. 6 methods on 25,000 randomized sequences and robustness distributions",
+        "title": "Bane, Pocock and James (2018), Effects of model choice, network structure, and interaction strengths on knockout extinction models of ecological robustness",
+        "trigger": "Closest work investigating entire distributions of randomized robustness and extinction-rank summaries"
+      },
+      {
+        "assessment": "Negative association addresses functions of disjoint coordinate collections, whereas the present plants depend on overlapping subsets and covariance can be positive",
+        "evidence": [
+          "Abstract on negatively associated random variables and sampling without replacement; full text not materially inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+        "material_read": "Published abstract and bibliographic statement of negative-association theorem, NOT complete article",
+        "method": "Abstract-level comparison; no full-text coverage assertion",
+        "title": "Joag-Dev and Proschan (1983), Negative association of random variables with applications",
+        "trigger": "General sampling-without-replacement dependence theorem potentially dominating a covariance claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c18963d3-b093-413b-91bb-1204e856f76f",
+  "value": {
+    "rationale": "The covariance of surviving plant indicators supplies the non-marginal contributions to stagewise variance of species richness under a standard ecological knockout null model. The exact threshold c>ab/n is interpretable relative to a random-partner-overlap baseline, and the global one-switch restriction gives a complete natural classification for all cardinalities and finite removal stages, not a free numerical subcase. Its positive-versus-negative reversal is masked by mean robustness curves and cannot be read from integrated extinction-rank covariance alone. The proof deliberately does not imply field realism or a full richness distribution.",
+    "status": "PASS"
+  }
+}
