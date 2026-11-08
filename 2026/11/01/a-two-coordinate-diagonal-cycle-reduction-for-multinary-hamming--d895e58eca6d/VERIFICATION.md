@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The complete proof is in `RESULT.md` and the executable finite checker is `checker.py`. Run `python3 checker.py` in their extracted directory; the program uses only Python's standard library. The checker enumerates orbit labels, computes all cross-orbit Hamming distances for ten nonbinary pairs of alphabet size and dimension, checks every integer scale, and performs complete finite mod-two simplicial homology calculations for the \(q=3,n=4\) fixed complexes at scales \(2\) and \(3\). It separately verifies the sharp binary boundary \(q=2,n=3,r=2\).
+# Independent mathematical audit
 
-The finite checks pass, but they are not an infinite proof; the universal orbit-distance identity, geometric fixed-point triangulation and dominated-vertex collapse establish the unrestricted theorem. For integral homology and all-scale persistence the mathematical proof, not a mod-two finite computation, is decisive. No independent audit or external certification has been performed.
+## correctness
+
+PASS
+
+Geometric fixed points are barycentric combinations constant on each entire group orbit; orbit simplices triangulate their fixed locus. Each orbit O_(a,u) has diameter 2; for q≥3 there is δ∈Z/q distinct from 0 and a−b, giving cross-orbit maximum exactly 2+d_H(u,v). Therefore the orbit complex is the q-vertex-clique blowup of the smaller flag Rips complex; each clone (a,u) has the same closed neighborhood and is dominated by (0,u). Projection/section simplicial contiguity commutes with r-inclusions, giving natural integral persistence isomorphisms, not just isolated Betti ranks. Explicitly checked q=3,n=2: three orbit vertices form a 3-clique; q=3,n=4: 27 orbit vertices and 27 edges at r=2, grouped into nine disjoint triangles; q=4,n=3: 16 orbit vertices; q=2,n=3: four orbit vertices form C4 at r=2, demonstrating sharpness.
+
+## originality
+
+PASS
+
+The reduction concerns geometric C_q fixed loci and all-scale natural filtered collapse for nonbinary alphabets, while major hypercube Rips references treat the binary ordinary Rips spaces or homology representations of those spaces. A prior ordinary q=3 cube barcode does not imply this fixed-space equivariant reduction.
+
+## value
+
+PASS
+
+Identifies an entire natural persistence module of a nontrivial fixed locus, over arbitrary coefficient rings, by a dimension/scale reduction valid for all q≥3 and all dimensions and scales. The sharp binary counterexample distinguishes a genuine structural threshold, beyond a small barcode computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

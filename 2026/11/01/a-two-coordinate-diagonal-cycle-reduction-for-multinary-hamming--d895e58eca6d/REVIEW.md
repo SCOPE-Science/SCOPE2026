@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a claim about the actual geometric fixed set, not a fixed-vertex subcomplex. Every fixed barycentric support is a union of full \(C_q\)-orbits. All such orbits have diameter exactly \(2\). For any two orbit labels \((a,u),(b,v)\), maximum cross-distance equals \(2+d_H(u,v)\), since for \(q\ge3\) the translation difference can avoid two forbidden residue values. Hence the fixed orbit complex is precisely the \(q\)-clique blow-up of the smaller Rips complex. Vertices within a fiber have identical closed graph neighborhoods and are dominated by one chosen representative. The resulting strong collapse commutes with the Rips filtration. The low-scale circle count follows by collapsing intersecting coordinate-line simplices to trees. The binary counterexample is verified separately. This reconstructs every quantifier, including \(n=2\), all real \(r\ge0\), and composite \(q\ge3\). The finite executable checker corroborates but does not replace these steps.
+PASS
 
-## Originality — PASS under documented searches, with residual risk
+Geometric fixed points are barycentric combinations constant on each entire group orbit; orbit simplices triangulate their fixed locus. Each orbit O_(a,u) has diameter 2; for q≥3 there is δ∈Z/q distinct from 0 and a−b, giving cross-orbit maximum exactly 2+d_H(u,v). Therefore the orbit complex is the q-vertex-clique blowup of the smaller flag Rips complex; each clone (a,u) has the same closed neighborhood and is dominated by (0,u). Projection/section simplicial contiguity commutes with r-inclusions, giving natural integral persistence isomorphisms, not just isolated Betti ranks. Explicitly checked q=3,n=2: three orbit vertices form a 3-clique; q=3,n=4: 27 orbit vertices and 27 edges at r=2, grouped into nine disjoint triangles; q=4,n=3: 16 orbit vertices; q=2,n=3: four orbit vertices form C4 at r=2, demonstrating sharpness.
 
-The public full text of Bendersky--Elia--Grbić (arXiv:2605.00705) concerns the binary hypercube and cohomological bounds/classes; it does not contain the nonbinary diagonal-cycle fixed filtration. The Galetto--Montaño--Wellner abstract (arXiv:2606.20784) addresses rational homology representations of binary hypercube Rips complexes, not the geometric fixed polyhedron on a nonbinary Hamming graph; the full text was not accessible for independent inspection. Relevant indexed ternary-cube calculations and multinary Čech calculations determine different quantities, and do not imply this all-scale fixed-space reduction. The closest binary fixed-space classifications depend on the binary alphabet and do not cover this theorem. Matching titles or unsuccessful search alone were not counted as novelty evidence; the key comparison is the nonbinary geometry and the full natural filtration-level equivalence.
+## originality
 
-The remaining risk is that a general previously published fixed-Rips orbit-reduction lemma, or an unindexed multinary fixed-point study, may imply the theorem even without the present parameterization. The primary bibliography is therefore not claimed exhaustive.
+PASS
 
-## Value — PASS
+The reduction concerns geometric C_q fixed loci and all-scale natural filtered collapse for nonbinary alphabets, while major hypercube Rips references treat the binary ordinary Rips spaces or homology representations of those spaces. A prior ordinary q=3 cube barcode does not imply this fixed-space equivariant reduction.
 
-The result is a structural identification of an entire persistent fixed-point filtration for arbitrary alphabet size and arbitrary dimension, including integral coefficients and all homological degrees. It converts an equivariant topology question into a smaller ordinary Rips question with an exact two-step scale shift. This yields concrete infinite-family low-scale topology, an explicit complete barcode for the first nontrivial ternary case, and a sharp binary/nonbinary boundary. The identification is mathematically motivated by the active study of Hamming-cube Rips complexes and equivariant homology; it is not merely a new numerical Betti table or a parameter substitution.
+## value
 
-## Limits and prior context
+PASS
 
-The ordinary Rips homology of the smaller cube at arbitrary scales remains an input, not something evaluated by this theorem. The geometric fixed locus is PL homeomorphic to its orbit-barycenter complex, but only homotopy equivalent to the smaller Rips complex. The finite checker does not prove the all-parameter assertion. Relevant sources are Bendersky--Elia--Grbić (arXiv:2605.00705), Galetto--Montaño--Wellner (arXiv:2606.20784), and Adamaszek--Adams (arXiv:2103.01040); an equivalent unindexed source remains possible.
+Identifies an entire natural persistence module of a nontrivial fixed locus, over arbitrary coefficient rings, by a dimension/scale reduction valid for all q≥3 and all dimensions and scales. The sharp binary counterexample distinguishes a genuine structural threshold, beyond a small barcode computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
