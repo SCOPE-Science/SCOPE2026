@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:53:13.701354Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof Sections 1-4 (frozen Git blob 2eb28e23ff20f0d2e83f34a7c005fc9f48d8144e)",
+        "verify.py, inspected exact integer factor/divisor algorithm (blob e022586f3338a5fb0a9d59876bce12cf09b4ed14)",
+        "independent_checks.py R1, sympy exact factor/divisor/Möbius output",
+        "arXiv:2402.07934, primary text §1 and Appendix C"
+      ],
+      "rationale": "The normalization T(n)=n(n+1)/2 and T(2^k)=2^(k-1)(2^k+1) reduces membership of j below 2^k to 2-adic valuation and 2^k=-1 modulo odd prime powers. Odd k forces each ord_(p^e)(2)=2u with odd u and lcm(u)|k. Explicit small-prime order obstructions exclude every 3-coprime j=4,7,...,40; j=43 has T(43)=946=2*11*43 and local orders 10 and 14, hence exactly k=35 mod 70. Independent sympy divisor enumeration reconstructed ALL 18 intervals k odd 1..35 from integer factorizations and the exact square condition 8d+1 square, then independently computed their incidence Möbius recurrence: mu(2^k)=0 for k=3..33 odd and mu(2^35)=1 on the eight-point lower interval. The infinity of the congruence progression follows from the symbolic order argument, not finite sampling.",
+      "residual_risks": [
+        "The finite boundary relies on complete factorizations and 18 finite enumerations; independently recomputed, not formal proof assistant verified.",
+        "No statement on mu_T(2^k) beyond k35 except the divisibility of T(43) for k=35 mod70."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pandey–Richman analyze general incidence function and asymptotic questions, not all lower intervals below T(2^k).",
+          "Resultary 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00 addresses tau-number relative uniqueness rather than triangular-poset incidence Möbius values."
+        ],
+        "reasoning": "General incidence recurrence is a calculation rule but does not automatically produce the high-index exact value without divisor classification; no identified stronger result implies the new finite cutoff.",
+        "searches": [
+          "arXiv:2402.07934 main theorems recurrence and conjectures",
+          "Resultary published triangular number prime-support sieve",
+          "triangular numbers poset dyadic Möbius exponent sequence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2402.07934",
+        "https://oeis.org/A350682",
+        "https://oeis.org/A350682/b350682.txt",
+        "Resultary 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source proves general recurrence and distinct divisibility substitutions; none matches target-index powers of two.",
+          "The Resultary cyclotomic-tau result concerns tau-number relative uniqueness and does not imply incidence Möbius."
+        ],
+        "reasoning": "No direct or reduction-based implication from the checked prior statements to the exact order criterion, first j43, and eight-point value at exponent35 was found.",
+        "searches": [
+          "Pandey Richman 2024 Appendix C triangular divisibility",
+          "OEIS A350682 finite Möbius values",
+          "Resultary 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2402.07934 §1 defines incidence Möbius and Appendix C proves T(n)|T(n(n+1)) and T(n)|T(T(n)).",
+          "The new criterion characterizes exact 2^k≡-1 congruences against every odd prime power in T(j)."
+        ],
+        "reasoning": "The order-of-two congruence is a genuinely equivalent arithmetic formulation of this specific divisibility question, not itself supplied by the cited appendical divisibility identities.",
+        "searches": [
+          "Möbius function triangular divisibility odd exponent 2^k 43",
+          "Pandey Richman arXiv:2402.07934 Appendix C",
+          "Resultary semantic: Möbius triangular number divisibility dyadic odd exponent 2^35"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A350682 finite table covers n≤10000, versus 2^35=34359738368.",
+          "Independent exhaustive 18-interval arithmetic verifies the first odd escape."
+        ],
+        "reasoning": "Existing indexed values are far below the first nontrivial new Möbius index; known table is not a source for the asserted value.",
+        "searches": [
+          "OEIS A350682 triangular-number Möbius entry and b350682.txt",
+          "OEIS A350682 2^35 entry",
+          "k odd 1 through 35 triangular divisor table"
+        ]
+      },
+      "rationale": "Pandey–Richman introduce the triangular-divisibility Möbius function and different divisor identities; the sequence OEIS A350682 tabulates only the first 10000 indices. Neither observed statement entails odd-exponent prime-power order criterion or mu_T(2^35)=1 without the new lower-interval analysis. Related published Resultary prime-support/divisor results concern distinct arithmetic functions; this is a best-of-knowledge priority judgment.",
+      "residual_risks": [
+        "Unindexed multiplicative-order arithmetic or a larger triangular-Möbius table might already contain an equivalent formula.",
+        "Bibliographic search does not prove universal novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the asserted dyadic theorem in inspected primary text",
+          "evidence": "Appendix C treats T(n)|T(n(n+1)) and T(n)|T(T(n)); no 2^35 first-escape calculation; cited PDF in audit",
+          "identifier_or_url": "https://arxiv.org/abs/2402.07934",
+          "material_read": "Full 17-page primary PDF; definitions, key results, Appendix C divisibility identities",
+          "method": "Primary PDF extracted text and screenshots, with theorem/appendix comparison",
+          "title": "The Möbius function of the poset of triangular numbers under divisibility",
+          "trigger": "Same poset and exact Möbius definition"
+        },
+        {
+          "assessment": "Finite overlap, not exact 2^35",
+          "evidence": "The recorded finite table ends at n=10000, whereas 2^35≫10000.",
+          "identifier_or_url": "https://oeis.org/A350682",
+          "material_read": "Sequence entry, associated b-file range through n10000, history",
+          "method": "Primary sequence/database inspection",
+          "title": "OEIS A350682, Möbius values on triangular divisibility poset",
+          "trigger": "Exact integer database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pandey–Richman poset and open Möbius questions, arXiv:2402.07934",
+        "Independent exact 18-interval census, R1"
+      ],
+      "rationale": "Triangular-number divisibility is a natural explicitly studied incidence poset; the first odd-dyadic nonzero Möbius value is a motivated obstruction to a tempting zero pattern, not an arbitrary tiny row. The exact prime-order mechanism and infinite recurrence of T(43) as a divisor offer reusable arithmetic structure. This is a meaningful exact cutoff and counterexample, without overclaiming global averages.",
+      "residual_risks": [
+        "The achievement is confined to the designated odd-dyadic slice, not a classification of all mu_T values."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Positive indices; odd exponent order criterion; exact lower-interval computation for odd k≤35 only.",
+    "Nonzero mu at k35 does not imply all later odd exponents nonzero."
+  ]
+}

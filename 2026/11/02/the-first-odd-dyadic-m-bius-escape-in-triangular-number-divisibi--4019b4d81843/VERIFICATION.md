@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` is a standard-library exact-integer verifier. Run `python3 verify.py` from the extracted package directory.
+# Independent mathematical audit
 
-It enumerates all divisors from trial-divided factorization of each target \(T(2^k)\) for odd \(1\le k\le35\), using the perfect-square characterization \(d=T(j)\iff8d+1=(2j+1)^2\). It compares every resulting complete interval with the table in RESULT.md. It recomputes the incidence Möbius function on the eight-point interval below \(2^{35}\), all earlier odd-exponent dyadic Möbius zero values, and 3,822 direct-versus-order-formula divisibility comparisons.
+## correctness
 
-Observed output: `VERIFY_OK: 18 complete dyadic divisor intervals; first odd-power escape at 35;` followed by two lines identifying the eight-element Möbius calculation, the modulus-70 condition, and 3,822 comparisons.
+PASS
 
-The unlimited order formula and the infinite progression are proved symbolically in RESULT.md. No computation asserts all-exponent testing or a general asymptotic for \(\mu_T\). No independent audit is represented.
+The normalization T(n)=n(n+1)/2 and T(2^k)=2^(k-1)(2^k+1) reduces membership of j below 2^k to 2-adic valuation and 2^k=-1 modulo odd prime powers. Odd k forces each ord_(p^e)(2)=2u with odd u and lcm(u)|k. Explicit small-prime order obstructions exclude every 3-coprime j=4,7,...,40; j=43 has T(43)=946=2*11*43 and local orders 10 and 14, hence exactly k=35 mod 70. Independent sympy divisor enumeration reconstructed ALL 18 intervals k odd 1..35 from integer factorizations and the exact square condition 8d+1 square, then independently computed their incidence Möbius recurrence: mu(2^k)=0 for k=3..33 odd and mu(2^35)=1 on the eight-point lower interval. The infinity of the congruence progression follows from the symbolic order argument, not finite sampling.
+
+## originality
+
+PASS
+
+Pandey–Richman introduce the triangular-divisibility Möbius function and different divisor identities; the sequence OEIS A350682 tabulates only the first 10000 indices. Neither observed statement entails odd-exponent prime-power order criterion or mu_T(2^35)=1 without the new lower-interval analysis. Related published Resultary prime-support/divisor results concern distinct arithmetic functions; this is a best-of-knowledge priority judgment.
+
+## value
+
+PASS
+
+Triangular-number divisibility is a natural explicitly studied incidence poset; the first odd-dyadic nonzero Möbius value is a motivated obstruction to a tempting zero pattern, not an arbitrary tiny row. The exact prime-order mechanism and infinite recurrence of T(43) as a divisor offer reusable arithmetic structure. This is a meaningful exact cutoff and counterexample, without overclaiming global averages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
