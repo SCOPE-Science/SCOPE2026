@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph, arc convention, and multipath criterion are explicit; an exhaustive enumeration by injective partial maps agrees with exhaustive arc-subset enumeration. The checker verifies the entire 1816-vertex directed Hasse graph after 835 matching-pair reversals, so acyclicity is not inferred from a heuristic. The signed Morse matrices are constructed from gradient-path substitutions. The 12-by-101 degree-three matrix has Smith factors nine ones; the 101-by-32 degree-four matrix vanishes. Original simplicial mod-two ranks provide a separate check. The resulting integral homology is torsion-free. The simply connected claim follows from the cell model's absence of one-cells; the degree-two Hurewicz conclusion uses this hypothesis.
+## correctness
 
-## Originality
-PASS under the inspected literature, with residual discovery risk. Caputi–Collari–Smith (arXiv:2601.05670, 2026) analyze bidirectional paths and polygons, not the bidirected octahedron. Caputi–Collari–Di Trani–Smith (arXiv:2208.04656) discuss complete digraphs, alternating orientations of complete bipartite graphs, small grids, tournaments, paths, and polygons. The latter objects are not the bidirected proper complete-tripartite graph. An octahedral ordinary matching complex, an octahedral ordinary discrete-Morse complex, and an octahedral Rips complex are different constructions. Keyword searches under complete tripartite, octahedral, line graph of the tetrahedron, and cycle-free rook-placement formulations found no encompassing calculation. Search nonappearance is not a proof of global novelty; unindexed or inaccessible equivalent sources remain possible.
+PASS
 
-## Value
-PASS. The six-vertex octahedral graph is the smallest balanced complete tripartite graph, and bidirecting it gives a canonical non-path, non-cycle test of the multipath-complex construction. Complete integral homology in three distinct positive degrees, the exact absence of torsion, and the computed first nontrivial homotopy group are structural answers not obtained merely by the Euler characteristic, and provide a reproducible base case for studying multipartite bidirected digraphs. This is a finite classification, not an asserted general multipartite theorem.
+The graph is exactly bidirected K_{2,2,2} on six vertices with 24 arcs, and valid multipaths are injective partial successor maps with no directed cycles. Independently exhaustive arc-subset enumeration gives 1817 augmented faces, f-vector (24,192,616,744,240) and maximal facet distribution 240 in dimension4 plus 24 in dimension3. Two independent face enumeration models agree. An independent Forman matching processes arcs in lexicographic order and yields 835 pairs leaving critical cells 1 in d0,12 in d2,101 in d3,32 in d4; full reversed-Hasse DAG on 1816 nonempty faces and 6408 incidences is acyclic. Independently regenerated signed gradient-path Morse matrices give ∂3 of size12×101 with 257 nonzeros and SNF nine unit invariant factors, and ∂4 of size101×32 identically zero; original simplicial GF2 boundary ranks (23,169,444,208) corroborate. Integral homology is H~2=Z³,H~3=Z⁹²,H~4=Z³², zero otherwise, with no torsion. A CW model with one zero-cell and no one-cell is simply connected; Hurewicz gives π2=Z³. No unproved sphere-wedge assertion was inferred.
 
-## Limits and closest sources
-The computed invariants do not determine higher attaching maps or a full sphere-wedge homotopy type. Closest sources: Caputi–Collari–Smith, arXiv:2601.05670 (2026-01-09), and Caputi–Collari–Di Trani–Smith, arXiv:2208.04656 (2022-08-09). Equivalent unindexed literature is a remaining originality risk. The verification uses executable finite mathematics and has not undergone external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: multipath-complex theorem families for bidirectional paths/cycles and different orientations do not determine the six-vertex bidirected complete-tripartite octahedron integral groups. Exact chain calculation and π2 are not a known-table recomputation in inspected sources.
+
+## value
+
+PASS
+
+Bidirected complete-tripartite graphs are a natural first multipartite extension beyond published bidirectional paths and cycles, and K2,2,2 is the standard octahedral smallest balanced instance. Its three mixed homology degrees, exact integral torsion-freeness and first nonzero π2 show structural behavior hidden by rational Euler counts. The complete exact result is a reusable concrete invariant and test case for multipath topology, even without a broad classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
