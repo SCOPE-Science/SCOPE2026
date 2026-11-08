@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the Heisenberg distance-spectrum theorem
+# Independent mathematical audit
 
-The distributed `CHECK.py` was executed using Python 3, SymPy and NumPy on the exact package bytes. It reported:
+## correctness
 
-```
-PASS: shell census; all Fourier blocks and multiplicities; rational endpoint bounds; 27-point numerical cross-check
-pstar = 0.677622399811659; endpoint squared-Euclidean embedding rank = 22
-```
+PASS
 
-The finite enumeration covers all 27 group elements and all 729 ordered pairs, establishes the shell counts, and matches direct power-distance matrices with the character/representation spectra. Symbolic identities are checked before floating-point tests. Rational endpoint inequalities use exact integer-power comparisons, with no dependence on approximate exponentiation for those inequalities. In particular the controlling eigenvalue is strictly negative at exponent \(2/3\), strictly positive at \(7/10\), and the other branches are strictly negative throughout the enclosed endpoint interval.
+The explicit group law on 27 elements and four generators yield distance shells (1,4,8,12,2) by independently enumerated BFS. All nine one-dimensional characters give the scalar sectors 4+8a+12b+2c (trivial), 1−4a+2c (4 copies), and −2+2a−3b+2c (4 copies), where a=2^p,b=3^p,c=4^p. The conjugate three-dimensional irreps yield three real eigenvalue branches 2a−c−2 and 1−a−c±sqrt(3)(1+a−2b), each multiplicity six, totaling 27. The controlling fourfold branch F=2c+2a−3b−2 increases through a unique zero p* in (2/3,7/10), from convexity in a=2^p; exact rational-power endpoint bounds keep all other branches strictly negative there. For smaller p the fractional-power Schoenberg strictness theorem applies; larger p has a positive centered F. Thus the endpoint nullity is four and squared-Euclidean rank 22 versus 26 below. Positive e^{-t d^p} for all t uses the CND equivalence, while t>log26 follows from strict diagonal dominance for every p. Independent BFS/27×27 eigenvalue checks at p=.5,p*,.8 corroborated; full intervals rely on the analytic factorization and bounds.
 
-The analytic argument for the unique root and the interval property is in `RESULT.md`. Finite experiments, decimal root approximations and a successful script run do not constitute independent mathematical audit, and no numerical result is used as an infinite-exponent proof. Prior work is assessed only to the extent of the specified inspected sources and searches.
+## originality
+
+PASS
+
+DeDeo–Martínez–Medrano–Minei–Stark–Terras (2003) uses the same four-generator Heisenberg Cayley graph and exact group Fourier representations, but computes adjacency spectra, not the nonlinear 1^p,2^p,3^p,4^p convolution spectrum. Sánchez and Murugan supply general negative-type/determinant or vertex-transitivity methods but no p*=0.677622... or fourfold endpoint degeneracy. Resultary Heisenberg matches concern three-tap convolution nullity and different group graphs. The exact finite metric invariant could have been calculated elsewhere; no absolute novelty claim is made.
+
+## value
+
+PASS
+
+The smallest odd-characteristic finite Heisenberg Cayley graph is a canonical, natural noncommutative metric embedding test. Computing its exact powered negative-type threshold and four-dimensional abelian controlling kernel, despite 18 nonabelian regular dimensions, is a useful precise invariant for geometry and positive kernels; the statement is not an arbitrary subset or merely a decimal root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

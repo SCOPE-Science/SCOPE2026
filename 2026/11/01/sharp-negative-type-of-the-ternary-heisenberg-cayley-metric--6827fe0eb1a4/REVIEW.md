@@ -1,19 +1,21 @@
-# Review: sharp negative type of the ternary Heisenberg Cayley metric
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The 27-point word metric and its five distance shells are defined explicitly. Fourier decomposition of the regular representation produces the positive trivial eigenvalue, two fourfold abelian branches, and three sixfold nonabelian branches, accounting for every dimension. Exact symbolic reconstruction of the three-dimensional blocks and rational-power interval certificates confirm the nonstandard algebraic steps. The controlling branch has one crossing; all other zero-sum eigenvalues are strictly negative there. Schoenberg's correspondence and centered Gram rank complete the argument. The checker was executed successfully. Finite numerical eigenvalue tests are corroborating evidence, not an argument for all exponents.
+PASS
 
-## Originality
+The explicit group law on 27 elements and four generators yield distance shells (1,4,8,12,2) by independently enumerated BFS. All nine one-dimensional characters give the scalar sectors 4+8a+12b+2c (trivial), 1−4a+2c (4 copies), and −2+2a−3b+2c (4 copies), where a=2^p,b=3^p,c=4^p. The conjugate three-dimensional irreps yield three real eigenvalue branches 2a−c−2 and 1−a−c±sqrt(3)(1+a−2b), each multiplicity six, totaling 27. The controlling fourfold branch F=2c+2a−3b−2 increases through a unique zero p* in (2/3,7/10), from convexity in a=2^p; exact rational-power endpoint bounds keep all other branches strictly negative there. For smaller p the fractional-power Schoenberg strictness theorem applies; larger p has a positive centered F. Thus the endpoint nullity is four and squared-Euclidean rank 22 versus 26 below. Positive e^{-t d^p} for all t uses the CND equivalence, while t>log26 follows from strict diagonal dominance for every p. Independent BFS/27×27 eigenvalue checks at p=.5,p*,.8 corroborated; full intervals rely on the analytic factorization and bounds.
 
-PASS under bounded primary-source comparison. In the primary article by DeDeo et al., the identical canonical Heisenberg Cayley graphs are studied through adjacency spectra; its relevant full-text sections do not analyze powered graph distances or conditional negative type. Sánchez gives a general finite-metric determinant criterion, and Murugan gives a general vertex-transitive endpoint characterization; neither inspected document evaluates the order-27 Heisenberg metric, the explicit controlling fourfold character sector or its endpoint rank. The derived threshold is not just the adjacency eigenvalue formula specialized at an integer: all four graph-distance shells contribute nonlinearly. An unindexed earlier worked specialization remains a residual risk, so originality is bounded rather than absolute.
+## originality
 
-## Value
+PASS
 
-PASS. The invariant is the exact supremal negative-type exponent of the canonical smallest odd Heisenberg Cayley example—a natural noncommutative test case for metric embeddings and kernels. The controlling obstruction comes from abelian characters even though 18 dimensions of the regular representation lie in nonabelian sectors, a structural distinction clarified by the proof. The sharp four-dimensional endpoint rank loss and the all-bandwidth covariance criterion answer independent, natural questions about this metric; they are not mere numerical root reporting.
+DeDeo–Martínez–Medrano–Minei–Stark–Terras (2003) uses the same four-generator Heisenberg Cayley graph and exact group Fourier representations, but computes adjacency spectra, not the nonlinear 1^p,2^p,3^p,4^p convolution spectrum. Sánchez and Murugan supply general negative-type/determinant or vertex-transitivity methods but no p*=0.677622... or fourfold endpoint degeneracy. Resultary Heisenberg matches concern three-tap convolution nullity and different group graphs. The exact finite metric invariant could have been calculated elsewhere; no absolute novelty claim is made.
 
-## Literature and limitations
+## value
 
-The closest literature is DeDeo et al., *Spectra of Heisenberg graphs over finite rings* (2003), Sánchez, *On the supremal p-negative type of a finite metric space* (2011), and Murugan, *Generalized roundness of vertex transitive graphs* (2011). Earlier general theorems imply methods for a finite computation but do not explicitly establish this identified threshold. The theorem is restricted to the order-27 four-generator graph; intermediate supercritical kernel bandwidths are not classified. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest odd-characteristic finite Heisenberg Cayley graph is a canonical, natural noncommutative metric embedding test. Computing its exact powered negative-type threshold and four-dimensional abelian controlling kernel, despite 18 nonabelian regular dimensions, is a useful precise invariant for geometry and positive kernels; the statement is not an arbitrary subset or merely a decimal root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
