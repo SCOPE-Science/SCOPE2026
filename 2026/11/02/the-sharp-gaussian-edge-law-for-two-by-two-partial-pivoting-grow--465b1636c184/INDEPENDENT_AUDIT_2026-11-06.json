@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:18:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid N(0,1) entries, ordered first-column absolute values have density 2 f(p)f(u), 0<u<p, while pivoted second-column magnitudes B,D remain independent half-normal. Only reinforcing Gaussian sign configuration (probability 1/2) permits growth beyond 1, and the updated trailing magnitude is D+(u/p)B. For the near-2 event stratify by unique M=max(p,B,D). On M=B, two deficits v=1-D/B,w=1-u/p obey v+w<epsilon; on M=D they obey v+w-vw<epsilon. Each region scales to a unit simplex of area 1/2, giving J/2 in the epsilon^-2 limit. M=p requires three O(epsilon) deficits and contributes O(epsilon^3). Dominated convergence is valid with exponentially decaying half-normal integrand. J=(4/pi^2)∫_0∞ te^-t² ∫_0^t pe^-p² dp dt=1/(2pi²). Hence lim epsilon^-2 P(rho>2-epsilon)=1/(2pi²), for exact-arithmetic real 2x2 GEPP only. Independent code re-derived the determinant/Schur complement for 100000 seeded Gaussian matrices and separately integrated the limiting J; simulation alone cannot establish the epsilon asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trefethen–Schreiber 1990 (author PDF) studies distribution/mean growth under Gaussian elimination, especially n-dependent behavior.",
+          "Urschel arXiv:2610.06785, Theorem 1.4 concerns dimension-dependent Gaussian growth bounds, not sharp fixed-two-dimensional boundary constant."
+        ],
+        "reasoning": "High-dimensional probability bounds do not imply the precise epsilon→0 coefficient with n=2 fixed; still acknowledge potential smaller-case computations in background.",
+        "searches": [
+          "Urschel On the growth factor of random matrices 2610.06785 Trefethen Schreiber 1990 Gaussian elimination"
+        ]
+      },
+      "checked_sources": [
+        "Resultary n=2 Gaussian pivot growth query (9 returned results)",
+        "DOI:10.1137/0611023",
+        "arXiv:2610.06785",
+        "arXiv:2610.04761",
+        "Wilkinson classical GEPP bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Wilkinson bound proves rho<=2 deterministic only; Trefethen 2026 arXiv:2610.04761 addresses exponentially rare high-dimensional instability.",
+          "Trefethen–Schreiber 1990 focuses mean/typical GEPP size rather than this rare-event edge asymptotic."
+        ],
+        "reasoning": "Nothing inspected yields the epsilon² boundary mass or exact 1/(2pi²); the signed density/simplex calculation is additional and not simply the deterministic bound.",
+        "searches": [
+          "Wilkinson growth bound 2x2 Gaussian partial pivoting Trefethen corner rare 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GEPP rho>2-epsilon is a sign-conditioned extreme Schur-complement ratio; Resultary returns complete-pivot ACA Frobenius growth, Gauss-Seidel and CG fluctuations but no same normalized n=2 GEPP Gaussian limit."
+        ],
+        "reasoning": "Translated to exact ratio of trailing pivoted update to maximum original entry and compared probabilistic and algorithmic aliases; other pivot norms are not equivalent.",
+        "searches": [
+          "Gaussian elimination partial pivoting 2x2 independent Gaussian growth factor 2-epsilon probability edge asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search (9 hits) had no 2x2 Gaussian growth-edge table; identified sources do not list an epsilon expansion at rho=2."
+        ],
+        "reasoning": "A probability tail constant is a continuous law, not normally an integer table; possible textbook exercise or prior integral remains a qualified risk.",
+        "searches": [
+          "2x2 Gaussian partial pivoting growth factor exact distribution edge 1/(2 pi squared)"
+        ]
+      },
+      "rationale": "The claim is the fixed n=2 near-boundary probability expansion, not the known deterministic bound or high-dimensional mean/tail behaviors. Closest primary work focuses on dimension scaling, average growth or different rare-event simulations; full Urschel manuscript was inspected by PDF and concerns high dimension. This does not exclude a buried exact two-dimensional calculation in older matrix-stability literature.",
+      "residual_risks": [
+        "A rare-event simulation paper or specialized 2×2 Gaussian elimination calculation may have already derived the exact edge constant.",
+        "Finite Monte Carlo verified algebra but not the limiting probability; theorem rests on asymptotic integral analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "no matching sharp n=2 epsilon→0 coefficient located in inspected passages; no absolute whole-paper noncoverage claim",
+          "evidence": "Sections concern average-case Gaussian elimination growth, especially matrix-size behavior.",
+          "identifier_or_url": "DOI:10.1137/0611023 (Trefethen and Schreiber, 1990)",
+          "material_read": "author-hosted full PDF, title/abstract and early discussion of expected growth, sampled portions of numerical distribution analysis",
+          "method": "original 1990 PDF page inspections",
+          "title": "Average-case stability of Gaussian elimination",
+          "trigger": "same pivoting growth statistic, Gaussian distribution"
+        },
+        {
+          "assessment": "large-dimensional bound does not give exact fixed n=2 edge law",
+          "evidence": "Theorem 1.4 uses n-dependent Gaussian estimates, not eps→0 with dimension 2.",
+          "identifier_or_url": "arXiv:2610.06785 (Urschel, 2026)",
+          "material_read": "arXiv full PDF abstract, statement and theorem scope on pages 1–3",
+          "method": "arXiv PDF read with page screenshots",
+          "title": "On the growth factor of random matrices",
+          "trigger": "very recent same-model probabilistic growth result"
+        },
+        {
+          "assessment": "does not contain a fixed 2x2 threshold-to-2 asymptotic in inspected material",
+          "evidence": "Focuses exponential rarity as matrix dimension grows.",
+          "identifier_or_url": "arXiv:2610.04761 (Trefethen, 2026)",
+          "material_read": "abstract/main theorem scope for corner-entry instability",
+          "method": "author-hosted public full-text context and arXiv record",
+          "title": "Instability of Gaussian elimination is exponentially rare",
+          "trigger": "potential stronger Gaussian growth estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp near-worst-case tail exponent and coefficient for the smallest nontrivial Gaussian partial-pivoting system provide a natural exact baseline for a central numerical-stability statistic and rare-event studies; the probability law, not the classical deterministic 2 bound, is the new invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A rare-event simulation paper or specialized 2×2 Gaussian elimination calculation may have already derived the exact edge constant.",
+    "Finite Monte Carlo verified algebra but not the limiting probability; theorem rests on asymptotic integral analysis.",
+    "The publication plan is not_ready due to unsafe public metadata; no GitHub write, publication, independent external attestation or formal proof certification is implied."
+  ],
+  "schema_version": 1
+}

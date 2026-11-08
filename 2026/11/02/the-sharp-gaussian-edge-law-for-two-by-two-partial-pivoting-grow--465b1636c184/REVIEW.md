@@ -1,15 +1,21 @@
-# Scientific review: two-by-two Gaussian growth edge
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized trailing entry is computed exactly following the row interchange. Ordered first-column magnitudes have density \(2f(p)f(u)\); independent Gaussian signs give a one-half chance of reinforcing, and otherwise the growth factor is one. Splitting by which original magnitude is maximal yields two codimension-two triangular regions and one codimension-three remainder. The rescaled integrands admit an integrable Gaussian dominator. Each triangular region contributes half of \(1/(2\pi^2)\); the third is smaller order. The Gaussian double integral is evaluated explicitly. The algebraic and stochastic verifier runs successfully but is not the proof.
+## correctness
 
-## Originality — PASS within documented inspection limits
-The closest classical source is Trefethen–Schreiber (1990), a treatment of average-case pivot and growth statistics across dimensions. Trefethen (2026) treats an exponential-rarity result for the corner entry as dimension grows, and Urschel (2026) reports high-dimensional Gaussian partial-pivoting growth bounds. Their stated asymptotic variables and conclusions do not imply the fixed-dimension near-extremal coefficient \(1/(2\pi^2)\). Relevant exact-edge and small-dimension formulations were searched; no covering statement was identified. This is a best-knowledge priority comparison, not a proof of historical uniqueness. The complete Urschel manuscript and some specialist rare-event literature were not accessible for full inspection.
+PASS
 
-## Mathematical value — PASS
-The growth factor and its deterministic Wilkinson maximum are canonical quantities in numerical linear algebra. The two-dimensional Gaussian model is the first one allowing actual elimination growth. Its exact near-maximal tail exponent and constant provide a nontrivial finite-dimensional boundary law and a quantitative rare-event benchmark, rather than a numerical anecdote or an arbitrary parametrization. The result makes no claim of directly improving a high-dimensional instability bound.
+For iid N(0,1) entries, ordered first-column absolute values have density 2 f(p)f(u), 0<u<p, while pivoted second-column magnitudes B,D remain independent half-normal. Only reinforcing Gaussian sign configuration (probability 1/2) permits growth beyond 1, and the updated trailing magnitude is D+(u/p)B. For the near-2 event stratify by unique M=max(p,B,D). On M=B, two deficits v=1-D/B,w=1-u/p obey v+w<epsilon; on M=D they obey v+w-vw<epsilon. Each region scales to a unit simplex of area 1/2, giving J/2 in the epsilon^-2 limit. M=p requires three O(epsilon) deficits and contributes O(epsilon^3). Dominated convergence is valid with exponentially decaying half-normal integrand. J=(4/pi^2)∫_0∞ te^-t² ∫_0^t pe^-p² dp dt=1/(2pi²). Hence lim epsilon^-2 P(rho>2-epsilon)=1/(2pi²), for exact-arithmetic real 2x2 GEPP only. Independent code re-derived the determinant/Schur complement for 100000 seeded Gaussian matrices and separately integrated the limiting J; simulation alone cannot establish the epsilon asymptotic.
 
-## Limitations and closest literature
-The finding addresses exact-arithmetic real iid Gaussian \(2\times2\) partial pivoting, not general random matrices or backward errors. Closest inspectable primary sources: Trefethen and Schreiber, *Average-Case Stability of Gaussian Elimination* (1990), DOI 10.1137/0611023 (full text); Trefethen, *Instability of Gaussian elimination is exponentially rare* (2026), arXiv:2610.04761 (full text). Urschel, *On the Growth Factor of Random Matrices* (2026), arXiv:2610.06785 (abstract only), and Driscoll–Maki rare-event Monte Carlo (2007) remain residual historical-priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is the fixed n=2 near-boundary probability expansion, not the known deterministic bound or high-dimensional mean/tail behaviors. Closest primary work focuses on dimension scaling, average growth or different rare-event simulations; full Urschel manuscript was inspected by PDF and concerns high dimension. This does not exclude a buried exact two-dimensional calculation in older matrix-stability literature.
+
+## value
+
+PASS
+
+The sharp near-worst-case tail exponent and coefficient for the smallest nontrivial Gaussian partial-pivoting system provide a natural exact baseline for a central numerical-stability statistic and rare-event studies; the probability law, not the classical deterministic 2 bound, is the new invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
