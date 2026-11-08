@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Positive two-state OU stiffness provides a unique finite-variance stationary solution and exponential covariance decay. Exact birth-moment affine recursions, a fresh-renewal attenuation recursion and the stationary renewal-reward theorem derive the formula; exact rational substitution proves the witness gap is 341004/(919602257 log 2). verify.py passed exact witness checks and 240 independent exponential Markov matrix comparisons plus 80 equal-stiffness limit tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frydel (2026) covers general sojourn laws for stationary densities and moments, and explicitly reduces to the stochastic resetting case; the newly assessed observable is a different two-time integral.",
+        "Behme et al. (2022/2024), Secs. 2 and 4, impose a finite-state Markov chain modulator and treat covariance in that context; memoryless exponential waits are acknowledged as covered.",
+        "Gupta-Klapp (2025), Secs. 1-2 and 6, model continuously OU-correlated stiffness, not a two-state alternating renewal.",
+        "Biroli et al. (2023/2024), abstract, study correlations *between particles* in a constant-rate switched trap, not the present nonexponential single-particle lagged spectrum."
+      ],
+      "reasoning": "Frydel provides broader model scope but narrower observables; general age-structured equations could be extended, yet no direct or stronger zero-frequency theorem was identified. Markov-modulated OU covariances are a genuine covered subcase and explicitly not claimed. A possibility remains that more general semi-Markov response theory implicitly encompasses the result.",
+      "searches": [
+        "Fluctuating harmonic trap non-Markovian switch dwell same variance injected power different autocorrelation integrated correlation function exact",
+        "semi-Markovian fluctuating harmonic trap Frydel 2607.05173 zero frequency power spectral density position autocorrelation with nonexponential waiting time",
+        "switching harmonic trap renewal noise power spectrum stationary autocorrelation non-Markovian",
+        "semi Markov switching Ornstein Uhlenbeck covariance correlation function random stiffness alternating renewal",
+        "Non-equilibrium fluctuations in a harmonic trap with annealed stochastic stiffness autocorrelation",
+        "Dynamically emergent correlations between particles in a switching harmonic trap time correlation",
+        "2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95",
+        "2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906"
+      ]
+    },
+    "checked_sources": [
+      "https://journals.aps.org/pre/pdf/10.1103/7pxv-tg3b",
+      "https://arxiv.org/abs/2607.05173",
+      "https://arxiv.org/html/2207.11093v2",
+      "https://doi.org/10.1088/1742-5468/ae09a5",
+      "https://arxiv.org/abs/2312.02570"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem here: I depends on g_i and ell_i; W, state-conditioned variance depend on ell_i and tau_i only, with explicit two-protocol strict separation.",
+        "Frydel 2026: obtains stationary spatial/birth moments and energetic observables for the same physical system; those do not determine general two-time attenuation.",
+        "Behme et al.: a Markov driving chain has exponential phase durations; the counterexample has deterministic and four-point residence durations.",
+        "The alternating-renewal two-time modulator aliasing published-record claim is about an observable of the gate itself, not the coupled OU coordinate."
+      ],
+      "reasoning": "The published stationary-moment laws imply only that the two witness protocols agree on those measured observables, not the strict integrated autocovariance gap. Any generic renewal-reward theorem can be specialized to derive our expression, but without doing that specialization it does not imply an already-stated theorem giving the same transform minimality and exact witness. This is an originality judgment of the assessed explicit result, with residual priority risk.",
+      "searches": [
+        "Alternating renewal Ornstein Uhlenbeck harmonic confinement stationary two-time covariance Laplace transform deterministic switching residence time",
+        "integrated time covariance two-state semi-Markov Ornstein Uhlenbeck Laplace transforms k_i and 2k_i",
+        "Non-equilibrium fluctuations in a harmonic trap with annealed stochastic stiffness autocorrelation",
+        "Dynamically emergent correlations between particles in a switching harmonic trap time correlation",
+        "2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+        "2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frydel (2026), pp. 3-7, Eqs. (19)-(38), gives birth/spatial moments and injected power using second-rate transforms, but no integrated two-time autocovariance.",
+        "Behme-Di Tella-Sideris (arXiv:2207.11093v2), Sec. 4.1, derives autocovariance with a finite-state Markov driving chain; unequal nonexponential sojourns in two original states violate that assumption.",
+        "The indexed 2026/9/21 alternating-renewal pair-law-aliasing finding treats identifiability of the bare two-state modulator, not a Brownian oscillator with switching stiffness."
+      ],
+      "reasoning": "Time-integration of the two-point position covariance is not equivalent to the stationary one-time Gaussian mixture, moment formulas, or the two-state modulator covariance. An alternating-renewal process can be represented with continuous age state, but the finite-state Markov-additive covariance formulas do not directly imply the displayed low-dimensional transform identity or explicit equal-statics unequal-spectrum witness. We do not infer novelty from unmatched wording.",
+      "searches": [
+        "Exact zero-frequency stationary position autocovariance for harmonic Ornstein-Uhlenbeck particle with alternating semi-Markov stiffness and arbitrary residence distributions, determined by Laplace transforms at relaxation rates k and 2k",
+        "Alternating renewal Ornstein Uhlenbeck harmonic confinement stationary two-time covariance Laplace transform deterministic switching residence time",
+        "integrated time covariance two-state semi-Markov Ornstein Uhlenbeck Laplace transforms k_i and 2k_i",
+        "semi-Markov modulated Ornstein Uhlenbeck process autocorrelation function arbitrary sojourn distributions stationary exact",
+        "alternating renewal Ornstein Uhlenbeck autocovariance stochastic stiffness correlation time",
+        "2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary full-text Frydel (2026) has Eqs. (22)-(25) for second moments and Eqs. (35)-(38) for energy/work; no matching exact spectral table.",
+        "Indexed-record searches returned the specified closest IDs, each about distinct modulation, oscillation, or autocorrelation models.",
+        "The explicit witness is reconstructed from rational mass vectors and checked exactly by verify.py, not transcribed from an existing table."
+      ],
+      "reasoning": "Neither an indexed exact spectral table nor a listed equality-of-statics counterexample was identified. This is a bounded checked-source result, not a proof that no unpublished or unindexed database contains it.",
+      "searches": [
+        "Exact zero-frequency stationary position autocovariance for harmonic Ornstein-Uhlenbeck particle with alternating semi-Markov stiffness and arbitrary residence distributions, determined by Laplace transforms at relaxation rates k and 2k",
+        "Fluctuating harmonic trap non-Markovian switch dwell same variance injected power different autocorrelation integrated correlation function exact",
+        "same stationary second moments same injected work different zero frequency autocovariance alternating harmonic stiffness renewal process",
+        "2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+        "2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95",
+        "2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906"
+      ]
+    },
+    "rationale": "Frydel (2026) treats precisely the semi-Markov harmonic trap but computes stationary distributions, moments, energy and power rather than the two-time integral or explicit invisible-static-observables spectral witness. Finite-state Markov OU autocovariance literature covers only exponential phase times as a direct special case. Actual published-claim and primary-literature searches did not identify broader coverage of the complete exact claim, subject to the residual priority risks.",
+    "residual_risks": [
+      "Frydel provides an age-structured framework that could produce two-time quantities after further derivation; source comparison cannot prove all possible unstated implications.",
+      "Bibliography is bounded to searched source corpus; implicit general semi-Markov linear response work may predate the explicit reduction.",
+      "One relevant Biroli et al. comparison used abstract/model scope rather than complete full text; its subject differs materially."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS stationary occupation, second moments and injected power; does not state integrated stationary two-time position covariance, zero-frequency response, or equal-static-observable different-spectrum witness. The present theorem properly credits its birth-moment groundwork.",
+        "evidence": [
+          "https://journals.aps.org/pre/pdf/10.1103/7pxv-tg3b, pp. 2-7; Eqs. (19)-(25), (35)-(38), and Sec. VII",
+          "First public arXiv version dated 2026-07-06: https://arxiv.org/abs/2607.05173"
+        ],
+        "identifier_or_url": "https://journals.aps.org/pre/pdf/10.1103/7pxv-tg3b",
+        "material_read": "Open-access 13-page PDF: model/assumptions in Sec. II, steady-state Sec. III, second moments Sec. IV including Eqs. (22)-(25), power/energy formulas, Secs. V-VI, conclusion and full-text searches for autocorrelation, autocovariance and spectral terms.",
+        "method": "Primary complete PDF text and sampled page images; mathematical statement/observable comparison",
+        "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+        "trigger": "Exact same two-stiffness semi-Markov trap and its static moment formulas"
+      },
+      {
+        "assessment": "COVERS the memoryless Markov special case, not arbitrary semi-Markov two-phase duration laws in the claimed two-state form.",
+        "evidence": [
+          "https://arxiv.org/html/2207.11093v2 Secs. 1, 2 and 4.1; Markov modulator J required"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.11093v2",
+        "material_read": "Full-text abstract, introduction, Markov additive setup in Sec. 2 and autocovariance setting Sec. 4.1; original PDF inspected as well.",
+        "method": "Direct comparison of the modulator assumptions and two-time object",
+        "title": "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein-Uhlenbeck processes",
+        "trigger": "Published autocovariance formulas for switching OU dynamics might dominate the claim"
+      },
+      {
+        "assessment": "Models an OU-correlated continuously varying stiffness; its reported moments and energy/work do not identify or state the alternating semi-Markov transform formula or witness.",
+        "evidence": [
+          "https://doi.org/10.1088/1742-5468/ae09a5 Secs. 2, 4 and 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/ae09a5",
+        "material_read": "Open-access journal HTML abstract, Sec. 2 model, selected general moment equations and Sec. 6 summary.",
+        "method": "Compare stochastic stiffness process and output observables",
+        "title": "Non-equilibrium fluctuations in a harmonic trap with annealed stochastic stiffness",
+        "trigger": "Related trap with fluctuating stiffness, stationary fluctuations and work"
+      },
+      {
+        "assessment": "Its reported object is between-particle stationary correlations under Markov switching, so it does not decisively challenge the stated semi-Markov single-particle zero-frequency result; only abstract was checked.",
+        "evidence": [
+          "https://arxiv.org/abs/2312.02570 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.02570",
+        "material_read": "Abstract and scoped model description describing constant-rate two-state switching and interparticle stationary correlations.",
+        "method": "Abstract-level scope screen, not whole-paper noncoverage certification",
+        "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+        "trigger": "Potentially same fluctuation model with covariance observable"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0dffd78b-b5f6-4d1a-b25b-15aa112df62e",
+  "value": {
+    "rationale": "Static second moments and injected work are central measured quantities for a fluctuating trap; proving an exact family of physically distinct dwell protocols with identical such statistics but nonidentical zero-frequency spectra establishes a motivated observable-identifiability limit and singles out the first-rate Laplace transforms needed to resolve it. The explicit four-atom construction is necessary as a strict witness and not an arbitrary finite table lookup.",
+    "status": "PASS"
+  }
+}
