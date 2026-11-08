@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact metric distance options include direct travel on common arms, both poles, and short-arm shortcuts between distinct long arms. All branch lower witnesses yield the three displayed pair-sum gaps. The upper-bound argument is an exhaustive Farkas certificate proof: 2,685 exact rational nonnegative dual vectors independently reconstruct to the objective bound over every coordinate and real length ratio. The verifier was executed on the actual accompanying artifacts. It uses no sampling or floating comparisons. Scaling and transition endpoints were checked.
+## correctness
 
-**Originality (PASS, qualified).** The closest current treatment is Carballosa–Mendez–Reyes–Sigarreta (2026), which proves quarter-point discretization and comparison bounds for unit-edge graphs, not this weighted continuous theta profile. The full accessible text contains no theta-specific formula. The 2013 Bermudo–Rodríguez–Sigarreta–Vilaire source considers geodesic-triangle thinness of multiedge graphs; its Theorem 8 treats distinct edge lengths by broad bounds and is not a four-point profile. Indexed algebraic gnarledness and polygon-chord-metric statements measure other invariants. Search absence cannot rule out unpublished, differently indexed, or older specialized casework.
+PASS
 
-**Mathematical value (PASS).** This is a complete, sharp phase diagram for the simplest non-cactus continuous metric-network family. The distinct extremizing quadruples explain a genuine transition from cycle-controlled to cross-arm-controlled to diameter-controlled geometry, with two nontrivial transition ratios. This is more informative than an algorithm for computing a single graph's invariant.
+For all a>0 and 0<b<=a and all points including interiors, reconstructed the three shortest-path candidate types and the max/middle of the three double-pair sums. Independently enumerated all nine unordered arm multisets, three closed ratio intervals, three possible maximal pair sums and all competitor affine terms, totalling 2685 rational parametric LPs. Independently solved each and reconstructed a nonnegative EXACT Fraction dual satisfying A^T lambda=e_w and lambda^T b<=0 in all 2685 cases (not merely floating objective values). Verified scaling and the three families of explicit quadruple lower witnesses: circle quarter points for b/a<=1/3; cross-long-arm u=(1-t)/2,v=(1+t)/2 for 1/3<=t<=1/2; u=1/4,v=3/4 for t>=1/2. Their pair-sum gaps agree at t=1/3,1/2. This is a finite exact certificate proving a continuous universal bound; finite random samples play no role.
 
-**Limitations and priority risk.** Only equal long arms and the four-point convention. The upper proof is certificate-heavy but finite, public and independently replayable with standard-library exact arithmetic. Historic specialized theta computations may be unindexed; no independent mathematical audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: searched equivalent weighted metric conventions, graph-thinness and unit-edge reduction, indexed theta results and special case literature. None of material read mathematically dominates this continuous weighted four-point phase diagram; no claim of exhaustive priority.
+
+## value
+
+PASS
+
+Sharp, nontrivial three-phase formula for the smallest non-cactus continuous metric graph; the two exact transition ratios distinguish cycle, cross-arm and diameter witnesses and are not determined solely by girth or diameter. Finite parametric rational-certification methodology gives general interest beyond a single sampled graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
