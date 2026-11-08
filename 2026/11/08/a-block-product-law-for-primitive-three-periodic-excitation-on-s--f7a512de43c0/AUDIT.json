@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The local three-periodicity equivalence follows from all state trajectories over three transitions and connectedness. A chosen successor neighbor at each vertex yields a directed cycle length divisible by three. With only one such cycle in a cactus, any successor arrow entering a descendant block would necessarily return through its parent articulation and create a prohibited second resonant directed cycle. This justifies local independent block support. The core has exactly six oriented phase patterns; bridges each have one forced extension; a rooted length-l cycle has exactly 2 floor(l/3)+1 extensions, obtained from two explicit incremental-word families and modulo-three closure. Direct independent exhaustive three-step simulations on 193,212 labelled configurations across ten graphs, plus transfer DP for 198 rooted lengths, agree. All quantifiers and edge cases are included in RESULT.md; finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff Theorem 3 identifies the long-run mean excitations per site through cycle contour integrals, and Section 4 proves this activity theorem.",
+        "Accessible prior claim a5baac97-7e4b-4e40-8229-1d94b8cd13ac gives an all-cactus distribution of asymptotic excitation rates, not the count of configurations satisfying F^3(x)=x at time zero.",
+        "Accessible prior claim 3e82f66c-e40c-48d5-8e54-8ff5b4eddfb6 counts period-three configurations on full subdivisions of arbitrary connected graphs, not all mixed-length singly resonant cacti."
+      ],
+      "reasoning": "Asymptotic-rate data do not determine the initial periodic-point census; transiently active states can contribute to rates without being period three at time zero. Full subdivisions and triangular cactus chains are special or different families, and neither prior formula dominates the stated general singly resonant product.",
+      "searches": [
+        "Greenberg Hastings three-color primitive three-periodic points on cactus graphs with exactly one cycle whose length is divisible by three, block-tree factorization of number of configurations",
+        "factorized exact counts period-three Greenberg Hastings colorings of mixed cycle cactus graphs, cycle length root contribution",
+        "Greenberg Hastings model cactus graph exact periodic states count cycles attached unique cycle divisible by three",
+        "Gravner Lyu Sivakoff 2016 greenberg hastings 3 state excitable media on graph arbitrary full text arxiv"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1610.07320 (2016-10-24 first public version; GHM finite-graph theorem and proof)",
+      "https://sites.math.duke.edu/~rtd/reprints/paper79.pdf (1993 source PDF inspected, scope-level)",
+      "https://arxiv.org/abs/patt-sol/9303002 (1993-03-22 source date)",
+      "Accessible earlier mathematical claim a5baac97-7e4b-4e40-8229-1d94b8cd13ac (cactus asymptotic rate)",
+      "Accessible earlier mathematical claim 6e503427-4f28-4dbd-a0de-45130b8e383e (triangular cactus chain)",
+      "Accessible earlier mathematical claim 3e82f66c-e40c-48d5-8e54-8ff5b4eddfb6 (subdivided graph count)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 theorem concerns eventual activity α, defined as the limiting time-averaged number of excitations, while this result concerns F^3(x)=x and F(x)≠x.",
+        "On a triangle with a square petal, six rotating core choices and 27 arbitrary square-private assignments already have a rotating core; not all of these 162 states are initially periodic, whereas the product gives exactly 18 initial primitive-three states.",
+        "Accessible prior claim 6e503427-4f28-4dbd-a0de-45130b8e383e counts chains of resonant triangles; a cactus with one triangle and arbitrarily many squares does not fall in that family."
+      ],
+      "reasoning": "Neither having nonzero asymptotic activity nor knowing the asymptotic rate identifies the exact set of time-zero period-three states. The new rooted cycle lemma imposes immediate local support, absent from the rate theorem. Thus this claim is not a numerical substitution or corollary of the compared broader rate formula. Under the accessible historical records, no stronger direct enumeration dominates the claim.",
+      "searches": [
+        "arxiv:1610.07320v1 Theorem 3, sections 2 and 4",
+        "Greenberg Hastings three-color primitive three-periodic points on cactus graphs with exactly one cycle whose length is divisible by three, block-tree factorization of number of configurations",
+        "factorized exact counts period-three Greenberg Hastings colorings of mixed cycle cactus graphs, cycle length root contribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff (arXiv:1610.07320v1), Definition of the Greenberg–Hastings rule and Theorem 3, pp.2–4; no formula for initial primitive-three colorings.",
+        "Cyclic successor-neighbor vertex colorings are equivalent to immediate all-vertex three-periodicity by the local-criterion proof, but targeted wording variants did not reveal an existing rooted-cactus product formula."
+      ],
+      "reasoning": "Compared both dynamical phrasing and the equivalent cyclic-successor-neighbor coloring requirement. The primary finite-graph result characterizes asymptotic activity, whereas the present formula counts only time-zero periodic configurations with every vertex advancing. No wording variant was found that implied the displayed factor product.",
+      "searches": [
+        "Greenberg Hastings three-color primitive three-periodic points on cactus graphs with exactly one cycle whose length is divisible by three, block-tree factorization of number of configurations",
+        "number of immediately period-three configurations synchronous three state excitable media on a rooted cactus graph with one oscillating triangle and non-resonant cycles",
+        "factorized exact counts period-three Greenberg Hastings colorings of mixed cycle cactus graphs, cycle length root contribution",
+        "Greenberg Hastings model cactus graph exact periodic states count cycles attached unique cycle divisible by three",
+        "Greenberg Hastings three-color model cactus graph periodic configurations rooted cycles loop-erased winding",
+        "cactus Greenberg Hastings periodic configurations count",
+        "cactus 3-color Greenberg Hastings primitive 3",
+        "count of graph vertex colorings each vertex has a neighbor of next color 3 cyclic complete"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ten explicitly identified small cactus instances, including P3=18 for a triangle with a square petal and P3=54 with two nonresonant square petals, were independently enumerated by direct dynamics.",
+        "The local cycle factor b_l=2 floor(l/3)+1 is supported by a full algebraic proof and independently compared against rooted-cycle dynamic programming, but no matching published enumerative table was located by these searches."
+      ],
+      "reasoning": "No source table or entry was found that records the whole parameterized formula. An absence of matched tables is only negative search evidence and does not by itself establish originality.",
+      "searches": [
+        "6 18 54 Greenberg Hastings cactus",
+        "primitive 3-periodic cactus excitation",
+        "factorized exact counts period-three Greenberg Hastings colorings of mixed cycle cactus graphs, cycle length root contribution"
+      ]
+    },
+    "rationale": "No statement in the relevant inspected primary results gives the time-zero primitive-three population on singly resonant finite cactus block trees. The 2016 finite-graph theorem gives asymptotic excitation rate through contour integrals but not initial three-cycle support; the known general cactus rate distribution is a different observable. The earlier triangular-cactus-chain census concerns multiple resonant triangles, whereas the present mixed-length product applies to exactly one resonant cycle and all placements of nonresonant cycle blocks and trees. Exhaustive equivalence and dominance comparisons against the accessible records and targeted searches identified no covered form; residual priority risks are recorded.",
+    "residual_risks": [
+      "Targeted searches cannot rule out all unindexed graph-coloring or cellular-automata enumeration literature.",
+      "A differently phrased cyclic-neighbor coloring theorem could subsume the rooted-product argument even without naming Greenberg–Hastings excitation.",
+      "The earlier 1993 lattice paper was examined for topic and scope, not exhaustively page by page; its object is substantially different from rooted cactus enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides synchronization and asymptotic excitation-rate classification using winding, not an initial primitive-three orbit count or the claimed rooted-block product.",
+        "evidence": [
+          "GHM rule in eq.(1), p.2; α definition and Theorem 3 in pp.3–4; proof of rate formula in section 4, pp.14–15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "Full manuscript sections describing the GHM rule, Definitions and Theorem 3 on pp.2–4, Theorem 5 on p.5, and the derivation/proof of Theorem 3 on pp.14–15.",
+        "method": "Read publicly accessible PDF text with page-level images of pp.2,4,5,14–15 and implication check against all time-zero statements.",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "A primary paper on the identical three-state GHM and finite graphs; plausible stronger overall coverage."
+      },
+      {
+        "assessment": "The primary objects are spatial lattice excitation and periodic waves, not a graph-cactus immediate period-three enumeration.",
+        "evidence": [
+          "The contents and abstract focus on lattice phase diagrams and periodic spiral structures, not finite cactus block trees."
+        ],
+        "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper79.pdf",
+        "material_read": "Title, abstract, full contents and first-page introduction on the 1993 article PDF.",
+        "method": "Read source PDF text and first-page image; checked stated thematic scope and section structure.",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "The earliest verified publicly available foundation for the discrete excitable model and its periodic waves."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7a512de-43c0-4ade-a718-6178c89946e4",
+  "value": {
+    "rationale": "A natural, fully specified dynamical invariant—the complete initial primitive-three periodic population—is classified for all connected cacti with exactly one resonant cycle, with no fixed bound on graph size or block-tree complexity. Bridge/tree attachment invariance and multiplicative staircase factors are structural, not arbitrary tabulated numbers. It distinguishes an immediate periodicity census from prior asymptotic activity and supplies exact orbit populations for many sparse excitable-network topologies. Multiple resonant cycles are deliberately excluded because interaction between cycle supports changes the answer.",
+    "status": "PASS"
+  }
+}
