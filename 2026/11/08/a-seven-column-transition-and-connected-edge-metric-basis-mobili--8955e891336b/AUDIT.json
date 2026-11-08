@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every n >= 2, matching-edge distance is 1-[k=j] and same-layer horizontal-edge distance is 1-[k in X]+[b!=a]. Matching edges force at least n-1 occupied columns. With exactly n-1 selected vertices, an omitted column and one landmark per other column are forced; explicit indistinguishable rung/horizontal pairs exclude any side with fewer than three landmarks. Conversely four exhaustive edge-type comparisons distinguish every edge pair if both sides have at least three. Entire clique layer always resolves, giving n for n <= 6 and n-1 for n >= 7. Three clique-layer slides exchange opposite-layer column occupants at fixed hole; horizontal hole relocation and legal vertical flips connect all admissible populations. The direct program exhausts graph instances n=2..9; the second independently checks enumeration and slide connectivity n=7..10. Both were executed and their outputs match the recorded files. Finite verification supports but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zubrilina, On Edge Dimension of a Graph, arXiv:1611.01904v2, Theorem 4.2: k <= edim(G square P_m) <= k+1",
+        "Kelenc et al. arXiv:1602.00291v1 sections 2.1 and 4: complete/complete bipartite/grid facts and bounds",
+        "The mixed complete-prism RESULT.md states n minimum, transversals with at least two vertices in each layer, count 2^n-2n-2"
+      ],
+      "reasoning": "A generic product interval may constrain the scalar, but neither supplies the exact edge-only n-1 landmark classification, the counting expression, or minimum-base token-slide connectedness. The mixed theorem has a strictly stronger separation requirement and different optimum size. Other closest records treat crown, half, or multipartite graphs, or fractional rather than integer edge resolving.",
+      "searches": [
+        "edge metric dimension complete graph Cartesian product with K2 exact enumeration of all bases",
+        "edge metric dimension Cartesian product complete graph path two copies K_n",
+        "edge metric dimension of generalized prism graphs K_n square K_2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1602.00291v1",
+      "https://arxiv.org/html/1611.01904v2",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0/RESULT.md",
+      "2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0",
+      "2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+      "2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2",
+      "2026/10/4/SCOPE-correction-and-all-set-classification-for-edge-metric-dimension--ddf19947a669",
+      "2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The public mixed-metric RESULT.md was inspected in full and proves only mixed n-vertex bases for n >= 5",
+        "Zubrilina Theorem 4.2 proves a generic edge metric lower/upper interval, not all basis counts or mobility",
+        "Previous separately recorded edge-metric mobility studies concern finite Heawood and Chvatal graphs, not K_n square K_2"
+      ],
+      "reasoning": "Mixed complete-prism resolving implies edge resolving for the same n-vertex set, but does not determine the existence or classification of smaller n-1 edge-only bases. The general bound likewise gives neither basis structure nor slide edges. The known results therefore do not cover the complete claim as a corollary; residual priority uncertainty is explicitly retained.",
+      "searches": [
+        "edge metric dimension and classification of all minimum edge-resolving sets of the rook graph K_2 Cartesian K_n, counting and token sliding reconfiguration",
+        "edge metric dimension complete graph Cartesian product with K2 exact enumeration of all bases",
+        "metric generators line graphs rook graph K2 box Kn and resolving basis mobility",
+        "edge resolving polynomial of complete matching-prism graphs graph Cartesian product two cliques K_n box P_2, minimum generators and basis transition graph",
+        "edge metric dimension Cartesian product complete graph path two copies K_n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus query records include closest IDs 2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0 and 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+        "arXiv:1602.00291v1 section 2.1 establishes edge metric dimension of complete graphs and Cartesian grids, not the two-clique matching product",
+        "Published record: Mixed metric bases of complete prisms, 2026-10-04, complete RESULT.md inspected"
+      ],
+      "reasoning": "Equivalent descriptions include complete prism K_n square K_2, two cliques joined by a perfect matching, K_n square P_2, and a two-row rook graph. The same named graph appears in a mixed-resolving theorem, but its predicate includes vertex/edge comparisons and has different minimum and bases.",
+      "searches": [
+        "edge metric dimension and classification of all minimum edge-resolving sets of the rook graph K_2 Cartesian K_n, counting and token sliding reconfiguration",
+        "edge metric dimension complete graph Cartesian product with K2 exact enumeration of all bases",
+        "metric generators line graphs rook graph K2 box Kn and resolving basis mobility",
+        "edge resolving polynomial of complete matching-prism graphs graph Cartesian product two cliques K_n box P_2, minimum generators and basis transition graph",
+        "\"edge metric dimension\" \"complete prism\" \"K_n\" \"K_2\" edge resolving",
+        "\"edge metric dimension\" \"K_n □ K_2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant closest published-finding corpus IDs: 2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0, 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8, 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2, 2026/10/4/SCOPE-correction-and-all-set-classification-for-edge-metric-dimension--ddf19947a669, 2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d",
+        "Direct verified values B_7=140, B_8=560, B_9=1638, B_10=4200 generated by independent structural census"
+      ],
+      "reasoning": "Database searches identified no exact sequence B_n for edge-only minimum resolvers of K_n square P_2. A match of a finite integer sequence alone would not imply this structural theorem; lack of retrieval does not certify novelty.",
+      "searches": [
+        "edge metric dimension and classification of all minimum edge-resolving sets of the rook graph K_2 Cartesian K_n, counting and token sliding reconfiguration",
+        "edge metric dimension complete graph Cartesian product with K2 exact enumeration of all bases",
+        "edge resolving polynomial of complete matching-prism graphs graph Cartesian product two cliques K_n box P_2, minimum generators and basis transition graph",
+        "\"edge metric dimension\" \"complete prism\" \"K_n\" \"K_2\" edge resolving",
+        "edge metric dimension of generalized prism graphs K_n square K_2"
+      ]
+    },
+    "rationale": "The complete prism has a known mixed metric minimum n and n-vertex transversal bases, but mixed resolving distinguishes vertices and edges; the present edge-only minimum n-1 (n>=7), exact n-1 basis classification/count, and connected token-slide network do not follow from that stronger metric condition. The original edge metric paper treats several families but not this precise theorem; Zubrilina proves a generic k-to-k+1 interval for products with paths, not all exact bases and slides. Actual public record, own historical archive and literature searches found no duplicate, with acknowledged priority uncertainty.",
+    "residual_risks": [
+      "Searches and accessible indexed publications cannot exclude historical articles using different terminology or unpublished calculations.",
+      "Generic product edge metric bounds may be sharpened elsewhere; none of the inspected sources proved the full basis enumeration and connected slide graph.",
+      "No independent scholarly audit or formal external verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definition and general families confirmed, no claimed edge-only complete-prism basis census or slide result in inspected article.",
+        "evidence": "Section 2.1 Remark 1 gives edge metric dimension of complete graphs; Proposition 4 gives grid result; no complete-prism phrase.",
+        "identifier_or_url": "https://arxiv.org/html/1602.00291v1",
+        "material_read": "Open-access HTML abstract, definitions and sections covering complete/complete-bipartite edge dimension, Cartesian-product grid, and section headings and relevant bounds",
+        "method": "Read original open-access manuscript and searched its text for complete prisms and product claims",
+        "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+        "trigger": "Foundational primary article for precise edge distance definition and relevant basic graph families"
+      },
+      {
+        "assessment": "Theorem 4.2 provides k<=edim(G square P_m)<=k+1 for a union of two factor bases, with no complete-prism all-bases/mobility theorem.",
+        "evidence": "Theorem 4.2 (Section 4); originally posted 2016-11-07, used as supporting context, not archive primary source.",
+        "identifier_or_url": "https://arxiv.org/html/1611.01904v2",
+        "material_read": "Open-access HTML abstract, Section 4 and full Theorem 4.2 statement and relevant proof for path products",
+        "method": "Read product theorem and compared each quantified conclusion to the claimed minimum-basis classification and slide graph",
+        "title": "On Edge Dimension of a Graph",
+        "trigger": "Most relevant general Cartesian product theorem for edge metric dimension"
+      },
+      {
+        "assessment": "Known mixed minimum n (n>=5), at least two selected per layer, transversal bases; present edge-only minimum n-1 (n>=7), at least three each with one omitted column, is not a covered corollary.",
+        "evidence": "RESULT.md Finding/Proof/Limitations, 2^n-2n-2 mixed bases, distinct from n(2^(n-1)-2-2(n-1)-2*binom(n-1,2)) edge bases.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0/RESULT.md",
+        "material_read": "Complete RESULT.md, including exact theorem, proof and limitations",
+        "method": "Retrieved complete publicly available primary research record and compared definitions, quantifiers, dimensional thresholds and implications",
+        "title": "Mixed metric bases of complete prisms",
+        "trigger": "Same graph family and visually similar extremal classification under mixed rather than edge metric separation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8955e891-336b-4935-b487-81345049f2a2",
+  "value": {
+    "rationale": "The seven-column threshold reveals when a complete-clique prism first permits omitting one landmark while distinguishing every edge, and the classification enumerates every optimum set for an infinite family. The constructive connectedness theorem guarantees mobility under the more restrictive adjacency-only replacement model, rather than merely arbitrary jumps. These structural, counting and dynamical facts have a natural reason for this graph family and are not implied by the already known mixed minimum.",
+    "status": "PASS"
+  }
+}
