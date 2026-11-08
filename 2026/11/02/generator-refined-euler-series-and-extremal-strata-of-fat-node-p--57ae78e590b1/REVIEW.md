@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The conclusion distinguishes the minimal number of generators in the nonreduced coordinate ring from the ambient polynomial ring by the exact one-corner subtraction. The torus fixed-point Euler reduction is valid for invariant constructible strata over \(\mathbb C\), the unrestricted lower and bounded upper partitions are separated by the \(q\)-binomial identity, and the nonmonomial global ceiling follows from multiplication by the nonzerodivisor \(x+y\) on the one-dimensional hypersurface ring. The extremal product follows by partitioning all maximal-corner cases, with explicit common-denominator cancellation. The package contains a self-contained exact arithmetic verifier; its finite coverage is not misrepresented as an all-parameter proof.
+PASS
 
-## Originality
+For u,v>=1 the torus fixes monomial ambient ideals containing (x^u y^v), in bijection with partitions λ with λ_(v+1)<=u. Euler localization reduces each invariant constructible µ stratum to this finite torus-fixed combinatorics at each colength. Ambient minimal generator count is 1+number of distinct positive row lengths; in the quotient exactly one generator disappears iff λ_v>u and λ_(v+1)=u. Splitting k parts >u gives B_u(q,z) and q-binomial upper factor T_(u,k); the corner correction yields the exact two-variable formula. For any finite-colength ideal, not merely monomial ideals, x+y is a nonzerodivisor and length(R/(x+y))=u+v, so from exact sequence length(I/(x+y)I)=u+v and µ(I)<=u+v. Three disjoint maximal-corner classes telescope to q^choose(u+v,2)/(P_u P_v). Independent direct Young diagram enumeration checks top-generator coefficients for all u,v=1..3 through colength16; notably (2,2) coefficients at n6,7,8 are 1,2,5. Infinite claims follow combinatorial and exact-sequence proofs.
 
-**PASS with explicit historical-priority risk.** Luan (arXiv:2604.03111) considers the same fat nodes and unrefined Poincaré information. Huang–Jiang–Oblomkov (arXiv:2610.34676) prove the **all-parameter unrefined motivic series** and a contact-length refinement; both are prior inputs and are **not** presented as new. Contact length and generator number are distinct invariants. Hsiao–Szenes (arXiv:1806.03955) compute generator-number strata for ideals of a **smooth plane**, not their nonreduced-node quotients. No inspected full text or mathematical-record match supplies the stated generator-graded series or sharp extremal product; nevertheless a hidden equivalent formula deduced from the full contact-chain stratification remains the strongest residual risk. Searches alone cannot certify novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The number of generators measures presentation complexity of finite colength ideals, and the ambient-versus-quotient correction is essential at the singularity. The all-degree, all-colength bivariate Euler series answers a natural independent refinement left implicit by modern motivic fat-node formulas. A uniform global generator ceiling and a nontrivial product formula for the entire extremal stratum give structural content beyond a reparametrized unrefined zeta function. The result does not claim a general link-homology theorem.
+Luan 2026 directly studies Hilbert schemes of fat nodes and some Poincaré data; Huang–Jiang–Oblomkov 2026-10-26 supplies a more general all-u,v unrefined motivic zeta function and contact-length refinements, so the z=1 specialization here is covered prior art. Their published abstract describes contact length along branch, not µ=dim I/mI. Hsiao–Szenes compute generator-number strata for punctual ideals of the smooth plane, not quotient-ring generators of fat nodes; the missing one-corner correction is essential. No observed source establishes the generator-refined fat-node Euler series and top-generator product; the inaccessible full Huang–Jiang–Oblomkov article is a substantive possible implicit coverage risk, not erased.
 
-## Sources and limitations
+## value
 
-Primary material inspected: Luan's full available arXiv HTML (introduction, generators, stratification and examples), Huang–Jiang–Oblomkov's full available arXiv HTML (Theorems A–C, contact-length refinement and geometric stratification), Hsiao–Szenes's article (definition of generator strata, torus-fixed Young diagrams and Euler calculations), and Oblomkov–Shende's foundational reduced-curve context. The unrefined fat-node motivic series was already proved and is excluded from originality. The closed form is only for compactly supported Euler characteristic of the **generator strata**, not their full motives. Scientific assessment has not been performed independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimal number of ideal generators is a canonical measure of presentation complexity of punctual subschemes. A complete generator-graded Euler series, uniform nonmonomial generator ceiling, and sharp extremal stratum for every fat-node pair are natural geometry refinements of the already-known unrefined motivic series; the one-corner quotient correction has substantive mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
