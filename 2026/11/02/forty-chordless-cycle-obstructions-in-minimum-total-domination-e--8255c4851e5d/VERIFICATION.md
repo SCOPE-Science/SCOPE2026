@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducing the finite checks
+# Independent mathematical audit
 
-The two supplied programs examine the same finite graph using different constructions and data structures. Python 3.10 or later is required. The direct graph-isomorphism checker additionally uses NetworkX 3.x; the generalized-Petersen bitset checker needs only Python's standard library.
+## correctness
 
-Execute the scripts from the directory containing them:
+PASS
 
-```
-python verify_dodeca_total_direct.py
-python verify_dodeca_total_gp.py
-```
+For the precise labelled GP(10,2) with twenty vertices and thirty edges, every vertex has open neighborhood size three. The degree lower bound excludes total dominating sets of size at most six; an independent exhaustive scan of all C(20,7)=77520 and C(20,8)=125970 candidate subsets finds no size-seven total dominating set and exactly 190 minimum size-eight sets. Building every one-out/one-in swap independently gives 360 undirected edges, degree distribution (40 isolated, 120 of degree 4, 30 of degree 8), and components of sizes 150 plus forty singletons; BFS from every vertex of the nontrivial component gives eccentricity 10. Independent enumeration of all C(20,12)=125970 potential induced chordless cycles returns exactly 40, whose complements agree setwise with all isolated minimum dominating sets. Independently enumerated automorphisms total 120 with the stated five orbits and 30/10 isolated induced shapes. This genuinely exhausts the finite domain; no assertion extends to all cubic graphs.
 
-The expected success markers are `DODECAHEDRON_DIRECT_TOTAL_DOMINATION_PASS` and `DODECAHEDRON_GP_BITSET_PASS`, respectively. Each script raises an assertion error on any disagreement; neither uses files not included in this package.
+## originality
 
-The direct checker enumerates every possible size-seven and size-eight candidate, all minimum-set exchanges, each shortest-path eccentricity, all twelve-subsets for induced-cycle recognition, and the full automorphism group. The second checker independently constructs the edges \(u_iu_{i+1}\), \(u_iv_i\), and \(v_iv_{i+2}\) of \(\operatorname{GP}(10,2)\), and checks the complete candidate, transition, distance, and cycle ranges using bit operations.
+PASS
 
-These are exact exhaustive finite checks for the twenty-vertex graph. They do not certify analogous results on larger generalized Petersen graphs, nor do they constitute external scholarly review.
+Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.
+
+## value
+
+PASS
+
+The space of optimal total dominating sets under a fixed-cardinality exchange is a natural reconfiguration object, and its forty frozen states, common connected-component eccentricity, and induced-cycle obstruction are a nontrivial complete exact classification for an iconic cubic graph. It is not merely the previously known domination number, and researchers considering reconfiguration or fullerene obstructions could need these precise finite facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

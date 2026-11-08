@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:54:51.140209Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the precise labelled GP(10,2) with twenty vertices and thirty edges, every vertex has open neighborhood size three. The degree lower bound excludes total dominating sets of size at most six; an independent exhaustive scan of all C(20,7)=77520 and C(20,8)=125970 candidate subsets finds no size-seven total dominating set and exactly 190 minimum size-eight sets. Building every one-out/one-in swap independently gives 360 undirected edges, degree distribution (40 isolated, 120 of degree 4, 30 of degree 8), and components of sizes 150 plus forty singletons; BFS from every vertex of the nontrivial component gives eccentricity 10. Independent enumeration of all C(20,12)=125970 potential induced chordless cycles returns exactly 40, whose complements agree setwise with all isolated minimum dominating sets. Independently enumerated automorphisms total 120 with the stated five orbits and 30/10 isolated induced shapes. This genuinely exhausts the finite domain; no assertion extends to all cubic graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Lin–Shi supply the parameter-family total domination number including GP(10,2), not the set of 190 minima and swap graph.",
+          "The available complete Alikhani et al. paper concerns k-total domination reconfiguration, not a formula covering minimum-set swaps on GP(10,2)."
+        ],
+        "reasoning": "A general theorem for all generalized Petersen graphs giving exchange graph structure would dominate the assigned instance, but no such result was identified in the inspected primary material. The known gamma_t formula is strictly weaker.",
+        "searches": [
+          "Cao Lin Shi Total Domination Number of Generalized Petersen Graphs 2009",
+          "arxiv:1711.04363v1"
+        ]
+      },
+      "checked_sources": [
+        "Cao, Lin & Shi (2009) doi:10.4236/iim.2009.11003",
+        "Alikhani, Fatehi & Mynhardt (2017) arXiv:1711.04363, accessible full HTML",
+        "Independent finite enumeration /mnt/data/scope_worker02_run_20261106T0743/independent_math_checks.py",
+        "Actual assigned RESULT.md and verify_dodeca_total_gp.py frozen blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowledge that gamma_t(D)=8 establishes optimal cardinality but not its full minimum-family exchange graph.",
+          "Addition/deletion adjacency at budget k cannot be identified with the induced one-swap graph without an additional two-step analysis and restrictions."
+        ],
+        "reasoning": "The asserted new result is the 150+40 exchange decomposition, complete eccentricities, and cycle-complement iff characterization; these are not deductions of the cited previous cardinality or addition/removal definitions alone.",
+        "searches": [
+          "doi:10.4236/iim.2009.11003",
+          "arXiv:1711.04363",
+          "Resultary: dodecahedron domination reconfiguration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alikhani, Fatehi & Mynhardt (2017) define k-total dominating graphs using addition/deletion operations and a size cap; an exchange of two vertices at fixed minimum cardinality is a different adjacency relation.",
+          "The prior dodecahedral domination cardinality eight is expressly credited to Cao, Lin & Shi (2009)."
+        ],
+        "reasoning": "Rephrasing exchange adjacency as the Johnson graph induced on all minimum total dominating sets is equivalent. The published k-total domination graph adjacency adds/removes one vertex and cannot itself imply the precise swap-graph decomposition.",
+        "searches": [
+          "Resultary: dodecahedron GP(10,2) minimum total domination set reconfiguration one vertex swap isolated exchange graph induced twelve cycles",
+          "arXiv:1711.04363"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 190/360/40 swap-graph table was identified in Resultary ranked near neighbors, which instead concern dodecahedral complexes and homology.",
+          "The assigned independent checker recomputed all finite data from graph edges rather than importing a catalogue."
+        ],
+        "reasoning": "A prior database listing all minimum dominating subsets or all induced 12-cycles might allow the exchange statistics to be recomputed, but neither an equivalent published table nor a stronger complete census was found. Non-discovery is not a novelty certificate.",
+        "searches": [
+          "Resultary: dodecahedron total domination 190 optimum 360 exchanges forty twelve cycles",
+          "dodecahedron GP(10,2) induced twelve-cycles minimum total domination graph enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.",
+      "residual_risks": [
+        "An older dodecahedral subset catalogue, unpublished computational enumeration or equivalent exchange graph might establish historical priority.",
+        "A full-text literature review of every generalized Petersen domination/reconfiguration paper was not completed.",
+        "Finite exact theorem does not extend to the generalized Petersen family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for exact frozen-minimum one-out/one-in dodecahedral exchange graph; prior model adds/removes vertices",
+          "evidence": "Alikhani–Fatehi–Mynhardt arXiv:1711.04363, Section 1 definition and subsequent reconfiguration theorems; addition/deletion edges rather than two-vertex exchange.",
+          "identifier_or_url": "https://arxiv.org/html/1711.04363",
+          "material_read": "Accessible full arXiv HTML, definitions of k-total dominating graph, transformation rule, main examples and results on connectedness",
+          "method": "Full HTML section inspection and targeted searches for exchange, swap, dodecahedron and generalized Petersen",
+          "title": "On k-Total Dominating Graphs",
+          "trigger": "Directly related total-domination reconfiguration; possible stronger connectivity theorem"
+        },
+        {
+          "assessment": "KNOWN_COVERAGE of minimum cardinality eight; no whole-document NOT_COVERING claim for exchange census",
+          "evidence": "Cao–Lin–Shi, Intelligent Information Management 1 (2009), 14–17; gamma_t for GP(n,2).",
+          "identifier_or_url": "https://doi.org/10.4236/iim.2009.11003",
+          "material_read": "Available indexed abstract and bibliographic result, not a verified full text",
+          "method": "Exact title/formula citation comparison",
+          "title": "Total Domination Number of Generalized Petersen Graphs",
+          "trigger": "Same GP(10,2) total-domination invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The space of optimal total dominating sets under a fixed-cardinality exchange is a natural reconfiguration object, and its forty frozen states, common connected-component eccentricity, and induced-cycle obstruction are a nontrivial complete exact classification for an iconic cubic graph. It is not merely the previously known domination number, and researchers considering reconfiguration or fullerene obstructions could need these precise finite facts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older dodecahedral subset catalogue, unpublished computational enumeration or equivalent exchange graph might establish historical priority.",
+    "A full-text literature review of every generalized Petersen domination/reconfiguration paper was not completed.",
+    "Finite exact theorem does not extend to the generalized Petersen family."
+  ],
+  "schema_version": 1
+}

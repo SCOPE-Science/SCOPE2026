@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic degree bound rules out cardinalities below seven; all 77,520 possible seven-subsets and 125,970 eight-subsets are scanned. The 190 minima produce an exhaustively constructed 360-edge exchange graph. All 190 source distances, all 125,970 possible twelve-subsets, and all 120 automorphisms are checked. A separate pure-Python generalized-Petersen implementation reproduces the cardinality, exchange, component, eccentricity, and induced-cycle conclusions. No infinite generalization is claimed.
+## correctness
 
-**Originality — PASS, qualified.** The minimum total domination value eight was known from Cao, Lin, and Shi (2009), and is not asserted as new. Published general total-domination results and the 2017 addition/deletion reconfiguration framework concern different statements or transition rules. Searches for a dodecahedral exchange graph, its induced twelve-cycle obstruction, and its full metric found no corresponding explicit classification. Existing optimal-set databases could permit computation of the exchange graph; their possible coverage and unindexed historical sources remain a priority risk.
+PASS
 
-**Value — PASS.** The regular dodecahedron is the canonical twenty-vertex cubic Platonic graph. The result addresses a natural question left open by optimization alone: whether minimum total-domination placements can be rearranged while preserving optimality. The coexistence of forty irreversibly frozen placements with a connected 150-vertex core is a meaningful reachability obstruction, and the precise induced-cycle characterization explains these frozen minima geometrically. The core's uniform eccentricity ten and five orbit types give a complete finite reconfiguration invariant.
+For the precise labelled GP(10,2) with twenty vertices and thirty edges, every vertex has open neighborhood size three. The degree lower bound excludes total dominating sets of size at most six; an independent exhaustive scan of all C(20,7)=77520 and C(20,8)=125970 candidate subsets finds no size-seven total dominating set and exactly 190 minimum size-eight sets. Building every one-out/one-in swap independently gives 360 undirected edges, degree distribution (40 isolated, 120 of degree 4, 30 of degree 8), and components of sizes 150 plus forty singletons; BFS from every vertex of the nontrivial component gives eccentricity 10. Independent enumeration of all C(20,12)=125970 potential induced chordless cycles returns exactly 40, whose complements agree setwise with all isolated minimum dominating sets. Independently enumerated automorphisms total 120 with the stated five orbits and 30/10 isolated induced shapes. This genuinely exhausts the finite domain; no assertion extends to all cubic graphs.
 
-**Limits.** This is a finite theorem for one fixed graph, not a statement about all cubic graphs or generalized Petersen graphs. Primary relevant full texts were inspected where accessible; older or alternative-indexed coverage cannot be ruled out. Computation reproduces a complete finite result but is not independent scholarly validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.
+
+## value
+
+PASS
+
+The space of optimal total dominating sets under a fixed-cardinality exchange is a natural reconfiguration object, and its forty frozen states, common connected-component eccentricity, and induced-cycle obstruction are a nontrivial complete exact classification for an iconic cubic graph. It is not merely the previously known domination number, and researchers considering reconfiguration or fullerene obstructions could need these precise finite facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
