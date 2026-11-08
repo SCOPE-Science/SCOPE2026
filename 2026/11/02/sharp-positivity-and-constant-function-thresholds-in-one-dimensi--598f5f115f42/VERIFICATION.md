@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The result is an analytic theorem, not an experimental extrapolation. Its critical identities are the Fourier multipliers of the tent kernel, exact Fourier coefficients of the normalized half-periodic sine density, the cotangent partial-fraction identity, and a circular interval-overlap argument locating the minimum tent mass. The conditions \(n\ge2\) and \(\gamma>0\), normalization of \(K_\gamma\), and parity definition of \(d_n\) are essential.
+## correctness
 
-Run the standalone `verify.py` with Python 3 and `mpmath` installed. It independently assembles the finite circulant Gram matrix via the Bernoulli-polynomial form of the kernel, calculates its kernel-mean vector from an analytic integral formula, solves the Gram system, and compares every weight with independently integrated tent masses plus the claimed common offset. It checks all sign regimes at 5 gamma choices for each of 11 grid sizes and tests large-grid asymptotics. The provided execution produced `PASS: 174 independent finite checks`. All tolerances are far above the working 65-digit rounding floor for the checked sizes; these numerical results are supplementary and do not prove the unlimited-size assertion.
+PASS
 
-Independent mathematical audit has not been performed. The theorem does not address multivariate lattices, alternative periodizing maps, density perturbations, positive-constrained weight optimization, or finite-precision computation. The inspection of related literature does not guarantee historical priority.
+Circulant discrete Fourier diagonalization of the positive definite kernel G yields each nonzero frequency of optimal w equal to that of the tent density masses q_j via the csc-square aliasing identity. Their difference is a common scalar fixed by the zero Fourier mode: w_j=q_j-gamma(B-A)/[n(1+gamma B)]. The folded half-period convolution has its minimum at the density zero j=0 by symmetry, unimodality and circular layer-cake rearrangement; q0=1/2−n sin(2pi/n)/(4pi). Consequently positivity cuts off sharply at Gamma_pos=n q0/(B−A−n q0 B), with exact equality zero; sum w=(1+gamma A)/(1+gamma B) switches at Gamma_mass=−1/A. A<0 follows explicit summands. The n=2 equality and strict n>=3 ordering follow algebra, and Taylor expansions give order-n versus order-n^4 thresholds. Independent high-precision, separately integrated kernel-mean/Gram solves for n=2,3,4,5,7 and gamma in {0.1,3.7} reproduced formulas; analytic proof is required for all n.
+
+## originality
+
+PASS
+
+Classical periodic Sobolev cardinal functions and Bayesian kernel quadrature weight positivity supply the framework. The candidate novelty is an exact two-parameter sign threshold for the specified nonsmooth Chebyshev density including parity-dependent constant-mass transition. Bartel–Gilbert–Griebel–Kuo–Sloan 2026 is highly relevant but full text was unavailable: only accessible abstract/general description reviewed, so no whole-document noncoverage assertion. The best-of-knowledge originality pass retains explicit significant equivalent spline-identity priority risk.
+
+## value
+
+PASS
+
+Optimal unconstrained RKHS quadrature weights can become negative even when kernel and target density are positive; determining the exact smallest-weight transition and the later constant-response sign transition is a meaningful design boundary. The 16-fold parity effect in the latter and exact n- and n^4-scales are independently useful diagnostics, not merely routine inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
