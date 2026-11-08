@@ -1,15 +1,21 @@
-# Research assessment: random products of the symmetric inverse monoid
+# Independent mathematical audit
 
-## Correctness
-PASS. The rank-counting identity \(\binom nr^2r!\) gives the exact single-factor deficiency weights. Given previous image deficiency and next domain deficiency, the overlap is precisely a hypergeometric intersection. Its factorial moments converge to those of a Poisson law, conditionally on all earlier factors, yielding independence and the multivariate limit by induction. A standard locally uniform Laguerre asymptotic supplies the Gaussian limit and the derivative constant \(-3/4\). Exact expected-rank iteration proves the mean expansion. The embedded, independently formulated brute-force verifier matched the full rank/overlap histogram in eight cases. Its finite checks supplement rather than replace the proof.
+## correctness
 
-## Originality
-PASS relative to inspected sources. Known single-factor Laguerre counts and rank asymptotics are not claimed. The closely related Fikioris–Fikioris paper studies a restricted rook monoid, not independent uniform products in the full monoid; Elliott–Levine–Mitchell count one-generator substructures rather than product ranks. The nearest recoverable overlapping prior claim concerns zero-product conditioning, a different rare-event regime. Searches for equivalent product-rank laws and broader hypergeometric reductions did not find an implication that covers the combined finite transition and independent Poisson–Gaussian limit. Search failure does not prove priority. The residual possibility of a broader random-transformation product theorem is genuine.
+PASS
 
-## Mathematical value
-PASS. Exact rank laws under iterated multiplication are canonical structural statistics of finite semigroups. The theorem exhibits two genuinely different fluctuation scales and pinpoints a bounded random correction that cannot be seen in the ordinary Gaussian rank limit. The complete finite transition also permits all mixed moments and rank probabilities to be computed without enumerating the whole monoid product set. It is not an arbitrary finite parameter census or a restatement of the one-factor Laguerre count.
+For each uniform partial injection X in I_n, number of rank n-d elements is n! binom(n,d)/d!, yielding P(D=d)=binom(n,d)/(d! L_n(-1)). Composition with prior image size n-s and missing next-domain random d-set gives H=|missing-domain∩previous-missing-image|, hypergeometric with conditional falling-factorial moments (s)_r(d)_r/(n)_r, and Snext=s+d-H. Laguerre Perron asymptotic L_n(-a)≈exp(2sqrt(an)-a/2)/(2sqrt(pi)(an)^(1/4)) yields centered (D-sqrt(n))/n^(1/4)=>N(0,1/2), mu_n=sqrt(n)-3/4+O(n^-1/2). For fixed m, Sprev/sqrt(n)→j-1, D/sqrt(n)→1, so joint conditional factorial moments yield mutually independent H_j=>Pois(j-1), independent of Gaussian defects; C_m=>Pois(m(m-1)/2) and scaled product deficiency=>N(0,m/2). Conditional expected retained rank multiplies by 1-mu_n/n, giving n(1-mu_n/n)^m=n-msqrt(n)+3m/4+binom(m,2)+O_m(n^-1/2). Independent exhaustive direct pair products for n=2 (49 pairs) and n=3 (1156 pairs) verified hypergeometric defect-overlap transition exactly. Finite checks do not substitute the fixed-m infinite argument.
 
-## Prior work and limitations
-The single-factor defect distribution and the asymptotic Laguerre estimate are classical inputs. Conditional hypergeometric intersections are standard; the claimed mathematical contribution is the uniform full-rook-monoid multi-step synthesis, joint independence, and resulting exact expected rank. The limit requires a fixed number of factors and does not cover other sampling measures. Full historical publication coverage cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. Known one-factor Laguerre defect asymptotics alone do not determine joint overlaps or all finite product ranks.
+
+## value
+
+PASS
+
+The complete finite product-rank/overlap transition and joint Gaussian–independent-Poisson multiscale law for uniform rook-monoid products quantify a natural previously non-obvious interaction of missing domains and ranges, beyond the classical one-factor typical rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

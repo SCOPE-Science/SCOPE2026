@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification methods and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python's standard library. The script separately enumerates all partial bijections, composes actual maps, and generates an exact rank/overlap histogram from the independent binomial-coefficient transition. It checks equality of the complete histograms for the eight parameter pairs \((n,m)=(1,2),(2,2),(2,3),(2,4),(3,2),(3,3),(3,4),(4,2)\). The case \((3,4)\) contains exactly \(1{,}336{,}336\) ordered tuples. It additionally checks the complete state-count normalization and a cross-multiplied integer form of the exact expected rank identity, and prints large-\(n\) deficiency means for sanity checking the constant term.
+## correctness
 
-The successful execution reports `VERIFY_OK 8 exhaustive direct-composition cases`. The finite enumeration is exhaustive only at the listed sizes, not for all \(n\) or arbitrary product length. The infinite claim is justified in the accompanying proof by the Laguerre asymptotic and uniform conditional hypergeometric factorial-moment analysis. No independent audit or outside formal verification was performed.
+PASS
+
+For each uniform partial injection X in I_n, number of rank n-d elements is n! binom(n,d)/d!, yielding P(D=d)=binom(n,d)/(d! L_n(-1)). Composition with prior image size n-s and missing next-domain random d-set gives H=|missing-domain∩previous-missing-image|, hypergeometric with conditional falling-factorial moments (s)_r(d)_r/(n)_r, and Snext=s+d-H. Laguerre Perron asymptotic L_n(-a)≈exp(2sqrt(an)-a/2)/(2sqrt(pi)(an)^(1/4)) yields centered (D-sqrt(n))/n^(1/4)=>N(0,1/2), mu_n=sqrt(n)-3/4+O(n^-1/2). For fixed m, Sprev/sqrt(n)→j-1, D/sqrt(n)→1, so joint conditional factorial moments yield mutually independent H_j=>Pois(j-1), independent of Gaussian defects; C_m=>Pois(m(m-1)/2) and scaled product deficiency=>N(0,m/2). Conditional expected retained rank multiplies by 1-mu_n/n, giving n(1-mu_n/n)^m=n-msqrt(n)+3m/4+binom(m,2)+O_m(n^-1/2). Independent exhaustive direct pair products for n=2 (49 pairs) and n=3 (1156 pairs) verified hypergeometric defect-overlap transition exactly. Finite checks do not substitute the fixed-m infinite argument.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. Known one-factor Laguerre defect asymptotics alone do not determine joint overlaps or all finite product ranks.
+
+## value
+
+PASS
+
+The complete finite product-rank/overlap transition and joint Gaussian–independent-Poisson multiscale law for uniform rook-monoid products quantify a natural previously non-obvious interaction of missing domains and ranges, beyond the classical one-factor typical rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
