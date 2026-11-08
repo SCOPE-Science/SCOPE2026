@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "All parameters \\(m\\ge3\\) and \\(\\ell\\ge3\\). Fixing tail increments, the normalized core clique polytope is optimized by strict convexity only at signed binary vertices (with a nonzero coordinate). Squared pairwise-distance domination strictly straightens the tail away from the negative clique value, so every maximizer has the stated form. The remaining exact numerator \\(N(B+k)-(A-k)^2\\) completes the square at \\(c=(m+\\ell(\\ell+2))/2\\); clipping and nearest integer select every optimizer, giving unique boundary, tie, and mixed regimes. The proof verifies strict equality at each step. Standalone code independently enumerates 47 exact small cases and verifies 35,920 quadratic instances; finite checks are not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon–Boppana–Spencer (1998) Theorem 2.1: an integral optimal Lipschitz potential exists, without an exact spread value on lollipop graphs.",
+        "Addario-Berry–Janson–McDiarmid (2009): concentration/spread estimates for random regular, Erdős–Rényi and small-world graph models.",
+        "Prior exact two-clique barbell calculations cover the short path length \\(\\ell=2\\) after identifying a two-vertex end clique, not a path with \\(\\ell\\ge3\\) new edges."
+      ],
+      "reasoning": "Generic integral-optimizer structure, isoperimetric asymptotics and estimates on random graph models do not imply the exact new threshold without the lollipop-specific pairwise dominance and integer optimization. The earlier \\(\\ell=2\\) case is explicitly excluded and cannot dominate the \\(\\ell\\ge3\\) family.",
+      "searches": [
+        "An Asymptotic Isoperimetric Inequality 1998 theorem 2.1 full text",
+        "On the spread of random graphs arxiv:0902.1156 full text",
+        "bottleneck graph Lipschitz spread bridge two cliques length two versus lollipop long path"
+      ]
+    },
+    "checked_sources": [
+      "Alon–Boppana–Spencer, DOI 10.1007/s000390050062, original full PDF, relevant sections 1–2.1.",
+      "Addario-Berry–Janson–McDiarmid, arXiv:0902.1156, 2009-02-06, accessible primary text.",
+      "Accessible earlier clique-bridge exact-spread claim for \\(\\ell=2\\): conceptual comparison only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general 1998 integrality theorem gives admissible structure, but not the maximizing clique occupancy, the quadratic in \\(\\ell\\) threshold, or all tie cases.",
+        "The earlier barbell two-clique claim reduces to the \\(\\ell=2\\) case but not to a longer path, because the non-clique tail has additional articulation vertices.",
+        "The 2026 lollipop metric-base title computes a resolving invariant, not variance of one-Lipschitz potentials."
+      ],
+      "reasoning": "The new value is not obtained by substituting labels or parameters in the known two-clique graph formula. To transfer to \\(\\ell\\ge3\\) requires proving every tail straightens and then solving a different path-moment quadratic. The general bound \\(\\operatorname{diam}(G)^2/4\\) is much weaker and cannot determine equality configurations.",
+      "searches": [
+        "bottleneck graph Lipschitz spread bridge two cliques length two versus lollipop long path",
+        "theorem 2.1 1998 An Asymptotic Isoperimetric Inequality integral graph spread",
+        "lollipop graph exact spread maximizing Lipschitz variance quadratic transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0902.1156, introduction and sections 2–5 are about graph spread and random graphs, not an explicit lollipop formula",
+        "The 1998 original full text contains no lollipop occurrence; its Section 2.1 proves general extremizer existence and discusses paths, not clique-plus-long-path exact spread."
+      ],
+      "reasoning": "The claim is not just integral extremizer existence or a path spread special case: it computes the two-parameter exact maximum and every equality case. Search terms include lollipop, clique-path, spread, variance and Lipschitz; no equivalent explicit theorem was found in checked sources. Search failure is not a proof of uniqueness.",
+      "searches": [
+        "\"spread\" \"lollipop graph\" \"Lipschitz\" \"variance\"",
+        "\"spread\" \"lollipop graphs\" \"maximum variance\"",
+        "\"variance\" \"lollipop graph\" \"Lipschitz function\"",
+        "lollipop graph \\(K_m\\) with attached path \\(P_k\\) exact maximum graph spread variance",
+        "arxiv:0902.1156 full text search lollipop"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed lollipop results encountered concern metrics of resolution or other graph invariants rather than maximum Lipschitz variance.",
+        "The known two-clique bridge formula covers a path of two edges but not a clique with a longer attached path."
+      ],
+      "reasoning": "Neither searched graph table nor the previously established bridge-barbell formulas supplies the exact \\(\\ell\\ge3\\) value or parity-corrected mixing regime; this is a bounded comparison, not a guarantee about unindexed data.",
+      "searches": [
+        "lollipop graph \\(K_m\\) with attached path \\(P_k\\) exact maximum graph spread variance",
+        "sharp variance spread of Lipschitz functions on graphs lollipop clique path graph quadratic phase threshold clique occupancy",
+        "lollipop graph maximum Lipschitz spread exact table",
+        "lollipop graph spread variance exact formula"
+      ]
+    },
+    "rationale": "The 1998 full primary paper introduces the spread constant and provides a general integral-extremizer existence theorem; the 2009 primary paper develops random-graph spread estimates. Neither inspected relevant result states a sharp lollipop formula or the exact quadratic switch at \\(m=\\ell(\\ell+2)+3\\). The already-computed bridge-connected clique case contains only \\(\\ell=2\\) and is excluded by \\(\\ell\\ge3\\). Published lollipop metric-basis results concern a different invariant. General methods of the primary work require nontrivial new family-specific reduction and integer-optimizer classification for this result. Residual unindexed equivalence risk remains.",
+    "residual_risks": [
+      "An equivalent exact lollipop spread computation may exist in unindexed or differently named literature.",
+      "Only relevant portions of the 1998 article, not every page, were materially read; the PDF contains further asymptotic-isoperimetric arguments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL FRAMEWORK, NOT EXPLICITLY COVERING THE NEW TWO-PARAMETER VALUE",
+        "evidence": "Section 2.1 states an integral optimal potential and gives the path as an example, but no lollipop-specific extremizer or quadratic transition.",
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "material_read": "Full-text Section 1 and Section 2.1, including Theorem 2.1 and its connected tight-edge proof; PDF page four visually inspected; searched full text for lollipop, path, and complete graph",
+        "method": "Open author-hosted primary PDF, inspect text and page image, then follow relevant theorem statements",
+        "title": "An Asymptotic Isoperimetric Inequality",
+        "trigger": "Original definition of spread and strongest general extremizer result plausibly covering any graph"
+      },
+      {
+        "assessment": "RANDOM-GRAPH CONTEXT, NO CLAIM MATCH",
+        "evidence": "The stated results concern random regular, supercritical Erdős–Rényi, and small-world graphs; exact complete-graph spread is mentioned, but no clique-plus-path lollipop theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+        "material_read": "Accessible complete parsed HTML: introduction, named theorems, Section 2, Section 4, Section 5, and targeted full-text lollipop and complete-graph searches",
+        "method": "Read first publicly posted arXiv paper text and search for named graph family and equivalent spread problems",
+        "title": "On the spread of random graphs",
+        "trigger": "2009 first-public dated archival lead establishing graph-spread motivation and random graph context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f7e4acd-57a2-4293-9c8e-40945176c0a6",
+  "value": {
+    "rationale": "The standard lollipop family connects a dense concentration core to a long bottleneck path. Its exact sharp real Lipschitz variance and complete optimizer classification are natural unknown graph concentration data. The new quadratic \\(m=\\ell(\\ell+2)+3\\) coexistence threshold distinguishes fully polarized versus genuinely mixed clique extremizers and changes the large-clique structure; the parity correction in the mixing regime is exact. The result excludes the already-covered tail length two and proves a nontrivial two-parameter structural law rather than a numerical sample or a mere substitution.",
+    "status": "PASS"
+  }
+}
