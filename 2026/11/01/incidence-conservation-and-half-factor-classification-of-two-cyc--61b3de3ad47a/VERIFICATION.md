@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The identities in RESULT.md are proved symbolically for all finite simple graphs satisfying equal degree parity along every edge. The exact half-factor condition is necessary and sufficient. The exhaustive computations below check finite instances but are not substitutes for that proof.
+# Independent mathematical audit
 
-Run `python3 verify.py` to check all 1,099 labelled simple base graphs on at most five vertices, of which 154 satisfy the parity condition; this includes 4,909 state checks. Run `c++ -O2 -std=c++17 -Wall -Wextra -pedantic check.cpp -o check && ./check` to exhaust the named line-graph instances, including 2,097,152 configurations on the line graph of the complete graph with seven vertices. Both tests verify that the degree-parity hypothesis cannot simply be omitted, using a three-vertex path.
+## correctness
 
-The recorded outputs in `verify_output.txt` and `check_output.txt` were produced from the embedded source files. The checks do not classify transient lengths or attraction basins of arbitrary line graphs, and do not establish absence of stronger statements in inaccessible literature.
+PASS
+
+For any 2-cycle x,y the local strict-majority rule follows from one-neighbor count h_u+h_v−2x_e and threshold (d_u+d_v−2)/2. For each flip delta_e(Delta_u+Delta_v)<=0 while the sum equals sum_v Delta_v^2>=0; hence every incidence change vanishes. Boundary edges therefore complement and form a half-factor, P_h forced one and N_h forced zero; reversing this construction proves sufficiency and coefficient counting without duplication. Independent exhaustive Python checks covered all 154 parity-eligible simple base graphs on up to five vertices, 4909 binary states; all matched. The P3 unequal-parity counterexample and bridge exclusion were checked. Infinite family conclusion follows the incidence identity, not finite enumeration.
+
+## originality
+
+PASS
+
+The general symmetric-majority period≤2 theorem is prior work. A new restriction to line graphs alone would be trivial; the assessed structural half-factor classification, local conservation and graph-independent orbit-count expression are stronger data not stated in the inspected general theorems.
+
+## value
+
+PASS
+
+Complete recurrent-state structure, conservation at each original vertex, Eulerian/no-bridge oscillation constraint, and computable exact half-factor orbit enumeration are natural refinements of the period-two theorem for all finite regular and locally degree-parity homogeneous base graphs. The joined-triangles boundary example shows the content is not merely even simple cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:14:24.399374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any 2-cycle x,y the local strict-majority rule follows from one-neighbor count h_u+h_v−2x_e and threshold (d_u+d_v−2)/2. For each flip delta_e(Delta_u+Delta_v)<=0 while the sum equals sum_v Delta_v^2>=0; hence every incidence change vanishes. Boundary edges therefore complement and form a half-factor, P_h forced one and N_h forced zero; reversing this construction proves sufficiency and coefficient counting without duplication. Independent exhaustive Python checks covered all 154 parity-eligible simple base graphs on up to five vertices, 4909 binary states; all matched. The P3 unequal-parity counterexample and bridge exclusion were checked. Infinite family conclusion follows the incidence identity, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published majority results establish eventual period at most two under symmetric updates or graph growth, but the given main theorems do not constrain each original-vertex incidence on oscillations."
+        ],
+        "reasoning": "A generic period-two theorem cannot force the no-bridge result or count 2-cycles by balanced factors on the original base graph.",
+        "searches": [
+          "Benjamini et al. arXiv:1405.2486",
+          "Moran 1995 DOI:10.1090/S0002-9947-1995-1297535-1",
+          "line graph majority dynamics period two vertex incidence conservation Eulerian half factor oscillating edges"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1405.2486",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior period-two assertion implies F²(x)=x at recurrence, but the sum-of-squares identity additionally enforces Delta_v=0 using parity-homogeneous line-graph local structure."
+        ],
+        "reasoning": "The earlier theorem alone does not imply incidence conservation, Eulerian oscillating support or Q2=1/2 sum H(Z_h); their proof requires an additional strict local inequality and conservation argument.",
+        "searches": [
+          "Goles–Olivos 1980",
+          "Benjamini et al. 2014",
+          "line graph majority dynamics period two vertex incidence conservation Eulerian half factor oscillating edges"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An edge state of G is a vertex of its line graph; retained-tie strict majority is a symmetric threshold dynamic to which the general period≤2 theorem applies."
+        ],
+        "reasoning": "The extension to line graphs is only a change of viewpoint; the claimed novelty is incidence conservation on every 2-cycle and exact half-factor parametrization, not the standard period bound.",
+        "searches": [
+          "line graph majority dynamics period two vertex incidence conservation Eulerian half factor oscillating edges",
+          "Benjamini et al. arXiv:1405.2486",
+          "Goles–Olivos 1980 DOI:10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact published parity-automata tables use linear XOR updates, not retained-tie majority on line graphs."
+        ],
+        "reasoning": "Half-factor generating polynomial counts the new recurrent decomposition; existing general enumerators of factors do not automatically classify majority recurrent states.",
+        "searches": [
+          "line graph majority dynamics period two vertex incidence conservation Eulerian half factor oscillating edges",
+          "Resultary: SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+        ]
+      },
+      "rationale": "The general symmetric-majority period≤2 theorem is prior work. A new restriction to line graphs alone would be trivial; the assessed structural half-factor classification, local conservation and graph-independent orbit-count expression are stronger data not stated in the inspected general theorems.",
+      "residual_risks": [
+        "1980 Goles–Olivos full article not read; an older special line-graph incidence formulation could be present.",
+        "Any wider previously published threshold-dynamics conservation result implying these constraints would affect priority.",
+        "No algorithmic complexity or general transient-length guarantee claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Period-one/two and broad random/unimodular results, no read half-factor recurrent classification",
+          "evidence": [
+            "arXiv:1405.2486; introduction and main statements"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Accessible arXiv parsed source introduction, theorem statements and relevant majority dynamics sections",
+          "method": "ArXiv full-text parsed read",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Broad finite symmetric majority theorem and possible line-graph corollary"
+        },
+        {
+          "assessment": "Period≤2 established; full original not compared for any hidden special line-graph lemma",
+          "evidence": [
+            "Goles–Olivos 1980; Discrete Mathematics 30:187–189"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Publisher/institutional metadata and abstract; full original article not obtained",
+          "method": "Abstract/metadata only",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Original stronger period-two theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete recurrent-state structure, conservation at each original vertex, Eulerian/no-bridge oscillation constraint, and computable exact half-factor orbit enumeration are natural refinements of the period-two theorem for all finite regular and locally degree-parity homogeneous base graphs. The joined-triangles boundary example shows the content is not merely even simple cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite simple G with deg(u) congruent deg(v) mod2 on each base edge; P3 violates conservation.",
+    "Counts recurrent cycles by factor coefficients, not their attraction basins or computational complexity.",
+    "1980 Goles–Olivos full article not read; an older special line-graph incidence formulation could be present.",
+    "Any wider previously published threshold-dynamics conservation result implying these constraints would affect priority.",
+    "No algorithmic complexity or general transient-length guarantee claimed."
+  ],
+  "schema_version": 1
+}
