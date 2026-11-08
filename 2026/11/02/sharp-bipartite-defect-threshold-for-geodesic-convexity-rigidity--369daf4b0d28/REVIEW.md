@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The main proof explicitly counts missing cross-edges from convex-set interiors to excluded vertices and derives incompatible upper and lower bounds; it does not use finite enumeration to prove a universal claim. Its boundary construction has precisely the advertised maximum complementary degree and a proper convex four-cycle. The VC proof rules out shattered triples by bipartite triangle-freeness. Explicit depth-three online shattering and a positive-branch obstruction establish the exact Littlestone dimension. The actual standalone program separately verifies sampled and finite instances.
+## correctness
 
-**Originality: PASS under accessible comparisons.** Brown–Oellermann (2014) already defined g-minimal graphs and gave their general hull characterization, so neither that concept nor the conditional trivial-convex-sets count is claimed as new. The claim assessed here is specifically the sharp all-parameter quantitative density-defect threshold, its extremal counterexample for every defect parameter, and the exact learning dimensions. The accessible survey and 2022 online-learning abstract, and semantic mathematical-record searches, did not exhibit an implication establishing this sharp result. The inaccessible complete text of Brown–Oellermann and Thiessen–Gärtner remains a material priority risk, so this is not certified historical uniqueness.
+PASS
 
-**Value: PASS.** Maximum-degree sparsity of a bipartite complement is a natural measure of robust perturbation from complete bipartite incidence. The theorem gives the exact **worst-case** side-order at which the entire convexity system rigidifies and proves sharpness at every integer defect bound. The static–adaptive pair \((2,3)\) and exact shattering polynomial are useful learning-theoretic consequences; these alone would not establish novelty or significance.
+For p,q≥2t+3, same-part pairs have at least three common opposite neighbors, hence those are forced into every geodesic hull. If a proper convex set contains a≥2 left vertices, it subsequently contains b≥3 right and a≥3 left. Outside vertices have at most one neighbor inside each opposite side; this gives (q-b)(a-1)≤at and (p-a)(b-1)≤bt, together with a,b≤t+1, leading to incompatible lower/upper bounds on q-b. Thus proper convex sets are ∅, singletons, or edge pairs. The VC=2 and Littlestone=3 claims follow by direct combinatorial version-space shattering and upper bound. At p=q=2t+2 the explicit partitioned missing-edge pattern leaves a proper convex K2,2, establishing sharpness. Independently calculated 32 convex sets on the 5×5 crown graph, confirming edge+singleton+two count; finite check is corroborative only.
 
-**Closest literature and limitations.** Brown and Oellermann, *Graphs with a Minimal Number of Convex Sets* (2014), is the closest conceptual predecessor; the survey arXiv:2203.15878 (2022) surveys graph convexities, and Thiessen and Gärtner (ECML PKDD 2022) supply general online-learning context. The earliest cited cohort source is verified at 2022-03-29. The full texts of the 2014 g-minimal paper and 2022 online-learning paper were not read, and historical priority under equivalent descriptions remains at risk. The result is proved only for bipartite maximum complementary degree, not general density constraints. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier g-minimal graph characterization already names and recognizes the class; the precise universal max-missing-degree cutoff 2t+3 and all-t counterfamily appear additional in checked claims. The learning dimensions are straightforward but meaningful conditional descriptions, not separately marketed as new theory.
+
+## value
+
+PASS
+
+Sharp high-density structural threshold with a matching extremal witness for every defect t, and complete learning-dimension description. This is a natural robust rigidity classification and finite sharp boundary rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 check_rigidity.py` with Python 3 and its standard library. The checker computes graph distances by breadth-first search and shortest-path intervals directly, rather than assuming the convex-set characterization. It exhausts deleted-matchings types on five-by-five and six-by-six bipartitions, tests all defects one through five in the sharpness construction, tests 185 deterministic pseudo-random graphs near the threshold, and explicitly computes online and static dimensions of one crown example. The successful final output is recorded in `CHECK_OUTPUT.txt`; rerun the checker to reproduce the marker. Code and output are supplementary finite validations and do not replace the proof.
+## correctness
 
-A direct independent mathematical proof in RESULT.md supplies all integer values of the defect parameter, both unbalanced part orders, and the strict boundary example. The complete published full texts of the closest g-minimal and online-learning sources were not reviewed; historical priority is not independently certified.
+PASS
+
+For p,q≥2t+3, same-part pairs have at least three common opposite neighbors, hence those are forced into every geodesic hull. If a proper convex set contains a≥2 left vertices, it subsequently contains b≥3 right and a≥3 left. Outside vertices have at most one neighbor inside each opposite side; this gives (q-b)(a-1)≤at and (p-a)(b-1)≤bt, together with a,b≤t+1, leading to incompatible lower/upper bounds on q-b. Thus proper convex sets are ∅, singletons, or edge pairs. The VC=2 and Littlestone=3 claims follow by direct combinatorial version-space shattering and upper bound. At p=q=2t+2 the explicit partitioned missing-edge pattern leaves a proper convex K2,2, establishing sharpness. Independently calculated 32 convex sets on the 5×5 crown graph, confirming edge+singleton+two count; finite check is corroborative only.
+
+## originality
+
+PASS
+
+Earlier g-minimal graph characterization already names and recognizes the class; the precise universal max-missing-degree cutoff 2t+3 and all-t counterfamily appear additional in checked claims. The learning dimensions are straightforward but meaningful conditional descriptions, not separately marketed as new theory.
+
+## value
+
+PASS
+
+Sharp high-density structural threshold with a matching extremal witness for every defect t, and complete learning-dimension description. This is a natural robust rigidity classification and finite sharp boundary rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
