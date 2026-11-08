@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier scalar \(Q_\lambda(q)\) follows from the Frobenius hook-content identity and the parity projection from \(S_n\) to \(A_n\), including the self-conjugate splitting case. The strict sign proof handles all partitions with a tail-count injection into the first-row contents and remains valid when large positive contents cross \(1/q\). Self-conjugate hook witnesses on embedded smaller alternating groups exclude every nonreciprocal parameter above the cutoff. The endpoint rank formula follows from the precise support of the integer-alphabet tensor character. The exact-rational checker passed 92 tests, including direct \(A_5\) matrices. No finite test is presented as an infinite proof.
+PASS
 
-## Originality — PASS, bounded literature comparison
+For A_n, the class kernel q^(n-c(g)) has central Fourier scalar Q_lambda(q)=[P_lambda(q)+P_lambda(-q)]/2 via sign-averaging the classical Frobenius hook-content product. For q<1/m, matching negative-content magnitudes to positive first-row contents forces Q>0. At q=1/j, Schur–Weyl gives a normalized tensor-permutation character, so PSD; self-conjugate hooks inside A_(2k+3) give a negative scalar on (1/(k+1),1/k), excluding all gaps. At reciprocals, missing diagrams have both first row and first column exceeding j; dimensions give stated rank and endpoint nullities. Independently enumerated partitions and exact rational Fourier scalar signs for n=3..10 and q multiples 1/60; all agreed, but the finite sign grid is not the infinite proof.
 
-The closest comparison is Bożejko–Dołęga–Ejsmont–Gal, arXiv:2104.14530, whose introduction describes the discrete reciprocal parameter set for the *infinite symmetric* group and whose theorem concerns signed reflection lengths in type B/C. Zhang, arXiv:1408.3782, presents the classical Schur–Weyl and hook-content background. Leinen–Puglisi (2004) studies positive type on *diagonal limits* of alternating groups; only the abstract was accessible, so a finite subgroup specialization cannot be ruled out conclusively. Research-index searches for the explicit finite \(A_n\) threshold and content-polynomial symmetrization returned no implication-equivalent finding. No proof of global novelty is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact admissible parameter set exhibits a continuous positive-type interval at roughly twice the symmetric-group threshold and a discrete array of positive-type islands separated by open failure intervals. The classification is uniform in the group order and includes exact endpoint nullity, yielding a motivated spectral invariant relevant to finite-group covariance kernels and representation-theoretic Gram matrices. It is a structural classification, not merely a substitution of known formulas.
+Hook-content characters, sign restriction and Schur–Weyl are classical. Leinen–Puglisi consider infinite diagonal limits of alternating groups, not an explicitly finite-n PSD interval with endpoint nullities in accessible abstract. Precise all-finite-order islands and rank formulas are the qualified additional result.
 
-## Limits
+## value
 
-The result is only for the specified reflection-length kernel, real \(|q|\le1\), and finite alternating groups. A 2004 full text remained inaccessible; equivalence in other older sources cannot be excluded. Independent audit and external reproduction are unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positive-type reflection-length kernels of the natural groups A_n have discrete isolated positivity islands beyond the continuous interval; the exact finite spectral ranks and critical nullities determine degeneracies of associated reproducing kernels and are natural representation-theoretic invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
