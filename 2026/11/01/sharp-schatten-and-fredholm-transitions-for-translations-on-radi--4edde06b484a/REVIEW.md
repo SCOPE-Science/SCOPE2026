@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The radial integral gives the monomial gamma moments, and differentiation is exactly a backward weighted shift with computable weights. For \(0<m<1\), gamma-ratio asymptotics imply the derivative singular-value scale, and the bounded analytic remainder in \(e^{bD}-I-bD\) has order twice as fast. Singular-value Ky Fan comparisons with an intermediate rank tending to infinity justify the sharp coefficient, hence the ideal cutoff and weak endpoint. At \(m=1\), the weights converge to \(\alpha/2\), providing a compact perturbation of the classical backward shift. In the Calkin quotient the shift image is unitary; holomorphic factorization counts its Fredholm index, while matrix von Neumann inequality and boundary functional calculus prove equality of complete ordinary and essential polynomial norms. The \(\mu=1\) kernel count excludes boundary exponentials. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Barik–Sen–Paul (2026) examine boundedness, compactness, Hilbert–Schmidt membership and essential norms of the general *composition operators*; the new claim is instead the asymptotic singular spectrum of the compact *difference from identity* and its precise \(\mathcal S_p\) endpoint. Mengestie (2016) already treats differentiation compactness and ordinary spectra, so those alone are not presented as new. A published weighted-translation classification already addresses the permitted exponents and bounded weights; it does not, in the available description, state the difference-ideal asymptotic or folded Fredholm index. Related weighted-shift and Gaussian-Fock group results do not directly give the complete displayed pair of classifications with their constants. Searches for equivalents, broader theorems, fixed parameter tables, and claim implications identified these nearest results but no equal or dominating mathematical statement. A claim in older literature about all-Schatten compact differentiation conflicts with the exact monomial calculation; the current proof relies on the calculation, not that claim. Residual risk remains from unindexed/general translation-semigroup theory, and available summaries cannot exclude undisclosed complete coverage.
+PASS
 
-## Mathematical value — PASS
-The sharp all-exponent Schatten transition resolves a natural fine-ideal question left after the boundedness/compactness results, including the precise weak endpoint coefficient. The critical regime shows a different phenomenon: a curve winding in the exponential plane creates multiple Fredholm index regions and kernel-resonance jumps, while the ordinary and essential matrix-polynomial norms coincide exactly. The sharp transition at the exponential radial weight gives structural information not supplied by classifying a single bounded operator. These results concern a natural canonical family with physically interpretable translation action, not an arbitrary coefficient slice.
+Monomial norms equal alpha^(-2n/m) Gamma((2n+2)/m)/Gamma(2/m), so differentiation is a backward weighted shift with w_n~(alpha m/2)^(1/m) n^(-(1-m)/m). For m<1 the shift is compact quasinilpotent; T_b=exp(bD). D^2H_b(D) has singular numbers O(n^(-2beta)); Ky Fan rank shifts k=floor(n^gamma), 1/2<gamma<1, yield s_n(T_b-I)~|b| c_m n^(-beta), including exact Schatten p cutoff, weak endpoint and singleton ordinary/essential spectra. For m=1, w_n=(alpha/2)sqrt(2n/(2n+1)), so D differs compactly from R times the backward shift. The Calkin circle, holomorphic factorization of exp(bz)-mu, and surjectivity of interior backward-shift factors establish the folded Fredholm curve, integer index and resonance kernel count (boundary roots are not eigenvectors). Complete matrix polynomial norm equality follows from the matrix von Neumann inequality plus the unitary Calkin image. This independently reconstructed analytic proof covers every n and m in the stated ranges; a finite check alone would not.
 
-## Limits and scientific reservations
-The result is one-variable and restricted to \(0<m\le1\). Full text was read for the primary arXiv studies, while some relevant external publication records furnished only abstracts or summaries; their possible undisclosed implications remain a priority risk. The supplementary finite code does not validate infinite-dimensional assertions and has no independent review standing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact conclusions and logical implications, not titles or equal parameter words. Weighted backward shift, translation semigroup exp(bD), and composition-operator formulations were compared. No inspected valid theorem computes the full current difference singular spectrum or the folded index. Mengestie 2017 Theorem 1.2(i) asserts an all-S_p statement contradicted by its own monomial weighted shift: its proof tests only diagonal matrix elements <De_n,e_n>=0 and reverses Schatten inclusion for p<1. The present direct singular-value computation is necessary and is not inferred from that erroneous statement. General boundedness and Toeplitz spectral mapping furnish premises; the sharp Ky Fan remainder argument and root-count spectral folding still require additional calculations. The most relevant newer 2026 arXiv full text was inaccessible, so broader hidden coverage remains a residual risk, not a proof of noncoverage. Residual source-access risks and credited antecedents are explicit.
+
+## value
+
+PASS
+
+The family is a natural translation semigroup on the power radial Fock scale. After known boundedness and derivative compactness, the exact singular-value constant and all-p weak endpoint are genuine quantitative ideal invariants; at m=1 the winding of exponential preimages, jump in Fredholm index, and exact complete essential norm distinguish a sharp critical regime. These are not a routine restatement of boundedness or Hilbert-Schmidt membership.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
