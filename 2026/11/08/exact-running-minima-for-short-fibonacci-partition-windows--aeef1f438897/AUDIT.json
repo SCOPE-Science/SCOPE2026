@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Complementation yields the reflection equation over exact boundaries, and induction identifies all singleton partitions. The only two-Fibonacci decomposition of F_(k-1) gives precisely two offsets of count two (zero excluded when k=5). The 2026 descent identity reduces all windows to these offsets, with explicit handling when H=F_(m-1)-1; every inequality and equality case is proved for all indices. Exact-integer independent dynamic programming checked all 17,683 (m,H) windows for 7<=m<=21, all argmins, plus reflection and singleton cases. Computation does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chow-Slattery 2021 give an explicit algorithm to compute each R(n).",
+        "Weinstein analyzes global representation formulas and finite sets of fixed-count solutions.",
+        "Robbins identifies R(n)=1 at Fibonacci-minus-one positions; his recurrence is used as prior mathematics."
+      ],
+      "reasoning": "These broad formulas can calculate individual minima after evaluating many points, and their ingredients help prove the new statement; however none in the inspected substantive material yields a closed formula for the running minimum and ALL extremizing positions for arbitrary m,H. No known theorem covering the precise optimization was identified. A hidden corollary in older work remains a risk.",
+      "searches": [
+        "arXiv:2009.08222 Theorem 1.1 exact representation formula",
+        "arXiv:math/0307150 Sections 1,2,4 fixed-count classifications",
+        "arXiv:2311.06006v1 Theorems 1.1-1.2",
+        "Robbins 1996 Theorems 4,8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39817v1 (full text)",
+      "arXiv:2009.08222 (HTML principal theorem sections)",
+      "arXiv:math/0307150 (HTML relevant sections)",
+      "arXiv:2311.06006v1 (PDF introduction/main theorem sections)",
+      "Robbins 1996 Fibonacci Quarterly 34, 306–313 (selected theorem text)",
+      "OEIS A000119 (sequence identification)",
+      "Published finding: A Fibonacci entropy staircase and its full scaled accumulation interval (Sturmian entropy, synopsis only)",
+      "Published finding: The sharp N=14 threshold for the largest Fibonacci–Lucas zeta-sum term (zeta sums, synopsis only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chow-Jones 2026: R(F_m+t)=((m-k)/2)R(t)+R(F_k+t) when m,k same parity and t<F_(k-1).",
+        "Robbins 1996: unique representation iff n=F_i-1; earlier literature addresses small fixed counts.",
+        "The new proof combines a complement reflection with the two-index descent to obtain a lower envelope and both equality offsets for all H."
+      ],
+      "reasoning": "Known uniqueness and descent facts materially simplify the proof, and the new theorem is an elementary consequence once the missing exact two-representation analysis and maximizing index selection are supplied. Earlier publications do not state the uniform optimization, nor was a directly dominating extremal theorem identified. This is an incremental structural classification, not novelty of the underlying recurrences.",
+      "searches": [
+        "arXiv:2610.39817v1 Lemma 2.3 and Theorem 1.4",
+        "Robbins 1996 Theorem 8 unique partitions",
+        "arXiv:math/0307150 fixed-k theorem",
+        "public mathematical research-record search: Exact running minimum of Fibonacci partition function R(n) counting distinct Fibonacci summands in intervals [F_m+1,F_m+H]. Staircase lower envelope with breaks at Fibonacci numbers F_j-1 and values (m-j+1)/2, short average Chow Jones 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chow-Jones 2026 Theorem 1.4 counts short averages, not minima; Lemma 2.3 shifts values.",
+        "Kempton 2023 Theorem 1.1 is a rotation-cocycle formula and Theorem 1.2 addresses finite local multiplicative patches."
+      ],
+      "reasoning": "Related uses of staircase describe rotation-based ratios R(n+1)/R(n) or Sturmian entropy covers, not this finite-window minimum in the parameter H. No displayed equivalence to the min/argmin theorem was found.",
+      "searches": [
+        "Exact running minimum of Fibonacci partition function R(n) counting distinct Fibonacci summands in intervals [F_m+1,F_m+H]. Staircase lower envelope with breaks at Fibonacci numbers F_j-1 and values (m-j+1)/2, short average Chow Jones 2026",
+        "\"Fibonacci partitions\" \"record lows\" \"minima\" \"Fibonacci numbers\"",
+        "\"Fibonacci partitions\" \"lower envelope\" exact running minimum",
+        "arXiv:2610.39817v1 Sections 1-2",
+        "arXiv:2311.06006v1 Theorems 1.1-1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000119 is a coefficient sequence for distinct-Fibonacci representations, not a published analytic theorem of sharp moving-window minima.",
+        "Weinstein 2016 determines a count of fixed-k solutions in complete Fibonacci blocks; the parameter k is fixed while this optimum varies with m and window length."
+      ],
+      "reasoning": "Evaluating a count table at finitely many arguments cannot establish the all-index staircase; the inspected resources did not provide a precomputed table of these exact window minima and full equality positions.",
+      "searches": [
+        "OEIS A000119 Fibonacci partition function",
+        "\"Fibonacci partition\" \"minimum\" \"intervals\" \"F_m\" representation counts",
+        "\"Fibonacci partitions\" \"lower envelope\" exact running minimum"
+      ]
+    },
+    "rationale": "An interval-wise minimum and complete two-offset equality set, simultaneously for every m>=7 and every 1<=H<=F_(m-1)-1, were not located in the inspected sources or previously published results. Chow-Jones 2026 prove short sums and the descent recurrence; Robbins/Weinstein and Chow-Slattery give value-level formulas and singleton/fixed-count information. Their published results do not state the sharp uniform running-window optimization. Priority remains qualified by inaccessible or unindexed older literature.",
+    "residual_risks": [
+      "Historical priority is not fully decidable from searched sources; a less discoverable classical paper may explicitly tabulate these extrema.",
+      "General exact formulas for individual R(n), together with known low-count classifications, contain enough arithmetic information to derive this optimization, but no directly covering closed-form theorem was located; scientific distinction is the all-window extremal theorem.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest paper; exact descent lemma and short-average estimate covered, but no sharp minimum or equality-set formula stated.",
+        "evidence": [
+          "Theorem 1.4 gives a short sum of R over F_m<t<=F_m+F_m^alpha.",
+          "Lemma 2.3 gives an additive shift for R(F_m+t)."
+        ],
+        "identifier_or_url": "arXiv:2610.39817v1 / https://arxiv.org/abs/2610.39817",
+        "material_read": "Entire 7-page paper: Introduction, Theorem 1.4, Section 2 Lemmas 2.1–2.3 and proof, references",
+        "method": "full PDF text and visual page inspection",
+        "title": "On short averages of the Fibonacci partition function",
+        "trigger": "same function and very recent short-window problem"
+      },
+      {
+        "assessment": "Provides prior R(n)=1 criterion and recurrence ingredients; no identified all-window min/argmin staircase.",
+        "evidence": [
+          "Theorem 8 characterizes unique representations at Fibonacci-number-minus-one indices."
+        ],
+        "identifier_or_url": "N. Robbins, Fibonacci Quarterly 34 (1996), 306–313",
+        "material_read": "Relevant parsed recursion and uniqueness theorem sections (not entire article)",
+        "method": "selected PDF text and theorem comparisons",
+        "title": "Fibonacci partitions",
+        "trigger": "unique-representation characterization and recursive reductions"
+      },
+      {
+        "assessment": "Counts fixed value strata and represents R(n) generally; no explicit H-dependent running minimum/equality set found.",
+        "evidence": [
+          "The paper determines global formulas and fixed-k solution counts in complete Fibonacci blocks."
+        ],
+        "identifier_or_url": "arXiv:math/0307150 / https://arxiv.org/abs/math/0307150",
+        "material_read": "Abstract, introductory theorem statements, and relevant selected Sections 1, 2 and 4 of HTML text",
+        "method": "full-text HTML section and term inspection",
+        "title": "Notes on Fibonacci Partitions",
+        "trigger": "broad explicit representation formula might dominate an extremal corollary"
+      },
+      {
+        "assessment": "Exact individual coefficient and summatory formulas, not the claimed closed moving-window extremal classification.",
+        "evidence": [
+          "Theorems 1.1 and 1.2 concern evaluation and summation of representation counts."
+        ],
+        "identifier_or_url": "arXiv:2009.08222 / https://arxiv.org/abs/2009.08222",
+        "material_read": "Abstract, Introduction, principal theorems and relevant formula sections of HTML text",
+        "method": "arXiv text inspection",
+        "title": "On Fibonacci partitions",
+        "trigger": "global exact formula for R(n), possible stronger coverage"
+      },
+      {
+        "assessment": "Studies irrational-rotation cocycles and local multiplicative patches, not Fibonacci-block running minima.",
+        "evidence": [
+          "Theorem 1.2 describes cut-and-project sets for fixed local multiplicative patches.",
+          "The staircase is of a ratio cocycle rather than this H-indexed minimum."
+        ],
+        "identifier_or_url": "arXiv:2311.06006v1 / https://arxiv.org/abs/2311.06006",
+        "material_read": "Introduction, Theorems 1.1–1.2, Corollaries 1.1–1.2, selected construction pages; PDF searched for minimum/minima",
+        "method": "PDF parsed text with visual page 2 inspection",
+        "title": "The Dynamics of the Fibonacci Partition Function",
+        "trigger": "local patterns and a staircase for representation ratios"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aeef1f43-8897-4466-afc6-44a628ecff35",
+  "value": {
+    "rationale": "The precise running-minimum staircase, including a complete 1-or-2-element minimizer classification for every allowable window, answers a natural local extremal question suggested by new short-average bounds. Its power-window logarithmic scale contrasts with known average growth. It is a motivated complete infinite-parameter classification, not an arbitrary numerical slice or an unclaimed stronger conjecture.",
+    "status": "PASS"
+  }
+}
