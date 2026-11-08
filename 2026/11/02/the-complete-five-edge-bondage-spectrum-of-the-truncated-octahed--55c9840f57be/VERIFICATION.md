@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-Two independent exact programs were run successfully from their source definitions. `verify_fast.cpp` enumerates all vertex subsets of sizes 0–8 and all edge-deletion subsets of sizes 0–5. `verify_independent.py` uses a different domination-cover construction, bitset aggregation for all 376992 five-edge cases, checks an explicit LCF graph isomorphism, and independently classifies the eight orbits under 48 generated automorphisms.
+# Independent mathematical audit
 
-The respective check results were 1767 minimum eight-vertex dominating sets, zero bondage sets for every deletion size below five, 276 bondage sets at deletion size five, and orbit sizes 12,24,24,24,48,48,48,48. No random sample, numerical approximation, timeout inference or claim of external certification is involved.
+## correctness
 
-Reproduction from a clean source directory:
+PASS
 
-```sh
-g++ -std=c++17 -O3 verify_fast.cpp -o verify_fast
-./verify_fast
-python3 verify_independent.py
-```
+PASS: The standard 24-permutation adjacent-swap graph has 36 edges. All 7-vertex dominating sets are absent and exactly 1767 eight-vertex dominating sets exist. For each such D and v outside D, define Q(D,v) as selected incident edges; D ceases dominating after edge deletion F iff at least one Q(D,v)⊆F. Therefore gamma(T−F)>8 iff every D is destroyed, a finite exact criterion. An independently written C++ exhaustive enumeration over all 0..5-edge F gave bondage counts 0,0,0,0,0,276, with examined k5 count C(36,5)=376992; under 48 value-permutation/position-reversal actions it gave eight orbits of sizes 12,24,24,24,48,48,48,48. Source independent Python alternative inspected. This is a complete finite proof rather than extrapolation.
 
-Boundary: full primary manuscript access was unavailable; it is not treated as inspected or certified. Mathematical priority remains qualified, and independent audit has not been performed.
+## originality
+
+PASS
+
+PASS (qualified): Srivastava 2026 arXiv:2609.02477 already proves gamma=8 and bondage number b=5, so neither invariant is claimed original. The accessible abstract describes four-edge exhaustive nonexistence and existence of a five-edge witness, not the 276 count and eight automorphism classes. The full primary manuscript could not be read; an identical census in its body or appendix would be decisive prior coverage. That inaccessible plausible source alone leaves priority qualified, not a scientific failure.
+
+## value
+
+PASS
+
+PASS: Refining the just-established minimal bondage number of a classic 24-vertex convex-polyhedron/permutohedron graph into the full 276-witness and eight-orbit spectrum is a motivated finite extremal graph invariant, revealing how edge deletion actually raises domination; a precise count of all minimum obstruction sets can be used in resilience and symmetry studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

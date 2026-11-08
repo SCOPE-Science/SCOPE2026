@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives an if-and-only-if reduction from increasing the domination number to the failure of every one of the 1767 minimum dominating eight-sets. A full enumeration of all 376992 five-edge subsets and all smaller deletion sizes is performed with exact integer sets. A second implementation independently reproduces the count and the orbit sizes; the underlying graph is checked against its standard LCF description. There is no extrapolation, hidden approximate step or unverified infinitary assertion.
+## correctness
 
-**Originality — PASS (qualified).** The closest source, Srivastava's September 2026 paper (arXiv:2609.02477), establishes \(\gamma(T)=8\), \(b(T)=5\), absence of four-edge witnesses, and existence of at least one five-edge witness. None of these facts alone specifies the full 276-element witness family or its eight automorphism orbits. Targeted published-record, mathematical-web and semantic-record searches located no equivalent enumeration. The source's full manuscript could not be accessed and is not represented as fully inspected: an unlocated implicit or explicit count therein is an important residual historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** Minimum bondage is a natural robustness invariant; this graph is the first published cubic planar counterexample to the planar bondage bound. The exact number and symmetry classes of its *minimal failure scenarios* characterize far more than existence or a single witness and provide a complete finite benchmark for fault-set enumeration. The eight distinct symmetry classes reveal nontrivial structure in the optimum deletion solutions, rather than an arbitrary parameter slice.
+PASS: The standard 24-permutation adjacent-swap graph has 36 edges. All 7-vertex dominating sets are absent and exactly 1767 eight-vertex dominating sets exist. For each such D and v outside D, define Q(D,v) as selected incident edges; D ceases dominating after edge deletion F iff at least one Q(D,v)⊆F. Therefore gamma(T−F)>8 iff every D is destroyed, a finite exact criterion. An independently written C++ exhaustive enumeration over all 0..5-edge F gave bondage counts 0,0,0,0,0,276, with examined k5 count C(36,5)=376992; under 48 value-permutation/position-reversal actions it gave eight orbits of sizes 12,24,24,24,48,48,48,48. Source independent Python alternative inspected. This is a complete finite proof rather than extrapolation.
 
-**Scope and limits.** This finite exhaustive theorem concerns only the truncated-octahedral graph and the first five-edge failure layer. No claim is made about larger deletion layers or other graphs. Unreviewed historical coverage is explicitly possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Srivastava 2026 arXiv:2609.02477 already proves gamma=8 and bondage number b=5, so neither invariant is claimed original. The accessible abstract describes four-edge exhaustive nonexistence and existence of a five-edge witness, not the 276 count and eight automorphism classes. The full primary manuscript could not be read; an identical census in its body or appendix would be decisive prior coverage. That inaccessible plausible source alone leaves priority qualified, not a scientific failure.
+
+## value
+
+PASS
+
+PASS: Refining the just-established minimal bondage number of a classic 24-vertex convex-polyhedron/permutohedron graph into the full 276-witness and eight-orbit spectrum is a motivated finite extremal graph invariant, revealing how edge deletion actually raises domination; a precise count of all minimum obstruction sets can be used in resilience and symmetry studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
