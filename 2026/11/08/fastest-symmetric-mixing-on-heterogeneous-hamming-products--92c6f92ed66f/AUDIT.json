@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof symmetrizes *every* feasible kernel by a subgroup acting transitively on vertices, using convexity of \\(\\|P-J/N\\|_2\\). Invariant kernels have exactly \\(d\\) edge values and capacity \\(\\sum_i(1-1/q_i)x_i\\le1\\). The tensor eigenspaces have exact subset-sum eigenvalues \\(1-\\sum_{i\\in S}x_i\\), so SLEM is \\(\\max\\{1-\\min_i x_i,\\sum_i x_i-1\\}\\). Since \\(\\min_i x_i\\le1/C\\) and \\(\\sum_i x_i\\ge d\\min_i x_i\\), a sharp one-variable lower bound results, attained with every \\(x_i\\) equal to \\(\\min\\{2/(d+1),1/C\\}\\). Both holding phases, invariant uniqueness and the \\(K_2\\square K_Q\\) comparison follow from equality constraints. The packaged rational verifier exercises finite cases only; the universal claim is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao (2007) Theorem 2.1 supplies existence of a symmetry-invariant optimum, without evaluating its multivariable weights for heterogeneous products.",
+        "Their Theorem 3.1 uses edge transitivity; mixed clique products with unequal sizes have inequivalent edge directions.",
+        "Boyd–Diaconis–Xiao (2004) gives an SDP for arbitrary graphs, not the closed heterogeneous solution."
+      ],
+      "reasoning": "The general SDP and symmetry reduction provide methods for obtaining the answer, not a stated sharp symbolic all-parameter SLEM or uniqueness/phase classification. Equal-alphabet cases are subsumed and are explicitly excluded from the new claim; broader exact closed coverage was not found.",
+      "searches": [
+        "Fastest mixing symmetric stochastic Markov chain on rectangular rook graphs Cartesian product complete graphs K_m square K_n, exact optimal weights SLEM",
+        "fastest mixing Markov chain Cartesian product graphs formula optimal SLEM product complete graphs",
+        "product graph exact fastest mixing coordinate heat bath optimal update probability unequal alphabets",
+        "arXiv:0709.0955 v1 Theorem 2.1 and (13)",
+        "SIAM Review 46 (2004), FMMC SDP"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0709.0955",
+      "https://arxiv.org/html/0709.0955v1",
+      "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "doi:10.1137/S0036144503423264"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known homogeneous Hamming formula \\(\\alpha_* = \\min\\{1/[d(q-1)],2/[q(d+1)]\\}\\) follows from the new expression after setting all \\(q_i=q\\), so that case is covered already.",
+        "The distance-at-most-two Hamming-walk optimum concerns a strictly larger permitted transition support than distance-one and does not imply the smaller-support optimum.",
+        "A published general-purpose SDP can compute instances numerically, but does not explicitly give the displayed symbolic result without carrying out the one-dimensional minimax proof."
+      ],
+      "reasoning": "The final theorem is restricted to heterogeneous alphabet vectors and an explicit parameter-complete optimization, not the established general framework or homogeneous special case. The quantitative \\(K_2\\square K_Q\\) gap and holding threshold follow from the evaluated formula and are not stated in the inspected primary sources.",
+      "searches": [
+        "arXiv:0709.0955 v1 §§2.2, 3.2, 3.3.3",
+        "Fastest mixing symmetric stochastic Markov chain on rectangular rook graphs Cartesian product complete graphs K_m square K_n, exact optimal weights SLEM",
+        "Mixing on heterogeneous Hamming graphs edge probabilities proportional to inverse alphabet size, coordinate Laplacian rates equalize, fastest mixing",
+        "Boyd–Diaconis–Xiao 2004 §1.1 SDP"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0709.0955 v1 §3.3.3 gives FMMC for \\(H(d,q)\\) with one common \\(q\\) and one edge parameter; it does not state mixed coordinate sizes or their directional edge weights.",
+        "Target theorem entails a single optimal relaxation rate \\(x_i=q_i\\alpha_i\\) across unequal \\(q_i\\), plus a holding threshold depending on \\(C=\\sum_i(1-1/q_i)\\)."
+      ],
+      "reasoning": "A homogeneous Hamming graph has equal clique sizes and edge transitivity; a mixed product generally has distinct edge-direction orbits and cannot be obtained by substituting any single alphabet size \\(q\\). No equivalent closed formula was identified in these actual searches. A negative search is not proof of novelty.",
+      "searches": [
+        "Exact fastest mixing Markov chain with uniform stationary distribution on Cartesian product K_q1 □ ... □ K_qd of complete graphs with unequal coordinate sizes; optimal rate min(2/(d+1),1/sum(1-1/q_i)); phase boundary",
+        "Rectangular rook graph K_m square K_n optimal symmetric stochastic transition probabilities minimize SLEM; coordinate edge weights depending on m n",
+        "Mixing on heterogeneous Hamming graphs edge probabilities proportional to inverse alphabet size, coordinate Laplacian rates equalize, fastest mixing",
+        "fastest mixing Markov chain Cartesian product complete graphs different sizes optimal weights q_i",
+        "\"fastest mixing\" \"heterogeneous\" \"Hamming\" graph",
+        "arXiv:0709.0955 §3.2 Cartesian product and §3.3.3 Hamming graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research search surfaced a rook-graph homology record and a Hamming two-cut-complex record, which concern topological invariants rather than fastest symmetric mixing.",
+        "A known Hamming walk optimization with jumps allowed at distance at most two and a rook-graph coordinate-actuation result concern different supports or control objectives, not the exact distance-one heterogeneous FMMC optimum."
+      ],
+      "reasoning": "The inspected indexed records and accessible claims do not provide an exact table or formula covering this parameter family. Source-index incompleteness remains a residual risk.",
+      "searches": [
+        "Exact fastest mixing Markov chain with uniform stationary distribution on Cartesian product K_q1 □ ... □ K_qd of complete graphs with unequal coordinate sizes; optimal rate min(2/(d+1),1/sum(1-1/q_i)); phase boundary",
+        "Rectangular rook graph K_m square K_n optimal symmetric stochastic transition probabilities minimize SLEM; coordinate edge weights depending on m n",
+        "Mixing on heterogeneous Hamming graphs edge probabilities proportional to inverse alphabet size, coordinate Laplacian rates equalize, fastest mixing",
+        "published-finding corpus search: fastest mixing Cartesian product K_m square K_n",
+        "Web: \"fastest mixing\" \"rook graph\" eigenvalues"
+      ]
+    },
+    "rationale": "The general FMMC SDP and symmetry averaging are known. The arXiv:0709.0955 primary text Sections 3.2 and 3.3.3 treat Cartesian-product spectra and equal-size Hamming graphs; the explicit single-weight edge-transitive answer does not handle two or more different coordinate clique sizes, where different edge-direction weights are essential. No inspected primary text or nearby published research record states the closed all-dimensional heterogeneous SLEM/weights/holding transition. Distinct-support and distinct-invariant records are not dominating results. This is a qualified best-knowledge assessment, not a guarantee against unindexed literature.",
+    "residual_risks": [
+      "A specialist article under mixed Hamming, random-scan product chains or Cartesian graph optimization terminology may have derived an equivalent exact formula and escaped the searches.",
+      "The 2007 symmetry method strongly anticipates the approach; the advance is the evaluated all-heterogeneous parameter formula, not a new SDP or symmetrization technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS homogeneous q and general averaging; no mixed q parameter-complete explicit optimum in inspected relevant material",
+        "evidence": [
+          "arXiv v1 §§3.2.1–3.2.2 only equal-coordinate torus/hypercube examples; §3.3.3 expressly sets H(d,n)=(K_n)^d",
+          "Theorem 2.1 and Corollary 2.2 reduce edges to graph automorphism orbits; Theorem 3.1 is for edge-transitive graphs"
+        ],
+        "identifier_or_url": "arxiv:0709.0955; https://arxiv.org/html/0709.0955v1",
+        "material_read": "HTML full text table of contents and Sections 1.1, 2.2, 3.1, 3.2, 3.3.3; corresponding journal PDF pages 800–801 (screenshot and text)",
+        "method": "Read searchable primary arXiv HTML and inspected the journal PDF page images and relevant lines",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Direct precursor studying FMMC on Cartesian products and Hamming graphs"
+      },
+      {
+        "assessment": "General numerical SDP and conceptual objective, no exact formula for heterogeneous Hamming Cartesian products in the inspected material",
+        "evidence": [
+          "Defines symmetric stochastic FMMC on arbitrary graph and semidefinite reduction",
+          "The theorem here supplies evaluated weights/threshold and tight symbolic optimum rather than an algorithmic feasible set"
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "PDF abstract and Sections 1.1.1–1.1.3, definitions, SDP, and opening heuristic discussion; page 667 screenshot",
+        "method": "Read primary PDF text and inspected page image",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general FMMC formulation could dominate a graph-specific solution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92c6f92e-d66f-450f-b31c-38bfb81d6ea1",
+  "value": {
+    "rationale": "This is a complete closed optimization/classification across arbitrary dimension and all heterogeneous coordinate alphabet sizes, a natural family of product-state sampling and consensus networks. The theorem identifies the unique invariant spectral-rate-balancing design, its exact loop-to-loopless threshold and a parameter-unbounded penalty for naively using one edge probability: \\(K_2\\square K_Q\\) achieves contraction \\(1/3\\) optimally versus \\(1-2/Q\\) under identical edge weights. The contribution is more than a finite toy calculation or small gain and directly controls the spectral relaxation proxy.",
+    "status": "PASS"
+  }
+}
