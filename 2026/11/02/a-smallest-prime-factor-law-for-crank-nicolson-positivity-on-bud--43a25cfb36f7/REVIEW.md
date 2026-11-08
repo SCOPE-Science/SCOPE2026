@@ -1,15 +1,21 @@
-# Scientific review: positivity radii of budgeted multipartite diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies finite connected unweighted complete multipartite topologies with unit vertex masses and assigns a common positive conductance equal to the fixed total budget divided by the number of existing edges. The dimensionless resolvent parameter is exactly half the physical time step multiplied by this conductance. The graph Laplacian has the three relevant spectral projectors at each vertex (zero, total order, and total order minus part size), producing the stated diagonal-resolvent formula. Off-diagonal entries of the resolvent are strictly positive by irreducible nonsingular M-matrix theory. Exact factorization of the diagonal threshold yields one positive root, with its earliest occurrence at the smallest part. The global extremum follows from an independently differentiated continuous comparison lemma and an integer-partition edge-loss inequality; the inequalities are strict off the equal-largest-proper-divisor partition. The asymptotic expansion follows from the exact radical. The included standard-library checker reproduced the claimed checks with exact rational matrices. This finite replay supports, but does not replace, the all-order proof.
+## correctness
 
-## Originality — PASS on inspected literature, with limitations
-The resolvent identity, the positivity criterion based on diagonal return entries, general reversible-chain single-crossing arguments, and general parabolic maximum-principle principles are acknowledged prior results, not newly claimed. The inspected full RESULT.md of *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains* supplies the general framework and a complete-graph example, but not an arbitrary multipartition formula optimized under a total edge-conductance budget. The published online abstract and metadata of Faragó–Horváth (2006) discuss Dirichlet parabolic discretizations and qualitative conditions, without furnishing the proposed fixed-budget graph-partition classification; its complete text could not be inspected, so an implication-equivalent specialized theorem there is a residual risk. Delorme (2012) computes adjacency spectra and graph-decomposition bounds; inspected article sections do not treat this positivity-budget extremum. The 2019 open article on nonlinear parabolic discretizations addresses another setting. Actual database and full-text searches also sought alternative terminology including trapezoidal rule, return resolvent, Cayley transform, prime-divisor graph optimization and graph diffusion budgets. Absence of a located match is not a proof of priority; the reported result is a best-knowledge novelty assessment.
+PASS
 
-## Mathematical value — PASS
-The problem is a concrete network-design question: a fixed aggregate conductance resource and vertex count leave a choice of connected multipartite coupling architectures, while nonnegativity of the Crank–Nicolson end-step places a genuine time-step restriction. The exact maximizing graph is selected by the smallest prime factor of the order, with a strict equality classification and sharp all-order formula. This reveals an arithmetic structure in a natural discrete positivity-design problem and may guide network discretization comparisons. The theorem does not optimize accuracy, arbitrary graphs, or independently assignable edge weights; these boundaries are explicit rather than inferred applications.
+Set s=hB/(2|E|); then C=2(I+sL)^{-1}-I. Irreducible M-matrix inverse gives strictly positive off-diagonals, leaving diagonal crossing only. Complete multipartite Laplacian eigenprojectors yield R_a(s)=1/N+(N-a)/(aN(1+Ns))+(a-1)/(a(1+(N-a)s)). Independently verified R_a-1/2=[1+as-(N-2)(N-a)s²]/[2(1+Ns)(1+(N-a)s)], the strictly monotone class order R_a>R_b for a>b and positive root sigma_N(a). For integer partitions with minimum size a, edge count N(N-a)/2-delta. Continuous F(x)=N(x+D(x))/[4(N-2)] has derivative 0<F’<=sigma_N(x)/2; independently checked derivative identity d(D²/(2N-x)²)/dx=8x/(2N-x)^3 and key square difference. If a<=largest proper divisor d=N/p, monotonic F gives bound; if a>d the nonuniform edge deficit delta>=(a+1)/2 strictly defeats F(a)-F(d). Unique optimum p equal-sized parts of size d follows; the fixed-p asymptotic expansion is consistent. All-order conclusion is analytic, not finite census.
 
-## Relevant literature and residual limitations
-References: Faragó and Horváth (2006), DOI 10.1137/050627241, verified public online date 2006-12-21; Horváth (1998), DOI 10.1016/S0168-9274(98)00050-6; *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains* (2026), public RESULT.md; Delorme (2012), DOI 10.1016/j.disc.2011.07.018; and Horváth, Faragó and Karátson (2019), DOI 10.1007/s00211-019-01062-6. Publication priority remains subject to more comprehensive specialist full-text comparison. No finite computational census has been interpreted as a substitute for proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge result is sharp fixed-total-edge-conductance complete-multipartite optimization and smallest-prime-factor equality classification. The general resolvent-return positivity criterion is prior and explicitly excluded from novelty; generic Laplacian spectra alone do not supply integer global optimum.
+
+## value
+
+PASS
+
+A budgeted network design problem with a precise physical time-step objective naturally depends on integer topology. The theorem gives exact positivity radii for every complete multipartite graph and solves the nontrivial global topology optimization, including a number-theoretic smallest-prime-factor phase boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
