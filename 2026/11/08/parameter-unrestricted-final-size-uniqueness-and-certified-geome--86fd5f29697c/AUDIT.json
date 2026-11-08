@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "For positive connected transmission and nonzero initial seeding, N_j(t) is bounded below by Z_j>0 from N_j=N_j0-mu_j integral I and R_j=R_j0+gamma_j integral I; integrated log S and log N give the exact final-size formula. F_i(y)=sum_j a_ij log[N_j/(Z_j+epsilon_j S_j0 e^-y_j)] maps the nonnegative orthant into [c,M] with c>0 and has positive first and negative second coordinate derivatives. Concavity plus positive offset proves uniqueness via maximal coordinate ratio; a tangent argument gives u_n-y* <=(K-1)q^n y* and l_n >=(1-q^n)y*, hence width <=Kq^nM, with no contraction restriction. Symbolic differentiation, exact off-H2 inequalities and high-precision/rational probes in checker.py passed. No numerical probes are used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kennan (2001), Theorem 3: increasing strictly concave map with suitable bounds has unique positive fixed point.",
+        "Piotrowski–Cavalcante (2022), Proposition 3: any positive concave fixed point iteration converges geometrically, using a rate not presented in the SIRD physical parameters.",
+        "Almeida et al., arXiv:2010.15410: final-size/convergence results in a classical heterogeneous epidemic formulation, with a different incidence denominator."
+      ],
+      "reasoning": "Earlier abstract theory is acknowledged as stronger coverage of existence/uniqueness/convergence principles. It does not preclude an original application that resolves a source-stated unresolved SIRD model regime with a computable a priori coordinatewise enclosure. Existing classical incidence final-size frameworks do not immediately identify the active-population Z_j+epsilon_j S_j relation. Abstract implication risk is explicitly disclosed.",
+      "searches": [
+        "Concavity and strict subhomogeneity prove uniqueness of multigroup nonlinear final-size equations for disease mortality active population normalization",
+        "General monotone concave epidemic final size map unique positive fixed point multi group SIRD",
+        "\"Final size and convergence rate for an epidemic in heterogeneous population\"",
+        "arXiv:2110.11055 Proposition 3",
+        "John Kennan 2001 uniqueness positive fixed points increasing concave"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.15388v1 (primary full source and explicit gap)",
+      "doi:10.1016/j.cnsns.2026.110430 (open-access same-paper version)",
+      "Kennan 2001 increasing-concave uniqueness theorem",
+      "arXiv:2110.11055 positive-concave geometric convergence",
+      "arXiv:2010.15410 classical heterogeneous epidemic final size",
+      "doi:10.1016/j.mbs.2016.10.012 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Melo–Santos provides T, final-size identity, and H2-conditional uniqueness; thus these ingredients are prior, and not independently claimed.",
+        "Kennan abstract theorem yields uniqueness once the non-obvious alternative coordinates are shown to be positive concave.",
+        "Piotrowski–Cavalcante guarantees some geometric rate, but the inspected statements do not give the initial-data-only q and K or two-sided componentwise susceptible interval.",
+        "This result establishes l_n <= y* <= u_n with width <= K q^n M, and an exact off-H2 parameter witness."
+      ],
+      "reasoning": "Most generic dynamical conclusions follow from acknowledged abstract antecedents; the specific verified SIRD conjugacy, parameter-free extension of source H2 hypotheses, and explicit certified parameter-only enclosure constitute the narrow asserted new fact. No claim of a new generic fixed-point method, novel uniqueness principle, or absolute novelty proof is made.",
+      "searches": [
+        "arXiv:2601.15388 Theorem 3.5 Remark 3.3 Remark 3.4 Proposition 3.2",
+        "arXiv:2110.11055 geometric positive concave fixed point iteration",
+        "Kennan (2001) increasing concave positive fixed points",
+        "Uniqueness of final epidemic size fixed point outside H2 conditions in two group SIRD active population standardized by living source group, logarithmic cumulative hazard concave map",
+        "Active-population normalized SIRD final size uniqueness without H2, negative log susceptible transformation positive concave fixed point",
+        "Explicit geometric upper and lower brackets for active population structured SIRD final size with group specific mortality and recovery"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Melo–Santos equation (9) is exactly transformed by y_i=log(S_i0/x_i) into the positive concave map F; the author source leaves unrestricted uniqueness unresolved.",
+        "Kennan (2001), Theorems 1 and 3, proves an abstract increasing-concave fixed-point uniqueness principle.",
+        "Piotrowski–Cavalcante, arXiv:2110.11055, Proposition 3, gives abstract geometric convergence of positive concave maps."
+      ],
+      "reasoning": "The source T and F are equivalent via the logarithmic bijection, so the existing abstract concave fixed-point principles cover uniqueness and qualitative convergence after that reduction. They do not themselves state the active-population parametrization, identify the source open regime, or give the displayed model-specific two-sided coordinatewise Kq^nM_i certificate. Those precise contributions, rather than a novel generic fixed-point theorem, form the assessed claim.",
+      "searches": [
+        "Uniqueness of final epidemic size fixed point outside H2 conditions in two group SIRD active population standardized by living source group, logarithmic cumulative hazard concave map",
+        "Power-law final size fixed point S_i = S_i0 product (Z_j+epsilon_j S_j)^(beta_ij/mu_j) has unique positive solution when initial infection positive",
+        "\"active-population\" SIRD \"concave\" \"unique\" final size",
+        "arXiv:2601.15388 (equations 6-9 and Remark 3.3)",
+        "Active-population normalized SIRD final size uniqueness without H2, negative log susceptible transformation positive concave fixed point",
+        "Explicit geometric upper and lower brackets for active population structured SIRD final size with group specific mortality and recovery"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding summaries were queried by biological objects, model equations and logarithmic-map aliases; the nearest summaries examined concerned fixed-window SEIR incidence, two-patch SEIR reproduction thresholds, and vaccination S(A)IRS extinction, not the active-population SIRD final-size map.",
+        "Accessible existing research claims were compared by source identifier, mathematical statement, final-size/logarithmic aliases, and implied parameter coverage; no matching SIRD enclosure was found."
+      ],
+      "reasoning": "No exact database or previously computed table for these SIRD parameter-specific bounds was located. A negative search is supporting evidence only; it does not establish global originality or imply that inaccessible sources cannot dominate the claim.",
+      "searches": [
+        "Uniqueness of final epidemic size fixed point outside H2 conditions in two group SIRD active population standardized by living source group, logarithmic cumulative hazard concave map",
+        "Concavity and strict subhomogeneity prove uniqueness of multigroup nonlinear final-size equations for disease mortality active population normalization",
+        "Power-law final size fixed point S_i = S_i0 product (Z_j+epsilon_j S_j)^(beta_ij/mu_j) has unique positive solution when initial infection positive",
+        "General monotone concave epidemic final size map unique positive fixed point multi group SIRD",
+        "\"Melo\" \"Santos\" \"Remark 3.3\" final size fixed point uniqueness",
+        "Active-population normalized SIRD final size uniqueness without H2, negative log susceptible transformation positive concave fixed point",
+        "Explicit geometric upper and lower brackets for active population structured SIRD final size with group specific mortality and recovery",
+        "Unique fixed point of S_i = S_i0 product_j ((Z_j + epsilon_j S_j)/N_j0)^a_ij for all positive parameters",
+        "Logarithmic susceptible depletion y_i = sum_j a_ij log(N_j/(Z_j+epsilon_j S_j0 exp(-y_j))) unique positive solution and convergence bounds"
+      ]
+    },
+    "rationale": "The directly motivating source Melo–Santos, arXiv:2601.15388v1, Remark 3.3, says uniqueness of its active-population map is not established outside H2a–H2d, and Proposition 3.2 gives a rate only under H2d. The present claim establishes the specific negative-logarithmic reduction and an explicit, all-positive-parameter two-sided error enclosure with rate Kq^nM_i, including a rational off-H2 witness and any finite number of groups. The general uniqueness and geometric convergence mechanisms are explicitly credited to earlier concave-map theory. Source-specific quantitative certificate not identified in checked material; inaccessible older full text and unindexed equivalent reductions remain residual risks.",
+    "residual_risks": [
+      "Kennan and Piotrowski–Cavalcante are generic prior coverage: novelty is limited to the specific source application and model-explicit certified envelope, not abstract uniqueness or geometric convergence.",
+      "Older implicit SIR final-size solvability full text was inaccessible; exact subject reduction may preexist there.",
+      "Other unindexed or differently named active-population model results may already state equivalent explicit bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_SOURCE_AND_EXPLICIT_UNRESOLVED_REGIME; no certified unrestricted convergence envelope located",
+        "evidence": [
+          "PDF Section 2 specifies H2a–H2d; Definition 3.1 equation (9) gives T.",
+          "Remark 3.3 states unknown uniqueness outside H2a–H2d; Remark 3.4 and Proposition 3.2 restrict parameter-explicit rate to H2d."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.15388",
+        "material_read": "Original arXiv v1 PDF, Sections 1–3, especially equations (1), (6)–(9), Theorems 3.3–3.5, H2a–H2d, Remarks 3.3–3.4, Proposition 3.2",
+        "method": "Primary full PDF text extracted and evaluated against displayed map and parameters; screenshot service error was not counted as an image inspection",
+        "title": "Final size of a structured SIRD Model with active-population force of infection",
+        "trigger": "Same normalized active-population SIRD objects and exact final-size equations; source explicitly marks the gap"
+      },
+      {
+        "assessment": "SAME_PAPER_PRESERVES_OPEN_GAP_AND_RATE_RESTRICTION",
+        "evidence": [
+          "Journal Remark 3.3 retains explicitly unknown unrestricted uniqueness.",
+          "Journal Remark 3.4 and Proposition 3.2 limit its quantitative rate analysis to H2d."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cnsns.2026.110430",
+        "material_read": "Public journal HTML, introduction, theorems, and Remarks 3.3–3.4 and Proposition 3.2 in full-page indexed text",
+        "method": "Open-access HTML text inspection and exact phrase comparison with preprint",
+        "title": "Final size of a structured SIRD model with active-population force of infection (open-access journal version)",
+        "trigger": "Check revised publication of the exact same source paper"
+      },
+      {
+        "assessment": "GENERAL_UNIQUENESS_THEOREM_COVERS_THE_GENERIC_CORE; no SIRD parameter enclosure",
+        "evidence": [
+          "Theorem 1 proves at-most-one positive fixed point for increasing radial-quasiconcave map.",
+          "Theorem 3 combines uniqueness and existence for increasing strictly concave maps."
+        ],
+        "identifier_or_url": "https://www.ssc.wisc.edu/~jkennan/research/FixedPoint21.pdf",
+        "material_read": "Abstract, introduction, Section 3 Theorems 1–3 and proofs",
+        "method": "Full article extracted text, theoretical implication comparison",
+        "title": "Uniqueness of Positive Fixed Points for Increasing Concave Functions on Rn: An Elementary Result",
+        "trigger": "Potential stronger abstract uniqueness result that could dominate claimed novelty"
+      },
+      {
+        "assessment": "GENERAL_GEOMETRIC_CONVERGENCE_COVERED; the source-specific explicit Kq^n M coordinate enclosure not found",
+        "evidence": [
+          "Proposition 3 grants existence of some geometric factor for positive concave maps with fixed point.",
+          "Proposition 4 gives lower spectral constraints on factors; neither inspected statement supplies the present initial-data-only SIRD bracket."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.11055",
+        "material_read": "Abstract, introduction, Remarks 2–3, Proposition 3 and Proposition 4 and surrounding explanations",
+        "method": "Primary PDF text and implication comparison",
+        "title": "The fixed point iteration of positive concave mappings converges geometrically if a fixed point exists",
+        "trigger": "Broader existing rate theorem plausibly implies qualitative geometric result"
+      },
+      {
+        "assessment": "DIFFERENT_CONSTANT_POPULATION_INCIDENCE; no identified active-population result",
+        "evidence": [
+          "Classical structured epidemic final-size formulation is not the variable living-population denominator in Melo–Santos."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.15410",
+        "material_read": "Abstract, introduction and main final-size/convergence formulations",
+        "method": "Primary arXiv PDF extracted text, epidemiological equation comparison",
+        "title": "Final size and convergence rate for an epidemic in heterogeneous population",
+        "trigger": "Related multigroup epidemic final-size theorem"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_RESIDUAL_RISK; not judged NOT_COVERING",
+        "evidence": [
+          "PubMed abstract notes implicit epidemic final-size solvability; absence of full text precludes conclusive implication comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mbs.2016.10.012",
+        "material_read": "Title, abstract and bibliographic information only; full paper not obtained",
+        "method": "Lawful open and preprint searches; institutional route returned unavailable connection, without bypass",
+        "title": "Solvability of implicit final size equations for SIR epidemic models",
+        "trigger": "Plausibly stronger older implicit SIR final-size solvability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86fd5f29-697c-4ccf-9326-6a0e7fd3afbe",
+  "value": {
+    "rationale": "The exact motivating preprint and open-access journal article state an unresolved all-parameter uniqueness question outside four regimes, while guaranteeing a usable rate only in a contraction regime. The present model-specific positivity/concavity conjugacy closes that question, extends to arbitrary finite-group mixing, and supplies an explicit and computable parameter-only stopping certificate for final susceptible counts. A biologically admissible rational example violates all four older conditions, confirming a genuinely additional parameter regime. Generic antecedent theorems are fully credited; scientific value is the missing model-specific classification and interval computation.",
+    "status": "PASS"
+  }
+}
