@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:20:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-two-turn-conditioning-path-for-arbitrarily-accurate-reused-rid--790a8d6c73b0/RESULT.md",
+        "2026/11/02/a-two-turn-conditioning-path-for-arbitrarily-accurate-reused-rid--790a8d6c73b0/verify.py",
+        "Independent Python/SymPy checks, November 6 UTC"
+      ],
+      "rationale": "From frozen RESULT.md: for G=diag(4,1), D=[[5,1/4],[1/4,2]], generalized Gram eigenvalues reduce K_t(lambda)^2 to the ratio (W+t sqrt(P)/2)/(W-t sqrt(P)/2). Independently verified P=37lambda^2-67lambda+40, negative discriminant -1431, positive denominator from D SPD, and exact derivative identity P'W-2PW'=-F_t. Descartes signs (+,-,-,+), F_t(1)=140>0, F_t(2)=-972-1431t<0 give exactly two simple positive roots, a min in (1,2), then max above 2; lambda infinity limit is 1. Explicit X realizes XA Gram H_t and distortion t||G^(-1/2)DG^(-1/2)||; continuity and full Gaussian support justify positive probability only. Independent sympy identity and roots for t=.01,.1,1,5 agree; not a quantitative high-probability claim.",
+      "residual_risks": [
+        "Finite checked t values corroborate derivative only; true universal step rests on polynomial sign algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meier/Nakatsukasa Lemma 2 embedding bound is lambda-uniform and does not imply monotonicity or two extrema."
+        ],
+        "reasoning": "Meier/Nakatsukasa Lemma 2 embedding bound is lambda-uniform and does not imply monotonicity or two extrema. No stronger identical proposition verified in material actually inspected; this search is bounded.",
+        "searches": [
+          "Resultary: ridge least squares Cholesky preconditioning one fixed sketch condition number varying regularization nonmonotonic two turning points 2x2 shifted Gram",
+          "Resultary: Cholesky sketch regularized least squares two turning condition number lambda",
+          "https://arxiv.org/abs/2203.07329",
+          "https://arxiv.org/abs/2302.07202"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.07329",
+        "https://arxiv.org/abs/2302.07202",
+        "https://arxiv.org/abs/1109.5981",
+        "Resultary search: ridge least squares Cholesky preconditioning one fixed sketch condition number varying regularization nonmonotonic two turning points 2x2 shifted Gram",
+        "Resultary search: Cholesky sketch regularized least squares two turning condition number lambda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original sketch algorithm implies bounded condition under distortion, not the sign of its derivative cubic."
+        ],
+        "reasoning": "The original sketch algorithm implies bounded condition under distortion, not the sign of its derivative cubic. No stronger identical proposition verified in material actually inspected; this search is bounded.",
+        "searches": [
+          "Resultary: ridge least squares Cholesky preconditioning one fixed sketch condition number varying regularization nonmonotonic two turning points 2x2 shifted Gram",
+          "Resultary: Cholesky sketch regularized least squares two turning condition number lambda",
+          "https://arxiv.org/abs/2203.07329",
+          "https://arxiv.org/abs/2302.07202"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent form is the generalized eigenvalue condition ratio of (G+lambda I,H_t+lambda I), with discriminant P; no earlier exact two-turn parameter statement found."
+        ],
+        "reasoning": "Equivalent form is the generalized eigenvalue condition ratio of (G+lambda I,H_t+lambda I), with discriminant P; no earlier exact two-turn parameter statement found. No stronger identical proposition verified in material actually inspected; this search is bounded.",
+        "searches": [
+          "Resultary: ridge least squares Cholesky preconditioning one fixed sketch condition number varying regularization nonmonotonic two turning points 2x2 shifted Gram",
+          "Resultary: Cholesky sketch regularized least squares two turning condition number lambda",
+          "https://arxiv.org/abs/2203.07329",
+          "https://arxiv.org/abs/2302.07202"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is continuous in real lambda,t; no relevant database/table of all 2x2 shifted pencils located."
+        ],
+        "reasoning": "The claim is continuous in real lambda,t; no relevant database/table of all 2x2 shifted pencils located. No stronger identical proposition verified in material actually inspected; this search is bounded.",
+        "searches": [
+          "Resultary: ridge least squares Cholesky preconditioning one fixed sketch condition number varying regularization nonmonotonic two turning points 2x2 shifted Gram",
+          "Resultary: Cholesky sketch regularized least squares two turning condition number lambda",
+          "https://arxiv.org/abs/2203.07329",
+          "https://arxiv.org/abs/2302.07202"
+        ]
+      },
+      "rationale": "Introduced partly exact reused-sketch Cholesky regularization and embedding conditioning bound; no two-turn specific spectral path implication found in relevant algorithm/bound sections. Numerical stability follow-up uses finite-precision objective rather than exact path-turn classification. Resultary semantic queries of published records performed with two tailored queries; no exact dominating result located, and this is not proof of priority. The listed primary sources were compared on mathematical implications; inaccessible relevant text retained as risk.",
+      "residual_risks": [
+        "Unindexed 2x2 shifted matrix-pencil nonmonotonicity counterexamples could imply this exact construction; Resultary semantic retrieval is not exhaustive.",
+        "Finite checked t values corroborate derivative only; true universal step rests on polynomial sign algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "algorithm and spectral embedding guarantee are prior; no explicit two stationary points under regularization in inspected portions",
+          "evidence": "Algorithm 1, Lemma 2, numerical Section 4",
+          "identifier_or_url": "https://arxiv.org/abs/2203.07329",
+          "material_read": "PDF algorithm and embedding bound sections; same Gram construction and numerical experiments",
+          "method": "read lawful arXiv full text PDF with page inspection",
+          "title": "Randomized algorithms for Tikhonov regularization in linear least squares",
+          "trigger": "exact same Cholesky-based reused-sketch preconditioner"
+        },
+        {
+          "assessment": "finite precision/stability objective differs; full priority comparison remains bounded",
+          "evidence": "abstract and title",
+          "identifier_or_url": "https://arxiv.org/abs/2302.07202",
+          "material_read": "public abstract and available summaries, not comprehensive full text",
+          "method": "abstract review",
+          "title": "Are sketch-and-precondition least squares solvers numerically stable?",
+          "trigger": "same sketch-precondition method/stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.07329",
+        "https://arxiv.org/abs/2302.07202"
+      ],
+      "rationale": "An explicit rigorous counterexample to the tempting expectation that regularization makes the reused-sketch preconditioned condition number monotone/unimodal is a motivated structural boundary for iterative ridge solvers. Its arbitrarily small amplitude and merely positive Gaussian probability are explicitly bounded; not a practical instability guarantee.",
+      "residual_risks": [
+        "Unindexed 2x2 shifted matrix-pencil nonmonotonicity counterexamples could imply this exact construction; Resultary semantic retrieval is not exhaustive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed 2x2 shifted matrix-pencil nonmonotonicity counterexamples could imply this exact construction; Resultary semantic retrieval is not exhaustive.",
+    "Finite checked t values corroborate derivative only; true universal step rests on polynomial sign algebra.",
+    "No repository, dispatcher or publisher write made; scientific status complete but publication not ready."
+  ],
+  "schema_version": 1
+}
