@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run the included, standalone Python 3 programs:
+## correctness
 
-```
-python3 cartesian_enumerate.py
-python3 parent_distance_check.py
-```
+PASS
 
-The first implements the recursive leftmost-minimum tree definition; the second uses the separate monotone-stack parent-distance representation and the equivalence theorem of Park et al. Both independently enumerate all binary prefixes satisfying avoidance of Cartesian-tree-matching adjacent halves of length at least \(3\). Both printed the same counts at every length \(1\) through \(30\), finishing with \(56,20,0\) at lengths \(28,29,30\). Both printed the identical SHA-256 of the ordered list of \(20\) maximum-length words:
+Prefix-closure gives an exhaustive recurrence: a new forbidden Cartesian-tree-equivalent adjacent pair must end at the appended bit. Literal leftmost-minimum ordered Cartesian tree recursion precisely implements the predicate, and a separate parent-distance equality test checks it using a different representation. An independent fresh complete breadth-first enumeration of all valid binary prefixes through n=30 gives |F_26..30|=156,107,56,20,0; the 20 distinct endpoints share mask 110--11010--1101010--110101-- and have ordered-list SHA256 fa7a68bf7155a80ca632847616541706160392ee2d4492e90c3310f1787da79a. The explicit eight-pattern partition accounts for all 20. F30 empty and prefix closure exclude all larger lengths; computational proof is exact finite enumeration, not random sampling.
 
-```
-fa7a68bf7155a80ca632847616541706160392ee2d4492e90c3310f1787da79a
-```
+## originality
 
-The two end-of-run markers are `CARTESIAN_ENUMERATION_OK` and `PARENT_DISTANCE_CHECK_OK`. The recorded outputs are `tree_run.txt` and `pd_run.txt`. The certificate `extremal_words.txt` contains the \(20\) words (one per physical line) and `variable_patterns.txt` records their eight variable positions under the fixed template. No sampling, external package, or precomputed lookup table is used by either enumerator.
+PASS
 
-**Limits.** These checks prove an exact finite statement by exhaustive recursive exploration, conditional on standard Python execution and the Cartesian-tree definition. They do not certify claims about alphabets larger than two or about generalized squares with a different minimum half-length, and they do not constitute independent external mathematical review or priority certification.
+PASS, substantial historical-priority risk: maximum length 29 and Cartesian-tree equivalence are prior, while the complete count and fixed-coordinate endpoint classification are not implied by inspected statements; most relevant 2026 primary full text inaccessible despite lawful attempts, so no whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The full set of extremizers at an independently known natural sharp avoidability cutoff is motivated endpoint data, revealing 21 fixed positions and exact nonuniqueness of 20 words. This is a meaningful finite classification without pretending to solve larger alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

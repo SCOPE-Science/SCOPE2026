@@ -1,19 +1,21 @@
-# Review: endpoint classification for binary Cartesian-tree square avoidance
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is a finite exact classification of all valid words at the known sharp endpoint. The proof explicitly defines the ordered binary alphabet and leftmost-minimum Cartesian tree. Prefix closure makes the two-way extension recurrence exhaustive: all valid length-\(n\) words are generated, and a forbidden factor added by one symbol must end at the new position. Literal recursive tree comparison gives exactly \(20\) valid words at length \(29\) and none at length \(30\); hence longer valid words are impossible. The included independent parent-distance enumeration obtains the same layer counts and sorted endpoint-word SHA-256. The exact fixed-position template and its eight disjoint variable-pattern rules account for all \(20\) enumerated words. Code and recorded outputs are included and have been executed.
+PASS
 
-## Originality
+Prefix-closure gives an exhaustive recurrence: a new forbidden Cartesian-tree-equivalent adjacent pair must end at the appended bit. Literal leftmost-minimum ordered Cartesian tree recursion precisely implements the predicate, and a separate parent-distance equality test checks it using a different representation. An independent fresh complete breadth-first enumeration of all valid binary prefixes through n=30 gives |F_26..30|=156,107,56,20,0; the 20 distinct endpoints share mask 110--11010--1101010--110101-- and have ordered-list SHA256 fa7a68bf7155a80ca632847616541706160392ee2d4492e90c3310f1787da79a. The explicit eight-pattern partition accounts for all 20. F30 empty and prefix closure exclude all larger lengths; computational proof is exact finite enumeration, not random sampling.
 
-PASS, subject to literature risk. Shibata et al., arXiv:2607.00674 (2026), Table 1 and Table 2 give the previously known maximum length \(29\) and **one** example, but not the count \(20\), a positional rigidity template, or an optimizer classification. Park et al., arXiv:1905.08974, define Cartesian-tree matching and give the parent-distance equivalence; they do not investigate this endpoint enumeration. Targeted equivalence, endpoint-count, parent-distance, research-record, and exact-phrase searches found no stated coverage of the census. A previously available yet uninspected accompanying code output or other scattered literature could have counted the same witnesses; this risk cannot be eliminated by negative search results.
+## originality
 
-## Value
+PASS
 
-PASS. The primary paper reports a sharp natural finite avoidability threshold, so the complete structure and multiplicity of **all** extremal words are motivated mathematical endpoint data rather than a selected arbitrary small instance. The result shows a rigid \(21\)-fixed-position skeleton, with only eight variable sites admitting \(20\) explicitly characterized fillings. This reveals the extent of extremal nonuniqueness and supplies fully reproducible boundary cases for the generalized-square-avoidance problem. It does not purport to resolve the open higher-alphabet cases.
+PASS, substantial historical-priority risk: maximum length 29 and Cartesian-tree equivalence are prior, while the complete count and fixed-coordinate endpoint classification are not implied by inspected statements; most relevant 2026 primary full text inaccessible despite lawful attempts, so no whole-document noncoverage claim.
 
-## Closest literature and limits
+## value
 
-The numerical maximum length \(29\) is prior work (Shibata et al.); its independent reproduction here is a completeness boundary, not the claimed novel part. The classification uses exhaustive finite computation and does not provide a short symbolic formula for every smaller length. External priority review remains necessary, especially for unpublished enumerator outputs or implicit tabulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full set of extremizers at an independently known natural sharp avoidability cutoff is motivated endpoint data, revealing 21 fixed positions and exact nonuniqueness of 20 words. This is a meaningful finite classification without pretending to solve larger alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
