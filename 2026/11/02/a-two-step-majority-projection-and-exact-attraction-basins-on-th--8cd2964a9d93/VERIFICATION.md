@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The state-space size is exactly \(2^{14}=16{,}384\), and both executable implementations process all its labelled elements. These checks were performed directly against the packaged sources:
+## correctness
 
-- `python3 check_fano.py` regenerates the seven Fano lines as unordered triples \(\{a,b,a\mathbin{\mathrm{xor}}b\}\), checks the complete ten-case projection of all 128 subsets, its idempotence and fibers, the fixed-state hexagons, then explores the full graph dynamics by a path-following implementation. The recorded output is `check_fano_output.txt`; every assertion passed.
-- `g++ -std=c++17 -O2 -Wall -Wextra check_heawood.cpp -o check_heawood && ./check_heawood` independently constructs the cubic incidence graph from an explicit line list, builds the entire Boolean transition map, calculates its functional digraph through indegree peeling, and checks exact basins, first-entry counts, \(F^4=F^2\), and a sharpness witness. Its recorded output is `check_heawood_output.txt`; every assertion passed.
+PASS
 
-The exact proof in `RESULT.md` is separate from these runs: all 128 Fano subsets fall into ten disjoint incidence types. That finite symbolic classification establishes the two-step projection and resultant recurrence structure without sampling. The verification programs use different Fano-graph construction methods and different recurrence-enumeration algorithms. Neither is an independent external audit.
+The ten Fano subset cases partition 128 point subsets: Psi Phi is an idempotent projection onto 58 subsets (empty, full, 28 noncollinear triples and 28 complements). With the dual, F^2=P×Q, F^4=F^2; recurrent states are a swap of two 58-symbol factors, yielding 58 fixed configurations and C(58,2)=1653 two-cycles. Fibers 36,36 and 56 ones yield fixed basin classes 1(56),1296(2), two-cycle 2(1540),72(112),2592(1). Independently rebuilt the Fano graph and exhaustively checked all 16384 state orbits and first-entry table against source check_fano.py and check_heawood.cpp; direct incidence proof independently covers all states. F^3!=F via the two-point witness.
 
-Limits: the theorem is restricted to synchronous binary strict-neighbor majority on the fourteen-vertex Heawood graph. The computations establish exact finite results but not priority relative to every historical publication. Historical literature comparisons and remaining originality risks are recorded in `REVIEW.md` and `AUDIT.json`.
+## originality
+
+PASS
+
+The 1980 Goles–Olivos theorem implies eventual periods at most 2 in finite symmetric-threshold systems, but does not give the sharp Heawood-specific entry time, 58-symbol swap, all basins, or Fano subset projection. Existing Heawood graph geometry is not the dynamical census. No equivalent same-graph rule statement located in the primary comparisons.
+
+## value
+
+PASS
+
+The Heawood graph is a canonical small cubic bipartite graph; complete finite nonlinear dynamics on all states, a two-step projection and exact attraction basins provide a motivated natural classification, not an unmotivated lookup table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
