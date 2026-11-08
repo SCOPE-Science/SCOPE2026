@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Execute `python3 verify.py` with the standard library. The program independently enumerates binary hosts under caps \(h=1,\ldots,5\) through length sixteen, counts greedy completed arches, and matches all formula coefficients. A second labeled-state transfer recurrence checks the same table; for short words it additionally constructs the set of all binary target strings and performs literal greedy subsequence tests. It checks the exact two longest hosts and shortest-host multiplicities for \(k=1,\ldots,9\) at every tested cap.
+# Independent mathematical audit
 
-Observed terminal output:
+## correctness
 
-`VERIFY_OK caps=1..5 lengths=0..16 exhaustive_host_checks=249399 literal_subsequence_checks=2777 boundary_k=1..9`
+PASS
 
-The mathematical proof does not depend on floating-point calculations. Exhaustive enumeration is finite evidence only; the all-parameter count and limit theorem are established by the symbolic state equations and aperiodic dominant-pole argument in the result. No external or independent scientific audit is recorded.
+The greedy arch factorization yields a complete labelled finite-state recurrence A_j=1+zuE+1_{j<h}zA_{j+1}, E=1+zA_1+1_{h>=2}zA_2. Solving gives F_h=(1+2zS_h+uz^(h+1))/(1-uz²T_h). Positive polynomial supports show all and only n from 2k to (h+1)k+h, plus the exact boundary multiplicities; the h=1 alternating case is separate. For fixed h>=2 the lengths 2 and 3 in z²T_h are coprime, yielding a unique analytic dominant pole; quasi-powers differentiations give the stated mean, variance and Gaussian CLT. A fresh independent brute-force enumeration of all admissible binary words for h=1..4 and n=0..13 confirmed 56 full coefficient rows against the rational formula. These finite tests do not prove the asymptotics.
+
+## originality
+
+PASS
+
+Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.
+
+## value
+
+PASS
+
+A uniform exact refinement of the subsequence universality index under a natural bounded-homopolymer constraint, including sharp possible-index intervals, extremizers and fluctuations. The run cap matters in coding and constrained sequence models; the result is not a renaming of unrestricted enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

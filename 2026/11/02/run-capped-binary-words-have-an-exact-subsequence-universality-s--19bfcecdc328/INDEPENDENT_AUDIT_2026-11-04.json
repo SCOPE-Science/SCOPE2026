@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:12:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md",
+        "2026/11/02/run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/verify.py"
+      ],
+      "rationale": "The greedy arch factorization yields a complete labelled finite-state recurrence A_j=1+zuE+1_{j<h}zA_{j+1}, E=1+zA_1+1_{h>=2}zA_2. Solving gives F_h=(1+2zS_h+uz^(h+1))/(1-uz²T_h). Positive polynomial supports show all and only n from 2k to (h+1)k+h, plus the exact boundary multiplicities; the h=1 alternating case is separate. For fixed h>=2 the lengths 2 and 3 in z²T_h are coprime, yielding a unique analytic dominant pole; quasi-powers differentiations give the stated mean, variance and Gaussian CLT. A fresh independent brute-force enumeration of all admissible binary words for h=1..4 and n=0..13 confirmed 56 full coefficient rows against the rational formula. These finite tests do not prove the asymptotics.",
+      "residual_risks": [
+        "All-length proof is mathematical, not established by bounded test."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. count k-universal DFA-accepted words by algorithm but do not state the closed simultaneous h-dependent rational identity or its CLT constants.",
+          "Published unrestricted binary result has bivariate generating function (1+z)/(1-z-2uz²), obtained as h tends to infinity; the cap-dependent formula is not its substitution."
+        ],
+        "reasoning": "General automata counting permits extracting coefficients algorithmically, not the full uniform formula without new analysis.",
+        "searches": [
+          "arXiv:2311.10658 Section 4, Corollary 30 and Theorem 33",
+          "Resultary id 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.10658",
+        "arXiv:2003.04629",
+        "Resultary id 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Computability for each DFA is not an already-stated all-h generating-function identity.",
+          "Unrestricted arch counts do not impose run-memory states."
+        ],
+        "reasoning": "The new finite-state solution and dominant-pole calculation provide the distinctive closed formula, support and fluctuations.",
+        "searches": [
+          "arXiv:2311.10658 Corollary 30 and Theorem 33",
+          "arXiv:2003.04629 Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arch-factorization and subsequence universality are the equivalent definitions. General counting on regular languages includes each fixed h as a decidable subclass."
+        ],
+        "reasoning": "Fixed-cap rational law, all-level support and CLT were compared to broader algorithmic formulations.",
+        "searches": [
+          "Resultary query: run length capped binary strings subsequence universality threshold",
+          "arXiv:2311.10658, Section 4",
+          "arXiv:2003.04629"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary closed-form law counts unrestricted binary words, not cap-restricted words."
+        ],
+        "reasoning": "No exact run-cap table located, but specialized constrained-word enumerations remain a priority risk.",
+        "searches": [
+          "Resultary query: run length capped binary strings subsequence universality threshold",
+          "web: subsequence universality capped runs binary words regular languages Adamson 2023 count"
+        ]
+      },
+      "rationale": "Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.",
+      "residual_risks": [
+        "Specialized regular-language rational enumeration for homopolymer caps might hide an equivalent identity.",
+        "Gaussian statement assumes fixed h>=2; no uniform-in-growing-h CLT is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithms handle DFA acceptance but no located all-h closed cap count",
+          "evidence": [
+            "PDF lines 1127-1416 detail generic complexity and cardinality algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "Definitions/arch factorization, Section 4 counting and ranking, Corollaries 30-32 and Theorem 33",
+          "method": "Open full-text arXiv PDF and inspect the title, abstract and relevant sections using text and page images",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Strong general regular-language counting theorem"
+        },
+        {
+          "assessment": "General universality framework; no run-bound count",
+          "evidence": [
+            "Abstract and Sections 1 and 4 on k-universality/circular variants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "Abstract, definitions, circular-index results",
+          "method": "Open full-text arXiv PDF and inspect the title, abstract and relevant sections using text and page images",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Prior arch and circular universality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2311.10658",
+        "arXiv:2003.04629",
+        "Resultary id 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "rationale": "A uniform exact refinement of the subsequence universality index under a natural bounded-homopolymer constraint, including sharp possible-index intervals, extremizers and fluctuations. The run cap matters in coding and constrained sequence models; the result is not a renaming of unrestricted enumeration.",
+      "residual_risks": [
+        "Specialized regular-language rational enumeration for homopolymer caps might hide an equivalent identity.",
+        "Gaussian statement assumes fixed h>=2; no uniform-in-growing-h CLT is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized regular-language rational enumeration for homopolymer caps might hide an equivalent identity.",
+    "Gaussian statement assumes fixed h>=2; no uniform-in-growing-h CLT is established.",
+    "Source trees and material Git blobs were read at the assigned frozen snapshot. No public research-package editing or publication has occurred."
+  ],
+  "schema_version": 1
+}
