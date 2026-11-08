@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The theorem has universal quantifiers \\(m,n\\ge1\\) and every prescribed T. Necessity uses parity of the indegree sum and the DAG source. Under these conditions the possible-sink count q is positive by the four parity cases. In the safe-source lemma, after deleting an A source the new source count is \\(a-1+n-b\\) and the possible-sink count is q minus 1 exactly when n is even; symmetric expressions hold for B. The \\(q\\ge2\\) case chooses a deletion retaining a source. In the \\(q=1\\) case, both-even contradicts global parity, both-odd preserves q, and the mixed cases force a safe source in the odd-degree side. A removed source toggles exactly its neighbors, preserving the global parity equation; the star base case is explicit. Hence the induction and signature counting work for all positive m,n. Replayed artifacts/verify.py independently enumerates each edge orientation for \\(1\\le m,n\\le4\\) and verifies the constructive claim for 4032 canonical profiles, \\(1\\le m,n\\le12\\). Finite checks are evidence, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "S. Gravier, M. Petiteau, I. Sivignon, Some polynomial classes for the acyclic orientation with parity constraint problem, arXiv:2603.09475v1, publicly dated 2026-03-10",
+        "S. Das et al., Oriented bipartite graphs and the Goldbach graph, Discrete Mathematics 344 (2021), 112497",
+        "D. B. West, Acyclic orientations of complete bipartite graphs, Discrete Mathematics 138 (1995), 393-396; full open text https://dwest.web.illinois.edu/pubs/aobip.pdf",
+        "Gravier–Petiteau–Sivignon (2025), arXiv:2504.20935: complexity on mixed/partly directed graphs"
+      ],
+      "reasoning": "The 2026 paper lists necessary parity, source and sink conditions and treats Cartesian products and cliques; accessible material does not establish this complete bipartite subfamily. West 1995 completely parametrizes acyclic bipartite orientations but determines independent-edge numbers; deriving all possible vertexwise parity signatures requires the new safe-source lemma and is not a stated corollary. Partial access to the 2026 full text is recorded as a risk rather than definitive noncoverage.",
+      "searches": [
+        "\"Some polynomial classes for the acyclic orientation with parity constraint problem\" \"complete bipartite\"",
+        "\"Some polynomial classes for the acyclic orientation with parity constraint problem\" \"complete bipartite\"",
+        "\"acyclic T-odd\" \"complete multipartite\"",
+        "\"Acyclic orientations of complete bipartite graphs\" \"West\" \"Madej\" 1995 pdf"
+      ]
+    },
+    "checked_sources": [
+      "S. Gravier, M. Petiteau, I. Sivignon, Some polynomial classes for the acyclic orientation with parity constraint problem, arXiv:2603.09475v1, publicly dated 2026-03-10",
+      "D. B. West, Acyclic orientations of complete bipartite graphs, Discrete Mathematics 138 (1995), 393-396; full open text https://dwest.web.illinois.edu/pubs/aobip.pdf",
+      "S. Das et al., Oriented bipartite graphs and the Goldbach graph, Discrete Mathematics 344 (2021), 112497",
+      "arXiv:2504.20935",
+      "Published result: Exact non-separating out-branchings in acyclic orientations of K_{3,n}"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "D. B. West, Acyclic orientations of complete bipartite graphs, Discrete Mathematics 138 (1995), 393-396; full open text https://dwest.web.illinois.edu/pubs/aobip.pdf",
+        "S. Gravier, M. Petiteau, I. Sivignon, Some polynomial classes for the acyclic orientation with parity constraint problem, arXiv:2603.09475v1, publicly dated 2026-03-10",
+        "Published result: Exact non-separating out-branchings in acyclic orientations of \\(K_{3,n}\\)"
+      ],
+      "reasoning": "West proves that for \\(K_{p,q}\\) every number of independent edges between \\(p+q-1\\) and \\(pq\\) can occur. That statistic does not fix the parity vector of indegrees. The 2026 work motivates the exact same constrained-orientation problem and identifies broader conditions but does not, in accessible excerpts, specialize them to a full \\(K_{m,n}\\) iff theorem. The published \\(K_{3,n}\\) orientation result studies branchings; neither a non-separating branch nor its negation forces any desired indegree parity vector. Full-2026-text priority risk remains.",
+      "searches": [
+        "For every complete bipartite graph K_{m,n}, acyclic orientation realizing a prescribed odd-indegree set T exists if and only if |T| equals mn mod 2 and T is not all vertices; no additional obstruction",
+        "parity-constrained acyclic bitournament Kmn classification feasible indegree signatures global handshake and source",
+        "\"Acyclic orientations of complete bipartite graphs\" 1995 dependent edges",
+        "\"Some polynomial classes for the acyclic orientation with parity constraint problem\" pdf HAL"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "S. Gravier, M. Petiteau, I. Sivignon, Some polynomial classes for the acyclic orientation with parity constraint problem, arXiv:2603.09475v1, publicly dated 2026-03-10",
+        "D. B. West, Acyclic orientations of complete bipartite graphs, Discrete Mathematics 138 (1995), 393-396; full open text https://dwest.web.illinois.edu/pubs/aobip.pdf",
+        "S. Das et al., Oriented bipartite graphs and the Goldbach graph, Discrete Mathematics 344 (2021), 112497"
+      ],
+      "reasoning": "T-odd, prescribed vertex indegree parity, source-compatible parity signature, and acyclic bitournament terminology were compared. Neither the full 1995 source nor the available later indexed material states realization of every globally admissible non-all-odd signature. The result is not simply the unsigned total count of acyclic orientations.",
+      "searches": [
+        "For every complete bipartite graph K_{m,n}, acyclic orientation realizing a prescribed odd-indegree set T exists if and only if |T| equals mn mod 2 and T is not all vertices; no additional obstruction",
+        "T-odd acyclic orientations complete bipartite parity source necessary sufficient total 2^(m+n-1) except even-even",
+        "parity-constrained acyclic bitournament Kmn classification feasible indegree signatures global handshake and source",
+        "\"K_{m,n}\" \"T-odd\" orientation",
+        "\"complete bipartite\" \"acyclic\" \"odd\" \"indegree\" source sink"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct finite enumeration of all orientations for every \\(1\\le m,n\\le4\\) independently confirms the \\(2^{m+n-1}\\)-based signature census.",
+        "Published result: Exact non-separating out-branchings in acyclic orientations of \\(K_{3,n}\\)"
+      ],
+      "reasoning": "The direct finite table corroborates low parameters but does not establish historical novelty. Published search hits did not present the full universal feasible signature spectrum; the closest \\(K_{3,n}\\) result deals with non-separating out-branchings, which does not imply indegree-parity realizability for each labelled target.",
+      "searches": [
+        "For every complete bipartite graph K_{m,n}, acyclic orientation realizing a prescribed odd-indegree set T exists if and only if |T| equals mn mod 2 and T is not all vertices; no additional obstruction",
+        "T-odd acyclic orientations complete bipartite parity source necessary sufficient total 2^(m+n-1) except even-even",
+        "\"acyclic T-odd\" \"complete bipartite\"",
+        "parity-constrained acyclic bitournament Kmn classification feasible indegree signatures global handshake and source"
+      ]
+    },
+    "rationale": "Same graph family and same prescribed-parity quantity were searched in published mathematical records and primary literature. West 1995 treats the number of independent (freely reversible) edges of acyclic \\(K_{m,n}\\) orientations and offers an alternating-block representation, not the image of the vertex indegree-parity map. Gravier et al. 2026 introduces the parity-restricted acyclic-orientation problem and catalogs necessary conditions and Cartesian-product families; indexed material does not show a \\(K_{m,n}\\) classification. Its full text could not be read, so this remains a named priority risk, not a claimed certified absence. Structural acyclic-bitournament characterizations do not state the universal target-wise parity image. Search matches about non-separating out-branchings concern a different orientation property.",
+    "residual_risks": [
+      "Full text of arXiv:2603.09475v1 could not be accessed after an initially accessible introduction/outline; an unindexed complete-bipartite corollary in that work might overlap.",
+      "An equivalent reachability classification may follow from West’s or later alternating-block coding after a substantial unstated parity argument; no such explicit classification was located.",
+      "Search completeness cannot establish priority against all unindexed articles or terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant but not exhaustively compared; no explicit \\(K_{m,n}\\) classification was identified in the material actually read. Named as a residual priority risk, not falsely labelled whole-document NOT_COVERING.",
+        "evidence": [
+          "S. Gravier, M. Petiteau, I. Sivignon, Some polynomial classes for the acyclic orientation with parity constraint problem, arXiv:2603.09475v1, publicly dated 2026-03-10",
+          "HTML abstract describes grids, cylinders/tori and complete graphs; Section 4 is Cartesian products of paths/cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.09475",
+        "material_read": "Public abstract, arXiv public submission history, HTML initial introduction and detailed table of contents, showing claimed classes and necessary conditions; full article could not be retrieved.",
+        "method": "arXiv abstract and initially returned HTML lines 12-72; later requests unavailable; HAL alternative access denied.",
+        "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+        "trigger": "Direct 2026 source defining the exact prescribed-vertex-parity problem"
+      },
+      {
+        "assessment": "NOT_COVERING the prescribed parity-feasibility theorem: exact theorem concerns independent-edge-count range and structural alternating-block coding, not which indegree parity signatures occur.",
+        "evidence": [
+          "D. B. West, Acyclic orientations of complete bipartite graphs, Discrete Mathematics 138 (1995), 393-396; full open text https://dwest.web.illinois.edu/pubs/aobip.pdf",
+          "Theorem 1: every integer independent-edge count from p+q−1 to pq occurs; Lemma 3 alternating independent-set blocks."
+        ],
+        "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+        "material_read": "All four PDF pages (393–396), including Lemma 3, Theorem 1, proof and references.",
+        "method": "Web PDF extracted text and screenshots of pages 1–4.",
+        "title": "Acyclic orientations of complete bipartite graphs",
+        "trigger": "Exact graph family and an existing complete structural representation"
+      },
+      {
+        "assessment": "Exact indegree-parity image not established by the material read; possible broader structural implication is a historical risk rather than demonstrated coverage.",
+        "evidence": [
+          "S. Das et al., Oriented bipartite graphs and the Goldbach graph, Discrete Mathematics 344 (2021), 112497"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2021.112497",
+        "material_read": "Publisher-indexed abstract and article excerpt covering characterization of bitransitive/acyclic bitournaments and the coding by alternating orders. Full paper not retrieved.",
+        "method": "Search-indexed ScienceDirect text excerpt; direct DOI open returned access-denied.",
+        "title": "Oriented bipartite graphs and the Goldbach graph",
+        "trigger": "Acyclic bitournament alias and a plausible stronger structural description"
+      },
+      {
+        "assessment": "Different computational-complexity result; no indexed \\(K_{m,n}\\) feasibility criterion.",
+        "evidence": [
+          "arXiv:2504.20935, first public date 2025-04-29"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.20935",
+        "material_read": "Openly indexed abstract: polynomial orientations without acyclicity and mixed-graph NP-completeness.",
+        "method": "Web-indexed arXiv abstract.",
+        "title": "Note about the complexity of the acyclic orientation with parity constraint problem",
+        "trigger": "Earlier same-problem paper from motivating authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "361e3944-de6f-4a73-bd5e-a6322dd3c7be",
+  "value": {
+    "rationale": "A natural two-parameter infinite family of bicliques is completely classified for every labelled prescribed indegree parity target, a problem posed in recent orientation research. The source obstruction is proved to be the only one beyond edge parity, with the exact parity-dependent unique exceptional all-odd target and an \\(O((m+n)^2+mn)\\) constructive procedure. This is a structural family classification and not merely a textbook parity identity: the nontrivial safe-source reduction maintains acyclicity and needed source/sink witnesses across the recursion.",
+    "status": "PASS"
+  }
+}
