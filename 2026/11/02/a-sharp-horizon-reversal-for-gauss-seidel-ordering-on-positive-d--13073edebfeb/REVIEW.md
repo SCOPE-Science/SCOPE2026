@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the real-SPD arrowhead domain, positive diagonal normalization, exact repeated-order Gauss–Seidel update, induced \(A\)-energy norm and all finite horizons. The orthogonal leaf decomposition makes the active three-dimensional matrix exact, not approximate; its generalized characteristic polynomial and its rank-one second power determine both norm formulas. The derivative comparison proves strict reversal for every nonzero leaf coupling; the two-leaf family proves that two-sweep regret is unbounded. The actual standalone symbolic verifier reproduces the polynomial identities and 7,000 full-matrix cases, but the infinite claim rests on the algebraic proof. No stochastic or floating-point conclusion is inferred.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The motivating source, Frommer–Szyld (arXiv:2209.03757), treats cyclic, randomized and greedy relaxation and their convergence rates; it does not give a full fixed-permutation arrowhead finite-horizon \(A\)-norm classification. O'Leary (1984) gives mesh orderings and their spectral convergence rather than the opposing sharp one-sweep versus repeated-sweep energy orderings here. Lee–Wright (arXiv:1607.08320) analyzes fixed and random-permutation coordinate descent on a dense permutation-invariant Hessian rather than a star-sparse one with a hub partition. The nearby mathematical-record results address two-coordinate Euclidean transients, additive sweep inverses, optimized iid coordinate sampling or two-row Kaczmarz. None of those statements implies the two opposite monotonicities in the same natural arrowhead system. The common spectral-radius identity is not itself claimed new. A specialized, unlocated exact factorization could establish priority overlap; searches cannot prove universal uniqueness.
+PASS
 
-## Value — PASS
-Sparse arrowhead couplings arise in hub-and-spoke linear systems and block-coupled quadratic models. The result explains why a criterion based on a single worst-case sweep can be arbitrarily misleading for any two-sweep budget, while the asymptotic rate itself is completely blind to that distinction. It reduces exact order selection to a weighted partition and identifies opposite, horizon-uniform optima. This is a structural boundary rather than a routine dimension-specific calculation or a trivial spectral identity.
+Diagonal congruence reduces any SPD arrowhead to hub and two aggregate leaf modes with s+t=R<1, annihilating orthogonal leaves. The active 3x3 GS matrix has eigenvalues {0,0,R}, P³=RP² and A-energy singular polynomial λ[λ²-(R+st)λ+st]. Its largest root yields the one-sweep squared norm, and rank-one P² gives all m>=2 norms R^(2m-4)[R³+(1-R)²st]. Differentiation shows first norm strictly decreases with p=st, later norms increase, so balanced subset vs endpoint hub order are disjoint optimizers; equal-coupling two-leaf family has unbounded 2-step ratio as R->0. Independent full-matrix numeric and exact symbolic checks confirm selected cases, proof is general algebra.
 
-## Closest literature and limitations
-Frommer and Szyld, arXiv:2209.03757 (2022); Lee and Wright, arXiv:1607.08320 (2016); and O'Leary, DOI 10.1137/0905044 (1984), were examined as primary full texts. Their settings/objectives differ as detailed above. The finding addresses only exact fixed-permutation Gauss–Seidel on real SPD arrowheads and induced full-sweep worst-case energy, not adaptive schedules or general sparse matrices. It has no independent scientific priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared all finite-horizon induced A-energy worst-case norms against classical cyclic Gauss–Seidel, randomized relaxation, mesh ordering and nearby published Euclidean two-coordinate or Kaczmarz finite-horizon results. None inspected implies the exact opposed p-monotonicities for a repeated fixed order on SPD arrowhead matrices. Same spectral radius is standard and not claimed as new.
+
+## value
+
+PASS
+
+PASS. Identifies a full structural reversal between first and all subsequent fixed sweep horizons for a natural hub-and-spoke SPD class, including unbounded one-horizon order regret even though all orders have identical spectral radius. It gives an explicit weighted partition optimization and genuine warning about short-run solver ordering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

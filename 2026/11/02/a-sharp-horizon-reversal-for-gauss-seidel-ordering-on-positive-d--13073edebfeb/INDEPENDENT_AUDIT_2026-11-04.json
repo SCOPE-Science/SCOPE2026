@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:47:27.989525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonal congruence reduces any SPD arrowhead to hub and two aggregate leaf modes with s+t=R<1, annihilating orthogonal leaves. The active 3x3 GS matrix has eigenvalues {0,0,R}, P³=RP² and A-energy singular polynomial λ[λ²-(R+st)λ+st]. Its largest root yields the one-sweep squared norm, and rank-one P² gives all m>=2 norms R^(2m-4)[R³+(1-R)²st]. Differentiation shows first norm strictly decreases with p=st, later norms increase, so balanced subset vs endpoint hub order are disjoint optimizers; equal-coupling two-leaf family has unbounded 2-step ratio as R->0. Independent full-matrix numeric and exact symbolic checks confirm selected cases, proof is general algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Leary 1984 analyzes mesh ordering and rate/parallel cost, not full A-energy singular values for star powers.",
+          "Lee–Wright 2016 arXiv:1607.08320 uses dense permutation-invariant diagonal-plus-rank-one Hessians, not star sparse SPD arrowhead coupling."
+        ],
+        "reasoning": "Broad cyclic relaxation convergence rates do not imply reversed finite-horizon minimizers or unbounded two-step regret; no inspected general theorem dominated this classification.",
+        "searches": [
+          "Cyclic Gauss Seidel positive definite arrowhead matrices ordering worst case energy norm one versus two sweeps finite horizon",
+          "O Leary 1984 Gauss Seidel ordering mesh convergence spectral radius",
+          "Lee Wright 2016 random permutations cyclic coordinate descent worst case"
+        ]
+      },
+      "checked_sources": [
+        "Frommer Szyld arxiv:2209.03757 full PDF",
+        "O Leary 1984 author-hosted paper",
+        "Lee Wright arxiv:1607.08320 accessible HTML",
+        "Resultary 2026/9/20 two-coordinate GS Euclidean transient",
+        "Resultary 2026/10/4 finite horizon two-row Kaczmarz",
+        "Resultary query Cyclic Gauss Seidel positive definite arrowhead matrices ordering worst case energy norm one versus two sweeps finite horizon"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact reduced 3x3 sweep P has eigenvalues {0,0,R}, P³=RP²; squared A-singular characteristic polynomial λ[λ²-(R+p)λ+p].",
+          "F_m=R^(2m-4)[R³+(1-R)²p] for m>=2, while F1 strictly decreases with p; spectrally identical operators can have different finite-horizon norms."
+        ],
+        "reasoning": "The equality of spectral radii and generic contraction theorems do not determine opposite monotonicities or weighted partition optimum. Existing Kaczmarz crossover is a different spectral geometry.",
+        "searches": [
+          "Cyclic Gauss Seidel positive definite arrowhead matrices ordering worst case energy norm one versus two sweeps finite horizon",
+          "SPD star cyclic Gauss Seidel order same spectral radius but energy transient optimal opposite"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frommer–Szyld 2022 full PDF discusses classical GS and randomized/greedy variants, with cyclic baselines and convergence bounds, not exact star finite-horizon power norms.",
+          "Resultary 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b concerns 2x2 Euclidean one-sweep amplification."
+        ],
+        "reasoning": "A-energy induced full-sweep norm on >=3 dimensional star systems is a different invariant from 2x2 Euclidean norms or the asymptotic spectral radius R, so those formulations do not cover the reversal.",
+        "searches": [
+          "Cyclic Gauss Seidel positive definite arrowhead matrices ordering worst case energy norm one versus two sweeps finite horizon",
+          "star arrowhead cyclic Gauss Seidel transient induced energy norm order one and two sweeps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 concerns two-row Kaczmarz relaxation, not fixed-order arrowhead GS.",
+          "Other published SCOPE 2x2 Euclidean GS normal forms do not give arrowhead energy-norm classification."
+        ],
+        "reasoning": "No exact arrowhead order/horizon table uncovered; negative search is not priority proof and algebra is checked independently.",
+        "searches": [
+          "Cyclic Gauss Seidel positive definite arrowhead matrices ordering worst case energy norm one versus two sweeps finite horizon",
+          "published Resultary two coordinate Gauss Seidel transient threshold",
+          "published Resultary exact finite horizon Kaczmarz relaxation"
+        ]
+      },
+      "rationale": "Compared all finite-horizon induced A-energy worst-case norms against classical cyclic Gauss–Seidel, randomized relaxation, mesh ordering and nearby published Euclidean two-coordinate or Kaczmarz finite-horizon results. None inspected implies the exact opposed p-monotonicities for a repeated fixed order on SPD arrowhead matrices. Same spectral radius is standard and not claimed as new.",
+      "residual_risks": [
+        "Specialized finite-iteration spectral ordering analyses on star systems might predate this calculation but were not found.",
+        "No statements for variable order, general sparse graphs, relaxation factors, pointwise error, or hardware runtime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not provide exact fixed-order 3x3 arrowhead A-energy power norm classification in examined mathematics",
+          "evidence": "Frommer–Szyld 2022, Sections 1–2; cyclic GS as baseline.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03757",
+          "material_read": "Public full 28-page PDF, especially Sections 1–2 and examples of cyclic/randomized/greedy Gauss-Seidel; visual page 2",
+          "method": "Open arXiv PDF, extracted sections and screenshot",
+          "title": "On the Convergence of Randomized and Greedy Relaxation Schemes for Solving Nonsingular Linear Systems of Equations",
+          "trigger": "Same solver and cyclic GS convergence framework"
+        },
+        {
+          "assessment": "Different mesh parallelization/spectral metric; not exact star power norms",
+          "evidence": "O’Leary, SIAM J. Sci. Stat. Comput. 5 (1984), DOI 10.1137/0905044.",
+          "identifier_or_url": "https://www.cs.umd.edu/users/oleary/reprints/j18.pdf",
+          "material_read": "Author-hosted historical full PDF identified, source-relevant mesh ordering/spectral convergence discussion; no claim of all-page re-reading in this run",
+          "method": "Lawful original article search and source review",
+          "title": "Ordering Schemes for Parallel Processing of Certain Mesh Problems",
+          "trigger": "Prior deterministic ordering optimization"
+        },
+        {
+          "assessment": "Does not imply opposite finite-horizon minimizers for fixed-order star SPD systems",
+          "evidence": "Lee–Wright (2016), diagonal-plus-rank-one examples.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.08320",
+          "material_read": "Public arXiv HTML and source-cited results for dense rank-one Hessian family",
+          "method": "Open preprint article/abstract and theorem setting",
+          "title": "Random Permutations Fix a Worst Case for Cyclic Coordinate Descent",
+          "trigger": "Closest order-dependent convergence acceleration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Identifies a full structural reversal between first and all subsequent fixed sweep horizons for a natural hub-and-spoke SPD class, including unbounded one-horizon order regret even though all orders have identical spectral radius. It gives an explicit weighted partition optimization and genuine warning about short-run solver ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized finite-iteration spectral ordering analyses on star systems might predate this calculation but were not found.",
+    "No statements for variable order, general sparse graphs, relaxation factors, pointwise error, or hardware runtime."
+  ],
+  "schema_version": 1
+}
