@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:14:05.156568Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered ball operator on unweighted Q3 uses radii 0,1,2,3 with row denominators 1,4,7,8. For nonnegative g=|f|, selecting one maximizing radius at each of 8 vertices exactly represents ||Mg||² as a max over 4^8=65536 positive row-stochastic matrices, whose optimal 2-norm equals the top eigenvalue of A^T A. For either bipartition radius pattern (0 on one parity class, 1 on the other), the bipartite adjacency J-P has singular values (3,1,1,1), and the top Gram block (1/16)[[25,3],[3,1]] has eigenvalue (13+3sqrt(17))/16. Its unique positive eigenvector has parity profile (1,sqrt(17)-4); direct four-radius comparisons show intended radii are active. The pinned standard-library verify.py was inspected: it builds all 65536 assignments and uses fraction-free exact integer leading-minor checks on D=317*56²I-200(56A)^T(56A) for the other 65534, which is a valid Sylvester certificate with strict bound 317/200 < exceptional eigenvalue. An independent full 65536-case floating-point scan found exactly two cases above 317/200, both parity patterns (max 1.5855823048033, next 1.58378143449); this numeric scan corroborates rather than replaces the inspected exact certificate. Perron simplicity and strict inequality classify precisely the two labeled absolute-value norming rays, with arbitrary signs. Does not extend to higher cubes or other p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "González-Riquelme–Madrid prove sharp L2 constants for complete and star graphs, not Q3.",
+          "Soria–Tradacete sharp reductions largely address 0<p<=1; spherical cube inequalities are broad nonsharp bounds for another operator."
+        ],
+        "reasoning": "None of these identified theorem domains determines exact centered l2 graph-ball Q3 norm or uniqueness of its parity extremizers.",
+        "searches": [
+          "Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls",
+          "arXiv:2005.03146 Theorem 4 and Theorem 6",
+          "arXiv:1410.6204",
+          "arXiv:1309.4466"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2005.03146",
+        "https://arxiv.org/abs/1209.4148",
+        "https://arxiv.org/abs/1410.6204",
+        "Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K3,3 parity radius-0/1 block attains the same number, but Q3 additionally has radius-2/3 row possibilities.",
+          "Dimension-free spherical maximal upper estimates do not imply this exact equality or all extremizers."
+        ],
+        "reasoning": "A shared lower bound and broad bound cannot rule out a strictly better Q3 selection; that exclusion is the reviewed exhaustive Sylvester step.",
+        "searches": [
+          "Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls",
+          "arXiv:1209.4148 spherical bounds",
+          "arXiv:2005.03146 strong norm theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cubic hypercube graph Q3 is the crown graph K4,4 minus a matching; graph-ball averages differ from spherical averages.",
+          "Harrow–Kolla–Schulman treat spherical means in hypercubes rather than the exact centered ball maximizer."
+        ],
+        "reasoning": "Compared graph-ball/spherical/uncentered and crown-graph aliases: same cube under aliases, different averaging families for spherical/uncentered operators; no equivalence producing the exact ball norm was found.",
+        "searches": [
+          "Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls",
+          "Q3 crown graph K4,4 minus matching centered maximal norm",
+          "arXiv:1209.4148"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary hit is a Q3 Walsh chaos L2-to-L4 norm, a distinct polynomial-subspace operator.",
+          "Inspected primary finite-graph exact tables concern small p=1 graphs, complete graphs and stars."
+        ],
+        "reasoning": "No exact Q3 ball-operator entry found. Database absence is not a priority proof.",
+        "searches": [
+          "Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls",
+          "\"13+3sqrt(17)\" centered cube maximal",
+          "\"Q3\" centered maximal operator norm",
+          "Resultary query for exact Q3 maximal Hilbert operator"
+        ]
+      },
+      "rationale": "Compared the exact claim and implications with the named primary mathematics and published Resultary records. The actual semantic query was 'Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls'. No materially inspected source supplies or logically dominates the stated instance; inaccessible/unindexed source risks remain.",
+      "residual_risks": [
+        "An unindexed small-graph exact-operator norm table or equivalent crown-graph computation could cover the claim.",
+        "The independent scan used floating point; rigorous upper bound rests on source integer certificate logic and its stated full enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_GRAPH_CLASSES",
+          "evidence": "The sharp strong-type L2 theorems are for complete graphs and stars, not Q3.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03146",
+          "material_read": "Primary PDF theorem statements and exact cases for complete and star graphs, relevant definitions and tables",
+          "method": "Primary paper PDF text and relevant-page visual inspection, compared mathematical objects and theorem statements; not a general claim about unseen sections",
+          "title": "Sharp Inequalities for Maximal Operators on Finite Graphs",
+          "trigger": "Sharp l2 constants on finite graphs"
+        },
+        {
+          "assessment": "SPHERICAL_NOT_BALL",
+          "evidence": "Uniform-dimensional spherical maximal inequality is not the exact four-radius centered ball norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.4148",
+          "material_read": "Primary PDF definition/major theorem and scope of dimension-free result",
+          "method": "Primary paper PDF text and relevant-page visual inspection, compared mathematical objects and theorem statements; not a general claim about unseen sections",
+          "title": "Dimension-Free L2 Maximal Inequality for Spherical Means in the Hypercube",
+          "trigger": "Same underlying hypercube but spherical means"
+        },
+        {
+          "assessment": "RELATED_GENERAL_BOUNDS",
+          "evidence": "Finite graph methods do not supply the inspected Q3 strong l2 equality.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.6204",
+          "material_read": "Accessible abstract and relevant exact sharp p<=1 statements; whole-paper exclusion not claimed",
+          "method": "Primary paper PDF text and relevant-page visual inspection, compared mathematical objects and theorem statements; not a general claim about unseen sections",
+          "title": "Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+          "trigger": "Finite-graph centered operator general methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The eight-vertex cube is the first canonical nontrivial diameter-three Boolean cube; an exact sharp strong-type centered graph-ball maximal norm and complete equality cases capture the competition among radii 0 through 3. Proving all 65534 non-parity choices lose is a substantive finite operator norm extremal result, not implied by the K3,3 lower-bound coincidence. Does not claim any general higher-dimensional constant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md 73a072422ca774be2f92efd5137de14896cb0b3c",
+    "pinned verify.py 7bfeac437c899b7414ff33e3a3c193345b963e10",
+    "https://arxiv.org/abs/2005.03146",
+    "https://arxiv.org/abs/1209.4148",
+    "https://arxiv.org/abs/1410.6204",
+    "Resultary: sharp centered Hardy Littlewood maximal l2 norm three dimensional Boolean cube Q3 graph balls"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed small-graph exact-operator norm table or equivalent crown-graph computation could cover the claim.",
+    "The independent scan used floating point; rigorous upper bound rests on source integer certificate logic and its stated full enumeration.",
+    "Exactly the stated assumptions and boundaries only; finite replay does not extend to unproved infinite claims.",
+    "Public-bound METADATA.json and AUDIT.json contain private operational provenance and are not approved for publication."
+  ],
+  "schema_version": 1
+}
