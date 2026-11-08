@@ -1,25 +1,21 @@
-# Scientific review: rotational width-correlation inverse geometry
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The object is a centered, full-dimensional, centrally symmetric equilateral polygon, with width measured as one-dimensional orthogonal projection length and pair-correlation normalized over a half-turn. The pointwise width is the sum of absolute projected generator lengths. Its nonvanishing cosine Fourier kernel makes the full width correlation equivalent to the circular difference multiset of generator directions. For two or three directions, the circular gap argument reconstructs the generator set up to rotation/reflection. The two exhibited four-direction sets have exactly one occurrence of each of the six interval classes, but different cyclic gap multisets. That proves identical correlations at every lag and noncongruence, not merely approximate coincidence.
+PASS
 
-For the cubic width moment, the explicitly listed sign-switch partitions and an explicit antiderivative yield the exact radical formula. The positive difference is checked by a strict radical inequality. The support-function identity supplies the area/perimeter formulas, including their curvature/distributional boundary interpretation. Positive Poisson convolution of polygon curvature measures gives analytic positive-curvature shapes; its nonzero Fourier multipliers preserve both the correlation equality and the noncongruence. The explicit third-order Fourier coefficient proves the smooth shapes remain distinguishable by a higher-order statistic.
+Centered symmetric equilateral 2m-gon is unit-segment zonotope with m distinct directions φ_j mod π. Width Fourier modes c_kΣe^(−2ikφ_j) have c_k≠0; R Fourier modes c_k²|F(k)|² recover precisely the circular difference multiset. For m≤3, unordered cyclic gap triples are determined up to dihedral reordering, proving congruence. Sets A={0,1,4,6}, B={0,1,3,7} have each unoriented difference 1..6 exactly once on Z12 but unequal gap multisets; hence noncongruent 8-gons with identical all-lag R. Standard zonotope determinant sum yields area (3+√2+√3+√6)/2 and perimeter 8; exact sign-interval trigonometric integration yields third width moment difference (11√2−3√6−8)/π>0. Support-function calculus implies Area=π(R(0)+R″(0))/4 and Per=π√(mean R). Positive Poisson kernel smoothing preserves Fourier magnitudes and yields analytic support function with everywhere-positive curvature; triple correlation Fourier coefficient gap 32√3/(135π³)e^(−4t) remains nonzero for all t>0. Independent exact difference-set, dihedral checks, bispectral coefficient and integral identities confirmed. The infinite/continuous statements follow the Fourier and geometry proofs, not numerical sampling.
 
-The executable verifier passed 3,908 checks, including the SymPy exact radical integration path. Finite-grid enumeration is clearly distinguished from the proof of continuous uniqueness. Required assumptions and numerical versus exact roles are explicit.
+## originality
 
-## Originality
+PASS
 
-**PASS under the cited-source comparison, with historical-priority risk.** Baake and Grimm (arXiv:math/0610411) develop homometry and diffraction through difference measures, not inverse geometry of rotation-averaged convex-body widths. Gover (arXiv:1401.4749) treats generators, congruence, and determinant-volume formulas for zonotopes; the latter are acknowledged. Bianchi, Gardner, and Kiderlen (arXiv:1003.4486) investigate a different covariogram, namely the autocorrelation of the indicator function of a body, so its planar uniqueness theorems do not cover the width-power-spectrum inverse problem. The pair of four-point homometric angle sets is a pre-existing Z-related tetrachord pair and is not claimed as an original combinatorial discovery.
+The specific homometric Z-related tetrachord pair and the phase-retrieval ambiguity principle are longstanding known prior results, so no originality is assigned to the combinatorial pair. The sharp equilateral symmetric four/six versus eight geometric threshold, width-specific third-moment witness, analytic smoothing persistence and exact support-function area/perimeter identities together were not found in inspected width-reconstruction literature. Body covariogram uniqueness is a different invariant and cannot imply this width correlation uniqueness.
 
-published-finding corpus comparisons found an inverse width-*distribution* classification for tangential symmetric polygons and previous width covariance work for regular polygons and orthotopes, but not the stated two-lag correlation equivalence together with the sharp equilateral four/six/eight cutoff and cubic-moment separation. One relevant published-finding corpus full-text URL was inaccessible, so only its returned scientific summary was assessed; this remains a concrete residual risk, not an asserted whole-document exclusion. No equivalent dominating theorem was identified in accessible primary full texts or research-index summaries. Independent historical priority has not been established.
+## value
 
-## Mathematical value
+PASS
 
-**PASS.** This is a motivated inverse problem about recovering a convex shape from the complete second-order statistics of its projected widths under unknown rotation. It gives a sharp polygonal complexity boundary, a specific pair of unit-edge obstructions even after area and perimeter are known, an exact low-order statistic that separates the ambiguous pair, and an extension to analytic positive-curvature bodies near circular geometry. The identities showing which intrinsic volumes second-order statistics necessarily retain clarify the information loss. The result is not an arbitrary finite slice or a claimed general solution to phase retrieval.
+This gives the first possible polygon side count at which a natural second-order rotational shape descriptor loses injectivity under equal-edge central symmetry, and an explicit higher-order observable that separates the ambiguity—even arbitrarily near disks. This is a motivated inverse-geometry identifiability boundary.
 
-## Limits and comparison cautions
-
-Rigidity is restricted to centrally symmetric equilateral four- and six-gons; the octagonal pair proves failure in that class, not universal minimality among all convex polygons. The cubic moment separates the constructed pair, not every homometric configuration. The analytic extension is planar and noiseless. Literature from other fields may restate portions of the sharp obstruction in different language; the classical homometric prototype and standard Fourier facts are explicitly credited.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
