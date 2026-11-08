@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "A maximal strong independent set cannot leave an expanded edge empty, since a fresh private vertex could be added; every edge must contain precisely one chosen vertex. Its original vertices form an independent base set. Conversely choosing exactly one private representative on edges not covered by a base independent set saturates all hyperedges, so no omitted private or original vertex can be inserted (the latter uses the isolate-free hypothesis). This is a bijection; its independent per-edge choice counts prove the full polynomial. The cardinality and well-covered conclusions follow by the disjoint incident-edge count; the cycle formula follows from circular gap compositions, the clique gaps follow from an empty/singleton split, and counting hardness is a one-call reduction from #independent-sets via joining a universal vertex. An independently written finite verifier checked the original definitions and complete maximal families for 156 instances, 567300 vertex subsets and 2498 maximal sets, and checked loose-cycle coefficients. Infinite correctness rests on proof, not finite samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1007/s41980-026-01067-6: abstract mentions general bounds and closed formulas for the independent domination number on edge corona graphs, not explicitly full distributions.",
+        "doi:10.17654/0974165823038: independent semitotal domination includes a distinct distance-two condition.",
+        "arXiv:2211.14101 Theorem 1.2: extremal maximum count over all 3-uniform hypergraphs."
+      ],
+      "reasoning": "An upper bound on number of maximal sets across all hypergraphs and a minimum-size formula for edge coronas do not, on their own, imply exact coefficients for all sizes on all expanded base graphs. A hidden full-text enumeration in the 2026 source would potentially dominate; the available abstract cannot settle that comparison.",
+      "searches": [
+        "Triangle-expansion edge corona graphs: maximal independent sets bijection to ordinary independent sets of base graph",
+        "Edge-corona K1 maximal independent sets well-covered if base matching; number equals independent-set count of original graph",
+        "\"edge corona\" \"independent domination number\"",
+        "Exact cardinality polynomial of maximal strongly independent subsets of uniform linear hypergraphs obtained from graph edges by adjoining disjoint private vertices, as weighted independence polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.14101 (open full paper)",
+      "doi:10.1007/s41980-026-01067-6 (publisher abstract and metadata; full text inaccessible)",
+      "doi:10.17654/0974165823038 (available article scope)",
+      "doi:10.1137/0212053 (counting hardness background)",
+      "2026/10/4/SCOPE-independence-polynomials-as-one-line-extension-polynomials-of-fi--cf168127ba2b (title/summary)",
+      "2026/9/30/SCOPE-fourth-coefficient-extremizers-for-2-regular-triple-systems--35d21af925ab (title/summary)",
+      "2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b (title/summary)",
+      "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc (title/summary)",
+      "OEIS keyword and graph sequence searches; no directly covering exact coefficient table identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published research record 2026/10/4/SCOPE-independence-polynomials-as-one-line-extension-polynomials-of-fi--cf168127ba2b: admissible one-line extension neighborhoods in K_{m,n}-free incidence structures are independent sets of a saturated hypergraph.",
+        "Published research record 2026/9/30/SCOPE-fourth-coefficient-extremizers-for-2-regular-triple-systems--35d21af925ab: independent 4-sets of 2-regular triple systems; this is an ordinary independent-set coefficient, not maximal strong independence.",
+        "Barát–Gerbner–Halfpap arXiv:2211.14101 full text: global extremal cardinality-free count for maximal strongly independent sets.",
+        "Cabrera-Martínez et al. DOI 10.1007/s41980-026-01067-6 abstract: edge-corona independent domination numbers."
+      ],
+      "reasoning": "The exact all-parameter identity, its degree-weighted cardinality grading, matching-only equal-size criterion, and connected-linear counting reduction are not consequences of an extremal bound, a different incidence one-line-extension counting identity, or an isolated minimum domination parameter. Highly relevant inaccessible full text remains a material risk, and the comparison is not asserted decisive for that source.",
+      "searches": [
+        "Maximal strongly independent sets in 3-uniform linear hypergraphs formed by adjoining a private vertex to each edge of an arbitrary graph; bijection with independent sets and generating polynomial",
+        "Strong independence hypergraphs edge triangle expansion weighted count polynomial",
+        "Exact cardinality polynomial of maximal strongly independent subsets of uniform linear hypergraphs obtained from graph edges by adjoining disjoint private vertices, as weighted independence polynomial",
+        "Edge-corona K1 maximal independent sets well-covered if base matching; number equals independent-set count of original graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barát–Gerbner–Halfpap, arXiv:2211.14101, full article: maximal strongly independent sets defined and globally bounded.",
+        "Independent domination on edge corona corresponds to minimum sizes of maximal independent sets in the 3-uniform two-section; Cabrera-Martínez et al. 2026 abstract (doi:10.1007/s41980-026-01067-6) explicitly targets numbers and formulas."
+      ],
+      "reasoning": "The 3-uniform two-section is a graph formed by adding one private triangle-tip per base edge, so graph maximal-independent-set and independent domination formulations were checked. The original full paper does not state the all-graph weighted polynomial; the 2026 abstract is insufficient to exclude its uninspected stronger proof.",
+      "searches": [
+        "Maximal strongly independent sets in 3-uniform linear hypergraphs formed by adjoining a private vertex to each edge of an arbitrary graph; bijection with independent sets and generating polynomial",
+        "Triangle-expansion edge corona graphs: maximal independent sets bijection to ordinary independent sets of base graph",
+        "Exact cardinality polynomial of maximal strongly independent subsets of uniform linear hypergraphs obtained from graph edges by adjoining disjoint private vertices, as weighted independence polynomial",
+        "\"edge corona\" \"maximal independent sets\" independence polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related OEIS searches yielded known maximal independent-set cycle sequences and necklace graph entries but no identifiable table for all coefficients of this edge-expansion hypergraph family.",
+        "No matching exact family enumeration appeared among the retrieved published research records."
+      ],
+      "reasoning": "Simple cycle counts alone are subsumed by the weighted-general-graph theorem; existing graph cycle maximal-independent-set tables count a different base object. No claim is made that absence in databases establishes novelty.",
+      "searches": [
+        "Loose hypercycle maximal strongly independent set enumeration coefficient n/(n-k) binomial n-k choose k",
+        "site:oeis.org \"maximal strongly independent\" hypergraph",
+        "site:oeis.org loose cycle maximal independent set triangular necklace"
+      ]
+    },
+    "rationale": "The main arXiv paper was read in full and studies general extremal bounds for maximal strong independence, not exact cardinality enumeration of hypergraph edge expansions. Searches of published research records for multiple formulations, and searches of primary papers/sequence databases for edge corona, hypergraph independence, maximal configurations and cycle special cases, found no directly dominating or equivalent statement. The 2026 independent-domination article on edge-corona graphs is highly relevant; its abstract addresses minimum-number formulas rather than this full polynomial and weighted bijection, but lack of accessible full text makes publication priority provisional. This is evidence-based best-knowledge originality, not a claim of exhaustive uniqueness.",
+    "residual_risks": [
+      "The full 2026 edge-corona independent-domination article is subscription-gated in the available access path; an equivalent full classification there is not excluded.",
+      "Other unindexed or differently named literature may state the identical weighted-polynomial identity.",
+      "Semantic research-record search returns summaries, not full-paper noncoverage certificates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and proves global extremal counting bounds, but not the claimed exact weighted enumerator for private edge expansions.",
+        "evidence": [
+          "arXiv:2211.14101 original arXiv version dated 2022-11-25; Theorem 1.2 concerns maximum total count over 3-uniform hypergraphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.14101",
+        "material_read": "Complete open HTML paper: introduction, theorem statements, extremal proofs and closing sections",
+        "method": "Primary open-access full-text reading and direct comparison of theorem quantifiers",
+        "title": "On the number of A-transversals in hypergraphs",
+        "trigger": "Source definition of maximal strongly independent sets; possible stronger universal theorem"
+      },
+      {
+        "assessment": "The abstract gives bounds and closed formulas for minimum independent domination numbers; full text might contain an equivalent stronger classification and remains an unresolved priority risk.",
+        "evidence": [
+          "Published 2026-08-22, Bulletin of the Iranian Mathematical Society 52, article 48. Abstract explicitly describes minimum independent domination number and k-tuple parameters."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41980-026-01067-6",
+        "material_read": "Publisher abstract, publication details and accessible references; full subscription article inaccessible",
+        "method": "Publisher-page inspection, title/abstract and theorem-scope comparison; public arXiv/OA search did not find the full paper",
+        "title": "Independent Domination and k-Tuple (Total) Domination in Edge Corona Graphs",
+        "trigger": "Two-section maximal independent sets are independent dominating sets of edge coronas; probable closest formulation"
+      },
+      {
+        "assessment": "Requires additional semitotal distance-two constraint; does not imply enumeration of all maximal strong independent configurations.",
+        "evidence": [
+          "Susada–Eballe (2023), independent semitotal domination, a different invariant."
+        ],
+        "identifier_or_url": "https://doi.org/10.17654/0974165823038",
+        "material_read": "Open-access paper and article title/abstract and main definitions",
+        "method": "Open accessible article inspection and definition comparison",
+        "title": "Independent semitotal domination in the corona of graphs",
+        "trigger": "Nearby corona domination terminology"
+      },
+      {
+        "assessment": "Supplies hardness for graph independent-set/vertex-cover counting, not the present hypergraph reduction.",
+        "evidence": [
+          "Provan–Ball, SIAM J. Comput. 12 (1983), 777–788."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0212053",
+        "material_read": "Publication metadata and abstract-level complexity context",
+        "method": "Published counting-complexity theorem and reduction comparison",
+        "title": "The complexity of counting cuts and of computing the probability that a graph is connected",
+        "trigger": "Prior hardness theorem needed for #P corollary"
+      },
+      {
+        "assessment": "One-line extension counts from saturated incidence hypergraphs are different from maximal strong independent sets of private-edge expansions; no identified implication to the current formula.",
+        "evidence": [
+          "Published record 2026/10/4/SCOPE-independence-polynomials-as-one-line-extension-polynomials-of-fi--cf168127ba2b: exact one-line extension counting and #P-completeness."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-independence-polynomials-as-one-line-extension-polynomials-of-fi--cf168127ba2b",
+        "material_read": "Published record title and supplied mathematical summary only",
+        "method": "Semantic record search and statement/implication comparison",
+        "title": "Independence polynomials as one-line extension polynomials of finite K_{m,n}-free incidence structures",
+        "trigger": "Closest semantically retrieved published research record involving an independence polynomial"
+      },
+      {
+        "assessment": "Counts ordinary independent four-sets in regular triple systems, rather than all inclusion-maximal strong independent sets in edge expansions.",
+        "evidence": [
+          "Published record 2026/9/30/SCOPE-fourth-coefficient-extremizers-for-2-regular-triple-systems--35d21af925ab: independent 4-set bound in 2-regular 3-uniform systems."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/30/SCOPE-fourth-coefficient-extremizers-for-2-regular-triple-systems--35d21af925ab",
+        "material_read": "Published record title and supplied mathematical summary only",
+        "method": "Semantic record search and parameter comparison",
+        "title": "Fourth-coefficient extremizers for 2-regular triple systems",
+        "trigger": "Closest rank-three hypergraph counting record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28293137-ef14-48e9-8280-b28b4d4010c2",
+  "value": {
+    "rationale": "This is a complete structural census of maximal strongly independent configurations for every base graph and every uniformity on a natural linear family. Its weighted independence-polynomial transfer encodes fine cardinality distributions, identifies the full strong-well-covered boundary (matchings only), gives exact loose-cycle coefficients and unbounded missing cardinality gaps in connected linear instances, and transfers #P-hardness to connected linear 3-uniform hypergraphs. These are motivated, reusable structural and computational consequences, not a routine numeric special case. Limits: the cycle/clique examples are corollaries rather than separate original results.",
+    "status": "PASS"
+  }
+}
