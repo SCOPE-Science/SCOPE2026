@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Euclidean parallelogram support-width formula is exact, and its Haar second moment is integrated without probabilistic approximation. Fixing perimeter and area reduces all shapes to one side-product interval. A derivative calculation gives a positive, strictly decreasing derivative on that interval, with the two exact endpoint slopes. This proves strict reconstruction, sharp rectangle/rhombus extrema, global two-sided inverse bounds, and equality classifications. The standalone `verify.py` successfully replayed 1,215 analytic-formula, quadrature, monotonicity, and reconstruction checks; these finite checks corroborate but do not prove the result.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest accessible published parallelogram inverse theorem, *Three unlabeled width statistics reconstruct a parallelogram with sharp stability* (October 11, 2026), was read in full. It uses maximum width as its third statistic and supplies the mean-square formula credited here. No implication yields area-calibrated three-scalar uniqueness or the sharp fixed-area slope without the new monotonicity step. Kim–Yaskin–Zvavitch (2015) address broader full distribution questions; Martirosyan–Sargsyan (May 2026) recognize triangles from chord integrals. Those primary scopes and the available results do not establish the new assertion. Similar historical results could remain unindexed; two less decisive manuscripts were not fully accessible.
+PASS
 
-## Value — PASS
-The theorem replaces optimizing the directional width by knowing ordinary area while retaining only two population width moments. It gives complete shape recovery for all genuine parallelograms, a sharp isoperimetric variance envelope at prescribed area/perimeter, and the optimal positive condition number for recovering the side product. These exact quantitative statements address a natural inverse integral-geometry question and are not mere recalculations of a known isolated table entry.
+Write S=P/2=a+b, t=ab, theta=asin(A/t), with exact feasible interval A<=t<=S²/4. The support-width formula W(phi)=a|cos phi|+b|cos(phi-theta)| yields E W²=S²/2+t(2g(theta)-1), g=[sin theta+(pi/2-theta)cos theta]/pi. Its derivative H(theta)=2/pi[sin theta+(pi/2-theta)/cos theta]-1 is positive and increases with theta; because theta decreases in t, F(t) is strictly increasing and concave. Endpoint derivatives H(pi/2)=4/pi-1 and H(asin(4A/S²)) are sharp. Rectangle (t=A) and rhombus (t=S²/4) exhaust extrema; a=b and theta=pi/2 uniquely for delta=1. Independent numeric recomputation confirmed monotonicity, concavity, and derivative endpoint inequalities for three shape families. Read verify.py from exact blob: seeded quadrature/bisection spot checks only, not an infinite proof.
 
-## Limitations
-Only full-angle population measurements are considered; empirical finite-direction estimation and other quadrilaterals are outside scope. Conditioning degenerates for shapes tending to segments. The result has undergone self-review only, not independent validation. Broad historical priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for replacing maximum width with area as third scalar and for exact sharp fixed-area slope: the closest published record supplies the same projection moment formula but its inverse uses maximum width, a distinct measurement. No inspected distribution or chord-power result entails fixed-area monotonicity. Historical priority may differ if older special geometry formulas are unindexed.
+
+## value
+
+PASS
+
+Recovering any parallelogram from readily motivated perimeter, area and second width moment is a natural finite-scalar tomography problem, with complete inverse and best possible conditioning for the side-product plus sharp rectangle/rhombus variance envelope. This is more than a named reparametrization or a known table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

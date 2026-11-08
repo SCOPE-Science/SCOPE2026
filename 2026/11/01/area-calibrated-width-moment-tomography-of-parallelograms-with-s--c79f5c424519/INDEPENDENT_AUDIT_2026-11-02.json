@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T03:16:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/area-calibrated-width-moment-tomography-of-parallelograms-with-s--c79f5c424519/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/area-calibrated-width-moment-tomography-of-parallelograms-with-s--c79f5c424519/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/area-calibrated-width-moment-tomography-of-parallelograms-with-s--c79f5c424519/VERIFICATION.md"
+      ],
+      "rationale": "Write S=P/2=a+b, t=ab, theta=asin(A/t), with exact feasible interval A<=t<=S²/4. The support-width formula W(phi)=a|cos phi|+b|cos(phi-theta)| yields E W²=S²/2+t(2g(theta)-1), g=[sin theta+(pi/2-theta)cos theta]/pi. Its derivative H(theta)=2/pi[sin theta+(pi/2-theta)/cos theta]-1 is positive and increases with theta; because theta decreases in t, F(t) is strictly increasing and concave. Endpoint derivatives H(pi/2)=4/pi-1 and H(asin(4A/S²)) are sharp. Rectangle (t=A) and rhombus (t=S²/4) exhaust extrema; a=b and theta=pi/2 uniquely for delta=1. Independent numeric recomputation confirmed monotonicity, concavity, and derivative endpoint inequalities for three shape families. Read verify.py from exact blob: seeded quadrature/bisection spot checks only, not an infinite proof.",
+      "residual_risks": [
+        "No extension to arbitrary quadrilaterals, no finite-sample estimator, no formal proof artifact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1512.07289",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928"
+        ],
+        "reasoning": "Full width distributions and some nonidentifiability results on general convex bodies do not imply that P,A,E W² are injective for the parallelogram subclass. In particular general distribution methods do not assert the fixed-area sharp derivative inequality.",
+        "searches": [
+          "distribution functions of sections and projections convex bodies Kim Yaskin Zvavitch 2015",
+          "three unlabeled width statistics parallelogram sharp stability"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+        "https://arxiv.org/abs/1512.07289",
+        "https://arxiv.org/abs/1110.0671",
+        "https://arxiv.org/abs/2605.24616"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+          "arXiv:1512.07289"
+        ],
+        "reasoning": "A theorem with (E W,E W²,max W) does not automatically imply identification with (P,A,E W²), because max W is neither supplied nor derived from those prior measurements. New fixed-A monotonicity supplies the missing logical step.",
+        "searches": [
+          "Resultary published parallelogram inverse 2026-10-11",
+          "Kim Yaskin Zvavitch distribution projections 2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+          "arXiv:1512.07289"
+        ],
+        "reasoning": "Equivalent formulations through projection-width variance were considered (mean width fixed by perimeter). The existing inverse theorem includes max W instead of A; fixing area is independent data, not a restatement.",
+        "searches": [
+          "Resultary semantic: parallelogram recovery from perimeter area second moment random projection width variance inverse tomography sharp slope",
+          "unlabeled width statistics inverse congruence class"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+          "arXiv:1110.0671"
+        ],
+        "reasoning": "The exact second moment of a parallelogram is prior-covered and credited, but the combined three-data identification plus sharp inverse slopes is not in the inspected calculation or standalone width-moment table.",
+        "searches": [
+          "Resultary semantic query for width moment parallelogram shape recovery",
+          "regular-polyhedra width moments Finch 2011"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for replacing maximum width with area as third scalar and for exact sharp fixed-area slope: the closest published record supplies the same projection moment formula but its inverse uses maximum width, a distinct measurement. No inspected distribution or chord-power result entails fixed-area monotonicity. Historical priority may differ if older special geometry formulas are unindexed.",
+      "residual_risks": [
+        "Earlier elementary inverse geometric formula using (perimeter, area, width variance) under another terminology might be unindexed.",
+        "Exact population Haar moments are assumed; inverse conditioning degrades as delta->0; individual side lengths have only square-root stability near equality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS shared moment formula but NOT area-calibrated inverse or sharp fixed-A derivative",
+          "evidence": "The finding uses mean, second moment, maximum width D; its inverse scalar T=(s²/2-nu)/(s²-D²), unlike current known area A.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+          "material_read": "Entire RESULT.md: finding, hypotheses, proof including projection moment and scalar inversion, prior work, limitations",
+          "method": "Resultary repository pinned research record, full-text GitHub read",
+          "title": "Three unlabeled width statistics reconstruct a parallelogram with sharp stability",
+          "trigger": "Same object, same second-moment measurement, nearby inverse claim"
+        },
+        {
+          "assessment": "No located implication to the stated three-statistic fixed-area parallelogram inversion",
+          "evidence": "Addresses full measurement distributions and identifiability for general bodies, different from this three-number strictly concave inversion.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.07289",
+          "material_read": "Published paper and relevant planar projection/distribution sections consulted with accessible article information",
+          "method": "arXiv/public research source reading",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Direction-unlabeled projection distribution and possible stronger identifiability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/area-calibrated-width-moment-tomography-of-parallelograms-with-s--c79f5c424519/RESULT.md"
+      ],
+      "rationale": "Recovering any parallelogram from readily motivated perimeter, area and second width moment is a natural finite-scalar tomography problem, with complete inverse and best possible conditioning for the side-product plus sharp rectangle/rhombus variance envelope. This is more than a named reparametrization or a known table computation.",
+      "residual_risks": [
+        "No extension to arbitrary quadrilaterals, no finite-sample estimator, no formal proof artifact."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier elementary inverse geometric formula using (perimeter, area, width variance) under another terminology might be unindexed.",
+    "Exact population Haar moments are assumed; inverse conditioning degrades as delta->0; individual side lengths have only square-root stability near equality.",
+    "No extension to arbitrary quadrilaterals, no finite-sample estimator, no formal proof artifact.",
+    "Existing public METADATA.json and AUDIT.json each retain scope_run_id (an operational identifier); unmodified publication would violate confidentiality. The audit has not supplied fully guarded, complete UTF-8 sanitized replacements and provenance checks."
+  ],
+  "schema_version": 1
+}
