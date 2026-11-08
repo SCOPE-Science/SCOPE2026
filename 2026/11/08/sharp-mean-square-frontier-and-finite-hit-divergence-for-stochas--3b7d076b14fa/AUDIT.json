@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Closed second-moment transfer K is derived by conditioning. Its determinant has the unique positive zero h*; cone positivity plus a small-step Perron eigenvalue argument proves iff stability for all deterministic initial pairs. A rank-one PSD decomposition handles necessity. The annihilating word (0,1,0) and exact recurrence S[n+1]=S[n]+S[n-1]/2 prove respectively almost-sure finite hitting and exponential growth of E[x_n^2]. The SGD contrast follows from Bernoulli 0-or-1 multiplier. Standalone Fraction verifier passed 578 assertions; finite tests do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published affine reflected-gradient threshold proves deterministic \\(m=U_n\\) stability and gives scalar \\(hm<2/3\\). It explicitly excludes stochastic errors, so it is the \\(v=m^2\\) slice rather than coverage of the random-multiplier theorem.",
+        "Published split-skew result is a deterministic planar resolvent and forward skew setting with a distinct parameter regime.",
+        "General stochastic reflected-gradient papers establish convergence under variance-reduced or summable-noise assumptions, not sharp moment stability under persistent constant-step multiplicative sampling."
+      ],
+      "reasoning": "Broader deterministic dimensionality does not imply moment stability for independent random coefficients, and broad qualitative convergence theorems under other step-size and noise hypotheses do not imply the exact region or divergence example. The deterministic specialization is expressly acknowledged as covered.",
+      "searches": [
+        "published-finding corpus: reflected forward backward splitting sharp stability domain skew symmetric linear monotone rotation eigenvalue two step 2021",
+        "published-finding corpus: reflected gradient stochastic quadratic Bernoulli oracle almost sure termination divergent second moment 0 1 0",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4 RESULT.md full text",
+        "2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f RESULT.md full text"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1904.11076",
+      "https://arxiv.org/abs/2102.08906",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f/RESULT.md",
+      "https://doi.org/10.1007/s10589-021-00305-3",
+      "https://arxiv.org/abs/2102.08906",
+      "https://arxiv.org/abs/1904.11076"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 and 2021 stochastic reflected algorithm papers identify the update and study convergence with different noise or growing batches; no unconditional fixed-step mean-square claim that could specialize to \\(v>m^2\\).",
+        "The 2026 deterministic sharp-step theorem implies the \\(v=m^2\\) boundary \\(hm<2/3\\) and is explicitly credited, but cannot imply the \\(v>m^2\\) formula or nonuniform-integrability example.",
+        "The finite-absorption online-scaling SGD finding has an objective-based null step, additive noise and feedback, so its finite-hit theorem is independent of the reflected update analyzed here."
+      ],
+      "reasoning": "Removing random curvature from the new claim recovers existing deterministic coverage, so that portion is not asserted new. Neither existing general theorem nor the closest special case entails the sharp independent-multiplier frontier or the finite-time almost-sure versus infinite-time mean-square discrepancy for the same oracle and one-call reflected scheme.",
+      "searches": [
+        "arxiv:1904.11076v3 full text",
+        "arxiv:2102.08906v1 full text",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4 RESULT.md full text",
+        "2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815 RESULT.md full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dung–Vũ Algorithm 3.1 evaluates an unbiased oracle at the reflected point, but bounds stochastic errors with summability or decreasing steps, not the constant-step i.i.d. multiplicative oracle moment frontier.",
+        "Cui–Shanbhag address stochastic reflected gradients with variance reduction and projected gaps; no exact fixed-step scalar two-moment region or finite-hit/divergent-risk juxtaposition in inspected sections.",
+        "Random-matrix second-moment stability via expected tensor products is a known general framework, explicitly excluded from novelty."
+      ],
+      "reasoning": "The new result reduces the Kronecker stability test to an exact necessity/sufficiency inequality for every scalar i.i.d. finite-second-moment oracle and adds a full-path finite-hit/exploding-risk example. The methods in the inspected primary papers do not state or imply both. Unlocated equivalent stochastic two-step recurrence results remain a residual risk.",
+      "searches": [
+        "published-finding corpus: stochastic reflected forward backward scalar random slope zero twice one active finite time absorption almost sure exploding mean square Fibonacci",
+        "published-finding corpus: almost sure finite termination despite exploding second moment stochastic two step gradient",
+        "arxiv:2102.08906v1 full text, Algorithm 3.1 and convergence hypotheses",
+        "arxiv:1904.11076v3 full text, reflected stochastic projection and increasing batches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned neighboring deterministic reflected-gradient results, a different finite-absorption OSGM-SGD result, and moment stability results for PAGE/Loopless SVRG; no matching reflected-gradient random-coefficient criterion."
+      ],
+      "reasoning": "No exact precomputed table or registered claim of this binary reflected-gradient counterexample was located. A negative search is not a uniqueness proof; the result is analytically proved and overlap assessed to the best available knowledge.",
+      "searches": [
+        "published-finding corpus: stochastic reflected forward backward splitting independent scalar random Lipschitz operator two step exact moment stability",
+        "published-finding corpus: stochastic reflected forward backward scalar random slope zero twice one active finite time absorption almost sure exploding mean square Fibonacci"
+      ]
+    },
+    "rationale": "Full directly applicable published stochastic algorithms and close deterministic and finite-absorption findings were compared by object, assumptions and implication; deterministic v=m^2 and broad Kronecker criterion explicitly excluded from novel claim. No inspected source entails the new sharp two-moment criterion for nondegenerate random coefficients or finite-hit/exploding-risk reflected-gradient example. Specialist random-recursion precedence is a material residual risk.",
+    "residual_risks": [
+      "An older or less-accessible exact mean-square analysis of the same scalar random reflected recurrence may use random AR(2), optimistic-gradient, jump-linear systems or expected Kronecker-product nomenclature. Bounded searches cannot exclude it.",
+      "Existing deterministic special case and general cone/second-moment spectral theory are acknowledged and not claimed as independent discoveries.",
+      "No independent verification, nonlinear applicability, or finite-precision stability has been assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: sample-average with growing batches and different convergence result; no fixed-step scalar two-moment boundary or binary finite-hit divergence",
+        "evidence": [
+          "arXiv:1904.11076, abstract and reflected gradient method; increasing-batch mean-zero oracle setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.11076",
+        "material_read": "Full 43-page open-access preprint, algorithm, assumptions, convergence statements and references; original 2019-04-24 date checked on arXiv landing page",
+        "method": "Public PDF/HTML reading, inspection of mathematical algorithms and proof assumptions",
+        "title": "On the analysis of variance-reduced and randomized projection variants of single projection schemes for monotone stochastic variational inequality problems",
+        "trigger": "Earliest verified public reflected stochastic gradient algorithm; strongest object match"
+      },
+      {
+        "assessment": "Not covering: convergence under summability or diminishing step, not the exact fixed-step i.i.d. multiplicative scalar second-moment threshold",
+        "evidence": [
+          "arXiv:2102.08906v1 Algorithm 3.1 and convergence analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.08906",
+        "material_read": "Full 23-page arXiv v1 PDF, Algorithm 3.1 and convergence theorem assumptions, with public submission date 2021-02-17 checked",
+        "method": "Public PDF reading and algorithm/assumption comparison",
+        "title": "Convergence analysis of the stochastic reflected forward-backward splitting algorithm",
+        "trigger": "Direct one-oracle reflected point evaluation and conditional unbiasedness"
+      },
+      {
+        "assessment": "Covers the deterministic \\(v=m^2\\) specialization, not any nondegenerate oracle second-moment theorem. Full text explicitly excludes stochastic errors.",
+        "evidence": [
+          "Published theorem \\(hm<2/3\\) at scalar endpoint; limitations state deterministic only"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4/RESULT.md",
+        "material_read": "Complete 9,997-character RESULT.md, statement, proof, limitations and references",
+        "method": "Read via authorized GitHub public fetch, compare hypotheses and exact implications",
+        "title": "Exact conditioning-dependent stability threshold for affine reflected gradient",
+        "trigger": "Exact same reflected-gradient deterministic iteration; potential stronger all-slope coverage"
+      },
+      {
+        "assessment": "Not covering: objective-null-step hypergradient SGD with persistent additive noise, not reflected gradient with state-dependent multiplicative noise; no exploding MSE under finite hitting",
+        "evidence": [
+          "OSGM-SGD finite-hit result uses adaptive stepsize, three-draw atom repetition and exact full-objective values"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815/RESULT.md",
+        "material_read": "Complete 8,911-character RESULT.md, methods, proof and limitations",
+        "method": "Read via authorized public GitHub fetch; compare recursions, noise and conclusions",
+        "title": "Finite-time absorption of OSGM-SGD under persistent discrete gradient noise",
+        "trigger": "Finite-hit scalar optimization and three-draw block; plausible dominating claim"
+      },
+      {
+        "assessment": "Not covering: deterministic planar resolvent-skew tuning, unlike stochastic scalar random reflected gradients",
+        "evidence": [
+          "Split-skew result analyzes fixed linear skew maps and explicitly frames its scope as deterministic"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f/RESULT.md",
+        "material_read": "Complete 9,746-character RESULT.md, assumptions, proof, limitations",
+        "method": "Read via authorized public GitHub fetch; compare operator and noise models",
+        "title": "Optimal reflection tuning against split-skew FRB obstructions",
+        "trigger": "Same algorithm family and sharp stability thresholds"
+      },
+      {
+        "assessment": "Not covering: stored-gradient finite-sum estimator and different dependence/stepsize assumptions; no exact scalar two-moment frontier",
+        "evidence": [
+          "Alacaoglu–Malitsky–Cevher (2021) variance-reduced method differs from independent one-oracle reflected update"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10589-021-00305-3",
+        "material_read": "Open-access journal article HTML including algorithm construction and central convergence statements",
+        "method": "Primary journal text inspection and comparison with independent multiplicative oracle",
+        "title": "Forward-reflected-backward method with variance reduction",
+        "trigger": "A published stochastic FRB method might subsume one-oracle model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b7d076b-14fa-4a3c-8627-94a68408464f",
+  "value": {
+    "rationale": "A natural fixed-step unbiased one-oracle reflected solver can converge exactly in finite time on almost every path while its expected squared error diverges exponentially; same-cost SGD has exponentially decaying MSE. The exact distribution-independent (m,v)-frontier is a precise diagnostic for numerical stability in a core stochastic monotone-inclusion method, beyond a routine single-parameter substitution.",
+    "status": "PASS"
+  }
+}

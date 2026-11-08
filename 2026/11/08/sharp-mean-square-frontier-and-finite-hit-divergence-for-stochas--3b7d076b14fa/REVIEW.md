@@ -1,0 +1,19 @@
+# Review of the reflected-gradient moment frontier
+
+## Correctness — PASS
+
+For independent, square-integrable random slopes with mean \(m>0\), second moment \(v\), and fixed \(h>0\), conditioning gives the displayed closed \(3\)-dimensional moment matrix. Its determinant identity \(\det(I-K)=h(2m-hv-3h^2mv)\) is checked symbolically. The operator on symmetric second-moment matrices preserves the positive semidefinite cone, so its spectral radius is a nonnegative real eigenvalue with a positive semidefinite eigenmatrix. Starting from stability at small steps and excluding intermediate eigenvalue-one crossings gives the *if* direction through the unique positive root; beyond the root a characteristic eigenvalue exceeds one. Positive semidefinite eigenmatrices decompose into deterministic initial-state rank-one tensors, ensuring the quantifier over initial pairs. The explicit binary-oracle block \((0,1,0)\) annihilates every state, establishing a geometric hitting-time tail and almost-sure finite termination, while exact moment algebra yields exponential squared-risk growth. The stdlib exact rational verifier reports 578 successful checks after replay. It is the analytic proof, not finite tests, that proves the universal and infinite-time conclusions.
+
+## Originality — PASS, best-knowledge qualified
+
+The earliest directly relevant stochastic reflected-gradient construction inspected is Cui–Shanbhag, arXiv:1904.11076v1 (2019), which studies variance-reduced/increasing-sample projected stochastic variational inequalities. Dung–Vũ, arXiv:2102.08906v1 (2021), supply the unbiased single-oracle stochastic reflected-forward-backward update and convergence under different noise/step assumptions. Neither inspected full source establishes this exact general \(m,v,h\) second-moment necessity-and-sufficiency criterion or the striking finite-hit yet exponentially divergent second moment at the same one-oracle cost as SGD. A deterministic published affine reflected-gradient sharp-step result covers the zero-noise \(v=m^2\) specialization, not the random-multiplier case. The published finite-absorption result for an online-scaled SGD method uses an entirely different stochastic recurrence and persistent additive noise, and therefore cannot imply the present claim. The general Kronecker-product spectral criterion and non-implication of almost-sure to mean-square convergence are known; novelty is limited to their explicit sharp realization for this numerical method and the cost-matched counterexample. Specialist random-matrix-product literature may contain an equivalent result: no priority guarantee or independent confirmation is claimed.
+
+## Value — PASS
+
+This exact sharp numerical stability law distinguishes mere unbiasedness and individually monotone random oracle samples from global mean-square reliability. The binary example identifies a practically relevant logical failure of interpreting almost-sure convergence or robust-looking sample paths as evidence of mean-square control. Its exact cost-matched comparison to SGD makes the difference algorithmic rather than a generic probability example. The complete classification over all finite-second-moment scalar oracles is a concrete benchmark for selecting fixed steps or testing stochastic reflected methods. It does not assert applicability beyond the specified scalar independent oracle.
+
+## Closest literature, risks and limits
+
+Publicly inspected full texts: Cui–Shanbhag arXiv:1904.11076, Dung–Vũ arXiv:2102.08906; published affine reflected-gradient full statement at the published-finding corpus repository and distinct finite-absorption OSGM-SGD full statement. Other related sources are cited in the finding. Residual risk is an older equivalent stochastic reflected-gradient or random second-order-recursion moment criterion not located by the bounded search. There is no independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
