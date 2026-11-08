@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness (PASS)
+
+The microscopic continuous-time Markov chain is well-defined for every real signed coupling because the displayed forward and backward rates are strictly positive. A direct bondwise incoming-minus-outgoing calculation gives exact stationarity of the uniform canonical measure for every fixed count sector. The thermodynamic currents follow with an explicit finite-ring correction. Expanding at total density one reduces the claimed objective to \(J=(2A+\gamma)e_2+3\gamma e_3\). Schur's sharp cubic inequality supplies the two coexistence equality cases. Affine interpolation between three exactly solved parameter values yields a global bound and all optimizing allocations. The full local-maximizer classification follows from Hessian signs, normal derivatives at faces, and opposite nonzero curvatures at nonsymmetric interior critical points. A standalone exact-arithmetic checker passed 69,090 additional grid/generator/current checks. Infinite-density claims rely on the proof, not grid enumeration.
+
+## Originality (PASS, qualified)
+
+The primary source already gives the product stationary measure and polynomial current for arbitrary signed interlane biases. Earlier three-lane studies already give the current formula and investigate fluctuating hydrodynamic modes in a smaller one-way rate range. Those contributions are not new. The proposed result fixes **total** occupancy to one across three lanes, optimizes the aggregate signed current, classifies the full global optimizer set and all strict local maxima, and identifies a positive-current coexistence value and distinct spinodal boundaries. This is not the earlier two-lane independently variable-density optimization: three lanes make a balanced two-active-lane phase and a positive-current coexistence possible under the fixed-mass constraint. The underlying Schur inequality is also old; its application to the constrained physical optimization is the claimed addition. Search and full-text checks found no source reporting the same three-regime allocation diagram. The remaining risk is an unindexed equivalent constrained optimization or implicit specialized corollary.
+
+## Value (PASS)
+
+Allocating a fixed total particle inventory among separately conserved transport channels is a natural design/control question not determined by the pointwise current formula alone. The result identifies exactly when distributing particles over three, two, or only one channel maximizes transport, and establishes a nonzero-current discontinuous switch with an exact coexistence interval of distinct local maxima. The source's newly admissible negative-bias rates are essential: the switching values lie outside the strictly unidirectional nonnegative-rate regime of earlier models. The classification offers exact benchmarks for coupled-lane transport design, while making no claim of spontaneous symmetry breaking, kinetic hysteresis, or many-lane universality.
+
+## Closest sources and limits
+
+Popkov, arXiv:2605.06949v1, supplies the known invariant measure and rate-current relation; read the complete accessible primary HTML including the construction and multilanes. Popkov et al., PNAS 2015, supplies the earlier unidirectional three-lane current and dynamical context; read the open primary full text in the model/current sections. Schmidt et al., arXiv:2601.04116v1, supplies the related multiply degenerate three-lane model; read accessible full-text model, rate admissibility, and hydrodynamic claims. Earlier two-lane current optimization in accessible prior material was compared by its assumptions and objective. The theorem is for constrained sector optimization only and uses a classical inequality; precedence by an unindexed optimization remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
