@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:08:30.837782Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=2 and a>=1, polarity gives K°=B_2^d intersect {|y1|<=1/a}. With t=1/a, integrate the polar sections to 2 kappa_(d-1) I_d(t). The meridian of K has sphere radius sqrt(1-z²) until z=t and tangent conical radius (1-tz)/sqrt(1-t²) from t to1/t. Integrating yields primal volume 2 kappa_(d-1)[I_d(t)+(1-t²)^((d+1)/2)/(dt)]; hence exact Mahler product. Differentiation of I(I+H) and integration by parts gives derivative proportional to f(t)[I-(d+2)J/(d t²)], J=int_0^t s²f(s)ds, f(s)=(1-s²)^((d-1)/2). Strict reversed Chebyshev inequality J<t² I/3 implies derivative >2(d-1)fI/(3d)>0 for every 0<t<1, so the product strictly decreases with a. Endpoint a=1 gives kappa_d², a->infinity gives unattained 4kappa_(d-1)²/d; Taylor gives next (d-1)/(3a²). d=3 simplifies to exact quartic 4pi²(3+2/a²-a^-4)/9. Independent Simpson meridian integrations d=2,3,4,8 at a=1,1.2,2,5,20 corroborated strict decay. Finite quadrature is not the all-dimensional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer–Reisner proves convexity of reciprocal polar volume in shadow systems, not monotonicity of the product |K||K°|. Lin–Leng proves a dimension-three lower bound for all symmetric bodies of revolution, not this all-d strict curve."
+        ],
+        "reasoning": "Even an exact global Mahler lower bound cannot imply a pointwise strict derivative along every a. A one-parameter shadow-system theorem might apply with additional proof, but the inspected theorem alone does not derive the claimed full product formula and strict sign.",
+        "searches": [
+          "Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity",
+          "arXiv:math/0606305 shadow systems",
+          "arXiv:1403.0322 symmetric bodies of revolution",
+          "Hu Yan 2012 DOI:10.1186/1029-242X-2012-3"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md ca3d8767dd9c0a48ff79c25d87e7a2891ae10451",
+        "pinned verify.py 48d8e9e2304ecdf4db81807dfdc5b154db8b6daf",
+        "Meyer–Reisner arXiv:math/0606305 Theorem 1",
+        "Hu Yan DOI:10.1186/1029-242X-2012-3",
+        "Lin–Leng arXiv:1403.0322 abstract",
+        "Resultary semantic search Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New strict sign is the inequality J(t)<t² I(t)/3 for the decreasing power profile f(s); previously located papers supply generic convexity or different bodies."
+        ],
+        "reasoning": "Neither bound on polar volume alone nor an all-bodies product lower bound controls the sign of this full product derivative along the specific deformation. A complete published equivalent derivation has not been found, with priority limited to inspected material.",
+        "searches": [
+          "Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity",
+          "Meyer Reisner arXiv:math/0606305 Theorem 1",
+          "Hu Yan 2012 Theorems 1–2",
+          "Lin Leng arXiv:1403.0322"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polar of a two-spike ball is a ball truncated by a symmetric slab; the a->infinity limit is a double cone, polar to a cylinder. Yan studies different p-power meridional bodies of revolution."
+        ],
+        "reasoning": "A polar-slab formulation is an equivalent parameterization of this exact family; pure cylinder/double-cone endpoint formulas are known. The central spherical band plus linear outer taper differs from Yan's |z|^p+r^p<=1 family at finite parameters, so no mechanical substitution supplies the strict product profile.",
+        "searches": [
+          "Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity",
+          "Meyer Reisner Shadow systems and volume of polar convex bodies arXiv:math/0606305",
+          "Hu Yan 2012 DOI:10.1186/1029-242X-2012-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The d=3 product is a degree-2 polynomial in a^-2, with coefficients obtained from cross-sections; existing known limiting bicone/cylinder product gives only the constant term."
+        ],
+        "reasoning": "No known exact intermediate a-polynomial table was found. A table entry matching the endpoint alone does not subsume the continuum strict law; historical unindexed computations remain possible.",
+        "searches": [
+          "Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity",
+          "odd dimensional symmetric two spike convex hull ball Mahler product",
+          "Resultary Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity"
+        ]
+      },
+      "rationale": "Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.",
+      "residual_risks": [
+        "Possible older exact two-spike ball/cylinder Mahler interpolation in unindexed convex-geometry sources.",
+        "General shadow-system tools might imply monotonicity after a nontrivial parameter comparison; accessible statements not decisive for direct coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Controls reciprocal polar volume of shadow system, not complete product monotonicity for axial spike family",
+          "evidence": "Theorem 1 reciprocal polar-volume convexity",
+          "identifier_or_url": "arXiv:math/0606305",
+          "material_read": "Public primary PDF abstract and Theorem 1 proof/setup pages",
+          "method": "open arXiv PDF and inspect page image",
+          "title": "Shadow systems and volume of polar convex bodies",
+          "trigger": "general convexity along deformations potential implication"
+        },
+        {
+          "assessment": "Different power-law meridional family; no direct finite-a spherical-band-plus-cone result in inspected portions",
+          "evidence": "Section 4 profile comparison",
+          "identifier_or_url": "DOI:10.1186/1029-242X-2012-3",
+          "material_read": "Public HTML principal theorems and main Section 4 meridian model",
+          "method": "open lawful publication HTML",
+          "title": "Mahler volume of bodies of revolution in R3",
+          "trigger": "revolution bodies and possible exact volume products"
+        },
+        {
+          "assessment": "Global d=3 lower bound does not imply path monotonicity",
+          "evidence": "Minimum value statement for symmetric revolution bodies",
+          "identifier_or_url": "arXiv:1403.0322",
+          "material_read": "Abstract and stated scope; complete article not read",
+          "method": "open public preprint abstract",
+          "title": "Origin-Symmetric Bodies of Revolution with Minimal Mahler Volume in R3",
+          "trigger": "possible global domination of path"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact monotone path of the Santaló/Mahler product between the maximal Euclidean ball and limiting centrally symmetric double cone is a natural convex-geometric invariant with sharp endpoints and explicit odd-dimensional polynomials. Prior general volume-product extremal bounds do not by themselves tell whether a specific one-parameter deformation is monotone; the cross-sectional identity and Chebyshev proof are substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md ca3d8767dd9c0a48ff79c25d87e7a2891ae10451",
+    "pinned verify.py 48d8e9e2304ecdf4db81807dfdc5b154db8b6daf",
+    "Meyer–Reisner arXiv:math/0606305 Theorem 1",
+    "Hu Yan DOI:10.1186/1029-242X-2012-3",
+    "Lin–Leng arXiv:1403.0322 abstract",
+    "Resultary semantic search Mahler product convex hull Euclidean ball two antipodal points spindle double cone strict monotonicity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equal antipodal added axial points only, Euclidean central ball and d>=2.",
+    "The lower limit as a->infinity is not attained for finite a; not a claim of the general Mahler conjecture.",
+    "Possible older exact two-spike ball/cylinder Mahler interpolation in unindexed convex-geometry sources.",
+    "General shadow-system tools might imply monotonicity after a nontrivial parameter comparison; accessible statements not decisive for direct coverage.",
+    "Neither self-review nor finite verification constitutes external formal proof or complete historical-priority certification.",
+    "Public-bound record files METADATA.json and AUDIT.json retain confidential operational provenance; no publication is authorized."
+  ],
+  "schema_version": 1
+}

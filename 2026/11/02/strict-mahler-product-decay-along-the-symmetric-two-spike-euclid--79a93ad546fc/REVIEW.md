@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polar equality follows from the support constraints of the unit ball and two points. At the tangency coordinate \(t=1/a\), the primal sections are spherical on \([0,t]\) and conical on \([t,1/t]\); both volumes are integrated explicitly. Differentiation of the exact product and \(I-t(1-t^2)f=(d+2)J\) reduces the sign to \(I-(d+2)J/(dt^2)\). Strict reversed Chebyshev covariance establishes that this is positive for every \(d\ge2\), \(0<t<1\). Endpoint expansions and the dimension-three polynomial are direct algebra. The packaged finite checker was executed separately; it does not serve as infinite proof.
+PASS
 
-## Originality — PASS with priority uncertainty
+For d>=2 and a>=1, polarity gives K°=B_2^d intersect {|y1|<=1/a}. With t=1/a, integrate the polar sections to 2 kappa_(d-1) I_d(t). The meridian of K has sphere radius sqrt(1-z²) until z=t and tangent conical radius (1-tz)/sqrt(1-t²) from t to1/t. Integrating yields primal volume 2 kappa_(d-1)[I_d(t)+(1-t²)^((d+1)/2)/(dt)]; hence exact Mahler product. Differentiation of I(I+H) and integration by parts gives derivative proportional to f(t)[I-(d+2)J/(d t²)], J=int_0^t s²f(s)ds, f(s)=(1-s²)^((d-1)/2). Strict reversed Chebyshev inequality J<t² I/3 implies derivative >2(d-1)fI/(3d)>0 for every 0<t<1, so the product strictly decreases with a. Endpoint a=1 gives kappa_d², a->infinity gives unattained 4kappa_(d-1)²/d; Taylor gives next (d-1)/(3a²). d=3 simplifies to exact quartic 4pi²(3+2/a²-a^-4)/9. Independent Simpson meridian integrations d=2,3,4,8 at a=1,1.2,2,5,20 corroborated strict decay. Finite quadrature is not the all-dimensional proof.
 
-The closest accessible full text (Hu Yan 2012) uses power-law rotational profiles and proves a different one-parameter monotonicity theorem in dimension three. Meyer--Reisner 2006 gives convexity of reciprocal polar volume for shadow systems, not the full product sign; Lin--Leng 2014 concerns a global three-dimensional minimizer. The published mathematical records and targeted published-finding corpus searches yielded no covering statement for the ball plus two antipodal spikes. Full texts of the 2006 and 2014 sources were not accessible; this uncertainty is explicitly retained. Searches do not certify worldwide novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Mahler volume product is a basic affine-invariant measure of convex shape. The exact all-dimensional path between the Euclidean ball and the bicone exhibits strict decay without a secondary extremum, has a sharp limiting value and a quantitative decay rate, and has an unexpectedly elementary dimension-three quartic. This is an exact classification along a canonical geometric deformation, not an arbitrary finite computation or only a reformulation of standard endpoint bounds.
+Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.
 
-## Limits
+## value
 
-No general perturbation, non-antipodal spike, or arbitrary body-of-revolution theorem follows. Prioritize external historical review before claiming publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact monotone path of the Santaló/Mahler product between the maximal Euclidean ball and limiting centrally symmetric double cone is a natural convex-geometric invariant with sharp endpoints and explicit odd-dimensional polynomials. Prior general volume-product extremal bounds do not by themselves tell whether a specific one-parameter deformation is monotone; the cross-sectional identity and Chebyshev proof are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
