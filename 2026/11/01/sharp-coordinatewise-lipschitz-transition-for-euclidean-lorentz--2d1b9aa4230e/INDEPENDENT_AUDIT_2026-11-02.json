@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:51:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the standard three-region Euclidean Lorentz projection and the middle-branch Jacobian 1/2[[1,u^T],[u,(1+λ)I−λuu^T]], ||u||₂=1. Since a Euclidean projection is globally Lipschitz, segmentwise derivative control and reverse local row-sign perturbations equate the supremum to maximal absolute row sum; axial A_d=(1+sqrt(d))/2. For spatial row i, a=|u_i| and Cauchy on other magnitudes bound the λ→1 endpoint by F_d=1+max[a−a²+sqrt(d−1)a sqrt(1−a²)]/2. g_d strictly concave and has a unique zero of g_d prime. Direct exact trial a=2/3 establishes F>A for d=2..4; strong concavity bounds max g5 below sqrt5−1 by positive margin 26sqrt5/45−229/180 and ∂d(sqrt(d)−1−g_d)>0 for d≥5. Thus exact switch, including d1 separate. Independent symbolic inequality and dimensions 2..15 check corroborate the all-dimensional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The planar ℓp result concerns metric projections in p-norm, ambient dimension 2; the present uses dimension ≥3 with Euclidean projector and cross-norm sensitivity.",
+          "Euclidean-ball clipping has different active constraints and row derivatives."
+        ],
+        "reasoning": "The apparently broader ℓp sensitivity results do not cover this exact mixed-norm map and its dimensional phase switch.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+          "Resultary 2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+          "Németh 2012 projection duality"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md and verify.py",
+        "Németh arXiv:1212.5438 full primary PDF",
+        "Németh–Zhang arXiv:1405.7835 summary",
+        "Resultary planar ℓp Lorentz projection published finding",
+        "Resultary Euclidean-ball clipping record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Euclidean nonexpansivity only gives ||Qx−Qy||₂≤||x−y||₂, so naive norm equivalence gives sqrt(d+1) bound, not exact (1+sqrt d)/2 or spatial branch.",
+          "Plane ℓp projection formulas use different minimization and no high-dimensional spatial-axial maximization."
+        ],
+        "reasoning": "None of the inspected prior results mathematically implies the exact multirow Euclidean-cone Jacobian max and d=5 crossover.",
+        "searches": [
+          "Németh arXiv:1212.5438 full text",
+          "Resultary planar ℓp Lorentz projection study",
+          "Resultary ball-clipping sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard Lorentz projection formula is shared; previous projector studies emphasize cone duality/order or metric choice.",
+          "Resultary planar ℓp metric projection: nearest point in ℓp geometry differs from Euclidean nearest point measured in ℓ∞."
+        ],
+        "reasoning": "The map is fixed Euclidean projection; switching input/output metric only for Lipschitz quotient matters, so an ℓ∞ nearest-point map is not equivalent.",
+        "searches": [
+          "Németh arXiv:1212.5438 full PDF",
+          "Németh–Zhang arXiv:1405.7835",
+          "Resultary semantic Lorentz cone projector infinity norm sensitivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published search returns planar cone and ball clipping constants, not a table of global ||Q_d||_{∞→∞} for d≥2."
+        ],
+        "reasoning": "An older conic conditioning table not indexed by these searches remains possible; no known matching exact value was obtained.",
+        "searches": [
+          "Resultary Lorentz cross-norm semantic search",
+          "Németh papers bibliography and projection formula"
+        ]
+      },
+      "rationale": "Read Németh projection/duality results for the Euclidean cone; they study order, isotonicity and duality, not exact infinity row norms. Published Resultary planar ℓp-metric Lorentz projection treats a different projector/norm and cannot imply the all-d≥5 cross-norm threshold. An ℓ∞ metric projection onto Lorentz cone is not the Euclidean projector observed in ℓ∞.",
+      "residual_risks": [
+        "Unindexed conic-program sensitivity literature may treat the same Euclidean-to-ℓ∞ map.",
+        "The sharp Lipschitz supremum is approached by local derivatives; it need not be attained by distinct inputs; no weighted cone generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general cone projection geometry, not ℓ∞ cross-norm sharp constant",
+          "evidence": "Order/duality identities in Hilbert geometry; no infinity operator-row optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.5438",
+          "material_read": "Complete accessible six-page arXiv PDF, including first-page screenshot, main cone-duality statements and proofs",
+          "method": "PDF text and page screenshot",
+          "title": "A duality between metric projection onto a convex cone and its dual in Hilbert spaces",
+          "trigger": "Original Euclidean cone projection and duality"
+        },
+        {
+          "assessment": "Different ℓp metric projection in the plane, so cannot imply higher-dimensional Euclidean projection cross-norm profile",
+          "evidence": "Sharp planar ℓp Lipschitz constant and nonexpansivity rigidity; p is source metric.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+          "material_read": "Published record title, summary, precise projector/mode and formula",
+          "method": "Resultary published-finding search",
+          "title": "Exact planar stability and nonexpansivity rigidity for ℓp projections onto scaled Lorentz cones",
+          "trigger": "Keyword and cone target overlap"
+        },
+        {
+          "assessment": "No accessible exact mixed-norm row calculation; priority risk retained",
+          "evidence": "Extended cone isotonicity and complementarity context.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.7835",
+          "material_read": "Abstract, theorem summary and public metadata; not full text",
+          "method": "arXiv bibliographic reading",
+          "title": "Extended Lorentz cones and mixed complementarity problems",
+          "trigger": "Lorentz projection and monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cross-norm sensitivity of a canonical Euclidean conic projector is a natural quantitative condition-number invariant in conic optimization and stability. The previously non-obvious competition between axial and spatial output coordinates gives an explicit dimension-five threshold and exact low-dimensional formulas, not an arbitrary toy calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 RESULT.md and verify.py",
+    "Németh arXiv:1212.5438 full primary PDF",
+    "Németh–Zhang arXiv:1405.7835 summary",
+    "Resultary planar ℓp Lorentz projection published finding",
+    "Resultary Euclidean-ball clipping record"
+  ],
+  "disposition": "passed",
+  "final_claim": "The Euclidean nearest-point projection onto the Lorentz cone K_d has exact coordinate-max norm Lipschitz constant governed by spatial derivative rows for d=2,3,4 and axial row (1+sqrt(d))/2 for d≥5, with L_1=1.",
+  "limitations": [
+    "Unweighted real Lorentz cone, d≥1 spatial dimension; Euclidean nearest-point projection measured in ℓ∞, not ℓ∞ nearest-point mapping or arbitrary cone/weights.",
+    "Literature search is not exhaustive novelty proof; residual priority risks stated separately.",
+    "No GitHub writes or independent external certification; the signed sequence checkpoint is not scientific certification."
+  ],
+  "residual_risks": [
+    "Unindexed conic-program sensitivity literature may treat the same Euclidean-to-ℓ∞ map.",
+    "The sharp Lipschitz supremum is approached by local derivatives; it need not be attained by distinct inputs; no weighted cone generalization."
+  ],
+  "schema_version": 1
+}
