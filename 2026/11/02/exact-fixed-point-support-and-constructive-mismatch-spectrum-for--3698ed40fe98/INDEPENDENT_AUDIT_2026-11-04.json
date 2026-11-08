@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:43:29.209278Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/check_support.py"
+      ],
+      "rationale": "Each block i has d_i wrong symbols, which must be exported and re-imported in equal number; therefore d_i<=min(a_i,m-d_i). Conversely choose d_i within min(a_i,floor(m/2)) summing to m and rotate the grouped length-m mismatch color word by floor(m/2): no identical color survives because each monochromatic cyclic block length is <=floor(m/2). This preserves counts and gives exactly m mismatches. Two blocks force parity; for k>=3 the cap sum is enough for every 2<=m<=min(n,2(n-a_max)). Independently enumerated exact permutation DP supports for all 255 ordered positive compositions with 1<=n<=8 and matched the general criterion; inspected supplied broader n<=11 dynamic-programming checker (not treated as proof).",
+      "residual_risks": [
+        "The independent finite DP covers n<=8 and does not prove the general result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stark bounds law of W asymptotically; zero-diagonal flow feasibility can imply necessary cap inequality but not the closed full spectrum without specialization."
+        ],
+        "reasoning": "An explicitly published general transportation theorem with detailed support implication could cover the mathematical content even without identical notation; no decisive source located.",
+        "searches": [
+          "Stark 2026 Theorems 1–4",
+          "Stanley multiset derangement",
+          "classical Hall matching condition"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/check_support.py",
+        "Dudley Stark arxiv:2608.00710, full text sections 1–4, 2026",
+        "Stanley Enumerative Combinatorics vol. 1 ed.2, Problem 2.12 multiset derangements",
+        "Kim–Kim–Seo 2017 colored permutations with no monochromatic cycles",
+        "Resultary semantic multiset fixed-point support query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal moment or Poisson limit cannot imply which intermediate W have positive probability."
+        ],
+        "reasoning": "Flow existence supplies an equivalent proof idea, but the closed m_max interval and O(n) witness follow only after nontrivial cap-and-rotation analysis.",
+        "searches": [
+          "Stark 2026 fixed point mean/variance/coupling",
+          "Stanley derangement formula",
+          "general balanced-flow existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mismatches are a directed zero-diagonal multigraph/transportation feasibility problem, equivalent to capped flow constraints."
+        ],
+        "reasoning": "The result gives the explicit feasible cardinalities m and a constructive cyclic realization for all k, not a new universal Hall theorem.",
+        "searches": [
+          "multiset derangement and block-constrained color rearrangement",
+          "transportation matrix with forbidden diagonal and prescribed row/column sums",
+          "Stark arxiv:2608.00710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected finite-moment/Poisson theorem has no all-composition exact W-support table; classical counts focus on W=0."
+        ],
+        "reasoning": "No exact all-profile table or formula found in read sources; an older rook-polynomial specialization remains possible.",
+        "searches": [
+          "Stark 2026 full text",
+          "Resultary multiset-permutation support search",
+          "2017 multiset derangement literature"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.",
+      "residual_risks": [
+        "This is an elementary consequence of matching/transportation theory; a previous theorem may already state the all-profile mismatch support under different names.",
+        "The independent finite DP covers n<=8 and does not prove the general result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS W and its moments/Poisson approximation, not the all-profile finite support or witness construction",
+          "evidence": "Theorem 2 TV upper bound; Corollary 1 and Theorems 3–4 approximation bounds; none classifies feasible mismatch counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.00710",
+          "material_read": "Full parsed preprint, Introduction and Sections 2–4 (moments, upper/lower Stein total variation bounds)",
+          "method": "Read arXiv parsed full paper and compare its four stated theorems with exact feasible-support theorem",
+          "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+          "trigger": "Exact same random variable and multiplicity notation"
+        },
+        {
+          "assessment": "Endpoint counting does not by itself prove all intermediate W values realizable",
+          "evidence": "Derangement formulas test only M=n; current claim covers all 0<=M<=n.",
+          "identifier_or_url": "Stanley 2012, Problem 2.12",
+          "material_read": "Problem identification and accessible secondary references only; whole book not examined",
+          "method": "Compare derangement endpoint W=0 to full feasible interval for W",
+          "title": "Enumerative Combinatorics, volume 1",
+          "trigger": "Classical multiset derangements (zero fixed points) possible stronger exact count framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/check_support.py",
+        "Dudley Stark arxiv:2608.00710, full text sections 1–4, 2026",
+        "Stanley Enumerative Combinatorics vol. 1 ed.2, Problem 2.12 multiset derangements",
+        "Kim–Kim–Seo 2017 colored permutations with no monochromatic cycles",
+        "Resultary semantic multiset fixed-point support query"
+      ],
+      "rationale": "Exact finite-sample support, an explicit spectrum in terms of largest block, and witnesses for every possible mismatch count answer a natural feasibility question behind multiset fixed-point/derangement statistics; neither distributional moments nor derangement-only counts supply this all-profile classification.",
+      "residual_risks": [
+        "This is an elementary consequence of matching/transportation theory; a previous theorem may already state the all-profile mismatch support under different names.",
+        "The independent finite DP covers n<=8 and does not prove the general result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98/check_support.py",
+    "Dudley Stark arxiv:2608.00710, full text sections 1–4, 2026",
+    "Stanley Enumerative Combinatorics vol. 1 ed.2, Problem 2.12 multiset derangements",
+    "Kim–Kim–Seo 2017 colored permutations with no monochromatic cycles",
+    "Resultary semantic multiset fixed-point support query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For canonical sorted multiset word with positive block multiplicities a_i, fixed-point W supports are n (k=1); n-2j for k=2; and n or n-m with 2<=m<=min(n,2(n-max a_i)) for k>=3. General feasibility iff m=0 or m>=2 and sum_i min(a_i,floor(m/2))>=m, with O(n) construction.",
+  "limitations": [
+    "This is an elementary consequence of matching/transportation theory; a previous theorem may already state the all-profile mismatch support under different names.",
+    "The independent finite DP covers n<=8 and does not prove the general result.",
+    "METADATA.json and AUDIT.json each contain a public-intended scope_run_id operational provenance field; complete semantically cleared guarded replacement bytes were not prepared in this read-only audit.",
+    "All final public-intended bytes were not sanitized and verified end-to-end; publication must be withheld."
+  ],
+  "residual_risks": [
+    "This is an elementary consequence of matching/transportation theory; a previous theorem may already state the all-profile mismatch support under different names.",
+    "The independent finite DP covers n<=8 and does not prove the general result."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS W and its moments/Poisson approximation, not the all-profile finite support or witness construction",
+      "evidence": "Theorem 2 TV upper bound; Corollary 1 and Theorems 3–4 approximation bounds; none classifies feasible mismatch counts.",
+      "identifier_or_url": "https://arxiv.org/abs/2608.00710",
+      "material_read": "Full parsed preprint, Introduction and Sections 2–4 (moments, upper/lower Stein total variation bounds)",
+      "method": "Read arXiv parsed full paper and compare its four stated theorems with exact feasible-support theorem",
+      "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+      "trigger": "Exact same random variable and multiplicity notation"
+    },
+    {
+      "assessment": "Endpoint counting does not by itself prove all intermediate W values realizable",
+      "evidence": "Derangement formulas test only M=n; current claim covers all 0<=M<=n.",
+      "identifier_or_url": "Stanley 2012, Problem 2.12",
+      "material_read": "Problem identification and accessible secondary references only; whole book not examined",
+      "method": "Compare derangement endpoint W=0 to full feasible interval for W",
+      "title": "Enumerative Combinatorics, volume 1",
+      "trigger": "Classical multiset derangements (zero fixed points) possible stronger exact count framework"
+    }
+  ]
+}

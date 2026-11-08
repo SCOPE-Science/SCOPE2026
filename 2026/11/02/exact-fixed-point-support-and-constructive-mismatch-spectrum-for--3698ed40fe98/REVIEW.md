@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first derives the necessary per-color mismatch capacity \(d_i\le\lfloor m/2\rfloor\), then constructs every feasible mismatch count by rotating a cyclic list of the selected wrong-site colors through half its length. The case analysis for one, two, and at least three colors proves the exact closed support formulas including the endpoints, the no-single-mismatch gap, repeated largest multiplicities, and positive-integer corner cases. Independent exact dynamic-programming enumeration over all 2,047 ordered positive profiles through length 11 confirms 19,714 positive cells and all corresponding constructive witnesses. Limits: these finite checks supplement, rather than replace, the general proof.
+## correctness
 
-## Originality — PASS with historical-priority qualification
-Dudley Stark's 2026 primary study concerns the same multiset fixed-point random variable and Poisson approximation, but the inspected full sections 1–4 give no all-profile finite support theorem. Kim, Kim and Seo's 2017 multiset derangement work, together with the classical Stanley inclusion–exclusion formula, concerns the zero-fixed-point endpoint. The closest retrieved mathematical records address fixed-point statistics for restricted ordinary permutations or unrelated multiset/matching problems; they do not establish this exact support statement. The statement is compared at the implication level, not merely by title. Classical rook-polynomial or contingency-table results might imply the classification after a nontrivial specialization; this is a genuine residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The exact support of the finite-sample random variable studied in Poisson approximation is a natural distributional invariant. The complete structural classification distinguishes parity-constrained two-color shuffles from gap-free three-or-more-color shuffles, identifies the sharp lower and upper feasible match counts, and gives an explicit witness for *every* admissible value. This is a complete classification valid for unrestricted multiplicities, not an arbitrary small numerical slice or a standard single-parameter substitution. It does not claim an exact probability mass function.
+Each block i has d_i wrong symbols, which must be exported and re-imported in equal number; therefore d_i<=min(a_i,m-d_i). Conversely choose d_i within min(a_i,floor(m/2)) summing to m and rotate the grouped length-m mismatch color word by floor(m/2): no identical color survives because each monochromatic cyclic block length is <=floor(m/2). This preserves counts and gives exactly m mismatches. Two blocks force parity; for k>=3 the cap sum is enough for every 2<=m<=min(n,2(n-a_max)). Independently enumerated exact permutation DP supports for all 255 ordered positive compositions with 1<=n<=8 and matched the general criterion; inspected supplied broader n<=11 dynamic-programming checker (not treated as proof).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.
+
+## value
+
+PASS
+
+Exact finite-sample support, an explicit spectrum in terms of largest block, and witnesses for every possible mismatch count answer a natural feasibility question behind multiset fixed-point/derangement statistics; neither distributional moments nor derangement-only counts supply this all-profile classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
