@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-`VERIFY_KERNEL.py` uses the Python 3 standard library only. Run `python3 VERIFY_KERNEL.py` from the directory containing this file. It constructs the exact Kneser pair graphs for \(5\le n\le11\) and verifies the incidence and adjacency identities, first-harmonic eigenvectors, and generators of the second-harmonic sector. It independently checks the full exponential Gram matrices against the derived spectral eigenvalues at five values of \(2^p\) and four positive bandwidths per graph.
+## correctness
 
-It also bisects the unique positive transition for the \(c=2\) critical window at \(5\le n\le16\), checks strict monotonicity on those cases, checks the exact special cases against \(\log((1+\sqrt5)/2)\) and \(\log2\), and tests the stated first finite-size correction numerically for four additional sizes. Actual successful terminal output ends with `ALL_PAIR_KERNEL_CHECKS_OK 7 graph_cases; 12 finite-size roots`.
+PASS
 
-The incidence calculations are exact integer/rational checks. Exponential evaluations and root comparisons are standard floating-point diagnostics, not certified interval computations. The theorem for all integers, powers and bandwidths is justified instead by the elementary three-sector proof and scalar monotonicity analysis in `RESULT.md`. No independent audit or external correctness certification has been performed.
+Full incidence matrix B gives BB^T=(n-2)I+J and adjacency A=J+I-B^TB; orthogonal eigenspaces 1,U,W of dimensions 1,n-1,N-n and adjacency eigenvalues binom(n-2,2), -(n-3),1. With x=2^p kernel K=(1-e^-xt)I+(e^-t-e^-xt)A+e^-xt J, eigenvalues constant positive, W=1+e^-t-2e^-xt>0, U=F=1-(n-3)e^-t+(n-4)e^-xt. Differentiation F_t=e^-t[(n-3)-(n-4)x e^{-(x-1)t}] gives all-positive for x<=(n-3)/(n-4), otherwise unique positive zero t_c with n-1 negative eigenvalues below. Root monotone in x and tends log(n-3). At x=1+c/(n-4), root satisfies e^t=1+(n-4)(1-e^{-ct/(n-4)}), monotone n, converges unique positive T solving e^T=1+cT, expansion from Taylor gives stated 1/(n-4) correction. Independent full K matrix tests for n=5,6,9, several powers/bandwidths reproduced 1/U/W eigenvalues; checker full text inspected and finite cases cannot replace proof.
+
+## originality
+
+PASS
+
+Complete Johnson/Kneser distance spectra and Schoenberg all-scale criterion are classical. The additional scale-resolved t_c, exact inertia and fixed-c n-asymptotic correction were not found as statements in consulted prior Kneser spectrum/theory sources; best-of-knowledge qualified because formulas follow by elementary scalar calculus from known eigenspaces.
+
+## value
+
+PASS
+
+Finite-bandwidth positive definiteness matters for kernel regression beyond all-scales negative type; a natural full n,p,t classification identifies a nonzero finite-size crossover not captured by all-scale positivity criterion. Exact n-1-dimensional signature matters to Gram computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

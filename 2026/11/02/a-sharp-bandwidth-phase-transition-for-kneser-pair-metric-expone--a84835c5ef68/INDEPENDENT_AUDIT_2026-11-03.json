@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:14:18.175221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Full incidence matrix B gives BB^T=(n-2)I+J and adjacency A=J+I-B^TB; orthogonal eigenspaces 1,U,W of dimensions 1,n-1,N-n and adjacency eigenvalues binom(n-2,2), -(n-3),1. With x=2^p kernel K=(1-e^-xt)I+(e^-t-e^-xt)A+e^-xt J, eigenvalues constant positive, W=1+e^-t-2e^-xt>0, U=F=1-(n-3)e^-t+(n-4)e^-xt. Differentiation F_t=e^-t[(n-3)-(n-4)x e^{-(x-1)t}] gives all-positive for x<=(n-3)/(n-4), otherwise unique positive zero t_c with n-1 negative eigenvalues below. Root monotone in x and tends log(n-3). At x=1+c/(n-4), root satisfies e^t=1+(n-4)(1-e^{-ct/(n-4)}), monotone n, converges unique positive T solving e^T=1+cT, expansion from Taylor gives stated 1/(n-4) correction. Independent full K matrix tests for n=5,6,9, several powers/bandwidths reproduced 1/U/W eigenvalues; checker full text inspected and finite cases cannot replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aalipour et al general Kneser distance spectrum, strongly overlapping eigenbasis.",
+          "Schoenberg negative type criterion covers all t>0, not positive-t validity for p>p*."
+        ],
+        "reasoning": "Known broader combinatorial spectrum supplies ingredients; none of inspected theorems states full finite bandwidth threshold/critical-window scaling.",
+        "searches": [
+          "arxiv:1509.01196 theorem 3.9-3.10",
+          "arxiv:1012.5863 theorem 3.3",
+          "arxiv:1411.0296"
+        ]
+      },
+      "checked_sources": [
+        "Aalipour et al arxiv:1509.01196 Section 3.2 and Theorems 3.9-3.10, primary PDF screenshot",
+        "Meckes arxiv:1012.5863 all-scales Schoenberg formulation",
+        "Sanchez arxiv:1108.0451 negative-type general criteria",
+        "Resultary published semantic search for KG(n,2) bandwidth"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schoenberg equivalence proves p<=p* all-bandwidth branch but not p>p* positive-root value or inertia.",
+          "Johnson scheme commuting adjacency matrices makes scalar F computable directly, yet its unique-root critical scaling needs additional analysis."
+        ],
+        "reasoning": "The claim is a natural algebraic consequence of known spectrum plus a separate one-variable analysis; originality only for exact full phase diagram and asymptotic constants, not for spectrum/negative-type bound.",
+        "searches": [
+          "arxiv:1509.01196 Theorem 3.9 & 3.10",
+          "arxiv:1012.5863 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson-scheme common eigenvectors imply the same three sectors, and entrywise exp distance is a linear combination of Johnson adjacency matrices for KG(n,2)."
+        ],
+        "reasoning": "Strong equivalence in spectral premises; specific bandwidth root and finite-size law require evaluating distinct eigenvalue functions, not matching raw distance spectrum.",
+        "searches": [
+          "Kneser KG(n,2) graph distance exponential kernel positive definite bandwidth phase transition",
+          "arxiv:1509.01196 Theorems 3.9-3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact KG(n,2) kernel window found among top published-finding hits, which included unrelated graph thresholds.",
+          "The spectral table in Aalipour et al is for raw distance matrix, not entrywise exp(-t d^p)."
+        ],
+        "reasoning": "Database and table comparisons made without relying on negative search alone.",
+        "searches": [
+          "Kneser KG(n,2) graph distance exponential kernel positive definite bandwidth phase transition",
+          "Resultary semantic search for Kneser exponential kernel bandwidth"
+        ]
+      },
+      "rationale": "Complete Johnson/Kneser distance spectra and Schoenberg all-scale criterion are classical. The additional scale-resolved t_c, exact inertia and fixed-c n-asymptotic correction were not found as statements in consulted prior Kneser spectrum/theory sources; best-of-knowledge qualified because formulas follow by elementary scalar calculus from known eigenspaces.",
+      "residual_risks": [
+        "Exact finite-bandwidth formula could appear in specialized association-scheme or radial-basis kernel literature under Eberlein-polynomial terminology.",
+        "Value restricted to KG(n,2) and fixed c>1; critical window not uniform at c=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Simultaneous eigenspaces and distance eigenvalues known; scale-dependent exponential matrix and critical asymptotic not in these theorem statements",
+          "evidence": [
+            "Theorems 3.9-3.10: p_i(j) common adjacency eigenvalues and theta_j=sum_i f(i)p_i(j)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.01196",
+          "material_read": "Original PDF introduction, Section 3.2 pp 8-10, Theorems 3.9 and 3.10, including page screenshot p10",
+          "method": "Direct primary PDF text and rendered screenshot of page 10",
+          "title": "On the distance spectra of graphs",
+          "trigger": "Direct Kneser distance eigenvalue antecedent"
+        },
+        {
+          "assessment": "All-scale negative-type criterion antecedent; insufficient for t_c outside negative-type region",
+          "evidence": [
+            "Meckes Theorem 3.3 quoted by original package and corroborated by retrieved bibliographic record"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.5863",
+          "material_read": "Abstract, Theorem 3.3 as identified by source, all-scale criterion",
+          "method": "Primary publication abstract/theorem metadata compared; not full paper rereread in this execution",
+          "title": "Positive definite metric spaces",
+          "trigger": "All-scales positive-definiteness equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-bandwidth positive definiteness matters for kernel regression beyond all-scales negative type; a natural full n,p,t classification identifies a nonzero finite-size crossover not captured by all-scale positivity criterion. Exact n-1-dimensional signature matters to Gram computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite-bandwidth formula could appear in specialized association-scheme or radial-basis kernel literature under Eberlein-polynomial terminology.",
+    "Value restricted to KG(n,2) and fixed c>1; critical window not uniform at c=1.",
+    "Publication not_ready until public metadata privacy and antecedent date are fixed with exact guarded full replacements."
+  ],
+  "schema_version": 1
+}
