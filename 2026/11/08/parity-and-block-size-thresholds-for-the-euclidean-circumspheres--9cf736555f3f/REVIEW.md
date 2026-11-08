@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact domain is \(m\ge2\), \(a\ge1\), with equal nonnegative blocks, pairwise adjacent block-sum constraints, and the standard Euclidean metric. Integrality of the path aggregate polytope plus conditional within-block coordinate sampling gives the complete vertex set, rather than an unproved assumption about binary vertices. The distance identity reduces all possible contact patterns to weighted independent supports. The proof supplies positive edge-cover dual weights in the odd interior regime and strict even-block slack beyond \(a=m+1\). An explicit contact-vertex barycenter proves global uniqueness; strict convexity rules out unlisted nonvertex contacts. Boundary cases \(a=1\) and \(a=m+1\) have been checked symbolically. The supplied standalone verifier passed 707,576 exact assertions across 274 parameter instances, plus 70 separate numerical quadratic-programming checks. Finite verification is corroboration, not the infinite proof.
+
+## Originality — PASS (provisional priority)
+The original Jiang–Yang–Zhong manuscript (arXiv:2607.22008, first public 2026-07-24) addresses the family in its accessible abstract, primarily for transfer matrices and Ehrhart theory. Its complete text could not be obtained, so the possibility of an uninspected exact metric result remains a material priority risk. The fully inspected published result on complete-multipartite stable-set sphere screening concerns a graph class with independent sets entirely in one part, whereas the present graph's independent sets occupy potentially many nonadjacent clique blocks. The fully inspected fractional-cycle sphere theorem has different cycle and integrality hypotheses and no block-size threshold. General minimum-ball algorithms do not imply the closed family-specific center and contact formula. Existing cyclic-block diameter and alternating-capacity path claims also fail to imply the new theorem. Searches for the exact object, aliases, parameter threshold, and broader stable-set sphere results identified no covering statement, but absence of search hits is not treated as proof of uniqueness.
+
+## Mathematical value — PASS
+This is a complete metric invariant and full contact classification for an established natural family, not an isolated table entry. The parity distinction is geometric (uniform versus alternating center), and the sharp odd \(a=m+1\) contact transition is nontrivial despite the same stable-set/Ehrhart combinatorial source. The theorem describes the entire infinite two-parameter family and includes an explicit global optimality certificate.
+
+## Limitations and close literature
+The ambient Euclidean realization is essential. Unequal block sizes, cyclic closure, inspheres and John ellipsoids are not addressed. The full 2026 source remains inaccessible; an unindexed equivalent remains a historical originality risk. No independent expert or external certification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
