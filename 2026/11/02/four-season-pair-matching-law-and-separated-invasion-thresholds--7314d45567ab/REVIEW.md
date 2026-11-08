@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS for the stated discrete-time two-type family. The critical trace identity follows by expanding four matrices as \(sI+tX_i\), where odd products of off-diagonal matrices have zero trace and the fourth-degree term is exactly the alternating-position ratio pairing. The determinant depends only on the unordered season multiset. Strict positivity of the seasonal products permits a Perron-root comparison at fixed determinant even if some seasonal determinants are negative. Monotonicity in the positive intensity multiplier \(t\), together with the exact small- and large-intensity limits, gives a unique threshold for each multiplier class and strict threshold separation. The proof treats all positive parameters and boundary limits. Exact rational checks reproduce the finite example and test the identities independently.
+PASS
 
-## Originality
+Write M_i=sI+tX_i with X_i off-diagonal. Any odd X-product has zero trace; pair terms at t² are permutation independent. The sole schedule-dependent trace term is t⁴ product(c_i)(r_pi1 r_pi3+r_pi2 r_pi4). Three distinct alternating-position partitions occur eight times each and strictly order by products of positive ratio differences. The determinant of the product is product(s²−t² b_i c_i), independent of schedule. For a strictly positive 2x2 product Perron eigenvalue is strictly increasing in trace at fixed determinant, even if determinant is negative. Each matrix product increases entrywise with t>0, so each Perron root increases continuously from s^4<1 to infinity; distinct classes cross 1 at strictly separated unique t. For <=3 factors no ordering-dependent even X-product of length four exists. Independently reproduced all 24 rational schedule products, trace classes, determinant, and opposite invasion outcomes in the supplied numeric example.
 
-PASS within the investigated primary and research-record literature, with historical priority provisional. The 2009 periodic matrix-population framework of Bacaër and the 2012 full-text mosquito model of Chitnis–Hardy–Smith provide matrix stability context; neither accessible technical treatment establishes the stated four-season bidirectional ratio-matching and universal separated-threshold law. The 2014 Gao–Lou–Ruan periodic Ross–Macdonald article is directly relevant to model motivation but only its abstract and bibliographic details could be inspected, so no assertion of noncoverage of its full proof is made. Previously established exact comparisons for a single varying transmission direction and for a distinct symmetric dispersal model are related special or neighboring cases; their scientific results are not relabeled as contributions. The present result requires independently varying positive transmission coefficients in **both** directions and yields three strictly distinct invasion-intensity thresholds for every admissible four-ratio configuration. A general positive-matrix rearrangement theorem may still subsume the result, and historical priority awaits independent review.
+## originality
 
-## Value
+PASS
 
-PASS. In an idealized but motivated bidirectional host–vector seasonal infection system, both directions of transmission may respond differently to environmental conditions. The theorem determines the exact best, middle, and worst ordering for every set of four distinct directional ratios, not merely for a selected numerical profile, and establishes that the same transmission seasons can cross the infection-invasion threshold in opposite ways on nonempty ranges of overall contact intensity. This is a structural finite-horizon comparison with a sharp minimal season count, beyond a routine isolated matrix computation. It is not an inference about observed epidemics or optimal field interventions.
+Qualified PASS: periodic population matrix products and malaria seasonal threshold models are prior work, and a one-direction special case of four-season pairing is credited. The unrestricted two-direction varying-ratio 3-class ordering plus all-parameter separated crossing theorem is not evidenced in the checked earlier model results. A general positive 2x2 matrix-product rearrangement theorem is a genuine residual priority risk.
 
-## Closest literature and limits
+## value
 
-Bacaër (2009), DOI:10.1007/s11538-009-9426-6, treats periodic matrix population-growth and reproduction-number quantities. Chitnis, Hardy and Smith (2012), DOI:10.1007/s11538-011-9710-0, present a higher-dimensional nonhomogeneous mosquito feeding-cycle difference equation and periodic stability criterion. Gao, Lou and Ruan (2014), DOI:10.3934/dcdsb.2014.19.3133, treat patchy periodic Ross–Macdonald threshold dynamics. These are scientific comparators, not demonstrations of independent priority. The proof assumes fixed equal diagonal retention, exact linearization and deterministic repeated seasons; continuous-time propagators and nonlinear disease dynamics require separate analysis.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete sharp finite-horizon schedule-dependence classification for a natural seasonal two-type linearized infection model. The proof establishes rigorous nonempty intervals with different local invasion verdicts despite identical four seasonal factors, and four is the first possible sensitive horizon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is an exact trace and determinant calculation. In the \(2\times2\) positive cone, the Perron root is strictly increasing in trace at fixed determinant. Three independent nonzero pair-sum gaps give the strict classification, while positive-entry monotonicity and the limits \(s^4\) and \(+\infty\) prove three strictly separated crossing intensities. These analytical arguments establish the entire claimed real-parameter domain; finite tests alone would not establish the theorem.
+## correctness
 
-`python3 check.py` runs deterministically using only the Python 3 standard library, with rational arithmetic throughout. Successful execution of the packaged script printed `EXACT_CHECKS_PASSED 7227`, 24-permutation checks on 240 reproducible random parameter sets, invariance checks for one through three seasons, and exact reproduction of the rational threshold-reversal example. The random tests are nonexhaustive; the displayed algebraic proof supplies the unbounded-domain conclusion.
+PASS
 
-The provenance comparison inspected the mathematical model and matrix stability theorem of the publicly accessible 2012 open-access malaria-mosquito article, and metadata/abstracts of the 2009 periodic matrix article and the 2014 patchy Ross–Macdonald article. The 2014 article's full technical text was not verified in this review. The example is not a calibrated infection forecast. Historical priority and independent scientific validation are not established by these checks.
+Write M_i=sI+tX_i with X_i off-diagonal. Any odd X-product has zero trace; pair terms at t² are permutation independent. The sole schedule-dependent trace term is t⁴ product(c_i)(r_pi1 r_pi3+r_pi2 r_pi4). Three distinct alternating-position partitions occur eight times each and strictly order by products of positive ratio differences. The determinant of the product is product(s²−t² b_i c_i), independent of schedule. For a strictly positive 2x2 product Perron eigenvalue is strictly increasing in trace at fixed determinant, even if determinant is negative. Each matrix product increases entrywise with t>0, so each Perron root increases continuously from s^4<1 to infinity; distinct classes cross 1 at strictly separated unique t. For <=3 factors no ordering-dependent even X-product of length four exists. Independently reproduced all 24 rational schedule products, trace classes, determinant, and opposite invasion outcomes in the supplied numeric example.
+
+## originality
+
+PASS
+
+Qualified PASS: periodic population matrix products and malaria seasonal threshold models are prior work, and a one-direction special case of four-season pairing is credited. The unrestricted two-direction varying-ratio 3-class ordering plus all-parameter separated crossing theorem is not evidenced in the checked earlier model results. A general positive 2x2 matrix-product rearrangement theorem is a genuine residual priority risk.
+
+## value
+
+PASS
+
+Complete sharp finite-horizon schedule-dependence classification for a natural seasonal two-type linearized infection model. The proof establishes rigorous nonempty intervals with different local invasion verdicts despite identical four seasonal factors, and four is the first possible sensitive horizon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
