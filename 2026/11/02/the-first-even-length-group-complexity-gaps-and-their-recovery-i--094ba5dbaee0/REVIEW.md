@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The length-\(n\) factor set is generated exactly from the four length-two Thue–Morse factors after \(\lceil\log_2 n\rceil\) uniform morphism iterations. Exhaustive enumeration of all 24 and 720 permutations and their cyclic subgroups rules out any one-pair merger at lengths four and six, which by the subgroup-containment argument rules it out for all subgroups. Explicit generators attain every other listed value; a separate exhaustive 1,455-subgroup census verifies the length-six spectrum. A length-eight involution explicitly merges one complementary factor pair and no other pair.
+## correctness
 
-## Originality
-PASS on examined evidence, with residual priority risk. Launer–Puzynina–Voloshinova (2026) prove a parity obstruction at odd lengths, not these complete even-length spectra or the length-eight recovery. Charlier–Puzynina–Zamboni (2015) establish general group-action complexity bounds, not this finite classification. A 2017 presentation states one length-four value, not the full spectrum. Targeted literature searches and semantic research-record comparisons yielded no dominating result; unindexed examples remain a risk.
+PASS
 
-## Value
-PASS. The precise attainable range is the central invariant of the 2026 article; the first two nontrivial even lengths show a gap not forced by its odd-parity lemma, whereas the next even length has an explicit penultimate realization. The result resolves the smallest naturally ordered even-length cases and gives a sharp, motivated boundary to a possible extension of the known obstruction, not an arbitrary isolated count.
+The uniform substitution factor lemma covers every length-n factor with the four morphic blocks mu^m(ab), m=ceil(log2 n): any n-window meets at most two aligned blocks and all four adjacent bit pairs occur in Thue--Morse. Independent generation confirmed |F4|=10, |F6|=16 and |F8|=22. For any group merging only one pair of factors, some member permutation generates a cyclic subgroup merging the pair but no others. Independently enumerating all 4!=24 and 6!=720 single permutations and their induced cyclic orbit intersections excluded class counts 9 and 15. Independently reimplemented subgroup generation for each explicitly listed W4/W6 generator witness and matched every displayed attainable complexity. Applying (1 2)(3 8)(4 5)(6 7) at n=8 produced exactly one merged factor pair, 01001011/10110100, so p=21. This proves only the finite exact spectra and one length-eight recovery, not an infinite even-length theorem.
 
-## Limitations and closest literature
-The general even-length range remains open. The 2026 source's odd-length theorem and the 2015 framework are the closest published comparisons. The numerical group-census multiplicities are finite checks, not new all-length theorems. No independent audit or universal novelty certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.
+
+## value
+
+PASS
+
+Group complexity is a recognized invariant between factor and abelian complexity. Exact attainable spectra at the first nontrivial even lengths identify genuine gaps and their disappearance at length eight; this sharp boundary corrects the temptation to extend the known odd-length antipodal obstruction unchanged. Finite but fully classified spectra are natural and independently usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
