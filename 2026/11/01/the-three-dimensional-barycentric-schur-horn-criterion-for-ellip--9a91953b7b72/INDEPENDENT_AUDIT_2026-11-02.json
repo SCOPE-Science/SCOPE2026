@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:52:00.152460Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/the-three-dimensional-barycentric-schur-horn-criterion-for-ellip--9a91953b7b72/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/the-three-dimensional-barycentric-schur-horn-criterion-for-ellip--9a91953b7b72/verify.py"
+      ],
+      "rationale": "For SPD 3x3 C and unit y, every orthonormal frame with constant positive barycentric dot product 1/sqrt(3) is a rotating equilateral triple in y-perpendicular tangent plane. Expanding u_j^TCu_j-tr(C)/3 yields the j-th real harmonic of √2(b1−ib2)e^{iθ}+(p+iq)e^{−2iθ}; all three vanish iff e^{3iθ}√2(b1−ib2)=−(p+iq), so p²+q²=2||PCy||², i.e. Δ=2sqrt(2)||PCy||. Direct coordinate-free trace algebra shows Δ²−8||PCy||² = 9a²+2Tr(C)a−12y^TC²y+2Tr(C²)−Tr(C)²; nonnegative sides avoid squaring spurious roots. Independent symbolic check in tangent block exactly reproduced 4(p²+q²)−8(b1²+b2²), and diag(1,2,3), y=(1,2,1)/√6 satisfies the criterion. When b != 0, three θ solutions differ only by cyclic column permutation; when b=0, the compression is scalar and every θ works. Kania geometric theorem maps this frame criterion to the ellipsoid maximum for every prescribed vertex, while the global maximum formula is correctly attributed to Kania.",
+      "residual_risks": [
+        "Dimension three only, SPD matrices and unit y; global facet-area maximum/equality reduction is a cited earlier theorem.",
+        "Finite tests support but do not replace the all-matrix symbolic harmonic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kania 2026 Theorem 4.2 proves global facet-area maximum, Proposition 5.2 the barycentric-frame reduction; Theorem 5.5 treats y an eigenvector and Problem 6.1 asks the general restricted question."
+        ],
+        "reasoning": "Known theorem subsumes geometric setup and b=0 eigenvector subcase but not the all-y dimension-three algebraic criterion, nonprincipal examples or generic uniqueness.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7#Sec5",
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7#Sec6",
+          "Resultary semantic: barycentric Schur Horn ellipsoid"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00025-026-02757-7",
+        "https://arxiv.org/abs/2510.16488",
+        "Resultary semantic: barycentric Schur Horn criterion ellipsoids dimension three inertia ellipsoid centroid"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kania Proposition 5.2 iff a constrained barycentric orthonormal frame exists; Theorem 5.5 principal-axis iff transverse eigenvalues coincide, which is exactly b=0 case here."
+        ],
+        "reasoning": "Current result resolves the dimension-three constrained frame question by explicit complete equality and uniqueness classification. Prior maximum theorem + unsolved frame existence reduction do not entail that solution.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7#Sec4",
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7#Sec5",
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7#Sec6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constrained equal-diagonal 3x3 Schur–Horn problem with prescribed barycentric vector is equivalent to the complex third-harmonic phase and spectral-gap equation; unrestricted Schur–Horn does not preserve projections u_j·y."
+        ],
+        "reasoning": "Potential unrestricted equal-diagonal results do not solve the additional barycentric constraint. These aliases and the intrinsic quartic represent the same current theorem, not previously established unconditional facts.",
+        "searches": [
+          "https://arxiv.org/abs/2510.16488",
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7",
+          "Resultary semantic: barycentric Schur Horn criterion ellipsoids dimension three inertia ellipsoid centroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact locus/test with fourth-degree invariant and all-directions uniqueness was located; the same paper explicitly poses the constrained existence problem."
+        ],
+        "reasoning": "Numerical SDP or Schur–Horn tabulations may test a matrix but are not a checked table of the complete all-y iff quartic. Search incompleteness remains.",
+        "searches": [
+          "Resultary semantic: barycentric Schur Horn criterion ellipsoids dimension three inertia ellipsoid centroid",
+          "https://arxiv.org/abs/2510.16488",
+          "https://link.springer.com/article/10.1007/s00025-026-02757-7"
+        ]
+      },
+      "rationale": "Qualified PASS: a nontrivial exact answer in dimension three to Kania’s published prescribed-vertex barycentric Schur–Horn problem, with complete quartic criterion and equality family; Kania owns the general extremal geometry and principal-axis subcase.",
+      "residual_risks": [
+        "An equivalent independent solution under specialized frame/Schur–Horn terminology might exist outside the examined sources.",
+        "The unrestricted higher-dimensional problem remains open; this result makes no claim beyond dimension three."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: geometric reduction and principal-axis special case, but general 3D constrained criterion posed as Problem 6.1.",
+          "evidence": [
+            "Theorem 4.2 global max; Proposition 5.2 barycentric test; Theorem 5.5 eigenvector condition; Section 6 Problem 6.1"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-026-02757-7",
+          "material_read": "Full open-access article HTML including Theorem 4.2, Proposition 5.2, Theorem 5.5, Problem 6.1 and surrounding proof discussion.",
+          "method": "Read Springer open-access complete HTML and mathematical sections",
+          "title": "Parallelepipeds of Maximal Facet Area and Total Edge Length in Ellipsoids, Through Prescribed Boundary Points",
+          "trigger": "exact same question / direct possible dominance"
+        },
+        {
+          "assessment": "NOT_COVERING fixed projections constraints.",
+          "evidence": [
+            "Unrestricted diagonal majorization does not require common u_j·y=1/√3"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/CBO9781139020411",
+          "material_read": "Standard theorem statement and distinction from fixed barycentric frame in Kania discussion; no independent complete textbook read.",
+          "method": "Theorem-level mathematical comparison",
+          "title": "Classical Schur-Horn theorem",
+          "trigger": "unrestricted equal-diagonal possible alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/the-three-dimensional-barycentric-schur-horn-criterion-for-ellip--9a91953b7b72/RESULT.md"
+      ],
+      "rationale": "Kania’s explicit prescribed-point maximizer question motivates solving the restricted 3x3 Schur–Horn existence problem; intrinsic quartic and generic uniqueness versus rotational degeneracy answer all boundary points rather than just eigenvectors. The nonprincipal triaxial witness shows this is not a substitution of Kania’s principal-axis result.",
+      "residual_risks": [
+        "Dimension three only, SPD matrices and unit y; global facet-area maximum/equality reduction is a cited earlier theorem.",
+        "Finite tests support but do not replace the all-matrix symbolic harmonic argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dimension three only, SPD matrices and unit y; global facet-area maximum/equality reduction is a cited earlier theorem.",
+    "Finite tests support but do not replace the all-matrix symbolic harmonic argument."
+  ],
+  "schema_version": 1
+}
