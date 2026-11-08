@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "First-occurrence recurrence proves L and c exactly; unique-SAS grammar follows by a necessary-and-sufficient case split with fixed ambient alphabet and explicit empty-tail boundary. Disjoint weighted enumeration derives the rational bivariate series. Two separately implemented direct and dynamic-programming enumerations agree coefficientwise through lengths 12 and 22 respectively, but are only auxiliary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abraham et al. explicitly count n-letter k-omnibus words, rather than the one-missing stratum of the shortest absent length.",
+        "Published universality-index distribution counts all words of index k, without conditioning on exactly one SAS.",
+        "Fibonacci extremal paper maximizes SAS multiplicity by length, not the number of words of SAS multiplicity one."
+      ],
+      "reasoning": "Omnibus counts, universality-index counts, SAS maxima, and existence/shortest-length statements do not specify this double-indexed source-word enumeration. Strong membership coverage by Fleischmann et al. is considered separately and is not misrepresented as a new characterization.",
+      "searches": [
+        "arxiv:0905.4517v1 Sections 4 and 6",
+        "arxiv:2407.18599v1 shortest feasible unique-missing words",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0905.4517",
+      "https://arxiv.org/abs/2108.13968",
+      "https://arxiv.org/abs/2202.07981",
+      "https://arxiv.org/abs/2407.18599",
+      "https://oeis.org/A135491",
+      "https://oeis.org/A354784",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fleischmann et al. Theorem 16 and 29 give global membership criteria and an algorithm, not an evaluated length-by-index count.",
+        "Kosche et al. determine absent subsequences of a given source word, not how many sources have one such subsequence.",
+        "The first-arch recurrence gives an explicit disjoint grammar and weighted counting relation, which yields the claimed series."
+      ],
+      "reasoning": "The nearest prior results allow deciding membership and may indirectly enable enumeration, but their stated results do not directly imply the explicit bivariate rational function or binomial coefficient counts as a parameter substitution or stated corollary. Derivation requires the new binary-specific first-occurrence bijection. The prior classification is explicitly credited, and its potential to support an alternative simple derivation remains a material priority risk.",
+      "searches": [
+        "arxiv:2202.07981v1 Section 3 full membership characterization",
+        "arxiv:2108.13968v1 SAS enumeration for a given word",
+        "\"1-nearly k-universal\" enumeration length fixed binary generating function",
+        "\"shortest absent subsequences\" \"exactly one\" \"count\" binary word"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fleischmann et al. (2022), Theorem 10 and Theorem 16, characterize the one-missing class on arbitrary alphabets and show universality index k-1.",
+        "The exact formula here enumerates individual words at each n and each k, not congruence classes or only membership."
+      ],
+      "reasoning": "The uniquely missing length-k binary subsequence condition is exactly the 1-nearly-k-universal condition when the word uses both alphabet letters. This equivalence is acknowledged. The published theorem does not provide the count of source words by length or a weighted grammar; those are obtained here. Unary sources are included under a fixed ambient alphabet, unlike the variable source-alphabet convention of that article.",
+      "searches": [
+        "Binary words with exactly one shortest absent subsequence: generating function 2z/(1-z-u z^2-u z^3), tribonacci enumeration by length and universality index",
+        "Unique shortest absent subsequence count of binary words bivariate GF 2z/(1-z-u z^2-u z^3), arch parsing",
+        "arxiv:2202.07981v1 Theorem 16 and Theorem 29",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A354784 contains 0,0,2,2,4,8,14,26,... and A135491 contains 1,2,4,8,14,26,...; the latter coincides with the word counts after an index shift for n at least 2.",
+        "Their OEIS interpretations concern anti-palindromic compositions and binary runs rather than SAS; no bivariate source-word index table was found."
+      ],
+      "reasoning": "The one-variable tribonacci numbers and recurrence are known and are not asserted as new. The claimed additional invariant is the exact unique-SAS word interpretation with its refinement by universality index, both proved here. A database might contain an unrecognized equivalent interpretation, which remains a risk.",
+      "searches": [
+        "OEIS A135491",
+        "OEIS A354784",
+        "Omnibus binary words missing exactly one word of shortest missing length, tribonacci recursion",
+        "Tribonacci enumerations of shortest absent scattered subsequence unique missing motif"
+      ]
+    },
+    "rationale": "The source-word count by both length and universality index is not in the inspected primary texts or indexed related mathematical findings. The 2022 full general-alphabet membership characterization and the OEIS tribonacci scalar sequence are expressly credited; neither states the evaluated bivariate count or binary first-arch weighted bijection. Search absence cannot prove priority.",
+    "residual_risks": [
+      "The general-alphabet complete characterization in arxiv:2202.07981 could yield the binary length enumeration by another short combinatorial argument; a previously unpublished or unindexed evaluation may exist.",
+      "The scalar tribonacci sequence is pre-existing and cannot be claimed as newly discovered or unique to this word-count model.",
+      "Searching indexed records does not prove absence of independently known generating functions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides original context and k-omni count; not the unique shortest missing word bivariate enumeration",
+        "evidence": "Theorem 4.2 and its proof count words containing every length-k subsequence; Section 6 studies missing pattern expectations.",
+        "identifier_or_url": "https://arxiv.org/pdf/0905.4517",
+        "material_read": "Introduction, omnibus counting formulas in Section 4, and missing-word Section 6; arXiv first-version header date",
+        "method": "Primary PDF text and page images",
+        "title": "Omnibus Sequences, Coupon Collection, and Missing Word Counts",
+        "trigger": "Foundational archive-era omission-count and universal subsequence enumeration"
+      },
+      {
+        "assessment": "Determines SAS of an individual word, not the source-word distribution",
+        "evidence": "The source-to-SAS algorithms have an input word as their object; no all-length 1-SAS source census is stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Introduction, SAS theory and enumeration algorithms in Section 3, concluding discussion",
+        "method": "Primary PDF text and page images",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Introduces SAS concept and algorithms for a given word"
+      },
+      {
+        "assessment": "Fully characterizes the class and computes congruence classes; does not state fixed-length individual-word counts or the rational bivariate enumerator",
+        "evidence": "Theorem 16 membership conditions, Theorem 29 equivalent characterization, and the Section 3 discussion of decision algorithms; no weighted length count presented.",
+        "identifier_or_url": "https://arxiv.org/pdf/2202.07981",
+        "material_read": "Definitions, Section 3 Theorems 10, 16 and 29, membership algorithm, and conclusion",
+        "method": "Primary full PDF text with page-image inspection",
+        "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+        "trigger": "Decisive exact object equivalence and possible stronger covering prior result"
+      },
+      {
+        "assessment": "Gives extremal parameters and shortest realizations; does not enumerate all longer one-missing words",
+        "evidence": "Short-length extremal bounds concern existence/minimum size rather than source-word multiplicities for every n.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+        "material_read": "Introduction and extremal-count/shortest-length results in Section 3",
+        "method": "Primary PDF text and page images",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Potential fixed-universality fewest-missing-word stronger theorem"
+      },
+      {
+        "assessment": "Counts all words by universality index, not by unique-SAS condition",
+        "evidence": "Its generating function is (1+z)/(1-z-2uz^2), a different count.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "Entire mathematical result, assumptions, proof, comparison and limitations",
+        "method": "Full primary RESULT.md source",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Closest published binary bivariate index distribution"
+      },
+      {
+        "assessment": "Optimizes count of SAS per word, not the number of words having count exactly one",
+        "evidence": "Its M_n equals a parity-dependent Fibonacci maximum.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "material_read": "Entire mathematical result, assumptions, proof, comparison and limitations",
+        "method": "Full primary RESULT.md source",
+        "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+        "trigger": "Closest published fixed-length SAS multiplicity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e0fc2704-3f8f-416e-bc20-d334868f0b8a",
+  "value": {
+    "rationale": "Exact enumeration of the one-missing-SAS stratum is a natural near-universality invariant. It quantifies the full population of exceptionally precise source words at each length and universality index, not merely existence/membership or a small arbitrary table. The grammar explains its tribonacci law; the probability of the property is proven to decay exponentially.",
+    "status": "PASS"
+  }
+}
