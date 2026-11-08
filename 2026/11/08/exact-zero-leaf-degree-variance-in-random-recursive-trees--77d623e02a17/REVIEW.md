@@ -1,0 +1,19 @@
+# Scientific review: Exact zero-leaf-degree variance in random recursive trees
+
+## Correctness — PASS
+
+The claimed variance is the explicit positive constant \((3-e)/e^2\), for the undirected zero-leaf-neighbor statistic \(M_{0,n}\). The parent-choice model, childless-child indicators, falling-factorial identities and root boundary event are defined exactly in RESULT.md. A designated set of terminal children has probability reciprocal to a falling factorial; two-parent inclusion–exclusion explicitly excludes using the younger counted parent as a terminal child. A uniform factorial-series expansion produces the bounded continuous two-point covariance kernel. Its diagonal contribution is \(1/2-e^{-1}+e^{-2}/2\); its ordered-pair contribution is \((5-e^2)/(4e^2)\). Summing gives the constant. The root correction has probability at most \(1/(n-1)\), leaving the normalized limiting variance unchanged. Exact exhaustive checks of the identities and root correction for orders 3–8 were run from the embedded standalone checker. The Gaussian-limit component is explicitly dependent on the existing joint central limit theorem of Holmgren and Janson. The remaining mathematical risk is the uniform exponential-series truncation at the boundaries; the proof supplies a factorial-moment domination and factor-by-factor expansion rather than extrapolation from numerical tests.
+
+## Originality — PASS (provisional historical priority)
+
+Hartle and Krapivsky (arXiv:2511.04085, Sections I.1–I.2 and II.1) define the exact observable, identify its mean asymptotic and discuss extensive variance and Gaussian appearance through simulations, not the closed variance constant. Holmgren and Janson (arXiv:1406.6883, Theorem 8.6 and Remark 1.26, and discussion immediately below) already cover joint asymptotic Gaussianity of 1- and 2-protected counts and hence of their sum, so this is **not** independently new Gaussian-limit theory. Their general variance expressions do not evaluate the closed constant. Mahmoud and Ward's work on protected nodes bounds variance scale rather than computing this zero-leaf-degree count variance. The 2026 Hartle–Krapivsky joint-degree article (arXiv:2602.01021, Sections IV and Appendix A) treats single-vertex limiting frequencies in the recursive-tree appendix, not the exact global variance coefficient. The new mathematical contribution is the explicit \((3-e)/e^2\), including its two-vertex covariance calculation. Historical priority remains provisional; implicit general covariance formulae may subsume the claimed specific result after computation.
+
+## Mathematical value — PASS
+
+The leaf-degree-zero count \(M_{0,n}\) is a natural observable used directly in recent random-tree research to measure isolated-from-leaves or protected-plus-leaves populations. Its exact variance coefficient fixes the scale of Gaussian fluctuations and quantifies cancellation between positive individual variances and negative long-range covariances. This is an unknown natural invariant of an established model, not an arbitrary parameter substitution, artificial slice, or mere known-table recomputation. It clarifies a concrete quantitative gap without claiming a standalone general theory.
+
+## Closest literature and limitations
+
+The closest primary sources are Hartle and Krapivsky (2025, arXiv:2511.04085), Holmgren and Janson (2014/2015, arXiv:1406.6883), Mahmoud and Ward (2015, doi:10.1239/jap/1429282623), and Hartle and Krapivsky (2026, arXiv:2602.01021). No claim is made about the variance constants for nonzero leaf degree or other attachment mechanisms. The historical-priority conclusion is best-knowledge, not a guarantee. The finite checker cannot establish the limiting theorem without the stated proof.
+
+Self-review: passed. Independent audit: not yet performed.
