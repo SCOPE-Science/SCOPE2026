@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Exact first-arrival decomposition into the five distinguished cycle/tail vertices and remaining tail vertices yields recurrence (1) for all n>=5. The path generating function is derived independently from its recurrence. Formal-power-series algebra yields the chord sensitivity function and coefficient increment. Alternating strictly decreasing increments for n>=6 prove positivity for every n>=7 and the factorial remainder. Standalone verify.py confirms 516 exact assertions, including independent induced-subgraph and permutation enumeration checks. Finite computations do not substitute for the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krivelevich et al., Theorem 1.4 (arXiv:1907.07216), compares paths against other trees; the chorded path is unicyclic.",
+        "Krivelevich et al., Section 8 gives a bridge deletion counterexample on two stars, which is structurally different from the endpoint chord.",
+        "Penrose--Sudbury (arXiv:math/0503519), introduction and Theorems 1--11 provide process equations and results for lattices, trees, and normal approximation, without the evaluated chord comparison."
+      ],
+      "reasoning": "Neither the tree extremal theorem nor a bridge example determines a comparison after adding an edge to the path. General finite-graph forward equations could reproduce the proof as a calculation but do not imply the closed form or the strict all-order positivity without the additional analysis presented here.",
+      "searches": [
+        "\"Greedy maximal independent sets via local limits\" Section 8 Theorem 1.4",
+        "\"Exact and approximate results for deposition and annihilation processes on graphs\" path occupation finite graph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1907.07216",
+      "https://doi.org/10.1002/rsa.21200",
+      "https://arxiv.org/pdf/math/0503519",
+      "https://doi.org/10.1002/rsa.20716"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general edge-deletion nonmonotonicity example joins two star centers by a bridge; a chord-augmented path has an even cycle and no corresponding bridge mechanism.",
+        "The path formula is known (Krivelevich et al. Eq. 10--11), and is explicitly subtracted here; the formula for the chorded path and exact positivity do not appear in that theorem."
+      ],
+      "reasoning": "The present result shares a phenomenon with prior work but gives a distinct parametric infinite family, a closed full sensitivity sequence, exact zero orders and a sharp limiting value. Neither listed prior implication logically forces this exact comparison without substantive further computation and argument.",
+      "searches": [
+        "arXiv:1907.07216 Theorem 1.4 Section 8 edge deletion monotonicity",
+        "arXiv:math/0503519 blocking RSA path normal approximation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform arrival times induce exactly the uniform vertex-order greedy MIS (Penrose--Sudbury, Section 2).",
+        "Krivelevich et al., Section 1 explicitly equates greedy MIS to random-order selection."
+      ],
+      "reasoning": "Both blocking random sequential adsorption and uniform-order greedy MIS are equivalent to the present model. The equivalence in nomenclature was accounted for; no inspected statement specializes to the exact four-cycle-tail sensitivity sequence.",
+      "searches": [
+        "\"random sequential adsorption\" \"tadpole graph\" occupancy",
+        "\"random greedy independent set\" \"cycle\" \"path\" \"one edge\" expected",
+        "arXiv:math/0503519",
+        "arXiv:1907.07216"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected searches returned the general path and graph adsorption papers, not a coefficient table for the four-cycle-tail family.",
+        "The theorem supplies a new explicit coefficient sequence and factorial tail, rather than a new recomputation of the classical path occupancy formula."
+      ],
+      "reasoning": "No exact sequence or graph-specific table covering the claimed formula was identified in the sources searched. This is a limited negative search result, not a uniqueness certificate.",
+      "searches": [
+        "\"greedy independent set\" \"adding an edge\" \"increase\" expected",
+        "\"random sequential adsorption\" \"tadpole graph\" occupancy",
+        "\"random greedy independent set\" \"cycle\" \"path\" \"one edge\" expected"
+      ]
+    },
+    "rationale": "This theorem evaluates the entire endpoint-four-cycle chord sensitivity sequence, exact equality orders, an all-order positive-sign classification and its factorial convergence constant. The closest directly relevant primary work proves path minimality only among trees and exhibits nonmonotonicity on a different bridge-joined pair of stars, neither implying a four-cycle-tail formula. General adsorption forward equations do not provide this exact evaluated comparison. Relevant records and literature searches did not locate an explicit covering formula; historical priority remains uncertain.",
+    "residual_risks": [
+      "Unindexed older adsorption work or an obscure explicit finite unicyclic calculation could precede this identity.",
+      "General process equations imply that a graph-specific calculation is possible, but their existence alone is not the evaluated sign/constant theorem.",
+      "Historical priority has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior path formula and general nonmonotonicity acknowledged; no explicit chorded-path generating function or positivity sequence in the relevant results",
+        "evidence": [
+          "Theorem 1.4 restricts to trees",
+          "Section 8 Eq. 10--11 path recurrence",
+          "Section 8 bridge example joining two stars"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+        "material_read": "Full accessible HTML; Introduction, Theorem 1.4, Sections 8--9 including exact path recurrence, the two-stars bridge example and main comparison proof",
+        "method": "Read the accessible full article text and locate the mathematically relevant statements and proofs",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "The same algorithm, exact path extremal theorem, and known failure of edge monotonicity"
+      },
+      {
+        "assessment": "General process and forward equations cover the setting but the inspected results are not an evaluated formula or all-order sign theorem for this finite unicyclic family",
+        "evidence": [
+          "Section 2.1 finite blocking RSA equivalent process",
+          "Theorems on regular trees, lattices and normal approximation; no claimed exact four-cycle-tail comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+        "material_read": "Abstract, Sections 1--2 (definition and statement of results), finite blocking RSA and finite-graph normal approximation sections, plus targeted search for path and cycles",
+        "method": "Read public PDF text and inspect the title/abstract page rendering; targeted source comparison",
+        "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+        "trigger": "Potential broader coverage via blocking random sequential adsorption on general graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a41a54da-e9d7-433e-b521-ebe7e955d18c",
+  "value": {
+    "rationale": "The path is an extremal base graph for greedy independent-set occupancy among trees. A single edge producing the smallest even cycle is the canonical bipartite unicyclic perturbation. The complete finite-order response has non-obvious equality orders n=4,6 and strict positive sign thereafter; the stable shift is explicitly (1-7 exp(-2))/2 with factorial corrections. This resolves a natural structural boundary and not an arbitrary parameter slice or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
