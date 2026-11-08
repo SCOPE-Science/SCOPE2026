@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:00:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cycle is never shattered: all but one edge 1 (same side) and last edge 0 (different sides) is inconsistent. On a forest each Boolean assignment to equality edges produces exactly two complementary vertex colorings per connected component; if first uses c_i in the prescribed a-set, the other uses t_i-c_i. Feasibility is precisely [z^a] product_i (z^{c_i}+z^{t_i-c_i})>0. Every c_i between 0 and floor(t_i/2) arises from a tree edge labeling, so the criterion is necessary and sufficient and independent of tree shape. Balanced assignments yield sum floor(t_i/2) <=a and |S|=sum(t_i-1)<=2a; all-positive spanning-tree labels exclude a one-component support since 1<=a<n, yielding |S|<=n-2. Star on 2a edges with >=a isolates (n>=3a+1) is shattered by explicit center/leaf/isolates construction, establishing exact VCdim=2a in stable range. Small a=2 exception from size profile and direct witnesses. Independent finite exact 100490 support tests for 2<=n<=6 agreed; these do not prove infinite generality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General unrestricted cut-space dimension at most n-1 and general closure bounds ignore the exact a-subset restriction; here upper 2a and exact n>=3a+1."
+        ],
+        "reasoning": "No located dominating prior theorem explicitly computes the fixed-weight-slice shattering profile; prior generic dimension complexity results do not imply it.",
+        "searches": [
+          "fixed-cardinality graph cut concept VC dimension shattering forests component order bipartition prescribed block size",
+          "finite two-block partition same block pairwise equivalence queries shattered forest VC",
+          "Ghazi, Golowich, Kumar & Manurangsi, Near-tight closure bounds for Littlestone and threshold dimensions, PMLR 132 (2021), https://proceedings.mlr.press/v132/ghazi21a.html",
+          "arxiv:2211.01443"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "https://arxiv.org/abs/2211.01443",
+        "https://scispace.com/pdf/the-cost-of-learning-directed-cuts-2ay6ylzug2.pdf",
+        "Resultary actual semantic query: fixed-cardinality graph cut concept VC dimension shattering forests component order bipartition prescribed block size",
+        "Pinned source RESULT.md Git blob 11bd2dda614da0b1036b3070924101e43eb256cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general cut parity criterion implies acyclicity but cannot enforce that one side has exactly a vertices for every edge assignment. The product coefficient quantifies this missing condition."
+        ],
+        "reasoning": "Acyclic support alone is strictly weaker than shattering H_{n,a}; the all-component weight constraint and star sharpness require new analysis. Pass O best knowledge, not a proof of worldwide novelty.",
+        "searches": [
+          "fixed-cardinality graph cut concept VC dimension shattering forests component order bipartition prescribed block size",
+          "Ghazi, Golowich, Kumar & Manurangsi, Near-tight closure bounds for Littlestone and threshold dimensions, PMLR 132 (2021), https://proceedings.mlr.press/v132/ghazi21a.html",
+          "The Cost of Learning Directed Cuts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Concept vectors are cuts of K_n (or complements) restricted to the Hamming-weight-a layer; each forest labeling is a vertex-label parity system with a fixed total 1-count."
+        ],
+        "reasoning": "Recognizing the graphic cut-space representation identifies the equivalence class of the problem; a generic cut-space forest-shattering result without cardinality constraint does not give the strong all-component coefficient criterion.",
+        "searches": [
+          "fixed-cardinality graph cut concept VC dimension shattering forests component order bipartition prescribed block size",
+          "finite two-block partition same block pairwise equivalence queries shattered forest VC",
+          "VC dimension prescribed Hamming weight cuts parity equality queries graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=4,5,6 a=2 finite values are just boundary consequences; the claimed novel result is an iff on ALL forest component orders and arbitrarily large n."
+        ],
+        "reasoning": "Small sequence/table matches would not imply the exact all-parameter coefficient criterion. No exact prior table found; search limitation acknowledged.",
+        "searches": [
+          "fixed-cardinality graph cut concept VC dimension shattering forests component order bipartition prescribed block size",
+          "table VC dimension fixed cardinality graph cuts n a",
+          "small fixed size two block equality shattering"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality assessment limited to specific evaluated statements after Resultary, inspected primary sources and same-Git records; not historical priority certification.",
+      "residual_risks": [
+        "Earlier graph cut/fixed-weight code theory may conceal an equivalent forest-subset-sum criterion; cannot exclude unindexed work.",
+        "The bound n>=3a+1 is sufficient not asserted optimal for every a; no adaptive dimensions claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PROBLEM",
+          "evidence": "General function-class closure bounds, not fixed-cardinality cut-space forest support coefficient test.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+          "material_read": "Published proceedings abstract and statement scope; not an exact fixed-size equality-query family",
+          "method": "Compared parameterized statements, no full-text NOT_COVERING assertion",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "Prior general VC/Littlestone Boolean closure results may subsume dimension claim"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_APPLICABLE",
+          "evidence": "Hardness on arbitrary succinct classes does not determine exact natural family dimension.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.01443",
+          "material_read": "Original abstract and theorem topic; detailed application not established",
+          "method": "Compared general hard instances versus explicit H_{n,a} family",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+          "trigger": "Broad dimension computational hardness could dominate"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_CONCEPT",
+          "evidence": "Directed cut learning is not equal/different endpoint comparisons under exactly one vertex-side cardinality.",
+          "identifier_or_url": "https://scispace.com/pdf/the-cost-of-learning-directed-cuts-2ay6ylzug2.pdf",
+          "material_read": "Primary text discussion of vertex cut learning and edge direction, relevant object comparison",
+          "method": "Compared query universe and cardinality constraint",
+          "title": "The Cost of Learning Directed Cuts",
+          "trigger": "Graph cut learning is near parameterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact support-level characterization for fixed-size bipartition equality queries on arbitrary query graphs, showing invariance under tree shapes and a sharp stable regime VCdim=2a, is a usable structural result in learning fixed-cardinality graph partitions. It identifies a natural finite arithmetic decision procedure rather than a routine dimension bound only.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.mlr.press/v132/ghazi21a.html",
+    "https://arxiv.org/abs/2211.01443",
+    "https://scispace.com/pdf/the-cost-of-learning-directed-cuts-2ay6ylzug2.pdf",
+    "Resultary actual semantic query: fixed-cardinality graph cut concept VC dimension shattering forests component order bipartition prescribed block size",
+    "Pinned source RESULT.md Git blob 11bd2dda614da0b1036b3070924101e43eb256cd"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier graph cut/fixed-weight code theory may conceal an equivalent forest-subset-sum criterion; cannot exclude unindexed work.",
+    "The bound n>=3a+1 is sufficient not asserted optimal for every a; no adaptive dimensions claimed."
+  ],
+  "residual_risks": [
+    "Earlier graph cut/fixed-weight code theory may conceal an equivalent forest-subset-sum criterion; cannot exclude unindexed work.",
+    "The bound n>=3a+1 is sufficient not asserted optimal for every a; no adaptive dimensions claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_PROBLEM",
+      "evidence": "General function-class closure bounds, not fixed-cardinality cut-space forest support coefficient test.",
+      "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+      "material_read": "Published proceedings abstract and statement scope; not an exact fixed-size equality-query family",
+      "method": "Compared parameterized statements, no full-text NOT_COVERING assertion",
+      "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+      "trigger": "Prior general VC/Littlestone Boolean closure results may subsume dimension claim"
+    },
+    {
+      "assessment": "NOT_DIRECTLY_APPLICABLE",
+      "evidence": "Hardness on arbitrary succinct classes does not determine exact natural family dimension.",
+      "identifier_or_url": "https://arxiv.org/abs/2211.01443",
+      "material_read": "Original abstract and theorem topic; detailed application not established",
+      "method": "Compared general hard instances versus explicit H_{n,a} family",
+      "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+      "trigger": "Broad dimension computational hardness could dominate"
+    },
+    {
+      "assessment": "RELATED_DIFFERENT_CONCEPT",
+      "evidence": "Directed cut learning is not equal/different endpoint comparisons under exactly one vertex-side cardinality.",
+      "identifier_or_url": "https://scispace.com/pdf/the-cost-of-learning-directed-cuts-2ay6ylzug2.pdf",
+      "material_read": "Primary text discussion of vertex cut learning and edge direction, relevant object comparison",
+      "method": "Compared query universe and cardinality constraint",
+      "title": "The Cost of Learning Directed Cuts",
+      "trigger": "Graph cut learning is near parameterization"
+    }
+  ]
+}

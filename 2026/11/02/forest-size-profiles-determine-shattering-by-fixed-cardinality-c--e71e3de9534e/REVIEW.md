@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim covers every \(n\ge2\), \(1\le a\le\lfloor n/2\rfloor\), and every unordered-pair query support. A cycle with one negative edge is an unconditional obstruction. Every edge labeling on a forest has exactly two compatible choices per component; those choices contribute either \(c_i\) or \(t_i-c_i\) vertices to the size-\(a\) block. The coefficient condition is therefore necessary and sufficient, not merely a relaxation. The balanced component assignments prove the upper bound, while the explicit star labeling argument proves the matching lower bound in the stated range. The finite verifier compared this criterion with independently enumerated cut responses for 100,490 parameter/support cases. Finite enumeration is corroboration rather than a replacement for the unrestricted proof.
+PASS
 
-## Originality
+A cycle is never shattered: all but one edge 1 (same side) and last edge 0 (different sides) is inconsistent. On a forest each Boolean assignment to equality edges produces exactly two complementary vertex colorings per connected component; if first uses c_i in the prescribed a-set, the other uses t_i-c_i. Feasibility is precisely [z^a] product_i (z^{c_i}+z^{t_i-c_i})>0. Every c_i between 0 and floor(t_i/2) arises from a tree edge labeling, so the criterion is necessary and sufficient and independent of tree shape. Balanced assignments yield sum floor(t_i/2) <=a and |S|=sum(t_i-1)<=2a; all-positive spanning-tree labels exclude a one-component support since 1<=a<n, yielding |S|<=n-2. Star on 2a edges with >=a isolates (n>=3a+1) is shattered by explicit center/leaf/isolates construction, establishing exact VCdim=2a in stable range. Small a=2 exception from size profile and direct witnesses. Independent finite exact 100490 support tests for 2<=n<=6 agreed; these do not prove infinite generality.
 
-PASS under the identified primary literature and published-record comparisons, with residual historical-priority uncertainty. The 2020/2021 closure-bounds paper studies universal Boolean aggregation, and the 2022/2023 inapproximability paper studies general explicit concept-class hardness. Neither supplies or logically forces the precise cardinality-constrained forest profile, its polynomial coefficient characterization, or the sharp eventual value. Earlier graph-cut learning concerns vertex-label cuts or bounds by the number of crossed edges, not an edge-query set system with one side of prescribed vertex cardinality. A fixed-size edge-hit system uses the Boolean OR of endpoint membership and has star-forest shattering supports, whereas the present cut system uses endpoint XOR and admits general forests subject to cardinality arithmetic; neither earlier classification implies the other. The local fixed-block-size cases known from prior work are implied by this theorem, not vice versa. The searched records could miss synonyms or inaccessible publications; this is not a claim of priority certification.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Fixed-cardinality bipartitions arise naturally in balanced clustering and cut learning, where transitivity and the exact side size interact. The result replaces a general exponential family of vertex subsets and arbitrary support graphs by a graph-theoretic forest test plus arithmetic of component-size profiles, and proves a dimension saturation phenomenon: increasing the ambient vertex set past \(3a+1\) no longer increases the largest statically shattered edge-query support. It also explains why allowing the block sizes to vary gives a different classification. Both the structural theorem and all-parameter sharp bound remain useful outside any small-instance census.
+Best-of-knowledge originality assessment limited to specific evaluated statements after Resultary, inspected primary sources and same-Git records; not historical priority certification.
 
-## Closest literature and limitations
+## value
 
-Ghazi et al., arXiv:2007.03668; Manurangsi, arXiv:2211.01443; Gärtner and Garriga, *The Cost of Learning Directed Cuts*. The conclusion does not provide a closed expression for every \(n<3a+1\), the exact smallest saturation order for each \(a\), or adaptive Littlestone dimensions. Relevant synonyms in old or unindexed cut-learning literature could conceal prior coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact support-level characterization for fixed-size bipartition equality queries on arbitrary query graphs, showing invariance under tree shapes and a sharp stable regime VCdim=2a, is a usable structural result in learning fixed-cardinality graph partitions. It identifies a natural finite arithmetic decision procedure rather than a routine dimension bound only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
