@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each m>=1 the exact convex hull equals the leaf-coordinate region sum max(u_i,v_i)<=1 with 2m+2^m verified irredundant facets. Projection into the two zero-sum blocks gives lower length sqrt(m/(m+1)) and upper length sqrt((m+2s(m-s))/(m+1)); the balanced s maximizes the latter. Symmetry averaging gives a globally valid upper bound and an explicit feasible center attains the intersection radius. Equality for every balanced upper facet forces all leaf coordinates and proves uniqueness; contact counts and asymptotic follow. Full numerical LP and vertex-derived hull checks for m<=12 and m<=4 respectively are supportive finite tests, not the infinite proof. No unproved auxiliary lemma or missing numerical certificate is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davis--Chen, arXiv:2007.11051, Corollary 3.4 gives normalized volume 2^m for the star as a tree, Example 3.5 mentions a star/PQ face vector; neither is metric.",
+        "Ohsugi--Tsuchiya, arXiv:2103.15045, Theorem 4.1 and Corollary 4.4 give h*- and volume formulas for complete multipartite PQ-type polytopes, including stars.",
+        "Closest published metric results concern star symmetric-edge polytopes (2m vertices, dimension m) and star cosmological polytopes (3m vertices): different vertex constructions from star PQ (3m+1 vertices)."
+      ],
+      "reasoning": "Broad volume and h*-formulas for all trees, joins or multipartite graphs cannot imply intrinsic Euclidean inradius, unique center or contact-normal counts. The generic ordered-pair construction alone does not supply these. A metric theorem for other graph-polytopes has different generators and no identified Euclidean-isometric reduction.",
+      "searches": [
+        "PQ-type adjacency polytopes star graph K_{1,m} Euclidean inradius Chebyshev ball facet centers",
+        "Star graph PQ-type adjacency polytope exact Euclidean inradius center formula balanced subset facet normals",
+        "\"PQ-type adjacency polytope\" \"inradius\" \"Euclidean\" -symmetric",
+        "Ohsugi Tsuchiya arXiv:2103.15045 §4 complete multipartite graphs",
+        "Davis Chen arXiv:2007.11051 Corollary 3.4 forest"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1512.04987v1: Chen--Mehta, original adjacency-polytope construction; relevant §3.2 read",
+      "arXiv:2007.11051v1: Davis--Chen, forest-volume and star f-vector; relevant §§1--3 read",
+      "arXiv:2103.15045v1: Ohsugi--Tsuchiya, join and complete-bipartite lattice invariants; relevant §§1,3,4 read",
+      "Published mathematical record: Star symmetric-edge polytopes have a parity jump in their full incenter locus (different generators; summary-level implication comparison)",
+      "Published mathematical record: Every star cosmological polytope is tangential with an exact unique inball (different generators; summary-level implication comparison)",
+      "Published mathematical record: The exact Löwner ellipsoid of balanced complete-bipartite PQ-type adjacency polytopes (different graph/rank and enclosing ellipsoid; summary-level implication comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Mehta, arXiv:1512.04987 §3.2, introduces ordered-pair adjacency polytope in power network root counting; it does not present an Euclidean inradius.",
+        "Davis--Chen proves forest normalized volume and gives star face data, without projected-facet metric lengths.",
+        "Ohsugi--Tsuchiya calculates lattice-enumerative invariants of joins and bicliques, not intrinsic Chebyshev centers.",
+        "Candidate proves an exact facet description, Euclidean projection-normal lengths, a radius and center, then classifies all balanced upper contacts."
+      ],
+      "reasoning": "Neither the earlier general construction nor stronger results about normalized volume or h* imply the candidate metric statements; an affine combinatorial coincidence cannot transfer Euclidean distances. Closest published similar-radius claims use different vertex configurations, so no proven mathematical implication covers this claim. The explicit proof is self-contained except standard convex geometry.",
+      "searches": [
+        "arXiv:1512.04987 §3.2 adjacency polytope original definition",
+        "arXiv:2007.11051 Corollary 3.4 and Example 3.5",
+        "arXiv:2103.15045 Theorem 4.1 and Example 4.5",
+        "Star graph PQ-type adjacency polytope exact Euclidean inradius center formula balanced subset facet normals",
+        "convex hull diagonal and oriented edge incidence pair vertices star graph 3m+1 inradius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Davis--Chen, arXiv:2007.11051, §2, Lemma 2.4: PQ-type polytopes are unimodularly equivalent to roots of the bipartite double graph D(G).",
+        "The present star vertices are the origin and three points supported on each of m leaf-coordinate pairs; the root-polytope equivalence changes the Euclidean metric in general.",
+        "Semantic prior-record search for star PQ and convex hull of coordinate-square supports returned closest different geometries: star symmetric-edge and star cosmological polytopes, not an exact star-PQ intrinsic inball."
+      ],
+      "reasoning": "The candidate has 3m+1 distinct vertices, dimension 2m and the special standard ordered-pair metric. Unimodular/affine equivalence does not imply equal Euclidean inradii. The closest root, symmetric-edge and cosmological formulations would need a demonstrated Euclidean isometry or a metric-preserving theorem to imply the claim; none was located. No uniqueness from mere database partition is asserted.",
+      "searches": [
+        "PQ-type adjacency polytopes star graph K_{1,m} Euclidean inradius Chebyshev ball facet centers",
+        "convex hull diagonal and oriented edge incidence pair vertices star graph 3m+1 inradius",
+        "free sum of m squares Euclidean inball Chebyshev center radius contact facets",
+        "bipartite graph D(K1,m) root edge polytope maximum inscribed Euclidean ball",
+        "arXiv:2007.11051 Lemma 2.4 (bipartite root-polytope correspondence)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic prior-record search returned no record explicitly stating the candidate star-PQ inradius; closest titles addressed metric invariants of different graph-polytopes.",
+        "Davis--Chen Example 3.5 compares finite face vectors of star and path PQ adjacency polytopes but contains no exact inradius table.",
+        "Ohsugi--Tsuchiya Example 4.5 lists normalized volume of complete-bipartite PQ polytopes rather than Euclidean inball data."
+      ],
+      "reasoning": "A precomputed lattice volume or face vector does not determine a Euclidean inradius or list of tangent facets, and no exact metric table covering this embedding was identified. Search coverage is finite and not a proof of exhaustive historical novelty.",
+      "searches": [
+        "PQ adjacency polytope of star graph exact inradius tangency facets 2^m",
+        "Star graph PQ-type adjacency polytope exact Euclidean inradius center formula balanced subset facet normals",
+        "free sum of m squares Euclidean inball Chebyshev center radius contact facets",
+        "\"PQ-type adjacency polytope\" \"inradius\" \"Euclidean\" -symmetric",
+        "\"PQ-type adjacency polytope\" \"facet\" K1,m"
+      ]
+    },
+    "rationale": "Compared the exact intrinsic Euclidean inball/center/contact statement, including generators and metrics, to the original PQ graph-polytope, draconian-volume and complete-bipartite lattice-invariant primary work, and to nearby published graph-polytope metric records. None of the inspected primary results mathematically implies the metric theorem; the nearest title-level matches use inequivalent vertex constructions. Historical priority is provisional and additional unnamed literature may exist.",
+    "residual_risks": [
+      "Prior Chebyshev-center formula for orthogonal free sums of coordinate squares, perhaps under alternate terminology, may subsume the result; no exhaustive historical priority guarantee.",
+      "Published neighboring geometric-record summaries were compared only for clear inapplicability by vertex construction/metric; their full text was not claimed inspected.",
+      "Unimodular equivalence to associated bipartite root polytopes does not generally preserve the canonical Euclidean metric, but a separate metric-preserving reformulation might exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No covering inradius, incenter, or contact-facet statement in the directly relevant material; the source addresses lattice-normalized volumes and combinatorics",
+        "evidence": [
+          "Corollary 3.4 gives NVol of a forest with N vertices and k components as 2^(N-k).",
+          "Example 3.5 compares four-vertex star and path f-vectors but no Euclidean metric formula."
+        ],
+        "identifier_or_url": "arXiv:2007.11051v1 | https://arxiv.org/abs/2007.11051",
+        "material_read": "Abstract, §1 definition and motivation, §2 Lemma 2.4, §3 cut-vertex recurrence, Corollary 3.4 forest-volume result, Example 3.5 star versus path face-vector comparison",
+        "method": "Public arXiv HTML full-text sections and exact mathematical statements",
+        "title": "Computing Volumes of Adjacency Polytopes via Draconian Sequences",
+        "trigger": "Direct named PQ-type polytope and family of forest graphs including stars"
+      },
+      {
+        "assessment": "Closest relevant join and biclique results are formulas for h* and normalized volume, not for standard Euclidean inballs or balanced-facet contacts",
+        "evidence": [
+          "Section 4 explicitly treats complete multipartite PQ-type polytopes.",
+          "Example 4.5 specializes lattice-normalized volume to complete bipartite graphs."
+        ],
+        "identifier_or_url": "arXiv:2103.15045v1 | https://arxiv.org/abs/2103.15045",
+        "material_read": "Abstract, §1 definitions, §3 join theorem and §4 Theorem 4.1, Corollary 4.4, Example 4.5 complete bipartite lattice invariants",
+        "method": "Public arXiv HTML primary full-text relevant sections",
+        "title": "PQ-type adjacency polytopes of join graphs",
+        "trigger": "Complete bipartite stars belong to the join-graph family"
+      },
+      {
+        "assessment": "Defines the family and computes power-flow root-count bounds via normalized volumes; no covering Euclidean metric assertion found in inspected relevant section",
+        "evidence": [
+          "Section 3.2 introduces adjacency polytope from ordered edge pairs and uses normalized volume to bound solutions."
+        ],
+        "identifier_or_url": "arXiv:1512.04987v1 | https://arxiv.org/abs/1512.04987",
+        "material_read": "§3.2 Definition 3, Theorems 4--6 and discussion of network-root bounds",
+        "method": "Public arXiv HTML primary text relevant definition and theorems",
+        "title": "On the Network Topology Dependent Solution Count of the Algebraic Load Flow Equations",
+        "trigger": "Original adjacency polytope definition; potential stronger earlier geometric results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "04f7a69e-c545-447a-8aee-74d71810ed98",
+  "value": {
+    "rationale": "For a natural infinite PQ-type graph-polytope family, obtains the exact Euclidean inradius, proves global uniqueness of the largest-ball center, and completely classifies an exponential family of facet contacts using balanced selections and parity. In contrast to established forest-normalized volume which depends only on edge count, this is an exact and genuinely metric geometric invariant; the contact proportion decays like m^(-1/2), demonstrating a nontrivial concentration pattern rather than a routine small computation.",
+    "status": "PASS"
+  }
+}
