@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:57:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md full four-step parity, Cauchy–Binet and root separation proof",
+        "Inspected CHECK.py pinned Git blob 02c42dc14e71c57b9d61c24390db693f0a93b3b3",
+        "Independent symbolic Hankel inverse-principal-minor checks in independent_checks.py"
+      ],
+      "rationale": "Decompose even/odd polynomial sectors x^epsilon p(x²); change variable y=x², so alpha=mu+epsilon-1/2 and radius b=T². Exact Cauchy–Binet/reproducing-kernel determinant and Vandermonde leading minor give elementary-symmetric functions e_k(b)=D_{m,k}(alpha)b^{k(alpha+k)}(1+O(b)), where complementary Jacobi minor H_(m-k)(alpha+2k)/H_m(alpha) and Selberg S_k/k! give positive coefficient. At z=b^{alpha+2k-1}u the scaled characteristic polynomial has exactly two co-leading terms k-1,k and simple positive root D_k/D_(k-1); the remaining terms are separated by positive even exponents. This independently establishes all m ordered eigenvalues, their distinct powers, parity interlacing and relative O(T²) for fixed N/parameters. Standard Laguerre/Jacobi Hankel determinants/Selberg gamma products finish constants; N=1 condition number 1. Independently recomputed the complementary inverse-Hankel minor identity for m=3, alpha=-1/2 and 1/2 in both Laguerre and Jacobi(beta=0) cases.",
+      "residual_risks": [
+        "Asymptotics only fixed finite N, fixed mu>-1/2 and beta>-1; no double scaling or arbitrary degree masks",
+        "Symbolic m=3 instances do not themselves establish uniform all-rank theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source preprint constructs commuting operators and provides sample spectra but not fixed-N small-T gamma-product individual eigenvalue asymptotics in inspected sections.",
+          "Related half-space and hemisphere results use non-shrinking domains and/or N-changing limits."
+        ],
+        "reasoning": "Different concentration regions do not dominate the local point-evaluation singular asymptotics. General Hankel/Selberg formulas alone lack a rank-by-rank spectral extraction step.",
+        "searches": [
+          "arXiv:2610.24100 Castro Grünbaum §§2–5",
+          "Resultary: Half-line Hermite spectral gaps arbitrary-mask Cauchy formula and Barnes limit",
+          "Resultary: Uniform dimension-bandwidth crossover for zonal hemispherical spectral determinants"
+        ]
+      },
+      "checked_sources": [
+        "Castro–Grünbaum arXiv:2610.24100v1 primary text Sections 1–5",
+        "Full Resultary half-line Hermite RESULT.md",
+        "Grünbaum 1983 bibliographic mention only",
+        "Resultary exact polynomial concentration searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Commutation determines shared eigenvectors, not their small-T eigenvalue coefficients without additional perturbation estimates.",
+          "Half-line Hermite Cauchy factors correspond to centered half-energy gaps, not shrinking centered windows.",
+          "Selberg identity evaluates a determinant coefficient but does not by itself extract distinct eigenvalue exponents."
+        ],
+        "reasoning": "These standard foundations and related tables supply required ingredients but do not straightforwardly imply every i formula without the new Cauchy–Binet leading-minor and scaled characteristic root proof.",
+        "searches": [
+          "arXiv:2610.24100 Castro Grünbaum Theorem 2.1, §§3–4",
+          "Resultary: half-line Hermite spectral gaps arbitrary-mask Cauchy formula and Barnes limit",
+          "Selberg 1944 integral evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Castro–Grünbaum uses the same orthogonal polynomial concentration matrix but its main statements concern commuting sparse operators and numerical ill-conditioning.",
+          "Indexed half-line Hermite gap formula concerns a half-infinite rather than shrinking symmetric window."
+        ],
+        "reasoning": "Operator equivalence is exact, but the new all-rank T->0 hierarchy is not equivalent to the reported commuting-operator property or the half-line gap product.",
+        "searches": [
+          "Resultary: Dunkl generalized Hermite Gegenbauer time band limiting shrinking window eigenvalue small T Selberg determinant",
+          "Resultary: small-window concentration generalized Hermite Gegenbauer eigenvalue asymptotics finite degree",
+          "arXiv:2610.24100v1 Castro Grünbaum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Preprint gives an N=12,mu=1,beta=1,T=1/16 finite eigenvalue table; source verification reports qualitative agreement of its first/seventh/twelfth numbers with derived asymptotics.",
+          "No inspected source table supplies all parameters and leading gamma coefficients for every i."
+        ],
+        "reasoning": "Specific numerical samples do not determine a uniformly quantified finite-N gamma coefficient formula; a source with a complete such table would cover it but was not seen.",
+        "searches": [
+          "arXiv:2610.24100v1 numerical N=12 generalized Gegenbauer example",
+          "Resultary: small-window concentration generalized Hermite Gegenbauer eigenvalue asymptotics finite degree"
+        ]
+      },
+      "rationale": "Castro–Grünbaum 2026 develops commuting finite-band operators for the same Dunkl-Hermite/Gegenbauer families and shows severe small-window ill-conditioning, but the inspected full primary text does not state every eigenvalue leading exponent and Selberg/Hankel gamma constant. Earlier Selberg and Laguerre determinant identities are credited as standard, while the rank-by-rank Newton/root separation is the additional result. Best-of-knowledge, older kernel literature risk noted.",
+      "residual_risks": [
+        "Potential stronger older general local restriction eigenvalue asymptotic in uninspected 1983 kernel literature",
+        "Novelties are not Selberg/Hankel gamma products alone; priority of combined rank separation can be uncertain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers commuting operator and numeric spectrum; no stated all-i T-to-zero gamma-product hierarchy in material read.",
+          "evidence": "arXiv:2610.24100v1 submitted October 2026; finite N=12 numeric illustration.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24100",
+          "material_read": "Accessible preprint full text mathematical Sections 1–5 including commuting-operator Theorem 2.1, Gegenbauer/Hermite examples and numerical ill-conditioning table inspected.",
+          "method": "Primary article full text mathematical statements and comparison with given rank-by-rank formula",
+          "title": "Time-and-band limiting for symmetric classical Dunkl orthogonal polynomials",
+          "trigger": "Same Hermite/Gegenbauer basis, same concentration matrices"
+        },
+        {
+          "assessment": "Half-line (0,infinity) spectral pairing at 1/2, not local [-T,T] power hierarchy; no domination.",
+          "evidence": "Exact gap product D_F and Barnes G asymptotic in bandwidth m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88",
+          "material_read": "Published RESULT.md full theorem/assumptions and boundary-Wronskian Cauchy reduction inspected, blob 36d944fb6956beaf1b06d123ff3bec38d6efad1a.",
+          "method": "Read-only GitHub research-result content",
+          "title": "Half-line Hermite spectral gaps: arbitrary-mask Cauchy formula and a Barnes limit",
+          "trigger": "Same Hermite functions and spectral concentration language"
+        },
+        {
+          "assessment": "Cannot exclude earlier equivalent fixed-rank local eigenvalue asymptotics on this basis.",
+          "evidence": "1983 paper citation in inspected modern preprint.",
+          "identifier_or_url": "J. Math. Anal. Appl. 95 (1983), 491–500",
+          "material_read": "Bibliographic mention only; full source not retrieved or read.",
+          "method": "Reference and citation comparison only",
+          "title": "Early classical time-band limiting paper of Grünbaum",
+          "trigger": "Plausible general reproducing-kernel precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Castro–Grünbaum study of severe spectral conditioning on the same concentration matrices",
+        "Assigned exact positive rank-separated Selberg/Hankel formula"
+      ],
+      "rationale": "The exact ordered small-window eigenvalue ladder and condition-number exponent quantify the pronounced ill-conditioning of a canonical finite-band concentration operator. Every rank and both weight families are resolved, with positive explicit constants, making a natural spectral asymptotic useful beyond a numerical table.",
+      "residual_risks": [
+        "No large-bandwidth/double-scaling statement; fixed-N spectral hierarchy remains independently useful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotics only fixed finite N, fixed mu>-1/2 and beta>-1; no double scaling or arbitrary degree masks",
+    "Symbolic m=3 instances do not themselves establish uniform all-rank theorem",
+    "Potential stronger older general local restriction eigenvalue asymptotic in uninspected 1983 kernel literature",
+    "Novelties are not Selberg/Hankel gamma products alone; priority of combined rank separation can be uncertain.",
+    "No large-bandwidth/double-scaling statement; fixed-N spectral hierarchy remains independently useful."
+  ],
+  "schema_version": 1
+}

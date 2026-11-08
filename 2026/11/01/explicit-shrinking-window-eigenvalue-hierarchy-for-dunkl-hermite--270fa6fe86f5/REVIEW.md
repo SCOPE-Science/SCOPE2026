@@ -1,17 +1,21 @@
-# Scientific review: shrinking-window polynomial concentration
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The claimed domain is fixed finite polynomial bandwidth \(N\), \(\mu>-1/2\), and \(\beta>-1\) in the generalized Gegenbauer case. The proof reduces the even/odd blocks to weighted monomial Gram quotients under \(y=x^2\). It computes every elementary symmetric function of the concentration spectrum from the determinantal reproducing-kernel identity. Cauchy–Binet identifies the leading Vandermonde minor, Jacobi's complementary-minor formula gives the full-measure Hankel factor, and the Selberg formula evaluates the local factor. The characteristic-polynomial scaling has precisely two leading terms and one simple positive root at each strictly separated power. The exponent conversion and global sorting are explicit, including \(N=1\) and nonintegral parameters. The standalone checker supports all determinant normalizations and representative cases; direct substitution in the source’s \(N=12,T=1/16\) Gegenbauer example also reproduces the scales of the first, middle, and last eigenvalues, but is not offered as an infinite-dimensional proof. Risks are finite human-readable algebra and the use of standard Selberg/Hankel formulas; no unresolved premise was found.
+PASS
 
-## Originality
+Decompose even/odd polynomial sectors x^epsilon p(x²); change variable y=x², so alpha=mu+epsilon-1/2 and radius b=T². Exact Cauchy–Binet/reproducing-kernel determinant and Vandermonde leading minor give elementary-symmetric functions e_k(b)=D_{m,k}(alpha)b^{k(alpha+k)}(1+O(b)), where complementary Jacobi minor H_(m-k)(alpha+2k)/H_m(alpha) and Selberg S_k/k! give positive coefficient. At z=b^{alpha+2k-1}u the scaled characteristic polynomial has exactly two co-leading terms k-1,k and simple positive root D_k/D_(k-1); the remaining terms are separated by positive even exponents. This independently establishes all m ordered eigenvalues, their distinct powers, parity interlacing and relative O(T²) for fixed N/parameters. Standard Laguerre/Jacobi Hankel determinants/Selberg gamma products finish constants; N=1 condition number 1. Independently recomputed the complementary inverse-Hankel minor identity for m=3, alpha=-1/2 and 1/2 in both Laguerre and Jacobi(beta=0) cases.
 
-**PASS relative to inspected scientific sources.** The closest primary source is Castro–Grünbaum, *Time-and-band limiting for symmetric classical Dunkl orthogonal polynomials*, arXiv:2610.24100v1 (2026-10-16). Its full-text Sections 2–5 define the same compression matrices and give commuting sparse operators, numerical spectra and examples of ill-conditioning. In particular, Section 4.2 lists a dozen small Gegenbauer eigenvalues at a single radius; it does not derive the fixed-band small-radius eigenvalue-by-eigenvalue powers or the Selberg/Hankel gamma-product constants. The new theorem is not obtained merely by reading off that finite table: it asserts every real admissible parameter, all finite bandwidths, a controlled relative error, and a sharp condition-number exponent.
+## originality
 
-Related classical work of Grünbaum on orthogonal-polynomial reproducing kernels was identified by title, citation and abstract, but the full 1983 paper was inaccessible through open sources; institutional full-text retrieval could not proceed because access was unavailable. General Selberg integrals and Hankel determinants are classical and supply standard ingredients, not a novelty assertion. Other indexed concentration results involve half-lines, hemispherical spectral gaps, finite groups, or large-bandwidth limits; those claims neither imply this fixed-band shrinking-window law nor use the same spectra. Residual originality risk: an unindexed derivation could already combine the classical determinant identities in the present setting. This remains a same mathematical model literature assessment, not an independent certification of priority.
+PASS
 
-## Value
+Castro–Grünbaum 2026 develops commuting finite-band operators for the same Dunkl-Hermite/Gegenbauer families and shows severe small-window ill-conditioning, but the inspected full primary text does not state every eigenvalue leading exponent and Selberg/Hankel gamma constant. Earlier Selberg and Laguerre determinant identities are credited as standard, while the rank-by-rank Newton/root separation is the additional result. Best-of-knowledge, older kernel literature risk noted.
 
-**PASS.** The 2026 paper highlights severe numerical ill-conditioning of exactly these two concentration matrices. An explicit strict hierarchy of all eigenvalue powers is a motivated structural answer: it quantifies which modes disappear first as the observation window shrinks, gives the leading constant of the entire spectral condition number, and shows the leading exponents do not depend on the Gegenbauer endpoint weight. Two whole orthogonal-polynomial families and all fixed finite bands are included. It is not an arbitrary isolated small-degree computation. Limits: no uniform large-bandwidth or eigenfunction result.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact ordered small-window eigenvalue ladder and condition-number exponent quantify the pronounced ill-conditioning of a canonical finite-band concentration operator. Every rank and both weight families are resolved, with positive explicit constants, making a natural spectral asymptotic useful beyond a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
