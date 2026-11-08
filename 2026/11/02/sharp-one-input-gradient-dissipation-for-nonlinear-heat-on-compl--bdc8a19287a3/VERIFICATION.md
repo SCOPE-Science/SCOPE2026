@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the sharp multipartite edge-gradient dissipation theorem
+# Independent mathematical audit
 
-The reproducible standalone source is `verify_multipartite_pheat.py`. Execute `python3 verify_multipartite_pheat.py` in a Python 3 environment with `numpy` and `scipy`. The program does not require external data or the historical research corpus.
+## correctness
 
-Observed checks:
+PASS
 
-```
-EXACT_RANDOM_EDGE_DERIVATIVE_INEQUALITIES_OK 2855
-EXACT_SHARP_WITNESS_IDENTITIES_OK 60
-FLOW_SHORT_TIME_CHECK_OK (6, 1, 1) 3.0 growth 1.999640027e-05
-FLOW_SHORT_TIME_CHECK_OK (7, 1, 1, 1) 1.5 growth 1.999860001e-05
-FLOW_SHORT_TIME_CHECK_OK (5, 1, 1, 1) 3.0 growth -2.399775934e-09
-FLOW_SHORT_TIME_CHECK_OK (2, 2, 2) 4.0 growth -2.499911878e-05
-GLOBAL_SHARP_RATE_FORMULA_OK 350
-ALL_MULTIPARTITE_PHEAT_TESTS_OK
-```
+Finite p-heat ODE with p>1 is the gradient flow of convex edge energy, globally well-posed and order preserving. For a tight oriented edge x-y with u_x-u_y=L=1, normalization x=1,y=0 and complete-multipartite adjacency constraints reduce exact maximal difference derivative to -2+max_{0<=h<=1}{|a-b| h^(p-1)-(N-a-b)H_p(h)}, H_p(h)=min_{z in[h,1]}(z^(p-1)+(1-z)^(p-1)). The proof supplies feasible configurations attaining the bound. For 1<p<=2, H_p=1 on optimum and the maximum is |a-b|-(N-a-b). For p>2 convexity yields a balanced z=1/2 or endpoint, giving the stated negative power-harmonic expression when 2s<N; maximizing over part pairs picks the two largest. The sharp rate has nonpositive sign iff 2s<=N+2, and a Dini derivative comparison gives contraction for each input while a positive-rate witness disproves it. Independent direct original-edge-flow computation on K_(6,1,1), p=2, u=[0,2,2,2,2,2,1,1] has L=1 and tight-edge derivative 2=2s-N-2, proving noncontraction there; this sample is not the general proof.
 
-Exact-rational checks use integer powers. Exponents \(3/2,4,5\) and flow integration involve floating-point diagnostics. The exhaustive statements across all graph sizes and exponents come from the analytic proof in `RESULT.md`—not the finite tests. The code's witness states are reconstructed from part labels; its vector field uses the original graph edge list rather than the closed-form expression. Critical boundary cases and the two-part case are included. No external independent scientific audit has occurred.
+## originality
+
+PASS
+
+Mugnolo establishes variational p-heat dynamics and order/norm comparison, Lin--Liu--Yang estimates gradients of positive functions, and Münch--Wojciechowski relates linear graph heat to curvature. They do not give exact one-input edge-Lipschitz Dini rates over every multipartite part profile and all 1<p<infty. The linear p=2 special case is credited, not claimed original.
+
+## value
+
+PASS
+
+The sharp p-independent contraction phase boundary alongside p-dependent optimal instantaneous dissipation is a meaningful nonlinear graph flow classification. The nontrivial dependence on the top two part sizes for p>2 is useful for exact regularity analysis, not a scalar renaming of linear theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
