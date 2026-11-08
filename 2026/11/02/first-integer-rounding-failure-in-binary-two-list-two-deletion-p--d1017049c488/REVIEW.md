@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness:** PASS. Distinct-output two-deletion incidence is the exact code constraint. The explicit fifteen-word code is feasible, primal-dual rational vectors prove the LP optimum \(2188/135\), and a complete 205-node inclusion/exclusion proof with 103 rational-leaf upper bounds excludes every sixteen-word code. Exact verification is reproduced by `verify.py` with `CERTIFICATE.json` and needs no numerical solver. Previously known shorter lengths are checked by integer witnesses and rational upper bounds. No asymptotic extrapolation is involved.
+## correctness
 
-**Originality:** PASS subject to explicit historical priority risk. Lin (arXiv:2609.26650v1) gives asymptotic list-deletion bounds and a hypergraph model, while Guruswami–Håstad (arXiv:2007.10592) treats asymptotic explicit construction. Earlier exact six- and seven-bit maxima do not determine the length-eight LP/integer separation. Equivalent coverage in an unindexed table or the uninspected portions of the older primary source remains possible.
+PASS
 
-**Value:** PASS. The new result identifies the first finite-block integrality-rounding failure of a natural deletion-hypergraph packing relaxation and provides a reusable exact proof certificate for its occurrence. It is not merely a routine next-block maximum-size computation.
+PASS. Two-list constraint is row capacity <=2 for the distinct-output binary two-deletion incidence matrix A_n. An independent exact BigInt rational checker reconstructed all 256 columns/64 rows for n=8; validated the explicit 15-codeword witness, all 46 nonzero fractions in feasible primal, and 40 root nonnegative dual weights. Both objectives equal 2188/135. It independently traversed ALL 205 certificate nodes (102 exhaustive binary branches, 103 rational leaves), all residual-capacity and forced-zero rules and leaf bounds below 16, proving M8=15. Rechecked all n=2..7 integer witnesses and exact rational dual bounds 2,3,4,4,36/5,666/59, so floor(F_n)=M_n below 8; n8 floor(F8)=16>15. These exact finite certificates, not solver logs, prove this precise domain.
 
-**Limitations:** Binary alphabet, two deletions, list size two; one exact finite-block separation only. No general bound or algorithmic decoding claim. Independent priority and proof audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Lin 2026 full eight-page primary paper defines precisely t-list k-deletion codes and the deletion hypergraph, but proves asymptotic size lower bounds (Theorem 1.1) and general subsequence counts rather than finite blocklength-eight integer/LP disparity. Guruswami-Hastad address asymptotic two-deletion construction. Prior exact result M6=7 is accounted for and does not imply M8=15 or fractional optimum. Specific older packing tables remain a risk.
+
+## value
+
+PASS
+
+PASS. Earliest failure of naive integer rounding in a canonical deletion-shadow fractional packing relaxation is a motivated structural finite threshold. Exact dual/primal and 205-node independent exclusion certificate make it a reusable benchmark rather than an isolated unproved optimizer claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

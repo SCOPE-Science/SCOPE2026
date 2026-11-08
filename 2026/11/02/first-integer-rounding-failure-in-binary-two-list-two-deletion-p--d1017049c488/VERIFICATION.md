@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof certificate is `CERTIFICATE.json`, with a dependency-free checker `verify.py`. Run `python verify.py CERTIFICATE.json`. The checker reconstructs binary words, distinct two-deletion output sets, integer feasibility, exact rational primal and dual inequalities, and all inclusion/exclusion nodes and exact leaf bounds. It verifies a complete binary branching tree, rather than accepting a solver's status message. The earlier-length statements are checked using the bundled witnesses and dual weights. The matching standard output is provided in `VERIFICATION_OUTPUT.txt`.
+## correctness
 
-For the length-eight integer upper bound, the certificate has 205 nodes: 102 branches and 103 dual leaves. Every leaf dual bound is strictly below 16. For the fractional LP, the primal and dual objectives both equal \(2188/135\). The verifier uses arbitrary-precision rational arithmetic. The proof is finite, does not establish broader blocklength claims, and has not been independently audited.
+PASS
+
+PASS. Two-list constraint is row capacity <=2 for the distinct-output binary two-deletion incidence matrix A_n. An independent exact BigInt rational checker reconstructed all 256 columns/64 rows for n=8; validated the explicit 15-codeword witness, all 46 nonzero fractions in feasible primal, and 40 root nonnegative dual weights. Both objectives equal 2188/135. It independently traversed ALL 205 certificate nodes (102 exhaustive binary branches, 103 rational leaves), all residual-capacity and forced-zero rules and leaf bounds below 16, proving M8=15. Rechecked all n=2..7 integer witnesses and exact rational dual bounds 2,3,4,4,36/5,666/59, so floor(F_n)=M_n below 8; n8 floor(F8)=16>15. These exact finite certificates, not solver logs, prove this precise domain.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Lin 2026 full eight-page primary paper defines precisely t-list k-deletion codes and the deletion hypergraph, but proves asymptotic size lower bounds (Theorem 1.1) and general subsequence counts rather than finite blocklength-eight integer/LP disparity. Guruswami-Hastad address asymptotic two-deletion construction. Prior exact result M6=7 is accounted for and does not imply M8=15 or fractional optimum. Specific older packing tables remain a risk.
+
+## value
+
+PASS
+
+PASS. Earliest failure of naive integer rounding in a canonical deletion-shadow fractional packing relaxation is a motivated structural finite threshold. Exact dual/primal and 205-node independent exclusion certificate make it a reusable benchmark rather than an isolated unproved optimizer claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

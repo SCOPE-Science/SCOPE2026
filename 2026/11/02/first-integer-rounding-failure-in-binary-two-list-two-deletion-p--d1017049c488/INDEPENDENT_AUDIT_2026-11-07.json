@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:08:38.464056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Two-list constraint is row capacity <=2 for the distinct-output binary two-deletion incidence matrix A_n. An independent exact BigInt rational checker reconstructed all 256 columns/64 rows for n=8; validated the explicit 15-codeword witness, all 46 nonzero fractions in feasible primal, and 40 root nonnegative dual weights. Both objectives equal 2188/135. It independently traversed ALL 205 certificate nodes (102 exhaustive binary branches, 103 rational leaves), all residual-capacity and forced-zero rules and leaf bounds below 16, proving M8=15. Rechecked all n=2..7 integer witnesses and exact rational dual bounds 2,3,4,4,36/5,666/59, so floor(F_n)=M_n below 8; n8 floor(F8)=16>15. These exact finite certificates, not solver logs, prove this precise domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin Theorem 1.1 is an asymptotic existence lower bound; it neither fixes M8 nor determines F8 or rounding loss."
+        ],
+        "reasoning": "A general existence bound does not imply the first finite LP rounding failure; checked actual same-channel t=k=2 implications, not titles alone.",
+        "searches": [
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+          "Guruswami and Hastad, Explicit two-deletion codes with redundancy matching the existential bound, arXiv:2007.10592",
+          "Resultary query: binary two deletions list size two packing integer optimum n=8 fractional LP bound"
+        ]
+      },
+      "checked_sources": [
+        "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+        "Guruswami and Hastad, Explicit two-deletion codes with redundancy matching the existential bound, arXiv:2007.10592",
+        "Resultary, Exact length-six binary two-list two-deletion code size, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "Resultary query: binary two deletions list size two packing integer optimum n=8 fractional LP bound",
+        "Source RESULT.md, verify.py and 62837-byte CERTIFICATE.json; independently verified exact rational branch/tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lin uses deletion hypergraph for asymptotic code size, with no finite bounded-packing integrality conclusion. n6=7 imposes no necessary n8 integer/fractional relation."
+        ],
+        "reasoning": "The paper defines the right channel, but its theorem and quantifiers cannot imply this finite exact gap.",
+        "searches": [
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+          "Resultary, Exact length-six binary two-list two-deletion code size, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+          "Guruswami and Hastad, Explicit two-deletion codes with redundancy matching the existential bound, arXiv:2007.10592"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin Definition 2.1 defines at most t distinct parents per received subsequence, identical to the assessed channel; the source packing LP has per-column bound z<=1, essential to dual residual term."
+        ],
+        "reasoning": "List-two hypergraph independent sets are equivalent to 0-1 incidence packing. The claimed fractional optimum concerns a *bounded* LP, so an unbounded set packing calculation would not be the same comparison.",
+        "searches": [
+          "Resultary query: binary two deletions list size two packing integer optimum n=8 fractional LP bound",
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+          "Resultary, Exact length-six binary two-list two-deletion code size, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior published n6 exact maximum 7 is explicitly incorporated; n8 exact integer 15 and fractional 2188/135 independently checked against full source certificate."
+        ],
+        "reasoning": "No inspected exact-code table had both n8 optimal integer and bounded fractional optimum. Historical unindexed tables remain a residual risk.",
+        "searches": [
+          "Resultary query: binary two deletions list size two packing integer optimum n=8 fractional LP bound",
+          "Resultary, Exact length-six binary two-list two-deletion code size, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Lin 2026 full eight-page primary paper defines precisely t-list k-deletion codes and the deletion hypergraph, but proves asymptotic size lower bounds (Theorem 1.1) and general subsequence counts rather than finite blocklength-eight integer/LP disparity. Guruswami-Hastad address asymptotic two-deletion construction. Prior exact result M6=7 is accounted for and does not imply M8=15 or fractional optimum. Specific older packing tables remain a risk.",
+      "residual_risks": [
+        "Earlier unindexed exact deletion-code or integer-packing table could contain n8 F8 and M8.",
+        "The result does not imply asymptotic integrality gap or other list/deletion parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING finite n8 bounded-LP first rounding gap",
+          "evidence": "Theorem 1.1 is asymptotic Ω lower bound; Definition 2.1 matches at-most-two distinct parents; no F8, 2188/135 or M8=15 present.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+          "material_read": "All eight primary text pages, including abstract, Definition 2.1, Theorems 1.1 and 1.4, proofs in Sections 2-3 and references",
+          "method": "Authorized institutional full-text extraction after public arXiv/OA full-text access failed; scientific text materially read",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Exact same k=2,t=2 deletion-hypergraph definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Earliest failure of naive integer rounding in a canonical deletion-shadow fractional packing relaxation is a motivated structural finite threshold. Exact dual/primal and 205-node independent exclusion certificate make it a reusable benchmark rather than an isolated unproved optimizer claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+    "Guruswami and Hastad, Explicit two-deletion codes with redundancy matching the existential bound, arXiv:2007.10592",
+    "Resultary, Exact length-six binary two-list two-deletion code size, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+    "Resultary query: binary two deletions list size two packing integer optimum n=8 fractional LP bound",
+    "Source RESULT.md, verify.py and 62837-byte CERTIFICATE.json; independently verified exact rational branch/tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary n=2..8, exactly 2 deletions, list size 2, bounded 0<=z<=1 LP; no extrapolation to n>8 or other channels.",
+    "Publication transport remains not_ready because public operational fields require complete sanitization; a scientific PASS is not a published certificate."
+  ],
+  "residual_risks": [
+    "Earlier unindexed exact deletion-code or integer-packing table could contain n8 F8 and M8.",
+    "The result does not imply asymptotic integrality gap or other list/deletion parameters."
+  ],
+  "schema_version": 1
+}
