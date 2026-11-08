@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify_kernel_growth.py` using Python 3.8 or newer. The checker independently computes valuations of polynomial values, enumerates every residue-subsequence through the stated *finite* depth, computes the rank of the matrix of the first 200 terms over the prime field of order 1,000,003, and checks simple-root lifts. Expected output:
+# Independent mathematical audit
 
-```
-LEVEL_OK p=5 depth=1 rank_mod_1000003=3 predicted=3 rows=6
-LEVEL_OK p=5 depth=2 rank_mod_1000003=6 predicted=6 rows=31
-LEVEL_OK p=5 depth=3 rank_mod_1000003=8 predicted=8 rows=156
-LEVEL_OK p=5 depth=4 rank_mod_1000003=10 predicted=10 rows=781
-LEVEL_OK p=13 depth=1 rank_mod_1000003=3 predicted=3 rows=14
-LEVEL_OK p=13 depth=2 rank_mod_1000003=6 predicted=6 rows=183
-LEVEL_OK p=31 depth=1 rank_mod_1000003=4 predicted=4 rows=32
-LEVEL_OK p=31 depth=2 rank_mod_1000003=8 predicted=8 rows=993
-VERIFY_OK all tested finite-depth sample ranks agree
-```
+## correctness
 
-The first family is \(Q(X)=X^2+1\); the last is \(Q(X)=X^3-2\). A rank of a finite sampled evaluation matrix over a finite field is not, by itself, an exact rank determination for infinite rational sequences. The proof's local-singularity independence is the unrestricted argument. Independent mathematical validation remains unperformed.
+PASS
+
+For monic Q in Z[X] rational irreducible degree d>=2 splitting into d distinct mod-p linear factors, Hensel gives distinct irrational p-adic conjugate roots α_i. At each j, exactly d residue kernel subsequences are g_{i,j}(n)=j+ν_p(n-β_{i,j}); unmatched residues are constant, and a constant 1 first appears at depth 2. Affine rigidity precludes coincidences between all α_i and tails β_{i,j}: an irrational root cannot have a finite orbit under nontrivial positive p-power rational-affine action. Independent coefficient-isolation via nonnegative integers n approaching one p-adic irrational point shows valuation sequences and constant are Q-linearly independent. Consequently rank depth0=1, depth1=d+1, depth e>=2=de+2 for all e, with no finite-precision extrapolation. Independently calculated sample rational ranks 1,3,6 for Q=x²+1,p=5 at e=0,1,2.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact rational p-kernel span rank at EVERY finite depth in the completely split irreducible case. Bell 2007 Proposition 3.2 already proves irrational-root valuations are not p-regular, including example ν_5(n²+1); no novelty is claimed for nonregularity. The inspected Bell proof uses runaway p-adic tails but does not supply the cumulative rank de+2, the constant-at-depth-two adjustment or the global affine-distinctness argument. Related Medina/Moll/Rowland and Sobolewski establish qualitative valuation criteria.
+
+## value
+
+PASS
+
+This degree-sensitive finite-depth rational rank is a canonical quantitative refinement of p-regularity: it identifies exact linear dimension growth rather than only non-finite generation. The irreducible totally split class is structurally natural, and such exact kernel ranks inform automata/regular-sequence complexity despite infinite rank in the limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
