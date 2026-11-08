@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:12:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ordered distinct iid nodes the exponential covariance has an exact Markov-innovation precision form z1²+sum_i (z_{i+1}-r_i z_i)²/(1-r_i²) with r_i=e^(-gamma d_i); a unique collapsing gap delta makes the spectral norm 1/(gamma delta)+O(1) when other gaps are bounded below. The full operator norm has deterministic O(1/delta_min) upper bound. Pair-collision inclusion-exclusion yields P(delta_min<a)=n(n-1)a integral w²+o(a), and multiple near-collisions have O(a epsilon) probability under bounded w. Sending t->infinity then epsilon->0 gives P(||K^-1||>t)~C/t and P(lambda_min<s)~Cs, C=n(n-1) integral(w²)/gamma. Layer-cake gives the q<1 moment threshold; integration by parts yields E||(K+tau I)^-1||~C log(1/tau), q>1 constant C/(q-1)*tau^(1-q). Cauchy–Schwarz makes uniform w uniquely optimal at leading order; exact uniform spacing and two-node identities follow from simplex volume and 2x2 diagonalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barthelmé–Usevich analyze fixed-node kernel flat limit, not fixed kernel scale under random collisions.",
+          "Barnett–Greengard–Rachh treat kernel approximation and positive regularization, not inverse moment blow-up at vanishing nugget.",
+          "Ranjan–Haynes–Karsten motivate numerical jitter, not a sharp iid law."
+        ],
+        "reasoning": "The old conditioning results do not dominate exact distributional coefficient, moment boundary and expectation-level nugget asymptotics.",
+        "searches": [
+          "arXiv:1910.14067 spectral properties kernel matrices flat limit",
+          "arXiv:2305.11065 conditioning Gaussian process with noise",
+          "doi:10.1198/TECH.2011.09141 nugget near singular covariance"
+        ]
+      },
+      "checked_sources": [
+        "Rybicki–Press Phys Rev Lett 74 (1995) DOI 10.1103/PhysRevLett.74.1060",
+        "Barnett–Greengard–Rachh arXiv:2305.11065",
+        "Barthelmé–Usevich arXiv:1910.14067",
+        "Ranjan–Haynes–Karsten DOI 10.1198/TECH.2011.09141",
+        "Huang et al. DOI 10.1016/j.spl.2018.12.008 indexed abstract",
+        "Resultary query random OU inverse-norm nugget moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rybicki–Press gives efficient precision structure without random-site minimum-gap asymptotics.",
+          "Fixed-site flat-scale and distinct random minimum-kernel models have different parameter limits and kernels.",
+          "A deterministic positive-nugget conditioning bound does not give the sharp expectation divergence as nugget vanishes."
+        ],
+        "reasoning": "The exact C/t tail, q=1 critical moment and C/(q-1) asymptotic are not formal corollaries of the inspected primary claims without a separate collision spectral calculation.",
+        "searches": [
+          "Rybicki Press 1995 Ornstein Uhlenbeck irregular data precision",
+          "Barnett Greengard Rachh 2023 GP kernels conditioning",
+          "Barthelmé Usevich 2019 spectral flat kernel matrices",
+          "Huang et al. smallest eigenvalues random min kernel 2019"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rybicki–Press exploit the same stationary exponential/OU kernel and tridiagonal precision for irregular sites; random iid collision probabilities and exact inverse-norm tail are different stochastic conclusions.",
+          "The 1/2-Matérn kernel is exactly e^(-gamma |h|), not the squared-exponential kernel."
+        ],
+        "reasoning": "The precision factorization is classical, and the new threshold depends on the minimum random node spacing and corresponding rank-one eigenvalue; exact coefficient and density dependence require separate work.",
+        "searches": [
+          "exponential Ornstein Uhlenbeck covariance matrix inverse norm heavy tail random iid locations nugget moments",
+          "doi:10.1103/PhysRevLett.74.1060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary hits related to OU time-series sensors and other random covariance objects, no exact fixed-n OU random-site collision coefficient.",
+          "The exact n=2 inverse tail derives from a 2x2 matrix; general n coefficient is not simply a pre-tabulated n=2 statistic."
+        ],
+        "reasoning": "This is a continuous model family and distributional limit, not a recomputation of a finite lookup table. Search nonmatches do not prove publication priority.",
+        "searches": [
+          "random OU kernel random sites smallest eigenvalue tail exact constant finite n",
+          "Resultary: exponential Ornstein Uhlenbeck covariance matrix inverse norm heavy tail random iid locations nugget moments"
+        ]
+      },
+      "rationale": "Sharp fixed-n random-site Ornstein–Uhlenbeck inverse-conditioning tail coefficient, all-moment phase boundary and nugget expectation laws are not implied by the classical Markov precision, fixed positive-nugget conditioning or a fixed-site flat-kernel limit. Priority remains qualified for inaccessible specialized random-kernel work.",
+      "residual_risks": [
+        "Huang et al. full min-kernel paper inaccessible; cannot exclude indirect relevant comparison to smallest eigenvalue of OU kernel.",
+        "No higher dimensions, smoother kernels, growing n, finite-threshold design dominance or numerical floating-point claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "classical precision method, no full-text noncovering claim",
+          "evidence": "Structural tridiagonal inverse is prior knowledge and is explicitly credited",
+          "identifier_or_url": "doi:10.1103/PhysRevLett.74.1060",
+          "material_read": "Available publisher/index abstract and historical description; full paper not read here",
+          "method": "publisher bibliographic and abstract inspection",
+          "title": "A Class of Fast Methods for Processing Irregularly Sampled or Otherwise Inhomogeneous One-Dimensional Data",
+          "trigger": "same OU one-dimensional Markov covariance precision"
+        },
+        {
+          "assessment": "conditioning in deterministic or positive-noise regime; does not itself supply random collision coefficient",
+          "evidence": "Distinguish noise >0 deterministic stability from tau->0 expected divergence",
+          "identifier_or_url": "arXiv:2305.11065",
+          "material_read": "Accessible arXiv primary introduction and finite-noise conditioning propositions previously inspected; direct detailed new full-text comparison not repeated",
+          "method": "primary arXiv theorem/abstract comparison",
+          "title": "Uniform approximation of common Gaussian process kernels using equispaced Fourier grids",
+          "trigger": "could contain more general kernel conditioning bounds"
+        },
+        {
+          "assessment": "fixed distinct sites and varying flatness parameter, not iid position collisions",
+          "evidence": "Different limit with fixed sites",
+          "identifier_or_url": "arXiv:1910.14067",
+          "material_read": "Available arXiv primary theorems and flat-limit setup inspected",
+          "method": "primary article statements and setup",
+          "title": "Spectral properties of kernel matrices in the flat limit",
+          "trigger": "kernel eigenvalue singularity theorem could dominate"
+        },
+        {
+          "assessment": "different minimum-kernel object; full implication cannot be ruled out",
+          "evidence": "Uninspected full text retained as a residual priority risk",
+          "identifier_or_url": "doi:10.1016/j.spl.2018.12.008",
+          "material_read": "Indexed abstract only; full text unavailable for this audit",
+          "method": "abstract/bibliographic examination",
+          "title": "The smallest eigenvalues of random kernel matrices: Asymptotic results on the min kernel",
+          "trigger": "plausible random-kernel spectral priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact Pareto tail and universal critical moment exponent for finite random OU covariance matrices quantify a natural severe conditioning mechanism; the exact coefficient and optimizing design density are useful beyond classical deterministic precision structure or qualitative nugget regularization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed n>=2, iid continuous bounded density on one-dimensional [0,1], gamma>0, spectral norm exact arithmetic.",
+    "Raw Git tree object not exposed by repository connector: source tree SHA is assigned guard, not independently recomputed."
+  ],
+  "schema_version": 1
+}

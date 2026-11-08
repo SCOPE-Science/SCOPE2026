@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy, SymPy and mpmath installed. Its checks include three exact rational Markov-precision identities; 280 numerical inverse comparisons across several sample sizes and decay rates; 36 isolated-collision limits; nine two-site tail constants; three uniform-spacing Monte Carlo diagnostics; and four two-site regularized spectral-moment quadratures.
+## correctness
 
-The successful checked output is:
+PASS
 
-`VERIFY_OK exact_precision=3 direct_precision=280 single_collisions=36 exact_two_node_tails=9 min_spacing=3 nugget_integrals=4`
+For ordered distinct iid nodes the exponential covariance has an exact Markov-innovation precision form z1²+sum_i (z_{i+1}-r_i z_i)²/(1-r_i²) with r_i=e^(-gamma d_i); a unique collapsing gap delta makes the spectral norm 1/(gamma delta)+O(1) when other gaps are bounded below. The full operator norm has deterministic O(1/delta_min) upper bound. Pair-collision inclusion-exclusion yields P(delta_min<a)=n(n-1)a integral w²+o(a), and multiple near-collisions have O(a epsilon) probability under bounded w. Sending t->infinity then epsilon->0 gives P(||K^-1||>t)~C/t and P(lambda_min<s)~Cs, C=n(n-1) integral(w²)/gamma. Layer-cake gives the q<1 moment threshold; integration by parts yields E||(K+tau I)^-1||~C log(1/tau), q>1 constant C/(q-1)*tau^(1-q). Cauchy–Schwarz makes uniform w uniquely optimal at leading order; exact uniform spacing and two-node identities follow from simplex volume and 2x2 diagonalization.
 
-The general fixed-count tail law, all real moment exponents, and nugget asymptotics are established by the written finite-dimensional factorization, collision-inclusion arguments, and analytical integration. Diagnostic calculations are not an infinite proof. Results are in exact real arithmetic and do not constitute a validated numerical error bound for floating-point solvers.
+## originality
 
-Independent audit: not performed. This file contains no independent validation evidence.
+PASS
+
+Sharp fixed-n random-site Ornstein–Uhlenbeck inverse-conditioning tail coefficient, all-moment phase boundary and nugget expectation laws are not implied by the classical Markov precision, fixed positive-nugget conditioning or a fixed-site flat-kernel limit. Priority remains qualified for inaccessible specialized random-kernel work.
+
+## value
+
+PASS
+
+An exact Pareto tail and universal critical moment exponent for finite random OU covariance matrices quantify a natural severe conditioning mechanism; the exact coefficient and optimizing design density are useful beyond classical deterministic precision structure or qualitative nugget regularization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
