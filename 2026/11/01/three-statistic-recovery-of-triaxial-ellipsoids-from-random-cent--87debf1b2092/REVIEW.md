@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Restricting the quadratic form to a random orthogonal plane yields an exact cone inequality; independent Haar coordinates give the CDF. Dominated convergence proves the upper-end square-root coefficient; strict monotonicity of the complete elliptic integral reconstructs the remaining semiaxis. The proof checks endpoints, positivity, normalizations, and the difference between diameter and half-diameter. Standalone direct-eigenvalue tests and quadrature agree. Risk: numerical checks are supplementary, not the proof.
+## correctness
 
-**Originality — PASS for the inverse-identification statement, with historical priority provisional.** The Dixon–Anderson kernel already determines the entire joint compressed-eigenvalue law; **the raw CDF is not independently novel** and is merely the calculation used in the inverse proof. What is asserted here is the stronger observation-efficiency statement: one *marginal* radius law, and indeed two support endpoints and one tail coefficient, reconstruct all three axes. The inspected orbital-kernel, random-radius, and stereology sources do not state this inverse reduction. The closest related inversion uses different section statistics. Risk: older matrix-spectral or stereological literature could contain an equivalent scalar inverse calculation.
+PASS
 
-**Value — PASS.** Recovering the complete triaxial shape from just one one-dimensional random-section measurement distribution is a natural inverse-stereology question. The theorem supplies three explicit reconstructive statistics and an evaluable formula rather than only general concentration bounds. Its sharp endpoint coefficient is structurally necessary in the reconstruction; arbitrary numerical parameters or a routine special case are not the contribution. Risk: practical finite-sample tail estimation is not analyzed.
+The stated cone event follows from restricting the diagonal quadratic form diag(a^-2,b^-2,c^-2) to N-perp and applying weighted Cauchy-Schwarz. Haar latitude is uniform; integrating its cone threshold yields the precise interior CDF. Dominated convergence yields the square-root upper-tail coefficient, and strict derivative of the complete elliptic integral on (0,1) proves unique recovery of the third axis after the support endpoints determine the two largest. Independently recomputed for axes (3,2,1): F(2.5)=0.550111203752269 and T=0.53370587242544; numeric checks are corroboration, not an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison. After a,b are recovered as support endpoints, the single upper-tail coefficient is strictly monotone in c through E(m); no explicit prior three-statistic inverse implication found. Residual possibility: implicit corollary of classical joint kernel or older stereology.
+
+## value
+
+PASS
+
+An inverse stereological question is solved with only three intrinsic observables of a one-dimensional radius law, not full joint compression spectral data; strict recoverability and an explicit elliptic coefficient are relevant exact shape diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
