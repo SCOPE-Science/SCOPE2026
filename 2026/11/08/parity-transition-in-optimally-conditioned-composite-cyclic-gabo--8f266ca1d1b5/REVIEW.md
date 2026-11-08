@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The exact Weyl--Fourier diagonalization reduces the least singular value to the minimum of normalized ambiguity coefficients. For composite cyclic order, products of two nonzero residues cover the full residue ring, including zero; this proves the exact full-grid phase obstruction. The radial arithmetic--geometric mean bound is sharp only at the impulse modulus \(\sqrt N\). On each phase-grid interval the ratio derivative has a strictly positive sign before the midpoint and a strictly negative sign after it because \(\sqrt N\cos(\pi/(2N))>1\). The unique odd or conjugate even optimizing phases follow. The two axis ambiguity branches are checked explicitly, including the equality boundary at \(N=6\). The numerical checker directly constructs the lifting matrices and independently compares their complete singular spectra for eight composite dimensions. Finite tests corroborate but do not substitute for the all-order proof.
+
+## Originality — PASS (provisional priority)
+The full primary paper by Goldberger--Kang--Okoudjou supplies the general Weyl--covariant diagonalization, but not the composite one-impulse minimax. Bojarovska--Flinth's full text supplies general Gabor phase-retrieval criteria, not this constrained minimax. The closest published exact impulse theorem covers prime moduli only: at a prime, products of nonzero residues do not include zero, so its claimed optimum does not imply the composite value. The published exact parameter rank discriminant covers all moduli but only determines which singular values vanish, not the strictly positive minimum or sharp optimal conditioning. This logical distinction was checked from the full mathematical statements and proofs, not inferred from paper titles. Historical priority remains provisional, particularly with respect to possible unpublished or unindexed general frame-stability theorems.
+
+## Mathematical value — PASS
+For minimal-outcome Weyl-covariant operator tomography, exact conditioning quantifies stability beyond mere informational completeness. The result gives a sharp infinite family of optimizer classifications under a simple but natural one-reference-impulse hardware constraint. The parity transition originates in arithmetic product coverage and changes the optimal phase, not merely a lower-order constant. It provides an exact reproducible benchmark for sparse-parameter frame design and contrasts substantively with the prior prime-only optimum.
+
+## Limitations and comparison risks
+The theorem makes no claim about arbitrary Gabor windows, statistical noise, or nonlinear phase-retrieval metrics. The all-parameter prior rank theorem covers completeness but not optimum conditioning. A 2026 work on uniformly stable minimal Weyl--Heisenberg measurements could only be assessed from indexed bibliographic material; an indirect specialization cannot be categorically excluded. A broader unpublished or unindexed result may also supersede the restricted minimax. Independent external validation and priority certification have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
