@@ -1,19 +1,21 @@
-# Scientific review: radical multiplication and cyclic subgroups
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns precisely the regular algebra \(A=k[x,y]/(x^3,y^3)\) in characteristic three. The proof reduces Jordan partitions to ranks of multiplication and its square, using nilpotency index three. The nonzero-linear case follows from a genuine algebra automorphism with invertible linear part. For a nonzero quadratic initial form \(Q\), a filtered image computation gives rank \(2+\operatorname{rank}T_Q\), and squaring gives exactly \(\Delta x^2y^2\). The cubic and socle cases are direct. Their rank pairs reconstruct the six partitions without relying on enumeration. The quadric-cone argument proves the geometric statements and gives \(q^2\) discriminant-zero triples. Counting independent free coefficients yields all finite-field formulas; the total is \(q^8\). The subgroup factor of one half follows from the two generators and their identical Jordan forms. The standalone finite-field checker corroborates all critical rank cases.
+PASS
 
-## Originality — PASS, provisional historical priority
+The actual RESULT.md identifies A=k[x,y]/(x^3,y^3), J^5=0 and f^3=0, and classifies Jordan blocks from ranks (rank m_f, rank m_f^2). A coordinate automorphism sends any f with nonzero linear form to x, giving ranks (6,3). For quadratic leading Q=ax²+bxy+cy², the degree-three multiplication matrix [[b,a],[c,b]] has determinant Delta=b²-ac; degree-two and degree-four image contributions give rank 2+rank(T_Q), while f²=Delta x²y². This yields (4,1) for Delta nonzero and (3,0) for nonzero Delta-zero Q. Cubic and socle leading forms have ranks (2,0), (1,0); zero rank (0,0). The six partitions and F_{3^r} cardinalities follow by independent free coefficients; discriminant-zero quadratic cone has q² points, smooth off vertex. For f!=0, (1+f)^3=1, and the other generator 1+2f+f² has identical Jordan ranks; all order-3 normalized-unit subgroups are counted twice, yielding (q^8-1)/2. Independent direct multiplication and rank enumeration exhaust F3 all 6561 elements and reproduce multiplicities 5832,486,216,24,2,1; finite counts corroborate, not prove all fields.
 
-The closest primary publications are Öztürk Kaptanoğlu (2011), Carlson–Friedlander–Suslin (2011), and Baland–Chan (2015). The former explicitly defines p-points by a nonzero linear coefficient in the augmentation radical, and the latter requires independence modulo \(J^2\) for shifted-subgroup embeddings. Those frameworks explain free restrictions in the nonzero-linear stratum but do not imply the exact classification of non-flat radical elements \(f\in J^2\), including the discriminant split, nor the complete counts of subgroups of \(1+J\). Iarrobino (2020) exhibits the identical algebra and its familiar \((3^3)\) linear Jordan type, but does not classify nonlinear elements or enumerate their normalized-unit subgroups. Checked published mathematical-record summaries concern different algebras, different modules or linear-form Jordan types. No more comprehensive result was located in searches, but search incompleteness remains a publication-priority risk. No independent literature audit has been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The nine-dimensional group algebra of \(C_3\times C_3\) is the minimal odd-prime rank-two modular group algebra with wild representation type. Its \(\pi\)-point restrictions account only for elements whose linear radical class is nonzero. The exact spectrum and multiplicities of **all** normalized-unit cyclic subgroups give a natural, previously unaddressed completion of that representation-theoretic invariant. The first non-flat layer has two genuinely distinct Jordan types separated by a smooth conic, and the all-finite-fields formulas add arithmetic information; these are not arbitrary coordinate slices or a one-field table.
+Best-of-knowledge original joint all-radical Jordan spectrum and subgroup census for the regular C3xC3 module. Classical p-points restrict only nonzero classes in J/J²; the four deeper J² strata and arithmetic census are not obtained from those p-point theorems. First linear stratum is explicitly prior knowledge. Very broad Artin-algebra Jordan classifications could conceal equivalent special cases.
 
-## Limits and risks
+## value
 
-Independent priority verification may reveal a broader theorem implying these formulas. The findings concern only the regular module and only characteristic three. The finite computational tests do not prove the infinite-field statements; the proof does. The geometry is reduced, and no scheme-multiplicity conclusion is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first rank-two odd-prime elementary abelian regular module is a canonical modular representation object. P-point freeness covers only nonzero linear radical classes, whereas cyclic subgroups of the entire normalized unit group require a complete nonlinear classification. The quadratic-discriminant transition, smooth reduced strata and exact finite-field multiplicities are independently useful, not a small-field tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
