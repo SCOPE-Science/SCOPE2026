@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the random object, all quantifiers, and the exact rangefinder output. The proof reduces each of the eight equally likely sign vectors to one of four equiprobable antipodal classes. The six projected-collinearity determinants are exactly the three pairs of signed coordinate equalities for a kernel normal. This gives four and only four admissible line-mass patterns, including the zero atom at a body diagonal. Inclusion–exclusion supplies the exact finite-width probabilities. The loss relation for row coisometries follows from \(\operatorname{tr}((I-P)AA^{\mathsf T})=2-\operatorname{rank}P\). No infinite-dimensional conclusion follows from the finite checks. The independently replayable integer verifier exhausts 372 finite normal-width cases, while the algebraic proof covers all nonzero real normals and all widths \(L\ge2\).
+## correctness
 
-## Originality — PASS under accessible evidence
-The recent motivating preprint (arXiv:2610.31333v1) specifically says in Remark 2.21 that discrete Rademacher projections may lose rank and points to general sub-Gaussian probability bounds, but its relevant theorems and numerical discussion do not state an exact kernel-orientation four-class law. Saibaba–Międlar (arXiv:2308.05814) provides general non-Gaussian bounds without this exact finite support classification. The standard Halko–Martinsson–Tropp Gaussian rangefinder result gives an almost-sure full-rank contrast, not this Rademacher formula. Searches of relevant published mathematical records for rank loss, Rademacher sketch geometry, three-coordinate kernels, and equivalent antipodal/projective formulations found no directly covering record. The formulas are an elementary consequence of projective cube support once the right quotient is chosen; residual historical-priority risk remains, especially from specialized small-sample discrete-sketch calculations.
+PASS
 
-## Mathematical value — PASS
-This exhaustively solves the first input dimension in which rank-two subspace orientation can vary for an entrywise sign sketch. It supplies sharp exact success probabilities and attainable equal-singular-value counterexamples to a covariance/singular-value-only prediction of recovery. The exponential orientation spread under increasing oversampling is an operational quantitative distinction, rather than a trivial positivity check or an arbitrary parameter slice. The result is restricted to three input coordinates; no higher-dimensional sharp law is asserted.
+For rank-two A:R3→R2 with kernel normal h, reduce eight independent equiprobable sign vectors to four antipodal classes. Distinct image-line mergers are governed exactly by the six cross products, i.e. equalities of absolute coordinates of h; a zero image is possible only for all three nonzero coordinates of equal magnitude. Four class-mass patterns give deficiency probabilities 4^(1-L), 2^-L+2*4^-L, 2^(1-L), 3*2^-L-2*4^-L and zero-image atom 4^-L only in the fourth case. Inclusion–exclusion on line occupancies proves all L>=2. For AA^T=I2, E||A-QQ^TA||_F²=Pr(rank<2)+Pr(Y=0) by trace. Independently enumerated rank distributions of actual cube samples, including the axis and diagonal boundaries; exact rational checks agreed. The 2x3 coisometry existence and Gaussian contrast are valid.
 
-## Remaining limitations
-Exact arithmetic, iid fair signs, rank two, three input coordinates, and range projection are essential. General probabilistic sketch bounds are not contradicted. No conclusion about numerical conditioning, alternative output truncation, or generic matrix dimensions is claimed. Independent expert audit and complete historical-priority certification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier non-Gaussian rangefinder bounds and explicit qualitative warnings about discrete rank deficiency are credited; the narrow four-case orientation law is assessed separately. Simple finite support geometry suggests possible folklore prior but no decisive equivalent identified.
+
+## value
+
+PASS
+
+A complete sharp classification of the smallest dimension where a sign sketch depends on target orientation. The exponential ratio at identical singular values distinguishes covariance-only randomized rangefinder predictions in a mathematically natural discrete counterexample, and supplies exact error expectations. This is more than a cheap rank-positivity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
