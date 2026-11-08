@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact three-eigenvalue adjacency algebra for primitive strongly regular graphs and the strict spectral inequalities of both the graph and its complement to make two nonprincipal sink Gram matrices invertible. It identifies the exact five-dimensional bright space, establishes the absence of nondecaying bright modes for **any** two positive sink rates, and evaluates the diagonal projector. Algebraic class counts give the full site distribution and both universal averages. All quantifiers, initial-state normalizations, strict positivity hypotheses and imprimitive boundary are stated. The packaged `verify.py` checks 598 sink pairs and 8,849 individual site comparisons across seven independent graph instances, and `exact_examples.py` supplies exact fraction checks. Their output is recorded in `verification_output.txt`. Finite numerical checks are supporting evidence, not the infinite-family argument.
+PASS
 
-## Originality — PASS, with historical priority risk
+In a primitive (v,k,lambda,mu) strongly regular graph the adjacency algebra has three orthogonal projectors E_k,E_r,E_s. Both the graph and its complement have strict nonprincipal eigenvalue moduli below their degrees; therefore each 2-by-2 sink Gram matrix U*E_theta U is positive definite for theta=r,s, while the principal part has rank one. Their direct sum yields bright rank exactly 5. Every bright eigenmode of generator -iJA-(kappa_a P_a+kappa_b P_b)/2 has strictly negative real part because zero decay requires orthogonality to both sinks and hence to the bright cyclic subspace; the dark part is unitary. Thus capture is the bright projector, giving 5/v from mixed, 3/(v-2) averaged nonsinks. Diagonal Gram inverses yield the stated site formula and lambda/mu common-neighbor class populations. Independent construction of all 10 sink pairs in C5 recovered bright rank five. Finite tests corroborate but do not prove the all-graph result.
 
-Novo et al. (arXiv:1412.7209) and Razzoli et al. (arXiv:2011.13794) cover the general Krylov/single-sink transport framework; neither inspected full text asserts the two-sink strongly regular site-distribution theorem. Li et al. (2019; DOI 10.1007/s11128-019-2250-5) is a particularly close two-marked-vertex study using real Hermitian loop potentials and unitary spatial search, rather than irreversible capture. Its full text could not be inspected, so the possibility of a broader relevant theorem in it remains a priority risk. The aggregate \(5/v\) law for individual special graph families does not alone establish the all-primitive, parameter-only site-resolved law. Neither a failed text search nor the absence of a matching title proves uniqueness; the examined evidence supports provisional originality of the precise combined theorem.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural exact absorption benchmark for the entire infinite class of primitive strongly regular quantum networks, including graphs without vertex transitivity. It shows experimentally distinguishable *site-resolved* absorption statistics can be blind to graph isomorphism once the parameters and sink adjacency agree (for example, the nonisomorphic Shrikhande and rook graphs). It sharply separates the primitive rank-five law from failure in complete multipartite imprimitive examples and yields exact normalization-independent averages. This is more than a direct single-trap renaming or a finite table.
+Novo et al. establish general Krylov reduction and Razzoli et al. the single-trap strongly-regular benchmark, not a two-absorber site distribution. Li et al. consider coherent marked loops rather than irreversible absorption; its full article was not available and is not called categorically noncovering. The exact two-site projector formula follows from standard spectral projectors but the simultaneous primitive-SRG rank-five, absorption-independent and entire adjacency-class distribution is a materially stronger specialized statement than those examples. Published Resultary query yielded related but logically distinct spectral subspace results.
 
-## Scope and limitations
+## value
 
-All findings require classical finite graph adjacency, uniform coherent hopping, two strictly positive irreversible sink rates and infinite-time one-excitation capture; no decoherence or additional sinks. Unavailable full historical text and future independent comparison could change the novelty assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact site-resolved trapping probability is a natural transport invariant, especially in nonvertex-transitive primitive strongly regular networks. The law explains why nonisomorphic Shrikhande and rook networks with identical parameters are absorption-statistically indistinguishable under matched sink adjacency, and identifies a meaningful imprimitive boundary. This is a useful infinite-family classification rather than a renaming of single-sink transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
