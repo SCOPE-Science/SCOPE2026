@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:44:40.725757Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bergman–Laplace isometry Ug(z)=(2pi)^(-1/2)int_0^infinity sqrt(2t)g(t)e^(itz)dt converts horizontal-line mass into the positive multiplier m_beta(t)=2t sum_{j>=0}2^(-beta j)e^(-2t2^(-j)). Setting u=2t and adding negative dyadic indices gives m_beta(u/2)=u^(1-beta){P_beta(log_2 u)-R_beta(u)} with P_beta=sum_{k in Z}2^(beta(k+theta))e^(-2^(k+theta)), R_beta=sum_{k>=1}(2^ku)^beta e^(-2^ku). Mellin substitution yields Fourier coefficients Gamma(beta-2pi i ell/log2)/log2, with rapidly convergent series. Positivity and boundedness of P_beta, and exponential decay of R_beta at infinity, yield boundedness iff beta>=1. At beta=1, the omitted R_1 is positive for all finite u while the completed periodic supremum K is approached along u=2^(n+theta*), so the optimal one-sided and two-sided constants coincide and no nonzero extremizer exists. The exact Gamma modulus bound makes the second and higher harmonic derivative tails <9e-6 of the first, giving exactly one maximum and one minimum per period. Multiplier real analyticity and nonconstancy on nonatomic L2 explain noncompactness, absence of eigenvalues and spectrum [0,norm] for bounded cases. An independent mpmath Mellin and Fourier evaluation agreed to better than 1e-24 and recovered theta*=.8611035250777802693 and K=1.4427093011329494542; numerical agreement supports, but does not replace, the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rozenblum–Vasilevski 2019 Example 4.4 explicitly discusses the same dyadic horizontal-line measure, with sufficient weight decay O(2^(-2j)).",
+          "Classical Carleson estimates and general Mellin transforms are already known methods."
+        ],
+        "reasoning": "Broader vertical-symbol functional calculus makes the scalar representation available and Carleson theory can yield boundedness. Neither inspected theorem implies the precise beta=1 norm and unique log-phase without a separate Fourier tail and extremal argument.",
+        "searches": [
+          "Resultary: dyadic block matrices spectral norm critical logarithmic spectral ripple",
+          "dyadic horizontal lines Bergman Toeplitz sharp logarithmic periodic norm gamma",
+          "arXiv:1907.06878 Example 4.4",
+          "arXiv:2203.04170 Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.06878 Example 4.4",
+        "arXiv:2203.04170 Section 4",
+        "Resultary dyadic spectral query",
+        "assigned frozen Git RESULT.md / verify_dyadic.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 dyadic-line example supplies a sufficient coefficient scale; 2022 Section 4 supplies single-line multiplier, and Flajolet–Gourdon–Dumas classical Mellin tools yield a Fourier technique.",
+          "Assigned theorem adds an exact optimization over all frequencies, a unique phase and strict nonattainment."
+        ],
+        "reasoning": "The conjunction of known pieces does not automatically state the sharp K or its unique maximizer. The threshold part alone may be accessible from classical Carleson theorems, so originality is assigned to the complete quantitatively sharp package, not the underlying functional calculus.",
+        "searches": [
+          "Resultary: dyadic block matrices spectral norm critical logarithmic spectral ripple",
+          "dyadic horizontal lines Bergman Toeplitz sharp logarithmic periodic norm gamma",
+          "arXiv:1907.06878 Example 4.4",
+          "arXiv:2203.04170 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rozenblum–Vasilevski 2022, Section 4: spectral functional calculus for vertical invariant Toeplitz symbols, including a single horizontal delta line.",
+          "Assigned Q_beta multiplier is the positive sum of such single-line multipliers."
+        ],
+        "reasoning": "Known Toeplitz diagonalization covers the general spectral viewpoint and each line term, but its inspected statements do not identify the infinite one-sided dyadic critical maximizing phase, its exact K, or the equality of one/two-sided norms.",
+        "searches": [
+          "Resultary: dyadic block matrices spectral norm critical logarithmic spectral ripple",
+          "dyadic horizontal lines Bergman Toeplitz sharp logarithmic periodic norm gamma",
+          "arXiv:1907.06878 Example 4.4",
+          "arXiv:2203.04170 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact object is a non-finite continuum operator-norm extremum rather than a discrete table.",
+          "Resultary search hits Cesàro/Hardy-type logarithmic spectral edges and Rhaly operators, but not this dyadic Bergman stack."
+        ],
+        "reasoning": "Nonmatching indexed findings do not establish originality. The specific Gamma-Fourier constant is not an interpolation from a known finite table.",
+        "searches": [
+          "Resultary: dyadic block matrices spectral norm critical logarithmic spectral ripple",
+          "dyadic horizontal lines Bergman Toeplitz sharp logarithmic periodic norm gamma",
+          "arXiv:1907.06878 Example 4.4",
+          "arXiv:2203.04170 Section 4"
+        ]
+      },
+      "rationale": "Known Toeplitz diagonalization covers the general spectral viewpoint and each line term, but its inspected statements do not identify the infinite one-sided dyadic critical maximizing phase, its exact K, or the equality of one/two-sided norms. Broader vertical-symbol functional calculus makes the scalar representation available and Carleson theory can yield boundedness. Neither inspected theorem implies the precise beta=1 norm and unique log-phase without a separate Fourier tail and extremal argument. Nonmatching indexed findings do not establish originality. The specific Gamma-Fourier constant is not an interpolation from a known finite table. The conjunction of known pieces does not automatically state the sharp K or its unique maximizer. The threshold part alone may be accessible from classical Carleson theorems, so originality is assigned to the complete quantitatively sharp package, not the underlying functional calculus. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.",
+      "residual_risks": [
+        "Classical Mellin harmonic-sum analysis could yield the same dyadic norm in an older operator context under a different vocabulary.",
+        "Numerical maximizing phase digits are illustrative; proof of uniqueness relies on Gamma tail inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers measure model and a sufficient beta scale, not the beta=1 sharp constant/phase as a stated result.",
+          "evidence": "arXiv:1907.06878v2, Example 4.4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.06878",
+          "material_read": "Inspected primary text of Example 4.4 and its stated sufficient dyadic weight class, as well as the introduction on Carleson measures.",
+          "method": "Full OA PDF targeted section and text",
+          "title": "Toeplitz operators with singular symbols in polyanalytic Bergman spaces on the half-plane",
+          "trigger": "Contains the same dyadic horizontal-line supporting set"
+        },
+        {
+          "assessment": "Operator diagonalization is antecedent; the infinite dyadic sum’s periodic envelope maximum and nonattainment are not stated in inspected section.",
+          "evidence": "arXiv:2203.04170v1, §4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.04170",
+          "material_read": "Inspected main model setup and Section 4 formulas for vertical symbols and one horizontal delta symbol.",
+          "method": "Primary arXiv full-text targeted sections",
+          "title": "Commutative algebras of Toeplitz operators on the Bergman space revisited",
+          "trigger": "Gives the exact spectral-representation machinery for line-supported symbols"
+        },
+        {
+          "assessment": "General technique may imply the Gamma coefficient formula; no full-document assertion of absence of this operator-specific norm is made.",
+          "evidence": "Flajolet–Gourdon–Dumas (1995) bibliographic abstract.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/mellin-harm.pdf",
+          "material_read": "Read indexed abstract/intro and methodological references to Mellin harmonic sums only; full article not exhaustively inspected.",
+          "method": "Open abstract/background inspection",
+          "title": "Mellin transforms and asymptotics: harmonic sums",
+          "trigger": "Potentially broad general theorem for dyadic harmonic-sum fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sharp critical embedding constant and logarithmic maximizing phase are independently useful for sampling/trace bounds on a canonical scale-invariant geometric family of Bergman lines. The nonattainment and one-sided/two-sided same-norm phenomenon identify the essential spectral edge; neither follows from a routine boundedness statement alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal proof assistant.",
+    "The claim is for analytic unweighted Bergman space and precise dyadic heights and weights, not arbitrary irregular line stacks."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review: dyadic Bergman line sampling
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact Paley--Wiener multiplier and normalized trace identity establish the operator domain and coefficient. The positive omission term forces nonattainment at the critical weight, and the two-sided Gamma periodization identifies its exact operator norm. Explicit \(\Gamma\)-modulus bounds control the higher Fourier harmonics strongly enough to prove a unique maximizing phase. Bounds near zero and infinity provide the sharp boundedness transition; noncompactness follows from the nonatomic multiplication model. A supplementary finite checker passes 55 computations; the all-frequency assertions rely on the written analytic proof.
+## correctness
 
-## Originality
-**PASS, conditional on the accessible literature.** Rozenblum--Vasilevski 2019, Example 4.4, presents the same dyadic line stack but only a \(2^{-2j}\) sufficient weight regime. Their 2022 vertical-symbol spectral-theorem paper provides the general multiplier and a single delta-height example. Flajolet--Gourdon--Dumas explains the classical Mellin harmonic-sum method, which is acknowledged as known. None of the inspected relevant primary statements provides this exact critical one-sided embedding norm together with the unique logarithmic maximizing phase and nonattainment. A complete historical equivalence search is impossible; this remains a priority risk.
+PASS
 
-## Value
-**PASS.** The exact norm solves a natural sharp Carleson trace sampling problem left quantitatively open by its motivating geometric example. The equality of optimal norms after removing infinitely many coarse sampling lines, the exponent transition, logarithmic spectral ripple, and unattained extremal norm produce a coherent structural classification rather than a small numerical correction.
+The Bergman–Laplace isometry Ug(z)=(2pi)^(-1/2)int_0^infinity sqrt(2t)g(t)e^(itz)dt converts horizontal-line mass into the positive multiplier m_beta(t)=2t sum_{j>=0}2^(-beta j)e^(-2t2^(-j)). Setting u=2t and adding negative dyadic indices gives m_beta(u/2)=u^(1-beta){P_beta(log_2 u)-R_beta(u)} with P_beta=sum_{k in Z}2^(beta(k+theta))e^(-2^(k+theta)), R_beta=sum_{k>=1}(2^ku)^beta e^(-2^ku). Mellin substitution yields Fourier coefficients Gamma(beta-2pi i ell/log2)/log2, with rapidly convergent series. Positivity and boundedness of P_beta, and exponential decay of R_beta at infinity, yield boundedness iff beta>=1. At beta=1, the omitted R_1 is positive for all finite u while the completed periodic supremum K is approached along u=2^(n+theta*), so the optimal one-sided and two-sided constants coincide and no nonzero extremizer exists. The exact Gamma modulus bound makes the second and higher harmonic derivative tails <9e-6 of the first, giving exactly one maximum and one minimum per period. Multiplier real analyticity and nonconstancy on nonatomic L2 explain noncompactness, absence of eigenvalues and spectrum [0,norm] for bounded cases. An independent mpmath Mellin and Fourier evaluation agreed to better than 1e-24 and recovered theta*=.8611035250777802693 and K=1.4427093011329494542; numerical agreement supports, but does not replace, the proof.
 
-## Closest published literature and limits
-The 2019 source supports the line geometry and nonsharp sufficient weights, while the 2022 source supports the spectral-multiplier infrastructure. The 1995 Mellin survey supports the harmonic-sum mechanism, not a new method claim. The result covers only unweighted analytic Bergman space and exact dyadic heights. The source-inspection scope and residual historical-priority risks are detailed in AUDIT.json. A numerical checker does not constitute an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known Toeplitz diagonalization covers the general spectral viewpoint and each line term, but its inspected statements do not identify the infinite one-sided dyadic critical maximizing phase, its exact K, or the equality of one/two-sided norms. Broader vertical-symbol functional calculus makes the scalar representation available and Carleson theory can yield boundedness. Neither inspected theorem implies the precise beta=1 norm and unique log-phase without a separate Fourier tail and extremal argument. Nonmatching indexed findings do not establish originality. The specific Gamma-Fourier constant is not an interpolation from a known finite table. The conjunction of known pieces does not automatically state the sharp K or its unique maximizer. The threshold part alone may be accessible from classical Carleson theorems, so originality is assigned to the complete quantitatively sharp package, not the underlying functional calculus. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.
+
+## value
+
+PASS
+
+The exact sharp critical embedding constant and logarithmic maximizing phase are independently useful for sampling/trace bounds on a canonical scale-invariant geometric family of Bergman lines. The nonattainment and one-sided/two-sided same-norm phenomenon identify the essential spectral edge; neither follows from a routine boundedness statement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
