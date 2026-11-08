@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The joint exponential-order-statistic Dirichlet representation and exact uniform-simplex moments yield the displayed covariance formula. The monotonic difference in harmonic tails yields the unique finite sign transition, and exact variances plus Riemann sums give the e^-2 rank limit and correlation profile. The supplied standard-library checker matches 555 exact/analytic and numerical tests; all infinite conclusions follow from proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holst 1980 pages 625 and 630–632: exponential rank representation, rank moment facts, CLT for linear combinations; no quadratic Greenwood mixed moment phase classification",
+        "Erdmann-Pham et al. 2022 HTML main sections 1–3: discrete two-sample rank-spacing count statistics, not sorted continuous Dirichlet lengths"
+      ],
+      "reasoning": "The classical exponential representation allows computations of mixed moments but neither an explicit general theorem about covariance with every symmetric quadratic nor the rank-fraction e^-2 phase profile was found. The 2022 rank-spacing paper concerns a distinct discrete object.",
+      "searches": [
+        "published-finding corpus: Holst 1980 On the lengths of pieces of a stick broken at random ranked gap Greenwood sum squares",
+        "published-finding corpus: order statistic X(k) random circle gaps covariance with sum gap squared",
+        "https://imprs-gw-lectures.aei.mpg.de/wp-content/uploads/2023/12/Holst_StickBreakingDistributions.pdf",
+        "https://arxiv.org/abs/2008.06664"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/3212956",
+      "arXiv:1405.6114v1",
+      "1998 JSPI Ghosh–Jammalamadaka PDF",
+      "arXiv:2008.06664v2",
+      "published-finding corpus semantic result IDs collected for rankwise spacing/Greenwood synonyms",
+      "Accessible 75 historical own-claim IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The historical longest-gap claim gives Cov(max gap, count above threshold); integrating against t can yield the top-rank covariance but not separate internal ranks",
+        "The Dirichlet power-concentration claim gives Cov(N_t, G), which sums all Cov(1_{Y_k>t},G) and loses rank resolution",
+        "The Shannon–Simpson covariance concerns two symmetric concentration summaries, not rank-specific gaps"
+      ],
+      "reasoning": "The accepted claim is the complete rank-indexed finite covariance and sign structure plus interior-rank limiting correlation profile, not merely its maximum rank endpoint. Aggregate threshold moments and individual rank marginals do not imply the conditional rank-resolved cross moment without additional new work.",
+      "searches": [
+        "own ledger: e1f802c2-ce2a-45c4-96b0-7bdf63e0e841",
+        "own ledger: f8d1f07f-3aa2-4849-8a51-b0fdbe6fff6e",
+        "own ledger: d9ffc0b5-6f37-478d-8d14-69b86a7686db",
+        "own ledger: a6e4b795-dbcb-4184-810f-bd8133b402ac",
+        "published-finding corpus: Longest Dirichlet component Simpson concentration covariance H_n squared generalized harmonic number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holst 1980 exact exponential order-statistic representation, Section 2, has no Greenwood cross-moment claim",
+        "Schlemm 2014 Section 2 treats moments of the single largest Dirichlet component"
+      ],
+      "reasoning": "Ordered-gap, broken-stick, uniform-simplex and Dirichlet aliases were compared. Existing moment formulas for ranked lengths alone do not state the covariance with a quadratic aggregate.",
+      "searches": [
+        "published-finding corpus: uniform spacings ordered gaps Greenwood sum of squared spacings covariance kth largest ordered gaps exact sign e^-2",
+        "published-finding corpus: Dirichlet ranked components Simpson concentration covariance rank index negative positive crossover",
+        "web: \"ordered spacings\" \"Greenwood\" \"covariance\"",
+        "https://arxiv.org/abs/1405.6114"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ghosh–Jammalamadaka 1998 tables compare marginal Greenwood quantiles, not the cross-covariance vector",
+        "Retrieved mathematical search results yielded no directly matching rankwise covariance table"
+      ],
+      "reasoning": "A table of marginal Greenwood values cannot determine covariance with ranked gaps; absence of a matching indexed table in accessible search material is not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Greenwood 1946 concentration sum square spacing ranked gaps covariance eigenprofile",
+        "published-finding corpus: broken stick ordered lengths covariance quadratic total squared lengths rank threshold exp minus two",
+        "web: \"ranked spacings\" \"Greenwood\" sum squared length",
+        "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/1998_SmallSample%20AppoxSpacings_JSPI.pdf"
+      ]
+    },
+    "rationale": "Holst 1980 provides the normalized-exponential rank representation and marginal moments, not the rankwise Greenwood covariance or e^-2 sign threshold; Schlemm 2014 provides maximum marginal moments only. Ghosh-Jammalamadaka 1998 concerns Greenwood marginal approximations. Other database and history claims about max-vs-threshold and threshold-vs-power dependences do not logically determine each individual rankwise covariance. New finite sign/correlation phase profile not found in inspected material; implicit general mixed-moment coverage remains an acknowledged priority risk.",
+    "residual_risks": [
+      "Generic exponential-moment machinery in older sources may implicitly yield the exact covariance by computation; no claim of all-literature uniqueness",
+      "Earlier distribution texts or inaccessible survey sections may include a similar rank-resolved result",
+      "A critical-window local rank correction and heterogeneous Dirichlet extension are unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact rank distribution/marginal moments and linear-combination limit methods, not claimed mixed Greenwood covariance sign/correlation profile",
+        "evidence": [
+          "Theorem 2.2 and Section 5, pages 625–632; pages 624 and 632 visually inspected"
+        ],
+        "identifier_or_url": "https://imprs-gw-lectures.aei.mpg.de/wp-content/uploads/2023/12/Holst_StickBreakingDistributions.pdf",
+        "material_read": "12-page paper pages 623–634, especially Sections 2–6 and rank moments",
+        "method": "lawful full PDF text and page screenshots",
+        "title": "On the Lengths of the Pieces of a Stick Broken at Random",
+        "trigger": "Same ordered uniform gaps and exponential rank representation"
+      },
+      {
+        "assessment": "Computes single largest-gap moments and Gumbel limit, not ranked covariance with Greenwood index",
+        "evidence": [
+          "Introduction and Section 2, arXiv:1405.6114v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.6114v1",
+        "material_read": "HTML full article, Sections 1–3 and reference list",
+        "method": "arXiv HTML article with text searches",
+        "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+        "trigger": "Same uniform circular Dirichlet gaps and known maximal-rank moments"
+      },
+      {
+        "assessment": "Marginal approximations/quantiles, not rank-indexed mixed covariance",
+        "evidence": [
+          "1998 JSPI 69, pp. 245–261, Greenwood table section"
+        ],
+        "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/1998_SmallSample%20AppoxSpacings_JSPI.pdf",
+        "material_read": "Abstract, introduction, relevant Greenwood marginal approximation and tabular excerpts; not every page",
+        "method": "lawful open PDF, selected source pages and indexed text",
+        "title": "Small sample approximations for spacing statistics",
+        "trigger": "Greenwood statistic under the same uniform spacing null"
+      },
+      {
+        "assessment": "Rank-spacing count variables from two samples, not ordered lengths of Dirichlet spacings",
+        "evidence": [
+          "Section 1 Eqs. (2)–(3) define integer two-sample rank spacing counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2008.06664v2",
+        "material_read": "HTML article introduction, definitions and main moment statements, plus reference discussion",
+        "method": "arXiv full HTML sections 1–3, targeted searches",
+        "title": "Exact and arbitrarily accurate non-parametric two-sample tests based on rank spacings",
+        "trigger": "Potential alias collision: rank spacings and Greenwood"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5cadfd9-b8f3-4e7c-9a67-466275890d04",
+  "value": {
+    "rationale": "A sharp e^-2 rank-fraction crossover of ranked-gap/Greenwood correlations is a natural complete dependence profile of the uniform-spacing goodness-of-fit null model. It identifies which ordered gaps enhance or counteract concentration and is not determined by Greenwood or rank marginals alone. No claim of practical testing power improvement is made.",
+    "status": "PASS"
+  }
+}
