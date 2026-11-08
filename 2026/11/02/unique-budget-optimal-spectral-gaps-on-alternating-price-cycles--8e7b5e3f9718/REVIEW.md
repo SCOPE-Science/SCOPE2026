@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The two-periodic Bloch calculation gives the exact Fiedler eigenvalue for every integer \(m\ge2\). A unit-vector inequality proves the optimal value and the equality condition for orbit-invariant weights. Positive-semidefinite equality for the averaged Fiedler eigenspace, followed by two non-collinear complex edge increments, forces each unrestricted edge weight to equal its orbit value; the four-cycle receives a separate two-eigenvector proof. The budget, positivity and boundary cases are explicit. `verify.py` passed 78 analytic-spectrum comparisons, 1,950 feasible asymmetric tests, 36 optimizer upper-bound comparisons and 108 scalar comparisons; an exact six-cycle spectrum was calculated separately. This is an analytical proof, not an inference from finite testing.
+## correctness
 
-**Originality (PASS, with residual risk).** Ghosh--Boyd (2006) supplies concavity and symmetry averaging; Wan et al. (2008) supply general structural eigenvalue-design context and discuss simple-eigenvalue situations. Neither materially inspected source states the price-dependent even-ring conductance allocation and all-weight uniqueness. Targeted semantic research-record and literature searches found analogous periodic-weighted-shift spectral claims but no domination of the present graph-Laplacian assertion. The four-cycle special case and generic convex methodology are not represented as independently novel. Specialized historical treatment of priced periodic chains remains possible; the abstract-only Kempton et al. source has not been fully excluded.
+PASS
 
-**Value (PASS).** This gives a natural exact continuous-time consensus design with two alternating physical communication costs, valid for unbounded cycle size and price contrast. The unique globally optimal conductances interpolate from equal weights on four vertices to square-root cost allocation as the ring grows. Their explicit speed advantage over the uniform-conductance baseline approaches a factor of two in extreme price contrast. Complete unrestricted uniqueness matters because the network designer does not need to impose an alternating-weight constraint. The finite-size interpolation and uniqueness are structural, not a mere isolated eigenvalue recomputation.
+Rotation averaging follows from Rayleigh-quotient concavity of lambda_2, producing at least one alternating optimum. The Bloch lower band at theta=2pi/m gives lambda_2(a,b)=a+b-sqrt(g^2(a+b)^2+h(a-b)^2), including m=2. The stated unit-vector Cauchy-Schwarz inequality yields exact upper bound 2B sin^2(pi/m)/(m(p+q+2sqrt(pq)g)), attained by the explicit a*,b*>0. Equality is unique among alternating designs. For unrestricted independent edge weights, PSD equality under rotation averaging forces every vector of the repeated Fiedler eigenspace to be an eigenvector of each optimum. Subtraction at each B vertex gives a complex linear relation in two real edge deviations, with coefficients non-collinear because 1,r,e^(2pi i/m) are three distinct unit-circle points; both deviations must vanish. The m=2 two-dimensional Fiedler case separately forces all four equal. Direct independently computed m=3,p=1,q=4,B=1 yields a=2/21,b=5/84, gap 1/14 and matching full six-eigenvalue spectrum. No finite optimization is used as the uniqueness proof.
 
-**Scope and limitations.** Even cycles; positive alternating linear edge prices; fixed total conductance budget; combinatorial Laplacian. No odd cycles, irregular prices, node caps or stochastic SLEM claims. Independent mathematical audit has not been performed. Residual scientific risk: unidentified specialized prior work, and limited full-text access to some less-direct papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ghosh-Boyd prove concavity and symmetry averaging in Laplacian optimization; this method alone does not yield the explicit optimal allocation or uniqueness among every independent edge on alternating-price cycles. Wan et al. discuss generic structural eigenvalue design, different hypotheses; the Resultary weighted odd-cycle fourth-power result has a different graph and objective. The four-cycle equal-conductance case is not claimed independently novel; the infinite family exact price interpolation and global rigidity are the new statement. Specialized older priced-cycle work remains possible.
+
+## value
+
+PASS
+
+Finding the exact maximum algebraic connectivity under alternating per-edge costs is a natural communication/consensus network design question. Exact unrestricted uniqueness is important because no symmetry is imposed on the designer; the allocation interpolates between equal four-cycle weights and inverse square-root price allocation, with an explicit speed gain approaching two. The result covers all even sizes, not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

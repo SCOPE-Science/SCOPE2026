@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3, NumPy and SciPy. In the recorded execution (NumPy 2.3.5; SciPy 1.17.0), the script emitted:
+## correctness
 
-`PASS {'analytic_spectrum_checks': 78, 'asymmetric_feasible_checks': 1950, 'constrained_optimizer_upper_checks': 36, 'independent_scalar_checks': 108}`
+PASS
 
-The spectral checks build each full \(2m\)-by-\(2m\) weighted graph Laplacian and compare \(\lambda_2\) with the formula for \(2\le m\le14\), six price pairs and unit budget. Random asymmetric configurations are normalized to the exact price budget and compared with the candidate bound. The unconstrained-edge SLSQP runs are *upper-bound checks only*: nonsmooth repeated eigenvalues can cause early solver termination, and a successful stop is **not** treated as evidence of global attainment. The scalar bounded optimizations independently find the orbit optimum for \(2\le m\le19\).
+Rotation averaging follows from Rayleigh-quotient concavity of lambda_2, producing at least one alternating optimum. The Bloch lower band at theta=2pi/m gives lambda_2(a,b)=a+b-sqrt(g^2(a+b)^2+h(a-b)^2), including m=2. The stated unit-vector Cauchy-Schwarz inequality yields exact upper bound 2B sin^2(pi/m)/(m(p+q+2sqrt(pq)g)), attained by the explicit a*,b*>0. Equality is unique among alternating designs. For unrestricted independent edge weights, PSD equality under rotation averaging forces every vector of the repeated Fiedler eigenspace to be an eigenvector of each optimum. Subtraction at each B vertex gives a complex linear relation in two real edge deviations, with coefficients non-collinear because 1,r,e^(2pi i/m) are three distinct unit-circle points; both deviations must vanish. The m=2 two-dimensional Fiedler case separately forces all four equal. Direct independently computed m=3,p=1,q=4,B=1 yields a=2/21,b=5/84, gap 1/14 and matching full six-eigenvalue spectrum. No finite optimization is used as the uniqueness proof.
 
-An additional exact symbolic computation for \(m=3\), \(p=1\), \(q=4\) and \(B=1\) yields \(a_*=2/21\), \(b_*=5/84\), \(\lambda_2=1/14\), and Laplacian spectrum \(\{0,1/14,1/14,5/21,5/21,13/42\}\). The infinite statement, uniqueness and asymptotics are proved symbolically in RESULT.md, not certified by finite testing. Independently performed audit: not yet performed.
+## originality
+
+PASS
+
+Ghosh-Boyd prove concavity and symmetry averaging in Laplacian optimization; this method alone does not yield the explicit optimal allocation or uniqueness among every independent edge on alternating-price cycles. Wan et al. discuss generic structural eigenvalue design, different hypotheses; the Resultary weighted odd-cycle fourth-power result has a different graph and objective. The four-cycle equal-conductance case is not claimed independently novel; the infinite family exact price interpolation and global rigidity are the new statement. Specialized older priced-cycle work remains possible.
+
+## value
+
+PASS
+
+Finding the exact maximum algebraic connectivity under alternating per-edge costs is a natural communication/consensus network design question. Exact unrestricted uniqueness is important because no symmetry is imposed on the designer; the allocation interpolates between equal four-cycle weights and inverse square-root price allocation, with an explicit speed gain approaching two. The result covers all even sizes, not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
