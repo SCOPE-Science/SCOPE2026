@@ -1,19 +1,21 @@
-# Scientific review — two-absorber primitive distance-regular capture
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statement quantifies over every finite connected simple distance-regular graph of at least three vertices whose every distance graph is connected, any two distinct sink sites, and strictly positive sink rates. Each nonprincipal normalized cosine has magnitude strictly less than one at nonzero distance: equality makes its spectral columns collinear along a connected distance graph, forcing rank one; the only possible nonprincipal rank-one sign representation would make the original graph bipartite, contradicting connectedness of the distance-two graph (or the triangle of a complete graph). Hence each nonprincipal eigenspace contributes exactly two bright directions, and the principal eigenspace contributes one. The anti-Hermitian loss removes all modes in that orthogonal bright sum, proving dimension \(2d+1\), the mixed-state capture fraction, and the closed Gram-inverse site law. Exact rational projectors and five numerical families including all 2,552 absorber pairs corroborate the proof; finite examples are not used as a universal proof.
+PASS
 
-## Originality: PASS on examined evidence, provisional
+The adjacency algebra of a diameter-d distance-regular graph has d+1 spectral idempotents E_j, constant diagonal m_j/v and offdiagonal (m_j/v)c_j(distance). For j>0, if |c_j(r)|=1, Cauchy–Schwarz makes columns E_j e_z collinear along each edge in connected distance graph G_r; therefore rank E_j=1. A nonprincipal rank-one idempotent with equal diagonal entries would force constant or alternating ± signs along adjacent vertices, implying principal eigenspace or bipartiteness. The latter contradicts G_2 connected (d≥2), while d=1 yields K_v with v≥3. Hence |c_j(r)|<1 and two independent absorber columns in each nonprincipal eigenspace, plus one principal dimension, produce dimB=2d+1. The orthogonal complement is invariant and dark; strictly positive decay rates eliminate nondecaying eigenvectors on B, even with Jordan blocks, yielding capture η_x=⟨x|P_B|x⟩. Inverting the 2×2 spectral Gram matrices proves the site formula and mixed mean (2d+1)/v. Independent spectral/Krylov tests over all 45 Petersen absorber pairs found dimension 5 and max site-projection discrepancy 1.67e−15; this is supplementary to the general spectral proof.
 
-The closest primary mathematical source is van Dam–Koolen–Tanaka, arXiv:1410.6294, whose Sections 2.5, 2.6 and 2.9 establish spectral/cosine-sequence technology and the relevant graph primitivity, without computing the two-sink lossy bright rank or sitewise capture. Coutinho–Godsil–Guo–Vanhove, arXiv:1401.1745, treats unitary perfect state transfer on distance-regular graphs; the physical observable is different. Novo et al., arXiv:1412.7209, gives general bright/Krylov and single-trap methods but no asserted universal two-sink primitive distance-regular classification. Lugão et al., arXiv:2203.14384, treats coherent Hermitian two-marked search on Johnson graphs, not irreversible two-sink capture. Previously established strongly regular (diameter two) and nonbinary Hamming instances are covered as special cases and explicitly not treated as the novelty. Published-record comparisons of aliases, full distance-regular scope, projector ranks and absorption found no stronger implication, but this is not a proof of historical novelty. An uncatalogued general association-scheme controllability theorem is a material priority risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-One absorber in a distance-regular graph sees \(d+1\) spectral dimensions; two absorbers on a *primitive* distance-regular graph always see exactly \(2d+1\), independent of the full graph order, the sink separation, and the sink rate. This uniform all-placement theorem applies to arbitrarily large diameter and to families not assumed distance-transitive. Its site-resolved formula is a natural transport observable computable directly from the intersection array and three distances, while the disconnected-distance-graph condition distinguishes the parameter boundary. This is a motivated structural classification of quantum transport, not a finite table or a rephrasing of the known diameter-two/Hamming examples.
+Standard distance-regular algebra supplies spectral projectors; generic trapping Krylov methods identify the bright span and single-sink cases; Hermitian multimarked search addresses a different dynamics. The new universal strict two-column independence and closed capture law are not a direct reported corollary of the inspected statements. A specialized two-target controllability or association-scheme result could be equivalent, and priority is only best-of-knowledge.
 
-## Limits and closest antecedents
+## value
 
-The listed references give the general mathematical spectral embedding and generic trapping framework; such tools are credited. The law applies to ideal single-excitation adjacency transport and two absorbing sites, and says nothing about realistic noise, decay rates or arbitrary imprimitive graphs. The five computational tests cover only their specified finite graphs. Historical priority awaits independent literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The bright subspace rank and exact site-resolved absorption law are natural observables for irreversible quantum transport on symmetric networks. The strict primitive-cosine separation lemma yields a uniform exact formula over all diameters and absorber separations without relying on vertex-transitivity. It sharpens general Krylov prescriptions by replacing site-specific computation with graph spectral cosine data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

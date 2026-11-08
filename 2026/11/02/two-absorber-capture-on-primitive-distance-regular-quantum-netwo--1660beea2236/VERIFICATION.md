@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The universal proof is in `RESULT.md`, including the strict cosine-separation lemma, finite-dimensional non-Hermitian decay step, and explicit two-site projector inversion. The numerical and exact-arithmetic checks are independent finite corroboration, not an infinite certification.
+## correctness
 
-## Executable checks
+PASS
 
-Execute `OPENBLAS_NUM_THREADS=1 python scripts/verify.py` with NumPy installed. This independently builds five primitive distance-regular graph examples, verifies each distance graph is connected, and for **every absorber pair** in each test graph calculates both (a) the two-column spectral Gram projector and (b) an independent singular-value Krylov projector, comparing all matrix entries and every starting-site probability. It tests \(21+45+595+1540+351=2552\) absorber pairs across \(7+10+35+56+27\) vertices per respective family. The largest finite numerical projector difference is \(2.856\times10^{-15}\).
+The adjacency algebra of a diameter-d distance-regular graph has d+1 spectral idempotents E_j, constant diagonal m_j/v and offdiagonal (m_j/v)c_j(distance). For j>0, if |c_j(r)|=1, Cauchy–Schwarz makes columns E_j e_z collinear along each edge in connected distance graph G_r; therefore rank E_j=1. A nonprincipal rank-one idempotent with equal diagonal entries would force constant or alternating ± signs along adjacent vertices, implying principal eigenspace or bipartiteness. The latter contradicts G_2 connected (d≥2), while d=1 yields K_v with v≥3. Hence |c_j(r)|<1 and two independent absorber columns in each nonprincipal eigenspace, plus one principal dimension, produce dimB=2d+1. The orthogonal complement is invariant and dark; strictly positive decay rates eliminate nondecaying eigenvectors on B, even with Jordan blocks, yielding capture η_x=⟨x|P_B|x⟩. Inverting the 2×2 spectral Gram matrices proves the site formula and mixed mean (2d+1)/v. Independent spectral/Krylov tests over all 45 Petersen absorber pairs found dimension 5 and max site-projection discrepancy 1.67e−15; this is supplementary to the general spectral proof.
 
-Execute `OPENBLAS_NUM_THREADS=1 python scripts/exact_check.py` with SymPy installed. This constructs the exact rational adjacency projectors on the 10-vertex Petersen graph and 35-vertex Odd graph, verifies all projector identities and reconstructs their exact cosine values and all nonprincipal Gram minors for each admissible distance. Exact positive minors are listed in `verification_output.txt`.
+## originality
 
-The command output was reproduced from these standalone scripts and recorded as `verification_output.txt`. No external dataset or unembedded path is required. All statements about arbitrary graph order, diameter and absorber positions depend on the algebraic proof; finite checks do not extrapolate to every graph.
+PASS
 
-## Scope limitations
+Standard distance-regular algebra supplies spectral projectors; generic trapping Krylov methods identify the bright span and single-sink cases; Hermitian multimarked search addresses a different dynamics. The new universal strict two-column independence and closed capture law are not a direct reported corollary of the inspected statements. A specialized two-target controllability or association-scheme result could be equivalent, and priority is only best-of-knowledge.
 
-Two distinct absorbing vertices, strictly positive sink rates, uniform coherent adjacency hopping, all distance graphs connected, finite connected simple distance-regular graphs with at least three vertices. No claims are made about imprimitive families, noise, finite-time rates or additional absorbers.
+## value
+
+PASS
+
+The bright subspace rank and exact site-resolved absorption law are natural observables for irreversible quantum transport on symmetric networks. The strict primitive-cosine separation lemma yields a uniform exact formula over all diameters and absorber separations without relying on vertex-transitivity. It sharpens general Krylov prescriptions by replacing site-specific computation with graph spectral cosine data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
