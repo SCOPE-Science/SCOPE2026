@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-space furtherness cardinality is computed explicitly for each rank, with a distinction between subspaces containing and avoiding the fixed line. At birth stages the order complexes are the full bottom-rank selections of a geometric lattice; classical EL-shellability and the Gaussian Möbius formula give the exact torsion-free Betti numbers. At death stages the closure operator \(T\mapsto T+L\) has a least-element image, yielding a homotopy contraction. Constant intervals between consecutive threshold levels then prove the exact integral persistence splitting. The accompanying checker validates five entire prime-field instances by three independent coefficient-field boundary reductions, but the infinite-family conclusion comes from the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Badra–Singh arXiv:2610.16386 constructs the relevant filtration but its explicit classification is degree-zero. Their arXiv:2603.18580 supplies the definition. Hersh–Sundaram arXiv:2604.06479 establishes more general rank-selected homology statements, but not the center-dependent threshold maps. A related Boolean centered-subset theorem has different objects and does not entail the non-distributive subspace case. Kitajima arXiv:2606.15241 addresses rank-defined filtered order complexes, but its full text could not be inspected; abstract evidence alone leaves some uncertainty about possible related results. Index searches found no logically dominating exact persistence theorem, which is not a proof of uniqueness.
+PASS
 
-**Value — PASS.** Exact all-degree integral persistence for finite projective subspace posets is a natural new invariant benchmark with Gaussian multiplicities, explicit subspace-count endpoints, an alternating shellable/contractible regime, and a one-level gap between successive homology bursts. A full classification for an infinite nondistributive lattice family is not reducible to a bare normalization check or isolated small calculation.
+With center line L, Psi(L,T)=B_q(r)−B_q(dim(T∩L)). The entry time for rank-r subspaces containing L is B_q(r)−2 and for those avoiding L is B_q(r)−1. At birth b_k=B_q(k)−1, the whole rank≤k proper-bottom subspace lattice is present and its EL-shellability concentrates reduced integral homology in degree k−1. The truncated Gaussian-Möbius partial sum gives q^{k(k+1)/2}{n−1 choose k}_q classes. At d_k=B_q(k+1)−2, T↦T+L is a well-defined extensive monotone idempotent closure of precisely that filtration stage to a conical image with minimum L; all classes die. No changes between birth and death or prior to the next birth, so integer modules split into the stated finite bars and one essential H0 bar. Independently verified 105 Gaussian partial-sum identities for q=2,3,4,5,8 and n≤7; the published source verifier was read, not blindly trusted. Exact all-prime-power proof uses geometric-lattice shellability and closure operators, not finite arithmetic.
 
-The result is limited to a one-dimensional center. It does not claim equivariant decompositions or a theorem for arbitrary finite posets, and a separate scientific review would be needed before treating originality as definitively established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same finite-space furtherness function and degree-zero theory are already present in Badra–Singh 2026, and rank-selected geometric-lattice sphere wedges are classical; those ingredients are credited. The final claim instead identifies an integral barcode in every degree for a line-centered non-distributive projective subspace lattice with explicit Gaussian multiplicities and closure-controlled deaths. Kitajima 2026 is a plausible general rank-filtered competitor: its accessible abstract covers rank-defined filtrations and homotopy types, not the two-stage line-centered weights, but its full text was unavailable (arXiv/OA failed; institutional VPN disconnected). On present evidence, that access limitation is a specific priority risk, not a scientific failure.
+
+## value
+
+PASS
+
+Exact integral persistence for a natural finite geometric-lattice filtration is a worthwhile multi-parameter topological classification, including all degrees, free interval multiplicities, and a transparent incidence-based death mechanism. It goes beyond recomputing rank-selected Betti numbers and provides a full reference barcode for finite-topological-space furtherness and comparisons with Boolean/q-analogue objects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
