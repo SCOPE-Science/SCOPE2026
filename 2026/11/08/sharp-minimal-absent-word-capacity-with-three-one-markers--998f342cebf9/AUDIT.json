@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The factor-occurrence rectangle lemma is an exact equivalence for all nonnegative four gaps, including zero-length gaps. Every possible minimal absent word is classified by its count of one-symbols, 0 through 4; for each class necessity and sufficiency are established via maximal proper prefix/suffix membership, not numerical extrapolation. The uniform K+13 bound reduces the extremal assertion to sums of the three smaller gaps at most 10. On each infinite ray with one gap greater than every other gap by at least 2, all finite candidate tests stabilize and the remaining central family has affine slope at most one. The included standalone verifier checks all 3432 base cases and the two sole affine equality anchors; it separately matches a full factor-set algorithm on 10626 words. Computation alone is not claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Crochemore et al. (2015) state a general sigma*n upper bound, which gives 2n rather than n in the binary case.",
+        "Charalampopoulos et al. (2018), §3, prove asymptotic tightness of Θ(sigma*n) and exhibit a two-marker family 1 0^{n-2} 1 with at least n-2 MAWs.",
+        "Akagi et al. (2022), Lemma 3, exhibit a three-run long-gap family with many bridge MAWs; their results are RLE-size-based."
+      ],
+      "reasoning": "The general bound 2n does not imply n, and a lower-bound construction for two markers cannot determine all three-marker maximizers. RLE output algorithms can compute each instance but do not establish the uniform sharp global classification without the present specialized analysis.",
+      "searches": [
+        "maximum number minimal absent words binary string length n sharp n bound binary",
+        "binary strings maximum number minimal absent words n 2n tight examples",
+        "arxiv:1506.04917",
+        "arxiv:1806.02718",
+        "arxiv:2202.13591"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1186/1471-2105-10-137",
+      "arxiv:1506.04917",
+      "arxiv:1806.02718",
+      "arxiv:2202.13591"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact old claims concern general computation, an n-dependent O(sigma*n) envelope, asymptotic witness families or RLE-type upper bounds; none imposes exactly two weight-three maximizers or lists all their MAWs.",
+        "The new proof uses a specialized three-one rectangle decomposition and a finite-plus-affine reduction, which is absent from the inspected general statements."
+      ],
+      "reasoning": "Even after restricting to binary length n and exactly three one-symbols, the 2n general upper bound is weaker than n; generic enumeration algorithms give a route to calculate examples, not an exact theorem about all lengths. Neither asymptotic tightness nor RLE type bounds logically force the new equality classification.",
+      "searches": [
+        "doi:10.1186/1471-2105-10-137",
+        "arxiv:1506.04917",
+        "arxiv:1806.02718",
+        "arxiv:2202.13591",
+        "maximum number minimal absent words binary string length n sharp n bound binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinho et al. (2009) define MAWs via absent word with present maximal prefix and suffix; the present terminology is their standard contiguous-factor notion, with an explicit missing-singleton convention.",
+        "Akagi et al. (2022), §§2.3–5, separate MAWs by run-length-encoded types, not by a fixed number of one-symbols."
+      ],
+      "reasoning": "Equivalent terminology includes minimal forbidden words, anti-dictionary factors, minimal absent substrings and RLE MAWs. The RLE types are a different partition; their general membership criteria admit but do not state the claimed sharp length bound or equality classification.",
+      "searches": [
+        "\"minimal absent words\" \"three\" \"ones\" binary words",
+        "\"minimal absent words\" \"weight\" \"binary\" count",
+        "\"minimal absent words\" \"sparse\" \"binary\" count distinct",
+        "arxiv:2202.13591",
+        "doi:10.1186/1471-2105-10-137"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant 2009 article provides example sets and experimental counts for random strings; those experiments do not form the all-length weight-three table.",
+        "The 2022 RLE article develops structural type bounds and examples, not a fixed-Hamming-weight-three extremizer table."
+      ],
+      "reasoning": "The searches and inspected numerical examples yielded no exact table or all-length result for this restricted family. Absence of a discovered table does not establish uniqueness in the entire literature.",
+      "searches": [
+        "\"minimal absent words\" \"three\" \"ones\" binary words",
+        "\"minimal absent words\" \"weight\" \"binary\" count",
+        "minimal absent words binary sparse strings few ones three occurrences enumeration",
+        "\"minimal absent words\" \"sparse\" \"binary\" count distinct"
+      ]
+    },
+    "rationale": "The inspected primary literature covers definitions, general MAW algorithms, arbitrary-alphabet O(sigma*n) bounds and their asymptotic tightness, and general RLE-type classification. The specific exact maximum n for three binary ones, its precisely two labeled extremizers for each n>=7, and the full gap-rectangle MAW list do not follow from those broader statements and were not identified as already stated. Searches were negative, not proofs of global novelty; unindexed special-family results remain a residual risk.",
+    "residual_risks": [
+      "Unindexed weight-restricted MAW special cases or unpublished formulas might be equivalent.",
+      "The 2009 definition uses length-at-least-three in its stated form; the conventional later definition includes length-one/two MAWs, as used explicitly here.",
+      "No independent audit has yet assessed the finite-reduction program or historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_NOT_COVERING",
+        "evidence": "Defines MAWs and relates them to maximal repeats; describes linear-time-practical algorithms and random-sequence experiments; no classification fixing exactly three one-symbols.",
+        "identifier_or_url": "https://doi.org/10.1186/1471-2105-10-137",
+        "material_read": "HTML sections Background, Basic definitions, Characterization, algorithms, Results and discussion",
+        "method": "read accessible article HTML",
+        "title": "On finding minimal absent words",
+        "trigger": "Foundational definition and possible universal count bound"
+      },
+      {
+        "assessment": "GENERAL_NOT_COVERING",
+        "evidence": "Treats arbitrary-alphabet general sequences and circular sequences; states cardinality bound sigma*n and exact-factor membership; does not classify the weight-three family.",
+        "identifier_or_url": "https://arxiv.org/abs/1506.04917",
+        "material_read": "Accessible arXiv HTML introduction, formal definitions, §3–4 and their stated theorems",
+        "method": "read arXiv full-text HTML",
+        "title": "Linear-Time Sequence Comparison Using Minimal Absent Words & Applications",
+        "trigger": "Archived general MAW factor-set and sequence-comparison theorem"
+      },
+      {
+        "assessment": "WEAKER_BOUND_NOT_COVERING",
+        "evidence": "Asymptotic tightness Θ(sigma*n) and binary two-marker witness with ≥n−2 MAWs, rather than an exact sharp three-marker n bound with unique extremizers.",
+        "identifier_or_url": "https://arxiv.org/abs/1806.02718",
+        "material_read": "Accessible arXiv HTML §§1–3 including Lemma 3 and its full lower-bound proof, plus sequence-comparison statements",
+        "method": "read arXiv full-text HTML",
+        "title": "Alignment-free sequence comparison using absent words",
+        "trigger": "Possible dominating general sharp maximum bound"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Gives general five-type RLE categorization, matching bounds, and output-sensitive data structures; no weight-three sharp n or complete equality conditions.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.13591",
+        "material_read": "Accessible arXiv HTML §§2.3, 3.1–3.2, 4, 5.3–5.4, and conclusion",
+        "method": "read arXiv full-text HTML",
+        "title": "Minimal Absent Words on Run-Length Encoded Strings",
+        "trigger": "Most plausible structural coverage through five RLE types"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "998f342c-ebf9-4ff0-a94a-640491b0e3a8",
+  "value": {
+    "rationale": "Minimal absent factors encode negative substring information and appear in bioinformatics and anti-dictionary/string-comparison methods. The fixed content of exactly three marked positions is a natural sparse model: the theorem is a sharp all-length capacity with a complete labeled extremizer classification, not an isolated example. Its rectangle recipe describes the whole absent-factor set and exposes how exactly three markers constrain each factor type. The result tightens a general 2n bound to n with equality characterization in this model; no downstream application or major general theorem is asserted.",
+    "status": "PASS"
+  }
+}
