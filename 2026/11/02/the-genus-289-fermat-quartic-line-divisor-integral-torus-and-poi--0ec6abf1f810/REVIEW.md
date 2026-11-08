@@ -1,19 +1,21 @@
-# Scientific review: arithmetic Picard group of the Fermat quartic line divisor
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The line-completeness argument uses Vandermonde independence of up to four distinct fourth powers of binary linear forms in characteristic greater than three. Within each of three families, exactly eight fourfold points occur; different-family equations yield exactly 64 nodes per family pair and exclude any three-family concurrence when two is invertible. Thus the geometric singularity and arithmetic genus counts hold over all allowed characteristics, not only a test field. The normalization graph is connected with 264 vertices, 480 edges and rank 217. Local ordinary quadruple points contribute dimension three of unipotent radical each, for total 72; the conductor bound and characteristic at least five give exponent p. In the nonsplit case all graph vertices and edges are freely paired by Frobenius; the integral cycle lattice of the connected double cover is the trivial rank-one module plus 108 regular modules. This establishes the stated torus **isomorphism**, not only its isogeny class. Lang's theorem and the coprime Sylow decomposition prove the rational-point group isomorphism. Normalization corrections give both zeta functions. The verifier reconstructs 48 lines, 192 nodes, 24 fourfolds and all Frobenius orbits; eight independent finite-field point counts agree.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For p≥5, the Vandermonde independence of four fourth powers of distinct binary linear forms forces 3 pair-partitions × 4×4 roots of -1, hence exactly 48 lines. Intersections within a family give 24 ordinary fourfold points, across families 192 distinct nodes, giving p_a=192+24*6-48+1=289. The normalization incidence graph has 264 vertices, 480 branches and first Betti 217, while each 4-fold local principal-unit quotient contributes 3 additive dimensions giving U dimension72 (truncated logarithm valid p≥5). If q≡1 mod8 all lines and points are fixed, so torus split rank217; otherwise Frobenius freely swaps vertices/edges in connected graph, quotient b1=109 and the integral 2-cover lemma gives Z_+ ⊕ Z[C2]^108, hence G_m×(Res_{q²/q} G_m)^108, not just rational isogeny. Lang plus prime-to-p splitting gives claimed J(F_q) abstract groups. Normalization zeta correction yields #D(F_q^n)=48q^n−216 if q^n≡1 mod8, else 0. Independent F17 enumeration recovered 192 nodes,24 fourfold points and #D(F17)=600; characteristic-five original checker source also inspected, but not independently rerun.
 
-Shimada–Shioda 2016 already give the classical 48 lines, 24 tangent-plane fourfold points, and cyclotomic line/Galois action. Veniani 2016 addresses a different exceptional characteristic-three line configuration. Existing combinatorial line-graph results and a prior finite-field Picard computation for the MacLane eight-line curve share general methods, but neither determines the arithmetic generalized Jacobian of this 48-line divisor. The explicit genus-289 curve, nontrivial 72-dimensional unipotent radical, rank-217 integral Frobenius decomposition, complete finite abelian groups, and point-free/zeta dichotomy are not implied as **stated evaluated invariants** by the inspected primary results. Querying mathematical research records and exact/alias web searches found no equivalent evaluated formula. A specialized or unindexed prior computation remains a genuine residual risk; failed search is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The divisor is the entire canonical line configuration on a distinguished K3 quartic, not a parameter-picked slice. Its generalized Jacobian is a natural arithmetic invariant with substantial combined toric and unipotent structure. Rational representation data would not determine the full finite-field group structure: the integral free-double-cover decomposition is essential. The explicit point-free criterion and two evaluated zeta functions provide independent arithmetic information. This is a complete natural classification over all allowed finite fields rather than a small numeric improvement. It does not claim a downstream surface theorem or a new general Picard-theory principle.
+The 48 line labels, 24 quadruple points and cyclotomic Galois action were already in Shimada–Shioda/Segre, so they are NOT novelty. The assessed contribution is exact generalized-Jacobian unipotent and *integral* torus isomorphism and F_q point groups for reduced entire divisor.
 
-## Limitations and relationship to literature
+## value
 
-The classical geometric ingredients are not claimed as new. Source coverage in Shimada–Shioda and Veniani was checked at the theorem/Section 3/Introduction level; the remaining possibility of specialized older work evaluating this exact generalized Jacobian is acknowledged. The theorem excludes characteristics two and three, does not classify the ambient Fermat quartic's rational points or its Picard component group, and does not assert algebraic-group extension splitting. The finite verifier cannot by itself certify all characteristics or the integral representation; those follow from the written proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computes arithmetic genus, explicit 72-dimensional unipotent factor and full *integral* 217-dimensional Frobenius torus of the geometrically canonical 48-line divisor, hence finite-abelian Picard groups and all-extension point counts with point-free nonsplit fields. The integral module and arithmetic group are genuinely stronger than classical 48-line arrangement enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
