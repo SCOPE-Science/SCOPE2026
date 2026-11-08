@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The stationary two-sided OU convolution is conditionally Gaussian with dimensionless variance V=2γ∫_0∞e^(−2γs)q^(2N(−s,0])ds, supported on (0,1). The independent Poisson backward age gives U=1−V=A(1−q²V′), A~Beta(r/(2γ),1) independent. For every 0<u<1−q², conditioning gives P(U≤u)=u^α E(1−q²V′)^(−α), hence exact endpoint density αB u^(α−1). The variance generator gives m_n=n m_(n−1)/(n+α(1−q^(2n))), and the generalized binomial series converges since q<1. In the Gaussian-mixture density, a local Laplace change u=z/s yields Γ(α+1)B s^(−α); the region u≥δ has an exponential bound. Coupling the stationary variance functionals proves strict B monotonicity and divergence as q approaches one. Finite verifier run from the package path passed 336 exact and 10 high-precision tests; those tests supplement, not replace, the proof. Fixed q and all positive physical rates are included, with q=1 expressly excluded from the tail theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General polynomial moment theorem provides finite-degree moments, not edge-density or asymptotic assertion.",
+        "Frydel considers switching trap stiffness, not instantaneous contraction; only abstract accessible."
+      ],
+      "reasoning": "No inspected broader result dominates the sharp far-tail statement. Generic Gaussian-mixture endpoint/Laplace principles could be adapted but do not automatically provide the model-specific exact edge probability and prefactor. The abstract-only Frydel paper is a real unresolved broader-framework risk, not treated as proven noncoverage.",
+      "searches": [
+        "affine resetting OU stochastic variance stationary endpoint singularity and sharp tails",
+        "Frydel 2607.05173 switching harmonic stiffness Gaussian variance mixture stationary endpoint singularity",
+        "arxiv:2610.01363 Theorem 3.6",
+        "arxiv:2401.11919 Sec III.3",
+        "arxiv:2607.05173 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.01363v1",
+      "arxiv:2401.11919v1",
+      "arxiv:2406.08387v1",
+      "arxiv:2412.15626v1",
+      "arxiv:2301.12304v1 (abstract only)",
+      "arxiv:2607.05173v1 (abstract only)",
+      "published-finding corpus semantic index for OU resetting, Gaussian variance edges and partial harmonic resetting",
+      "Published prior claims about fully-reset OU ensembles and Gaussian spatial tails, compared as mathematical statements only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Olsen–Gupta: exact second moment and work under harmonic exploration, with no full sharp density tail.",
+        "Assefa et al.: arbitrary finite moments of affine-reset polynomial processes, including OU bases.",
+        "Biroli et al.: proportional resets of *unconfined* Brownian motion give exponential tails, fundamentally unlike harmonically confined Gaussian tails.",
+        "Grzywny et al.: multiplicative Lévy process plus Poisson jumps, without separate continuous harmonic damping."
+      ],
+      "reasoning": "Moment formulas imply the finite moment sequence but do not by themselves immediately prove the exact edge density or the claimed sharp far-tail prefactor; the missing inference is supplied by the new stationary conditional-variance perpetuity and endpoint Laplace analysis. The q=0 full-reset boundary is not claimed as novel by itself; the continuum 0<q<1, coefficient behavior and noncommuting q-to-one limit are the claim.",
+      "searches": [
+        "arxiv:2401.11919 Sec III.3 equations 30–34",
+        "arxiv:2610.01363 Theorem 3.6",
+        "arxiv:2406.08387 far-tail distribution",
+        "arxiv:2412.15626 Appendix B.4",
+        "OU process partial resetting harmonic confinement Gaussian mixture rate tails"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalent OU stationary variance-mixture representation is characterized by an independent Poisson-contraction history; Olsen–Gupta derive a stationary second moment but not its full endpoint density.",
+        "The general affine resetting generator gives moments for every polynomial but does not directly assert the spatial Gaussian-times-polynomial tail."
+      ],
+      "reasoning": "Compared the statement with variance-space growth-collapse, a PASTA-age perpetuity, stationary Gaussian mixtures, and affine resetting. The variance recursion and finite moments overlap existing techniques, but obtaining exact U near zero and the full sharp tail (including q-dependent coefficient) requires a distinct analysis.",
+      "searches": [
+        "Ornstein Uhlenbeck harmonic trap stochastic Poisson partial proportional resetting x maps q x stationary density Gaussian tail x^{-r/gamma} power prefactor",
+        "partial resetting Ornstein Uhlenbeck stationary Gaussian scale-mixture variance edge Beta distribution power prefactor",
+        "Ornstein Uhlenbeck process multiplicative stochastic resetting stationary density tails Gaussian polynomial prefactor",
+        "arxiv:2610.01363 Example 3.4; arxiv:2401.11919 Sec III.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest OU result “Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode” concerns sensor extremes, not resetting.",
+        "published-finding corpus near “Exact lower-tail phase diagram for the three-sample Beta variance” concerns sample variance of a different distribution."
+      ],
+      "reasoning": "No exact table/coefficient was found in the indexed records or the checked primary papers. Absence of indexed matches does not prove worldwide novelty; individual source/claim implications were compared.",
+      "searches": [
+        "Ornstein Uhlenbeck harmonic trap stochastic Poisson partial proportional resetting x maps q x stationary density Gaussian tail x^{-r/gamma} power prefactor",
+        "partial resetting Ornstein Uhlenbeck stationary Gaussian scale-mixture variance edge Beta distribution power prefactor",
+        "affine resetting OU stochastic variance stationary endpoint singularity and sharp tails",
+        "arxiv:2401.11919 stationary Ornstein Uhlenbeck proportional partial resetting tail rate r gamma",
+        "Assefa Keller-Ressel Palmowski 2610.01363 variance deficit Gaussian power tail OU q",
+        "harmonically confined Brownian motion partial resetting stationary density tails Gaussian exponent algebraic prefactor"
+      ]
+    },
+    "rationale": "The 2024 Olsen–Gupta harmonic partial-reset model and 2026 Assefa–Keller-Ressel–Palmowski moment framework directly cover the mechanism and stationary moments, which are fully acknowledged. The newly assessed statement is the exact small-deficit density and sharp full-tail asymptotic for all fixed 0<=q<1, its computable amplitude-dependent coefficient and singular q-to-one limit. Comparing full accessible primary texts, model assumptions, known limits and actual searches found no result that directly states or implies the complete package without the additional endpoint-density and Laplace argument. Residual unindexed and one abstract-only source risks remain; this is not a priority certificate.",
+    "residual_risks": [
+      "Unindexed Gaussian-mixture endpoint/Laplace theorem might cover the special mechanism as a corollary.",
+      "Full text of Frydel arxiv:2607.05173 and Trajanovski arxiv:2301.12304 was not accessible or not inspected; only available abstracts support model contrasts, not conclusive document-wide exclusion.",
+      "An existing derivation of OU q=0 tail may be known; novelty is not asserted for that boundary case alone.",
+      "Indexed search cannot establish worldwide uniqueness; independent publication-priority check remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OVERLAP ON MOMENTS, NOT DIRECT COVERAGE OF CLAIMED TAIL: it supplies general finite-degree moment matrices; the stationary variance-deficit edge law, Gaussian-tail coefficient, and singular q-to-one limit are not formulated in the read results.",
+        "evidence": [
+          "arxiv:2610.01363v1, Introduction, Example 3.4, Theorem 3.6; first submitted 2026-10-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01363",
+        "material_read": "Accessible full HTML source at introduction and selected directly relevant sections, especially introduction, Example 3.4 and Theorem 3.6, including resets and finite-degree moment recurrence.",
+        "method": "Read accessible full HTML source and compared the domain, equation classes, and stated results against stationary conditional-variance endpoint density and sharp spatial asymptotics.",
+        "title": "Moments of polynomial processes under affine resetting",
+        "trigger": "General 2026 affine-resetting moment theorem explicitly includes polynomial OU bases and deterministic multiplicative resets."
+      },
+      {
+        "assessment": "STRONG SAME-MODEL OVERLAP ON MOMENTS AND WORK, NOT KNOWN COVERAGE OF CLAIMED ENDPOINT/TAIL: paper explicitly states full stationary distribution in nonzero potential is difficult, deriving second moment but not sharp far-spatial-tail coefficient.",
+        "evidence": [
+          "arxiv:2401.11919v1, Section III.3, equations 30–34 and Section IV.2; original first public 2024-01-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.11919",
+        "material_read": "Accessible HTML paper at the specified sections, particularly Section III.3 (harmonic exploration, equations 30–34) and Section IV.2 (work for harmonic background).",
+        "method": "Compared the identical physical model and its stationary second-moment formula with the new all-moment coefficient, variance-edge distribution, and spatial tail formula.",
+        "title": "Thermodynamic work of partial resetting",
+        "trigger": "Directly analyzes harmonic exploration with instantaneous proportional resets, exactly the physical process in the result."
+      },
+      {
+        "assessment": "NOT COVERING: unconfined model has different far-tail rate; cannot imply prefactor of harmonically confined process.",
+        "evidence": [
+          "arxiv:2406.08387, abstract and model, first public 2024-06-12"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.08387",
+        "material_read": "Accessible HTML source at the model and asymptotic sections, from abstract through large-distance stationary asymptotics and conclusions.",
+        "method": "Verified that the between-reset dynamics is *free Brownian* motion rather than positive-mean-reversion OU, causing exponential rather than Gaussian tails.",
+        "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+        "trigger": "Same multiplicative reset map and Poisson clock in a Brownian particle."
+      },
+      {
+        "assessment": "NOT COVERING SPECIFIC CLAIM: no positive continuous OU restoring drift and hence no finite maximum conditional Gaussian variance or its endpoint-induced Gaussian tail.",
+        "evidence": [
+          "arxiv:2412.15626, Introduction, Section on Brownian motion and Appendix B.4; first public 2024-12-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.15626",
+        "material_read": "Accessible HTML source at the introduction and specified appendix, including model definition, main stationary-density results and Appendix B on generalized OU representation.",
+        "method": "Distinguished generalized OU as Lévy inflow plus jump damping from the additional continuous harmonic drift considered here; compared density asymptotics.",
+        "title": "Stationary states for stable processes with partial resetting",
+        "trigger": "Rigorous stationary density and high-order/asymptotic work on partial resetting of stable noise."
+      },
+      {
+        "assessment": "RELATED q=0 BOUNDARY, FULL-TEXT RESIDUAL RISK: q=0 is acknowledged as previously studied; the all-q amplitude prefactor dependence and exact stationary variance edge are not stated in available material.",
+        "evidence": [
+          "Phys. Rev. E 107, 054129 (2023), abstract; arxiv:2301.12304"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.12304",
+        "material_read": "Authoritative 2023 journal abstract and an accessible arXiv abstract; full primary article not inspected.",
+        "method": "Compared stated resetting to a fixed site/initial position with state-dependent proportional map.",
+        "title": "Ornstein–Uhlenbeck process and generalizations: particle dynamics under comb constraints and stochastic resetting",
+        "trigger": "Classical harmonically confined OU with resetting, including stationary density."
+      },
+      {
+        "assessment": "DIFFERENT GENERATOR ON ABSTRACT, WITH RESIDUAL FULL-TEXT RISK: variance mixtures and integral equations are covered broadly, but there is no evident reset map X to qX. Cannot claim entire unavailable full text lacks a related edge lemma.",
+        "evidence": [
+          "arxiv:2607.05173; abstract first publicly dated 2026-07-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+        "material_read": "Accessible publisher-independent full abstract and metadata only; arXiv full HTML access returned disabled/unavailable.",
+        "method": "Compared described switching trap stiffness and periods of release/trapping against instantaneous position rescaling at independent Poisson epochs.",
+        "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+        "trigger": "Recent statistical-physics treatment of Gaussian-mixture steady states in a fluctuating harmonic trap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6209e19-bacd-4a40-8174-407a065cc0b7",
+  "value": {
+    "rationale": "A direct physically motivated problem in a harmonically confined stochastic-resetting gas is to predict rare large displacements at fixed trap diffusivity and reset parameters. The explicit power correction |x|^(−r/γ) changes rare-event likelihoods despite an unchanged Gaussian exponential rate, and the model-specific coefficient gives an exact discriminant of reset amplitude via extremes. The exact variance-deficit edge probability identifies the mechanism behind this robustness, while divergence as q→1 shows a meaningful nonuniform boundary between non-equilibrium resets and equilibrium Gaussian behavior. This is more than re-labeling a moment identity or an unmotivated finite special case. Limitations: no new finite-time, multidimensional or non-Poisson claim.",
+    "status": "PASS"
+  }
+}
