@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Four unused zones are exactly justified by position order. The resulting core starts 00, ends 11, and each core position is active. If monotone, its multiplicity is a product of positive triangular numbers, not five. Otherwise an inversion gives an 001011 subsequence with exactly five occurrences, and activity rules out extra core positions. Reconstruction yields a unique four-part weak composition and coefficient. checker.py passes exhaustive and independent recurrence tests; those are corroborative, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruda Theorem 1.4 proves eventual polynomial degree bound ≤3 and explicitly names p=0011,k=5 as degree-3 exceptional case",
+        "Tian Proposition 5.2.10 expresses all B(n,p,k) using primitive-word sums, but does not evaluate p=0011,k=5"
+      ],
+      "reasoning": "The asymptotic degree-three existence is fully covered, so novelty excludes it. Tian gives an all-parameter algorithmic summation that could specialize to this result, and that risk is disclosed. Identifying the sole primitive core and the four-zone unambiguous regular language is an explicit structural evaluation not supplied by either examined text.",
+      "searches": [
+        "arxiv:2607.02578 Section 1 and Section 4.2",
+        "arxiv:2507.03205 Section 5.2 and Proposition 5.2.10",
+        "indexed research search: subsequence frequency pattern 0011 number of binary words with k occurrences polynomial in n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.02578",
+      "https://arxiv.org/abs/2306.07870",
+      "https://arxiv.org/html/2507.03205v1",
+      "Indexed published-mathematics searches covering pattern 0011, k=5, primitive language, binomial formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Menon–Singh gives k=1..4 formulas, not k=5",
+        "Bruda states k=5,p=0011 counterexample to degree condition, not the language or coefficients",
+        "Tian supplies general primitive-word enumeration, not evaluated specific core"
+      ],
+      "reasoning": "Our result implies the already known degree-three exception but asserts more: every accepted word and the coefficient exactly for each n. The complete classification needs the active-core uniqueness argument, not a substitution into the degree bound. The generic primitive-word method leaves a legitimate implicit-coverage risk.",
+      "searches": [
+        "arxiv:2306.07870 Section 3",
+        "arxiv:2607.02578 Theorem 1.4 Section 4.2",
+        "arxiv:2507.03205 Proposition 5.2.10",
+        "indexed research search: binary word exactly 5 copies of pattern 0011 disjoint subsequence occurrences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.02578, Section 4.2 discusses frequency-five 0011 only as a degree exception",
+        "arXiv:2507.03205, Section 5.2 provides primitive-word formulas but no displayed k=5 0011 specialization",
+        "No indexed equivalent exact expression was returned by the performed searches"
+      ],
+      "reasoning": "The reversal/complement transform yields the same enumerator for 1100; it is an equivalent relabeling, not an independent claim. We did not locate the exact 001011-core language or all-n binomial formula as a stated result. A generic exact enumeration algorithm can imply computability without explicitly evaluating this specialization.",
+      "searches": [
+        "indexed research search: exactly five scattered occurrences 0011 binary words 001011 1* 0 1* 0 1 0 1 0* 1 0* binomial n-3 3",
+        "indexed research search: B_0011(n,5) binomial(n-3,3) subsequence word enumeration",
+        "indexed research search: binary subsequence pattern 0011 five occurrences full language closed form",
+        "web: \"B_{n,0011}(5)\"",
+        "web: \"001011\" \"exactly five\" \"0011\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A retrieved indexed result on binary subsequence universality concerns a different statistic, not multiplicity of 0011",
+        "A related analysis of 0011-avoidance weighted by 01 counts does not imply a positive multiplicity-five classification"
+      ],
+      "reasoning": "No relevant exact five-occurrence table or closed-form entry found. Indexed absence is not an exhaustive priority test.",
+      "searches": [
+        "indexed research search: B_0011(n,5) binomial(n-3,3) subsequence word enumeration",
+        "indexed research search: Glenn Bruda Valentino Vito counterexample p=0011 k=5 degree exact classification",
+        "web: exact 5 scattered subsequence occurrences 0011 formula binomial n-3 3 Bruda",
+        "web: \"0011\" \"5\" \"binom\" \"subsequences\""
+      ]
+    },
+    "rationale": "The all-length regular language and exact binomial count are not stated in the inspected highly relevant papers or retrieved comparisons. Bruda already explicitly covers the maximal-degree exception; only a sharper active-core language and exact coefficient are considered. Tian provides a generic algorithm that could implicitly cover the case, recorded as residual risk.",
+    "residual_risks": [
+      "The specialization may be an implicit routine evaluation of Tian Proposition 5.2.10, even though no printed exact result was located",
+      "Unindexed presentations or later revisions may contain the exact specialization",
+      "Independent historical-priority review not performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Degree-3 exception and eventual polynomiality COVERED; all-length word classification and coefficients not stated in inspected material",
+        "evidence": [
+          "Theorem 1.4",
+          "Section 4.2, explicitly p=0011,k=5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+        "material_read": "Introduction, Theorem 1.4, skeleton argument, Section 4.2, and adjacent discussion",
+        "method": "Full HTML primary article text, sections and located passages",
+        "title": "Enumerating binary words restricted by subsequence frequency",
+        "trigger": "Same pattern 0011 and multiplicity five explicitly identified as exceptional"
+      },
+      {
+        "assessment": "Covers k≤4 and structural framework; no k=5 specialization",
+        "evidence": [
+          "Section 3.1–3.3",
+          "Propositions 3.2, 3.4, 3.8, 3.11"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Introduction and complete Section 3 subsequence-frequency results at k=1,2,3,4",
+        "method": "HTML primary article text, structured section read",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Foundational detailed formulas for fixed frequency"
+      },
+      {
+        "assessment": "General constructive enumeration, but no explicit unique 001011-core or B_0011(n,5) coefficient; risk of implicit coverage recorded",
+        "evidence": [
+          "Theorem 5.2.4",
+          "Proposition 5.2.10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.03205v1",
+        "material_read": "Full Section 5.2 primitive words, including Theorems 5.2.4 and 5.2.6 and Proposition 5.2.10",
+        "method": "arXiv HTML primary text, 5.2 inspected",
+        "title": "Counting occurrences of a pattern in a binary word",
+        "trigger": "Potential general exact primitive enumeration dominating any special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e52ec49b-af88-46c3-b5bd-c1fb54a8a149",
+  "value": {
+    "rationale": "Bruda singles out exactly p=0011,k=5 as the first unexpected maximal-degree behavior; an explicit unambiguous regular language explains this precise exception and supplies a complete coefficient formula for all lengths, rather than only an asymptotic degree. This is a natural exceptional case and a checkable benchmark for primitive subsequence-frequency enumeration; no broader result is implied.",
+    "status": "PASS"
+  }
+}
