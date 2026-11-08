@@ -1,11 +1,21 @@
-# Review of the heterogeneous triangle anti-coordination theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** For each of the eight binary action profiles, the proof computes exact welfare; it proves that the maximum must be one of two extremal singleton configurations, and compares their values. Deviations of the two majority players give the exact Nash criterion. Integrating the strict failure region of the ordered unit cube yields \(\tfrac14\). The exact-rational verifier independently enumerates finite benchmark grids and a rational witness; this supplementary computation does not stand in for the quantified proof.
+## correctness
 
-**Originality — PASS under the inspected literature; residual uncertainty remains.** The May 2023 preprint and the later November 2023 same-author paper treat general polymatrix anti-coordination welfare and equilibrium complexity, but the reviewed statements do not classify the triangle preference inequalities or give an exact uniform-preference frequency. Targeted comparison of graph partitions, weighted-MaxCut formulations, prior mathematical records, and accessible earlier claims did not find a covering theorem. Absence from searched material is not an absolute priority guarantee.
+PASS
 
-**Mathematical value — PASS.** A complete natural three-agent classification identifies the first graph topology with an odd-cycle anti-coordination obstruction, quantifies its exact expected welfare/Nash conflict under a canonical continuous preference law, and provides a transparent benchmark for the general graph-setting complexity results. The object is small, but the result resolves the whole open region of preference triples and is not an isolated numerical example.
+PASS: Enumerating all eight triangle binary profiles reduces nonzero welfare maxima to the sole-b at minimum type versus sole-a at maximum type, difference 2m-l-h. Deviations by majority players give Nash condition m>=1/2 for b minority, m<=1/2 for a minority, yielding strict failure iff (m-1/2)(m-(l+h)/2)<0 under excluded ties. Ordering iid U(0,1) types gives simplex density 6 and one failure half of volume 6∫_0^(1/2)∫_0^m(m-l) dl dm=1/8; reflection doubles to exactly 1/4. Independent complete 8-profile payoffs/deviations on 190 distinct generic rational parameter triples verified; finite test not continuum proof.
 
-**Limitations.** The graph must be an unweighted triangle, the type parameter belongs to the specified vertex-typed anti-coordination family, equality boundaries are excluded for unique/strict conclusions, and \(\tfrac14\) assumes iid uniform types. Broader graphs, correlated types, and general edge-specific payoffs remain unclassified. Independent validation has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified and mathematically narrow: Deligkas et al. analyze general binary polymatrix welfare and equilibrium hardness, not this exact three-parameter triangle region/probability. The 3-player calculation is elementary, so priority for game-theoretic principles is not claimed; no matching all-preference theorem identified.
+
+## value
+
+PASS
+
+PASS (modest scope): A full generic preference-space classification on the triangle, the smallest nonbipartite anti-coordination interaction graph. The exact 1/4 probability quantifies welfare-versus-Nash conflict under the canonical continuous random-type model; a motivated complete classification rather than a disconnected tiny numerical curiosity. Broader networks and preference laws remain open in this finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
