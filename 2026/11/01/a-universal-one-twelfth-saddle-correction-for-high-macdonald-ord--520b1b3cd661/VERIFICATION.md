@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The integral in the proof is the even-index, zero-order specialization of the standard Macdonald integral and Theorem 16 in arXiv:2610.31368v1. Critical derivatives and the unique-saddle equation are explicitly differentiated and displayed in RESULT.md. The Gaussian expansion is analytical; it does not use extrapolation from numerical tests. There are no external certificates or independence assertions.
+# Independent mathematical audit
 
-Run the self-contained diagnostic `python check_saddle.py` with the Python dependencies from `requirements.txt`; it checks twelve centered quadratures at positive arguments \(1/4,1,3,10\) and even orders \(60,200,600\). All twelve checks passed in the current package, with absolute rescaled residual below \(0.08\). These finite tests support computation consistency only and do not prove the asymptotic statement. The exact remainder is established by the localization and integrated expansion in RESULT.md.
+## correctness
 
-Limitations: fixed real positive argument only; even differentiation index at zero order only. Independent audit is not performed.
+PASS
+
+For each fixed x>0 and even N→∞, differentiation of the superexponentially decaying Macdonald representation yields D_N(x)=∫_0^∞exp(N log t-x cosh t)dt. The phase is strictly concave with unique saddle xtsinh t=N, B=N/t²+xcosh t∼N/t. On the √B centered scale, the third and fourth standardized derivatives are O(B^-1/2) and O(B^-1); after Gaussian localization, odd terms integrate to zero and the fourth/squared-third terms yield Q_N=Phi_fourth/(8B²)+5(Phi_third)²/(24B³). Uniform local derivative bounds and strictly decaying tails justify O(B^-2)=O_x(t²/N²) as an integrated relative error. The saddle equation gives Phi_third/B→-1, Phi_fourth/B→-1, N/(Bt)→1 and (N/t)Q_N→-1/8+5/24=1/12. Independently centered quadratures for (x,N)=(1,60),(1,200),(3,600) gave scaled remainder roughly -0.0186,-0.0177,-0.0177 and verified the predicted order; these samples are not a limit proof. Not uniform in varying x; odd N derivatives at order zero vanish.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, with strong named priority uncertainty: the 2026 same-function paper explicitly establishes general order-derivative integrals and high-order numerical evaluation but the publicly accessible abstract does not state this moving-saddle asymptotic or the 1/12 coefficient. Its complete full text was inaccessible in this execution, so NO whole-document noncoverage conclusion is claimed. The older open-access reflection article and Dunster/Paris variants treat identities or distinct large parameters; general saddle theory supplies technique rather than a cited already-evaluated coefficient. A prior exact asymptotic in inaccessible or classical sources remains possible.
+
+## value
+
+PASS
+
+For the natural high-index order derivatives of a classical special function, the paper supplies an explicit, computable saddle normalization and sharp first non-Gaussian correction 1/12, with quantitative relative error O_x((log N)^2/N²). This improves asymptotic understanding of an object studied with numerical algorithms up to large derivative orders and separates it from generic large-Bessel-order or argument-derivative asymptotics. The standard Laplace technique itself is not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
