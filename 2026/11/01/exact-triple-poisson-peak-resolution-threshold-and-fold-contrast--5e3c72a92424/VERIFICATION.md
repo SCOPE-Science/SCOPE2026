@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-To reproduce the computer-backed identities, extract `CHECK.py` and run `python CHECK.py` with Python 3.10 or later; no third-party dependency is required. It verifies the two-variable rational-function derivative numerator identity by exact sparse polynomial arithmetic, the exact collision factorization, and illustrative rational-parameter minimum signs. The observed success message is `CHECK_OK: exact two-variable derivative identity, exact critical factorization, strict-minimum root controls`.
+## correctness
 
-Independent hand-algebra checks also gave \(\partial_sV_s'(1/\sqrt2,1/2)=-2\sqrt2\), \(\partial_x^2V_s'(1/\sqrt2,1/2)=-18\sqrt2\), \(\partial_y^2Q_{1/2}(1/2)=36\), and \(\partial_sQ_{1/2}(1/2)=8\). These are the local coefficients needed for the fold law. The continuum positive-root census, stationary-point classifications, and asymptotic-error bounds rely on the written analytic proof, not the finite checker. Historical originality remains open to independent literature verification. No independent audit is claimed.
+PASS
+
+Setting s=h² and clearing the strictly positive denominator gives V_s′(x)=−2x[3(x²+s)^4+(4s+1)(1−4x²)]/D_s(x). An independent sparse exact bivariate polynomial expansion and threshold factorization confirmed the identity. The polynomial Q_s(y) is strictly convex for y≥0, with global minimum at y0=((4s+1)/3)^(1/3)−s and value 9r^4(r²−1); the sign changes at s=1/2. Its exact factorization at equality has only the positive double root y=1/2. This proves complete critical-point multiplicities for all real h>0. Analytic Taylor expansion around (x,s)=(1/sqrt2,1/2) gives local derivative 2sqrt2 μ−9sqrt2 ξ²+ controlled errors; integration across the two roots and multiplication by h/pi yields the 3/2 contrast coefficient. The checker confirms only algebraic subclaims; continuum root counts and asymptotic remainders follow from the written inequalities.
+
+## originality
+
+PASS
+
+Duan arXiv:2608.28376 and Oliveira arXiv:2609.00336 establish the general upper bound of 2n−1 critical points for n-source line-restricted potentials, hence at most five here. The special exact transition h=1/sqrt2 and fold amplitude do not follow quantitatively from a universal upper count or generic attainment construction. Equivalent three-component equal-scale Cauchy-mixture modality literature was searched; a previously tabulated equal-spacing threshold could still exist and its historical priority is not exhaustively ruled out.
+
+## value
+
+PASS
+
+The minimal symmetric three-source configuration is a canonical resolution benchmark for harmonic/Poisson smoothing. The sharp loss of two side peaks and the exact shrinking peak-to-valley height quantify an authentic modal transition, a natural invariant not determined by generic point-source zero-count results. This is a complete all-height classification, not a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

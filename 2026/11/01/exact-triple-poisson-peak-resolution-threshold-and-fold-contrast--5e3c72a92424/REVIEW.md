@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact differentiation produces \(V_s'=-2xQ_s(x^2)/D_s\) with \(D_s>0\). Strict convexity of the quartic on \(y\ge0\), its exact minimum \(9r^4(r^2-1)\), and its exact double-root factorization classify every \(s>0\), including multiplicity. A Taylor normal form at the fold proves both collision and peak-contrast coefficients. The standard-library checker verifies the two critical polynomial identities over rational coefficients; it cannot substitute for the continuum root-count proof.
+## correctness
 
-**Originality — PASS, conditional on the inspected record.** The two most directly relevant primary papers, Duan (arXiv:2608.28376v1) and Oliveira (arXiv:2609.00336v1), were materially inspected including their theorems, sharpness constructions, and examples. Both prove the general bound \(2n-1\); neither gives the exact resolution threshold, collision shape, or contrast constant for three equal equispaced sources. Mathematical-record searches using line restrictions, Poisson three-atom aliases, Cauchy/Lorentzian three-mode mixtures, the parameter \(1/\sqrt2\), and the quartic numerator found no covering claim. This is a best-knowledge statement, not proof of absolute priority. Residual risk: an older spectral-fitting or statistical modality classification may contain equivalent formulas under other notation.
+PASS
 
-**Value — PASS.** The exact resolution threshold is a natural invariant of three equispaced boundary atoms under Poisson smoothing: it determines the entire three-peak versus one-peak diagram and saturates the general five-critical-point bound exactly for every subcritical height. The contrast coefficient and \(3/2\) fold exponent quantify detectability immediately before mode loss, which cannot be read from a universal counting theorem. This is an exact natural classification, not an arbitrary finite parameter slice.
+Setting s=h² and clearing the strictly positive denominator gives V_s′(x)=−2x[3(x²+s)^4+(4s+1)(1−4x²)]/D_s(x). An independent sparse exact bivariate polynomial expansion and threshold factorization confirmed the identity. The polynomial Q_s(y) is strictly convex for y≥0, with global minimum at y0=((4s+1)/3)^(1/3)−s and value 9r^4(r²−1); the sign changes at s=1/2. Its exact factorization at equality has only the positive double root y=1/2. This proves complete critical-point multiplicities for all real h>0. Analytic Taylor expansion around (x,s)=(1/sqrt2,1/2) gives local derivative 2sqrt2 μ−9sqrt2 ξ²+ controlled errors; integration across the two roots and multiplication by h/pi yields the 3/2 contrast coefficient. The checker confirms only algebraic subclaims; continuum root counts and asymptotic remainders follow from the written inequalities.
 
-The proof does not cover unequal masses or arbitrary source spacing, and it is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Duan arXiv:2608.28376 and Oliveira arXiv:2609.00336 establish the general upper bound of 2n−1 critical points for n-source line-restricted potentials, hence at most five here. The special exact transition h=1/sqrt2 and fold amplitude do not follow quantitatively from a universal upper count or generic attainment construction. Equivalent three-component equal-scale Cauchy-mixture modality literature was searched; a previously tabulated equal-spacing threshold could still exist and its historical priority is not exhaustively ruled out.
+
+## value
+
+PASS
+
+The minimal symmetric three-source configuration is a canonical resolution benchmark for harmonic/Poisson smoothing. The sharp loss of two side peaks and the exact shrinking peak-to-valley height quantify an authentic modal transition, a natural invariant not determined by generic point-source zero-count results. This is a complete all-height classification, not a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
