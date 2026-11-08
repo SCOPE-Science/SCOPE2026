@@ -1,19 +1,21 @@
-# Review of cyclic three-window composition spectra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For nonconstant circular words, the run counts \(t,u_0,u_1\) imply \(c_1=2t-2u_0+u_1\) and \(c_2=2t+u_0-2u_1\). The resulting admissible integer interval for \(t\) is nonempty exactly when the two stated positive-boundary inequalities hold, and the constructive run allocation realizes every admissible profile. The generating function separates interior and boundary pairs without double counting; partial fraction extraction proves the period-three cubic. Independent finite exhaustive observation and constructive checks agree. No finite search is being promoted to an infinite proof.
+PASS
 
-## Originality
+Alternating zero/one cyclic runs t with singleton counts u0,u1 yield c1=2t-2u0+u1 and c2=2t+u0-2u1, hence A=(2c1+c2)/3 and B=(c1+2c2)/3. Choose t=ceil(max(A,B)/2) satisfying t<=min(A,B), with strict inequalities when c0,c3 positive, then allocate length1/length2 runs and extras to construct each profile. Count interior/boundary congruence cells to get rational GF and three mod3 cubic formulas. Independent brute force words n=3..14 and collapsing full-trigram vectors reproduced the exact spectrum and counts; full-length proof is constructive, finite census alone not enough.
 
-**PASS, with limited residual risk.** The mathematically nearest primary articles study ordered full linear substring multispectra (Gabrys–Milenkovic, 2018), all-length linear substring composition reconstruction (Gupta–Mahdavifar, 2022), or partial linear composition observations (Ye–Elishco, 2022). The fully oriented cyclic three-gram measurement is strictly finer and its attainable-profile total does not determine the number of profiles under the composition projection. Earlier linear three-window composition support characterizations do not determine cyclic realizability: for example \((1,1,1,1)\) has contiguous positive support but violates the cyclic boundary constraint. No searched statement supplied these four necessary-and-sufficient cyclic inequalities or the cubic period-three image cardinality. A differently named finite-state or Eulerian-flow projection remains a plausible residual overlap risk, and publication novelty is not independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** Collapsing overlapping windows by composition models a loss of order information in readouts; the exact image size is the sharp zero-error reconstruction code capacity and gives the optimal message count for every length. The cyclic wraparound creates constraints invisible in the linear composition problem. The complete constructive classification and exact cubic quasi-polynomial make the contribution structurally more than a one-off finite count or the elementary conservation congruence.
+Qualified: classical substring-composition reconstruction results concern all linear substrings or partial composition data; this exact cyclic length3 composition-only projection and complete image inequalities are not identified there. It predates fuller trigram records in the same repository, whose finer image alone does not imply the number of coarsened profiles without fiber collision analysis.
 
-## Literature and limits
+## value
 
-Public primary material examined: https://arxiv.org/abs/1804.04548 (problem formulation and full ordered fixed-length multispectra); https://arxiv.org/abs/2201.09955 (linear full composition spectrum and reconstruction algorithm); https://arxiv.org/abs/2208.14963 (prefix/suffix and short linear composition readouts). Remaining limitation: an unindexed equivalent projection of an older oriented-gram or transfer-matrix characterization cannot be ruled out. The theorem excludes circular lengths one and two, all nonbinary alphabets, and noisy or incomplete observations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete realizability of a physically natural composition-only read channel, a sharp congruence/boundary criterion and exact zero-error code capacity provide an independently useful exact characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

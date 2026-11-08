@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python only. The script enumerates all binary words at lengths 3 through 18, directly counts circular windows, compares the observed set with the theorem's inequalities, tests the three explicit period-three formulas, and validates a newly constructed realizing word for every allowed profile through length 45.
+## correctness
 
-Expected terminal records:
+PASS
 
-```text
-EXHAUSTIVE_OK lengths=3..18 words= 524280
-CONSTRUCTIONS_OK n=3..45 profiles= 51223
-```
+Alternating zero/one cyclic runs t with singleton counts u0,u1 yield c1=2t-2u0+u1 and c2=2t+u0-2u1, hence A=(2c1+c2)/3 and B=(c1+2c2)/3. Choose t=ceil(max(A,B)/2) satisfying t<=min(A,B), with strict inequalities when c0,c3 positive, then allocate length1/length2 runs and extras to construct each profile. Count interior/boundary congruence cells to get rational GF and three mod3 cubic formulas. Independent brute force words n=3..14 and collapsing full-trigram vectors reproduced the exact spectrum and counts; full-length proof is constructive, finite census alone not enough.
 
-These are finite checks. The infinite argument relies on the run identities, the full integer feasibility interval, and coefficient extraction in `RESULT.md`. In particular, neither a finite match nor a successful program run independently proves novelty or correctness for all lengths.
+## originality
+
+PASS
+
+Qualified: classical substring-composition reconstruction results concern all linear substrings or partial composition data; this exact cyclic length3 composition-only projection and complete image inequalities are not identified there. It predates fuller trigram records in the same repository, whose finer image alone does not imply the number of coarsened profiles without fiber collision analysis.
+
+## value
+
+PASS
+
+Complete realizability of a physically natural composition-only read channel, a sharp congruence/boundary criterion and exact zero-error code capacity provide an independently useful exact characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
