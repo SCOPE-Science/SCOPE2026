@@ -1,19 +1,21 @@
-# Review of the exact variable-width alphabet spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof separates every alphabet size below the stated cutoff by explicit formulas, including the special one- and two-variable cases. The only nonstandard step is the complete two-pebble response-pattern table above the threshold three; every pattern is witnessed using three distinct alphabet letters, and the complete list follows from the four possible equality constraints on the two vertex coordinates. For widths at least three, the defined predicates \(F\) and \(S\) compare the first and second letters of two vertices using just one locally bound third variable. Shadowing an otherwise occupied variable within a conjunct is legal because its outer assignment remains available in every sibling conjunct. The infinite strategy preserves the full coordinate-equality pattern under arbitrary pebble movement, with up to two fresh symbols needed and at least two available. The two verification programs independently check finite instances of the crucial claims. Finite computations are supporting checks, not the proof of the theorem.
+PASS
 
-## Originality
+For B_q with words (a,b) and directed E((a,b),(c,d)) iff b=c, a single-variable atomic type recognizes q=1 versus q≥2; a two-variable formula separates q=2 from q≥3, and the full two-pebble local response table uses only three letters and proves permanent equivalence for any q,q′≥3. For k≥3, the three-variable formulas ∃z(E(z,x)∧E(z,y)) and ∃z(E(x,z)∧E(y,z)) encode equality of first/second coordinates. By locally shadowing a third variable only inside a conjunct, k word-variables can describe all equality patterns of up to 2k alphabet positions, including an odd t with a final diagonal word, yielding separating sentences for thresholds t≤2k. Duplicator maintains the complete equality pattern of all coordinates of ≤k pebbled words for q,q′≥2k since replacing one word needs ≤2 fresh letters. Thus cutoffs are 2,3,2k and the stated distinguishing-width law follows. These are unbounded-round strategies, not finite-depth experimental extrapolation.
 
-PASS, qualified by historical-priority limits. Du–Lyuu–Hsu (1993) and Hasunuma–Nagamochi (2001) concern de Bruijn and iterated line digraph network properties, not finite-variable logical indistinguishability. Grohe–Otto (2012) gives the unrestricted-depth pebble-game criterion as a general tool but no exact size cutoff for these structures. Etessami–Vardi–Wilke (1997) concerns two-variable logic on linearly ordered words with unary labels; the class and binary relation are different. Fàbrega–Martí-Farré–Muñoz (2023) determines orbit and distance-layer data under alphabet permutations, not the set of all bounded-variable first-order theories. The reviewed searches of equivalent phrasings, stronger characterizations, and published records found no direct or dominating result. A previously unrecognized stronger general theorem about line digraphs or first-order interpretations could imply the finding; that risk is not settled by negative searches.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a complete, sharp variable-resource spectrum for a classical network digraph family, not a finite or arbitrary parameter slice: it treats every alphabet size and every positive variable width at unlimited quantifier depth. It identifies a genuine nonuniform threshold—the two-variable cutoff is three, whereas widths at least three reveal two alphabet symbols per available vertex variable. The result yields exact theory counts, canonical smallest representatives, and the minimum distinguishing width between any two family members. Those logical invariants are natural questions for graph encodings and finite-variable model theory.
+Qualified PASS for the exact all-k logical equivalence and minimal alphabet representatives of length-two de Bruijn digraphs; neither classical line-digraph structure nor standard pebble equivalence characterization alone states this sharp exceptional k=2 and general 2k spectrum. A broader definable-incidence/finite model theory transfer may conceal a stronger prior implication.
 
-## Scope and remaining risk
+## value
 
-The pure directed adjacency relation, including loops, is essential; stronger languages and different de Bruijn word lengths are not covered. The proof is a self-review reconstruction, not independent validation. Source-date provenance follows the earliest exact publisher date verified among the cited graph sources; undated earlier historical material may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pure adjacency length-two de Bruijn graph is a canonical automata/network structure with q² vertices. The exact classification of all finite-variable theories, the anomalous two-variable plateau and the constructive minimal separating width provide a complete natural model-theoretic invariant, illustrating sharp expressivity costs of definable coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:46:58.610797Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen exact RESULT.md plus scripts verify_pair_extensions.py and verify_three_pebble.py, blobs 41f4d32fbaaa4ba2534b6251ba45d4685a3ab952, 384e6d08dca981cb30b3d774a4b22d06c8f5899f, ec704b632f74d2bffeb1098dcaa181acb5186112",
+        "Independent calculation of the two-pebble local anchor profile types for alphabet sizes 3–8 reproduced 5 loop-anchor and 8 nonloop-anchor patterns."
+      ],
+      "rationale": "For B_q with words (a,b) and directed E((a,b),(c,d)) iff b=c, a single-variable atomic type recognizes q=1 versus q≥2; a two-variable formula separates q=2 from q≥3, and the full two-pebble local response table uses only three letters and proves permanent equivalence for any q,q′≥3. For k≥3, the three-variable formulas ∃z(E(z,x)∧E(z,y)) and ∃z(E(x,z)∧E(y,z)) encode equality of first/second coordinates. By locally shadowing a third variable only inside a conjunct, k word-variables can describe all equality patterns of up to 2k alphabet positions, including an odd t with a final diagonal word, yielding separating sentences for thresholds t≤2k. Duplicator maintains the complete equality pattern of all coordinates of ≤k pebbled words for q,q′≥2k since replacing one word needs ≤2 fresh letters. Thus cutoffs are 2,3,2k and the stated distinguishing-width law follows. These are unbounded-round strategies, not finite-depth experimental extrapolation.",
+      "residual_risks": [
+        "The result assumes counting-free FO^k and loops in pure directed adjacency; a richer language changes cutoffs.",
+        "General pebble-game characterization is preexisting and acknowledged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources identify graph automorphism and line-digraph/distance structure but not k-pebble type collapse for all quantifier depths in pure adjacency."
+        ],
+        "reasoning": "A line-digraph representation does not automatically preserve k-variable logical width because interpreting coordinates costs variables; the proof explicitly handles the exceptional 2-variable case.",
+        "searches": [
+          "de Bruijn iterated line digraph Hasunuma Nagamochi 2001",
+          "Du Lyuu Hsu Line Digraph Iterations Connectivity Analysis 1993",
+          "Fàbrega Martí-Farré Muñoz 2023 distance layer alphabet permutation orbits"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1204.1990",
+        "doi:10.1016/S0166-218X(00)00269-9",
+        "doi:10.1109/12.223681",
+        "doi:10.1002/net.22177",
+        "Resultary FO pebble and de Bruijn width query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grohe–Otto establishes the equivalence framework; classical graph sources give B_q as line digraph."
+        ],
+        "reasoning": "Neither prior abstract characterization nor line-digraph identification yields the two-pebble response witness table, the three-variable coordinate predicates and the sharp k-dependent threshold without further argument.",
+        "searches": [
+          "Grohe Otto Section 2 Theorem 2.1 counting-free pebble games",
+          "de Bruijn digraph structural line graph representation Hasunuma Nagamochi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grohe–Otto arxiv:1204.1990 Theorem 2.1 links k-pebble games to FO^k equivalence; Resultary returned FO cutoffs for paths/Boolean algebras, different structures."
+        ],
+        "reasoning": "The claim can be restated as a k-pebble equality-pattern game on the line digraph of the complete reflexive digraph. That equivalence is standard, while its sharp length-two de Bruijn alphabet cutoff is object-specific.",
+        "searches": [
+          "Resultary: Finite variable first-order logic k-pebble equivalence length two directed de Bruijn digraph alphabet cutoff",
+          "Grohe Otto Pebble Games and Linear Equations FO k variable characterization",
+          "finite model theory line digraph complete reflexive graph FO variable hierarchy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include q-rank threshold for finite directed paths and atom-visibility threshold for Boolean algebras, but not two-letter de Bruijn FO^k type counts."
+        ],
+        "reasoning": "Graph spectra and eigenvalue tables do not determine finite-variable equivalence; the displayed 2,3,2k cutoff is a logical exact spectrum, not a conventional graph count.",
+        "searches": [
+          "Resultary FO k equivalence de Bruijn digraph q alphabet size",
+          "finite model theory Pebble de Bruijn q3 q4 game classification"
+        ]
+      },
+      "rationale": "Qualified PASS for the exact all-k logical equivalence and minimal alphabet representatives of length-two de Bruijn digraphs; neither classical line-digraph structure nor standard pebble equivalence characterization alone states this sharp exceptional k=2 and general 2k spectrum. A broader definable-incidence/finite model theory transfer may conceal a stronger prior implication.",
+      "residual_risks": [
+        "A general FO interpretation of complete digraph line graphs may imply the 2k cutoff, although no such theorem was identified from the inspected results.",
+        "The statement fails if the signature adds letter equality, coordinates, counting, or deletes loops; not claimed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_ONLY",
+          "evidence": "Standard equivalence theory is not new and does not state q-dependent B_q cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1990",
+          "material_read": "Primary preprint Section 2 and Theorem 2.1, including pebble/FO k characterization; inspected PDF page screenshot",
+          "method": "Read relevant theorem and definitions in full PDF",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "Primary generic finite-variable game theorem"
+        },
+        {
+          "assessment": "GRAPH_STRUCTURE_NOT_LOGICAL_CUTOFF",
+          "evidence": "Graph model is classical, whereas width thresholds concern noncounting finite-variable FO types.",
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00269-9",
+          "material_read": "Accessible bibliographic and scientific description of iterated line digraph model",
+          "method": "Compared known graph family formulation",
+          "title": "Independent Spanning Trees with Small Depths in Iterated Line Digraphs",
+          "trigger": "Same de Bruijn family as iterated line digraphs"
+        },
+        {
+          "assessment": "ADJACENT_ENUMERATION",
+          "evidence": "Alphabet-permutation orbit and distance data do not imply the claimed all-depth FO^k equivalence.",
+          "identifier_or_url": "https://doi.org/10.1002/net.22177",
+          "material_read": "Accessible publication abstract and orbit/distance-layer scope",
+          "method": "Read bibliographic primary material",
+          "title": "Distance-Layer Structure of the De Bruijn and Kautz Digraphs",
+          "trigger": "Possible exact alphabet-orbit coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact reusable-variable pebble proof and frozen verification scripts",
+        "Grohe–Otto general FO^k pebble method"
+      ],
+      "rationale": "The pure adjacency length-two de Bruijn graph is a canonical automata/network structure with q² vertices. The exact classification of all finite-variable theories, the anomalous two-variable plateau and the constructive minimal separating width provide a complete natural model-theoretic invariant, illustrating sharp expressivity costs of definable coordinates.",
+      "residual_risks": [
+        "Other word lengths, Kautz graphs and counting logic may have distinct thresholds; result does not pretend to classify them."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only positive q and counting-free FO^k over the single directed adjacency relation with loops.",
+    "Possible unindexed general incidence-interpretation theorem is a qualified originality risk."
+  ],
+  "schema_version": 1
+}
