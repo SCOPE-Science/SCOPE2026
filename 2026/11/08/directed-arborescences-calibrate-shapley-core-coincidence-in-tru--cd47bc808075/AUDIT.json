@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed complete proof: direct coalition inequalities give singleton core c_i=d_i b_i; unanimity decomposition gives phi_i-c_i=sum_{i->j}t_j-d_i t_i, t_i=(d_i-1)b_i/(2(d_i+1))>0; rooted out-tree cycle-exchange bijection yields its exact positive balance solution; maximum principle proves uniqueness on each SCC; source-SCC cut proves impossibility when condensation has arcs. Exact-rational verifier independently evaluates all coalitions and Shapley permutations on 1,528 instances, including 369 calibrated strong examples and 257 arborescence identities. Finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.18157v1 Theorem 3.1 and Lemma 5.1: forward Shapley/core formulas for general scores",
+        "AAMAS2024 p132, Proposition 3.4: existence of a core point"
+      ],
+      "reasoning": "These broader forward results imply a finite formula for each fixed instance, but neither identifies which network topologies admit some positive target-homogeneous score vector, nor classifies all such positive solutions. No stronger inverse coverage was seen in inspected material.",
+      "searches": [
+        "\"trust game\" \"Shapley\" \"core\" coincidence graph directed",
+        "Ryzak Kroupa trust game Shapley core balancing weights 2026",
+        "trust cooperative game Shapley core equal if incoming scores proportional directed rooted arborescences spanning tree"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.18157",
+      "https://arxiv.org/abs/2605.18157",
+      "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+      "https://www.emergentmind.com/papers/2605.18157",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=91A07"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general unanimity decomposition at arxiv:2605.18157v1 Section 3 reduces by specialization to a flow discrepancy; its Section 5 gives the unique core",
+        "The derived cycle-edge exchange proves d_i tau_i = sum_{i->j} tau_j; SCC positivity and condensation-cut necessity establish the inverse theorem",
+        "The Markov stationary vector gives an alternative proof, but is not itself a published trust-game calibration conclusion in inspected sources"
+      ],
+      "reasoning": "Published forward formulas do logically support the first reduction, which is expressly not claimed as new. Their implications alone do not specify the positive calibration existence criterion or the complete spanning-tree parameter family. The nontrivial extra argument is graph-theoretic classification and uniqueness; the possibility that a mathematically equivalent corollary has already been explicitly stated is a residual risk.",
+      "searches": [
+        "\"trust game\" \"Shapley\" \"core\" \"Eulerian\" directed network",
+        "\"core\" \"Shapley\" \"stationary distribution\" directed graph trust 2026 2025",
+        "Ryzak Kroupa trust game stationary Markov chain equal-incoming edge weights unique positive calibration making Shapley in the core"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ryzák–Kroupa, arXiv:2605.18157v1, Sections 2–5: general trust-game decomposition and singleton core",
+        "Bandhana–Kroupa–García, AAMAS 2024, Sections 3–4: trust-game construction and core feasibility"
+      ],
+      "reasoning": "Equivalent names include fairness/stability coincidence, positive trust-score calibration, reverse-walk stationary vector and rooted out-arborescence balance. The source general Shapley formula is an ingredient but does not state the all-digraph positive existence/uniqueness classification; the rooted tree bijection and condensation obstruction are additional content.",
+      "searches": [
+        "\"trust game\" \"Shapley\" \"stationary distribution\" directed graph cooperative",
+        "\"trust game\" \"Shapley\" \"core\" \"Eulerian\" directed network",
+        "trust cooperative game Shapley core equal if incoming scores proportional directed rooted arborescences spanning tree",
+        "trust game Shapley core when every target incoming edge weights equal graph circulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 paper treats numerical network examples and forward formulas, not a table or full census of stabilizing calibrations",
+        "2024 AAMAS paper studies experimental peer trust networks, not a calibration catalogue"
+      ],
+      "reasoning": "The result is an all-order structural criterion, not a finite graph table. No exact database, catalogue or published exhaustive family covering the statement was identified; negative searches are not proof of novelty.",
+      "searches": [
+        "\"trust game\" \"Shapley\" \"incoming\" \"weight\" \"regular\" graph",
+        "trust game Shapley core when every target incoming edge weights equal graph circulation",
+        "arxiv 2605.18157"
+      ]
+    },
+    "rationale": "The May 2026 trust-game source provides a general Shapley formula and core singleton, not the inverse existence theorem, graph-condensation obstruction, positive parameter classification or rooted out-arborescence calibration. The 2024 foundation introduces the game and a core point, without the claimed balance classification. The new graph-level result arises from a fresh local decomposition, directed tree-exchange bijection and positive harmonic rigidity; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An equivalent criterion could be published under directed Laplacian, stationary-distribution or network-reputation terminology and not indexed by searches.",
+      "Forward Shapley and core formulas are in the 2026 primary source; the original content must be judged specifically as the inverse existence and rooted-arborescence classification, not as a new forward formula.",
+      "Independently inspected source sections cannot certify absence of relevant content from every uninspected appendix or inaccessible treatment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides forward formulas, not the rooted out-tree calibration nor iff SCC condensation characterization in inspected material",
+        "evidence": [
+          "arXiv:2605.18157v1, May 18 2026, Sections 2,3,5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.18157",
+        "material_read": "HTML full-paper material: model and unanimity decomposition in Section 2, Shapley derivation in Section 3, core and total balancedness in Section 5, introductory claims and related work, conclusion; no claim of reading uninspected appendices",
+        "method": "Read relevant primary text and compare mathematical hypotheses and conclusions against the positive inverse-calibration theorem",
+        "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+        "trigger": "Identical trust game, general Shapley formula and singleton core"
+      },
+      {
+        "assessment": "Introduces game and a core point, without the full all-topologies trust-score calibration result in inspected material",
+        "evidence": [
+          "AAMAS 2024, pp. 132–140; Proposition 3.4; Sections 3 and 6"
+        ],
+        "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+        "material_read": "Primary PDF: abstract/model, model-design sections and core construction around page 4, Shapley setup, numerical context and future-work section; other portions not asserted exhaustively inspected",
+        "method": "Read extracted PDF text and directly inspected PDF page image around the core result",
+        "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+        "trigger": "Original published definition, Shapley application, potential core coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd47bc80-8075-4d2c-97d6-8587628c7c51",
+  "value": {
+    "rationale": "The source trust-game model has a uniquely stable core payoff that normally disagrees with its Shapley trust value. The theorem fully solves a natural inverse design question for homogeneous incoming scores: exactly which directed topologies admit positive reconciliation, all admissible weights, a sharp inter-component-edge obstruction, and a spanning-out-arborescence formula enabling exact construction. This is a complete structural classification, not an arbitrary finite slice or known-table recomputation.",
+    "status": "PASS"
+  }
+}
