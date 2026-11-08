@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent bonds on a path, a uniformly seeded epidemic has mean size \(n^{-1}\sum s_k^2\) conditional on components, giving the rigorous pair-connectivity formula. Expansion in the two edge attenuations yields an exact quadratic identity. The ten candidate pairs on the six-site path are compared using explicit factorizations whose signs are strict over the full \(0<q<p\le1\) domain; the equality point and all lower-size classifications follow. For general \(n\ge6\), strict convexity of component size cost makes balanced three-block partitions optimal at \(\(q=0\)\); strict center sensitivity makes central adjacent pairs uniquely first-order optimal as \(q\uparrow p\), with finite-set continuity controlling both neighborhoods. A standalone finite checker verified 794 exact identities and rational comparisons and separately enumerated bond configurations; these checks supplement, rather than certify, the infinite statements.
+PASS
 
-## Originality — PASS, with historical-priority limitations
+Mean final infected size under uniform seed and independent path bonds equals n^-1 times sum of squared open-component sizes, hence n E X=n+2 sum over unordered vertex pairs of the product of path open probabilities. Exact two-factor expansion with r=p-q yields K_n−2r(D_i+D_j)+2r^2 A_i p^(j-i-1) A_(n-j). Independently expanded all ten P6 pair energies symbolically and recovered the table of positive differences from (2,4) except the adjacent class -2(p-q)[(1+p)q−p]. This proves the unique separated optimum for q<p/(1+p), three-way tie at equality, and two adjacent optima above. For each n>=6, strict discrete convexity of block cost g_p at q=0 and strict central-edge D_i+D_j superiority as r→0, with finite-set continuity, establish nonadjacent strong and adjacent weak intervention regimes for all p∈(0,1].
 
-The exact model and assertion were compared with the primary preprints of Newman (2002), Kenah–Robins (2006), Yi–Shan–Paré–Johansson (2020), Demange and colleagues (2021), Russo and colleagues (2015), and Youssef–Scoglio (2013). Newman establishes percolation-based spread, not an exact two-link placement theorem. Kenah–Robins clarify model equivalence limits. Yi and colleagues treat general edge-deletion problems and bounds rather than two nonzero residual probabilities on a path. Demange and colleagues use complete firebreak removals, including tree algorithms. Russo and colleagues use network firebreak heuristics. Youssef–Scoglio use dynamic contact-weight control in a continuous-time epidemic model rather than static partial bond attenuation. Prakash and colleagues (2013) investigate fractional node immunization; only their public abstract was accessible and the full text remains a named priority risk. All these are material comparisons, not novelty proof by differing titles. The risk of an older equivalent result in network interdiction, reliability or rearrangement theory persists and requires independent subject-expert investigation.
+## originality
 
-## Value — PASS
+PASS
 
-The claim identifies the smallest path network exhibiting a qualitative change from distributed to adjacent placement of equal-strength partial contact interventions. It locates an exact continuous efficacy threshold for the complete parameter domain on that minimal network, and gives a separate all-size structural law at the two efficacy extremes. It therefore provides a meaningful reproducible benchmark for epidemic containment or analogous bond-percolation intervention problems, without asserting field-scale predictive power.
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
 
-## Scope and limitations
+## value
 
-Independent undirected bonds, one uniformly random seed, two identically attenuated edges, no intervention costs or heterogeneous node importance. The all-size statement is local near the attenuation extremes and does not classify intermediate regimes. No independent audit or definitive historical originality certification was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two equally weakened contact links on a path are a canonical small network-interdiction design. An exact P6 minimum-size separated-to-adjacent switch and the all-length opposite limiting regimes demonstrate a substantive nonmonotone placement phenomenon rather than a trivial zero-transmission cut.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
