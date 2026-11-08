@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Proof reduces satisfaction to nondecreasing binary words; inconsistency of fixed literals is equivalent to an inverted pair; minimal disagreement sets with cut words are determined by immediate boundary bits; the satisfied case follows by explicit singleton/boundary flips and hitting-set duality; padding a word by 0 and 1 makes an exact bijection with transition positions. All edge cases n=1 and constant words are included. Direct-completion subset enumeration through length eight checks the finite formulas without using the closed expressions; the proof, not enumeration, handles all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fionda--Ielo--Ricca arXiv:2610.35169, Definitions 1--3, gives general AXp/CXp semantics and their general hitting-set duality.",
+        "That paper, experiments section, analyzes 2^N contrastive explanations for independently named conjunctions of weak-next response clauses; the single shared-proposition case is not counted there.",
+        "A previous exact theorem for the distinct two-proposition until formula p U q yields geometric-binomial profiles, not the inversion/cut profiles here."
+      ],
+      "reasoning": "General definitions, an enumeration algorithm, and hitting-set duality can be instantiated, but do not on their own state or imply a closed classification without computing the minimal sets. The independent-names exponential example is structurally opposite: successive implications are coupled through one shared proposition. The until-formula prior cannot specialize to this persistence formula by a parameter choice, as its temporal language and satisfaction conditions differ.",
+      "searches": [
+        "Fionda Ielo Ricca AXp CXp exact size distribution for always p implies X p finite traces",
+        "exact AXp CXp profiles for persistence safety LTLf G(p implies weak-next p) binary traces",
+        "Fionda Ielo Ricca formal explanations p U q versus G(p -> Xw p) structural classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.35169 (primary motivating full text)",
+      "MSC2020 03B44 (primary classification)",
+      "Previous mathematical claim on AXp/CXp for the two-proposition until formula, checked by exact statement for overlap",
+      "Classical finite-word 10-descent enumeration (transition-gap bijection reproduced in new proof)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.35169 full text, definitions and synthetic 2^N example: semantic setup and independent-clause contrastive counts.",
+        "Previous same-domain theorem for the two-proposition until temporal formula: finite geometric-binomial mixture and limiting explanation laws (distinct formula).",
+        "Classical minimal vertex cover/hitting-set duality determines one explanation family from another but requires the explicit families to be known."
+      ],
+      "reasoning": "Fionda et al. logically gives the meaning and duality of the explanation sets, and their algorithm can compute instances; neither provides the explicit all-n inversion/cut classification or sharp count spectrum. An earlier formula-specific p U q result does not directly imply a safety formula over only p. Generic combinatorial transition counts imply one coefficient once the temporal CXp-to-descent correspondence is established, not the whole theorem. Therefore current inspected statements do not dominate the new conjunction of claims.",
+      "searches": [
+        "linear temporal logic finite traces persistence formula globally p implies next p minimal abductive contrastive explanations inversion pairs descents number",
+        "Fionda Ielo Ricca AXp CXp exact size distribution for always p implies X p finite traces",
+        "minimal abductive contrastive explanations for nondecreasing binary words inversion graph rank descents",
+        "Fionda Ielo Ricca formal explanations p U q versus G(p -> Xw p) structural classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.35169 defines explanations over locked temporal literals and identifies standard classifier-based explanations.",
+        "The present AXps correspond to minimal inconsistent partial assignments to the chain implications; CXps to minimal disagreement sets with monotone binary words.",
+        "Classical binary transition enumeration supplies the binomial factor but not the temporal interpretation."
+      ],
+      "reasoning": "The literal classifier-equivalence and minimal hitting-set duality are existing facts, not asserted new. Recasting the claim as minimal implicants of an implication chain, or minimal covers of its inversion graph, gives the same mathematical object; searched these aliases without finding an all-length complete explanation spectrum. The binary descent coefficient alone would be covered by standard run enumeration, but the combined AXp/CXp classification and quantitative bounds for both compliance states are additional claims.",
+      "searches": [
+        "linear temporal logic finite traces persistence formula globally p implies next p minimal abductive contrastive explanations inversion pairs descents number",
+        "explanation spectrum binary traces monotone language minimal corrections nested Ferrers bipartite inversion graph d plus one minimal hitting sets",
+        "explanations of nondecreasing Boolean words minimal reasons minimal repairs number descents inversion",
+        "minimal abductive contrastive explanations for nondecreasing binary words inversion graph rank descents"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literature-index searches for descending-run binomial spectra, inversion-pair explanations and finite trace temporal profiles returned no exact-result record.",
+        "Direct descent-count combinatorics is a classical transition-word count, here proved by a bijection."
+      ],
+      "reasoning": "No existing indexed complete table of minimal AXps/CXps for the specified persistence formula was identified. Search absence is not a proof of mathematical novelty; classical descent coefficients are not separately claimed novel.",
+      "searches": [
+        "explanation spectrum binary traces monotone language minimal corrections nested Ferrers bipartite inversion graph d plus one minimal hitting sets",
+        "explanations of nondecreasing Boolean words minimal reasons minimal repairs number descents inversion",
+        "temporal explanation count binomial n+1 2d+1 weak-next persistence finite traces"
+      ]
+    },
+    "rationale": "Primary full article arXiv:2610.35169 defines AXp/CXp but does not derive the all-trace persistence profile. The closest same-framework prior found for a two-proposition until formula has different semantic constraints and no implication to persistence. Exact binomial distribution and sharp polynomial bounds were not identified in targeted source, equivalence, and alias searches; priority risk explicitly retained.",
+    "residual_risks": [
+      "A previously unlocated general theorem on prime implicants, Ferrers/chain graph minimal vertex covers, or nested Boolean corrections might imply part of the classification under a different name.",
+      "Search results and the inspected primary article do not establish universal historical priority; no independent expert verification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PRIOR_ON_DEFINITIONS; NOT_COVERING_CURRENT_EXACT_SPECTRUM",
+        "evidence": "Definitions 1--3 use fixed trace lengths, locking, unlocking and inclusion-minimality; experimental P(N) uses independent propositions and reports 2^N CXps, not the present coupled one-proposition formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.35169",
+        "material_read": "Full publicly rendered article, including abstract, Introduction, Formal Explanations, AXp/CXp Definitions 1--3, duality, experimental synthetic example, Conclusion and references.",
+        "method": "Read arXiv public article HTML representation and checked explicit weak-next examples, explanation equivalences and the reported exponential benchmark.",
+        "title": "Formal Explanations for Linear Temporal Logic over Finite Traces",
+        "trigger": "Same definitions and temporal weak-next benchmark with exponential contrastive multiplicity."
+      },
+      {
+        "assessment": "PRIMARY_03B44",
+        "evidence": "MSC2020 explicitly labels 03B44 Temporal logic.",
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=03B38",
+        "material_read": "Classification entry 03B44 Temporal logic and adjacent 03B45 Modal logic.",
+        "method": "Checked publicly available classification text.",
+        "title": "MSC2020 mathematical classification",
+        "trigger": "Confirm primary MSC ownership for temporal-logic statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "72388932-d33d-42ca-9e3b-24f935ec6ebc",
+  "value": {
+    "rationale": "Natural temporal safety property: using the same proposition in every weak-next clause couples obligations and produces a sharp linear CXp ceiling, in explicit contrast to exponential independent-clause examples. Full parametric AXp/CXp descriptions for both classes and exact distribution/extrema give a motivated classification and reproducible regression family, rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
