@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "All 8192 length-thirteen and 16384 length-fourteen words were partitioned by exact integer four-deck vectors; two differently structured programs independently verify the decisive thirteen-bit zero and the explicit fourteen-bit witness, while the full census finds its unique mixed class. A proved padding/marginalization identity yields the small-length and all-long-length statements. The upper deck bound is Theorem 1.3 of the 2026 primary paper. Limits explicitly stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angal et al., arXiv:2610.41110v1, Introduction Theorem 1.3 and Section 3.3 bounded-one-runs proof: r(B_l)<=2l+1 and r-prime(B_l)<=2l.",
+        "Theorem 1.3 proves only r(B_l)<=2l+1 for all l; this inequality alone does not imply equality at l=2."
+      ],
+      "reasoning": "The general source is broader in classes but logically only an upper bound. Its bound does not force the length-14 collision or exclude cross-class collisions at lengths 4 through 13. Deletion-reconstruction ambiguity is a different channel.",
+      "searches": [
+        "Deck Reconstruction for Restricted Word Classes bounded runs r(B_2) equals 5 sharp two-run versus five-run collision four-deck length 14",
+        "four deck non-reconstruction 14 bit word with two runs of ones restricted class 2026",
+        "four deck non-reconstruction 14 bit word with two runs of ones restricted class 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.41110v1",
+      "https://doi.org/10.3934/amc.2021032",
+      "Index search: Deck Reconstruction for Restricted Word Classes bounded runs r(B_2) equals 5 sharp two-run versus five-run collision four-deck length 14",
+      "Index search: 4 deck collision 01111100111110 10101111110101 two runs first at 14",
+      "Index search: binary words with two runs of ones and 4-deck reconstruction threshold 5 exact",
+      "Index search: four deck non-reconstruction 14 bit word with two runs of ones restricted class 2026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Angal et al., arXiv:2610.41110v1, Introduction Theorem 1.3 and Section 3.3 bounded-one-runs proof: r(B_l)<=2l+1 and r-prime(B_l)<=2l.",
+        "Chrisnata et al., DOI:10.3934/amc.2021032, Sections on general deck counting and weight-three three-decks, no restriction-specific four-deck two-run threshold.",
+        "The witnesses x=01111100111110 and y=10101111110101 have identical sixteen-entry four-deck multiplicity vectors and have two versus five one-runs."
+      ],
+      "reasoning": "The full 2026 result supplies the upper inequality r(B_2)<=5 only; the new mixed collision is an independent lower-bound witness, with a verified sharp minimal n and uniqueness. The older general deck algorithms do not imply the refined run-class statement merely by providing unrestricted D_4(n) counts.",
+      "searches": [
+        "Deck Reconstruction for Restricted Word Classes bounded runs r(B_2) equals 5 sharp two-run versus five-run collision four-deck length 14",
+        "binary words with two runs of ones and 4-deck reconstruction threshold 5 exact",
+        "four deck non-reconstruction 14 bit word with two runs of ones restricted class 2026",
+        "arXiv 2610.41110 Theorem 1.3 Section 3.3",
+        "DOI 10.3934/amc.2021032"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Angal et al., arXiv:2610.41110v1, Introduction Theorem 1.3 and Section 3.3 bounded-one-runs proof: r(B_l)<=2l+1 and r-prime(B_l)<=2l.",
+        "The relevant published source defines global and in-class restricted-class deck reconstruction separately; the present claim is exact sharpness of the global four-deck bound, not a short-deck composition count."
+      ],
+      "reasoning": "Compare the actual full length-four scattered deck against arbitrary opponents. Binary r=2 composition reconstruction refers to a different observation model and does not imply this four-deck threshold.",
+      "searches": [
+        "Deck Reconstruction for Restricted Word Classes bounded runs r(B_2) equals 5 sharp two-run versus five-run collision four-deck length 14",
+        "binary words with two runs of ones and 4-deck reconstruction threshold 5 exact",
+        "Deck Reconstruction for Restricted Word Classes bounded runs r(B_2) equals 5 sharp two-run versus five-run collision four-deck length 14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact complete computation: 8192 length-13 words, 8176 classes, zero mixed; 16384 length-14 words, 16328 classes, unique mixed pair.",
+        "Chrisnata et al. compute unrestricted deck totals for small n, not the cross-run-status fiber partition."
+      ],
+      "reasoning": "No inspected published table gives both the run-status condition and unique first cross-class fiber. General class counts cannot determine these refined classifications.",
+      "searches": [
+        "4 deck collision 01111100111110 10101111110101 two runs first at 14",
+        "On the number of distinct k decks enumeration bounds 4 deck restricted runs 14 binary",
+        "4 deck collision 01111100111110 10101111110101 two runs first at 14"
+      ]
+    },
+    "rationale": "Primary full relevant text gives upper 2l+1 and in-class bound 2l, not sharpness at l=2 or first mixed-class obstruction. Targeted indexed and external literature searches and recoverable earlier claims identify nearby but not covering results. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "An unindexed or unpublished account of the identical 14-bit obstruction may exist.",
+      "General deck-count databases might implicitly encode the obstruction without explicitly separating the run statuses; full tables should not be treated as negative evidence of all possible derived results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_ANTECEDENT_NOT_COVERING_SHARPNESS",
+        "evidence": "Theorem 1.3: r-prime(B_l)<=2l and r(B_l)<=2l+1; Section 3.3 proves upper bounds but no equality proof for l=2.",
+        "identifier_or_url": "https://arxiv.org/html/2610.41110v1",
+        "material_read": "Introduction definitions and Theorem 1.3; full Section 3.3 and proof, including Lemmas 3.3-3.4; source date and reference list",
+        "method": "Full public HTML text with line-level inspection",
+        "title": "Deck Reconstruction for Restricted Word Classes",
+        "trigger": "Exact in-class versus arbitrary-opponent bounded-run reconstruction thresholds"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "D_k(n) counts different unrestricted deck vectors; no count by R(x)<=2 versus R(y)>2 or threshold r(B_2).",
+        "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+        "material_read": "Full-text available scientific exposition: introduction, general enumerations and Sections 5.3 and conclusion",
+        "method": "Public searchable full-text HTML, direct theorem and table comparison",
+        "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+        "trigger": "General exact deck tables might conceal the same first restricted mixed fiber"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "37321ba8-3c47-4e40-93f2-f57f88b4754d",
+  "value": {
+    "rationale": "This is the first nontrivial two-run specialization of a fresh bounded-one-run reconstruction theorem: it settles sharpness of its unrestricted-opponent upper bound, proves a natural first obstruction length, and establishes uniqueness of that boundary fiber by reproducible complete finite verification. The witness extends the lower bound to all longer words; this goes beyond a disconnected finite count.",
+    "status": "PASS"
+  }
+}
