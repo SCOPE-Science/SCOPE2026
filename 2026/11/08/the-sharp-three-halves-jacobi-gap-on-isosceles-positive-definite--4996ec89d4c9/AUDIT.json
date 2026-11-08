@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Exact Loewner-order averaging reduces arbitrary positive diagonal scales to a one-parameter family. Explicit 3x3 eigenvalue formulas give the optimal parameter and its two branches. The bound is established by strict analytic inequalities in three positive parameter regions: direct s<=3a, a positive completed square, and a positive difference-of-squares identity; the near-boundary family gives exact supremum 3/2. The standalone SymPy verifier replayed 6829 symbolic, exact and finite randomized checks; finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kolotilina gives all positive definite real 3x3 pointwise optima and quotes the general bound kappa_Jacobi <= n kappa_opt; that bound gives 3 rather than the sharp family-specific 1.5.",
+        "Jambulapati et al and Qu et al supply general preconditioning algorithms and bounds but no inspected theorem with the claimed exact 3/2 family-wise extremum."
+      ],
+      "reasoning": "General optimization algorithms and pointwise formulas cover the supporting minimizer, but do not by themselves supply the stated sharp worst-case approximation ratio over the specified family. Existing general n-factor coverage is strictly weaker for the ratio objective.",
+      "searches": [
+        "van der Sluis Jacobi to optimal diagonal scaling worst case n=3 3/2",
+        "Kolotilina 2006 3x3 complete spectral scaling theorem",
+        "Jambulapati et al 2020 Jacobi approximation factor",
+        "Qu et al 2022 general SDP preconditioning"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/250796934_Solution_of_the_Problem_of_Optimal_Diagonal_Scaling_for_Quasireal_Hermitian_Positive-Definite_33_Matrices",
+      "https://www.cs.ubc.ca/sites/default/files/tr/1972/TR-72-08.pdf",
+      "https://arxiv.org/pdf/2008.01722",
+      "https://arxiv.org/pdf/2209.00809",
+      "https://doi.org/10.1137/22M1504901",
+      "https://doi.org/10.1137/0722005",
+      "https://www.mathunion.org/fileadmin/ICM/Proceedings/ICM1954.2/ICM1954.2.ocr.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kolotilina (2006) and older classical spectral arguments completely settle pointwise optimal scaling, which the new theorem explicitly treats as old.",
+        "The new derivation adds nontrivial global inequalities for all parameters in three spectral branch regimes, with an extremizing path; no searched primary theorem supplies that sharp restricted approximation factor."
+      ],
+      "reasoning": "The new claim is not novelty of the optimal scaling formula or the criterion for Jacobi optimality, both covered. The distinct scalar optimization is a worst-case approximation guarantee and not an immediate special case of a general worst-case bound currently identified. A specialist previously published 3/2 guarantee would invalidate originality.",
+      "searches": [
+        "isosceles 3x3 correlation optimal preconditioner Jacobi worst case ratio 1.5 near singular",
+        "van der Sluis Jacobi to optimal diagonal scaling worst case n=3 3/2",
+        "Kolotilina 2006 relevant full text, introduction and section 3 conclusion",
+        "Demmel 2023 Jacobi bound abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golub–Varah characterize pointwise extrema by equal-modulus singular vectors; Kolotilina 2006 Theorems 1.1–1.4 and Corollary 3.8 address optimality of individual 3x3 scales, not optimization of the Jacobi/optimal ratio over a two-parameter family.",
+        "A direct analytic supremum over a two-parameter family is a stronger comparative statement than a pointwise optimizer formula; it requires the three positive-region inequalities in RESULT.md."
+      ],
+      "reasoning": "Full pointwise optimality and an entrywise Jacobi-optimality characterization are prior art. Only the global sharp family-wide 3/2 relative-loss bound, its strictness, and near-singular limiting witness are asserted; no identified exact equivalence states this uniform bound.",
+      "searches": [
+        "sharp three halves ratio kappa Jacobi versus best diagonal scaling on three by three positive definite matrices with two equal correlations",
+        "isosceles 3x3 correlation optimal preconditioner Jacobi worst case ratio 1.5 near singular",
+        "optimal diagonal preconditioner isosceles 3x3 correlation matrix equal two edge couplings exact piecewise branch eigenvalue crossing",
+        "Golub and Varah 1972 full technical report, equal-modulus scaling criterion; Forsythe–Straus 1955 criterion; Kolotilina 2006 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research index returned nearby numerical conditioning records but no matching sharp Jacobi-vs-global-diagonal scaling gap.",
+        "The full-text Kolotilina introduction gives n-factor bounds and later an individual-matrix classification; checked portions do not tabulate the asserted family-wise sharp 3/2 ratio."
+      ],
+      "reasoning": "No exact parameter-optimized 3/2 value or corresponding near-singular witness was found in checked research records or inspected primary material. Index and text searches cannot prove exhaustiveness.",
+      "searches": [
+        "sharp three halves ratio kappa Jacobi versus best diagonal scaling on three by three positive definite matrices with two equal correlations",
+        "isosceles 3x3 correlation optimal preconditioner Jacobi worst case ratio 1.5 near singular",
+        "van der Sluis Jacobi to optimal diagonal scaling worst case n=3 3/2",
+        "Kolotilina 2006 author-hosted full text searched for ratio, 3/2, 1.5, quasioptimal, and sharp"
+      ]
+    },
+    "rationale": "The research claim is the sharp universal 3/2 worst-case cost of Jacobi relative to optimal diagonal scaling on the 2-parameter positive isosceles 3x3 SPD family, and its unattained asymptotic witness. Pointwise optimal diagonal scaling of all 3x3 SPD matrices, including the exact optimizer used in proof, is acknowledged prior art (Kolotilina 2006). None of the inspected full-text portions, general modern preconditioning papers, or actual semantic searches states or dominates this sharp relative ratio. Its proof requires three nontrivial global positivity certificates. Residual specialist precedence risk exists.",
+    "residual_risks": [
+      "An earlier sharp 3/2 isosceles-family gap may occur in a less easily indexed specialist source or unchecked portion of the full 2006 study; if so novelty fails.",
+      "The 1985 Shapiro full text was not accessible with current institutional connection; its abstract gives special-case formulas, but not an identified sharp family-wise ratio.",
+      "A failed semantic or text query alone does not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the pointwise optimal scaling problem and Jacobi optimality, but no inspected theorem establishes the new family-wide sharp 3/2 relative loss. Residual risk from unchecked portions remains.",
+        "evidence": [
+          "Theorem 1.1, Theorems 1.2–1.4 and Corollary 3.8 give pointwise optimality conditions and explicit scaling",
+          "Introduction quotes general kappa_J <= n kappa_opt, which is not sharp 3/2 on this family"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/250796934_Solution_of_the_Problem_of_Optimal_Diagonal_Scaling_for_Quasireal_Hermitian_Positive-Definite_33_Matrices",
+        "material_read": "Author-uploaded HTML full text: introduction and general 3x3 theorems, Corollary 3.8, relevant section-3 passages; text searches for ratio/3/2/1.5/quasioptimal",
+        "method": "Full text accessed and searched online; reviewed relevant formal theorems and surrounding text",
+        "title": "Solution of the Problem of Optimal Diagonal Scaling for Quasireal Hermitian Positive-Definite 3×3 Matrices",
+        "trigger": "Exactly identical matrices and pointwise optimizer, most important precedence risk"
+      },
+      {
+        "assessment": "Covers general pointwise EMC criterion; not the proposed family-wide extremal loss factor.",
+        "evidence": [
+          "Golub–Varah characterize best l2 scaling by extrema-vector modulus equality under applicable hypotheses"
+        ],
+        "identifier_or_url": "https://www.cs.ubc.ca/sites/default/files/tr/1972/TR-72-08.pdf",
+        "material_read": "Abstract, introductory criterion, theorem/corollary pages on equal-modulus extremal vectors",
+        "method": "Full report online with page-oriented inspection",
+        "title": "On a Characterization of the Best l2 Scaling of a Matrix",
+        "trigger": "Classical stronger characterization of pointwise optimal scaling"
+      },
+      {
+        "assessment": "General algorithmic and approximation guarantees, not exact sharp 3/2 ratio over this isosceles family.",
+        "evidence": [
+          "General Jacobi scaling approximation claims; preconditioning algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.01722",
+        "material_read": "Preprint first-page and method sections, Jacobi comparison statements, page screenshots",
+        "method": "arXiv PDF and text inspection",
+        "title": "Fast and Near-Optimal Diagonal Preconditioning",
+        "trigger": "Modern motivating direct Jacobi-vs-best approximation work"
+      },
+      {
+        "assessment": "General scaling SDP optimization; no inspected exact family-wide sharp ratio.",
+        "evidence": [
+          "General semidefinite optimization of diagonal preconditioners"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.00809",
+        "material_read": "Introduction, mathematical formulation and methods, preprint page screenshots",
+        "method": "arXiv PDF and text inspection",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Modern general-purpose exact/approximate diagonal scaling algorithm"
+      },
+      {
+        "assessment": "Does not establish family-specific 3/2 sharpness in available abstract; complete text was not inspected.",
+        "evidence": [
+          "Block-structured upper approximation guarantee and near-tight examples"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Public abstract and bibliographic details",
+        "method": "Publisher landing page and university paper summary",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Relevant approximation-factor comparisons"
+      },
+      {
+        "assessment": "Plausible precedence risk but not decisive coverage of the sharp family-specific relative guarantee based on accessible evidence.",
+        "evidence": [
+          "Abstract states optimality conditions and special-case closed forms, not a family-wise 3/2 gap"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Publisher abstract only; lawful arXiv/OA not located",
+        "method": "OA search and authorized institutional attempt; institutional access unavailable",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Earlier specialist closed-form optimal scaling and potential bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4996ec89-d4c9-4add-85d1-1e10322879b1",
+  "value": {
+    "rationale": "The family is a canonical two-equal-correlation SPD benchmark for matrix conditioning and cheap Jacobi scaling. The new exact 3/2 worst-case loss tightens the classic general n-factor comparison, identifies strict nonattainment, and gives an explicit nearly singular witness. This is a motivated quantitative performance limitation rather than a routine pointwise diagonal-scaling recomputation.",
+    "status": "PASS"
+  }
+}
