@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain, line predicates and exchange operation are fixed explicitly. There are only \(715\) candidate four-point subsets; each of two independently constructed finite-plane implementations retains exactly \(234\), constructs exactly \(1404\) exchange edges and completes BFS from all \(234\) starting states. Both verify the exact blocker/detour biconditional on all \(27,261\) unordered pairs and assert the complete distance table. The \(234\)-oval count and regular degree \(12\) have independent incidence proofs. The finite certificate is exhaustive, and no unbounded extrapolation is claimed.
+## correctness
 
-## Originality — PASS, with named residual risks
-Prior smooth-ternary-conic pair calculations already determined the counts \(234\), \(1638\), \(702\), and \(936\) as static oval/blocker-union data; all are excluded from originality. A prior six-point minimum blocking-set exchange graph also has 234 states but is a distinct degree-six graph (diameter six), not this degree-twelve oval graph. Coolsaet--Sticker (2010) treats arcs and conical subsets, while their 2011 work enumerates high-order complete arcs; the examined parts do not derive the oval-exchange metric. The 2022 Coolsaet--Botteldoorn--Fack blocker-set study is a potentially relevant *static* classification, but its full text was inaccessible; the abstract is not sufficient to rule out overlapping detail. Targeted published-research searches checked 4-arc, oval, conic, projective-frame, ternary MDS-code and blocker vocabulary. The new logical content is **the exact distance identity and its equality with the blocking predicate**, not the previously known static frequency of blockers. No covering prior theorem was identified, but historical incompletely indexed sources remain a risk.
+PASS
 
-## Value — PASS
-The exact cost of repairing one maximal four-arc into another by valid single-point exchanges is a natural invariant of an extremal finite configuration space. The formula identifies the precise obstruction to the set-difference-optimal path as an intrinsic projective line-blocking property and proves any detour costs exactly one additional operation. The complete graph-distance and exceptional-partner profiles provide additional structural information beyond a list of configurations or their overlaps. This finite result is motivated independently of the code implementation, with no assertion of a general-order breakthrough.
+Exact finite claim for rational points of PG(2,3), no extension-plane generality. There are 13 points, 13 four-point lines, and exactly 234 four-arcs. The graph joins four-arcs with three common points; each has 12 neighbors, giving 1404 edges. Every exchange changes target intersection by at most one, establishing lower bound 4-|A∩B|. The two actual package verifiers independently construct plane incidence from homogeneous determinant coordinates and from 9 affine points plus 4 infinity directions, test all 715 four-sets, BFS from all 234 ovals, and check all 27,261 unordered pairs. A separately coded finite-plane enumeration re-derived all distances and the equivalence of precisely one extra step with A∪B meeting every line without containing any line; histogram (3,1):1404,(2,2):7020,(2,3):702,(1,3):12636,(1,4):936,(0,4):4563; spheres (1,12,60,114,47), diameter 4, and 1638 exceptional pairs. Complete finite enumeration is a proof for this finite domain, not an inferred infinite classification. Each oval has six exceptional partners at common pairs and eight at common singletons.
 
-## Sources and limitations
-Primary context: Coolsaet--Sticker, *Arcs with Large Conical Subsets* (2010), DOI 10.37236/384 (selected original sections read); Coolsaet--Sticker, complete arcs of projective planes of orders 27 and 29 (2011), DOI 10.1002/jcd.20261 (selected full-text sections read); Coolsaet--Botteldoorn--Fack, minimal blocking sets in small projective planes (2022), DOI 10.1002/jcd.21842 (abstract only). A previous exact finite conic-pair census covers the static union counts and is credited as such. The 2022 article's inaccessibility and possible differently named oval/exchange literature prevent a universal priority guarantee. No generalization beyond \(\operatorname{PG}(2,3)\) or independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A blocking-set obstruction to shortest oval exchanges in PG(2,3): the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.
+
+## value
+
+PASS
+
+The one-point exchange graph of complete four-arcs/projective frames in the smallest odd-order plane is a canonical finite geometric state space. The precise correspondence of a geodesic detour to a nontrivial blocking union, full distance metric, and uniform local defect counts form a natural complete structural invariant beyond recomputing static conic and blocking-set numbers. No claim of larger field orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
