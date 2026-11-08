@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-Two standalone Python 3 checkers were executed against the embedded `certificate.json`:
+# Independent mathematical audit
 
-```sh
-python cycle_exact.py certificate.json
-python cycle_combinatorial.py certificate.json
-```
+## correctness
 
-The mask-based checker exhaustively enumerated independent dominating sets of each cycle on \(3\) through \(13\) vertices, all query supports for their VC dimensions, and all feasible adaptive first-query branches for exact Littlestone dimensions. It verified a complete depth-five tree on the thirteen-cycle with \(31\) internal nodes, \(32\) distinct valid terminal concepts, and all root-to-leaf answers consistent. It independently computed the entire five-query trace histogram over \(1287\) supports; the maximum number of traces is \(29\), attained at \(13\) supports. It also checked the complete four-query histogram.
+PASS
 
-The second checker did not use the mask-based enumerator: it reconstructed concepts from all cyclic compositions into distances of two or three, used a separate depth-feasibility recursion, and repeated the exhaustive five-query support check. Both programs completed with all assertions satisfied. The fixed certificate contains all witnesses; it does not rely on filenames or outputs from other packages.
+Maximal independent sets on C_n correspond exactly to cyclic words with 1-gaps of 2 or 3. The short-gap obstruction for shattered supports proves n≥3k−1, while explicit directed fillings cover n≡0,±1 mod3, so VCdim=floor((n+1)/3). Independently enumerated concepts, all fixed query supports, and every recursive adaptive partition for C3..C13: final table (13,39,VC4,Ldim5), equal VC/Ldim for n3..12. Inspected actual certificate.json: 31 query nodes, 32 leaf witnesses for depth five; 39 concepts rule out depth six. All 1287 C13 five-query supports checked in source and independently no support shattered. Additivity under disjoint products yields 4m vs5m for m C13 components, hence unbounded gap on vertex-transitive 2-regular graphs.
 
-These finite checks establish the first cycle threshold through thirteen vertices. The all-width VC formula, disjoint-union additivity, and unbounded regular vertex-transitive separation are proven in `RESULT.md`. Computations at finite sizes are not invoked as proofs of infinite claims. No external proof assistant or independent scientific review was used.
+## originality
+
+PASS
+
+Perrin-type counts of maximal independent sets on cycles and general Littlestone/shattering theory are prior. Neither those counts nor general theorems imply exact membership-query VC dimensions or first adaptive threshold for connected cycles. Semantic searches by independent domination/cycle gap and primary literature did not find a dominating result; residual graph-concept-learning literature risk remains.
+
+## value
+
+PASS
+
+The all-cycle VC formula and sharp C13 first adaptive gap resolve natural graph-learning invariants and yield a vertex-transitive degree-two class with unbounded static-versus-adaptive separation. The exact finite C13 statement is valuable without a claimed general Littlestone formula for n>13.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
