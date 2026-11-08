@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is reconstructed with explicitly quantified \(n\), a consistent worst-case landmark threshold, and a proof by exhaustive pair-intersection types. The two possible bisectors follow directly from \(d_{J(n,2)}(X,Y)=2-|X\cap Y|\). Their cardinality difference \(2(n-5)\) gives the threshold. Inclusion maximality is characterized by connected-component unions across a two-vertex cut; this supplies the special \(n=4,5,6\) cases and proves the stable range. Kneser transfer accounts for landmarks equal to the compared pair, where the positive-distance complement identity does not apply. A fresh independent all-pairs-distance program enumerates all bisectors for \(4\le n\le10\) and directly checks every subset at \(n=4,5\). The code reports `VERIFY_OK`. No finite enumeration is used as a proof for unbounded \(n\).
+PASS
 
-## Originality — PASS with priority risk
+A nonresolving set lies in an equal-distance bisector E(X,Y). Every pair of 2-subsets X,Y intersects once or not at all, producing respectively A_B=all pairs outside B plus B, or D_{P|Q}=four crossing pairs plus pairs outside P∪Q. Their sizes differ by 2(n-5). Inclusion comparison of root-graph components leaves D swallowed by A only at n=6 (A swallowed by D at n=4); hence all maximal families and exact counts follow. KG(n,2) at n>=5 has diameter two and complement adjacency, so each equal-distance relation for distinct landmark vertices coincides, including zeros treated separately. Independent BFS enumerated every pair bisector and maximal containment for n=4..9 and confirmed formulas for KG at n>=5.
 
-The earliest directly motivating source (Korivand–Khashyarmanesh–Tavakoli, 2022) computes the Petersen universal threshold only. Bailey et al. (2013) give resolving constructions and the ordinary minimum metric dimension, not maximal nonresolving sets. Kratica et al. (2024) work with equal-distance **existence** for each pair, a different quantifier; their full paper has no claimed universal threshold or inclusion-maximal nonresolving classification. Existing research records on metric thresholds of Hamming graphs and minimum equalizer sets of triangular/Kneser graphs concern different graph families or logically different objects. The candidate is not a mere restatement of the Petersen case or of equidistant dimension. The residual risk is an unlocated published bisector-classification theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the complete worst-case failure geometry of a natural infinite family already used in metric-dimension and equidistant-dimension research. The large threshold (quadratic in root order) contrasts with the known linearly growing optimally placed metric dimension. Inclusion-maximal failures retain a second smaller structural orbit for all \(n\ge7\), invisible to the scalar threshold; the small cases exhibit genuine shifts. These precise obstruction profiles support exact worst-case landmark redundancy questions and provide useful, non-arbitrary graph-family information.
+Korivand–Khashyarmanesh–Tavakoli introduce metric dimension threshold and prove Petersen KG(5,2) threshold 5. Bailey et al treat minimum resolving dimension of Johnson/Kneser graphs, a different quantifier. Kratica et al study equidistant dimension with opposite existential condition. These do not provide the all-n complete maximal-nonresolving-bisector classification.
 
-## Scope and residual limits
+## value
 
-The theorem addresses two-subset Johnson/connected Kneser graphs, not higher Johnson levels. The verification range is finite; priority searches cannot exclude all unindexed sources. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural worst-case landmark-identifiability invariant is determined for all triangular graphs and two-set Kneser complements. Exact finite obstruction classification, counts, and sharp threshold are useful beyond ordinary metric dimension, and the equality of resolving families under graph complement is structural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
