@@ -1,11 +1,21 @@
-# Review of the contact-creation endemicity boundary
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact two-group spectral matrix has trace \(17/4\) and determinant \(3/4\), so its Perron eigenvalue is \( (17+\sqrt{241})/8>1\). The first equilibrium equation forces either complete disease freedom or \(y_1\ge3/4\), at which the designated contact-creation law vanishes; the remaining group then cannot sustain infection because its within-group rate is \(1/4<1\). For the positive-creation theorem, the equilibrium map is continuous and differentiable at zero with derivative the irreducible nonnegative DFE threshold matrix. A strictly positive left Perron vector excludes convergence of perturbed Brouwer fixed points to zero, and positive stationary links propagate support across the underlying strongly connected graph. The implicit-function Jacobian of the restored system has determinant \(9/4\ne0\) and establishes the indicated prevalence expansions. Finite numerical checks are supporting evidence only.
+## correctness
 
-**Originality (O): PASS, subject to stated residual risk.** Section III.E of Achterberg–Sensi–Sottile (arXiv:2407.17639, subsequently Chaos 35, 033127) explicitly leaves unrestricted spectral sufficiency as Conjecture 6, while its hypotheses allow contact-creation functions to vanish. The source's row-sum theorem does not imply an existence result when the second row has a subunit invasion sum; the published conjecture is directly refuted by the example. Existing adaptive single-group analysis (arXiv:2209.01224) and Wang–Gracy–Ishii–Johansson's discrete-time contact feedback (arXiv:2106.00122) do not have the autonomous, zero-capable directed link-density mechanism. Indexed mathematical-record searches and previous accessible research claims yielded no stronger theorem with the same assumption boundary. The outstanding risk is unindexed or semantically dissimilar equivalent work, rather than a known covering theorem.
+PASS
 
-**Mathematical value (V): PASS.** This answers the source's explicit spectral-threshold conjecture negatively under its stated hypotheses and proves a natural, all-network sufficient repair. The contact-creation positivity distinction changes the graph of **effective stationary transmissions** and therefore the existence of fully endemic states. The exact first-order restoration quantifies how the missing endemic component appears as edge closure is softened. This is a structural epidemiological distinction, not a numerical slice or textbook restatement.
+For B=[[4,1/2],[1,1/4]], recovery/break/creation constants one, stationary links give K=[[4,1/2],[1/2,1/4]], ρ(K)=(17+sqrt(241))/8>1. At any nonzero equilibrium y1>=3/4 makes q(y1)=[max(0,1-2y1)]² vanish; z21=0 and group2 equation forces y2=0, y1=3/4. For positive creation, continuous stationary contact fractions Z_ij(y)>0, Perron left-weighted local T(y)>y growth, Brouwer perturbation Tη and graph irreducibility produce strictly positive fixed point. The IFT at boundary Jacobian [[-3,1/8],[0,-3/4]] gives derivative (1/24,1). Exact independent algebra checked K, eigenvalues and IFT derivative. No stability/uniqueness claim.
 
-**Scope and risks:** The restored theorem concerns existence, not uniqueness or stability; edge positivity is sufficient rather than necessary; the discontinuity of existence as creation vanishes does not imply a trajectory bifurcation claim. Related but not model-identical literature and possible unindexed equivalents remain residual originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Achterberg–Sensi–Sottile (Chaos 2025) conjecture R0>1 implies fully endemic equilibrium under their nonnegative contact-creation framework. The explicit zero-creation counterexample falsifies that unrestricted conjecture but not their stronger minimum-row-sum Theorem 5 (here min sum=3/4). The positive-creation Perron–Brouwer theorem specifies a meaningful sufficient condition absent from their statement. Single-group and different state-dependent SIS models are inapplicable.
+
+## value
+
+PASS
+
+A rigorous counterexample to a named epidemic-model conjecture together with a transparent structural repair distinguishes spectral linearization from nonlinear adaptive edge extinction; the boundary sensitivity η and sharp assumptions are useful in multigroup network epidemic modelling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

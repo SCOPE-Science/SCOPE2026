@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-From this package directory run `python3 check_adaptive_sis.py`; no third-party modules are required. The program checks exact rational matrices, the spectral test, the stationary partial-infection equilibrium, and numerical restoration branches. Its printed residual tolerances and bisection steps concern only the positive-creation illustration. The impossibility assertion uses nonnegative inequality chaining, and the positive-creation theorem uses a small-vector Perron inequality, Brouwer's theorem, compactness and graph connectivity; these are explicit analytical steps in `RESULT.md`, not inferences from numerical iteration.
+## correctness
 
-The decisive spectral matrix is `[[4,1/2],[1/2,1/4]]` and the partial-endemic point is `[[3/4,0]]`. At the restoration boundary the prevalence Jacobian determinant is exactly `9/4`; the first derivatives with respect to the restored link fraction are `1/24` and `1`.
+PASS
 
-**Limits:** No exhaustive literature proof of uniqueness; no stability or global-attraction conclusion; no independent audit or independent validation has occurred.
+For B=[[4,1/2],[1,1/4]], recovery/break/creation constants one, stationary links give K=[[4,1/2],[1/2,1/4]], ρ(K)=(17+sqrt(241))/8>1. At any nonzero equilibrium y1>=3/4 makes q(y1)=[max(0,1-2y1)]² vanish; z21=0 and group2 equation forces y2=0, y1=3/4. For positive creation, continuous stationary contact fractions Z_ij(y)>0, Perron left-weighted local T(y)>y growth, Brouwer perturbation Tη and graph irreducibility produce strictly positive fixed point. The IFT at boundary Jacobian [[-3,1/8],[0,-3/4]] gives derivative (1/24,1). Exact independent algebra checked K, eigenvalues and IFT derivative. No stability/uniqueness claim.
+
+## originality
+
+PASS
+
+Achterberg–Sensi–Sottile (Chaos 2025) conjecture R0>1 implies fully endemic equilibrium under their nonnegative contact-creation framework. The explicit zero-creation counterexample falsifies that unrestricted conjecture but not their stronger minimum-row-sum Theorem 5 (here min sum=3/4). The positive-creation Perron–Brouwer theorem specifies a meaningful sufficient condition absent from their statement. Single-group and different state-dependent SIS models are inapplicable.
+
+## value
+
+PASS
+
+A rigorous counterexample to a named epidemic-model conjecture together with a transparent structural repair distinguishes spectral linearization from nonlinear adaptive edge extinction; the boundary sensitivity η and sharp assumptions are useful in multigroup network epidemic modelling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
