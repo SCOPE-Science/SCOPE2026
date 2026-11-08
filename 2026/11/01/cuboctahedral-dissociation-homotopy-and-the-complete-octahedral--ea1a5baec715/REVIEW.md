@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit cube-edge labeling and induced-degree-one condition uniquely reconstruct the complex. A second independent forbidden-triple predicate checks all \(4096\) vertex subsets; both give \(455\) nonempty faces with \(f\)-vector \((12,66,164,177,36)\). The complete stagewise face matching contains \(211\) disjoint covering pairs, and every one of the \(1512\) directed Hasse incidences is included in a successful topological-sort acyclicity check. Precisely one critical vertex and thirty-two critical three-cells remain, so integral discrete Morse theory proves the wedge of three-spheres. The \(48\) explicit full-group actions preserve every adjacency, and the signed fixed-simplex formula determines the character; the \(S_4\times C_2\) inner products are nonnegative integers and have total degree \(32\). Mod-two boundary ranks provide an independent homology check but are not used to prove the integral homotopy theorem. The final quotient statement follows from rational finite-group invariants.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+Vertices of C=L(Q3) are the 12 cube edges; a mask belongs to Ind_2(C) iff no selected vertex has two selected neighbors, equivalently it contains no one of 56 forbidden triples. Independently reenumerated all 4096 masks and obtained 455 nonempty faces and f=(12,66,164,177,36). Direct sequential toggling order (2,10,4,6,7,3,11,9,5,8,0,1) gives 211 disjoint matched cover pairs and one critical vertex plus 32 critical 3-faces; independently oriented the full Hasse diagram, found 1512 cover arrows and a topological ordering of all 455 nodes, so the matching is acyclic and integral Morse theory yields wedge(32,S3) with no other positive-dimensional cells. The cube automorphisms x->a XOR permute_bits(x) exhaust 48 graph automorphisms via maximal triangle recovery. Independently enumerated oriented fixed-face Lefschetz sums for all 48 elements and obtained the ten displayed S4 class/determinant character values (32/10,4/2,8/2,-1/1,0/-2). Inner products with S4 characters give multiplicities even (2,3,3,1,1), odd (1,1,2,1,0) and dimensions 21+11; finite-group rational invariants give quotient rank 2 in H3. Actual verifier source inspected; its mod2 ranks (11,55,109,36) are corroboration, not the integral Morse proof.
 
-The mathematical object is simultaneously the hypergraph independence complex of \(56\) forbidden incident triples and the degree-one induced-vertex-set complex of the cuboctahedron. Conant–Thistlethwaite [1] defines the general hypergraph construction and examines distinct cube-*vertex* face hypergraphs and their Alexander-dual theta complexes. Deshpande–Singh [2] classifies several graph families, none of which is the cuboctahedral line graph. The dissociation-set optimization paper [3] does not in its inspected scope determine a homotopy or group representation. Previously indexed cuboctahedral matching, cut, Čech and configuration-space calculations concern distinct complexes, not a theorem implying this one. Exact-title, equivalent-description and broader-result searches found no matching assertion. The remaining risk is unindexed equivalent work or inaccessible detailed literature; this is not a claim of exhaustive global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cuboctahedron is the canonical line graph of the cube, with an intrinsic full octahedral group of order \(48\). The two-independence condition is the first nontrivial higher-independence condition and is equivalent to a canonical forbidden-star hypergraph. The integral homotopy classification and full symmetry character are natural invariants, not arbitrary sampled numerical data. The two-dimensional invariant third homology of the full symmetry quotient and unequal inversion eigenspace dimensions give extra structural information beyond a Betti-number computation or an ordinary matching-complex result.
+A bounded comparison of precise mathematical statements and implications finds no identified earlier theorem covering the full new claim; known special cases and foundational tools are acknowledged; inaccessible source scopes and possible hidden prior art are explicitly residual risks.
 
-## Limits and closest literature
+## value
 
-The proof is an exact finite certificate and does not generalize to other cube dimensions without new work. The representation is rational; no integral representation-lattice or integral quotient-homology assertion is made. Priority risk persists from unindexed calculations. References [1]–[3] in RESULT.md give the primary and closest contextual works.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A cuboctahedral line graph is a canonical twelve-vertex polyhedral graph with full octahedral symmetry. Its two-independence complex is a genuinely distinct higher-independence object; determining its integral wedge homotopy type and full irreducible rational symmetry character provides an exact intrinsic and quotient invariant not obtainable from a raw face vector. A natural finite canonical complex and representation classify nontrivial topology, independent of any general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
