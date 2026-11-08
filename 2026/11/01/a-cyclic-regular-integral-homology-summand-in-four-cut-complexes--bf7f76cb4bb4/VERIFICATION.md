@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or later and only the Python standard library. The verifier constructs every connected four-subset and every five-subset whose four-subsets are connected, using the circular-distance rule. It checks the oriented cross-polytope chain is a cycle; verifies two integer cocycles at the wrapped cases \(n=12,13\), including signed unit pairings; and independently calculates mod-two boundary ranks, yielding \(\dim H^3(K_{12};\mathbb F_2)=2\) and \(\dim H^3(K_{13};\mathbb F_2)=14\). For \(13\le n\le28\) it checks the full cyclic identity pairing; for \(14\le n\le28\) it also enumerates all potential cofaces of the distinguished tetrahedron.
+## correctness
 
-The universal conclusions are proved in RESULT.md by the explicit no-coface case distinction, uniqueness of the eight-vertex support block, and integral Alexander duality. Finite checks are corroboration, not an infinite enumeration or independent certification. The exact rest of the integral homology and other degrees are not determined.
+PASS
+
+The Alexander-dual faces have every four-set connected in C_n^3. The oriented 16-tetrahedron cross-polytope chain is a 3-cycle. For n>=14 the tetrahedron (0,2,4,7) has no possible 4-dimensional coface, making its signed characteristic cochain a genuine integral cocycle; the source supplies the exhaustive distance table. At n=13 a two-term wrapped cocycle cancels on the only five-simplex. Translated cycles and cocycles pair as the n-by-n integer identity (independently checked at n13,14,17), yielding a split regular Z[C_n] module, not just rational classes. At n12 the twelve-term signed cochain was evaluated on all 168 five-faces and pairs with the sphere cycle by a unit; direct mod2 ranks (161,152) and (207,130) give beta3 2,14. Integral Alexander duality shifts H^3 to H~_{n-6}; the sign twist of cyclic rotation leaves a regular representation isomorphic to itself. The infinite case rests on the written all-v vertex and cyclic gap arguments, not sampled n<=28.
+
+## originality
+
+PASS
+
+Bayer et al. and the 2026 Chauhan-Shukla paper establish general cut-complex definitions, hereditary shellability and k=3 shellability. A fully read Resultary cubic-PATH four-cut theorem plus heredity already implies mere nonshellability for sufficiently large cubic CYCLES; that weaker conclusion is explicitly excluded as original. Its single primitive Z path class does not give n linearly independent whole-cycle classes. A fully read published three-cut cycle-power rational character result concerns a different cut size, coefficient ring, degree and parameter range. No searched equivalent integral rank-n module for the 4-cut cubic CYCLE was found, subject to unindexed priority.
+
+## value
+
+PASS
+
+The extra n primitive integral cohomology classes and cyclic equivariant splitting are informative invariant structure of the natural graph-power cut family, beyond known shellability or a single local obstruction. The 12/13 wrapped boundaries are mathematically motivated thresholds and supply integral data useful for equivariant/topological follow-up.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

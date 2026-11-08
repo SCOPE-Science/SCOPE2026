@@ -1,19 +1,21 @@
-# Review of cyclic regular summands in cubic-cycle four-cut topology
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integral Alexander-dual derivation, oriented sixteen-simplex sphere cycle, all-n cocycle case distinction for \(n\ge14\), exact signed \(n=13\) wrap correction, and the cyclic Kronecker pairing together prove a split regular integral module. The size-twelve cochain has twelve explicit signed tetrahedra and all 168 coboundary checks pass. Integral Alexander duality and purity give the claimed next-to-top homology and nonshellability. The separately executed standard-library checker reproduces all integral finite certificates and the exact mod-two ranks 2,14. Finite tests corroborate the universal proof; they do not replace its quantified gap argument.
+PASS
 
-## Originality — PASS
+The Alexander-dual faces have every four-set connected in C_n^3. The oriented 16-tetrahedron cross-polytope chain is a 3-cycle. For n>=14 the tetrahedron (0,2,4,7) has no possible 4-dimensional coface, making its signed characteristic cochain a genuine integral cocycle; the source supplies the exhaustive distance table. At n=13 a two-term wrapped cocycle cancels on the only five-simplex. Translated cycles and cocycles pair as the n-by-n integer identity (independently checked at n13,14,17), yielding a split regular Z[C_n] module, not just rational classes. At n12 the twelve-term signed cochain was evaluated on all 168 five-faces and pairs with the sphere cycle by a unit; direct mod2 ranks (161,152) and (207,130) give beta3 2,14. Integral Alexander duality shifts H^3 to H~_{n-6}; the sign twist of cyclic rotation leaves a regular representation isomorphic to itself. The infinite case rests on the written all-v vertex and cyclic gap arguments, not sampled n<=28.
 
-The source preprint on powers of cycles proves shellability at cut size three and explicitly raises the higher-cut question. Crucially, a published four-cut cubic-path theorem combined with the foundational induced-subgraph heredity proposition **already implies nonshellability** of the cubic-cycle cut complexes: that statement is not credited as new. The path theorem exhibits a single primitive class; it does not imply n independent cyclic translates in the original cycle's homology, and hereditary shellability is not a homology-injection theorem. The precise identity pairing and the \(n=13\) wrapped cocycle provide the needed additional information. A published cyclic-character theorem covers three-cut rather than four-cut topology. Actual indexed searches and full relevant primary/source text did not reveal the asserted regular integral rank-n module; unindexed equivalent work is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An explicit equivariantly split regular integral representation is a substantial structural strengthening over a single torsion-free obstruction. It gives \(n\) primitive next-to-top classes for every \(n\ge13\) and a tractable wrapped-cycle boundary class at \(n=12\). The family and dimension are chosen by a published higher-cut problem, not an arbitrary finite slice. No exact formula for all integral homology, possible remaining torsion, or full homotopy type is asserted.
+Bayer et al. and the 2026 Chauhan-Shukla paper establish general cut-complex definitions, hereditary shellability and k=3 shellability. A fully read Resultary cubic-PATH four-cut theorem plus heredity already implies mere nonshellability for sufficiently large cubic CYCLES; that weaker conclusion is explicitly excluded as original. Its single primitive Z path class does not give n linearly independent whole-cycle classes. A fully read published three-cut cycle-power rational character result concerns a different cut size, coefficient ring, degree and parameter range. No searched equivalent integral rank-n module for the 4-cut cubic CYCLE was found, subject to unindexed priority.
 
-## Sources and limits
+## value
 
-Primary: Chauhan–Shukla (2026, arXiv:2603.23155); foundational: Bayer et al. (arXiv:2304.13675); squared-cycle comparison: Chauhan–Shukla–Vinayak (arXiv:2406.01979); closest cubic-path theorem (public research record identified in RESULT.md). All stated homology computations are integral where claimed; the two extra finite Betti numbers are over the field with two elements. An equivalent unindexed calculation remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The extra n primitive integral cohomology classes and cyclic equivariant splitting are informative invariant structure of the natural graph-power cut family, beyond known shellability or a single local obstruction. The 12/13 wrapped boundaries are mathematically motivated thresholds and supply integral data useful for equivariant/topological follow-up.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
