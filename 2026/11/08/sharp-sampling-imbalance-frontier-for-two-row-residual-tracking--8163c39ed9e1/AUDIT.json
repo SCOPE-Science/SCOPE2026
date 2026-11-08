@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Actual source Algorithm 1 is reduced by centered variables to two explicit 3x3 linear updates. The covariance map is exact and cone preserving. Symbolic verification gives det(I-M)=-4 alpha F_u(alpha) and zero-step spectrum lambda(lambda-1)(lambda-p)^2(lambda-q)^2, with dominant root derivative -4. Cone Perron theory and the unique positive zero prove the all-initial-states iff. Exact derivative dF/du<0 shows the unique balanced optimum and asymptotic alpha*(p)~min(p,1-p). 45 rational direct-vs-covariance identities and numerical crossing examples supplement, but do not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Morin--Giselsson (2025) gives general sufficient inequalities and probability strategies, with explicitly model-dependent max steps from their bound; the published statements do not claim necessary stability conditions for all starts.",
+        "Zhu--Heath--Mitra (2026) abstract describes high-probability Lyapunov upper convergence results, not the two-row exact mean-square spectral classification."
+      ],
+      "reasoning": "Broader sampling convergence theorems could imply stability within a conservative region, but without a matching necessary condition or exact matrix spectral calculation they do not cover the iff and rare-row limit. The specialist high-probability paper was only accessible at abstract level, which remains a residual risk.",
+      "searches": [
+        "VRRK-AS residual tracking two duplicate rows importance-sampling stability interval p q",
+        "JacSketch arbitrary sampling exact two-row quadratic mean-square stability optimum uniform probability",
+        "doi:10.1007/s10957-025-02671-y §§4-6",
+        "arxiv:2602.05304"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.39537v1",
+      "https://link.springer.com/article/10.1007/s10957-025-02671-y",
+      "https://arxiv.org/abs/1902.00071",
+      "https://arxiv.org/abs/1407.0202",
+      "https://arxiv.org/abs/2602.05304"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior exact threshold is for uniform probability only, including \\(m=2\\) threshold \\(1/\\sqrt3\\).",
+        "Xie--Qi--Han Theorem 3.2 is a sufficient upper step bound; its Remark 3.3 uniform-two-row recommended step is \\(1/12\\).",
+        "Morin--Giselsson Corollary 5.1 max refers to their sufficient convergence characterization, not the true exact spectral radius."
+      ],
+      "reasoning": "Uniform-sampling data cannot logically imply the nonuniform cubic or strict monotone sampling optimum. General sufficient bounds do not subsume necessary instability above the new sharp curve. The balanced case is acknowledged as prior rather than independently counted.",
+      "searches": [
+        "own history: claim aa3a1125-5837-4058-8ee2-f3ed452ec53d",
+        "sharp mean-square stability threshold SAGA on identical quadratic components duplicate-row least-squares scalar arbitrary m",
+        "SAGA exact stability mean squared error uniform identical Hessian scalar least squares step size spectral radius 1/sqrt3",
+        "arxiv:2610.39537v1 Theorem 3.2 / Remark 3.3",
+        "doi:10.1007/s10957-025-02671-y Corollary 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie--Qi--Han Proposition 3.4 proves iterate equivalence to JacSketch, and the manuscript explicitly identifies a SAGA specialization.",
+        "Gazagnadou--Gower--Salmon (2019) develops expected-smoothness-based bounds and mini-batch selection, not an exact two-row necessary-and-sufficient covariance spectrum in the inspected sections."
+      ],
+      "reasoning": "The exact same update can be called nonuniform SAGA/JacSketch; searching those formulations is necessary. The currently inspected texts yield sufficient/estimated rates, not the displayed sampling-dependent cubic or proof of its unique optimum.",
+      "searches": [
+        "sharp exact mean-square stability SAGA two component identical curvature nonuniform sampling arbitrary sampling asymmetric probability cubic polynomial stability",
+        "SAGA two-component nonuniform sampling step-size exact spectral radius covariance p(1-p) mean square",
+        "arxiv:2610.39537v1 §3.4",
+        "arxiv:1902.00071 §2.1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed records most similar to this claim concern two-component PAGE, two-client Loopless SVRG and KGSM rather than the present state recurrence.",
+        "The motivating paper experiments with VRRK but does not tabulate an exact nonuniform two-row sharp stability threshold in the inspected algorithm, theory, experiments and appendices."
+      ],
+      "reasoning": "No equivalent exact table or recorded classification was found in the actual queries; absence in a search is not proof of novelty.",
+      "searches": [
+        "sharp exact mean-square stability SAGA two component identical curvature nonuniform sampling arbitrary sampling asymmetric probability cubic polynomial stability",
+        "VRRK-AS residual tracking two duplicate rows importance-sampling stability interval p q",
+        "JacSketch arbitrary sampling exact two-row quadratic mean-square stability optimum uniform probability",
+        "\"1-5u+4u^2\" \"SAGA\"",
+        "nonuniform 2 sample SAGA exact mean square stability root cubic p q duplicated components",
+        "residual-tracking Kaczmarz two identical rows nonuniform sampling sharp stability covariance 2026",
+        "arxiv:2610.39537v1 §§3,5",
+        "arxiv:1902.00071 §5"
+      ]
+    },
+    "rationale": "The previously analyzed identical-row case covers only p=1/2; the new nonuniform arbitrary-p cubic and its sampling optimization are not logical corollaries. The 2026 motivating theorem and general SAGA papers yield sufficient bounds, not this exact necessary-and-sufficient frontier in inspected material. Residual risk: possible unindexed exact special-case SAGA analysis.",
+    "residual_risks": [
+      "Older or unindexed two-component nonuniform SAGA exact covariance analyses could subsume the result.",
+      "Original 2014 SAGA and 2026 unified SAGA paper were inspected only at abstract/metadata level, not full text.",
+      "Search results are not a completeness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the algorithm and general sufficient bound, not the sharp two-row nonuniform covariance stability result",
+        "evidence": [
+          "Algorithm 1 uses update of sampled memory and unnormalized full-gradient estimator; Theorem 3.2 is sufficient.",
+          "Remark 3.3 recommends \\(\u0007lpha=1/[m(m+4)]\\) when all rows have norm one; Proposition 3.4 identifies JacSketch equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39537v1",
+        "material_read": "§§1.2, 3.2-3.4, Algorithm 1, Theorem 3.2, Remark 3.3 and associated definitions; table of contents and appendix structure",
+        "method": "Full HTML primary-text inspection of formulas and stated bounds",
+        "title": "Efficient variance reduction for randomized Kaczmarz methods via residual-tracking control variates",
+        "trigger": "Exact motivating algorithm and potentially dominating convergence statement"
+      },
+      {
+        "assessment": "General convergence-rate inequalities and optimized sampling rules, not exact necessary-and-sufficient stability cubic for two identical rows",
+        "evidence": [
+          "Section 4 defines sufficient contraction criteria in terms of Lyapunov coefficients; Section 5 corollary max steps derive from those criteria."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10957-025-02671-y",
+        "material_read": "Open-access full HTML: introduction, Theorems 4.1/4.2, discussion §5, Corollary 5.1 and sampling discussion §6",
+        "method": "Primary article section/formula examination",
+        "title": "Sampling and Update Frequencies in Proximal Variance-Reduced Stochastic Gradient Methods",
+        "trigger": "Possible preexisting nonuniform SAGA sampling-stability theorem"
+      },
+      {
+        "assessment": "Expected smoothness and minibatch bound framework, not a computed six-dimensional exact two-row stability frontier",
+        "evidence": [
+          "The article develops tractable upper bounds for smoothness and consequent step recommendations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.00071",
+        "material_read": "Arxiv full HTML supplementary text sections 1-3, including JacSketch and expected-smoothness bounds",
+        "method": "Primary text reading through arxiv open HTML",
+        "title": "Optimal mini-batch and step sizes for SAGA",
+        "trigger": "Broad step-size/importance-sampling prior coverage"
+      },
+      {
+        "assessment": "Cannot rule out an exact two-component calculation in uninspected original full text; historical risk explicitly retained",
+        "evidence": [
+          "Abstract presents SAGA and convergence theory, with no exact nonuniform two-row threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.0202",
+        "material_read": "Arxiv metadata and abstract only; full HTML inaccessible in this attempt",
+        "method": "Primary arxiv abstract inspection",
+        "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+        "trigger": "Original SAGA method and potential equivalence/priority"
+      },
+      {
+        "assessment": "General high-probability sufficient convergence guarantees; exact two-row threshold not determined from abstract, so coverage risk remains",
+        "evidence": [
+          "Abstract explicitly describes a unified Lyapunov bound, not an exact spectral stability classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.05304",
+        "material_read": "Abstract and metadata only; full text not inspected",
+        "method": "Arxiv abstract inspection",
+        "title": "A Short and Unified Convergence Analysis of the SAG, SAGA, and IAG Algorithms",
+        "trigger": "Recent broadly covering SAGA theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8163c39e-d9e1-40a6-9b4c-879e204054a1",
+  "value": {
+    "rationale": "Importance-sampling robustness is a concrete design concern for residual-tracking row methods. The theorem classifies the whole natural two-probability space, isolates a sharp rare-row step-size collapse even with identical row geometry, and proves that signed mean convergence cannot diagnose mean-square stability. The exact polynomial boundary and strict optimum give decision-relevant thresholds, without claims of general-matrix applicability.",
+    "status": "PASS"
+  }
+}

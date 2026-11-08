@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof starts from the actual residual-tracking algorithm, not a substituted SAGA convention, and keeps the source's unnormalized gradient step. The centered error and memory variables obey the two explicitly displayed state matrices. Their exact covariance lift preserves the positive-semidefinite cone; an independently reconstructed symbolic determinant and zero-step spectrum give a single positive stability crossing. Cone Perron theory, the determinant sign, and the simple small-step eigenvalue justify both sides of the iff. The derivative of the cubic with respect to \(u=p(1-p)\) rigorously establishes the unique optimal sampling. The shipped verifier checks exact algebra and rational cases, but finite numeric tests are not treated as a global proof.
+
+**Originality — PASS, with historical-priority risk.** The 2026 source supplies an arbitrary-sampling sufficient bound and the precise VRRK-AS/SAGA equivalence, not the necessary-and-sufficient sampling-imbalance frontier. General SAGA literature supplies upper-step recommendations and analysis for other update-frequency models. A previously established uniform two-row theorem covers exactly the balanced specialization \(p=1/2\), which is expressly excluded as a new independent contribution; it does not imply the nonuniform cubic, its strict root monotonicity, or the rare-row asymptotic. Targeted semantic searches found neighboring but noncovering algorithms. An unidentified exact two-component SAGA covariance analysis remains possible.
+
+**Value — PASS.** Arbitrary importance-sampling probabilities are a deliberate design feature of VRRK-AS. This exact two-row test isolates a cost of biased sampling that cannot be attributed to matrix conditioning: the rank-one row geometry is identical, yet the robust admissible step shrinks from \(1/\sqrt3\) to asymptotically the rare-row probability. It also separates stable signed means from failing second moments and supplies a sharp design limit. The theorem is naturally bounded to identical two-row systems and is not presented as an optimality result for general least squares.
+
+The literature comparison is qualified by possible unindexed exact-specialization work, and the result is not independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
