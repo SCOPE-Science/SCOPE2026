@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,43 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-The package contains `certificate.json`, `verify.py`, and `verify_normal_forms.cpp`. No external Python packages are needed.
+## correctness
 
-Run from the package directory:
+PASS
 
-```sh
-python3 verify.py
-c++ -std=c++17 -O2 verify_normal_forms.cpp -o verify_normal_forms
-./verify_normal_forms
-```
+Closed Hamming balls of radius exactly 2 in {0,1}^d are the hypotheses (centers), and point queries are classified by distance≤2. For any hypothetical five-query VC-shattered set, translate an all-positive center to zero, forcing query supports of size≤2. Identifying coordinates by nonzero 5-bit incidence column yields exactly 7260 bounded-multiplicity normal forms, and any center making a positive response uses ≤4 coordinates and at most two outside the union; independently implemented C++ exhaustive enumeration found at most 26 of 31 nonzero response patterns. Hence VC≤4 in ALL dimensions, with explicit four-query witnesses. An all-dimensional online upper5 follows by restricting first positive branch to centers of weight≤2, then classifying exceptional one-/two-weight query branches via singleton and star subfamilies of Ldim≤2. The exact depth-five certificate has 31 internal queries and 32 distinct centers, independently checked against every leaf path, giving Ldim5 for d≥6. Small d follow from branch counting and witnesses. Finite checks do not replace the general structural online argument.
 
-Replayed output from Python:
+## originality
 
-```text
-THREE_QUERY_STATIC_SHATTER_PASS 8
-STRUCTURAL_BRANCH_TYPES_PASS ambient=4..8
-FOUR_QUERY_STATIC_SHATTER_PASS 16
-DEPTH_FIVE_ONLINE_TREE_PASS 31 32
-UNIVERSAL_FIVE_QUERY_OBSTRUCTION_PASS 7260 normal_forms max_nonzero_patterns 26
-EXACT_SMALL_ONLINE_PASS 1 0 2
-EXACT_SMALL_ONLINE_PASS 2 0 2
-EXACT_SMALL_ONLINE_PASS 3 1 4
-EXACT_SMALL_ONLINE_PASS 4 3 16
-EXACT_SMALL_ONLINE_PASS 5 4 64
-EXACT_SMALL_ONLINE_PASS 6 5 64
-RADIUS_TWO_ALL_CHECKS_PASS
-```
+PASS
 
-Independently implemented C++17 output:
+Adler–Benediktsson–Macpherson treat ordinary Hamming graph adjacency (distance 1) and Johnson neighborhoods, not closed radius2 balls. Guingona et al. show VC=Ldim for specified families of linear zero sets, whose hypotheses differ. Ghazi et al. prove broad dimension closure estimates, not exact sharp values for this metric-ball class. Relevant Resultary Hamming ball results concern Fourier/Turán positivity and distance shells, not online shattering. The claimed full dimension sequence and first gap are not implied by these known statements.
 
-```text
-INDEPENDENT_INCIDENCE_ENUM_PASS 7260 max_nonzero_patterns 26
-```
+## value
 
-The Python checker verifies three- and four-query static witnesses and finite checks of the universal branch-type classification through eight coordinates. It also verifies the four-query static witness, the entire 31-internal-node depth-five decision tree with 32 distinct terminal centers, exact online depths in dimensions one through six using an exhaustive recurrence, and all five-query coordinate-incidence normal forms. The independent C++17 checker uses incremental incidence-column enumeration and a separate Hamming-distance formula. Both enumerate the same complete 7,260 normal forms and establish a strict obstruction to all 31 required nonzero traces.
+PASS
 
-The universal online upper bound is an independently stated mathematical case argument in `RESULT.md`; the finite recurrence does not itself prove the all-dimensional bound. The exhaustive coordinate-incidence argument is a valid all-dimensional VC certificate because every proposed five-query shattered set has an all-positive center and hence the five support weights are at most two. An audit of any alternative implementation should check this reduction and the star-family branch cases.
+Closed radius-two Hamming balls form a canonical Boolean metric range space. The exact all-d VC and Littlestone dimensions and their first separation at d6 yield an intrinsic threshold for offline vs online complexity, and the uniform stabilization is surprising given 2^d centers. Its complete certificates and symbolic upper bound make it a natural classification rather than an arbitrary finite computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
