@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All 131 augmented matching faces of the ordinary \(3\times3\) grid were enumerated exhaustively; an acyclic 63-pair face matching leaves exactly five critical two-faces. Deleting the empty-face pair yields a CW model with one vertex and five two-cells, giving free integral homology of rank five only in degree two. Signed simplex traces independently recover the full rational \(D_4\)-character \((5,1,1,-1,1)\). Exact binary boundary elimination yields the explicit mod-two rotation and reflection matrices, verifies the dihedral relations, and proves nilpotent-power ranks \((3,2,1,0)\). Reduction of any proposed integral direct-sum lift of the rational four-component decomposition would have rotation fixed dimension at least four, contradicting the actual dimension two. The included verifier reconstructs every finite structure from the graph definition, without relying on logs.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest 2026 primary manuscript treats the same matching complex but proves nonequivariant homology and connectivity; its full text was inspected for symmetry representations. Published rectangular-grid reflections and half-turns determine alternating rational characters but neither quarter-turn symmetry of the square nor its two-primary Jordan block. Older small-grid work is width two; the 2021 width-three publication was retracted. Searches for matching-complex quarter-turns, mod-two D4 actions, Jordan blocks, and integral splitting found no statement implying this claim. Absence from available indexes cannot eliminate unindexed or unpublished overlap.
+PASS
 
-## Value — PASS
-The canonical square is the smallest width-three case with enhanced order-four symmetry. Its rational homology rank and the restricted reflection/half-turn characters are already known but do not reveal the four-step unipotent mod-two block or the resulting obstruction to splitting integral rational constituents. This provides a precise local-arithmetic distinction between integral and rational symmetry representations; it is a motivated exact benchmark rather than a conjecture-sized general classification.
+PASS: Both the claimed integral homology concentration and mod-two rotation action follow from exhaustive finite chain objects. The exact finite proof verifies all required faces and differentials, not sampled cases. Reduction modulo two and rank-two E character yield the stated four-constituent nonsplitting, not absolute indecomposability.
 
-## Scope and risk
-The finite exact proof does not generalize automatically to larger grids. The integral module is not classified up to isomorphism, and the four-constituent obstruction does not prove absolute indecomposability. Equivalent unindexed calculations are a residual originality risk; independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Rectangular-grid homology ranks and two reflections/half-turn rational Lefschetz traces are covered already. These neither determine the square quarter-turn rotation on mod-two H2 nor force its J4 Jordan block and integral nonsplitting.
+
+## value
+
+PASS
+
+PASS: The natural smallest width-three square with a true quarter-turn is a canonical equivariant matching-complex test case. A nontrivial four-step mod-two Jordan block and integral nonsplitting reveal 2-primary information invisible to rational characters and known Betti ranks; an exact local structural invariant is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
