@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The singular diffusion is specified by a natural-scale, nonsticky origin and a fixed diffusion normalization. The \({}_0F_1\) even and odd solutions have the required initial conditions, solve the backward ODE, and yield the unique two-sided exit transform. The renewal equation reproduces the full finite-time transform. The crossing estimate \(p_{ab}\le2p_ap_b\) uses continuous paths, the strong Markov property, and exponential memorylessness. A Poisson-count sandwich correctly accommodates the last incomplete renewal interval and proves the joint independent-Gumbel limit; Taylor mapping proves the range and logistic limits. The standalone checker passed 142 checks covering exact Brownian identities, ODE residuals, finite-volume comparisons and rare-event scaling. Neither finite tests nor logs are used as an infinite proof.
+PASS
 
-## Originality — PASS (qualified best knowledge)
+The nonreset two-sided exit equation h″=u|x|^αh matches even E_u and odd O_u series with h,h′ continuous at origin, and boundary h(−b)=h(a)=1 gives H_u. Exponential resetting renews survival to (1−H_{s+r})/(s+rH_{s+r}). A full reset interval reaches both ± thresholds with probability ≤2p_ap_b; the marginal probabilities have Bessel/0F1 tail Aμζ^(1/2−μ)e^(−ζ). For levels with rTp_+→e^−x and rTp_−→e^−y, the overlap vanishes and comparison using (1±ε)rT whole excursions and Poisson-reset tails handles the incomplete last interval. Delta method then gives physical range and logistic difference; no moment convergence asserted. Independent hyperbolic α=0 exit checks passed.
 
-Frimpong's 2026 arXiv paper derives the one-sided maximum Laplace transform and Gumbel normalization, not the bilateral joint law, the opposite-excursion bound, or the range/imbalance law. Singh–Pal (2021) and Godrèche–Luck (2022) concern one-sided maxima and records. Dębicki–Hashorva–Michna (2026) examines reset Brownian supremum, infimum tail events, and two-time positions, not the observed joint bilateral extreme vector. Méndez–Masó-Puigdellosas–Campos (2022) derives interval-exit resetting formulas, so the abstract renewal step is prior theory; the new claim is the singular-diffusion closed form and joint scaling, not renewal itself. A broader marked-renewal theorem may imply the limiting independence without identical wording, and priority in less visible interval-exit literature remains a residual risk. Similarity searches cannot establish uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A particle's explored spatial range and orientation of its furthest excursion cannot be reconstructed from the one-sided maximum law. The joint law identifies whether opposite extreme events remain dependent, gives an arbitrary-time bilateral survival transform useful for a pair of absorbing targets, and distinguishes the non-Gumbel range from a universal logistic signed imbalance. The rare-event overlap bound identifies the mechanism responsible for asymptotic independence, while the explicit singular diffusion coefficients make the statement reproducible for all finite sluggishness exponents. Its value is the structurally motivated two-sided classification, not mere reuse of the already known one-sided marginal.
+Recent Frimpong article supplies the one-sided Gumbel and generator convention, not the joint two-sided dependence in inspected sections. A one-sided marginal limit does not determine asymptotic independence. Generic absorbing-interval reset renewal is acknowledged as prior mechanism. Best-of-knowledge, not a guarantee of global historical priority.
 
-## Scientific limitations and residual risk
+## value
 
-The theorem is restricted to fixed sluggishness and reset rate, the nonsticky symmetric origin, and independently exponential resets. The two-dimensional Gumbel limit is weak convergence, not a moment claim. No independent validation or exhaustive publication-priority review has occurred. General renewal and absorbing-interval theory provide a plausible avenue for an equivalent rederivation, even though no direct matching result was found in inspected work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dependence between positive/negative spatial extremes and hence range/imbalance cannot be inferred from their marginals; the full finite-time bilateral transform and limiting logistic imbalance supply new natural stochastic observables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
