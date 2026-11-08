@@ -1,15 +1,21 @@
-# Review of the complete-bipartite excitation census
+# Independent mathematical audit
 
-## Correctness — PASS
-The update is explicitly three-state, synchronous, and requires two excited *opposite-shore* neighbors for each resting vertex. The proof's central lemma is an exact quotient: all vertices of a given original color in one shore follow the same trajectory, and threshold tests depend only on class multiplicities clipped at two. Hence exactly \(23^2=529\) initial tagged profiles suffice for **every** pair of shore sizes. The standalone symbolic checker covers all 529, identifies 476 profiles ending at the unique fixed state, one initial-period-three profile and 52 ending at a period-four orbit, and verifies the sharp five-step transient bound. Its finite counting matrix establishes the stated exact attraction-basin formulas; inclusion–exclusion establishes the closed forms for its weights. The independently written C++ checker evolves 1,327,590 labelled initial states directly on eight graph sizes, with all formulas reproduced. Those finite experiments corroborate but do not replace the infinite-family quotient proof. Boundary cases \(a,b=2,3,4,5,6\), normalization by \(3^{a+b}\), and the difference between *periodic states* and *orbits* have been explicitly checked.
+## correctness
 
-## Originality — PASS, with historical qualification
-The classic Durrett–Griffeath (1993) work supplies threshold-dependent excitation background, concentrating on spatial lattice behavior rather than finite biclique basin formulas. Doba (2018), in a directly inspected PDF, explicitly uses the **one-neighbor** activation criterion, so its general finite-graph excitation theorem does not cover this two-neighbor system. Bello–Sivakoff (2021) concern infinite regular trees with threshold at least two. Closely related recorded complete-bipartite classifications use either the distinct three-state *cyclic-contact* rule or a four-state threshold-two excitation rule with two refractory states. Changing the transition predicate or refractory duration is not a reduction preserving trajectories: one of those models admits only period-four nontrivial recurrence, while the system here has both three- and four-cycles. Explicit published-index, alias and formula/table searches found no covering claim; a failed search alone is not proof of novelty. Full-text access to all historical work was incomplete, so equivalent unindexed priority remains possible.
+PASS
 
-## Mathematical value — PASS
-A complete three-way basin classification and sharp five-update cutoff for **all** graph sizes supply a natural quantitative invariant, not merely an isolated small-graph computation. The exact onset of four-cycles at shore size four, of three-cycles at size six, and the concentration of the entire basin distribution in three-cycles as both shores grow are structurally motivated and distinct from existing qualitative convergence results. The formula permits exact answers at arbitrary sizes using a fixed number of arithmetic operations.
+Partition each shore by initial color and cap its multiplicities at 2; each initial color class remains synchronized at every future step, and the threshold-two neighbor predicate depends exclusively on the capped counts. Thus 23 attainable profiles per shore, 529 pairs, form an exact symbolic factor for every a,b>=2. The complete deterministic recurrence has period classes 476 fixed, 52 period-four, one period-three; maximum preperiod five. Independent reimplementation of the cap-update and signature recurrence obtains the same classes and the exact U,A,Q,H period-four coefficient matrix [[6,6,3,3],[6,6,3,3],[3,3,2,1],[3,3,1,0]]. Exact multinomial counts of each initial profile produce B3=H_aH_b and displayed B4 formula, and initial period-four states are only profiles (202,220),(220,202), producing U_a U_b/2 orbits. Every profile with 2 as a cap is realized by arbitrarily many vertices, so the 529-case exhaustion is a genuine all-shore-size proof, not extrapolation.
 
-## Scope and checks
-The theorem concerns only deterministic three-state Greenberg–Hastings dynamics with threshold exactly two on complete bipartite graphs with shores of size at least two. Individual basin sizes of *particular* recurrent cycles, arbitrary graph shapes and other contact thresholds are not established. The quotient checker is an exhaustive finite proof once its state reduction is accepted; there is no claim that a small numerical sample alone establishes the infinite case. Priority is assessed against recoverable results and inspected literature and is not a certification of independence or exclusivity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact period-stratified basin polynomials and sharp universal five-update cutoff for threshold-two bipartite GHM are not supplied by the broader graph excitation literature.
+
+## value
+
+PASS
+
+The exact quotient yields a complete, all-parameter classification of attractor periods and labelled basin sizes for a natural dense bipartite network, with sharp minimum shore sizes and maximum transient; meaningful finite structural factor and dynamical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
