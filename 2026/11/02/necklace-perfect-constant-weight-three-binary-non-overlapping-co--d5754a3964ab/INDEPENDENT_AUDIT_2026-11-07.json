@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:01:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every weight-three cross-bifix-free codeword must be primitive: proper period produces a nontrivial border. Distinct codewords cannot be distinct rotations (one rotation yields a cross prefix/suffix overlap). The number of primitive weight-three necklaces is [binom(n,3)-1_(3|n)*n/3]/n = floor((n-1)(n-2)/6). Proposed C_n has ones at 0,a,b with 1<=a<=floor(n/3)=k and a<b<=n-k-1. All proper suffixes either start at 0 (cannot if proper), start at b and contain one 1 while comparable prefixes contain >=2, or start at a and contain two 1s while comparable prefixes contain three; suffixes starting at zeros cannot match prefixes starting at one. Its cardinality sums to exact upper bound for n mod 3=0,1,2. Every primitive cyclic gap triple has at least one short and one long gap and a unique long-to-short transition (the gap sequence has length 3), selecting exactly the canonical C_n representative. Independent direct generation checked cardinality/nonoverlap/necklace-one-representative for each n=4..34, including n divisible by 3; infinity follows from the gap proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanovnik–Moškon–Mraz 2025 Proposition 5 gives a general primitive-word/counting upper-bound method for composition constrained codes.",
+          "That abstract principle alone does not construct a matching all-n weight-three family."
+        ],
+        "reasoning": "Explicitly credit the general necklace upper bound; the mathematical new portion is a constructive saturation and unique cyclic gap representative for every n>=4.",
+        "searches": [
+          "Stanovnik Moškon Mraz primitive words upper bound Proposition 5",
+          "arXiv:2410.18458 constant composition nonoverlapping codes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1209.0236",
+        "https://arxiv.org/abs/1303.1026",
+        "https://arxiv.org/abs/2410.18458",
+        "Resultary semantic search: constant weight three cross bifix free nonoverlapping codes necklace bound exact formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general upper bound M_3(n)<=primitive-necklaces is known.",
+          "The displayed canonical selection C_n and its all-length no-overlap proof are not given by the compared general bound."
+        ],
+        "reasoning": "The final claim is a sharp all-n equality with explicit code and complete orbit coverage, strictly stronger than a bound alone. This priority judgment is qualified by possible specialized fixed-weight constructions.",
+        "searches": [
+          "arXiv:1209.0236 general constructions",
+          "arXiv:1303.1026 general upper bounds",
+          "arXiv:2410.18458 Proposition 5 primitive bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chee et al construct general non-overlapping families within a constant factor of optimality.",
+          "Blackburn develops general size bounds and non-overlap constructions, not the specific all-n weight-3 exact optimum in inspected statements."
+        ],
+        "reasoning": "Cross-bifix-free and non-overlapping are equivalent coding conditions here and have been searched as such; earlier general construction claims do not automatically prove this exact weight-three necklace-perfect transversal.",
+        "searches": [
+          "constant weight three cross bifix free nonoverlapping codes necklace bound exact formula",
+          "\"cross-bifix-free\" \"weight three\" \"primitive necklace\" constructions",
+          "Chee Kiah Purkayastha Wang arXiv:1209.0236 cross bifix code",
+          "Blackburn arXiv:1303.1026 non-overlapping codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primitive weight-three necklace number is an elementary classical count, not a new integer sequence.",
+          "No exact prior table asserting that every such necklace has simultaneously compatible cross-bifix representative located."
+        ],
+        "reasoning": "Code optimality cannot be inferred from the table of necklaces alone, because choosing representatives may introduce cross-overlaps; the simultaneous transversal is the substantive content.",
+        "searches": [
+          "constant weight three cross bifix free nonoverlapping codes necklace bound exact formula",
+          "OEIS constant composition necklace (n choose 3)/n"
+        ]
+      },
+      "rationale": "Targeted Resultary semantic searches and primary literature comparisons, with specific mathematical implication checks and residual priority risks, support qualified best-of-knowledge originality of the final scoped claim.",
+      "residual_risks": [
+        "Earlier specialized constant-weight-three code construction may be unindexed or use different synchronization terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General constant-factor constructions do not claim this exact fixed-weight-three all-n optimum.",
+          "evidence": [
+            "Main code constructions and bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+          "material_read": "Full accessible arXiv PDF; statements of general code constructions and size bounds.",
+          "method": "Read original text and inspected PDF pages; compared fixed composition requirements.",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Foundational cross-bifix-free construction"
+        },
+        {
+          "assessment": "No all-n weight-three necklace transversal identified.",
+          "evidence": [
+            "Upper-bound and construction theorems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+          "material_read": "Full accessible arXiv PDF, including upper bounds and constructions.",
+          "method": "Read original PDF and visually inspected page image; compare weight-three constraint and optimal cardinality.",
+          "title": "Non-overlapping codes",
+          "trigger": "General upper bounds that might dominate"
+        },
+        {
+          "assessment": "Proposition 5 supplies primitive-necklace bound, but construction matching each weight-three necklace across all n is not stated in reviewed material.",
+          "evidence": [
+            "Proposition 5 and composition-constrained introductory theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.18458",
+          "material_read": "Full lawful OA preprint PDF and publication HTML; read Proposition 5 and related composition-constrained passages.",
+          "method": "Read primary original mathematical statements and screenshot PDF page.",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Closest general primitive-word upper-bound statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-weight 3, all-blocklength exact optimal constant-composition cross-bifix-free code with a canonical primitive-necklace transversal is a natural complete construction/theorem, useful for synchronization codes. Unlike a generic primitive-necklace upper bound, it proves simultaneous attainability with a simple explicit family for every length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1209.0236",
+    "https://arxiv.org/abs/1303.1026",
+    "https://arxiv.org/abs/2410.18458",
+    "Resultary semantic search: constant weight three cross bifix free nonoverlapping codes necklace bound exact formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Weight exactly three on binary alphabet; no higher weights or error-correction variants.",
+    "The general primitive-necklace bound is prior work and is not itself new."
+  ],
+  "residual_risks": [
+    "Earlier specialized constant-weight-three code construction may be unindexed or use different synchronization terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General constant-factor constructions do not claim this exact fixed-weight-three all-n optimum.",
+      "evidence": [
+        "Main code constructions and bounds."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+      "material_read": "Full accessible arXiv PDF; statements of general code constructions and size bounds.",
+      "method": "Read original text and inspected PDF pages; compared fixed composition requirements.",
+      "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+      "trigger": "Foundational cross-bifix-free construction"
+    },
+    {
+      "assessment": "No all-n weight-three necklace transversal identified.",
+      "evidence": [
+        "Upper-bound and construction theorems."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+      "material_read": "Full accessible arXiv PDF, including upper bounds and constructions.",
+      "method": "Read original PDF and visually inspected page image; compare weight-three constraint and optimal cardinality.",
+      "title": "Non-overlapping codes",
+      "trigger": "General upper bounds that might dominate"
+    },
+    {
+      "assessment": "Proposition 5 supplies primitive-necklace bound, but construction matching each weight-three necklace across all n is not stated in reviewed material.",
+      "evidence": [
+        "Proposition 5 and composition-constrained introductory theorem."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2410.18458",
+      "material_read": "Full lawful OA preprint PDF and publication HTML; read Proposition 5 and related composition-constrained passages.",
+      "method": "Read primary original mathematical statements and screenshot PDF page.",
+      "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+      "trigger": "Closest general primitive-word upper-bound statement"
+    }
+  ]
+}

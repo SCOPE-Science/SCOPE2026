@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every admissible codeword is unbordered and hence primitive; no two codewords can lie in one cyclic rotation class. For weight three, the only imprimitive words are triple repetitions of one-one blocks, allowing an exact primitive-necklace upper bound. The explicit indexed construction has the same cardinality, and an exhaustive suffix-versus-prefix case split proves non-overlap at every nonempty proper length. The three positive cyclic gap types prove a canonical representative exists uniquely in every primitive class. The standalone verifier independently checks prefixes, suffixes, all weight-three primitive necklace classes, and counts for every length 4 through 40. The finite checks are not substituted for the proof.
+## correctness
 
-## Originality — PASS, qualified
-Full-text primary comparisons included Chee–Kiah–Purkayastha–Wang (arXiv:1209.0236), Blackburn (arXiv:1303.1026), and the complete accessible article by Stanovnik–Moškon–Mraz (DOI:10.1007/s40314-024-03055-0). General upper bounds and constructions in these sources do not imply a sharp all-length fixed-weight-three construction. The 2025 paper's primitive-count upper-bound method applies, but supplies no tight weight-three construction theorem. Research-index searches for fixed-weight aliases, necklace saturation, binary sparse frame synchronization, and the displayed formula revealed no dominating theorem. The closest finite code tables and coding-theoretic results concern other parameter regions, models or restrictions. An earlier specialized proof in less indexed literature remains possible; independent historical-priority assessment is pending.
+PASS
 
-## Value — PASS
-Fixed Hamming weight is a standard physically relevant sparsity constraint for synchronization sequences; the exact extremal size under cross-bifix-freedom was not implied by the general unrestricted-code bounds. This result is an exact theorem simultaneously for all blocklengths, constructs a maximal family with a deterministic canonical rephasing rule, and shows zero loss relative to the universal primitive-orbit packing constraint. It also separates an exact low-weight regime from the generally difficult optimization of non-overlapping codes. No claim about noise tolerance or higher weights is made.
+Every weight-three cross-bifix-free codeword must be primitive: proper period produces a nontrivial border. Distinct codewords cannot be distinct rotations (one rotation yields a cross prefix/suffix overlap). The number of primitive weight-three necklaces is [binom(n,3)-1_(3|n)*n/3]/n = floor((n-1)(n-2)/6). Proposed C_n has ones at 0,a,b with 1<=a<=floor(n/3)=k and a<b<=n-k-1. All proper suffixes either start at 0 (cannot if proper), start at b and contain one 1 while comparable prefixes contain >=2, or start at a and contain two 1s while comparable prefixes contain three; suffixes starting at zeros cannot match prefixes starting at one. Its cardinality sums to exact upper bound for n mod 3=0,1,2. Every primitive cyclic gap triple has at least one short and one long gap and a unique long-to-short transition (the gap sequence has length 3), selecting exactly the canonical C_n representative. Independent direct generation checked cardinality/nonoverlap/necklace-one-representative for each n=4..34, including n divisible by 3; infinity follows from the gap proof.
 
-## Closest literature and residual limitations
-Chee et al. (2012) offer different generic constructions and asymptotic bounds. Blackburn (2013) treats unrestricted alphabets and weights. Stanovnik et al. (2025), Section 3, prove a more general primitive-count *upper* bound but not a construction saturating it at fixed weight three for all lengths. The result is limited to binary weight three; independent review and priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Resultary semantic searches and primary literature comparisons, with specific mathematical implication checks and residual priority risks, support qualified best-of-knowledge originality of the final scoped claim.
+
+## value
+
+PASS
+
+A fixed-weight 3, all-blocklength exact optimal constant-composition cross-bifix-free code with a canonical primitive-necklace transversal is a natural complete construction/theorem, useful for synchronization codes. Unlike a generic primitive-necklace upper bound, it proves simultaneous attainability with a simple explicit family for every length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
