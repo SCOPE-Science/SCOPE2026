@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:17:01.864244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Base-r even/odd digit separation proves unique additive representation. The three-way induction for D(x)=lambda*x-a(x)b(x), and strengthened bounds on x in A and x in B, closes via x=Q*t+s, with t positive belonging to at most one set (except zero handled separately). Exact displayed lower bounds use rv>lambda or u>=r>lambda. An explicit sequence j_k=2r^(k-1)-1 gives a(x_k)=r^k, b(x_k)=2r^(k-1) and asymptotic ratio lambda=2(r+1)/(r+2). Independently enumerated complete Q^3 finite ranges for r=2..5 and checked all strengthened inequalities. Finite checks are corroboration of the all-radix inductive proof, not its basis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang, A Sharp Bound for Additive Complements, arxiv:2610.29963: universal sharp 3/2 threshold",
+          "Ma, A Note on Additive Complements, arxiv:2205.04128: separate construction with limsup 2"
+        ],
+        "reasoning": "A universal minimal-limsup theorem does not calculate the exact fixed-radix limsup of the intermediate digit-split family; the example with limsup 2 is not a general all-radix formula.",
+        "searches": [
+          "digit splitting additive complements A_r B_r base r squared exact limit superior counting products 2(r+1)/(r+2)",
+          "arxiv:2610.29963",
+          "arxiv:2205.04128"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify.py at frozen Git commit",
+        "digit splitting additive complements A_r B_r base r squared exact limit superior counting products 2(r+1)/(r+2)",
+        "Resultary semantic query: higher-radix digit-splitting limsup",
+        "arxiv:2610.29963",
+        "arxiv:2205.04128"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior global threshold 3/2 does not force any upper bound smaller than 2 for each particular r",
+          "Explicit three-invariant inequality is needed for lambda_r"
+        ],
+        "reasoning": "The previous sharp universal threshold or a different limsup-2 example cannot logically imply 2(r+1)/(r+2) for each r>=3, which requires the digit-recursion and sharpness sequence.",
+        "searches": [
+          "digit splitting additive complements A_r B_r base r squared exact limit superior counting products 2(r+1)/(r+2)",
+          "arxiv:2610.29963",
+          "arxiv:2205.04128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known binary-radix ratio distribution gives lambda=3/2 at r=2",
+          "RESULT.md exact formulas for arbitrary r and x_k"
+        ],
+        "reasoning": "The classical Moser–de Bruijn 0/1 base-four pair is exactly the r=2 subcase, explicitly excluded from new priority. Higher digit alphabets do not follow by simple relabeling because Q=r^2 changes both counts and product ratio.",
+        "searches": [
+          "digit splitting additive complements A_r B_r base r squared exact limit superior counting products 2(r+1)/(r+2)",
+          "Moser de Bruijn additive complement pair ratio distribution",
+          "arxiv:2610.29963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "r=2 is a known exact count case",
+          "No higher-r exact value identified in Resultary semantic search"
+        ],
+        "reasoning": "These are explicit sharp all-r exact values rather than a lookup of a known 0/1 pair; an unindexed general-r exact table remains a possibility.",
+        "searches": [
+          "digit splitting additive complements A_r B_r base r squared exact limit superior counting products 2(r+1)/(r+2)",
+          "Moser de Bruijn general base radix r counting product limsup tables"
+        ]
+      },
+      "rationale": "The binary case r=2 and constant 3/2 are established prior art, and universal sharp lower-bound threshold 3/2 for arbitrary complement pairs does not imply the exact larger-radix limsups 8/5,5/3,... . Best-of-knowledge novelty restricted to all-radix exact constants and sharp global pointwise bound.",
+      "residual_risks": [
+        "Potential implicit general-radix result in de Bruijn/mixed-radix additive complement literature",
+        "The r=2 case is known and is not novel; fixed-r higher values warrant a stronger historical bibliography"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DOMINATING",
+          "evidence": "Universal sharp 3/2 threshold is about all exact complement pairs, not the r-dependent specific exact product limsup.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29963",
+          "material_read": "Primary full arXiv HTML/text including main theorem and proof sections",
+          "method": "read primary text",
+          "title": "A Sharp Bound for Additive Complements",
+          "trigger": "Very recent universal extremal additive-complement result"
+        },
+        {
+          "assessment": "DIFFERENT_EXAMPLE",
+          "evidence": "Its limsup-2 construction does not compute the intermediate canonical digit-split pair constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.04128",
+          "material_read": "Accessible abstract and stated example; full proof not relied upon",
+          "method": "read primary abstract/indexed theorem",
+          "title": "A Note on Additive Complements",
+          "trigger": "Another extremal limsup example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The digit-split pair is a canonical explicit exact additive complement, and the product-count limsup measures the unavoidable overcounting relative to x. A full sharp parameter law rising from 3/2 toward 2 resolves a naturally motivated all-radix distribution question, not a renaming of the known binary special case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed integral r>=2; no uniformity when r varies with x",
+    "No arbitrary mixed-radix family or all possible limsup values classification."
+  ],
+  "schema_version": 1
+}

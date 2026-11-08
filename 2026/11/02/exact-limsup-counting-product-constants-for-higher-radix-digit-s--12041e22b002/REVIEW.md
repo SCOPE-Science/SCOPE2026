@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The simultaneous induction for the product deficit and its two residue-membership lower bounds was checked algebraically. The base case gives the sharp constant; the distinct cases for the higher base-\(r\) digit are exhaustive. The witness subsequence gives the matching lower limit. Exact finite computations test all strengthened inequalities at multiple radices.
+## correctness
 
-**Originality — PASS, with residual risk.** The recent universal additive-complement threshold at \(3/2\) does not determine the explicit higher-radix constants. Earlier full distribution work implies the \(r=2\) subcase only, which is explicitly excluded from the novel portion. Previous mixed-radix work on the locus \(a(x)b(x)-x=1\) does not imply these limsup values. Related additive-complement papers and published-search results gave no direct general-radix formula. The possibility of an unindexed equivalent derivation remains.
+PASS
 
-**Value — PASS.** The theorem gives sharp explicit large-scale redundancy constants for a canonical exact complement family, showing variation from \(3/2\) to the limiting value \(2\) across radices. It answers a natural quantitative question directly motivated by recent sharp global threshold work.
+Base-r even/odd digit separation proves unique additive representation. The three-way induction for D(x)=lambda*x-a(x)b(x), and strengthened bounds on x in A and x in B, closes via x=Q*t+s, with t positive belonging to at most one set (except zero handled separately). Exact displayed lower bounds use rv>lambda or u>=r>lambda. An explicit sequence j_k=2r^(k-1)-1 gives a(x_k)=r^k, b(x_k)=2r^(k-1) and asymptotic ratio lambda=2(r+1)/(r+2). Independently enumerated complete Q^3 finite ranges for r=2..5 and checked all strengthened inequalities. Finite checks are corroboration of the all-radix inductive proof, not its basis.
 
-**Limitations.** The result does not extend to arbitrary mixed radices, nor does it claim all intermediate values occur. Priority is based on available source comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binary case r=2 and constant 3/2 are established prior art, and universal sharp lower-bound threshold 3/2 for arbitrary complement pairs does not imply the exact larger-radix limsups 8/5,5/3,... . Best-of-knowledge novelty restricted to all-radix exact constants and sharp global pointwise bound.
+
+## value
+
+PASS
+
+The digit-split pair is a canonical explicit exact additive complement, and the product-count limsup measures the unavoidable overcounting relative to x. A full sharp parameter law rising from 3/2 toward 2 resolves a naturally motivated all-radix distribution question, not a renaming of the known binary special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
