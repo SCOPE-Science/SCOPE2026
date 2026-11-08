@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py`. The expected final line is `VERIFY_OK 19 exhaustive finite-field cases`. The verifier uses only Python standard-library modules.
+## correctness
 
-It constructs the multiplication table of each finite radical-square-zero quiver algebra from vertex and arrow bases, then enumerates every ordered tuple in each of 19 small configurations. It determines the actual generated subalgebra by repeatedly adjoining left and right products and computing vector-space rank over the relevant field. The computations include characteristics two and three, the quadratic extension field of order four, loops, parallel arrows, two-cycles, and a directed three-vertex path. None of these tests assumes the structural generation criterion in the proof. The exact counts match the closed product formula.
+PASS
 
-## Scope of verification
+For every finite quiver allowing loops/multiple arrows, the unital generation condition splits into pairwise distinct k-coordinate vertex labels in F_q^k and surjectivity of independent arrow-corner maps T_uw restricted to the codimension-one annihilator of the label difference (full k-space for loops). The lifted diagonal idempotents and 1+J conjugation establish the criterion in both directions; conditional independent finite-field map ranks give the stated product P_{Q,q}(k). Positive factors yield d(A)=max(ceil(log_q v),max_u a_uu,max_{u ne w,a_uw>0}(a_uw+1)). In the simple loopless case logs with q^k/v^2->c and m/v^2->rho give exp[-(1/2+q*rho)/c]; outer regimes follow birthday bound and uniform log expansion. The v=1 no-arrow zero-generator special case is explicitly interpreted, while the formula is for k>=1. Independently enumerated generated subalgebras for 2 vertices/one arrow over F2 at k=1,2,3: counts 0,24,336 match formula, but finite checks are not the proof.
 
-Exhaustive enumeration in these finite configurations is not a proof of the formula for arbitrary quivers, fields, or tuple lengths. Those cases are covered by the diagonal-interpolation, idempotent-lifting, conjugation, and independent-rank argument in `RESULT.md`. The birthday-window limit follows analytically from the exact finite formula and logarithmic estimates, not from an extrapolation of numerical tests.
+## originality
 
-The source inspections and originality comparison are reported separately in `AUDIT.json` and `REVIEW.md`. Independent mathematical audit has not been performed.
+PASS
+
+Specialized all-k radical-square-zero algebra generation product and sharp fixed-field density-dependent birthday term are not furnished by inspected general algebra generation bounds or published neighboring centralizer enumerations; qualified priority only.
+
+## value
+
+PASS
+
+Unital random generation of a natural quiver algebra, exact minimum generators and transition probability can be used directly in finite-algebra sampling and generation thresholds; orientation-insensitivity is a structural consequence rather than a renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
