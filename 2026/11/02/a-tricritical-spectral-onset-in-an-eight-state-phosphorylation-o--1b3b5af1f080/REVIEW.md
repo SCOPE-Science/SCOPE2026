@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original eight-state transition generator and observable are specified exactly; stationary uniformity follows from the independent doubly stochastic cycle and symmetric gate. The reconstructed eigenfunction relations produce the same two-sided covariance and spectrum as the motivating paper. An exact rational subtraction identity reduces the *global* comparison with the zero-frequency value to a concave quadratic in squared frequency. The strict monotonicity of its witness polynomial in the switching rate on the only admissible positive interval proves existence and uniqueness of the onset, including all parameter and equality boundaries. The tricritical bias is the unique zero of an explicitly strictly increasing function, and the square-root/quarter-root laws are derived by local stationary-point expansions with global peak separation. The finite-frequency endpoint is checked by an exact quartic discriminant factorization. The replayable standalone checker passed 783 exact or numerical assertions; the proof, not the sample, carries the universal claims.
+PASS
 
-## Originality — PASS, with residual risk
+The eight-state CTMC decomposes into independent cycle and gate eigenfunctions; centered covariance is (1/2)e^{-a|t|}cos(bt)+(1/4)e^{-2r|t|}, giving exact bilateral PSD. With s=(b/a)²,u=r/a,c=1+s,d=3s−1,z=(ω/a)², exact common-denominator subtraction has sign zH(z), H=C+Bz−Az², with strictly positive denominator and A=c+4u>0. For s≤1/3 no z>0 can make H positive. For s>1/3 any witness 0<z<d satisfies ∂_uH=4(d−z)(12u²+z)>0, guaranteeing a unique rate onset. At u0=(c³/(16d))^{1/3}, C=0 and B=cF(s), F′>0 with a unique zero s*. For s≤s* threshold u0 is continuous; for s>s*, strict concavity enforces a unique positive interior tangency B²+4AC=0 at u_c<u0. Local expansion of spectral excess near threshold gives square root in ω below s*, quartic degeneration and quarter root exactly s*, and finite jump for s>s*. Endpoint s=1 discriminant factors by 2u⁴−2u³+3u²−1. Independent exact symbolic rational identity and factorization plus 15 continuous-peak parameter checks corroborate, not prove all real parameters.
 
-Chen Jia (2026), arXiv:2610.23310v1, introduced precisely the product model, observable and Eq. (33) spectrum. Eq. (34) in that source is explicitly presented only as a sufficient condition for nonzero spectral efficiency. The present result shows by exact algebra why its condition is *not* necessary, determines all thresholds, gives the finite-frequency equality branch, and obtains new frequency-onset exponents. These statements are not implied merely by a universal spectral efficiency upper bound or a local curvature test. A related 2019 paper by Jia–Qian–Zhang concerns a different feedback-regulated stochastic gene expression model and cannot be substituted for this finite product generator. A 2013 noisy Hopf analysis and 1994 two-state stochastic-resonance analysis address other models. Accessible historical claims and semantic research records were compared for direct equivalence and dominating statements. No equivalent was found, but missing broad rational-spectrum theorems and abstract-only comparisons remain priority risks; a search result by itself never proves absence.
+## originality
 
-## Value — PASS
+PASS
 
-Spectral efficiency is the model's stated oscillator-performance observable; the sign of its low-frequency curvature is an attractive but incomplete diagnostic. This classification exposes a nonempty parameter region with both a strict zero-frequency local maximum and a *higher* finite-frequency global maximum. It supplies a sharp bias threshold separating a continuous spectral onset, a distinguished quarter-root onset and a discontinuous dominant-frequency onset. The separation persists with strictly positive backward rates and is therefore not an artifact of an idealized unidirectional chain. It is a structural frequency-selection result, not just a recomputation of the known spectrum.
+Chen Jia October 2026 paper introduces exactly the model/PSD and gives a sufficient zero-frequency curvature condition corresponding to C>0; the present theorem identifies the strict counter-region where a nonzero global peak dominates while C<0 and derives a new tricritical/global transition. Available public abstract and the authors’ formula as reproduced in source do not confirm an equivalent global necessary/sufficient threshold; original full text could not be accessed here (OA HTML and authorized VPN disconnected), so equivalent later sections remain an explicit residual risk. Other hybrid gene-expression and noisy oscillator papers concern different generators or approximations.
 
-## Closest literature and limitations
+## value
 
-The source spectral formula and its sufficient curvature criterion are credited, not rebranded. The exact phase diagram is limited to a homogeneous four-cycle and an independent symmetric two-state gate, and does not extend to arbitrary molecular phosphorylation dynamics or asymmetric observables. Source material for the 1994 stochastic-resonance work was limited to its accessible abstract. Independent mathematical and publication-priority audits have not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact distinction between locally positive curvature, global peak dominance, and a finite-frequency first-order onset is meaningful for interpreting spectral-efficiency criteria in stochastic biochemical networks. Three complete regimes and a tricritical quarter-root law sharpen a previously only sufficient onset test on a natural solvable eight-state model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
