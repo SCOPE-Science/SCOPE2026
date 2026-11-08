@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:57:27Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "R>0 scaling; centers anywhere in R²; full closed hexagon; common closed-disk radius; r≤3/4 optimality boundary, and strict r<3/4 impossibility",
+        "a=0 or 1, b=0 or 1 allowed; exact equality requires a=b=1/2 and r=3/4",
+        "Two perfect matchings of a six-cycle, hence two unordered configurations (one dihedral orbit)",
+        "No claim for different radius counts, irregular polygons or unequal disks"
+      ],
+      "proof_sources": [
+        "Pinned actual RESULT.md at Git blob 5a14a948c3353718209fd20a166e0a39eab30f75; complete theorem and proof §Upper bound/Forced vertex matching/Sharp gap-contact/Covering edges",
+        "Pinned verify.py at blob 5291b47455c333b6ae38b7c01f4e64ac26b7f7a1; independently reconstructed exact squared-distance and contact algebra"
+      ],
+      "rationale": "For R=1 the convex pentagon conv{0,P,V0,V1,Q} has all vertices within 3/4 of C=(3/8,sqrt(3)/8); three 120-degree rotations tile the filled hexagon, giving the upper bound. In any r≤3/4 cover a disk diameter is ≤3/2<sqrt(3), hence each disk can contain at most two hexagon vertices and only an adjacent pair; six vertices force a perfect matching of C6, hence exactly two alternating patterns. For any matched-pair disk define its boundary-edge contact fractions a,b∈[0,1]. Both farthest contacts lie in that disk, so D(a,b)=(b+(1−a)/2)^2+3(1+a)^2/4≤4r²≤9/4. If a+b≥1, write b=1−a+t, t≥0. Then D−9/4=3(a−1/2)^2+3(1−a)t+t²≥0, with equality only a=b=1/2. Thus each disk has a+b≤1 with equality only at radius 3/4. Every unmatched edge is inaccessible to the remote disk because its occupied pair is vertically sqrt(3) away, greater than 2r; covering its edge requires endpoint-contact fractions sum≥1. Summing gives ≥3 versus the disk-wise ≤3, so all contacts must be equalities and each center is the unique midpoint of a diameter pair; the two matchings yield exactly the claimed unordered triples. This proves global sharpness, all equality cases and scaling for every R>0, without restricting centers to H.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek–Henderschedt arXiv:2407.03553v1 Theorem 2 is about the maximum guaranteed number of points in a disk within arbitrary finite diameter-one point sets; it uses the same regular-hexagon decomposition only for a lower bound on N_n(r).",
+          "Birgin–Gardenghi–Laurain (2022 preprint) §3 asymptotic lower/upper estimates concern m sufficiently large and the Appendix Table 5 regular-hexagon entries begin at m=10.",
+          "Resultary published exact two-disk covering of every regular even polygon (2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939) fixes the number of disks at two, rather than three.",
+          "Stoyan–Patsuk (2010) DOI 10.1007/s10589-008-9191-8 publisher abstract reports Voronoi optimization/local-minimum numerical work but the full text was not obtained."
+        ],
+        "reasoning": "The m→infinity general covering asymptotic does not bound the exact m=3 optimum sharply; two-disk formula cannot determine a three-disk optimum. The Borsuk partition gives one feasible configuration, not nonexistence of smaller coverings or enumeration of optimizers. The older Stoyan–Patsuk source remains an accessible-abstract but inaccessible-full-text risk; its abstract does not settle the comparison either way.",
+        "searches": [
+          "Resultary published findings on regular polygon two-disk exact covering and regular hexagon covering",
+          "web search: Stoyan Patsuk 2010 Covering a compact polygonal set by identical circles regular hexagon three circles exact",
+          "web search: Suzuki Drezner 1996 regular hexagon p center 3 optimal exact",
+          "web search: minimum equal circles cover regular hexagon three disks proof"
+        ]
+      },
+      "checked_sources": [
+        "Yanchao Liu (2022), doi:10.1007/s43762-021-00032-9, full accessible HTML §1/§4.3",
+        "Bezdek and Henderschedt (2024), arXiv:2407.03553v1 full HTML §§1–5",
+        "Birgin, Gardenghi, Laurain (2022), https://john.pro.br/papers/bglcovering.pdf pp.1–3, §3,§5, Table 5",
+        "Stoyan and Patsuk (2010), doi:10.1007/s10589-008-9191-8 publisher abstract only; full text blocked by authorized VPN disconnect",
+        "Resultary two semantic search responses, including published 2-disk even/odd regular-polygon findings",
+        "Suzuki and Drezner (1996), doi:10.1016/S0966-8349(96)00012-5 bibliographic summary, reports heuristic square cases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known three-pentagon partition yields rho_3(H_R)≤3R/4 only; logical implication from a covering existence assertion to a global lower bound or unique centers is invalid.",
+          "Liu 2022 supplies numerical bounds with a gap for p=3, not an exact proof.",
+          "The present argument requires every radius≤3R/4 disk to own an adjacent vertex pair; three unmatched edges force contacts with a+b≥1, whereas chord geometry forces a+b≤1 and unique half contacts at equality. No analogous implication was identified in full-text prior comparators."
+        ],
+        "reasoning": "The older statements are insufficient by direct quantifier comparison. The new lower bound is ∀ triples of centers and the rigidity is classification of all minimizers; prior construction says ∃ one triple. The convex-region p-center equivalence is addressed explicitly. Inaccessible source priority is a named residual, not filled with a fabricated NOT_COVERING claim.",
+        "searches": [
+          "Bezdek–Henderschedt arXiv:2407.03553v1 §5 Theorem 2 and proof",
+          "Liu 2022 §4.3 and Table 1",
+          "Birgin–Gardenghi–Laurain preprint §3, §5 and Table 5",
+          "Stoyan–Patsuk publisher abstract and OA/preprint search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu (2022) DOI 10.1007/s43762-021-00032-9 §1 defines continuous p-center D(R,p) as minimum maximum nearest-facility distance; exact same optimization after allowing arbitrary planar centers, which cannot improve upon inside centers for convex R because orthogonal projection to R is nonexpansive.",
+          "Liu §4.3 explicitly runs 32 regular polygons with p=3,...,10, including hexagon p=3, and reports time-limited gap except a few listed cases.",
+          "Bezdek–Henderschedt arXiv:2407.03553v1 §§2,5 uses Borsuk three-pentagon regular-hexagon cover yielding radius sqrt(3)/4 when opposite-side distance is one; scaling gives 3R/4."
+        ],
+        "reasoning": "Equivalents include continuous 3-center service radius, minimum-radius covering of the filled regular hexagon by three equal Euclidean disks, and partition of the region into three subsets with minimal possible maximum circumradius. Existing constructions supply only an upper bound. The unrestricted-plane and within-hexagon center optima agree for convex hexagons by metric projection, so the literature comparison is genuinely on the same objective; prior numerical algorithms do not supply full sharpness or equality rigidity.",
+        "searches": [
+          "Resultary search: sharp optimal covering a regular hexagon with 3 congruent closed disks minimal radius 3/4 circumradius all extremizer centers uniqueness matching",
+          "Resultary search: continuous p center problem regular hexagon p=3 exact covering radius three equal circles Borsuk pentagonal construction lower bound",
+          "web search: regular hexagon covered by three congruent disks optimal minimum radius 3/4 exact uniqueness",
+          "web search: covering regular hexagon three equal circles optimal 3/4 side length proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu 2022 §4.3 reports only the hexagon p=6 case among its immediately closed lower/upper bounds, with other p values timed out after two hours; no complete m=3 center classification.",
+          "Birgin–Gardenghi–Laurain 2022 Table 5 lists hexagon m=10,20,...,100; no m=3 result in that table.",
+          "Two published Resultary covering-radius findings concern exactly two disks for even or odd regular polygons, not the six-vertex matching rigidity for three disks."
+        ],
+        "reasoning": "Neither inspected exact table supplies the m=3 lower certificate or all minimizing triples. A database-index absence is only corroborative and is not asserted as proof of novelty.",
+        "searches": [
+          "Resultary searches above, limit=30 each",
+          "Liu 2022 Table 1 / §4.3: hexagon p=3",
+          "Birgin–Gardenghi–Laurain 2022 preprint Table 5 regular-hexagon rows",
+          "web search: regular hexagon 3-center D(H,3) 0.75 exact certificate"
+        ]
+      },
+      "rationale": "The precise original contribution is the universal lower bound rho_3(H_R)>=3R/4 and the exhaustive two-triple equality classification, NOT the previously known three-pentagon radius-3R/4 construction. Liu 2022 directly studies regular hexagon p=3 but its computational lower/upper bounds did not close in the reported run; Bezdek–Henderschedt 2024 supplies the construction for a Borsuk universal-cover argument but its N_n(r) finite-point assertion cannot imply this fixed-region lower bound or uniqueness; Birgin–Gardenghi–Laurain addresses asymptotic m and numerical regular hexagons from m=10. Stoyan–Patsuk 2010 is a directly relevant inaccessible historical source and is explicitly retained as priority risk. Two new Resultary searches found no implication-equivalent theorem, but failed indexing is not proof of novelty. Best-of-knowledge PASS, not absolute priority certification.",
+      "residual_risks": [
+        "The older Stoyan–Patsuk 2010 paper has a plausible same-object title; no full text was accessible, including through authorized Oxford access (vpn_disconnected). Its mathematical implications remain unverified.",
+        "Older nonindexed polygonal-facility covering articles, technical theses or exact three-circle patterns could contain the same proof/rigidity despite targeted searches.",
+        "The 39-page Birgin–Gardenghi–Laurain preprint was inspected materially by relevant sections and its tables, not exhaustively page by page.",
+        "Best-of-knowledge PASS is not formal independent priority or external peer-review certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the identical continuous p-center invariant and reports its hexagon p=3 computational attempt but no exact m=3 lower certificate or rigidity.",
+          "evidence": [
+            "§1 lines 63–68 defines D(R,p) and equates it to disk cover.",
+            "§4.3 lines 344–380 describes 32 cases and states only hexagon p=6 among immediately closed lower/upper bounds; remaining runs timed out.",
+            "Publisher date 24 January 2022."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43762-021-00032-9",
+          "material_read": "Full accessible publisher HTML: abstract; §1 definition (equation 1); §4.3 full discussion including Table 1 explanation and cases that closed their bounds; conclusion and references.",
+          "method": "Primary open-access HTML line-by-line targeted theorem/table inspection, fresh at audit time",
+          "title": "Two lower-bounding algorithms for the p-center problem in an area",
+          "trigger": "Exactly the same polygon and three-center objective, strongest direct numerical benchmark"
+        },
+        {
+          "assessment": "Direct prior art for feasibility at 3R/4, but target N_n(r) controls finite diameter-one point sets; its proof does not prohibit smaller disks covering the fixed hexagon or classify extremizers.",
+          "evidence": [
+            "§2 lines 62–67 uses Liu covers of the universal hexagon.",
+            "§5 Theorem 2 lines 118–126: three pentagons with circumradius sqrt(3)/4 when opposite sides distance 1.",
+            "arXiv:2407.03553v1 dated 4 July 2024."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.03553v1",
+          "material_read": "Accessible original arXiv v1 full HTML §§1–5, in particular §2 covering construction and §5 Theorem 2 proof and its prior-Borsuk discussion; references.",
+          "method": "Full open-access HTML inspection of theorem, definitions and proof",
+          "title": "On a generalized hexagonal dart board problem",
+          "trigger": "Same regular-hexagon three-pentagon construction and plausible finite-point covering theorem"
+        },
+        {
+          "assessment": "Asymptotic m large and numerical m≥10; no sharp m=3 statement in inspected sections or table; full remaining material not exhaustively read.",
+          "evidence": [
+            "Abstract and §1 asymptotic motivation, m→∞.",
+            "§5 figures for m=10,50,100 and Table 5 hexagon starts at m=10; screenshot of PDF p.30.",
+            "Page 18 Theorem 4 concerns honeycomb rather than 3-disk regular hexagon."
+          ],
+          "identifier_or_url": "https://john.pro.br/papers/bglcovering.pdf",
+          "material_read": "Author-hosted 39-page 18 April 2022 preprint: title/abstract, §§1,3,5 and summary; Appendix hexagon lines 2310–2320 (m≥10), with actual PDF screenshots of pp. 1,30; relevant theorem statements checked.",
+          "method": "Lawful OA PDF text plus visual page inspection",
+          "title": "Asymptotic bounds on the optimal radius when covering a set with minimum radius identical balls",
+          "trigger": "Broader Euclidean covering optimality result might dominate finite m=3"
+        },
+        {
+          "assessment": "Undetermined regarding exact hexagon m=3 priority; abstract describes Voronoi local-minimum numerical method but does not state a sharp theorem. Not used as proof of NOT_COVERING.",
+          "evidence": [
+            "Stoyan & Patsuk, Comput. Optim. Appl. 46 (2010), 75–92, DOI as above.",
+            "Publisher abstract: Voronoi mathematical model, modification of feasible-direction method, computational examples.",
+            "No lawful full-text copy obtained in this execution."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10589-008-9191-8",
+          "material_read": "Publisher abstract, bibliography and publication history; full text inaccessible from searched arXiv/legitimate OA and authorized institution.",
+          "method": "Publisher HTML and OA/preprint web searches, followed by authorized institutional request; request returned vpn_disconnected, no bypass or invented reading.",
+          "title": "Covering a compact polygonal set by identical circles",
+          "trigger": "Earlier exact-same polygonal-covering optimization title; potentially overlooked hexagon example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu (2022) §4.3 regular-polygon p-center numerical benchmarks",
+        "Bezdek–Henderschedt 2024 Theorem 2 prior feasible partition",
+        "Independent C proof of the new lower certificate and two equality orbits"
+      ],
+      "rationale": "The continuous 3-center Euclidean covering radius of a regular hexagon is a canonical geometric and location-theoretic optimization invariant, used as a nontrivial numerical benchmark in Liu 2022. A known exact construction only gave the upper bound; a sharp universal lower bound plus a complete two-configuration rigidity classification closes a natural finite exact-geometry question, and the novel vertex-perfect-matching/unmatched-edge-contact mechanism supplies a reusable mathematical certificate. This is a self-contained motivated exact fact rather than a routine normalization, known table reprint or negligible numerical improvement. Its merit does not depend on a general theorem for every polygon.",
+      "residual_risks": [
+        "Only one canonical n=6,m=3 geometry; does not classify other polygons or all disk counts.",
+        "Future influence is plausible rather than established by later citations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No result for unequal disk radii, nonregular hexagons or different disk counts.",
+    "Independent rational contact checks and 25,961 interior lattice samples are supplementary, not an exhaustive continuum proof; the exact all-real inequality and matching-edge logic establish the theorem.",
+    "An older closely related Stoyan–Patsuk polygon-covering paper could not be inspected in full after OA/arXiv searches and authorized institutional access returned vpn_disconnected. This is a residual originality risk, not a scientific failure.",
+    "Historical publication-priority completeness and expert/Lean certification are not asserted."
+  ],
+  "schema_version": 1
+}

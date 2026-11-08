@@ -1,19 +1,21 @@
-# Review of the three-disk hexagon covering claim
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof first exhibits an exact full-body cover by three convex disk-containing pentagonal sectors and then proves a matching-and-boundary-gap lower bound with quantifiers over arbitrary disk centers. Every disk in a candidate cover of radius at most \(3/4\) must contain exactly one adjacent vertex pair, since the six vertices force a perfect matching. The gap-contact chord obeys \(\|P_a-Q_b\|_2^2\ge9/4+3(a-1/2)^2\) whenever \(a+b\ge1\). The three uncovered matching-gap edges each require opposite endpoint coverage fractions summing to at least one, and the remote disk cannot help because it is vertically separated by \(\sqrt3>3/2\). All inequalities are tight only at half-edge contacts, which force the radius and center. Exact arithmetic regression checks corroborate the endpoint data and algebra; the infinite proof is analytic. Risk: no independent peer review, but no open logical step identified in the given normalization.
+PASS
 
-## Originality — PASS, with residual priority risk
+For R=1 the convex pentagon conv{0,P,V0,V1,Q} has all vertices within 3/4 of C=(3/8,sqrt(3)/8); three 120-degree rotations tile the filled hexagon, giving the upper bound. In any r≤3/4 cover a disk diameter is ≤3/2<sqrt(3), hence each disk can contain at most two hexagon vertices and only an adjacent pair; six vertices force a perfect matching of C6, hence exactly two alternating patterns. For any matched-pair disk define its boundary-edge contact fractions a,b∈[0,1]. Both farthest contacts lie in that disk, so D(a,b)=(b+(1−a)/2)^2+3(1+a)^2/4≤4r²≤9/4. If a+b≥1, write b=1−a+t, t≥0. Then D−9/4=3(a−1/2)^2+3(1−a)t+t²≥0, with equality only a=b=1/2. Thus each disk has a+b≤1 with equality only at radius 3/4. Every unmatched edge is inaccessible to the remote disk because its occupied pair is vertically sqrt(3) away, greater than 2r; covering its edge requires endpoint-contact fractions sum≥1. Summing gives ≥3 versus the disk-wise ≤3, so all contacts must be equalities and each center is the unique midpoint of a diameter pair; the two matchings yield exactly the claimed unordered triples. This proves global sharpness, all equality cases and scaling for every R>0, without restricting centers to H.
 
-The constructive cover is clearly prior art (Borsuk's three-pentagon decomposition as used in Bezdek–Henderschedt 2024). Liu 2022 has directly comparable regular-hexagon three-center experiments but reports a time-limited numerical bound, not the exact equality rigidity. Birgin–Gardenghi–Laurain 2022 gives asymptotic covering estimates and regular-hexagon numerical results from ten disks upward. Those texts do not assert or imply the universal lower bound and complete two-configuration classification. Published research index searches for three-center regular-hexagon covering, aliases, and exact \(3/4\)-radius proofs did not surface a dominating result. Risk: earlier geometric covering or facility-location literature outside inspected records might contain the exact lower-bound proof; indexing absence alone cannot certify first publication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the finite, smallest nontrivial complete three-facility certificate for a canonical convex service region used in the published continuous polygonal \(p\)-center benchmarks. It converts a known constructive upper bound into a sharp global minimum and classifies every minimizer by a structural matching/contact mechanism. It also distinguishes fixed-region exact optimal covering from Borsuk-style universal point-set partition bounds. Its usefulness does not rest on a claimed general theorem for arbitrary polygons.
+The precise original contribution is the universal lower bound rho_3(H_R)>=3R/4 and the exhaustive two-triple equality classification, NOT the previously known three-pentagon radius-3R/4 construction. Liu 2022 directly studies regular hexagon p=3 but its computational lower/upper bounds did not close in the reported run; Bezdek–Henderschedt 2024 supplies the construction for a Borsuk universal-cover argument but its N_n(r) finite-point assertion cannot imply this fixed-region lower bound or uniqueness; Birgin–Gardenghi–Laurain addresses asymptotic m and numerical regular hexagons from m=10. Stoyan–Patsuk 2010 is a directly relevant inaccessible historical source and is explicitly retained as priority risk. Two new Resultary searches found no implication-equivalent theorem, but failed indexing is not proof of novelty. Best-of-knowledge PASS, not absolute priority certification.
 
-## Prior work and limitations
+## value
 
-Main comparators: Liu (2022), doi:10.1007/s43762-021-00032-9, full-text sections 1 and 4.3; Bezdek–Henderschedt (2024), arXiv:2407.03553v1, full text sections 2 and 5; Birgin–Gardenghi–Laurain (2022 preprint), https://john.pro.br/papers/bglcovering.pdf, geometric introduction, asymptotic theorem and finite numerical experiment section. The main omitted domain is unequal-radius or nonregular-polygon covering. Equality rigidity has not been externally certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The continuous 3-center Euclidean covering radius of a regular hexagon is a canonical geometric and location-theoretic optimization invariant, used as a nontrivial numerical benchmark in Liu 2022. A known exact construction only gave the upper bound; a sharp universal lower bound plus a complete two-configuration rigidity classification closes a natural finite exact-geometry question, and the novel vertex-perfect-matching/unmatched-edge-contact mechanism supplies a reusable mathematical certificate. This is a self-contained motivated exact fact rather than a routine normalization, known table reprint or negligible numerical improvement. Its merit does not depend on a general theorem for every polygon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
