@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All coefficients and normalizations are reconstructed from classical Jacobi formulas. Exact differentiation and polynomial division establish the first two critical values for every real \(a,b>-1\). Positive denominators permit the stated equivalences. At the excluded boundary \(a=-1\), rescaled limits yield three explicit functions of \(b\); an exact difference-of-squares factorization, together with positivity of both terms, proves the unique cubic sign threshold. The exact rational certificate proves a strict counterexample in the interior of parameter space. Finite checker samples are secondary corroboration; the exact identities provide the universal proof.
+PASS
 
-## Originality
+For a,b>-1 with Jacobi normalization P_n(1)=(a+1)_n/n!, the first extremum from the right is x_{1,1}=-1, x_{1,2}=(b-a)/(a+b+4), and x_{1,3}=(b-a+2R)/(a+b+6) with R²=(a+3)(b+3)/(a+b+5). Independently reconstructed degrees 2,3 via SymPy Jacobi polynomials and verified derivative vanishing and values M1=(b+1)/(a+1), M2=(b+2)/[(a+1)(a+b+4)], M3=2(b+3)[a-b+(a+b+4)R]/[(a+1)(a+2)(a+b+6)^2]. Positivity of parameters and the first-minimum sign justify exact two-inequality parameter tests. As a→-1+, multiplying each M_j by a+1 gives L1=b+1, L2=(b+2)/(b+3) and the stated radical L3; L2-L1 has sign opposite to b²+3b+1. The positive U,V difference of squares factors as -(b+2)(b+4)(b+5)^3(b³+7b²+14b+4), producing the unique bc≈-0.341032918083 and open b range ( (sqrt(5)-3)/2, bc) of first-pass/second-fail near a=-1. Independently checked a=-19/20,b=-3/8: M1=12.5, M2=1300/107≈12.14953 and M3≈12.17973, consistent with the exact rational R² certificate. The excluded a=-1 is never asserted.
 
-**PASS under inspected evidence.** The primary 2026 preprint gives a full-degree theorem for \(a,b>-1/2\), and its introductory boundary discussion does not state an exact two-test finite-degree classification outside that sector. The 1994 boundary-parameter case and 1994 eventual-degree result do not imply an open interior region where the first test passes and the second reverses. The weighted Jacobi–Radau result concerns a different polynomial normalization and weight. Relevant record searches, source/alias/parameter checks, and local claim comparisons found no equivalent statement. The 2026 article's entire PDF was not retrievable in this session, and older unindexed finite-degree calculations could exist: these are genuine residual risks, not proofs of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** A new all-degree relative-extremum inequality naturally asks which of its parameter restrictions are necessary. The first pair of finite-degree tests are canonical necessary conditions, not arbitrary chosen sample degrees. The exact open two-test reversal shows that one low-degree test is not sufficient; the cubic singular frontier quantifies where the mechanism first occurs near the natural Jacobi boundary. No broad all-degree theorem is claimed.
+Castillo arXiv:2608.01404 is the closest current normalized-Jacobi first-index relative-extremum work, with an all-degree theorem for a,b>-1/2, whereas the new open reversal region lies at a near -1. Wong–Zhang 1994 boundary-parameter (0,-1) and eventual-degree papers do not entail the exact interior first two tests; Castillo–Hang weighted Jacobi–Radau is a different weighted one-parameter family. An indexed Resultary first-discrete-threshold Jacobi–Radau result is not the same P_n^(a,b)/P_n^(a,b)(1) object. Current primary arXiv full text for Castillo remained unavailable and Oxford reported VPN disconnected; implicit discussion of finite tests is a priority risk, but no direct stronger covering theorem was verified.
 
-## Scope and limitations
+## value
 
-The result is limited to \(k=1\), consecutive comparisons \(n=1\to2\) and \(n=2\to3\), ordinary Jacobi polynomials, and fixed \(a,b>-1\). It identifies a boundary limit and a nonempty open parameter wedge; it does not settle the maximal all-degree range. Full-text access to every historical paper was not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The n=1→2 and n=2→3 comparisons are the first nontrivial necessary conditions in a live all-degree monotonicity problem, not arbitrary chosen computations. Their exact two-parameter inequality boundaries and the strict open reversal near the natural singular Jacobi parameter a=-1 demonstrate that passing one natural necessary test is insufficient for the next. The algebraic cubic frontier and exact interior counterexample are independently useful even though the full all-degree parameter classification is unresolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
