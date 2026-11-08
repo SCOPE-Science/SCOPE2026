@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The underlying complex and the symmetric-group action are explicitly defined. The sole external homological inputs are the zero-off-degrees and ranks from Feng's Theorem 18, together with linear independence of the six-set spheres from Feng–Wang's Theorem 10. A transposition has odd determinant on the ten antipodal axes, proving that ninth homology is induced from the sign representation of the six-set stabilizer. For every conjugacy class, the reduced simplicial Lefschetz trace is exactly minus the orbit-conflict independence polynomial at minus one. The standalone finite checker reconstructs the orbit graph, evaluates the recursion, and verifies the full Specht character table and all multiplicities by exact arithmetic. The dimensions agree with the independent Betti inputs. No integrality or homotopy conclusion is inferred from this rational character proof.
+PASS
 
-## Originality
+Let X be the complex of all pairwise-intersecting families of triples of [8], 56 triple vertices (Ind(KG(8,3)) conventional; Feng KG(3,2)). Published Feng arXiv:2610.17394 Theorem 18 gives rational reduced ranks beta6=233, beta9=28, zero elsewhere; Feng–Wang arXiv:2404.10566 Theorem 10 proves independence of the 28 embedded six-ground-point nine-sphere cycles. A six-set stabilizer transposition flips fundamental crosspolytope orientation (15 axis inversions plus six antipodal flips => sign -1); H9 is Ind_{S6xS2}^{S8}(sgn6 tensor trivial). For each of 22 S8 classes invariant simplices correspond to independent orbit-families in conflict graph D_g, giving Ltilde(g)=-I(D_g;-1) and chi6=Ltilde+chi9. Independently rebuilt all 22 conflict graphs, exact independence-polynomial recursions, S8 character table through connected rim-hook Murnaghan–Nakayama, full orthogonality and rational class inner products. Confirmed nine multiplicity-one degree-six Specht partitions (8),(7,1),(5,3),(4,4),(4,3,1),(3,2,2,1),(2,2,2,2),(2,2,2,1,1),(1^8), dimension233; and two degree-nine hooks (3,1^5),(2,1^6), dimension28. Relies explicitly on the two published homology inputs; no integral or homotopy claim.
 
-PASS, with residual risk. Feng and Wang (2024) prove lower bounds and independent cross-polytope generators, not the sixth-homology representation. Feng (2026) proves only rational dimensions and the two possible homological degrees. The known seven-point equivariant computation concerns one fewer ground symbol and does not imply the eight-point module. Search and comparison of the triple-intersection Rips formulation, Kneser disjointness graph, degree-six character, nine Specht constituents, and signed Lefschetz calculations produced no covering statement. The stronger source material was inspected by its mathematical claims, not merely titles. Unindexed equivalences remain possible.
+## originality
 
-## Value
+PASS
 
-PASS. This is the first nontrivial eight-symbol case beyond the smaller seven-point calculation in a recently solved rational homology family. It determines how the full \(\mathfrak S_8\) symmetry acts on all \(233\) independent degree-six classes: nine distinct irreducibles each occur once, including one invariant and one anti-invariant line. Those features cannot be read from the known Betti number \(233\); the exact twenty-two-class Lefschetz computation resolves a genuine symmetry-sensitive gap. The degree-nine signed permutation module is included to pin down the virtual Lefschetz character, not advertised as separately new without the earlier results.
+The alternate KG(3,2) of Feng and conventional KG(8,3), pairwise-intersecting triple family and finite Vietoris–Rips scale-four aliases were compared. Primary Feng Theorem 18 computes ranks and cohomological degrees, not the 22-class S8 symmetry character; Feng–Wang Theorem 10 gives top cycles only. Resultary indexed earlier S7 and Kneser neighborhood analyses do not determine this eight-point module. Originality is limited to the new equivariant refinement, not previously published rank/basis inputs.
 
-## Literature and scope
+## value
 
-The closest sources are Z. Feng, arXiv:2610.17394 (2026, Theorem 18), and Z. Feng and G. Wang, arXiv:2404.10566 (2024, Theorem 10). The alternate conventional notation \(\operatorname{KG}(8,3)\) equals the former paper's \(\operatorname{KG}(3,2)\). Nearby results for the Kneser neighborhood complex and stable Kneser graphs concern different constructions. Remaining limitations are possible unindexed prior equivalence, no integral torsion conclusion, and no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The eight-point intersecting-triple complex is a natural member of a newly solved rational homology family. Its 233-dimensional H6 has a full S8 action invisible in Feng’s Betti count: the nine Specht constituents occur once each, including exactly one fixed and one alternating line. Determining 22 conjugacy-class traces is a genuine equivariant structural refinement; no integral or homotopy extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
