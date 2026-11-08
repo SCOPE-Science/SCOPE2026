@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The complete analytic proof appears in `RESULT.md`. The essential equalities follow from first-step equations for each target, the exact order-statistic maximum, a strict budget-improvement argument, and a one-dimensional strictly convex objective. No numerical threshold or finite sample is used as a substitute for an all-parameter argument.
+## correctness
 
-Run from the directory containing the embedded files:
+PASS
 
-```bash
-python3 verify.py
-```
+The original frozen RESULT.md included a materially false example: it called four prices (100,1,1,1) a k=3 star and asserted T*=363 vs uniform 412; with k=4 the stated rates give true T=473 and equal-rate T=515. The general theorem remains correct. Re-derived H_0j=k/r_j and H_ij=1/r_i+k/r_j by first-step equations; hence T=k x_(1)+x_(2), x_i=1/r_i. Any lower waiting time can be raised to second-largest without increasing T, creating budget slack and disproving optimality. A unique exceptional larger waiting time must belong to the largest price. Minimizing T(t)=(kp+P+kPt+p/t)/B over t>=1 has unique minimizer max(1,sqrt(p/(kP))), giving exact closed form and the unique optimum for all k>=3 and positive prices. Replaced the false example with k=3,B=1,p=(54,1,1), r=(1/60,1/20,1/20), T*=200 vs uniform 224; checked budget=1 and all ordered hitting times exactly. All numbers and the limitation prose are corrected in supplied complete RESULT.md.
 
-The reproducible output is:
+## originality
 
-```
-VERIFY_OK 249020 checks; exact rational hitting systems and finite optimization probes
-```
+PASS
 
-`verify.py` uses only Python 3's standard library. For \(3\le k\le8\) and 20 deterministic rational rate vectors per size, it solves the killed-generator linear equations for every target using exact rational Gaussian elimination and checks all starting states against the claimed first-step formulas. For \(3\le k\le10\) and 150 deterministic price/budget scenarios per size, it checks optimizer positivity, exact-budget saturation within floating-point tolerance, the proposed objective, and 200 independently generated feasible competing allocations per scenario. These tests also sample just above and below the sharp price threshold. Randomized finite probing cannot certify optimality for all positive real inputs; that conclusion relies on the mathematical argument.
+Best-of-knowledge original as the complete price-dominance/uniqueness threshold for symmetric star edge rates under a worst ordered-pair mean hitting-time objective. The complete Sun–Boyd–Xiao–Diaconis original paper optimizes spectral gap, not worst hitting time; Zeng treats average hitting time with constrained weight multiset; Aldous–Fill supply hitting-time identities without this optimizer. Unread old PERT allocation remains a priority risk.
 
-All executable checks relate only to the enclosed claim. Independent external validation and scholarly priority review remain unperformed.
+## value
+
+PASS
+
+Sharp threshold p>kP gives a natural resource-design boundary: all rate prices can be heterogeneous but the optimal rates remain equal until a single price dominates. It determines exact minimax hitting performance and a unique optimizer on all star sizes, a meaningful constrained stochastic optimization invariant beyond tabulating existing hitting formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

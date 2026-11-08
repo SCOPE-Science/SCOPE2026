@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:03:08.822886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original frozen RESULT.md included a materially false example: it called four prices (100,1,1,1) a k=3 star and asserted T*=363 vs uniform 412; with k=4 the stated rates give true T=473 and equal-rate T=515. The general theorem remains correct. Re-derived H_0j=k/r_j and H_ij=1/r_i+k/r_j by first-step equations; hence T=k x_(1)+x_(2), x_i=1/r_i. Any lower waiting time can be raised to second-largest without increasing T, creating budget slack and disproving optimality. A unique exceptional larger waiting time must belong to the largest price. Minimizing T(t)=(kp+P+kPt+p/t)/B over t>=1 has unique minimizer max(1,sqrt(p/(kP))), giving exact closed form and the unique optimum for all k>=3 and positive prices. Replaced the false example with k=3,B=1,p=(54,1,1), r=(1/60,1/20,1/20), T*=200 vs uniform 224; checked budget=1 and all ordered hitting times exactly. All numbers and the limitation prose are corrected in supplied complete RESULT.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al optimize spectral gap of symmetric continuous-time chains under a linear cost; that is not the maximum mean first-passage-time functional.",
+          "Zeng optimizes average hitting time of trees with fixed weight multiset; Berman concerns PERT cost allocation."
+        ],
+        "reasoning": "Broader rates/graphs in prior sources do not dominate the different minimax mean-first-passage objective on stars.",
+        "searches": [
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "arXiv:2109.09249",
+          "DOI:10.1287/mnsc.10.4.734"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "arXiv:2109.09249",
+        "Aldous & Fill Reversible Markov Chains and Random Walks on Graphs Chapters 2/3/5",
+        "DOI:10.1287/mnsc.10.4.734",
+        "Resultary query: mean hitting time optimizing rates star leaf edges minimax maximum weighted resource budget"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known hitting-time identities imply finite linear systems; special star first steps imply T=max(kx_i+x_j), but identifying the budget threshold and uniqueness requires a separate constrained minimization argument."
+        ],
+        "reasoning": "Faster mixing or smaller commute times need not minimize the largest directed pair time; prior objective comparisons do not logically imply this theorem.",
+        "searches": [
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "Aldous and Fill, Chapters 2.2 and 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The worst hitting objective equals k x_(1)+x_(2) after elementary first-step analysis; prior generic hitting-time formulas provide this reduction but not the subsequent p>kP unique optimizer."
+        ],
+        "reasoning": "Compared commute/average/maximum ordered hitting objectives and reciprocal edge rates rather than treating shared graph terminology as equivalence.",
+        "searches": [
+          "Aldous and Fill, Reversible Markov Chains and Random Walks on Graphs",
+          "Resultary query: mean hitting time optimizing rates star leaf edges minimax maximum weighted resource budget"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary near hits include discounted hitting domination on complete bipartite graphs, a different discount/dominating invariant; no p=kP star optimizer found."
+        ],
+        "reasoning": "No exact table for the continuous-price family appears in the inspected sources.",
+        "searches": [
+          "Resultary query: mean hitting time optimizing rates star leaf edges minimax maximum weighted resource budget"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as the complete price-dominance/uniqueness threshold for symmetric star edge rates under a worst ordered-pair mean hitting-time objective. The complete Sun–Boyd–Xiao–Diaconis original paper optimizes spectral gap, not worst hitting time; Zeng treats average hitting time with constrained weight multiset; Aldous–Fill supply hitting-time identities without this optimizer. Unread old PERT allocation remains a priority risk.",
+      "residual_risks": [
+        "Older convex budget allocation methods could imply this exact star optimizer under a different objective formulation.",
+        "The corrected complete RESULT.md is supplied but public AUDIT/METADATA retain operational provenance and block safe staging."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering: computes spectral gap optimization rather than worst ordered-pair hitting time",
+          "evidence": [
+            "Title, abstract and mathematical model specify spectral gap; no minimax first-hitting objective."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Complete 19-page primary PDF, model introduction, spectral-gap objective and optimization sections; page 1 visually inspected",
+          "method": "Read PDF text and first-page screenshot, inspected objective, searched for worst hitting and star specialization",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "same symmetric continuous-time edge-rate allocation with cost"
+        },
+        {
+          "assessment": "No demonstrated implication for star max ordered hitting with rates chosen under costs",
+          "evidence": [
+            "Average (not maximum), fixed multiset (not positive independent rates)."
+          ],
+          "identifier_or_url": "arXiv:2109.09249",
+          "material_read": "ArXiv abstract and assigned literature discussion; entire primary PDF not retrieved in this run",
+          "method": "Compared accessible statement of average hitting and fixed-weight-multiset objective",
+          "title": "On average hitting time and Kemenys constant for weighted trees",
+          "trigger": "related weighted-tree optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp threshold p>kP gives a natural resource-design boundary: all rate prices can be heterogeneous but the optimal rates remain equal until a single price dominates. It determines exact minimax hitting performance and a unique optimizer on all star sizes, a meaningful constrained stochastic optimization invariant beyond tabulating existing hitting formulas.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+    "arXiv:2109.09249",
+    "Aldous & Fill Reversible Markov Chains and Random Walks on Graphs Chapters 2/3/5",
+    "DOI:10.1287/mnsc.10.4.734",
+    "Resultary query: mean hitting time optimizing rates star leaf edges minimax maximum weighted resource budget"
+  ],
+  "disposition": "repaired",
+  "limitations": "Symmetric positive continuous-time star edge rates, linear positive rate budget and worst ordered-state mean first hitting time; no asymmetric jumps, general trees, cover times or other graph mixing criteria. Repair corrects a false explanatory numeric example and removes an obsolete audit-status sentence, not the theorem or its proof.",
+  "residual_risks": [
+    "Older convex budget allocation methods could imply this exact star optimizer under a different objective formulation.",
+    "The corrected complete RESULT.md is supplied but public AUDIT/METADATA retain operational provenance and block safe staging."
+  ],
+  "schema_version": 1
+}

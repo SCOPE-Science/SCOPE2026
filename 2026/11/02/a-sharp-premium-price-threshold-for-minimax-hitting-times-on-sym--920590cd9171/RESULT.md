@@ -32,7 +32,7 @@ In particular, the advantage over the unique equal-rate allocation is exactly
 \[
 \boxed{T_{\rm equal}-T_*=\frac{(\sqrt p-\sqrt{kP})_+^2}{B}}.
 \]
-Thus the price threshold depends only on the largest individual price and the sum of all others: arbitrary smaller-price heterogeneity does not change the form of the optimizer. For example, with \(k=3\), \(B=1\), and prices \((100,1,1,1)\), the premium edge receives rate \(1/110\), the other three rates are \(1/33\), and \(T_*=363\), compared with \(T_{\rm equal}=412\).
+Thus the price threshold depends only on the largest individual price and the sum of all others: arbitrary smaller-price heterogeneity does not change the form of the optimizer. For example, with \(k=3\), \(B=1\), and prices \((54,1,1)\), the premium edge receives rate \(1/60\), the other two rates are \(1/20\), and \(T_*=200\), compared with \(T_{\rm equal}=224\).
 
 ## Assumptions and scope
 
@@ -91,7 +91,7 @@ Aldous and Fill's 1999/2002 notes establish broad hitting-time identities and ea
 
 ## Limitations
 
-This theorem is restricted to symmetric rates on a fixed star, positive linear rate prices, and worst **mean first-hitting times between states**. It does not optimize cover times, stationary-random-target times, commute times, spectral gaps, asymmetric generators, or general trees. An independent scholarly priority investigation and an independent mathematical audit remain outstanding; accessible-literature comparisons do not establish universal novelty.
+This theorem is restricted to symmetric rates on a fixed star, positive linear rate prices, and worst **mean first-hitting times between states**. It does not optimize cover times, stationary-random-target times, commute times, spectral gaps, asymmetric generators, or general trees. Historical priority beyond the inspected literature remains uncertain; the accessible comparisons do not establish universal novelty.
 
 ## References
 

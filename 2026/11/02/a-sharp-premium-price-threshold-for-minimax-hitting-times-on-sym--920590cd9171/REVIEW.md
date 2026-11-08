@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding under review.** For a symmetric continuous-time Markov star with \(k\ge3\) leaves, independently chosen positive bidirectional rates, arbitrary positive linear prices and budget \(B\), the unique minimizer of the maximum ordered-pair mean first-hitting time is equal-rate unless the largest price exceeds \(k\) times the sum of the remaining prices. In the premium regime only the maximally priced edge is slowed, with the precise ratio and objective shown in `RESULT.md`.
+## correctness
 
-## Correctness — PASS
+PASS
 
-First-step hitting equations independently derive \(H_{ij}=1/r_i+k/r_j\) for distinct leaves, with center-to-leaf and leaf-to-center times also computed. Thus the objective is exactly \(kx_{(1)}+x_{(2)}\), for reciprocal rates \(x_i=1/r_i\). An order-statistic replacement argument proves that all waiting times except possibly the largest are equal; exchanging the exceptional leaf proves it must be a maximally priced leaf. The remaining ratio optimization has positive second derivative \(2p/(Bt^3)\), giving the sharp threshold, strict optimizer uniqueness and closed value. A rational Gaussian-elimination test and deterministic rate-design probes replayed successfully (249020 checks). The proof, not those samples, covers all real prices and all sizes in scope.
+The original frozen RESULT.md included a materially false example: it called four prices (100,1,1,1) a k=3 star and asserted T*=363 vs uniform 412; with k=4 the stated rates give true T=473 and equal-rate T=515. The general theorem remains correct. Re-derived H_0j=k/r_j and H_ij=1/r_i+k/r_j by first-step equations; hence T=k x_(1)+x_(2), x_i=1/r_i. Any lower waiting time can be raised to second-largest without increasing T, creating budget slack and disproving optimality. A unique exceptional larger waiting time must belong to the largest price. Minimizing T(t)=(kp+P+kPt+p/t)/B over t>=1 has unique minimizer max(1,sqrt(p/(kP))), giving exact closed form and the unique optimum for all k>=3 and positive prices. Replaced the false example with k=3,B=1,p=(54,1,1), r=(1/60,1/20,1/20), T*=200 vs uniform 224; checked budget=1 and all ordered hitting times exactly. All numbers and the limitation prose are corrected in supplied complete RESULT.md.
 
-## Originality — PASS on inspected evidence, with specified risk
+## originality
 
-The existing Markov-chain literature provides hitting-time identities (Aldous–Fill) and budgeted **spectral-gap** optimization (Sun–Boyd–Xiao–Diaconis). Neither inspected statement entails the sharp minimax **mean hitting-time** allocation under arbitrary positive prices. Zeng's weighted-tree theorem optimizes **average** hitting time over graph structures with a *fixed weight multiset*, not independently variable rates on a fixed star. Berman's older convex project-resource optimization is a broader methodological predecessor; only its abstract was accessible, not the full article, so direct derivation from that work cannot be categorically excluded. No inspected exact published table or equivalent threshold was found, but a negative search is not proof of absolute priority. The claim's originality assessment concerns the complete unique-optimizer classification, not generic convex optimization or standard hitting-time formulas.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge original as the complete price-dominance/uniqueness threshold for symmetric star edge rates under a worst ordered-pair mean hitting-time objective. The complete Sun–Boyd–Xiao–Diaconis original paper optimizes spectral gap, not worst hitting time; Zeng treats average hitting time with constrained weight multiset; Aldous–Fill supply hitting-time identities without this optimizer. Unread old PERT allocation remains a priority risk.
 
-The sharp concentration threshold \(p=kP\) is a structural bifurcation of optimal rate design: even highly heterogeneous individual costs are immaterial until one cost overwhelms the aggregate of all others. The exact benefit \((\sqrt p-\sqrt{kP})_+^2/B\) quantifies when paying for nonuniformity becomes advantageous. The complete result works for every star size and arbitrary positive prices, with an elementary reproducible proof and a direct robust-latency interpretation. It is not a mere change of notation for a known average-hitting or spectral-gap problem.
+## value
 
-## Sources, comparisons and limitations
+PASS
 
-Aldous and Fill, Chapters 2.2, 3.7 and 5.3, provide hitting-time identities and unweighted-tree extremal comparisons; https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/book.html . Sun et al. (2006) optimize the weighted Laplacian spectral gap under a linear budget; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf . Zeng (2021) optimizes average hitting time for weighted-tree topology and weight-multiset problems; https://arxiv.org/abs/2109.09249 . Berman (1964) discusses generic PERT time-cost allocation; https://doi.org/10.1287/mnsc.10.4.734 . The latter full text was not inspected. The theorem does not assert any result for general tree topologies, nonuniform stationary masses or asymmetric rate control. Further independent originality and proof assessments may change the scientific status.
+Sharp threshold p>kP gives a natural resource-design boundary: all rate prices can be heterogeneous but the optimal rates remain equal until a single price dominates. It determines exact minimax hitting performance and a unique optimizer on all star sizes, a meaningful constrained stochastic optimization invariant beyond tabulating existing hitting formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
