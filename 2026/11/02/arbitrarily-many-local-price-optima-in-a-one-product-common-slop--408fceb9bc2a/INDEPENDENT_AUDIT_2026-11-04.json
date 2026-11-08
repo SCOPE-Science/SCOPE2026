@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:53:43.824072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derivative of a single logistic component is f_θ'(p)=[1+(1-p)exp(p-θ)]/(1+exp(p-θ))², bounded absolutely by 1+p/4 independent of θ on fixed witness prices; tends to 1 as θ→infinity at fixed p and is eventually strictly negative for any fixed θ. Inductively keep signs at previous 2m witness prices by adding sufficiently small ε>0; choose u>last negative witness where prior derivative lies in (-ε/4,0), and a sufficiently large new θ>u so new component derivative at u exceeds 1/2, while at θ+1 both old and new derivatives are negative. Appends a disjoint positive-to-negative interval. Each such interval contains an interior strict maximum: real-analytic nonconstant function has isolated stationary zeros, hence no flat interval; negative-to-positive gaps similarly give strict minima. Positive scaling yields unit total shares; open strict signs imply relatively open parameter region. Independent rational enclosure checked explicit valuation/weight prefixes m=1..4 at all 2m windows, finite corroboration only. No upper bound on maximum count or comparative global maximum is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "van de Geer–den Boer 2022 global approximation/dual characterization handles many products and segments but does not, in inspected abstract/introduction/method sections, prove all-m separated local maximum lower bound in one product.",
+          "General mixed-logit price-competition nonconcavity does not control exact mode count."
+        ],
+        "reasoning": "Examined stronger-looking primary scopes and asked whether their hypotheses plus theorem conclusions logically imply the final quantified claim; found no dominating implication in materially examined statements, with access limits recorded.",
+        "searches": [
+          "arbitrarily many local maxima revenue single product finite mixture common price slope logit demand",
+          "price optimization finite mixture logit local maxima single product many segments"
+        ]
+      },
+      "checked_sources": [
+        "van de Geer–den Boer 2022 author-hosted full text, introduction and relevant analysis",
+        "Li et al. DOI 10.1287/msom.2017.0675 accessible abstract",
+        "Aksoy-Pierson et al. DOI 10.1287/mnsc.1120.1664 abstract",
+        "Resultary many-maxima common-slope logit search",
+        "Assigned actual seven-file package and exact reconstructed Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li et al. 2018 two-segment counterexample to quasiconcavity does not imply arbitrary number of separated strict maxima under common slope.",
+          "Approximation algorithms with complexity exponential in segments do not establish mode count or sharp number of maxima; neither implication holds automatically."
+        ],
+        "reasoning": "The earlier cited statements are credited; the surviving structural and quantitative conclusion is not logically implied by the inspected prior statements without an additional nontrivial argument.",
+        "searches": [
+          "price optimization finite mixture logit local maxima single product many segments",
+          "Price Optimization Under the Finite-Mixture Logit Model van de Geer den Boer 2022 number local maxima multimodal theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-product mixture of binary logit purchase probabilities is a special case of finite-mixture multinomial logit with one item and outside option; common price slope is a stricter subfamily than segment-dependent price sensitivities.",
+          "Nonquasiconcavity or two local maxima is strictly weaker than ≥m maxima for every m."
+        ],
+        "reasoning": "Checked equivalent/aliased statements with the same objects, metrics and quantifiers rather than relying on matching titles; see precise equivalence or distinction in evidence.",
+        "searches": [
+          "arbitrarily many local maxima revenue single product finite mixture common price slope logit demand",
+          "price optimization finite mixture logit local maxima single product many segments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary single-product many-logit-mode semantic search returned unrelated pricing/probability results; no indexed exact all-m lower bound.",
+          "Earlier two-segment one-product example is explicitly known and is not newly claimed."
+        ],
+        "reasoning": "Compared exact constants and parameter families against current indexed published records; absence of indexed coverage is not proof of historical novelty.",
+        "searches": [
+          "arbitrarily many local maxima revenue single product finite mixture common price slope logit demand",
+          "Resultary published mathematical finding semantic search"
+        ]
+      },
+      "rationale": "Published Li/Webster/Mason/Kempf show loss of one-product revenue quasiconcavity even at a common price coefficient for two segments. Van de Geer/den Boer 2022 full author-hosted paper finds local optima and a global approximation scheme with exponential dependence on segment count. Its inspected introduction/methods/algorithm do not entail ≥m separated strict local maxima for *each* m in the one-product same-slope model. The constructive sign-preserving induction adds an additional strict mode at each segment.",
+      "residual_risks": [
+        "An earlier exact number-of-modes theorem for mixtures of logistic revenue terms may subsume the induction.",
+        "Li et al. 2018 full paper and broader mixture/total-positivity specialist literature were not exhaustively read.",
+        "The author-hosted full van de Geer–den Boer manuscript is accessible but only relevant sections were scrutinized, so no blanket whole-document noncoverage asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR local optima and global approximation; no all-integer one-product strict mode proliferation in inspected sections",
+          "evidence": [
+            "Intro explicitly states finite-mixture logit revenue may have several local maxima; algorithm runs exponentially in number of segments and polynomially in number of products."
+          ],
+          "identifier_or_url": "DOI 10.1287/mnsc.2021.4272; https://www.researchgate.net/publication/358949731_Price_Optimization_Under_the_Finite-Mixture_Logit_Model",
+          "material_read": "Author-uploaded full scholarly manuscript: accessible introduction, abstract, model formulation and algorithm/characterization relevant discussion; not every appendix page read",
+          "method": "ResearchGate HTML full-text source, section and theorem comparison",
+          "title": "Price Optimization Under the Finite-Mixture Logit Model",
+          "trigger": "Direct same finite-mixture logit pricing and local optima"
+        },
+        {
+          "assessment": "PRIOR two-segment non-quasiconcavity; no accessible proof of all-m lower bound",
+          "evidence": [
+            "The article treats failure of quasiconcavity with two segments and restoration under sufficient conditions."
+          ],
+          "identifier_or_url": "DOI 10.1287/msom.2017.0675",
+          "material_read": "Abstract and accessible summary of relevant two-segment counterexample, not complete article",
+          "method": "Publisher abstract / academic listing",
+          "title": "Product-Line Pricing Under Discrete Mixed Multinomial Logit Demand",
+          "trigger": "Common-slope one-product nonquasiconcavity priority"
+        },
+        {
+          "assessment": "General model and sufficient equilibrium conditions, no checked all-m one-product theorem",
+          "evidence": [
+            "Published work concerns price competition and the lack of quasiconcavity."
+          ],
+          "identifier_or_url": "DOI 10.1287/mnsc.1120.1664",
+          "material_read": "Bibliographic and abstract context, not full primary body",
+          "method": "Publisher metadata",
+          "title": "Price Competition Under Mixed Multinomial Logit Demand Functions",
+          "trigger": "General mixed-logit economics prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Establishes arbitrarily high univariate multimodality solely from market heterogeneity in a canonical common-price-coefficient logit model. Exact open-set robustness separates a structural counterexample from fragile isolated parametric coincidences; informs nonconcave global-pricing analysis, with explicit restriction to population expected revenue and no complexity lower bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "van de Geer–den Boer 2022 author-hosted full text, introduction and relevant analysis",
+    "Li et al. DOI 10.1287/msom.2017.0675 accessible abstract",
+    "Aksoy-Pierson et al. DOI 10.1287/mnsc.1120.1664 abstract",
+    "Resultary many-maxima common-slope logit search",
+    "Assigned actual seven-file package and exact reconstructed Git tree"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every m>=1 there is an open set of strictly increasing positive segment valuations and positive shares whose one-product expected revenue R(p)=pΣ w_j/(1+exp(p-θ_j)), p>=0, has at least m distinct strict positive local maxima separated by at least m-1 strict local minima, despite all segments having price slope exactly 1.",
+  "limitations": [
+    "An earlier exact number-of-modes theorem for mixtures of logistic revenue terms may subsume the induction.",
+    "Li et al. 2018 full paper and broader mixture/total-positivity specialist literature were not exhaustively read.",
+    "The author-hosted full van de Geer–den Boer manuscript is accessible but only relevant sections were scrutinized, so no blanket whole-document noncoverage asserted.",
+    "Scientific assessment pertains to exact fixed source tree. Finite independent checker does not establish infinite conclusions. Publication remains withheld pending safe status-file materialization."
+  ],
+  "residual_risks": [
+    "An earlier exact number-of-modes theorem for mixtures of logistic revenue terms may subsume the induction.",
+    "Li et al. 2018 full paper and broader mixture/total-positivity specialist literature were not exhaustively read.",
+    "The author-hosted full van de Geer–den Boer manuscript is accessible but only relevant sections were scrutinized, so no blanket whole-document noncoverage asserted."
+  ],
+  "schema_version": 1
+}

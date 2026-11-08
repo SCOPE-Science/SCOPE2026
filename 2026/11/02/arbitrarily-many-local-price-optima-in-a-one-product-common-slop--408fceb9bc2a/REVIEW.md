@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation differentiates each binary-logit component exactly. The uniform bound \(|f_\theta'(p)|\le1+p/4\) preserves existing finite strict derivative witnesses after a sufficiently small positive new weight. At a later price the old mixture derivative is negative but arbitrarily close to zero, while the new component derivative approaches one as its valuation increases. At a price one unit beyond that valuation both the old derivative and the new derivative are negative. This yields a new independent positive-to-negative sign pair. Analyticity makes the resulting interior maxima and intervening minima strict. Normalizing weights and taking small perturbations preserve all signs. A reproducible rational interval checker certifies four illustrative finite parameter sets (50 assertions); it is not substituted for the all-integer proof.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+The derivative of a single logistic component is f_θ'(p)=[1+(1-p)exp(p-θ)]/(1+exp(p-θ))², bounded absolutely by 1+p/4 independent of θ on fixed witness prices; tends to 1 as θ→infinity at fixed p and is eventually strictly negative for any fixed θ. Inductively keep signs at previous 2m witness prices by adding sufficiently small ε>0; choose u>last negative witness where prior derivative lies in (-ε/4,0), and a sufficiently large new θ>u so new component derivative at u exceeds 1/2, while at θ+1 both old and new derivatives are negative. Appends a disjoint positive-to-negative interval. Each such interval contains an interior strict maximum: real-analytic nonconstant function has isolated stationary zeros, hence no flat interval; negative-to-positive gaps similarly give strict minima. Positive scaling yields unit total shares; open strict signs imply relatively open parameter region. Independent rational enclosure checked explicit valuation/weight prefixes m=1..4 at all 2m windows, finite corroboration only. No upper bound on maximum count or comparative global maximum is claimed.
 
-The model, two-segment multimodality, and failure of quasiconcavity are acknowledged prior art. In particular, the 2018 Li–Webster–Mason–Kempf paper already illustrates a single-product common-slope two-segment counterexample, while van de Geer and den Boer (2022) give another two-segment example and an optimization algorithm. The assessed contribution is instead the theorem that every number of segments can force at least as many strict local price optima, accompanied by an explicit inductive construction and an open-parameter-set guarantee. The 2013 mixed-logit competition paper studies equilibrium conditions rather than this unbounded lower bound. The most serious residual risk is an existing unlocated general result for mixtures of sigmoids or price-revenue curves that already implies the lower bound.
+## originality
 
-## Value — PASS
+PASS
 
-The number of separate revenue maxima is mathematically unbounded even in a one-dimensional single-product optimization problem with a common demand slope. Thus adding latent consumer segments, rather than extra products or heterogeneous price coefficients, suffices to create progressively complex objective landscapes. This distinction is relevant for interpreting failures of unimodal pricing heuristics and motivates global methods. The claim does not assert a computational-hardness bound or empirical prevalence.
+Published Li/Webster/Mason/Kempf show loss of one-product revenue quasiconcavity even at a common price coefficient for two segments. Van de Geer/den Boer 2022 full author-hosted paper finds local optima and a global approximation scheme with exponential dependence on segment count. Its inspected introduction/methods/algorithm do not entail ≥m separated strict local maxima for *each* m in the one-product same-slope model. The constructive sign-preserving induction adds an additional strict mode at each segment.
 
-## Closest literature and limitations
+## value
 
-Aksoy-Pierson, Allon, and Federgruen (2013), https://doi.org/10.1287/mnsc.1120.1664 ; Li, Webster, Mason, and Kempf (2018), https://doi.org/10.1287/msom.2017.0675 ; van de Geer and den Boer (2022), https://doi.org/10.1287/mnsc.2021.4272 . The construction permits highly separated valuations and very unequal market weights, and makes no assertion about the number of global maximizers or realistic finite-data detectability. Historical priority remains open to independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Establishes arbitrarily high univariate multimodality solely from market heterogeneity in a canonical common-price-coefficient logit model. Exact open-set robustness separates a structural counterexample from fragile isolated parametric coincidences; informs nonconcave global-pricing analysis, with explicit restriction to population expected revenue and no complexity lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
