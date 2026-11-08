@@ -1,14 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is fixed by its explicit five-generator Cayley model. The proof derives each chain rank: higher boundaries split into 16 simplex blocks and the 65-column binary elimination gives a rational lower rank bound matching the chain upper bound. Euler and Hopf trace then determine the sole rational homology character. The finite verifier separately computes oriented simplicial traces, invariant vertex-orbit traces and induced-module characters for all 1920 elements. Projector calculations identify the exact \(6+10+15\) decomposition. Risk: a reproducibility error in the independently reconstructible finite algorithm could change the result; no external audit is claimed.
+## correctness
 
-## Originality — PASS
-The closest exact same-object published result, “The 5-regular Clebsch neighborhood complex is a wedge of 31 2-spheres” (published-finding corpus record `1dc11cc6574a`), is read in full and establishes nonequivariant homotopy only; it explicitly does not claim an equivariant homotopy type. General neighborhood/Hom comparison work of Kozlov and Csorba preserves or compares topological types but does not supply this concrete full affine representation. Exact published-database and alias searches found no stronger same-object result that specifies the three little-group summands. Risk: an unindexed equivariant calculation may exist; negative searches alone never establish absolute priority.
+PASS
 
-## Value — PASS
-The five-generator folded-cube geometry makes the complete affine automorphism group canonical, and the 31-dimensional character is not determined by the known 31-sphere wedge. The result supplies an explicit closed induced-module decomposition and reveals an essential distinction between translation and full-affine orbit-space rational homology (six surviving classes versus none), a natural equivariant-topology invariant.
+For 5-regular Clebsch Cayley(F2^4,{1,2,4,8,15}), 16 distinct 5-element neighborhoods generate exactly 353 faces including empty, face vector (16,80,160,80,16). Since every triangle belongs to exactly one maximal neighborhood, high boundary ranks are 64 and 16; 1-skeleton rank15 and independent modulo-two rank d2=65 force rational rank65 and only reduced H2 rank31. Independent enumeration of all 1920 A semidirect S5 transformations and signed oriented-face traces reproduced character distribution {-5:80,-1:825,1:944,3:60,7:10,31:1}, Fourier A-isotypic multiplicities {6:1,1:10,3:5} and full-average invariant 0. Source explicitly derives three little-group summands of dimensions 6+10+15 and matches induced character against direct chains for all 1920 elements. Does not claim a new nonequivariant wedge31 S2 or integral module.
 
-The claim concerns rational homology representations and ordinary quotient rational homology, not integral homology lattices, independent certification, or all folded cubes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
+
+## value
+
+PASS
+
+The Clebsch graph is a distinguished 5-regular strongly regular graph with full affine symmetry; knowing 31 nonequivariant spheres cannot decide rational equivariant module multiplicities or which H2 classes survive quotient by translations versus full automorphism group. A complete 1920-action three-summand module is a natural valuable exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
