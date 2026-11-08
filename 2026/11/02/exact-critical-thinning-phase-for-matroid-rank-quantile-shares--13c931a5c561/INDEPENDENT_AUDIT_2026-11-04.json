@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T10:05:28.229594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independent Bernoulli benchmark and n-agent allocation quantifiers are explicit; benchmark is not claimed to be a uniform random allocation marginal when p≠1/n. Convolution Z_t+Y with Y∼Bin(n,p) gives exact F_{t+1}−F_t. For k<=t, a_{k−1}/a_k <=(1-p)/(p(n−1)), yielding lower bound a_t(1-p)^n(1−H_n(p/(1-p))); H_n(1/(n−1))=1 and H_n is coefficientwise increasing. Thus all subcritical tails >=F_1=(1-p)^{n−1}, with n=2,p=1/2 equality. The cited matroid-intersection reduction bounds m−|A0|<=n(k+1−v(A0))−1; Barman–Verma MMS allocation simultaneously attains benchmark. Uniform rank-one matroids on n−1 goods are sharp below and at threshold; uniform rank-t on nt−1 goods has p>1/n left-tail→0 as t→∞, proving zero uniform guarantee (not zero for every fixed instance). Independently compared 759 exact rational binomial monotonicity samples, not used to certify theorem for all n,t,p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 Remark3 explicitly conjectures exact critical level (1−1/n)^(n−1); the prior proof gives a weaker value.",
+          "MMS feasible matroid-rank allocation is a known theorem used for proof.",
+          "2026 all-monotone c-thinned result applies to small c values and guarantees e^(−c), not the submitted full exact finite-n matroid-rank phase; critical-mean binomial comparisons have prior results."
+        ],
+        "reasoning": "More general valuation-class guarantee at small c must be credited as strong partial coverage; it does not settle 0<c≤1 at exact finite-n q or the c>1 zero bound. This is a structural sharp extension of a documented conjecture, not a new MMS theorem.",
+        "searches": [
+          "Babichenko–Feldman–Holzman–Narayan arXiv:2312.01874 §4.3 Prop6 Remark2; 2024 revision Prop8 Remark3",
+          "Barman–Verma arXiv:2012.12710 Theorem1",
+          "Jain–Mizgerd–Ravichandran arXiv:2605.04300 Theorems1.5,1.7,4.2",
+          "Fokkink–Papavassiliou–Pelekis 2022 Theorem1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.01874 / 2024 revised manuscript",
+        "arXiv:2012.12710",
+        "Fokkink et al. DOI 10.37190/0208-4147.00050",
+        "arXiv:2605.04300"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full critical equality is framed as conjecture by authors 2024, so it was not proven in that cited primary theorem.",
+          "2026 all-valuation result covers restricted c, not every subcritical c up to1; for 0<c<=1, its q=e^(−c) is below the sharper finite-n (1−c/n)^(n−1), since log(1−x)>=−x/(1−x) and (n−1)/(n−c)<=1.",
+          "Fokkink mode condition is not satisfied for initial binomial for all t when p<1/n."
+        ],
+        "reasoning": "Neither prior matroid intersection nor small-c universal q statement mathematically forces sharp Q_n(p) for every n and p; combination with new binomial comparison and adversarial uniform-matroid examples is essential.",
+        "searches": [
+          "arxiv:2312.01874 original/revised remarks explicitly conjecturing exact level",
+          "arxiv:2605.04300 Theorem4.2 and Definitions1.2-1.3",
+          "Fokkink et al. 2022 mode condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The result is a p=c/n phase diagram for maximin-share-dominating allocations and binomial rank-tail monotonicity.",
+          "2026 Jain et al. c-thinned shares use p=c/n but prove universal (all-monotone) feasibility only in a restricted small-c range; their q=e^(−c) differs from finite-n exact (1−c/n)^(n−1)."
+        ],
+        "reasoning": "Parameter-alias checks were performed for p and c=np; no directly equivalent full 0<c≤1 exact matroid theorem or c>1 impossibility was found in inspected sources.",
+        "searches": [
+          "Resultary:matroid rank allocations Bernoulli thinning quantile shares threshold p=1/n sharp phase",
+          "web: matroid rank quantile share Bernoulli thinning c n critical p threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found known binomial monotonicity theorem potentially implying boundary step at p=1/n, but not Q_n(p) throughout all p.",
+          "No exact q(p,n) phase table for this matroid domain in identified sources."
+        ],
+        "reasoning": "A binomial CDF identity alone is not the fair-division result; exact finite-n phase function and its uniform supercritical collapse were compared with source theorem statements. Any unindexed precise rank-share table is residual priority risk.",
+        "searches": [
+          "Resultary search exact matroid rank quantile share thinning phase",
+          "web: F_t Bin(nt-1,p) monotonic critical p=1/n and phase"
+        ]
+      },
+      "rationale": "Best-knowledge PASS after exact statement/implication comparison, Resultary searches and inspection of relevant primary source material. Classical ingredients, partial coverage and specific inaccessible-source risks are credited; no exhaustive historical priority claimed.",
+      "residual_risks": [
+        "Newer specialized comparisons might give the exact subcritical tail inequality or full matroid phase without using quantile-share language.",
+        "The standalone critical binomial inequality is closely related to mode monotonicity and is not claimed independent of that theory.",
+        "Above threshold zero guarantee is uniform over unbounded m, not a claim that every finite instance has zero feasible probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "underlying reduction and conjecture, not full phase",
+          "evidence": [
+            "2024 Remark3 asks exact critical finite-n level (1−1/n)^(n−1); Proposition8 weaker bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.01874",
+          "material_read": "full primary arXiv and 2024 revised full manuscript, §4.3, Proposition6/8, Remark2/3 and proof of matroid intersection reduction",
+          "method": "read open preprint and page images of revised PDF",
+          "title": "Fair Division via Quantile Shares",
+          "trigger": "directly conjectured target at critical p=1/n"
+        },
+        {
+          "assessment": "MMS feasibility prior work is correctly used",
+          "evidence": [
+            "Barman–Verma Theorem 1 supplies a simultaneous MMS allocation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.12710",
+          "material_read": "open full primary manuscript main theorem and matroid-rank proof section",
+          "method": "read arXiv full text",
+          "title": "Existence and Computation of Maximin Fair Allocations Under Matroid-Rank Valuations",
+          "trigger": "necessary MMS existence input"
+        },
+        {
+          "assessment": "covers certain mode-based comparisons; does not by itself give all p<1/n needed inequalities",
+          "evidence": [
+            "Fokkink–Papavassiliou–Pelekis 2022 theorem hypotheses depend on binomial mode"
+          ],
+          "identifier_or_url": "doi:10.37190/0208-4147.00050",
+          "material_read": "open primary PDF Theorem1.1, Eq1.2, proof and Lemma3.2",
+          "method": "read lawful open PDF",
+          "title": "On the Monotonicity of Tail Probabilities",
+          "trigger": "potential stronger binomial tail comparison"
+        },
+        {
+          "assessment": "small-c universal feasibility not all-c exact finite-n matroid phase",
+          "evidence": [
+            "Jain–Mizgerd–Ravichandran 2026 establishes positive q=e^(−c) for a restricted c region of all monotone valuations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.04300",
+          "material_read": "full primary open PDF, Definitions1.2–1.3, Theorems1.5,1.7,4.2, applications and relevant pages",
+          "method": "read arXiv full text and PDF page image",
+          "title": "Thinned Quantile Shares are Universally Feasible",
+          "trigger": "same p=c/n benchmarks and stronger valuation class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Gives exact critical p=1/n value conjectured in the 2023/2024 quantile-share primary paper and an all-subcritical/supercritical phase diagram on the natural matroid-rank domain, with sharp cutoff from positive level to zero when arbitrarily many goods are allowed. The n-agent Bernoulli benchmark is mathematically motivated and the exact classification is more than a routine numerical or feasibility check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Newer specialized comparisons might give the exact subcritical tail inequality or full matroid phase without using quantile-share language. The standalone critical binomial inequality is closely related to mode monotonicity and is not claimed independent of that theory. Above threshold zero guarantee is uniform over unbounded m, not a claim that every finite instance has zero feasible probability.",
+  "schema_version": 1
+}
