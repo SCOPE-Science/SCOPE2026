@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:42:58.830115Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen source specifies Saiki-Takahasi-Yorke map and Lebesgue fair Bernoulli L/R coding. The branch Jacobians are signed monomial (left diag(2,1,...), right cyclic shift with -2 on the wrapped coordinate); for each admissible word, original-coordinate column j has squared norm 4^{N_j}, N_j equal to visits to cyclic residue r_t by time n, and sum N_j=n. Fair independent right-symbols give Markov P=(I+shift)/2 on Z/M with uniform invariant law from deterministic r_0=0. For any centered contrast f of the occupation vector, solve g(r)-g(r+1)=2f(r); bounded martingale differences are ±f(r) with conditional quadratic variation f(r)^2. Ergodic theorem, martingale CLT and Cramer-Wold give exact covariance I/M-11^T/M^2, multiplied by (log2)^2. Continuous mapping of range gives the log condition-number Gaussian range law; bounded second moments of martingale sums imply uniform integrability and the mean constant (2log2/√M) E max_j Z_j. Finite-state ergodicity gives almost sure common Lyapunov exponent log2/M. Independent integer matrix products for every binary word length <=6 in M=2..5 (126 per M) matched visit counts, and exact Poisson/Green-Kubo identity held for M=2,3,5,11; tests supplement the symbolic all-fixed-M proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Theorems A–D cover periodic points, nonuniform periodic expansion and mixing, with exact Bernoulli itinerary premise.",
+          "Finite-state martingale CLT covers abstract bounded functions on an irreducible finite Markov chain but does not provide map-specific g(r)-g(r+1)=2f(r), covariance (I/M-11^T/M^2), or condition-number Gaussian-range expectation absent the reduction."
+        ],
+        "reasoning": "A stronger abstract convergence theorem establishes Gaussianity but not the explicit observable-dependent constants as an already stated special case; original source supplies the map and coding, not the new result by direct theorem implication.",
+        "searches": [
+          "Saiki, Takahasi, Yorke The twisted baker map arXiv:2202.04304v3 main theorems and sections 2–3",
+          "Resultary: twisted baker map finite time singular values central limit Gaussian covariance isotropic condition number",
+          "Levin/Peres Markov Chains and Mixing Times finite-state limit theory background"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2202.04304v3",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/isotropic-gaussian-splitting-of-finite-time-singular-values-in-t--11d620ed5ef6/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Beroulli coding and monomial branch matrices are explicitly treated as premises.",
+          "Periodic real-spectrum residue law determines whether D F^n(x) eigenvalues are nonreal at periodic x; singular values at random x depend on occupation counts.",
+          "The stationary cyclic-walk Poisson equation and its conditional martingale variance are calculated in this source to yield exact isotropic law."
+        ],
+        "reasoning": "Equidistribution or weak mixing alone does not determine the CLT variance and condition-number limit. Prior same-map results may facilitate the computation but do not state or imply the resulting constants without a nontrivial map-specific reduction.",
+        "searches": [
+          "Original arXiv:2202.04304v3 Lemmas 2.1–2.4, P4 and Theorems A–D",
+          "Resultary Exact real-spectrum residue law for the twisted baker map entire RESULT.md",
+          "Resultary: twisted baker map finite time singular values central limit Gaussian covariance isotropic condition number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original derivative is monomial cyclic shift; equal-root central-limit statistic concerns Lebesgue random itineraries.",
+          "Resultary 2026/10/11 Exact real-spectrum residue law explicitly addresses eigenvalues of D F^n at *periodic* points, not random Euclidean singular values."
+        ],
+        "reasoning": "Equivalent language includes Gaussian occupation counts of a lazy cyclic Markov walk, coordinate logarithmic stretching, and singular-value anisotropy; the same-map prior periodic eigenvalue result does not become a typical-trajectory singular-value central limit theorem under a change of notation.",
+        "searches": [
+          "Resultary: twisted baker map finite time singular values central limit Gaussian covariance isotropic condition number",
+          "Resultary: twisted baker map real eigenvalues periodic points residue law",
+          "Original arXiv:2202.04304v3 full text search for singular values and finite time Lyapunov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary periodic eigenvalue census is a roots-of-unity filtered binomial sum R_M(n), not a multivariate Gaussian covariance matrix.",
+          "The originating paper reports periodic orbit counts and spectral-type phenomena, not a table of typical finite-time log singular values."
+        ],
+        "reasoning": "The relevant object is a limiting distribution with an exact rank-M-1 covariance; a periodic count table is not an exact database coverage of this stationary-trajectory statistic.",
+        "searches": [
+          "Resultary: twisted baker map real eigenvalues periodic points residue law",
+          "Resultary: twisted baker map finite time singular values central limit Gaussian covariance isotropic condition number",
+          "Original Saiki-Takahasi-Yorke Section 2 periodic count 2^n-1"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit map-specific full covariance and condition-number range and expectation. Original source proves coding, periodic-point spectral properties and mixing; exact later published periodic real-spectrum refinement concerns eigenvalues at periodic points. Neither contains the typical-trajectory stationary occupation limit with this explicit covariance and condition-number constant, though abstract martingale CLT is standard.",
+      "residual_risks": [
+        "Standard finite-state Markov CLT means Gaussianity by itself is classical; novelty limited to exact map-specific covariance/condition-number formula.",
+        "Another source may already use occupation-count embedding for this same twisted baker derivative, not indexed by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies primary model and iid coding; inspected stated results lack exact stationary singular-value fluctuation covariance",
+          "evidence": [
+            "P4 gives fair Bernoulli coding; Section 2 derivative monomial; theorems focus on periodic points, real/nonreal spectra and mixing."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.04304v3",
+          "material_read": "Full primary article v3 definitions, derivative formulas (2.1), Lemmas 2.1–2.4, P4, Theorems A–D and main proofs",
+          "method": "Read full original HTML mathematical statements and inspected rendered article pages",
+          "title": "The twisted baker map",
+          "trigger": "Defines exact dynamical map, symbolic invariant measure and strongest prior periodic derivative conclusions"
+        },
+        {
+          "assessment": "Different periodic-point eigenvalue criterion and binomial counts; not a Lebesgue finite-time singular-value CLT",
+          "evidence": [
+            "Real spectrum iff M divides number of right visits at periodic point; counts R_M(n), C_M(n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b/RESULT.md",
+          "material_read": "Entire public RESULT.md, finding, assumptions, proof, finite checks, limitations",
+          "method": "Read public GitHub blob 89b4478af95020a101bdd7169bc64b7ccf065dca and compared quantified observables",
+          "title": "Exact real-spectrum residue law for the twisted baker map",
+          "trigger": "Exact same map and cyclic Jacobian but potentially dominating dynamical invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The twisted baker map is specifically designed to couple stretching and directional twisting. Its exact rank-(M-1) isotropic Gaussian fluctuations and expected log-condition-number growth distinguish nearly equal asymptotic Lyapunov exponents from significant finite-time anisotropy. The covariance is a natural quantitative dynamical invariant not supplied by generic mixing or periodic-eigenvalue statements, and the parameter-uniform formula holds for every fixed integer M>=2.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only normalized invariant Lebesgue initial measure and fixed M>=2, excluding branch boundary preimages; no joint n,M limit, no all-invariant-measure statement.",
+    "Known generic finite-state CLT is not new; unindexed prior map-specific CLT or finite-time singular-value distribution remains a priority risk."
+  ],
+  "schema_version": 1
+}
