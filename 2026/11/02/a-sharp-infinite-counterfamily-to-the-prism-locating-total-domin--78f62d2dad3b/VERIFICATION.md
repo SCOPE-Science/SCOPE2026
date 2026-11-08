@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_prism.py` with Python 3 and no third-party packages.
+# Independent mathematical audit
 
-The verifier constructs the ten distinct length-five cyclic factors of \(B\), \(BQ\), and \(BQQ\), checks total domination and all eligible collision pairs in each, independently tests locating-total domination on the actual complete prism graph for \(n=8,13,\ldots,63\), and exhaustively tests all smaller initial-set sizes at \(n=8\). Its printed marker is `CERTIFICATE_OK` with factor count 10, local eligible-pair count 12, and the covered finite orders.
+## correctness
 
-The crucial all-size step is mathematical: a five-column factor of \(BQ^t\) can involve at most one block interface since block lengths are eight and five; the interface types occur among \(B\), \(BQ\), and \(BQQ\). The local lemma proves no other pair of unselected vertices can share a nonempty fingerprint. The cubic counting lower bound is independent of computation. Finite checks are corroboration and do not establish infinite correctness on their own.
+PASS
 
-This is not independent validation. Publication priority against unindexed equivalent research remains uncertain.
+The general cubic cut-edge count for a locating-total dominating set S in a 2n-vertex cubic prism gives 2(2n-|S|)-|S| <= E_cross <= 2|S|, so |S| >= ceil(4n/5). The explicit cyclic column-mask word B Q^t with B=(3,1,0,3,0,3,0,0), Q=(3,0,3,0,0), n=8+5t has 7+4t selected vertices. Identical nonempty outside fingerprints can only come from same-rail distance-two or opposite-rail neighboring columns: the five-column locality lemma checks these collisions and total domination. Exactly ten five-column factors occur; checking B,BQ,BQQ covers every possible within-block/interface window, because each window length 5 is no longer than each repeated block. This proves n>=8 throughout the n=3 mod 5 progression, not by finite extrapolation. Independent implementation checked ten factors, direct prisms for t=0..17, and absence of any size-six solution at n=8.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge scientific comparison: The 2021 conjecture is contradicted by 7+4t, so cannot itself establish it. Earlier bounds for residues 0,2,4 mod 5 neither cover n=3 mod5 nor imply the constructed word BQ^t. Ordinary domination of prisms is an inequivalent invariant. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
+
+## value
+
+PASS
+
+This constructs an explicit infinite family of optimal locating-total dominating sets that refutes the n congruent 3 mod 5 branch of a concrete 2021 prism conjecture. It identifies a sharp natural domination invariant on an infinite vertex-transitive-by-layers graph family, with an independent matching lower bound and reproducible finite local certificate; not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each cubic prism, the cut-edge counting lower bound is \(\lceil4n/5\rceil\). The explicit cyclic word \(BQ^t\) has exactly \(7+4t\) selected vertices. All possible locating collisions are of two geometric types, and a five-column locality lemma reduces the all-parameter claim to the ten explicitly listed local factors. Their exhaustiveness for every repetition count is justified by the complete four-type block-interface argument. The provided checker verifies all ten factors and independently checks original graph definitions at sample orders, with exhaustive first-order minimality; finite graph enumeration is not used to infer the infinite statement.
+## correctness
 
-## Originality — PASS
-Raza, Iqbal, Khan, and Botmart (2021), DOI 10.1177/00368504211053417, Conjecture 2, assert the contrary value \(\lceil4n/5\rceil+1\) for the entire residue class \(n\equiv3\pmod5\). Their Theorem 5 gives an upper bound, not this sharp equality. Relevant later generic results (arXiv:2211.14178) and accessible historical claims do not imply the sharp family. Literature aliases prism/circular ladder/generalized Petersen \(GP(n,1)\) were considered. The foundational 2012 paper could not be fully read; priority uncertainty from unindexed or earlier equivalent work persists.
+PASS
 
-## Mathematical value — PASS
-Resolving an infinite residue class by counterexample to an explicitly published conjecture is a motivated structural advance. The method supplies a sharp extremal construction with a finite local certificate that covers infinitely many sizes. No claim is made about \(n\equiv1\pmod5\), all minimum placements, or independent validation.
+The general cubic cut-edge count for a locating-total dominating set S in a 2n-vertex cubic prism gives 2(2n-|S|)-|S| <= E_cross <= 2|S|, so |S| >= ceil(4n/5). The explicit cyclic column-mask word B Q^t with B=(3,1,0,3,0,3,0,0), Q=(3,0,3,0,0), n=8+5t has 7+4t selected vertices. Identical nonempty outside fingerprints can only come from same-rail distance-two or opposite-rail neighboring columns: the five-column locality lemma checks these collisions and total domination. Exactly ten five-column factors occur; checking B,BQ,BQQ covers every possible within-block/interface window, because each window length 5 is no longer than each repeated block. This proves n>=8 throughout the n=3 mod 5 progression, not by finite extrapolation. Independent implementation checked ten factors, direct prisms for t=0..17, and absence of any size-six solution at n=8.
 
-## Closest literature and residual risks
-- Raza et al. (2021), Theorem 5 and Conjecture 2: exact conflicting target; fully inspected open-access source.
-- Chakraborty et al. (arXiv:2211.14178v2): broad upper bounds; relevant text inspected.
-- Henning–Rad (2012): indexed ordinary-ladder results, full article unavailable; remaining potential priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge scientific comparison: The 2021 conjecture is contradicted by 7+4t, so cannot itself establish it. Earlier bounds for residues 0,2,4 mod 5 neither cover n=3 mod5 nor imply the constructed word BQ^t. Ordinary domination of prisms is an inequivalent invariant. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
+
+## value
+
+PASS
+
+This constructs an explicit infinite family of optimal locating-total dominating sets that refutes the n congruent 3 mod 5 branch of a concrete 2021 prism conjecture. It identifies a sharp natural domination invariant on an infinite vertex-transitive-by-layers graph family, with an independent matching lower bound and reproducible finite local certificate; not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
