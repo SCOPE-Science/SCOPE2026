@@ -1,15 +1,21 @@
-# Review of the two-step factorial-divisor threshold classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim combines an exhaustive exact-integer search for \(2\le m<2048\) with a proved strict upper bound for every pair of consecutive composite arguments beyond the cutoff. Critical formulas are the Legendre-valuation ratio for \(\tau(t!)\), a separate large-prime-factor isolation, and the three cases of consecutive composites. Exact rational upper bounds \( (45/34)^2<2\), \(675/338<2\), and \((9/5)(45/44)^2<2\) verify the nonexceptional cases. The standalone script repeats the complete finite-range search with integer arithmetic and independently checks all 2,047 factorial transitions in the finite range. No experimental check is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with limitations
+For n>=1, K(n) tests tau((n+k)!)/tau(n!). The exact local ratio R(t)=product_{p^a||t}(V_p(t-1)+a+1)/(V_p(t-1)+1) and estimate R(t)<=exp(S(t)/t) are reconstructed. If t>=2048 is composite, split by largest prime <=sqrt(t) or >sqrt(t), isolating a large prime factor with cofactor a>=2. Consecutive-composite bounds outside cofactors 2,3 are (45/34)^2, (3/2)(15/13)^2, and (9/5)(45/44)^2, all <2. Cofactors 2 and 3 with both complementary large factors prime give product >2. Independent exact integer computation for 2<=m<2048 found 60 double-composite two-step hits: 55 prime-pair and five exceptions 8,15,20,25,34, and the only composite one-step factor m=4. Thus K=1 iff n+1 prime or n=3; the stated K=2 classification exhausts all n, with no infinitude asserted for simultaneous-prime families.
 
-The closest primary treatments are Freiberg (2026), which defines the same \(K(n)\) and establishes large-value lower bounds, and Erdős--Graham--Ivić--Pomerance (1996), which introduced the threshold and proved its larger-scale properties. Their accessible full texts, including their threshold sections, do not state the two-step classification or the list of five exceptional composite windows. Published mathematical-record searches for equivalent and stronger results did not identify another result implying this complete low-threshold classification. An unindexed elementary derivation or unpublished table remains possible; mathematical priority has not been independently established.
+## originality
 
-## Value — PASS
+PASS
 
-For the natural threshold measuring when the divisor count of a factorial doubles, the theorem completely determines the first two fibers, including all prime-free two-step doublings. The arithmetic-prime-pair alternatives and the finite exceptional list precisely isolate when consecutive composites can substitute for a prime step. This connects the prime-gap interpretation to concrete short-window behavior instead of adding an arbitrary finite numerical example. The theorem makes no claim about higher thresholds or the infinitude of its simultaneous-prime families.
+Freiberg arxiv:2609.15597 studies the same K(n), bounds and sparse large values; Erdős–Graham–Ivić–Pomerance (1996) study n! divisor growth. They do not in their accessible indexed statements give the exact K=1/K=2 classification, prime-pair alternatives and five exceptional windows. The standard exponential bound is acknowledged as prior. The highly plausible Freiberg primary full text could not be retrieved despite arxiv/OA and authorized institutional attempts, so no whole-document noncoverage assertion is made.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first two exact fibers of the natural factorial-divisor doubling waiting time K(n) describe how a prime jump or pairs of composite integers can double tau(n!). The arithmetic alternative of two linear prime forms, isolated by a rigorous uniform cutoff and five exceptions, is a genuine infinite-domain classification of a specific mathematical quantity, not finite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
