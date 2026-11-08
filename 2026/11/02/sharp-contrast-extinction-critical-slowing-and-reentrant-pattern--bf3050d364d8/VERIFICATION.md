@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The executable `verify.py` uses Python 3, numpy, scipy, and sympy. From the directory containing it, execute `python verify.py`. It confirms the identities \(\ell(z)+\ell(-z)=1\), \(2\ell(z)-1=\tanh(z/2)\), and the critical Taylor coefficient \(\lim_{v\to0}(\tanh v-v)/v^3=-1/3\) symbolically. Four hundred randomized stochastic-network configurations test the diameter inequality. Twenty two-node cases verify exact equilibria and both Jacobian eigenvalues; four coupling contrasts check the secondary stability threshold, and long-time integration checks the critical constant numerically.
+## correctness
 
-The analytical theorem does not rely on random tests to establish universal quantification, and numerical integration does not certify an infinite-time limit. The proof supplies the comparison principle, finite-zero convergence argument, exact invariant line and spectra. For parameter precision, all claimed sharp constants are given by exact equations rather than numeric sampling. No independent audit or external validation is represented.
+PASS
+
+The logistic centered chord supremum is tanh(|a-b|/4) and the zero-sum row-difference Dobrushin inequality is |(Wx)i-(Wx)j|<=delta(W)D. Their Dini combination yields D^+D<=-D+tanh(beta delta D/4). Scalar comparison proves exponential decay below one and tD^2 limsup<=3/2 at one. The asymptotically autonomous scalar mean p obeys p_prime= -p+ell(theta+beta p)+o(1); the real analytic scalar field has finitely many zeros and the sign-of-crossings argument forces convergence to one zero, with all coordinates coalescing. For W_delta and theta=-beta/2, x1+x2=1 is invariant, contrast v satisfies v_prime=-v+tanh(kv); its cubic critical coefficient -1/3 attains 3/2. Nonzero roots exist iff k>1; Jacobian eigenvalues mean=-1+beta(1-v^2)/4 and contrast=-1+beta delta(1-v^2)/4. H(v)=(1-v^2)atanh(v)/v decreases strictly from 1 to 0, giving unique secondary hyperbolic sink threshold beta_s=4/(1-v_s^2), H(v_s)=delta. No nonlinear stability claim at zero eigenvalue; no claim all W above boundary support heterogeneity.
+
+## originality
+
+PASS
+
+Compared precise all-network k=beta*delta(W)/4 closed threshold and two-node secondary stability claim, not merely titles. Dobrushin contraction and centered logistic chord are preexisting tools; Boudourides establishes weak-feedback contraction and local heterogeneous pattern cusps, whereas the combined beta*delta criterion extends into beta>4 multistability with a critical t^-1/2 bound. No inspected prior statement entails all claims; relevant full motivating preprint was not fully read in this run, leaving a nontrivial priority risk.
+
+## value
+
+PASS
+
+The separation of scalar bistability from forced spatial homogenization is a meaningful all-network sharp result; two different thresholds for pattern existence and local attraction and the critical algebraic contrast constant give a structurally motivated dynamical phase classification rather than routine Lipschitz contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

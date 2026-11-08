@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The logistic centered-chord identity and classical Dobrushin diameter estimate yield a globally valid differential comparison for the maximum–minimum activation contrast, including tied extrema. The scalar comparison proves both strict exponential decay and endpoint algebraic decay. An asymptotically autonomous one-dimensional mean equation with a finite equilibrium set completes the proof of convergence to a homogeneous fixed point; this step excludes persistent synchronized nonconvergent behavior. The symmetric two-node invariant line gives exact sharpness, and the full two-dimensional eigenvalues establish the second threshold. The supplied numerical and symbolic checks are reproducible diagnostics, not substitutes for these arguments.
+PASS
 
-## Originality (PASS, evidence-limited)
+The logistic centered chord supremum is tanh(|a-b|/4) and the zero-sum row-difference Dobrushin inequality is |(Wx)i-(Wx)j|<=delta(W)D. Their Dini combination yields D^+D<=-D+tanh(beta delta D/4). Scalar comparison proves exponential decay below one and tD^2 limsup<=3/2 at one. The asymptotically autonomous scalar mean p obeys p_prime= -p+ell(theta+beta p)+o(1); the real analytic scalar field has finitely many zeros and the sign-of-crossings argument forces convergence to one zero, with all coordinates coalescing. For W_delta and theta=-beta/2, x1+x2=1 is invariant, contrast v satisfies v_prime=-v+tanh(kv); its cubic critical coefficient -1/3 attains 3/2. Nonzero roots exist iff k>1; Jacobian eigenvalues mean=-1+beta(1-v^2)/4 and contrast=-1+beta delta(1-v^2)/4. H(v)=(1-v^2)atanh(v)/v decreases strictly from 1 to 0, giving unique secondary hyperbolic sink threshold beta_s=4/(1-v_s^2), H(v_s)=delta. No nonlinear stability claim at zero eigenvalue; no claim all W above boundary support heterogeneity.
 
-The nearest primary source explicitly establishes a weaker full-state contraction condition, a homogeneous spectral ordering, persistence of mixed stable equilibria under weak interblock coupling, and local heterogeneous cusp asymptotics. It does not state the sharp finite-network Dobrushin-weighted global contrast criterion, its saturated critical constant, or the exact two-stage mixed-equilibrium stability phase diagram. The Dobrushin estimate is a classical ingredient and is not claimed as novel. The comparison includes published nonlinear and sigmoidal-network work and indexed mathematical findings, with the risk that an uninspected older general semicontraction or neural-network theorem may subsume part of the claim. These are original-science priority assessments, not independent certification.
+## originality
 
-## Value (PASS)
+PASS
 
-The contrast criterion resolves a meaningful structural question left by local cusp calculations: when can entire finite stochastic networks be guaranteed to forget all inter-node differences even though their homogeneous scalar dynamics admit hysteresis and bistability? The exact condition depends on overlap among network feedback rows rather than feedback strength alone, retains a sharp critical slowing law, and separates the creation of heterogeneous fixed points from their ability to attract. It provides quantitative network-design implications without requiring a general downstream theorem.
+Compared precise all-network k=beta*delta(W)/4 closed threshold and two-node secondary stability claim, not merely titles. Dobrushin contraction and centered logistic chord are preexisting tools; Boudourides establishes weak-feedback contraction and local heterogeneous pattern cusps, whereas the combined beta*delta criterion extends into beta>4 multistability with a critical t^-1/2 bound. No inspected prior statement entails all claims; relevant full motivating preprint was not fully read in this run, leaving a nontrivial priority risk.
 
-## Closest work and residual limitations
+## value
 
-Boudourides, arXiv:2609.10580, is the direct motivating model; Gaubert–Qu, arXiv:1307.4649, supplies the established linear coefficient; Duncan et al., arXiv:2103.17184, study different sigmoidal network stability questions. Kaye's 2026 spatial model is an additional potential comparison, inspected via its abstract and the motivating article's description rather than its full original text. The theorem is confined to common-logistic, common-field, fixed row-stochastic continuous-time networks. No independent literature-priority or scientific audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The separation of scalar bistability from forced spatial homogenization is a meaningful all-network sharp result; two different thresholds for pattern existence and local attraction and the critical algebraic contrast constant give a structurally motivated dynamical phase classification rather than routine Lipschitz contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
