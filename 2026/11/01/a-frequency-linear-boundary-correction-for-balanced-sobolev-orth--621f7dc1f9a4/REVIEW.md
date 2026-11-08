@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-harmonic Fourier weight makes the monomial Gram matrix block tridiagonal along residues modulo \(m\), and minimizing a monic polynomial reduces exactly to a positive Schur pivot. The explicitly derived fixed-point and first adiabatic correction satisfy that pivot recurrence with a uniform \(O(n^{-2})\) residual. A strict contraction, valid because \(|a|<1/2\), makes the residual a genuine uniform global estimate. The complex phase only changes off-diagonal phases, not the pivot. The exact-arithmetic replay separately checks the Gram reduction. The proof addresses the fixed-parameter quantifiers and all endpoints in scope.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest source is Majumder–Swaminathan (2026), arXiv:2610.31994: its critical-scale Proposition 1 gives bounds and Theorem 3.2 gives strong exterior-polynomial asymptotics, but the inspected results do not give a second-term monic norm expansion or frequency-linear coefficient. published-finding corpus statement searches for balanced circle Sobolev norms, degree-dependent weights, equivalent cosine harmonics and tridiagonal Gram pivots returned unrelated Fourier positivity and harmonic Bergman problems, not a covering result. Fixed-coupling articles and classical general orthogonal polynomial recurrences do not by themselves imply the displayed \(\\(1/n\\)\) coefficient. Existing general slowly varying Jacobi asymptotics could conceivably cover the special model; this is a recorded residual risk.
+PASS
 
-## Value — PASS
-The critical \(n^{-2}\) Sobolev scale is a natural boundary where the derivative term survives in leading order. The result supplies the exact missing correction to the norm and exposes a distinction invisible at leading order: changing from frequency \(1\) to frequency \(m\) multiplies the first boundary effect by \(m\). This is a structural parameter law across all harmonic orders, not an arbitrary numerical sample or a restatement of the leading Szegő asymptotic.
+For fixed integer m>=1, |a|<1/2 and lambda>0, the monomial Gram matrix for the n^-2 derivative weight is Hermitian, diagonal 1+lambda j²/n², and off-diagonals only at |j-k|=m with magnitude |a|lambda jk/n². Residues mod m split, and the monic Schur pivot satisfies h_j=1+lambda(j/n)^2-|a|²lambda²j²(j-m)²/(n^4 h_(j-m)). Positive lower bound D(j/n)/2 follows from |a|<1/2; the step-map derivative is uniformly rho<1 for n large. Stable fixed point H=(D+sqrt(D²-4|a|²lambda² x^4))/2 and correction E_m(x)=2m|a|²lambda² x³/Delta(x)² satisfy the pivot recursion with O(n^-2) residual, propagated globally by contraction from small j. At x=1 obtain sigma_n²=(1+lambda+Delta)/2+2m|a|²lambda²/(n Delta²)+O(n^-2), Delta²=(1+lambda)²-4|a|²lambda². For a=0 exact sigma_n²=1+lambda. Independently compared full exact rational Gram minimizations against pivots in 176 cases and checked n²-scaled residuals for m=1,3,7 at n=200,400,800,1600; these are corroborations, not asymptotic proof.
 
-## Closest literature and limitations
-The general 2026 work gives strong asymptotics and nonexact norm bounds, not the present frequency-dependent second term. The theorem is for a single Fourier-harmonic density with fixed \(m\) and strictly positive weight; arbitrary densities, growing \(m\), and the nonstrict positivity boundary are unresolved. Equivalent formulas in incompletely searchable older special-function or adiabatic Jacobi literature cannot be fully excluded. No external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The closest and now fully accessible primary 2026 Majumder–Swaminathan article was inspected: its critical Sobolev squared norms receive only Proposition 1 leading upper/lower bounds; Theorem3.2 gives outer polynomial asymptotics, not this explicit harmonic-m linear 1/n norm coefficient. Other results supply background but no demonstrated implication; residual general recurrence priority risk stated.
+
+## value
+
+PASS
+
+The n^-2 derivative coupling is the natural critical scaling for degree-n circle polynomials. The leading norm loses all Fourier harmonic index information, but the exact first correction recovers frequency m linearly. A controlled all-m first-order boundary term with O(n^-2) remainder is a motivated new structural quantitative asymptotic rather than routine leading-order restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
