@@ -1,18 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every geometric parameter in characteristic five, a valuation count at the unique wild branch point produces fourteen regular differentials. The Artin–Schreier relation yields exactly the eight nonzero Cartier columns listed in the proof; four fixed pivots leave the two-by-two matrix \(\begin{psmallmatrix}2B&2A+B^2\\-2A&0\end{psmallmatrix}\). Its determinant is \(2A(2A+B^2)\), its origin rank is zero, and its rank on either component away from the origin is one. These facts prove the \(a\)-number values \(8,9,10\) without assuming coefficient rationality. The Cartier-invariant six-space for the tame involution has constant rank two and establishes the genus-six quotient and Prym assertions. The divisor intersection has local length two. Both standalone scripts were executed and passed; the exact symbolic proof, rather than bounded enumeration, supports the geometric quantifiers.
+## correctness
 
-## Originality — PASS with residual priority risk
-Booher–Cais (arXiv:1807.10313) gives ramification bounds **and Example 7.3 gives an explicit one-divisor parameter jumping law at pole order three, a close methodological precedent distinct from this pole-order-eight tangent two-component locus**; Abney-McPeek et al. (arXiv:2003.09028, especially full Sections 6–7) gives minimum \(a\)-number existence plus explicit degree-eight examples; Groen (arXiv:2208.06504) treats higher Cartier powers. In particular, the minimum \(a\)-number \(8\) is known to be attainable and is **not** presented as new. Searches compared the exact family, parameter aliases, Cartier-rank equivalences, earlier tables, and stronger classification claims. The full two-parameter jumping equation \(a(2a+b^2)=0\), tangency, and quotient/Prym assertion were not implied by the inspected results or the closest returned research records. Semantic search cannot prove absolute uniqueness; an unindexed computation or a family obtained by change of variables remains a real residual risk.
+PASS
 
-## Mathematical value — PASS
-The case is a natural two-parameter even-degree deformation within the ramification-jump-eight genus-fourteen covers previously studied for minimal \(a\)-numbers. The answer isolates the entire exceptional locus over the algebraic closure (not just rational test cases), its intersection scheme and the localization of all arithmetic variation in the Prym factor. This is a structured geometric explanation of where minimum \(a\)-number fails, a motivated question beyond existence of a single example. It does not classify all genus-fourteen curves or finer \(p\)-torsion invariants.
+Read frozen RESULT.md and verified full 14-form basis via valuation at infinity: v(x)=-5,v(y)=-8,v(dx)=26, allowing j=0..3 with i ranges 0..5,0..3,0..2,0. Expand Cartier using y^5=y+f(x), C(x^N dx) only N≡4 mod5 and semilinear fifth roots A,B; four constant pivot columns and a 2x2 residual M=[[2B,2A+B²],[-2A,0]] give det=2A(2A+B²). Hence ranks 4,5,6 and a-number 10/9/8 according to the union of two jump curves (fifth power maps preserve zero sets), for all algebraically closed parameters. Local ring quotient k[[a,b]]/(a,2a+b²) has length two. The involution x→-x splits 6 invariant + 8 anti-invariant differentials (tame degree 2), quotient Cartier rank 2 and constant a-number 4, Prym a-number 6/5/4. Union-count of line/parabola over F_(5^r) gives 1,2(q-1),(q-1)². Independent script generated all 14 Cartier columns from raw monomials for all 25 F5 coefficient pairs and recovered 1,8,16 ranks; analytical polynomial rank proof covers all geometric parameters.
 
-## References and scope of review
-- Booher–Cais, arXiv:1807.10313, especially introduction and examples concerning ramification bounds.
-- Abney-McPeek et al., arXiv:2003.09028, full text introduction and Sections 6–7, including binomial and trinomial tables.
-- Groen, arXiv:2208.06504, discussion and examples of higher Cartier kernels.
-- Scientific comparison of nearby searchable records, with non-equivalent geometries explicitly distinguished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. Prior jumping-locus technique is analogous, but equations/hypotheses and exact all-parameter conclusion differ, and no equivalence was identified. Known broader bounds and examples imply admissibility of some ranks but not this exact marked-plane stratification.
+
+## value
+
+PASS
+
+A complete two-dimensional coefficient-marked arithmetic stratification with two tangent jumping branches, unique deeper origin, a fixed quotient and variable Prym invariant. The exact local intersection multiplicity and all-field parameter counts are useful refinements of broad existence bounds, not an arbitrary numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
