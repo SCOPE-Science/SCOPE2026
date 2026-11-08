@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and proof boundaries
+# Independent mathematical audit
 
-The analytical verification is the eigenvalue decomposition of the complete powered-distance kernel on the real zero-sum subspace and the elementary scalar root comparison. See RESULT.md, especially the block identity and the sign formula for the global mode at the spectral threshold. This derivation covers *every existing* symmetric design satisfying the stated assumptions, not merely the examples below.
+## correctness
 
-Execute `python verify.py` with Python 3 and NumPy. The script constructs incidence matrices for \(\mathrm{PG}(2,q)\) over prime fields \(q=2,3,5,7\), their complement designs, and the cyclic symmetric \(2\)-\((11,5,2)\) design with its complement. It independently reconstructs graph distances by breadth-first search, checks exact integer design equations, computes incidence singular values, compares every eigenvalue of the full centered distance-power matrix with the predicted spectral branches at six exponents per graph, and checks critical rank and phase.
+PASS
 
-The observed critical exponents include approximately \(0.694280092777\) for the Fano incidence and nonincidence graphs, \(0.560762760130\) for \(\mathrm{PG}(2,3)\) incidence, and \(0.248493254733\) for its nonincidence graph. The latter critical affine dimension is \(24\), versus \(13\) for the incidence graph. All ten numerical cases passed.
+PASS: On all symmetric 2-(v,k,lambda) designs with r=k-lambda>=2, the length-one/length-two/length-three incidence metric gives D_p block form. NN^T=rI+lambda J yields one global zero-sum eigenvalue g(p) and spectral +/- eigenvalues -2^p +/- sqrt(r)(3^p-1), each multiplicity v-1. Independently proved the phase identity g(p_s)=(k-sqrt(r))/(k-r)*((k-1)2^p_s-k-sqrt(r)), and checked q=2,3,...49 original/complement inequalities. Unique spectral crossing, scalar root and Schoenberg strictness prove exact all-p bound and centered-Gram rank; plane asymptotics follow Taylor expansion.
 
-Floating-point diagonalizations use an absolute tolerance of \(5\cdot10^{-8}\); no finite enumeration certifies an infinite theorem. No check claims independence, formal machine proof, or an external expert review. The resonance existence question remains open within this report.
+## originality
+
+PASS
+
+PASS qualified: the classical Schoenberg centered-kernel criterion, unpowered quadratic-embedding constants and symmetric-design singular spectrum are known. The exact competition of fractional-power modes, resonance nullities, projective-plane complement phase reversal and disparate q-asymptotics were not identified in the inspected primary treatments.
+
+## value
+
+PASS
+
+PASS: natural generalized-roundness/Hilbert embedding invariant on all symmetric-design incidence graphs; distinct failure mechanisms and sharp phase boundary explain major q^{-1/2} versus q^{-2} difference under complement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
