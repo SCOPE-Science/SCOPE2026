@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T05:55:07.009921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For independent uniform parents P_t, H_j uses only parent choices t<=j, so D_i is independent of H_j when i>=j. For t<=j the event that j descends from t is independent of P_t and has probability 1 (j=t) or 1/t (j>t). Resampling P_t yields Cov(1{P_t=i},H_j)=q_{t,j}(1+h_(i-1)-h_(t-1))/(t-1). Summing gives C_i(i+1)=(i-1)/i², and direct subtraction telescopes to C_i(j+1)-C_i(j)=-1/j². Thus the exact matrix holds for every n>=2 and 1<=i,j<=n. For i>=2, the reciprocal-square tail Q_(i+1)>1/(i+1)>(i-1)/i² ensures the limit C_i(j)<0; monotonicity gives the single crossing. Euler–Maclaurin gives δ_i=1/(2i²)+1/(6i³)+O(i^-5), and Q_(2i²-(2/3)i+v)-δ_i=(13/72-v/4)i^-4+O(i^-5), uniformly for bounded v; this traps J_i=2i²-(2/3)i+O(1). Direct independent exhaustive parent-sequence enumeration covered all (i,j) for n=2,...,8 (203 matrix entries, 5913 trees in total); exact transition calculations independently recovered J_2=8,J_3=17,J_4=31 and i<=9. No infinite claim rests on the finite enumeration. All seven actual Git blobs were inspected; independently reconstructed Git tree equals the frozen assignment SHA.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lodewijks Theorem 2.6 requires vi,n diverge and proves convergence in distribution after normalization; fixed source i and exact C_i(j) for every j are outside those quantifiers.",
+          "Kuba and Wagner (2010), On the Distribution of Depths in Increasing Trees, abstract: marginal depth law of kth node and lowest common ancestor distribution, not joint with a separate source outdegree.",
+          "Janson, Asymptotic degree distribution in random recursive trees (2004/2005), abstract: covariance between counts of vertices of specified outdegree, not child count of a labeled vertex against another labeled depth."
+        ],
+        "reasoning": "General distributions/independent-parent growth methods cover the base model and are reusable tools; their stated theorems do not force the source-independent -1/j² decrement for every nonroot i or the 2i²-(2/3)i+O(1) horizon. Marginal depth and degree-profile limits do not determine finite cross moments. A general ancestor-parent conditional-moment identity not found in the searched corpus could in principle dominate the claim.",
+        "searches": [
+          "web: \"recursive trees\" \"mixed moments\" degree depth birth label",
+          "web: recursive trees covariance node depth outdegree ancestor joint expectation",
+          "web: random recursive trees covariance outdegree and node insertion depth analytic",
+          "Lodewijks 2023 arxiv:2204.09032 §§2,6; Eslava 2021 arxiv:1611.07466 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "assigned frozen package RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md and verify.py, all read at b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595; tree dbd65540dcfa288d9f2d10a2aa5c084d5f84732e",
+        "arXiv:2204.09032v4 (Lodewijks, 2023) Theorem 2.6, Proposition 6.3",
+        "arXiv:1611.07466v3 (Eslava, 2021) Theorems 1.1–1.2",
+        "Resultary published SCOPE root-attachment profile source, complete RESULT.md",
+        "Kuba–Wagner (2010) EJC abstract, DOI 10.37236/409",
+        "Janson (2004/2005), Asymptotic degree distribution in random recursive trees, DOI 10.1002/rsa.20046, abstract",
+        "Resultary semantic queries: uniform random recursive tree exact covariance ... and joint mixed moments of degree and depth ..."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published SCOPE root path length result equations (1),(4): F(n)=H_n-1-n(H_n^(2)-1), so F(j)-F(j-1)=-sum_{s=2}^{j-1}s^(-2), exactly the i=1 root row.",
+          "Lodewijks main results and section 6 give joint distributional convergence for a fixed number of vertex labels increasing with n, not unrestricted finite exact covariance.",
+          "Eslava Theorems 1.1–1.2 concern normal or point-process limits for random/high-degree vertices rather than two fixed birth labels.",
+          "Direct analytical reconstruction: for i<j the full matrix C_i(j)=(i-1)/i²-sum_{s=i+1}^{j-1}s^(-2) follows by a one-parent influence calculation; its nonroot rows are not inferable from the root-total F(n) alone."
+        ],
+        "reasoning": "The prior root aggregate DOES mathematically entail the root-label special case by incrementing the tree order, and that exact overlap is acknowledged. However, neither the root total nor the other retrieved published statements implies all nonroot source rows, their common finite decrement and the unique quadratic sign horizon. A simple adaptation of the earlier edge-resampling technique is not identical to a previous stated general theorem. No decisive stronger coverage was found after inspecting its full public proof.",
+        "searches": [
+          "SCOPE published RESULT.md full: Root attachments have an exact negative path-length profile in random recursive trees",
+          "arxiv:2204.09032v4 Theorem 2.6 and Section 6.3",
+          "arxiv:1611.07466v3 Theorems 1.1–1.2",
+          "web: \"random recursive tree\" \"degree\" \"depth\" \"covariance\" exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eslava, arXiv:1611.07466v3, Theorems 1.1–1.2: conditional depth asymptotics for uniformly chosen/high-degree vertices, not fixed pair (i,j) finite moments.",
+          "Lodewijks, arXiv:2204.09032v4, Theorem 2.6 and Proposition 6.3: asymptotic joint distributions for prescribed label sequences diverging with n.",
+          "Independent primary RESULT.md at Resultary/2026/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba: root-degree versus total path length, permitting recovery of the i=1 row by a first difference, but not nonroot i>=2."
+        ],
+        "reasoning": "Aliases checked: degree/outdegree/child count, depth/generation/insertion depth, pairwise mixed moment/covariance, birth/arrival label. The two cited primary asymptotic works do not state a finite exact matrix for arbitrary distinct labels. The earlier root-total-path formula F(n)=Cov(D_1(T_n),sum_{j<=n}H_j) does imply C_1(n)=F(n)-F(n-1)=-sum_{s=2}^{n-1}1/s^2: the root row is NOT claimed as new. It does not logically identify nonroot rows C_i(j), i>=2, or their positive-to-negative quadratic horizon.",
+        "searches": [
+          "web: \"random recursive tree\" \"covariance\" \"depth\" \"degree\" vertices",
+          "web: recursive tree outdegree vertex i depth vertex j covariance exact formula",
+          "web: \"recursive tree\" \"degree-depth covariance\"",
+          "Resultary: uniform random recursive tree exact covariance number of children outdegree vertex i depth of vertex j sign threshold birth label"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned root-attachment/total-path-length, root-degree/leaf-count and Cayley endpoint-distance records; no exact all-(i,j) mixed moment table in those returned findings.",
+          "The retrieved On the covariance of the level sizes in random recursive trees gives exact covariance of counts at two depths, not indexed child count versus a labeled vertex depth (abstract only; complete text not examined).",
+          "The queried literature did not yield a table covering the positive-to-negative crossover J_i for each nonroot i."
+        ],
+        "reasoning": "The existing root row and standard harmonic depth means must not be counted as novel. No located exact database or published table contains nonroot indexed covariance with quadratic threshold. This is a scoped best-of-knowledge search result, not proof of absence; old moment tables and bivariate tree generating functions remain priority risks.",
+        "searches": [
+          "Resultary: joint mixed moments of degree and depth for prescribed labeled vertices in random recursive trees",
+          "web: \"recursive tree\" \"depth\" \"degree\" \"covariance\" \"labels\"",
+          "web: \"recursive tree\" \"outdegree-depth\"",
+          "web: \"recursive trees\" \"sum of reciprocal squares\" covariance depth degree"
+        ]
+      },
+      "rationale": "PASS on checked statements, with bounded priority risk. Eslava (2016/2021) and Lodewijks (2022/2023) give degree/depth limiting distributions, not all fixed-label finite cross-covariances. A published same-model SCOPE root-degree/total-path-length theorem DOES already imply the i=1 root row, and that partial overlap is expressly deducted. Its root-special aggregate does not determine the nonroot i>=2 rows or J_i~2i². Searches of Resultary and primary literature found no stronger all-nonroot formula or table, although a historical bivariate exact-moment identity may exist. Lack of search hits is not a proof of novelty.",
+      "residual_risks": [
+        "The root-source i=1 row is mathematically covered by the earlier published root-degree/total-path-length formula; novelty and value assessment rely on nonroot rows and the quadratic transition.",
+        "A historic all-label mixed-moment formula or bivariate generating-function treatment may subsume the nonroot result; targeted searches and primary comparisons are not exhaustive.",
+        "Kuba–Wagner 2010 and level-size covariance papers were not read in full; no whole-document NOT_COVERING assertion is made.",
+        "The sign of covariance does not imply independence or causal intervention beyond the independent parent-choice model; unknown exact-zero cases are not classified.",
+        "Only finitely many small trees were independently enumerated; asymptotic and all-order coverage comes from reconstructed proof rather than computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its prescribed-label results are weak-limit statements under labels diverging with n; they do not imply exact nonroot finite-(i,j) covariance or an i² sign horizon by themselves.",
+          "evidence": [
+            "Introduction pp. 1–3 separates conditional high-degree distributions from labeled-vertex limits.",
+            "Theorem 2.6 assumes vi,n diverges; Proposition 6.3 is a convergence statement.",
+            "PDF text search returned no occurrence of covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.09032 (v4, 2023)",
+          "material_read": "Full PDF available (41 pages); read introductory setup and definitions, main statement of Theorem 2.6 at pages 5–6, relevant Section 6 Proposition 6.3 at pages 32–33, and searched for covariance. Not a claim of linear reading of all 41 pages.",
+          "method": "Examined extracted PDF text and page screenshots; compared exact quantifiers and observables.",
+          "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+          "trigger": "Same model, prescribed labels, multiple vertices, degree/depth dependence."
+        },
+        {
+          "assessment": "The random/high-degree vertex asymptotic normality and degree-ranked point process do not determine exact finite mixed moments between specified birth labels.",
+          "evidence": [
+            "Theorem 1.1 conditions uniformly chosen vertices on degrees and takes n→∞.",
+            "Theorem 1.2 ranks vertices by degree and has limiting normal marks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.07466 (v3, 2021)",
+          "material_read": "Read abstract, model definition, introduction, Theorems 1.1 and 1.2, and adjacent exposition of conditional depth limits. Not an exhaustive whole-document claim.",
+          "method": "Primary PDF text with first-page screenshot; statement-versus-quantifier comparison.",
+          "title": "Depth of vertices with high degree in random recursive trees",
+          "trigger": "Foundational degree/depth dependence in the same random recursive tree."
+        },
+        {
+          "assessment": "Prior art directly covers i=1 covariance profile, but not i>=2 nonroot covariance rows or quadratic sign transitions.",
+          "evidence": [
+            "Equation (4) F(n)=H_n-1-n(H_n^(2)-1); computing F(j)-F(j-1) recovers precisely C_1(j).",
+            "Proof uses a root-specific comparison A_j=1 versus 0; it does not state all source-indexed C_i(j)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba/RESULT.md",
+          "material_read": "Complete available RESULT.md: finding, assumptions, coupling proof, harmonic summation, verification and prior-work sections.",
+          "method": "Retrieved full repository source, checked equations (1) and (4) and derived the root row by differences.",
+          "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+          "trigger": "Closest published result in the identical model: root degree/aggregate path length."
+        },
+        {
+          "assessment": "Its described marginal depth and common-ancestor results are related but no noncoverage conclusion about unread full text is justified.",
+          "evidence": [
+            "The abstract states a marginal kth-node depth law and lowest-common-ancestor depth result; no mixed degree-depth claim in the abstract."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v17i1r137 (Kuba–Wagner, 2010)",
+          "material_read": "Published abstract and access page; complete PDF not examined during this run.",
+          "method": "Compared indexed abstract with final claim and retained unread-paper limitation.",
+          "title": "On the Distribution of Depths in Increasing Trees",
+          "trigger": "A plausible stronger treatment of vertex depths in increasing/recursive trees."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The source child count and target depth are canonical age-indexed observables of a random recursive tree, where their finite cross-dependence is not resolved by marginal harmonic moments or normalized joint limits. For nonroot sources the covariance starts strictly positive, decreases at a universal label rate 1/j², and crosses zero at a precise quadratic birth horizon J_i=2i²-2i/3+O(1). This quantitative phase of age separation is a motivated, exact all-label dependence law and a natural invariant for analyses of recursive network attachment; it is not merely a restatement of the previously known i=1 root case. The effect is small and no stronger stochastic-order consequence or general growing-tree theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned frozen package RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md and verify.py, all read at b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595; tree dbd65540dcfa288d9f2d10a2aa5c084d5f84732e",
+    "arXiv:2204.09032v4 (Lodewijks, 2023) Theorem 2.6, Proposition 6.3",
+    "arXiv:1611.07466v3 (Eslava, 2021) Theorems 1.1–1.2",
+    "Resultary published SCOPE root-attachment profile source, complete RESULT.md",
+    "Kuba–Wagner (2010) EJC abstract, DOI 10.37236/409",
+    "Janson (2004/2005), Asymptotic degree distribution in random recursive trees, DOI 10.1002/rsa.20046, abstract",
+    "Resultary semantic queries: uniform random recursive tree exact covariance ... and joint mixed moments of degree and depth ..."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform independent-parent random recursive trees only, rooted child count rather than undirected degree; not a general attachment law.",
+    "The sign is about covariance, not independence, causal influence or stochastic ordering.",
+    "Possible exact zeros at the nonroot transition are unclassified.",
+    "The root row i=1 follows from published prior root-path-length work; only nonroot cross-moment classification is assessed as original.",
+    "Selected earlier abstracts/tables lack complete inspection; residual historical-priority risk explicitly retained."
+  ],
+  "residual_risks": [
+    "The root-source i=1 row is mathematically covered by the earlier published root-degree/total-path-length formula; novelty and value assessment rely on nonroot rows and the quadratic transition.",
+    "A historic all-label mixed-moment formula or bivariate generating-function treatment may subsume the nonroot result; targeted searches and primary comparisons are not exhaustive.",
+    "Kuba–Wagner 2010 and level-size covariance papers were not read in full; no whole-document NOT_COVERING assertion is made.",
+    "The sign of covariance does not imply independence or causal intervention beyond the independent parent-choice model; unknown exact-zero cases are not classified.",
+    "Only finitely many small trees were independently enumerated; asymptotic and all-order coverage comes from reconstructed proof rather than computation."
+  ],
+  "schema_version": 1
+}
