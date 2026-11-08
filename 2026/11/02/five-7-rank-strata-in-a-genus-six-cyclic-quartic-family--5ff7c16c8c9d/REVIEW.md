@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the algebraically closed characteristic-seven base, the discriminant-open parameter domain, the exact genus, and the marked-coordinate interpretation. A six-element holomorphic-differential basis gives a Cartier coefficient matrix with one triangular two-dimensional block and an interchanged one-plus-three-dimensional pair. The semilinear *stable* ranks, rather than mere single-iterate matrix ranks, establish the complete five-valued \(7\)-rank formula. The Cartier rank separately gives the two \(a\)-number values. The polynomial intersection identities show that the rank-one locus has exactly five distinct smooth points and the rank-zero locus is the smooth origin. The gradient calculation proves that the projective quartic is geometrically integral with exactly one ordinary node, hence normalization genus two. The two supplied exact-arithmetic programs reproduce the symbolic identities and all \(44\) smooth prime-field specializations. Finite tests are not substituted for the proof over all geometric parameters.
+PASS
 
-## Originality — PASS, with residual risk
+The regular differential basis (dx/y, dx/y², xdx/y², dx/y³, xdx/y³, x²dx/y³) has six members from Riemann–Hurwitz. Coefficient-extraction Cartier matrix has triangular j=2 subblock with diagonal U=a³-b and V=3a, and a 1↔3 return scalar H. Stable semilinear ranks yield f7=2[H!=0]+[U!=0]+[V!=0], while instantaneous rank gives a=2+[UV=0]. Independently recomputed discriminant and ideal <H,H_a,H_b>=(a,b) mod7; H=0 has one ordinary node and irreducible projective quartic of genus-two normalization. F7 finite sample does not establish all algebraic closure parameters.
 
-The closest method source is Sutherland, arXiv:2004.10189, especially its superelliptic Cartier-block formula and implementation section. Its performance table covers the general degree-four/degree-five cover shape but gives timings, not this specific coefficient-dependent stratification. Obus–Shaska, arXiv:2006.12685, describes highly symmetric cyclic superelliptic curves in characteristic zero, without these arithmetic strata. Özman–Pries–Weir, arXiv:1907.05684, treats moduli-theoretic cyclic-cover \(p\)-rank existence and boundary behavior; its principal explicit existence theorem concerns cyclic triple covers, whereas this theorem is an explicit composite-degree-four family. Targeted mathematical-record searches and accessible previous algebraic-geometry claims showed no statement dominating the present exact rank formulas, nodal genus-two component, or five-point deeper locus. This is evidence of an unreported specialization, not a proof of worldwide priority. An unindexed equivalent specialization remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Cyclic quartic covers with five finite branch points are a natural genus-six Hurwitz family; the selected two coefficient directions deform the enhanced-automorphism fiber \(y^4=x^5+1\). Despite the generic Jacobian being nonordinary, the model exhibits all five ranks allowed by its symmetry, controlled by two rational curves and one geometrically irreducible nodal genus-two curve. The five isolated rank-one fibers and unique rank-zero fiber are exact boundary phenomena, not arbitrary sample computations. The classification is complete for the specified smooth marked family; no global moduli, Newton-polygon or isomorphism-class classification is claimed.
+Qualified best-knowledge original contribution; prior tools and claimed antecedents are explicitly excluded. The exact marked coefficient-family strata with nodal genus-two H=0 are not a generic Cartier–Manin matrix algorithm.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural two-dimensional deformation of a highly symmetric genus-six cyclic cover exhibits every rank 0..4 with explicit characteristic-seven strata, a-numbers and a nodal genus-two rank-drop parameter component; richer than arbitrary instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

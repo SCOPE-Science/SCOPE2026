@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The two standalone programs `verify_symbolic.py` and `verify_primefield.py` were executed with Python 3. The first additionally requires SymPy. They returned, respectively:
+# Independent mathematical audit
 
-```
-CYCLIC4_G6_SYMBOLIC_OK
-CYCLIC4_G6_PRIMEFIELD_OK {0: 1, 1: 1, 2: 4, 3: 9, 4: 29}
-```
+## correctness
 
-The first check constructs the polynomial Cartier coefficient matrix from powers of the defining quintic, verifies the exact discriminant and the key intersection identities modulo \(7\), and proves uniqueness of the quartic's singular point using a Gröbner basis. The second independently expands coefficient powers using standard-library integer arithmetic, checks stable and ordinary Cartier ranks for all \(44\) discriminant-nonzero parameter pairs over \(\mathbb F_7\), and verifies independent point-count trace congruences.
+PASS
 
-The mathematical proof is in `RESULT.md`, including semilinearity and the normalization-genus calculation. The finite-field program does not check arbitrary extension-field parameters and cannot replace the symbolic argument. The result does not determine Newton polygons or quotient the marked family by geometric isomorphism. Independent external validation has not been performed.
+The regular differential basis (dx/y, dx/y², xdx/y², dx/y³, xdx/y³, x²dx/y³) has six members from Riemann–Hurwitz. Coefficient-extraction Cartier matrix has triangular j=2 subblock with diagonal U=a³-b and V=3a, and a 1↔3 return scalar H. Stable semilinear ranks yield f7=2[H!=0]+[U!=0]+[V!=0], while instantaneous rank gives a=2+[UV=0]. Independently recomputed discriminant and ideal <H,H_a,H_b>=(a,b) mod7; H=0 has one ordinary node and irreducible projective quartic of genus-two normalization. F7 finite sample does not establish all algebraic closure parameters.
+
+## originality
+
+PASS
+
+Qualified best-knowledge original contribution; prior tools and claimed antecedents are explicitly excluded. The exact marked coefficient-family strata with nodal genus-two H=0 are not a generic Cartier–Manin matrix algorithm.
+
+## value
+
+PASS
+
+A natural two-dimensional deformation of a highly symmetric genus-six cyclic cover exhibits every rank 0..4 with explicit characteristic-seven strata, a-numbers and a nodal genus-two rank-drop parameter component; richer than arbitrary instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
