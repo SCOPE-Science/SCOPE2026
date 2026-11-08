@@ -1,0 +1,179 @@
+{
+  "correctness": {
+    "rationale": "For every sufficiently large odd N, the prime number theorem gives missing odd prime q<=2logN. Minimal a yields base B=2^a q<q^2 and Bq<q^3, with gcd(N,Bq)=1. Binary subset sum certifies each 2^b q (b>=a) Zumkeller. For all primes p<=N/2 in p=N mod B but not in p=N mod Bq, N-p=B m with q not dividing m; after extracting powers of 2 its cofactor is coprime to a higher-power Zumkeller base, proving Zumkeller membership. The count of this subclass equals pi(X;B,N)-pi(X;Bq,N), with X=N/2. Uniform Siegel–Walfisz gives main term Li(X)/phi(B)(1-1/q) since phi(Bq)=q phi(B); its relative error is o(1) uniformly as phi(B)=O(log^2 N) and both moduli are polylogarithmic. Thus R(N)>=the local asymptotic term and R(N)>>N/log^3N. The finite checker separately tests selected exact partitions and congruences; it cannot replace the analytic theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2310.14149v2 Proposition 4.10 gives practical-number additive complements, Proposition 4.12 covers restricted residue classes; the same paper records the prime conjecture.",
+        "https://doi.org/10.1016/j.jnt.2020.05.003 Theorem 2.6 is exact membership of 2^a q^b in the Zumkeller set.",
+        "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+        "2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf",
+        "2026/10/4/SCOPE-exact-zumkeller-partition-multiplicity-in-the-upper-two-prime-st--dee79b1d7481"
+      ],
+      "reasoning": "The classical two-prime Zumkeller condition and coprime-multiple closure are inputs, not an implication of a quantitative prime-counting statement. A past fifth-power quantitative result uses a single square-modulus prime class, whereas this theorem counts an entire reduced class and subtracts a single prime-exponent obstruction. Exact divisor-partition multiplicity of 2^a q, the 2^a p q criterion, practical addends, and finite checks are weaker in incompatible or strictly narrower dimensions.",
+      "searches": [
+        "Every sufficiently large odd integer is a sum of a prime and a Zumkeller number",
+        "odd integers sum Zumkeller prime Siegel-Walfisz modulo square of small Zumkeller",
+        "number of representations N prime plus Zumkeller N/(log N)^3 logarithmic exponent",
+        "\"Conjecture 4.20\" \"Zumkeller\" prime solution 2025 2026",
+        "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+        "2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf",
+        "2026/10/4/SCOPE-exact-zumkeller-partition-multiplicity-in-the-upper-two-prime-st--dee79b1d7481"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2310.14149v2",
+      "https://doi.org/10.1016/j.jnt.2020.05.003",
+      "https://arxiv.org/abs/2108.10878",
+      "https://oeis.org/A368082",
+      "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+      "2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf",
+      "2026/10/4/SCOPE-exact-zumkeller-partition-multiplicity-in-the-upper-two-prime-st--dee79b1d7481",
+      "prior: d798476e-fd98-4e1e-b977-0e84f0e97eef",
+      "prior: 2ec6b25d-6858-4fde-a305-dee4d5d017ac",
+      "prior: 4c987a7c-da09-476e-bbba-f087d9035759"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "own prior d798476e-fd98-4e1e-b977-0e84f0e97eef: at least N/(100(log N)^5), explicit denominator fifth power.",
+        "own prior 2ec6b25d-6858-4fde-a305-dee4d5d017ac: density zero of nonrepresentable targets, not a per-target count.",
+        "own prior 4c987a7c-da09-476e-bbba-f087d9035759: range through 10^9, not an asymptotic.",
+        "https://arxiv.org/html/2310.14149v2 Lemma 2.1 / Proposition 2.2 coprime-multiple closure and Conjecture 4.20."
+      ],
+      "reasoning": "A bound below of order N/(log N)^5 cannot imply a lower bound of order N/(log N)^3. Density-one existence cannot imply this quantitative all-large-target lower bound, and finite-range evidence cannot imply an infinite assertion. The stronger local theorem demands and proves a new exact subtraction identity for prime class mod B and its unique refinement mod Bq; this removes the unnecessary coprimality-to-two restriction and reduces the analytic modulus by a logarithmic factor, while admitting q-1 of q refinements. The published criteria do not state this novel implication. It is not merely a change of numerical constant or rephrasing of the old bound.",
+      "searches": [
+        "d798476e-fd98-4e1e-b977-0e84f0e97eef",
+        "2ec6b25d-6858-4fde-a305-dee4d5d017ac",
+        "4c987a7c-da09-476e-bbba-f087d9035759",
+        "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+        "2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf",
+        "Somu Kukla Tran Conjecture 4.20 Zumkeller plus prime odd integers",
+        "Zumkeller prime representation N over logarithm cubed lower bound every sufficiently large odd N",
+        "Zumkeller prime additive dense arithmetic progression exclude q squared modulus 2^a q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2310.14149v2 Conjecture 4.20 and Proposition 4.12",
+        "prior claim d798476e-fd98-4e1e-b977-0e84f0e97eef states N/(100(log N)^5), not a log-cubed bound.",
+        "https://oeis.org/A368082"
+      ],
+      "reasoning": "The new theorem is a lower bound on a local prime progression: within p=N (mod B), all but the index-q refinement p=N (mod Bq) yield Zumkeller complements, and their prime count has relative main term 1-1/q. Searches for same count as prime-plus-Zumkeller, integer-perfect plus prime, logarithmic exponent three and reduced AP exclusion found no equivalent published assertion. The prior fifth-power lower bound is not equal or stronger: the ratio of new to old lower-bound scales grows like (log N)^2.",
+      "searches": [
+        "Every sufficiently large odd integer is a sum of a prime and a Zumkeller number",
+        "Somu Kukla Tran Conjecture 4.20 Zumkeller plus prime odd integers",
+        "odd integers sum Zumkeller prime Siegel-Walfisz modulo square of small Zumkeller",
+        "Zumkeller prime representation N over logarithm cubed lower bound every sufficiently large odd N",
+        "number of representations N prime plus Zumkeller N/(log N)^3 logarithmic exponent",
+        "Zumkeller prime additive dense arithmetic progression exclude q squared modulus 2^a q",
+        "\"Conjecture 4.20\" \"Zumkeller\" prime solution 2025 2026",
+        "Somu Kukla Tran Siegel Walfisz prime Zumkeller",
+        "Zumkeller odd prime sufficiently large theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A368082 initial represented numbers list and comments.",
+        "prior claim 4c987a7c-da09-476e-bbba-f087d9035759 checks 9<=N<=10^9 odd except 21.",
+        "prior quantitative claim d798476e-fd98-4e1e-b977-0e84f0e97eef all large odd N count >=N/(100(log N)^5)."
+      ],
+      "reasoning": "A finite table cannot imply an unbounded local prime-density formula. The existing fifth-power asymptotic is strictly weaker by two logarithmic powers and does not imply the claimed relative abundance 1-1/q within the prescribed moving modulus.",
+      "searches": [
+        "OEIS:A368082",
+        "4c987a7c-da09-476e-bbba-f087d9035759",
+        "d798476e-fd98-4e1e-b977-0e84f0e97eef",
+        "Every sufficiently large odd integer is a sum of a prime and a Zumkeller number",
+        "Zumkeller prime representation N over logarithm cubed lower bound every sufficiently large odd N"
+      ]
+    },
+    "rationale": "The new theorem is a strict quantitative and structural improvement over the available earlier fifth-power logarithmic lower bound (ID d798476e-fd98-4e1e-b977-0e84f0e97eef). It retains all but one of q residue refinements of a reduced prime progression, instead of requiring a single residue modulo B^2. None of the inspected primary additive source, earlier finite record, density-zero result, or indexed divisor-partition results implies a per-target cubic-log count or its local 1-1/q term. A search cannot exclude unindexed equivalents, and limited source access is recorded.",
+    "residual_risks": [
+      "An equivalent or stronger unindexed result may exist despite targeted searches.",
+      "Published published-finding corpus linked full texts were inaccessible; their indexed summaries, not complete arguments, were compared.",
+      "Only the pertinent Section 2 of the 2020 publisher article was read; other sections were not inspected in full.",
+      "The classical Siegel–Walfisz uniform prime theorem is a deep external premise; its proof is not reproduced.",
+      "Constants and positive target threshold are not explicit, and full representation-count optimality is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit prime-plus-Zumkeller conjecture remains open for 3 mod 18, contains coprime-multiplier closure but not this local prime sieve or cubic-log bound.",
+        "evidence": [
+          "arxiv:2310.14149v2, Sections 2,4,5; lines 61-99 and 490-510, 697-737"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+        "material_read": "Accessible full HTML, introduction, Section 2 Lemma 2.1 and Proposition 2.2; Section 4 Proposition 4.10, Proposition 4.12, Theorem 4.19, Conjecture 4.20; Section 5 future work.",
+        "method": "Read arXiv HTML primary text and specific proof paragraphs, not just abstract.",
+        "title": "Some Results on Zumkeller Numbers",
+        "trigger": "Original additive prime conjecture; need full related proofs on cofactor progressions."
+      },
+      {
+        "assessment": "Contains the known 2^a q^b criterion used to construct bases, not prime-additive representation distribution.",
+        "evidence": [
+          "DOI:10.1016/j.jnt.2020.05.003, Theorem 2.6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jnt.2020.05.003",
+        "material_read": "Accessible publisher scientific HTML abstract, introduction, Section 2 and Theorem 2.6, not full subsequent sections.",
+        "method": "Inspected accessible publisher text, with precise two-prime criterion.",
+        "title": "Some properties of Zumkeller numbers and k-layered numbers",
+        "trigger": "Potentially dominating two-prime-membership result."
+      },
+      {
+        "assessment": "Supports classical analytic background and cannot be a prior Zumkeller-additive theorem.",
+        "evidence": [
+          "arxiv:2108.10878 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.10878",
+        "material_read": "Arxiv abstract only.",
+        "method": "Inspected abstract; the standard classical Siegel–Walfisz theorem is stated directly as an assumption, not attributed as an original result.",
+        "title": "Refinements to the prime number theorem for arithmetic progressions",
+        "trigger": "General analytic premise and its uniformity."
+      },
+      {
+        "assessment": "Provides finite represented values and motivating citation, no local asymptotic.",
+        "evidence": [
+          "OEIS:A368082 visible entry dated as accessed 2026-11-01 UTC"
+        ],
+        "identifier_or_url": "https://oeis.org/A368082",
+        "material_read": "Entire visible entry, including references and initial list.",
+        "method": "Read public OEIS entry.",
+        "title": "OEIS A368082",
+        "trigger": "Numeric database of prime plus Zumkeller representable integers."
+      },
+      {
+        "assessment": "Indexed record gives exact divisor-partition counts for 2^a q, not global additive prime lower bounds; remaining full-text risk disclosed.",
+        "evidence": [
+          "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59"
+        ],
+        "identifier_or_url": "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+        "material_read": "Published record title/summary only; linked complete file inaccessible.",
+        "method": "Meaning-based search results; linked publisher page failed to open.",
+        "title": "Published two-prime Zumkeller partition count",
+        "trigger": "Closest mathematical-result match to chosen base 2^a q."
+      },
+      {
+        "assessment": "Indexed claim concerns membership of 2^a p q, not prime complement density or the local subtraction theorem.",
+        "evidence": [
+          "2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf"
+        ],
+        "identifier_or_url": "2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf",
+        "material_read": "Published record title/summary only; linked complete file inaccessible.",
+        "method": "Meaning-based search results, unopenable complete page.",
+        "title": "Published three-prime Zumkeller criterion",
+        "trigger": "Potential broad structural membership theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25ef5c1b-df13-4a7f-9086-8e2fc7fac1b3",
+  "value": {
+    "rationale": "Two unbounded logarithmic powers are gained in the guaranteed number of prime-plus-Zumkeller representations for every sufficiently large odd target. The stronger local theorem identifies the exact exceptional q-adic subprogression and shows a fraction 1-1/q of primes in the moving reduced class are explicitly admissible. This is a motivated quantitative refinement of an established open additive question, not a routine constant improvement, substitution or finite census; it does not purport to be an optimal global asymptotic.",
+    "status": "PASS"
+  }
+}
