@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For the fixed point p, p_{2r}=0 and p_{2r+1}=1-p_r; hence ones lie at one position parity and zero runs have maximum length three. For a factor of odd length containing a one, all internal cyclic gaps between ones are odd; the unique boundary cyclic zero gap is even. Any represented rotation must cut inside that same even gap. At most three splittings of an even gap have both leading and trailing zero runs <=3. All-zero factors contribute one rotation. The explicit B=mu^{2j}(0), j>=1, begins 01, ends 00, and BB occurs; B0, 0B and 00B[:-1] are three distinct represented rotations. Aperiodicity follows from p_i=v2(i+1) modulo 2 and establishes the Morse-Hedlund lower bound. The extracted standalone finite checker passed at odd lengths <=129 and five infinite-family representatives; the proof, not the finite test, establishes the quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cassaigne et al. Proposition 17 establishes cyclic complexity two at substitution powers; it does not bound odd-length class sizes.",
+        "Charlier–Puzynina–Zamboni, arxiv:1505.03848, Theorem framework provides orbit-count lower bounds epsilon(G)+1, not uniform bounds on members per class.",
+        "A previously accessible historical claim proves substitution maps conjugacy classes at length n to length 2n with doubled class sizes; its scope omits odd-length size ceilings."
+      ],
+      "reasoning": "The known dyadic orbit-count and doubling laws leave odd-length orbit memberships unconstrained. The group-action framework places lower bounds on the number of orbits, not a three-member upper bound on each odd orbit. A broad theorem implying the claimed ceiling was not identified in the inspected relevant results.",
+      "searches": [
+        "cyclic complexity exact formula period doubling word conjugacy classes factors length n powers of two",
+        "period doubling conjugacy at odd factor lengths linear lower bound cyclic complexity",
+        "arxiv:1505.03848 main theorems group actions",
+        "arxiv:1402.5843 Proposition 17"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1402.5843",
+      "https://arxiv.org/pdf/1505.03848",
+      "https://arxiv.org/pdf/2102.03821",
+      "https://arxiv.org/abs/1402.5843",
+      "https://arxiv.org/abs/1505.03848",
+      "https://arxiv.org/abs/2102.03821"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "c_p(2^j)=2 only concerns powers of two, whereas the ceiling concerns every odd length.",
+        "Lie complexity requires all cyclic conjugates to occur; an upper bound on the number of complete orbits does not control the sizes of incomplete orbits.",
+        "An odd-length factor has at most three represented rotations due to unique even gap plus zero-run constraints, a separate parity argument absent from the contrasted statements."
+      ],
+      "reasoning": "The result does not follow from the numerical dyadic counts, the known substitution equivalence for even lengths, or the complete-orbit inequalities. It is a structural bound on a different quantifier: for every odd n and every factor u, its represented conjugacy intersection has cardinality at most three.",
+      "searches": [
+        "arxiv:1402.5843 Example 1 and Proposition 17",
+        "arxiv:2102.03821 Theorem 1.1 and Section 2",
+        "\"period-doubling word\" \"cyclic\" \"odd\" \"conjugates\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cassaigne et al., arxiv:1402.5843, Sec. 5.1, Example 1 states c_p(2^j)=2, not a restriction on the number of realized conjugates at odd n.",
+        "Bell–Shallit, arxiv:2102.03821, Sec. 2 defines Lie complexity via all rotations, and distinguishes it explicitly from cyclic complexity counted by any rotation."
+      ],
+      "reasoning": "Aliases include cyclic complexity, represented conjugacy-class size, partial rotational orbit, and odd-length rotation closure. The new statement is about intersections of one orbit with the factor language; neither a dyadic count nor a count of fully represented orbits is equivalent.",
+      "searches": [
+        "period-doubling word odd-length factors at most three circular conjugates in same language cyclic class size",
+        "\"period doubling word\" \"odd\" \"conjugacy classes\" \"3\" cyclic complexity",
+        "\"period-doubling\" \"conjugacy\" \"three\" factors rotations",
+        "arxiv:1402.5843 Section 5.1",
+        "arxiv:2102.03821 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Current published-record results ranked unrelated cyclic-group problems and the different period-doubling lift; no exact odd-length class-size table or bound was returned.",
+        "Accessible own claims include the dyadic substitution transfer and two cyclic-complexity values, but not the odd-length three-factor ceiling."
+      ],
+      "reasoning": "Finite enumeration through odd length 129 was used only as proof stress testing, not as evidence of uniqueness or a complete database search. Searches failed to identify the present exact universal bound; non-indexed data are a residual risk.",
+      "searches": [
+        "period-doubling word odd-length factors at most three circular conjugates in same language cyclic class size",
+        "period doubling odd length cyclic classes cardinality three",
+        "period doubling cyclic factor class size parity maximum",
+        "published-finding corpus query: period doubling conjugacy at odd factor lengths linear lower bound cyclic complexity"
+      ]
+    },
+    "rationale": "The closest primary published cyclic-complexity paper gives counts at powers of two, not an odd class-size upper bound. A general group-action complexity paper concerns numbers of classes, and Lie complexity counts entirely represented classes. Accessible historical claims include an even-length substitution transfer, not the odd-length factor ceiling. Relevant primary passages and actual searches found no covering result; unindexed literature remains a residual risk.",
+    "residual_risks": [
+      "An unindexed prior treatment of odd factor-conjugacy sizes in Toeplitz or automatic words might imply the bound.",
+      "The searched published-record collection is incomplete and cannot establish priority by absence.",
+      "The comparison of primary papers is targeted to the sections germane to cyclic classes, rather than every unrelated theorem or reference."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DYADIC_COUNTS_ONLY_IN_RELEVANT_SECTION",
+        "evidence": "Proposition 17 and Example 1 establish c_p(2^j)=2, with no odd-length class-size ceiling.",
+        "identifier_or_url": "https://arxiv.org/pdf/1402.5843",
+        "material_read": "Abstract, Introduction, definitions, Section 5.1 Proposition 17 proof and Example 1, inspected as extracted source text and the relevant rendered page 13.",
+        "method": "Primary arXiv PDF text and rendered page review; statement and quantifiers compared.",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Original definition of cyclic complexity and period-doubling example; possible earlier theorem of odd rotation classes."
+      },
+      {
+        "assessment": "GENERAL_ORBIT_COUNTS_NOT_SAME_CLAIM",
+        "evidence": "The main estimate p_{omega,x}(n)>=epsilon(G_n)+1 concerns number of classes, not the sizes of individual partially represented cyclic classes.",
+        "identifier_or_url": "https://arxiv.org/pdf/1505.03848",
+        "material_read": "Abstract, Introduction, and Sections 1–2 definitions/main theorem framework, including rendered page 2.",
+        "method": "Primary arXiv full-text sections and rendered page review.",
+        "title": "On a group theoretic generalization of the Morse-Hedlund theorem",
+        "trigger": "General orbit-action complexity may dominate cyclic-complexity conclusions."
+      },
+      {
+        "assessment": "DIFFERENT_ALL_ROTATIONS_QUANTIFIER",
+        "evidence": "Section 2 explicitly distinguishes Lie complexity (every rotation) from cyclic complexity (some rotation); no period-doubling odd-class ceiling in examples.",
+        "identifier_or_url": "https://arxiv.org/pdf/2102.03821",
+        "material_read": "Abstract, Sections 1–2, and Section 7 example list, including rendered page 3.",
+        "method": "Primary arXiv full-text with searches for period-doubling and related definitions.",
+        "title": "Lie Complexity of Words",
+        "trigger": "Counts cyclic classes for which all rotations occur; likely stronger adjacent notion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d3e9aa0-bffe-48db-b1b9-f61116a03a09",
+  "value": {
+    "rationale": "This infinite-language structural bound supplies a sharp uniform ceiling on represented rotation-class cardinality at every odd length, attained at infinitely many nontrivial lengths. It yields linear cyclic-complexity growth along all odd lengths despite constant values at every dyadic length. The parity-sensitive oscillation addresses the shape of a classical invariant beyond numerical dyadic class counts and is not an arbitrary finite cutoff.",
+    "status": "PASS"
+  }
+}
