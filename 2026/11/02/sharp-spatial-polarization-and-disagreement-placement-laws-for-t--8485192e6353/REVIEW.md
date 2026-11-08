@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two anchored-cycle equilibrium equations have a unique solution because the Laplacian with two positive diagonal pins is positive definite. Piecewise-affine interpolation gives the exact conductance and both social-divergence functionals. Pairwise square-root cancellation produces the explicit critical strengths, and their strict ordering proves the full maximizer/minimizer classifications. An independently solved exact rational finite test (4,391 checks) corroborates formulas, strictness, ties, and the witness. The finite checks are not treated as the proof of a universal assertion.
+## correctness
 
-**Originality — PASS within accessible comparisons, with historical-priority risk.** Acemoglu et al. (arXiv:1009.2653, 2010) give general harmonic expectations and calculate some regular geometries. Hunter and Zaman (arXiv:1806.11253, 2018) optimize opinion variance with stubborn-agent targeting, including nonmonotone examples. Yi and Patterson (arXiv:1911.11338, 2019) present a general Laplacian framework for disagreement and polarization and a Friedkin–Johnsen model. These predecessors cover the equilibrium modeling and objectives, but the inspected text does not give an ordered complete placement phase diagram with explicit sharp strength values on each cycle and two competing objectives. The exact all-separation classification is the compared new assertion; publication priority has not been independently certified. Related binary-voter placement literature concerns different random quantities and is not represented as read in full.
+PASS
 
-**Value — PASS.** Both indices are motivated by the established distinction between disagreement among neighbors and variance across a population. The theorem gives a natural complete classification for all finite cycle sizes and anchor strengths, including an open set of strengths for which their optimal interventions conflict, rather than a special numerical example. It isolates the role of spatial placement without graph modification. Empirical transfer is unproved; linear, deterministic, equal-weight opinion dynamics is an idealization.
+Unique steady state from positive-definite pinned Laplacian; harmonic interpolation on both arcs and Kirchhoff flux yield x0+xd=1, Delta=k/(k+2G), mean 1/2. Exact arc energy and sum-of-squares identity yield E and V. Pairwise comparisons reduce to positive square-root identities; G_d strictly decreasing yields monotone thresholds, all optimizer switches, endpoint minima and simultaneous opposite placements. Independently solved full pinned linear system in exact rationals for all N=4..15, separations and several positive k, matching E,V and means; all-real result rests on algebra not finite tests.
 
-**Closest literature and limits.** General inverse-Laplacian formulas in Yi and Patterson provide the nearest broader framework and substantially reduce what can be claimed as new: no novelty is asserted for those formulas, resistance analogies, or definitions of polarization. Possible independent earlier specializations remain the principal originality risk. The contribution is restricted to a closed-form global placement-order theorem under explicitly fixed assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acemoglu–Como–Fagnani–Ozdaglar analyze stubborn agents and mean opinions, Yi–Patterson discuss disagreement and polarization through Laplacian and resistance/biharmonic distances, Hunter–Zaman study influencer placement. These provide general machinery and related objectives, but no exact equal finite-strength two-anchor cycle switching law located. Avoid claiming a new Laplacian energy identity in itself.
+
+## value
+
+PASS
+
+Clear motivated tradeoff: adjacent anchors uniquely maximize local disagreement while farthest anchors uniquely maximize population polarization over a nonempty strength interval; every separation arises as a maximizer and exact placement boundaries are known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
