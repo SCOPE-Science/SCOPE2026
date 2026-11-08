@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every selected set of k nonoverlapping cyclic-adjacent edges, its prescribed-chord probability is (2n-2k-1)!!/(2n-1)!! and deleting it preserves the cyclic order and all crossings of residual chords. Summation over the m_{n,k}=2n/(2n-k) binomial(2n-k,k) cycle-edge matchings proves the exact mixed factorial identity. Setting k=1 and 2 and using Flajolet–Noy Theorem 3 yields Cov(X,S)=-2n(n-1)/(3(2n-1)) and Corr(X,S)=-sqrt(5/(n+3)). Fixed-k conditional CLTs combined with factorial bounds c_{n,k}<=4/(3k!) rigorously justify dominated convergence for the joint transform. An independently implemented exhaustive enumerator checked all matching cases n=2,...,7 and 494 exact rational assertions. The crossing CLT is explicitly imported; finite checks are not claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy (2000), Theorem 3: crossing mean, variance and CLT; Section 1: separate component asymptotics.",
+        "Acan (2017), accessible article Sections 2–5: random chord degree, monolithic structure, k-core and directed intersection graph; its short-chord results do not supply the mixed crossing statistic.",
+        "Paguyo (2021), Sections 1–4: two separate marginal probability approximations; no bivariate limit theorem."
+      ],
+      "reasoning": "Broader studies of intersection-graph structure, components and crossings do not imply the finite two-statistic distribution or conditional crossing deletion identity; no inspected theorem covers the same joint observable pair. Single-variable or multiple-short-length Poisson statements cannot be mistaken for mixed crossings/simple chords results.",
+      "searches": [
+        "random circular matchings joint Gaussian crossing Poisson adjacent arcs simple chords",
+        "random chord diagram number of crossings number of isolated edges asymptotic independence",
+        "On a uniformly random chord diagram and its intersection graph Acan 2017 simple chords crossing count",
+        "Flajolet Noy 2000 chord diagrams components crossing statistic full pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2104.01134 (Sections 1–4 and Theorems 1.1–1.3)",
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf (original PDF, Sections 1–2, Theorem 3)",
+      "https://doi.org/10.1016/j.disc.2016.11.004 (accessible publisher article text, Sections 2–5)",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL23/Young/young5.pdf (original PDF, Sections 1–2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paguyo (2021), Theorem 1.1: W_n converges to N(0,1); Theorem 1.2: S_n converges to Poisson(1). No independence assertion follows from two marginal limits.",
+        "Flajolet–Noy (2000), Theorem 3: exact Var(X_n), which is used to derive the new exact correlation but does not itself determine Cov(X_n,S_n).",
+        "Young (2020), Sections 1–2: linear k-chord short-chord counts, without the circular crossing pair."
+      ],
+      "reasoning": "The finite mixed deletion identity yields a new implication: explicit negative covariance, correlation and a joint independent product limit. Marginal exact crossing polynomial Q_n and marginal simple-chord factorial moments alone do not determine dependence, so their conjunction does not subsume the claimed theorem. The proof explicitly imports, rather than reclaims, classical crossing moments/CLT.",
+      "searches": [
+        "Convergence rates of limit theorems in random chord diagrams crossings simple chords J E Paguyo arxiv 2104.01134",
+        "On a uniformly random chord diagram and its intersection graph Acan 2017",
+        "random matchings crossings simple chords joint distribution covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Paguyo, arXiv:2104.01134, Theorems 1.1–1.3 and Sections 2–4, gives separate Gaussian and Poisson approximations; the inspected statements do not include a mixed crossing/simple-chord law.",
+        "The all-k factorial generating identity conditions on k disjoint simple chords and thereby determines the full joint distribution; separate marginal generating functions do not imply it."
+      ],
+      "reasoning": "Searches covered mixed moment, joint pgf, conditional deletion, covariance and asymptotic-independence aliases. The closest same-model paper treats both variables but only in marginal theorems. Its univariate statements cannot imply the finite bivariate law or a joint product limit without additional dependence analysis.",
+      "searches": [
+        "random chord diagram crossings simple chords joint asymptotic independence joint normal Poisson",
+        "random matchings crossings simple chords joint distribution covariance",
+        "Joint distribution of crossing number and number of simple or short chords in a uniformly random circular chord diagram; factorial-moment deletion identity and asymptotic independence Gaussian Poisson"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Touchard–Riordan crossing polynomial Q_n(z) is a marginal enumeration; Flajolet–Noy (2000), Section 2, Equation (5).",
+        "The exact cycle-matching coefficient counts disjoint cyclic adjacent pairs; the mixture with Q_{n-k} and its correlation do not appear in the inspected classical crossing enumeration.",
+        "Direct exact enumeration of all perfect matchings of 2n points for n=2 through 7 reproduced every coefficient of the proposed bivariate identity."
+      ],
+      "reasoning": "No exact mixed crossing/adjacency table or dominating bivariate generating function was found among inspected sources or targeted record searches. Finite enumeration independently supports the formulas but cannot certify priority.",
+      "searches": [
+        "Exact bivariate generating function chord crossings and short chords and asymptotic independence",
+        "Flajolet Noy crossings and short chord counts of random chord diagrams bivariate distribution",
+        "Number of crossings conditional on k prescribed adjacent chords in random perfect matching on circle, distribution equal to smaller diagram"
+      ]
+    },
+    "rationale": "The new claim is an exact mixed crossing/simple-chord factorial identity with full bivariate generating law, sharp finite negative correlation and joint independent Gaussian–Poisson limit. Paguyo (2021) treats the same pair but proves only separate approximations; Flajolet–Noy (2000) covers crossings alone; Acan (2017) covers other short-chord and graph statistics; Young (2020) covers linear short chords. Their inspected statements and implications do not determine the mixed law. Broad searches and mathematical-record comparisons found no equivalent; residual historical-priority risk remains.",
+    "residual_risks": [
+      "Historical priority is not certified: an older paper could contain the mixed deletion identity in different terminology.",
+      "The accessible Acan material is not a substitute for a line-by-line comparison of every version and appendix of all relevant related works.",
+      "The univariate crossing Gaussian theorem is assumed from the published literature and not reproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Separate normal approximation for crossings and Poisson approximation for simple chords; no mixed deletion law or joint independence theorem identified in inspected material",
+        "evidence": [
+          "Theorems 1.1 and 1.2 are stated separately",
+          "Section 3 uses a simple-chord size-bias coupling but does not condition the crossing count on selected simple chords",
+          "First public arXiv date 2021-04-02; stated MSC 60C05, 60F05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+        "material_read": "Introduction, main Theorems 1.1–1.3, Sections 2 and 3 including proofs, Section 4 remarks",
+        "method": "Read open full text and compared conditional laws, mixed moments, covariance, and joint-versus-marginal convergence claims",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Same probability space and both exact observables, strongest potential overlap"
+      },
+      {
+        "assessment": "Classical univariate crossing formula, variance and CLT dominate those imported ingredients but not the mixed simple-chord/crossing identity",
+        "evidence": [
+          "Section 2, Equation (5), Touchard–Riordan crossing polynomial",
+          "Section 2, Theorem 3, mean n(n-1)/6, variance n(n-1)(n+3)/45 and Gaussian limit",
+          "Section 1 discusses component statistics rather than finite crossing–simple-chord dependence"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "14-page original report; Sections 1 and 2, especially Section 2 Theorem 3 and Equation (5), references and discussion",
+        "method": "Read PDF full-text extraction and checked original page-image formulae against the present claim",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Classical exact crossing polynomial, moments and Gaussian limit; possible broader enumeration"
+      },
+      {
+        "assessment": "Structure and short-length results do not state the joint crossing/simple-chord distribution; broad source checked only to accessible material",
+        "evidence": [
+          "Section 3 defines simple chords and monolithic diagrams",
+          "Section 4 studies the k-core instead of mixed crossing/adjacency moments",
+          "Section 5 studies directed intersection graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2016.11.004",
+        "material_read": "Accessible publisher article text: abstract, introduction, Sections 2–5, and Theorem 4.1; short-chord context in Section 3",
+        "method": "Compared observables and theorems from accessible article text",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Random chord diagrams, simple chords and intersection-graph properties"
+      },
+      {
+        "assessment": "Linear adjacency enumeration does not supply the bivariate circular crossing law",
+        "evidence": [
+          "Linear k-chord arrangements rather than crossings paired with cyclic simple chords",
+          "The inspected generating functions enumerate short-chord statistics without crossing weights"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Young/young5.pdf",
+        "material_read": "Full PDF, introductory definitions and short-chord generating-function Sections 1–2",
+        "method": "Read PDF and inspected page images, compared linear versus cyclic adjacency and whether crossing statistics are tracked",
+        "title": "Linear k-Chord Diagrams",
+        "trigger": "Potential exact tabulations for short-chord enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "faef3555-e1c1-4f3b-8d73-0f8af6638917",
+  "value": {
+    "rationale": "Paguyo’s pair of natural observables are both studied in the same random diagram, yet separate normal and Poisson limit statements do not establish their asymptotic independence. The exact all-n factorial deletion identity structurally resolves their full finite dependence, produces the unexpectedly elementary correlation -sqrt(5/(n+3)), and proves the product limit without an unproved independence assumption. The result is a motivated complete bivariate law rather than a routine marginal formula or isolated low-order computation.",
+    "status": "PASS"
+  }
+}
