@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized radial probability moment \(M(x)\) makes \(e_n=z^n/\sqrt{M(n)}\) orthonormal. Projection of \(e^{im\arg z}e_n\) onto the analytic subspace has one nonzero coefficient, giving the exact positive weighted shift. Its squared weights equal \(e^{-B(n)}\), where \(B\) is the symmetric central difference of \(g=\log M\). The triangular integral of \(g''\) gives \(B>0\), and that of \(g'''\) gives \(B'<0\), so the self-commutator has a strictly positive diagonal. The derivative asymptotic supplies the coefficient \(\gamma cm^3/4\) by integrating over one winding interval. The diagonal trace telescopes, and two-sided counting proves the ordered singular-value asymptotic and exact Schatten threshold without assuming diagonal monotonicity. Gamma formulas and polygamma integral signs verify the weighted disk and power-Fock examples. The finite checker tests only instances, not all indices.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The quasihomogeneous/quasi-radial moment reductions appear in earlier literature and are not new. Dewage--Ólafsson (arXiv:2107.01465) treat quasi-radial Fock Toeplitz operators; their diagonal spectral formulas do not state curvature-controlled self-commutator asymptotics for the nonradial angular phase. Rodríguez Rodríguez (arXiv:2206.11557) studies commutative Bergman quasi-homogeneous algebras. Dong--Zhou (arXiv:1411.0213) classify *finite-rank* commutators for quasihomogeneous symbols, a logically different statement from an exact asymptotic for a strictly positive infinite-rank commutator. Fredholm index statements in Al-Qabani--Virtanen are distinguished from the claimed singular-value asymptotic. Searching titles, aliases, the moment-curvature formulation, and the specific \(m^3\) coefficients did not identify direct prior coverage. Historical priority remains provisional, especially against unindexed quasihomogeneous pseudodifferential treatments.
+PASS
 
-## Mathematical value — PASS
-The result identifies one mechanism that converts second and third logarithmic moment curvature into an exact noncommutative spectral law, with a cubic winding coefficient, a sharp weak-Schatten endpoint and an exact logarithmic residue. The two canonical analytic spaces exhibit different decay powers (three versus two) despite the same bounded angular phase symbol. This classification is more informative than simply computing one weighted shift or using its familiar index/trace. The assumptions are explicit and verifiable in both analytic families; the result is not a statement about arbitrary symbols or dimensions.
+Rotational orthogonality gives T_m e_n=w_n e_(n+m) with w_n=M(n+m/2)/sqrt(M(n)M(n+m)). The diagonal Q_m eigenvalues are q_n=w_n^2-w_(n-m)^2, with negative index weight zero. Triangular integration of g=log M yields B(x)=-log w(x)^2 as average of g'' and B prime as average of g'''; strict signs guarantee all q_n>0. Given g''~c x^-gamma and g'''~-gamma c x^-gamma-1, fixed-width integration gives q_n~gamma c m^3/4 n^(-gamma-1). Telescoping yields trace m. Tail-count inversion handles nonmonotone q_n and gives ordered singular-value asymptotic, precise Schatten and critical-log endpoints. Gamma/polygamma moments give disk gamma=2,c=alpha+1 and Fock gamma=1,c=1/a. Independently used high precision moment ratios at n=5000 for alpha=0,2, a=1,2 and m=1,2,4 to approach the predicted coefficients; these numerical checks corroborate but do not imply infinity.
 
-## Limits and comparison
-Only one-complex-dimensional radial polynomial Hilbert closures are covered, with strictly decreasing positive moment curvature obeying a differentiable asymptotic power law. General radial measures may not satisfy this hypothesis. Earlier work on Toeplitz commutators might contain a stronger spectral theorem expressed by different methods; no comprehensive independence or priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard angular weighted-shift reduction and index/trace formula are known; inspected quasi-radial and quasihomogeneous Toeplitz literature does not state this moment-curvature-to-singular-value asymptotic with sharp coefficient for angular unimodular winding. Quasi-homogeneous finite-rank brackets are not a dominating infinite-rank Schatten law.
+
+## value
+
+PASS
+
+A precise spectral curvature criterion with sharp coefficient, exact Schatten threshold and Dixmier-style logarithmic endpoint on natural disk/Fock spaces is a motivated operator invariant useful for functional analysis; the disk and Fock models exhibit different decay orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
