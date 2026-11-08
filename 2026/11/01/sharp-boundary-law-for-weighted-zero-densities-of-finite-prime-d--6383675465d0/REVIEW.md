@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS, self-review.** Common-angle Jensen integration and the published weighted Jessen–count identity give the exact reduction. The only nonstandard computation is a phase-cap asymptotic at a unique nondegenerate torus maximum. The Hessian is explicitly positive with determinant \(\prod_j a_j/A\); even Taylor remainder and fixed positive amplitudes make the estimate uniform in the required shrinking real-part interval. The final weighted beta integral has been reconstructed term by term. A standalone checker verifies six exact-rational Hessian determinants and independent two-/three-prime numerical Jensen means. The full proof, rather than finite experiments, supports the infinite-height statement.
+## correctness
 
-## Originality
-**PASS, historically provisional.** Kouroupis–Perfekt's 2023 source proves existence and the weighted integral identity but not this fixed-dimensional sharp boundary formula. The broader Ronkin literature, particularly Lundqvist 2015 and Bao–He–Zahabi 2022, is mathematically adjacent. The Lundqvist article was only accessible at the abstract level for this comparison, so indirect coverage remains possible. Search comparisons include identical claims, equivalent Ronkin/Jessen formulations and possible dominating theorems; no decisive covered result was identified.
+PASS
 
-## Value
-**PASS.** The dimension-dependent sharp exponent \(\nu+(d-1)/2\) and explicit positive coefficient quantify how independent prime phases permit solutions near an extreme range point. This supplies information beyond qualitative existence and is relevant to boundary behavior of weighted composition-symbol counting functions.
+Jensen integration over common phase gives J(σ)=E log max(A−ε,|Σ a_j p_j^{−σ}e^{iθ_j}|). M0=−J′ for w≠c, with exact support σ≤σ_ε~ε/K. Relative-angle maximum unique and Hessian H=diag(b1,...,b_{d−1})−(b_i b_j)/B positive with det H=∏b_j/B. The even analytic Taylor remainder produces uniform phase-cap probability with exponent (d−1)/2 and normalized torus factor. Differentiating J and integrating the weighted counting identity yields the stated Beta/Gamma constant and O(ε) relative error. All limits fixed dimension/parameters, with ε→0 along the real target ray.
 
-## Scientific limitations
-Only a fixed number of distinct prime frequencies, positive nondegenerate amplitudes, fixed \(\nu>0\), and the specified real target ray are covered. Independent historical and mathematical review could refine originality and correctness judgments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kouroupis–Perfekt Theorem 1.1/4.8 gives broad weighted counting/Jessen framework, not the fixed-prime extreme-point cap asymptotic or determinant-based constant. Finite-prime Bohr independence and the local Hessian reduction are explicitly required; generalized Ronkin/Mahler theory might imply it with work, but no decisive exact prior implication located.
+
+## value
+
+PASS
+
+The natural weighted vertical zero-density near an extreme Bohr image has a sharp dimension-dependent exponent and explicit positive coefficient, a precise invariant relevant to Dirichlet-series composition and boundary geometry rather than an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
