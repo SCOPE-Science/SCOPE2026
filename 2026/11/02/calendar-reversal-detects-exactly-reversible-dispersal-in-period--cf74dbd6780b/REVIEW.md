@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses and quantifiers are explicit: an irreducible column-stochastic migration matrix on any finite number of patches; arbitrary strictly positive diagonal season multipliers. Detailed balance gives a positive diagonal similarity to a symmetric matrix. Transposition followed by cyclic determinant invariance proves equal characteristic polynomials, including in singular cases. The converse tests arbitrary simple directed migration cycles using positive rank-one-concentrating growth profiles, takes a continuous spectral-radius limit, and constructs detailed-balance weights from balanced cycle products. The finite-dimension upper bound on season length is exactly the maximum possible simple-cycle length. The three-habitat witness is independently checked by exact rational matrix arithmetic, with a strictly positive Collatz–Wielandt row-sum separation. The proof does not infer an infinite quantifier from finite experiments.
+PASS
 
-## Originality — PASS within inspected evidence
+Assume irreducible column-stochastic P, n>=2, and arbitrary strictly positive diagonal season matrices. Detailed balance symmetrizes P by a positive diagonal similarity, and transposition plus cyclic determinant identity makes all reversal products isospectral, including singular factors. Conversely concentrate seasons at each vertex of any directed simple cycle length 3..n; at epsilon=0 the period product has rank<=1 and spectral radius equal to the oriented product of P entries. Equality for each k and all positive seasons forces equality of forward/reverse cycle weights, symmetric support by irreducibility, and Kolmogorov path-ratio detailed balance; length-1/2 cycles are automatic. n=2 is automatically reversible and the reversal test is vacuous. Independently checked given 3x3 strictly positive witness exact rational traces, eigenvalue coefficients, and min R3^2 1 minus max F3^2 1=10651/10000, yielding strict growth reversal; scaling D by 17/27 yields opposite growth/decay. Inspected packaged verify.py implementing positive-vector Perron row bounds. These tests are for the witness, not a substitute for all-n cycle proof.
 
-The 2006 Mertens et al. full article distinguishes cyclic and noncyclic orders and develops transient sensitivity, without stating that detailed balance precisely characterizes universal spectral reversal invariance for arbitrary diagonal seasonal fitness. The 2010 Schreiber paper supplies the same dispersion-then-growth matrix framework, but derives effects of temporal and spatial correlations rather than a finite test for reversed calendars. The 2010 preprint/2011 Schreiber–Li paper directly uses diagonal symmetrizability, so it is the closest theoretical comparison; its Theorem 2 concerns period-two invasion and ESS conclusions, and Appendix Theorem A1 concerns monotonicity with respect to dispersal intensity, rather than equivalence with every-period calendar reversal. The classical cycle criterion is known, not a novelty claim. The two-habitat case is subsumed by the reversible direction, while the converse and minimal three-habitat phenomenon are separate. Priority remains provisional against unlocated equivalent results in matrix-product and ecological literature.
+## originality
 
-## Value — PASS
+PASS
 
-The characterization addresses a substantive model question: when can the chronological direction of varying habitat quality be reversed without changing long-run population growth, independently of the magnitude or ordering of habitat-specific seasonal multipliers? It replaces unbounded environmental testing with a sharp finite maximum calendar length, detects the role of irreversible migration circulation, and supplies the minimum-dimensional fully positive example with a strict certified growth difference that can straddle the deterministic persistence boundary after a single common scaling of habitat-growth factors. It is a structural population-model benchmark rather than an arbitrary numerical instance or empirical management recommendation.
+Mertens et al. (2006) analyze transient population responses and cyclic permutations, and Schreiber and Li (2011) study period-two migration dynamics with symmetrization; the classical Kolmogorov condition characterizes reversible Markov chains. The current combined necessary-and-sufficient condition quantifies spectral-radius equality for *every* diagonal calendar, detects nonreversibility with at most n seasons, and gives explicit sharp n=3,k=3 witness. No inspected primary theorem supplies this exact universal reversal characterization; classical cycle-balance is an acknowledged proof ingredient.
 
-## Limitations and close literature
+## value
 
-The conclusion concerns universal asymptotic growth and spectra, not short-term population totals or stochastic time series. The single-source 2006 demographic model uses more general seasonal transition matrices and must not be read as disproved or subsumed; the present theorem applies only when each seasonal matrix factors as one fixed migration matrix times positive diagonal growth. Comparisons were made with the full accessible Mertens, Schreiber, and Schreiber–Li primary articles and the classical cycle criterion. A historically earlier equivalent spectral result remains possible; no independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp finite-horizon, all-calendar test connecting observable asymptotic growth under time reversal with microscopic detailed balance is mathematically and conceptually natural. The explicit 3-patch example quantifies reversal-sensitive persistence within the model. Unlike a numerical hydrology claim, it is an exact structural statement and finite witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

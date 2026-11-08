@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:54:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md bd83adedf6195ac64c97cc990043f9b2d41c1461",
+        "frozen verify.py 216d327af09b61c3e96d9c40d704354c10a442ac",
+        "independent_checks_output.txt CALENDAR_REVERSAL row_gap 10651/10000"
+      ],
+      "rationale": "Assume irreducible column-stochastic P, n>=2, and arbitrary strictly positive diagonal season matrices. Detailed balance symmetrizes P by a positive diagonal similarity, and transposition plus cyclic determinant identity makes all reversal products isospectral, including singular factors. Conversely concentrate seasons at each vertex of any directed simple cycle length 3..n; at epsilon=0 the period product has rank<=1 and spectral radius equal to the oriented product of P entries. Equality for each k and all positive seasons forces equality of forward/reverse cycle weights, symmetric support by irreducibility, and Kolmogorov path-ratio detailed balance; length-1/2 cycles are automatic. n=2 is automatically reversible and the reversal test is vacuous. Independently checked given 3x3 strictly positive witness exact rational traces, eigenvalue coefficients, and min R3^2 1 minus max F3^2 1=10651/10000, yielding strict growth reversal; scaling D by 17/27 yields opposite growth/decay. Inspected packaged verify.py implementing positive-vector Perron row bounds. These tests are for the witness, not a substitute for all-n cycle proof.",
+      "residual_risks": [
+        "An older theorem about matrix products of positive diagonal matrices and symmetrizable stochastic kernels may be equivalent, despite comparison with the accessible Schreiber/Li Theorems 2/A1 and appendices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General cyclic matrix product rearrangements preserve eigenvalues; positive symmetrizable migration has stronger time-reversal invariance."
+        ],
+        "reasoning": "Classical cyclic invariance explains k<=2 and forward direction, but not converse for all k=3..n without the concentrating-cycle argument.",
+        "searches": [
+          "Mertens et al. Ecology 87(9) 2006 pp2338-2348; arXiv:1007.5267 Schreiber/Li, period-two theorem"
+        ]
+      },
+      "checked_sources": [
+        "Transient population dynamics in periodic matrix models: Methodology and effects of cyclic permutations: https://api.unil.ch/iris/server/api/core/bitstreams/39f4a4a0-30ec-490e-8314-846a5f9f412b/content",
+        "Evolution of unconditional dispersal in periodic environments: https://arxiv.org/abs/1007.5267"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Period-two reversal always isospectral; the earlier period-two dispersal results cannot discriminate nonreversible P from reversible P."
+        ],
+        "reasoning": "Finite directed cycles of length up to n and concentrated positive seasons prove a strict universal converse that is not a mere rephrasing of the two-season theorem or empirical transient observations.",
+        "searches": [
+          "Mertens et al. 2006 periodic cyclic permutation discussion; Schreiber/Li 2011 detailed balance symmetrization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Irreducible P is diagonally symmetrizable iff every directed cycle has balanced forward/reverse products; diagonal calendar reversal is a spectral test of that property."
+        ],
+        "reasoning": "The cycle criterion is explicitly classical; the all-positive-calendar equivalence and finite testing length <=n are separately compared, not falsely attributed to novelty of detailed balance.",
+        "searches": [
+          "Resultary: periodic environmental matrix product reversal spectral radius diagonal growth reversible dispersal detailed balance Kolmogorov; Kolmogorov cycle condition detailed balance product reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mertens reports time-dependent numerical sensitivities for permuted seasons and transient populations, not a table of universal exact cycle-balance tests."
+        ],
+        "reasoning": "The exact 3x3 witness is diagnostic, but novelty/value rely on the universal condition, not on a previously tabulated 3x3 characteristic polynomial.",
+        "searches": [
+          "Resultary: periodic environmental matrix product reversal spectral radius diagonal growth reversible dispersal detailed balance Kolmogorov; ecological periodic matrix model permuted-season numerical cases"
+        ]
+      },
+      "rationale": "Mertens et al. (2006) analyze transient population responses and cyclic permutations, and Schreiber and Li (2011) study period-two migration dynamics with symmetrization; the classical Kolmogorov condition characterizes reversible Markov chains. The current combined necessary-and-sufficient condition quantifies spectral-radius equality for *every* diagonal calendar, detects nonreversibility with at most n seasons, and gives explicit sharp n=3,k=3 witness. No inspected primary theorem supplies this exact universal reversal characterization; classical cycle-balance is an acknowledged proof ingredient.",
+      "residual_risks": [
+        "An older theorem about matrix products of positive diagonal matrices and symmetrizable stochastic kernels may be equivalent, despite comparison with the accessible Schreiber/Li Theorems 2/A1 and appendices.",
+        "Universal calendar claim is not equality for individual arbitrary fixed calendars of nonreversible P; no transient or empirical forecasts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies transients and cyclic phase rotations rather than universal noncyclic reversal iff detailed balance",
+          "evidence": "Mertens et al. 2006 pp2338,2341,2346",
+          "identifier_or_url": "https://api.unil.ch/iris/server/api/core/bitstreams/39f4a4a0-30ec-490e-8314-846a5f9f412b/content",
+          "material_read": "Read accessible PDF introduction, cyclic-permutation and sensitivity discussion, visually checked pages 1,4,9",
+          "method": "lawful university-hosted full PDF, targeted PDF screenshots",
+          "title": "Transient population dynamics in periodic matrix models: Methodology and effects of cyclic permutations",
+          "trigger": "Closest ecology model involving periodic product order"
+        },
+        {
+          "assessment": "Theorem 2 is a period-two evolutionary stability assertion assuming diagonal similarity; Theorem A1 addresses monotonicity of D[(1-t)I+tS]D^-1[(1-t)I+tS], not all-calendar time-reversal equivalence",
+          "evidence": "Schreiber/Li 2010 preprint, 2011 journal article",
+          "identifier_or_url": "https://arxiv.org/abs/1007.5267",
+          "material_read": "Read extracted full primary PDF: introduction, Theorem 2 pp 124-125, Appendix 1 Theorem A1 pp 132-133 and Appendix 2 theorem A2; PDF screenshot endpoint returned 403 but text extraction succeeded",
+          "method": "lawful publisher PDF full text extraction with targeted theorem and appendix reading; arXiv PDF endpoint blocked",
+          "title": "Evolution of unconditional dispersal in periodic environments",
+          "trigger": "Diagonal-symmetrizable constant dispersal with periodic environments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md bd83adedf6195ac64c97cc990043f9b2d41c1461"
+      ],
+      "rationale": "A sharp finite-horizon, all-calendar test connecting observable asymptotic growth under time reversal with microscopic detailed balance is mathematically and conceptually natural. The explicit 3-patch example quantifies reversal-sensitive persistence within the model. Unlike a numerical hydrology claim, it is an exact structural statement and finite witness.",
+      "residual_risks": [
+        "Universal calendar claim is not equality for individual arbitrary fixed calendars of nonreversible P; no transient or empirical forecasts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older theorem about matrix products of positive diagonal matrices and symmetrizable stochastic kernels may be equivalent, despite comparison with the accessible Schreiber/Li Theorems 2/A1 and appendices.",
+    "Universal calendar claim is not equality for individual arbitrary fixed calendars of nonreversible P; no transient or empirical forecasts."
+  ],
+  "schema_version": 1
+}
