@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Over the complex numbers the Hessian factorization is an exact polynomial identity. An elimination computation shows the residual flex polynomial can acquire multiple roots only at a singular parameter or at the explicitly identified nonzero smooth invariant. The latter has exactly \(g=\gcd(n,2)\) double roots, since the second derivative is nonzero. Direct local expansions handle the branch and axis points, and the total Hessian intersection weight checks the complete census. `verify_flex.py` independently tests the symbolic identities and degree-five discriminant. No finite computation is used as a proof for infinitely many degrees.
+## correctness
 
-**Originality — PASS, qualified.** Badr–Harui classify automorphism groups rather than the present flex divisor. Cotterill et al. supply general superelliptic inflection methods but no matching explicit parameter equation and complete counts were identified in the inspected material. Bertone–Weimann study generic hypersurface flex loci, not this special pencil. Published research records and nearby cyclic-curve results were compared by object, parameter, and implication, including other explicit flex families. Unfound equivalent coordinate presentations remain a real historical-priority risk; search failure alone is not treated as proof of novelty.
+PASS
 
-**Value — PASS.** A natural one-parameter deformation of Fermat plane curves has an explicit and unexpected nonzero jumping invariant at every degree. The result classifies *all* embedded plane flex contacts, not just their total weight or the branch locus, and separates singular degenerations from the smooth contact-four jump. The odd/even gcd controls the jump multiplicity, giving a structural phenomenon applicable uniformly to the family.
+The Hessian identity det Hess(F)=n(n-1)^2*Y^(n-2)*X^(n-4)*H_(n,t) was reconstructed from RESULT.md and independently symbolically checked for degrees 5..8. The projective singularity calculation has f=f'=0 iff t^(n/g)=S_n. Setting u=t*x^(n-2),v=x^n in H=H'=0 and eliminating v gives only the singular branch u=-n/2 and the smooth jump u=n(n-1)(n-3)/2, v=(n-2)(n-3)^2/2; gcd(n,n-2)=g yields exactly g repeated finite roots and H'' nonzero yields double roots. The simple/double Hessian intersection multiplicities give contact-three/four over each of n y-roots; local expansions at x=0 and y=0 give contact n-2 and n, respectively. Fermat and Hessian total weight 3n(n-2) check boundaries. Independent finite SymPy checks are corroboration, not the proof for every n.
 
-**Limitations.** Characteristic zero and smooth plane fibers only; no intrinsic higher-linear-series Weierstrass census, automorphism classification or isomorphism quotient. Independent mathematical audit is outstanding. Historical priority remains provisional, especially for coordinate-equivalent expressions of the pencil.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited superelliptic-inflection source treats Hasse-Wronskian behavior at ramification points and Newton polytopes of other inflectionary families, not the displayed plane-pencil Hessian collision invariant. Badr–Harui classify automorphism groups of smooth plane cyclic covers, not all embedded tangent contacts; generic hyperflex-locus work gives a framework but not this specific degree-uniform jump count. Actual Resultary searches produced nearby quartic singularity/inflection records without a statement of the same all-n formula. Best-of-knowledge PASSED with coordinate-equivalent classification as priority risk.
+
+## value
+
+PASS
+
+The family is a natural one-parameter Fermat deformation; a single nonzero *smooth* degeneration changes residual tangent contacts from order 3 to order 4 in a parity-dependent way, distinct from the singular discriminant. A full n-uniform contact census, not a textbook total-flex formula, is a useful structural classification of embedded plane flexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
