@@ -1,15 +1,21 @@
-# Scientific review: Spectral-reflection coupling for Haar-frame finite-difference descent
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For the exact full-frame one-sided estimator on a symmetric positive-definite quadratic, the finite-difference expansion gives a deterministic gradient plus centered, bounded additive frame noise. Independent sign changes of Haar columns eliminate cross-column products. Contracting the standard spherical sixth-moment pairing identity gives the stated covariance polynomial in the Hessian, including each positive spectral variance. In a two-step block, equal-marginal noise variances and Cauchy--Schwarz give the lower bound, while the orthogonal matrix formed from Hessian spectral signs simultaneously realizes equality in every mode. Independence between blocks and strict stability make the finite-horizon and stationary geometric series valid. The stated mixed-spectrum rational example and symbolic identities were independently checked by the accompanying reproducible program. Risks: this proof assumes full frames, exact evaluation, fixed radii, independent blocks, and a stable constant step. The optimum is not claimed for arbitrary cross-block dependence or adaptive estimation.
+PASS
 
-## Originality (O): PASS, with residual priority risks
+For f(x)=xᵀHx/2, each orthonormal-frame forward-difference estimator is Hx+e(U), e=(h/2)Σ_j(u_jᵀHu_j)u_j. Haar column-sign symmetry gives mean zero, and standard sixth-sphere moments give eigenbasis variance c_i from the displayed trace polynomial. For any pair with Haar marginals, Cauchy–Schwarz shows Var(a_i e0i+e1i)≥c_i(1−|a_i|)². The spectral reflector S commuting with H and having eigenvalues −sgn(a_i) attains all mode bounds simultaneously. Independent block noise gives even-time geometric variance and exact stationary objective for |a_i|<1. Independent analytic angular integration for d=2 checked mode moments and mixed-sign alignment.
 
-Kozak et al. (arXiv:2107.03941, Sections 2 and 4.2) use the same forward-difference estimator with independent random directions and explicitly leave tailored analysis of quadratics open. Feng and Wang (arXiv:2205.14737) analyze structured-direction derivative estimation, chiefly centered rules, not consecutive-frame fixed-marginal coupling. Rando et al. (arXiv:2206.05124) analyze stochastic structured zeroth-order descent, but not the exact sharp temporal covariance lower bound. The accessible abstract of Kühn and Rosenow (arXiv:2306.05300) concerns epoch-induced SGD noise anticorrelation; it is related conceptually, not demonstrably covering this full-frame one-sided Hessian-reflection result. Search comparisons against existing mathematical research records identified related Haar second-moment descent analysis and constant-template stochastic noise-floor results, but none claiming this all-coupling sharp theorem. The derivation also uses familiar spherical moments and Cauchy--Schwarz, which are not independently novel. Risks: the Kühn--Rosenow complete text was not inspected, database similarity is incomplete, and an equivalent specialized treatment of temporally coupled orthogonal perturbations might exist. Neither negative search results nor topical categorization establishes publication priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-The precise mathematical gap is how fixed-marginal dependence *between* full Haar frames changes the persistent finite-difference bias noise on quadratics. The result gives an attainable sharp lower bound for every spectral mode and finite even horizon, a computable stationary objective floor, and a Hessian-mode-dependent flip threshold. Its mixed-sign example demonstrates a qualitative failure of both all-repeated and all-negated frame pairings. These are motivated statistical and structural conclusions rather than an arbitrary parameter slice or a routine second-moment bound. Risk: computing the optimal spectral reflector requires Hessian information and is principally a theoretical benchmark; central differences can avoid this quadratic noise under a different budget.
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem determines the exact optimum among all within-pair Haar-marginal couplings at all even horizons and gives an actionable sharp spectral sign threshold for antithetic sampling, a natural benchmark for structured zeroth-order quadratic optimization even when its Hessian-aware optimum is informationally expensive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

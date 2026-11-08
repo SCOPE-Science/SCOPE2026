@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Install `numpy` according to `requirements.txt`, then run `python verify.py` from this package. Successful execution checks the 15 sixth-moment pair partitions, contraction identities for multiple exact rational positive spectra, exact and mixed-sign coupling comparisons, the finite-difference expansion, equivariance under spectral reflection, and numerical Haar-frame covariance consistency including a non-diagonal Hessian. The actual completed run emitted:
+# Independent mathematical audit
 
-`VERIFY_OK sixth-moment contractions=4, exact mode-coupling/risk checks=8, finite-difference spectral-reflection checks=3, Haar covariance simulations=15000`
+## correctness
 
-`VERIFY_OK non-diagonal covariance=20000, exact d1 extremal couplings=3`
+PASS
 
-The checker is a reproducibility aid, not an exhaustive or infinite verification. The universal theorem follows from the full finite-difference identity, the sixth-moment formula, scalar Cauchy--Schwarz, and the simultaneous equality construction in `RESULT.md`. The finite-horizon and stationary conclusions additionally require independently repeated two-step blocks and a spectral radius strictly below one. No independent scientific audit, provenance certification, or publication-priority determination has been performed. The coupling may require inaccessible Hessian spectral information in a black-box setting.
+For f(x)=xᵀHx/2, each orthonormal-frame forward-difference estimator is Hx+e(U), e=(h/2)Σ_j(u_jᵀHu_j)u_j. Haar column-sign symmetry gives mean zero, and standard sixth-sphere moments give eigenbasis variance c_i from the displayed trace polynomial. For any pair with Haar marginals, Cauchy–Schwarz shows Var(a_i e0i+e1i)≥c_i(1−|a_i|)². The spectral reflector S commuting with H and having eigenvalues −sgn(a_i) attains all mode bounds simultaneously. Independent block noise gives even-time geometric variance and exact stationary objective for |a_i|<1. Independent analytic angular integration for d=2 checked mode moments and mixed-sign alignment.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
+
+## value
+
+PASS
+
+The theorem determines the exact optimum among all within-pair Haar-marginal couplings at all even horizons and gives an actionable sharp spectral sign threshold for antithetic sampling, a natural benchmark for structured zeroth-order quadratic optimization even when its Hessian-aware optimum is informationally expensive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

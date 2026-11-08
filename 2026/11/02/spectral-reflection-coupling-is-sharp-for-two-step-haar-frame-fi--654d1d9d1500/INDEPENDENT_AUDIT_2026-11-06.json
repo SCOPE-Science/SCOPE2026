@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:59:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof; https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/spectral-reflection-coupling-is-sharp-for-two-step-haar-frame-fi--654d1d9d1500",
+        "Independent math_checks.py"
+      ],
+      "rationale": "For f(x)=xᵀHx/2, each orthonormal-frame forward-difference estimator is Hx+e(U), e=(h/2)Σ_j(u_jᵀHu_j)u_j. Haar column-sign symmetry gives mean zero, and standard sixth-sphere moments give eigenbasis variance c_i from the displayed trace polynomial. For any pair with Haar marginals, Cauchy–Schwarz shows Var(a_i e0i+e1i)≥c_i(1−|a_i|)². The spectral reflector S commuting with H and having eigenvalues −sgn(a_i) attains all mode bounds simultaneously. Independent block noise gives even-time geometric variance and exact stationary objective for |a_i|<1. Independent analytic angular integration for d=2 checked mode moments and mixed-sign alignment.",
+      "residual_risks": [
+        "Exact SPD quadratics, positive fixed h, independent i.i.d. pairs with Haar marginals, spectral stability 0<α<2/λmax, even-time risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Wang concerns other one-sided/central estimators; central finite differences of a quadratic are exact and hence a different oracle. General correlated-SGD epoch analyses consider different noise covariance constraints."
+        ],
+        "reasoning": "A generic correlation lower bound plus existence of special Haar-preserving spectral reflection must both be checked; no exact same structured estimator theorem found in inspected material.",
+        "searches": [
+          "orthogonal random directions finite difference quadratic two step correlated Haar reflection coupling noise variance optimization",
+          "Feng Wang 2205.14737 variance orthogonal finite-difference quadratic",
+          "correlated stochastic gradient quadratic antithetic coupling optimal variance"
+        ]
+      },
+      "checked_sources": [
+        "Kozak et al., Zeroth order optimization with orthogonal random directions, arXiv:2107.03941",
+        "Feng and Wang, Stochastic Zeroth Order Gradient and Hessian Estimators, arXiv:2205.14737",
+        "Rando et al., Stochastic Zeroth order Descent with Structured Directions, arXiv:2206.05124",
+        "Resultary search on exact Haar moments and temporally correlated quadratic SGD"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent frames have noise factor 1+a_i²; optimal reflector has (1−|a_i|)² and mixed sign action when a_i signs differ."
+        ],
+        "reasoning": "The former does not imply the latter, since it leaves admissible dependent couplings unoptimized.",
+        "searches": [
+          "Kozak et al. arXiv:2107.03941 Sections 3–4",
+          "orthogonal random directions finite difference quadratic two step correlated Haar reflection coupling noise variance optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozak et al. study independent orthogonal frame sampling and convergence rates; the analyzed two-time within-pair Haar coupling is a different variable. General Cauchy–Schwarz coupling inequality is acknowledged as prior."
+        ],
+        "reasoning": "Independent-frame noise results do not determine the best achievable joint law of two Haar frames or its simultaneous per-eigenspace reflection.",
+        "searches": [
+          "orthogonal random directions finite difference quadratic two step correlated Haar reflection coupling noise variance optimization",
+          "Kozak Molinari Rosasco Tenorio Villa 2107.03941 orthogonal random directions quadratic",
+          "stochastic antithetic orthogonal direction coupling quadratic finite differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sixth spherical moment tensor is standard and gives c_i but is not an exact all-coupling optimum table; no prior matching mode-ratio table found."
+        ],
+        "reasoning": "Exact sharp c_i and threshold are algebraic evaluations on a natural continuous class, not a preexisting finite database entry.",
+        "searches": [
+          "orthogonal random directions finite difference quadratic two step correlated Haar reflection coupling noise variance optimization",
+          "Haar frame one-sided finite differences 6th moment covariance quadratic"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.",
+      "residual_risks": [
+        "Classical optimum-covariance coupling machinery could contain equivalent general statements; the novelty is its structured estimator realization and simultaneous attainment, not Cauchy–Schwarz.",
+        "Practical optimal reflection requires Hessian eigenvectors; excludes history-dependent cross-pair couplings and central differences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers independent sampling and convergence, not an exact arbitrary dependent two-frame coupling optimum in relevant inspected sections.",
+          "evidence": "Method definition, convergence analyses Sections 3 and 4; independent random frames.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "Accessible complete 43-page primary PDF; introductory method and convergence Sections 3–4, including quadratic remarks, were inspected with screenshots.",
+          "method": "Primary arXiv full-text inspection",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Same full-frame directional estimator and iteration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kozak et al., Zeroth order optimization with orthogonal random directions, arXiv:2107.03941",
+        "Feng and Wang, Stochastic Zeroth Order Gradient and Hessian Estimators, arXiv:2205.14737",
+        "Rando et al., Stochastic Zeroth order Descent with Structured Directions, arXiv:2206.05124",
+        "Resultary search on exact Haar moments and temporally correlated quadratic SGD"
+      ],
+      "rationale": "The theorem determines the exact optimum among all within-pair Haar-marginal couplings at all even horizons and gives an actionable sharp spectral sign threshold for antithetic sampling, a natural benchmark for structured zeroth-order quadratic optimization even when its Hessian-aware optimum is informationally expensive.",
+      "residual_risks": [
+        "Classical optimum-covariance coupling machinery could contain equivalent general statements; the novelty is its structured estimator realization and simultaneous attainment, not Cauchy–Schwarz.",
+        "Practical optimal reflection requires Hessian eigenvectors; excludes history-dependent cross-pair couplings and central differences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact SPD quadratics, positive fixed h, independent i.i.d. pairs with Haar marginals, spectral stability 0<α<2/λmax, even-time risk.",
+    "Originality is best-of-knowledge only; no publication or external certification."
+  ],
+  "schema_version": 1
+}
