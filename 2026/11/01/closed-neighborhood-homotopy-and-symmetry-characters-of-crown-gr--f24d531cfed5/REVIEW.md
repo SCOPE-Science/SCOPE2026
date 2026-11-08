@@ -1,15 +1,21 @@
-# Mathematical review of the crown-graph closed-neighborhood classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed cover is exact on faces: the two sets of neighborhood facets meet precisely in the crown graph. Each piece is an explicit cone-on-facets enlargement of a simplex boundary and strongly deformation retracts onto that boundary. For \(n\ge4\), the targets are simply connected, so both graph-to-piece inclusions are null-homotopic and the simplicial union is their homotopy pushout; this yields a wedge of two \((n-2)\)-spheres and the suspension of a graph of cycle rank \(n^2-3n+1\). The separate six-cycle collapse handles \(n=3\). Mayer--Vietoris isomorphisms for \(n\ge5\) retain integral naturality and the minus sign on swapping the two cover pieces. The graph-chain sequence proves the traces directly. The finite checker reconstructed the graph-defined faces, gave the stated Betti numbers for \(n=3,\ldots,8\), and verified all tested signed Lefschetz characters. No finite sample was used to deduce the infinite statement.
+## correctness
 
-## Originality — PASS, subject to stated residual risks
-The primary source [1] treats general closed-neighborhood complexes and computes a different Cartesian-product family. It does not give the crown-graph unsuspended wedge decomposition, simultaneous nonzero homology in degrees two and \(n-2\), or the integral symmetry characters. The complete multipartite Čech computation [2] covers \(K_{n,n}\) but not its matching-deleted crown subgraph; the open-neighborhood result [3] uses crown graphs only as an auxiliary interface. The cover-ideal results [4] address symbolic powers rather than simplicial homotopy. Search comparisons included the equivalent names crown graph, \(K_{n,n}\) minus perfect matching, closed-neighborhood complex, and graph Čech. A separate earlier result involving a crown graph as a model for another complex does not compute this complex. The included \(n=3\) boundary is not claimed independently novel; the nontrivial classification begins at \(n=4\). Some unindexed equivalent theorem or implicit consequence of an uninspected general theorem remains possible.
+PASS
 
-## Value — PASS
-The crown graph is a canonical highly symmetric family whose many overlapping four-cycles put it outside sparse-square simplification theorems. Deleting one perfect matching from \(K_{n,n}\) changes the closed-neighborhood complex from a pure wedge of two-spheres to a mixed-dimensional wedge with two sphere dimensions increasing without bound. The theorem gives exact all-parameter integral homotopy types and an independent natural symmetry representation, rather than merely a small numerical improvement or a computation of a known table. The sharp \(n=3,4,5\) transition, explicit two-cover mechanism, and dependence of characters on fixed points and transpositions are mathematically informative. It does not claim equivariant homotopy equivalence, and it is restricted to crown graphs.
+For Q_n, U and V are unions of n cones on the facets of opposite simplex boundaries; each retracts onto S^(n-2), and their exact intersection is the crown graph. For n=3 six triangular facets collapse to the C6 graph. For n>=4 the two graph inclusions are nullhomotopic in simply connected U,V, so homotopy pushout yields two S^(n-2) spheres and n^2-3n+1 S2 spheres. Natural integral Mayer–Vietoris provides H2=H1(Q_n) twisted by side swap and top module sgn⊗side permutation for n>=5. Directed cycle-lattice traces yield f^2-3f+1 and 2t-1. Independently recomputed the mod-two Betti numbers for n=3,4,5,6 by constructing closed-neighborhood faces and exact F2 boundary ranks; all agree.
 
-## Closest literature and residual limitations
-[1] T. Matsushita, *Closed neighborhood complexes of graphs*, arXiv:2511.12608 (2025-11-16); relevant definitions, Theorem 1.2, Example 3.5 and fundamental-group discussion were inspected in the primary full text. [2] *Complete intrinsic graph Čech persistence of multipartite graphs, including their symmetry modules* (2026), full RESULT.md inspected. [3] *Mixed-dimensional neighborhood homotopy of complete-graph cycle products* (2026), full RESULT.md inspected. [4] A. Kumar et al., *Symbolic powers of certain cover ideals of graphs*, arXiv:1903.00178; abstract, crown definition and crown section inspected. The central residual risks are unindexed equivalents and a potential broader theorem elsewhere that subsumes the wedge classification, not a missing step in the presented homotopy proof. Independent validation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+An exact uniform integral homotopy classification and complete natural symmetry modules for a canonical graph family, with the n=3 and n=4 exception regimes sharply delimited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

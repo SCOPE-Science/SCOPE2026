@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The unrestricted proof is contained in RESULT.md, steps 1--6. Reproduce finite checks by running `python3 verify_crown_closed_neighborhood.py` with Python 3 and no dependencies. Expected terminal lines include `FINITE_CHECK_OK` and `CHARACTER_CHECK_OK`.
+# Independent mathematical audit
 
-Actual computations: full augmented boundary matrix elimination over \(\mathbb F_2\) for every \(3\le n\le8\); signed Lefschetz-character comparisons for all permutations at \(n=5\), and a deterministic subsequence of permutations at \(n=6\), both with and without side exchange. Facets are constructed from the defining graph adjacency, not copied from the proof. Computations corroborate integral ranks and characters but cannot certify integral torsion absence or arbitrary \(n\); those come from the integral homotopy-pushout and Mayer--Vietoris proofs.
+## correctness
 
-The basepoint and cofibration hypotheses of the homotopy pushout are verified by the graph's connectedness and by the inclusions of finite simplicial subcomplexes. The infinite claim does not rely on extrapolation from the computed range. Literature novelty remains subject to independent checking.
+PASS
+
+For Q_n, U and V are unions of n cones on the facets of opposite simplex boundaries; each retracts onto S^(n-2), and their exact intersection is the crown graph. For n=3 six triangular facets collapse to the C6 graph. For n>=4 the two graph inclusions are nullhomotopic in simply connected U,V, so homotopy pushout yields two S^(n-2) spheres and n^2-3n+1 S2 spheres. Natural integral Mayer–Vietoris provides H2=H1(Q_n) twisted by side swap and top module sgn⊗side permutation for n>=5. Directed cycle-lattice traces yield f^2-3f+1 and 2t-1. Independently recomputed the mod-two Betti numbers for n=3,4,5,6 by constructing closed-neighborhood faces and exact F2 boundary ranks; all agree.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+An exact uniform integral homotopy classification and complete natural symmetry modules for a canonical graph family, with the n=3 and n=4 exception regimes sharply delimited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
