@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies an involutive restriction as one extending identity, reflection, or (when available) half-turn; counts invariant domain subsets by fixed-point and transposition orbits; and explicitly subtracts the only overlap, one swapped restriction per antipodal pair. The direct partial-map census for \(3\le n\le10\) agrees coefficient-by-coefficient. The infinite family follows from the group-action proof, not those computations.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Fernandes and Paulista's 2022 arXiv preprint 2205.02196 (the original study of the cycle partial-isometry inverse monoid) already proves the crucial antipodal rank-two nonunique-extension lemma. This geometric lemma is acknowledged and used, not claimed as new. Their paper computes semigroup size, structure, generator rank and presentation but does not supply an involution-domain-rank polynomial. Dimitrova et al.'s 2023 follow-up arXiv:2301.01519 computes related submonoid sizes and generator ranks, not this spectrum. No broader covering enumerator was found in the actual mathematical-record and literature searches. The remaining risk is an unlocated general restriction-semigroup torsion count that could specialize to these formulas, so publication priority is provisional.
+PASS
 
-**Value — PASS.** Self-inverse elements are intrinsic algebraic invariants of inverse semigroups. The full rank distribution, not just a single total, is determined throughout the canonical dihedral restriction family. The even-cycle rank-two correction detects nonunique global extensions, and the theorem yields a sharp binomial concentration phenomenon despite the growing dihedral unit group. These are natural structural questions complementary to the previously studied generator rank and cardinality; the counting argument does not assert a generic classification of all inverse monoids.
+For n≥3 an involutive partial dihedral restriction g|A must preserve A and satisfy g²|A=id. A rotation other than identity/half-turn has no nonempty fixed points of its square, so all nonidentity cases extend reflections or the even-n half-turn. A global involution with f fixed vertices and t transpositions contributes (1+z)^f(1+z²)^t invariant subsets; subtract partial identities. Distinct reflections never coincide on a nonidentity restriction; on even n=2h the half-turn agrees with a reflection only on one of h antipodal swapped two-point domains, giving correction −h z² and no higher collisions. This derives both odd/even formulas and first coefficients 1,n,n(n−1). At z=1, the nonidempotent count is O(n 2^(n/2)) versus 2^n identities; mixture bound yields total-variation distance O(n 2^(−n/2)) from Binomial(n,1/2). Independent deduplicated partial-map enumeration for n=3..9 reproduced involution totals 14,31,62,125,226,439,782 and every polynomial coefficient; the uniform proof is group-orbit classification, not finite induction.
 
-**Scientific limitations.** The result applies only to dihedral restrictions of a finite cycle; it does not cover arbitrary partial graph isomorphisms or general partial isometries. Its publication-priority assessment is non-exhaustive. The exhaustive checker covers only \(3\le n\le10\), whereas the mathematical proof is uniform.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the complete parity-dependent involution domain-rank polynomial and asymptotic binomial law. The monoid identification, cardinality/presentation and even antipodal rank-two nonunique extension lemma are already explicit in Fernandes–Paulista and credited.
+
+## value
+
+PASS
+
+Self-inverse elements and their domain-rank distribution are natural invariants of an inverse semigroup. The exact even-cycle antipodal overlap and exponentially dominant partial identities clarify structural combinatorics and give a natural asymptotic distribution beyond established monoid cardinality/generator ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
