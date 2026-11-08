@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and proof limits
+# Independent mathematical audit
 
-The accompanying standalone Python 3 program `check_unicyclic.py` requires only the standard library. From the directory containing it, execute `python3 check_unicyclic.py`. It enumerates every simple graph with the same number of edges and vertices for \(3\le n\le7\), discards disconnected graphs, and checks the full exact bivariate table of unique-cycle length and leaf count against the derived inclusion-exclusion formula. It also checks the conditional means, strict finite regression, exact first and mixed moments, and finite numerical signs and convergence trends for selected larger sizes. The exhaustive totals are 1, 15, 222, 3660 and 68295.
+## correctness
 
-Finite exact and numerical computations do not prove the statements for arbitrary graph orders. The general proof is in `RESULT.md`: the rooted-forest matrix-tree determinant and deletion bijection are exact for arbitrary \(n\); strictly increasing conditional means establish the covariance sign; a truncated-Poisson limit, vacancy martingale central limit theorem, and uniform-integrability argument establish the asymptotic joint law and covariance coefficient. The proof treats the pure-cycle and triangular boundary cases separately.
+PASS
 
-Only the uniform labeled simple connected unicyclic model is covered. A full stochastic ordering of leaf-count distributions at different cycle lengths has not been established. Independent external validation and independent audit have not been performed.
+Matrix-tree theorem for a fixed root set of size c yields c n^{n-c-1} rooted forests and the truncated-Poisson cycle distribution. Deleting j specified pendant vertices gives c(n-j)^{n-c-1} surviving attachments, which agrees for all j with avoidance of j specified boxes after n-c-1 uniform throws. For c=n, pure cycle L=0. Conditional mean m(1-1/n)^{m-1} strictly increases with m=n-c (for supported m), producing negative covariance via the independent-copy identity. Conditional occupancy martingale decomposition yields vacancy CLT variance (e-2)/e^2, uniformly for c=O(sqrt n); n-C is Poisson(n) conditioned below n-3, hence C/sqrt n -> |N|. The quadratic mean response (1-x^2)/(2e), bounded uniformly integrably, gives -1/(e sqrt(2pi)) covariance limit. Direct independent complete n-edge graph census n=3..6 checked exact conditional factorial moments. General assertions proved analytically, finite enumeration corroborative.
+
+## originality
+
+PASS
+
+Qualified PASS for the exact conditional vacancy law and combined first-order independence / nonzero second-order mixed covariance. Existing unicyclic tables determine cycle-length marginal, and other prior papers treat evolving multigraph component sizes or Laplacian coefficient extremality, not the bivariate conditional statistic. Specialized conditioned random-graph theory remains a meaningful priority risk.
+
+## value
+
+PASS
+
+Cycle length and number of leaves are canonical unicyclic graph statistics; their exact joint dependence is a motivated structural probability question. A sharp second-order covariance survives an independent limiting pair, revealing nontrivial finite-size dependence not visible in marginal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

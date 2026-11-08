@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:43:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Matrix-tree theorem for a fixed root set of size c yields c n^{n-c-1} rooted forests and the truncated-Poisson cycle distribution. Deleting j specified pendant vertices gives c(n-j)^{n-c-1} surviving attachments, which agrees for all j with avoidance of j specified boxes after n-c-1 uniform throws. For c=n, pure cycle L=0. Conditional mean m(1-1/n)^{m-1} strictly increases with m=n-c (for supported m), producing negative covariance via the independent-copy identity. Conditional occupancy martingale decomposition yields vacancy CLT variance (e-2)/e^2, uniformly for c=O(sqrt n); n-C is Poisson(n) conditioned below n-3, hence C/sqrt n -> |N|. The quadratic mean response (1-x^2)/(2e), bounded uniformly integrably, gives -1/(e sqrt(2pi)) covariance limit. Direct independent complete n-edge graph census n=3..6 checked exact conditional factorial moments. General assertions proved analytically, finite enumeration corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic rooted-forest enumeration and Poisson occupancy CLT are known; Janson 2003 analyzes component/cycle sizes for G(n,n/2 ± s), different probability measure."
+        ],
+        "reasoning": "The components in a critical random graph can be conditioned on order, but no inspected general theorem explicitly subsumes the given full conditional leaf law, strict all-increasing-f covariance, and quadratic-response constant.",
+        "searches": [
+          "Resultary semantic: random connected labeled unicyclic graph cycle length number leaves joint distribution occupancy covariance independence",
+          "web: unicyclic graph conditioned random graph forest law and covariance",
+          "web: Janson cycles unicyclic components random graphs"
+        ]
+      },
+      "checked_sources": [
+        "Full actual assigned RESULT.md at pinned commit",
+        "Resultary semantic query: random connected labeled unicyclic graph cycle length number leaves joint distribution occupancy covariance independence",
+        "Ben-Naim–Krapivsky arxiv:cond-mat/0403453v1 full accessible HTML",
+        "Zhang–Zhang arxiv:1311.1987 abstract",
+        "OEIS A098909",
+        "OEIS A057500"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard matrix-tree count c n^{m-1} supplies normalization only.",
+          "Zhang–Zhang investigate extremal Laplacian coefficients with specified girth/leaves, not random law."
+        ],
+        "reasoning": "The deletion bijection plus probability coupling is needed for the exact conditional law; the martingale conditional CLT and quadratic mean response are nontrivial additional arguments. Existing total enumeration does not imply the complete joint theorem by simple substitution.",
+        "searches": [
+          "web: Ben-Naim Krapivsky unicyclic components paper",
+          "web: Zhang Zhang 1311.1987 Laplacian coefficients leaves girth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ben-Naim–Krapivsky (2004) full accessible preprint studies component sizes in an evolving random multigraph, not one fixed uniform labeled simple connected unicyclic graph.",
+          "The conditional leaf-indicator moment formula is a specified-box occupancy law, not the cycle-size distribution."
+        ],
+        "reasoning": "A conditional occupancy representation is mathematically equivalent to a bivariate cycle/leaf distribution; searched variants were not found in accessible works, but lack of matching result is not complete priority proof.",
+        "searches": [
+          "Resultary semantic: random connected labeled unicyclic graph cycle length number leaves joint distribution occupancy covariance independence",
+          "web: unicyclic graph conditional leaves cycle length occupancy",
+          "web: Unicyclic Components in Random Graphs Ben Naim Krapivsky"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A098909 already gives the exact cycle-length triangle (not claimed as new).",
+          "OEIS A057500 gives total n-edge connected simple labeled graph counts."
+        ],
+        "reasoning": "Cycle-length marginals do not determine conditional leaf-count factorial moments, their dependence, or a second-order covariance asymptotic.",
+        "searches": [
+          "web: OEIS A098909 unicyclic graph number by cycle length",
+          "web: OEIS A057500 connected labeled unicyclic graph count",
+          "Resultary semantic: random connected labeled unicyclic graph cycle length number leaves joint distribution occupancy covariance independence"
+        ]
+      },
+      "rationale": "Qualified PASS for the exact conditional vacancy law and combined first-order independence / nonzero second-order mixed covariance. Existing unicyclic tables determine cycle-length marginal, and other prior papers treat evolving multigraph component sizes or Laplacian coefficient extremality, not the bivariate conditional statistic. Specialized conditioned random-graph theory remains a meaningful priority risk.",
+      "residual_risks": [
+        "An unindexed bivariate combinatorial enumeration or conditioned random-graph theorem could imply some or all of the joint law; no blanket priority certification.",
+        "Uniform n>=3 theorem does not establish stochastic ordering of entire conditional L distribution, only conditional mean monotonicity.",
+        "Finite complete graph census to n=6 corroborates but is not an asymptotic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in inspected complete text",
+          "evidence": "Analyzes number and size distribution of unicyclic components in evolving random multigraph; no conditional leaf count or fixed connected simple uniform graph bivariate law.",
+          "identifier_or_url": "arxiv:cond-mat/0403453v1",
+          "material_read": "Full-text public preprint transcribed into ResearchGate scholarly HTML, including model, main analytic component-size formulas and conclusion; searched for leaf statistic with no match",
+          "method": "Public full-text HTML of author preprint",
+          "title": "Unicyclic Components in Random Graphs",
+          "trigger": "Same adjective unicyclic, possibly dominating component limit"
+        },
+        {
+          "assessment": "different invariant; full-text priority residual",
+          "evidence": "Optimizes Laplacian coefficients within graph classes rather than enumerating distribution under uniform labeled graph law.",
+          "identifier_or_url": "arxiv:1311.1987",
+          "material_read": "Article abstract and mathematical problem statement via public sources; complete primary not independently opened",
+          "method": "Public arXiv bibliographic and search excerpts",
+          "title": "Laplacian coefficients of unicyclic graphs with the number of leaves and girth",
+          "trigger": "Same girth and leaf parameters"
+        },
+        {
+          "assessment": "COVERING of marginal cycle-length formula only",
+          "evidence": "Number of labeled unicyclic graphs by the length of their unique cycle is prior knowledge; no leaf marginal or conditional information there.",
+          "identifier_or_url": "https://oeis.org/A098909",
+          "material_read": "Table and definition of cycle-length marginal",
+          "method": "Public mathematical database",
+          "title": "OEIS A098909 - triangle by unique cycle length",
+          "trigger": "Possible exact database coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle length and number of leaves are canonical unicyclic graph statistics; their exact joint dependence is a motivated structural probability question. A sharp second-order covariance survives an independent limiting pair, revealing nontrivial finite-size dependence not visible in marginal laws.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full actual assigned RESULT.md at pinned commit",
+    "Resultary semantic query: random connected labeled unicyclic graph cycle length number leaves joint distribution occupancy covariance independence",
+    "Ben-Naim–Krapivsky arxiv:cond-mat/0403453v1 full accessible HTML",
+    "Zhang–Zhang arxiv:1311.1987 abstract",
+    "OEIS A098909",
+    "OEIS A057500"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform simple connected labeled n-vertex unicyclic graphs, the leaf count given cycle length c is exactly a specified-box vacancy count after n-c-1 balls in n boxes; mean strictly decreases with c; normalized cycle/leaf fluctuations are asymptotically independent half-normal/Gaussian, but Cov(C,L)/sqrt n tends to -1/(e sqrt(2pi)).",
+  "limitations": [
+    "An unindexed bivariate combinatorial enumeration or conditioned random-graph theorem could imply some or all of the joint law; no blanket priority certification.",
+    "Uniform n>=3 theorem does not establish stochastic ordering of entire conditional L distribution, only conditional mean monotonicity.",
+    "Finite complete graph census to n=6 corroborates but is not an asymptotic proof.",
+    "Publication plan not_ready is a public-file privacy/transport blocker, not a scientific rejection.",
+    "Signed continuation checkpoint is sequencing evidence, not scientific certification."
+  ],
+  "residual_risks": [
+    "An unindexed bivariate combinatorial enumeration or conditioned random-graph theorem could imply some or all of the joint law; no blanket priority certification.",
+    "Uniform n>=3 theorem does not establish stochastic ordering of entire conditional L distribution, only conditional mean monotonicity.",
+    "Finite complete graph census to n=6 corroborates but is not an asymptotic proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING in inspected complete text",
+      "evidence": "Analyzes number and size distribution of unicyclic components in evolving random multigraph; no conditional leaf count or fixed connected simple uniform graph bivariate law.",
+      "identifier_or_url": "arxiv:cond-mat/0403453v1",
+      "material_read": "Full-text public preprint transcribed into ResearchGate scholarly HTML, including model, main analytic component-size formulas and conclusion; searched for leaf statistic with no match",
+      "method": "Public full-text HTML of author preprint",
+      "title": "Unicyclic Components in Random Graphs",
+      "trigger": "Same adjective unicyclic, possibly dominating component limit"
+    },
+    {
+      "assessment": "different invariant; full-text priority residual",
+      "evidence": "Optimizes Laplacian coefficients within graph classes rather than enumerating distribution under uniform labeled graph law.",
+      "identifier_or_url": "arxiv:1311.1987",
+      "material_read": "Article abstract and mathematical problem statement via public sources; complete primary not independently opened",
+      "method": "Public arXiv bibliographic and search excerpts",
+      "title": "Laplacian coefficients of unicyclic graphs with the number of leaves and girth",
+      "trigger": "Same girth and leaf parameters"
+    },
+    {
+      "assessment": "COVERING of marginal cycle-length formula only",
+      "evidence": "Number of labeled unicyclic graphs by the length of their unique cycle is prior knowledge; no leaf marginal or conditional information there.",
+      "identifier_or_url": "https://oeis.org/A098909",
+      "material_read": "Table and definition of cycle-length marginal",
+      "method": "Public mathematical database",
+      "title": "OEIS A098909 - triangle by unique cycle length",
+      "trigger": "Possible exact database coverage"
+    }
+  ]
+}
