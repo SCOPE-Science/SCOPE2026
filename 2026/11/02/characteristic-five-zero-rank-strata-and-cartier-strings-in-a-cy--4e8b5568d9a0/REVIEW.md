@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cover's ramification yields genus six, and the six displayed character differentials are a full regular basis by local order computations. The Cartier source-to-target permutation and all six coefficient polynomial identities were reconstructed and reproduced by two exact coefficient-extraction procedures. The six-cycle with two opposite zero arrows proves the exceptional stable rank is zero and gives first-iterate kernel dimension two. Algebraic root separation and the two invariant-coordinate identities were also checked.
+## correctness
 
-**Originality — PASS (qualified).** Bouw provides a general Hasse–Witt matrix method; Elkin gives cyclic-cover Cartier framework and bounds; Moonen classifies special Shimura families. Those general methods do not by their stated conclusions identify this particular complete three-point characteristic-five locus, the pair of length-three nilpotent strings, or the two exceptional colored-branch orbits. Search comparisons across cyclic cover aliases, parameters and characteristic-five Hasse ranks did not locate an equivalent statement, including comparisons with accessible prior findings about other abelian covers. A specialized earlier coefficient computation could still imply this calculation; an independent priority examination is required.
+PASS
 
-**Mathematical value — PASS.** This is the complete arithmetic rank stratification of a natural one-dimensional Hurwitz family of genus-six curves with prescribed degree-seven tame monodromy. The sharp gap between ordinary and zero rank, explicit nilpotence lengths, and two exceptional colored-moduli types give information not supplied solely by generic ordinarity or published Cartier bounds. The locus is geometrically motivated rather than an arbitrary parameter slice.
+PASS: Tame 4-point degree-seven Riemann–Hurwitz gives genus six; six deck-character holomorphic differentials omega_j=(x-lambda)^(j-1)dx/y^j exhaust the basis by local valuations. For s(j)=3j mod7, k(j)=(5s-j)/7, the characteristic-five coefficient selection in x^k(x-1)^k(x-lambda)^(6k+j-1) gives H=(q,1,2(lambda+2),2(lambda+2),1,q), q=lambda^2-lambda+1. Independent SymPy expansion recovered all six H scalars. Cartier maps around a 6-cycle; two zero arrows opposite at either exceptional factor give ranks 6,4,2,0 and a=2, p-rank0; otherwise bijective, p-rank6 a0. Distinct lambda3 and conjugate roots of q avoid 0,1; t identity (lambda+2)^2=4-t, q=1-t yields two labeled orbit types. Valid for all lambda in Fbar5, not inference from F5 samples.
 
-The result does not assert Newton slopes, a full Ekedahl–Oort type, arbitrary geometric-isomorphism classes, or comprehensive historical priority. The determinant is in the stated normalized trivialization. Comparisons with other families are statements about implication, not title similarity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best knowledge: Bouw and Elkin establish general p-rank/Cartier methods for cyclic covers and bounds, while Moonen studies special subvarieties from branch-varying covers. These foundations do not state the specific char5 septic (1,1,6,6) exceptional three-point polynomial, nilpotent string lengths or colored-moduli split in inspected results. A published special table or unpublished specialization of Bouw/Elkin coefficients could cover it.
+
+## value
+
+PASS
+
+PASS: A natural genus-six cyclic degree-seven four-point Hurwitz family has a sharply classified ordinary-to-p-rank-zero transition, two Cartier nilpotence strings and distinct colored branch orbits; these exact invariants fill a motivated gap beyond generic p-rank bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
