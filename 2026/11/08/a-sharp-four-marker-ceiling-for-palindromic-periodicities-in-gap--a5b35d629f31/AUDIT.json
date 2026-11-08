@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every word-period corresponds to a border. Distinct full internal zero-gap lengths prohibit any proper border containing two ones. A zero-only border yields exactly the circular gap list (g1,...,g[m-1],a+e-ell) for ell from zero through min(a,e), so the closing gap ranges over [max(a,e),a+e]. Reflection symmetry of circular gaps requires one equality with three markers, the central equality with four, and is impossible from five onward. A one-marker border exists exactly when a<=last internal gap and e<=first internal gap, gives distinct circular gaps of one fewer marker and therefore contributes only for three markers; at most two markers are always symmetric. A direct standalone Python checker exhaustively tested 19530 eligible words through length 18, 600 seeded further words, and 150 independent conjugacy tests; those tests corroborate, not prove, the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simpson, arXiv:2402.05381, sections 1–3, develops period and palindrome-center interactions, not a gap-distinct classification.",
+        "Fici–Shallit–Simpson, arXiv:2407.10564, section 3 and later sections, proves coverage for Sturmian/trapezoidal word classes and automata-generated word examples, not all gap-distinct finite words."
+      ],
+      "reasoning": "The general equivalence with symmetric periods is a known starting criterion, not an explicit description of which such periods occur when arbitrary internal zero-run lengths are unequal. The known all-Sturmian result is neither a superset of the arbitrary gap-distinct words nor a classification of the boundary cases.",
+      "searches": [
+        "\"palindromic periodicity\" \"zeros\" \"ones\" sparse",
+        "\"palindromic periodicities\" \"bounded\" \"ones\"",
+        "\"palindrome pairs\" \"run length\" sequences combinatorics words",
+        "https://arxiv.org/abs/2402.05381",
+        "https://arxiv.org/abs/2407.10564"
+      ]
+    },
+    "checked_sources": [
+      "Simpson (2024), arXiv:2402.05381",
+      "Fici, Shallit and Simpson (2024), arXiv:2407.10564 and openly accessible 2025 version",
+      "Borchert and Rampersad (2015), arXiv:1509.05396",
+      "Prior accessible mathematical claim summaries concerning increasing-gap closed factors, Lie complexity, sparse-word transforms, and palindrome-pair duplication codes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 symmetric-period characterization is a general equivalence, but the new border restriction, the two possible border shapes, the one-marker border inequalities, and the dihedral zero-gap obstruction are needed to derive the exact test.",
+        "Earlier analysis of products of two palindromes (2015) handles the special period equal to word length; it does not cover the three-marker words requiring a smaller period."
+      ],
+      "reasoning": "A result about being a palindrome pair is strictly weaker as a decision procedure: there are non-palindrome-pair words that still have a symmetric shorter period. The disjoint specializations to Sturmian and automatic languages do not subsume all words satisfying arbitrary pairwise different gap lengths. There is thus no established prior implication with identical strength.",
+      "searches": [
+        "\"palindrome pairs\" \"run length\" sequences combinatorics words",
+        "\"symmetric words\" \"distinct gaps\" palindrome product",
+        "\"palindromic periodicities\" \"runs\" \"ones\" factor",
+        "https://arxiv.org/abs/2407.10564",
+        "https://arxiv.org/abs/1509.05396"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fici–Shallit–Simpson, arXiv:2407.10564, section 2, explains that a palindromic periodicity is a word with a symmetric word-period; no distinct-zero-gap arithmetic thresholds in sections 2–5.",
+        "Borchert–Rampersad, arXiv:1509.05396, sections 1, 2 and last classification, studies two-palindrome word products and minimal non-pairs, a different predicate than existence of a symmetric period."
+      ],
+      "reasoning": "Conjugate-to-reverse, palindrome pair, reflection-symmetric circular gap lists, and symmetric word-period are explicitly compared. This theorem solves the latter predicate in terms of pairwise distinct *complete* zero-gaps and the two outer gap lengths; none of the inspected articles states equivalent necessary/sufficient inequalities.",
+      "searches": [
+        "\"palindromic periodicities\" \"distinct\" \"gaps\" binary word",
+        "\"palindrome pair\" \"distinct gaps\" binary",
+        "\"symmetric words\" \"distinct gaps\" palindrome product",
+        "\"palindromic periodicities\" \"runs\" \"ones\" factor",
+        "arXiv:2407.10564 section 2, symmetric word-periods",
+        "arXiv:1509.05396 sections 1-5, palindrome pair factor and minimal nonpair"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fici–Shallit–Simpson, arXiv:2407.10564, sections on automatic sequences and number of palindromic periodicities, presents other counting and language questions.",
+        "Borchert–Rampersad, arXiv:1509.05396, finite palindrome-pair maxima and minimal non-pair classification, does not give the arbitrary-length distinct-gap decision table."
+      ],
+      "reasoning": "No precomputed exact table or formula for this gap-distinct family was found. A table of palindrome-pair factors would not by itself decide existence of a shorter symmetric word-period. An unindexed table could still exist.",
+      "searches": [
+        "\"palindrome pairs\" \"distinct\" run lengths gaps factors exact",
+        "\"palindromic periodicities\" \"distinct\" \"gaps\" binary word",
+        "\"palindromic periodicity\" \"zeros\" \"ones\" sparse",
+        "arXiv:1509.05396 minimal non-palindrome-pairs",
+        "arXiv:2407.10564 palindromic periodicities automatic word counts"
+      ]
+    },
+    "rationale": "The 2024 definitional and algorithmic frameworks give the symmetric-word-period characterization but do not state or specialize to a sharp four-marker cutoff and the precise boundary-gap inequalities under pairwise distinct internal gaps. Material reading of the closest original articles and comparison with accessible claim summaries found no covering explicit theorem. Search absence is not proof of uniqueness; independent bibliographic audit remains outstanding.",
+    "residual_risks": [
+      "Search indexes and accessible claim summaries are incomplete: equivalent earlier work might be unpublished or unindexed.",
+      "The source from 2015 concerns a distinct but closely related invariant; full historical literature on symmetric binary words is broad.",
+      "No independent specialist or formal-proof certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines related period interactions; no stated distinct-internal-zero-gap threshold or finite-length arithmetic classification",
+        "evidence": [
+          "ArXiv v1 dated 2024-02-08; section 1 border-period lemmas and section 2 period constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05381",
+        "material_read": "ArXiv complete HTML text sections 1, 2 and 3 and conclusion; introduction and period/border lemmas",
+        "method": "Full-text reading and searches for gaps, runs, binary, and classification",
+        "title": "Palindromic Periodicities",
+        "trigger": "Earliest public primary introduction of the invariant; potential coverage by period-center structure"
+      },
+      {
+        "assessment": "Establishes the general symmetric word-period criterion used in the proof; focuses on Sturmian/trapezoidal, automatic and counting questions; not the present family criterion",
+        "evidence": [
+          "ArXiv preprint dated 2024-07-15; section 2: palindromic periodicity iff symmetric word-period; sections 3–5: selected classical languages."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.10564",
+        "material_read": "Full arXiv HTML sections 1–6; open-access 2025 text introduction and sections treating classical word families and counts",
+        "method": "Full-text reading of definitions, theorem statements, related results, and concrete examples",
+        "title": "Some Remarks on Palindromic Periodicities",
+        "trigger": "Highest-priority exact concept and symmetric-word-period equivalence"
+      },
+      {
+        "assessment": "Studies palindrome-pair membership and factors, not the sharp boundary-gap conditions for potentially shorter periods",
+        "evidence": [
+          "ArXiv v1 dated 2015-09-17; introduction explicitly defines palindrome pairs; final section considers minimal non-pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.05396",
+        "material_read": "ArXiv full HTML: introduction, Sturmian palindrome-pair factors, maximal counts, and minimal non-pairs section",
+        "method": "Read key definitions and main classification theorems; compare palindrome pair itself with existence of a symmetric word-period",
+        "title": "Words with many palindrome pair factors",
+        "trigger": "Earlier classification of products of two palindromes may cover our statements by reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5b35d62-9f31-4cc8-bb66-e0ab7864ad6f",
+  "value": {
+    "rationale": "A complete infinite-family classification of palindromic periodicity on naturally gap-distinct binary words; the exact sharp maximum of four markers and arithmetic border thresholds expose a real structural boundary. The criterion applies to arbitrary ordering of unequal gaps and distinguishes genuinely shorter symmetric periods from words that themselves are products of two palindromes. It eliminates exponential search through periods/splits for succinct run-length data; not an arbitrary finite table or routine notational restatement.",
+    "status": "PASS"
+  }
+}
