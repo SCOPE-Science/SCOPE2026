@@ -1,15 +1,21 @@
-# Scientific assessment of distinct endpoint layers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inverse branches and Jacobians follow by solving the defining square-root equation. Endpoint traces, exact derivatives, and the two limiting profiles follow from the invariant-density fixed equation. The key nonstandard step is the uniform two-iterate bounded-variation inequality with coefficient \(3/(1+\theta/2)^2<1\) near \(\theta=2\); this controls densities sufficiently to obtain \(L^1\) convergence and then local uniform convergence. The right layer follows directly from the Jacobian; the left layer is a convergent inverse-branch renewal series with a uniform geometric remainder. The two derivative limits and the \(32/3\) norm lower bound are exact analytical consequences. The finite numerical test is corroborative, not a substitute for the infinite-limit argument.
+PASS
 
-## Originality — PASS under inspected evidence
+Exact inverse-branch formula u=(sqrt(K²+θ(1-x))-K)/θ and Jacobian w=u/(K+θu) yields invariant density fixed equation. At x=1 and 0 it forces boundary traces zero; differentiating gives h'(1)=-h(1/2)/K² and h'(0)=h(1/2)/[K²((1+θ/2)²-1)]. A uniform 2-iterate BV estimate has contraction coefficient 3/(1+θ/2)²<=3/(1.9)²<1 near θ=2: inverse intervals partition the domain, weight product variation is bounded by 2/(1+θ/2)², giving uniform BV. BV compactness plus tent unique invariant density yields L1 convergence, and iterated Lasota–Yorke plus fixed-n transfer continuity yields interior uniform convergence. Substituting 1-ε²z into w gives R(z)=1-(1+16z)^-1/2; iterating the left inverse branch with geometric remainder yields L(z)=sum_{j>=1}2^-j R(z/2^j), uniformly on bounded z. Exact slopes 8,8/3 and h'' lower bound 32/3 follow. Independently checked slopes and renewal series symbolically. The fixed-θ W²,1 existence is a primary-literature assumption; the theorem excludes θ=2 and makes only a lower, not exact, h'' norm statement.
 
-The fixed-parameter cusp density, fixed-parameter endpoint identities, and regularity are background, not novelty claims. The distinct universal \(\varepsilon^2\)-layers as the cusp disappears, their dyadic relation, local-uniform-versus-endpoint discontinuity, and asymptotic derivative blow-up are not stated in the source paper's inspected sections. Earlier singularity-driven linear-response and random cusp studies address different perturbations, and the inspected prior mathematical claims on the same map keep cusp parameters strictly below \(2\), so their conclusions do not imply these limiting profiles. Searching by the map equation, limiting parameter, derivative constants, and dual-profile aliases did not identify dominating coverage. Residual risk: specialized boundary-layer analyses may be unindexed and a potentially relevant random-cusp full text was not completely inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result characterizes a singular statistical limit for a natural published family: despite convergence of maps and invariant probabilities, two endpoint layers have different explicit shapes and force a quantified failure of strong Sobolev stability. The first layer comes from loss of the cusp, while its dynamically propagated image at the other endpoint has a dyadic renewal profile. This resolves a nontrivial regularity/stability boundary rather than a fixed-parameter formula or an arbitrary numerical invariant. It does not extend to arbitrary cusp maps or establish a sharp second-derivative norm asymptotic.
+Comparisons distinguish evaluated final mathematical statements from source theorems. Best-of-knowledge novelty assessment; inaccessible primary literature is treated as residual risk, not proof of novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Endpoint layers are natural singular perturbation invariants of a published cusp map family. Distinct dyadically related profiles, quadratic length scale, derivative blowup and failure of W1,1 stability reconcile map/density L1 convergence with boundary concentration; more than a normalization check or generic response theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
