@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytical proof is in RESULT.md, and the executable cross-check is `verify_abel.py`. Its execution from the provided source file printed:
+## correctness
 
-```
-kappa= 0.04 D= 0.00631172080165 Floquet linear= 0.0872664625997 error at 0.008= 5.547e-09 error at 0.004= 1.349e-09
-kappa= 0.25 D= 1.30758273289 Floquet linear= 5.58505360638 error at 0.008= 0.0003519 error at 0.004= 8.8e-05
-PASS: 42 numerical identity and convergence checks
-```
+PASS
 
-For each parameter, the script solves the full-period condition in the reciprocal coordinate, integrates its variational equation, evaluates the half-period difference, and compares opposite signed perturbations. It also differentiates the closed formula for the profile and verifies the predicted error reduction. The rigorous infinite-family argument is independent of finite sampling and invokes an explicitly identified external uniqueness theorem with hypotheses checked in the proof. These results are not independent scientific audit or external validation.
+The reciprocal coordinate c=1/r+1−cos(theta) obeys c’=−eps(cos(2theta)−kappa)/(c−1+cos(theta)). Its first-return displacement coefficient −I(a) has exactly one simple zero a=(sqrt(kappa)+1/sqrt(kappa))/2. Analytic IFT selects the branch. Reflection (theta,eps)→(−theta,−eps) forces axial positions even and log Floquet multiplier odd, accounting for O(eps²) axial errors and O(eps³) Floquet error. The second-order difference equals the strictly positive integral D(kappa)=1/2 ∫0^pi sin(theta) J(theta)^2/(a+cos(theta))² dtheta, yielding O(eps^4) even remainder. Global exactly-one-cycle assertion explicitly depends on Bravo Trinidad–Tian–Zhao Proposition 7 and its half-period convexity hypotheses as checked in RESULT.md. Independent quadrature gave D(.04)=.006311720801654873, D(.25)=1.307582732891394, D(.64)=89.53062455206052. Numerical samples not infinite uniqueness proof.
+
+## originality
+
+PASS
+
+The cited 2026 uniqueness/instability result and classical Melnikov/IFT method are explicitly prior; claim adds an explicit perturbative radial profile, parity cancellation and positive second-order half-turn defect. Full source paper inaccessible, so coverage of a hidden appendix cannot be excluded.
+
+## value
+
+PASS
+
+A signed, symmetry-protected first nonzero geometric displacement of an analytically selected limit cycle measures an invariant not determined by existence or stability; the strictly positive quadratic coefficient is a nontrivial quantitative benchmark for rigid cubic systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

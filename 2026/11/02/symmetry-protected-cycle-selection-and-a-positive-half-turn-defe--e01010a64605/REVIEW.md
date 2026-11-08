@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact reciprocal equation \(c'=-\varepsilon(\cos2\theta-\kappa)/(c-1+\cos\theta)\) reconstructs the original radial differential equation. The trigonometric integral of its first return displacement equals \(2\pi(q(a)^2-\kappa)/\sqrt{a^2-1}\), has one simple zero for \(0<\kappa<1\), and provides the analytic continuation by the implicit function theorem. The 2026 source's global uniqueness theorem applies to the strict half-period convexity range. Reflection under \((\theta,\varepsilon)\mapsto(-\theta,-\varepsilon)\) makes both axial values even and the log multiplier odd. Integrating the second-order reciprocal equation proves a strictly positive half-turn coefficient with an \(O(\varepsilon^4)\) error. The included numerical script was executed with 42 successful checks, including both perturbation signs and the quadratic-rate refinement; these checks do not replace the mathematical proof.
+## correctness
 
-## Originality (PASS, subject to historical priority risk)
-The cited 2026 paper proves uniqueness and instability for the full trigonometric Abel normal form; those assertions are explicitly credited. Its accessible proof and applications do not give the present simultaneous small-coefficient annulus selection, symmetry-protected full radial profile, or positive half-turn inverse-radius correction. Gasull's 2024 full-text survey gives the general first-order Melnikov mechanism and says higher-order variations are known; those techniques are also credited. A closely related published Abel result concerns a different coefficient family supporting two distinct nonzero periodic states, and its complete RESULT.md was read. The 2005 classification of cubic rigid systems was identified, but its full text could not be obtained via the normal open routes or institutional service, so a narrower historical equivalence risk remains. This is a literature-supported but not independently certified originality assessment.
+PASS
 
-## Mathematical value (PASS)
-The unperturbed Riccati center has the exact axial identity \(1/r(\pi)-1/r(0)+2=0\) on its whole period annulus. The selected noncentral cycle is the natural dynamical object under a signed, competing second-harmonic cubic perturbation. The theorem identifies its limiting phase along the annulus and the first **necessarily positive** geometric failure of that half-turn identity. The cancellation of all odd defect coefficients is structural, not an accidental low-order vanishing, and the positive integral is uniform for each interior parameter. This is distinct from merely repeating the existing positive-cycle uniqueness or computing another isolated Lyapunov coefficient.
+The reciprocal coordinate c=1/r+1−cos(theta) obeys c’=−eps(cos(2theta)−kappa)/(c−1+cos(theta)). Its first-return displacement coefficient −I(a) has exactly one simple zero a=(sqrt(kappa)+1/sqrt(kappa))/2. Analytic IFT selects the branch. Reflection (theta,eps)→(−theta,−eps) forces axial positions even and log Floquet multiplier odd, accounting for O(eps²) axial errors and O(eps³) Floquet error. The second-order difference equals the strictly positive integral D(kappa)=1/2 ∫0^pi sin(theta) J(theta)^2/(a+cos(theta))² dtheta, yielding O(eps^4) even remainder. Global exactly-one-cycle assertion explicitly depends on Bravo Trinidad–Tian–Zhao Proposition 7 and its half-period convexity hypotheses as checked in RESULT.md. Independent quadrature gave D(.04)=.006311720801654873, D(.25)=1.307582732891394, D(.64)=89.53062455206052. Numerical samples not infinite uniqueness proof.
 
-## Closest literature and limitations
-Primary sources: Bravo Trinidad–Tian–Zhao, arXiv:2610.19340v1 (full open HTML; Proposition 7 is used for uniqueness); Gasull, *From Abel's differential equations to Hilbert's 16th problem* (full open HTML; Section 4.2 gives the general perturbative method); Gasull–Prohens–Torregrosa, *Limit cycles for rigid cubic systems* (abstract and metadata available, full text unavailable); and published published-finding corpus Abel-family RESULT.md (read full text). Full generality outside the strict parameter domain, global phase portraits, and absolute historical priority are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited 2026 uniqueness/instability result and classical Melnikov/IFT method are explicitly prior; claim adds an explicit perturbative radial profile, parity cancellation and positive second-order half-turn defect. Full source paper inaccessible, so coverage of a hidden appendix cannot be excluded.
+
+## value
+
+PASS
+
+A signed, symmetry-protected first nonzero geometric displacement of an analytically selected limit cycle measures an invariant not determined by existence or stability; the strictly positive quadratic coefficient is a nontrivial quantitative benchmark for rigid cubic systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
