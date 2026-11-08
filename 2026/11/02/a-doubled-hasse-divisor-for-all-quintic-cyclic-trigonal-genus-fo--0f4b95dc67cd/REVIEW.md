@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The regular-differential basis follows from ramification at infinity. Character preservation in characteristic seven yields a one-by-one and a three-by-three Cartier block. The exact five-variable polynomial-ring computation verifies that the second determinant is the product of the scalar Cartier coefficient and the quintic discriminant. Smoothness removes the discriminant factor; linearity in the first-degree coefficient proves irreducibility and smoothness of the support. The two independently implemented verifiers pass. No claim is made that the finite-field census proves the geometric identity.
+## correctness
 
-**Originality: PASS, with residual priority risk.** The principal comparisons were Kudo–Harashita's general genus-four Hasse–Witt methods and superspecial enumeration, Achter–Howe's conventions, and pre-existing restricted-family computations. The novelty claimed is the identity throughout the full five-dimensional coefficient space and the corresponding absence of the \(a\)-number-one stratum and doubled Hasse scheme. The superspecial enumeration concerns a strictly narrower property, and the restricted formulas do not imply the five-variable statement. No directly covering general identity was found; unindexed older work remains possible.
+PASS
 
-**Mathematical value: PASS.** This is a structural theorem about a natural full coefficient parameterization of cyclic trigonal curves of genus four, not a single sampled invariant. It identifies a nonreduced Hasse divisor with a smooth irreducible reduced support and excludes two intermediate invariants uniformly. These observations constrain arithmetic stratifications throughout a geometrically motivated class of curves.
+For separable monic quintic F over an algebraically closed field of characteristic seven, y^3=F has genus 4 and basis dx/y, x^i dx/y^2 for i=0,1,2. Since 7=1 mod3, Cartier matrix splits scalar h=[x^6]F^2=c3^2+2*c4*c2+2*c1 and a 3x3 F^4 coefficient block. Independently recomputed exact GF(7)[c0,..,c4] 3x3 determinant (107 monomials) = h times quintic discriminant (55 monomials). Hence det H=h^2*Delta universally, not merely at F7 points. On Delta nonzero the hypersurface h=0 is an affine 4-space (linear in c1), with Cartier rank at most 2, a>=2, p-rank<=2; complement ordinary. F=x^5+1 gives smooth nonordinary point. No stronger a-number or complete EO claim.
 
-**Residual scientific limitations:** The exact deeper \(a\)-number and Newton polygon stratifications are not determined. The divisor is asserted on a coefficient space, not on a coarse moduli space. Priority remains subject to independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kudo–Harashita (arXiv:1702.05313) enumerates genus-four superspecial curves, much narrower than the entire nonordinary cyclic-trigonal coefficient family; Achter–Howe (arXiv:1710.10726) addresses dual conventions. No inspected full five-variable determinant formula was located, though specialized Hasse-factor computations may be implicit elsewhere. Priority judged best-of-knowledge.
+
+## value
+
+PASS
+
+A universal closed equation of the entire nonordinary coefficient locus and exact doubled scheme structure for a natural five-parameter cyclic trigonal family is a substantial stratification fact. Exclusion of a-number 1 is a structural geometric statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
