@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Coefficientwise reduction yields exact factorizations at all three exceptional primes. Characteristic-three incidence is a conic with its four rational tangent lines, giving ten rational singular intersections. In characteristic five the derivative equations exhaust four nodes and six cusps, and the node tangent-cone discriminant is the nonsquare \(3\) in \(\mathbb F_5\). Bézout rules out geometric reducibility; the arithmetic-genus/delta calculation gives rational normalization, and Frobenius branch accounting proves the parity-dependent formula. Signed coordinate permutations and projective-frame rigidity establish the full projective stabilizers. The standalone verifier checks the identities, the tangent discriminant, and rational counts in six fields; these finite tests are corroboration, not the universal proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Dolgachev–Farb–Looijenga (arXiv:1709.09256) study the Wiman–Edge pencil. Giulietti–Kawakita–Lia–Montanucci (arXiv:1805.06317) already state the qualitative low-prime reductions and characteristic-five rationality. A separate known generalized Wiman–Edge calculation covers the characteristic-five geometric basket \(4A_1+6A_2\), and the basket is **not** claimed as new. What does not follow from geometric counts alone is the Frobenius action on branches at the four rational nodes: each is nonsplit, so the complete characteristic-five zeta numerator is \((1+T)^4\). Direct primary-source comparisons and targeted published-record searches did not locate the complete three-prime zeta calculation. Older unindexed work could still cover it.
+PASS
 
-**Mathematical value — PASS.** Full arithmetic zeta functions, not merely finite sample counts, settle the extension-field behaviour of all exceptional-characteristic fibres of the historically important integral Wiman plane model. The nonsplit-node correction is invisible in a classification over an algebraic closure. The result gives a coherent exact boundary computation alongside work on good-reduction maximality; it does not assert a new general theorem on all sextics.
+Direct exact coefficient arithmetic verified F mod 2=((X+Y)(Y+Z)(Z+X))^2, mod 3=Q times four sign hyperplanes, and mod 5=2Q^3+(XYZ)^2. The p=2 reduction is three concurrent doubled lines, hence 3q+1 points. At p=3 the smooth conic meets four rational tangent lines at four tacnodes, and the four lines have six distinct pairwise nodes: 5(q+1)-10=5q-5. At p=5 the partial derivatives exhaust six coordinate cusps and four sign-vector ordinary nodes; independent symbolic expansion at [1:1:1] gives 2u^2+3uv+2v^2 with nonsquare discriminant 3 mod 5. Bezout rules out geometric splitting because cusps are unibranch and four nodes supply at most four cross-component intersections, below the minimum five for a reducible degree-six curve. Delta-invariant 4+6=10 forces genus-zero normalization. Four rational nonsplit nodes exchange their branches under odd Frobenius and split under even powers, yielding q+1-4(-1)^n; p=3 and p=5 projective stabilizers inject into S4 of four special points and contain signed coordinate permutations of order 24. The three all-extension zeta functions then follow. Independent verification covered coefficient identities and tangent discriminant; extension universality rests on geometry, not finitely many fields.
 
-Closest literature: Dolgachev–Farb–Looijenga (2017 preprint, 2018 journal article); Giulietti–Kawakita–Lia–Montanucci (2018 preprint); Inoue–Kato (2005, assumes characteristic different from two, three and five). The unresolved priority limitation concerns older arithmetic studies and unindexed equivalent formulas. This result does not give a stable reduction model, conductor, or zeta function of smooth generic-fibre normalizations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full low-prime point counts and zeta functions, including p=5 Frobenius correction, complete singularity geometry and scheme-projective S4 stabilizers were not entailed by the inspected Wiman sextic primary source. Its explicit statements already cover reducibility at 2,3 and rationality at 5; those basic facts are excluded from new content. Residual risk is an older equivalent low-characteristic arithmetic table or explicit plane-model analysis.
+
+## value
+
+PASS
+
+Arithmetic zeta functions and reduction-type geometry at every exceptional prime of a classical genus-six plane sextic are intrinsic, reusable scheme-specific invariants. Nonsplit nodal branches versus geometric cusps explain the genuinely arithmetic alternating point counts; distinction between projective stabilizer and normalization automorphisms matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
