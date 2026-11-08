@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at Git blob dce8e18fc9547e6d7971b357d9b7954df5f16fd0, sections Epoch map/Moments/Sharp phase/Small-step",
+        "verify.py Git blob f010979e05deae78aa7d24f91ba390e009ee82de inspected, not trusted by exit status",
+        "independent_checks.py: iid_stationary=75; iid_brute_4_epochs=15"
+      ],
+      "rationale": "The exact within-epoch compositions are T2∘T1(x)=t x+h²bδ and T1∘T2(x)=t x−h²aδ with t=(1−ha)(1−hb)∈(0,1). A bounded iid affine perpetuity gives unique stationary mean h²δ((a+b)p−a)/(1−t) and variance h⁴δ²(a+b)²p(1−p)/(1−t²). Differentiation gives strict E′′=4h⁴δ²t(a+b)²/[(1−t)²(1+t)]>0 and the clipped minimizer. Equality of the free minimizer to an endpoint gives τ=|a−b|/(max+3min), with monotone t(h) furnishing a unique h_c; at a=b p=1/2. Expanding h→0 gives uniform Θ(h²) vs optimal Θ(h³) for a≠b. Checked exact rational stationary moments, 4-epoch full path enumeration and boundary choices independently.",
+      "residual_risks": [
+        "The minimization covers only iid per-epoch mixing of two orders, not deterministic nonstationary or adaptive schedules; boundary h=1/max excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rajput abstract: existence of advantageous permutations and dependence on objective; no displayed general stationary iid biased-order formula.",
+          "Domingo-Enrich common-Hessian uniform noise model does not directly encode two different local curvatures.",
+          "Paired reversal controls temporal order correlations rather than optimizing an iid p."
+        ],
+        "reasoning": "The cited broad results provide motivation and some performance comparisons, but no identified implication of the exact clipped optimum and τ boundary.",
+        "searches": [
+          "Rajput Lee Papailiopoulos arXiv:2102.09718 quadratic fixed permutation vs random",
+          "Domingo-Enrich arXiv:2206.00632 power spectral density uniform reshuffling",
+          "Nguyen Phan Kalagnanam arXiv:2604.00260 paired reversal"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.09718 abstract (Rajput/Lee/Papailiopoulos 2021)",
+        "arXiv:2202.01838 (Mohtashami/Stich/Jaggi 2022)",
+        "arXiv:2206.00632 (Domingo-Enrich 2022)",
+        "Resultary 2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rajput describes faster convergence of selected permutations vs random, not unique interior iid epoch mixing probability across all h.",
+          "Identical squared prefix-gradient deviations do not decide E(p), demonstrating non-implication of that scalar discrepancy metric."
+        ],
+        "reasoning": "The claim supplies a concrete sharp statement not derivable from the cited summary results without the affine stationary calculation. Attempts to infer novelty solely from titles were avoided.",
+        "searches": [
+          "Rajput 2102.09718 theorem scope vs exact risk expression",
+          "Mohtashami 2202.01838 discrepancy measure vs chosen p"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact two-map model is an iid affine perpetuity on order innovations U∈{b,−a}; its p optimization differs from choosing a single fixed permutation.",
+          "The squared prefix discrepancy is the same for both orderings, but E(p) has a nontrivial unique optimum."
+        ],
+        "reasoning": "A comparison in epoch stationary MSE is needed: existing order-selection and generic prefix metrics do not automatically imply the exact distributional minimizer.",
+        "searches": [
+          "Resultary: Two component quadratic random reshuffling scalar SGD nonuniform probability optimal stationary mean square error deterministic ordering curvature crossover",
+          "Rajput Lee Papailiopoulos 2102.09718 permutation SGD optimal random",
+          "Mohtashami Stich Jaggi arXiv:2202.01838 prefix gradient discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact curvature-clipping phase diagram for SPS (2026/10/4/...6e87af5006ee) concerns per-step Polyak clipping, not permutation-order mixing."
+        ],
+        "reasoning": "No directly matching stationarity table identified; this negative retrieval alone does not prove historical novelty.",
+        "searches": [
+          "Resultary semantic: scalar heterogeneous SGD curvature clipping and two-point reshuffling",
+          "search phrase optimal iid two-permutation stationary variance curvature crossover"
+        ]
+      },
+      "rationale": "The optimum law and sharp curvature-dependent switch for a fixed iid mixture between the two permutation orders, with the stationary-risk asymptotic gap, are not mathematically implied by the inspected abstract-level general permutation-optimality and variance-bound results. Scalar affine recursion and quadratic convexity are elementary prior tools, not claimed new. Exact priority remains qualified because full original Rajput text was not independently inspected in this run.",
+      "residual_risks": [
+        "Full Rajput/other specialist nonuniform reshuffling papers could contain a stronger two-component stationary-error implication; abstract cannot establish NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior strong results on permutation choice; exact stationary iid two-order mixing not established from inspected material",
+          "evidence": [
+            "Abstract: class-dependent gaps, favorable deterministic permutations, quadratic examples; no stationary p*(a,b,h) displayed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.09718",
+          "material_read": "arXiv abstract and accessible publisher synopsis; full paper not read in this run",
+          "method": "public arXiv abstract and bibliographic search",
+          "title": "Permutation-Based SGD: Is Random Optimal?",
+          "trigger": "same random-vs-deterministic ordering problem"
+        },
+        {
+          "assessment": "common-Hessian linearized uniform sampling not sufficient for unequal-curvature iid mixing",
+          "evidence": [
+            "Assumption contrast: equal/common Hessian vs a≠b exact within-epoch maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.00632",
+          "material_read": "abstract/scope and cited source statements in source package; full text not read",
+          "method": "arXiv metadata and target theorem comparison",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "noise variance for reshuffling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and inspected actual proof",
+        "Relevant primary theorem/specialized mathematical context",
+        "arXiv:2102.09718 abstract (Rajput/Lee/Papailiopoulos 2021)",
+        "arXiv:2202.01838 (Mohtashami/Stich/Jaggi 2022)",
+        "arXiv:2206.00632 (Domingo-Enrich 2022)",
+        "Resultary 2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee"
+      ],
+      "rationale": "Optimizing a natural stationary risk over all iid two-order mixtures produces a sharp, curvature-dependent randomization-to-determinism transition. For a≠b the optimized O(h³) risk differs parametrically from uniform Θ(h²), a meaningful effect despite elementary algebra and a two-sample scalar scope.",
+      "residual_risks": [
+        "Does not optimize correlated, scheduled or adaptive orders, and relies on knowing both curvatures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The minimization covers only iid per-epoch mixing of two orders, not deterministic nonstationary or adaptive schedules; boundary h=1/max excluded.",
+    "Full Rajput/other specialist nonuniform reshuffling papers could contain a stronger two-component stationary-error implication; abstract cannot establish NOT_COVERING.",
+    "Does not optimize correlated, scheduled or adaptive orders, and relies on knowing both curvatures."
+  ],
+  "schema_version": 1
+}

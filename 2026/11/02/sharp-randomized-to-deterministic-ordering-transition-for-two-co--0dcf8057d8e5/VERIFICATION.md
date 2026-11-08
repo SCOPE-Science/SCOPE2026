@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` in this directory, after installing `requirements.txt`. The checker performs symbolic algebra of the two exact affine maps and their invariant moments, verifies strict curvature-phase algebra and asymptotic constants, and exhaustively checks rational order histories of lengths \(1\) through \(9\) under six rational parameter choices. Its run completed successfully with 122 reported exact checks (some checks combine several symbolic identities). It also verifies a rational example with both order probabilities.
+## correctness
 
-The proof in `RESULT.md` covers every \(a,b>0\), \(\delta\ne0\), and \(0<h<1/\max\{a,b\}\) analytically. Finite enumeration does not establish an infinite-parameter theorem; it tests the formulas in a bounded set. There is no numerical Monte Carlo inference, optimizer oracle or external certificate. Independence of validation has not been established. Specialized prior publications may affect priority of the exact theorem.
+PASS
+
+The exact within-epoch compositions are T2∘T1(x)=t x+h²bδ and T1∘T2(x)=t x−h²aδ with t=(1−ha)(1−hb)∈(0,1). A bounded iid affine perpetuity gives unique stationary mean h²δ((a+b)p−a)/(1−t) and variance h⁴δ²(a+b)²p(1−p)/(1−t²). Differentiation gives strict E′′=4h⁴δ²t(a+b)²/[(1−t)²(1+t)]>0 and the clipped minimizer. Equality of the free minimizer to an endpoint gives τ=|a−b|/(max+3min), with monotone t(h) furnishing a unique h_c; at a=b p=1/2. Expanding h→0 gives uniform Θ(h²) vs optimal Θ(h³) for a≠b. Checked exact rational stationary moments, 4-epoch full path enumeration and boundary choices independently.
+
+## originality
+
+PASS
+
+The optimum law and sharp curvature-dependent switch for a fixed iid mixture between the two permutation orders, with the stationary-risk asymptotic gap, are not mathematically implied by the inspected abstract-level general permutation-optimality and variance-bound results. Scalar affine recursion and quadratic convexity are elementary prior tools, not claimed new. Exact priority remains qualified because full original Rajput text was not independently inspected in this run.
+
+## value
+
+PASS
+
+Optimizing a natural stationary risk over all iid two-order mixtures produces a sharp, curvature-dependent randomization-to-determinism transition. For a≠b the optimized O(h³) risk differs parametrically from uniform Θ(h²), a meaningful effect despite elementary algebra and a two-sample scalar scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
