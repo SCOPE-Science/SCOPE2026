@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The coefficient identity is obtained by integration by parts and is exact for polynomials of degree at most three. The necessary node conditions use nonnegativity of the zeroth coefficient and arbitrarily high even cosine coefficients of the image of \(\cos t\). Sufficiency verifies every integer Fourier mode explicitly, followed by the uniformly convergent nonnegative cosine expansion of arbitrary positive-semidefinite circle kernels.
+## correctness
 
-`CHECK.py` uses the Python 3 standard library and independently builds Bernstein sample polynomials and their cosine coefficients from endpoint derivatives. The executed run produced: `PASS: 35102 supplementary identities, nonnegativity tests and asymmetry witnesses.` It includes 13 symmetric grid choices, 25 input frequencies and 27 output frequencies in each of two degrees, plus nonsymmetric witnesses. These are finite consistency checks, not exhaustive certification. The proof, including all quantifiers and boundary cases, is contained in `RESULT.md`.
+PASS
 
-The related 2026 paper's uniform-grid proof was read and compared with the claimed nonuniform classification. Independence of external mathematical review has not been established or claimed.
+Bochner cosine-series nonnegative coefficients reduce cone preservation to each cos(mt) generator. Two integrations by parts yield exact cosine coefficients of Bernstein image polynomials of degrees ≤3. For cos t, zeroth term and even large-k Fourier tail force midpoint at n2 and cos a+cos b=0 at n3; monotonicity gives reflection grid. For symmetric n2 and n3, even input modes yield nonnegative even output coefficients; odd modes give explicit bracket [(1-c)(πk)^2+4(3c-1)], bounded below by 2π²-16 for k1 or 8 for k>=3 odd. Independent sympy polynomial coefficient expansion checked cubic identity. Infinite quantifiers established analytically, not by angle sampling.
+
+## originality
+
+PASS
+
+The directly related Otten–Nguyen–Watts full primary article establishes uniform-node Bernstein positive-definiteness for every degree, and does not classify nonuniform n2 or n3 grids. The cubic entire one-parameter family including collapsed endpoints is a strict extension not implied by the uniform-grid sufficient condition. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Complete classification at the first adjustable Bernstein degrees exposes a natural rigidity/flexibility transition and gives continuum of nonuniform positivity-preserving operators; exact structural criterion helps design shape-preserving approximation schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

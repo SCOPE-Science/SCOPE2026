@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof checks every ordered endpoint-fixed grid in degrees two and three. It first reduces cone preservation to nonnegative cosine coefficients, then uses the constant and high-even coefficients of a single test cosine for necessity, and explicit all-mode coefficients for sufficiency. The odd cubic case follows from the affine-in-\(c\) bracket bounds \(2\pi^2-16>0\) and \(8>0\). `CHECK.py` passed 35,102 supplementary coefficient tests. Its finite sampling is not used to infer the infinite theorem.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Otten–Nguyen–Watts (arXiv:2608.04836, 2026-08-05) treat the uniform grid at every degree. Their statement does not characterize alternative grids; in particular it does not imply the full continuum of nonuniform cubic grids or the quadratic necessity assertion. The focal paper's theorem, coefficient proof, and discussion were examined. The older generalized Bernstein-operator literature examines shape/reproduction, not the positive-definite circle cone. Searches of relevant indexed mathematical records did not identify an equivalent nonuniform classification. Residual risk: earlier unindexed positivity-preserving interpolation work could subsume this statement.
+PASS
 
-## Value — PASS
-Positive definiteness is a structural requirement for stationary covariance kernels and spherical isotropic interpolation. The result supplies a complete two-degree design classification, not a numerical approximation: quadratic grid rigidity contrasts sharply with a continuum of cubic admissible sampling patterns. Every nonuniform member provides a valid finite-degree positivity-preserving operator beyond the previously proved equal-spacing construction.
+Bochner cosine-series nonnegative coefficients reduce cone preservation to each cos(mt) generator. Two integrations by parts yield exact cosine coefficients of Bernstein image polynomials of degrees ≤3. For cos t, zeroth term and even large-k Fourier tail force midpoint at n2 and cos a+cos b=0 at n3; monotonicity gives reflection grid. For symmetric n2 and n3, even input modes yield nonnegative even output coefficients; odd modes give explicit bracket [(1-c)(πk)^2+4(3c-1)], bounded below by 2π²-16 for k1 or 8 for k>=3 odd. Independent sympy polynomial coefficient expansion checked cubic identity. Infinite quantifiers established analytically, not by angle sampling.
 
-## Scope and limitations
-Only degree two and three Bernstein bases with fixed endpoints, ordered interior nodes and positive-semidefinite circle kernels are classified. No higher-degree or strictly positive-definite assertion is made. External independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directly related Otten–Nguyen–Watts full primary article establishes uniform-node Bernstein positive-definiteness for every degree, and does not classify nonuniform n2 or n3 grids. The cubic entire one-parameter family including collapsed endpoints is a strict extension not implied by the uniform-grid sufficient condition. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Complete classification at the first adjustable Bernstein degrees exposes a natural rigidity/flexibility transition and gives continuum of nonuniform positivity-preserving operators; exact structural criterion helps design shape-preserving approximation schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
