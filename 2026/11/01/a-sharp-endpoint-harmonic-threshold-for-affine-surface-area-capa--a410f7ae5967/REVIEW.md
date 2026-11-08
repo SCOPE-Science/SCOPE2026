@@ -1,19 +1,21 @@
-# Scientific review of the endpoint harmonic certificate
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stated claim concerns the explicit sufficient coefficient, not a fully optimized capacity second variation. Its formula is precisely the half-bracket from Feng–Zhang, equation (3.14), using their harmonic eigenvalue and cosine-transform multiplier. An independently reconstructed Gamma-ratio expansion is uniform as the exponent approaches one and the degree increases on the crossover scale. Rationalization of the capacity root yields the complementary asymptotic. The proof separates fixed low degrees from growing degrees, closing the otherwise nonuniform step needed to identify the *least* positive coefficient. The support-function perturbation implication remains for each fixed degree and sufficiently small amplitude. The packaged finite-product checks and scaling diagnostics passed; they are illustrative rather than an infinite proof.
+PASS
 
-## Originality
+For δ=p−1, λ=2j(2j+n−2), k=n−p, and |a_j|=|Γ((n+p)/2)/Γ(−p/2)|Γ(j−p/2)/Γ(j+(n+p)/2), uniform compact-p Gamma ratios yield c_n j^{−(n+2)/2}(1+o(1)). In the joint region δj^(n+2)→τ finite, δj²→0 and D_j∼4j²/(n−1), hence two normalized coefficient terms are τ/(n−1)^2 and (n+1)c_n². Their difference is (τ−T_n)/(n−1)^2. An upper test j≈(1+η)(T_n/δ)^(1/(n+2)) and uniform positivity of R_j−1 for all smaller j—including separate bounded-j cases—sandwich the first positive j. Real-reading of Feng–Zhang Proposition3.3 and eq.(3.14) confirms B_j is a sufficient coefficient only; no negative-B impossibility, uniform epsilon, or interchange of fixed-p and joint limits is claimed.
 
-**PASS, with residual historical risk.** The primary source explicitly states the second-variation bracket, its multiplier product, and positivity at sufficiently high degree for each fixed exponent. The new assertion derives and proves the sharp near-one first-positive-degree law and double-scaling sign transition, neither present in its inspected proof or appendix. The 2011 foundational inequalities involve the same geometric functionals but not this certificate's endpoint harmonic cutoff. Searches against mathematical records using the exact functionals, named authors, harmonic multipliers, endpoint aliases, and frequency-threshold phrasing did not identify a dominating result. This is a deduction from an existing explicit coefficient, not an independent counterexample construction; unindexed equivalent asymptotics remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The dimension-dependent exponent and constant quantify how the explicit high-frequency instability mechanism necessarily becomes more complicated near the sharp endpoint \(p=1\), where the original comparison holds. The crossover is sharp: two regimes of the same natural certificate are separated by one explicit universal dimension-scale constant. The result resolves the noncommuting fixed-parameter and high-frequency asymptotics and supplies concrete degree budgets for reproducing the counterexample construction. It does not claim a stronger counterexample or a generally optimal degree.
+Feng and Zhang establish a fixed-p large-degree sufficient positive coefficient and its product formula but not the joint endpoint first-positive-index scaling or exact crossover constant. Author-deposited complete primary paper, Section3 Proposition3.3 and eq.(3.14), was read; the derivation is not a direct fixed-p corollary because δ depends on j. Resultary spectral-search hits pertain to different inequalities. Best-of-knowledge priority only.
 
-## Limitations and closest literature
+## value
 
-The result is restricted to fixed \(n\) and the Feng–Zhang sufficient lower-bound coefficient. The actual least unstable mode is unknown here; equality in the scaling parameter needs higher-order terms. Source [1] is the closest prior art and contains all input formulas. Source [2] supplies the original geometric context. A check of unindexed independent derivations remains a residual historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp dimension-dependent quantitative onset locates the first certified harmonic counterexample near the delicate p=1 endpoint, distinguishes the sufficient mechanism from actual instability, and resolves the nonuniform j,p regime left by the fixed-p existence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
