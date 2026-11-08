@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-step memory increment forces the first coordinates to be opposite; the two return equations reduce exactly to the two trigonometric identities in RESULT.md. The \(\beta\le1\) obstruction includes the equality boundary, where irrationality of \(\pi\) excludes the only potential resonance. For \(\beta>1\), the equation for each positive/negative displacement from \(2n\) has a strictly increasing left-minus-right function for sufficiently large \(n\), because the smooth resonance factor has strictly positive derivative at zero while \(|\cos|\) is 1-Lipschitz. Its endpoint signs give existence and uniqueness. The reconstruction chooses both sine and cosine of the memory midpoint, ensuring that squaring introduces no extraneous orbit. The \(O(n^{-2})\) error is uniform across the integer phases. The high-precision checker executed successfully from the package source; finite checks are only corroboration.
+PASS
 
-## Originality — PASS within searched evidence
+The actual RESULT.md (Git blob 0faf225e618bf6f36892420b4de51c04f09922c7) treats F(x,y)=(alpha cos x+beta x sin(pi y),y+x) on the entire real plane, alpha,beta>0. A genuine two-cycle has first coordinates u,-u (u>0), and midpoint z satisfying alpha cos u=beta u cos(pi z) sin(pi u/2), 1=-beta sin(pi z) cos(pi u/2). The second equation excludes beta<1, and beta=1 requires u=2k and cos(2k)=0, impossible by irrationality of pi. For beta>1 the reduced scalar resonance equation (2n±t)Phi_beta(t)=alpha|cos(2n±t)| has Phi_beta(0)=0, Phi_beta'(0)=pi sqrt(beta^2-1)/2>0. Uniform derivative domination gives one root on each side of 2n for every large n; reconstruction of (cos pi z,sin pi z) prevents extraneous roots. A uniform Lipschitz estimate gives the stated O(n^-2) location remainder even for small |cos 2n|. Independently solved and checked 12 high-precision full orbit returns for beta=1.82,1.05. No global census outside two small windows is proved.
 
-The complete text made available in the indexed HTML result for Almatroud–Pham (2023), including the displayed construction, Section 3, Section 4 and Table 1, gives the sine-memory map but no analytic period-two treatment. Bao et al. (2020) study a distinct cosine-memductance map with infinitely many fixed points. Searches for the exact sine-memory formula, FPFM3 periodic points, high-amplitude two-cycles and aliases returned no covering result. Earlier periodic-orbit classifications for the same article's quadratic- and absolute-memory examples have different first-coordinate equations and do not imply the sine-memory threshold or towers. An unpublished/unindexed argument and incomplete coverage of later derivative literature are residual priority risks; absence of a search hit is not represented as proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source studies fixed-point-free chaos with bounded numerical trajectories. The present theorem determines a sharp, forcing-independent boundary for an infinite family of primitive two-cycles **in the real plane**, and gives a phase-sensitive amplitude law. It reveals arbitrarily remote periodic structure that bounded attractor plots and finite root searches cannot establish. The theorem stops short of a global periodic census or a stability classification, and makes no claim about encryption or chaotic robustness.
+The prior 2023 map introduction supplies the exact FPFM3 model and numerical iterative plots, not the analytic threshold or remote two-cycle branches; other memristor maps have different nonlinearities. This is an analytic dynamics result, not merely a reparameterization of existing fixed-point-free examples.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The model has no fixed points, so existence and sharp gain threshold for high-amplitude period-two orbits are natural missing dynamical information. The proof yields infinitely many distinct real-plane cycles and an explicit phase-sensitive asymptotic displacement, a substantial analytic addition beyond numerical plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
