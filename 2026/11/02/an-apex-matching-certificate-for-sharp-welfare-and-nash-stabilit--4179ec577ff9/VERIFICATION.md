@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical proof in `RESULT.md` establishes the claim for every finite base graph satisfying the hypotheses. `verify.py` enumerates fans of base orders 2–9 and wheels of base orders 3–9; it checks exact welfare optima, counts, and unilateral deviations of every optimal partition. `verify_general.py` checks all 50 non-isomorphic qualifying base graphs of orders 2–7 in the NetworkX atlas and compares the exact number of sharp partitions with the edge- and induced-path-deletion perfect-matching sum. Both programs passed using rational arithmetic.
+# Independent mathematical audit
 
-Commands: `python -m pip install -r requirements.txt`, then `python verify.py` and `python verify_general.py`. These are finite regression and boundary checks; no numerical experiment certifies the theorem at unbounded order. No independent audit has been performed.
+## correctness
+
+PASS
+
+For each hub-free coalition R the payoff 2e_H(R)/|R|≤|R|/2, equality only at an edge; degree≤2 and excluded short cycles yield the strict larger cases. Hub block {h}∪S contributes 2(|S|+e_H(S))/(|S|+1)≤1+|S|/2 with equality only at edge (s=2) or induced P3 (s=3). Equality forces a perfect matching of the remaining vertices. Casewise deviation payoff bounds show the hub and all paired or selected vertices cannot strictly gain by unilateral moves, including joining singleton or any other coalition. Independent exhaustive partition/matching/stability checks passed for four fans and five wheels, with orientation-normalized cycle edges. Infinite family proof is the local edge bounds, not enumeration.
+
+## originality
+
+PASS
+
+The general computational literature and tree-only Nash-stability theorem are relevant but do not classify apex matching certificates, exact optimizer multiplicities and Nash stability of every optimum. The apex has many triangles, so tree-only Nash results do not subsume it. The motifs and matching sum give a nontrivial natural family classification.
+
+## value
+
+PASS
+
+A sharp, efficiently certifiable welfare-bound attainment criterion and exact enumeration/stability for an infinite graph family are motivated optimization facts; distinguishing when price of Nash stability is one avoids an unmotivated tiny-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

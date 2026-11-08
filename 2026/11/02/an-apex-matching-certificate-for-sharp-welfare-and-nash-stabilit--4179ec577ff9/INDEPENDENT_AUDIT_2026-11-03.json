@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:48:28.131398Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each hub-free coalition R the payoff 2e_H(R)/|R|≤|R|/2, equality only at an edge; degree≤2 and excluded short cycles yield the strict larger cases. Hub block {h}∪S contributes 2(|S|+e_H(S))/(|S|+1)≤1+|S|/2 with equality only at edge (s=2) or induced P3 (s=3). Equality forces a perfect matching of the remaining vertices. Casewise deviation payoff bounds show the hub and all paired or selected vertices cannot strictly gain by unilateral moves, including joining singleton or any other coalition. Independent exhaustive partition/matching/stability checks passed for four fans and five wheels, with orientation-normalized cycle edges. Infinite family proof is the local edge bounds, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanaka–Ikeyama–Ono provide treewidth-based optimization; Bilò et al show tree optimum Nash stable; Bazgan–Casel–Cazals solve certain sparse/dense input families."
+        ],
+        "reasoning": "Algorithmic computability does not imply this exact structure/count; the apex graph is not a tree or degree≤2 and generally outside dense minimum-degree bounds.",
+        "searches": [
+          "arXiv:2310.05139",
+          "DOI:10.1613/jair.1.11211",
+          "arXiv:2107.13282"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.05139 main results",
+        "DOI:10.1613/jair.1.11211",
+        "arXiv:2107.13282",
+        "Resultary query: simple fractional hedonic games apex fan wheel sharp welfare perfect matching certificate Nash equilibria"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit if-and-only-if condition identifies all extremizers and shows Nash stability; existing broad algorithms do not state this implication."
+        ],
+        "reasoning": "Graph structure of apex triangles prevents direct use of the tree Nash theorem even for fan and wheel cases.",
+        "searches": [
+          "arXiv:2310.05139",
+          "DOI:10.1613/jair.1.11211",
+          "arXiv:2107.13282"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fractional hedonic welfare equals a dense graph partition objective; maximum weight matchings certify the equality cases."
+        ],
+        "reasoning": "Generic reduction to a dense graph partition objective does not itself show all achieving coalitions must be precisely hub-edge or hub-P3 plus pairs.",
+        "searches": [
+          "simple fractional hedonic games apex fan wheel sharp welfare perfect matching certificate Nash equilibria",
+          "arXiv:2107.13282",
+          "arXiv:2310.05139"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite labelled fan/wheel exact enumerations found in present proofs and checker, but no external table establishing all-H certificate was located."
+        ],
+        "reasoning": "A small graph atlas or optimization table cannot establish the claimed arbitrary disjoint union H structural criterion without a theorem.",
+        "searches": [
+          "simple fractional hedonic games apex fan wheel sharp welfare perfect matching certificate Nash equilibria",
+          "Resultary hedonic optimization query"
+        ]
+      },
+      "rationale": "The general computational literature and tree-only Nash-stability theorem are relevant but do not classify apex matching certificates, exact optimizer multiplicities and Nash stability of every optimum. The apex has many triangles, so tree-only Nash results do not subsume it. The motifs and matching sum give a nontrivial natural family classification.",
+      "residual_risks": [
+        "The exact matching-certificate and Nash characterization might occur as a special case in a broader unindexed hedonic optimization theorem.",
+        "Some prior Nash and partitioning sources were assessed from abstract/main theorem statements rather than full bodies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic result does not supply exact apex extremizer/stability count in relevant inspected text.",
+          "evidence": "arXiv:2310.05139 main results",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.05139",
+          "material_read": "Lawful full PDF: setup, main theorem statements and structural algorithms; term searches for fan and wheel; first page image verified",
+          "method": "Full-text PDF via web reader with page screenshot",
+          "title": "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs",
+          "trigger": "Nearest exact welfare optimization theorem for tree-like graphs"
+        },
+        {
+          "assessment": "Applies to tree input graph; G=K1∨H contains triangles and is not tree.",
+          "evidence": "JAIR 62 (2018), tree theorem statement",
+          "identifier_or_url": "https://doi.org/10.1613/jair.1.11211",
+          "material_read": "Abstract and stated tree-only Nash-stability claim",
+          "method": "journal landing page and bibliographic statement; not whole full-text inspection",
+          "title": "Nash Stable Outcomes in Fractional Hedonic Games: Existence, Efficiency and Computation",
+          "trigger": "Potentially stronger optimal Nash stability guarantee"
+        },
+        {
+          "assessment": "Underlying H degree≤2 does not force full apex G into the cited sparse/dense classes.",
+          "evidence": "arXiv:2107.13282 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2107.13282",
+          "material_read": "Abstract and sparse/dense graph setting",
+          "method": "arXiv primary abstract; no entire full-text coverage inference",
+          "title": "Dense Graph Partitioning on Sparse and Dense Graphs",
+          "trigger": "Equivalent welfare maximization objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, efficiently certifiable welfare-bound attainment criterion and exact enumeration/stability for an infinite graph family are motivated optimization facts; distinguishing when price of Nash stability is one avoids an unmotivated tiny-instance census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2310.05139 main results",
+    "DOI:10.1613/jair.1.11211",
+    "arXiv:2107.13282",
+    "Resultary query: simple fractional hedonic games apex fan wheel sharp welfare perfect matching certificate Nash equilibria"
+  ],
+  "disposition": "passed",
+  "final_claim": "For apex graphs K1∨H where H is finite degree≤2 and has no 3- or 4-cycles, sharp welfare SW≤m/2+1 is attained iff a hub-plus-edge or hub-plus-P3 motif leaves a perfectly matchable H; all attaining partitions are Nash stable and counted by two perfect-matching deletion sums. Fans and long wheels have explicit optimum counts, short wheels are separately classified.",
+  "limitations": [
+    "The theorem characterizes attainment of a sharp upper bound, not exact optimum below bound when no matching certificate; excludes short cycles in H and nonbinary weights."
+  ],
+  "residual_risks": [
+    "The exact matching-certificate and Nash characterization might occur as a special case in a broader unindexed hedonic optimization theorem.",
+    "Some prior Nash and partitioning sources were assessed from abstract/main theorem statements rather than full bodies."
+  ],
+  "schema_version": 1
+}
