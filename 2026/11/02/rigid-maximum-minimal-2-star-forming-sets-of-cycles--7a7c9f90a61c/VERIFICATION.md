@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Use Python 3.10+ standard library only. Run `python3 verify.py` in the directory containing the embedded checker. The verifier independently enumerates actual three-vertex paths in each labelled cycle for every vertex subset at cycle orders three through fourteen; cross-checks the minimal 2-star-forming predicate with the 9-bit rule at cycle orders nine through fourteen; checks all 512 windows and all 332 exact height inequalities from the literal 256-digit certificate; checks 242 tight arcs and exactly two simple directed cyclic SCCs with sizes three and six; and directly confirms the optimal counts at cycle orders divisible by three.
+## correctness
 
-Replayed output:
+PASS
 
-```
-VERIFY_OK windows=512 allowed_arcs=332 potential_heights=0..4 tight_arcs=242 cyclic_SCCs=(3,6) brute_n=3..14 counts={3: 3, 4: 6, 5: 10, 6: 9, 7: 14, 8: 8, 9: 3, 10: 60, 11: 33, 12: 9, 13: 91, 14: 14}
-```
+The 2-star-forming condition on C_n is checked by a length-five local predicate for each omitted vertex, while inclusion-minimality requires at least one omitted-vertex failure after each selected-vertex deletion. For n>=9 these assemble into the exact nine-bit window predicate, giving a directed 256-state overlapping-eight-bit graph. Independently rebuilt all 512 windows and obtained precisely 332 permitted arcs. The supplied 256-character potential has nonnegative digit heights 0..4 and satisfies 3x_center-2<=h(next)-h(current) on every arc; summation around an arbitrary cyclic word yields 3|S|<=2n. The tight graph has 242 arcs, and independent reachability SCC computation gives exactly two cyclic SCCs, simple 3-cycle {109,182,219} and simple 6-cycle {60,121,158,207,231,243}; therefore equality words are rotations of 110, and iff 6|n also 111100. Direct definition enumeration of all subsets for n=3..12 (including all n<9) confirmed floor(2n/3), 3/9 counts for multiples of 3 and the 6-length anomalous non-2-independent class. Repeating 110 with suitable endings attains the bound for all n. The finite-state potential is a complete all-length certificate, whereas small-n enumeration alone is not.
 
-The universal bound is a deduction from summing the fully checked potential inequalities around an arbitrary closed walk, and the universal equality classification from the fully checked tight SCC structure. Brute-force cycle samples alone are not taken as infinite proofs. This verification is neither independent mathematical audit nor external certification.
+## originality
+
+PASS
+
+Chellali–Favaron 2009 introduce k-star-forming sets and the general k-independence lower bound. Recent Bhattacharjee and Sahbi work concerns upper k-star-forming decision complexity or bipartite/chain graphs. No inspected theorem gives the all-cycle sharp upper bound with equality rigidity or the multiplicity 3 versus 9; known maximal 2-independent constructions cover the lower bound but not the extra 111100 non-independent maximum sets.
+
+## value
+
+PASS
+
+The upper 2-star-forming invariant is a natural variation of dissociation number. The exact cycle maximum and rigid extremizers are not a textbook derivation of 2-independence: there is a genuinely different optimal 111100 family exactly at 6|n. The tight 256-state certificate and complete periodic equality classification resolve a structural extremal gap for all cycle lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

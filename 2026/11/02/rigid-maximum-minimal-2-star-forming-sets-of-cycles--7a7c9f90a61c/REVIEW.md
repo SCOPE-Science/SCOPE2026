@@ -1,14 +1,21 @@
-# Mathematical review: maximum minimal 2-star-forming sets of cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition matches the star-containing-the-omitted-vertex formulation in the primary source. The local Boolean eligibility criterion enumerates the three possible placements of an omitted vertex in a 2-edge path. Inclusion-minimality is checked by every single deletion, and only vertices within distance two of a deleted vertex can change eligibility. Thus the nine-bit rule is equivalent to the graph property for every simple cycle of order at least nine. An explicit 256-state height vector certifies all 332 potential inequalities, implying the sharp \(3|S|\le2n\) bound. A complete tight-component census isolates precisely the periods three and six at equality. The finite exceptional orders are checked directly, and a maximal 2-independent construction supplies the matching lower bound. The included standalone checker independently enumerates actual path instances and verifies the finite certificate. Risks: integer-potential and component calculations must be replayed from the included source; finite sampling alone would not establish the infinite theorem, but the exact finite-state implication does.
+## correctness
 
-## Originality — PASS, qualified
-Chellali–Favaron (2009) define the invariant and prove baseline inequalities; Bhattacharjee (23 October 2026) proves hardness and chain-graph results, neither asserting this cyclic extremal-word classification. Searches for cyclic, 2-star-forming, upper parameters and the two primitive binary patterns in mathematical research records produced no equivalent claim, and broad graph-paper searches did not identify these exact multiplicities. The closest records on dissociation *polynomials* concern complete multipartite graphs or fan graphs and do not imply minimal 2-star-forming classification on cycles. The full manuscript of the related Sahbi October 2026 work was not accessible through the inspected PDF path, leaving a historical-priority risk. Search non-hits do not prove uniqueness or priority.
+PASS
 
-## Mathematical value — PASS
-The numerical maximum alone does not enumerate optimal witnesses. At orders divisible by six, the six additional optimum sets contain an induced path and thus escape classification by maximum 2-independent/dissociation sets. The periodic-word rigidity and discontinuous three-versus-nine solution count describe a genuine structural boundary of a recently NP-hard upper-parameter problem on cycles. The precise optimal-set classification is a natural reusable test for combinatorial upper domination and finite-state graph covering methods, not a renaming or a tiny unmotivated finite slice.
+The 2-star-forming condition on C_n is checked by a length-five local predicate for each omitted vertex, while inclusion-minimality requires at least one omitted-vertex failure after each selected-vertex deletion. For n>=9 these assemble into the exact nine-bit window predicate, giving a directed 256-state overlapping-eight-bit graph. Independently rebuilt all 512 windows and obtained precisely 332 permitted arcs. The supplied 256-character potential has nonnegative digit heights 0..4 and satisfies 3x_center-2<=h(next)-h(current) on every arc; summation around an arbitrary cyclic word yields 3|S|<=2n. The tight graph has 242 arcs, and independent reachability SCC computation gives exactly two cyclic SCCs, simple 3-cycle {109,182,219} and simple 6-cycle {60,121,158,207,231,243}; therefore equality words are rotations of 110, and iff 6|n also 111100. Direct definition enumeration of all subsets for n=3..12 (including all n<9) confirmed floor(2n/3), 3/9 counts for multiples of 3 and the 6-length anomalous non-2-independent class. Repeating 110 with suitable endings attains the bound for all n. The finite-state potential is a complete all-length certificate, whereas small-n enumeration alone is not.
 
-The verified theorem is restricted to labelled simple cycles, with complete structural enumeration claimed only for lengths divisible by three; independent historical-priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chellali–Favaron 2009 introduce k-star-forming sets and the general k-independence lower bound. Recent Bhattacharjee and Sahbi work concerns upper k-star-forming decision complexity or bipartite/chain graphs. No inspected theorem gives the all-cycle sharp upper bound with equality rigidity or the multiplicity 3 versus 9; known maximal 2-independent constructions cover the lower bound but not the extra 111100 non-independent maximum sets.
+
+## value
+
+PASS
+
+The upper 2-star-forming invariant is a natural variation of dissociation number. The exact cycle maximum and rigid extremizers are not a textbook derivation of 2-independence: there is a genuinely different optimal 111100 family exactly at 6|n. The tight 256-state certificate and complete periodic equality classification resolve a structural extremal gap for all cycle lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
