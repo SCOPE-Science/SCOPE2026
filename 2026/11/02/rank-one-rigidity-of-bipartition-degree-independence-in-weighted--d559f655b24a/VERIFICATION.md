@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python check.py` with Python 3 and the standard library. The script enumerates spanning trees of weighted \(K_{a,b}\) for fourteen small rational-weight examples, including rank-one and heterogeneous arrays at each of seven distinct part-size pairs. It computes each normalized joint ordinary-degree law and verifies the conditional hub formula, the inverse reconstruction, the independence-versus-rank-one equivalence, and the product of two multinomial laws in rank-one cases. The completed package checker was executed successfully.
+## correctness
 
-The proof does not rely on extrapolation from finite computation. Its unrestricted steps are the positive-probability event decomposition, the exact expectation inversion, and the weighted matrix-tree determinant identity. All hypotheses and exceptional one-vertex/zero-weight boundaries appear in `RESULT.md`.
+PASS
 
-The computations do not verify historical originality or prove an infinite mathematical assertion on their own. No independent mathematical audit has been performed.
+For event E_j with B_j incident to all a left vertices and every other B a leaf, its strictly positive weight factors into the fixed star product and independent leaf choices, with attachment probabilities p_ik=w_ik/sum_r w_rk. This proves m_ij=1+sum_{k!=j}p_ik and the exact inversion p_ij=(sum_h(m_ih-1))/(b-1)-(m_ij-1). If whole DA,DB independent, E_j is measurable in DB and m_ij is j-independent, forcing normalized columns equal and W rank one. For W=u v^T, the matrix-tree cofactor determinant gives Z(z,t)=(prod z_i)(prod t_j)(sum z_i)^{b-1}(sum t_j)^{a-1}; after degree markers the pgf factors into two shifted multinomial distributions. Both directions cover all a,b>=2 and positive real weights. Independent exact-rational spanning-tree enumeration for W=[[1,1],[1,2]] checks m_11=4/3 and m_12=3/2; for uniform W, m_11=m_12=5/4. Other exact finite cases corroborated, not substituted for the proof.
+
+## originality
+
+PASS
+
+Weighted spanning-tree degree moments and uniform bipartite tree enumerators precede the finding. The arbitrary positive-weight NECESSITY, proven via conditional hub means, and exact recovery of column-normalized edge preferences are the distinct contribution; rank-one SUFFICIENCY follows classically from the weighted bicolored tree enumerator.
+
+## value
+
+PASS
+
+Independence of naturally paired full degree vectors is a structural invariant of Gibbs trees. An iff classification over every strictly positive matrix and a constructive inverse from conditional degree means give exact identifiability, with clear failure when weights are not rank one; valuable for weighted tree dependence analysis beyond any single finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

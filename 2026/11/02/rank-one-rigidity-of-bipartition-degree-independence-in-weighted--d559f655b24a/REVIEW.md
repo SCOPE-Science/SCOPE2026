@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem is for all finite \(a,b\ge2\) with strictly positive real \(w_{ij}\); degrees are ordinary edge counts. Every hub event has positive mass and exactly the stated attachment structure. Conditional leaf choices factor by column, giving the degree means, and summing them proves the inverse identity. Independence of full side-degree vectors makes all conditional means independent of the hub, forcing equal normalized columns. Rank-one sufficiency follows from the explicitly derived weighted matrix-tree generating polynomial, which factorizes into two shifted multinomial generating functions. The exact-rational standalone checker enumerates spanning trees across fourteen small weighted cases; this is support, not a substitute for the general proof.
+PASS
 
-## Originality (O): PASS, qualified
+For event E_j with B_j incident to all a left vertices and every other B a leaf, its strictly positive weight factors into the fixed star product and independent leaf choices, with attachment probabilities p_ik=w_ik/sum_r w_rk. This proves m_ij=1+sum_{k!=j}p_ik and the exact inversion p_ij=(sum_h(m_ih-1))/(b-1)-(m_ij-1). If whole DA,DB independent, E_j is measurable in DB and m_ij is j-independent, forcing normalized columns equal and W rank one. For W=u v^T, the matrix-tree cofactor determinant gives Z(z,t)=(prod z_i)(prod t_j)(sum z_i)^{b-1}(sum t_j)^{a-1}; after degree markers the pgf factors into two shifted multinomial distributions. Both directions cover all a,b>=2 and positive real weights. Independent exact-rational spanning-tree enumeration for W=[[1,1],[1,2]] checks m_11=4/3 and m_12=3/2; for uniform W, m_11=m_12=5/4. Other exact finite cases corroborated, not substituted for the proof.
 
-The closest inspected source is Fita Sanmartín–Schnörr–Hamprecht, arXiv:2409.13472v1, particularly its introduction, degree-moment theorem and covariance appendix. Its arbitrary-graph covariance formulas address first and second moments and do not state a matrix-rank characterization of independence between *entire* bipartition degree vectors. Dong–Ge, arXiv:2103.05294v1, proves forest-constrained counts in the unweighted complete bipartite graph, not the positive-weight converse. The Fischer–Fischer 2019 accessible first-page preview addresses the number of attainable degree sequences and does not contain the relevant probabilistic statement; its remaining pages were not accessible for full inspection. Broad literature searches and mathematical research-record comparisons did not reveal equivalent coverage. The classical bicolored Prüfer enumerator already proves rank-one sufficiency; this is openly credited. The claim-to-prior implication comparison leaves the positive-weight necessity and exact conditional recovery as distinct. Hidden earlier weighted-tree literature remains a priority risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-This is a natural complete classification, valid for arbitrary part sizes and *all* positive edge-weight arrays, of exactly when a familiar stochastic independence phenomenon survives heterogeneity. The constructive necessity is stronger than observing an example of lost independence: a finite collection of conditional degree means exactly recovers normalized edge preferences, and gives a concrete statistical witness against factorization. It addresses structural probabilistic identifiability rather than an arbitrary numerical case; the result could guide model diagnostics and dependence calculations in Gibbs spanning trees.
+Weighted spanning-tree degree moments and uniform bipartite tree enumerators precede the finding. The arbitrary positive-weight NECESSITY, proven via conditional hub means, and exact recovery of column-normalized edge preferences are the distinct contribution; rank-one SUFFICIENCY follows classically from the weighted bicolored tree enumerator.
 
-## Scope and remaining limits
+## value
 
-Positivity and both part sizes at least two are indispensable. The theorem does not identify column scales or say pairwise uncorrelated degrees suffice. It is not a theorem for noncomplete graphs or for all tree measures. Historical priority is assessed by best available material, not proven by absence from searches. Independent verification is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Independence of naturally paired full degree vectors is a structural invariant of Gibbs trees. An iff classification over every strictly positive matrix and a constructive inverse from conditional degree means give exact identifiability, with clear failure when weights are not rank one; valuable for weighted tree dependence analysis beyond any single finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
