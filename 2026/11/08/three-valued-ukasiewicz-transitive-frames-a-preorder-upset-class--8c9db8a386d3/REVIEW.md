@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The only nonzero Łukasiewicz t-norm products on \(\{0,\tfrac12,1\}\) are \(1\odot1=1\) and \(1\odot\tfrac12=\tfrac12\odot1=\tfrac12\). This gives an exact equivalence between ternary transitivity and three displayed Boolean relational inclusion conditions; the equivalence is bidirectional. Quotienting the degree-one preorder by mutual accessibility produces a poset. The half-grade support descends to the quotient and becomes an upset of the complement to the order in the reversed-first-coordinate product. The converse reconstructs each matrix uniquely. Counting by set partitions proves the all-size formula, and staircase downsets prove the Catalan subfamily. The standalone checker confirms every matrix through four worlds and independently reproduces the poset count. Finite tests are not treated as an infinite proof.
+
+## Originality
+PASS within examined evidence, subject to historical-priority risk. The recent motivating full paper introduces the same Łukasiewicz frame definition but develops modal/topological interpretation, not the three-grade preorder–upset parametrization. General fuzzy \(T\)-preorder representation results do not state the poset-summation census or Catalan fixed-core family. An earlier available three-world all-granularity result already implies the \(281\) count; that component is explicitly prior, and the new claim is general \(n\), distinct poset-decoration structure, four-world count, and total-core multiplicity. Other accessible fuzzy-relation results using minimum t-norms are not covering because half-valued paths behave differently under Łukasiewicz convolution. A hidden equivalent classification in older fuzzy-order or valued-relation literature remains possible.
+
+## Value
+PASS. Three truth values form the smallest non-Boolean grid, and reflexive Łukasiewicz-transitive relations are an independently motivated semantic frame class. The theorem gives a complete structural classification at every finite cardinality, replaces a matrix-wise constraint search with a finite-poset upset enumeration, and yields a natural Catalan subfamily for total crisp cores. It is not an arbitrary isolated numerical increment: the four-world number is merely one specialization of the all-size structural result. The exact formula is not claimed to be efficient for arbitrary large cardinalities.
+
+## Sources and limitations
+Khan et al., *On Łukasiewicz Topological Semantics*, arXiv:2610.40809 (full 15-page paper inspected, especially definitions and main semantic propositions); Boixader–Recasens, *Generation and Characterization of Fuzzy T-preorders* (2015, accessible article preliminaries and stated representation results); Pfeiffer, *Counting Transitive Relations* (2004); related published mathematical summaries on Gödel / max–min frames. Main residual risk is equivalent older fuzzy-order classifications under alternative terminology. The asserted results concern labelled ternary matrices, not unrestricted fuzzy frames or all fuzzy topologies. The prior three-world count is not claimed as new.
+
+Self-review: passed. Independent audit: not yet performed.
