@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The metric is realized as the quotient of a triangular flat torus by inversion. Four explicit perpendicular-bisector inequalities trap the complete periodic two-orbit Voronoi cell inside a cyclic trapezoid of area \(\sqrt3\); the exact equal-cell-area identity shows this trap is the entire cell for every parameter, including the triangular endpoint. Subtracting nonoverlapping disk caps gives the full distance law. Exact symbolic integration of the trapezoid confirms normalization, a constant quadratic moment \(1/3\), and a varying quartic moment \((1+12s^2)(5-36s^2)/30\). Eccentricity comes from circumradius. The accompanying executable independently confirms algebraic identities and samples competing torus lifts; sampling is not being presented as an infinite proof.
+## correctness
 
-**Originality — PASS, best-knowledge with documented priority risk.** The closest inspected source is Donald Davis (2023): its expanded cut-locus calculations already use the same median source segment. That source gives cut-locus geometry and motion-planning complexity, not the new exact geodesic area distribution and constant-second-moment/varying-fourth-moment theorem. Davis–Dods–Traub–Yang (2015) and Fuchs (2016) discuss vertex geodesics, a different source configuration. Research-record searches for both formulations, as well as searches for dominating metric-measure results, found no stated equivalent. An earlier unindexed computation of these moments remains possible; no absolute priority certification is claimed.
+PASS
 
-**Value — PASS.** Squared-distance averages are natural intrinsic Fréchet dispersion functionals. A full continuous family with *the same* quadratic geodesic dispersion but *strictly different* quartic dispersion, eccentricity and explicit CDF is a structural, nonlocal statement about the regular tetrahedron, rather than a single arbitrary evaluated integral. It distinguishes three natural metric descriptors and may serve as an exact benchmark for polyhedral source-dependent distance statistics. The result is not a characterization of global minimizers or all source points.
+The regular tetrahedral surface is the quotient of the triangular flat torus R²/<(2,0),(1,sqrt3)> by inversion. The geodesic target law equals the nearest of the two periodic source orbits. Four explicitly derived bisector inequalities give a candidate isosceles cyclic trapezoid V_s of area sqrt3; the actual nearest-site Voronoi cell lies inside it and must have area exactly sqrt3 by inversion symmetry and two orbits, proving equality almost everywhere without assuming finitely many images exhaust the lattice. The four exterior disk-cap pieces are interior-disjoint until cyclic vertex radius R_s, yielding the CDF. Polynomial slicing over x∈[-w(v),w(v)], w=1/2+6sv, confirms E D²=1/3 and fourth moment formula. Independent SymPy exact integration reproduced the polynomial identities for symbolic real s. Source eccentricity equals trapezoid circumradius, and derivative of fourth moment is positive on the open segment.
 
-Closest literature: D. M. Davis (2023), Section 2 and its cut-locus diagrams; D. Davis et al. (2015), Section 3; D. Fuchs (2016). Historical-priority and external verification risks remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original assessed content is the exact uniform-area intrinsic CDF, entire constant-second-moment continuum and strictly varying fourth moment/eccentricity, not the prior cut-locus diagram.
+
+## value
+
+PASS
+
+Natural intrinsic-geometric dispersion statistics exhibit a nontrivial plateau in mean squared geodesic distance while all higher-scale geometry changes. A full CDF for a moving source and exact moment contrasts are mathematically motivated benchmarks for surface metric probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

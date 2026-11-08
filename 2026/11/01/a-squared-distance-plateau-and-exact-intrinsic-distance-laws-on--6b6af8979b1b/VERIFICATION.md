@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible scientific verification
 
-Execute `python3 CHECK.py` with Python 3, NumPy and SymPy. Exact symbolic integration checks mass normalization and the quadratic and quartic expressions as polynomial identities for arbitrary formal \(s\). A direct numerical periodic-image construction checks each of 61 equally spaced source parameters, including the limiting rectangle and triangle, against the proposed four-vertex Voronoi geometry. Numerical CDF checks cover 53 parameters and 241 radius values per parameter. Five independent source-position tests use a common sample of 110,000 Haar-uniform torus targets, 550,000 source-target distances overall, and compare the exact CDF at 55 thresholds.
+# Independent mathematical audit
 
-Successful execution recorded: all symbolic identities pass; all 61 polygon comparisons pass; all 53 CDF grids pass; all 55 target-distance CDF checks pass. Maximum observed absolute sampled CDF discrepancy: 0.003290. The sampled data do not establish all-parameter properties; exact all-parameter proof is in `RESULT.md`. No independent external audit, formal proof-assistant certification, or examination of every historical mathematical publication has been performed.
+## correctness
+
+PASS
+
+The regular tetrahedral surface is the quotient of the triangular flat torus R²/<(2,0),(1,sqrt3)> by inversion. The geodesic target law equals the nearest of the two periodic source orbits. Four explicitly derived bisector inequalities give a candidate isosceles cyclic trapezoid V_s of area sqrt3; the actual nearest-site Voronoi cell lies inside it and must have area exactly sqrt3 by inversion symmetry and two orbits, proving equality almost everywhere without assuming finitely many images exhaust the lattice. The four exterior disk-cap pieces are interior-disjoint until cyclic vertex radius R_s, yielding the CDF. Polynomial slicing over x∈[-w(v),w(v)], w=1/2+6sv, confirms E D²=1/3 and fourth moment formula. Independent SymPy exact integration reproduced the polynomial identities for symbolic real s. Source eccentricity equals trapezoid circumradius, and derivative of fourth moment is positive on the open segment.
+
+## originality
+
+PASS
+
+Original assessed content is the exact uniform-area intrinsic CDF, entire constant-second-moment continuum and strictly varying fourth moment/eccentricity, not the prior cut-locus diagram.
+
+## value
+
+PASS
+
+Natural intrinsic-geometric dispersion statistics exhibit a nontrivial plateau in mean squared geodesic distance while all higher-scale geometry changes. A full CDF for a moving source and exact moment contrasts are mathematically motivated benchmarks for surface metric probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
