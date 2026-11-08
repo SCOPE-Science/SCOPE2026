@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:57:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the finite-interval distance as F_b(qb+r)=q+min(ceil(r/2),1+ceil((b-r)/2)), with positive-step and overshoot-backtrack constructions respecting interval boundaries. F_b(d+b)=F_b(d)+1 and the explicit k-dependent residue pair table show injective signatures from {0,1,2k+1}, including special i=0 and 1<=i<2k+1 cases. For lower bound, all interior vertices have degree>=4, so a 2-landmark basis can only be the two degree-3 endpoints; when n=b+2 vertices 1,b collide, and when n>=b+3 six vertices at distance 2 to left endpoint have at most five second-coordinate distances. Independent separately written BFS checked 276,612 ordered graph distances across 4k+1 jumps k=3..14 and diverse n, resolution and endpoint-pair failure; infinite claim follows from the proof, not the experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first establishes even b and conjectures odd; second treats jumps 3..6."
+        ],
+        "reasoning": "Neither a solved even-jump theorem nor small b cases imply all b=4k+1>=13 and arbitrary n. A newer all-odd treatment might dominate if found.",
+        "searches": [
+          "Nadeem et al 2022 Theorem 6 Conjecture 2",
+          "Liu et al IEEE Access 2019 Toeplitz graph metric dimension"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source-tree 55f766ec75734db8b35fde0456f5f546f0b82e8c, RESULT.md a6d280806242f7adb8cfe76d7774af10a3c60a4c and verify_toeplitz.py 9c67b51e96e3f7dea77ceda40ab1c9c2fe9b9e97",
+        "DOI:10.1155/2022/9155291",
+        "DOI:10.1109/ACCESS.2019.2938579",
+        "DOI:10.3389/fncom.2022.959105",
+        "Resultary query Toeplitz graph T_n(1,2,b) odd b metric dimension three resolving set Nadeem conjecture",
+        "Independent BFS 276612 ordered distances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Metric dimension and partition dimension are inequivalent invariants with different resolving definitions."
+        ],
+        "reasoning": "The prior odd-jump conjecture is not a theorem, and partition results cannot imply the point-landmark triple. The new residue table supplies the needed infinite injectivity.",
+        "searches": [
+          "2022 Conjecture 2 odd Toeplitz jumps",
+          "2022 partition dimension and 2024 partition dimension Toeplitz"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original conjecture concerns odd b with all n; the proved b=4k+1 family is a proper half of that statement."
+        ],
+        "reasoning": "Equivalent metric bases under graph reflection or distance periodicity might encode the same theorem; no covering construction was present in the inspected pertinent source.",
+        "searches": [
+          "Toeplitz graph T_n(1,2,b) odd b metric dimension three resolving set Nadeem conjecture",
+          "Nadeem Qu Ahmad Azeem 2022 Conjecture 2",
+          "interval distance set {1,2,b} graph metric basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or claimed basis for the full infinite congruence family in retrieved record results."
+        ],
+        "reasoning": "Finite computed dimensions could support but not cover an all-parameter proof; an exact broader published formula would cover even with different basis.",
+        "searches": [
+          "Toeplitz graph T_n(1,2,b) odd b metric dimension three resolving set Nadeem conjecture",
+          "Resultary semantic search Toeplitz resolving metric dimension",
+          "DOI:10.1155/2022/9155291"
+        ]
+      },
+      "rationale": "Nadeem–Qu–Ahmad–Azeem (2022) explicitly conjecture the odd-jump three-generator case and prove an even-jump subfamily; 2019 same-family work treats only smaller generator values, and partition dimension is not graph metric dimension. The all-length congruence b=1 mod4 solution is not directly covered by sources compared. A later 2025 broad review was not accessible in full and could contain this exact proof.",
+      "residual_risks": [
+        "b=4k+3 congruence class, including b=11, remains unproved.",
+        "Potential later or unindexed complete metric-dimension result could cover this half; broad 2025 review inaccessible.",
+        "Finite BFS coverage k<=14 is corroboration only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Even b treated; odd b explicitly presented as conjectural",
+          "evidence": "citeturn758907search0",
+          "identifier_or_url": "https://doi.org/10.1155/2022/9155291",
+          "material_read": "Accessible full journal HTML, relevant Theorem 6/Section 3.3 and Conjecture 2/Section 4",
+          "method": "journal HTML inspection",
+          "title": "Metric Dimension of Some Generalized Families of Toeplitz Graphs",
+          "trigger": "Exact published conjecture for odd jumps"
+        },
+        {
+          "assessment": "Treats smaller jump parameters; whole document noncoverage not claimed",
+          "evidence": "DOI:10.1109/ACCESS.2019.2938579",
+          "identifier_or_url": "https://doi.org/10.1109/ACCESS.2019.2938579",
+          "material_read": "Abstract and parameter scope, plus record reference description; full text not independently obtained",
+          "method": "bibliographic search",
+          "title": "Computing Metric Dimension of Certain Families of Toeplitz Graphs",
+          "trigger": "Earlier same graph object"
+        },
+        {
+          "assessment": "Partition dimension distinct from metric dimension",
+          "evidence": "DOI:10.3389/fncom.2022.959105",
+          "identifier_or_url": "https://doi.org/10.3389/fncom.2022.959105",
+          "material_read": "Public abstract/main definition and theorem scope",
+          "method": "primary article search",
+          "title": "Computing the partition dimension of certain families of Toeplitz graph",
+          "trigger": "Similar titles, different invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Proves an infinite congruence subfamily of a specifically published open conjecture, with a uniform explicit basis and a nontrivial boundary-independent graph metric. It is neither a finite table nor a parameter relabeling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source-tree 55f766ec75734db8b35fde0456f5f546f0b82e8c, RESULT.md a6d280806242f7adb8cfe76d7774af10a3c60a4c and verify_toeplitz.py 9c67b51e96e3f7dea77ceda40ab1c9c2fe9b9e97",
+    "DOI:10.1155/2022/9155291",
+    "DOI:10.1109/ACCESS.2019.2938579",
+    "DOI:10.3389/fncom.2022.959105",
+    "Resultary query Toeplitz graph T_n(1,2,b) odd b metric dimension three resolving set Nadeem conjecture",
+    "Independent BFS 276612 ordered distances"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every k>=3, b=4k+1 and n>=b+2, Toeplitz graph T_n<1,2,b> has metric dimension exactly 3 with a length-independent resolving basis {0,1,2k+1}; this settles one congruence half of a published odd-jump conjecture.",
+  "limitations": [
+    "b=4k+3 congruence class, including b=11, remains unproved.",
+    "Potential later or unindexed complete metric-dimension result could cover this half; broad 2025 review inaccessible.",
+    "Finite BFS coverage k<=14 is corroboration only."
+  ],
+  "residual_risks": [
+    "b=4k+3 congruence class, including b=11, remains unproved.",
+    "Potential later or unindexed complete metric-dimension result could cover this half; broad 2025 review inaccessible.",
+    "Finite BFS coverage k<=14 is corroboration only."
+  ],
+  "schema_version": 1
+}
