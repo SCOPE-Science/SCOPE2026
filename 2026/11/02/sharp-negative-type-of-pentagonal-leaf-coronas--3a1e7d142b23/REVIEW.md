@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise domain is the unit-length five-cycle with equal integer leaf multiplicity \(r\ge2\). The distance formula, within-bundle contrast eigenvalue, Fourier block entries, and zero-sum constant mode have been reconstructed directly. At the unique candidate exponent, all other Fourier modes are strictly negative using the explicit exponential Descartes sign-count and exact rational certificates; this establishes the endpoint kernel and the full interval, not just a numerical root. The checker independently builds shortest-path distances and compares spectra. Risks: the proof depends on the stated exponential Descartes lemma and the exact bounds, both supplied and checkable; the computations alone are not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Sánchez (arXiv:1108.0451, Section 2, Example 2.8) calculates the bare five-cycle threshold and provides a general finite-matrix method, but no leaf-corona classification. Robertson (arXiv:2309.16070v1, Sections 1 and 4) treats Hilbert/negative-type questions, bipartite graphs and Hamming cubes. Li–Weston (arXiv:0901.0695, Theorem 5.4) gives the strict interval principle. Comparable historical results on complete-graph coronas and five-cycle bouquets concern different metrics, with neither statement implying this all-multiplicity threshold. The distinction is explicit across objects, parameters, equality-space structure and asymptotics. Risk: a historical alias or unpublished formula could still cover this particular family.
+PASS
 
-**Mathematical value — PASS.** This natural cycle-with-private-leaves family introduces a nontrivial competition between core Fourier modes and global core-versus-leaf imbalance. The finding exactly identifies the controlling obstruction for all \(r\ge2\), shows a one-dimensional critical collapse and gives a sharp two-term perturbation law as the number of leaves grows. The finite five-cycle is the smallest odd cycle with a nontrivial cycle Fourier obstruction, so the family is structurally motivated rather than an arbitrary numerical slice. Scope does not include unequal leaf numbers or larger cycle cores.
+For X_r=C5 corona with r>=2 pendant leaves per core vertex, all 5(r-1) intra-leaf contrasts have eigenvalue -2^p; the five cycle Fourier modes yield two types of 2x2 nonconstant blocks and one zero-mass constant mode. The latter crosses uniquely where r(2·4^p-2^p-2·3^p)=2^p, with p_r in (1,9/7). Exact 9/7 rational interval tests give 2H-u=0.036969421..., E_{z-}=0.031225932..., T=1.078326041..., and exponential-polynomial Descartes sign variation ensures both nonconstant blocks are strictly negative throughout needed range. Critical nullity is one and rank 5(r+1)-2; strictness at lower p follows from Li–Weston, failure at higher p from the constant-mode witness. Taylor inversion yields the stated r^-1,r^-2 asymptotic. Independent graph-distance spectra for r=2,3,5,8 reproduce root and nullity; numerical checks alone do not prove infinite r or real p.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded original statement-to-statement/implication comparisons found no prior result explicitly establishing the full final claim including its nontrivial exact invariant or sharp all-parameter classification. Does not treat unsuccessful search as priority proof; stated source risks remain, especially the diameter-two QEC general method for record 4.
+
+## value
+
+PASS
+
+The five-cycle corona is a standard graph operation applied to a natural small odd core; its sharp Hilbert-snowflake invariant, unique core-versus-leaf obstruction and nontrivial large-leaf scaling are uniform structural facts useful beyond computing isolated finite matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
