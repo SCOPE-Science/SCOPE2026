@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The orthogonal row-space minimum-norm solution, exact norm formula, mean/contrast coordinate Jacobian sqrt(m), rescaled small-ball integral and dominated-convergence limit are reconstructed. A positive constant and tail integration yield iff p<m-1; independent centered noise gives exact conditional variance sigma^2||w||^2. The included checker independently passes 9,859 assertions, with simulations explicitly not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Migliorati–Nobile uses induced sampling and a stability/conditioning event.",
+        "Glaubitz gives minimum-norm weights for fixed scattered nodes.",
+        "Well-conditioned and positive-weight constructions have different rule hypotheses."
+      ],
+      "reasoning": "Conditioned quadrature bounds do not dominate an unconditioned iid minimum-norm distributional claim. Fixed-node optimal norm identities are a known input and cannot imply a random-node tail constant without the small-ball distribution analysis; the new claimed content is that analysis.",
+      "searches": [
+        "randomized least squares quadrature weights inverse sample variance rare clustered nodes heavy tail Cauchy mean square stability",
+        "randomized polynomial cubature 1D linear basis probability positive weights IID nodes inverse sample variance",
+        "https://arxiv.org/abs/1812.07761",
+        "https://arxiv.org/abs/2007.09082",
+        "https://arxiv.org/abs/2609.09506"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1809.09842 (full text introduction and nullspace/positivity construction)",
+      "https://arxiv.org/abs/1812.07761 (full text formulation, main stability theorem and conditioning proofs)",
+      "https://arxiv.org/abs/2007.09082 (full text including section 3.1, deterministic minimum norm weights)",
+      "https://arxiv.org/html/2609.09506v1 (full text including positivity and high-probability conditions)",
+      "https://arxiv.org/abs/2610.32699 (accessible full text introduction and randomized positive quadrature approach)",
+      "published-finding corpus published mathematical finding semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The small-ball integral specifically integrates a bounded continuous density raised to the mth power against |u-1/2|^(m-1).",
+        "Glaubitz establishes the deterministic norm objective but no checked theorem supplying that distribution.",
+        "Positive/adaptive schemes avoid or alter the unconditioned collision region."
+      ],
+      "reasoning": "The known deterministic row-space formula is subsumed and excluded from originality. The decisive new distributional claim needs a probabilistic volume/Jacobian computation, and none of the inspected stability bounds implies the exact asymptotic or the iff m>=4 noise threshold for the raw estimator.",
+      "searches": [
+        "randomized least squares quadrature weights inverse sample variance rare clustered nodes heavy tail Cauchy mean square stability",
+        "random least squares cubature negative weights noisy evaluations infinite mean squared error at three nodes",
+        "https://arxiv.org/abs/1809.09842",
+        "https://arxiv.org/abs/2007.09082",
+        "published-finding corpus 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gram-inverse formulation: squared norm = 1/m+(1/2-mean)^2/S where S is unnormalized sample variance; this exposes the potential collision singularity.",
+        "The cited published-finding corpus result is a deterministic L2 affine-projector positivity norm, not a random-node Gram-inverse tail theorem."
+      ],
+      "reasoning": "Sample-variance inverse moments, random Vandermonde ill-conditioning and noisy quadrature are searched as possible equivalents. A generic inverse-small-ball heuristic predicts an exponent but not by itself the full density-dependent sharp constant and necessary/sufficient moment statement. No accessible equivalent theorem found.",
+      "searches": [
+        "minimum norm affine exact quadrature weights iid uniform random nodes moment divergence tail probability heavy powers number of nodes",
+        "randomized least squares quadrature weights inverse sample variance rare clustered nodes heavy tail Cauchy mean square stability",
+        "sampled exact affine moment fitting cubature number m weights Euclidean norm distribution sharp tail t power m minus one",
+        "Published fixed-node minimum-norm quadrature source arXiv:2007.09082",
+        "published-finding corpus queries and returned closest ID 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest generalized Romberg work uses deterministic nested trapezoidal weights, not random affine fitting.",
+        "No examined exact coefficient table or quadrature benchmark listed the all-m continuous-density Pareto law."
+      ],
+      "reasoning": "The constants are indexed naturally by sample size and a continuous node-density functional, not a finite table entry; direct database and primary-source queries did not show coverage. Search absence alone does not prove global novelty.",
+      "searches": [
+        "minimum norm affine exact quadrature weights iid uniform random nodes moment divergence tail probability heavy powers number of nodes",
+        "sampled exact affine moment fitting cubature number m weights Euclidean norm distribution sharp tail t power m minus one",
+        "random least squares cubature negative weights noisy evaluations infinite mean squared error at three nodes",
+        "Published exact-weight and moment quadrature results arXiv:1809.09842; arXiv:1812.07761",
+        "published-finding corpus 2026/9/20/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+      ]
+    },
+    "rationale": "Full close-source comparisons and actual searches of published mathematical records found no dominating or equivalent theorem for the unconditioned iid min-Euclidean-norm affine quadrature Pareto constant and strict noise-moment cutoff. The deterministic minimum-norm construction is acknowledged as prior work. Non-exhaustive publication precedence risk is retained.",
+    "residual_risks": [
+      "Specialist random Vandermonde/inverse-Gram literature not exhaustively accessible or inspected could contain an equivalent asymptotic.",
+      "Some high-probability quadrature results could yield related inequalities but do not directly assert this exact constant for the unconditioned rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: enforces positivity by node selection and does not calculate an unconditioned least-norm weight distribution or a Pareto moment cutoff.",
+        "evidence": [
+          "First posted 2018-09-26; paper explicitly constructs positive nested rules exploiting Vandermonde null spaces."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.09842",
+        "material_read": "Introduction and construction/positivity section, including nullspace selection",
+        "method": "Open-access arXiv full-text reading, cross-referencing exact moment conditions",
+        "title": "Generating nested quadrature rules with positive weights based on arbitrary sample sets",
+        "trigger": "Oldest publicly dated directly motivated sampled-node exact moment-fitting work"
+      },
+      {
+        "assessment": "Not covering: uses an induced auxiliary sampling measure and conditioned/stable estimators, rather than raw unconditioned minimum-ell2 weights; its expected-error bounds do not entail this raw estimator's exact Pareto coefficient.",
+        "evidence": [
+          "First posted 2018-12-19; defines stability with prescribed sample size and conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.07761",
+        "material_read": "Full-text problem setup, Sections 2–3, theorem on high-probability stability and proof assumptions",
+        "method": "Open-access arXiv full-text reading; compared sampling measure and conditioning to the unconstrained rule",
+        "title": "Stable high-order randomized cubature formulae in arbitrary dimension",
+        "trigger": "Very close randomized least-squares cubature method with moment exactness"
+      },
+      {
+        "assessment": "Establishes deterministic minimum-norm construction for supplied nodes; directly credited. Does not supply the iid random-node distributional law, its exact tail constant, or unconditional noise cutoff.",
+        "evidence": [
+          "First posted 2020-07-17; minimization of weight ell2 norm is addressed as a stability tool for scattered nodes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.09082",
+        "material_read": "Full PDF introduction, stability and minimum-norm weights in Section 3.1, including page 6; page image inspected",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "Stable High Order Quadrature Rules for Scattered Data and General Weight Functions",
+        "trigger": "Closest structural predecessor for minimum-Euclidean-norm moment exact weights"
+      },
+      {
+        "assessment": "Different well-conditioned and positivity-oriented rules, not an unconditioned minimum-norm iid affine rule. No inspected exact Pareto coefficient; related polynomial-tail estimates concern distinct quantities.",
+        "evidence": [
+          "Published 2026 preprint analyzes randomized well-conditioned quadrature and positivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.09506",
+        "material_read": "Full accessible HTML introduction, Sections 2–4, positive-weight and stability results",
+        "method": "Open-access arXiv HTML reading",
+        "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+        "trigger": "Modern close randomized conditioned least-squares construction; potential stronger theorem"
+      },
+      {
+        "assessment": "Positive/adapted weight construction excludes the raw potentially negative minimum-norm weights; no inspected statement implied the present tail law.",
+        "evidence": [
+          "Authors explicitly seek randomized positive quadrature weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+        "material_read": "Accessible HTML introduction and positive-weight mechanism",
+        "method": "Open-access arXiv HTML reading",
+        "title": "Random nodes with positive weights: Richter-Tchakaloff rules and optimal positive quadrature",
+        "trigger": "Recent sampled-node positive moment-matching quadrature that could imply stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0bd09ba6-33ae-4feb-ba88-ef51e34fa1b4",
+  "value": {
+    "rationale": "The all-m sharp Pareto law and density-functional coefficient give a natural complete stochastic stability classification of a standard affine-exact moment-fitting rule. It determines the exact minimal sample count four for finite unconditional noise-induced MSE, exposing a concrete failure not detectable from almost-sure nonsingularity or ordinary high-probability conditioning. It avoids claims about safeguarded or positive methods.",
+    "status": "PASS"
+  }
+}
