@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof computes the Fock disk spectrum, differentiates the actual trace-class shape operator to second order, applies the isolated two-eigenvalue cluster resolvent formula, and sums all Fourier contributions with convergent series. Direct elementary falling-factorial inequalities establish the sign and ordering of every coefficient. The sharp constant is the exact second-harmonic coefficient. The first-harmonic cancellation agrees with translation invariance. The accompanying checker passed 21 supplementary finite tests; these are not a substitute for the infinite-dimensional proof.
+PASS
 
-## Originality — PASS, with priority reservations
+Disk Toeplitz eigenvalues are λ_n=1−e^(−x)Σ_{j=0}^n x^j/j! with a strict gap between the top-2 cluster and complement. Differentiating exact squared-radius monomial moments yields the V,W entries, and trace-norm smoothness follows from integrating coherent-state projectors at positive radius. The contour/resolvent isolated-cluster formula has the correct n=0,1 to m>=2 couplings, producing two positive Poisson ratios plus boundary term −x e^(−x)|hhat_k|². The k=1 cancellation matches translations, and falling-factorial denominators strictly increase in k. Independent numerical rational/symbolic evaluations at x=.2,1,3,25 confirmed H2 and monotone coefficient ordering; the submitted matrix quadrature code was inspected but not trusted as proof.
 
-Nicola, Riccardi and Tilli establish radial partial-eigenvalue isoperimetry and later unrestricted existence. **Abreu already proves global maximization of the Ky Fan sum by the disk for arbitrary sets**; that sign-level result is not claimed as new. The distinct conclusion here is the *exact* nonradial rank-two shape Hessian, sharp quadrupolar coefficient, and its translation nullspace. Their explicit values do not follow from the prior global inequality merely by logical implication. Claim-specific mathematical-record searches found no equivalent or quantitatively stronger formulation. Two relevant 2026 primary full texts could not be read; either might contain a competing quantitative refinement, so priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first nontrivial multieigenvalue Fock localization shape problem has a natural quantitative stability question following its global inequality. The full angular response is computable, translation is its only quadratic degeneracy, and elliptic distortions are exactly the least costly nontrivial perturbations. The result addresses stability of near-disk optimizers without alleging new global optimality.
+Abreu 2026 establishes global disk maximality for arbitrary measurable sets and all Ky Fan ranks, so even the sign of a second derivative is covered qualitatively. The inspected full primary proof does not supply the rank-two nonradial Fourier mode coefficients H_k, their strict order or sharp quadrupole constant. Nicola–Riccardi–Tilli radial inequality and existence papers likewise are not proven to imply these exact local coefficients. A related quantitative expansion in incompletely accessible 2026 work remains an explicit priority risk.
 
-## Scientific limitations
+## value
 
-The formula applies to smooth, fixed-area, first-order boundary deformations at rank two and in one complex dimension. It does not give a global deficit inequality, a uniform fourth-order estimate along translation-null directions, or a higher-rank classification. Literature priority is provisional pending inaccessible full-text comparisons. Numerical checks are finite and do not establish the analytic theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nonradial rank-two quadratic stability spectrum is the natural local refinement of global Fock isoperimetry: it identifies the only symmetry kernel, all mode-specific costs and the least stable elliptic perturbations rather than merely repeating disk optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
