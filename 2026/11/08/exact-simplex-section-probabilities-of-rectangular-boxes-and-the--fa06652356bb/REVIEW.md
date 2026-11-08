@@ -1,0 +1,15 @@
+# Scientific review: affine sections of rectangular boxes
+
+## Correctness — PASS
+
+For a generic affine hyperplane, the number of section vertices equals the number of crossed edges of the orthotope. The edge-connectivity of the hypercube and its equality cases reduce simplex cuts exactly to the two outermost offset intervals. Conditioning translation-invariant hyperplanes to intersect yields the essential width weighting; the Gaussian minimum identity then fixes all normalizations. Pairwise averaging of unequal side lengths strictly increases the expected minimum, hence the probability under a fixed total side length. The high-dimensional limit uses the halfnormal density at zero. In dimension three the combinatorial chamber types and two independently evaluated spherical integrals determine the four probabilities, with their first moment checked against the established affine expectation. The embedded standard-library verifier checks normalizations, 1,331 finite ordered triples, 120 higher-dimensional chambers, quadrature, and independent random affine sections. Finite computation is not the proof for all real side lengths or all dimensions; the analytic argument is provided in RESULT.md.
+
+## Originality — PASS, with residual historical-priority risk
+
+The closest inspected primary studies have different conclusions: Lonke's arXiv:math/9812123 concerns random **central** cube sections; Marichal and Mossinghoff's arXiv:math/0607715 concerns volumes of **fixed** cube sections and slices; Swan's arXiv:1808.09482 determines the **mean vertex count** of Crofton-affine slices (including the already-known value four in dimension three). The published central-orthotope hexagon law examined in full has a different sampling convention. Actual semantic searches covered polynomial aliases, the four numerical probabilities, Gaussian minimum formulas, high-dimensional simplex event laws and potential dominating theorems. No examined result states or implies the combined all-dimensional simplex probability, strict shape rigidity, pi-over-squared-d asymptotic or complete affine-cube polygon law. A corresponding unindexed stereological table cannot be excluded, and published-record partitioning cannot certify worldwide priority.
+
+## Mathematical value — PASS
+
+An exactly sampled affine-section polygon type is a classical natural integral-geometric observable. The formula treats *all* dimensions and *all* rectangular side lengths under a geometrically canonical conditional invariant measure. Its shape inequality identifies a unique cubic maximizer, with a sharp dimension-dependent probability and decay constant. The four-type cubic distribution supplies the complete answer for the first nontrivial case and exposes the distinction between central and translated slicing. These outcomes are not routine recomputations of the already-known mean. The result does not assert distributional results for arbitrary oblique parallelotopes, all section face vectors above dimension three, or any non-Crofton sampling mechanism.
+
+Self-review: passed. Independent audit: not yet performed.
