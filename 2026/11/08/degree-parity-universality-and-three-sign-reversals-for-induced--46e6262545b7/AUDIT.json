@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a fixed induced-H event preserves independence of every edge outside its k-vertex subset. The exact sum of internal parity signs is k-2o(H), with mean q^(n-k) times that conditional sign; exterior vertices keep unconditional q^(n-1). This gives the covariance formula with correct positive automorphism-count expectation. At H=P5, q^(n-5)(1-5q^4) has exactly three interior sign-changing roots when n is even and >=6. Reproducible independent exhaustive exact-rational checker passes 420 assertions for n<=5, all k<=4 and five rational probabilities; exact rational P5 n=6 samples alternate +,-,+,-. Finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grimmett-Janson consider graph law conditioned on all degrees even, a different measure",
+        "Picard report studies first two marginal motif-count moments and compound-Poisson approximation",
+        "2008 Kaisheng Lin dissertation title plausibly bridges motif and vertex degrees, but full text not located"
+      ],
+      "reasoning": "Unrestricted joint covariance is not implied by a law conditioned on even degree or by marginal motif moments. The named thesis is a material historical-priority risk, though no exact theorem, implication, or stated stronger result could be retrieved to decide against novelty.",
+      "searches": [
+        "random graph odd degree count triangle count covariance sign p",
+        "random graphs joint degree parity and subgraph occurrence count moment covariance",
+        "Kaisheng Lin 2008 Motif counts clustering coefficients vertex degrees models random networks thesis PDF",
+        "Picard et al. 2006 Sections 2-4 https://genome.jouy.inra.fr/ssb/preprint/SSB-RR-1.netmotifs.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.3039v1",
+      "arxiv:0912.4812v1",
+      "Matias et al. REVSTAT 4(1) 2006, DOI 10.57805/revstat.v4i1.25",
+      "Picard et al. report 10 November 2006",
+      "published-finding corpus semantic hits from eight actual queries",
+      "Published random graph literature and reported exact-moment comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known general motif expectation and parity-sign expectation provide ingredients",
+        "Neither marginal distribution/variance of motifs nor covariances among degree counts fix the joint mixed moment with total odd-degree count",
+        "The normalized covariance is exact for all unlabelled induced H and has three changes for P5 at even n>=6."
+      ],
+      "reasoning": "Consequence requires conditioning on a specific induced motif and evaluating global parity counts, not merely summing existing reported marginal moments. None of the inspected published claims states a stronger joint generating function with the two variables; full access to a plausibly relevant 2008 thesis was unavailable.",
+      "searches": [
+        "induced subgraph count arbitrary motif covariance number of odd degree vertices G(n,p) degree parity polynomial",
+        "random graph odd degree count triangle count covariance sign p",
+        "induced path five count odd degree vertices covariance triple sign reversals random graph",
+        "random graphs joint degree parity and subgraph occurrence count moment covariance",
+        "Grimmett-Janson 2007 arxiv:0709.3039 Section 1-2",
+        "Lin-Reinert 2009 arxiv:0912.4812 Section 3 and covariance entries",
+        "Matias et al. 2006 Sections 3-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Odd-degree count equals one half of n minus sum of parity characters (-1)^degree",
+        "Matias et al. count means and variances of motifs, using noninduced occurrences; Lin-Reinert vector consists of given-degree vertex counts."
+      ],
+      "reasoning": "Summing exact-degree count covariances over odd degrees could yield mixed parity covariance only if joint with motif indicators were known. The inspected degree-count work contains covariances within the degree-count vector, not cross moments with induced motifs. Motif variance alone does not determine mixed covariance with parity. Walsh character identity is a proof ingredient but does not state the universal phase portrait.",
+      "searches": [
+        "induced subgraph count arbitrary motif covariance number of odd degree vertices G(n,p) degree parity polynomial",
+        "graph motif counts parity indicators Fourier Walsh covariance induced subgraphs Erdos Renyi",
+        "induced motif counts odd degree parity number covariance Erdős Rényi",
+        "Walsh Fourier degree character correlation graph subgraph motif statistics",
+        "Matias et al. 2006 Sections 2-5 https://doi.org/10.57805/revstat.v4i1.25",
+        "Lin and Reinert 2009 arxiv:0912.4812 Sections 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search hits did not report the general mixed covariance or the P5 triple threshold",
+        "The available public literature treats degree counts or motif counts individually, but does not give the shape-free mixed parity law."
+      ],
+      "reasoning": "The directly inspected public sources do not contain a table or theorem with the exact all-H mixed covariance or the P5 triple-root conclusion.",
+      "searches": [
+        "induced subgraph count arbitrary motif covariance number of odd degree vertices G(n,p) degree parity polynomial",
+        "induced path five count odd degree vertices covariance triple sign reversals random graph",
+        "induced motif counts odd degree parity number covariance Erdős Rényi",
+        "published-finding corpus search: induced motif counts odd degree parity number covariance Erdős Rényi",
+        "published-finding corpus cross-checks for general motif and degree-parity mixed covariances"
+      ]
+    },
+    "rationale": "The full conditional mixed covariance and shape-free normalized dependence along with three universal P5 sign switches are not stated in the inspected primary articles (Matias et al. 2006, Picard et al. 2006, Grimmett-Janson 2007, Lin-Reinert 2009). The same observables, strength and direct implications were compared. General parity characters and motif mean counts are standard and are not claimed independently novel. A plausible but unavailable 2008 dissertation might contain a broader generating-function implication, representing a priority risk rather than confirmed coverage.",
+    "residual_risks": [
+      "2008 Kaisheng Lin dissertation was bibliographically identified but full text not located; an explicit or stronger joint generating-function theorem therein could supersede this result.",
+      "A general published Walsh-Fourier treatment of degree parity against arbitrary induced motifs might imply this finite formula without matching title.",
+      "Novelty is only same-model best-knowledge assessment; independent historical-priority confirmation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for explicitly inspected claims; degree-conditioned graph distribution, not unrestricted induced-motif mixed covariance",
+        "evidence": [
+          "Article defines law on graphs with all degrees even, and connects to Ising/random-cluster models; arXiv initial posting 2007-09-19."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.3039",
+        "material_read": "ArXiv full-text Sections 1-2 including probability measure equations (1.1)-(1.2) and theorem/section roadmap; introductory focus on parity-constrained subgraphs",
+        "method": "Open arXiv lawful text and inspect source section",
+        "title": "Random even graphs",
+        "trigger": "Most directly related classical degree-parity graph law"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected theorems: all covariance coordinates involve counts of prescribed vertex degrees, not counts of induced motifs",
+        "evidence": [
+          "W_i counts vertices of degree i; multivariate Gaussian and Poisson approximations for W, arXiv first posted 2009-12-24."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0912.4812",
+        "material_read": "ArXiv full text abstract, Sections 1-3, definition of W_i, covariance matrix and Theorems 3.1, 3.6",
+        "method": "Open lawful arXiv HTML text and inspect distributional results",
+        "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+        "trigger": "Full joint-degree statistics, could subsume total parity degrees"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected statements: univariate motif-count means and variances, not odd-degree mixed covariance; counts noninduced motifs",
+        "evidence": [
+          "Definition of motif uses connected possibly noninduced topology; conclusion says explicit means and variances for motifs of orders 3 and 4."
+        ],
+        "identifier_or_url": "https://doi.org/10.57805/revstat.v4i1.25",
+        "material_read": "Accessible full PDF text: abstract, Sections 1-2, formulas and analysis in Section 4 and Conclusion Section 5; inspected visual page 33",
+        "method": "Read lawful online PDF text, verify page screenshot",
+        "title": "Network motifs: mean and variance for the count",
+        "trigger": "Broad exact motif-moment formulas could dominate the claim"
+      },
+      {
+        "assessment": "NOT_COVERING inspected text: motif marginal first two moments and compound Poisson, no mixed motif/odd-degree covariance",
+        "evidence": [
+          "Report dated 10 November 2006 and specifies its exact targets as mean and variance of motif counts."
+        ],
+        "identifier_or_url": "https://genome.jouy.inra.fr/ssb/preprint/SSB-RR-1.netmotifs.pdf",
+        "material_read": "PDF title/abstract, Sections 1-2 and summary of the exact-moment framework, page 1 visually checked",
+        "method": "Read lawful open research-report PDF text and page screenshot",
+        "title": "Assessing the exceptionality of network motifs",
+        "trigger": "General network motif moments and distribution approximations"
+      },
+      {
+        "assessment": "UNRESOLVED historical coverage: inaccessible and plausibly relevant; no claim that whole thesis was read",
+        "evidence": [
+          "Lin and Reinert reference list cites dissertation, date varies 2007/2008 in contemporaneous bibliographies."
+        ],
+        "identifier_or_url": "Lin, K. (2008), DPhil thesis, University of Oxford, referenced by arxiv:0912.4812",
+        "material_read": "Bibliographic citations and title only; full thesis not located in bounded search",
+        "method": "Targeted search for dissertation title and PDF, including Oxford repository",
+        "title": "Motif counts, clustering coefficients, and vertex degrees in models of random networks",
+        "trigger": "Plausible joint motif/degree source from Lin and Reinert reference list"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46e62625-45b7-4212-b01d-4c48c894a7b8",
+  "value": {
+    "rationale": "Mixed covariance between local motif abundance and global odd-degree burden is natural in independent-edge network motif diagnostics; the all-H normalized law depends only on k and o(H), discarding all other topology even though means and variances depend strongly on it. For infinitely many even n, the induced P5 motif exhibits three rigorously located strict sign reversals across p in (0,1), a qualitative phase diagram beyond a single small numerical counterexample or routine univariate moment.",
+    "status": "PASS"
+  }
+}
