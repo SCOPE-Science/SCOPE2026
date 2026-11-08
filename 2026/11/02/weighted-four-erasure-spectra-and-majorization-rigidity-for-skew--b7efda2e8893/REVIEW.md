@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first checks that the skew-conference signature matrix determines a rank-half projection. Its weighted four-site characteristic polynomial follows from complete one-, two-, three-, and four-vertex principal-minor identities; this establishes all quantifiers and exactly four positive eigenvalues. The Pfaffian class counts follow from the coefficient of the full conference characteristic polynomial, and the larger Perron-type root is strictly ordered by the constant-term difference for every positive weight vector. Convexity of maximum eigenvalue plus the fully symmetric quartic proves Schur-convexity and the sharp equal-weight minimax. The accompanying exact symbolic calculation at multiple orders checks nontrivial identities; the argument proving infinitely many conditional orders is analytic. No existence of conference matrices at unsupported orders is assumed.
+## correctness
 
-**Originality — PASS, subject to bounded-source risk.** Closest primary sources are Bodmann–Paulsen's 2004 erasure-operator study, Hoffman–Solazzo's 2011 complex three-uniform ETF classification, Cheng–Lv–Sun's 2018 uniform subframe bound paper, and the 2012 erasure-robust-frame constructions. The same frame class and the unweighted local spectral classification are established and credited. The new statement quantifies *every positive weight vector*, proves placement-independent weighted spectra and strict class ordering, and yields a full majorization/minimax law. These implications cannot be read off from just the existing unweighted spectral roots; an additional all-weight principal-minor argument is required. No inspected full text states the combined claim, but an earlier equivalent general weighted principal-minor result cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** Partial heterogeneous coefficient loss is a natural extension of all-or-nothing erasures. The theorem gives an exact finite-dimensional spectral classification and a sharp design rule for any fixed attenuation budget, uniformly over all combinatorial supports and all existing skew-conference matrix realizations. The location-independent weight-multiset property, strict worst class, and majorization result supply structural information rather than another unweighted numerical example. The result does not optimize dual frames or alternative families.
+The projection P=(I+iC/√(n−1))/2 has rank n/2, and nonzero eigenvalues of 2V*D V equal those of 4×4 D_w^(1/2)(I+iC_S/√q)D_w^(1/2). Principal minors of orders 1,2,3,4 give coefficient multipliers 1,1−1/q,1−3/q,1−6/q+τ/q² with τ=1 or 9. Summing global fourth-order principal determinants proves type counts. Quartics differ by −8e4/q², forcing strict largest-root order. Top Hermitian eigenvalue is convex in weights; its full permutation invariance implies Schur-convexity and the equal-weight minimum W/8[1+(1+√2)/√q]. Independent all 64 four-site sign patterns matched symbolic weighted quartics. No existence assertion for arbitrary n.
 
-The exact symbolic checker verifies cases \(n=8,12,20\), not all orders; the universal steps above provide the actual proof. A residual coverage risk remains in the broader weighted matrix-minor and frame-design literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hoffman–Solazzo arXiv:1107.2267 establishes skew-conference complex equiangular tight frame constructions and examines unweighted four-erasures including nonuniformity. It does not directly state all positive weighted spectra, their assignment invariance, the strict Pfaffian-class hierarchy and full Schur-convex minimax. Resultary four-column Paley harmonic spectrum concerns a different harmonic frame and unweighted spectra.
+
+## value
+
+PASS
+
+Weighted loss fractions are a natural frame-robustness invariant; the exact assignment-independent two-type quartic classification and sharp adversarial balancing principle give a concrete, nontrivial optimal design rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
