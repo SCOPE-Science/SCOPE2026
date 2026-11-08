@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible verification
-Run `python3 proof_certificate.py` from the same directory as this document. Python's standard library is the only dependency. The program enumerates all \(2^{16}=65536\) assignments of signs to the 16 independent facet-normal inner products and checks an exact integer upper bound on the squared Euclidean projection onto the closed cone \(\{u_1\ge\cdots\ge u_5\ge0\}\).
+# Independent mathematical audit
 
-The certificate scales gradients by \(D=10^{10}\), sets \(Q=2921101299\), and encloses the optimal coefficient strictly between \(Q/D\) and \((Q+1)/D\) by integer squares. For all but masks 65256 and 65535 it checks \(\|\Pi_{\mathcal C}(D v-Qe_1)\|^2\le(7D/10)^2\); the output's largest integer quantity \(60\|\Pi_{\mathcal C}(D v-Qe_1)\|^2\) is 2917995876580389748020 at mask 65520, below 2940000000000000000000. The exceptions are independently asserted by the code to have vectors \((3/8,\ldots,3/8)\) and \(e_1\), which the mathematical proof handles exactly.
+## correctness
 
-The code does not itself verify the Cauchy projection formula or the Moreau inequality; both are explicitly derived or cited as standard results in `RESULT.md`. No infinite-dimensional, other-dimensional, or publication-priority claim follows from the finite certificate. This verification is not an independent audit.
+PASS
+
+Cauchy facet-area formula gives B(u)=(2/3) E|sum epsilon_i u_i|, axis gap 2/3-B and chord distance squared 2(1-max|u_i|). On the sorted positive cone, E|...| is a max of 65536 linear forms. Nonexpansive projection to the monotone cone bounds all but two gradients strictly below 1-c. Independently recomputed all 65536 sign assignments using integer isotonic projection: maximum nonexceptional 60*scaled norm^2 = 2917995876580389748020 at mask 65520, below exact 2940000000000000000000 cutoff; special masks 65535 and 65256 yield gradients e_1 and (3/8,...,3/8). The exact two special cases yield coordinate-axis and all-equal diagonal equality. The claimed coefficient follows by B=(2/3)N and d^2=2(1-a). Exhaustive finite certificate is for this exact n=5 finite support function, with analytic convex-cone reduction covering all continuum directions.
+
+## originality
+
+PASS
+
+Ivanov establishes maximum and coordinate equality, and Jakimiuk establishes stability for ell_p balls; no accessed statement supplies this exact 5D optimal deficit ratio and extra body-diagonal equality family. Risk remains because the most directly relevant Jakimiuk full text was inaccessible.
+
+## value
+
+PASS
+
+A sharp global stability coefficient and complete equality classification for a canonical extremal projection problem distinguish diagonal worst cases from local axis behavior, a useful nontrivial exact inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

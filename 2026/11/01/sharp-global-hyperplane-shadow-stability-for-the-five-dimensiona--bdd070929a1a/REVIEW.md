@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated geometry, normal-orbit normalization, and quantifiers are explicit. The Cauchy facet formula has 32 congruent four-simplex facets, each of four-volume \(\sqrt5/24\), giving \(B=2N/3\). Signed-permutation symmetry reduces the universal inequality to the positive sorted unit sphere. The finite maximum-of-linear-functionals identity has exactly 16 independent sign choices and thus 65536 integer masks. The accompanying complete checker proves the strict cone-projection cutoff for every nonexceptional mask using integer pool-adjacent-violators projections; its rational bracket on \(c\) and the two analytic equality-mask calculations close the proof. The 32 signed diagonals attain the bound, making the constant sharp. The proof is not inferred from finite sampling: the finite exhaustive certificate covers the entire combinatorial sign family and analytic inequalities cover every real unit normal.
+## correctness
 
-## Originality — PASS, with historical priority risk
-The 2018 and July 2026 Ivanov texts concern the extremal projection bound and equality without the exact dimension-five deficit. Jakimiuk's August 2026 Theorem 1(d), in contrast, DOES prove stability of the same upper Rademacher endpoint for every dimension; its coefficient is only stated existentially, and the author explicitly does not track constants. This prior theorem is properly credited and not misrepresented as lacking stability. The new claim fixes dimension five and determines the mathematically strongest allowable coefficient plus the full remote diagonal equality orbit. Xie's October 2026 work concerns the lower Szarek/Khintchine endpoint, and the known 2015 FKN bound implies qualitative rigidity but not this specific sharp value. Targeted mathematical-record searches and locally available research claims did not reveal the exact five-dimensional coefficient. This is best-knowledge originality, not a proof of historical uniqueness; unindexed refinements remain a risk.
+PASS
 
-## Value — PASS
-A previously established sharp geometric maximum and a recent dimension-free stability estimate create the natural best-constant question. Its exact dimension-five solution is substantive: the worst ratio is achieved by 32 normals far from the maximizing coordinate orbit, rather than by infinitesimal perturbations. The result improves the geometry with an exact globally valid coefficient and a complete equality classification, with a reproducible finite certificate. The dimension-five restriction is natural for the first balanced five-sign diagonal competitor, not an arbitrary numerical data point.
+Cauchy facet-area formula gives B(u)=(2/3) E|sum epsilon_i u_i|, axis gap 2/3-B and chord distance squared 2(1-max|u_i|). On the sorted positive cone, E|...| is a max of 65536 linear forms. Nonexpansive projection to the monotone cone bounds all but two gradients strictly below 1-c. Independently recomputed all 65536 sign assignments using integer isotonic projection: maximum nonexceptional 60*scaled norm^2 = 2917995876580389748020 at mask 65520, below exact 2940000000000000000000 cutoff; special masks 65535 and 65256 yield gradients e_1 and (3/8,...,3/8). The exact two special cases yield coordinate-axis and all-equal diagonal equality. The claimed coefficient follows by B=(2/3)N and d^2=2(1-a). Exhaustive finite certificate is for this exact n=5 finite support function, with analytic convex-cone reduction covering all continuum directions.
 
-## Closest comparisons and limits
-The closest direct prior result is Jakimiuk, arXiv:2608.21787, §4 (unquantified universal positive \(c\) for this same upper moment deficit). Ivanov, arXiv:2607.12072, gives the maximum and optimizing subspaces; Ivanov, arXiv:1808.09165, covers earlier hyperplane extremizers; Xie, arXiv:2610.07526, gives the opposite endpoint; Jendrej–Oleszkiewicz–Wojtaszczyk (2015) gives a coarse FKN-type implication. The finding does not resolve other dimensions, codimensions, or external priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ivanov establishes maximum and coordinate equality, and Jakimiuk establishes stability for ell_p balls; no accessed statement supplies this exact 5D optimal deficit ratio and extra body-diagonal equality family. Risk remains because the most directly relevant Jakimiuk full text was inaccessible.
+
+## value
+
+PASS
+
+A sharp global stability coefficient and complete equality classification for a canonical extremal projection problem distinguish diagonal worst cases from local axis behavior, a useful nontrivial exact inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
