@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof exhausts all eight monic cubic reductions modulo two and treats their root fibers separately. The simple-root branches follow Hensel; a uniquely lifted simple factor reduces the mixed branch to a uniformly distributed quadratic square-root target; the triple branch has a complete coefficient-divisibility decomposition with exact lift multiplicities. All boundary exponents are explicit, and a direct comparison yields the sharp maxima and numbers of maximizers. The two standalone exact-integer checkers match independent finite enumeration through exponent seven, covering 2396744 cubics. The finite checks are corroborative, not substitutes for the proof.
+PASS
 
-## Originality
+Inspected complete eight-file Git tree, RESULT.md root-lifting proof, Python and C++ exact checkers. The eight monic mod-2 reductions partition into no-root, unique simple root, double-plus-simple, and triple-root types. Hensel simple lifts and factorization reduce mixed class to a uniformly selected quadratic square-root fiber; valuation cases construct Q_k. The triple-root class is partitioned by B,C divisibility: zero-root, two-root, or f(2Y)=8g(Y) with four lifted roots per g-root and 16 coefficient lifts, deriving 16P_{k-3}(z^4). Initial histograms, maximum comparison to square-root fiber and induction give the three-phase extremal counts; simple root parity in one mixed reduction is treated by translation. Independently exhaustively enumerated all cubics modulo 2,4,8,16 and compared histograms, recurrence and maxima. The finite enumeration corroborates but does not replace root-lift classification for all k.
 
-PASS, with residual historical-priority risk. The full accessible material by Cheng–Gao–Rojas–Wan establishes algorithms for individual polynomials, not this random cubic distribution. The full accessible Jain manuscript determines field distributions and finite-ring expectations; it does not evaluate finite-ring cubic root-count histograms. Bhargava–Cremona–Fisher–Gajović study actual roots in a local field, not roots of varying finite congruences. The Nir preprint motivates singular lifting but its complete text could not be inspected; this remains an explicitly recorded priority risk. Semantic searches of relevant mathematical records and related mathematical statements produced no covering formula, but failure to find one is not proof of uniqueness. The odd-prime cubic laws for fixed small prime powers do not imply the characteristic-two all-exponent recurrence.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The prime two is a genuine exceptional reduction type for cubic modular root statistics. The complete three-step dyadic probability law quantifies every singular-root cluster at arbitrary depth, while the exact maximum and extremizer counts expose a non-obvious three-digit renormalization phenomenon. These are natural arithmetic invariants of random cubic congruences; the result is not a fixed small-modulus census. It does not classify nonmonic cubics or other primes.
+Individual-polynomial prime-power algorithms and random actual Q_2-root distributions are established, but differ from the joint finite-level histogram over all monic cubics. The full potentially relevant new Nir preprint was inaccessible; its exact unknown coverage remains a residual risk, not a shortcut to rejection.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Two-adic singular lifting makes modular root counts grow with precision. A complete all-k distribution, exact maxima and counts of optimizers expose a natural three-digit renormalization law important for finite local-arithmetic statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
