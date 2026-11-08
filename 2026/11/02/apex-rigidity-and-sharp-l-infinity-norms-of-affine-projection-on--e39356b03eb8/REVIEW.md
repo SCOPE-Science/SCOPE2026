@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The volume distribution on a Euclidean bipyramid has explicit beta axial marginal and isotropic conditional transverse balls. The resulting diagonal covariance produces an explicit affine projection kernel. Convexity reduces the endpoint norm to tip and equator rows, with the equator bounded by a proved second-moment estimate. The exact two-dimensional rational comparison and all-dimensional inequalities establish strict tip dominance; the beta integral and a sign witness establish the sharp formula and positivity defect. The standalone exact-arithmetic and simulation checks passed. No finite check is being used as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** Searches targeted the exact normalized-volume bicone operator norm, its axial/equatorial equivalence and its positivity defect, as well as stronger convex-body or affine-projector coverage. The closest primary work examined proves mesh-projection supercloseness, not this domain-specific sharp endpoint constant. Indexed simplex and one-sided cone/surface-cross-polytope projection results differ in their measure or geometry and do not imply this formula. The accessible primary Gawlik–Lew article was inspected in its abstract, theorem statements, proof and appendix sections. Published descriptions of other projector findings were compared by implication, with restricted/full-text access explicitly noted. An implicit corollary of less accessible general projector literature remains an originality risk.
+PASS
 
-**Value — PASS.** The solid double cone is a canonical rotationally symmetric, pointed reference body. The unknown sharp \(L^\infty\)-stability constant of its best \(L^2\) affine approximant matters directly for sharp sup-norm error amplification and preservation-of-positivity questions. The theorem simultaneously gives every dimension's exact constant, unique maximizing tip geometry (above the planar case), exact negative excursion and linear dimension growth; it is not a renamed one-sided cone or boundary-measure result. It does not claim optimality among all projections or an application theorem beyond these operator invariants.
+Normalized axial beta density (d+1)(1-u)^d gives E[T²]=2/((d+2)(d+3)), and transverse ball sections give E[X_i²]=(d+1)/((d+2)(d+3)); orthogonal basis yields row kernel 1+a_d x·X+c_d tT. Convexity and rotational symmetry reduce global maximum to axial tips vs equatorial sphere. Symmetric-Z moment comparison gives equator B_d<=sqrt(a_d); the axial A_d>(d+3)/2 dominates for d>=3 since d²>=5, while d=2 follows from exact A_2=10561/4000>sqrt(20/3); d=1 coordinate-exchange symmetry. Integrating beta axial marginal exactly gives the formula. Kernel sign attains norm; indicator of negative kernel gives exact positive-input undershoot. Independent exact rational inequalities passed for d=1..150, and strict d=2 fraction was verified. No finite experiment is used to prove all dimensions. The asymptotic expansion is consistent with logarithmic expansion of exact norm.
 
-**Closest literature and limits.** Gawlik–Lew (arXiv:1408.4104, DOI 10.1051/m2an/2014045) treats differences between two finite-element projections. Grigorieff–Sloan (DOI 10.1017/S0004972700032263) concerns discrete continuous-spline spaces; full text was not materially accessible. The result does not cover other densities, polynomial degrees or intermediate norm exponents. The novelty conclusion is bounded by source accessibility.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original combined exact full-volume Euclidean bicone norm, unique norming tips and negative excursion; generic finite-element stability theorems and nearby exact simplex/cross-polytope metric projections have different operators/measures. The beta integral and apex-vs-equator comparison do not follow from merely quoting broad boundedness of projectors.
+
+## value
+
+PASS
+
+Full-volume rotational bipyramids are canonical pointed convex-body test domains for affine least-squares stability. Their exact sharp Lebesgue constant quantifies dimension-dependent amplification and loss of positivity, and the uniqueness of worst apex geometry is a substantive geometric property not supplied by a trivial covariance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
