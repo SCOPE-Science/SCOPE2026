@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The stable drift decouples exactly into sum and difference Ornstein–Uhlenbeck modes with independent decay rates but potentially correlated forcing. Their stationary second moments produce the full covariance and first-patch variance. A strictly increasing rational ratio controls the derivative sign, proving every boundary and the unique interior optimum. The isolated-value crossover factorization is direct. Exact symbolic reconstruction and 55,338 finite-rational assertions were run from the newly packaged code; the proof is analytical and covers all admissible parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. (2015) studies more patches and heterogeneous population growth, carrying capacity, and dispersal, but its displayed environmental covariance has identical diagonal entries.",
+        "Abbott (2011) studies n-patch autoregressions and nonlinear simulations with common noise variance; no unequal-noise global optimal migration formula appears in the inspected analytical sections."
+      ],
+      "reasoning": "More general patch number or demographic heterogeneity does not imply the sharp Q/R and T/Q thresholds when environmental marginal variances are constrained equal. A generic matrix Lyapunov solver covers computations but does not state a sign/optimizer classification.",
+      "searches": [
+        "dispersal and metapopulation stability heterogeneous environmental variance covariance two patches",
+        "A dispersal-induced paradox synchrony stability stochastic metapopulations equal shock variance 2011",
+        "dispersal can increase variability low noise site heterogeneous environmental noise OU metapopulation covariance"
+      ]
+    },
+    "checked_sources": [
+      "Abbott (2011), Ecology Letters 14:1158–1169, doi:10.1111/j.1461-0248.2011.01670.x; accessible analytical model inspected.",
+      "Wang, Haegeman, and Loreau (2015), PeerJ 3:e1295, doi:10.7717/peerj.1295; accessible main article inspected.",
+      "Keeling (2000), Journal of Animal Ecology 69:725–736, doi:10.1046/j.1365-2656.2000.00430.x; abstract only.",
+      "Additional current bibliographic searches for unequal-patch environmental covariance, monotonic versus U-shaped local variance and exact optimum dispersion."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Methods (Wang et al. 2015) impose V_epsilon(i,i)=sigma^2 and V_epsilon(i,j)=rho*sigma^2; therefore Q=R.",
+        "The new theorem yields a nonmonotone regime only if Q<R, independent of the local recovery parameter; it is empty if Q=R.",
+        "Abbott (2011) also assumes common variance for all environmental fluctuations in the analytical AR(1) model."
+      ],
+      "reasoning": "A theorem establishing strict monotonicity for Q=R, even for all coupling strengths and correlations, cannot imply an interior optimum at Q<R. The new strict 5/3 and 3 boundaries follow only after varying environmental strength asymmetrically. The general stationary covariance equation is prior methodology, not a stronger published sign classification in the examined sources.",
+      "searches": [
+        "local stationary variance Ornstein Uhlenbeck two patches unequal environmental covariance optimum migration",
+        "dispersal environmental heterogeneity within patch volatility stable two-patch linear noise",
+        "migration covariance low-variance patch unique finite optimum 3R+2T>5Q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang, Haegeman & Loreau (2015), Model and Methods, Eq. (1)–(3), doi:10.7717/peerj.1295: equal marginal environmental noise variance throughout.",
+        "Abbott (2011), analytical AR(1) section, doi:10.1111/j.1461-0248.2011.01670.x: common environmental shock variance across patches.",
+        "The sum-and-difference representation of the covariance is algebraically equivalent to the stationary Lyapunov solution, but the claimed full classification additionally requires arbitrary Q, R, T and strict sign analysis."
+      ],
+      "reasoning": "The 2015 OU linearization is the closest model equivalence, not an equivalent theorem: its stated noise class Q=R is a proper restriction in which the new interior-optimum regime is impossible. The independent-noise 5/3 threshold and correlated-noise crossing conditions require Q<R and therefore cannot be special cases of that equal-noise formula.",
+      "searches": [
+        "two patch Ornstein Uhlenbeck dispersal variance nonmonotone migration environmental noise 5/3 optimal dispersal stochastic ecology",
+        "migration increases local population variance high dispersal optimal intermediate variance environmental stochasticity two patches",
+        "two OU coupled populations drift -a-m coupling m, noise variances Q R covariance T; classify migration optimizing low-noise patch variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang et al. (2015), Table 1, gives the equal-environmental-variance homogeneous-metapopulation variability formula.",
+        "The inspected 2011 analytical AR(1) equations likewise use common marginal environmental variance."
+      ],
+      "reasoning": "The identified exact published table does not parameterize unequal Q and R and has no three-regime contrast boundary. Exact model tables under different environmental shock assumptions cannot be presented as a match.",
+      "searches": [
+        "\"5/3\" \"dispersal\" \"variance\" two patches",
+        "\"heterogeneous noise\" \"dispersal\" \"local population variability\" non-monotonic",
+        "Wang Haegeman Loreau 2015 Table 1 population variability dispersal"
+      ]
+    },
+    "rationale": "A complete unequal-environmental-noise three-regime classification, its exact one-point optimum, and its two sharp independent-noise variance-contrast thresholds were not implied by the inspected papers. The directly relevant 2015 model fixes equal environmental noise variances; the 2011 analytical autoregression also fixes equal marginal variance. The generic Lyapunov method and the already known homogeneous-noise cancellation are explicitly excluded from the originality claim. Search completeness and an unread 2015 appendix remain stated risks.",
+    "residual_risks": [
+      "The 2015 supplementary appendix was inaccessible in full; an unrecognized calculation could cover some or all of the exact classification.",
+      "Classical linear stochastic dispersal and correlated-noise literature may contain an equivalent two-mode optimization stated with alternate notation.",
+      "No independent literature review or independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The identical environmental marginal variance assumption excludes Q<R, which is necessary for the proposed interior-optimum regime; no equivalent phase boundary occurs in the inspected main article.",
+        "evidence": [
+          "Methods explicitly assumes V_epsilon(i,i)=sigma^2 for all patches, with common off-diagonal correlation rho (Eq. 1 discussion).",
+          "Table 1 reports the homogeneous-environment covariance-based variability calculation.",
+          "Supplement Appendix 2 is described as spatial heterogeneity but the downloadable docx could not be inspected."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+        "material_read": "Accessible full main article, including Abstract, Introduction, Methods model and Lyapunov covariance equations, Tables and Results, Discussion, and supplementary listings.",
+        "method": "Direct main-article HTML inspection of lines corresponding to Eq. (1)–(3), Table 1 and appendices list.",
+        "title": "Dispersal and metapopulation stability",
+        "trigger": "Closest continuous-time two-patch stationary covariance and dispersal-variance model."
+      },
+      {
+        "assessment": "The analytical model uses the same environmental variance at all sites, so its monotonicity result does not cover a more weakly forced patch coupled to a more strongly forced patch.",
+        "evidence": [
+          "Analytical section defines environmental noise with common variance and a shared spatial correlation.",
+          "The main stability measure is the ratio of within-population temporal variances, providing object motivation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2011.01670.x",
+        "material_read": "Accessible full article HTML through analytical AR(1) assumptions, derivative comparison and discussion of variance-based stability.",
+        "method": "Direct full HTML reading of the analytical synchrony–DIS section and its stated noise assumptions.",
+        "title": "A dispersal-induced paradox: synchrony and stability in stochastic metapopulations",
+        "trigger": "Earlier analytical stochastic-dispersal stability and variance framework."
+      },
+      {
+        "assessment": "Not used to assert absence of an equivalent result; its moment-closure system is a broader ecological backdrop.",
+        "evidence": [
+          "Abstract treats spatial mixing, persistence and fluctuation moments, not a stated sharp two-noise-intensity phase classification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1046/j.1365-2656.2000.00430.x",
+        "material_read": "Abstract and public indexing metadata, not its full paper.",
+        "method": "Public journal and PubMed descriptive records.",
+        "title": "Metapopulation moments: coupling, stochasticity and persistence",
+        "trigger": "Classic stochastic metapopulation mixing framework."
+      },
+      {
+        "assessment": "Not classified as NOT_COVERING. Residual historical priority risk, although main article stipulates equal environmental marginal noise variances.",
+        "evidence": [
+          "The publisher/PMC main article explicitly lists Appendix 2 as continuous-time models with spatial heterogeneity."
+        ],
+        "identifier_or_url": "https://doi.org/10.7717/peerj.1295/supp-1",
+        "material_read": "Only the openly displayed supplement description; underlying docx not accessible for inspection.",
+        "method": "Attempted public article supplementary link and alternative openly accessible article route; access denied / browser verification.",
+        "title": "Dispersal and metapopulation stability: supplementary appendices",
+        "trigger": "Appendix 2 may contain a stronger general covariance analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d724a692-71e4-4e98-b301-5bd7bb495c66",
+  "value": {
+    "rationale": "Heterogeneous environmental fluctuation intensities and the local variance proxy are already motivated by stochastic metapopulation ecology. The result is a global, sharp, nontrivial trichotomy with a unique exact optimal migration rate, an independent-noise contrast threshold 5/3, and a separate 3 threshold for eventual instability relative to isolation. These distinguish local and aggregate stability and provide a model benchmark; no downstream or extinction-theorem significance is asserted.",
+    "status": "PASS"
+  }
+}
