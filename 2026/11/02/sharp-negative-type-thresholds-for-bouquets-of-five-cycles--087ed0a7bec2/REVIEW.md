@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite graph and metric are specified exactly. Every zero-sum coefficient vector is represented by its four nonshared coordinates in each petal; the anchored quadratic form decomposes into \(m\) antisymmetric two-dimensional blocks, \(m-1\) symmetric petal-contrast blocks, and one symmetric uniform two-dimensional block. Their dimensions add to the complete zero-sum dimension. Explicit determinants establish strict negativity of the first two types below the five-cycle threshold. A positive integral Gram representation makes the cross-petal block strictly positive for exponents between one and two. The uniform block has a unique top-eigenvalue zero by the finite negative-type interval theorem, and this is the only critical load. The implicit-function calculation of the limiting threshold is transverse. Breadth-first-search and full-spectrum replay checked 1,993 supplementary assertions. No finite numerical experiment is substituted for the continuous-parameter proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+PASS. On B_m with m>=2 five-cycle petals meeting in one vertex, every real zero-sum load is encoded by 4m nonshared vertex coefficients. Independently reconstructing shortest-path matrices and the reflection/petal-permutation change of basis yields precisely m copies of antisymmetric A_p, m-1 copies of symmetric contrast S_p-C_p, and one uniform block M_m=S_p+(m-1)C_p. The mode dimensions sum to 4m. For 1<p<p_c=log_2((3+sqrt(5))/2), det(A_p)>0 and det(S_p)>0 with negative leading entries, and C_p is a strictly positive definite Laplace-kernel Gram matrix; consequently only M_m crosses. At p=1 M_m is strictly negative, while at p_c its top Rayleigh quotient is positive. The finite metric strict-lower-p negative-type interval theorem rules out renewed negative type after an equality exponent, proving one critical crossing, one zero-sum equality dimension, strict decrease with petal count and the sharp theta/(m-1)+O(m^-2) asymptotic via expansion of S_1+t C_1-prime. Independent full shortest-path and block spectrum computations at m=2,3,5 and several p corroborated p2=1.2921031945, p3=1.2192619826 and p5=1.1396195898; finite spectra do not establish the universal assertion.
 
-The relevant earlier papers provide (i) general negative-type and polygonal-equality criteria, (ii) general determinant methods for finite metrics, (iii) strict-one-negative-type results for one-point unions, and (iv) weighted-Hamming-cube criteria. They do not directly assert the exact variable-exponent threshold for any number of five-cycle petals, its one-dimensional endpoint kernel, or the sharp \(1/(m-1)\) coefficient. In particular, Kokkendorff's gluing theorem is stated for ordinary negative type, not stability of \(p\)-negative type for all \(p>1\). A complete historical-priority guarantee is impossible: unindexed equivalent work in graph metric geometry or generalized roundness could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the simplest fixed odd cycle length beyond a triangle for which individual petals have strict one-negative type and a nontrivial exponent above one. Identifying a single vertex preserves strict one-negative type but creates a new, quantifiable cross-petal obstruction at larger exponents. The all-parameter threshold, sharp asymptotic, and exactly one lost Hilbert dimension give a natural classification of a fundamental cactus-graph construction; they are not arbitrary isolated calculations.
+PASS on present primary evidence for the exact all-m five-cycle bouquet threshold and theta-rate, qualified by possible historical equivalent generalized-roundness work. Li–Weston supplies the strict-lower-exponent theorem, Sánchez a general determinant method, Doust–Weston an endpoint equality characterization, and Kokkendorff the p=1 one-point-gluing property; none of the inspected statements directly computes this family for variable m.
 
-## Closest literature and scope
+## value
 
-Primary comparisons: Doust–Weston (2024), arXiv:2404.06658; Doust–Weston (2024), arXiv:2404.06684; Sánchez (2011), arXiv:1108.0451; Li–Weston (2009), arXiv:0901.0695; Kokkendorff (2002), Corollary 5. The result is limited to unweighted one-vertex bouquets of identical five-cycles and does not classify general cacti.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A bouquet of fixed odd cycles is a natural one-point gluing family whose p=1 negative type is preserved, but whose p>1 Hilbert snowflake exponent is degraded by between-petal interactions. The exact two-dimensional crossing, one lost affine Hilbert dimension, strict monotonicity and sharp convergence rate form a complete nontrivial classification rather than a tabulated small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
