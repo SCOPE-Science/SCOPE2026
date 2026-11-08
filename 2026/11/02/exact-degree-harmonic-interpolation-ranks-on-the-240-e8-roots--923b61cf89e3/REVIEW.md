@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is for normalized 240 roots with 120 antipodal representatives, exact harmonic degree, parity-consistent data, and all integer degrees. Independent root enumeration verifies the complete two-class graph algebra; the addition theorem reduces the evaluation rank to the stated unit-diagonal Gegenbauer Gram matrix. The exact eigenvalue formulas yield the low-degree ranks, and the monotone binomial/Legendre coefficient inequalities imply strictly positive Gram spectra in all degrees \(\ell\ge11\). A standalone integer/rational checker has reproduced the finite inputs and recurrence identities, but the all-degree claim rests on analytic inequalities.
+## correctness
 
-**Originality — PASS with residual risk.** Cohn–Kumar establish the classical 240-root sharp spherical design. Bannai–Okuda–Tagami establish the degree-10 harmonic-index cancellation, so neither the 7-design property nor that cancellation is new. Schmidt gives the strongly regular graph spectrum for 120 root lines. Those facts do not by themselves state the full parity-sensitive interpolation spectrum and exact permanent-surjectivity cutoff; no inspected paper or indexed result was found to assert the claimed complete rank classification. This is a bounded finding, not a proof of global uniqueness; an earlier association-scheme computation might imply the same sequence.
+PASS
 
-**Mathematical value — PASS.** For an iconic extremal spherical design, the rank of each *single-degree* harmonic restriction is a natural invariant distinct from moment-design strength. A complete classification explains two separated failures of dimension monotonicity and locates the first and permanent full interpolation degrees. The spectral decomposition is reusable for exact-degree sampling and interpolation on antipodal root configurations; there is no claim of a broader interpolation theorem for all root systems.
+The exact integer E8 root model produces A^2=32I+4A+24J and a tight-frame signed Gram S; spherical Gegenbauer addition then produces eigenvalue sectors of multiplicities (1,35,84) for even degrees and (8,112) for odd. Explicit generating-function coefficients yield the 0..10 rank list, including the degree-10 one-dimensional constant-sector loss. For all l>=11, the published explicit numerator bounds compared with D_l=C(l+5,5) show strict positivity: odd at l=11 and even at l=12, propagated by increasing D_l/(l+6)^2. Independently reconstructed all 240 coordinates and 120 representatives, checked graph quadratic identities and 49 rational exact-degree ranks through 48. The latter does not establish the infinite tail; the analytic inequality does.
 
-The closest comparison is Bannai–Okuda–Tagami's E8 harmonic-index-10 moment, which accounts for the constant-sector zero at degree 10 but not all eigenvalue sectors or every degree. The independent graph classification, design property and their traditional consequences are acknowledged. The exact code checks degrees only through 48; analytic estimates handle the infinite tail. Equivalence with older E8 association-scheme calculations is a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical E8 design and orthogonality graph results and harmonic-index-10 cancellation cover important ingredients, but the inspected source statements do not provide complete exact-degree Gram sectors or permanent rank-120 cutoff. Best-knowledge PASS qualified by potential older association-scheme interpolation formulas.
+
+## value
+
+PASS
+
+The E8 lattice root orbit is a central sharp spherical code, and exact-degree interpolation is a natural identifiability invariant distinct from design strength. The nonmonotone degree-7 success, degree-10 loss, and degree-11 permanent recovery, with all multiplicities, form an exact all-degree classification useful to harmonic sampling; no stability or conditioning theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
