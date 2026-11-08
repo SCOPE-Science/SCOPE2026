@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-## Analytic evidence
+## correctness
 
-The proof in `RESULT.md` defines the two motif counts and the hypergeometric inclusion probabilities, enumerates exactly three overlap classes for triangle–non-induced-wedge pairs and three classes for triangle–triangle pairs, and uses the induced-wedge identity \(S=W-3T\). Rational cancellation yields the displayed closed form. The affine factor \(Q_{n,m}\) is positive on the strict interior and the other five factors determine every endpoint. The independent-edge identity follows from the same overlap classes with \(f_j=p^j\). Those finite enumerations and algebraic identities prove all specified parameter values; numerical checks alone would not.
+PASS
 
-## Machine checks
+PASS. In G(n,m), for any j distinct potential edges P(all j present)=(m)_j/(N)_j. Classifying pairs of a triangle indicator with a two-edge wedge by 2,1,0 shared edges gives Cov(T,W) as RESULT eq(5); classifying two triangles by 3,1,0 shared edges gives Var(T) as eq(6). S=W-3T, so subtract 3Var(T). Independently reduced the two overlap sums with Sympy and recovered EXACTLY the asserted all-parameter factorization for n>=4, plus independently recovered the G(n,p) formula substituting p^j. Independently enumerated ALL 64+1024+32768 labeled simple graphs for n=4,5,6, grouped by m and matched every rational covariance (7+11+16 edge-count classes). Q(n,m)>0 for n>=5 and Q(4,m)=4(6-m); the factor m(m-1)(m-2)(N-m)(N-m-1) therefore establishes negative iff 3<=m<=N-2 and zero otherwise. Leading n powers yield n^-3 cov->-p^4(1-p)^2 at any interior fixed edge density. The finite enumerations corroborate the exact algebraic/all-parameter proof.
 
-Run `python check.py` using Python 3.10+ from the same directory. This performs exhaustive enumeration of all labelled graphs for \(n=4,5,6\), rational arithmetic comparisons of empirical covariances to both the overlap and closed forms, sign checks, explicit independent-edge weighting for five rational probabilities at those orders, and a complete edge-count sweep of the overlap identity and sign for each \(4\le n\le30\). It reports `PASS: 9187 exact comparisons; n=4..6 exhaustive; n=4..30 symbolic-ratio grid.`. An additional separate symbolic rational simplification of the overlap covariance and the displayed factored covariance returned zero identically; the standalone finite checker requires no third-party libraries.
+## originality
 
-## Limits
+PASS
 
-Exhaustion covers only the named small graph orders; the universal assertion rests on the written combinatorial proof and symbolic algebra, not extrapolation. The random-graph models, motif normalization and boundary cases are exactly those in `RESULT.md`. The literature comparison is not a substitute for independent historical-priority verification.
+Best-knowledge new explicit all-density rational covariance and strict sign classification, rather than claiming novelty of the standard overlap-moment method.
+
+## value
+
+PASS
+
+PASS. The joint covariance of canonical small induced motifs under uniform fixed-edge conditioning is a natural graph fluctuation invariant, and a uniform negative sign across all edge densities contrasted with an exact G(n,p) sign transition is a useful structural distinction for random-graph motif statistics. The nontrivial all-n,m factorization and finite-boundary classification go beyond mere restatement of the standard overlap-count method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

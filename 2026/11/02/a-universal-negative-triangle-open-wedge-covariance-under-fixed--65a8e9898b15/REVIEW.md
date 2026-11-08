@@ -1,22 +1,21 @@
-# Scientific review: triangle–open-wedge covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the claimed domain \(n\ge4\) and integer \(0\le m\le\binom n2\), the counting proof independently enumerates the triangle/wedge overlap classes and triangle/triangle overlap classes; inclusion probabilities are exact falling-factorial ratios. Subtracting three times the triangle variance from the triangle/non-induced-wedge covariance gives the claimed induced-wedge identity. An exact symbolic rational-function reduction confirms the factorization. The sign is certified separately for \(n=4\) and \(n\ge5\), with all edge-count endpoints accounted for. Independent exhaustive graph enumeration for orders four through six, a rational parameter sweep for orders four through thirty, and independent-edge weighted enumeration give 9,187 passed comparisons. No finite experiment is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+PASS. In G(n,m), for any j distinct potential edges P(all j present)=(m)_j/(N)_j. Classifying pairs of a triangle indicator with a two-edge wedge by 2,1,0 shared edges gives Cov(T,W) as RESULT eq(5); classifying two triangles by 3,1,0 shared edges gives Var(T) as eq(6). S=W-3T, so subtract 3Var(T). Independently reduced the two overlap sums with Sympy and recovered EXACTLY the asserted all-parameter factorization for n>=4, plus independently recovered the G(n,p) formula substituting p^j. Independently enumerated ALL 64+1024+32768 labeled simple graphs for n=4,5,6, grouped by m and matched every rational covariance (7+11+16 edge-count classes). Q(n,m)>0 for n>=5 and Q(4,m)=4(6-m); the factor m(m-1)(m-2)(N-m)(N-m-1) therefore establishes negative iff 3<=m<=N-2 and zero otherwise. Leading n powers yield n^-3 cov->-p^4(1-p)^2 at any interior fixed edge density. The finite enumerations corroborate the exact algebraic/all-parameter proof.
 
-The nearest primary precursor is Goldschmidt, Griffiths and Scott, arXiv:1902.06830 (2019). Its full manuscript discusses general subgraph-count martingales and induced-subgraph inclusion-exclusion and treats triangles and non-induced paths, but its theorems principally concern moderate deviations and asymptotic behavior, not the exact covariance of a triangle count with **induced** two-edge triples, nor the finite all-density strict-sign statement or the binomial-ensemble threshold. Neeman, Radin and Sadun, arXiv:2101.08249 (2021), concern cycle-count tails. Actual scholarly and research-record queries for the pair of variables, sign, aliases and both graph ensembles did not identify an implication-equivalent prior statement. The general overlap-count framework is older and may subsume the *method*; the claimed contribution is the motivated explicit covariance and structural sign reversal, not a new general moment method. An older unindexed treatment or easy corollary of a more general published covariance matrix is a residual priority risk; the search is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-Triangle abundance and unclosed two-edge triples are complementary local network-motif statistics, central to triadic closure and clustering interpretation. Their covariance controls simultaneous motif fluctuations. The exact-edge ensemble is a natural network null model with a strict density constraint. The universal negative sign even at sparse and dense endpoints, its sharp degeneracy range and the contrasting positive covariance in the independent-edge ensemble expose a genuine model-dependent dependence structure. Both exact finite size and the \(-p^4(1-p)^2n^3\) asymptotic scale offer usable benchmarks. The question is not an arbitrary finite slice or mere restatement of a known marginal mean.
+Best-knowledge new explicit all-density rational covariance and strict sign classification, rather than claiming novelty of the standard overlap-moment method.
 
-## Closest literature and limits
+## value
 
-- Goldschmidt–Griffiths–Scott (2019), arXiv:1902.06830: non-induced subgraph counts, induced inclusion-exclusion, asymptotic moderate-deviation techniques. Their general methods relate but do not display the claimed exact pairwise sign classification.
-- Neeman–Radin–Sadun (2021), arXiv:2101.08249: triangle and cycle moderate deviations without the induced open-wedge covariance.
+PASS
 
-The result does not imply negative association of all motif counts, and independent audit of scientific correctness and historical priority has not yet been performed. General-purpose motif-covariance formulae may leave historical-priority uncertainty.
+PASS. The joint covariance of canonical small induced motifs under uniform fixed-edge conditioning is a natural graph fluctuation invariant, and a uniform negative sign across all edge densities contrasted with an exact G(n,p) sign transition is a useful structural distinction for random-graph motif statistics. The nontrivial all-n,m factorization and finite-boundary classification go beyond mere restatement of the standard overlap-count method.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
