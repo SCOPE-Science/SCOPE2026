@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The single claim is the exact finite Schmidt spectrum for complete \((2^j-1)\)-uniform qubit hypergraph states at \(j\ge3\), with block sizes at least \(2^j-1\), and its sequential large-block, then large-arity entropy limit. Lucas' binary congruence gives the exact cyclic sign kernel. Orthogonal compression by Hamming-weight residue identifies the complete nonzero reduced spectrum with \(TT^{\mathsf T}\). The factorization \(F=\boldsymbol1\boldsymbol1^{\mathsf T}-2R\) with \(R\) a reversal permutation yields eigenvalues \((q-2)^2\) once and \(4\) with multiplicity \(q-1\), so rank cannot drop under the specified size assumptions. A root-of-unity filter gives uniform convergence of residue weights for fixed \(q\), and elementary entropy bounds prove the second limit. Direct computational-basis tests, independent cyclic-binomial calculations, and eigenvalue comparisons passed 21 assertions. Finite checks are supporting evidence, not a substitute for the proof.
+PASS
 
-## Originality (PASS on examined evidence, with risks)
+Lucas parity for binomial(w,q−1) where q=2^j gives a phase -1 precisely for total weight ≡q−1 (mod q), so the n-qubit hypergraph amplitude matrix is constant on Hamming-weight residue classes. Both subsystem sizes ≥q−1 realize all residues. Compression by normalized residue superpositions gives T=D_m(11ᵀ−2R)D_b, and invertible diagonals leave rank determined by reversal permutation R. Direct multiplication (11ᵀ−2R)(11ᵀ−2R)ᵀ=4I+(q−4)11ᵀ gives eigenvalues (q−2)^2 once and 4 (q−1)-fold; for q≥8 rank is q. Fourier root-of-unity filter makes each residue probability tend to 1/q as both blocks grow at fixed q. Hence exact limiting spectrum {(1−2/q)^2,4/q² [q−1 times]}, and purity/entropy S_q=O(log q/q)→0 as the second limit q→∞. Independent direct diagonalization of a 128×128 computational-basis amplitude matrix for q=8,m=b=7 matched compressed spectrum; independent q=8,16,32 reversal eigenvalues verified. The proof establishes all q, not the finite checks.
 
-The original hypergraph-state construction and its real equal-weight phase description are due to Rossi et al., *Quantum Hypergraph States* (2012 preprint). Nöller et al., *Symmetric hypergraph states: Entanglement quantification and robust Bell nonlocality* (2023), analyze geometric entanglement and local symmetries for complete symmetric states; the inspected sections do not establish this bipartite reduced-state spectral law. Fajardo and Paraschiv, *Restriction-Based Certificate of Bipartite Schmidt Rank in Hypergraph States* (2026), introduce general sign-matrix and lower-bound methods, but not this full cyclic matrix diagonalization or the entropy-collapse limit. A related power-of-two-uniformity theorem evaluates the distinct arities \(2^j\), and its phase matrix and limiting eigenvalues differ. Searches for Mersenne-arity Schmidt spectra, equivalent cyclic-sign formulas, and stronger general spectral coverage did not find a dominating published statement in the checked sources. Search incompleteness and specialized literature on symmetric Boolean phase states remain genuine priority risks; lack of hits is not treated as uniqueness proof.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The exact rank persists at an arbitrarily large value \(q\) while the iterated-limit entanglement entropy tends to zero, exhibiting a natural and quantitatively sharp distinction between Schmidt rank and physically accessible von Neumann entropy in complete many-body interaction states. The finite formula evaluates every positive reduced eigenvalue for an unbounded family using only a \(q\times q\) matrix rather than the exponentially larger Hilbert-space matrix. The qualitative rank/entropy separation, explicit purity, and complete spectral convergence are structurally motivated; they are not an arbitrary small-instance calculation or a routine parameter increment.
+Original hypergraph-state phase formalism is Rossi et al.; general sign matrix and rank restriction certificates are Fajardo–Paraschiv 2026; Nöller et al. analyze other entanglement quantities. Power-of-two uniformity results use k=2^j, whereas this theorem uses k=2^j−1 and a distinct Lucas phase kernel. The assessed novel result is the exact complete Mersenne bipartite spectrum and sequential entropy collapse with high Schmidt rank. Potential hidden equivalent symmetric-state spectrum results remain a best-of-knowledge priority risk, especially unread parts of Nöller.
 
-## Boundaries and residual risk
+## value
 
-The model uses pure unweighted qubit states, every hyperedge of the specified cardinality, and blocks containing every residue class. The entropy statement is an iterated limit. No finite-temperature, noisy-state, arbitrary-hypergraph, general-arity, or uniform double-limit assertion is proved. Prior specialized symmetric-state spectral work could reduce historical novelty and requires independent priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For physically natural complete-uniform hypergraph states the theorem computes every nonzero bipartite eigenvalue using a small cyclic matrix rather than an exponentially large amplitude matrix. It sharply separates Schmidt rank, which grows unbounded, from operational von Neumann entropy, which vanishes after the stated sequential limit; this is a motivated many-body entanglement phenomenon rather than an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

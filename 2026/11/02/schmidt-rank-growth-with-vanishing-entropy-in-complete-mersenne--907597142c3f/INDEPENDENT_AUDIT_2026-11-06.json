@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:01:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lucas parity for binomial(w,q−1) where q=2^j gives a phase -1 precisely for total weight ≡q−1 (mod q), so the n-qubit hypergraph amplitude matrix is constant on Hamming-weight residue classes. Both subsystem sizes ≥q−1 realize all residues. Compression by normalized residue superpositions gives T=D_m(11ᵀ−2R)D_b, and invertible diagonals leave rank determined by reversal permutation R. Direct multiplication (11ᵀ−2R)(11ᵀ−2R)ᵀ=4I+(q−4)11ᵀ gives eigenvalues (q−2)^2 once and 4 (q−1)-fold; for q≥8 rank is q. Fourier root-of-unity filter makes each residue probability tend to 1/q as both blocks grow at fixed q. Hence exact limiting spectrum {(1−2/q)^2,4/q² [q−1 times]}, and purity/entropy S_q=O(log q/q)→0 as the second limit q→∞. Independent direct diagonalization of a 128×128 computational-basis amplitude matrix for q=8,m=b=7 matched compressed spectrum; independent q=8,16,32 reversal eigenvalues verified. The proof establishes all q, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fajardo–Paraschiv gives restriction-based rank LOWER BOUNDS in a general class, not full spectral eigenvalues or entropy.",
+          "Nöller source abstract mentions geometric entanglement and symmetry, not enough to exclude hidden bipartite spectral formulas."
+        ],
+        "reasoning": "Broader hypergraph-state frameworks do not automatically give this entire Mersenne reduced spectrum; an inaccessible specialized complete-hypergraph full-text result could dominate and remains an explicit risk.",
+        "searches": [
+          "complete uniform hypergraph states k=2^j-1 Mersenne Schmidt spectrum cyclic reversal matrix rank entropy",
+          "Fajardo Paraschiv 2602.21016 restriction bipartite Schmidt rank hypergraph",
+          "Nöller Gühne Gachechiladze 2302.01695 symmetric hypergraph states"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1211.5554",
+        "https://arxiv.org/abs/2302.01695",
+        "https://arxiv.org/abs/2602.21016",
+        "Resultary query: complete uniform hypergraph states k=2^j-1 Mersenne Schmidt spectrum cyclic reversal matrix rank entropy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A rank LOWER bound does not determine all positive eigenvalues or entropy.",
+          "Lucas reduction + F=11ᵀ−2R exact diagonalization is necessary for this theorem."
+        ],
+        "reasoning": "The inspected broader results supply the formalism but not the exact determinant/spectrum or ordered limits; the newly proved rank q and S_q→0 do not follow as stated from general prior rank bounds.",
+        "searches": [
+          "complete uniform hypergraph states k=2^j-1 Mersenne Schmidt spectrum cyclic reversal matrix rank entropy",
+          "Fajardo Paraschiv full paper restriction sign matrix rank certificates",
+          "Rossi hypergraph states phase formalism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete Mersenne interaction produces phase (-1)^{1_{|x|+|y|≡q−1 mod q}}; this is cyclic reversal sign matrix.",
+          "Rossi et al. arXiv:1211.5554 formalism; Fajardo–Paraschiv arXiv:2602.21016 general rank certificates."
+        ],
+        "reasoning": "Compared state-versus-sign-matrix equivalence and distinct k=2^j versus k=2^j−1 Lucas kernels. Standard compression is used, but precise full finite Schmidt eigenvalues and entropy limit are additional results not stated in inspected general rank-certificate theorem.",
+        "searches": [
+          "complete uniform hypergraph states k=2^j-1 Mersenne Schmidt spectrum cyclic reversal matrix rank entropy",
+          "Lucas theorem complete symmetric hypergraph state bipartition Hamming weight mod 2^j sign matrix",
+          "power of two arity hypergraph Schmidt rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned related spectral problems but no identified exact matching complete Mersenne spectrum.",
+          "Independent q=8,16,32 spectral calculations recover analytic F eigenvalues."
+        ],
+        "reasoning": "No checked existing table or database was found with the claimed all-arity spectrum; finite numerical coincidence is not proof of novelty, and the algebraic proof establishes the identity.",
+        "searches": [
+          "complete uniform hypergraph states k=2^j-1 Mersenne Schmidt spectrum cyclic reversal matrix rank entropy",
+          "Resultary hypergraph state Mersenne arity Schmidt rank spectrum q 2^j"
+        ]
+      },
+      "rationale": "Original hypergraph-state phase formalism is Rossi et al.; general sign matrix and rank restriction certificates are Fajardo–Paraschiv 2026; Nöller et al. analyze other entanglement quantities. Power-of-two uniformity results use k=2^j, whereas this theorem uses k=2^j−1 and a distinct Lucas phase kernel. The assessed novel result is the exact complete Mersenne bipartite spectrum and sequential entropy collapse with high Schmidt rank. Potential hidden equivalent symmetric-state spectrum results remain a best-of-knowledge priority risk, especially unread parts of Nöller.",
+      "residual_risks": [
+        "The full technical text of Nöller et al. was not inspected; its symmetric-state spectral sections might imply some of the formulas.",
+        "Equivalent spectral identities may appear in Boolean-function phase-state literature not indexed by hypergraph terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "State preparation and phase characterization are already known and not asserted original.",
+          "evidence": [
+            "Rossi–Huber–Bruß–Macchiavello 2012, arXiv:1211.5554."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.5554",
+          "material_read": "Primary arXiv bibliographic record and introductory definitions, not full exhaustive technical text.",
+          "method": "Compared definition and basic phase formalism.",
+          "title": "Quantum Hypergraph States",
+          "trigger": "foundational complete hypergraph state definition and Boolean phase"
+        },
+        {
+          "assessment": "Abstract emphasizes geometric entanglement/Bell nonlocality and local symmetries; unread technical results could contain spectral implications.",
+          "evidence": [
+            "Nöller–Gühne–Gachechiladze 2023, arXiv:2302.01695; web turn542418view2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01695",
+          "material_read": "Available arXiv abstract only (six extracted lines); full-text exclusion is not justified.",
+          "method": "Abstract/metadata inspection.",
+          "title": "Symmetric hypergraph states: Entanglement quantification and robust Bell nonlocality",
+          "trigger": "same permutation-symmetric complete hypergraph family"
+        },
+        {
+          "assessment": "General restriction-based rank certificate does not state Mersenne q−1 uniformity spectrum or entropy-collapse law.",
+          "evidence": [
+            "Fajardo–Paraschiv 2026, arXiv:2602.21016, web turn542418view3 / turn770510view5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.21016",
+          "material_read": "Read primary full extracted arXiv document, including rank restriction certificate statements, sign matrix examples and limitations.",
+          "method": "Read full accessible text and compare its rank lower bounds with complete nonzero spectrum and sequential entropy.",
+          "title": "Restriction-Based Certificate of Bipartite Schmidt Rank in Hypergraph States",
+          "trigger": "very close Schmidt-rank sign-matrix method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For physically natural complete-uniform hypergraph states the theorem computes every nonzero bipartite eigenvalue using a small cyclic matrix rather than an exponentially large amplitude matrix. It sharply separates Schmidt rank, which grows unbounded, from operational von Neumann entropy, which vanishes after the stated sequential limit; this is a motivated many-body entanglement phenomenon rather than an arbitrary parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1211.5554",
+    "https://arxiv.org/abs/2302.01695",
+    "https://arxiv.org/abs/2602.21016",
+    "Resultary query: complete uniform hypergraph states k=2^j-1 Mersenne Schmidt spectrum cyclic reversal matrix rank entropy",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/schmidt-rank-growth-with-vanishing-entropy-in-complete-mersenne--907597142c3f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete unweighted pure qubit (q−1)-uniform hypergraph states, j≥3, both bipartition sides ≥q−1.",
+    "Sequential limit first m,b→∞ at each fixed q then q→∞; not a simultaneous uniform double limit; no noisy or arbitrary-arity claim."
+  ],
+  "residual_risks": [
+    "The full technical text of Nöller et al. was not inspected; its symmetric-state spectral sections might imply some of the formulas.",
+    "Equivalent spectral identities may appear in Boolean-function phase-state literature not indexed by hypergraph terminology."
+  ],
+  "schema_version": 1
+}
