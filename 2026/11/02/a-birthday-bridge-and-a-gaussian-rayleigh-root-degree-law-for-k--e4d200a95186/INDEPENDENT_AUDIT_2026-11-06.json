@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:51:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-birthday-bridge-and-a-gaussian-rayleigh-root-degree-law-for-k--e4d200a95186/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-birthday-bridge-and-a-gaussian-rayleigh-root-degree-law-for-k--e4d200a95186/check_growth_k2n.py"
+      ],
+      "rationale": "Before hub v joins a uniform boundary-edge tree from hub u of K_{2,n}, the boundary has exactly n edges: at state k (k peripheral vertices already present), k edges enter v and n-k attach new peripherals; hence P(K=k)=k(n)_k/n^(k+1), k=1..n. After v joins each of n-k remaining peripherals attaches to u or v by an independent fair coin, so D|K=k=k+Bin(n-k,1/2). Exact conditioning gives mean (n+EK)/2 and variance (n-EK+VarK)/4. Birthday-tail product produces K/sqrt(n)=>Rayleigh, with all moments controlled by exp(-k(k-1)/(2n)); conditional binomial characteristic functions converge to independent Gaussian, giving (K/sqrt n,(D-n/2)/sqrt n)=>(R,(R+G)/2), mean and variance constants, and P(D>n/2)->1/2+1/(2sqrt2). For uniform spanning tree bridge-vertex enumeration yields D_U=1+Bin(n-1,1/2), and shared coins couple D>=D_U, strict for n>=2. Independent exact boundary-edge enumeration n=1..7 confirms the finite mixture and dominance but does not prove the limits.",
+      "residual_risks": [
+        "Finite independent computations are diagnostic only for quantified unbounded theorems; correctness relies on the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Notes on Growing a Tree in a Graph studies growing-tree height/first-passage percolation on arbitrary graphs; Dong–Ge count uniform spanning trees of complete bipartite graphs."
+        ],
+        "reasoning": "A general height bound or uniform-tree count does not imply the different frontier-growth root-degree distribution. K_{2,n} specialization was specifically considered for overlap.",
+        "searches": [
+          "uniform boundary edge growth spanning tree K2n root degree birthday Rayleigh Gaussian",
+          "https://arxiv.org/abs/1707.00083",
+          "https://arxiv.org/abs/2103.05294"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1707.00083",
+        "https://arxiv.org/abs/1310.7055",
+        "https://arxiv.org/abs/2103.05294",
+        "Resultary semantic record search: uniform boundary edge growth spanning tree K2n root degree birthday Rayleigh Gaussian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-birthday collision yields Rayleigh R alone; conditional fair-parent choices after the bridge are needed to introduce independent G."
+        ],
+        "reasoning": "The prior Rayleigh law is one factor of the final limit, but neither Rayleigh nor UST binomial law alone implies the sum (R+G)/2, exact degree PGF, and strict stochastic comparison.",
+        "searches": [
+          "uniform boundary edge growth spanning tree K2n root degree birthday Rayleigh Gaussian",
+          "https://arxiv.org/pdf/1707.00083",
+          "https://arxiv.org/abs/1310.7055"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Devroye et al define precisely the uniform-boundary-edge process; first-entry survival product is classical birthday-first-repeat law studied by Arratia et al."
+        ],
+        "reasoning": "The birthday-bridge component is prior. Existing general tree-growth formulation does not evaluate D|K for K_{2,n}, its joint non-Gaussian limit, or uniform-tree stochastic comparison in examined text.",
+        "searches": [
+          "uniform boundary edge growth spanning tree K2n root degree birthday Rayleigh Gaussian",
+          "https://arxiv.org/abs/1707.00083",
+          "https://arxiv.org/abs/1310.7055"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns some exact spanning-tree/bipartite graph invariants and UST root-degree results for different graph families, not the assigned K_{2,n} frontier-growth law."
+        ],
+        "reasoning": "No matching exact root-degree table found; however search limits and alternative notation remain risks, not novelty evidence.",
+        "searches": [
+          "uniform boundary edge growth spanning tree K2n root degree birthday Rayleigh Gaussian",
+          "Resultary semantic record search (10 ranked hits)"
+        ]
+      },
+      "rationale": "Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A birthday bridge and a Gaussian–Rayleigh root-degree law for K_{2,n}: the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.",
+      "residual_risks": [
+        "General frontier-growth literature may contain unindexed K_{2,n} root-degree corollary; searches did not prove absence.",
+        "Birthday and uniform-tree components are classical and explicitly excluded from independent novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives model and general height estimates; no exact K_{2,n} degree-mixture result found in inspected text",
+          "evidence": "Devroye–Dujmović–Frieze–Mehrabian–Morin–Reed, 2017 preprint",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.00083",
+          "material_read": "Open-access paper full text; algorithm definition, main results, height and first-passage discussion, term searches",
+          "method": "web PDF and relevant page screenshots",
+          "title": "Notes on Growing a Tree in a Graph",
+          "trigger": "Exact frontier-growth algorithm on general graphs"
+        },
+        {
+          "assessment": "Prior Rayleigh ingredient, not joint tree-degree law",
+          "evidence": "Arratia–Garibaldi–Kilian (2013)",
+          "identifier_or_url": "https://arxiv.org/abs/1310.7055",
+          "material_read": "Public abstract and bibliographic theorem description; full text not read this execution",
+          "method": "arXiv abstract",
+          "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+          "trigger": "Classical first birthday collision Rayleigh asymptotics"
+        },
+        {
+          "assessment": "Counts uniform trees; does not establish random frontier-growth distribution",
+          "evidence": "Dong–Ge (2021)",
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "Public abstract/description only; full text not read this execution",
+          "method": "arXiv discovery",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Possible exact K_{2,n} uniform-tree degree distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-birthday-bridge-and-a-gaussian-rayleigh-root-degree-law-for-k--e4d200a95186/RESULT.md",
+        "https://arxiv.org/pdf/1707.00083",
+        "https://arxiv.org/abs/1310.7055",
+        "https://arxiv.org/abs/2103.05294"
+      ],
+      "rationale": "The frontier-growth process and uniform spanning trees are natural but different laws on exactly the same simple K_{2,n} graph. An explicit birthday-derived two-scale root-degree distribution and strict stochastic bias quantify that difference and identify a non-Gaussian Gaussian–Rayleigh mixture, not merely a named distribution substitution.",
+      "residual_risks": [
+        "Mathematical value is confined to the exact objects, parameters and quantifiers stated; no broader downstream application is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General frontier-growth literature may contain unindexed K_{2,n} root-degree corollary; searches did not prove absence.",
+    "Birthday and uniform-tree components are classical and explicitly excluded from independent novelty claim.",
+    "Public-facing original metadata and audit JSON contain scope_run_id; no sanitized replacements and guard validation staged; plan not_ready, no GitHub publication."
+  ],
+  "schema_version": 1
+}
