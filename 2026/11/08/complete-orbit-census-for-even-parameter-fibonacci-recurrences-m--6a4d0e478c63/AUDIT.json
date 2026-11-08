@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof derives exact Smith valuations (0,1) for A-I, (1,1) for A^2-I, and (j,j+1) for A^(2^j)-I with j>=2 using determinant valuation nu_2(1+u^2)=1 and unimodular doubling. Kernel sizes and period inversion give all counts, including boundary moduli 2 and 4. The 54 exact matrix checks and 42 complete state-space checks agree; they do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fiebig–Mbirika–Spilker §3.2 cites Wall (1960), Corollary to Theorem 8, for a criterion when an arbitrary-seed Fibonacci sequence has the same period as the canonical Fibonacci sequence. This does not supply cycle multiplicities for K congruent to 2 modulo four.",
+        "A published matrix-dynamics result titled “Exact powers-of-two torus orders for all-to-all coupled cat maps” studies a different coupled cat-map family and reports permutation orders rather than these counts."
+      ],
+      "reasoning": "A general finite-module Smith-kernel theorem could in principle imply this special family, but such generic machinery without the explicit valuations and all-cycle distribution is not the same stated classification. No inspected broader result gives the requisite numerical parameters for this 2-adic family; unindexed wider theorems remain a risk.",
+      "searches": [
+        "Fibonacci companion matrix order 2^r kernel A^(2^j)-I Smith normal form valuations j,j+1 and periodic points",
+        "cycle distribution and full cycle index of generalized K-Fibonacci or Pell sequences with arbitrary initial pair modulo powers of two",
+        "D. D. Wall 1960 Fibonacci series modulo m theorem 8 number of cycles arbitrary initial values",
+        "Fibonacci companion matrix Smith normal form kernel cyclic orbits powers 2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2404.08194v2",
+      "https://arxiv.org/abs/2404.08194",
+      "https://arxiv.org/html/2408.14632v2",
+      "https://arxiv.org/abs/2408.14632",
+      "https://oeis.org/A015134",
+      "https://doi.org/10.2309169"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benfield–Lippard §1, Theorem 1.5: fixed moduli for the map m to canonical Pisano period; an orbit census requires kernel cardinalities of every A^(2^j)-I.",
+        "Fiebig–Mbirika–Spilker Theorems 3.10–3.11: divisibility and equality of periods of U and V, not counts over all seeds.",
+        "A published “Even-even period equality for Lucas pairs with q=-1” extends that period equality to another parameter regime, not an orbit count."
+      ],
+      "reasoning": "Theorem on a chosen seed implies a lower bound on the matrix order and, when combined with general arguments, may determine the maximum period. It does not imply the number of fixed points of lower powers, hence does not imply the exact cycle census. The current Smith proof supplies that genuinely additional information.",
+      "searches": [
+        "For integer k congruent to 2 modulo 4, classify all periodic cycles of k-Fibonacci recurrence with arbitrary initial states modulo 2^r: exact lengths, 2^(r+1)-2 cycles, universal Smith normal forms",
+        "cycle distribution and full cycle index of generalized K-Fibonacci or Pell sequences with arbitrary initial pair modulo powers of two",
+        "Fiebig Mbirika Spilker period patterns entry points orders Lucas sequences arbitrary initial conditions",
+        "Benfield Lippard Fixed Points K-Fibonacci 2024 period 2 powers K congruent 2 mod 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Benfield–Lippard (2024), arXiv:2404.08194, Theorem 1.5 and §6, uses the standard seed and iteration of the Pisano period; does not enumerate arbitrary-seed cycles.",
+        "Fiebig–Mbirika–Spilker (2024), arXiv:2408.14632, §§2–3, treats two special Lucas initial conditions and period relations.",
+        "OEIS A015134 enumerates cycles for the coefficient-one Fibonacci recurrence, which is not the family K congruent to 2 modulo four."
+      ],
+      "reasoning": "An equivalent formulation would be a complete count of orbits of the companion matrix modulo 2^r, including all primitive lengths and multiplicities, or kernel sizes for all powers of the matrix. No such result appeared in the inspected primary texts or targeted searches. Neither a standard-seed period nor a total matrix order determines the orbit census.",
+      "searches": [
+        "For integer k congruent to 2 modulo 4, classify all periodic cycles of k-Fibonacci recurrence with arbitrary initial states modulo 2^r: exact lengths, 2^(r+1)-2 cycles, universal Smith normal forms",
+        "Pell recurrence full state modulo 2^n all cycles 1,2,4,...,2^n and orbit count 2^(n+1)-2",
+        "\"K-Fibonacci\" \"cycle\" \"number\" modulo 2^n",
+        "\"Pell\" \"orbit lengths\" \"modulo\" \"powers of 2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A015134 and the Fibonacci integer-cycle table involve recurrence coefficient K=1 and varying modulus; this theorem requires K even with exact valuation one and modulus 2^r.",
+        "The published period table in Benfield–Lippard §6 lists canonical Pell/Pisano periods, not counts of all two-coordinate cycles."
+      ],
+      "reasoning": "An entry for the period length 2^r at K=2 does not entail how the 2^{2r} states split into cycles. The exact count 2^{r+1}-2 and length multiplicities were not found in checked tables.",
+      "searches": [
+        "OEIS number Fibonacci integer cycles modulo n A015134",
+        "\"Pell\" \"all cycles\" modulo powers two K Fibonacci orbit",
+        "\"2^{n+1}-2\" generalized Fibonacci orbit cycles powers of two",
+        "Pell recurrence full state modulo 2^n all cycles 1,2,4,...,2^n and orbit count 2^(n+1)-2"
+      ]
+    },
+    "rationale": "Full-text comparisons with the natural 2024 primary literature and targeted equivalent-claim, broader-theorem, and exact-table searches identify no statement of the complete all-seed cycle multiplicities for K congruent to 2 mod 4. Standard-seed periods and equality of two distinguished periods do not imply all fixed-point counts. Risk remains from unindexed general matrix dynamics.",
+    "residual_risks": [
+      "The original full text of Wall (1960) was not accessible; its cited scope is coefficient-one Fibonacci rather than this even-K family.",
+      "A preexisting unindexed general Smith-normal-form analysis of all recurrence states over 2-power rings may imply the exact formulas.",
+      "No negative originality conclusion is drawn from search absence alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: computes periods/fixed moduli of canonical initial data, not every orbit count.",
+        "evidence": [
+          "§1 defines initial data (0,1); Theorem 1.5 classifies Pisano-period fixed moduli; §6 discusses general recurrence initial conditions as future direction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.08194v2",
+        "material_read": "Abstract, main theorem in §1, preliminary period statements and closing §6 on general binary recurrences.",
+        "method": "Read HTML full text sections, compare definition of canonical sequence and theorems against arbitrary-seed matrix cycles.",
+        "title": "Fixed Points of K-Fibonacci Sequences",
+        "trigger": "Same recurrence and power-of-two Pisano periods; source public 2024-04-12."
+      },
+      {
+        "assessment": "NOT_COVERING: explicit results concern selected U,V initial states and period equality rather than complete cycle counts.",
+        "evidence": [
+          "Theorems 3.10–3.11 compare periods of U,V; the discussion preceding 3.11 cites Wall only for period-equality criterion of Fibonacci seeds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2408.14632v2",
+        "material_read": "Full HTML, sections 1–3 including Theorems 3.10–3.13 and discussion of Wall on arbitrary initial terms; section headings and later applications.",
+        "method": "Read and matched definitions, quantifiers, and implications of period/entry/order theorems.",
+        "title": "Period patterns, entry points, and orders in the Lucas sequences: theory and applications",
+        "trigger": "Lucas recurrence with p even and q=-1 and prior period equality results; public 2024-08-26."
+      },
+      {
+        "assessment": "UNRESOLVED ACCESS RISK: no full-text negative claim; known referenced result addresses coefficient-one arbitrary-seed period equality, not the present even-K all-state cycle formula.",
+        "evidence": [
+          "Fiebig–Mbirika–Spilker specifically describes Wall’s Corollary to Theorem 8 as a criterion for when periods agree for arbitrary seeds under the Fibonacci recurrence."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/2309169",
+        "material_read": "Bibliographic record and the description of its Corollary to Theorem 8 quoted by the 2024 Fiebig–Mbirika–Spilker paper; original full text unavailable.",
+        "method": "Inspect bibliographic public pages and secondary full-text description in arXiv:2408.14632 §3.2.",
+        "title": "Fibonacci Series Modulo m",
+        "trigger": "Classical foundational work on periodic Fibonacci recurrences; referenced in 2024 full text as handling arbitrary seeds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a4d0e47-8c63-479d-ac35-0f62858f502f",
+  "value": {
+    "rationale": "This is a motivated natural complete classification of the finite-state trajectories of all K-Fibonacci recurrences over 2-power rings for an infinite coefficient congruence class. It strengthens known period-only statements to exact distribution of every primitive orbit and proves an invariant census independent of K/2. No arbitrary finite threshold or external downstream claim is needed.",
+    "status": "PASS"
+  }
+}
