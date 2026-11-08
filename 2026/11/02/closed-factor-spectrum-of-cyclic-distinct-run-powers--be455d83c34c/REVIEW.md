@@ -1,11 +1,21 @@
-# Self-review — closed-factor spectrum of cyclic distinct-run powers
+# Independent mathematical audit
 
-**Correctness: PASS.** The object is a repeated word with a cyclic period of pairwise distinct letter runs. The proof covers every positive run vector and every repetition count at least two. Type A factors are the constant powers, Type B factors are the symmetric first returns to unary frontiers, and Type C factors are exactly the period-separated returns to mixed frontiers. The counting argument proves an exact length distribution and the second-moment total. Boundary conditions and integrality are addressed explicitly. Literal occurrence testing agrees for 4,032 independent parameter cases, but does not substitute for the all-parameter proof.
+## correctness
 
-**Originality: PASS.** The closest inspected power-word paper, Parshina–Puzynina (arXiv:2111.00863), obtains universal upper bounds and conjugacy properties, not the exact multiletter run-length spectrum. Parshina–Zamboni (arXiv:1810.05472) addresses the aperiodic Arnoux–Rauzy setting. A previously recorded binary five-run result concerns a different two-letter family with repeat occurrences in nonadjacent runs. Targeted scholarly-record searches and publicly accessible literature searches found no exact implication of the full new result. This is best-knowledge originality, not global proof of uniqueness.
+PASS
 
-**Value: PASS.** Complete first returns are a natural measure of closed-word complexity and a string-index primitive. The finding is a complete, exact, infinite-family classification; the striking collapse of the total to a quadratic run-length statistic and a fixed increment per repetition is not a routine numerical change. The length spectrum explains *why* the collapse occurs.
+For q>=3 pairwise distinct cyclic run letters, each directed boundary a_i a_(i+1) occurs at one phase modulo p, fixing start phase of any factor containing a boundary. Closed factors split into disjoint constant words a_i^s (p types), complete first returns with constant frontier B_(i,s)=a_i^s full intermediate runs a_i^s (p types), and mixed-frontier returns of length p+m indexed by phases t in [0,h_k(m)-1] where first m letters cross a boundary. These mixed returns have exactly two occurrences of their length-m prefix, at offsets 0 and p; constant prefixes excluded in count sum_i(r_i-m+1)_+. The sum of h_k(m) for 1<=m<=(k-1)p is (k-2)p^2+p(p+1)/2, and the exclusions sum_i r_i(r_i+1)/2. Thus all length coefficients and C_+(W)=(k-2)p^2+(p^2-sum r_i^2)/2+2p. Independently enumerated literal proper-border closed factors for all 27 3-run vectors in {1,2,3}^3 at k=2 and 3; every factor set and total agreed. Source checker covers 4032 cases but was inspected, not blindly used as infinite proof.
 
-The source risk is an as-yet-unlocated specialization or stronger statement for general periodic roots. This review does not claim independent expert assessment. The classification is limited to distinct run letters in the period, and the finite verifier covers only the stated finite cases. Prior work is cited for definitions, general power bounds, and related complexity formulas rather than as proof of the present equality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Parshina–Puzynina provides general closed-factor upper bounds for primitive cyclic squares, while Parshina–Zamboni addresses aperiodic Arnoux–Rauzy words. This restricted periodic root with all distinct run labels has an exact disjoint type classification and length polynomial, not just general bounds; direct Resultary search found a binary closed-rich-maxima record but not this theorem. Best-of-knowledge originality with residual equivalence risk.
+
+## value
+
+PASS
+
+Exact distinct closed-factor length spectrum is a standard string-combinatorics invariant. The result characterizes a natural structured class of periodic words and gives the exact p^2 gain from another period, plus a second-moment dependence on run sizes. It is not known table recomputation or arbitrary finite parameters; it proves an all-length combinatorial pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
