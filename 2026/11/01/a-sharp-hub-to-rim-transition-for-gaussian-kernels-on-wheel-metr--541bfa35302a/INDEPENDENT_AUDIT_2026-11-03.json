@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T00:09:31.134475Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_n with n>=4 rim vertices and x=e^-t in (0,1), all distances are 0,1,2. Independently checked that rim block R=(1-x^4)I+(x-x^4)A_Cn+x^4 J has nonconstant Fourier eigenvalues 1-x^4+2(x-x^4)cos(2pi r/n); smallest is f_n=1-2c_n x+(2c_n-1)x^4. The hub–uniform-rim 2x2 sector has determinant g_n=1+2x+(n-3)x^4-nx^2=(1-x)[1+3x-(n-3)x^2(1+x)]. Their unique interior roots a_n and b_n follow from strict convexity of f and strict concavity of H. Exact independent rational checks of f even root alpha in (27/50,11/20), g8(11/20)>0, g9(27/50)<0, g7(63/100)>0 and f7(63/100)<0 (via rational cos lower bound) prove crossover at n=9 for all n, without exhaustive n sampling. Fourier multiplicities give nullity 2 for n=5,7 and 1 otherwise. The analytic implicit function calculation H_n(x)=0 yields x=n^-1/2+n^-1+n^-3/2+O(n^-2) and tau=(1/2)log n-n^-1/2-(1/2)n^-1+O(n^-3/2), while at n=3 K4 is PD for every t>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feragen Theorem 1 concerns Gaussian kernels positive for all bandwidths on continuous geodesic metric spaces and concludes Alexandrov flatness; finite wheel vertices do not satisfy its geodesic-space hypotheses.",
+          "Lou–Obata–Huang Theorem 3.1 covers graph joins but only their first-power quadratic embedding constants."
+        ],
+        "reasoning": "Neither the all-t theorem nor a graph-join QEC formula determines positivity for a non-CND squared distance beyond a graph-dependent critical t.",
+        "searches": [
+          "wheel graph Gaussian kernel exp(-t graph distance squared) sharp positive definite bandwidth spectral crossover",
+          "positive definite isotropic kernels diameter two distance regular wheel graph",
+          "Feragen Lauze Hauberg Theorem 1 all bandwidth geodesic kernel"
+        ]
+      },
+      "checked_sources": [
+        "Feragen et al. arXiv:1411.0296 abstract and theorem on all-bandwidth Gaussian kernels",
+        "Lou–Obata–Huang arXiv:2001.06752 Theorem3.1 and Example3.6",
+        "Obata 2017 Quadratic Embedding Constants of Wheel Graphs bibliographic theorem summary",
+        "Resultary wheel Gaussian kernel and wheel edge-polytope similarity queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Obata and Lou–Obata–Huang analyze the sign of the quadratic form for D, without squaring graph distance.",
+          "Feragen asserts all-positive-t Gaussian constraints under continuous geodesic hypotheses, not precise finite graph t crossings."
+        ],
+        "reasoning": "A wheel Gaussian bandwidth ray can exist despite failure of squared-distance conditional negative definiteness; none of the cited older theorems yields the two competing root polynomials, their crossover, or nullities.",
+        "searches": [
+          "wheel graph Gaussian kernel exp(-t graph distance squared) sharp positive definite bandwidth spectral crossover",
+          "Obata Quadratic Embedding Constants of Wheel Graphs doi:10.4036/iis.2017.S.02",
+          "Lou Obata Huang arXiv:2001.06752 Example 3.6",
+          "Feragen arXiv:1411.0296 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a wheel, graph distance has values {0,1,2}; the old QEC studies D itself, not entrywise exp(-t D^2).",
+          "The current finite Gaussian family has entries (1,x,x^4), with x=e^-t, whereas negative type of D corresponds to all-bandwidth positive definiteness of exp(-t D) (distance2 entry x^2)."
+        ],
+        "reasoning": "The kernel power difference changes the entire Fourier root equation and the hub determinant; the previous wheel QEC theorem is not a substitute via simple parameter scaling.",
+        "searches": [
+          "wheel graph Gaussian kernel exp(-t graph distance squared) sharp positive definite bandwidth spectral crossover",
+          "arXiv:2001.06752 Example 3.6 wheel QEC",
+          "arXiv:1411.0296 Gaussian geodesic kernels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest Resultary wheel record 39d62ea47ea0 determines a minimum-volume enclosing ellipsoid of a wheel symmetric edge polytope, not Gaussian PSD thresholds.",
+          "The threshold is min of a_n,b_n and switches exactly at n=9; no matched published finite-wheel bandwidth table was found."
+        ],
+        "reasoning": "A generic wheel spectrum or graph Laplacian table does not itself tabulate the (x,x^4) Gaussian kernel PSD transition; specific implication checked.",
+        "searches": [
+          "wheel graph Gaussian kernel exp(-t graph distance squared) sharp positive definite bandwidth spectral crossover",
+          "Resultary wheel symmetric edge polytopes gaussian kernel spectral transition",
+          "wheel Gaussian 1-2cos(pi/n)x+(2cos(pi/n)-1)x4 determinant 1+3x"
+        ]
+      },
+      "rationale": "Feragen–Lauze–Hauberg, Geodesic Exponential Kernels (arXiv:1411.0296), gives all-bandwidth positivity obstruction for continuous geodesic spaces, not a single bandwidth ray on a finite wheel vertex set. Lou–Obata–Huang arXiv:2001.06752 Example 3.6 derives wheel quadratic embedding constants for first-power graph distances; Obata 2017 independently studies the same unsquared QEC invariant. A nonnegative-type theorem for exp(-t d) for all t does not determine the threshold for exp(-t d^2). Resultary wheel-related matching titles concern wheel edge polytopes and unrelated matrices. No inspected stronger statement gives the exact order-nine mode switch; general diameter-two kernel matrix results remain a residual equivalence risk.",
+      "residual_risks": [
+        "A general diameter-two three-level circulant-kernel theorem may include this finite-wheel root special case without explicit wheel wording.",
+        "The initial point t=0 is excluded: K(0)=J PSD but not PD; admissible classification is for t>0.",
+        "Finite eigenvalue experiments do not prove the all-n theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONCOVERING: continuous geodesic space and every bandwidth, rather than a finite graph vertex metric and a single ray threshold",
+          "evidence": "Abstract and introduction state Gaussian PD for all bandwidths only under flatness assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0296",
+          "material_read": "Public full-text PDF first page, abstract and first theorem summary, with stated all-bandwidth and geodesic assumptions",
+          "method": "Opened arXiv PDF and visually inspected first page; checked main theorem claims",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "Same squared-distance Gaussian kernel and possible general positive-definiteness domination"
+        },
+        {
+          "assessment": "COVERS first-power graph QEC only; no exp(-t d^2) bandwidth ray",
+          "evidence": "Example3.6 explicitly analyzes QEC(C_n+K_m) and wheel through graph adjacency; formula depends on unsquared distance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06752",
+          "material_read": "Public 20-page PDF, Theorem3.1 discussion and Example3.6 pages 8-9, Fourier adjacency eigenvalues",
+          "method": "Opened, searched text and visually inspected page 9 showing wheel formula",
+          "title": "Quadratic Embedding Constants of Graph Joins",
+          "trigger": "Wheel is cycle plus singleton, potentially stronger general graph-join theorem"
+        },
+        {
+          "assessment": "MATERIAL-LIMITED: quadratic embedding constant uses distance power one, not Gaussian kernel at finite t",
+          "evidence": "The named invariant of the older theorem is QEC(D), while this work concerns PSD(K_t) with e^(-td²).",
+          "identifier_or_url": "https://doi.org/10.4036/iis.2017.S.02",
+          "material_read": "Published 2017 theorem summary and source abstract; four-page full source not re-read this execution",
+          "method": "Targeted published source comparison with later join theorem",
+          "title": "Quadratic Embedding Constants of Wheel Graphs",
+          "trigger": "Exact same W_n graphs and QEC spectral methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete Gaussian covariance-matrix admissibility classification over all wheel orders, with an exactly located switch from rim oscillation to hub-rim contrast and the critical nullspace dimensions, is a natural and nontrivial graph-kernel fact. The sharp logarithmic size law is informative for kernel bandwidth selection; not a bare low-dimensional table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Feragen et al. arXiv:1411.0296 abstract and theorem on all-bandwidth Gaussian kernels",
+    "Lou–Obata–Huang arXiv:2001.06752 Theorem3.1 and Example3.6",
+    "Obata 2017 Quadratic Embedding Constants of Wheel Graphs bibliographic theorem summary",
+    "Resultary wheel Gaussian kernel and wheel edge-polytope similarity queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite unweighted wheel-vertex graph metrics, not a continuous metric wheel graph.",
+    "Threshold strictness and nullity refer to t>0; special n=3 is complete graph.",
+    "Public-bound AUDIT.json and METADATA.json contain private scope_run_id; complete independently guarded UTF-8 sanitizing replacements were unavailable, so publication withheld. No source modification was made."
+  ],
+  "schema_version": 1
+}
