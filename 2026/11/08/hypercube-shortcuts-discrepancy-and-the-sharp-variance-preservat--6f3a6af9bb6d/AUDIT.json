@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The orthonormal Walsh expansion gives \\(\\operatorname{Var}(f)=\\sum_{S\\ne\\emptyset} a_S^2\\), one-coordinate energy \\(\\sum |S|a_S^2\\), and a two-term nonnegative variance deficit. Equality forces first-degree-only coefficients with coordinate slopes ±1. Added triple edges require each triple to see both signs. The exact deficit algebra shows \\(\\sum_i(1-t_i^2)\\le8\\delta\\) and \\(\\|h\\|_2^2\\le\\delta\\); the chord and pointwise bound then force \\(8\\delta+2^{1+d/2}\\sqrt{\\delta}\\ge2\\). At \\(\\delta\\le 2^{-d-1}\\) this contradicts \\(d\\ge3\\). The complexity reduction is the identity on three-distinct-variable triple lists from the exact-form NP-complete source established by Darmann and Döcker (2019, Theorem 1); the YES certificate is a sign assignment only for variables appearing in constraints, thus polynomial despite binary encoding of ambient dimension. The Fano example uses exact pair counting, and the included program replays finite checks. The proof makes no inference from finite enumeration to all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0902.1156 describes tensorization and the spread of the *unaugmented* hypercube; its short-cut model concerns random chords on cycles, not cube-to-triple constraints.",
+        "Alon–Boppana–Spencer (1998), Section 3.6, proves a general product log-moment tensorization law, not perturbative equality under added nonproduct constraints.",
+        "Bobkov–Houdré–Tetali (2006), based on title and abstract only, studies a different subgaussian constant and concentration inequalities; it is not decisive evidence of noncoverage."
+      ],
+      "reasoning": "General product inequalities dominate the upper bound on the original cube but not the chorded graph equality or strict-loss cases. Adding chords leaves the product measure but destroys the product metric, making the equality/quantitative stability analysis genuinely additional.",
+      "searches": [
+        "sharp Lipschitz variance spread on Hamming graphs Cartesian products of complete graphs and hypercube exact operator norm maximizing functions",
+        "uniform Bernoulli cube Efron Stein equality Lipschitz variance maximizers signed coordinate sums and graph shortcuts",
+        "\"graph spread\" hypercube edge additions hypergraph"
+      ]
+    },
+    "checked_sources": [
+      "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+      "https://arxiv.org/pdf/0902.1156",
+      "https://www.khoury.northeastern.edu/home/lieber/courses/csg260/f06/materials/papers/max-sat/p216-schaefer.pdf",
+      "https://doi.org/10.1145/800133.804350",
+      "https://doi.org/10.1007/BF02773835 (abstract and bibliographic context only)",
+      "https://arxiv.org/pdf/1908.04198"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cube formula \\(d/4\\) and edge monotonicity alone only yield an upper bound for chorded cubes, and allow both equality and strict inequality.",
+        "The standard Property B problem is NP-complete, but this does not establish NP-completeness of a graph-norm threshold without a new equivalence proof.",
+        "The Fourier remainder estimate gives an explicit \\(2^{-d-1}\\) separation, which neither cited starting point quantifies for this new graph family.",
+        "arXiv:1908.04198 supplies direct hardness for distinct positive triple clauses, a strictly stronger starting point for the reduction; the new graph-norm equality criterion is not among its results."
+      ],
+      "reasoning": "If an earlier theorem already classified equality for every augmented cube, the present result might be covered despite different vocabulary; the actually inspected works instead stop at the product case. The reduction and quantified gap are the additional implications shown here.",
+      "searches": [
+        "Lipschitz spread of Cartesian graph product equals sum spread Efron Stein",
+        "hypercube adding distance three chords between origin and triple vertices spread maximum Lipschitz variance Efron Stein equality property B hypergraph two coloring",
+        "\"variance\" \"Lipschitz\" hypercube hypergraph chords",
+        "Schaefer 1978 complexity satisfiability monotone NOT-ALL-EQUAL source"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alon–Boppana–Spencer (1998), Sections 1 and 2.1, define spread and integer extremizers but do not impose chord constraints.",
+        "Addario-Berry–Janson–McDiarmid, arXiv:0902.1156, Section 1.1, identifies cube spread as \\(d/4\\) and gives edge-monotonicity without an equality criterion for arbitrary shortcuts.",
+        "Schaefer (1978), Section 2, has NOT-ALL-EQUAL SATISFIABILITY (sets of size at most three) as an NP-complete problem, but no graph norm.",
+        "Darmann–Döcker (arXiv:1908.04198, Theorem 1) explicitly proves NP-completeness for monotone NAE-3-SAT with exactly three distinct variables per clause and four occurrences per variable, implying NP-completeness of 3-uniform hypergraph Property B with distinct triples; it does not discuss graph spread."
+      ],
+      "reasoning": "A signed coordinate sum saturates the product-space Poincaré inequality. Under common-origin triple chords its admissibility becomes monochromatic-triple exclusion, precisely hypergraph Property B. Neither cited theorem directly states this exact equivalence, its optimizer classification after augmentation, or its quantified gap.",
+      "searches": [
+        "hypercube adding distance three chords between origin and triple vertices spread maximum Lipschitz variance Efron Stein equality property B hypergraph two coloring",
+        "graph Lipschitz spread hypercube chord augmentation tensorization variance NP complete threshold",
+        "\"spread\" \"hypercube\" \"chords\" Lipschitz variance hypergraph",
+        "\"Lipschitz spread\" \"NP-complete\" hypercube",
+        "On simplified NP-complete variants of Not-All-Equal 3-Sat and 3-Sat 1908.04198 Theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest found published research records addressed Walsh projections on Hamming free spaces and Euclidean geometry of graph metrics; none supplied a table or exact threshold for origin-to-triple cube chords.",
+        "No exact shortcut variance-preservation table appeared in inspected primary sections or targeted public searches."
+      ],
+      "reasoning": "The theorem gives all dimensions and all triple systems through one combinatorial certificate; it cannot be inferred from an identified finite graph-spread table, and no table making this implication was found. This negative search evidence is not proof of uniqueness.",
+      "searches": [
+        "hypercube adding distance three chords between origin and triple vertices spread maximum Lipschitz variance Efron Stein equality property B hypergraph two coloring",
+        "graph Lipschitz spread hypercube chord augmentation tensorization variance NP complete threshold",
+        "hypercube chord graph maximum variance bounded Lipschitz norm discrepancy sets",
+        "\"maximum variance\" \"Lipschitz\" \"NP-hard\" graphs"
+      ]
+    },
+    "rationale": "The published tensorization formula gives the unaugmented cube constant but not a criterion for retaining equality after adding distant edges; the 1978 classical NP-completeness result and 2019 distinct-triple strengthening gives hypergraph two-colorability but not its equivalence to saturation of a graph Lipschitz-to-L2 norm. Exact signed optimizer rigidity, a quantitative non-Property-B gap, and this compact-input hardness bridge were not found in queried primary work or identified research results. Unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "Relevant unindexed or differently phrased results may already characterize this specific spread-preservation decision problem.",
+      "The 1978 primary article was read as extracted PDF text; its separate page render was temporarily inaccessible. The verified theorem reference remains unambiguous.",
+      "The subgaussian-constant paper was inspected only at abstract/bibliographic level and is not used as decisive noncoverage evidence.",
+      "No novelty is claimed for the Efron–Stein cube inequality, cube spread d/4, or NP-completeness of Property B itself. The monotone distinct-triple source problem is directly substantiated by arXiv:1908.04198."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes basic spread and products, not the equivalence between shortcut graph equality and hypergraph coloring.",
+        "evidence": "Section 2.1 proves existence of integer extreme spread functions; Theorem 3.6 handles product log-moment norms; neither statement accounts for added long cube edges.",
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "material_read": "Author manuscript text of Section 1, Section 2.1 (Theorem 2.1 and argument), and Section 3.6 (product tensorization), with a rendered page of Section 2.1.",
+        "method": "Read available full-text manuscript passages and searched the same document for product and Boolean cases.",
+        "title": "An asymptotic isoperimetric inequality",
+        "trigger": "Foundational definition of the maximal Lipschitz variance and possible general product coverage."
+      },
+      {
+        "assessment": "The documented shortcuts lie on a random cycle model; no classification of spread preservation under cube origin-to-triple chords was found in the searched full text.",
+        "evidence": "Section 1.1 states spread(Q_d)=d/4 and the Cartesian-product law; Section 1.2 introduces random small-world shortcuts on a cycle rather than the deterministic cube construction.",
+        "identifier_or_url": "https://arxiv.org/pdf/0902.1156",
+        "material_read": "Public PDF Section 1.1 (cube spread and monotonicity), random-graph/short-cut overview in Sections 1 and 6, and Section 8 open-problem outline; searched full available text for hypercube, short-cut, discrepancy, and complexity.",
+        "method": "Opened searchable full PDF and rendered the page containing the product-cube statement.",
+        "title": "On the spread of random graphs",
+        "trigger": "Explicit hypercube spread formula, edge-monotonicity, and literature on shortcuts."
+      },
+      {
+        "assessment": "Provides source NP-completeness but does not encode hypercube graphs or their Lipschitz variance.",
+        "evidence": "The paper lists the problem of two-coloring sets of at most three elements and states it NP-complete.",
+        "identifier_or_url": "https://www.khoury.northeastern.edu/home/lieber/courses/csg260/f06/materials/papers/max-sat/p216-schaefer.pdf",
+        "material_read": "Extracted original-paper text on pages 216–218, including Section 2, Theorem 2.1 and the explicit NP2 NOT-ALL-EQUAL SATISFIABILITY item.",
+        "method": "Opened full original-paper PDF and inspected the extracted original-paper text; separate page-render attempts returned an access error.",
+        "title": "The complexity of satisfiability problems",
+        "trigger": "Closest possible broader reduction source: NP-completeness of monotone not-all-equal three-satisfiability."
+      },
+      {
+        "assessment": "Provides the exact NP-complete starting source problem; it has no graph Lipschitz spread or shortcut-equality statement.",
+        "evidence": "Theorem 1 proves Monotone NAE-3-Sat-E4 NP-complete for the exactly-three-distinct-positive-variable formulation, with the hardness proof beginning on page 5.",
+        "identifier_or_url": "https://arxiv.org/pdf/1908.04198",
+        "material_read": "Public author preprint abstract, Section 2.1 formal problem definition (three distinct unnegated variables per clause, each variable appearing four times) and Section 3.1 Theorem 1 with its reduction and equality/non-equality gadget details.",
+        "method": "Opened full searchable 34-page preprint and rendered title and Theorem 1 pages.",
+        "title": "On simplified NP-complete variants of Not-All-Equal 3-Sat and 3-Sat",
+        "trigger": "Verify the exact three-distinct-coordinate hypergraph two-colorability hardness used in the succinct reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f3a6af9-bb6d-4b88-8a60-8a384a9eb3d6",
+  "value": {
+    "rationale": "The preservation of an extremal Hilbertian variance norm under additional metric constraints is a well-defined and nontrivial stability question. This theorem gives a complete combinatorial criterion, all YES-case norming functions, an explicit dimension-dependent NO-case gap, an NP-completeness classification for succinct inputs, and a small Fano obstruction contrasting with universal single-shortcut invisibility. It motivates the exact invariant and gap independently of finite brute force; the novelty is the bridge among functional and discrepancy geometry rather than either classical component alone.",
+    "status": "PASS"
+  }
+}
