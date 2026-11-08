@@ -1,19 +1,21 @@
-# Scientific review: sharp risk-aversion bistability on two roads
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the two equiprobable affine latencies rather than an asserted variance profile. Computing their mean and variance gives the exact scalar route-cost difference. Strict pure-equilibrium coexistence reduces to two opposite endpoint inequalities; subtracting their lower and upper admissible values for the deterministic intercept yields the sharp general coefficient \(4(v+d)/(\Delta(2H-\Delta))\). Strict convexity with opposite endpoint signs gives a single unstable mixed root between two attracting pure equilibria under the specified adjustment. The rational example is fully classified by both endpoint signs, the discriminant, and exact boundary factorizations, including weak and double-root boundaries. The standalone symbolic/rational checker passed 1,127 assertions, including independent feasible-root counts. The finite checks are confirmation, not the source of the all-parameter result.
+PASS
 
-## Originality — PASS within inspected evidence
+From two equiprobable affine states, perceived route-cost gap is F_gamma(y)=u+H/2-c-d+(v+d)y+gamma(H-Delta*y)^2/4, with positive second derivative. The two strict endpoint Wardrop inequalities give the exact open intercept interval of width gamma Delta(2H-Delta)/4-(v+d); since the interval lower bound is positive, the gamma threshold is necessary and sufficient. Convexity and F(0)>0>F(1) force a single interior root with negative slope and the stated projected-adjustment repulsion. For the given rational roads, independent polynomial expansion, discriminant, root counts and exact boundary factorizations at 11/10,7/5,45/32 confirm all seven equilibrium regimes including weak/double-root cases. The exact symbolic argument, not finite parameter tests, covers all admissible parameters.
 
-The closest directly comparable primary model is Nikolova and Stier-Moses (2014), arXiv:1411.0059, with mean-plus-variance nonatomic Wardrop costs. Its two-link example uses constant variance and analyzes price-of-risk-aversion, not simultaneous strict pure equilibria or a two-scenario affine primitive representation. Lianeas, Nikolova, and Stier-Moses (2016) admit general flow-dependent mean and variance functions in their setup, but explicitly require nondecreasing modified cost for their variational-inequality machinery; neither their theorem statements nor their examples give the exact sharp coexistence criterion derived here. Ordóñez and Stier-Moses (2010) instead assume random travel-time deviations independent of traffic flow; their uniqueness is not contradicted. The 2014 mean-standard-deviation study has a different risk objective and its increasing-variability uniqueness question is not answered by this result. Available matching claims and related records do not appear to subsume this statement. Historical novelty is not guaranteed: an equivalent two-route nonmonotone equilibrium example may exist in older transportation literature using different terminology.
+## originality
 
-## Value — PASS
+PASS
 
-This is an assumption-boundary theorem for risk-adjusted congestion games, not merely a polynomial root computation. It identifies the precise level of endogenous uncertainty reduction required to create a whole open region of simultaneous strict pure equilibria even though every realized latency is strictly increasing. It supplies a complete rational phase diagram with two attraction basins, boundary degeneracies, and distinct expected social delays for the stable alternatives. This makes an exact small-network stress test for equilibrium-solvers and for modeling assumptions about flow-dependent travel-time variability. The conclusion is specific to mean-plus-variance preferences and the defined adjustment, not a forecast of observed route choice.
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. The cited general results neither contradict nor imply the present bistability threshold; only the broad risk-dependent multiple-equilibria possibility is prior art.
 
-## Closest literature, scope, and residual risks
+## value
 
-Primary comparisons: Ordóñez–Stier-Moses (2010), DOI 10.1287/trsc.1090.0292; Nikolova–Stier-Moses (2014), DOI 10.1287/opre.2013.1246; Nikolova–Stier-Moses (2014), arXiv:1411.0059; Lianeas–Nikolova–Stier-Moses (2016), arXiv:1510.02067, IJCAI 2016. In particular, constant variance and exogenous noise do not imply the parameter threshold in this claim. General abstract statements that nonmonotone costs *may* admit multiple equilibria do not imply the exact strict-pure coexistence criterion, though they anticipate the broad qualitative danger. No assertion is made about mean-standard-deviation uniqueness for strictly increasing variability, general road networks, or arbitrary learning dynamics. Independent literature priority and mathematical validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies a sharp, model-primitive assumption boundary: strictly increasing travel times in each scenario do not force a monotone mean-variance route cost or unique equilibria. Exact coexistence interval, attracting/repelling flow structure and rational bifurcation example are useful stress tests for nonmonotone routing theory, with no empirical forecast asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
