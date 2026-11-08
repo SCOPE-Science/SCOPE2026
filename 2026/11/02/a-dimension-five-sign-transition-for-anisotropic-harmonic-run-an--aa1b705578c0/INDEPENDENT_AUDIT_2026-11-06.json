@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:45:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary convolution splits independent Gaussian thermal and active terms, giving exact thermal-insensitivity for distinct axes. Conditioning on a shared backward Poisson gap sequence and independent isotropic orientations gives Cov(X_i²,X_j²)=v^4/d²(Cov(Z_a,Z_b)-2 E W/(d+2)). Renewal identities reduce these to rational functions with the displayed P and positive Q. Independent symbolic algebra verified the closed positive Cov(Z_a,Z_b), and exact rational tests in 324 parameter combinations verified P/Q. For d<=4 all coefficients are negative; for d>=5 Descartes sign count has one change and endpoint signs give a unique root. P is affine and increasing in p=ab at the equal-rate root, yielding the sharp anisotropy penalty. Thermal noises and singular tumble endpoints are not misrepresented.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. provide a Volterra moment recursion for isotropic harmonics; Guéneau et al. provide full stationary joint laws in isotropic d-dimensional traps."
+        ],
+        "reasoning": "Broad moment coverage in the isotropic setting does not dominate the anisotropic pairwise invariant; a general anisotropic hidden appendix would be a priority risk but was not identified.",
+        "searches": [
+          "arxiv:2409.00578 Sections II-IV",
+          "arxiv:2602.08436 main theorems"
+        ]
+      },
+      "checked_sources": [
+        "Sun–Ye–Podgornik arxiv:2409.00578 PDF",
+        "Guéneau–Majumdar–Schehr arxiv:2602.08436 PDF",
+        "Resultary anisotropic RTP semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same sphere moments and Poisson resetting techniques are known.",
+          "The anisotropic d=5 threshold and fixed-a+b bound require two distinct decay kernels and renewal coupling; they are not mere substitution into single-trap-rate formulas."
+        ],
+        "reasoning": "The anisotropic d=5 threshold and fixed-a+b bound require two distinct decay kernels and renewal coupling; they are not mere substitution into single-trap-rate formulas.",
+        "searches": [
+          "arxiv:2602.08436 isotropic stationary moment formulas",
+          "arxiv:2409.00578 moment recursions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both allow high-dimensional moment descriptions but use a single isotropic harmonic stiffness parameter."
+        ],
+        "reasoning": "Radial/fourth-moment identities may recover equal-axis a=b case; they are not a formula for arbitrary distinct diagonal drift coefficients.",
+        "searches": [
+          "arxiv:2409.00578 exact moments any dimension",
+          "arxiv:2602.08436 exact stationary isotropic trap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published records concern unrelated anisotropic flows or isotropic harmonic run-and-tumble distributions."
+        ],
+        "reasoning": "No exact table matching the (d,a,b,gamma) sign-transition surface was identified. Partial numerical overlap alone would not imply the theorem.",
+        "searches": [
+          "Resultary query: anisotropic harmonic run and tumble squared coordinate covariance critical dimension five sign",
+          "web: run and tumble harmonic trap arbitrary dimension squared coordinate stationary fourth mixed moments dimension sign isotropic"
+        ]
+      },
+      "rationale": "Published Sun–Ye–Podgornik moment recursions and Guéneau–Majumdar–Schehr exact stationary law cover isotropic harmonic traps and related orientation schemes, which can imply the equal-stiffness special case. The anisotropic diagonal pair-energy covariance and its sharp d=5 sign and anisotropy penalty are not present in inspected passages. Isotropic specialization is not claimed new.",
+      "residual_risks": [
+        "Unindexed anisotropic higher-moment recursion may imply the same rational covariance.",
+        "All-axis unequal diagonal trap rates beyond the selected two are irrelevant to this pair statistic under the model, but no correlated non-diagonal trap is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Any-d moment algorithms are prior work, but not an explicit anisotropic paired-axis sign theorem.",
+          "evidence": [
+            "arxiv:2409.00578 introduction, Sections II-IV, Conclusions; web:turn955307view2/turn460975view2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.00578",
+          "material_read": "PDF original pp.1-3 and 8-10 with moment recurrence and conclusions; page 1 image",
+          "method": "Read main moment formulations and conclusion to check trap isotropy and finite-tumble assumptions",
+          "title": "Exact moments for a run and tumble particle with a finite tumble time in a harmonic trap",
+          "trigger": "moment formulas for same active particle and harmonic potential"
+        },
+        {
+          "assessment": "The isotropic case is prior coverage; paper assumes V=mu r²/2, not arbitrary positive diagonal stiffness.",
+          "evidence": [
+            "arxiv:2602.08436 title, model, main theorem; web:turn883104view1/turn918037view1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.08436",
+          "material_read": "PDF pp.1-6 main results, model Eq(6), isotropic trap, searched for anisotropy",
+          "method": "Compared isotropic harmonic drift and derived all-coordinate joint law to anisotropic rates a != b",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "very close d-dimensional steady-state moment object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shared-clock positive energy fluctuation competes with the negative uniform-sphere fourth cumulant, producing a dimension-dependent sign boundary. Exact critical dimension, uniqueness and anisotropy shift are natural interpretable cross-axis statistics not supplied by isotropic radial moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sun–Ye–Podgornik arxiv:2409.00578 PDF",
+    "Guéneau–Majumdar–Schehr arxiv:2602.08436 PDF",
+    "Resultary anisotropic RTP semantic query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For stationary isotropically redrawn run-and-tumble orientations in d>=2 and positive diagonal trap rates a,b on distinct axes, the squared-coordinate covariance equals 2 v^4 P_d,a,b(gamma)/[d^2(d+2)Q_a,b(gamma)], independent of axiswise thermal noise. It is negative at all positive gamma for d<=4 and has a unique sign-reversing positive rate for d>=5 with sharp lower bound 3(a+b)/(d-4), equality only at a=b.",
+  "limitations": [
+    "Historical priority is best-of-knowledge, not exhaustive literature certification.",
+    "Bounded computation does not replace the analytic proof.",
+    "Unindexed anisotropic higher-moment recursion may imply the same rational covariance.",
+    "All-axis unequal diagonal trap rates beyond the selected two are irrelevant to this pair statistic under the model, but no correlated non-diagonal trap is claimed."
+  ],
+  "residual_risks": [
+    "Unindexed anisotropic higher-moment recursion may imply the same rational covariance.",
+    "All-axis unequal diagonal trap rates beyond the selected two are irrelevant to this pair statistic under the model, but no correlated non-diagonal trap is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Any-d moment algorithms are prior work, but not an explicit anisotropic paired-axis sign theorem.",
+      "evidence": [
+        "arxiv:2409.00578 introduction, Sections II-IV, Conclusions; web:turn955307view2/turn460975view2"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2409.00578",
+      "material_read": "PDF original pp.1-3 and 8-10 with moment recurrence and conclusions; page 1 image",
+      "method": "Read main moment formulations and conclusion to check trap isotropy and finite-tumble assumptions",
+      "title": "Exact moments for a run and tumble particle with a finite tumble time in a harmonic trap",
+      "trigger": "moment formulas for same active particle and harmonic potential"
+    },
+    {
+      "assessment": "The isotropic case is prior coverage; paper assumes V=mu r²/2, not arbitrary positive diagonal stiffness.",
+      "evidence": [
+        "arxiv:2602.08436 title, model, main theorem; web:turn883104view1/turn918037view1"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2602.08436",
+      "material_read": "PDF pp.1-6 main results, model Eq(6), isotropic trap, searched for anisotropy",
+      "method": "Compared isotropic harmonic drift and derived all-coordinate joint law to anisotropic rates a != b",
+      "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+      "trigger": "very close d-dimensional steady-state moment object"
+    }
+  ]
+}
