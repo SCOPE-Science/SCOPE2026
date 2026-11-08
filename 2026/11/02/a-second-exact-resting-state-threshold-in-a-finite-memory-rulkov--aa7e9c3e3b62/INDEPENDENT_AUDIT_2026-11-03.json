@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:06:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed post-memory-fill stationary equations: x*=sigma-1 in (-2,0), sigma=tanh(kappa sigma), kappa=m/(2tau), and full (m+2)-dimensional Jacobian characteristic P(lambda)=lambda^m[(lambda-1)(lambda-a)+mu]-mu eta sum_{j=0}^{m-1}lambda^j, a=5/(2-sigma)^2, eta=(1-sigma^2)/(2tau). Root-sign tests prove central and positive branches unstable for 0<mu<1/64, and negative branch unstable if 1<kappa<kappa*. At kappa>kappa*, 0<a<1 and the simple root at 1 moves into the unit disk for small mu. At kappa*=artanh(sqrt(5)-2)/(sqrt(5)-2), a=1 and the double root splits into a complex pair with |lambda|^2=1+mu[1-(m+3)rho*/2]+O(mu^(3/2))<1 for all m>=1. Independently computed kappa*=1.0192230012646086 and rho*=0.962423650119207, and checked Jacobian root moduli for m=1,2,3,5,10 with kappa below/at/above threshold. These finite numerical cases supplement the analytic proof. No global or arbitrary-mu stability claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2601.12139 original abstract and available metadata; arXiv:2112.02738 different memristor Rulkov model",
+          "Resultary published Rulkov two-cycle and covariance findings concern a different non-delay Rulkov model"
+        ],
+        "reasoning": "General Rulkov dynamics and scalar intersection counts do not mathematically imply the fixed-window endpoint-inclusive stability criterion; closest exact original full text inaccessible, so stronger coverage remains a residual risk.",
+        "searches": [
+          "finite-memory sigmoid Rulkov neuron exact stability fixed point second threshold tanh memory",
+          "lagged discrete Rulkov fixed point linear stability full delay feedback"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md source tree f3b77b425f3dc7532bddea29d1d7827aff02309c",
+        "arXiv:2601.12139 (abstract/metadata only)",
+        "arXiv:2112.02738 (abstract only)",
+        "Resultary published Rulkov orbit and covariance findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rulkov source arXiv:2601.12139 introduces feedback and numerical activity regimes; source package derives a=(5/(2-sigma)^2) and complex endpoint multiplier expansion"
+        ],
+        "reasoning": "The known static stationarity law is insufficient to determine stability: the stability change depends on the fast branch slope a=1 and rho*(m+3)/2>1. Full article uninspected, so do not assert that the paper contains no equivalent formula.",
+        "searches": [
+          "finite-memory sigmoid Rulkov neuron exact stability fixed point second threshold tanh memory",
+          "Moreno Nieto Sanjuan finite-memory sigmoid Rulkov neuronal model stable spiking versus fixed point"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2601.12139 concerns this exact delayed Rulkov map and sigma=tanh(kappa sigma) scalar stationarity; present result adds full (m+2)-dimensional Jacobian stability"
+        ],
+        "reasoning": "Stationary intersections do not imply attraction; specifically central branch can be unstable and endpoint stability requires a double-unit-root expansion.",
+        "searches": [
+          "finite-memory sigmoid Rulkov neuron exact stability fixed point second threshold tanh memory",
+          "Rulkov fixed-point saddle-node sigmoid feedback stationary rest alpha 5 memory"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search Rulkov prime-two orbit census, slow-fast covariance, unrelated to finite-window rest-spectrum threshold"
+        ],
+        "reasoning": "No exact matching table identified in the searched published-result corpus; this is evidence of limited search coverage only, not proof of absence.",
+        "searches": [
+          "finite-memory sigmoid Rulkov neuron exact stability fixed point second threshold tanh memory",
+          "Rulkov neuronal map kappa artanh sqrt5 minus 2 fixed equilibrium threshold"
+        ]
+      },
+      "rationale": "The scalar fixed-point intersection equation and the original finite-memory sigmoid Rulkov formulation are prior work, but the inspected evidence does not establish the exact full-lag branch stability threshold, especially stability at its singular endpoint. Best-of-knowledge originality only; the closest source's complete main text was not independently accessible here, a material priority risk.",
+      "residual_risks": [
+        "The most relevant original finite-memory Rulkov paper was not read in full; arXiv+OA retrieval unsuccessful and Oxford tool was safety-blocked; its derivations could already imply the claimed second threshold.",
+        "All-m criterion is asymptotic for sufficiently small mu separately at fixed m,tau; finite-mu onset and global spiking dynamics are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT; cannot conclude whole paper is non-covering",
+          "evidence": "Original source models oscillatory activity states and stationary intersections; precise full-text coverage remains a concrete priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.12139",
+          "material_read": "Public abstract and bibliographic details only; complete PDF/HTML not accessible in this run; related prior self-review only as lead",
+          "method": "arXiv abstract and alternate OA retrieval attempt; authorized institutional retrieval blocked by safety policy; did not bypass",
+          "title": "Complex transitions between spiking, bursting and silent regimes in a new memristive Rulkov neuronal model",
+          "trigger": "Same original model with precisely the m-step sigmoid feedback"
+        },
+        {
+          "assessment": "Different feedback mechanism; not decisive full-text exclusion",
+          "evidence": "Different memristor coupling and memory variables, unlike fixed finite moving sum at issue.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.02738",
+          "material_read": "Abstract and bibliographic/model summary, not full article",
+          "method": "Open abstract and cross-model comparison",
+          "title": "A discrete memristor model and its application in the Rulkov neuron",
+          "trigger": "Nearby memristor-driven discrete Rulkov prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact, boundary-inclusive local rest-stability classification for the finite-window delayed neuronal model separates equilibrium stability from oscillatory spiking/bursting regimes. Full characteristic polynomial retains every memory mode, providing a motivated second threshold beyond the known equilibrium-creation point.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md source tree f3b77b425f3dc7532bddea29d1d7827aff02309c",
+    "arXiv:2601.12139 (abstract/metadata only)",
+    "arXiv:2112.02738 (abstract only)",
+    "Resultary published Rulkov orbit and covariance findings"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The most relevant original finite-memory Rulkov paper was not read in full; arXiv+OA retrieval unsuccessful and Oxford tool was safety-blocked; its derivations could already imply the claimed second threshold.",
+    "All-m criterion is asymptotic for sufficiently small mu separately at fixed m,tau; finite-mu onset and global spiking dynamics are outside the theorem."
+  ],
+  "schema_version": 1
+}
