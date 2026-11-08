@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The derivative identities are explicit and were independently checked symbolically. Concavity gives the iff one-step invariant interval condition via h'(R); radius inequalities prove full convergence within it. At the critical tuning, exterior trajectories cannot approach R from above indefinitely because H(R+delta)<R, giving eventual monotone capture. Taylor expansion with H'(R)=0 and H''(R)<0 gives the exact quadratic and nonzero fourth-order return constants; finite-hit initial points are excluded. Numerical checks support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma et al Theorem 1 implies almost-everywhere convergence for this even convex decreasing-curvature objective.",
+        "Itin Theorem 1 provides a general local elasticity test for a symmetric period-two orbit; §5 reports global numerics."
+      ],
+      "reasoning": "Their strongest relevant conclusions are treated as prior knowledge. Neither provides a uniform one-step barrier across all amplitudes, a division at a=1/4, or the precise quartic physical-return coefficient.",
+      "searches": [
+        "Ma Kunin Wu Ying 2022 subquadratic decreasing curvature global convergence theorem",
+        "Itin 2026 kinetic maps global attraction and elasticity",
+        "gradient descent subquadratic convex loss decaying curvature superstable flip cycle exact step parameter monotone amplitude trapping"
+      ]
+    },
+    "checked_sources": [
+      "Alexander Itin, Physics-Inspired Optimizers beyond the Edge of Stability, arXiv:2610.27321v1 (2026-10-19), Sections 2, 3, 5 and Appendix B.",
+      "C. Ma, D. Kunin, L. Wu, L. Ying, Beyond the Quadratic Approximation, arXiv:2204.11326 (2022), Section 4.1 Theorem 1 and proof.",
+      "Published mathematical record search: close but distinct scalar period-two and superattraction examples (identifiers provided in private envelope)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing generic global convergence covers the known attractor, while a local period-two multiplier follows from the elasticity test.",
+        "Strict concavity of the concrete derivative and a global endpoint slope calculation give a new exact forward-invariance iff, and two local quadratic Taylor steps give the explicit fourth-order coefficient on the globally captured branch."
+      ],
+      "reasoning": "The final theorem is more precise than the generic global-convergence claim and not just a renaming of a known result; it makes a sharp global-invariance assertion and computes its special critical return rate. The local superattractor principle itself is elementary and not assigned novelty.",
+      "searches": [
+        "arXiv:2610.27321 Theorem 1, Observation 6",
+        "arXiv:2204.11326 Theorem 1, Section 4.1",
+        "fourth order two-step convergence of gradient descent to attracting flip period two orbit even subquadratic loss"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An equivalent reading is gradient descent on an even convex potential with derivative g_a; that puts the orbit inside the Ma et al convergence framework.",
+        "The critical-period return is a fourth-order superattractor of F², distinct from the general local multiplier test."
+      ],
+      "reasoning": "The generic gradient-descent reparameterization is explicitly considered. It covers global orbit attraction, not the exact forward-invariance iff of [0,R] or the globally realized nonzero quartic coefficient in this two-parameter family.",
+      "searches": [
+        "fractional kinetic gradient update x minus eta x/(1+x^2)^a period two invariant amplitude interval",
+        "arXiv:2204.11326 Section 4.1",
+        "arXiv:2610.27321 Section 5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source kinetic-map tables list power-Legendre and standard damping examples, not the fractional g_a invariant-radius surface.",
+        "The checked records return other scalar flips, not this exact function and criterion."
+      ],
+      "reasoning": "No exact table value or parameter identity was found; a failed search is not treated as proof of novelty, and potential uncatalogued literature remains a risk.",
+      "searches": [
+        "superattracting period two 4th order return kinetic optimizer convex saturating fractional power a one quarter critical step",
+        "nonovershooting approach to two-cycle edge of stability alpha one quarter",
+        "period two orbit quadratic convergence at η=2(4a/(4a-1))^a for regularized step x/(1+x^2)^a"
+      ]
+    },
+    "rationale": "The verified literature already contains general period-two existence, elasticity-based local stability and almost-everywhere global attraction. These are acknowledged and not counted as new. The final contribution is the sharp if-and-only-if one-step invariant-radius interval for the specific fractional kinetic family, its exponent 1/4 dividing uniform and finite-parameter trapping, the exact finite-step globally captured superattracting tuning, and the nonzero fourth-order two-step error coefficient. Neither relevant inspected full text states or logically fixes that sharper radius-invariance property. Exact searches and semantic research-record queries revealed no covering occurrence; absence of hits is not a general priority proof.",
+    "residual_risks": [
+      "The conditional 1/4 boundary is an exact special-family calculation; unindexed independent analyses of fractional kinetic maps could contain it.",
+      "General normal-form theory already anticipates quartic composition when both phase derivatives vanish; novelty resides in the exact tuning, coefficient and global amplitude barrier, not in the formal order-four principle.",
+      "No independent peer review or exhaustive historical priority verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Local symmetric-cycle stability and numerical global attraction precede the present work; the exact fractional-family invariant-amplitude criterion and nonzero quartic return coefficient are not provided",
+        "evidence": [
+          "arXiv:2610.27321v1, Theorem 1 (kinetic-map orbit elasticity)",
+          "arXiv:2610.27321, §5.1 Observation 6 (sampled global attraction), Appendix B"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.27321",
+        "material_read": "ArXiv full-text HTML, relevant complete Sections 2, 3, 5 and Appendix B, including formulas and observation of sampled attraction",
+        "method": "Read HTML mathematical statements, orbit conditions, tables, results and referenced source comparisons",
+        "title": "Physics-Inspired Optimizers beyond the Edge of Stability: Period-Two Orbits and Delayed Instability",
+        "trigger": "Same kinetic-map scalar period-two objects and elasticity criterion"
+      },
+      {
+        "assessment": "Generic almost-everywhere attraction and existence of symmetric period two are already covered and excluded from novelty; the exact globally invariant amplitude barrier, critical exponent and quartic return coefficient are different statements not determined by its bounds",
+        "evidence": [
+          "arXiv:2204.11326, §4.1 Theorem 1 and proof, particularly the contraction to cycle distance",
+          "arXiv:2204.11326, §4.2 Theorem 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.11326",
+        "material_read": "ArXiv full-text HTML, Section 4.1 Lemma 1, Theorem 1 and proof, and Section 4.2 extension",
+        "method": "Checked hypotheses and logical strength of general global convergence theorem against the fractional kinetic objective",
+        "title": "Beyond the Quadratic Approximation: The Multiscale Structure of Neural Network Loss Landscapes",
+        "trigger": "Potentially stronger generic global convergence theorem for even convex losses with decreasing curvature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30eff0fd-dce0-44e6-a5d5-7f7ac232a621",
+  "value": {
+    "rationale": "The sharp global no-overshoot frontier distinguishes dynamics on two sides of an already known locally stable cycle and addresses whether all subcycle amplitudes remain trapped. The a=1/4 exponent division is a natural regularization-design boundary. At a finite critical tuning, all generic real initial conditions enter a globally controlled region and converge with exact fourth-order physical return, a substantial rate improvement with an explicit coefficient. This is a structural and rate result, not a bare existence or local-stability corollary.",
+    "status": "PASS"
+  }
+}
