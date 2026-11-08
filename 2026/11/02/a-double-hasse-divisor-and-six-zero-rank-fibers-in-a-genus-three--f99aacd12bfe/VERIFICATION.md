@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The algebraic proof applies to every smooth parameter over the algebraic closure of \(\mathbb F_5\). Run `python verify_symbolic.py` with SymPy to check the exact Cartier polynomial, determinant, cubic discriminant and restrictions, and separability of the exceptional set; expected terminal marker: `EXACT_HASSE_DISCRIMINANT_AND_EXCEPTION_OK`.
+## correctness
 
-Independently run `python verify_fields.py` in standard Python. It constructs the finite fields directly, squares the defining curve polynomial by coefficient convolution, computes Hasse matrices and Frobenius-twisted stable ranks, enumerates all smooth parameters over \(\mathbb F_5\) and \(\mathbb F_{25}\), and directly counts points for one rank-zero example over three successive extensions. Expected markers are `POINT_COUNT_F5_F25_F125_OK` and `GF5_GF25_FULL_CARTIER_STRATA_OK`.
+PASS
 
-The finite computations do not certify the global theorem by enumeration: unrestricted conclusions follow from the symbolic identities and semilinear argument in `RESULT.md`. The complex isomorphism-class quotient, excluded singular discriminant, other characteristics, Newton polygon and external audit are outside the claimed verified scope. No independent external audit has been performed.
+For every smooth y²=x⁷+a x⁵+b x³+x over algebraic closure F5, the Cartier/Hasse coefficient rule from f² gives H=[[2b,0,1],[0,2(ab+1),0],[1,0,2a]], det=-2(ab+1)². On ab=-1 its outer block has rank one and twisted second Frobenius coefficient 2(b^5+a) is zero precisely at b^6=1; otherwise rank one persists, giving a-number/rank (2,0) at six roots and (2,1) elsewhere, versus (0,3) off divisor. The cubic discriminant Delta=a³+a²b²+3ab+b³+3 restricts to (b³-2)²/b³ and its three excluded zeros do not meet b^6=1. Six roots distinct; Frobenius sends b to b^-1 and gives orbits 1,1,2,2. Explicit scaling and inversion exchange all marked exceptions. Actual verify_symbolic.py and verify_fields.py were inspected; separate independently regenerated exact coefficient/determinant/discriminant computations verify critical identities. Finite F5/F25 counts are supplementary.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for complete coefficient-marked 2-parameter double Hasse divisor and the six stable-rank-zero fibers; related hyperelliptic point-count results concern a different model, while standard Cartier theory supplies method but not these strata.
+
+## value
+
+PASS
+
+A complete algebraic stratification of a natural genus-three automorphism-rich two-parameter family, including a scheme-theoretic double nonordinary divisor and the deeper finite stable-rank-zero locus. These precise invariants and marked-versus-isomorphic distinction can be reused in arithmetic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
