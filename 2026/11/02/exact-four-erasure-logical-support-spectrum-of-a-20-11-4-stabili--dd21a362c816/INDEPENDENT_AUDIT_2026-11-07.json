@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:43:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, erasure_census.cpp, verify_local.py",
+        "independent_checks.py ERASURE_20_11_4",
+        "Dzoba arXiv:2610.24025 Section 4"
+      ],
+      "rationale": "The nine explicit 20-symbol Pauli generators have independent rank 9 and commute; all 512 stabilizers have nonzero weight at least 12. For |E|=4 the local logical quotient has dimension 8-rank(H_E). Fresh Python independently formed the 40-bit symplectic rows, enumerated all 4845 four-subsets and computed the exact dimension counts 3840, 970, 35; all 35 rank-six local subspaces are isotropic. Four-erasure failure count is 1005; <=3 are correctable by distance 4, >=5 are uncorrectable since 2|E|>=10 exceeds nine commutation constraints and no stabilizer fits in a five-set. Thus P_succ(p)=sum_{j=0}^{3} binom(20,j)p^j(1-p)^(20-j)+3840 p^4(1-p)^16, 0<=p<=1.",
+      "residual_risks": [
+        "Independent implementations use the same nine explicitly published-source-derived Pauli strings; original ancillary generator file was not independently cross-fetched for a bytewise comparison.",
+        "Finite 20-qubit census does not imply an infinite-family statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stabilizer symplectic centralizers and Knill-Laflamme known-erasure correction are classical for any stabilizer code."
+        ],
+        "reasoning": "The general criterion determines the method but not the ranks of the 4845 particular 9-by-8 syndrome submatrices. No stronger exact theorem giving this case as a corollary identified.",
+        "searches": [
+          "20 11 4 quantum stabilizer code four erasure uncorrectable supports distribution 3840 970 35 Dzoba",
+          "Calderbank Rains Shor Sloane quantum GF4 stabilizer erasure criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.24025",
+        "Resultary query: 20 11 4 quantum stabilizer code four erasure uncorrectable supports distribution 3840 970 35 Dzoba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source already proves code parameters, generator commutation, minimum nonidentity stabilizer weight 12, minimum logical weight 4, and aggregate 1075; a fresh 20-choose-4 rank computation yields the three-way histogram."
+        ],
+        "reasoning": "Accept only novel finite incidence census and exact erasure reliability curve; code construction and general erasure theorem are excluded from novelty. Prior 1075 arithmetic constrains 970+3*35 but does not uniquely imply the two counts.",
+        "searches": [
+          "arXiv:2610.24025 Section 4 Verification",
+          "20 11 4 quantum stabilizer code four erasure uncorrectable supports distribution 3840 970 35 Dzoba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dzoba publishes the same 20-qubit rank-9 code, stabilizer distribution and 1075 weight-four logical operators; new local statistic counts distinct 4-erasure supports by dimension rather than logical operators."
+        ],
+        "reasoning": "The sum 970 + 3*35 = 1075 is forced by the old aggregate weight-4 enumerator, but 970 and 35 are not separately determined by its single scalar. Different supports can carry distinct multiplicities. No equivalent exact support histogram located.",
+        "searches": [
+          "20 11 4 quantum stabilizer code four erasure uncorrectable supports distribution 3840 970 35 Dzoba",
+          "arXiv:2610.24025 Section 4 code and Appendix A.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing recorded datum: 1075 weight-four normalizer operators; new independent census: 3840,970,35 support dimensions and 1005 bad four-sets."
+        ],
+        "reasoning": "Weight spectra classify individual operators not support-set incidences. Existing code table parameters [[20,11,4]] alone cannot determine the erasure-support multiplicity distribution.",
+        "searches": [
+          "20 11 4 quantum stabilizer code four erasure uncorrectable supports distribution 3840 970 35 Dzoba",
+          "Dzoba 2026 code tables and released q20_11_4_paulis.txt"
+        ]
+      },
+      "rationale": "The source paper gives the specific stabilizer and 1075 individual weight-4 logicals but not the distribution of distinct four-coordinate support multiplicities; the 970/35 refinement and erasure-reliability polynomial are additional exact data.",
+      "residual_risks": [
+        "A prior unindexed code-spectrum table may contain the support incidence count; failed semantic search does not establish novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-code antecedent, publishes aggregate but not identified support-rank histogram",
+          "evidence": [
+            "Section 4 states nine generators, 1075 weight-4 logical operators, stabilizer distribution {0:1,12:50,14:220,16:195,18:20,20:26}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.24025",
+          "material_read": "HTML main-text Section 4 Construction/Verification, code parameters, rank nine, minimum stabilizer weight, 1075 logicals and data-availability listing; raw original ancilla file was not separately opened",
+          "method": "web full-text rendered HTML via PaperPeel; specific source section inspected",
+          "title": "New lower bounds for binary constant-weight codes from prescribed-automorphism search, and two quantum codes meeting their upper bounds",
+          "trigger": "Identical [[20,11,4]] code parameters and exact weight-four logical count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dzoba 2026 code construction and erasure criterion",
+        "exact finite support census"
+      ],
+      "rationale": "The precise erasure-support geometry of a newly tabulated 20-qubit distance-four code is a natural decoding invariant. Its distinction between one- and two-logical failure sets controls exact recovery probability under independent known erasures and is not a routine restatement of a weight enumerator.",
+      "residual_risks": [
+        "Specific code result, not a universal stabilizer-code theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Erasure positions must be known, arbitrary local errors are required to be correctable, phases ignored.",
+    "Only one specific [[20,11,4]] code; no classification of all equivalent codes.",
+    "Original source ancillary generator file not independently cross-fetched; the nine generator strings and published weight distribution were independently checked.",
+    "Publication withheld for metadata sanitization and source guards."
+  ],
+  "schema_version": 1
+}
