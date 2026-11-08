@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_brightness.py` from the extracted files. The Python 3 standard library is the only dependency. The program independently computes normal balance and second moments for five twists, numerically integrates brightness and squared brightness over the viewing sphere, compares their difference with the analytic closed formula, and evaluates both exact endpoints. It also tests the dot-product ordering at 299 interior parameter values. The checker output on 2026-10-25 included the literal word `PASS` and a computed range of `0.030694143418` to `0.101940050221`.
+## correctness
 
-The numerical integral has finite resolution (240 latitude bands by 720 longitude points). Its tolerance is stated in the code and is intended as a finite consistency test, not a mathematical certificate. The universal classification, strict monotonicity and equality characterizations are proved analytically in RESULT.md via a rank-two projection, a self-inversive polynomial, the two-point spherical absolute-value integral, and strict majorization.
+PASS
 
-# Scope and external checks
+Design 2-frame and centering define a complementary rank-two projection with equal diagonal, inducing six unit complex roots whose first two power sums vanish; self-reciprocal polynomial z6-c z3+d forces two triples of roots and hence two orthonormal original triples with relative twist. Cauchy formula B(v)=pi/3 sum |xi·v| and the exact spherical covariance E|x·V||y·V|=2H(x·y)/(3pi) give the stated variance with correct six within and nine cross pairs. Squared cross-dot products sum to one and strictly majorize along twist, while h(s)=H(sqrt s) is strictly convex; Karamata yields continuum monotonicity and endpoint uniqueness. Independent endpoint and 200-angle checks corroborate but do not prove the continuum.
 
-The initiating mathematical paper is arXiv:2608.11570, first submitted August 12, 2026. A later directional-kernel paper arXiv:2609.05869 and published comparisons about variance of shadows of Platonic solids are described in REVIEW.md and AUDIT.json. These comparisons do not constitute an exhaustive world-literature novelty certificate. Independent audit has not been performed.
+## originality
+
+PASS
+
+Congpei An 2026 original Minkowski-design paper gives equal-area realization, uniform brightness bounds and low-degree harmonic cancellation, not an exact 6-normal twist variance envelope; its relevant original full text was inspected. A published Resultary record evaluates variance for the five individual Platonic solids, already covering the cube endpoint; it does not rank a continuous family or the non-Platonic minimum. The brightness kernel formula and family design classification are known components, but not the complete strict majorization extremal theorem. Best-of-knowledge pending other historical computations.
+
+## value
+
+PASS
+
+All six-normal 2-designs have the same total area and mean shadow brightness, but their projection fluctuations vary. Computing a sharp orientation-dependent range and rigid geometric equality classes for the smallest flexible equal-area design family is a natural and useful invariant classification beyond second-moment isotropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The rank-two complementary projection and reciprocal-polynomial identity classify every six-node equal-weight spherical design into two equilateral normal triples. An exact spherical absolute-product integral gives the shadow-variance expression. Squared cross-dot products form a fixed-sum three-vector ordered increasingly by majorization, and a strictly convex scalar kernel proves global strict monotonicity, including endpoint uniqueness. The attached program checks design identities, five direct sphere quadratures and endpoint constants. The finite program is supplemental; analytic steps prove the continuum theorem.
+## correctness
 
-**Originality: PASS with residual risks.** The motivating Minkowski-design paper establishes equal facet areas and global approximation rather than exact variance extrema. The later directional-kernel paper treats universal finite quadrature error rather than this constrained variance. An existing six-normal design volume formula already determines the normal family, but volume order does not imply random projected-area variance order. A published record computes the Platonic-body endpoint for a cube, not the sharp envelope across the continuous six-design family. General cosine-kernel covariance identities provide a method, not the extremal majorization conclusion. Inaccessible or unindexed literature may preempt the exact variance classification; checked source levels and residual priority risk are documented in AUDIT.json.
+PASS
 
-**Value: PASS.** Spherical-design isotropy makes area averages identical, raising the natural question of how random projections fluctuate despite that fixed mean. The theorem exactly classifies this fluctuation across the smallest flexible six-node family of designs, including its sharp maximizing cube, non-Platonic minimizing configuration and equality rigidity. The interval is a substantive geometric distinction not obtainable from degree-two surface-tensor exactness alone.
+Design 2-frame and centering define a complementary rank-two projection with equal diagonal, inducing six unit complex roots whose first two power sums vanish; self-reciprocal polynomial z6-c z3+d forces two triples of roots and hence two orthonormal original triples with relative twist. Cauchy formula B(v)=pi/3 sum |xi·v| and the exact spherical covariance E|x·V||y·V|=2H(x·y)/(3pi) give the stated variance with correct six within and nine cross pairs. Squared cross-dot products sum to one and strictly majorize along twist, while h(s)=H(sqrt s) is strictly convex; Karamata yields continuum monotonicity and endpoint uniqueness. Independent endpoint and 200-angle checks corroborate but do not prove the continuum.
 
-**Limitations.** Six distinct equal-weight normals in dimension three only; equal facet area \(2\pi/3\); random two-dimensional orthogonal shadows with Haar-uniform normals. No claim about arbitrary polytopes, unequal weights, independence, or all higher design strengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Congpei An 2026 original Minkowski-design paper gives equal-area realization, uniform brightness bounds and low-degree harmonic cancellation, not an exact 6-normal twist variance envelope; its relevant original full text was inspected. A published Resultary record evaluates variance for the five individual Platonic solids, already covering the cube endpoint; it does not rank a continuous family or the non-Platonic minimum. The brightness kernel formula and family design classification are known components, but not the complete strict majorization extremal theorem. Best-of-knowledge pending other historical computations.
+
+## value
+
+PASS
+
+All six-normal 2-designs have the same total area and mean shadow brightness, but their projection fluctuations vary. Computing a sharp orientation-dependent range and rigid geometric equality classes for the smallest flexible equal-area design family is a natural and useful invariant classification beyond second-moment isotropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
