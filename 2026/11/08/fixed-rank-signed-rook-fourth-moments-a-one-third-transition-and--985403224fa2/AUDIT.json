@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The fixed-rank occupancy probabilities are \\(k/n^2\\) for one cell and \\(k(k-1)/[n^2(n-1)^2]\\) for two disjoint cells. Independent Rademacher signs then give exact second and fourth moments. The normalized quartic is \\(H_q=T+2qD\\) with \\(q=3(k-1)/(n-1)^2\\). The row-column orthogonal decomposition gives an exact nonnegative lower deficit for \\(q<1/(n-1)\\), with additive critical equality at \\(q=1/(n-1)\\). For \\(\\(q>1\\)/(n-1)\\), convex interpolation with the full-permutation variance decomposition yields a second exact nonnegative deficit, and its equality forces one equal-magnitude full row or column. The upper bound follows directly for \\(q\\le1\\) and by strictly convex merging of same-row/column masses for \\(q>1\\) (which occurs only at \\((2,2)\\) and \\((3,3)\\)). The continuous quotient attains every intermediate value. Invariant averaging of Euclidean comparison forms proves exact Banach--Mazur distortion; all dimensions n>=2 and ranks 1<=k<=n are addressed. The standalone checker was executed and passed exact independent signed-rook enumeration in 72 cases, endpoint checks n=2..26, and 2380 exact lower deficit checks. Finite checks are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pass--Spektor 2014, Definition 1.1 and Corollary 2.4: assumes every coordinate is a ±1 Rademacher random variable and pairwise independent or exchangeable; signed rook entries take values 0,±1.",
+        "Malandro 2011, Theorem 4.4 and Appendix B: spectral decomposition by ranks/domain/range but no sharp L4 norm.",
+        "Existing full signed-permutation fourth-moment coefficient classification applies to rank n only, not fixed k<n."
+      ],
+      "reasoning": "Neither universal pairwise-independent-sign estimates nor the full-permutation endpoint has assumptions implying the two-parameter fixed-rank sharp constants and equality families. Related tensor-chaos results involve different laws and polynomial spaces.",
+      "searches": [
+        "fourth moment norms real orthogonal matrix coefficients Rademacher signs random matchings partial permutation",
+        "Khintchine inequality random partial permutations Lp matrix coefficients sharp constant",
+        "On Khinchine type inequalities for pairwise independent Rademacher random variables arxiv:1412.7859",
+        "partial permutation matrices signed monoid first degree coefficient L4 norm equality balanced row column additive masses"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1110.5679",
+      "https://arxiv.org/abs/1412.7859",
+      "https://arxiv.org/abs/0812.2789 (abstract only)",
+      "Published partial-assignment-polytope incenter result (different invariant)",
+      "Existing complete signed-permutation coefficient classification (rank n specialization only)",
+      "Published incenter theorem for fixed-cardinality partial assignment polytopes: full result/proof inspected; distinct invariant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete-signed-permutation theorem covers only k=n, yielding Kmin=1 and Kmax=max(4,n), which agrees with the present boundary specialization but cannot imply k<n endpoint values or n=3k-2 equality.",
+        "A published result on fixed-cardinality partial assignment polytopes computes incenter sets for Euclidean balls, not an L4 random linear-statistic moment quotient.",
+        "Pass--Spektor 2014 concerns pairwise-independent fair signs; conditional zero occupancy of rook entries violates that domain."
+      ],
+      "reasoning": "No identified stronger theorem implies the present parameter-dependent range or equality classification. Shared rank/k terminology, dimension or optimal Euclidean symmetry does not constitute statement-level coverage.",
+      "searches": [
+        "sharp fourth moment and a rank-four threshold for signed-permutation matrix coefficients",
+        "A Birkhoff polytope family of incenters for partial assignment polytopes fixed-cardinality",
+        "partial permutation matching matrix L4 L2 norm rank k sharp kurtosis",
+        "Signed k-rook L4/L2 moment minimizers additive row column matrices when n=3k-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1110.5679 full HTML, sections 2, 4, 5 and Appendix B: rank-k rook matrices, semigroup spectral analysis, and representation decomposition, but no L4 optimization formula.",
+        "arXiv:1412.7859 full HTML, Theorem 2.1, Lemma 2.3 and Corollary 2.4: pairwise independent exchangeable Rademacher variables have a different sampling law."
+      ],
+      "reasoning": "A rank-k signed rook matrix has deterministic exactly k nonzero locations, with negative occupancy dependence along rows and columns. Neither full-text object is a different name for the same fixed-rank fourth-moment coefficient space. Searches did not locate an equivalent claim; absence from search is not proof of uniqueness.",
+      "searches": [
+        "\"signed rook\" \"fourth moment\" \"sharp\"",
+        "\"partial permutation\" \"L4\" \"L2\" \"norm\" sharp",
+        "exact L4 norm signed rook monoid fixed rank sparse signed partial permutation matrices fourth moment uniform rank stratum",
+        "fixed cardinality matching sign chaos L4 sharp upper lower constants n k and Banach Mazur distance",
+        "For uniformly random rank k signed partial permutation matrices, normalized fourth moments have exact minimum min(3-2/k,n/k), maximum max(n²/k,4), critical flat/row transition at n=3k-2 and exact Banach Mazur distance."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact fixed-rank norm table or n=3k-2 phase classification surfaced in the retrieved published mathematical sources.",
+        "Malandro 2011 Tables 1--5 tabulate partial-ranking vote statistics and isotypic projections, not coefficient fourth moments."
+      ],
+      "reasoning": "The closest tabulations enumerate or analyze rook data; they do not give the rank-stratum Kmin/Kmax or critical equality polytope. This is a search-limited assessment, not an exhaustive bibliography.",
+      "searches": [
+        "fourth moments random signed partial injections rook matrices rank k sharp minimizers transition at n equals 3k minus 2",
+        "\"nonattacking rooks\" \"kurtosis\" fourth moment linear statistics",
+        "\"matching\" \"fourth moment\" \"row\" \"column\" \"Rademacher\" sharp"
+      ]
+    },
+    "rationale": "The primary sources were checked against the theorem: Everitt--Fountain (arXiv:0812.2789, originally 2008-12-15) supplies reflection-monoid background, but full text was unavailable; Malandro (arXiv:1110.5679, first public 2011-10-25) develops rank-stratified rook monoid Fourier/representation analysis, not sharp fourth-moment coefficient norms; Pass and Spektor (arXiv:1412.7859, first public 2014-12-25) optimize pairwise-independent exchangeable ±1 vectors, whereas signed rook entries are zero except on a fixed random matching and do not satisfy their hypotheses. Actual searches for fixed-rank partial signed permutations, rook matrices, sharp L4/L2, one-third rank transition, additive minimizers and precise formula aliases did not reveal a covering theorem. The full matching case alone, which is an existing separate theorem, is strictly a boundary specialization and does not determine the new lower transition or the critical additive family. Residual risk of unindexed equivalent treatment remains.",
+    "residual_risks": [
+      "A specialized or unindexed prior sharp-norm theorem on signed rook monoids may exist.",
+      "Full text of Everitt--Fountain 2008/2010 was not accessible here; abstract gives no positive coverage evidence.",
+      "Independent bibliographic and mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the present fixed-rank sharp L4 theorem: provides rank/domain/range spectral decomposition but no fourth moment ratio or optimizing coefficients.",
+        "evidence": "Definitions 2.1--2.3, Theorem 4.4, Appendix B Theorem B.4 and Section 5.",
+        "identifier_or_url": "https://arxiv.org/abs/1110.5679",
+        "material_read": "Complete accessible HTML research text, especially Sections 2, 4.3--4.7, 5, and Appendices B and C; original submission metadata.",
+        "method": "Full research-text HTML inspection and theorem/appendix comparisons.",
+        "title": "Inverse semigroup spectral analysis for partially ranked data",
+        "trigger": "Directly motivates uniform rank strata of partial bijections and concerns spectral analysis of rook monoid functions."
+      },
+      {
+        "assessment": "NOT_COVERING: its vectors have pairwise independent ±1 coordinates, unlike zero-sparse fixed matching entries; its sharp bound is for varying sign laws, not fixed-rank signed rooks.",
+        "evidence": "Definition 1.1, equations 2, 7--11, Lemma 2.3 and Corollary 2.4.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.7859",
+        "material_read": "Entire accessible HTML research text, including Definitions 1.1, Theorem 2.1, Lemma 2.3, Corollary 2.4, and proofs.",
+        "method": "Full research-text HTML inspection, comparing law assumptions and optimization statements.",
+        "title": "On Khinchine type inequalities for pairwise independent Rademacher random variables",
+        "trigger": "Plausible stronger fourth-moment result for dependent signs."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT: abstract describes semigroup constructions and orders, not L4 norms; full-document absence is not asserted.",
+        "evidence": "Public 2008 preprint listing and 2010 journal abstract discuss Coxeter/reflection monoids and counting.",
+        "identifier_or_url": "https://arxiv.org/abs/0812.2789",
+        "material_read": "Public bibliographic abstract and provenance only; full manuscript access unsuccessful.",
+        "method": "Publication abstract inspection and attempted open-access full text retrieval.",
+        "title": "Partial symmetry, reflection monoids and Coxeter groups",
+        "trigger": "Possible original reflection-monoid formulation of partial signed permutations."
+      },
+      {
+        "assessment": "NOT_COVERING for this claim: its invariant is Euclidean inradius and set of inball centers of a convex polytope, not sharp L4/L2 norms of real random signed matching coefficient statistics. It has a different rank threshold and no fourth-moment statement.",
+        "evidence": "Its exact intrinsic radius and Birkhoff-polytope incenter family are Euclidean facet-distance formulas, not moment identities.",
+        "identifier_or_url": "Published public mathematical result on fixed-cardinality partial assignment polytopes",
+        "material_read": "Complete published RESULT.md including statement, assumptions, proof, comparisons and references.",
+        "method": "Direct full research-result reading and claim-vs-prior implication comparison.",
+        "title": "A Birkhoff-polytope family of incenters for partial assignment polytopes",
+        "trigger": "Same unsigned partial-matching vertex set and cardinality parameter may conceal a stronger geometric statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98540322-4fa2-4805-8177-1f23fe618f87",
+  "value": {
+    "rationale": "Uniform rank-k nonattacking rook matrices form natural finite measure spaces interpolating between sparse single-cell sampling and full signed permutation matrices. The result computes sharp norm and Banach--Mazur invariants for the full \\(n^2\\)-dimensional linear coefficient space at every rank, rather than an arbitrary slice. It discovers the exact rank threshold \\(\\(n=3k-2\\)\\), exhibits a large additive nonunique minimizer family at equality, distinguishes flat and row-localized norm geometry on either side, and provides exact nonnegative quantitative deficits. This classification has direct use in sharp comparisons for finite sampling of partial matchings and their coefficient spaces. The full-rank boundary result does not supply the new transition; no general downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
