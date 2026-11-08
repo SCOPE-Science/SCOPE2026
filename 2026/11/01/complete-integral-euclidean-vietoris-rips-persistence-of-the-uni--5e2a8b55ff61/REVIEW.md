@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The five exact squared distances determine the complete filtration. The annulus and crosspolytope stages have direct geometric proofs; the nontrivial middle stage has a replayable 29-pair elementary simplicial collapse and twenty elementary cellular generator eliminations, leaving exactly three unattached two-cells. The only surviving first-homology class at the annular scale is hit by an original horizontal cycle, so its persistence is proved, not inferred from ranks.
+## correctness
 
-**Originality — PASS (with residual risk).** The closest same-graph public mathematical result calculates the radius-two shortest-path-metric complex and its first-homology map, but it merges Euclidean thresholds \(\sqrt2\) and \(\sqrt3\). Its statement does not imply the distinct intermediate annular stage, the split six-plus-one cycle death times, or the complete Euclidean barcode. General results for single circles or Platonic solid vertices do not give this object. An unindexed Euclidean-prism computation could still exist.
+PASS
 
-**Value — PASS.** This is a complete integral multidegree persistence calculation of the canonical unit Euclidean hexagonal prism vertex sample, with a geometrically distinguished persistent longitude and separate higher-sphere phases. The exact metric-induced split of graph cycles is natural for comparing graph and Euclidean filtrations and is not a routine deduction from the known graph-radius-two homotopy group.
+Exact squared Euclidean distances of twelve unit hexagonal-prism vertices are (0,1,3,4) at cyclic separations 0..3, plus 1 for crossing layers; hence only squared thresholds 1,2,3,4,5. At 1 graph C6□K2 has 7 loops. At squared2 six lateral tetrahedra collapse to the triangulated annulus preserving a primitive longitude and killing six loops. At squared3 the full complex has 124 nonempty faces with (12,42,52,18), 29 valid free-face pairs and an ensuing 2-complex whose 20 spanning-tree loop generators are eliminated by occurrence-once triangular relators leaving three unattached 2-cells, proving ∨3S2. At squared4 the six excluded antipodal pairs give a sixfold crosspolytope join S5; squared5 is simplex. The reduced integral barcode and interscale maps follow.
 
-Scientific limits: this does not treat arbitrary prism heights or continuous edges; independent validation and absolute publication priority are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctive final claim was compared with actual same-object, stronger and aliased candidates; known covered ingredients are expressly credited. No identified theorem or table entails this entire final claim. Best-of-knowledge priority is conditional on the named accessible-source limits.
+
+## value
+
+PASS
+
+The unit hexagonal prism is a natural twelve-point Euclidean configuration; its five exact metric thresholds separate six early dying cycles from one longer longitudinal class. The Euclidean annulus and full integral barcode provide new metric-sensitive information unavailable from the known single graph-distance-two wedge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
