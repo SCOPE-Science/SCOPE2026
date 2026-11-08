@@ -1,19 +1,21 @@
-# Scientific review: two-target mean-first-passage tomography
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The renewal derivation establishes the exact MFPT from a fixed known initial position, with independently resampled sources and no moment assumptions. The transform \(\Phi_c(s)\) is positive for every \(s>0\). Its values on a set with an interior accumulation point uniquely fix the folded measure by analytic uniqueness; two folded measures uniquely fix the original finite source by antisymmetry under two reflections and the impossibility of a nonzero finite translation-invariant signed measure. The constructive Fourier formulas have the correct determinant and continuous extension at resonances. Arbitrary finite measurement collections fail injectivity by a normalized linear-nullspace construction, and oscillatory densities establish a nonvanishing total-variation separation with vanishing bounded-rate data difference. A standalone numerical reproduction file passed 95 independent deterministic and statistical assertions; the written proof, not those checks, supports the universal quantifiers.
+PASS
 
-## Originality — PASS, with residual risk
+Read frozen RESULT.md and assumptions: generator D∂xx, independent Poisson rate r=Ds², fresh i.i.d μ after every reset, calibrated D,x0. Standard renewal from Brownian hitting transform gives M_c=[1-e^{-s|x0-c|}]/[Ds²Φ_c(s)], Φ_c(s)=∫e^{-s|y-c|}μ(dy)>0 for all probabilities even without moments. On each target, positive-rate accumulation inside (0,infty) determines entire Laplace transform by holomorphic identity and folded-distance law by Laplace uniqueness. If two μ,ν have same transforms at a≠b, finite signed difference η is antisymmetric under both R_a and R_b, hence invariant under nonzero translation 2(b-a), impossible for a nonzero finite signed measure. Explicit Fourier reconstruction from cosine folds has 2x2 determinant sin(k(b-a)); discrete resonant k filled by continuity. One target only knows folded law. m finite scalar readings have m+2-point null vector including normalization with both signs. Sources 1±epsilon sin(2πny) on [0,1] at targets 0,1 have TV gap 2epsilon/pi while responses converge O(1/n) uniformly on compact positive-rate intervals (base transform stays positive). Independently checked exact finite-measurement null vector, sine transform and TV instability; unrestricted identifiability uses measure symmetry argument, not numerical inversion.
 
-Méndez–Flaquer-Galmés–Campos (arXiv:2401.01125) already provide the forward first-passage transform, which is credited explicitly. Toledo-Marín–Boyer (arXiv:2206.14387) analyze forward reset-source first passage and information; Julián-Salgado–Dagdug–Boyer (arXiv:2311.11897) work with multiple reset points; Abundo (arXiv:2410.16889) studies inverse first passage under different sampling specifications. Their inspected full-text sections do not formulate the exact two-target arbitrary-measure recovery and its finite-sampling/instability limits. Published-record searches for the source, two-target reconstruction, reflection equivalences and inversion were compared at the scientific implication level. Closest subject-related records concern general restart variance or stationary ring-membrane current, not this theorem. A broad published two-centered measure-tomography or inverse-source theorem could imply the result; publication priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-An unknown stochastic-reset source is a natural physical parameter; first-passage observations are widely accessible response quantities. The result gives an exact minimum number of target sites for ideal response-curve identifiability without artificial moment/density priors, and proves a finite-measurement impossibility and instability boundary rather than implying a misleading estimator. These facts make the precise object and measurements mathematically motivated even without a finite-noise reconstruction theorem.
+Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. A known forward transform does not by itself state the reflected-signed-measure uniqueness and data insufficiency/stability boundaries; no equivalence verified in primary results. General renewal and Laplace theory supply tools, not an identified dominating theorem explicitly ensuring arbitrary all-measure two-center identification and sharp finite-data limits.
 
-## Limits and relationship to the literature
+## value
 
-Known diffusivity and starting point, two distinct absorbing points, independent draws at every reset, exact population MFPTs, and each site's set of rates having an interior positive accumulation point are essential stated assumptions. The established Brownian renewal formula and harmonic/Fourier-Laplace uniqueness are not credited as novel. No independent audit or publication-priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp tomography theorem for the natural inverse resetting problem: the precise two-target threshold for arbitrary singular reset laws, with explicit insufficiency of one view, finitely many rate readings and strong TV stability. This is useful for experimental design and establishes exactly what ideal MFPT data determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

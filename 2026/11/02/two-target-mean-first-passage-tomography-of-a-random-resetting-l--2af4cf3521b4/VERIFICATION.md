@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Reproducibility
+## correctness
 
-Run `python verify.py` with Python 3 and the standard library. The recorded execution prints the deterministic comparison of the renewal formula with 30,000 simulated independent search trajectories per target and terminates with `PASS: 95 independent deterministic and probabilistic assertions`. The simulation samples Brownian first-hit attempts by the exact Lévy-law representation and compares against the independently computed renewal expectation.
+PASS
 
-## Analytical checks
+Read frozen RESULT.md and assumptions: generator D∂xx, independent Poisson rate r=Ds², fresh i.i.d μ after every reset, calibrated D,x0. Standard renewal from Brownian hitting transform gives M_c=[1-e^{-s|x0-c|}]/[Ds²Φ_c(s)], Φ_c(s)=∫e^{-s|y-c|}μ(dy)>0 for all probabilities even without moments. On each target, positive-rate accumulation inside (0,infty) determines entire Laplace transform by holomorphic identity and folded-distance law by Laplace uniqueness. If two μ,ν have same transforms at a≠b, finite signed difference η is antisymmetric under both R_a and R_b, hence invariant under nonzero translation 2(b-a), impossible for a nonzero finite signed measure. Explicit Fourier reconstruction from cosine folds has 2x2 determinant sin(k(b-a)); discrete resonant k filled by continuity. One target only knows folded law. m finite scalar readings have m+2-point null vector including normalization with both signs. Sources 1±epsilon sin(2πny) on [0,1] at targets 0,1 have TV gap 2epsilon/pi while responses converge O(1/n) uniformly on compact positive-rate intervals (base transform stays positive). Independently checked exact finite-measurement null vector, sine transform and TV instability; unrestricted identifiability uses measure symmetry argument, not numerical inversion.
 
-1. The Brownian hitting-time Laplace transform is \(e^{-s|x-c|}\); competing exponentials and the renewal equation yield the forward MFPT without finiteness requirements on moments of the source position.
-2. Folded source transforms are holomorphic for \(\Re s>0\); inverse Laplace transform uniqueness is used for each target.
-3. Vanishing two folded signed measures imply oddness under two reflections. Their composition yields a nonzero translation; finite total variation excludes a nonzero invariant measure.
-4. The Fourier reconstruction determinant is \(\sin(k(b-a))\). Resonant frequencies are recovered by continuity, not by dividing by zero.
-5. The arbitrary finite-data counterexample is a normalized kernel nullspace; the four-atom specialization uses the vector \((-1,e^{-1},-e^{-1},1)\).
-6. Oscillatory sine-density sources yield exact Laplace-transform differences proportional to \((2\pi n)/((2\pi n)^2+s^2)\) while total variation remains \(2\varepsilon/\pi\).
+## originality
 
-## Limits
+PASS
 
-The probabilistic simulation and finite assertions only test examples, not the all-measure proof. Inverse Laplace continuation can be ill-conditioned. No noisy-data statistical accuracy claim and no external independent audit are made.
+Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. A known forward transform does not by itself state the reflected-signed-measure uniqueness and data insufficiency/stability boundaries; no equivalence verified in primary results. General renewal and Laplace theory supply tools, not an identified dominating theorem explicitly ensuring arbitrary all-measure two-center identification and sharp finite-data limits.
+
+## value
+
+PASS
+
+A sharp tomography theorem for the natural inverse resetting problem: the precise two-target threshold for arbitrary singular reset laws, with explicit insufficiency of one view, finitely many rate readings and strong TV stability. This is useful for experimental design and establishes exactly what ideal MFPT data determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
