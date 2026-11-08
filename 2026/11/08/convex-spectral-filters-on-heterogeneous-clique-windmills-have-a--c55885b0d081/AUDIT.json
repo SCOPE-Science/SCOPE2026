@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal Laplacian spectral projectors give apex entry (1-f(nh))/n, cross-clique Jensen residual (N+f(nh)-nf(h))/(Nn), and within-clique entry D+(f(h)-f((p_i+1)h))/p_i. Convexity makes D nonnegative and the latter secant correction at least (f(h)-f(nh))/N, so all non-apex entries are nonnegative when the apex entry is. Scalar spectral nonnegativity gives diagonal >=1/n. Conversely an apex edge is negative whenever f(nh)>1. Even Taylor symbols are positive and strictly convex by the explicit Taylor remainder and F_p=F_{p-2}; their beta_p root is unique. The included exact checker passed 3,556 matrices/182,728 entry identities, with finite checks not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb--Shu--Tadmor (2001), §2 and §3, SIAM Rev. 43:89--112, DOI 10.1137/S003614450036757X, pp. 89, 92--96",
+        "Horváth (2005), Applied Numer. Math. 53:341--356, DOI 10.1016/j.apnum.2004.08.026, full text pp.341--356",
+        "Horváth--Song--Terlaky, arXiv:1406.6755 (2014), journal DOI 10.3934/dcds.2015.35.2997; abstract and published references",
+        "Existing complete-multipartite even-Taylor positivity (earlier graph-specific record) assumes a different join-of-independent-sets graph; earlier bipartite RK4 coverage applies only when the base cliques are singletons."
+      ],
+      "reasoning": "General SSP bounds provide sufficient CFL steps and general Taylor-root algorithms can compute a threshold once a matrix is known, but neither inherently yields one universal necessary-and-sufficient scalar apex inequality for this graph family and for all convex nonnegative scalar filters. There is a genuine overlap at complete graphs and stars, and no claim of new results for these degenerate cases.",
+      "searches": [
+        "sharp positivity threshold classical Runge Kutta order four heat semigroup graph cone generalized windmill block graphs universal vertex disjoint cliques beta4 over graph order",
+        "RK4 stability polynomial entrywise positivity for cone over disjoint union of cliques any part sizes",
+        "RK4 Taylor heat positivity on complete multipartite graphs universal beta4 divided by number of vertices edge threshold",
+        "Steplength thresholds invariance preserving Taylor approximation Horvath Song Terlaky 2014",
+        "On the positivity step size threshold of Runge-Kutta methods 2005"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S003614450036757X",
+      "doi:10.1016/j.apnum.2004.08.026",
+      "arxiv:1406.6755",
+      "doi:10.1016/j.laa.2018.11.025",
+      "previous complete-multipartite Taylor graph result (item 01bb6b2f-127c-4ffd-8433-d1c77e3176ac)",
+      "previous bipartite RK4 graph result (item 9b715f55-a0bc-47b4-bcc5-0f8b20d36908)",
+      "previous strongly regular RK4 graph result (item ffa09f55-5e63-425c-a058-e4f31166bb3b)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gottlieb--Shu--Tadmor (2001), §2 and §3, SIAM Rev. 43:89--112, DOI 10.1137/S003614450036757X, pp. 89, 92--96",
+        "Horváth (2005), Applied Numer. Math. 53:341--356, DOI 10.1016/j.apnum.2004.08.026, full text pp.341--356",
+        "Kooij (2019), Linear Algebra Appl. 565:25--46, DOI 10.1016/j.laa.2018.11.025, abstract, introduction, Laplacian spectrum description, conclusion",
+        "Horváth--Song--Terlaky, arXiv:1406.6755 (2014), journal DOI 10.3934/dcds.2015.35.2997; abstract and published references",
+        "Earlier complete multipartite even-order Taylor statement produces beta_p/n for multipartite graphs, not the clique-blade family except when there are no nontrivial blade cliques."
+      ],
+      "reasoning": "Compared hypotheses and logical consequences, not just titles. A necessary-and-sufficient apex criterion for arbitrary convex scalar filters implies all even Taylor thresholds, whereas sufficient SSP bounds, general polynomial-zero procedures, and Laplacian spectral eigenvalues do not state the required entrywise projector inequalities. The general convex-filter statement is strictly broader in filter type, and covers windmills with triangles not reached by the older bipartite theorem.",
+      "searches": [
+        "sharp positivity threshold classical Runge Kutta order four heat semigroup graph cone generalized windmill block graphs universal vertex disjoint cliques beta4 over graph order",
+        "RK4 Taylor heat positivity on complete multipartite graphs universal beta4 divided by number of vertices edge threshold",
+        "exact RK4 positivity of windmill graphs, friendship graphs, cone graphs, clique block stars",
+        "On generalized windmill graphs Kooij 2019 Laplacian",
+        "Strong Stability-Preserving High-Order Time Discretization Methods Gottlieb Shu Tadmor 2001"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottlieb--Shu--Tadmor (2001), §2 and §3, SIAM Rev. 43:89--112, DOI 10.1137/S003614450036757X, pp. 89, 92--96",
+        "Horváth (2005), Applied Numer. Math. 53:341--356, DOI 10.1016/j.apnum.2004.08.026, full text pp.341--356",
+        "Kooij (2019), Linear Algebra Appl. 565:25--46, DOI 10.1016/j.laa.2018.11.025, abstract, introduction, Laplacian spectrum description, conclusion",
+        "The complement of K_1 joined to a disjoint clique union is an isolated apex plus a complete multipartite graph; the Laplacian complement identity transforms f(L) to f(nI-J-L_complement), not to the same filter on the multipartite graph."
+      ],
+      "reasoning": "Searched both graph-family names (windmill, friendship, generalized windmill, clique block star) and equivalent spectral-function formulations. The complement duality changes the argument of the scalar function and does not convert the earlier complete-multipartite even-Taylor theorem into this arbitrary-convex-filter classification. The exact projector proof survives unequal blade sizes.",
+      "searches": [
+        "Taylor degree four polynomial of graph Laplacian entrywise nonnegative threshold friendship generalized windmill with unequal clique sizes",
+        "exact RK4 positivity of windmill graphs, friendship graphs, cone graphs, clique block stars",
+        "RK4 positivity graph Laplacian hubs nonedge positivity central vertex eigenvalue n",
+        "matrix function entrywise nonnegative graph join of cliques convex spectral filter laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kooij (2019), Linear Algebra Appl. 565:25--46, DOI 10.1016/j.laa.2018.11.025, abstract, introduction, Laplacian spectrum description, conclusion",
+        "Exact per-graph spectral eigenvalues, where previously tabulated, do not specify off-diagonal signs of an arbitrary nonnegative convex spectral filter.",
+        "Published-result search returned unrelated windmill general-position and dissociation records rather than an exact convex-filter positivity table."
+      ],
+      "reasoning": "Checked accessible windmill spectral literature and semantically searched published mathematical result records for explicit tables or formulas. No exact matrix-function positivity table was identified; this is not a uniqueness proof. The new assertion is a uniform all-size, all-convex-filter criterion, not a table recomputation.",
+      "searches": [
+        "sharp positivity threshold classical Runge Kutta order four heat semigroup graph cone generalized windmill block graphs universal vertex disjoint cliques beta4 over graph order",
+        "Taylor degree four polynomial of graph Laplacian entrywise nonnegative threshold friendship generalized windmill with unequal clique sizes",
+        "RK4 stability polynomial entrywise positivity for cone over disjoint union of cliques any part sizes",
+        "generalized windmill graphs Laplacian spectrum exact polynomial matrix positivity table",
+        "On generalized windmill graphs Laplacian spectrum positivity RK4"
+      ]
+    },
+    "rationale": "Full inspected SSP (2001) and positivity-threshold (2005) treatments supply general time-discretization theory but not the explicit sharp scalar apex criterion for every nonnegative convex spectral filter on a heterogeneous clique windmill. The accessible 2014/2015 invariance treatment provides a general polynomial-root framework, not an inspected matching theorem. Kooij (2019) analyzes windmill spectra and graph metrics. Comparison with prior complete multipartite and bipartite graph Taylor results found genuinely different graph hypotheses; stars and complete graphs are acknowledged shared special cases. Priority beyond inspected texts remains unconfirmed.",
+    "residual_risks": [
+      "The complete 2014/2015 specialized polyhedral invariance manuscript could not be retrieved; its abstract is not evidence of whole-paper noncoverage.",
+      "The accessible publisher-indexed generalized-windmill text may omit details of spectral applications; no novelty conclusion is inferred solely from this.",
+      "Unindexed specialist graph-filter literature or an equivalent theorem in a more general matrix-function setting could establish prior coverage. Independent publication-priority review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SSP linear sufficient thresholds, no exhibited sharp heterogeneous clique-windmill convex-filter matrix criterion in inspected sections",
+        "evidence": [
+          "Gottlieb--Shu--Tadmor (2001), §2 and §3, SIAM Rev. 43:89--112, DOI 10.1137/S003614450036757X, pp. 89, 92--96"
+        ],
+        "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "material_read": "Title and dated first page; §2 convex/SSP stage formulas; §3 linear Runge--Kutta construction and displayed fourth-degree polynomial decomposition, including page 96",
+        "method": "Author-hosted full-text PDF with page-image and extracted-text inspection",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Direct 2001 source on the same completed Taylor/Runge--Kutta stability polynomials"
+      },
+      {
+        "assessment": "Strict threshold theory for classes of positive IVPs, not a graph-specific exact scalar apex law for convex f(L)",
+        "evidence": [
+          "Horváth (2005), Applied Numer. Math. 53:341--356, DOI 10.1016/j.apnum.2004.08.026, full text pp.341--356"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete sixteen-page text, pp.341--356, including general positivity classes, strict RK thresholds and invariant-set conclusions",
+        "method": "Authorized full-text extraction of pages 1--16",
+        "title": "On the positivity step size threshold of Runge--Kutta methods",
+        "trigger": "Closest specialized full-text treatment of strict positivity thresholds"
+      },
+      {
+        "assessment": "General finite-polynomial-root threshold framework in available material; full-paper implication comparison unresolved, recorded as risk",
+        "evidence": [
+          "Horváth--Song--Terlaky, arXiv:1406.6755 (2014), journal DOI 10.3934/dcds.2015.35.2997; abstract and published references"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/dcds.2015.35.2997",
+        "material_read": "Published abstract, bibliographic data and references; the full manuscript was not retrieved",
+        "method": "Published journal HTML and metadata; unsuccessful lawful full-text retrieval",
+        "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+        "trigger": "General Taylor-polynomial threshold computation potentially subsuming the specific graph result"
+      },
+      {
+        "assessment": "Discusses graph spectra and clustering/robustness metrics; no visible convex-filter positivity threshold, but unread material remains a bounded comparison risk",
+        "evidence": [
+          "Kooij (2019), Linear Algebra Appl. 565:25--46, DOI 10.1016/j.laa.2018.11.025, abstract, introduction, Laplacian spectrum description, conclusion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.11.025",
+        "material_read": "Publisher-indexed abstract, introduction, spectral theorem descriptions, applications and concluding discussion; complete full-text access uncertain",
+        "method": "Published indexed article HTML and scientific text excerpts",
+        "title": "On generalized windmill graphs",
+        "trigger": "Exact same graph family and relevant Laplacian eigenspaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c55885b0-d081-4b19-bd48-a6779f895e85",
+  "value": {
+    "rationale": "A structurally motivated exact classification on heterogeneous unions of clique blades yields a one-scalar necessary and sufficient positivity test for an entire cone of nonnegative convex spectral functions, beyond one RK4 graph or a special-case tabulation. It unifies and generalizes the sharp even-order Taylor step across nonbipartite, unequal-blade windmills and identifies permanent apex-driven positivity loss. Exact elementwise preservation is important for nonnegative network diffusion and Markov heat approximations; the stated graph and convexity hypotheses are essential boundaries.",
+    "status": "PASS"
+  }
+}
