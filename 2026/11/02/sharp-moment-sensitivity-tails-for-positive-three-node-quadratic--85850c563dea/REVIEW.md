@@ -1,11 +1,21 @@
-# Review of the quadratic positive-rule sensitivity tail
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The explicit Lagrange moment weights establish the positivity wedge. In that wedge the outer-node gap is bounded below, leaving exactly two possible singular collision strata, each with transverse width linear in the collision gap. The inverse Vandermonde row expansion gives the coefficient \(C(s)^2\), and the ordered density \(3/4\), reflection symmetry and dominated convergence produce \(1-\pi\sqrt3/36\). The tail-integral identity proves the moment threshold. The exact-rational checker and independently integrated constant corroborate the algebra; simulated sampling alone is not used as a proof.
+## correctness
 
-**Originality (O): PASS within the stated access limits.** The 2026 random Richter–Tchakaloff paper controls existence, oversampling and weight size, rather than the law of the inverse moment matrix in the minimally supported three-node case. The 2021 positive-interpolatory node-addition work gives Vandermonde positivity geometry, not a random conditioned tail. The 2020 near-collision Vandermonde paper gives deterministic spectral-conditioning behavior on the unit circle, not the positivity-conditioned quadratic collision-tube measure or exact integral coefficient. A pre-existing affine-exact minimum-norm sampling result has a heavy-tail theme but a different linear exactness space and statistic. Searches for conditional inverse-Vandermonde tails, positivity, quadratic exactness, and collision aliases did not reveal an implication covering the theorem; searches do not prove absolute historical novelty. Some literature is not comprehensively inspected, so older equivalent special cases remain a residual risk.
+PASS
 
-**Value (V): PASS.** Positive quadrature weights make the integration functional safe for bounded function samples, but they need not make recovery of those weights stable when target moments are perturbed. The exact coefficient and sharp second-moment divergence quantify this distinction in the smallest three-moment example. The positivity constraint gives a nontrivial, codimension-two collision tube, yielding a precise quadratic tail rather than a mere observation that Vandermonde matrices become singular as nodes collide. This is a model-specific benchmark, not a guarantee for oversampled or differently normalized systems.
+Lagrange interpolation formulas yield w_a=(bc+1/3)/[(a-b)(a-c)] etc, and for ordered a<b<c positivity is equivalent to a=-s in (-1,-1/3), c>1/(3s), and -1/(3c)<b<1/(3s). Integrating ordered-node density 3/4 gives P(E)=log 3/2-1/3. Positivity imposes outer gap c-a>=2/sqrt(3); only two reflected adjacent collision faces can make ||V^{-1}||_F diverge. At left face b=a+h and c in a strip of width h/(3s²)+O(h²), h²||V^{-1}||_F² -> C(s)²=2(9s^4+4s²+1)/(3s²+1)². The two disjoint collision tubes and dominated convergence yield K=(1/4)int_{1/3}^1 C(s)²/s² ds=1-pi*sqrt(3)/36. Uniform outer-gap domination justifies exhaustion, and layer cake gives moment iff p<2. Independent exact positivity/inverse checks, near-collision calculations for three values of s, and symbolic integral re-evaluation corroborated the proof.
 
-**Verification and limits.** The proof assumes three iid uniform nodes, quadratic exactness, the fixed monomial basis, and moment-input errors. Exact-rational tests and asymptotic quadrature reproduce critical identities. Independent priority searches and a complete specialist-literature census remain unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior random positive quadrature theory proves existence of oversampled positive rules; Vandermonde conditioning treats deterministic near collisions; neither inspected statement gives this exact conditional probability and inverse Frobenius tail. The positivity-imposed *linear collision-strip width* couples sampling geometry to norm blowup and is not implied merely by inverse-gap behavior. Older niche quadrature tail literature or a general conditioned interpolation result may contain an equivalent formulation.
+
+## value
+
+PASS
+
+Identifies a counterintuitive sharp distinction: positive quadrature weights stabilize the functional on bounded values but do not suppress infinite second moment of weights under independent moment perturbations. The exact conditional tail coefficient and sharp moment cutoff are natural operator-sensitivity invariants for the minimal positive interpolatory rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:44.450811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lagrange interpolation formulas yield w_a=(bc+1/3)/[(a-b)(a-c)] etc, and for ordered a<b<c positivity is equivalent to a=-s in (-1,-1/3), c>1/(3s), and -1/(3c)<b<1/(3s). Integrating ordered-node density 3/4 gives P(E)=log 3/2-1/3. Positivity imposes outer gap c-a>=2/sqrt(3); only two reflected adjacent collision faces can make ||V^{-1}||_F diverge. At left face b=a+h and c in a strip of width h/(3s²)+O(h²), h²||V^{-1}||_F² -> C(s)²=2(9s^4+4s²+1)/(3s²+1)². The two disjoint collision tubes and dominated convergence yield K=(1/4)int_{1/3}^1 C(s)²/s² ds=1-pi*sqrt(3)/36. Uniform outer-gap domination justifies exhaustion, and layer cake gives moment iff p<2. Independent exact positivity/inverse checks, near-collision calculations for three values of s, and symbolic integral re-evaluation corroborated the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oversampled Richter–Tchakaloff constructions deliberately adapt weights and use many nodes; they do not determine distribution of the unique three-node inverse.",
+          "Deterministic near-collision Vandermonde bounds give 1/gap blowup without probability of positivity tube."
+        ],
+        "reasoning": "The familiar inverse-gap singularity is a structural premise, not a dominating theorem for the T^-2 conditional coefficient; positivity-induced tube geometry supplies the additional element.",
+        "searches": [
+          "Neumayer Schafer Ullrich arxiv:2610.32699 positive random nodes",
+          "van den Bos Sanderse 2021 geometric positive quadrature node addition",
+          "Kunis Nagel 2020 near-colliding Vandermonde condition number"
+        ]
+      },
+      "checked_sources": [
+        "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree c28d818921d1206af59802b93601380d23925bce; full RESULT.md blob 74495cd2937429db7bd901ab4eb968c558394372 and inspected verify_positive_tail.py blob 2766737d342ba257677ebb8285a40bf9e5267f10",
+        "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+        "Actual Resultary semantic search for this claim and related published mathematical records",
+        "https://arxiv.org/abs/2610.32699",
+        "https://doi.org/10.1016/j.cam.2021.113430",
+        "https://doi.org/10.1007/s11075-020-00974-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive-weight existence and boundedness of quadrature output for fixed sampled functions do not bound inverse matrix under independent moment errors.",
+          "Inverse gap asymptotic does not fix the measure of nodes allowed by positive moment constraints."
+        ],
+        "reasoning": "The tube-width calculation and exact integral are necessary to obtain K and conditional p<2 cutoff; neither follows as a simple corollary of the inspected qualitative prior inequalities.",
+        "searches": [
+          "Neumayer Schafer Ullrich 2026 positive random quadrature",
+          "van den Bos Sanderse 2021 positive interpolatory quadrature",
+          "Kunis Nagel condition number nearly colliding Vandermonde"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse Frobenius norm equals the sum of squared Lagrange coefficient-vector lengths and is a moment-vector sensitivity operator norm.",
+          "The event E is a strict positive-degree-two moment-matching condition, not merely node separation."
+        ],
+        "reasoning": "Equivalent polynomial coefficient sensitivity was considered; inspected sources treat other norms, deterministic conditioning or oversampling, not the precise conditioned law.",
+        "searches": [
+          "Resultary positive weights three point quadrature inverse Vandermonde Frobenius norm tail conditional positivity",
+          "positive Gaussian quadrature random three nodes moment sensitivity tail",
+          "Vandermonde interpolation Lagrange coefficient norm near colliding nodes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest Vandermonde entry concerns Pearson skewness–kurtosis of three-point laws, not positive quadrature sensitivity.",
+          "No actually inspected numerical table gave K=1-pi*sqrt(3)/36."
+        ],
+        "reasoning": "This is a continuous random-matrix tail asymptotic rather than finite census; nonappearance in listings is not a proof of novelty.",
+        "searches": [
+          "Resultary conditional positive three-node random Vandermonde inverse tail exact constant",
+          "three-point uniform random positive quadrature probability log3/2-1/3 table",
+          "near collision conditional inverse Vandermonde Frobenius tail table"
+        ]
+      },
+      "rationale": "Prior random positive quadrature theory proves existence of oversampled positive rules; Vandermonde conditioning treats deterministic near collisions; neither inspected statement gives this exact conditional probability and inverse Frobenius tail. The positivity-imposed *linear collision-strip width* couples sampling geometry to norm blowup and is not implied merely by inverse-gap behavior. Older niche quadrature tail literature or a general conditioned interpolation result may contain an equivalent formulation.",
+      "residual_risks": [
+        "An unlocated specialized three-node positive interpolatory quadrature statistic could already tabulate P(E), K or the same moment cutoff.",
+        "The exact K is basis/normalization dependent and must not be described as invariant under arbitrary moment-coordinate changes.",
+        "Does not measure sensitivity to errors in sampled integrand values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different oversampled setting; no verified same conditioned inverse tail",
+          "evidence": "Prior theorem guarantees stable positive rules from many random nodes.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+          "material_read": "Indexed primary abstract and accessible statement of oversampling framework; full paper not obtained",
+          "method": "Compared node count and adapted weight construction against unique three-node interpolatory weights",
+          "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+          "trigger": "Same positive quadrature motivation"
+        },
+        {
+          "assessment": "Positivity method predecessor but not inspected exact random inverse sensitivity tail",
+          "evidence": "2021 work analyses preserving positivity under node addition/removal.",
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2021.113430",
+          "material_read": "Accessible OA abstract/paper landing summary; complete source not obtained",
+          "method": "Compared Vandermonde constraints and node addition geometry",
+          "title": "A geometrical interpretation of the addition of nodes to an interpolatory quadrature rule while preserving positive weights",
+          "trigger": "Same positivity of interpolatory quadrature weights"
+        },
+        {
+          "assessment": "Does not directly imply conditioned probability/tail coefficient in current setting",
+          "evidence": "Deterministic near-collision conditioning differs from uniform random nodes restricted by positive quadrature weights.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-020-00974-x",
+          "material_read": "Publisher abstract and published theorem synopsis, not full text",
+          "method": "Compared complex exponential Vandermonde and deterministic separation to real monomial inverse random positivity",
+          "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+          "trigger": "Potential inverse gap dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a counterintuitive sharp distinction: positive quadrature weights stabilize the functional on bounded values but do not suppress infinite second moment of weights under independent moment perturbations. The exact conditional tail coefficient and sharp moment cutoff are natural operator-sensitivity invariants for the minimal positive interpolatory rule.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree c28d818921d1206af59802b93601380d23925bce; full RESULT.md blob 74495cd2937429db7bd901ab4eb968c558394372 and inspected verify_positive_tail.py blob 2766737d342ba257677ebb8285a40bf9e5267f10",
+    "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+    "Actual Resultary semantic search for this claim and related published mathematical records",
+    "https://arxiv.org/abs/2610.32699",
+    "https://doi.org/10.1016/j.cam.2021.113430",
+    "https://doi.org/10.1007/s11075-020-00974-x"
+  ],
+  "disposition": "passed",
+  "final_claim": "For three iid uniform [-1,1] nodes, conditioned on strictly positive weights of the unique degree-two interpolatory quadrature rule with moments (1,0,1/3), P(E)=log(3)/2-1/3 and P(E,||V^{-1}||_F>T)~(1-pi*sqrt(3)/36)/T². Consequently conditioned tail has exact coefficient K/P(E), and finite positive moments exactly for p<2.",
+  "limitations": [
+    "Proof and cited full result confined to its stated hypotheses; independent finite tests do not establish any unrestricted result.",
+    "An unlocated specialized three-node positive interpolatory quadrature statistic could already tabulate P(E), K or the same moment cutoff.",
+    "The exact K is basis/normalization dependent and must not be described as invariant under arbitrary moment-coordinate changes.",
+    "Does not measure sensitivity to errors in sampled integrand values."
+  ],
+  "residual_risks": [
+    "An unlocated specialized three-node positive interpolatory quadrature statistic could already tabulate P(E), K or the same moment cutoff.",
+    "The exact K is basis/normalization dependent and must not be described as invariant under arbitrary moment-coordinate changes.",
+    "Does not measure sensitivity to errors in sampled integrand values."
+  ],
+  "schema_version": 1
+}
