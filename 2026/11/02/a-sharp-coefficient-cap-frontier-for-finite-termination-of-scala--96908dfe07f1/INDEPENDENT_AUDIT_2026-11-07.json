@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<q<1 and exact cap Lambda>1, with a=(Lambda-1)/2, constrained two-residual minimization is projection onto t in [-a,1+a]. While errors positive and decreasing, failure to cancel selects t=-a, yielding v0=1,v1=q,v(n+1)=q((1+a)v(n)-a v(n-1)); the first nonpositive hypothetical v is exactly the first zero actual iterate. Characteristic discriminant vanishes at a_-=(1-s)/(1+s), a_+=(1+s)/(1-s), s=sqrt(1-q). At/below a_- both positive modes preserve positivity, double-root boundary v_n=(1+ns)(1-s)^n>0; above, complex-root oscillation, unstable repeated-root coefficient, or negative dominant coefficient force a first nonpositive v. Thus terminate iff a>a_-, equivalently Lambda>(3-s)/(1+s). At a=1, v_n=q^(n/2)cos(n arccos sqrt q) and first zero index ceil(pi/(2 arccos sqrt q)); threshold tends to Lambda=3 as q->1, establishing sharp universal cap. No finite data substitutes for all-n root/phase proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The constrained vector-extrapolation study uses one-shot linear combinations of a precomputed plain-iteration sequence; windowed AA starts from previously accelerated iterates."
+        ],
+        "reasoning": "Off-line polynomial extrapolation bounds and symmetric-matrix AA convergence-rate results do not entail the nonlinear constrained-sliding-step stopping index.",
+        "searches": [
+          "Barre–Taylor–d’Aspremont arXiv:2010.15482",
+          "Garner–Lerman–Zhang arXiv:2311.02490"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.30073v1",
+        "https://arxiv.org/abs/2010.15482",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-depth-one-anderson-acceleration-can-break-a-positive-diagonal-co--5b097239b6a3",
+        "Resultary: scalar depth one Anderson acceleration coefficient l1 cap finite termination sharp threshold exact fixed point affine contraction",
+        "Lerman–Zhang arXiv:2610.30073v1 §2 §7 S6",
+        "Barre–Taylor–d’Aspremont arXiv:2010.15482",
+        "Garner–Lerman–Zhang arXiv:2311.02490",
+        "Resultary scalar capped Anderson finite termination threshold query",
+        "Resultary depth-one positive diagonal contraction case",
+        "Lerman–Zhang arXiv:2610.30073v1 Section S6",
+        "Resultary depth-one Anderson positive diagonal contraction record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier source treats every cap >1 via polynomial certificates for better asymptotic rates; previous scalar uncapped AA cancels immediately."
+        ],
+        "reasoning": "Neither entails the finite termination iff Lambda>Lambda_*(q), equality nontermination, or universal cap three for sliding AA(1); a finite-step theorem cannot be inferred from asymptotic factor alone.",
+        "searches": [
+          "Lerman–Zhang arXiv:2610.30073v1 Section S6",
+          "Resultary depth-one Anderson positive diagonal contraction record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source caps coefficient l1-norm in an online sliding residual window; S6 gives sufficient accelerated convergence rates, not exact finite termination."
+        ],
+        "reasoning": "Same algorithm, different conclusions: a rate strictly below q can hold in nonterminating cases, so rate improvement does not imply the first-zero criterion.",
+        "searches": [
+          "Resultary: scalar depth one Anderson acceleration coefficient l1 cap finite termination sharp threshold exact fixed point affine contraction",
+          "Lerman–Zhang arXiv:2610.30073v1 §2 §7 S6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic retrieval located a published 2D positivity counterexample with uncapped 1D exact cancellation but no scalar cap vs q table."
+        ],
+        "reasoning": "No exact threshold table identified; a sampled-search absence is not proof of novelty.",
+        "searches": [
+          "Resultary scalar capped Anderson finite termination threshold query",
+          "Resultary depth-one positive diagonal contraction case"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: published capped windowed Anderson results prove convergence/rate estimates, not this exact one-dimensional finite-termination frontier or stopping index. Uncapped scalar termination is known, so novelty is specifically the sharp cap-dependent classification.",
+      "residual_risks": [
+        "Older equivalent safeguarded scalar extrapolation under different terminology cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework/sufficient acceleration rate is prior, strict scalar finite termination threshold not stated in inspected sections",
+          "evidence": "Supplementary S6 constrained coefficient set and Section 7 asymptotic rate.",
+          "identifier_or_url": "https://arxiv.org/html/2610.30073v1",
+          "material_read": "Primary HTML Sections 2, 7 and supplementary S6, including l1 coefficient cap and rate statements",
+          "method": "Full-text HTML relevant sections read",
+          "title": "When Windowed Anderson Acceleration Converges Faster (Lerman and Zhang)",
+          "trigger": "Exactly same capped online AA family"
+        },
+        {
+          "assessment": "One-shot extrapolation, not same accelerated-input recurrence; whole-paper negative-coverage not claimed",
+          "evidence": "Algorithm acts on precomputed unaccelerated iterates.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.15482",
+          "material_read": "Abstract, method characterization and source-referenced definition; full paper not inspected in this run",
+          "method": "Public abstract and secondary primary-citation comparison",
+          "title": "Convergence of a Constrained Vector Extrapolation Scheme (Barré, Taylor, d’Aspremont)",
+          "trigger": "Potential broader polynomial constrained solver result"
+        },
+        {
+          "assessment": "Gives uncapped scalar exact cancellation and a 2D counterexample, not cap threshold",
+          "evidence": "Summary notes scalar uncapped first accelerated step terminates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-depth-one-anderson-acceleration-can-break-a-positive-diagonal-co--5b097239b6a3",
+          "material_read": "Resultary entry title and complete ranked summary",
+          "method": "Semantic database retrieval",
+          "title": "Depth-one Anderson acceleration can break a positive diagonal contraction in two dimensions",
+          "trigger": "Nearby published result from research database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-versus-asymptotic dichotomy for a standard safeguarded online AA(1) algorithm and the smallest uniformly terminating cap distinguish a mathematically important dynamical property not determined by general asymptotic acceleration-rate theorems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict 0<q<1, Lambda>1, exact arithmetic, depth-one sliding two-residual, no damping; nonlinear, negative scalar, multidimensional maps excluded.",
+    "Older equivalent safeguarded scalar extrapolation under different terminology cannot be ruled out.",
+    "Unchanged confidential public metadata/audit field prevents automatic publication; this is a transport/privacy blocker, not a scientific C/O/V failure.",
+    "This scientific review is neither expert attestation nor Lean verification and makes no invented certification claim."
+  ],
+  "schema_version": 1
+}

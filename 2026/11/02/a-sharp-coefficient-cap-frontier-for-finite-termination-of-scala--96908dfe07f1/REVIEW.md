@@ -1,15 +1,21 @@
-# Review of the capped scalar Anderson finite-termination theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For positive scalar contractions the residual is \((q-1)\) times the fixed-point error. The two-coefficient \(\ell^1\) constraint is exactly an interval, giving a dichotomy: either the left endpoint is the least-squares minimizer, which yields a fixed second-order recurrence, or the interval already contains the exact residual-zero combination. The discriminant has precisely the two parameters \((1\mp\sqrt{1-q})/(1\pm\sqrt{1-q})\). Direct characteristic-root classification proves positivity of every hypothetical recurrence term at and below the lower parameter and a negative term beyond it. The cap-three case has an exact cosine solution. No finite experiment is used as an infinite positivity proof. The included standalone exact-rational verifier passed 2,580 supplementary checks, including affine translations and the repeated-root boundary.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority risk.** The original 2026 windowed-AA article specifies the \(\ell^1\)-capped algorithm and proves improved asymptotic rates for caps greater than one (https://arxiv.org/html/2610.30073v1, Sections 2, 7, S6). It does not state the scalar finite/nonfinite threshold, universal cap three, or first termination index. A previous published analysis of depth-one uncapped AA demonstrates exact scalar termination at the first accelerated step, whereas the cap may exclude its coefficients (https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-depth-one-anderson-acceleration-can-break-a-positive-diagonal-co--5b097239b6a3). Barré, Taylor, and d'Aspremont's constrained Chebyshev method solves a one-shot extrapolation using precomputed Picard iterates, not a sliding window of already accelerated iterates (https://arxiv.org/pdf/2010.15482, especially pp. 2–3). Classical convergence theorems do not determine exact finite stopping. An equivalent older scalar safeguarded mixing analysis under different vocabulary remains a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** A cap used to control the numerical instability of Anderson mixing has a sharp qualitative effect even for a single stable scalar mode: rates improve for every cap exceeding one, but exact termination occurs only above a computable threshold. The smallest uniform finite-termination cap is three; at that cap the exact number of steps has a square-root singularity \(N(q)\sim\pi/(2\sqrt{1-q})\), not the inverse-gap scale of ordinary fixed-point iteration. This is a natural, complete, non-obvious stability/acceleration benchmark for a minimal window. It makes no claim about nonlinear or multidimensional behavior.
+For 0<q<1 and exact cap Lambda>1, with a=(Lambda-1)/2, constrained two-residual minimization is projection onto t in [-a,1+a]. While errors positive and decreasing, failure to cancel selects t=-a, yielding v0=1,v1=q,v(n+1)=q((1+a)v(n)-a v(n-1)); the first nonpositive hypothetical v is exactly the first zero actual iterate. Characteristic discriminant vanishes at a_-=(1-s)/(1+s), a_+=(1+s)/(1-s), s=sqrt(1-q). At/below a_- both positive modes preserve positivity, double-root boundary v_n=(1+ns)(1-s)^n>0; above, complex-root oscillation, unstable repeated-root coefficient, or negative dominant coefficient force a first nonpositive v. Thus terminate iff a>a_-, equivalently Lambda>(3-s)/(1+s). At a=1, v_n=q^(n/2)cos(n arccos sqrt q) and first zero index ceil(pi/(2 arccos sqrt q)); threshold tends to Lambda=3 as q->1, establishing sharp universal cap. No finite data substitutes for all-n root/phase proof.
 
-## Sources and remaining limitations
-The source paper was inspected in its complete HTML manuscript, including the capped-coefficient arguments; the closest published comparison was read in full; and the earlier constrained-extrapolation preprint was inspected in full-text PDF, including its precise algorithm. The Toth–Kelley article was inspected at the abstract level. The result assumes exact residual minimization, exact arithmetic, constant cap, positive scalar multiplier, and depth one; numerical robustness under roundoff and other variants is unproved. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: published capped windowed Anderson results prove convergence/rate estimates, not this exact one-dimensional finite-termination frontier or stopping index. Uncapped scalar termination is known, so novelty is specifically the sharp cap-dependent classification.
+
+## value
+
+PASS
+
+The exact finite-versus-asymptotic dichotomy for a standard safeguarded online AA(1) algorithm and the smallest uniformly terminating cap distinguish a mathematically important dynamical property not determined by general asymptotic acceleration-rate theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
