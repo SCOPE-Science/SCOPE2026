@@ -1,19 +1,21 @@
-# Scientific review: a divisibility boundary for bipartite fractional hedonic games
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim uses coalition-size normalization, strict unilateral entry, and the strict-core notion with a weakly improving group and at least one strict improver. Reconstructing all four directed one-player deviations gives exactly the determinant bounds, with no missed singleton case because stable coalitions are mixed. Cauchy–Schwarz proves the welfare optimum and equality case, and integer residuals \(\delta_i=y_i-qx_i\) establish rigidity in divisible populations. In nondivisible populations the \((1,q)\)/\((1,q+1)\) construction passes every determinant inequality, produces the stated strictly positive exact deficit, and has an explicit weak blocking coalition. The divisible exact count follows by labeled exponential enumeration. `verification/checker.py` performs direct independent exact-arithmetic checks on every labeled partition for 25 size pairs totaling 684404 partitions; finite checks support rather than prove the infinite theorem.
+PASS
 
-## Originality — PASS, with priority risk
+Exact utility calculations for all four directed A/B deviations give -min(x_i,y_j)<=x_i*y_j-y_i*x_j<=min(y_i,x_j) for all mixed blocks; all unmixed blocks have a zero-utility agent who can improve, and singleton moves cannot improve from mixed blocks. Cauchy-Schwarz gives W<=2ab/(a+b) with equality exactly at common type ratio a:b. If b=qa, residual integers y_i-q*x_i sum to zero and opposite-sign residuals violate the Nash determinant bound, forcing all block ratios (s,qs); those blocks are strict-core stable. If b=qa+r, 0<r<a, the (1,q)/(1,q+1) witness meets the determinant bounds, has exact positive gap 2r(a-r)/((q+1)(q+2)((q+1)a+r)), and a direct weak strict-core blocking coalition. The labeled exponential formula a!(qa)![z^a] exp(sum z^s/(s!(qs)!)) follows from unlabeled SET blocks. Actual code verification/checker.py independently computes utilities for all labeled partitions through ten agents (not an all-size proof).
 
-The primary source arXiv:2311.11101 investigates approximate coalitional core stability, not the complete bipartite unilateral Nash spectrum. The closest same-graph literature is Aziz et al., arXiv:1705.10116, Theorem 5.3: it establishes type-proportional strict-core partitions and thus does **not** establish that all Nash equilibria are type-proportional exactly under divisibility, nor the exact labeled Nash enumeration. Bilò et al. (JAIR 2018), Lemma 12, already establishes the welfare-merging inequality but not the Nash determinant conditions or arithmetic coincidence classification. Krogmann et al., arXiv:2501.05334, imposes restricted placement rules and measures a different social objective. Checks across accessible previously recorded claims found related strict-core blocker-count calculations for the same \(K_{a,b}\) family, but no implication to the unilateral Nash theorem. Specialist literature beyond inspected material may contain an equivalent result; absence from searches is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-population complete bipartite game is a canonical tractable testbed for contrasting unilateral equilibrium, group stability, and optimal utility. A sharp integer-divisibility boundary gives an all-size structural classification, not an isolated example. The determinant description makes checking any proposed Nash partition immediate, and the exact divisible-case enumeration quantifies equilibrium multiplicity. The nondivisible construction produces genuinely inefficient yet individually stable outcomes, with a quantified gap and an explicit strict-core obstruction. These facts address a natural stability-versus-efficiency question that does not follow merely from existence of an optimal equilibrium.
+PASS best-of-knowledge for sharp unilateral Nash arithmetic boundary and labeled count, excluding previously established strict-core characterization and welfare ratio inequality. Primary Nash and core literature establishes overlapping background but not the exact all-Nash divisibility iff statement in inspected material.
 
-## Sources and limitations
+## value
 
-Material inspected: arXiv:2311.11101 (introduction, definitions, simple-fractional discussion); arXiv:1705.10116 (Section 5.3, strict-core characterization, related bipartite discussion); JAIR 62 (2018), pp. 323 and 338–340 (model and welfare lemma); arXiv:2501.05334 (model and restricted-placement setting). The 2014 AAMAS predecessor's initial pages were checked as supporting provenance. This review does not certify exhaustive global priority. The result does not classify nondivisible Nash counts or exact nondivisible price of anarchy.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A necessary and sufficient all-parameter arithmetic classification of when individual equilibrium, social optimum and strict core coincide; explicit family of nonoptimal Nash witnesses and exact equilibrium counts distinguish genuine equilibrium inefficiency from price-of-stability one. This is a natural complete classification, not merely a small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-The exact necessary-and-sufficient determinant inequality is proved by expanding all directed type-\(A\) and type-\(B\) unilateral utility comparisons. A separate Cauchy–Schwarz identity fixes both the optimum and its equality case; integral residuals give the divisibility direction. In the other direction, coalitions of the two sizes \((1,q)\) and \((1,q+1)\) prove inefficient Nash stability, and a directly constructed weakly blocking coalition proves failure of strict-core stability. The labeled count uses an exponential generating series.
+## correctness
 
-Run `python verification/checker.py` from the package root with Python 3 and no third-party dependencies. The checker calculates all individual unilateral utility comparisons by cross multiplication independently of the theorem's determinant test. It enumerates every partition of the labeled population for \(25\) pairs with \(a+b\le10\), totaling \(684404\) tested partitions and \(5155\) Nash-stable incidences. It checks the determinant condition, divisible-case type proportions and rational social optimum, enumerative formula, explicit nondivisible equilibria and exact welfare deficits. Its terminal line is:
+PASS
 
-```
-PASS: 25 parameter pairs, 684404 labeled partitions, 5155 Nash-stable incidences, direct deviations = determinant and divisibility/generating-function/witness checks all passed
-```
+Exact utility calculations for all four directed A/B deviations give -min(x_i,y_j)<=x_i*y_j-y_i*x_j<=min(y_i,x_j) for all mixed blocks; all unmixed blocks have a zero-utility agent who can improve, and singleton moves cannot improve from mixed blocks. Cauchy-Schwarz gives W<=2ab/(a+b) with equality exactly at common type ratio a:b. If b=qa, residual integers y_i-q*x_i sum to zero and opposite-sign residuals violate the Nash determinant bound, forcing all block ratios (s,qs); those blocks are strict-core stable. If b=qa+r, 0<r<a, the (1,q)/(1,q+1) witness meets the determinant bounds, has exact positive gap 2r(a-r)/((q+1)(q+2)((q+1)a+r)), and a direct weak strict-core blocking coalition. The labeled exponential formula a!(qa)![z^a] exp(sum z^s/(s!(qs)!)) follows from unlabeled SET blocks. Actual code verification/checker.py independently computes utilities for all labeled partitions through ten agents (not an all-size proof).
 
-The finite computation is not used as a proof of the universal statements. Publication priority remains subject to additional independent literature review. Independent audit has not been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for sharp unilateral Nash arithmetic boundary and labeled count, excluding previously established strict-core characterization and welfare ratio inequality. Primary Nash and core literature establishes overlapping background but not the exact all-Nash divisibility iff statement in inspected material.
+
+## value
+
+PASS
+
+A necessary and sufficient all-parameter arithmetic classification of when individual equilibrium, social optimum and strict core coincide; explicit family of nonoptimal Nash witnesses and exact equilibrium counts distinguish genuine equilibrium inefficiency from price-of-stability one. This is a natural complete classification, not merely a small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
