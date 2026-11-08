@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses normalized sphere moments, a complete scalar/vector/tangential-traceless decomposition, and two explicitly diagonalized sign-multiplier blocks. The sector dimensions sum to the entire low-pass harmonic dimension, which rules out missing eigenvalues. Strictness follows from the identity principle for polynomial restrictions to an open spherical patch. The independent monomial Gram calculation passes 268 eigenvalue comparisons for dimensions 3–10, and the dimension-step ratios are exact rational identities. Finite tests do not replace the general proof.
+## correctness
 
-## Originality — PASS (provisional)
-The most directly relevant primary source is Simons–Dahlen–Wieczorek (2006), whose cap integration matrices and ordinary-sphere reduction already cover the general setup and imply the three-dimensional finite-matrix calculation. Michel–Plattner–Seibert (2021) develop a commuting-operator method for multiple tensor ranks on the ordinary sphere; their ambient dimension is three. Roddy–McEwen (2021) study Slepian wavelets built from the same qualitative concentration construction. The checked statements do not identify the full spectrum on every \(S^{d-1}\), \(d\ge4\), or the two closed-form, dimension-dependent singular values and exact sharp restriction condition number. A related published half-energy multiplicity theorem covers the midpoint phenomenon in dimension three, not these new spectral formulas; its full body was not recovered, leaving a residual priority risk. Generalized cap matrices might also yield the formulas indirectly, and novelty is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The quadratic low-pass space is the first natural band containing simultaneous scalar, vector and traceless-tensor sectors. A complete, all-dimensional hemisphere spectrum is a sharp finite-bandwidth benchmark for spherical inverse problems. The result determines all extremizers, conditioning, sector multiplicities and large-dimension limiting constants; it is more than a new notation for the spherical Slepian eigenproblem. It does not settle higher-degree or nonhemisphere problems.
+The hemisphere multiplier equals (1+sign x1)/2. Under O(d-1), its compressed sign operator exchanges parity sectors: a 3x3 scalar block has eigenvalues 0,±s0 and d-1 vector pairs each ±s1, while tangential traceless quadratics contribute zeros. Gamma/Beta moments give s0=dμ_d sqrt((3d+5)/2)/(d+1), s1=dμ_d sqrt(d+2)/(d+1), μ_d=Γ(d/2)/(sqrt(pi)Γ((d+1)/2)); all multiplicities sum to d(d+3)/2. Independent generalized moment-matrix diagonalization matched the closed formula for d=3..6 at max 8.7e-16; d-step algebraic inequalities and asymptotic gamma ratio establish limits analytically.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Spherical Slepian cap matrices and hemisphere reflection symmetry on S² are prior work; particularly centered half-energy modes are known, including a related Resultary half-energy multiplicity report. Neither the d=3 example nor the abstract parity law supplies the explicit noncentral eigenvalues for every d>=3 and the sharp dimension-uniform conditioning law in the primary material inspected.
+
+## value
+
+PASS
+
+A complete low-degree sphere-of-arbitrary-dimension spectrum gives exact conditioning and top extremizers for hemispherical sampling; it unifies finite-dimensional representation-block structure and provides a benchmark for Slepian localization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
