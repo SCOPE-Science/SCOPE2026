@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:07:33.186392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Spectral decomposition of the star Laplacian into constants, radial line eigenvalue m+1, and leaf fluctuations eigenvalue 1 gives the exact matrix T_{s,m}(c,x)=x-E_mx+a(E_mx-c), a=(m+1)^(-s). Direct column sums, row sums and singular values yield the advertised 1, infinity, and 2 endpoint norms and the exact hub/leaf crossover a=2/(m+2). Independent eigendecomposition and matrix norm tests at m=2,3,7,16 and s=.2,.5,1,1.7 agree. For fixed 1<=p<infty, decomposition into bounded I-E_m plus hub mass of norm m^{1/p}a proves s<1/p and s>1/p regimes; step-function embedding proves critical D_p. For non-Hilbert p, a two-valued extremizer of the known sharp centering norm C_p has nonzero derivative in scalar c while the input denominator changes by o(|c|), giving strict D_p>C_p. P=1,2 endpoints handled separately. This is an analytic proof, not an inference from finite numerical checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Infinite-tree Riesz transform theorems use flow Laplacians/weighted measures and no diverging finite-star hub degree m.",
+          "Centered moment operator norm is known for all p and explicitly excluded from originality."
+        ],
+        "reasoning": "The candidate more-general papers use these hypotheses and conclusions: Infinite-tree Riesz transform theorems use flow Laplacians/weighted measures and no diverging finite-star hub degree m. An apparent general theme is not assumed to imply the specialized exact claim.",
+        "searches": [
+          "Resultary: fractional graph Riesz transform finite star operator lp norm smoothing critical p",
+          "Shargorodsky Sharia sharp estimates conditionally centered moments C_p",
+          "Levi Martini Santagati Tabacco Vallarino 2021 flow Laplacian homogeneous trees arxiv 2107.06620",
+          "Van Mieghem Devriendt Cetinay pseudoinverse Laplacian best spreader node star appendix C 2017"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and proof_checks.py actual Git tree 367ad6ff0c7163034dba7683082d0bf88c7adf62",
+        "Independent finite matrix reconstruction and analytic phase proof audit",
+        "doi:10.1002/mana.202100217",
+        "arXiv:2107.06620",
+        "arXiv:2310.09113",
+        "Phys. Rev. E 96 (2017) 032311",
+        "Resultary search finite-star fractional Riesz norms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical eigenvalues of the star imply the matrix T but computing sharp p endpoint norms and critical limsup/strict resonance needs further norm arguments; original centered moment C_p is not the coupled critical D_p."
+        ],
+        "reasoning": "The mathematical implication test compared assumptions and actually supplied conclusions, including known special cases and dominating parameters.",
+        "searches": [
+          "Resultary: fractional graph Riesz transform finite star operator lp norm smoothing critical p",
+          "Shargorodsky Sharia sharp estimates conditionally centered moments C_p",
+          "Levi Martini Santagati Tabacco Vallarino 2021 flow Laplacian homogeneous trees arxiv 2107.06620",
+          "Van Mieghem Devriendt Cetinay pseudoinverse Laplacian best spreader node star appendix C 2017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Star fractional gradient reduces to a rank-one radial perturbation of the centering operator I-E; the known C_p is only the s>1/p limit, not the coupled critical D_p.",
+          "The 2017 star pseudoinverse Q† corresponds to a particular inverse Laplacian and does not assert the sharp BL^-s Lp phase law."
+        ],
+        "reasoning": "The precise claimed equivalence/alias was compared with published formulations: Star fractional gradient reduces to a rank-one radial perturbation of the centering operator I-E; the known C_p is only the s>1/p limit, not the coupled critical D_p.",
+        "searches": [
+          "Resultary: fractional graph Riesz transform finite star operator lp norm smoothing critical p",
+          "Shargorodsky Sharia sharp estimates conditionally centered moments C_p",
+          "Levi Martini Santagati Tabacco Vallarino 2021 flow Laplacian homogeneous trees arxiv 2107.06620",
+          "Van Mieghem Devriendt Cetinay pseudoinverse Laplacian best spreader node star appendix C 2017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit all-m exact endpoint formulas and strict D_p>C_p numerical/variational classification found in the inspected papers or Resultary ranked results."
+        ],
+        "reasoning": "Any already-known exact special cases were separated from the claimed new all-case or different invariant result; failed search alone is not novelty proof.",
+        "searches": [
+          "Resultary: fractional graph Riesz transform finite star operator lp norm smoothing critical p",
+          "Shargorodsky Sharia sharp estimates conditionally centered moments C_p",
+          "Levi Martini Santagati Tabacco Vallarino 2021 flow Laplacian homogeneous trees arxiv 2107.06620",
+          "Van Mieghem Devriendt Cetinay pseudoinverse Laplacian best spreader node star appendix C 2017"
+        ]
+      },
+      "rationale": "Exact star matrix and centering norm C_p are known components. The specific all-s finite-star endpoint formula and critical s=1/p hub/leaf phase law with strict D_p>C_p for p non-Hilbert were not implied by the inspected infinite-tree or network-pseudoinverse primary sources.",
+      "residual_risks": [
+        "Broader matrix-operator formulations of the star rank-one perturbation might subsume this result.",
+        "No closed elementary D_p for non-Hilbert p; normalized measures, weighted stars, infinite trees not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_PSEUDOINVERSE_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Appendix C derives Q† on special graphs, not all-s fractional B L^-s norm phase line."
+          ],
+          "identifier_or_url": "Phys. Rev. E 96 (2017) 032311; https://pure.tudelft.nl/ws/portalfiles/portal/36750275/31834950.pdf",
+          "material_read": "Abstract, exposition and Appendix C section on pseudoinverses of star/path/cycle; only relevant portions, not every page",
+          "method": "University open PDF full-text section search",
+          "title": "Pseudoinverse of Laplacian and best spreader node in a network",
+          "trigger": "Directly computes Laplacian pseudoinverse on a finite star"
+        },
+        {
+          "assessment": "COVERS_Cp_ONLY",
+          "evidence": [
+            "Provides classical C_p formula for I-E; additional hub coordinate and D_p unaddressed."
+          ],
+          "identifier_or_url": "doi:10.1002/mana.202100217",
+          "material_read": "Accessible complete journal article HTML and sharp formula/theorem passages",
+          "method": "journal open HTML",
+          "title": "Sharp estimates for conditionally centered moments and for compact operators on Lp spaces",
+          "trigger": "Exact same centered Lp norm C_p"
+        },
+        {
+          "assessment": "DIFFERENT_WEIGHT_AND_GRAPH_REGIME",
+          "evidence": [
+            "Infinite homogeneous tree with weighted flow measure, unlike unnormalized counting-measure finite stars."
+          ],
+          "identifier_or_url": "arXiv:2107.06620",
+          "material_read": "Introduction, flow-Laplacian definitions and principal theorem sections",
+          "method": "arXiv lawful PDF full text and rendered page",
+          "title": "Riesz transform for a flow Laplacian on homogeneous trees",
+          "trigger": "Similar Riesz transform object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph fractional gradient on finite high-degree stars is a natural Riesz-type model. The transition at 1/p separates hub-amplification from centered fluctuations and identifies non-Hilbert critical resonance, a meaningful asymptotic change relevant to graph norm estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and proof_checks.py actual Git tree 367ad6ff0c7163034dba7683082d0bf88c7adf62",
+    "Independent finite matrix reconstruction and analytic phase proof audit",
+    "doi:10.1002/mana.202100217",
+    "arXiv:2107.06620",
+    "arXiv:2310.09113",
+    "Phys. Rev. E 96 (2017) 032311",
+    "Resultary search finite-star fractional Riesz norms"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Broader matrix-operator formulations of the star rank-one perturbation might subsume this result.",
+    "No closed elementary D_p for non-Hilbert p; normalized measures, weighted stars, infinite trees not covered."
+  ],
+  "schema_version": 1
+}

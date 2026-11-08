@@ -1,19 +1,21 @@
-# Review of the fractional-star gradient norm theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The three spectral sectors of the star Laplacian yield the exact finite-dimensional matrix and all endpoint norms by explicit column, row and singular-value calculations. The degree–smoothing phase follows from quantitative estimates of the centered operator and rank-one radial coupling. At the critical exponent, normalized equal-grid step functions converge in operator norm to the stated \(\mathbb R\oplus_p L^p\) map, with density proving convergence of restricted norms. The strict non-Hilbert gap follows by differentiating in the added scalar input at an asymmetric two-valued centering extremizer. The finite checker is secondary support, not used as an infinite proof.
+PASS
 
-## Originality
+Spectral decomposition of the star Laplacian into constants, radial line eigenvalue m+1, and leaf fluctuations eigenvalue 1 gives the exact matrix T_{s,m}(c,x)=x-E_mx+a(E_mx-c), a=(m+1)^(-s). Direct column sums, row sums and singular values yield the advertised 1, infinity, and 2 endpoint norms and the exact hub/leaf crossover a=2/(m+2). Independent eigendecomposition and matrix norm tests at m=2,3,7,16 and s=.2,.5,1,1.7 agree. For fixed 1<=p<infty, decomposition into bounded I-E_m plus hub mass of norm m^{1/p}a proves s<1/p and s>1/p regimes; step-function embedding proves critical D_p. For non-Hilbert p, a two-valued extremizer of the known sharp centering norm C_p has nonzero derivative in scalar c while the input denominator changes by o(|c|), giving strict D_p>C_p. P=1,2 endpoints handled separately. This is an analytic proof, not an inference from finite numerical checks.
 
-PASS, with historical-priority risk. The classical sharp \(L^p\) centering constant and elementary star spectra are expressly not claimed as new. The full texts inspected in the infinite-tree Riesz literature address different Laplacians/measures; the centered-moment paper supplies the known constant but not the hub-coupled critical phase law. Relevant published mathematical-record comparisons concern cycles, normalized weak-type bounds and metric-star Lipschitz norms rather than the unweighted strong \(\ell^p\) fractional incidence operator. Older star-pseudoinverse literature was not fully available and remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem gives a degree-dependent strong Riesz bound and an exact smoothing-exponent transition, including the strict resonance at its critical line for every non-Hilbert exponent. Its quantitative finite-size norms distinguish input-centered concentration from leaf mean-zero behavior and therefore answer a motivated stability question for a natural family of graph filters. This is more than a computation at one degree or a formal restatement of the known centered-moment formula.
+Exact star matrix and centering norm C_p are known components. The specific all-s finite-star endpoint formula and critical s=1/p hub/leaf phase law with strict D_p>C_p for p non-Hilbert were not implied by the inspected infinite-tree or network-pseudoinverse primary sources.
 
-## Limits
+## value
 
-Only simple finite unweighted stars, real counting-measure \(\ell^p\) and fixed exponent parameters are treated. The universal critical constant \(D_p\) is given variationally, not as an elementary numerical expression. All originality judgments remain subject to independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph fractional gradient on finite high-degree stars is a natural Riesz-type model. The transition at 1/p separates hub-amplification from centered fluctuations and identifies non-Hilbert critical resonance, a meaningful asymptotic change relevant to graph norm estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
