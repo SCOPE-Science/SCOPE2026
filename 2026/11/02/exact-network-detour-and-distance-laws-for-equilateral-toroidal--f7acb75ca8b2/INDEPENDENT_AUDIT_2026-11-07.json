@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:17:00.665950Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct edges each shortest route enters and leaves via one of four endpoints; same-edge direct travel is included. Independently checked exceptional geometry: two aligned horizontal edges in different rows (or vertical analogue) force D=k+min(S+T,2-S-T) versus ambient k+|S-T|. The excess is 2min(min(S,T),1-max(S,T)), whose survival is (1-z)^2. Orientation and edge counts give exception mass (m+n-2)/(4mn). All other edge pairs have D=L. Conditioning on orientations yields two independent circle-distance uniforms in mixed case; same-direction baseline and exceptional replacements supply the full CDF, including the coefficients 1/(4m),1/(4n),1/(4mn). Cyclic vertex-distance mean correction -ε_k/(4k) establishes mean and elementary parity inequality yields full sign classification. Independently checked 10,000 exact rational endpoint-route comparisons. Finite samples do not prove the exhaustive route lemma.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garijo et al. arXiv:2103.11676 main algorithm; Baptista et al. arXiv:2312.04952 bounds."
+        ],
+        "reasoning": "Garijo–Márquez–Silveira offer a continuous-mean algorithm applicable to fixed weighted graphs, and Baptista–Kennedy–Mugnolo prove general metric-graph mean bounds. Neither inspected work supplies the all-size full torus CDF, exceptional detour survival or sharp area-benchmark sign phase.",
+        "searches": [
+          "continuous metric graph arclength distance distribution Cartesian product of cycles toroidal grid detour",
+          "arxiv:2103.11676 continuous mean distance weighted graph",
+          "arxiv:2312.04952 mean distance metric graphs",
+          "toroidal C_m C_n edge continuous distance distribution beta detour"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2103.11676",
+        "https://arxiv.org/pdf/2312.04952",
+        "https://doi.org/10.1142/S0129626411000072",
+        "Resultary semantic published-finding search: continuous metric graph arclength distance distribution Cartesian product of cycles toroidal grid detour"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cheng–Qiu–Shen 2011 torus vertex mean; Garijo–Márquez–Silveira 2021 metric graph mean algorithm."
+        ],
+        "reasoning": "A vertex-pair mean does not account for within-edge endpoint routes or exceptional aligned pairs. Even a general continuous mean algorithm is not a theorem on the complete distribution or Beta detour law and would require a new all-m,n evaluation; the claimed parity cancellation uses network-versus-area measures explicitly.",
+        "searches": [
+          "continuous metric graph arclength distance distribution Cartesian product of cycles toroidal grid detour",
+          "arxiv:2103.11676 continuous mean distance weighted graph",
+          "arxiv:2312.04952 mean distance metric graphs",
+          "toroidal C_m C_n edge continuous distance distribution beta detour"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheng–Qiu–Shen 2011 DOI:10.1142/S0129626411000072, vertex-distance theorem."
+        ],
+        "reasoning": "This is a continuous metric graph sampled by edge length, not the vertex-sampled toroidal distance matrix or the Euclidean flat-torus distance. Cheng–Qiu–Shen 2011 has vertex distances and their mean, not the edge-pair law or a Betalike routing excess.",
+        "searches": [
+          "continuous metric graph arclength distance distribution Cartesian product of cycles toroidal grid detour",
+          "arxiv:2103.11676 continuous mean distance weighted graph",
+          "arxiv:2312.04952 mean distance metric graphs",
+          "toroidal C_m C_n edge continuous distance distribution beta detour"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 737edf71bc86 (neighborhood complexes), ceddf77f71ea (homology cycles); Doyle–Graver 1982 potential old mean."
+        ],
+        "reasoning": "Resultary search returned toroidal grid Rips complexes, homological and metric-cotype results, rather than a matching edge-length distance probability table. Doyle–Graver 1982 older shape mean could contain a related mean formula but was not inspected in full.",
+        "searches": [
+          "continuous metric graph arclength distance distribution Cartesian product of cycles toroidal grid detour",
+          "arxiv:2103.11676 continuous mean distance weighted graph",
+          "arxiv:2312.04952 mean distance metric graphs",
+          "toroidal C_m C_n edge continuous distance distribution beta detour"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. This is a continuous metric graph sampled by edge length, not the vertex-sampled toroidal distance matrix or the Euclidean flat-torus distance. Cheng–Qiu–Shen 2011 has vertex distances and their mean, not the edge-pair law or a Betalike routing excess.",
+      "residual_risks": [
+        "Doyle–Graver 1982 Mean Distance for Shapes full text was not inspected, leaving historical exact-mean priority uncertainty.",
+        "There may be a general unindexed continuous-network distance distribution result.",
+        "Arclength-uniform network sampling differs from uniform-area ambient torus benchmark, as explicitly assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computes/generalizes continuous means algorithmically; does not give family-wide CDF, detour or sign formula in inspected material",
+          "evidence": [
+            "Algorithm for weighted metric graph continuous mean; arXiv:2103.11676"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.11676",
+          "material_read": "Primary PDF algorithm definition, continuous average distance and theorem sections",
+          "method": "Read relevant primary statements and inspected PDF page image",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "Potential stronger continuous-distance computation for all graphs"
+        },
+        {
+          "assessment": "Focuses on global mean-distance inequalities rather than exact toroidal CDF",
+          "evidence": [
+            "Metric-graph mean and extremal theorem statements, arXiv:2312.04952"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.04952",
+          "material_read": "Primary PDF mean definition, assumptions and relevant bound statements",
+          "method": "Read source theorem context and inspected PDF page image",
+          "title": "Mean Distance on Metric Graphs",
+          "trigger": "General metric-graph mean bounds"
+        },
+        {
+          "assessment": "The sampling population is vertices rather than arclength, so not the same claimed law",
+          "evidence": [
+            "Cheng–Qiu–Shen 2011, Theorem 4 and vertex sampling definitions"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129626411000072",
+          "material_read": "Accessible mathematical context, vertex distance definitions and mean theorem information",
+          "method": "Compared the discrete vertex-pair functional and cycle parity corrections",
+          "title": "On the Surface Areas and Average Distances of Meshes and Tori",
+          "trigger": "Same Cartesian-product torus graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full distance law of a periodic grid network under arclength sampling is a natural geometric-probability invariant for periodic streets; the universal Beta detour conditional law and a sharp comparison to area-sampled ambient tori quantify routing geometry versus sampling bias across an infinite family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Doyle–Graver 1982 Mean Distance for Shapes full text was not inspected, leaving historical exact-mean priority uncertainty.",
+    "There may be a general unindexed continuous-network distance distribution result.",
+    "Arclength-uniform network sampling differs from uniform-area ambient torus benchmark, as explicitly assumed."
+  ],
+  "schema_version": 1
+}
