@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_spc_square_ranks.py` with Python 3.8 or later; it needs no third-party packages or network connection. The included recorded output was obtained from this standalone utility and can be recreated verbatim.
+## correctness
 
-The utility exhaustively searches all bipartite edge subsets of sizes 2-by-4, 3-by-3, 3-by-4 and 4-by-4, checking exactly which support sets support an s²-dimensional cycle space at the smallest size. This checks the equality classification, not just existence of a square construction. It also checks the rank of the SPC parity equations by modular elimination over prime fields of orders 2, 3, 5 and 7. Its final line is `SPC_SQUARE_RANK_VERIFICATION_OK`.
+PASS
 
-The infinite-domain proof is the graph cycle-rank inequality and its equality conditions in `RESULT.md`. The executable does not prove the prime-power statement for all q and does not test any cases larger than 4-by-4; the proof does not depend on those experiments.
+For any coordinate set E the row/column parity-check kernel has dimension e−v+c by oriented bipartite incidence, including characteristic two. Every edge in a supported subcode belongs to a cycle; each nonempty component then has e_i≥4. Its cycle rank is at most (sqrt(e_i)−1)² by e_i≤a_i b_i and a_i+b_i≥2 sqrt(e_i), with equality only for K_{t,t}. Strict superadditivity of f(e)=(sqrt(e)−1)² on e≥4 prohibits a multi-component equality. At dimension s² and e=(s+1)² all bounds are equalities, forcing a single full (s+1)² rectangle and its entire s²-dimensional flow space. Counting rectangles and minimal erasure events follows. Independently recomputed all relevant square-rank optimum graph supports for 2×4,3×3,3×4,4×4, obtaining (6),(9,1),(18,4),(36,16,1). Finite tests do not prove the arbitrary-field statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison supports a distinctive theorem at the specified domain; prior strong related results are credited, and inaccessible primary literature is recorded as a residual risk rather than mistaken for an originality proof.
+
+## value
+
+PASS
+
+The optimizer rigidity and exact multiplicity govern all minimum generalized-support subspaces and minimum-size erasure ambiguity, rather than merely repeating known generalized Hamming weights. The exact erasure coefficient is a natural operational consequence and the field independence is structural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
