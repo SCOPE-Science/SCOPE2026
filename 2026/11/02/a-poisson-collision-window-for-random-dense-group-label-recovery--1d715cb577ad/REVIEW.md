@@ -1,19 +1,21 @@
-# Review: A Poisson collision window for random dense-group label recovery
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact equality of pair-incidence signatures reduces the stopping event to a collision count. Its factorial moments separate matching graphs from overlapping graph components; \(p^s+(1-p)^s<(p^2+(1-p)^2)^{s/2}\) for every \(s\ge3\) makes all the latter negligible at the critical logarithmic time. Uniform bounded-window approximation follows by subsequences. A separate first- and second-moment analysis proves the mean centering, and a geometric waiting identity gives the vanishing informational delay. The partition-lattice formula is independently checked against exhaustive finite draw enumeration. Finite checks do not replace the analytical proof.
+PASS
 
-## Originality — PASS, provisional
+For independent uniformly random k-subsets of n with k/n -> p in (0,1), two incidence columns collide per row with exact probability q_n. Factorial moment graph expansion: disjoint pairs contribute lambda^r, and nonmatching components s>=3 vanish since p^s+(1-p)^s < (p^2+(1-p)^2)^{s/2}. Thus Poisson X and lattice zero-collision CDF exp[-binom(n,2)q_n^t]. Expected unseen coupon n(1-k/n)^t -> 0 at the collision window, yielding Type II equality probability ->1 and expected delay o(1); collision second-moment lower tail plus first-moment upper tail establish E QI=b_n+O(1). Partition-lattice Mobius inversion proves exact finite formula. Independent enumeration of row sequences confirmed probabilities (n,k,t)=(3,1,2):2/3,(4,2,3):8/9,(5,2,3):12/25,(5,2,4):96/125. Boundary p->0 or1 intentionally excluded.
 
-Rényi (1961, Theorem 1 and corollary) already proves a birthday collision profile and factor-of-two random overhead for independent fair-bit subset rows, so these general phenomena are **not** claimed as new. In his model every subset is uniformly likely and row weights fluctuate; here each row has exactly a prescribed positive fraction of ones, inducing within-row dependence and requiring overlapping-graph control. The other closest results are the random-sample and exact finite-chain formulations in arXiv:2502.02968v1 and arXiv:2507.15231v1, the two-coupon expected-time estimates in arXiv:2510.23249v1, the unlabeled dense-group ordinary collection expectation in arXiv:2605.06953v1, and the deterministic minimum and constructions in arXiv:2610.32251v1. None of the inspected results supplies the claimed positive-density, fixed-row-weight Poisson collision window, its lattice stopping profile, or its mean-gap equivalence. These distinctions concern mathematical implication, not merely different titles or numeric parameters. A generic dependent random-code collision theorem may imply some or all of the conclusions, and undiscovered older separating-family literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result addresses the natural distributional and expectation problems for independently drawn dense fixed-size groups, identifies pairwise signature collisions as the sharp recovery bottleneck, and compares them with the deterministic optimum. For balanced fixed-cardinality samples on powers of two, the random sample count is asymptotically twice the planned minimum, matching the broad factor-two phenomenon already established by Rényi in the independent-row model; the new value lies in the different exact-cardinality design, full positive-fraction profile and Type-I/Type-II equivalence. The near-disappearance of the unknown-label penalty is a structural crossover from the sparse-group setting rather than a small computational gain.
+Rényi 1961 Theorem 1 proves birthday-window and factor-two design overhead for independent fair coin-bit rows, i.e. random unrestricted-size subsets, and deserves priority for the phenomenon. A fixed row weight creates dependent incidence columns, so Rényi’s product identity does not imply the claimed factorial-moment Poisson limit. Tan et al 2025 define exactly this labeled coupon problem and stopping criteria, addressing deterministic designs and expected values (not dense-group Poisson window). No precise dependent-window prior located; qualified PASS restricted to fixed-size dense sampling theorem and Type II coupling.
 
-## Boundaries
+## value
 
-The proof is not claimed uniform near sampling fractions zero or one; no continuous Gumbel convergence without lattice phase control is asserted. The result is restricted to noiseless independent fixed-size group draws. Independent audit and comprehensive historical priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural sharp probabilistic recovery threshold for dense uniformly fixed-size observations; gives full critical-window distribution, exact finite partition formula and nearly equal informational stopping times. Random-versus-planned overhead is known in a different sampling model, not claimed independently novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

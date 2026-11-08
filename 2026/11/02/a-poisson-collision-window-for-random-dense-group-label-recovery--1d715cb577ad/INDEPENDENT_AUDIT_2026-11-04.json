@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T01:49:44.860402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent uniformly random k-subsets of n with k/n -> p in (0,1), two incidence columns collide per row with exact probability q_n. Factorial moment graph expansion: disjoint pairs contribute lambda^r, and nonmatching components s>=3 vanish since p^s+(1-p)^s < (p^2+(1-p)^2)^{s/2}. Thus Poisson X and lattice zero-collision CDF exp[-binom(n,2)q_n^t]. Expected unseen coupon n(1-k/n)^t -> 0 at the collision window, yielding Type II equality probability ->1 and expected delay o(1); collision second-moment lower tail plus first-moment upper tail establish E QI=b_n+O(1). Partition-lattice Mobius inversion proves exact finite formula. Independent enumeration of row sequences confirmed probabilities (n,k,t)=(3,1,2):2/3,(4,2,3):8/9,(5,2,3):12/25,(5,2,4):96/125. Boundary p->0 or1 intentionally excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan et al Theorem/problem sections define Type I and II recovery and Markov-chain expectations, with k=2 highlighted; no claimed full density-dependent Poisson process law.",
+          "Rényi’s general atom generating result retains independent random subsets and does not imply fixed row weight."
+        ],
+        "reasoning": "A broader formalism for sampling/recovery does not immediately give this sharp dependent sampling regime; the transfer proof is additional.",
+        "searches": [
+          "Tan Limor Bar-Lev Gabrys Yakhini Siegel labeled coupon collector arxiv 2507.15231",
+          "Renyi random Boolean algebra 1961",
+          "dependent hashing collision Poisson random constant weight codes"
+        ]
+      },
+      "checked_sources": [
+        "Rényi 1961 full PDF and Theorem 1",
+        "arXiv:2507.15231 full PDF relevant sections",
+        "arXiv:2502.02968 abstract",
+        "Resultary query labeled coupon collector fixed size group random incidence columns collisions Poisson recovery time birthday window"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent 1/2 entries imply binomial random row size; conditioning all rows to have exactly k entries is a nontrivial change of distribution.",
+          "Prior exact or algorithmic expected-value calculations do not imply a Poisson distribution for all fixed p."
+        ],
+        "reasoning": "The analytic collision-dependence calculation is not a formal corollary of the stated inspected results.",
+        "searches": [
+          "Renyi 1961 Theorem 1 fixed size sample",
+          "arxiv 2507.15231 labeled coupon collector expected draws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Incidence signatures are columns of a uniform constant-row-weight binary matrix.",
+          "Rényi uniform random subsets induce independent Bernoulli(1/2) rows; constant-weight row sampling correlates columns."
+        ],
+        "reasoning": "Examined separating systems, random Boolean algebra generators, birthday occupancy and labeled coupon representations. Found known independent-row equivalent, not fixed-weight exact distribution.",
+        "searches": [
+          "labeled coupon collector fixed size group random incidence columns collisions Poisson recovery time birthday window",
+          "Rényi On random generating elements of a finite Boolean algebra Theorem 1 1961",
+          "random separating systems fixed column weight collision Poisson"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4 concerns occupancy envelopes, not this constant-weight column separation.",
+          "Mobius finite partition identity is generic inclusion-exclusion and not credited as an unrelated new algebraic method."
+        ],
+        "reasoning": "No exact table of full dense-group threshold found, but prior finite enumeration could exist under separating-code terminology.",
+        "searches": [
+          "labeled coupon collector fixed size group random incidence columns collisions Poisson recovery time birthday window",
+          "Resultary pairwise independent occupancy one moment reduction",
+          "fixed weight random separating systems exact CDF"
+        ]
+      },
+      "rationale": "Rényi 1961 Theorem 1 proves birthday-window and factor-two design overhead for independent fair coin-bit rows, i.e. random unrestricted-size subsets, and deserves priority for the phenomenon. A fixed row weight creates dependent incidence columns, so Rényi’s product identity does not imply the claimed factorial-moment Poisson limit. Tan et al 2025 define exactly this labeled coupon problem and stopping criteria, addressing deterministic designs and expected values (not dense-group Poisson window). No precise dependent-window prior located; qualified PASS restricted to fixed-size dense sampling theorem and Type II coupling.",
+      "residual_risks": [
+        "Potential general Poisson approximation for dependent random separating codes implies fixed-cardinality special case.",
+        "Sampling fractions near endpoints are excluded, and integer-time lattice phases require exact handling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers independent uniformly random subsets; not fixed exact-cardinality rows",
+          "evidence": "Theorem 1 computes product collision-free probability for independent membership bits; section 3 describes unrestricted random subsets.",
+          "identifier_or_url": "https://acta.bibl.u-szeged.hu/13920/1/math_022_fasc_001_002_075-081.pdf",
+          "material_read": "Complete seven-page 1961 primary PDF, Theorem 1, corollary and section 3 on generating atoms",
+          "method": "Read PDF pages and visually inspected page 3",
+          "title": "On random generating elements of a finite Boolean algebra",
+          "trigger": "Most dangerous predecessor: exact birthday threshold and factor-two overhead"
+        },
+        {
+          "assessment": "Formulation and deterministic design/expected draw framework known; no identified all-p fixed-weight Poisson window",
+          "evidence": "Introduction explicitly says Markov-chain expected counts and focus on k=2; definitions of Type I/II.",
+          "identifier_or_url": "arXiv:2507.15231",
+          "material_read": "Accessible full arXiv PDF including abstract, introduction, preliminary separating-system equivalences, expectation methods and k=2 section",
+          "method": "Read arXiv PDF textual content and page-1 screenshot",
+          "title": "The Labeled Coupon Collector Problem",
+          "trigger": "Same fixed-cardinality random group and Type I/II model"
+        },
+        {
+          "assessment": "Different group-size randomness and partial recovery; cannot certify whole-document noncoverage",
+          "evidence": "Abstract describes random sample sizes and partial recovery.",
+          "identifier_or_url": "arXiv:2502.02968",
+          "material_read": "Abstract and bibliographic description only",
+          "method": "OA abstract search",
+          "title": "The Labeled Coupon Collector Problem with Random Sample Sizes and Partial Recovery",
+          "trigger": "Nearest random sample-size variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural sharp probabilistic recovery threshold for dense uniformly fixed-size observations; gives full critical-window distribution, exact finite partition formula and nearly equal informational stopping times. Random-versus-planned overhead is known in a different sampling model, not claimed independently novel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "p fixed strictly inside (0,1) for the asymptotic law; no sparse or high-density limit.",
+    "Discrete phase dependence precludes an unconditional continuous Gumbel distribution."
+  ],
+  "schema_version": 1
+}
