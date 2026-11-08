@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Dimensionless killed backward PDE is derived from the exact stochastic dynamics with fully absorbing disk boundary. The first angular harmonic f_beta solves an inhomogeneous modified-Bessel equation; averaging the second-order Poisson equation and imposing regularity at the origin gives g_beta(rho)=1/2 integral_rho^1 f_beta(s)ds and the displayed formula. I1(z)/z monotonicity and a positivity-preserving radial Dirichlet inverse give strict sign and monotonicity in beta. Bessel ratio asymptotics yield distinct beta^-1 bulk and beta^-3/2 rim laws. Fixed-beta analytic expansion is even after heading averaging. The all-speed center comparison conditions on independent heading paths and applies Gaussian shift log-concavity plus Cameron-Martin analyticity; it is explicitly credited to Anderson. checker.py passed symbolic zero-beta ODE residuals, 42 independently integrated Bessel quadratures, a separate exact Green kernel at 5 drift speeds, fixed-interior and rim numerical asymptotic tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Di Trapani et al. 2023 full perturbative time-dependent propagator contains a potentially stronger computational representation",
+        "Iyaniwura and Peng 2025 full backward PDE is a general framework whose coefficient requires further work",
+        "Anderson 1955 covers centered Gaussian shift ordering, so this supporting part is not claimed novel"
+      ],
+      "reasoning": "The spectral full propagator and backward PDE cover the physical process in general, and could imply this calculation; they do not explicitly yield the closed leading isotropic mean profile, its strict rotational monotonicity and edge scaling. The Anderson inequality is prior stronger coverage of only the ancillary all-speed centered shift comparison and is explicitly excluded from novelty claim.",
+      "searches": [
+        "Active Brownian particle in absorbing disk: uniform initial orientation mean first exit time second-order Péclet coefficient Bessel functions I0 I1 rotational diffusion",
+        "Di Trapani Franosch Caraglio 2023 circular disk absorbing first passage perturbation, Iyaniwura Peng 2025 quadratic averaged mean exit time",
+        "Absorbing convex symmetric domain Brownian motion with independent random self-propulsion, Gaussian Anderson inequality gives stochastic monotonicity of exit time with propulsion speed",
+        "web: active Brownian first passage disk 2023 2025 mean first passage weak activity"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1103/PhysRevE.107.064123, first public journal date 2023-06-21 and exact disk propagator, full OA preprint material inspected",
+      "arxiv:2306.12702, first preprint public date 2023-06-22; full preprint inspected in materially relevant sections and appendix",
+      "arxiv:2506.15813, public 2025; later directly relevant exact first-order disk Bessel amplitude (not the second-order profile)",
+      "doi:10.1090/S0002-9939-1955-0069229-1, Anderson 1955 Gaussian comparison, original publisher PDF access 403; theorem checked against scholarly description and Gaussian shifted-ball expositions",
+      "arxiv:2408.00277, drift-exit comparison in one-dimensional interval, title/abstract-level comparison only, not asserted as full-text exclusion",
+      "Accessible prior ledger: 2026-11_week1__private research ledger__p0001_g000141.jsonl, claims and source IDs only, no old review",
+      "published-finding corpus searches listed in four structured checks and the private prior_checks array; nearest returned IDs were compared by object, domain and observable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 Eq.(17) is explicitly used as prior f_beta and leaves isotropic quadratic term to be solved",
+        "2023 Appendix C computes time-dependent q=2 coefficients, but no integrated first-exit moment formula is stated",
+        "Anderson 1955 directly implies only the center-start drift monotonicity; does not imply Bessel numerical coefficient or boundary layer",
+        "Own prior 6e0e86cd-8d19-46f0-92be-3f5fd9328acd concerns free swimmer heavy-tail heading-reset displacement variance, not disk absorption"
+      ],
+      "reasoning": "The final principal statement is about a signed second-order isotropic escape-time response and a singular high-rotation spatial crossover. Earlier first-order formulas and full propagator can be used as input, but none of the inspected published results states or by a simple parameter specialization already supplies the closed quadratic answer and rim profile. The separately noted center-start Anderson consequence is prior implied and not used to support novelty.",
+      "searches": [
+        "Active Brownian particle in absorbing disk: uniform initial orientation mean first exit time second-order Péclet coefficient Bessel functions I0 I1 rotational diffusion",
+        "Brownian motion plus independent active propulsion path from center convex symmetric domain stochastic monotonicity of exit time by propulsion speed Anderson inequality",
+        "An exact quadratic swimming-speed coefficient for orientation-averaged mean first-exit time of active Brownian motion from an absorbing 2D disk: I0(sqrt beta r) modified Bessel I1 and high rotational diffusion boundary layer 1/sqrt beta",
+        "Active Brownian disk absorption, first passage weak activity uniform initial heading second-order coefficient g_beta(r), boundary-layer profile (z-1+exp(-z))/4",
+        "Absorbing convex symmetric domain Brownian motion with independent random self-propulsion, Gaussian Anderson inequality gives stochastic monotonicity of exit time with propulsion speed",
+        "Di Trapani Franosch Caraglio 2023 circular disk absorbing first passage perturbation, Iyaniwura Peng 2025 quadratic averaged mean exit time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 propagator orders q=1,2 integrate survival but do not state closed mean coefficient",
+        "2025 first-order formula Eq. (17) is f_beta, not angle-averaged second derivative",
+        "No matching Bessel quadratic profile in the specifically examined published sources; published-finding corpus nearest Jacobi radial process involves another dynamic"
+      ],
+      "reasoning": "The exact speed-second derivative can be rewritten as the radial integral of the known first derivative of the orientation-dependent solution. This is not algebraically identical to prior explicit first-order formulas: one must solve the second-order angular-averaged Poisson equation and establish the singular beta-to-infinity boundary scale. Gaussian-shift monotonicity alone contains no coefficient.",
+      "searches": [
+        "Active Brownian particle in absorbing disk: uniform initial orientation mean first exit time second-order Péclet coefficient Bessel functions I0 I1 rotational diffusion",
+        "An exact quadratic swimming-speed coefficient for orientation-averaged mean first-exit time of active Brownian motion from an absorbing 2D disk: I0(sqrt beta r) modified Bessel I1 and high rotational diffusion boundary layer 1/sqrt beta",
+        "Active Brownian disk absorption, first passage weak activity uniform initial heading second-order coefficient g_beta(r), boundary-layer profile (z-1+exp(-z))/4",
+        "web: active Brownian disk mean first passage quadratic Bessel rotational diffusivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned unrelated first-exit laws for discrete maps and Jacobi radial processes, not any absorbing-disk active particle mean susceptibility",
+        "Both inspected same-system primary papers contain no exact coefficient table or high-rotation edge chart",
+        "Own prior claim catalogue contains active swimmers under harmonic traps or heading resets but no absorbing-disk first exit"
+      ],
+      "reasoning": "No exact database entry or numerical table in inspected sources gives the stated Bessel response or universal rim profile. Search result absence is not a proof of uniqueness and is retained as a residual risk.",
+      "searches": [
+        "An exact quadratic swimming-speed coefficient for orientation-averaged mean first-exit time of active Brownian motion from an absorbing 2D disk: I0(sqrt beta r) modified Bessel I1 and high rotational diffusion boundary layer 1/sqrt beta",
+        "Active Brownian disk absorption, first passage weak activity uniform initial heading second-order coefficient g_beta(r), boundary-layer profile (z-1+exp(-z))/4",
+        "Di Trapani Franosch Caraglio 2023 circular disk absorbing first passage perturbation, Iyaniwura Peng 2025 quadratic averaged mean exit time"
+      ]
+    },
+    "rationale": "Closest primary disk literature (Di Trapani et al. 2023) gives spectral propagator and survival but no closed isotropic mean second-speed derivative. A later paper (Iyaniwura and Peng 2025) explicitly derives exactly the first speed derivative and notes its cancellation under isotropic heading, without stating the quadratic response or rotational rim boundary layer. Prior known all-speed Gaussian comparison via Anderson is credited and not counted as novel. The claimed contribution is the exact leading isotropic response plus its nonuniform fast-reorientation classification, rather than the first-order mode, Gaussian comparison or generic Poisson PDE. This is an original claim under checked literature with residual priority risk.",
+    "residual_risks": [
+      "A direct integration of the published q=2 spectral propagator or a subsequent unlocated paper may contain the exact quadratic coefficient implicitly or explicitly.",
+      "The 2025 first-order radial Bessel formula makes the second-order isotropic response derivable via one further radial Poisson problem; publication priority and contribution scale require external expert judgment.",
+      "The full original Anderson 1955 publisher PDF was inaccessible (HTTP 403); its theorem is standard and its use was checked from other descriptions, but it is contextual, not an originality basis.",
+      "The perturbation expansion is not jointly uniform in propulsion speed and divergent rotational diffusivity; no such claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact propagator expansions and survival distribution; explicitly describes the mean first-passage time and its moments as further observables, not the closed isotropic mean quadratic response or high-rotation rim profile. Original q=2 propagator can potentially be integrated to infer the new coefficient.",
+        "evidence": [
+          "arxiv:2306.12702, PDF sections MODEL, RECURSIVE ANALYTICAL SOLUTION, SURVIVAL PROBABILITY AND FIRST-PASSAGE-TIME DISTRIBUTION, CONCLUSIONS and Appendix C",
+          "arxiv:2306.12702 Eqs. (37)–(44) and conclusion: mean first-passage time suggested as further observable"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.12702",
+        "material_read": "Model and parameter definitions; spectral and Dyson perturbative propagator Eqs. 33–44; first-passage section, Figs. 4–5; conclusion and Appendix C expansion for q=1 and q=2.",
+        "method": "Full freely available preprint PDF material visually inspected, alongside extracted text",
+        "title": "Active Brownian particles in a circular disk with an absorbing boundary",
+        "trigger": "Same circular absorbing geometry, activity and rotational parameters, exact spectral perturbation up to order two"
+      },
+      {
+        "assessment": "Provides exact first-order Fourier-mode amplitude f_beta, identical to the first-order input used in the proof, and notes vanishing of the isotropic linear correction. Does not state the integrated second-order isotropic profile, sharp coefficient bounds or high-rotational-diffusion boundary scaling.",
+        "evidence": [
+          "arxiv:2506.15813 Eq. (17), formula for A_1(r)",
+          "arxiv:2506.15813 discussion after Eq. (17): first isotropic correction has quadratic order"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.15813",
+        "material_read": "Full readable HTML introduction, model and backward PDE, disk section Eqs. (12)–(17), conclusions, references; especially sentence following Eq. (17) on isotropic initial headings.",
+        "method": "Full open-access HTML with equation-by-equation statement comparison",
+        "title": "Mean first passage time of active Brownian particles in two dimensions",
+        "trigger": "Same backward elliptic mean-first-exit PDE in an absorbing disk; weak-swimming expansion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d32dbd9-7fba-49f5-a58a-8a470864786d",
+  "value": {
+    "rationale": "For a physically natural orientation-uniform swimmer population, the entire known linear escape response cancels, making this exact quadratic coefficient the first measurable mean-exit sensitivity. The coefficient has a strict sign and ordering in rotational diffusivity over the entire interior, while its spatial high-rotation asymptotics are singular: O(beta^-1) in the bulk but O(beta^-3/2) at distance O(beta^-1/2) from the absorber. This explicitly separates persistence-length and geometric-boundary effects; the rim crossover is motivated by the natural fast-turning limit, not an arbitrary chosen parameter. It does not claim large-scale consequences beyond this exact physically interpretable response.",
+    "status": "PASS"
+  }
+}
