@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:56:34.142950Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=2 and covariogram level fraction θ=s^d, the Euclidean unit-ball normalized overlap at translation 2r is Θ_d(r)=I_(1−r²)((d+1)/2,1/2), strictly decreasing by its exact derivative. The normalized level-body volume radius r_d(s) is unique, while the simplex has Q_d(Δ,s)=c_d(1−s), c_d=0.5*binom(2d,d)^(1/d). Brunn–Minkowski concavity makes r_d concave with r_d(1)=0, hence r_d(s)/(1−s) nondecreasing; analyticity and nonaffineness imply strict increase. Its endpoint ratios 1 and dκ_d/(2κ_(d−1)) straddle c_d (for d2 explicitly and d>=3 via gamma recurrence), yielding exactly one nonendpoint crossing and strict sides. Lens containment gives Θ_d(r)<(1−r²)^(d/2), proving s_d>(c_d²−1)/(c_d²+1). Uniform beta-integral endpoint expansion and Stirling show s_d→3/5 and s_d=3/5−[7log(πd)+18log 3−27log 2]/(50d)+O((log d)²/d²); exponentiation yields θ_d∼[2^(9/10)/(π^(7/30)3^(3/5))](3/5)^d d^(−7/30). Independently checked symbolic derivatives f_s=−25/9,f_c=8/9 at (s,c)=(3/5,2) and numerically solved for d=2,3,5,10,40,100,500 (e.g. s2≈0.41078749,s10≈0.54491306,s100≈0.59163745), all strictly above σ_d and approaching 0.6. Numerical checks corroborate analytic all-d proof, not a global minimization theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024/2026 sharp simplex interval is a global bound only over its established high-overlap domain",
+          "Haddad investigates a different (maximizing) planar volume criterion, not the all-d two-family minimum witness"
+        ],
+        "reasoning": "The stronger-looking global minimization theorem for a restricted threshold interval cannot yield the exact crossing with balls at other thresholds. The submitted conclusion is explicitly only two families and therefore not claiming global optimality.",
+        "searches": [
+          "arXiv:2610.37066 Sections 1 and 4.2 simplex minimization interval",
+          "Alonso-Gutiérrez Martín Goñi 2024 Brunn Minkowski θ-convolution bodies",
+          "Haddad 2025 On the volume of convolution bodies in the plane"
+        ]
+      },
+      "checked_sources": [
+        "Martín Goñi arXiv:2610.37066v1 Section 4.2 full text",
+        "Alonso-Gutiérrez–Martín Goñi JGA34 (2024), 58",
+        "Rogers–Shephard simplex difference-body formula",
+        "Haddad arXiv:2405.00212",
+        "Resultary query on beta lens crossover and theta convolution bodies",
+        "Pinned RESULT.md/CHECK.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior σ_d=(c_d²−1)/(c_d²+1) is only a sufficient ball-witness cutoff",
+          "Submitted analytic equation and strict s_d>σ_d extend that cutoff and determine exact transition in each dimension"
+        ],
+        "reasoning": "The prior spherical upper bound implies ball strictly below simplex up to σ_d but not where equality occurs afterward. The submitted result implies the known sufficient range and adds strict uniqueness, opposite-side ordering and a logarithmic high-d correction; reverse implication fails.",
+        "searches": [
+          "arXiv:2610.37066 exact comparison ellipsoid simplex",
+          "Alonso Gutiérrez Jiménez Villa 2013 θ convolution body",
+          "Martín Goñi spherical bound sigma threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martín Goñi 2026 provides r_d(s)<sqrt(1−s²), not the equality r_d(s)=c_d(1−s)",
+          "The submitted equation uses the exact beta spherical overlap, not the spherical majorant"
+        ],
+        "reasoning": "A spherical-lens comparison, θ-convolution body K+_θ(−K), and homothetic ellipsoid level body describe the same self-covariogram invariant. Prior majorant inequalities are not the exact implicit root or its uniqueness law.",
+        "searches": [
+          "covariogram theta convolution bodies ball simplex crossover threshold r_d(s) asymptotic",
+          "arXiv:2610.37066 Section 4.2 ellipsoid vs simplex",
+          "regularized incomplete beta spherical lens simplex level body"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary semantic results concern hypercube overlap, general covariance or other convex-body measures rather than exact ball–simplex beta-level crossing",
+          "Martín Goñi 2026 Section 4.2 displays σ_d but not the exact s_d or leading θ asymptotic"
+        ],
+        "reasoning": "No inspected table of all-d crossover roots was found, and the new exact asymptotic is not obtained by mechanically substituting a known table. Negative searches are not proof of priority.",
+        "searches": [
+          "Resultary covariogram theta convolution bodies ball simplex crossover threshold r_d(s) asymptotic",
+          "arXiv:2610.37066 exact beta lens root s_d high-dimensional",
+          "convex-body overlap ball simplex exact phase diagram d-dependent"
+        ]
+      },
+      "rationale": "PASS for the exact two-family crossing and quantitative high-dimensional correction, not the known simplex/ball formulas. Martín Goñi arXiv:2610.37066 (2026-10-27) Section 4.2 compares a spherical upper envelope with simplex, giving a sufficient exclusion threshold σ_d, but not the exact unique beta root and d^(−7/30) crossover-volume law. The more general sharp simplex interval does not determine the exact comparison below it; classical Rogers–Shephard and convex-body convolution framework supply premises, not the new phase boundary.",
+      "residual_risks": [
+        "A prior unindexed spherical-lens/convex-covariogram comparison might already prove exact monotone crossing.",
+        "Asymptotic constant depends on precise θ=s^d normalization; other θ conventions must be checked in future comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the spherical upper-bound witness range but no exact unique beta crossing or stated high-dimensional θ_d law",
+          "evidence": [
+            "Section 4.2 spherical bound and strict ball witness; Theorem 1.1 high-overlap simplex branch"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.37066v1",
+          "material_read": "Accessible full HTML: theorem statement, convex-body definitions, and Section 4.2 detailed comparison",
+          "method": "Read full primary HTML and compared exact formulas, including σ_d derived from the sphere envelope",
+          "title": "Improved Brunn–Minkowski inequality for θ-convolution bodies",
+          "trigger": "Nearest direct ball/spherical obstruction and simplex sharp interval"
+        },
+        {
+          "assessment": "Framework and sharp high-overlap interval; does not supply submitted exact all-level ball-simplex transition in material read",
+          "evidence": [
+            "J. Geom. Anal. 34 (2024) 58, convolution bodies and simplex equality"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10756892/",
+          "material_read": "Primary accessible abstract, theorem summary and stated normalization",
+          "method": "Read relevant accessible source material and compare θ level body convention",
+          "title": "Brunn–Minkowski inequality for θ-convolution bodies via Ball’s bodies",
+          "trigger": "Known sharp simplex branch and θ-convolution definitions"
+        },
+        {
+          "assessment": "Planar maximization objective differs from normalized ellipsoid–simplex crossing",
+          "evidence": [
+            "Haddad 2024 arXiv / 2025 JGA article"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.00212",
+          "material_read": "Accessible abstract and stated maximization objective",
+          "method": "Read title, abstract and problem formulation; no full-document negative claim",
+          "title": "On the volume of convolution bodies in the plane",
+          "trigger": "Potential stronger planar extremal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact, all-dimensional two-family phase boundary converts a weaker published spherical-envelope obstruction into a sharp threshold for when ellipsoids outperform simplices. The unique crossing and d^(−7/30) correction are precise, reusable invariants in an active convolution-body extremal problem; neither establishes a global minimizer nor merely repeats a known endpoint inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Martín Goñi arXiv:2610.37066v1 Section 4.2 full text",
+    "Alonso-Gutiérrez–Martín Goñi JGA34 (2024), 58",
+    "Rogers–Shephard simplex difference-body formula",
+    "Haddad arXiv:2405.00212",
+    "Resultary query on beta lens crossover and theta convolution bodies",
+    "Pinned RESULT.md/CHECK.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to ellipsoid-vs-simplex normalized covariogram level bodies, not the global minimum among convex bodies.",
+    "Asymptotic is d→∞ with θ_d=s_d^d; numerical root samples are not proof."
+  ],
+  "residual_risks": [
+    "A prior unindexed spherical-lens/convex-covariogram comparison might already prove exact monotone crossing.",
+    "Asymptotic constant depends on precise θ=s^d normalization; other θ conventions must be checked in future comparisons."
+  ],
+  "schema_version": 1
+}

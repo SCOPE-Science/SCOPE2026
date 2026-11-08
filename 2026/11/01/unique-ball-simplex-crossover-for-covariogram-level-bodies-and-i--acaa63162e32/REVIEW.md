@@ -1,11 +1,21 @@
-# Scientific review of the unique ball–simplex convolution crossover
+# Independent mathematical audit
 
-**Correctness — PASS.** For all integer dimensions \(d\ge2\), the overlap profile follows by integrating two spherical caps. Its beta inverse is unique and analytic; Brunn–Minkowski makes the normalized level radius concave. Dividing by \(1-s\) and comparing the two endpoint values yields exactly one nontrivial crossing. Its asymptotic scale follows from uniform endpoint integration and the central-binomial Stirling expansion. A separate program verified 749 independent numeric comparisons. Numerical checks are not substituted for infinite proof.
+## correctness
 
-**Originality — PASS, provisionally.** The closest direct comparison is Martín Goñi's arXiv:2610.37066v1, Section 4.2, which proves the weaker bound \(r_d(s)<\sqrt{1-s^2}\) and the sufficient exclusion interval \(s\le(c_d^2-1)/(c_d^2+1)\). The exact unique crossover and its logarithmic correction are not derived there. The 2023/2024 convolution-body inequality characterizes the high-overlap simplex optimum, not the exact family-to-family transition; Haddad's convolution-body article studies volume maximization instead. The motivating 2026 Bézout paper characterizes simplices through mixed-volume and covariogram arguments, not the beta-lens profile. Related searchable records on difference-body stochastic distances and orthotope covariograms concern different functionals. Historical priority for the lens comparison is not independently settled.
+PASS
 
-**Value — PASS.** The result converts a nonsharp geometric ball obstruction into the *exact* all-dimensional two-family phase boundary, proving a strict extension at every finite dimension and an unexpected \(d^{-7/30}\) polynomial correction to its exponential crossover level. This precisely quantifies the range where ellipsoids disprove a simplex candidate in an active geometric extremal problem. It does not purport to find global minimizers there.
+For d>=2 and covariogram level fraction θ=s^d, the Euclidean unit-ball normalized overlap at translation 2r is Θ_d(r)=I_(1−r²)((d+1)/2,1/2), strictly decreasing by its exact derivative. The normalized level-body volume radius r_d(s) is unique, while the simplex has Q_d(Δ,s)=c_d(1−s), c_d=0.5*binom(2d,d)^(1/d). Brunn–Minkowski concavity makes r_d concave with r_d(1)=0, hence r_d(s)/(1−s) nondecreasing; analyticity and nonaffineness imply strict increase. Its endpoint ratios 1 and dκ_d/(2κ_(d−1)) straddle c_d (for d2 explicitly and d>=3 via gamma recurrence), yielding exactly one nonendpoint crossing and strict sides. Lens containment gives Θ_d(r)<(1−r²)^(d/2), proving s_d>(c_d²−1)/(c_d²+1). Uniform beta-integral endpoint expansion and Stirling show s_d→3/5 and s_d=3/5−[7log(πd)+18log 3−27log 2]/(50d)+O((log d)²/d²); exponentiation yields θ_d∼[2^(9/10)/(π^(7/30)3^(3/5))](3/5)^d d^(−7/30). Independently checked symbolic derivatives f_s=−25/9,f_c=8/9 at (s,c)=(3/5,2) and numerically solved for d=2,3,5,10,40,100,500 (e.g. s2≈0.41078749,s10≈0.54491306,s100≈0.59163745), all strictly above σ_d and approaching 0.6. Numerical checks corroborate analytic all-d proof, not a global minimization theorem.
 
-Closest literature: Langharst–Wang arXiv:2609.20380v1 (2026-09-17); Alonso-Gutiérrez–Martín Goñi, JGA 34 (2024) 58; Martín Goñi arXiv:2610.37066v1 (2026-10-27), Sections 2 and 4.2; Haddad arXiv:2405.00212 (2024-04-30). The first source's publicly accessible abstract was checked; its full primary text was not accessible during comparison. The latter three scientific texts were materially inspected. An older equivalent crossover statement, if present in spherical-lens literature, remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the exact two-family crossing and quantitative high-dimensional correction, not the known simplex/ball formulas. Martín Goñi arXiv:2610.37066 (2026-10-27) Section 4.2 compares a spherical upper envelope with simplex, giving a sufficient exclusion threshold σ_d, but not the exact unique beta root and d^(−7/30) crossover-volume law. The more general sharp simplex interval does not determine the exact comparison below it; classical Rogers–Shephard and convex-body convolution framework supply premises, not the new phase boundary.
+
+## value
+
+PASS
+
+An exact, all-dimensional two-family phase boundary converts a weaker published spherical-envelope obstruction into a sharp threshold for when ellipsoids outperform simplices. The unique crossing and d^(−7/30) correction are precise, reusable invariants in an active convolution-body extremal problem; neither establishes a global minimizer nor merely repeats a known endpoint inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
