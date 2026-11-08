@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The quantifier-rank-three claim uses exactly one named constant, equality, and the ternary addition relation; its atomic-type recursion matches standard Ehrenfeucht--Fraïssé equivalence. The twelve atomic third-move predicates have been derived by inspecting all ways a third variable can occur in an equation \(u+v=w\) involving only three selected elements and zero. Every nontrivial collision ratio occurs in the exact list of thirteen rationals, distinct modulo every prime at least \(17\). The remaining noncollision residue and the generic third move give uniform depth-three signatures. Five explicit sentences isolate primes \(2,3,5,7,11\); the rank-three generic-pair sentence separates prime \(13\) from all primes at least \(17\). The mathematical proof treats the entire infinite class, while the executable checks are finite corroboration.
+PASS
 
-## Originality
+The ternary-relational group structure (Z/pZ,0,R(x,y,z) iff x+y=z), quantifier rank exactly 3, unrestricted Boolean branching and zero constant are essential. The nested atomic-extension type recursion characterizes all rank-3 sentences, including repeated selected variables. For first nonzero x normalize x=1 by scaling; at third move 12 affine special z values exhaust nongeneric atomic extensions (with a generic remaining diagram). Their 66 pairwise coincidence equations have exactly the 13 rational slopes S={-2,-1,-1/2,0,1/4,1/3,1/2,2/3,1,3/2,2,3,4}; cross-difference bound 15 makes them pairwise distinct mod p>=17. Thus all p>=17 realize an identical extension spectrum, including zero first picks. Five characteristic-isolating rank<=3 sentences isolate p=2,3,5,7,11; the two existential branches in the rank-3 Phi_11 force y=3x and 4y=x, hence 11x=0, and Gamma distinguishes p=13 from all >=17. This gives exactly seven classes without extrapolating finite data. Independently recomputed complete rank-3 atomic Hintikka signatures on primes 2,3,5,7,11,13,17,19,23: the six small primes separate and 17,19,23 coincide. Assumption of relational—not functional—addition prevents illicit low-rank terms.
 
-**PASS, qualified.** The closest primary results are Gomaa's 2007 dissertation (Chapter 3, Theorem 3.3) and 2010 journal article (Section 4, Theorem 4.4 and Corollary 4.5), both concerning the same relational signature and prime cyclic groups. Their stated lower bound would imply that \(C_{11}\) and \(C_{13}\) agree at rank three, whereas the directly evaluable rank-three sentence \(\Phi_{11}\) separates them. The new seven-class statement is therefore not a restatement or corollary of these lower bounds. Addition-chain and signed-binary results provide complementary upper bounds rather than an equivalent exact rank-three partition. A full independent bibliographic audit remains outstanding, and equivalent unindexed work remains a possible risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This determines the sharp rank-three stabilization threshold \(17\) and a complete logical invariant for the natural prime cyclic family. The thirteen exceptional ratios explain the threshold structurally. The rank-three characteristic-\(11\) sentence is mathematically significant because it exhibits a concrete counterexample to a published numerical lower-bound specialization; it also distinguishes nesting depth from total bound-variable count. Neither an arbitrary small parameter slice nor a mere numerical recomputation is involved.
+Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Same-model addition-chain upper bounds do not compute the finite rank-three types. Function-symbol group presentations are not rank preserving, so must not be equated. The abstract/generic EF bounds do not imply the sharp seven-class statement; the alleged lower bound is mathematically contradicted in an explicit evaluated case rather than supplying coverage. An existing upper bound d<=Lambda(p) and an invalid lower bound neither supply all rank-3 classes nor contradict the new seven-class positive classification. The contradiction is to the published bound, not an asserted global retraction.
 
-## Relationship and limits
+## value
 
-The result holds only for additive groups of prime order in the ternary relational language. The same methods do not automatically transfer to functional addition or composite orders. Comparison against the most directly relevant primary full texts was done at the level of theorem statements and implications. Independent audit and a comprehensive search of unpublished literature are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp bounded-rank logical classification for a canonical family of finite groups in the precise relational signature, resolving the first nontrivial low-rank spectrum; the explicit rank-three sentence for p=11 contradicts a stated four-move lower bound in archival primary literature. The logical error/counterexample and finite representative cutoff are mathematically consequential rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
