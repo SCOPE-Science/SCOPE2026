@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, root size L is uniform and the two extreme depths are independent given L; their conditional laws are opposite monotone functions of L. The reversed Chebyshev identity gives strict covariance of all nonconstant increasing transforms. Independent record indicators give marginal mean/variance; binomial coefficient differentiation produces exact mixed moment and covariance 1-H_n^(2); triangular-array CLT for central root splits plus negligible tails establishes joint independence after sqrt(log n) scaling. A separate exact checker passed 796 assertions, including all n! insertions through n=8 and recurrence/harmonic identities to n=300. Infinite claims rest on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Seidel–Aragon develops randomized search trees and per-key depth expectations rather than the specified pair of extreme ranks.",
+        "Devroye–Neininger studies distances, finger search, fixed ranks and normal limits; those results do not determine the strict bivariate quadrant inequality from marginal laws.",
+        "Panholzer–Prodinger studies spans of randomly selected nodes. Random node selection does not imply results for the deterministic pair of smallest/largest nodes."
+      ],
+      "reasoning": "Considered whether existing general tree-depth formulas dominate the candidate. The two-root-branch conditional independence and opposed monotone dependence on the uniform root rank are essential to the joint theorem. The inspected broader sources do not explicitly furnish such monotone bivariate comparisons; possible implicit coverage remains a limitation.",
+      "searches": [
+        "Randomized Search Trees Seidel Aragon 1996",
+        "Distances and Finger Search in Random Binary Search Trees Devroye Neininger 2004",
+        "Spanning Tree Size in Random Binary Search Trees Panholzer Prodinger 2004 arxiv:math/0405292"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/BF01940876",
+      "https://doi.org/10.1137/S0097539703424521",
+      "https://arxiv.org/abs/math/0405292"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical one-sided record representation yields the marginal harmonic mean and variance, but not a mixed moment without root-rank coupling.",
+        "Joint-independent Gaussian scaling does not imply negative quadrant dependence at every finite n.",
+        "Randomly selected-key spanning-tree results do not imply strict covariance for two fixed extreme ranks, even though harmonic-square algebra overlaps."
+      ],
+      "reasoning": "The marginal record identities are prior; their reuse is explicitly acknowledged. The new comparison is the strictly negative covariance of arbitrary increasing transforms under opposite root splitting, with exact mixed covariance and the asymptotic joint normal law. No decisive stronger theorem was located in inspected material, but a multivariate treap result could subsume it.",
+      "searches": [
+        "Devroye Neininger random BST fixed rank distance normal limit",
+        "Panholzer Prodinger spanning subtree random selected keys variance arxiv math/0405292",
+        "Seidel Aragon randomized search trees independent priorities depth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The random-priority representation is described in Seidel–Aragon 1996; a one-key marginal record law is given in Devroye–Neininger 2004.",
+        "The mixed extreme-rank law involves two complementary root-subtree sizes; single-key record marginals do not by themselves imply strict negative dependence."
+      ],
+      "reasoning": "Searched aliases involving the minimum/maximum (leftmost/rightmost, boundary, extreme-rank) depths, random treaps, and negative quadrant dependence. Known record and search-path results provide ingredients but not the inspected two-extrema joint statement. The exact covariance is stronger than marginal second moments and the quadrant ordering is stronger still.",
+      "searches": [
+        "random binary search tree minimum maximum key depths covariance H_n second harmonic",
+        "joint distribution depths smallest largest node random binary search tree dependence",
+        "random search tree extreme boundary depths joint normal independent negative association",
+        "Seidel Aragon Randomized Search Trees 1996 doi:10.1007/BF01940876",
+        "Devroye Neininger Distances and Finger Search in Random Binary Search Trees doi:10.1137/S0097539703424521"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked 2004 spanning-tree paper includes harmonic-square identities but concerns a different chosen-key statistic.",
+        "The finite probability tables reconstructed independently for n≤8 were used for correctness checks, not as evidence of novelty."
+      ],
+      "reasoning": "Searched for an exact preexisting table or harmonic-square formula for the paired extreme depths. No inspected exact table stated this joint law. Absence from query results is not proof of unique priority.",
+      "searches": [
+        "binary search tree depths minimum maximum joint probability covariance",
+        "leftmost and rightmost branch random binary search tree correlation heights",
+        "arxiv:math/0405292 v1 May 2004 expected spanning tree size harmonic square"
+      ]
+    },
+    "rationale": "The fixed pair of smallest/largest key depths, its strict negative quadrant ordering, exact mixed covariance and bivariate normal limit are not given in the inspected relevant primary statements; prior one-key record laws and selected-key distance results do not imply the joint ordering. Implicit coverage by general multivariate search-tree analyses remains a named risk.",
+    "residual_risks": [
+      "A general multivariate random-treap path formula not inspected here could imply the strict negative quadrant order.",
+      "A specialized historical comparison of deterministic leftmost/rightmost search depths could predate the present proof.",
+      "The algebraic identity for harmonic sums is classical; novelty is claimed for the coupled extremal-depth conclusions, not that identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model/marginal analysis foundational; no corresponding two-extrema negative quadrant theorem in inspected material",
+        "evidence": "Seidel–Aragon (1996), Algorithmica 16, 464–497, DOI 10.1007/BF01940876.",
+        "identifier_or_url": "https://faculty.washington.edu/aragon/pubs/rst96.pdf",
+        "material_read": "Author-hosted primary PDF; introductory model and applicable depth-expectation sections, text search for covariance",
+        "method": "Inspected author PDF text and page rendering; compared its random-priority and per-node depth statements to fixed extreme-key joint law",
+        "title": "Randomized Search Trees",
+        "trigger": "Canonical original priority-based search-tree model and ancestor record law"
+      },
+      {
+        "assessment": "No same explicit mixed covariance or strict quadrant-dependence statement in inspected material; different path distance questions",
+        "evidence": "Devroye–Neininger (2004), SIAM Journal on Computing 33, 647–658, DOI 10.1137/S0097539703424521.",
+        "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf",
+        "material_read": "Author-hosted manuscript PDF; introductory theorems and relevant formulas for fixed ranks and distances; text search for covariance",
+        "method": "Read relevant primary text and page images, compared distance-related statements and marginal limit laws with the pair of extreme ranks",
+        "title": "Distances and Finger Search in Random Binary Search Trees",
+        "trigger": "Possible stronger coverage by multivariate depths, prescribed ranks, record representations and path distances"
+      },
+      {
+        "assessment": "Related algebra and marginal laws do not explicitly state current fixed-rank negative-dependence finding",
+        "evidence": "Panholzer–Prodinger, arXiv math/0405292v1, publicly dated 2004-05-14; Annals of Applied Probability 14 (2004), 718–733.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0405292",
+        "material_read": "arXiv v1 paper PDF, opening six pages including model, theorem statements and moment calculations; PDF page images reviewed",
+        "method": "Compared the random-choice of key subsets and its spanning-tree size moments with deterministic pair of extreme-key depths",
+        "title": "Spanning Tree Size in Random Binary Search Trees",
+        "trigger": "Dated archival primary paper containing related harmonic-square expression and path-length moment formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "278d9961-25d4-4b8c-b4f4-208b21b2a022",
+  "value": {
+    "rationale": "The two extreme-key access depths are basic boundary costs in sorted search structures. Strict negative quadrant dependence provides inequalities for every increasing cost/penalty transform; the exact covariance is finite, strictly decreasing and nonzero asymptotically even as standardized depths approach independent Gaussian limits. This strong dependence-ordering/limit contrast has structural motivation beyond a routine marginal moment computation.",
+    "status": "PASS"
+  }
+}
