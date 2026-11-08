@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:06:12.838187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 8e915d2613a59837ee69aaa6730dace96e710b30",
+        "check.py bcdc9bb4a2d6a75dfd594338c0dd91e92b05b9f8",
+        "METADATA.json e78147cab7a133c92a6231f386ed765aa108553a"
+      ],
+      "rationale": "For u>1 excluding payoff ties u=2,3 for sizes≤4, independent symbolic binomial expansion gives R1=0 and the exact R2/R3/R4 table in three payoff regimes. Their weighted drift for u<3 is concave and R(1)>0, precluding +→− interior crossings; for u>3 every nontrivial term is positive. For 1<u<3/2, F2=2p−p² and F5=10p³−15p⁴+6p⁵; the drift is p(1−p)[2q−1+(1−q)(−p+9p²−6p³)]. The cubic minimum at (3−√7)/6 gives q*=(343−126√7)/19 and 2 roots, with lower attracting, exactly when 1/2<q<q*. A double zero at q* is semistable, not two-sided stable. Independent symbolic reconstruction checked all polynomial regions and q*.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arigapudi et al. Theorem 2: homogeneous sample sizes have unstable interior states; Theorem 3: heterogeneous samples with sufficiently large second size can stabilize miscoordination.",
+          "Oyama–Sandholm–Tercieux 2015 gives sufficient selection conditions, not the sharp minimal observation ceiling."
+        ],
+        "reasoning": "Existing broad qualitative theorems do not imply that ceiling four is impossible for every mixture, nor the exact 5-observation boundary and weight interval.",
+        "searches": [
+          "https://arxiv.org/abs/2305.10301",
+          "https://doi.org/10.3982/TE1405"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2305.10301",
+        "https://doi.org/10.3982/TE1405",
+        "Resultary published-record semantic search: sampling best response heterogeneous noise stable miscoordination minimal sample size five",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/the-sharp-five-observation-threshold-for-stable-miscoordination--598820ce8a78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 uses sufficiently large sample sizes; Appendix A.2 transports stability from two-population symmetric environments but supplies no explicit cutoff."
+        ],
+        "reasoning": "The exact polynomial R2/R3/R4 and cubic minimization are additional mathematics rather than a direct corollary of sufficient large-sample conditions.",
+        "searches": [
+          "https://arxiv.org/abs/2305.10301",
+          "https://doi.org/10.3982/TE1405"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arigapudi et al. Appendix A.2 Proposition 5 proves equivalence of symmetric stable states for one- and two-population models; one-pop formulation is expressly PRIOR."
+        ],
+        "reasoning": "Our contribution is NOT changing from two populations to one but proving the exact small-support cutoff and mixed size 2/5 phase window, which do not appear in the read theorem statements.",
+        "searches": [
+          "sampling best response heterogeneous noise stable miscoordination minimal sample size five",
+          "https://arxiv.org/abs/2305.10301",
+          "https://doi.org/10.3982/TE1405"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No all-mixture k≤4 normalized-drift table or exact q*=(343−126√7)/19 was found in the indexed related records or the examined primary relevant sections."
+        ],
+        "reasoning": "No matching sharp threshold table identified; exact prior numeric specializations cannot be excluded.",
+        "searches": [
+          "sampling best response heterogeneous noise stable miscoordination minimal sample size five",
+          "https://arxiv.org/abs/2305.10301",
+          "2026-11 Resultary semantic index query: sampling best response heterogeneous noise stable miscoordination minimal sample size five"
+        ]
+      },
+      "rationale": "PASS at best knowledge: Arigapudi–Heller–Schreiber analyze heterogeneous sampling and expressly extend to symmetric one-population dynamics in Appendix A.2, so this mechanism and model are prior. Their Theorems 2–3 establish homogeneous instability and large-sample sufficient existence, not the minimal maximum observation size five or exact (2,5) q interval.",
+      "residual_risks": [
+        "An earlier specialized small-sample case could give equivalent q* or minimal size five.",
+        "Parameter ties at u=2,3 are explicitly outside the ceiling-four nonexistence statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL and SAME_ONE_POP_EXTENSION prior; NOT_COVERING specific five-observation threshold in inspected statements",
+          "evidence": "Appendix A.2 explicitly extends dynamics to one-population; Theorem 3 is large-size sufficiency, not exact ceiling",
+          "identifier_or_url": "https://arxiv.org/abs/2305.10301",
+          "material_read": "Lawful author-hosted PDF extracted primary text: introduction, main Theorems 2–3, related literature, and Appendix A.2 Propositions 4–5/Fact 4; screenshot attempts timed out",
+          "method": "Lawful author PDF full-text extraction, targeted section reading; PDF screenshot attempted",
+          "title": "Heterogeneous Noise and Stable Miscoordination",
+          "trigger": "Exact same sampling model and stable interior miscoordination"
+        },
+        {
+          "assessment": "GENERAL_SELECTION_CONTEXT, no demonstrated exact (2,5) threshold",
+          "evidence": "Sufficient pure equilibrium selection under conditions rather than sharp stable interior mixture classification",
+          "identifier_or_url": "https://doi.org/10.3982/TE1405",
+          "material_read": "Bibliographic statement and relevant Observation 3.2/3.3 descriptions; not full-document read in this run",
+          "method": "Primary-paper metadata and targeted literature search",
+          "title": "Sampling Best Response Dynamics and Deterministic Equilibrium Selection",
+          "trigger": "Earlier general sample-size sufficient selection conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md 8e915d2613a59837ee69aaa6730dace96e710b30",
+        "check.py bcdc9bb4a2d6a75dfd594338c0dd91e92b05b9f8",
+        "METADATA.json e78147cab7a133c92a6231f386ed765aa108553a"
+      ],
+      "rationale": "Proves a natural *minimal* finite observation ceiling in a published heterogeneous-sampling mechanism and a complete exact bifurcation window for the first feasible pair, instead of merely a qualitative large-sample existence result; the nontrivial lower bound holds uniformly over all size≤4 mixtures.",
+      "residual_risks": [
+        "Mathematical usefulness is specific to stated natural object/invariant; no downstream theorem or exhaustive priority is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier specialized small-sample case could give equivalent q* or minimal size five.",
+    "Parameter ties at u=2,3 are explicitly outside the ceiling-four nonexistence statement.",
+    "Finite computation is finite corroboration only; unlimited parameter conclusions rely on the reconstructed source proof.",
+    "Publication withheld pending complete confidentiality-safe public metadata replacements with exact guards."
+  ],
+  "schema_version": 1
+}

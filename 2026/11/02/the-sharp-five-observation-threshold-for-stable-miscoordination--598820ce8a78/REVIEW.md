@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binomial response thresholds were derived from exact payoff comparisons. The complete sizes-one-through-four polynomial table is obtained by expansion, not simulation. Its weighted drift factor is concave with positive right endpoint in the two lower payoff regions, and strictly positive in the upper region. For the five-observation witness, an exact cubic sign analysis proves necessity and sufficiency of the weight interval; the lower root attracts from both sides. The accompanying checker verifies 1021 exact-symbolic or finite-sign calculations. Residual correctness risks are limited to errors in the stated hypotheses or mathematical proof; computations do not replace infinite-parameter reasoning.
+PASS
 
-## Originality — PASS, with limited literature risk
+For u>1 excluding payoff ties u=2,3 for sizes≤4, independent symbolic binomial expansion gives R1=0 and the exact R2/R3/R4 table in three payoff regimes. Their weighted drift for u<3 is concave and R(1)>0, precluding +→− interior crossings; for u>3 every nontrivial term is positive. For 1<u<3/2, F2=2p−p² and F5=10p³−15p⁴+6p⁵; the drift is p(1−p)[2q−1+(1−q)(−p+9p²−6p³)]. The cubic minimum at (3−√7)/6 gives q*=(343−126√7)/19 and 2 roots, with lower attracting, exactly when 1/2<q<q*. A double zero at q* is semistable, not two-sided stable. Independent symbolic reconstruction checked all polynomial regions and q*.
 
-The primary 2023 paper already proves instability with homogeneous samples and existence with heterogeneous samples when one sample size is sufficiently large. This finding is not that existence claim: it identifies the sharp minimal maximum sample size across *all* size distributions on four or fewer observations, then gives the exact two-versus-five bifurcation interval. The 2015 work treats sufficient pure-equilibrium selection conditions and does not state an exact finite maximum-sample-size obstruction. Searches of related mathematical records, relevant phrases and prior accessible ledger claims found no implication equivalent to this cutoff. An unindexed exact finite classification remains a realistic residual risk; no independent literature audit is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating research establishes a behavioral mechanism without identifying the first observation scale at which it is possible. The sharp cutoff separates observations too small to sustain a stable mixed population from a concrete, minimal heterogeneous sample population that does, and the exact weight interval determines its bifurcation and basins. This is a natural structural boundary for the original population-learning model, not an arbitrary numerical case or a routine reproduction of the source's theorem.
+PASS at best knowledge: Arigapudi–Heller–Schreiber analyze heterogeneous sampling and expressly extend to symmetric one-population dynamics in Appendix A.2, so this mechanism and model are prior. Their Theorems 2–3 establish homogeneous instability and large-sample sufficient existence, not the minimal maximum observation size five or exact (2,5) q interval.
 
-## Limitations
+## value
 
-The lower bound excludes payoff tie values and considers the favored-action payoff \(u>1\). The explicit weight interval uses sample sizes two and five with \(1<u<3/2\). The exact finite threshold does not extend automatically to stochastic finite populations or other sampling protocols. Literature coverage is best-knowledge, not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Proves a natural *minimal* finite observation ceiling in a published heterogeneous-sampling mechanism and a complete exact bifurcation window for the first feasible pair, instead of merely a qualitative large-sample existence result; the nontrivial lower bound holds uniformly over all size≤4 mixtures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
