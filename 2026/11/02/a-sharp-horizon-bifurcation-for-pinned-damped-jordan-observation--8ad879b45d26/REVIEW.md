@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact three-event information determinant follows from the two-column Cauchy--Binet identity. The derivative factors into an elementary ratio with a quadratic derivative numerator, providing a complete root and sign classification for every positive dimensionless horizon. The implicit-function argument supplies the threshold and large-horizon asymptotics. Balanced endpoint replication follows by counting independent event pairs. The bundled checker passes exact-rational determinant identities and additional finite diagnostics, which are not substituted for the proof.
+PASS
 
-## Originality — PASS, qualified
+Cauchy-Binet yields det G=[u^2 exp(-2u)+b^2 exp(-2b)+(b-u)^2 exp(-2(b+u))]/(sigma^4 a^2). The derivative after division by 2 exp(-2u) is u(1-u)-exp(-2b)(b-u)(1+b-u). Its ratio H_b has one interior minimum for b<=1 and two critical points for b>1; the latter has unique interior global maximum, endpoints tied at b<=1. Implicit-function expansion at b=1 and large-b limit support the stated transition; independent determinant, root and asymptotic checks reproduce the finite diagnostics. Endpoint replication m yields constant plus m times the free-event contribution.
 
-The motivating 2022 sample-based observability study establishes rank and permissible sampling patterns rather than a pinned, homoscedastic, continuous-time D-optimal timing phase diagram. The 2023 weighted-linear-regression design paper studies optimally chosen support and allocations; the compulsory two endpoints, exact three observation events, and exact \(aT=1\) boundary are not stated there. The 1997 Bayesian exponential-regression study concerns different nonlinear parameter estimation and an averaged prior criterion. General experimental-design theory may permit related deductions; exact historical priority, especially across older endpoint-constrained designs, remains uncertain. The narrow claimed distinction is the complete three-event result with its critical and strong-damping asymptotics and equal-endpoint replication invariant.
+## originality
 
-## Value — PASS
+PASS
 
-Mandatory initial and terminal sensor readings arise in bounded-horizon state reconstruction and monitoring. The result identifies an exact qualitative change in how a limited third observation should be allocated: endpoint replication before the damping-time horizon, interior sampling afterwards. It quantifies an exponentially growing design penalty when long-horizon timing is left at an endpoint and proves a robust replication invariance. The scope is a natural small design problem, not an arbitrary numerical slice.
+Qualified best-of-knowledge originality: Krauss-Lopez-Mueller arXiv:2204.06451 establishes rank and sampling observability, not homoscedastic pinned three-event D-optimality. Guenduez-Torsney 2023 treats weighted-regression approximate designs with free support/weights, not this exact fixed-event design. Dette-Neugebauer 1997 addresses Bayesian exponential nonlinear regression. Risk: Older exact-design or endpoint-constrained exponential-regression results could imply this small pinned case despite different terminology.
 
-## Literature and limitations
+## value
 
-Closely relevant: Krauss–Lopez–Müller, arXiv:2204.06451 (sampling observability); Gündüz–Torsney, DOI 10.3390/math11092075 (weighted regression optimal design); Dette–Neugebauer, DOI 10.1016/S0378-3758(96)00131-0 (Bayesian exponential design). Only the first two were inspected at substantial technical depth. No all-sources novelty certificate or expert review has been performed. The proof assumes a known stable Jordan flow, independently noisy measurements, mandatory endpoints and determinant optimality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact observation scheduling with compulsory initial and terminal sensors is a natural experimental design problem; the horizon-one phase transition and exponential cost of endpoint repetition give a motivated quantitative decision boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

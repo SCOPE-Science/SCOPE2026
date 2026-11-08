@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the pinned damped-Jordan timing result
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later. No third-party packages or external files are needed. The checker performs 1,404 exact rational Cauchy--Binet identities, a finite collection of stationary-root and boundary diagnostics for \(b\) below, at and above one, high- and near-critical asymptotic checks, and equal-replication invariance checks. It reports 20,714 assertions.
+## correctness
 
-The symbolic part establishes event-pair identities for tested rational inputs; the mathematical proof in `RESULT.md`, not the finite computation, establishes the full continuum of horizons and equality cases. Numerical root tests do not prove the existence, uniqueness or asymptotic expansion of arbitrary real roots. No independent audit has been performed.
+PASS
+
+Cauchy-Binet yields det G=[u^2 exp(-2u)+b^2 exp(-2b)+(b-u)^2 exp(-2(b+u))]/(sigma^4 a^2). The derivative after division by 2 exp(-2u) is u(1-u)-exp(-2b)(b-u)(1+b-u). Its ratio H_b has one interior minimum for b<=1 and two critical points for b>1; the latter has unique interior global maximum, endpoints tied at b<=1. Implicit-function expansion at b=1 and large-b limit support the stated transition; independent determinant, root and asymptotic checks reproduce the finite diagnostics. Endpoint replication m yields constant plus m times the free-event contribution.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: Krauss-Lopez-Mueller arXiv:2204.06451 establishes rank and sampling observability, not homoscedastic pinned three-event D-optimality. Guenduez-Torsney 2023 treats weighted-regression approximate designs with free support/weights, not this exact fixed-event design. Dette-Neugebauer 1997 addresses Bayesian exponential nonlinear regression. Risk: Older exact-design or endpoint-constrained exponential-regression results could imply this small pinned case despite different terminology.
+
+## value
+
+PASS
+
+Exact observation scheduling with compulsory initial and terminal sensors is a natural experimental design problem; the horizon-one phase transition and exponential cost of endpoint repetition give a motivated quantitative decision boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
