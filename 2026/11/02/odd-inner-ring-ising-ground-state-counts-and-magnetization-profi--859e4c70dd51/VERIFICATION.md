@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 and the dependencies in `requirements.txt`. The executable constructs the transfer matrix and the finite generalized Petersen graphs directly from their definitions, without importing any precomputed tables.
+## correctness
 
-The following checks were actually executed successfully:
+PASS
 
-- Exact symbolic construction and comparison of the two lowest determinant coefficients over integer polynomials.
-- Exact verification of the odd-part rational identity giving the Fibonacci-squared-index coefficient.
-- Independent symbolic verification of the magnetization-weighted determinant and its three-term odd component.
-- Exhaustive labelled-graph spin tests for circumferences \(n=6\) and \(n=8\) (the latter an adjacent parity control), matched against the transfer matrix.
-- Exact min-plus transfer comparisons at each even circumference \(n=6,8,\ldots,202\), including all 50 available \(n\equiv2\pmod4\) cases.
-- Exact full magnetization-resolved transfer comparisons at \(n=6,10,\ldots,50\), testing each \(0,\pm4\) multiplicity and absence of other magnetizations.
+For n=4r+2>=6 and m=n/2 odd, each translated length-5 cycle has an odd number of frustrated (equal-spin) edges; summing gives 2f-e_i>=n, and two odd inner m-cycles force e_i>=2, yielding f>=m+1 and minimum energy H/J=2f-3n>=-2(n-1). The 8-state transfer matrix T(z) with state (a_i,b_i,b_{i-1}) and edge cost [a=a’]+[c=b’]+[a=b] exactly enumerates labeled configurations by tr T(z)^n. Normalized determinant det(I-y z^{-1}T(z)^2) has E0=(1-3y²+y^4)^2, E1=-2y(y-1)^2(y^4+8y^3+15y²+8y+1); its logarithmic trace derivative has odd-y coefficient 2m² F_m at z^1, attaining the lower bound. Independently recomputed E0/E1 via 8x8 determinant symbolic arithmetic (both identities true), and independently verified the weighted determinant identity. A fugacity w^{a+b} yields odd-y first correction -2y^7+(2-w²-w^-2)y^5-2y, restricting magnetization to 0 and ±4 and giving coefficient A_m=m[t^((m-5)/2)](1-3t+t²)^(-2) for ±4. Independent transfer dynamic programming directly gave totals 36,250,1274,5508 and respective ±4 counts 0,5,42,225 for n=6,10,14,18. The determinant identity plus odd-cycle bound, not finite checks alone, supports all odd m.
 
-Recorded output:
+## originality
 
-```
-weighted determinant odd part and magnetization support: PASS
-symbolic determinant coefficients E0/E1 and odd Fibonacci identity: PASS
-brute graph vs transfer, n=6: (4, 36), PASS
-brute graph vs transfer, n=8: (4, 28), PASS
-99 exact transfer comparisons for n=6,8,...,202: PASS
-12 exact magnetization-resolved transfer comparisons n=6,10,...,50: PASS
-VERIFY_OK
-```
+PASS
 
-The infinite theorem follows from the proof, not from the finite test range. Independent scientific audit and independently conducted validation have not been performed.
+Jacobsen–Salas 2013 supplies general Potts/Ising transfer methods for generalized Petersen GP(nk,k) graphs; the existence of a transfer matrix is prior. Strečka–Karlová–Madaras 2015 compute the n=10 dodecahedron including degeneracy 250 and ±4 multiplicity 5. Those are credited. Reviewed prior results did not state the unbounded n=4r+2 quadratic-Fibonacci count and magnetization coefficient A_m. Qualified originality PASS.
+
+## value
+
+PASS
+
+The graph family GP(4r+2,2) is a standard sparse cubic graph with two frustrated odd inner cycles. Its exact all-size ground-state energy, degeneracy 2m²F_m and complete magnetization-resolved count are natural statistical-mechanical observables. These closed forms are substantially more informative than a generic transfer matrix or one isolated dodecahedral computation and can benchmark frustrated Ising calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:47:32.348217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=4r+2>=6 and m=n/2 odd, each translated length-5 cycle has an odd number of frustrated (equal-spin) edges; summing gives 2f-e_i>=n, and two odd inner m-cycles force e_i>=2, yielding f>=m+1 and minimum energy H/J=2f-3n>=-2(n-1). The 8-state transfer matrix T(z) with state (a_i,b_i,b_{i-1}) and edge cost [a=a’]+[c=b’]+[a=b] exactly enumerates labeled configurations by tr T(z)^n. Normalized determinant det(I-y z^{-1}T(z)^2) has E0=(1-3y²+y^4)^2, E1=-2y(y-1)^2(y^4+8y^3+15y²+8y+1); its logarithmic trace derivative has odd-y coefficient 2m² F_m at z^1, attaining the lower bound. Independently recomputed E0/E1 via 8x8 determinant symbolic arithmetic (both identities true), and independently verified the weighted determinant identity. A fugacity w^{a+b} yields odd-y first correction -2y^7+(2-w²-w^-2)y^5-2y, restricting magnetization to 0 and ±4 and giving coefficient A_m=m[t^((m-5)/2)](1-3t+t²)^(-2) for ±4. Independent transfer dynamic programming directly gave totals 36,250,1274,5508 and respective ±4 counts 0,5,42,225 for n=6,10,14,18. The determinant identity plus odd-cycle bound, not finite checks alone, supports all odd m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacobsen–Salas cover zero-field Potts partition-function transfer matrices for GP(nk,k); Strečka et al. give dodecahedron n=10 ground state counts; Sehrawat–Bhattacharjya maximize frustration index over signs, not the fixed all-antiferromagnetic count."
+        ],
+        "reasoning": "General matrix formalism mechanically lets one compute any fixed n, but it does not explicitly evaluate the general minimum z coefficient 2m²F_m or magnetization refinement. The same-graph n=10 finite special case is not novel.",
+        "searches": [
+          "Jacobsen Salas 2013 arXiv:1303.5210 Sections 2,3,5.3 generalized Petersen transfer matrix",
+          "Strečka Karlová Madaras 2015 arXiv:1502.04449 regular Ising polyhedra",
+          "Sehrawat Bhattacharjya 2019 arXiv:1905.05548 signed generalized Petersen frustration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1303.5210",
+        "https://arxiv.org/abs/1502.04449",
+        "https://arxiv.org/abs/1905.05548"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously published transfer matrix can generate the zero-field energy polynomial, but does not track spin fugacity at zero field. Dodecahedron n=10 is computed in prior work."
+        ],
+        "reasoning": "Additional symbolic determinant evaluation and fugacity refinement are needed for the claimed closed forms; generic transfer theory or one finite instance does not imply the explicit all-m magnetization distribution without further work.",
+        "searches": [
+          "Jacobsen Salas 2013 full PDF GP(nk,k) Ising specialization",
+          "Strečka Karlová Madaras 2015 abstract and cited Table 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zero-temperature coefficient extraction of the Potts/Ising partition polynomial is equivalent to minimum-frustration maximum-cut counting for the all-negative signing."
+        ],
+        "reasoning": "Compared Ising degeneracy, maximum-cut, signed-graph frustration and transfer-matrix formulations. The max-cut count is half the labeled spin count; published Potts matrix expressions alone are not an explicit lowest-coefficient Fibonacci evaluation or field-resolved magnetization generating function.",
+        "searches": [
+          "Resultary semantic query: generalized Petersen GP(4r+2,2) Ising antiferromagnetic ground states magnetization Fibonacci degeneracy",
+          "web: antiferromagnetic GP(n,2) max cuts frustration index Fibonacci magnetization ground states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known n=10 table gives 250 total with M=0 count 240 and 5 for each ±4, matching the theorem specialization. Resultary indexed GP(n,2) Rips topology is a distinct invariant."
+        ],
+        "reasoning": "A prior finite table is a real special-case overlap, explicitly credited; a complete all-m coefficient or magnetization spectrum table was not identified in available indexed sources.",
+        "searches": [
+          "Resultary semantic query: generalized Petersen GP(4r+2,2) Ising antiferromagnetic ground states magnetization Fibonacci degeneracy",
+          "web: \"2m^2 F_m\" generalized Petersen ground states",
+          "2015 dodecahedron 250 magnetization 240 5 5"
+        ]
+      },
+      "rationale": "Jacobsen–Salas 2013 supplies general Potts/Ising transfer methods for generalized Petersen GP(nk,k) graphs; the existence of a transfer matrix is prior. Strečka–Karlová–Madaras 2015 compute the n=10 dodecahedron including degeneracy 250 and ±4 multiplicity 5. Those are credited. Reviewed prior results did not state the unbounded n=4r+2 quadratic-Fibonacci count and magnetization coefficient A_m. Qualified originality PASS.",
+      "residual_risks": [
+        "An earlier transfer-matrix paper could contain the same low-temperature coefficient or magnetization generating-function evaluation in another normalization.",
+        "Only zero-field, equal-coupling classical Ising GP(n,2) with n≡2 mod4, n>=6; not 4|n or fields."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FOR_TRANSFER_FRAMEWORK",
+          "evidence": "Contains general transfer framework, not an explicitly inspected lowest-degree Fibonacci/magnetization coefficient identity.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.5210",
+          "material_read": "Full accessible primary PDF, sections on GP graph construction and Section 5.3 Ising-related transfer spectral formulas; screenshot of relevant section",
+          "method": "primary PDF and section screenshot",
+          "title": "A generalized Beraha conjecture for non-planar graphs",
+          "trigger": "Same GP(nk,k) Ising/Potts transfer-matrix superfamily"
+        },
+        {
+          "assessment": "PRIOR_FOR_N10",
+          "evidence": "n=10 total degeneracy 250 and magnetizations 240,5,5 are known; source full text not freshly read.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.04449",
+          "material_read": "ArXiv abstract, publication descriptions and source-cited Table 5 exact n=10 ground-state values; full PDF access unsuccessful",
+          "method": "primary abstract and secondary reference to Table 5; no claimed complete full read",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Same 20-spin dodecahedron GP(10,2)"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION",
+          "evidence": "Optimizes over edge sign assignments, whereas this theorem fixes all antiferromagnetic signs and counts minimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.05548",
+          "material_read": "Accessible primary indexed Section 4 statements and scope; not every appendix read",
+          "method": "primary HTML excerpt",
+          "title": "Maximum Frustration in Signed Generalized Petersen Graphs",
+          "trigger": "Same GP(n,k) geometry with frustration statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph family GP(4r+2,2) is a standard sparse cubic graph with two frustrated odd inner cycles. Its exact all-size ground-state energy, degeneracy 2m²F_m and complete magnetization-resolved count are natural statistical-mechanical observables. These closed forms are substantially more informative than a generic transfer matrix or one isolated dodecahedral computation and can benchmark frustrated Ising calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claims for n odd, n divisible by four, temperature, unequal coupling or external field.",
+    "The known n=10 degeneracy and general Potts transfer matrix are prior art, not newly established."
+  ],
+  "schema_version": 1
+}
