@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers g>=13 with 3 not dividing g and h>=1, the gaps of <6,9,g,g+3> partition as {3}, A in residue g mod 3 from its least positive representative to g-3, and B in residue 2g mod 3 to 2g-3. The proof of the h=2 base establishes uninterrupted step-3 intervals in each residue; induction using G containing {1,2,3} propagates contiguous pieces with initial terms h,h+1,h+2. The maximal sums, by minimal losses from h(2g-3), are hF, hF-g, hF-(2g-6); hence the two disjoint omitted arithmetic progressions have g-3 entries and |hG|=(2h-1)g-4h+4. The Buchweitz deficit is 2h-3>0 for all h>=2. Independently computed complete semigroup memberships and sets for 13 admissible genera and six orders (78 pairs) exactly matching both progression holes and cardinalities. This finite check corroborates, not proves, the universal identity. Non-Weierstrass status itself is imported from Eisenbud-Schreyer rather than proved here.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eliahou et al establish eventual linear growth for finite gap sets, without the exact initial threshold and genus-specific intercept visible in the inspected abstract/known results.",
+          "Eisenbud-Schreyer stronger non-Weierstrass obstruction is logically different from all h-fold additive gap counts."
+        ],
+        "reasoning": "General eventual linearity implies a degree-one dependence for sufficiently high order, but neither the exact intercept nor the all-order starting point nor hole locations; the known syzygy obstruction does not imply the failure of Buchweitz tests without additional calculation.",
+        "searches": [
+          "arxiv:2011.09187 Buchweitz Set general eventual sumset linearity",
+          "arxiv:2603.00780 revised family non-Weierstrass",
+          "Resultary published SCOPE semigroup/gap-sumset search"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE record frozen RESULT.md/verify_gap_sums.py/REVIEW.md/AUDIT.json at commit 2c8d9813",
+        "Resultary exact-generator semantic query and returned semigroup records",
+        "Eisenbud-Schreyer arxiv:2603.00780 revised PDF Theorem 3.1",
+        "Eliahou et al arxiv:2011.09187 abstract/general growth",
+        "arxiv:2005.12896 family comparison",
+        "Independent complete gap-set check 78 parameter pairs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known non-Weierstrass status is credited; the source establishes it using syzygies, not the Buchweitz values.",
+          "Other reducible non-Weierstrass generator families are different, so their cardinality formulas do not specialize via matching generators."
+        ],
+        "reasoning": "Prior statements do not logically force the exact pair of missing progressions. A future stronger formula for this particular semigroup could cover the result, a residual priority risk.",
+        "searches": [
+          "Eisenbud-Schreyer arxiv:2603.00780v4 Theorem 3.1",
+          "Eliahou et al arxiv:2011.09187 beta function",
+          "arxiv:2005.12896 reducible non-Weierstrass semigroups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating Eisenbud-Schreyer semigroup has exactly the same generators, but Theorem 3.1 proves non-Weierstrass status via syzygy methods.",
+          "Eliahou et al define beta_G(h) as the cardinality difference; their general setting is equivalent to phrasing the claim as beta_G(h)=3-2h for each h."
+        ],
+        "reasoning": "An equivalent statement could be phrased by Buchweitz beta-function rather than holes; the inspected statements identify the family but do not give beta_G(h)=3-2h at every h or the positions of omissions.",
+        "searches": [
+          "Resultary semantic search: numerical semigroup <6,9,g,g+3> Eisenbud Schreyer exact higher gap sumsets Buchweitz emptiness",
+          "arxiv:2603.00780v1/v4",
+          "arxiv:2011.09187"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Macaulay2 Buchweitz routines test numerical cardinality inequalities rather than tabulating every h for this generator family.",
+          "Resultary returned unrelated semigroup findings, including Wilf-gap and power-obstruction results, not an exact (g,h) table."
+        ],
+        "reasoning": "No checked table reproduces the parametrized all-order formula; this is a qualified absence, not proof no historical table exists.",
+        "searches": [
+          "Macaulay2 NumericalSemigroups buchweitz/buchweitzSemigroups",
+          "Resultary published semigroup table search",
+          "arxiv:2603.00780 Example 3.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.",
+      "residual_risks": [
+        "Eisenbud-Schreyer revised versions or specialized additive-semigroup literature might already contain an equivalent all-order formula.",
+        "Eliahou et al full text not re-inspected in entirety; comparisons to its general theorems have bounded source coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS non-Weierstrass property, not demonstrably the complete all-h gap sumsets",
+          "evidence": "Theorem 3.1 treats the family <6,9,g,g+3> for g>=13, 3∤g; this audit accepts that result as prior.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.00780",
+          "material_read": "Revised original PDF, including Theorem 3.1 and introductory Buchweitz context; original v1 claim identified",
+          "method": "arXiv PDF rendered/read relevant theorem pages; title/version comparison",
+          "title": "Minimal Non-Weierstrass Semigroups / A Family of Non-Weierstrass Semigroups",
+          "trigger": "Exactly same generators and claimed prior non-Weierstrass theorem"
+        },
+        {
+          "assessment": "GENERAL COVERAGE of eventual growth only in material examined; full-text risk retained",
+          "evidence": "Definitions and general eventual linearity do not specify exact two progressions of omitted sums.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.09187",
+          "material_read": "Abstract and identified general finite-set eventual growth results; complete article not reread this run",
+          "method": "Public abstract and targeted prior theorem descriptions; no whole-document noncoverage assertion",
+          "title": "The Buchweitz Set of a Numerical Semigroup",
+          "trigger": "General stronger eventual-growth claims and equivalent beta function"
+        },
+        {
+          "assessment": "Different constructed semigroups; no claimed full-document noncoverage",
+          "evidence": "Generator mismatch prevents direct specialization without further reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.12896",
+          "material_read": "Abstract and cited distinctions of other generator families; not full primary paper this run",
+          "method": "Public bibliographic/claim comparison",
+          "title": "On reducible non-Weierstrass semigroups",
+          "trigger": "Other non-Weierstrass constructions potentially imply all test failures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The generators form a previously established natural multiplicity-six non-Weierstrass family; Buchweitz tests are classical necessary conditions. The exact full h-fold sumsets, fixed g-3 number of holes at every order, and all-order undetected condition expose a concrete sharp gap between non-Weierstrass obstructions and every higher Buchweitz test. This is an infinite-parameter structural classification, not merely recomputation of the known non-Weierstrass status or an arbitrary small genus.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE record frozen RESULT.md/verify_gap_sums.py/REVIEW.md/AUDIT.json at commit 2c8d9813",
+    "Resultary exact-generator semantic query and returned semigroup records",
+    "Eisenbud-Schreyer arxiv:2603.00780 revised PDF Theorem 3.1",
+    "Eliahou et al arxiv:2011.09187 abstract/general growth",
+    "arxiv:2005.12896 family comparison",
+    "Independent complete gap-set check 78 parameter pairs"
+  ],
+  "disposition": "passed",
+  "limitations": "Only g>=13, 3∤g, this four-generator family; independent non-Weierstrass theorem assumed, not reproduced. Finite experiments alone do not establish all orders. Later revisions of the source family and older additive-combinatorial corollaries remain priority risks.",
+  "residual_risks": [
+    "Eisenbud-Schreyer revised versions or specialized additive-semigroup literature might already contain an equivalent all-order formula.",
+    "Eliahou et al full text not re-inspected in entirety; comparisons to its general theorems have bounded source coverage."
+  ],
+  "schema_version": 1
+}
