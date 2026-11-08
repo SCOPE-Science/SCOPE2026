@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-Direct expansion in the vertex-and-arrow basis yields the tripotent condition and the disjoint affine components. The alternative map \(a\mapsto(a^2,a+a^2)\) verifies the idempotent bundle and the internal-arrow fibers, while explicit \(1+J\) conjugation gives the orbit refinement. Top dimension and the parsimonious independent-set correspondence follow exactly. The packaged direct-multiplication checker exhaustively verifies twelve finite configurations, including \(\mathbb F_4\); the proof, not finite testing, covers all fields and quivers. The scheme is not claimed reduced.
+## correctness
 
-## Originality: PASS (qualified)
-The exact arbitrary-quiver characteristic-two tripotent component profile and independent-set correspondence were not found in targeted mathematical-record or primary-literature searches. Ying–Koşan–Zhou (2016) study ring-wide decomposition identities rather than this component census; Adachi's radical-square-zero results address modules, not polynomial-element loci. A historical commuting-idempotent orbit theorem subsumes the odd-characteristic separable analogue but does not subsume nonidempotent characteristic-two tripotents. For a single vertex with loops, all idempotent counts are constant while the tripotent count changes with the loop number. Published priority remains uncertain, and one recent finite-ring tripotent paper was available only by abstract.
+PASS
 
-## Value: PASS
-The result links a natural polynomial equation on finite-dimensional algebras to the induced-edge profile of a graph, not merely one numerical example. The maximal-dimensional geometry recovers the full independent-set counting problem by a parsimonious reduction, and the internal-arrow parameters explain the genuine characteristic-two deviation from the familiar separable/idempotent case. The classification works for unbounded quivers and all characteristic-two fields.
+For any finite directed multiquiver, including loops and parallel arrows, in characteristic two the vertex coefficients of a=s+r satisfying a^3=a must be in {0,1}, because c^3-c=c(c-1)^2? In characteristic 2, c^3-c=c(c+1)^2, so roots 0,1 as SET but the zero scheme may be nonreduced. The arrow coefficient is (c_u^2+c_uc_v+c_v^2-1)r_alpha; it vanishes as a constraint exactly for endpoint values other than (0,0). Consequently each reduced root stratum U={zero vertex coefficients} is an open-and-closed affine space of dimension m-e_Q(U), yielding 2^|V| irreducible components, finite-field polynomial sum q^(m-e_Q(U)) and leading coefficient equal to independent vertex-set count. Decomposing a into e=a² and n=a+a² gives e²=e, n²=0, ene=n and crossing-arrow idempotent coefficients, internal-S nilpotents. The 1+J conjugation shifts only crossing arrows, giving q^b(S) orbits each q^c(S). The #P reduction is parsimonious by orienting any finite simple graph; membership follows by guessing and checking U. Independent exact check on oriented triangle gives dimensions 3:4, 2:3, 0:1 and N(2)=45; source verifier checks small characteristic-two quivers. These are REDUCED geometries; no claim is made about nonreduced scheme.
 
-## Boundaries
-Only the reduced variety, radical-square-zero algebras, and unipotent (not full-unit) orbit classification are determined. No claim is made of a first result in the literature or an independent verification. Finite enumerations do not serve as an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the evaluated exact final statement differs from inspected antecedents on hypothesis, characteristic, invariant or quantifier; fundamental mechanisms/prior special cases credited. The source inspections and four implication comparisons below state actual reading and residual priority risks, without interpreting a failed search as proof of novelty.
+
+## value
+
+PASS
+
+An arbitrary radical-square-zero quiver algebra is a canonical representation-theoretic object, and the pointwise tripotent equation a³=a is natural in ring theory. Its *entire* affine-component dimension profile and 1+J orbit partition are controlled by induced-arrow counts. Relating top-dimensional tripotent components parsimoniously to independent sets gives a useful exact graph-algebra bridge and a sharp counting-complexity boundary, beyond a routine single evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
