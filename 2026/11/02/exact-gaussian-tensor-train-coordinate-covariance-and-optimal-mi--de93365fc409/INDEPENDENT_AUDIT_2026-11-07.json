@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:45:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md, CHECK.py (full independent Wick and transfer implementations), SLOGAN.txt, REVIEW.md, METADATA.json",
+        "arXiv:2606.15679 Definition 1, Lemma 2 and Theorems 5,7 (full author text read)",
+        "arXiv:2309.04952 Theorems 1,2 (Kronecker trace estimator)",
+        "arXiv:2603.11009 Proposition 7.4",
+        "Resultary query: Gaussian tensor train trace Hutchinson coordinate fourth moment covariance mismatch physical index spacing"
+      ],
+      "rationale": "For d,n>=2 and integer r>=1, Wick expansion of four Gaussian TT replicas has exactly three pairings per physical position. A mismatch forces pairing 0; the bond transfer T has diagonal 1, off-diagonal 1/r, eigenvalues c=1+2/r and a=1-1/r. Thus K(I,J)=c^(d-1)∏(1+2(a/c)^gap)/3 and K(I,I)=3c^(d-1). All weights positive prove the nonnegative covariance; F is strictly decreasing and log-convex for r>1, establishing consecutive maxima and balanced endpoint-spanning minima. Expanding diagonal quadratic forms proves the exact variance and the 2-spike case. A fresh independent Wick enumeration agrees on all 36 cases across (d,r)=(2,2),(3,2),(3,3),(4,2), including variance 52 versus 99/2. Degenerate r=1,k=1,d boundary cases follow directly; finite tests are corroboration, not infinite proof.",
+      "residual_risks": [
+        "All conclusions require independent real Gaussian cores and constant finite rank; the arbitrary-sign diagonal variance expression does not entail a universal arrangement optimum for general diagonal data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bujanović–Kressner–Olić treat normalized TT coordinate fourth moment and trace-estimator moment/concentration bounds; TTStack and tensorized projection results provide estimates rather than the exact two-index spacing product."
+        ],
+        "reasoning": "The high-order moment upper bounds and nondiagonal trace analyses do not themselves specify each mixed squared-coordinate kernel at fixed positive r or prove sharp mode placement. The already-known one-coordinate moment is excluded from the novelty claim.",
+        "searches": [
+          "arXiv:2606.15679 Definition 1, Theorems 5,7",
+          "arXiv:2003.05101 Theorem 1",
+          "arXiv:2603.11009 Proposition 7.4"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md, CHECK.py (full independent Wick and transfer implementations), SLOGAN.txt, REVIEW.md, METADATA.json",
+        "arXiv:2606.15679 Definition 1, Lemma 2 and Theorems 5,7 (full author text read)",
+        "arXiv:2309.04952 Theorems 1,2 (Kronecker trace estimator)",
+        "arXiv:2603.11009 Proposition 7.4",
+        "Resultary query: Gaussian tensor train trace Hutchinson coordinate fourth moment covariance mismatch physical index spacing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known diagonal I=J fourth moment 3(1+2/r)^(d-1); rank-one formula 3^(d-k). New positive-rank cross moment c^(d-1)∏F(g) and strict convex gap arrangement."
+        ],
+        "reasoning": "Neither the scalar fourth moment nor bond-rank-one tensor-product variance fixes off-diagonal multivariate moments at r>1. No examined general bound determines the exact extremal mismatch positions.",
+        "searches": [
+          "arXiv:2606.15679 Theorem 5",
+          "arXiv:2309.04952 Theorem 1",
+          "arXiv:2603.11009 Proposition 7.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-r=1 TT coordinate law is the product-Gaussian/Kronecker case; the finite-r formula depends on the ordered gaps, unlike Hamming-distance-only representations."
+        ],
+        "reasoning": "Compared Kronecker products, replica transfer matrices and TT moment covariance. Meyer–Avron covers r=1, but its independent-factor Kronecker structure does not imply transfer across positive-size bonds or the unique balancing extremizers.",
+        "searches": [
+          "Resultary query: Gaussian tensor train trace Hutchinson coordinate fourth moment covariance mismatch physical index spacing",
+          "search: Wick contractions random tensor train four replica coordinate covariance mismatch spacing",
+          "arXiv:2309.04952 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed table or exact closed cross-kernel involving gap factor (1+2((r-1)/(r+2))^g)/3 identified; the source provides a new rational check witness (d,r)=(4,2)."
+        ],
+        "reasoning": "An isolated finite table would not imply the stated unrestricted d,r,k balanced-gap characterization. The search is not a proof of absent prior tables.",
+        "searches": [
+          "Resultary query: Gaussian tensor train trace Hutchinson coordinate fourth moment covariance mismatch physical index spacing",
+          "search: tensor train joint fourth moment gap 11/4 4 finite bond variance table"
+        ]
+      },
+      "rationale": "The exact r>1 mixed fourth moment depends on the ordered mismatch gaps and gives strict all-placement extremizers; the cited scalar fourth moment and r=1 Kronecker case are explicitly known and not counted as new. Bounded primary comparisons and Resultary did not reveal a theorem implying the positive-bond gap classification; historical-priority risk is retained.",
+      "residual_risks": [
+        "A previously overlooked Gaussian tensor-network four-replica cross-coordinate identity might entail the exact transfer kernel or arrangement theorem.",
+        "General diagonal covariance formula does not optimize arbitrary signed diagonal weights or nondiagonal matrices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS individual-coordinate fourth moment, NOT shown to imply the finite-bond cross-spacing theorem",
+          "evidence": "Definition 1 specifies independent Gaussian cores and rank normalization; Theorem 5 bounds scalar fourth moments; no ordered-mismatch index kernel in the inspected proof.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15679",
+          "material_read": "Full accessible primary preprint: Gaussian TT definition, individual coordinate fourth moment, trace-estimator theorems and proofs",
+          "method": "read full rendered primary text; compared Definition 1, Lemma 2 and Theorems 5,7",
+          "title": "Stochastic trace estimation with tensor train random vectors",
+          "trigger": "Same normalized Gaussian TT construction and diagonal fourth moment"
+        },
+        {
+          "assessment": "COVERS the rank-one specialization, not general positive bond-rank interference",
+          "evidence": "Kronecker factors are independent without internal correlated TT bonds.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04952",
+          "material_read": "Theorem 1 variance formula and its Kronecker-product setup",
+          "method": "read relevant source text and exact variance result",
+          "title": "Hutchinson's Estimator is Bad at Kronecker-Trace-Estimation",
+          "trigger": "r=1 TT corresponds to product Gaussian vectors"
+        },
+        {
+          "assessment": "NOT shown to cover complete exact coordinate cross moments",
+          "evidence": "General variance/moment estimates do not determine the particular gap product.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.05101",
+          "material_read": "Theorem 1 and analytical moment/bound context",
+          "method": "read pertinent mathematical statement",
+          "title": "Tensorized Random Projections",
+          "trigger": "Related stochastic TT projection fourth moments"
+        },
+        {
+          "assessment": "Different sketch model and upper bound, not the exact kernel",
+          "evidence": "Bound over partial-trace statistics is not an equality for selected TT coordinates.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.11009",
+          "material_read": "Proposition 7.4 partial-trace second-moment bound",
+          "method": "read relevant mathematical portion",
+          "title": "Linear-Scaling Tensor Train Sketching",
+          "trigger": "Possible stronger TTStack result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md, CHECK.py (full independent Wick and transfer implementations), SLOGAN.txt, REVIEW.md, METADATA.json",
+        "arXiv:2606.15679 Definition 1, Lemma 2 and Theorems 5,7 (full author text read)",
+        "arXiv:2309.04952 Theorems 1,2 (Kronecker trace estimator)",
+        "arXiv:2603.11009 Proposition 7.4",
+        "Resultary query: Gaussian tensor train trace Hutchinson coordinate fourth moment covariance mismatch physical index spacing"
+      ],
+      "rationale": "The exact covariance kernel replaces rough coordinatewise bounds by a computable off-diagonal tensor-network quantity. The sharp same-mismatch-count ordering produces different stochastic diagonal trace-estimation variances even for identical two-spike eigenvalues, making an intrinsically motivated structural and operational invariant rather than a restatement of normalization.",
+      "residual_risks": [
+        "Application outside real Gaussian TT and nonnegative two-spike diagonal arrangement is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No nondiagonal variance claim; rank-one product case and scalar fourth moment are prior work; all ranks fixed finite; no assertion of universal algorithmic optimal mode permutation."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Isserlis' fourth-moment formula leaves exactly three pairing states at each tensor mode. A differing physical coordinate pins the local pairing; equal and unequal adjacent Wick states contribute bond factors one and reciprocal bond rank respectively. Spectral diagonalization of the resulting three-state transfer matrix establishes the full mixed fourth-moment formula and covariance. Strict decrease and strict log convexity of the transfer gap factor establish the globally optimal mismatch placements. Diagonal quadratic-form expansion then gives the exact finite-sample variance. The standalone verifier independently expands four bond paths using Gaussian Wick pairing, and checks the transfer and arrangement claims with exact rationals. Finite checks corroborate, rather than prove, the all-parameter assertions.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For d,n>=2 and integer r>=1, Wick expansion of four Gaussian TT replicas has exactly three pairings per physical position. A mismatch forces pairing 0; the bond transfer T has diagonal 1, off-diagonal 1/r, eigenvalues c=1+2/r and a=1-1/r. Thus K(I,J)=c^(d-1)∏(1+2(a/c)^gap)/3 and K(I,I)=3c^(d-1). All weights positive prove the nonnegative covariance; F is strictly decreasing and log-convex for r>1, establishing consecutive maxima and balanced endpoint-spanning minima. Expanding diagonal quadratic forms proves the exact variance and the 2-spike case. A fresh independent Wick enumeration agrees on all 36 cases across (d,r)=(2,2),(3,2),(3,3),(4,2), including variance 52 versus 99/2. Degenerate r=1,k=1,d boundary cases follow directly; finite tests are corroboration, not infinite proof.
 
-The 2026 Bujanović–Kressner–Olić paper already implies the single-coordinate fourth moment, and the Meyer–Avron 2023 Kronecker variance formula covers the entire bond-rank-one specialization. Neither is claimed new. The inspected Bujanović–Kressner–Olić full text gives moment upper bounds for trace estimation rather than the rank-greater-than-one cross-coordinate formula. The inspected Rakhshan–Rabusseau tensorized-projection and Cazeaux–Dupuy–Justiniano TTStack analyses give general moment estimates but not the exact spacing-based classification. Comparison of relevant published mathematical claims and prior literature did not identify an equivalent statement or a theorem implying the positive-bond-rank gap-extremal classification. Standard Gaussian replica transfer techniques might have appeared elsewhere; historical priority is not independently confirmed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The covariance kernel gives an exact replacement for worst-case trace-scale variance bounds for arbitrary diagonal inputs, and the sharp arrangement theorem separates two two-spike positive diagonal matrices with identical eigenvalues and trace solely by the physical mode positions. The exact witness changes variance from \(52\) to \(99/2\) at the same bond rank and sample count. This determines a mathematically natural mode-ordering effect for tensor-structured stochastic trace estimation, not a routine change of normalization.
+The exact r>1 mixed fourth moment depends on the ordered mismatch gaps and gives strict all-placement extremizers; the cited scalar fourth moment and r=1 Kronecker case are explicitly known and not counted as new. Bounded primary comparisons and Resultary did not reveal a theorem implying the positive-bond gap classification; historical-priority risk is retained.
 
-## Closest literature and limits
+## value
 
-Sources: arXiv:2606.15679 (Definition 1 and Theorems 5, 7); arXiv:2309.04952 (Theorems 1, 2, bond rank one); arXiv:2003.05101 (Theorem 1 and proof); arXiv:2603.11009 (Proposition 7.4). The analysis concerns independent real Gaussian cores and diagonal inputs; no optimality claim for nondiagonal matrices or complete TT algorithms is made. Related tensor-network Wick identities may predate the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact covariance kernel replaces rough coordinatewise bounds by a computable off-diagonal tensor-network quantity. The sharp same-mismatch-count ordering produces different stochastic diagonal trace-estimation variances even for identical two-spike eigenvalues, making an intrinsically motivated structural and operational invariant rather than a restatement of normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
