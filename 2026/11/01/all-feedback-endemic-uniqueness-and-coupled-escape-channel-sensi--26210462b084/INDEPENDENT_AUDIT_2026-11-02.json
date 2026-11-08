@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:09:34.776253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the autonomous four-compartment ODE with g=SI, σ=1 and strictly positive rates. I>0 forces S+C=k=(µ+α)/β<1; I=0 only disease-free. For k<1, set a=1−k,z=SI,U=µa,V=µ+γ,g=γε2 and solve the susceptible equation C=(βz−U)/(V+gz), S=k−C, I=z/S, R=a−I. On the positive feasible interval z∈(U/β,z_max), R decreases from >0 to 0. The C-stationarity scalar equation is G_g(z)=δ(1/z+ε1) with G_g=(β−U/z)(1+βz/[S(V+gz)])/R; every factor is positive and strictly increasing, giving exactly one root. At fixed z increasing g decreases C, increases S,R and lowers G_g, shifting z* upward; ε1 raises RHS, also shifting z* up. Stationary R gives I*=aM/(α+M), M=µ+δ(1+ε1 z*), yielding strict eps1 increase and strict eps2 increase iff ε1>0; ε1=0 makes I* independent of ε2. As g→∞, C→0 and limiting equation gives the stated unique positive polynomial root <ka. Independent SymPy verified S stationary and exact factorization. Finite 80-case source diagnostics cannot substitute for the quantified monotonic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary source proves general existence, weak/strong limiting behavior and analyzes the transmission-driven equilibrium polynomial, but not the monotone all-feedback endpoint root theorem.",
+          "Published g=I all-feedback result covers g=I and all σ but explicitly excludes g=SI."
+        ],
+        "reasoning": "Original model article covers general model definitions and regional uniqueness; it does not give a theorem implying the exact all-positive-rates σ=1 transmission-driven monotonicity/limit. Published prevalence theorem is different feedback mechanism; cannot dominate.",
+        "searches": [
+          "SIRCm endemic uniqueness transmission driven infection-driven immune escape feedback Ramírez-Gutiérrez",
+          "2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+          "arxiv:2610.01111 sections 3 4 appendix 7"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/all-feedback-endemic-uniqueness-and-coupled-escape-channel-sensi--26210462b084/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/all-feedback-endemic-uniqueness-and-coupled-escape-channel-sensi--26210462b084/verify.py",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+        "https://arxiv.org/html/2610.01111v1",
+        "https://doi.org/10.1016/j.mbs.2005.12.029"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At σ=1 the infected stationary equation enforces S+C=k, allowing strict z=SI monotone scalar factorization; published primary source does not establish this monotonicity globally.",
+          "For g=I the published paper obtains ∂I/∂ε2=0 for σ=1 even with ε1>0, a logically different conclusion."
+        ],
+        "reasoning": "All-feedback uniqueness for g=I cannot imply the g=SI result by parameter substitution: εj SI depends on susceptible equilibrium S, unlike εj I. The exact quadratic escape limit is also absent in inspected prior statements.",
+        "searches": [
+          "SIRCm endemic uniqueness transmission driven infection-driven immune escape feedback Ramírez-Gutiérrez",
+          "2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+          "arxiv:2610.01111v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ramírez-Gutiérrez et al. explicitly define both g=SI and g=I and give weak/strong feedback results.",
+          "Published exact prevalence-driven g=I result proves I independent of epsilon2 at sigma=1; here g=SI has positive epsilon2 derivative for epsilon1>0."
+        ],
+        "reasoning": "Same compartment labels and boundary parameter do not make the systems equivalent: one feedback uses Z=SI, and the positive cross-channel derivative distinguishes them.",
+        "searches": [
+          "SIRCm endemic uniqueness transmission driven infection-driven immune escape feedback Ramírez-Gutiérrez",
+          "SIRCm transmission-driven g=SI versus prevalence-driven g=I sigma=1 independent feedback equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Appendix 7 contains a transmission-driven equilibrium polynomial, not a complete root/parameter-derivative sign table for all ε1,ε2.",
+          "Published prevalence-driven exact record has a separate parameter dependence classification for g=I."
+        ],
+        "reasoning": "No same g=SI σ=1 closed-form uniqueness/sensitivity table found; the available polynomial is not automatically a positive-root uniqueness or strict comparative-statics certificate.",
+        "searches": [
+          "SIRCm endemic uniqueness transmission driven infection-driven immune escape feedback Ramírez-Gutiérrez",
+          "all feedback endemic uniqueness transmission-driven SI sigma1 table scalar root"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for the exact g=SI σ=1 all-feedback unique endemic equilibrium and strict-vs-flat two-channel sensitivity; not for model invention, general endemic existence or previously published g=I uniqueness.",
+      "residual_risks": [
+        "2006 ancestor article full text not inspected; old general model reductions could conceivably supply methods, not demonstrated coverage.",
+        "No orbital or global stability established; do not extrapolate comparative statics to causal epidemiology.",
+        "General scalar monotonicity theorems may streamline the proof; current specific result priority best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence and regime-specific analysis; not the all-feedback endpoint uniqueness/strict second-channel response",
+          "evidence": "Abstract on general existence and weak/strong cases; §§4.1–4.3 and App. 7 polynomial",
+          "identifier_or_url": "arXiv:2610.01111v1 / https://arxiv.org/html/2610.01111v1",
+          "material_read": "Full accessible HTML, especially equations (1)–(3), Sections 3–4 and Appendix 7, including moderate feedback and transmission-driven polynomial",
+          "method": "arXiv lawful primary HTML source",
+          "title": "Compartmental epidemiological models with infection-driven immune escape",
+          "trigger": "Exact proposed model and possible dominating theorem"
+        },
+        {
+          "assessment": "Different feedback g=I, notably constant infection under ε2 at σ=1 even if ε1>0",
+          "evidence": "Finding and equations g=I; derivative factorization (4) with σ=1",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+          "material_read": "Entire published RESULT.md with equations, proof and full literature context",
+          "method": "Git blob 9eef353d6372df5fb3f54d7cb26d1657f10d5f02 read completely",
+          "title": "All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system",
+          "trigger": "Closest published exact classification for same compartments"
+        },
+        {
+          "assessment": "Zero-feedback model is older, and the unexamined full article is acknowledged as residual risk",
+          "evidence": "2006 SIRC equilibrium context and lack of mutation feedback in model definition",
+          "identifier_or_url": "DOI:10.1016/j.mbs.2005.12.029",
+          "material_read": "Accessible abstract/bibliographic data only; full text not available here",
+          "method": "public metadata/abstract; no whole-document NOT_COVERING inference",
+          "title": "The SIRC model and influenza A",
+          "trigger": "Original feedback-free ancestor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint σ=1 is a natural maximal-reinfection boundary of a recently proposed SIRCm model. The theorem closes a specific intermediate-feedback equilibrium-uniqueness gap for arbitrary independent feedbacks and exposes a mathematically meaningful interaction switch: the second channel changes endemic burden only when first-channel feedback is active. The exact saturation limit supplies a reusable parametric boundary, distinct from model stability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/all-feedback-endemic-uniqueness-and-coupled-escape-channel-sensi--26210462b084/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/all-feedback-endemic-uniqueness-and-coupled-escape-channel-sensi--26210462b084/verify.py",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+    "https://arxiv.org/html/2610.01111v1",
+    "https://doi.org/10.1016/j.mbs.2005.12.029"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only autonomous σ=1, all rate coefficients positive, εj≥0; no claims for σ<1, stability, trajectories or causal empirical effect.",
+    "Original 2006 article abstract/metadata only; bounded literature priority risk."
+  ],
+  "schema_version": 1
+}

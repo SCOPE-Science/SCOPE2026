@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof directly reconstructs the steady states of the stated four-compartment equations. For \(\sigma=1\), the infected balance forces \(S+C=k\), while the susceptible balance yields the exact rational formula for \(C\) in terms of \(z=SI\). The physical interval is characterized by strictly increasing \(I(z)\). The remaining stationary equation becomes a scalar intersection between a strictly increasing function and a strictly decreasing function, proving existence and uniqueness without using numerical root counts. Ordering the scalar equations proves the two feedback monotonicities. The stationary recovered equation gives the strict-versus-zero infected response and the limiting quadratic. The packaged standalone tests check reduction identities with exact fractions and representative residuals, not universal quantifiers.
+PASS
 
-## Originality — PASS under inspected sources
+Reconstructed the autonomous four-compartment ODE with g=SI, σ=1 and strictly positive rates. I>0 forces S+C=k=(µ+α)/β<1; I=0 only disease-free. For k<1, set a=1−k,z=SI,U=µa,V=µ+γ,g=γε2 and solve the susceptible equation C=(βz−U)/(V+gz), S=k−C, I=z/S, R=a−I. On the positive feasible interval z∈(U/β,z_max), R decreases from >0 to 0. The C-stationarity scalar equation is G_g(z)=δ(1/z+ε1) with G_g=(β−U/z)(1+βz/[S(V+gz)])/R; every factor is positive and strictly increasing, giving exactly one root. At fixed z increasing g decreases C, increases S,R and lowers G_g, shifting z* upward; ε1 raises RHS, also shifting z* up. Stationary R gives I*=aM/(α+M), M=µ+δ(1+ε1 z*), yielding strict eps1 increase and strict eps2 increase iff ε1>0; ε1=0 makes I* independent of ε2. As g→∞, C→0 and limiting equation gives the stated unique positive polynomial root <ka. Independent SymPy verified S stationary and exact factorization. Finite 80-case source diagnostics cannot substitute for the quantified monotonic proof.
 
-The 2026 SIRCm source [1] proves general endemic existence and weak/strong-feedback uniqueness but does not state this unconditional maximal-reinfection result or strict feedback-interaction dichotomy for \(g=SI\). The closest published published-finding corpus theorem [3], read in full, treats \(g=I\); it gives an *opposite* zero-sensitivity result at \(\sigma=1\) and explicitly excludes transmission-driven feedback. The two systems cannot be substituted into one another at a fixed parameter choice because the additional factor \(S\) varies with the endemic state. The original zero-feedback SIRC model [2] is a special case and does not cover the positive-feedback comparative statics. Search coverage is not exhaustive; general monotonicity frameworks are a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The endpoint \(\sigma=1\) is the natural limiting case of maximal susceptibility of the cross-immune compartment. At this boundary, the distinction between prevalence-driven and transmission-driven feedback is mathematically sharp: the second escape channel is neutral for prevalence-driven feedback but strictly increases endemic prevalence in the transmission-driven formulation precisely when the first escape channel is active. The theorem also classifies the equilibrium for arbitrarily large independent feedback parameters, beyond the source's weak/strong results and numerical observations, and provides a checkable limiting quadratic. This is a motivated structural benchmark, not an arbitrary numeric slice or a stability claim.
+Best-of-knowledge originality passes for the exact g=SI σ=1 all-feedback unique endemic equilibrium and strict-vs-flat two-channel sensitivity; not for model invention, general endemic existence or previously published g=I uniqueness.
 
-## Literature and limitations
+## value
 
-[1] Ramírez-Gutiérrez et al., arXiv:2610.01111v1, Sections 2–4 and Appendix 7; inspected in full relevant HTML sections. [2] Casagrandi et al., Mathematical Biosciences 200 (2006), 152–169; only accessible abstract and citation data were inspected. [3] published-finding corpus 2026-10-11, *All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system*; complete RESULT.md inspected. No claim is made about orbital stability, general \(\sigma\), or clinical causality. Independent review and comprehensive historical-priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The endpoint σ=1 is a natural maximal-reinfection boundary of a recently proposed SIRCm model. The theorem closes a specific intermediate-feedback equilibrium-uniqueness gap for arbitrary independent feedbacks and exposes a mathematically meaningful interaction switch: the second channel changes endemic burden only when first-channel feedback is active. The exact saturation limit supplies a reusable parametric boundary, distinct from model stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
