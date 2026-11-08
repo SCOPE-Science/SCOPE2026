@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verification/check.py` with Python 3.10 or newer and SymPy installed. The verification uses exact fractions, not floating-point probabilities. Ten bipartite graph families, including nonuniformly weighted paths, cycles and complete-bipartite graphs, are checked at preference strengths \(h=1/3\) and \(h=3/4\). Across their 456 opinion configurations, exact one-step conditional drift agrees with the analytical edge-sum identity and vanishes. The independent absorbing-chain linear-system solutions match the degree-weighted fixation probability in 292 transient states. A triangle with one biased vertex provides the nonzero-drift contrast \(1/54\); fully polarized states have non-change probability \((1+h)/2\).
+## correctness
 
-The script uses matrix inversion only for small finite examples, with the six-vertex case checked by conditional drift rather than solving the full absorbing chain. These tests do not certify the theorem for all graphs: the published proof is the edgewise drift calculation, cut-identity necessity, graph bipartition argument, finite-state absorption, and bounded martingale passage to absorption. Stochastic simulations are not invoked. The limits at \(h=1\), directed/asymmetric weighting, and infinite graphs are not asserted.
+PASS
+
+For the stated discrete copying rule, each discordant edge {u,v} contributes w_uv(b_u+b_v)/(2nD) to conditional drift of M=Σd_uX_u/D, irrespective of orientation. Vanishing from every configuration is equivalent to every cut sum zero; singleton cuts at u,v and pair {u,v} isolate 2w_uv(b_u+b_v), forcing b_u+b_v=0 per edge. Connectedness gives alternating ±h on bipartite graphs, or h=0 with an odd cycle. All nonzero copying rates yield finite-state a.s. consensus, and a bounded stopped martingale gives P(all+)=M_0. Polarized bipartite initial condition has M=1/2 because each side accounts for half total weighted degrees; first flip is geometric with probability (1-h)/2 and expected time 2/(1-h), equality on K2.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: this is an iff graph-theoretic martingale classification at nonzero preferences and exact first-flip time, not the unbiased degree-weighted fixation law or mean-field modular polarization studied previously.
+
+## value
+
+PASS
+
+Exact neutrality despite arbitrarily strong opposing fixed biases is a motivated classification of partisan network dynamics; the sharp divergence of consensus delay while fixation odds stay neutral is a meaningful diagnostic beyond reparameterized unbiased voter folklore.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

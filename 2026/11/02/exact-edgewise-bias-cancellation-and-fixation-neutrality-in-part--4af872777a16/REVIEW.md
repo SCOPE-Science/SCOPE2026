@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The oriented-update contribution of each discordant undirected edge equals its weight times the sum of endpoint preferences divided by \(2nD\), regardless of which opinion is on which endpoint. Vanishing cut sums for every initial configuration force the coefficient of each edge to vanish using a singleton/singleton/pair identity; connectedness then gives the bipartite alternating classification. Strictly positive copying probabilities make absorption almost sure in the finite connected system. A bounded stopped martingale yields the exact fixation probability. The two-sided weighted-degree identity gives the polarized half probability and a geometric first-change time with mean \(2/(1-h)\). Exact finite Markov checks supplement, but do not replace, the general proof.
+PASS
 
-## Originality
+For the stated discrete copying rule, each discordant edge {u,v} contributes w_uv(b_u+b_v)/(2nD) to conditional drift of M=Σd_uX_u/D, irrespective of orientation. Vanishing from every configuration is equivalent to every cut sum zero; singleton cuts at u,v and pair {u,v} isolate 2w_uv(b_u+b_v), forcing b_u+b_v=0 per edge. Connectedness gives alternating ±h on bipartite graphs, or h=0 with an odd cycle. All nonzero copying rates yield finite-state a.s. consensus, and a bounded stopped martingale gives P(all+)=M_0. Polarized bipartite initial condition has M=1/2 because each side accounts for half total weighted degrees; first flip is geometric with probability (1-h)/2 and expected time 2/(1-h), equality on K2.
 
-PASS, subject to normal bibliographic uncertainty. The originating source analyzes the fixed-preference microscopic rule but emphasizes mean-field phase portraits, modular network approximations, and simulation; its full text and appendices do not establish the weighted finite-chain martingale characterization or sharp first-flip delay. Sood–Redner (2005) already proves the **unbiased** degree-weighted law and the complete-bipartite 50-50 case, neither of which is asserted to be novel here. Masuda–Gibert–Redner (2010) studies a different conserved quantity for rate heterogeneity and mean-field partisan voting, and Masuda–Redner (2011) and Borile–Maritan–Muñoz (2013) address partisan and quenched-field effects in other graph/limit regimes. The crucial distinction is exact, nonzero, edge-alternating preference in the finite stochastic copying chain. Database and related-claim searches yielded no result that implies the full theorem; inaccessible or unindexed equivalent statements remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a complete graph-theoretic classification of when conflicting fixed preferences preserve fixation odds in a natural voter process, not an isolated special example. It gives a sharp quantitative contrast between preference-independent consensus probabilities and an expected first-change time that diverges as the agents approach unwavering partisanship. The weighted version covers heterogeneous contact intensity and the necessity statement detects precisely why a single same-sign edge or odd cycle breaks neutrality. These properties provide exact boundary cases against which modular approximate dynamics can be compared.
+Best-of-knowledge PASS: this is an iff graph-theoretic martingale classification at nonzero preferences and exact first-flip time, not the unbiased degree-weighted fixation law or mean-field modular polarization studied previously.
 
-## Limitations and closest literature
+## value
 
-The result concerns strictly finite connected **undirected weighted** networks, \(|b_u|<1\), a particular asynchronous copying rule, and two opinions. It does not identify the full mean consensus time on general graphs and does not apply at the zealot endpoint. The nearest explicit prior fixation theorem is Sood and Redner's unbiased complete-bipartite result. A possible same-result treatment under unsearched terminology remains the principal originality risk. The finite verification checked 456 drift identities and solved 292 finite-chain transient equations; it is not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact neutrality despite arbitrarily strong opposing fixed biases is a motivated classification of partisan network dynamics; the sharp divergence of consensus delay while fixation odds stay neutral is a meaningful diagnostic beyond reparameterized unbiased voter folklore.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
