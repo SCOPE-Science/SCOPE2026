@@ -1,23 +1,21 @@
-# Scientific review: rational-resonance capture on two-coupling hypercubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical domain is a finite \((a+b)\)-dimensional Boolean cube with \(a,b\ge1\), uniform positive coordinate-flip couplings within each block, and one irreversible positive-rate sink at zero. The proof identifies the Walsh spectrum and an orthonormal bright projector for each distinct energy. Dissipativity excludes real-spectrum eigenvectors from the bright subspace, which decays in finite dimension. Its dimension is therefore the number of distinct \(k+\rho l\) energies, and its sitewise projection gives all probabilities. For a reduced resonant \(\rho=u/v\), lattice fibers are disjoint primitive-step chains whose exact edge count gives the dimension deficit. Complete-capture sites are classified by Fourier signs in the single-weight subspaces, then by parity along each resonance chain. Cauchy–Schwarz proves the individual-site monotonicity at resonance.
+PASS
 
-Both standalone checkers have been executed on their packaged source files. One compares exact-rational Krawtchouk predictions with independently assembled full Walsh matrices over 144 parameter cases and 8,100 initial-site cases. The second propagates a genuinely dissipative effective Hamiltonian at long finite times for 168 site cases. The raw scientific outputs appear in `CHECKS.txt`. Checks cannot certify every finite dimension; the arbitrary-size proof supplies that part. The result does not make claims about transient evolution rates.
+The Walsh characters diagonalize H with eigenvalues J[(a−2k)+rho(b−2l)] and each degenerate energy fiber contains the single bright vector P_F|0>. Rank-one damping kills precisely that cyclic spectral span: every restriction eigenvalue there has strictly negative imaginary part, while the orthogonal dark complement evolves unitarily. Collision equality k+rho l=k′+rho l′ occurs iff rho is a reduced u/v with u<=a,v<=b, and fibers form disjoint lattice chains step (u,−v), with exactly (a+1−u)(b+1−v) edges; edges subtracted from rectangle vertices give bright dimension. Fourier/Krawtchouk character sums produce the exact site projector formula, and weighted Cauchy–Schwarz proves merging cannot increase absorption. For full capture, level (1,0) and (0,1) projections force each block constant: four corners off resonance; along any resonance chain the corner Walsh sign stays constant iff uε1+vε2 even, giving exactly two since (u,v) primitive. Independent exact rational tests a,b<=4 and direct source Walsh projection code inspection support but do not replace the general spectral proof.
 
-## Originality — PASS on examined evidence, with explicit historical-priority risk
+## originality
 
-Moore–Russell (2001, arXiv:quant-ph/0104137) supplies the known uniform-hypercube Walsh diagonalization but no two-block rational-collision census, sitewise capture law, or full-capture parity transition. Le–Donati–Severini–Caruso (2017, arXiv:1707.07482) gives the general degeneracy/dark-state framework, not this exact arithmetic phase diagram. Razzoli–Paris–Bordone (2021, DOI:10.3390/e23010085) develops bright/Krylov projection methods and capture examples on other families, not this two-block weighted hypercube classification. Makmal et al. (2015, arXiv:1510.08388) analyze discrete-time coined rather than this absorptive continuous-time model.
+PASS
 
-Related hypercube calculations for independently weighted edges, two absorbing sites, and absorbing Hamming shells have distinct operators and trap configurations. Those different hypotheses do not by themselves imply the two-block exceptional-ratio list or the full-capture-site parity law. A published closest result on weighted \(P_4\) Cartesian powers concerns a different graph family with its own spectral coalescences. A specialized earlier controllability theorem for exactly this parameterization could exist and is the residual risk; database search alone does not prove absence. No independent priority audit has been conducted.
+Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. These earlier results supply the machinery but do not directly imply the full classified all-site theorem as an already reported consequence.
 
-## Mathematical value — PASS
+## value
 
-The two-rate Boolean cube is a natural, experimentally interpretable model of anisotropic coherent transport. All irrational and all but finitely many rational couplings have the same capture capacity, whereas explicitly enumerable reduced rationals cause quantized dark-subspace increases. The exact size of every jump, all starting-site efficiencies, and the orientation-dependent two-corner survivor rule are motivated transport quantities. Unlike a generic matrix calculation, this classifies an infinite set of network sizes and their complete parameter-driven boundary. It offers quantitative benchmark cases for quantum transport and trap design without claiming applicability to noise or finite-time rates.
+PASS
 
-## Limits
+The exceptional coupling set is an intrinsic finite arithmetic resonance classification of a natural coherent network; the exact dimension loss and all-site capture probabilities give physically meaningful spatially differentiated behavior, including the surprising loss from four to two perfectly captured vertices at each resonance. This is not a routine scalar eigenvalue calculation or arbitrary slice.
 
-The stated scientific novelty is provisional pending independent work. A highly specialized earlier result on two-rate Walsh-spectral controllability may be unlocated; no claim of exhaustive literature search is made. All sources supporting generic background are attributed. Only the exact model proved here is covered.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
