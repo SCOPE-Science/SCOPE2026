@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Each edge value difference telescopes over positive adjacent valuation gaps. The edge count crossing a prefix of r ranked houses is \\(r(N-r)-\\sum_i x_i(n_i-x_i)\\). For fixed r, the maximum within-part cross-cut pair count is the sum of the largest r marginal values \\(n_i-2k-1\\), each part’s marginal sequence being strictly decreasing. A single greedy priority sort achieves every prefix maximum simultaneously; strict positivity of all gaps makes this necessary for overall minimization. Ties occur at most once per part per level and can be ordered independently, yielding both enumeration formulas. Direct independent-objective exhaustive code ran successfully on 106 instances and 215126 assignment words; the proof establishes arbitrary N and gaps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2301.01323v2",
+        "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2023/pdfs/p161.pdf",
+        "https://research.ibm.com/publications/graphical-house-allocation-with-identical-valuations"
+      ],
+      "reasoning": "The initiating full text explicitly gives all optimizers and counts for \\(K_{r,s}\\), a proper subfamily of the structural setting if allowing two parts, but does not cover graphs with at least three nonempty parts. General graph complexity results do not logically imply the claimed closed-form all-optimum characterization.",
+      "searches": [
+        "graphical house allocation complete multipartite arbitrary house spacing every optimal allocation count greedy part priority",
+        "Graphical House Allocation Hosseini Payan Sengupta Vaish Viswanathan complete bipartite Theorem 4.5 4.6 4.7",
+        "minimum linear arrangement complete multipartite graph optimal permutations parity ties marginal gains arithmetic progressions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2301.01323v2",
+      "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2023/pdfs/p161.pdf",
+      "https://www.ijrte.org/wp-content/uploads/papers/v8i6/F8964038620.pdf",
+      "https://doi.org/10.1016/j.dam.2018.05.034",
+      "https://research.ibm.com/publications/graphical-house-allocation-with-identical-valuations",
+      "Minimum-sum vertex cover on complete multipartite graphs (indexed research title)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2301.01323v2",
+        "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2023/pdfs/p161.pdf",
+        "https://doi.org/10.1016/j.dam.2018.05.034",
+        "https://www.ijrte.org/wp-content/uploads/papers/v8i6/F8964038620.pdf"
+      ],
+      "reasoning": "The 2023 paper is restricted to two parts, so it does not cover the new case \\(q\\ge3\\) by inclusion. The 2020 Turan calculation and 2020 multipartite path-wirelength title/abstract imply numerical overlap for evenly spaced valuations; neither accessible account establishes uniqueness, all tie-order permutations or their exact count, nor invariance under arbitrary positive nonuniform gaps. The full Rajan et al. text is unavailable, so stronger implication by its internal theorems cannot be ruled out.",
+      "searches": [
+        "Graphical House Allocation Theorems 4.5-4.7 complete bipartite",
+        "Wirelength of embedding complete multipartite graphs into certain graphs exact path",
+        "Optimal Linear Arrangement of Turan Graphs Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1016/j.dam.2018.05.034",
+        "https://www.ijrte.org/wp-content/uploads/papers/v8i6/F8964038620.pdf",
+        "https://www.ijrte.org/portfolio-item/f8964038620/"
+      ],
+      "reasoning": "Under evenly spaced values, the objective equals minimum linear arrangement or path wirelength, so the numerical optimum is already partly known. The submitted statement is a stronger exact optimizer-set classification and factorial count valid for arbitrary strictly positive gaps. The accessible wirelength abstract does not settle whether its inaccessible proof includes these stronger conclusions; this is a substantive residual risk.",
+      "searches": [
+        "minimum linear arrangement complete multipartite graph all optimal arrangements factorial count",
+        "optimal linear arrangement Turan graph multiple minimizers marginal priority",
+        "Rajan Rajalaxmi Liu Sethuraman minimum path wirelength complete multipartite graph 2020"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Minimum-sum vertex cover on complete multipartite graphs (indexed research title)",
+        "Feasible polytope and all optimizers for fractional edge dimension of complete multipartite graphs (indexed research title)"
+      ],
+      "reasoning": "Actual semantic research-record results have distinct objectives, respectively minimum-sum vertex cover and fractional edge dimension. No exact table, counts or optimizer classification for the specified graphical house-allocation invariant was returned; this negative evidence is not proof of absence.",
+      "searches": [
+        "2301.01323 multipartite graphical house allocation minimum aggregate envy",
+        "complete multipartite graphical house allocation identical valuations minimum aggregate envy optimal assignments priority ordering exact count",
+        "minimum linear arrangement complete multipartite graph all optimal arrangements factorial count"
+      ]
+    },
+    "rationale": "Full initiating Graphical House Allocation paper proves optimal assignment characterizations on \\(K_{r,s}\\), not three-or-more part graphs. The exact minimum for unit-spaced multipartite arrangements is partly covered by Rajan et al. (2020), but the present all-optimizer and exact count for arbitrary positive valuation spacings is not a logical consequence of a scalar optimum or single constructive optimum. Full-text comparison of the 2020 paper remains unavailable and is a material acknowledged priority risk. No published-finding corpus hit had an overlapping claim.",
+    "residual_risks": [
+      "The full 2020 Rajan–Rajalaxmi–Liu–Sethuraman multipartite path-wirelength paper was unavailable. Its exact unit-gap numerical result overlaps, and undocumented all-optimum equality conditions could reduce novelty.",
+      "An unindexed equivalent all-minimizer enumeration is possible; negative semantic search is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Complete bipartite optimizer structures and counts are antecedents; no three-or-more part theorem identified.",
+        "evidence": [
+          "https://arxiv.org/html/2301.01323v2",
+          "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2023/pdfs/p161.pdf"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.01323v2",
+        "material_read": "Full HTML paper: Sections 2 and 4.4 including Theorems 4.5-4.7 and appendices relevant to bipartite cases",
+        "method": "Direct section and theorem reading in lawful arXiv full text",
+        "title": "Graphical House Allocation",
+        "trigger": "Source paper on graphical house envy and complete bipartite optimum structure"
+      },
+      {
+        "assessment": "Explicitly \\(K_{r,r}\\) and \\(K_{r,s}\\); does not provide a complete multipartite optimizer count.",
+        "evidence": [
+          "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2023/pdfs/p161.pdf"
+        ],
+        "identifier_or_url": "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2023/pdfs/p161.pdf",
+        "material_read": "Proceedings PDF pages covering Section 4.4 and Theorems 4.5-4.7",
+        "method": "Direct PDF text and page-visual inspection",
+        "title": "Graphical House Allocation (AAMAS 2023 conference paper)",
+        "trigger": "Cross-check exact wording and scope of original optimum and counting results"
+      },
+      {
+        "assessment": "Prior balanced, evenly spaced numerical arrangement result; no arbitrary part/gap all-optimum census.",
+        "evidence": [
+          "https://www.ijrte.org/wp-content/uploads/papers/v8i6/F8964038620.pdf"
+        ],
+        "identifier_or_url": "https://www.ijrte.org/wp-content/uploads/papers/v8i6/F8964038620.pdf",
+        "material_read": "Theorem and proof on Turán-graph arrangements (full short PDF, with page images inspected)",
+        "method": "Direct open-access PDF inspection",
+        "title": "Optimal Linear Arrangement of Turán Graphs",
+        "trigger": "Balanced multipartite scalar minimum may dominate or subsume special cases"
+      },
+      {
+        "assessment": "Unit-gap scalar minimum is covered or closely overlapped. Whether the internal proofs classify all minimizing permutations or positive-gap optimizer invariance is unresolved, not asserted absent.",
+        "evidence": [
+          "https://doi.org/10.1016/j.dam.2018.05.034",
+          "https://scispace.com/papers/wirelength-of-embedding-complete-multipartite-graphs-into-2mfoea9rdp"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.05.034",
+        "material_read": "Accessible title, abstract, bibliographic/citation-context evidence only; full text unavailable",
+        "method": "Searched public preprint and open-access copies and reviewed indexed abstracts; full paper not available",
+        "title": "Wirelength of embedding complete multipartite graphs into certain graphs",
+        "trigger": "Potential exact minimum path-wirelength result on all complete multipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e994635-6765-4264-a292-bb75f409bb17",
+  "value": {
+    "rationale": "The mathematically motivated unanswered case of connected graphs with three or more complete communities admits a complete positive-gap-invariant optimizer classification and exact factorial count for every unequal size profile, extending the established bipartite classification. Unlike prior scalar path-wirelength formulas, the structure supports exact selection and sampling among all optimal allocations. This is an infinite graph class and arbitrary strictly increasing value vectors, not a narrow recomputation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For the claimed complete multipartite graph, the total edgewise absolute difference decomposes as a positive linear combination of prefix cut sizes. The cut size for part prefix counts is exactly \(r(N-r)-\sum_i x_i(n_i-x_i)\). Each part supplies a strictly decreasing sequence of marginal gains, so taking the globally largest gains simultaneously optimizes every prefix; strictly positive house-value gaps make this condition necessary as well as sufficient. Tied marginal levels contain at most one occurrence per part, validating the factorized count. An explicit brute-force checker confirmed the complete optimizer sets and minimum values in 106 instances, evaluating 215,126 assignment words. Proof, not enumeration, establishes the theorem for arbitrary part sizes and positive real gaps.
+
+## Originality — PASS with residual priority risk
+The full HTML of Hosseini et al. (arXiv:2301.01323), especially Section 4.4 and its complete-bipartite theorems, and its conference PDF were inspected. Their all-optimum formulas cover exactly two graph parts, not the stated \(q\ge3\) network class. The 2020 Turán-graph work treats the balanced numerical linear-arrangement problem, not the full arbitrary-gap optimizer census. Rajan et al. (2020) establish minimum path-embedding wirelength for complete multipartite graphs; that covers the scalar equally spaced minimum but, from the accessible abstract and citation context, does not establish the present all-optimum count or arbitrary positive-gap invariance. Its full text was unavailable, leaving material priority risk. Searches also considered terminology such as minimum linear arrangement, wirelength, edge congestion, multipartite embeddings, and complete multipartite minimum-envy housing; the checked mathematical-record results concerned different invariants. No negative search is interpreted as a guarantee of uniqueness.
+
+## Value — PASS
+This extends a recognized complete-bipartite graphical house-allocation classification to arbitrary multi-community structures, giving all optimal solutions rather than one optimum. The cost formula applies to arbitrary nonuniform house-value gaps; the product of factorials counts the entire optimal solution space, and balanced networks yield an explicit \((q!)^m\) family. These features provide a reusable characterization for tie-breaking, fair allocation selection, and exact solution sampling; the contribution is more than a numerical recomputation of the uniform-spacing wirelength.
+
+## Scientific limitations
+The theorem assumes complete multipartite adjacency, identical agent valuations, distinct houses and strictly positive consecutive value gaps. Full-text comparison with the 2020 complete-multipartite wirelength article was not available, so the possibility that some or all of the optimizer classification has an earlier formulation remains unresolved. The supplied finite checker is a reproducibility aid, not a proof of infinite correctness or independent external certification.
+
+Self-review: passed. Independent audit: not yet performed.
