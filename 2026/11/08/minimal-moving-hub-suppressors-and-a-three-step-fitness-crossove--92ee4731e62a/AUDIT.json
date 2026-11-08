@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every r>0 and tau in 1..4, a complete eight-mask birth-death transition matrix defines the model. The six transient backward equations have unique solutions because a connected graph gives a positive-probability path to absorption in at most two updates. The exact coefficient arrays were checked against the independent standard-library Fraction solver at 30/58/86/114 distinct positive integer r values. Each candidate cross-multiplication polynomial has proved degree <=28*tau+1, so these exact checks prove identities for all real r, not merely finite sampling. Independently checked polynomial identities give strictly negative S1/S2, positive S4, and S3=r^5H(r+r^-1-2) where H(0)<0 and all higher coefficients are positive, yielding exactly one threshold. A separate degree-bound certificate establishes the static path formula. Boundaries r=1 and reciprocal r*, phase alignment and graph labels are explicit; no unsupported tau>=5 generalization is made. Evidence: verify.py, COEFFICIENTS.txt, RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhaumik–Masuda general recursion at https://arxiv.org/abs/2304.00170 (sections 3.1–3.2) permits solving arbitrary finite pairs but gives no explicit formulas for this graph pair.",
+        "Su–McAvoy–Plotkin arXiv:2301.11982 and Nature Comput Sci 3 (2023) 763–776 address broad strategy evolution; material available in the abstract and Nature extended data did not present the claimed all-fitness moving-hub result."
+      ],
+      "reasoning": "A general Markov-chain computation method does not itself assert the exact universal signs, the only three-step crossover, or the minimal two-amplifier construction; their proofs require new elimination and sign analysis. No broader accessible theorem implying these strict inequalities was identified. Unreviewed results could exist.",
+      "searches": [
+        "Exact fixation probability evolutionary birth-death process on switching temporal networks star and complete graphs alternating two graphs periodic Markov chain suppressor amplification",
+        "Temporal evolutionary graph theory fixation probability deterministic switching networks Moran small graph path cycle exact formulas",
+        "web: \"Strategy evolution on dynamic networks\" 2023 fixation",
+        "web: \"switching\" \"different hubs\" \"fixation probability\" evolutionary"
+      ]
+    },
+    "checked_sources": [
+      "Bhaumik & Masuda, arXiv:2304.00170 (full accessible preprint sections and appendix)",
+      "Su, McAvoy & Plotkin, arXiv:2301.11982 (abstract plus selected journal details)",
+      "Kuo & Carja, PLOS Comput Biol 2024 e1011905 (abstract, author summary and results excerpts)",
+      "published-finding corpus semantic search for moving-hub P3 fixation; searches as recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.00170 theorem 1 concerns neutrality at fitness one, while its simulations primarily compare selected fitness curves; the new claim holds for every positive fitness.",
+        "arXiv:2304.00170 sections 4.2.1 and Appendix B show different constituent pairs and do not resolve the exact unique three-step threshold; the present exact polynomial certificate and the all-real polynomial identity are separately supplied."
+      ],
+      "reasoning": "Neutrality at r=1 and existence of a generic transition-matrix formula do not imply a global suppressor/amplifier classification over all r. The previous example with a neutral triangle is not a stronger theorem covering two amplifiers; the reported tau=10/50 transitions do not imply the precise new block-length one-through-four phase diagram. Significant overlap in method is credited, but the target statement is not a special case of a prior stated sign theorem in inspected material.",
+      "searches": [
+        "Exact fixation probability evolutionary birth-death process on switching temporal networks star and complete graphs alternating two graphs periodic Markov chain suppressor amplification",
+        "Alternating two three-vertex path graphs with different centers birth-death Moran fixation probability, exact suppressor amplifier switching duration 1 2 3 4",
+        "Dynamic Moran birth death switching two amplifier star graphs changing hub and selection intensity exact transition threshold",
+        "web: \"switching\" \"stars\" \"fixation\" \"different\" evolutionary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bhaumik–Masuda arXiv:2304.00170, sections 4.2.1, 4.2.2 and Appendix B compare star+complete/star+complete-bipartite; see https://arxiv.org/abs/2304.00170",
+        "published-finding corpus semantic search returned unrelated published findings about bounded-confidence switching and quantum amplitude damping rather than a matching temporal Moran fixation calculation."
+      ],
+      "reasoning": "By graph isomorphism reversing the two moving-center paths or swapping site labels is the same case; searches included temporal Moran, alternating stars, different hubs, and phase lengths. The star+triangle case is not equivalent because it has a distinct regular second static graph, while both present constituents are path amplifiers. No exact phase-equivalent result was found in read material.",
+      "searches": [
+        "Alternating two three-vertex path graphs with different centers birth-death Moran fixation probability, exact suppressor amplifier switching duration 1 2 3 4",
+        "Dynamic Moran birth death switching two amplifier star graphs changing hub and selection intensity exact transition threshold",
+        "web: \"switching stars\" \"evolutionary\" \"fixation\"",
+        "web: \"alternating star\" \"Moran\" \"fixation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search for temporal graph fixation returned 286 results; relevant matched titles were quantum amplitude-damping birth/death and vaccination effects, not this Moran process.",
+        "Bhaumik–Masuda Appendix B explicitly depicts three-site star+complete, not the changing-hub path/path pair; 2023 journal version https://link.springer.com/article/10.1007/s00285-023-01987-5."
+      ],
+      "reasoning": "No exact coefficient table, threshold polynomial, or prior three-site path/path census was identified. The source contains plots for other graph pairs, not an exact table for the present pair. Negative search results do not certify absence.",
+      "searches": [
+        "fixation probability on evolving switching temporal graphs three vertices birth death mutant star amplifier suppressor",
+        "Fixation on temporal graphs period three duration three and fitness crossover polynomial",
+        "web: \"three-node\" \"temporal\" \"birth-death\" \"fixation\""
+      ]
+    },
+    "rationale": "The primary full-text source supplies the general periodic Markov equation and numerical evidence for other graph pairs, but its inspected small examples switch a three-site path with a triangle rather than two paths with different hubs. The new statement is a precise all-fitness analytic phase diagram on the minimal pair whose both individual constituents amplify selection. Searches of accessible primary literature and research records found no covering result; further independent literature review is warranted.",
+    "residual_risks": [
+      "Semantic search is not a uniqueness certificate; a non-indexed exact equivalent or stronger general temporal Moran theorem may exist.",
+      "The primary paper gives a broadly applicable Markov method; novelty rests on the proved new precise phase diagram and minimal two-amplifier example, not on the generic linear-system procedure.",
+      "Su–McAvoy–Plotkin full supplementary materials were not exhaustively inspected; their accessible material does not resolve this precise model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general computational framework but its displayed small-node graph pair is star+complete rather than the differently centered path/path pair, and no exact target phase diagram was found",
+        "evidence": [
+          "https://arxiv.org/abs/2304.00170",
+          "https://link.springer.com/article/10.1007/s00285-023-01987-5"
+        ],
+        "identifier_or_url": "arxiv:2304.00170; https://arxiv.org/abs/2304.00170",
+        "material_read": "Web-rendered full preprint text: section 2 model, sections 3.1–3.2 transition/backward equations, sections 4.1–4.2.2 examples, Appendix B three-site star+complete and Appendix C matrix transitions",
+        "method": "Read the accessible text and searched the sections and appendix for three-node, star, other hub and path/path cases",
+        "title": "Fixation probability in evolutionary dynamics on switching temporal networks",
+        "trigger": "Foundational directly matching deterministic graph-switching birth-death process"
+      },
+      {
+        "assessment": "Related strategy-evolution framework but no equivalent full-fitness exact moving-hub P3 result in inspected material; residual priority risk remains",
+        "evidence": [
+          "https://arxiv.org/abs/2301.11982",
+          "https://www.nature.com/articles/s43588-023-00509-z"
+        ],
+        "identifier_or_url": "arxiv:2301.11982; https://arxiv.org/abs/2301.11982",
+        "material_read": "Accessible arXiv abstract and bibliographic page, plus Nature journal selected extended-data descriptions of star/complete-community switching",
+        "method": "Read abstract, model scope, and accessible journal extended-data material; not a claim of full-paper exhaustiveness",
+        "title": "Strategy evolution on dynamic networks",
+        "trigger": "Broad analytical theory of changing evolutionary networks"
+      },
+      {
+        "assessment": "Focuses on static higher-order motifs and fixation-time tuning, not alternating two path centers or the exact fixation-probability threshold",
+        "evidence": [
+          "https://doi.org/10.1371/journal.pcbi.1011905"
+        ],
+        "identifier_or_url": "DOI:10.1371/journal.pcbi.1011905; https://doi.org/10.1371/journal.pcbi.1011905",
+        "material_read": "Accessible article abstract, author summary, and opening Results discussion of random regular graph motifs and fixation times",
+        "method": "Read public primary article text and compare update mechanism and invariants",
+        "title": "Evolutionary graph theory beyond pairwise interactions: Higher-order network motifs shape times to fixation",
+        "trigger": "Potential stronger small-graph motif result affecting fixation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92ee4731-e62a-4f56-94a7-82f23eeadb7e",
+  "value": {
+    "rationale": "A natural unresolved structural boundary is whether temporal switching can turn two individually amplifying networks into a suppressor, and at which switching duration the effect reverses. Three vertices are minimal for distinct connected simple unweighted networks. The theorem supplies an exact counterexample for two individually amplifying paths, universal suppressor signs for one/two steps, a single sharp selection-intensity crossover at three steps, and universal amplification at four. This is a qualitative phase diagram with an exact natural threshold, not an arbitrary small numerical table; it does not claim broader block-length coverage. A prior three-vertex star+triangle example is credited and differs because one constituent is neutral.",
+    "status": "PASS"
+  }
+}
