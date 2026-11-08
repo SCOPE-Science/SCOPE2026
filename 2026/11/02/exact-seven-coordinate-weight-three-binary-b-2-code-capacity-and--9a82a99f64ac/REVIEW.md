@@ -1,19 +1,21 @@
-# Scientific assessment of the seven-coordinate constant-weight \(B_2\) theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is entirely finite and has a reproducible exhaustive certificate. Every candidate three-subset, integer-sum collision and exclusion quadruple is generated from scratch. The link-graph C4 obstruction is proved by an explicit pair-sum equality; its seven-edge bound is verified by exhaustive enumeration of all six-vertex graphs. The branch search partitions the remaining completion space without omitting a feasible branch, checks sizes 15 and 14, and verifies each size-14 extremizer has incidence parameter two on all pairs. A separate implementation independently checks all pair sums on the full 120-element orbit. Risks: the search is computational rather than a short human-only derivation; the finite parameter scope must not be extrapolated.
+PASS
 
-## Originality — PASS (qualified)
+The 35 candidate triples on seven coordinates produce 595 unordered distinct-word sums and 630 distinct forbidden quadruples of triples from collisions; equal-sum input pairs cannot share one triple. Every feasible code is exactly an independent set avoiding all 630 four-hyperedges. A 7-cap on each coordinate degree follows from the C4-free link graph on the other six vertices (sharp edge extremum 7). The inspected C++ exhaustive branch-and-bound enumerates all completions containing fixed {0,1,2}, which is without loss for codebooks >=14 under S7 symmetry; pruning excludes only forced conflicts and tight link degrees. Independent separately implemented C++ complete search found no 15-word solution, 48 size-14 solutions through the fixed triple, all 2-(7,3,2), and generated 630 conflicts (independent search-node counts differ because branching differs). Direct cyclic witness has 14 sums-unique triples; 35*48/14=120 labeled optima and its S7 orbit has size 120, hence single orbit and double-Fano classification. The result is an exhaustive finite certificate for exactly n=7,k=3, distinct pairs, not a general extremal theorem.
 
-The 2023 paper of Sima, Li, Shomorony and Milenkovic provides the direct constant-weight \(B_2\) model and broader bounds but does not in its inspected text state this complete length-seven/weight-three optimum. The 2018 Meszka–Rosa article already gives the double-Fano design isomorphism and labeled count, which are therefore only background. Neither reviewed source proves that exactly those designs maximize the integer pair-sum codebook property. Searches across the published mathematical research index using constant-weight \(B_2\), binary weight-three, Sidon triples, double Fano planes and the 14/120 parameters did not surface such a correspondence. A 2022 general \(B_2\)-code paper was accessible as a bibliographic abstract only; possible unindexed equivalences remain a priority risk. Source snippets were not treated as whole-document proof of absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is the smallest sharp fixed-weight source-identification problem that directly connects distinct unordered pair sums to an incidence geometry. The result identifies the exact zero-collision capacity, not just a lower bound, and completely classifies every optimal design, enabling code construction and symmetry reduction. The classification is natural at the seven-coordinate/three-marker boundary where the double Fano plane exists. This is not a claim that the already published count of double Fano planes itself is novel.
+Meszka–Rosa 2018 already classify simple double Fano planes as one isomorphism class with 120 labeled designs; that portion is expressly not novel. Sima et al. 2023 study constant-weight binary B2 code bounds and large parameters; inspected full text does not provide the exact n=7 weight-3 optimum and pair-sum extremizer equivalence. Novelty is the B2 extremal correspondence and computer-certified upper bound, not the known design enumeration. Best-of-knowledge PASS.
 
-## Outcome and limits
+## value
 
-The accepted claim is restricted to seven coordinates, Hamming weight three, and distinct-source unordered pairs summed over the integers. The statement, both verifier sources, and all public files use the same restricted claim. C, O and V passed with the originality access caveats recorded in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-length Sidon/B2 constant-weight codes and optimal designs are natural in coding and combinatorics. The exact seven-coordinate capacity plus complete optimizer rigidity answers a genuine small extremal question, not an arbitrary renamed design count; small but mathematically motivated complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
