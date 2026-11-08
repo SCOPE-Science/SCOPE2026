@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:52:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/complete-covering-distance-spectrum-of-a-new-binary-length-22-co--f0391847f39f/RESULT.md at cee6a8611931dc24cf27d27764642f895841c83e Git blob 7457b80da1a240256c92adba0d7e89fead9bc146",
+        "2026/11/02/complete-covering-distance-spectrum-of-a-new-binary-length-22-co--f0391847f39f/verify.cpp Git blob d49f060f7a19c017295371bb3e005b1e1ad00c16",
+        "independent_checks_cpp_output.txt"
+      ],
+      "rationale": "The actual complete codewords.txt list contains 84 distinct integers in [0,2^22), with minimum pairwise Hamming distance exactly 9. For each x in 0,...,2^22-1 the minimum of popcount(x xor c) over all 84 codewords determines exact distance; an independent full C++ enumeration over all 4,194,304 ambient words reproduced buckets N0..8=(84,1848,19404,129360,614460,1712308,1566756,149908,176), with all other buckets zero, integer distance moment 21899416, radius 8, first deep hole x=78501, and mean 2737427/524288. The source also provides a logically independent 22-cube BFS crosscheck; its code was inspected but not independently executed in this run. This is exhaustive finite proof for the specific supplied code, no extrapolation.",
+      "residual_risks": [
+        "No covering-radius optimality among all (22,84,9) codes, nor extrapolation beyond this finite ambient cube."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bounds on A_2(22,9) address packing/maximal size, not the radius or Voronoi distance distribution of this particular non-linear code. No inspected general theorem forces these nine bucket counts for arbitrary (22,84,9) codes.",
+          "Three Improved Lower Bounds for Binary Error-Correcting Codes"
+        ],
+        "reasoning": "Bounds on A_2(22,9) address packing/maximal size, not the radius or Voronoi distance distribution of this particular non-linear code. No inspected general theorem forces these nine bucket counts for arbitrary (22,84,9) codes.",
+        "searches": [
+          "Ota Osa Harada (22,84,9) code covering radius 8 distance spectrum 176 deep holes",
+          "broader results from closest literature: arxiv:2610.11609v1"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md, verify.cpp and codewords.txt",
+        "independent_checks.cpp full 2^22-word spectrum",
+        "Ota–Osa–Harada arxiv:2610.11609v1 full accessible text and 84-word ancillary list",
+        "Resultary exact coding-profile query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original paper proves code size84 and min distance9; the spectrum requires additional full-cube analysis and is not a corollary of these two parameters. No claim that radius8 is globally optimal for all (22,84,9) codes."
+        ],
+        "reasoning": "Original paper proves code size84 and min distance9; the spectrum requires additional full-cube analysis and is not a corollary of these two parameters. No claim that radius8 is globally optimal for all (22,84,9) codes.",
+        "searches": [
+          "Ota Osa Harada (22,84,9) code covering radius 8 distance spectrum 176 deep holes",
+          "primary theorem comparison: arxiv:2610.11609v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 84 words and pairwise minimum distance 9 fix the input but do not explicitly state all 4,194,304 ambient nearest-distances. The covering-profile histogram is a different invariant than a code weight enumerator.",
+          "arxiv:2610.11609v1"
+        ],
+        "reasoning": "Published 84 words and pairwise minimum distance 9 fix the input but do not explicitly state all 4,194,304 ambient nearest-distances. The covering-profile histogram is a different invariant than a code weight enumerator.",
+        "searches": [
+          "Ota Osa Harada (22,84,9) code covering radius 8 distance spectrum 176 deep holes",
+          "aliases: covering radius of binary nonlinear (22,84,9), deep-hole spectrum, Voronoi distance enumerator of a binary code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 84-codeword list is a published table and explicitly credited; neither it nor accessible code-bound tables report 176 deep holes or the nine distance buckets. The new table is a distance-to-code census for this already known input."
+        ],
+        "reasoning": "The 84-codeword list is a published table and explicitly credited; neither it nor accessible code-bound tables report 176 deep holes or the nine distance buckets. The new table is a distance-to-code census for this already known input.",
+        "searches": [
+          "Ota Osa Harada (22,84,9) code covering radius 8 distance spectrum 176 deep holes",
+          "exact source coefficients/thresholds and standard databases: arxiv:2610.11609v1"
+        ]
+      },
+      "rationale": "Ota–Osa–Harada arxiv:2610.11609v1 publish this exact (22,84,9) list for improved maximal-code-size bounds; their construction and min distance are prior. The open complete article and its embedded 84-word list were inspected; no all-ambient covering-distance distribution, radius-eight statement or number of 176 deepest holes appears. Minimum pairwise distance nine and 84 words do not determine the covering profile without examining spatial placement; independent full enumeration produces a distinct natural metric statistic. Exact Resultary queries found no duplicate, but historical unindexed computations remain possible.",
+      "residual_risks": [
+        "A previously published or unindexed evaluation of the same 84-word code covering radius may exist.",
+        "No covering-radius optimality among all (22,84,9) codes, nor extrapolation beyond this finite ambient cube."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source supplies codewords and minimum distance; no full covering-distance distribution or count of radius-eight holes was found in inspected full text",
+          "evidence": [
+            "Ota, Osa and Harada (2026) introduce binary (22,84,9) construction and code list",
+            "No exact nearest-codeword spectrum in full-paper construction or results"
+          ],
+          "identifier_or_url": "arxiv:2610.11609v1",
+          "material_read": "Entire accessible full-text mirror, including main construction, code-size bounds, Section 4 and the complete 84-integer codeword list; each source word matched supplied Git data",
+          "method": "Read lawful open full-text mirror and compare cited ancillary list with frozen source and independent enumeration",
+          "title": "Three Improved Lower Bounds for Binary Error-Correcting Codes",
+          "trigger": "Primary source of identical 84-word binary length22 distance9 input"
+        },
+        {
+          "assessment": "Covering radius/nearest-distance distribution is a different invariant from packing capacity; no universal implication to exact buckets found",
+          "evidence": [
+            "For an arbitrary finite Hamming code C, min pairwise d_H(c,c′) does not fix min_{c\\in C}d_H(x,c) across all x"
+          ],
+          "identifier_or_url": "general coding literature, Hamming covering radius (standard invariant)",
+          "material_read": "Standard definitions and relevant indexed code-size and coverage comparison records, not a particular complete paper",
+          "method": "Mathematical implication comparison",
+          "title": "Code covering distance and deep-hole profiles in binary Hamming spaces",
+          "trigger": "Check whether size and pairwise distance force claimed radius and counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/complete-covering-distance-spectrum-of-a-new-binary-length-22-co--f0391847f39f/RESULT.md",
+        "Relevant prior work: arxiv:2610.11609v1"
+      ],
+      "rationale": "Covering radius and complete nearest-codeword-distance distribution are canonical decoding-geometric invariants of a named finite code, distinct from packing/minimum-distance parameters used to introduce the 84-word construction. The exact number of deepest holes and mean distance are mathematically useful for evaluating the construction even without new size optimality. A whole-cube exhaustive result is a meaningful motivated finite classification rather than arbitrary subsampling.",
+      "residual_risks": [
+        "A previously published or unindexed evaluation of the same 84-word code covering radius may exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A previously published or unindexed evaluation of the same 84-word code covering radius may exist.",
+    "No covering-radius optimality among all (22,84,9) codes, nor extrapolation beyond this finite ambient cube.",
+    "Publication not_ready because no privacy-neutral public replacements or verified complete Git-tree manifest are supplied; source GitHub unchanged."
+  ],
+  "schema_version": 1
+}

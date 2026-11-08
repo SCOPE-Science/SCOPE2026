@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,31 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The reproduced `codewords.txt` has exactly 84 distinct 22-bit integers with minimum pairwise Hamming distance 9. Every integer from zero through 4,194,303 is examined. The C++17 verifier independently obtains the nearest-codeword distance distribution by direct Hamming comparisons and multisource breadth-first search of the 22-cube; these agree in every bucket, including zero counts beyond radius 8.
+## correctness
 
-Run from the directory containing both files:
+PASS
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra verify.cpp -o verify
-./verify codewords.txt
-```
+The actual complete codewords.txt list contains 84 distinct integers in [0,2^22), with minimum pairwise Hamming distance exactly 9. For each x in 0,...,2^22-1 the minimum of popcount(x xor c) over all 84 codewords determines exact distance; an independent full C++ enumeration over all 4,194,304 ambient words reproduced buckets N0..8=(84,1848,19404,129360,614460,1712308,1566756,149908,176), with all other buckets zero, integer distance moment 21899416, radius 8, first deep hole x=78501, and mean 2737427/524288. The source also provides a logically independent 22-cube BFS crosscheck; its code was inspected but not independently executed in this run. This is exhaustive finite proof for the specific supplied code, no extrapolation.
 
-Expected output:
+## originality
 
-```text
-VERIFY_OK SIZE 84 DISTANCE 9 RADIUS 8 DEEP 176
-0 84
-1 1848
-2 19404
-3 129360
-4 614460
-5 1712308
-6 1566756
-7 149908
-8 176
-TOTAL 4194304 FIRST_DEEP 78501 MEAN 21899416/4194304
-```
+PASS
 
-Direct comparison uses exact integer popcounts. The BFS uses one-bit-flip edges and is therefore an independent implementation of nearest Hamming distance; its search reaches precisely the full ambient domain. The distance sum reduces to mean \(2737427/524288\). The codewords are attributed to Ota, Osa and Harada, arXiv:2610.11609v1. This is an exhaustive certificate for a finite instance; it is not an argument for a parameter family or for covering-radius optimality among all codes. Independent mathematical audit has not been performed.
+Ota–Osa–Harada arxiv:2610.11609v1 publish this exact (22,84,9) list for improved maximal-code-size bounds; their construction and min distance are prior. The open complete article and its embedded 84-word list were inspected; no all-ambient covering-distance distribution, radius-eight statement or number of 176 deepest holes appears. Minimum pairwise distance nine and 84 words do not determine the covering profile without examining spatial placement; independent full enumeration produces a distinct natural metric statistic. Exact Resultary queries found no duplicate, but historical unindexed computations remain possible.
+
+## value
+
+PASS
+
+Covering radius and complete nearest-codeword-distance distribution are canonical decoding-geometric invariants of a named finite code, distinct from packing/minimum-distance parameters used to introduce the 84-word construction. The exact number of deepest holes and mean distance are mathematically useful for evaluating the construction even without new size optimality. A whole-cube exhaustive result is a meaningful motivated finite classification rather than arbitrary subsampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
