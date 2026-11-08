@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Stable suffix 1101 and no-00 boundaries force a unique crossing site for first (01)^k. Explicit finite base and induction give all positions; orientation shift and end extension classify all alternating words; the longest-factor law follows from the first-containing stages. Checker independently compares the first 19 literal iterates; no finite experiment is substituted for the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit Theorem 7 proves existence of all binary factors avoiding 00; Theorem 4 gives first positions for 1^n, not the first appearances of (01)^k.",
+        "An earlier same-object extremal first-occurrence statement gives the largest and second-largest first positions at each length, without identifying first positions for alternating factors."
+      ],
+      "reasoning": "Factor language and extremal first-position bounds are strictly weaker data than the exact positional spectrum. The prior extremal statement leaves many lower-ranked pattern positions undetermined and gives no stagewise maximum alternation formula.",
+      "searches": [
+        "palindromic or reversal factor complexity Brik sequence 2026 golden mean shift recurrence first occurrence patterns",
+        "Brik word finite iterates B_i longest alternating factor versus first occurrence of blocks of ones Shallit 2026",
+        "https://arxiv.org/html/2605.07542"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.07542v1 (full HTML)",
+      "OEIS A334820 (entry and comments)",
+      "Kevin Ryde, Code for OEIS A334820 (landing page)",
+      "Indexed research results matched against alternating factors and first-occurrence formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 treats 1^n and Theorem 7 the language of factors avoiding 00; neither supplies exact first positions for 010101 or longer alternating factors.",
+        "OEIS A334820 records the replication and a reference to constant-run first positions."
+      ],
+      "reasoning": "One cannot infer r3=38 or r4=2^36+37 from the existence of factors and the first-occurrence positions of homogeneous factors. The new proof uses the stable suffix 1101 and boundary-crossing source index; its stage-threshold corollary is additional.",
+      "searches": [
+        "Shallit arXiv:2605.07542v1 Theorems 4, 7; full HTML reading",
+        "Brik sequence first occurrence alternating blocks (01)^k, recurrence r_3=38, r_{k+1}=2^{r_k-2}+r_k-1; maximal alternating run in B_i",
+        "\"Brik's sequence\" \"alternating\" \"first occurrence\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.07542v1, Theorem 4, gives constant-run positions; Theorem 7 gives the complete legal factor language but no first positions for alternating words.",
+        "OEIS A334820 comments record first occurrences of constant runs of ones, not alternating factors."
+      ],
+      "reasoning": "The four alternating pattern orientations and parities are equivalent to the (01)-power first-position sequence by the no-00 rule; they are one theorem, not four independent novelty claims. These positions are not equivalent to the constant-run first-position sequence, nor determined by the existence of all legal factors.",
+      "searches": [
+        "Brik's sequence B_i recursion B_1=101 B_{i+1}=B_i B_i[i+1:] first occurrence alternating factors (01)^k longest alternating run",
+        "Brik sequence first occurrence alternating blocks (01)^k, recurrence r_3=38, r_{k+1}=2^{r_k-2}+r_k-1; maximal alternating run in B_i",
+        "\"Brik's sequence\" \"alternating\" \"first occurrence\"",
+        "\"first occurrence\" \"(01)^n\" \"Brik\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A334820 lists the replication sequence and cross-refers to A034797 for the first position of runs 1^i; no listed alternating-first-position table was found.",
+        "The code page for A334820 discusses isolated-term computation, not a formula for alternating-factor first appearances."
+      ],
+      "reasoning": "The new r_k values and all-stage maximum alternation are not read off the inspected databases. The first nontrivial value r3=38 was separately computed from the finite word.",
+      "searches": [
+        "https://oeis.org/A334820",
+        "https://oeis.org/A034797",
+        "\"A334820\" alternating runs first occurrence (01)^n",
+        "Brik sequence A334820 periodic alternating pattern 010101 01010101 earliest position occurrence hierarchy"
+      ]
+    },
+    "rationale": "The 2026 primary paper proves the legal-factor language and the first occurrence recurrence for constant runs, but not positions of alternating factors or the exact maximal alternating length at each finite iterate. The 2020/2021 sequence program and OEIS record the construction and constant-run information; neither inspected text states the alternating result. Queries found no implication-equivalent indexed theorem. Priority remains open for unindexed work.",
+    "residual_risks": [
+      "An unindexed article, code comment or unpublished proof could contain an equivalent alternating spectrum.",
+      "The linked full GP program from the original 2020 sequence site was not read; its public landing page was inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING alternating first-position and stagewise maximal-alternation claims; constant-run and factor-language results are prior",
+        "evidence": [
+          "Theorem 4 is about first 1^n occurrences",
+          "Theorem 7 characterizes legal factors by avoidance of 00",
+          "The paper gives no alternating-first-position sequence or all-stage maximum"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.07542",
+        "material_read": "Sections 1–4, especially Proposition 1, Theorem 4, Theorem 7, statements and proofs",
+        "method": "Open full-text HTML and compare hypotheses, quantities, and conclusions",
+        "title": "Brik's sequence: a strange recursion",
+        "trigger": "Exact same word and first-occurrence statistics"
+      },
+      {
+        "assessment": "Records the sequence, the constant-run first-occurrence cross-reference, not the claimed alternating spectrum",
+        "evidence": [
+          "Comment explicitly discusses first appearances of 1^i",
+          "No alternating-first-position formula in inspected entry"
+        ],
+        "identifier_or_url": "https://oeis.org/A334820",
+        "material_read": "Entry description, comments, cross-references, code and links",
+        "method": "Read publicly indexed sequence entry",
+        "title": "OEIS A334820",
+        "trigger": "Underlying sequence and possible exact database entry"
+      },
+      {
+        "assessment": "Inspected page addresses isolated symbol calculation and number-theoretic relations; source code itself not inspected",
+        "evidence": [
+          "Page describes PARI/GP isolated-term code and replication; no claims on first alternating factors in page text"
+        ],
+        "identifier_or_url": "https://user42.tuxfamily.org/seq-A334820/index.html",
+        "material_read": "Available full web page and its description of the code",
+        "method": "Read web page, not the full linked GP source code",
+        "title": "Code for OEIS A334820",
+        "trigger": "Original 2020 construction and algorithmic context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a96b70e-0670-4b37-8266-0108895d50fa",
+  "value": {
+    "rationale": "The factor language permits every alternating block, but first appearances and maximum alternating lengths at construction stages are highly delayed. Exact recurrences and stage thresholds provide a complete canonical dynamical invariant, including an iterated-exponential hierarchy, not merely a small finite census.",
+    "status": "PASS"
+  }
+}
