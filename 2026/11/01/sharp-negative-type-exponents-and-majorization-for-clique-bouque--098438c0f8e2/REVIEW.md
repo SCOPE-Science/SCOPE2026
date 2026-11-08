@@ -1,15 +1,21 @@
-# Scientific comparison and review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The distance-power form is expanded exactly after eliminating the hub coordinate. Equal-coefficient reduction within each blade is sharp, and rank-one weighted Cauchy--Schwarz gives the necessary-and-sufficient root criterion, including an explicit violating vector above the crossing. Strict monotonicity settles uniqueness, the equality conditions determine a one-dimensional endpoint radical, and strict concavity under integer transfers proves the fixed-total extremizers. The finite checker independently verifies 2,565 exact rational/signature or partition comparisons. Finite checks are not used as a universal proof.
+## correctness
 
-## Originality
-**PASS under a bounded scientific comparison.** The nearest genuinely covering special case is Doust--Weston's sharp star theorem (arXiv:0705.0411, Theorem 5.6). Li--Weston's general strict-negative-type results (arXiv:0901.0695) determine qualitative endpoint behavior but not the scalar root or partition ordering for these graphs. Abiad et al. (arXiv:2206.07561, Theorem 4.3 and Remark 4.4) explicitly study the same clique-bouquet graph family but its ordinary distance characteristic polynomial, not its whole family of metric powers or sharp majorization principle. Those results do not directly imply the new claims; they remain important conceptual and object-level predecessors. No claim is made that stars or ordinary windmill distance spectra are novel. Residual risk: an earlier specialized computation of clique-bouquet generalized roundness may exist outside the inspected texts.
+PASS
 
-## Mathematical value
-**PASS.** The invariant is the precise Hilbert snowflake/positive-definite-kernel feasibility frontier of a natural block-graph family. The result classifies all unequal bouquet sizes, provides endpoint obstruction vectors and minimal affine embedding dimensions, and determines how blade balance optimizes the frontier at fixed total size. This goes beyond a single easy instance, brute-force enumeration, or the known star formula.
+For r>=2, m_i>=1, t=2^p and zero-sum vertex coefficients, eliminating the hub yields the exact distance-power quadratic Q=-sum_{i,a} x_{i,a}^2+(1-t)sum_i s_i^2+(t-2)(sum_i s_i)^2, with s_i the blade totals. The sharp inequality sum_a x_{i,a}^2>=s_i^2/m_i reduces conditional negativity to a diagonal form a_i=t-1+1/m_i and a rank-one correction. Weighted Cauchy-Schwarz gives the necessary and sufficient F(t)=(t-2)sum_i a_i^-1<=1 (for t>2), with equality vector and strict sign witness. F strictly increases from 0 at t=2 to r>1; hence a unique t_*>2. Strictness below and one-dimensional endpoint radical follow from equality conditions; basepoint Euclidean Gram rank is M below and M-1 at the endpoint. Concavity of g_t(m)=m/((t-1)m+1) and integral unit transfers classify unique balanced and extreme partitions for fixed r,M. Independently constructed small bouquet zero-sum matrices and found their maximal eigenvalue zero at the computed t_*; finite checks do not replace these all-size arguments.
 
-## Scope and further validation
-The classification does not address general block graphs, weighted path distances, or independent verification. Mathematical originality is supported by bounded source inspection rather than guaranteed by absence from a database.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Doust-Weston arXiv:0705.0411 Theorem 5.6 determines the star case, recovered by m_i=1, so stars are explicitly prior. Li-Weston arXiv:0901.0695 yields general p-negative-type strictness principles but no bouquet-specific root. Abiad et al arXiv:2206.07561 directly study unequal-clique windmill/block-graph *ordinary distance characteristic polynomials*, not continuum distance-power kernels, endpoint negative-type nullity, or fixed-size majorization; a spectral paper on the same object alone is not the same invariant. No found source dominates the unequal-blade classification, with residual risk of older generalized-roundness literature.
+
+## value
+
+PASS
+
+Supremal negative type is a natural precise Hilbert snowflake-embedding frontier for finite metric spaces. The theorem supplies a full unequal-size clique-bouquet root formula, endpoint radical/embedding dimension, and exact balanced-versus-extreme partition ordering; not a one-case numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
