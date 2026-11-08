@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Substituting the source (3.2) yields \\(r_{n+1}=r_n/\\sqrt{1+\\tau a^2\\phi_n^2/S_n^2}\\). With \\(C=0\\), the geometric auxiliary sequence and reversed-branch sum give \\(q_*=(\\sqrt{17}-3)/4\\) and \\(t_*=(11+3\\sqrt{17})/4\\). With \\(a=\\phi_0=1\\), \\(\\tau=100\\), and every \\(0<C\\le1/2\\), \\(\\phi_1<-17/3\\), \\(r_j<10^{-j}\\), and all later positive movements total less than \\(5/3\\); thus \\(\\phi_n<-4\\) at every positive index. The exact ODE converges to zero, whereas its discrete state approaches a nonzero limit. Decimal checks succeeded; the infinite claim follows from the analytic induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2411.17403v1 Sections 1–3: modified-energy guarantee need not track physical energy",
+        "arXiv:2606.18551 abstract: a different corrected auxiliary scheme",
+        "SIAM 2020 abstract: alternate energy-balance scheme"
+      ],
+      "reasoning": "Known general assertions of modified-energy versus physical-energy mismatch and fixed-horizon error theory do not yield the all-step quantitative 2026-scheme theorem. The closest explicit scheme is the motivating source, which does not claim physical energy decay.",
+      "searches": [
+        "SAV spurious steady states gradient flow",
+        "SAV wrong equilibrium modified energy",
+        "SAV nonconvergence steady state energy stable time discrete",
+        "scalar auxiliary variable gradient flow energy nonphysical fixed points over any timestep gap physical energy despite r positive"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01063v1, source full HTML, esp. (3.2)-(3.8)",
+      "arXiv:2411.17403v1, introduction and Sections 2–3",
+      "arXiv:2606.18551 abstract (full text inaccessible)",
+      "doi:10.1137/19M1298627 publisher abstract",
+      "published-finding corpus public records: 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, 2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505, 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98",
+      "published-finding corpus public BDF2 delayed sign-loss result 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source Theorems 1–2 give positivity and modified-energy dissipation only",
+        "2024 source discusses loss of physical-energy stability, but uses a different discretization",
+        "New proof gives a geometric exact limit and uniform all-step induction for 0<C<=1/2"
+      ],
+      "reasoning": "Neither positivity of \\(r_n\\) nor dissipation of \\(r_n^2-C\\) controls \\(E(\\phi_n)\\) when the auxiliary detaches from \\(S_n\\); here \\(r_n\\to0\\) while \\(|\\phi_n|>4\\). The exact algebraic threshold and nonsingular all-step example are not implications of prior positivity or general energy-mismatch statements.",
+      "searches": [
+        "arxiv:2610.01063v1 equation 3.2 positive root long-time convergence",
+        "arxiv:2411.17403v1 modified energy large time step state fidelity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01063v1 (3.2) exact positive-root update",
+        "arXiv:2411.17403v1 (2.4) uses 2r_{n+1}(r_{n+1}-r_n), not a square difference"
+      ],
+      "reasoning": "Equivalent scalar formulations obtained by eliminating the auxiliary root were compared with both sources. General SAV energy mismatch does not imply this specific first-reversal threshold or the entire positive-shift interval; the distinct update equations preclude immediate coverage.",
+      "searches": [
+        "positivity preserving scalar auxiliary variable square auxiliary reformulation backward Euler spurious nonzero steady state quadratic gradient flow physical energy",
+        "nonlinear energy SAV gradient flow r n tends to zero while solution tends to nonzero after large fixed steps",
+        "scalar auxiliary variable schemes long-time inconsistency modified energy exact scalar quadratic recurrences",
+        "SAV nonconvergence steady state energy stable time discrete"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public published-finding corpus hits 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "Public published-finding corpus hits 2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+        "Public published-finding corpus hits 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98",
+        "Public published-finding corpus hit 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 (different BDF2 iteration)"
+      ],
+      "reasoning": "No retrieved result contains a table or exact classification of the source SAV-BE method with the same scalar denominator and positive root; these search hits study different iteration maps. Absence of a match does not certify global novelty.",
+      "searches": [
+        "arXiv 2610.01063 Huang Liu Wang Yan quadratic reformulated SAV-BE C=0 one-mode scalar convex potential frozen nonzero equilibrium r tends zero large tau",
+        "r2 quadratic reformulation SAV exact q=(1+2 timestep a)^(-1/2), sharp t=(11+3sqrt17)/4 threshold, physical-energy increase",
+        "scalar auxiliary variable gradient flow energy nonphysical fixed points over any timestep gap physical energy despite r positive",
+        "SAV spurious steady states gradient flow",
+        "scalar auxiliary variable spurious steady state wrong",
+        "positivity-preserving scalar auxiliary nonzero equilibrium",
+        "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation Huang Liu Wang Yan 2610.01063 positive root C strict long time false equilibria",
+        "quadratic reformulated SAV BE squared auxiliary r new positive root scalar ODE backward Euler freezes at nonzero state n infinity",
+        "positive square root SAV r tends zero while phi tends wrong equilibrium despite modified energy decay 2026"
+      ]
+    },
+    "rationale": "The exact 2026 source is read through its main theorems, equations and numerical sections. It proves positive roots and decreasing modified energy but not the long-time state claim or sharp reversal-branch threshold. Prior 2024 weighted-SAV work already identifies general energy inconsistency, yet its discrete auxiliary equation differs. Dedicated published-finding corpus alias, same-source, equivalence and broader-coverage searches gave no covering statement among inspected hits; inaccessible full text and historical priority remain residual risks.",
+    "residual_risks": [
+      "Full text of arXiv:2606.18551 could not be inspected; abstract concerns a different modified scheme, but an unseen related scalar example is possible.",
+      "Older SAV long-time fidelity or fixed-point literature could contain a broader covering result not reached by the bounded searches.",
+      "This is a distinct exact conclusion, not a claim that energy mismatch itself was unknown."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes positive auxiliary and decreasing modified energy; no all-step scalar reversal threshold or strictly-positive-shift nonstationary limit stated. Source conclusion suggests adding relaxation to improve energy consistency.",
+        "evidence": [
+          "arXiv:2610.01063v1, equations (3.2)-(3.8), Theorems 1-2",
+          "arXiv:2610.01063v1, Section 4 and conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01063v1",
+        "material_read": "Relevant material throughout full HTML sections 1–5: all equations and theorems of Section 3.1, Section 2 scalar counterexample, Section 4 experiments and Section 5 conclusion",
+        "method": "Read section equations, theorems, hypotheses, results and limitations, then derived the exact scalar reduction",
+        "title": "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation",
+        "trigger": "Exact source update and asserted positivity/modified-energy theorem"
+      },
+      {
+        "assessment": "Already recognizes instability of the physical energy when modified energy decays, but its discrete square update differs; no implication of the exact 2026-scheme threshold or robust limit.",
+        "evidence": [
+          "arXiv:2411.17403v1, equations (2.4), (2.9), (3.3), and discussion of large-step discrepancy"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.17403v1",
+        "material_read": "HTML introduction, Section 2.1 scheme and energy stability, Section 3.1 first-order weighted method",
+        "method": "Compared equations (2.4), (2.9), (3.3) and stated original-energy limitations with the new square-difference update",
+        "title": "A weighted scalar auxiliary variable method for solving gradient flows: bridging the nonlinear energy-based and Lagrange multiplier approaches",
+        "trigger": "Prior work on energy-tracking mismatch and altered auxiliary updates"
+      },
+      {
+        "assessment": "Different pullback-corrected SAV family; cannot certify that all detailed lemmas are noncovering without full text.",
+        "evidence": [
+          "arXiv:2606.18551 abstract, June 17 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.18551",
+        "material_read": "Abstract, plus search indexing; full arXiv HTML unavailable",
+        "method": "Compared abstract-level operator/scheme description, not full-text noncoverage",
+        "title": "Scalar-Tracking SAV Schemes with Pullback Corrections for Gradient Flows",
+        "trigger": "Same general auxiliary-variable method and trajectory-accuracy concerns"
+      },
+      {
+        "assessment": "Different auxiliary/energy-balance discretization; residual possibility of related examples remains.",
+        "evidence": [
+          "SIAM Journal on Scientific Computing 42 (2020), A2514-A2536 abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/19M1298627",
+        "material_read": "Publisher abstract and bibliographic information, not full text",
+        "method": "Compared abstract method description",
+        "title": "A Highly Efficient and Accurate New Scalar Auxiliary Variable Approach for Gradient Flows",
+        "trigger": "Earlier discrete energy-balance updates and accuracy changes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f950ba79-895d-4dab-8ab3-4078a48f792a",
+  "value": {
+    "rationale": "This is a substantive long-time fidelity test of the source's explicitly defined unconditional-positive-root, modified-energy-stable method. Even the strongly convex physical energy \\(E(\\phi)=\\phi^2/2\\) can converge to a value above \\(8\\), rather than its unique-minimum value zero, while the positive auxiliary decays. The exact unshifted threshold explains the mechanism, and the strict interval \\(0<C\\le1/2\\) rules out the zero-radicand artifact. This delimits what unconditional modified-energy stability alone guarantees.",
+    "status": "PASS"
+  }
+}
