@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the coordinate-ordering theorem
+# Independent mathematical audit
 
-The proof establishes the claimed optimum for every integer \(m\ge2\). The finite checks provide independent computational corroboration; they are not used to infer the infinite claim.
+## correctness
 
-Run `python3 verify.py` from the extracted package, using Python 3.8 or newer. The script uses the standard library only. It implements finite-field multiplication from primitive polynomials, evaluates every affine Boolean word directly and separately counts each cyclic window by Boolean OR. It then checks the sharp formula at all widths \(1\le b\le m+1\) for \(m=2,3,4,5,6,7,8\). Higher widths are addressed by the proved monotonicity and absence of \(m+1\) consecutive zeros.
+PASS
 
-For dimension \(m=3\), the script also enumerates all \(7!=5040\) coordinate permutations with one coordinate anchored, compares maximum minimum distance at all four read widths, and finds exactly \(1680\) rooted orderings attaining the simultaneous optimal profile \((4,6,7,8)\). It checks the complete symbol-pair weight multiplicities for the constructed order at every tested dimension as an additional independent consistency test.
+For every m>=2 and every cyclic window 1<=b<=2^m, incidence counting over all nonzero affine words forces a universal bound d_b<=2^m-2^{m-b} for b<=m. The trace basis 1,g,...,g^(m-1) on primitive nonzero field powers has every b-tuple t or t-1 times; inserting coordinate zero increases any all-zero window count by at most one. The minimal-polynomial recurrence p(1)=1 excludes m+1 zero-runs in complemented words. This proves simultaneous attainment and full distance at b>=m+1. Independent direct enumeration of affine words and b-window distances for m=2..5 matched; finite tests are corroboration, not the unbounded proof.
 
-The direct expected profiles for \(m=2,3,4,5,6,7,8\) are respectively \((2,3,4)\); \((4,6,7,8)\); \((8,12,14,15,16)\); \((16,24,28,30,31,32)\); \((32,48,56,60,62,63,64)\); \((64,96,112,120,124,126,127,128)\); and \((128,192,224,240,248,252,254,255,256)\). Successful replay prints `VERIFY_OK`. These bounds, normalization, and branch conditions were also reconstructed from the proof independently of the finite enumeration.
+## originality
 
-Limits: only dimensions two through eight are computationally enumerated; all larger dimensions are covered by the separate proof. The script does not classify optimal coordinate orders at general dimensions, assess performance under any physical channel model, or establish historical novelty. Independent validation remains unperformed.
+PASS
+
+Generalized Hamming weights and cyclic trace/simplex code b-weight distributions have superficially matching parameters or numeric coincidences, but generalized support does not supply a single cyclic ordering maximizing each overlapping-window distance. The code here is affine unpunctured length 2^m, not just simplex length 2^m-1. Ding–Zhang–Ge supplies b-symbol theory and bounds; Zhu–Shi character sums supply irreducible cyclic distributions; the theorem-specific field insertion plus universal incidence argument is not a corollary of those inspected statements. Best-of-knowledge priority risk remains explicit; unsuccessful search alone is not claimed as proof of novelty.
+
+## value
+
+PASS
+
+An exact simultaneous optimum for every read-window width, in the natural coordinate-permutation design problem for a classical code, goes beyond a single pair-symbol result or Hamming-weight identity and supplies an explicit reusable field-order construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
