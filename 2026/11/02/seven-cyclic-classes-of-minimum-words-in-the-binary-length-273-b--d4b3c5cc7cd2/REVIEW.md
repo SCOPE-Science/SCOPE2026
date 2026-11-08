@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two independently implemented, exact finite-field enumerations determine all weight-\(5\) codeword supports. The BCH root criteria reduce a five-point support containing \(0\) to a matched pair of two-element syndromes. All \(36{,}856\) pairs are enumerated; \(210\) oriented disjoint matches yield \(35\) anchored supports, then seven free shift orbits and \(1{,}911\) total supports. The explicit seven representatives and Frobenius permutation are checked by both programs. The proofs include normalization and exhaustion, not just observed output.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The closest 2025 and 2026 primary papers identify the relevant code family and its \([273,249,5]\) parameters; their inspected discussions do not enumerate the \(1{,}911\) minimum codewords or identify seven cyclic orbits and two semilinear types. Relevant aliases in BCH weight distributions and syndrome decompositions were considered. No stronger directly applicable enumerator was identified. The possibility of an implicit tabulation in older work remains.
+PASS
 
-**Value — PASS.** Minimum-weight support structure is a canonical code invariant relevant to its error-event geometry, beyond the known minimum distance. The exact division into inherited and new semilinear support types distinguishes genuinely new configurations from those lifted from the length-\(21\) subcode. This complete natural classification is not simply a parameter restatement.
+Syndrome conditions sum beta^j=sum beta^(3j)=0 are exactly the four BCH check-root conditions using Frobenius in GF(2^12). Reconstructed polynomial-field multiplication, checked alpha order 4095 and beta order 273, counted 36856 unordered exponent pairs, 210 complementary ordered matches with four distinct nonzero positions, 35 normalized weight-five sets containing zero, then seven full shift-orbits and 1911 supports; double-index Frobenius acts as a six-cycle and one fixed subgroup orbit. Counting normalization is exact since 5 and 273 are coprime. This exhaustive fixed-code enumeration is not an infinite BCH family proof.
 
-The scope is one finite BCH code, not the entire family. The two available exhaustive implementations agree but are not independent mathematical peer review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the precise final claim and its implications with same-object primary mathematics. The binary BCH family is already known; key exact object is the weight-five support orbit enumeration, not code parameters. Wang et al 2026 Theorem 17 covers minimum distance in family; same s=4 parameters in Example 18 are prior. No implication to exact count 1911 from parameters alone. Best-of-knowledge originality is supported for the narrower stated new contribution, not for previously established premises. Residual risks documented.
+
+## value
+
+PASS
+
+The exact count and cyclic/Frobenius orbit profile of minimum-weight codewords are natural, reusable BCH code invariants relevant to decoding error-event multiplicities and the support design geometry; they are not implied by knowing [273,249,5] alone. One fixed finite code, not a pretend general family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
