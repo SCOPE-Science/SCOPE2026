@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The normalized 2x2 Pauli basis yields |q|^2+a+b+c=2, with a,b<=1. For 0<|q|<1 every point (a,1+s^2-a), s^2<=a<=1, is realized by a determinant-zero, Hilbert–Schmidt-norm-one rank-one matrix having trace |q|. Thus the two-variable maximization has exactly the full attained top edge and no relaxation gap. Maximization of alpha^p a^(p/2)+beta^p(T-a)^(p/2) is strictly concave for 1<=p<2 with the stated critical point and endpoint transition, affine at p=2, strictly convex for p>2, and has radius alpha at p=infinity. Equality classifications distinguish finite p from infinity, including alpha=beta. Standard-library diagnostics passed 11997 sampled assertions; universal correctness rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Azadi arXiv:2610.32504 Theorem 2.16 assumes |q|=1 and concerns realization of a prescribed compact set for some tuple, not a formula for the fixed Pauli pair at 0<|q|<1.",
+        "Feki et al. arXiv:2410.03669 Theorem 17 bounds a general block-tuple q-radius but does not determine sharp p-weighted optimization.",
+        "Xu–Schwonnek–Winter (2024) studies Pauli state-expectation joint sets; its overlap is a single state vector, not a pair with prescribed q."
+      ],
+      "reasoning": "Neither the continuous-field realization theorem nor generic joint-radius inequalities dominate the explicit weighted radius and sharp threshold. The p=2 equal-weight specialization is elementary; the accepted claim is the complete anisotropic all-p phase formula.",
+      "searches": [
+        "\"joint q-numerical range\" \"2x2\" convexity counterexample",
+        "\"joint p numerical radius\" \"Pauli matrices\" weights",
+        "\"joint numerical radius\" \"Pauli\" \"p\"",
+        "arxiv:2610.32504 full text Theorems 2.7, 2.12, 2.16",
+        "arxiv:2410.03669 Theorem 17 and Section 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.32504v1 (2026-10-23; primary MSC 47A12)",
+      "arxiv:2410.03669 (2024-09-12; preprint full text; 2026 journal)",
+      "doi:10.1103/PRXQuantum.5.020318 (2024)",
+      "Searches for Pauli weighted q-joint p radius; Clifford/anticommuting/2x2 aliases",
+      "Search-index closest statements: sharp overlap transition for p joint numerical radius of two rank-one projections; exact rank-one q-rho radius comparison; commuting normal-field q spectral formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 principal realization conclusion concerns existence of a tuple for |q|=1; our theorem fixes two noncommuting matrices and 0<|q|<1.",
+        "The 2024 q-radius bounds do not imply equality for arbitrary exponents and unequal positive weights.",
+        "Ordinary Pauli joint expectation geometry corresponds to |q|=1; an interior q produces a second independent unit-vector direction and the variable s=sqrt(1-|q|^2)."
+      ],
+      "reasoning": "A result implying only q=1 or p=2 does not cover the full three-parameter statement. Full sharpness additionally requires the rank-one completion M=(rI+uX+vY)/2 and the p-dependent concave/convex allocation; no inspected earlier theorem supplies both.",
+      "searches": [
+        "arxiv:2610.32504 Theorem 2.16 and Corollary 2.17",
+        "arxiv:2410.03669 Theorem 17 and Example 2",
+        "doi:10.1103/PRXQuantum.5.020318 Introduction/Pauli joint values",
+        "\"q-numerical\" \"anticommuting\" \"unitaries\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feki–Patra–Rani–Taki arXiv:2410.03669 Sections 2–4 define the joint q-numerical range and show a nonconvex example involving two 2x2 matrices; they give generic p=2-radius bounds, not a Pauli pair all-p exact formula.",
+        "The equal-weight case can be recast via two Pauli coefficient squares satisfying a+b<=2-|q|^2 and a,b<=1; the new statement includes unequal weights and the sharp interior-to-boundary threshold."
+      ],
+      "reasoning": "Checked the unitary/Pauli/Clifford and prescribed-overlap terminology. The p-dependent optimizer crossover is not stated by the inspected equivalent formulations; changing norm and weights is material, not an alias.",
+      "searches": [
+        "\"joint q-numerical radius\" \"Pauli\"",
+        "\"q-numerical\" \"Bloch\" \"Stiefel\"",
+        "\"q-numerical range\" spin \"Pauli\" matrix",
+        "arxiv:2410.03669 (full-text search: Pauli; anti-commuting; q-radius)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching all-p, all-weight, fixed-interior-overlap Pauli pair table appeared in these actual searches.",
+        "The cited 2024 and 2026 primary papers give general inequalities, examples and topology, not the explicit piecewise expression."
+      ],
+      "reasoning": "Absence of a search hit is only negative evidence, not a proof of novelty. The named geometric rank-one constraint and anisotropy threshold were also compared to the nearest generic results.",
+      "searches": [
+        "\"weighted joint p-numerical range\" pair anti-commuting Hermitian unitary q-overlap",
+        "\"Pauli pair\" \"q numerical radius\" \"weighted\"",
+        "\"joint q-numerical range\" Pauli matrices",
+        "\"joint q numerical radius\" anticommuting"
+      ]
+    },
+    "rationale": "Comparisons were made at the level of objects, quantifiers and implications. The 2026 Azadi theorem supplies general topological properties and a unit-overlap realization, not a sharp weighted p-norm optimization at interior q. Feki et al. supply general inequalities and unrelated nonconvex 2x2 examples; Theorem 17 is a nonsharp block upper bound. Xu et al. concern ordinary state expectations, not fixed overlap between two distinct vectors. Related index records concern weighted projection pairs at q=1, rank-one q numerical radii, or commuting fields. None inspected states or logically implies the exact three-parameter crossover without the additional Pauli allocation-saturation computation. Generalized Clifford/orbitope priority remains a live risk.",
+    "residual_risks": [
+      "A classical C-numerical-range, two-by-two Clifford/Pauli orbitope, or constrained trace-norm result may imply this weighted optimization without naming joint q-numerical radii.",
+      "Generic all-p sharp tuple norm results not indexed under Pauli or q-overlap terminology could contain the same formula.",
+      "The checks are same-model literature comparisons, not independent publication-priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant context but not covering the fixed 2x2 weighted joint radius at 0<|q|<1.",
+        "evidence": [
+          "arXiv:2610.32504v1 Theorem 2.16 restricts to |q|=1.",
+          "Definition 2.1 supplies q-overlap convention; Theorem 2.12 gives finite-dimensional compactness."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.32504v1",
+        "material_read": "Full public HTML preprint and PDF text; definitions, Proposition 2.4, Theorems 2.7–2.12, 2.16, Corollary 2.17; references scanned and PDF pages 3 and 8 visually checked.",
+        "method": "Full-text HTML/PDF inspection and searches for Pauli and anticommutativity",
+        "title": "Joint q-Numerical Ranges of Continuous Operator-Valued Functions",
+        "trigger": "Motivating recent primary source with same object and MSC 47A12"
+      },
+      {
+        "assessment": "Noncommuting examples and broad bounds, but no sharp weighted p-radius for the Pauli pair or q-dependent allocation transition found.",
+        "evidence": [
+          "arXiv:2410.03669 Example 2 uses a diagonal and an offdiagonal rank-one matrix.",
+          "Theorem 17 is a generic upper estimate for 2x2 operator matrices rather than an equality classification."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/384699948_Joint_q-Numerical_Ranges_of_Operators_in_Hilbert_and_Semi-Hilbert_Spaces",
+        "material_read": "Publicly available preprint body, especially Example 2, Theorems 4, 6 and 17, inequalities for joint q-radius, and the detailed 2x2 block proof; article spans 21 pages.",
+        "method": "Read full-text transcription and locate Pauli, two-by-two examples, joint norm and block bounds",
+        "title": "Joint q-Numerical Ranges of Operators in Hilbert and Semi-Hilbert Spaces",
+        "trigger": "Foundational prior theory for exactly the same joint q-numerical objects"
+      },
+      {
+        "assessment": "Addresses ordinary single-state expectations and graph-derived outer bounds, not two-vector fixed interior overlap or weighted p-radius.",
+        "evidence": [
+          "Paper uses state expectation-value bodies for Pauli strings; no fixed-overlap two-vector parameter in the relevant objects."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PRXQuantum.5.020318",
+        "material_read": "Public open-access article introduction, definition of Pauli-string state-expectation ranges, overview of graph parameters and listed open problems.",
+        "method": "Read primary article main definitions and relevant sections on Pauli observables",
+        "title": "Bounding the Joint Numerical Range of Pauli Strings by Graph Parameters",
+        "trigger": "Potential stronger coverage via Pauli or Clifford joint-range geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "32165ba6-3c93-4fc9-a497-3744efc9efb2",
+  "value": {
+    "rationale": "The fixed-overlap joint q-radius is a natural operator invariant for a canonical noncommuting Hermitian pair. Complete exact dependence on overlap, the norm exponent and unequal weights reveals a sharp, explicitly located transition between an interior balanced extremizer and saturation of the stronger observable; the crossover cannot be seen in unweighted p=2 inequalities or ordinary q=1 Pauli geometry. The result is a complete natural finite-dimensional classification and a quantitative benchmark for general q-tuple inequalities, not an arbitrary numerical instance.",
+    "status": "PASS"
+  }
+}
