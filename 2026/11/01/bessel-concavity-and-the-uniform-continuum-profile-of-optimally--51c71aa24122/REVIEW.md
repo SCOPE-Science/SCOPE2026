@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts with the explicitly cited Chebyshev optimizer formula of arXiv:2310.09713. The \(N^{-2}\) scaling of the argument and uniform \(C/(1+t^2)\) bound imply convergence in \(L^1\) of the scaled Fourier symbols, which controls *all* coefficients uniformly. The Fourier--Bessel integral is proved by a beta-series expansion; its distributional derivative gives both the Bessel density and the exact normalization. Positivity of \(J_1\) below \(\pi/2\) proves strict concavity. A numerical checker passes 535 supplementary assertions. The original finite-radius extremal theorem is appropriately a cited premise, not a newly derived claim.
+## correctness
 
-## Originality — PASS with historical-priority risk
-The fully inspected directly relevant papers are Richardson, arXiv:2310.09713, and Kravitz--Steinerberger, arXiv:2007.13700. The former supplies the exact finite \(n\) polynomial and an approximate parabolic comparison; the latter treats first differences, nonnegative-Fourier second differences and a continuous triangle model. Neither states the compactly supported Bessel spatial limit, its uniformity across all coefficients, or strict concavity. Searches of published mathematical findings using Chebyshev, Richardson, Epanechnikov, Bessel, profile, and exact Fourier-multiplier aliases did not identify the same assertion; the closest smoothing result addresses only support radius one. Because literature searching cannot establish absolute priority, this remains self-review evidence rather than independent historical certification.
+PASS
 
-## Mathematical value — PASS
-The formula answers which *actual* continuous averaging density is selected by arbitrarily wide optimally smooth discrete second-difference filters. It replaces pictorial near-parabolicity by exact Fourier and spatial formulas, strong uniform (rather than merely pointwise or distributional) convergence, and a structural positive-concave limiting density. Such a continuum kernel matters for understanding regularization across resolutions and for distinguishing the unconstrained optimum from the previously known triangle and Epanechnikov models. The result is not just a normalization or a fixed-radius calculation.
+PASS: Richardson’s exact finite Chebyshev optimizer is a cited premise. Replacing x=cos(t/N) in S_n(x)=A_N T_N(a_N(x+1)-1)/(x-1), with theta=pi/(2N), gives N² A_N→pi/2, N²(x-1)→-t²/2, and Chebyshev phase→cos sqrt(t²+pi²/4). Markov derivative bound |T_N'|<=N² around removable x=1 and |T_N|<=1 away from 1 imply a uniform integrable C/(1+t²) bound on t∈[-pi N,pi N]. Dominated convergence gives L¹ convergence of rescaled symbols; Fourier inversion hence uniformly bounds all tap coefficients independent of k. Differentiating the Fourier-Bessel integral for J0 at a=1 yields a distributional identity for cos sqrt(t²+m²), including boundary delta masses; K'' gives the stated compactly supported inverse with mass F(0)=1. For m=pi/2, J1(m sqrt(1-s²))>0 from alternating series, so strict interior concavity, positivity and monotonicity follow. Independent quadrature of Khat at five frequencies and independent finite Chebyshev coefficients at n=8,16,32 give decreasing max discrepancies .002387,.000668,.000177. This corroborates but does not prove the all-n uniform limit.
 
-## Limits and closest literature
-The source proves the discrete optimizer exactly; this work analyzes its newly defined scaling. Positivity near the last discrete taps, sharp error rates and priority outside the inspected sources remain unresolved. Numerical experiments are corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Richardson 2023 supplies the EXACT finite optimizer Chebyshev formula, its norm and visual near-Epanechnikov comparison; these facts are credited and deliberately not claimed new. The inspected original arXiv paper does not give the Bessel continuum density, Fourier transform of the scaling limit or uniform all-index convergence. Kravitz–Steinerberger 2020 handles first differences and constrained positive Fourier second-difference smoothing; its triangle kernel is a different optimum. Related published exact radius-one smoothing records do not imply a continuum n→∞ profile. Residual risk of an earlier transform tabulation or unpublished analysis remains.
+
+## value
+
+PASS
+
+PASS: The continuum shape of the unique wide optimal discrete averaging kernel is an intrinsic mathematical question about scaling a sharp Fourier variational problem. The exact nonparabolic Bessel density, strict concavity, and strong uniform convergence over every tap supply a reusable spatial characterization and distinguish the unconstrained optimum from familiar Epanechnikov and triangle kernels. Not just a low-radius numerical coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

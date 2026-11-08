@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:41:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Richardson’s exact finite Chebyshev optimizer is a cited premise. Replacing x=cos(t/N) in S_n(x)=A_N T_N(a_N(x+1)-1)/(x-1), with theta=pi/(2N), gives N² A_N→pi/2, N²(x-1)→-t²/2, and Chebyshev phase→cos sqrt(t²+pi²/4). Markov derivative bound |T_N'|<=N² around removable x=1 and |T_N|<=1 away from 1 imply a uniform integrable C/(1+t²) bound on t∈[-pi N,pi N]. Dominated convergence gives L¹ convergence of rescaled symbols; Fourier inversion hence uniformly bounds all tap coefficients independent of k. Differentiating the Fourier-Bessel integral for J0 at a=1 yields a distributional identity for cos sqrt(t²+m²), including boundary delta masses; K'' gives the stated compactly supported inverse with mass F(0)=1. For m=pi/2, J1(m sqrt(1-s²))>0 from alternating series, so strict interior concavity, positivity and monotonicity follow. Independent quadrature of Khat at five frequencies and independent finite Chebyshev coefficients at n=8,16,32 give decreasing max discrepancies .002387,.000668,.000177. This corroborates but does not prove the all-n uniform limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richardson’s theorem gives all finite N exact symbols and is logically sufficient to derive, but does not itself state, the nontrivial uniform continuum asymptotic.",
+          "Constrained Fourier-positive optimizer differs in admissible class from the sign-changing unconstrained extremal symbol."
+        ],
+        "reasoning": "The exact finite formula is decisive prior input and explicitly credited; the new theorem quantifies a separate N→∞ limit with L¹ bounds and identifies its spatial Bessel density.",
+        "searches": [
+          "discrete optimal second difference smoothing kernel Richardson Chebyshev Fourier Bessel continuum profile uniform convergence",
+          "arxiv:2310.09713 Theorem 1 equations 3 4",
+          "arxiv:2007.13700 theorem continuous triangle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2310.09713",
+        "https://arxiv.org/abs/2007.13700",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+        "Resultary semantic search: discrete optimal second difference smoothing kernel Richardson Chebyshev Fourier Bessel continuum profile uniform convergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite Chebyshev polynomial formula implies the limiting multiplier after asymptotic analysis but Richardson’s stated conclusions concern optimal constants and kernels at each finite n.",
+          "The earlier paper obtains a triangular kernel under stronger positivity restrictions, not the strictly concave Bessel profile for a sign-changing Fourier multiplier."
+        ],
+        "reasoning": "The prior source is rightly used as an assumption, not represented as an unrelated topic; deriving a new global coefficient limit and exact inverse transform remains mathematical content beyond the cited finite result.",
+        "searches": [
+          "discrete optimal second difference smoothing kernel Richardson Chebyshev Fourier Bessel continuum profile uniform convergence",
+          "Richardson A Sharp Fourier Inequality Epanechnikov Kernel 2023 arxiv:2310.09713",
+          "Kravitz Steinerberger The smoothest average 2020 arxiv:2007.13700"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richardson 2023 exact optimal Chebyshev multiplier is the same finite object; the limit might be represented as a Paley-Wiener inverse transform or a Bessel wave kernel.",
+          "Kravitz and Steinerberger positive-Fourier constrained variant yields triangular rather than this sign-changing multiplier."
+        ],
+        "reasoning": "Checking the optimizer by Fourier symbol, coefficient scaling and inverse transform is required; matching Epanechnikov terminology alone does not show the continuum Bessel profile appeared before.",
+        "searches": [
+          "discrete optimal second difference smoothing kernel Richardson Chebyshev Fourier Bessel continuum profile uniform convergence",
+          "Richardson 2310.09713 Epanechnikov kernel Chebyshev continuum Fourier coefficients",
+          "Fourier Bessel inverse transform cos sqrt(t²+m²)/t² compact support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Richardson includes numerical profile comparisons to the Epanechnikov parabola and exact finite kernel expressions.",
+          "Uniform all-coefficient errors and strict concavity across all s∈(-1,1) are not finite tabulated data."
+        ],
+        "reasoning": "Numerical appearance close to a parabola is not an exact continuum identification; the submitted K(0)=.741417775971 differs from Epanechnikov 0.75.",
+        "searches": [
+          "discrete optimal second difference smoothing kernel Richardson Chebyshev Fourier Bessel continuum profile uniform convergence",
+          "optimal Epanechnikov discrete kernel coefficients convergence numerical Richardson"
+        ]
+      },
+      "rationale": "PASS, qualified: Richardson 2023 supplies the EXACT finite optimizer Chebyshev formula, its norm and visual near-Epanechnikov comparison; these facts are credited and deliberately not claimed new. The inspected original arXiv paper does not give the Bessel continuum density, Fourier transform of the scaling limit or uniform all-index convergence. Kravitz–Steinerberger 2020 handles first differences and constrained positive Fourier second-difference smoothing; its triangle kernel is a different optimum. Related published exact radius-one smoothing records do not imply a continuum n→∞ profile. Residual risk of an earlier transform tabulation or unpublished analysis remains.",
+      "residual_risks": [
+        "The finite optimizer theorem itself is preexisting; its statement cannot be republished as an original discovery.",
+        "An earlier Bessel wave-kernel asymptotic or unindexed continuum analysis might describe the same limiting profile.",
+        "No positivity theorem for every endpoint coefficient at all finite radii, and no uniform rate claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes finite-radius unique optimizer; scaling-limit Bessel transform and all-index uniform convergence not stated in inspected theorem",
+          "evidence": [
+            "Theorem 1, formulas (3)–(4), Section 3.4 qualitative parabola comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.09713",
+          "material_read": "Primary arXiv manuscript theorem, formulas (3)–(4), Fourier multiplier and comparison to Epanechnikov in the accessible article text/HTML",
+          "method": "Primary article theorem-level text inspection",
+          "title": "A Sharp Fourier Inequality and the Epanechnikov Kernel",
+          "trigger": "Exact same finite Chebyshev smoothing optimizer"
+        },
+        {
+          "assessment": "Constrained Fourier-positive second-difference triangle law does not imply unconstrained Bessel profile",
+          "evidence": [
+            "Kravitz–Steinerberger Sections 1.2,1.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.13700",
+          "material_read": "Primary arXiv text and introduction, statements for constrained second differences and continuous triangle kernel",
+          "method": "Primary preprint theorem and admissibility comparison",
+          "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+          "trigger": "Original smoothing problem and positive Fourier restriction"
+        },
+        {
+          "assessment": "Addresses fixed radius one and arbitrary difference order, not asymptotic wide support radius",
+          "evidence": [
+            "Resultary indexed published finding describes three-point kernels"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+          "material_read": "Published record title and ranked mathematical summary only, not full manuscript",
+          "method": "Resultary semantic record result inspection",
+          "title": "All-order sharp three-point smoothest averages",
+          "trigger": "Closest published semantic-search record for related smoothing optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The continuum shape of the unique wide optimal discrete averaging kernel is an intrinsic mathematical question about scaling a sharp Fourier variational problem. The exact nonparabolic Bessel density, strict concavity, and strong uniform convergence over every tap supply a reusable spatial characterization and distinguish the unconstrained optimum from familiar Epanechnikov and triangle kernels. Not just a low-radius numerical coefficient.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2310.09713",
+    "https://arxiv.org/abs/2007.13700",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+    "Resultary semantic search: discrete optimal second difference smoothing kernel Richardson Chebyshev Fourier Bessel continuum profile uniform convergence"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the exact unique unconstrained second-difference smoothing kernels u_n from Richardson, N=n+1, max_{|k|<=n}|N u_n(k)-K(k/N)|→0 where K is the explicit compactly supported strictly positive and strictly concave Bessel density and Khat(t)=-pi*cos(sqrt(t²+pi²/4))/t², continuously extended to 1 at t=0.",
+  "limitations": [
+    "Finite optimizer identity borrowed from and credited to Richardson; all asymptotic claims for N→∞.",
+    "Bulk finite-coefficient eventual positivity only, not all finite-radius endpoint signs or quantitative rates."
+  ],
+  "residual_risks": [
+    "The finite optimizer theorem itself is preexisting; its statement cannot be republished as an original discovery.",
+    "An earlier Bessel wave-kernel asymptotic or unindexed continuum analysis might describe the same limiting profile.",
+    "No positivity theorem for every endpoint coefficient at all finite radii, and no uniform rate claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes finite-radius unique optimizer; scaling-limit Bessel transform and all-index uniform convergence not stated in inspected theorem",
+      "evidence": [
+        "Theorem 1, formulas (3)–(4), Section 3.4 qualitative parabola comparison"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2310.09713",
+      "material_read": "Primary arXiv manuscript theorem, formulas (3)–(4), Fourier multiplier and comparison to Epanechnikov in the accessible article text/HTML",
+      "method": "Primary article theorem-level text inspection",
+      "title": "A Sharp Fourier Inequality and the Epanechnikov Kernel",
+      "trigger": "Exact same finite Chebyshev smoothing optimizer"
+    },
+    {
+      "assessment": "Constrained Fourier-positive second-difference triangle law does not imply unconstrained Bessel profile",
+      "evidence": [
+        "Kravitz–Steinerberger Sections 1.2,1.4"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2007.13700",
+      "material_read": "Primary arXiv text and introduction, statements for constrained second differences and continuous triangle kernel",
+      "method": "Primary preprint theorem and admissibility comparison",
+      "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+      "trigger": "Original smoothing problem and positive Fourier restriction"
+    },
+    {
+      "assessment": "Addresses fixed radius one and arbitrary difference order, not asymptotic wide support radius",
+      "evidence": [
+        "Resultary indexed published finding describes three-point kernels"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+      "material_read": "Published record title and ranked mathematical summary only, not full manuscript",
+      "method": "Resultary semantic record result inspection",
+      "title": "All-order sharp three-point smoothest averages",
+      "trigger": "Closest published semantic-search record for related smoothing optimization"
+    }
+  ]
+}
