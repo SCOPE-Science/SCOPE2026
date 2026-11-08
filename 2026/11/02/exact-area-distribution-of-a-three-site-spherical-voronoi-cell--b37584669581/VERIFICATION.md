@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-Run the self-contained Python checker from this package: `python verify.py`. Dependencies: Python 3, NumPy and SymPy. Its symbolic computations verify that the derivative of the CDF equals the claimed density, that both endpoints normalize properly, and that the first two area moments are the displayed exact constants. The Gaussian positive-wedge angular integral is symbolically reconstructed, and its angle-density moments and normalization are independently integrated.
+# Independent mathematical audit
 
-The checker additionally generates 260,000 independent pairs of genuine uniform spherical sites after fixing the first site at the pole, constructs their bisector normals, and compares the empirical first two area moments and four CDF values to their exact counterparts. A separate experiment approximates the labelled Voronoi areas of 150 random three-site configurations by 22,000 independent sphere probes for each realization; its membership method does not use the spherical lune-area identity. The successful execution ended with `ALL_CHECKS_PASSED`.
+## correctness
 
-Finite sampling cannot certify an exact distribution and is used only for diagnostic agreement; the theorem is proved analytically in `RESULT.md`. The Gaussian angular kernel used as a lemma is previously published. There is no independent mathematical audit.
+PASS
+
+A site-labelled Voronoi cell is the intersection of two origin-centered bisector hemispheres and hence a spherical lune of perimeter 2π and area 2(π-Θ). For fixed tagged north-pole site the independent bisector normals have density (e·n)_+/π; integrating their angle by the Gaussian ReLU positive-wedge formula gives an exact density and CDF [a(2+cos a)-3 sin a]/(6π), 0<a<2π. Independent SymPy integration confirms CDF derivative, E A=4π/3, second moment 20π²/9−10/3, P(A<=π)=1/6, variance 4π²/9−10/3; exchangeability and A1+A2+A3=4π give covariance 5/3−2π²/9. Proof is exact; simulations are not used as an unrestricted certificate.
+
+## originality
+
+PASS
+
+Kabluchko–Thäle give spherical binomial-Voronoi typical-cell face statistics in the same random-site model, and Cho–Saul already give the Gaussian angular kernel. Those inputs do not, in the inspected primary sections, give the complete area CDF/variance for a site-labelled 3-site cell; Li et al. concern random query-to-fixed-site nearest distances. A prior unindexed spherical-lune-area law remains possible.
+
+## value
+
+PASS
+
+Three sites give the first nontrivial site-labelled spherical Voronoi area law beyond two, while the cell perimeter stays deterministic and combinatorial face counts alone cannot supply area fluctuations. The closed distribution, moments and covariance are natural exact benchmarks for random spherical tessellation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

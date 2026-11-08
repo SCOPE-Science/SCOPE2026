@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:13:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned frozen RESULT.md analytical proof and case boundaries",
+        "Independent bounded exact or numerical checks, /mnt/data/scope_audit_independent_checks_20261104_0804.py"
+      ],
+      "rationale": "A site-labelled Voronoi cell is the intersection of two origin-centered bisector hemispheres and hence a spherical lune of perimeter 2π and area 2(π-Θ). For fixed tagged north-pole site the independent bisector normals have density (e·n)_+/π; integrating their angle by the Gaussian ReLU positive-wedge formula gives an exact density and CDF [a(2+cos a)-3 sin a]/(6π), 0<a<2π. Independent SymPy integration confirms CDF derivative, E A=4π/3, second moment 20π²/9−10/3, P(A<=π)=1/6, variance 4π²/9−10/3; exchangeability and A1+A2+A3=4π give covariance 5/3−2π²/9. Proof is exact; simulations are not used as an unrestricted certificate.",
+      "residual_risks": [
+        "Not a law for area-biased cell selection, 4+ sites, nonuniform samples, or full joint 3-area distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Thäle, arXiv:1911.07221, Sections 1–3 and main face-vector theorems"
+        ],
+        "reasoning": "General random spherical Voronoi combinatorics dominates the model class but not the probability distribution of area for three sites; no stronger covering area CDF theorem identified in material read.",
+        "searches": [
+          "three uniform random sites sphere spherical Voronoi cell lune area distribution exact cumulative law",
+          "spherical binomial Voronoi typical cell area law distribution general n"
+        ]
+      },
+      "checked_sources": [
+        "Kabluchko and Thäle, The Typical Cell of a Voronoi Tessellation on the Sphere, arXiv:1911.07221, primary full OA",
+        "Cho and Saul, Kernel Methods for Deep Learning, NeurIPS 2009, prior angular kernel",
+        "Li et al., arXiv:2102.01221, query-to-prespecified-site distances",
+        "Frozen source RESULT.md / verify.py; independent symbolic moment integration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cho–Saul order-one arc-cosine Gaussian kernel known",
+          "Distribution of normals N=(e−X)/|e−X| density (e·n)_+/π reconstructed in source"
+        ],
+        "reasoning": "The familiar Gaussian kernel plus the new bisector-normal transformation can derive the distribution, but none of the checked prior statements supplies that transformation and the final CDF as an immediate corollary.",
+        "searches": [
+          "three uniform random sites sphere spherical Voronoi cell lune area distribution exact cumulative law",
+          "Cho Saul arccosine kernel spherical random Voronoi area"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kabluchko–Thäle The Typical Cell of a Voronoi Tessellation on the Sphere, arXiv:1911.07221",
+          "Cho–Saul Kernel Methods for Deep Learning, 2009"
+        ],
+        "reasoning": "The same random Voronoi typical-cell definition exists, but the inspected primary statements concern face-vector distribution; the Gaussian ReLU angular kernel alone is not an equivalent geometric area law.",
+        "searches": [
+          "three uniform random sites sphere spherical Voronoi cell lune area distribution exact cumulative law",
+          "random spherical Voronoi three site lune area CDF moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical spherical lune area/perimeter formula",
+          "Resultary hits for spherical random polytopes and unrelated Voronoi models"
+        ],
+        "reasoning": "Lune area 2(π−Θ) is elementary prior geometry, but no checked table records this cosine-biased-normal angle distribution or the resulting labelled-cell CDF.",
+        "searches": [
+          "three uniform random sites sphere spherical Voronoi cell lune area distribution exact cumulative law",
+          "spherical lune angle area 3 random sites exact table"
+        ]
+      },
+      "rationale": "Kabluchko–Thäle give spherical binomial-Voronoi typical-cell face statistics in the same random-site model, and Cho–Saul already give the Gaussian angular kernel. Those inputs do not, in the inspected primary sections, give the complete area CDF/variance for a site-labelled 3-site cell; Li et al. concern random query-to-fixed-site nearest distances. A prior unindexed spherical-lune-area law remains possible.",
+      "residual_risks": [
+        "Potential unindexed direct three-site spherical-lune-area formula.",
+        "Not a law for area-biased cell selection, 4+ sites, nonuniform samples, or full joint 3-area distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers typical-cell combinatorics; no complete three-site area CDF in inspected material",
+          "evidence": "Theorems on face counts rather than spherical area distribution",
+          "identifier_or_url": "arXiv:1911.07221",
+          "material_read": "Open-access full paper, Sections 1–3 and principal face-vector distribution/expectation statements",
+          "method": "OA full-text reading of relevant sections and theorem statements",
+          "title": "The Typical Cell of a Voronoi Tessellation on the Sphere",
+          "trigger": "Same spherical binomial-Voronoi model and random typical cell"
+        },
+        {
+          "assessment": "Kernel is prior art, while the sphere Voronoi area law is a different output",
+          "evidence": "Order-one arccosine kernel",
+          "identifier_or_url": "Cho and Saul, NeurIPS 2009",
+          "material_read": "Order-one angular kernel identity and its attribution from relevant primary result and assigned discussion; no claim entire paper checked",
+          "method": "Relevant kernel formula compared to geometry",
+          "title": "Kernel Methods for Deep Learning",
+          "trigger": "Exact positive-part Gaussian angular kernel enters the proof"
+        },
+        {
+          "assessment": "Sites prescribed and query random, unlike three random-site cell area",
+          "evidence": "Different sampling and random variable",
+          "identifier_or_url": "arXiv:2102.01221",
+          "material_read": "Introduction/model definition and relevant nearest-distance formulas described in assigned sources; full paper not independently inspected in this run",
+          "method": "Model/observable comparison",
+          "title": "Stochastic Properties of Minimal Arc Distance and Cosine Similarity between a Random Point and Prespecified Sites on Sphere",
+          "trigger": "Distance to sites could be confused with typical-cell area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kabluchko and Thäle, The Typical Cell of a Voronoi Tessellation on the Sphere, arXiv:1911.07221, primary full OA",
+        "Cho and Saul, Kernel Methods for Deep Learning, NeurIPS 2009, prior angular kernel",
+        "Li et al., arXiv:2102.01221, query-to-prespecified-site distances",
+        "Frozen source RESULT.md / verify.py; independent symbolic moment integration"
+      ],
+      "rationale": "Three sites give the first nontrivial site-labelled spherical Voronoi area law beyond two, while the cell perimeter stays deterministic and combinatorial face counts alone cannot supply area fluctuations. The closed distribution, moments and covariance are natural exact benchmarks for random spherical tessellation.",
+      "residual_risks": [
+        "Exact known premises and natural scope limitations are credited; no claim of broad priority or universal generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential unindexed direct three-site spherical-lune-area formula.",
+    "Not a law for area-biased cell selection, 4+ sites, nonuniform samples, or full joint 3-area distribution."
+  ],
+  "schema_version": 1
+}

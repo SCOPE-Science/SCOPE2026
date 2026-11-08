@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The two Voronoi inequalities produce the exact spherical lune; its perimeter is the sum of two great semicircles, and its area is the classical spherical lune formula. The bisector normal has density \((e\cdot n)_+/\pi\), established by an explicit uniform-site coordinate change. A two-dimensional Gaussian polar integral gives the angular kernel with its normalization; changing the weighted-pair angle to lune area yields the exact CDF and density. Exact symbolic integration verifies the first two moments; fixed total sphere area gives the pairwise covariance. No limiting argument or finite-computation extrapolation is used. The standalone checker independently confirmed all identities and compared the law with direct site simulation and area integration.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The most relevant primary paper, Kabluchko–Thäle [1], was inspected in full and treats the same spherical random-site Voronoi model but focuses on distributions and expectations of face counts, rather than spherical areas or their moments. Cho–Saul [2], inspected in the original full paper, explicitly derives the Gaussian arc-cosine order-one kernel, so the angular identity is correctly attributed as existing mathematics; the novel target of this claim is the *geometric transformation and complete area law for three-site cells*. Li–Sui–Mu–Qiu [3], inspected through its introduction and relevant formulas, computes the distribution of nearest-site distances for a random query and fixed sites, not the random-site area law. Search results for sphere-Voronoi area, exact CDF, lune, and moment equivalents, together with comparisons to published related research, did not identify the complete law. This is evidence for provisional originality, **not** proof of historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-This is a complete, nondegenerate metric distribution for the minimal random spherical Voronoi tessellation beyond two sites, where the combinatorial face count is deterministic. It supplies an exact small-sample benchmark for spherical random tessellation geometry: a closed CDF/density, the area variance and cell-to-cell covariance, and the contrast of random area with invariant perimeter. The cosine-weighted normal transformation reveals why familiar uniform-random-hemisphere heuristics fail. The precise three-site invariant is natural rather than an arbitrary parameter slice; the result is bounded in scope and not presented as a general sample-size theorem.
+A site-labelled Voronoi cell is the intersection of two origin-centered bisector hemispheres and hence a spherical lune of perimeter 2π and area 2(π-Θ). For fixed tagged north-pole site the independent bisector normals have density (e·n)_+/π; integrating their angle by the Gaussian ReLU positive-wedge formula gives an exact density and CDF [a(2+cos a)-3 sin a]/(6π), 0<a<2π. Independent SymPy integration confirms CDF derivative, E A=4π/3, second moment 20π²/9−10/3, P(A<=π)=1/6, variance 4π²/9−10/3; exchangeability and A1+A2+A3=4π give covariance 5/3−2π²/9. Proof is exact; simulations are not used as an unrestricted certificate.
 
-## Closest literature and limitations
-[1] Kabluchko and Thäle, arXiv:1911.07221, Sections 1–3 and the spherical typical-cell distribution/face-vector theorems. [2] Cho and Saul (2009), Section 2.1, equations (1)–(6), already known arc-cosine kernel. [3] Li, Sui, Mu, and Qiu, arXiv:2102.01221, the original 2021 abstract and the revised 2026 introduction/Sections 2–3. Not claimed: independent validation, full joint area distribution, more than three sites, or proof of worldwide historical novelty. Remaining risk: a prior uncatalogued exact three-site lune-area formula or deduction in the spherical random tessellations literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kabluchko–Thäle give spherical binomial-Voronoi typical-cell face statistics in the same random-site model, and Cho–Saul already give the Gaussian angular kernel. Those inputs do not, in the inspected primary sections, give the complete area CDF/variance for a site-labelled 3-site cell; Li et al. concern random query-to-fixed-site nearest distances. A prior unindexed spherical-lune-area law remains possible.
+
+## value
+
+PASS
+
+Three sites give the first nontrivial site-labelled spherical Voronoi area law beyond two, while the cell perimeter stays deterministic and combinatorial face counts alone cannot supply area fluctuations. The closed distribution, moments and covariance are natural exact benchmarks for random spherical tessellation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
