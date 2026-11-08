@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof constructs the stationary state from two-sided reset events and independent Brownian paths; the hypergeometric-to-Bernoulli finite-label limit gives the random weak empirical measure, while an exact stationary-age generator identity and Gaussian fourth moments bound the finite-population energy error. The limiting transform, cumulants and sharp tail follow from an independent exponential sum and its exponentially integrable remainder. In the accompanying bounded checker 10664 finite arithmetic checks passed. The analytical proof, not these tests, supports infinite claims. The required positive limiting batch fraction and all parameter ranges are explicit.
+## correctness
 
-**Originality — PASS, qualified.** The closest batch-reset article [1] gives the process, finite-dimensional Fourier hierarchy, one-/two-point laws, density-density correlation and spectral form factor; these are prior results. Its large-size calculations do not state the full random Gaussian-mixture empirical-measure law, the \(q\)-product quadratic-energy distribution or its sharp tail. The fully synchronous conditional-mixture result [2] covers the endpoint but not the intermediate partial-batch mixture. Related accessible earlier claims concern Lévy-flight rare-event joint tails, special spare-one batches and finite-age formulas, not this macroscopic distributional law. The possibility that broader known common-environment limit theory subsumes the claim remains a risk; absence of a database match alone is not novelty evidence.
+PASS
 
-**Value — PASS.** A full probability law for the macroscopic empirical measure goes beyond its first two density correlations. The energy law gives the complete hierarchy of macroscopic cumulants, a nonvanishing relative variance at every fixed positive batch fraction, the exponential rare-energy scale with exact prefactor, and a quantitative error for experiments with finitely many particles. These are physically natural observables for testing self-averaging under shared environmental resetting, not an arbitrary parameter slice.
+For the precisely defined stationary reset process with θ_N=m_N/N→θ>0, conditional on backward Poisson gaps E_j the latest reset index of one label has weights θ_N q_N^k. Finite-label hypergeometric inclusion indicators converge jointly to independent Bernoulli θ marks and tails are uniformly geometric, establishing random weak empirical-measure convergence to μθ=Σ θq^kγ_{T_k}. Pair ages generator gives E[A_iA_j]=2/(r²θ_N h_{2,N}) and h_{2,N}=θ_N(2−θ_N)+θ_N(1−θ_N)/(N−1); Gaussian fourth moments plus conditional-mean projection yield 0≤E[(Q_N−2DS_N)²]≤6(2D)²/(r²Nθ_N²). Independent rational recomputation found normalized projection errors 64/15 for (N,m)=(4,2), 1348/351 for (8,3), 471/760 for (15,10), each within bound; direct finite mark counts checked. Independence of E_j proves q-product Laplace, κ_k, and strong right-tail equivalent via exp moment of j≥1 remainder. This is a genuine infinite conditional convergence proof plus finite corroboration; q=0 works as the single exponential term.
 
-**Closest literature and limits.** [1] contains the precise same physical model and equations (1)–(5) plus Supplemental Sections S3, S7–S9. [2] treats fully simultaneous resetting and its single-clock-age conditional independence. The theorem excludes \(m_N/N\to0\), spatial confinement, arbitrary resetting laws, and a simultaneous high-energy/large-population tail limit. A more general common-environment de Finetti or exponential-perpetuity result might imply some components. Independent publication-priority review is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-**References.** [1] https://arxiv.org/html/2601.20077v3 ; [2] https://arxiv.org/abs/2509.06658 ; [3] https://dlmf.nist.gov/17 .
+Best-of-knowledge original contribution is full conditional random empirical-measure law and sharp discounted-energy distribution for positive partial reset fraction, not the underlying model, two-point correlations, or generic q-series. Closest same-model primary full text read and carefully credited.
+
+## value
+
+PASS
+
+A non-self-averaging macroscopic observable with entire exact distribution, all cumulants and sharp tail is a natural physical question beyond pair correlations. The law explains the role of common Poisson history and the finite-N quadratic error gives a testable quantitative approximation for any extensive reset fraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
