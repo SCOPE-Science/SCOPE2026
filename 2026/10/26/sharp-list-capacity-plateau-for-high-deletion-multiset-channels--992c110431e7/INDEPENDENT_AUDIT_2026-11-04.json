@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:11:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every q>=3,k>=2,2<=L<=k, and n>=q(k-1), the receiver k*e_i bounds heavy x_i>=k codewords by L, so total heavy incidences <=qL. Above n=q(k-1) pigeonholing forces every word heavy; at equality only F=(k-1,...,k-1) can be nonheavy. Construct cyclic X_{i,j}=(n-j)e_i+j e_{i+1} for 0<=j<L: n-j>= (q-1)(k-1)>=k, j<k, so exactly one heavy coordinate and all X distinct. Two distinct cycle-edge groups meet on at most one symbol; any potential shared k-descendant would be k times that symbol, but this symbol is light (<k) in at least one group. Thus a k-descendant has <=L codeword parents. At n=q(k-1), adding F is safe because every descendant y<=F is nonmonochromatic and cannot descend from any j=0 pure word; it can have <=L-1 cyclic parents. Incidence equality forces F in every boundary extremizer, each remaining word with exactly one heavy coordinate, and exactly L codewords heavy in each coordinate. At later n, all words have unique heavy coordinates and each occurs exactly L times. No claim for q=2, L=1, L>k or n<q(k-1). This is a complete uniform finite-combinatorial proof, not based on finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kreindel et al. Theorem 6 gives |C|<=q for unique decoding of k=2, n>=4; its broader puncturing Lemma 10 preserves unique code status.",
+          "Kreindel et al. 2603.18322 Theorems 16-17 are volume/greedy bounds on unique-distance codes, not parent-list <=L.",
+          "Kovačević–Tan pp.9-10 prove B_h unique-correction bounds; none inspected controls qL equality for L>=2."
+        ],
+        "reasoning": "A true stronger theorem would need to guarantee a list-size-L submultiset packing for every q>=3,k>=2,2<=L<=k including the boundary witness and equality saturation. The inspected distance/Sidon theorems do not provide such an implication.",
+        "searches": [
+          "arxiv:2601.05636 §3.2-§3.6 high deletion incidence, Reiman, puncturing bounds",
+          "arxiv:2603.18322 §4-§5 deletion ball geometry and Theorems 16-17",
+          "arxiv:1612.08837 §IV Theorems 12-15",
+          "web: bounded overlap multiset shadows list decoding compositions heavy coordinate high deletion"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2601.05636v1 full accessible HTML relevant theorems",
+        "arxiv:2603.18322v1 full HTML relevant theorems",
+        "arxiv:1612.08837v5 original PDF 14 pp, key sections with screenshots",
+        "arxiv:2609.26650 (PaperPeel accessible full text)",
+        "Resultary/2026 ternary k=3 unique-deletion RESULT.md",
+        "Resultary searches for multiset-list high deletion and nearby published finite examples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old unique decoding demands no two parents for any y; this is the L=1 constraint. New theorem explicitly permits two through k parents and requires attaining qL simultaneously at all q symbols.",
+          "Ordered binary subsequence hypergraphs have a different decoder output relation.",
+          "The saturated heavy coordinate profile for equality follows from the new qL incidence equation and is not present as a list-optimal theorem in the inspected sources."
+        ],
+        "reasoning": "There is overlap in the universal monochromatic/heavy-coordinate obstruction, so that idea is not credited as novel. But neither the unique-decoding results nor general deletion ball bounds imply the sharp list-size-L boundary and all-parameter cyclic equality witnesses without an additional new argument.",
+        "searches": [
+          "arxiv:2601.05636v1 §2 Definitions and §3 high-deletion exact theorems",
+          "arxiv:2603.18322v1 §§4-5",
+          "arxiv:1612.08837v5 §IV",
+          "arxiv:2609.26650 ordered list deletion",
+          "Resultary published ternary k=3 S_3(n,n-3) RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each size-k received vector y defines a hyperedge consisting of source vectors x>=y; bounded-list decoding requires code-hyperedge incidence <=L, not pairwise disjoint descendant shadows.",
+          "The published ternary k=3 result assumes pairwise intersection <=2 and L=1, while the current family allows L>=2 and optimizes qL+1 or qL."
+        ],
+        "reasoning": "Considered integer-composition shadows, bounded-degree incidence hypergraph packings, permutation-channel multisets, and deletion-list codes; the old unique-metric equivalence is not equivalent to bounded parent lists, and the candidate all-parameter threshold is not a special case of the exact L=1 formulas.",
+        "searches": [
+          "Resultary query: Exact list decoding capacity for unordered multiset deletion channels with q symbols k survivors L lists, sharp threshold n=q(k-1) qL+1 vs qL",
+          "Resultary query: list-decodable multiset permutation channels simplex shadow packing unique and bounded list deletion",
+          "web: unordered multiset deletion list decodable codes optimal qL length q(k-1) incidence",
+          "arxiv:2601.05636 §2 and §3.6",
+          "Resultary/2026 ternary k=3 unique code RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a published S_3(n,n-3) unique-decoding profile of 4,4,3,..., and ordered binary list-deletion finite examples, not a closed-form L>=2 multiset list table.",
+          "The inspected original paper tables are unique-decoding special cases; independent tiny census for q=3,k=2,L=2 gives maxima 7 at n=3 and 6 at n=4, but is new corroboration, not a literature novelty certificate."
+        ],
+        "reasoning": "No matching published all-parameter L>=2 exact table/formula found. A finite table would not imply the infinite plateau; searched negative results alone do not prove absolute originality.",
+        "searches": [
+          "Resultary semantic search for qL+1 qL multiset list capacity",
+          "Resultary published ternary high deletion k=3 L=1 exact theorem",
+          "web: \"multiset\" \"list-decoding\" \"deletion\" simplex code capacity",
+          "web: \"multiset deletion\" \"list\" \"optimal\" code",
+          "arxiv:2601.05636 high-deletion exact examples"
+        ]
+      },
+      "rationale": "In the examined relevant primary and published same-object record, exact parent-list capacities for unordered q-ary multiset deletion with L>=2 are not implied. Earlier q/k extremal heavy-coordinate incidence for unique decoding and cyclic Sidon codes are genuine related prior art; originality is confined to the uniform L>=2 sharp plateau, cyclic list-attaining construction and saturation profile, subject to possible unindexed hypergraph packing equivalence.",
+      "residual_risks": [
+        "A differently named extremal integer-composition shadow packing theorem could subsume the qL plateau without indexed multiset-deletion terminology.",
+        "Full arXiv v2 text of 2601.05636 could not be directly retrieved; older v1 was read and must not be claimed to establish v2 coverage.",
+        "The exact scope of a possible general hypergraph bounded-incidence packing lemma is not exhausted by targeted research searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems address uniquely correcting codes (no two words share a k-descendant), not L-list codes with L>=2. Its heavy-coordinate mechanism for k=2 is relevant prior reasoning but gives neither the qL+1 boundary witness nor list-capacity plateau.",
+          "evidence": "§2 Definition 2 and Claim 2 require pairwise distance >=t+1; §3.4 Theorem 6 gives q for unique decoding with k=2 and n>=4; §3.6 Lemma 10 is unique-code puncturing; full-text lines 128-180, 340-365, 477-495.",
+          "identifier_or_url": "https://arxiv.org/html/2601.05636v1",
+          "material_read": "Accessible full HTML sections 1-3.6, including model in §2, Theorems 5-9, and puncturing Lemma 10; contributions and construction framework in sections 4-6 were located. Version v2 full text was not independently retrieved.",
+          "method": "Read definitions, exact results and proof statements; map unique-reconstruction pairwise-disjoint condition to bounded list parent incidence.",
+          "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+          "trigger": "Identical unordered-multiset deletion channel; extremal high-deletion results, incidence bounds, cyclic constructions and general puncturing bounds."
+        },
+        {
+          "assessment": "Its geometric and Sidon constructions treat unique decoding and metric balls, not the exact maximum family with at most L parents for each k-submultiset. Its volume estimates do not force the qL+1 to qL list-capacity transition.",
+          "evidence": "§1 list of contributions lines 58-92, §2 Definition 2 lines 121-138, §5 Theorems 16-17 lines 1311-1440, conclusion lines 1443-1448.",
+          "identifier_or_url": "https://arxiv.org/html/2603.18322v1",
+          "material_read": "Accessible full HTML introductions §§1-2, main results §§4.3-4.5, and §5 volume upper/lower bounds and conclusion, including Theorems 16-17.",
+          "method": "Compared pair-enumerator and ball-volume statements against each output-list constraint and the qL plateau; checked the regimes of the bounds.",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Same discrete multiset simplex; potentially stronger exact code bounds and ball-geometry implications."
+        },
+        {
+          "assessment": "The formal task is unique recovery from bounded impairments and the main exact results are minimum-distance/Sidon packing results, not L>=2 output-shadow incidence packing. No direct implication to exact qL plateau was found in inspected sections.",
+          "evidence": "PDF p.1 says receiver goal is uniquely reconstruct U, p.9 Theorems 12-14 concern unique h-deletion correction, p.10 Theorem 15 fixed-alphabet asymptotics; screenshots of pp.1,6,9,10 inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.08837",
+          "material_read": "Original 14-page arXiv v5 PDF: introduction and channel model pp.1-2, relevant definitions and Sidon/lattice theory pp.5-6, Theorems 12-15 and bounds in §IV pp.9-10, using text and screenshots.",
+          "method": "Compared unique reconstruction criterion, B_h construction, fixed-alphabet and growing-alphabet bounds with output-parent-list bound.",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+          "trigger": "Foundational same-object discrete-simplex and permutation-channel paper; possibility of stronger packing or list formulation."
+        },
+        {
+          "assessment": "The source operates on ordered binary words and ordered subsequences; it obtains asymptotic list-code bounds rather than exact unordered q-ary multiset capacities, so its theorems do not imply this result.",
+          "evidence": "PaperPeel text lines 39-66 defines ordered subsequences of binary strings and a deletion hypergraph; q-ary unordered multiset output lists are different objects.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26650 and https://www.paperpeel.com/paper/2609.26650",
+          "material_read": "Accessible full PaperPeel text, introduction, preliminaries, Theorem 1.1 and proof framework sections 1-3; direct arXiv HTML v1 was inaccessible.",
+          "method": "Compared input/output objects and list-decoding quantifiers in §2 with submultiset descendants.",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Current list-decodable deletion work, potential stronger theorem despite different channel representation."
+        },
+        {
+          "assessment": "This is prior coverage of the heavy-coordinate proof pattern and exact unique-decoding ternary cases; it is not the L>=2 capacity theorem. The new claim must not credit the counting trick as wholly novel.",
+          "evidence": "For q=3 and k=3 published S_3(n,n-3)=4 at n=5,6 and 3 for n>=7 under pairwise intersection <=2; it does not give the new L>=2 formulas qL+1 at n=3(k-1) and qL beyond.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md",
+          "material_read": "Complete published RESULT.md including finding, proof, verification, prior-work comparison and limitations.",
+          "method": "Compared fixed q=3,k=3,L=1 code requirement and enumerated values to q>=3,k>=2,L>=2 list-acceptance theorem.",
+          "title": "Exact ternary multiset deletion codes when three multiset elements survive",
+          "trigger": "Relevant published SCOPE exact high-deletion theorem with same heavy-coordinate argument."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In an established unordered deletion channel, the maximal number of messages compatible with bounded receiver ambiguity is a natural exact coding-theoretic invariant. The theorem solves an infinite q,k,L regime, identifies a sharp n=q(k-1) to n=q(k-1)+1 one-message transition, and provides both a uniform list-achieving cyclic construction and an equality-saturation structural restriction. Though the heavy-incidence upper bound is elementary and known in L=1 guise, attaining it for every L>=2 including the exceptional light word is a motivated useful exact capacity fact, not just a computed table or arbitrary slice. No general graph/hypergraph breakthrough or full maximizer classification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2601.05636v1 full accessible HTML relevant theorems",
+    "arxiv:2603.18322v1 full HTML relevant theorems",
+    "arxiv:1612.08837v5 original PDF 14 pp, key sections with screenshots",
+    "arxiv:2609.26650 (PaperPeel accessible full text)",
+    "Resultary/2026 ternary k=3 unique-deletion RESULT.md",
+    "Resultary searches for multiset-list high deletion and nearby published finite examples"
+  ],
+  "disposition": "passed",
+  "limitations": "Only n>=q(k-1), q>=3, k>=2, 2<=L<=k, unordered multiset receiver; no structural classification beyond heavy profile, no explicit faster decoding time, no treatment of other parameters. Best-of-knowledge priority only.",
+  "residual_risks": [
+    "A differently named extremal integer-composition shadow packing theorem could subsume the qL plateau without indexed multiset-deletion terminology.",
+    "Full arXiv v2 text of 2601.05636 could not be directly retrieved; older v1 was read and must not be claimed to establish v2 coverage.",
+    "The exact scope of a possible general hypergraph bounded-incidence packing lemma is not exhausted by targeted research searches.",
+    "The package contains source-era language saying an independent audit has not yet occurred; any later public import must update status material consistently.",
+    "Independent finite checks do not prove universal cardinality; the proof above supplies the infinite quantifiers."
+  ],
+  "schema_version": 1
+}
