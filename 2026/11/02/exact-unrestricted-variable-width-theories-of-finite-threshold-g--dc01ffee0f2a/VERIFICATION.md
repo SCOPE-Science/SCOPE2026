@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducible verification and proof boundaries
+# Independent mathematical audit
 
-Run the two included Python 3 programs with `python3 check_vicinal.py` and `python3 check_pebbles.py`. They require only the standard library. Compare their exact standard output, including trailing newlines, with `check_vicinal.out.txt` and `check_pebbles.out.txt` respectively.
+## correctness
 
-The first enumerates all \(511\) threshold graph construction words through nine vertices, checks the vicinal total-preorder condition and preservation of ordered twin skeleton under truncation at widths three and four, and checks the four star lower bounds at widths three to six. It reports:
+PASS
 
-```
-structural instances: 511
-maximum twin classes: 8
-compression invariants at widths 3 and 4: PASS
-sharp star boundaries for widths 3,4,5,6: PASS
-```
+For every finite nonempty simple threshold graph and each integer k>=3, the three-variable vicinal-comparison formula defines a total preorder by isolated/universal vertex induction, and its equivalence classes are uniform twin blocks. Fixed-index block predicates can be nested using three reusable names; existential distinctness up to k and cross-edge tests recover the truncated ordered skeleton. The converse is an indefinite k-pebble back-and-forth: at most k-1 target vertices are occupied when a pebble moves; blocks of size >=k always have room, and smaller blocks have equal cardinalities. Truncation preserves strict block separation because original distinguishing vertices in a compared block remain available when its size>=2. The unique-minimal representative and sharp star K_{1,k} versus K_{1,k+1} follow. Source code check_vicinal.py and check_pebbles.py was inspected; finite tuple refinement of 127 creation words at k=3 and 31 at k=4 is supplementary, not the unbounded-depth proof.
 
-The second is a separate noncounting \(k\)-pebble tuple-color fixed-point implementation, not a replay of the proof's inductive argument. It computes stable logical types for all construction words through seven vertices at width three (\(127\) graphs, \(8{,}001\) comparisons), and through five vertices at width four (\(31\) graphs, \(465\) comparisons). It reports:
+## originality
 
-```
-width 3 n<= 7 graphs 127 pairs 8001 rounds 5 tuple colors 6337 theories 87 : PASS
-width 4 n<= 5 graphs 31 pairs 465 rounds 5 tuple colors 2901 theories 29 : PASS
-```
+PASS
 
-This is finite exact corroboration, not an exhaustive certificate for infinite graph orders. The unrestricted theorem instead rests on the explicit three-variable recursive class formulas and permanent \(k\)-pebble strategy in `RESULT.md`. No external independent audit has been conducted.
+Fixed-width equivalence of threshold graphs is more specific than the classical threshold/cograph characterization and unrestricted-FO model-checking lower bounds. Three-variable definability of each vicinal class plus the all-depth finite k-pebble classification provide the distinguishing theorem; the general fact that indistinguishable twins can be capped at k is an ingredient, not presented as novel.
+
+## value
+
+PASS
+
+A complete, natural finite-variable model-theoretic classification with sharp truncation thresholds, minimal representatives and a uniform every-k statement, of use for bounded-variable definability and compression on threshold graphs; not a mere reformulation of threshold creation words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

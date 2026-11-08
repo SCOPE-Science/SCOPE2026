@@ -1,15 +1,21 @@
-# Scientific assessment: finite threshold-graph variable-width classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The relation \(x\preceq y\) is defined using the three names \(x,y,z\). Its totality and transitivity follow by induction under isolated/universal extensions, and its symmetric part is the canonical twin relation. Recursive formulas define each ordered class using at most three names; within each class, existential distinctness and edge tests recover exactly the \(k\)-truncated multiplicities and skeleton for \(k\ge3\). A permanent \(k\)-pebble strategy matches occupied class indices and equalities, with at least one unoccupied target in any class of size at least \(k\); no depth bound enters. Keeping up to \(k\) representatives per class preserves strict vicinal separation and yields the unique smallest representative. The explicit star pairs prove the threshold is sharp. Independently executed finite structural checks and greatest-fixed-point noncounting pebble refinement match the theorem on their stated finite ranges; they are not infinite certificates.
+## correctness
 
-## Originality — PASS, qualified
-Chvátal and Hammer establish structural threshold-graph properties; Corneil, Perl, and Stewart provide cograph recognition (only the available publisher abstract was inspected). Lampis, *Model Checking Lower Bounds for Simple Graphs*, arXiv:1302.4266, especially Section 3 and Theorem 3.2, studies unrestricted-variable first-order model-checking lower bounds on connected threshold graphs, not the exact fixed-width equivalence quotient here. Grohe and Otto, *Pebble Games and Linear Equations*, presents general pebble-game principles without this threshold-specific canonical truncation. Retrieved published claims about complete multipartite logical width and threshold-graph domination/zero-forcing do not logically imply the all-threshold-graph variable-width classification: their graph classes, invariants, and quantifiers differ. Exact and alias searches found no same theorem, but absence from search is not evidence of uniqueness. A broader unlocated theorem on definable totally ordered twin quotients might subsume the result; published summaries alone were not treated as full-text negative evidence.
+PASS
 
-## Mathematical value — PASS
-The result is an exact, unrestricted-depth classification simultaneously for every finite threshold graph and every logical variable width \(k\ge3\), including a canonical minimal-model operation and sharp strict width hierarchy. It translates a natural decomposition of a classical graph class into a precise expressive-power invariant, beyond a finite experiment or a single arbitrary numerical slice. The connection is nontrivial because a general bounded-variable sentence may have unbounded nesting depth, while an explicit permanent pebble invariant controls all rounds.
+For every finite nonempty simple threshold graph and each integer k>=3, the three-variable vicinal-comparison formula defines a total preorder by isolated/universal vertex induction, and its equivalence classes are uniform twin blocks. Fixed-index block predicates can be nested using three reusable names; existential distinctness up to k and cross-edge tests recover the truncated ordered skeleton. The converse is an indefinite k-pebble back-and-forth: at most k-1 target vertices are occupied when a pebble moves; blocks of size >=k always have room, and smaller blocks have equal cardinalities. Truncation preserves strict block separation because original distinguishing vertices in a compared block remain available when its size>=2. The unique-minimal representative and sharp star K_{1,k} versus K_{1,k+1} follow. Source code check_vicinal.py and check_pebbles.py was inspected; finite tuple refinement of 127 creation words at k=3 and 31 at k=4 is supplementary, not the unbounded-depth proof.
 
-## Sources and residual limitations
-Primary materials inspected include the historical threshold-graph report STAN-CS-75-518 (structural sections), arXiv:1302.4266 (proof and model-checking lower-bound section), and DOI:10.4230/LIPIcs.CSL.2012.289 (general pebble-game framework). DOI:10.1137/0214065 was available as publisher abstract only. The earliest verified original public day among the paper sources whose first-public dates were individually confirmed was Grohe–Otto's first arXiv public posting on 2012-04-09. The much earlier Chvátal–Hammer report is dated August 1975 without a verified day, and Corneil–Perl–Stewart appeared in 1985 with its initially public day unverified; the publisher's later online availability date of 2006-07-13 is not treated as the original date. The qualification is important to provenance, not to the mathematical claim. The exact general theorem could have appeared under alternative terminology; no independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-width equivalence of threshold graphs is more specific than the classical threshold/cograph characterization and unrestricted-FO model-checking lower bounds. Three-variable definability of each vicinal class plus the all-depth finite k-pebble classification provide the distinguishing theorem; the general fact that indistinguishable twins can be capped at k is an ingredient, not presented as novel.
+
+## value
+
+PASS
+
+A complete, natural finite-variable model-theoretic classification with sharp truncation thresholds, minimal representatives and a uniform every-k statement, of use for bounded-variable definability and compression on threshold graphs; not a mere reformulation of threshold creation words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
