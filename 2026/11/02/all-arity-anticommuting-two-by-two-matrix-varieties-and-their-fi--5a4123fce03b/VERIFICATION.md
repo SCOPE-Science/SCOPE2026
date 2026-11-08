@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite-field checks
+# Independent mathematical audit
 
-Run `python3 check.py` and compare standard output byte-for-byte to `check.out`. The code constructs field arithmetic directly, including the extension-field multiplication in \(\mathbb F_9\), and calculates the original anticommutation matrix products, not just the theorem's formulas. It separately counts the orthogonality problem in \(\mathfrak{sl}_2\) using the bilinear form, and computes linear anticommutator-kernel ranks over \(\mathbb F_9\).
+## correctness
 
-Observed checks: 16 exhaustive tracefree configurations over \(\mathbb F_3,\mathbb F_5,\mathbb F_7,\mathbb F_9\); seven exhaustive full matrix tuple configurations over \(\mathbb F_3,\mathbb F_5\); one full-matrix pair check over \(\mathbb F_9\) using all first matrices and linear row reduction. All match the declared formula. Completion marker: `ANTICOMMUTING_M2_ALL_ARITIES_ODD_OK`.
+PASS
 
-Finite tests do not prove arbitrary-field irreducibility, incidence-image closure, higher-arity claims in all fields or historical originality. The proof handles those mathematically in `RESULT.md`. No independent audit has been performed.
+For char k≠2, write X_i=a_i I+v_i, v_i in traceless 3D split quadratic space with Q=z^2+xy. Anticommutation gives vector a_i v_j+a_j v_i=0 and scalar a_i a_j+B(v_i,v_j)=0. Three nonzero scalar traces force contradiction; exactly one trace gives coordinate pieces, exactly two give the smooth norm-one two-support surface. All zero traces reduce to pairwise orthogonal frames in dimension three; the proof stratifies rank-three supported triples, degenerate rank-two planes using an isotropic line incidence bundle, and lower ranks. A proper projective incidence projection establishes closedness and irreducibility of m+2-dimensional strata. The exact odd-q count combines q+1 isotropic lines, orthogonal anisotropic pairs/triples and traceful strata, with nonzero m^1 q^m and m^3 coefficients establishing minimal recurrence (T-q)^2(T-1)^4. Direct independent F3 anticommutator counts matched N2=417,N3=1521; finite data are not the arbitrary-field proof.
+
+## originality
+
+PASS
+
+Known results cover the m=2 anti-commuting pair components and all traceless orthogonal-frame components (Casabella–Sammartano Theorem 5.8), explicitly not claimed new. Remaining all-m full-matrix classification, exact odd-finite-field point polynomial and minimal order-six recurrence are not stated in inspected primary results, subject to possible prior orthogonal-frame point-count literature.
+
+## value
+
+PASS
+
+Determines full reduced geometric component decomposition and arithmetic finite-field point count for a naturally occurring Clifford-type relation at every tuple length; distinguishing traceful and traceless strata and the sharp recurrence materially extends known partial classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

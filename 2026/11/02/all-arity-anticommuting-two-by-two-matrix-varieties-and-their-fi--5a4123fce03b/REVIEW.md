@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The matrix anticommutator splits into a scalar and a traceless equation. The scalar-support lemma restricts all tuples to at most two nonzero trace coordinates; the all-traceless locus is an orthogonal-frame variety in a split three-dimensional quadratic space. An exhaustive rank-span classification, vector-bundle incidence models and generic noncontainment witnesses give the stated irreducible components, with the previously known orthogonal-frame classifications respected. The finite-field count follows from a disjoint rank decomposition with an explicit nondegenerate-pair count and direct traceful contributions; the order-six minimality follows from the nonzero degree-one and degree-three exponential-polynomial coefficients. The standalone checker evaluates the original equations in 24 field/arity configurations. Risk: uninspected scheme-theoretic nilpotents are excluded, and finite verification cannot replace proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Hrubeš (arXiv:1412.5893) covers general anticommuting families and rank bounds but not geometric component/point counts. Chen–Wang (arXiv:1805.00378) covers all anticommution *pairs*, and Casabella–Sammartano (arXiv:2512.25058) already classifies *all* standalone orthogonal-frame components. Neither is claimed as new. The new all-arity full-matrix assembly and exact \(\mathbb F_q\)-point count, including its minimal order-six recurrence, require additional scalar-trace and finite-field rank classification. The checked Iosevich–Senger/Vinh orthogonality papers give asymptotic dense-subset estimates, not the exact full three-dimensional census; Ngo's paper concerns commuting rather than anticommuting matrices. Query results and comparison details are documented in `AUDIT.json`. Residual risk: previously unnoticed exact orthogonality counts or other stronger representations may imply this result; no historical uniqueness certification.
+PASS
 
-**Value — PASS.** Pairwise anticommutation is a natural quadratic matrix constraint and defines representation varieties of skew-commuting generators. The theorem gives the exact geometric dimension spectrum through every tuple length, a sharp component transition at four generators, an explicit count over every odd finite field and a minimal recurrence of invariant order. These resolve meaningful geometric and arithmetic invariants rather than arbitrary numerical slices. Known pair and traceless-frame geometry are not used as a surrogate for independent value.
+For char k≠2, write X_i=a_i I+v_i, v_i in traceless 3D split quadratic space with Q=z^2+xy. Anticommutation gives vector a_i v_j+a_j v_i=0 and scalar a_i a_j+B(v_i,v_j)=0. Three nonzero scalar traces force contradiction; exactly one trace gives coordinate pieces, exactly two give the smooth norm-one two-support surface. All zero traces reduce to pairwise orthogonal frames in dimension three; the proof stratifies rank-three supported triples, degenerate rank-two planes using an isotropic line incidence bundle, and lower ranks. A proper projective incidence projection establishes closedness and irreducibility of m+2-dimensional strata. The exact odd-q count combines q+1 isotropic lines, orthogonal anisotropic pairs/triples and traceful strata, with nonzero m^1 q^m and m^3 coefficients establishing minimal recurrence (T-q)^2(T-1)^4. Direct independent F3 anticommutator counts matched N2=417,N3=1521; finite data are not the arbitrary-field proof.
 
-**Limitations.** Characteristic two and the nonreduced scheme are outside the claim; priority assessment is provisional. Primary evidence is listed in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known results cover the m=2 anti-commuting pair components and all traceless orthogonal-frame components (Casabella–Sammartano Theorem 5.8), explicitly not claimed new. Remaining all-m full-matrix classification, exact odd-finite-field point polynomial and minimal order-six recurrence are not stated in inspected primary results, subject to possible prior orthogonal-frame point-count literature.
+
+## value
+
+PASS
+
+Determines full reduced geometric component decomposition and arithmetic finite-field point count for a naturally occurring Clifford-type relation at every tuple length; distinguishing traceful and traceless strata and the sharp recurrence materially extends known partial classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
