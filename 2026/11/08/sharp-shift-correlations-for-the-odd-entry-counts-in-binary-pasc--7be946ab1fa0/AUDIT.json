@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Lucas gives F(n)=2^{s_2(n)}; exact carry enumeration gives integer transfer matrices T0 and T1 and exact cyclic cross-sums. Binomial digit products give means 3^L/2^L and second moments 5^L/2^L, hence Pearson normalization. The T0 tail converges exactly to (1,2/3), while T1v <= 5v with strict first component proves sharp upper bound with equality only Hamming weight one; positivity follows from positive carry-zero path. The alternating transfer matrix has characteristic polynomial t^2-24t+100, giving the claimed recurrence and decay. 5,592,404 direct finite terms verified; finite tests are consistency checks, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Emme–Prikhodko and Emme–Hubert investigate probability measures of the digit-sum difference, and central limit/variance properties.",
+        "Spiegelhofer studies unit-circle q-multiplicative correlations, not the diverging positive-weight products with Pearson normalization."
+      ],
+      "reasoning": "General transfer-matrix techniques provide methods but no observed theorem covering this full weighted all-lag classification. A stronger as-yet-unlocated weighted correlation result is a residual risk, not silently treated as absent.",
+      "searches": [
+        "published-finding corpus: limiting correlation function of weighted digit sum 2^{s_2(n)} binary carry matrices",
+        "published-finding corpus: binary digit product autocorrelation for shifted powers of two, max 2/3 min zero",
+        "arxiv:1504.01701 sections 1–2",
+        "arxiv:1605.06297 sections 1–2",
+        "Spiegelhofer 2014 thesis Chapter 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1001.1783",
+      "2014 Spiegelhofer dissertation Chapter 2",
+      "arxiv:1504.01701",
+      "arxiv:1605.06297",
+      "arxiv:1810.11234",
+      "published-finding corpus searches on shifted Pascal-row digit count and binary digit weight autocorrelation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Fine count implies F(n) but does not constrain cross-shift products.",
+        "Published digit-sum-difference measures capture the distribution of s_2(n+h)-s_2(n), not the joint weighted moment normalized by 5^L."
+      ],
+      "reasoning": "The target depends on the joint sum s_2(n+h)+s_2(n), and weighted reweighting by 4^{s_2(n)} changes the measure. None of the compared theorems supplies the claimed sharp all-h extremizers or alternating-shift decay, so no direct implication was found.",
+      "searches": [
+        "arxiv:1001.1783 section 1 and Theorem 1",
+        "Spiegelhofer 2014 Chapter 2 Theorems 2.1–2.2 and Chapter 3 heading",
+        "arxiv:1504.01701 main theorem and introduction",
+        "arxiv:1605.06297 introduction and theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spiegelhofer studies correlations of e(theta s_2(n)) and shifted differences; its Theorem 2.1 is a digit reversal invariance for difference distributions, not the present Pearson correlation.",
+        "No exact all-shift positive weighted Pascal-count Pearson result appeared in the actual searches."
+      ],
+      "reasoning": "Digit reversal/difference statistics may be encoded by related carry matrices, but averaging 2^{s_2(n+h)-s_2(n)} against uniform n does not recover the weighted joint average 2^{s_2(n+h)+s_2(n)}: the latter weights each n by 4^{s_2(n)}. The listed theorems do not imply the sharp 2/3 bound and all equality cases.",
+      "searches": [
+        "published-finding corpus: Fine number of odd entries 2^{s_2(n)} shifted autocorrelation Pearson limit powers of two shift maximizing 2/3 alternating binary shifts",
+        "web: \"2^{s_2(n)}\" \"autocorrelation\" binomial",
+        "Spiegelhofer thesis Chapter 2, Eq. (2.2), Theorems 2.1–2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rowland enumerates nonzero residues within individual rows modulo prime powers and explicitly records the Glaisher/Fine expression, but gives no table of lagged Pearson coefficients.",
+        "No exact matching tabulation in the examined published-finding corpus closest-result summaries."
+      ],
+      "reasoning": "The claimed rational-valued full shift spectrum is not simply a row-count database or a finite lookup; it has a uniform matrix formula and exact extremal classification.",
+      "searches": [
+        "published-finding corpus: Pascal row parity count adjacent rows autocorrelation asymptotic 2/3",
+        "published-finding corpus: adjacent nonzero binomial coefficients Pascal row modulo prime run lengths Lucas theorem exact distribution",
+        "Rowland arxiv:1001.1783 full article"
+      ]
+    },
+    "rationale": "Fine/Glaisher/Rowland state single-row counts; inspected shifted binary-digit-sum correlation literature concerns unit-modulus differences and digit-sum-difference distributions, not the stated variance-normalized weighted joint products or the exact sharp positive-lag extremum with equality classification and vanishing alternating-lag infimum. No matching or stronger covering theorem identified among accessible sources or searches; historical priority risk from unlocated general weighted digit-correlation frameworks remains.",
+    "residual_risks": [
+      "A general weighted q-multiplicative correlation framework, perhaps phrased as a nonunit complex digit weight or as a positive Riesz-product correlation, might already imply part or all of these formulas and extrema; none was located in the accessible comparison.",
+      "The reviewed paper statements do not yield a formal global uniqueness claim; priority still requires further specialist literature scrutiny."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_BASELINE_NOT_SHIFT_COVERAGE",
+        "evidence": "Article §1 records a_2(n)=2^{s_2(n)}, with general prime-power within-row formulas in §2; not Pearson cross-shift products.",
+        "identifier_or_url": "https://arxiv.org/abs/1001.1783",
+        "material_read": "Complete main introduction, definitions, Theorem 1, argument and cited historical setting",
+        "method": "Lawful full HTML article text",
+        "title": "The number of nonzero binomial coefficients modulo p^alpha",
+        "trigger": "Exact same Pascal-row nonzero-count invariant"
+      },
+      {
+        "assessment": "RELATED_DIFFERENCE_CORRELATION_NOT_TARGET_PEARSON",
+        "evidence": "Chapter 2 defines gamma_t(theta) via e(theta(s_q(n+t)-s_q(n))) and proves digit-reversal invariance. Their data are unit-circle correlations/difference laws, not joint positive products F(n)F(n+h) with growing variance.",
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/spiegelhofer/files/2014_thesis.pdf",
+        "material_read": "Table of contents; Chapter 2 introduction, equations (2.1)-(2.4), Theorems 2.1–2.2, nearby Kummer/Legendre discussion, Chapter 2 correlation section excerpts",
+        "method": "Full PDF text view plus page-image inspection",
+        "title": "Correlations for numeration systems",
+        "trigger": "Highly plausible shifted sum-of-digits correlation and Pascal carry literature"
+      },
+      {
+        "assessment": "DIFFERENCE_DISTRIBUTIONS_NOT_TARGET",
+        "evidence": "The object mu_a(d) is the density of s_2(n+a)-s_2(n)=d, rather than the weighted joint product.",
+        "identifier_or_url": "https://arxiv.org/abs/1504.01701",
+        "material_read": "Full HTML abstract, introduction, statements and early proof/theorem sections",
+        "method": "Lawful arXiv full HTML",
+        "title": "On the asymptotic behaviour of the correlation measure of sum-of-digits function in base 2",
+        "trigger": "Shifted binary digit-sum correlation measures"
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE",
+        "evidence": "Studies asymptotic laws of digit-sum-difference measures, not normalized Pearson weights F(n).",
+        "identifier_or_url": "https://arxiv.org/abs/1605.06297",
+        "material_read": "Full HTML introduction, main theorem and construction sections",
+        "method": "Lawful arXiv full HTML",
+        "title": "Central Limit Theorem for probability measures defined by sum-of-digits function in base 2",
+        "trigger": "Potential stronger statement on all shifts and their statistics"
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE",
+        "evidence": "Concerns central limit behavior of mu_a for digit-sum differences across shifts.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.11234",
+        "material_read": "Abstract, introduction, definition of mu_a and theorem description",
+        "method": "Lawful arXiv full HTML",
+        "title": "Normal distribution of correlation measures of binary sum-of-digits functions",
+        "trigger": "Related more recent broad distribution literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7be946ab-1fa0-4750-a1c7-8c4e027ac803",
+  "value": {
+    "rationale": "A complete exact dependence profile for the natural arithmetic statistic counting nonzero entries of binary Pascal rows. The all-shift rational formula and strict global upper bound with complete equality cases, plus exact unattained zero infimum with spectral rate, are nontrivial structural facts that are neither one-off substitutions nor narrow unmotivated numerical slices; they reveal carry-sensitive dependence hidden by the classical marginal count.",
+    "status": "PASS"
+  }
+}
