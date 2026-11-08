@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:10:41.238959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For iid Bernoulli p, A_n=[[1+β−γB_n/p,−β],[1,0]], the deterministic mean is a=1+β−γ and Var(a_n)=γ²(1−p)/p. Recomputed E[AᵀPA]−P=−D diag(1,0) for P=[[1,−βa/(1+β)],[-βa/(1+β),β²]] and D=2γ(1−β)−γ²[(1−β)/(1+β)+(1−p)/p]. For β>0, D>0 gives P positive definite and 2-step observability yields geometric mean-square decay; at D=0 P-energy conserved and at D<0 forced stationary variance would give D m=σ²>0 contradiction. At β=0 exact scalar factor 1−D. Derivatives of Γ_p(β)=2p(1−β²)/(1+β−2pβ) and D at fixed γ yield the threshold p=1/2, β_capacity=(sqrt p−sqrt(1−p))/(sqrt p+sqrt(1−p)) when p>1/2, and β_noise=0 for γ≤1, sqrtγ−1 otherwise. For zero velocity X_-1=X_0, event all n gradients erased has probability (1−p)^n and final X_n=X_0; path patterns with final hit then hit/erasure prove equality at n≥2 forces γ=p,β=0. Exact independent finite-path rational enumeration and symbolic matrix identity agreed. σ² is per-update noise, not gradient variance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stamatiou supplies general mean-square stability tools for stochastic linear two-step SDE discretizations.",
+          "Loizou–Richtárik analyzes stochastic heavy ball on sketched linear systems with rate bounds and qualitative momentum comparisons."
+        ],
+        "reasoning": "The general tools subsume existence of a covariance test, but no inspected explicit closed form for the same Bernoulli process and all three objectives; the generic stability criterion alone is not the novel item.",
+        "searches": [
+          "arXiv:2206.07553",
+          "arXiv:1704.08515",
+          "arXiv:1710.10737"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1710.10737",
+        "https://arxiv.org/abs/1910.13962",
+        "https://arxiv.org/abs/1704.08515",
+        "Resultary: Bernoulli dropout random gradient Polyak heavy ball stability noise momentum finite horizon scalar quadratic optimal step",
+        "frozen RESULT.md and independent verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic nonacceleration statement does not force the exact equality q^n for every n and uniqueness (β,γ)=(0,p).",
+          "Stationary noise model and normalization change the maximizing momentum; the per-update noise assumption is crucial."
+        ],
+        "reasoning": "Prior qualitative messages and nonsharp stochastic bounds do not directly imply these sharp three-way parameter conflicts in this concrete process.",
+        "searches": [
+          "arXiv:1710.10737",
+          "arXiv:1910.13962",
+          "arXiv:1803.05591"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stochastic heavy ball on quadratics and stochastic linear two-step recurrences provide alternate state-space/covariance formulations.",
+          "Bernoulli projector sketches can realize a related random-curvature oracle but their cited bound is not this sharp three-objective scalar classification."
+        ],
+        "reasoning": "State-space equivalence of the recurrence is not coverage of the joint exact optimized Γ, update-noise floor, and all-horizon erasure bound unless a prior paper derives those statements.",
+        "searches": [
+          "Resultary: Bernoulli dropout random gradient Polyak heavy ball stability noise momentum finite horizon scalar quadratic optimal step",
+          "arXiv:1710.10737",
+          "arXiv:1704.08515"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved related PNM, MARINA and error-feedback optimization results, not exact matching (p,β,γ) joint tables.",
+          "Gitman et al. address momentum with additive state-independent stochastic gradient noise, different injection and correlations."
+        ],
+        "reasoning": "No exact matching joint three-objective table observed; negative search is only limited evidence and does not certify priority.",
+        "searches": [
+          "Resultary: Bernoulli dropout random gradient Polyak heavy ball stability noise momentum finite horizon scalar quadratic optimal step",
+          "arXiv:1910.13962",
+          "arXiv:2312.14567"
+        ]
+      },
+      "rationale": "PASS at best knowledge for the combined three-objective exact classification, not for the general linear-two-step stability method, additive-noise Lyapunov equations or qualitative observations that stochastic momentum need not accelerate.",
+      "residual_risks": [
+        "A random-sketch specialization in broad heavy-ball literature may have an equivalent exact Γ or stationary variance calculation not spotlighted in the inspected sections.",
+        "One-dimensional dropout allows a simple stopping event; do not extrapolate claim to adaptive or nonquadratic optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, not directly a sharp three-objective result for erased scalar gradient",
+          "evidence": "Convergence bounds concern sketched losses and do not state the displayed all-horizon equality nor independent update-noise optimal β.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.10737",
+          "material_read": "Full accessible short arXiv PDF including algorithm, convergence statements and sketch-specific discussion",
+          "method": "Primary PDF inspected including pages and rate formulas",
+          "title": "Linearly Convergent Stochastic Heavy Ball Method for Minimizing Generalization Error",
+          "trigger": "Stochastic HB with Bernoulli sketch as possible dominating model"
+        },
+        {
+          "assessment": "DIFFERENT noise dynamics; generic momentum noise-floor findings may inform but do not yield the scalar erasure joint classification",
+          "evidence": "Theorems involve QHM/gradient noise ξ and assumptions, not Bernoulli multiplicative gradient erasures with exact finite-horizon path lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.13962",
+          "material_read": "Full accessible arXiv PDF with introduction, stability section 4 and local quadratic/noise modeling",
+          "method": "Primary arXiv PDF text and page-image inspection",
+          "title": "Understanding the Role of Momentum in Stochastic Gradient Methods",
+          "trigger": "Potential stationary covariance/optimal momentum prior coverage"
+        },
+        {
+          "assessment": "GENERIC stability framework; no whole-paper noncoverage asserted",
+          "evidence": "Model SDE discretizations are different from this dropout optimizer; general methods may imply parts of D>0.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.08515",
+          "material_read": "Accessible abstract and identified method, not every equation inspected",
+          "method": "ArXiv literature and abstract comparison",
+          "title": "A note on Asymptotic mean-square stability of stochastic linear two-step methods for SDEs",
+          "trigger": "Generic linear two-step stability criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. On one natural stochastic heavy-ball benchmark, exact stability capacity, stationary additive-update-noise minimization and finite-horizon performance select genuinely different algorithm parameters. The strong all-horizon no-acceleration optimum is motivated by gradient dropout rather than an arbitrary normalized statistic and exposes a practical distinction between stable step capacity and best time-horizon error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A random-sketch specialization in broad heavy-ball literature may have an equivalent exact Γ or stationary variance calculation not spotlighted in the inspected sections.",
+    "One-dimensional dropout allows a simple stopping event; do not extrapolate claim to adaptive or nonquadratic optimization.",
+    "Scientific priority is best-of-knowledge; no certification of exhaustive historical literature coverage. Source is self-reviewed before this independent assessment."
+  ],
+  "schema_version": 1
+}
