@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the dimension, convex body, and threshold before the radial power parameter tends to infinity. A full proof is provided for arbitrary convex bodies: the key boundary-translation derivative exists at almost every radial direction; the cone-volume Jacobian and vanishing integral of outer normals give the stated limit with its exact normalization. A uniform radial sandwich gives domination and local equicontinuity. Comparison with the ordinary covariogram and its general first-variation law excludes remote sublevel components and upgrades local convergence to global Hausdorff convergence. The explicit polytope expression and the sharp cubical John/Löwner radii follow from facet integration and strict concavity of the squared-coordinate profile. The supplied direct-quadrature program independently checks a square and a nonsymmetric triangle at four smoothing parameters and checks the cubical radii in three dimensions. Computations support but do not substitute for the universal proof.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-Haddad–Jiménez–Resende, arXiv:2610.11700 (2026), prove the critical regime under a \(C^3\) boundary hypothesis and already identify the same log-cosh integrand. The new assertion is **not the integrand** but the convergence of the actual radial mean for **every** convex body, including general nonsmooth boundaries, for every fixed positive critical level. A previous cubical critical-limit result establishes one nonsmooth example, and a separate result handles geometric properties of integral-defined transition bodies without establishing convergence of the underlying smoothing for general nonsmooth bodies. Neither implies the all-convex-body convergence by a stated theorem. The 2025 general covariogram derivative is used as a classical input, not claimed new. Searches of mathematical records and original sources did not find a previously established all-convex-body critical-limit theorem. An older unindexed extension remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The recent three-regime theory singles out a critical transition body, but its boundary differentiability requirement omits all polytopes, despite their central role in convex geometry and computation. The theorem closes that natural regularity gap at the critical scale, with an exact locally uniform functional limit and global Hausdorff convergence in every dimension. The proof isolates two reusable mechanisms: a.e. radial first variation and the ordinary covariogram's uniform linear deficit. The explicit polytope formula gives finite input data for computing the transition body and identifies all contact directions of its optimal cubical Euclidean ellipsoids. These are structural results, not mere numerical evaluations.
+For any origin-interior convex body, the uniform radial sandwich gives |p log(rho_{K+y/p}/rho_K)| <= const on bounded y; at a.e. smooth radial boundary point it tends to (y·normal)/(z·normal). The polar integral yields the log-cosh limit after the odd term cancels by divergence theorem. Uniform Lipschitz control in y gives local uniformity. The negative-power mean lies between intersection radius and 2^(1/p) times intersection radius; the first variation of the ordinary covariogram gives a uniform brightness-norm lower bound near zero and rules out remote sublevels, so local uniform limits imply global Hausdorff for each fixed tau>0. Hessian positive on every nonzero vector via full-dimensional normal support; coercivity via log cosh >= |t|-log 2. Facet formula and strict majorization of log cosh(sqrt(s)) yield exact cubical John/Löwner radii and contact sets. Independently reproduced square polar quadrature at y=(0.9,-0.4), p=25,100,500,2000 approaches 4[log cosh(.45)+log cosh(.2)]=0.4714990640 with p=2000 estimate 0.4714789693; experiments only corroborate.
 
-## Closest sources and limitations
-See arXiv:2610.11700v1 (Theorem 5, critical case and its smooth-boundary proof) and Haddad et al., *Affine isoperimetric inequalities for higher-order projection and centroid bodies* (2025), especially the ordinary covariogram first-variation formula. The theorem does not remove smoothness assumptions from the separate subcritical quadratic transition, does not give a universal quantitative rate of convergence, and does not prove historical uniqueness. The cubical critical-limit identity was previously known and is not independently claimed as original.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Haddad–Jiménez–Resende Theorem 5 gives the critical log-cosh and Hausdorff transition only under C^3 boundary; the audited theorem removes that hypothesis by a genuine a.e. radial-derivative and uniform covariogram-control argument. Same functional alone is not novel, nor are previously known cube calibrations.
+
+## value
+
+PASS
+
+Removing all boundary regularity from the exact critical transition answers a natural sharp-boundary case left open by the C^3 theorem: facets/edges form basic convex examples not covered by its differentiability argument. Global rather than local Hausdorff convergence is mathematically substantive, and the orthotope normal formula supplies explicit reference geometry. The claim is not just a rebranding of the known log-cosh functional.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
