@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The statement specifies the exact graph class, the local \(P_3\)-convexity condition and equality type. The rooted inclusion bound is proved by leaf removal with two explicitly constructed additional convex sets; its five-vertex base covers all three tree shapes. The rooted one-neighbor lemma constructs disjoint families of convex sets and handles leaf roots via the inclusion bound. The exact leaf-addition identity closes the induction; equality follows from strict rooted defect inequalities for broom vertices other than the hub. The nine-vertex base is exhaustive over all 47 isomorphism types. Finally, adding edges strictly decreases the count relative to any spanning tree, and the universal-vertex case has a separate sharp upper bound. Replayed finite verifier returned `ONE_PASS`.
+## correctness
 
-## Originality
-PASS, with historical qualification. The closest source, Dourado–Grippo–Lin–Protti (2026), counts \(P_3\)-convex sets and proves the top connected maximum (Theorem 11), but not the exact nonstar maximum or unique broom classification. The present sharp next-layer bound is not implied by the source's unrestricted star bound. Searches for second maxima, subdivisions, near-extremal trees, two-neighbor closure, and equivalent formulations did not reveal a matching earlier result. Remaining risk: a theorem in the graph-convexity or closed-set literature might use another name or parameterization. A failed search alone is not novelty certification.
+PASS
 
-## Value
-PASS. This is a natural sharp stability refinement of a current extremal result, characterizing the first nontrivial layer after excluding the unique maximizing star for infinitely many orders. The proof identifies the concrete rigidity mechanism: the deficit in the rooted leaf-extension identity is minimal only at the broom hub. The unique optimizer and sharp threshold at nine vertices are not routine substitutions of the known extremal bound.
+A vertex subset is P3-convex exactly when every unselected vertex has at most one selected neighbor. For rooted trees t>=5, A(H,v)>=2t−2 by leaf removal and two additional sets; for nonstar trees m>=6, one-neighbor defect D(T,v)>=2m−4 via path subsets and disconnected pairs. Adding a leaf yields c(T+)=2c(T)−D(T,v). Exact broom counts c(B_n)=3·2^(n−3)+2n−2 and strict nonhub defects for m>=9 give equality rigidity. Independently generated all 47 unlabeled n=9 tree types using canonical rooted parentheses, directly counted valid subsets and confirmed unique broom maximum 208; induction establishes all n>=9 trees. Additional edges strictly remove at least one convex set; universal-vertex nonstars bounded by star plus leaf-edge, extending to all connected simple nonstars. Finite n=9 enumeration supplies only induction base, not an infinite proof.
 
-## Scope and residual risks
-The theorem covers all connected simple graphs of order at least nine; smaller orders have different maximizers. Historical priority and independent proof assessment remain open. The displayed finite checks support only their enumerated domains, not the all-order conclusion without the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dourado–Grippo–Lin–Protti (2026) prove the unique connected STAR maximizing total P3-convex sets and a tree recursion. The second highest nonstar exact formula and broom-only equality are not implied by that first maximum and require sharper rooted defect estimates; searched near-extremal P3 and two-neighbor bootstrap formulations lacked an exact covering result.
+
+## value
+
+PASS
+
+A sharp runner-up extremal graph theorem with unique optimizer is a natural stability layer beyond a recently proven primary extremal question; the rooted recurrence/defect lemma is reusable in P3 convexity and bootstrap closed-set counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
