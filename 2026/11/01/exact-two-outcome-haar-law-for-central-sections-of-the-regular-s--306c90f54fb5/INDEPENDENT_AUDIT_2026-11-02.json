@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:57:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md geometric and exact chamber argument",
+        "Inspected exact certificate verify.py Git blob 791ac1caa7939dc41348ae36e68fe63a1c572042",
+        "Independent SymPy exact determinant/chamber construction in independent_checks.py: 56 determinants, 58 chambers, {6:24,8:34}"
+      ],
+      "rationale": "The 8 stated vertices have common norm and exactly 16 edges of equal length. Each generic central section polygon has one edge per transversally cut polyhedron edge. Rescaling the z coordinate preserves oriented signs. All 56 ordered triple-determinant signs are nonzero in Q(sqrt2), so 8 great circles are in general position, yielding at most 8*7+2=58 normal chambers. Independently enumerated locally realized signs at all 28 great-circle pairs and both antipodes, obtained exactly 58 distinct chambers with edge-cut histogram {6:24,8:34}; exhaustion follows from the independent arrangement count. Each edge is cut with Haar probability alpha/pi; all edges share cos alpha=(2sqrt2-1)/7, hence E[N]=16alpha/pi, fixing both probabilities. Finite exact symbolic enumeration is exhaustive here; 250000-point simulation from repository is not its proof.",
+      "residual_risks": [
+        "Only central, generic planes through regular antiprism; no off-center sections, perimeter or area distributions"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General slicing theory partitions normal space into polyhedral cells but does not itself return explicit counts or probability for this specific 8-vertex non-centrally symmetric solid.",
+          "The fully read box law handles centrally symmetric boxes and section counts 4/6, a different vertex arrangement and support than antiprism 6/8."
+        ],
+        "reasoning": "A broad method is not a dominating explicit exact evaluation without carrying out the special finite geometry. The box law is inapplicable to a square antiprism by affine equivalence.",
+        "searches": [
+          "arXiv:2304.14239 Theorem 1.1, Section 5",
+          "arXiv:2110.05996 Intersection Bodies of Polytopes",
+          "Resultary: exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.14239, Theorem 1.1, relevant Section 5 inspected",
+        "Full indexed published rectangular box result",
+        "arXiv:2110.05996 abstract/general context",
+        "Resultary targeted square-antiprism search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic chamber existence theorem does not determine numerical chamber cut histogram or Haar probabilities.",
+          "For rectangular boxes all normal chambers concern a different 8-vertex graph and generally permit four sections, contradicting a naive transfer to a 6/8-only antiprism law."
+        ],
+        "reasoning": "There is no result-to-result implication from the inspected geometric statements to this exact distribution without the new determinant enumeration and angular step.",
+        "searches": [
+          "arXiv:2304.14239 Theorem 1.1",
+          "Resultary: 2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "arXiv:2110.05996"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Related indexed Haar laws concern rectangular boxes, four-cubes or icosahedra, not square antiprisms.",
+          "Brandenburg–De Loera–Meroni gives general chamber decomposition but no inspected square-antiprism two-outcome result."
+        ],
+        "reasoning": "The section side count is equivalent to edge cuts indexed by vertex-sign patterns; the exact 58-pattern support and Haar weights are special to this antiprism and were not shown in other indexed models.",
+        "searches": [
+          "Resultary: exact Haar probabilities six octagon central plane sections regular square antiprism 58 chambers",
+          "Resultary: regular simplex central section Haar probability two polygon types exact area distribution",
+          "arXiv:2304.14239 square antiprism plane section vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published rectangular-box probability table has distinct four/hexagon support and cannot be a table of the antiprism.",
+          "Theorem 1.1 provides general decomposition, no matching 58-chamber antiprism table in targeted examples read."
+        ],
+        "reasoning": "No exact matching antiprism table among inspected sources; this is bounded source evidence, not proof that older unrelated tables do not exist.",
+        "searches": [
+          "Resultary: exact Haar probabilities six octagon central plane sections regular square antiprism 58 chambers",
+          "Resultary: Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "arXiv:2304.14239 examples"
+        ]
+      },
+      "rationale": "General polytope slicing-cell machinery and analogous exact Haar laws for other solids are known; their algorithms and distinct vertex configurations do not state this specific two-point antiprism support and probabilities. The exact chamber census plus single-angle expectation produces a natural geometric probability absent from inspected sources, best of knowledge.",
+      "residual_risks": [
+        "An older source tabulating exact regular-antiprism section counts may be unindexed",
+        "The signed-chamber argument applies to generic central cuts only"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General slicing cell methods, but no matching antiprism 58-chamber probability evaluation in inspected material.",
+          "evidence": "Theorem 1.1 chamber framework; examples for other named polytopes.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.14239",
+          "material_read": "Accessible PDF cover, Theorem 1.1, Section 5 examples and targeted text search for antiprism inspected; full text not read line-by-line.",
+          "method": "Primary PDF text and first-page screenshot visual inspection",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "General hyperplane/central section combinatorial bounds might cover the antiprism"
+        },
+        {
+          "assessment": "Different polyhedron and 4/6 rather than 6/8 side support.",
+          "evidence": "Rectangular box: p6=4/pi arctan(2abc/Q), derived from three triangular inequalities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "material_read": "Finding, box-specific proof of triangle-inequality chamber and exact spherical area; Git blob 99400934522c70e6373067aefa4ae5306ef17720.",
+          "method": "Read-only GitHub full research-result material",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Same central Haar-plane polygon-type invariant in three dimensions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned exact oriented-matroid chamber classification",
+        "Brandenburg–De Loera–Meroni general slicing framework motivates explicit solid cases"
+      ],
+      "rationale": "Exact shape-type probability of a classical regular Archimedean solid is a natural geometric invariant; the complete two-outcome support and 58-cell certificate give a usable exact distribution, not merely an isolated simulation or area estimate.",
+      "residual_risks": [
+        "Result is one specific classical polyhedron; its naturalness and complete exact law, not a general theorem, justify value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only central, generic planes through regular antiprism; no off-center sections, perimeter or area distributions",
+    "An older source tabulating exact regular-antiprism section counts may be unindexed",
+    "The signed-chamber argument applies to generic central cuts only",
+    "Result is one specific classical polyhedron; its naturalness and complete exact law, not a general theorem, justify value."
+  ],
+  "schema_version": 1
+}

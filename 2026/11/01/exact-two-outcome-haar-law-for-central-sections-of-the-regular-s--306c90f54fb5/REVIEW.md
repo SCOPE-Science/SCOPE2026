@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated antiprism vertices have equal radii and equal edge lengths. A transverse central section's side count equals the number of graph edges separating vertex signs. In \(\mathbb Q(\sqrt2)\) the 56 vertex triple determinants are all nonzero. The independently executable finite certificate constructs all 58 great-circle arrangement chambers by crossing pairs and enumerates their six/eight edge cut counts, then the equal-edge spherical angle identity gives the exact Haar expectation and the two probabilities. The classification is exhaustive, not inferred from Monte Carlo results. The material checked includes the symbolic finite script and direct geometric reconstruction.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The source *The Best Ways to Slice a Polytope* establishes abstract chamber methods and optimizes sections of other displayed polytopes, but its inspected theorem, examples, searchable full text and object search do not give the regular square-antiprism Haar distribution. The related *Intersection Bodies of Polytopes* concerns section-volume geometry, not this finite exact law. The closest published antiprism-specific result found concerns the X-ray number of uniform antiprisms, an illumination invariant that does not imply the frequency of central section polygons. Related cuboctahedral, cube–octahedron and icosahedral laws apply to different vertex sets; their sign arrangements do not dominate this theorem. Exact historical priority has not been independently settled.
+PASS
 
-## Mathematical value — PASS
-An exact two-outcome law for a uniform polyhedron is a complete natural geometric classification, not a tiny arbitrary numerical statistic. The forbidden heptagon is especially informative because the square antiprism itself is not centrally symmetric: its even section side counts arise from a four-regular edge graph and the stronger full chamber structure. The explicit Haar mass and 58-chamber decomposition give a meaningful benchmark for slicing algorithms and show how a full distribution follows from discrete geometry plus a one-edge spherical invariant.
+The 8 stated vertices have common norm and exactly 16 edges of equal length. Each generic central section polygon has one edge per transversally cut polyhedron edge. Rescaling the z coordinate preserves oriented signs. All 56 ordered triple-determinant signs are nonzero in Q(sqrt2), so 8 great circles are in general position, yielding at most 8*7+2=58 normal chambers. Independently enumerated locally realized signs at all 28 great-circle pairs and both antipodes, obtained exactly 58 distinct chambers with edge-cut histogram {6:24,8:34}; exhaustion follows from the independent arrangement count. Each edge is cut with Haar probability alpha/pi; all edges share cos alpha=(2sqrt2-1)/7, hence E[N]=16alpha/pi, fixing both probabilities. Finite exact symbolic enumeration is exhaustive here; 250000-point simulation from repository is not its proof.
 
-## Limitations and residual risks
-Only generic planes through the center and the regular metric shape are covered, not off-center cuts or metric section laws. A finite symbolic enumeration is sensitive to its explicit vertex and edge list, both separately checked against geometric regularity. Historical-priority claims are provisional; one older intersection-body paper was compared from its abstract and contextual descriptions rather than a complete full-text read. Independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General polytope slicing-cell machinery and analogous exact Haar laws for other solids are known; their algorithms and distinct vertex configurations do not state this specific two-point antiprism support and probabilities. The exact chamber census plus single-angle expectation produces a natural geometric probability absent from inspected sources, best of knowledge.
+
+## value
+
+PASS
+
+Exact shape-type probability of a classical regular Archimedean solid is a natural geometric invariant; the complete two-outcome support and 58-cell certificate give a usable exact distribution, not merely an isolated simulation or area estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

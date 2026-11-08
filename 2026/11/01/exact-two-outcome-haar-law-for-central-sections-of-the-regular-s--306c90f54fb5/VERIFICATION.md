@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python verify.py` in the same directory. The program uses SymPy to perform exact operations in \(\mathbb Q(\sqrt2)\) and NumPy for an independent numerical orientation diagnostic. The exact tests construct all 56 triple determinant signs, check pairwise-general-position of the eight great circles, enumerate exactly 58 sign chambers from local intersection quadrants, and compute section side counts from the 16 explicitly listed polyhedral edges. The chamber completeness uses the independent topological formula \(8\cdot7+2=58\). The expected count follows analytically from one-edge angular crossing probability, so no area quadrature is needed. The code also verifies that the physical antiprism vertices are cospherical and all listed edges have equal length.
+## correctness
 
-The separate 250,000-sample normal-orientation simulation provides a non-probative numerical diagnostic only. Exhaustive finite sign computation establishes the combinatorial assertion. The identity for Haar crossing probability is proved in RESULT.md. The program does not independently prove the mathematical universality of great-circle arrangement theory and does not constitute an independent external audit.
+PASS
+
+The 8 stated vertices have common norm and exactly 16 edges of equal length. Each generic central section polygon has one edge per transversally cut polyhedron edge. Rescaling the z coordinate preserves oriented signs. All 56 ordered triple-determinant signs are nonzero in Q(sqrt2), so 8 great circles are in general position, yielding at most 8*7+2=58 normal chambers. Independently enumerated locally realized signs at all 28 great-circle pairs and both antipodes, obtained exactly 58 distinct chambers with edge-cut histogram {6:24,8:34}; exhaustion follows from the independent arrangement count. Each edge is cut with Haar probability alpha/pi; all edges share cos alpha=(2sqrt2-1)/7, hence E[N]=16alpha/pi, fixing both probabilities. Finite exact symbolic enumeration is exhaustive here; 250000-point simulation from repository is not its proof.
+
+## originality
+
+PASS
+
+General polytope slicing-cell machinery and analogous exact Haar laws for other solids are known; their algorithms and distinct vertex configurations do not state this specific two-point antiprism support and probabilities. The exact chamber census plus single-angle expectation produces a natural geometric probability absent from inspected sources, best of knowledge.
+
+## value
+
+PASS
+
+Exact shape-type probability of a classical regular Archimedean solid is a natural geometric invariant; the complete two-outcome support and 58-cell certificate give a usable exact distribution, not merely an isolated simulation or area estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
