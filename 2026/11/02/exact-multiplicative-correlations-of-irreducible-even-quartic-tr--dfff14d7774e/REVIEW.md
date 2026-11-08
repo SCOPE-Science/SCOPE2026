@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quartic irreducibility criterion follows from the quadratic subfield and the norm test in its quadratic extension. The three-character indicator is valid even at its potential zeros, because the other factors vanish at each exceptional point when the multiplier is a square. Quadratic character sums supply the three pair terms; the cubic character sum is exactly the point-count deviation of the stated nonsingular elliptic curve. The exceptional diagonal is counted separately. The double count of ordered distinct nonsquare constants yields the aggregate correlation and the trace moment. All steps hold in arbitrary odd finite fields, including extension fields, and do not depend on computational enumeration. The standalone verifier corroborates the criteria and main formula over eleven fields (including extension fields).
+PASS
 
-## Originality — PASS, qualified by source coverage
+Capelli/tower criterion turns X^4+aX^2+b irreducibility into chi(b)=chi(a^2-4b)=-1. Setting t=4b/a^2 for a!=0 produces a triple nonsquare character pattern; zero factors vanish at t=0,1,1/u, so expansion is exact. Three pairwise sums (-chi(-1),-chi(-1),-1) and cubic trace give (q+1+a_q)/4. At a=0 the chi(-1) correction cancels; summing over ratio u double-counts ordered distinct nonsquare constants using r_a=(q-chi(-1))/4 and the special a=0 case. Nonsingular curve and Hasse give strict positivity. Independently enumerated all degree<=2 factors of the quartics over F3,F5,F7,F11,F13 for 300 (u,b) cases and verified individual counts and total ratio moments. This does not replace the finite-field proof for arbitrary q.
 
-Published work on sparse-polynomial factorization patterns, irreducible trinomials, and Legendre point counts supplies important tools and related aggregate statements. Auer and Top (2001), Proposition 4.1, already prove a full-family Legendre point-count moment; it is not claimed as a new result here. Their paper and the inspected classical trinomial, factorization and value-set works do not state the precise ratio-conditioned *pair* irreducibility count or the square-restricted trace moment. Searches also compared equivalent character-pattern and elliptic forms, and accessible prior research titles and claims. Because the derivation uses classical character sums, an earlier unlocated specialization of the triple-character intersection is the material residual risk. Search absence alone is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete all-parameter joint count is the multiplicative two-point correlation of a natural family of irreducible sparse polynomials, and it distinguishes forbidden ratios, a diagonal degeneracy and nontrivial square ratios. It replaces heuristic independence with an exact elliptic Frobenius correction and gives an unconditional existence result at every compatible ratio, together with a closed total correlation. These are natural arithmetic and finite-field factorization questions; the claim is not merely a value of a single chosen modulus or a renamed standard parameter.
+Relevant prior character-sum and Legendre-point-count techniques are classical; Auer–Top Proposition 4.1 gives the unrestricted Legendre first moment, but not fixed-ratio paired quartic irreducibility. An earlier repository theorem on composition quartics counts pairs (a,b) for (T^2+aT+b)^2+c with fixed c,d; its fixed-constant family is not equivalent to fixing b in X^4+aX^2+b, because expressing the latter as a shifted square makes the outer constant depend on a. No inspected prior theorem directly entails the fixed-ratio coefficientwise intersection count; possible older character-pattern general theorems remain a real risk.
 
-## Scientific limitations and literature risk
+## value
 
-The result is only for even quartics in odd characteristic. The elliptic trace is not given by a universal elementary closed form; classical character sums and Hasse's theorem are prior results. The available literature inspection cannot rule out an equivalent old theorem under triple-character-pattern terminology. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-ratio simultaneous irreducibility distribution is an exact natural arithmetic correlation, with a nontrivial elliptic trace fluctuation and a sharp mean over all square ratios; it cannot be obtained by independent-event multiplication. This is a useful closed invariant for a constrained trinomial family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
