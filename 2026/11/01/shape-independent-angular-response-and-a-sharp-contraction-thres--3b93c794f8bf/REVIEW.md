@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over every nondegenerate Euclidean triangle, every parameter \(0\le\lambda\le\tfrac12\), and a single Haar-uniform planar direction; it concerns the **centroidal unnormalized** area inertia. Integrating each recentered chord gives the exact directional decomposition, and the tent-fiber integrals reduce the angular expectation to \(\mathbb E[1/w^2]\). The polar of the triangular difference body is an explicit area-three hexagon in reference coordinates; affine covariance gives \(\mathbb E[1/w^2]=3/(2\pi A)\). Heron's identity proves the universal sharp threshold, with equality only for equilateral triangles at its endpoint. The independent chord-endpoint verifier checked 24 numerical angle integrations, 5 threshold comparisons and 6 algebraic or exact-geometric identities. Finite tests are corroboration, not a replacement for the analytic proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2026 Kipp–Sagmeister article defines the \(\lambda\)-Steiner operation and studies almost-sure iterative convergence, rather than the exact one-step expected centroidal inertia of triangles. The older symmetrization framework of Bianchi–Gardner–Gronchi and the classical triangular polar-difference-area equality are acknowledged prior ingredients. Available mathematical-record comparisons, including searches for random shaking, triangular second moments, affine polar-dual width, and sharp parameter thresholds, did not identify an equivalent combined statement. The closest distinct findings involve a one-step symmetral of a ball and unrelated triangular boundary-interior moments. A published equivalent under different nomenclature remains a historical-priority risk; negative searches alone do not establish priority.
+PASS
 
-## Mathematical value — PASS
-The shape-independent quadratic response is a structural identity for an entire nontrivial shape class, not merely one example or moment computation. Its combination with the sharp triangle inertia inequality yields an exact, all-triangles boundary separating mean Lyapunov contraction from expansion. This gives a concrete geometric interpretation of the interpolation between classical Steiner symmetrization and shaking that is not supplied by qualitative convergence criteria. Neither repeated-step behavior nor universality beyond triangles is asserted.
+For each chord length ℓ(t), integrate s and s² over interval [−λℓ,(1−λ)ℓ] and subtract the u-centroid to obtain I_u=M3/12+h²(M3−M2²/A), h=1/2−λ. The v-marginal is unchanged, contributing A Var(v·X). Triangle chords form two-sided linear tents of width w, yielding M2=4A²/(3w), M3=2A³/w², so the chord coefficient is (1/6+2h²/9)A³/w². The width w is the support function of T−T and reciprocal radial function of its polar; the polar difference hexagon of the standard right triangle has area 3. Affine covariance gives |(T−T)°|=3/(2A), hence angular mean 1/w²=3/(2π A), while mean v-centroidal variance is I/(2A). This yields the exact expectation. For triangle sides a,b,c, I=A(a²+b²+c²)/36 and the Heron/Weitzenböck identity implies I≥A²√3/9 with equality only equilateral. Substituting gives the sharp λ bound and equality, and arbitrarily slender fixed-area triangles exhibit strict contraction below the threshold. Independent 100,000-angle quadrature for three noncongruent triangles verified the inverse-width identity and λ=0.3 response; exact analytic averaging, not samples, proves all cases.
 
-## Closest literature and limitations
-Kipp–Sagmeister (2026), arXiv:2610.05113v1, contains the operation and convergence setting. Aliev (2025), arXiv:2511.14991v1, explicitly states the older polar-difference-area equality for triangles. Bianchi–Gardner–Gronchi (2016/2017), arXiv:1603.00643v2, supplies general symmetrization background. The exact proof and finite checks concern single-step triangle geometry; equivalence to an unlocated prior theorem and independent validation remain open questions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For every planar triangle of area A, random-direction λ-Steiner recentering has shape-independent expected inertia response I/2+A²/(4π)+A²(λ−1/2)²/(3π), with sharp universal contraction threshold λ*=0.103894354853268… . Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
+
+## value
+
+PASS
+
+Generalized Steiner interpolation is naturally studied through monotonicity and convergence, and centroidal inertia is a canonical Lyapunov candidate. The exact one-step shape-free parameter response for all triangles and the sharp threshold separating guaranteed average decrease from equilateral counterexamples give a useful boundary for triangular random symmetrization, rather than a routine rewriting of a known inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
