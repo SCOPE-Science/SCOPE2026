@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof verifies that on a simple graph an orientation is zero-inclusive EFX exactly when every zero-indegree source has only indegree-one neighbors. For a biclique each source fixes exactly one orientation, yielding a+b exceptional cases. Matrices with a zero row and an all-one column cannot coexist; exact inclusion-exclusion counts the source-free cases. A uniform error bound proves the 2^a imbalance threshold. Direct bundle-removal enumeration and an independently coded structural criterion agree in 142602 orientations, but the finite test is not relied on as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Source [3] explicitly classifies **existence** on bipartite multigraphs using edge multiplicity and graph diameter (Theorems 3.2–3.6; Table 1); no count or uniform asymptotic is its conclusion.",
+        "Source [4] Theorem 3.3 proves general #P-completeness of counting complete EFX allocations; its minimum-count results concern few-goods and identical-valuation instances rather than all orientations of unit bicliques."
+      ],
+      "reasoning": "General EFX existence, orientation recognition, #P-hardness, or the existence of a fair orientation on all bipartite graphs does not imply the exact number of fair orientations in this explicit graph family, nor its random-asymmetry limit.",
+      "searches": [
+        "Exact enumeration and threshold of EFX orientations of complete bipartite graphs edge orientations binary agents all edge values one",
+        "Number of strong EFX0 fair allocations nonwasteful orientations on complete bipartite simple graphs unit edge items source-to-indegree-one condition",
+        "web: EFX orientation counting \"complete bipartite\" fair allocations",
+        "source [3] full text, section 3 and table 1",
+        "source [4] full text, section 3"
+      ]
+    },
+    "checked_sources": [
+      {
+        "material": "publication date and claims of general EFX existence, orientation hardness/nonexistence",
+        "title": "Fair Allocation in Graphs (EC 2023)",
+        "url": "https://doi.org/10.1145/3580507.3597764"
+      },
+      {
+        "material": "pages 1–4 definitions and orientation section; pages 7–15 algorithmic orientation/EFX results and discussion",
+        "title": "EFX Allocations on Graphs (2025 full manuscript)",
+        "url": "https://www.cs.ox.ac.uk/people/elias.koutsoupias/Personal/Papers/fair-allocations-on-graphs.pdf"
+      },
+      {
+        "material": "full-text contributions table and EFX orientation theorems in sections 2–4",
+        "title": "EFX Allocations and Orientations on Bipartite Multi-graphs: A Complete Picture",
+        "url": "https://arxiv.org/abs/2410.17002"
+      },
+      {
+        "material": "full-text counting motivation and section 3 including Theorem 3.3 and multiplicity results",
+        "title": "Understanding EFX Allocations: Counting and Variants",
+        "url": "https://arxiv.org/abs/2504.03951"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [2] Theorem 2 establishes hardness for general weighted graphical EFX orientations and Theorem 3 guarantees general EFX allocations (possibly nonorientations); neither counts the full valid solution set for uniform bicliques.",
+        "Source [3] Theorems 3.2–3.6 and 4.11 address existence/algorithmic results for bipartite multigraphs and do not state the probability law.",
+        "Source [4] Theorem 3.3 handles counting complexity for unrestricted allocations; it does not give the exact unit-biclique orientation count."
+      ],
+      "reasoning": "The new theorem is strictly a closed census and distributional limit law in a restricted valuation/graph family, not a rephrasing or corollary of the cited existence and complexity claims; elementary matrix counting alone becomes relevant only after establishing the source condition and enumerating the exceptions.",
+      "searches": [
+        "source [2] complete manuscript, especially sections 2–6",
+        "source [3] introduction/table/section 3",
+        "source [4] sections 1–3",
+        "EFX allocation counting under graphic valuations edge assignments all zero-inclusive item removals graph bipartite frequency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full 2023-origin manuscript defines EFX0 by all-good removals (source [2], section 2); its stated orientation results focus on nonexistence/hardness, not on a unit-weight biclique enumeration.",
+        "The explicit formula is equivalent to counting binary matrices with neither zero rows nor all-one columns and adding a+b valid singleton-source matrices; this equivalence was used to search source-free and zero-inclusive aliases."
+      ],
+      "reasoning": "A source-free orientation count by itself is insufficient: the a+b valid source-containing configurations and the zero-inclusive fairness criterion need proof. No retrieved record or full-text result equates these and provides the exact biclique census/limit law.",
+      "searches": [
+        "EFX envy-freeness up to any item orientations complete bipartite graphs K_a,b with binary additive incident edge valuations exact number fair orientations inclusion exclusion probability source vertices",
+        "Count fair orientations on K_{a,b} excluding source vertices adjacent to indegree two or more asymptotic EFX probability",
+        "EFX0 strongly envy-free graph orientations uniform unit binary edge valuations K_{m,n} with random orientations source-free exact count and 2^m threshold",
+        "web: \"EFX\" \"K_{a,b}\" \"count\"",
+        "web: \"EFX\" \"random orientation\" probability fair graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The six published-record searches returned ranked but mathematically distinct works on uniform released packing, integer height-function ranges, and multipartite-digraph orbit profiles; none discusses EFX0 source patterns or their probabilities.",
+        "The inspected bibliography/claims in sources [2]–[4] provided no exact table of strongly EFX orientations on K_{a,b}."
+      ],
+      "reasoning": "These records discuss different graph invariants or unrelated orientation orbit counts; none claims this EFX0 criterion, exact count, or threshold. An index miss is not a proof of novel priority.",
+      "searches": [
+        "EFX envy-freeness up to any item orientations complete bipartite graphs K_a,b with binary additive incident edge valuations exact number fair orientations inclusion exclusion probability source vertices",
+        "Exact enumeration and threshold of EFX orientations of complete bipartite graphs edge orientations binary agents all edge values one",
+        "Count fair orientations on K_{a,b} excluding source vertices adjacent to indegree two or more asymptotic EFX probability",
+        "EFX0 strongly envy-free graph orientations uniform unit binary edge valuations K_{m,n} with random orientations source-free exact count and 2^m threshold",
+        "Number of strong EFX0 fair allocations nonwasteful orientations on complete bipartite simple graphs unit edge items source-to-indegree-one condition",
+        "EFX allocation counting under graphic valuations edge assignments all zero-inclusive item removals graph bipartite frequency",
+        "web: \"(2^b-1)^a\" \"(2^a-1)^b\" orientation",
+        "web: \"EFX\" \"orientations\" \"enumeration\" 2026"
+      ]
+    },
+    "rationale": "The inspected primary graphical EFX paper concerns existence, hardness, and general allocation construction rather than the exact source-based census or random-orientation threshold in uniform bicliques; subsequent related multigraph work addresses existence, and general EFX counting results address different allocation domains. Six real semantic record searches and relevant literature phrase searches yielded no implication-covering theorem. The risk of unindexed or equivalently expressed counting formulas is explicit.",
+    "residual_risks": [
+      "A previously published zero-inclusive EFX0 orientation enumeration could be phrased as a source/indegree matrix theorem rather than as fair division and escape semantic or web searches.",
+      "Standard combinatorial counting of source-free biclique orientations might already give one term of the formula; that component alone is not claimed as novel.",
+      "No independent human priority review or mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines zero-inclusive EFX and graph orientations, proves general results but no exact unit-biclique orientation census or probability threshold identified in relevant proofs and statements.",
+        "evidence": "Sections 2–3: EFX requires all-item deletions, orientation counting not discussed; section 6: existence for trees/cycles/multistars and open graph-class questions.",
+        "identifier_or_url": "https://www.cs.ox.ac.uk/people/elias.koutsoupias/Personal/Papers/fair-allocations-on-graphs.pdf",
+        "material_read": "Full manuscript text inspected across sections 1–6, with detailed reading of section 2 EFX definition, section 3 orientation results and section 6 discussion; page 3 also visually inspected.",
+        "method": "Open-access full-text PDF reading and page-image inspection",
+        "title": "EFX Allocations on Graphs",
+        "trigger": "Primary same-object EFX-graph and orientation paper"
+      },
+      {
+        "assessment": "The relevant theorem statements concern existence and algorithms under multigraph multiplicity and diameter, not enumeration of all uniform simple-biclique orientations.",
+        "evidence": "Table 1 and Theorems 3.2–3.6, 4.11: existence/nonexistence and algorithms for multigraph orientations/allocation.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.17002",
+        "material_read": "Full arXiv PDF sections 1–3/4 claims and proof strategies; pages 2 and 7 visually inspected; table 1 and existence/complexity results reviewed.",
+        "method": "Open-access arXiv PDF textual and rendered-page inspection",
+        "title": "EFX Allocations and Orientations on Bipartite Multi-graphs: A Complete Picture",
+        "trigger": "Bipartite graphical EFX work that might dominate a biclique statement"
+      },
+      {
+        "assessment": "Proves general counting hardness and minimum solution multiplicity; does not specialize to endpoint orientations of unit-valued bicliques.",
+        "evidence": "Section 3, Theorem 3.3 (#P-completeness) and Theorem 3.13 (identical valuations).",
+        "identifier_or_url": "https://arxiv.org/abs/2504.03951",
+        "material_read": "Full arXiv PDF abstract, introduction, related work and Section 3 theorems/proofs, with page 2 visually inspected.",
+        "method": "Open-access arXiv PDF textual and rendered-page inspection",
+        "title": "Understanding EFX Allocations: Counting and Variants",
+        "trigger": "Directly relevant counting-focused EFX paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c6c593b-e22a-4454-85a6-bd071886b5fc",
+  "value": {
+    "rationale": "The exact fairness probability under independent uniform endpoint assignment answers a natural question not answered by fair-orientation existence. A source-neighbor structural characterization produces a full census and a sharp asymmetry transition at b~2^a; this directly quantifies when random nonwasteful allocations are almost always fair, nontrivially fair, or almost never fair, which is informative for randomized allocation mechanisms.",
+    "status": "PASS"
+  }
+}
