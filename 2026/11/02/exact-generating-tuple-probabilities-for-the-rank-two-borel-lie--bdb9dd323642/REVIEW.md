@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Lie generation is equivalent to generation after quotienting by the highest-root central ideal, since two independently recovered simple-root directions bracket onto the highest root. The quotient's two torus weights are independent except in characteristic three. Independent-weight and coincident-weight cases give different exact rank tests, with uniform random-matrix rank probabilities producing the formulas. Exhaustive \(q=2\) and \(q=3,k=2\) calculations and seeded extension-field checks agree. The proof covers all prime powers and all integers \(k\ge1\); it does not use empirical extrapolation.
+## correctness
 
-## Originality
-**PASS, qualified.** The 2026 random-generation theorem for full \(\mathfrak{sl}_n\) motivates the question but provides neither the Borel-specific exact finite-field probabilities nor the characteristic-three formula. The earlier all-traceless-algebra two-generation result also concerns a different ambient algebra. The 2026 random-bracket paper concerns \(\mathfrak{sl}_2\), and the Borel-tuples paper addresses tuples contained in a Borel rather than generation of the fixed Borel. Searches of mathematical records and existing available claim titles found no equivalent. There is a residual risk that general older solvable-Lie generator theory implies this explicit specialization. Historical priority is not independently certified.
+PASS
 
-## Mathematical value
-**PASS.** A natural five-dimensional Borel algebra, rather than a hand-picked parameter slice, exhibits a genuine characteristic-specific jump in minimal generator rank. The theorem gives exact entire generating-tuple probability laws for every finite field, including nonprime fields and all tuple lengths, and explains the jump by coalescence of two simple-root weights. This is directly motivated by recent random-generation work on \(\mathfrak{sl}_n\) and supplies finite-field structure not implied by a high-probability theorem for the whole simple algebra.
+For the five-dimensional traceless upper triangular algebra b3(F_q) over each prime power q, quotienting the E13 ideal yields T⋉W with simple-root weights α=a-b, β=a+2b. Although E13 is not central in full b3, it is central in the nilradical; two independent W directions in the derived subalgebra bracket to E13, establishing quotient-generation equivalence. When char!=3, two weights are independent, giving rank(A,B)=2, rank(α,U)=2, rank(β,V)=2. At char3 coincident weights require rank(A,B)=2 and rank(α,U,V)=3. Counting independent uniform rows yields (1-q^-k)(1-q^(1-k))^3 or (1-q^-k)(1-q^(1-k))^2(1-q^(2-k)), respectively, including k=1 and nonprime q. A fresh independent full Lie closure enumerated F2 k2 96/1024 and F3 k2 0/59049; pinned checker also covers F4 and other seeds as corroboration. Thus minimal generator counts 2 and 3 follow algebraically, not from sampling.
 
-## Limits and closest literature
-This does not extend to higher-rank Borels. It is a self-review only; older general split-solvable generation results remain a possible priority risk. The Bulois paper was compared using its abstract and bibliographic description, not a full-text noncoverage assertion. No mathematical independence or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full sl_n random generation and Borel membership do not imply generation in a prescribed rank-two solvable Borel. The exact characteristic-three degeneration and every-k probability law follow separate rank arguments and no searched prior formula was found; broader finite solvable generator theory remains a specific risk.
+
+## value
+
+PASS
+
+The split rank-two Borel is a canonical solvable algebra adjacent to recent sl3 generator research. Its entire finite-field tuple-generation law is a natural complete invariant and its characteristic-three jump has a structural weight-coalescence explanation; it is not a routine single numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible verification
-Run `python3 check_borel.py` with the standard Python library. This uses an independent closure-under-Lie-brackets algorithm and checks its output against the rank characterization of all sampled tuples. The expected output is `check_borel_output.txt`; the final line is `VERIFY_OK`.
+# Independent mathematical audit
 
-Exhaustive coverage, rather than sample testing, was achieved only for all tuples with \((q,k)=(2,1),(2,2),(2,3),(3,2)\). Samples for \(\mathbb F_3\), \(\mathbb F_5\), \(\mathbb F_7\), and \(\mathbb F_4\) test the criterion but do not certify all tuples over those field/length pairs. The \(\mathbb F_4\) implementation uses the irreducible polynomial \(z^2+z+1\). Finite tests alone are not a proof for all fields; the proof is symbolic and given in `RESULT.md`.
+## correctness
 
-Scientific literature comparisons and residual priority risks are documented in `REVIEW.md` and `AUDIT.json`. Independent audit is not performed.
+PASS
+
+For the five-dimensional traceless upper triangular algebra b3(F_q) over each prime power q, quotienting the E13 ideal yields T⋉W with simple-root weights α=a-b, β=a+2b. Although E13 is not central in full b3, it is central in the nilradical; two independent W directions in the derived subalgebra bracket to E13, establishing quotient-generation equivalence. When char!=3, two weights are independent, giving rank(A,B)=2, rank(α,U)=2, rank(β,V)=2. At char3 coincident weights require rank(A,B)=2 and rank(α,U,V)=3. Counting independent uniform rows yields (1-q^-k)(1-q^(1-k))^3 or (1-q^-k)(1-q^(1-k))^2(1-q^(2-k)), respectively, including k=1 and nonprime q. A fresh independent full Lie closure enumerated F2 k2 96/1024 and F3 k2 0/59049; pinned checker also covers F4 and other seeds as corroboration. Thus minimal generator counts 2 and 3 follow algebraically, not from sampling.
+
+## originality
+
+PASS
+
+Full sl_n random generation and Borel membership do not imply generation in a prescribed rank-two solvable Borel. The exact characteristic-three degeneration and every-k probability law follow separate rank arguments and no searched prior formula was found; broader finite solvable generator theory remains a specific risk.
+
+## value
+
+PASS
+
+The split rank-two Borel is a canonical solvable algebra adjacent to recent sl3 generator research. Its entire finite-field tuple-generation law is a natural complete invariant and its characteristic-three jump has a structural weight-coalescence explanation; it is not a routine single numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
