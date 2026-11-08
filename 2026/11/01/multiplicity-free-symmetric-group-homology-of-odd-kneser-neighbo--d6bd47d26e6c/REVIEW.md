@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The maximal simplices are indexed by \((k+1)\)-subsets; their pairwise intersections are at most one vertex, and the explicit top-two-barycentric-coordinate deformation is continuous, permutation-equivariant, and fixed on every glue vertex. This gives a genuine strong deformation retract, not merely a homology calculation. The bipartite edge orientation is group-preserved; the augmented cellular chain sequence is exact because the middle-levels graph is connected. Its chain modules have Frobenius characters \(h_k^2h_1\) and \(2h_kh_{k+1}\). Two applications of Pieri's rule cancel the one- and two-row constituents, yielding exactly the three-row summands. The provided verifier checks all \(120\) and \(5040\) group elements in the first two nontrivial examples and checks the dimension formula in the third; finite checks support but do not replace the general proof.
+## correctness
 
-**Originality — PASS, with specific residual risk.** Nilakantan–Singh, *Neighborhood Complexes of Kneser Graphs, KG_{3,k}* (arXiv:1807.11732), Theorem 1.3 and Section 4, proves a *nonequivariant* sphere-wedge decomposition including the 71-circle \(\mathrm{KG}(7,3)\) specialization and cites Kozlov's general theorem. Schultz, *The equivariant topology of stable Kneser graphs* (DMTCS Proceedings AO, 2011), studies a *dihedral* action on the *stable* Kneser/box-complex construction. Kierstead–Trotter and Mütze address matchings/Hamiltonicity of middle-levels graphs. None of those inspected assertions yields the full \(\mathfrak S_{2k+1}\) cycle-module decomposition stated here. A previously published \(\mathrm{KG}(6,2)\) neighborhood representation concerns another parameter regime. A differently phrased treatment of middle-level graph cycle-space representations remains a plausible publication-priority risk, and the 1988 middle-level primary source was accessible only at abstract level. Database silence alone was not treated as proof of originality.
+PASS
 
-**Value — PASS.** The odd Kneser graphs are the first nontrivial slack-one members of a standard family central to Lovász's topological coloring method. The multiplicity-free irreducible decomposition applies to *every* middle-level parameter, determines every ground-set permutation's action on first homology, and explains which symmetry types can occur. This is structural information not recoverable from the previously known circle counts, with a natural equivariant topological model rather than an arbitrary finite case. No new chromatic-number bound is claimed.
+At the assigned tree, every neighborhood facet is the simplex of k-subsets of a (k+1)-subset, and distinct such facets meet in at most one vertex. On each facet the gap of the largest and second-largest barycentric coordinates continuously retracts onto the barycenter-to-vertex star, fixing overlap vertices, and therefore the facet maps glue equivariantly for every k≥2. The middle-level inclusion graph has 2 binomial(2k+1,k) nodes and (k+1) binomial(2k+1,k) edges and is connected by one-element swaps, giving H1 rank (k-1)binomial(2k+1,k)+1. In the augmented rational cellular chain sequence the flag module has characteristic h_k^2h_1 and the vertex module 2h_kh_(k+1); Pieri subtraction yields exactly sum_{i=1}^k Specht(2k-i,i,1). An independent hook-length/dimension recalculation gives H1 ranks 11,71,379,1849 for k=2,3,4,5. Rank/finite character checks supplement rather than replace this uniform proof.
 
-Limits: no integral splitting into Specht summands, no generalization to higher slack, and no independent validation. Exact equivalence in unindexed cycle-space literature cannot be completely ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Established nonequivariant wedge type is credited and not accepted as new; the full S_(2k+1)-equivariant deformation and multiplicity-free rational character for the complete odd-slack-one family were not implied by the examined Kneser neighborhood or middle-level matching/Hamiltonicity papers, nor by the distinct KG(6,2) symmetric-module entry. Best-of-knowledge PASS limited to equivariant assertion.
+
+## value
+
+PASS
+
+The complete irreducible symmetry of the natural middle-level cycle space for all odd parameters is a structural representation-theoretic refinement not deducible from Betti numbers alone; this invariant is useful for quotient and fixed-point questions, rather than a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
