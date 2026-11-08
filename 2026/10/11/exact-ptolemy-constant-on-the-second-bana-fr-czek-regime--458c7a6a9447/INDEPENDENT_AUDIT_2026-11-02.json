@@ -1,0 +1,219 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T11:58:14.515956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every real lambda>sqrt(2), the branch norms E(v)=sqrt(v_1^2+v_2^2), F(v)=lambda|v_1| give N=max(E,F). Put c=lambda^2/2>1 and d=lambda^2/[2(lambda^2-1)] in (1/2,1), and H(v)^2=c v_1^2+d v_2^2. When F>=E, v_2^2<=(lambda^2-1)v_1^2 yields H^2<=lambda^2 v_1^2=F^2; when E>=F, the signs of c-1 and d-1 give H^2<=E^2. Therefore H<=N for all vectors. The four numerator active-branch pairs EE, FF, EF, FE are exhaustive, ties included. EE and FF obey Hilbert/one-dimensional Ptolemy with factor 1 (the FF seminorm is valid for the inequality); EF and FE obey E(a)F(b)<=lambda H(a)H(b)/sqrt(cd), and lambda/sqrt(cd)=2sqrt(1-lambda^-2). Hilbert Ptolemy followed by H<=N bounds ALL denominator terms by C=2sqrt(1-lambda^-2). For t=sqrt(lambda^2-1) and x=(1,t), y=(1,-t), z=(2,0), the four denominator-side norms are lambda, N(x-y)=2t, N(z)=2lambda, so the ratio is exactly 2t/lambda. Nonzero pairwise-distinctness holds throughout lambda>sqrt(2). The proof is uniform in the unbounded parameter and treats the endpoint only as a limit; no computational experiment is elevated to an infinite proof. Independent symbolic check with L=lambda^2 simplified (lambda/sqrt(cd))^2 to 4-4/L and evaluated exact witness cases lambda=3/2,2,4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zuo 2012 Theorem 2.3 and corresponding exactness criterion require an Euclidean-comparison quotient maximized at t=1/2. For the normalized M_lambda, the off-midpoint transition has a strictly larger quotient than t=1/2.",
+          "Zuo 2018 Theorems 7 and 8 explicitly assume psi(t)=psi(1-t), not satisfied by psi_lambda. Theorems 4-6 still require midpoint sharpness for the exactness conclusions.",
+          "The published Resultary midpoint symmetric Ptolemy class theorem has hypotheses excluding the coordinate-asymmetric normalized M_lambda.",
+          "The published Resultary Zbaganu phase diagram has an identical algebraic second branch but determines C_Z, a different supremum; it gives a lower bound for C_Pt, not a matching upper bound."
+        ],
+        "reasoning": "The inspected stronger-looking norm-comparison theorems fail the specific symmetry/midpoint hypotheses, and the superficially stronger all-lambda Zbaganu result does not dominate the Ptolemy constant. The present Hilbert certificate supplies a separate four-point upper bound. The unknown complete 2015 argument might still have an applicable alternative sufficient condition; this is expressly unresolved as a priority source-risk, not asserted noncoverage.",
+        "searches": [
+          "2012 Zuo absolute normalized Ptolemy Theorems 2.2-2.3",
+          "2018 Zuo MIA Ptolemy Theorems 4-8 and examples",
+          "Resultary: Banach spaces Ptolemy constant and Zbaganu constant inequalities comparison same invariant",
+          "Resultary: midpoint-extremal Euclidean comparison absolute normalized Ptolemy symmetric plane class"
+        ]
+      },
+      "checked_sources": [
+        "Assigned pinned SCOPE2026 RESULT.md/VERIFICATION.md/AUDIT.json/METADATA.json/REVIEW.md/SLOGAN.txt at 3216b56cf13f3458b5353d1e118761f975adbcd9",
+        "Banaś & Frączek (1993), Example 4.1, DML-CZ 118554, https://dml.cz/handle/10338.dmlcz/118554",
+        "Zhanfei Zuo (2012), DOI 10.1186/1029-242X-2012-107, full HTML",
+        "Zhan-Fei Zuo (2018), DOI 10.7153/mia-2018-21-64, full PDF",
+        "Changsen Yang & Xiangzhao Yang (2016), DOI 10.7153/jmi-10-43, full PDF",
+        "Zhan Fei Zuo (2015), DOI 10.12386/A2015sxxb0033, abstract only and no_pdf status",
+        "Resultary published first-regime Ptolemy record 4fc49bdb2424, RESULT.md full",
+        "Resultary published Zbăganu phase-diagram record 8cc72396d24e, RESULT.md full",
+        "Resultary midpoint-symmetric Ptolemy record 66766780aaed, indexed summary (not full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-regime Ptolemy theorem explicitly quantifies 1<lambda<=sqrt(2), and its exhibited witness loses saturation beyond sqrt(2).",
+          "The Zbaganu proof treats ||x+y||*||x-y||/(||x||^2+||y||^2). From Ptolemy on a parallelogram and 2ab<=a^2+b^2 one obtains C_Z<=C_Pt, not C_Pt<=C_Z; its exact value therefore supplies only the Ptolemy lower bound without a matching global four-point bound.",
+          "Banaś-Frączek (1993) Example 4.1 defines the exact clipped-disk norm but studies convexity, smoothness and deformation, not four-point Ptolemy constants.",
+          "Yang & Yang (2016) treats same family including p=2, but proves James-type and von Neumann-Jordan values. Its p=2 NJ value 2-lambda^-2 differs from 2sqrt(1-lambda^-2)."
+        ],
+        "reasoning": "Neither an earlier parameter-disjoint Ptolemy formula, the same-value distinct Zbaganu invariant, nor the original modulus/NJ computations entails the sharp new upper and lower Ptolemy equality. General 2012/2018 comparisons do not derive it under their stated exactness hypotheses. Pending 2015 full text remains genuine coverage uncertainty.",
+        "searches": [
+          "Resultary SCOPE first-regime 4fc49bdb2424 RESULT.md read in full",
+          "Resultary SCOPE Zbaganu 8cc72396d24e RESULT.md, proof and equality set read",
+          "Banaś-Frączek 1993 Example 4.1 full article",
+          "Yang & Yang 2016 DOI 10.7153/jmi-10-43, Sections 2-3",
+          "Zuo 2012 Theorems 2.2-2.3; Zuo 2018 Theorems 4-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invertible coordinate change (u,v)=(lambda*x_1,x_2) gives M_lambda(u,v)=max{|u|,sqrt(u^2/lambda^2+v^2)}, an absolute normalized norm with psi_lambda(t)=max{1-t,sqrt((1-t)^2/lambda^2+t^2)}.",
+          "The only exact same-invariant same-object published SCOPE comparison located via Resultary is the first regime 1<lambda<=sqrt(2), not lambda>sqrt(2).",
+          "The normalized associated function is asymmetric about t=1/2 and its Euclidean-comparison sharp contact is an off-midpoint branch transition."
+        ],
+        "reasoning": "The source norm and absolute-normalized alias were both checked against general two-dimensional Ptolemy criteria; an identical mathematical statement with different coordinates or names was not found in the inspected primary texts. A search miss is not proof of novelty; the inaccessible 2015 Zuo study remains a specific residual risk.",
+        "searches": [
+          "Resultary: Banaś Frączek Ptolemy lambda norm max lambda|x1| Euclidean regime lambda greater than sqrt2 exact formula",
+          "Resultary: Ptolemy constant of Banach space second Banaś-Frączek regime generalized norm absolute symmetric gauge piecewise formula four-point inequality",
+          "Zuo 2012 doi:10.1186/1029-242X-2012-107, Section 2",
+          "Zuo 2018 doi:10.7153/mia-2018-21-64, Theorems 4-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary first-regime exact Ptolemy record stops at lambda=sqrt(2).",
+          "Resultary Zbaganu record gives 2sqrt(1-lambda^-2) for a distinct invariant, not an exact Ptolemy table.",
+          "Other same-plane exact constants are generalized Baronti, NJ, and Euclidean Banach-Mazur, not the Ptolemy supremum."
+        ],
+        "reasoning": "Direct searches by parameter interval, distinctive formula, and normalized norm find no distinct published exact Ptolemy entry on lambda>sqrt(2) among examined results. The current submitted record appears itself in Resultary and is not counted as independent prior coverage. Absence from this database cannot certify priority.",
+        "searches": [
+          "Resultary: Banaś Frączek Ptolemy lambda norm max lambda|x1| Euclidean regime lambda greater than sqrt2 exact formula",
+          "Resultary: 2015 Zuo Ptolemy constant absolute normalized norm off-midpoint related Banach Fraczek parameter",
+          "web: Banas Fraczek Ptolemy constant second regime 2 sqrt(1-1/lambda^2)",
+          "SCOPE published first-regime Ptolemy record 4fc49bdb2424; published Zbaganu record 8cc72396d24e"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact Ptolemy value on lambda>sqrt(2). Full relevant primary texts of the same-object 1993 and 2016 papers, Zuo 2012/2018 exactness criteria, and published first-regime Ptolemy and Zbaganu records were compared by definitions and implication. The earlier same-invariant formula is restricted to the complementary interval. The same second-branch expression for C_Z does not by itself give an upper bound for C_Pt. The inspected general criteria require midpoint or coordinate symmetry absent here. A highly plausible 2015 article could not be read, so priority is not certified and its coverage remains a specific risk, not an automatic fail.",
+      "residual_risks": [
+        "Priority originality risk: Zuo (2015) DOI 10.12386/A2015sxxb0033 full text was not lawfully accessible; its new conditions could imply the second branch despite no matching abstract. No claim of whole-document NOT_COVERING.",
+        "A different older normalization or an unindexed general four-point inequality may cover the formula; direct searches and examined primary texts reduce but do not eliminate this risk.",
+        "Some related Resultary records were examined from semantic abstracts only; those abstracts are not used to exclude whole-document coverage, and the strongest closely related exact published results were read in full.",
+        "Result excludes lambda<=sqrt(2) as a new theorem; endpoint matching and lambda to infinity are consistency observations, not extra claims.",
+        "No external formal Lean or expert attestation is present; the proof is an independent human-readable mathematical assessment, not external certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof complete for lambda>sqrt(2), with an exact upper and witness; previous local PASS was treated only as evidence, not substituted for this reconstruction.",
+          "evidence": [
+            "RESULT.md sections Finding, Assumptions, Proof, Verification, Relationship to prior work; blob 342f6204d9d38ff79de3b2f0b98cbefbde7554d0",
+            "VERIFICATION.md blob e50e90f404570da34117a6543f8e17ed2e01897d"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/10/11/exact-ptolemy-constant-on-the-second-bana-fr-czek-regime--458c7a6a9447/RESULT.md",
+          "material_read": "Entire RESULT.md, VERIFICATION.md, SLOGAN.txt, REVIEW.md, METADATA.json and AUDIT.json at frozen commit; full six-file record tree and their Git blob IDs.",
+          "method": "Read-only pinned GitHub file fetch and Git tree API; independently reconstructed symbolic inequalities and extremizing triple.",
+          "title": "Exact Ptolemy constant on the second Banaś--Frączek regime (assigned final package)",
+          "trigger": "The sole mathematical claim assigned for independent audit"
+        },
+        {
+          "assessment": "Exact defining norm appears in Example 4.1; the paper addresses deformation moduli, not Ptolemy.",
+          "evidence": [
+            "1993 page 52 Example 4.1: max{lambda|x_1|,sqrt(x_1^2+x_2^2)}",
+            "Theorems and examples concern delta, rho, d_E"
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/118554/CommentatMathUnivCarolRetro_34-1993-1_5.pdf",
+          "material_read": "Whole seven-page 1993 primary PDF text and visual page 52, especially Section 4, Example 4.1.",
+          "method": "Lawful open PDF text and visual page inspection.",
+          "title": "Deformation of Banach spaces",
+          "trigger": "Original definition of the identical Banaś--Frączek plane."
+        },
+        {
+          "assessment": "Midpoint sharpness conditions do not apply to the present off-midpoint asymmetric normalized norm; concrete examples use different spaces.",
+          "evidence": [
+            "2012 Theorem 2.3 states maximum of psi/psi_2 at t=1/2",
+            "2012 Examples 2.7-2.10 do not specify current coordinate-strip deformation"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/1029-242X-2012-107",
+          "material_read": "Open-access full-text sections 1-2, Theorems 2.2-2.3, Examples 2.7-2.10, proof comparison criterion.",
+          "method": "Publisher open-access HTML primary text inspection.",
+          "title": "The Ptolemy constant of absolute normalized norms on R^2",
+          "trigger": "Same invariant on the normalized absolute plane class."
+        },
+        {
+          "assessment": "Theorems 7-8 require symmetry psi(t)=psi(1-t); midpoint exactness criteria are also inapplicable. No same-object second-regime result located in examined material.",
+          "evidence": [
+            "2018 Theorem 7 page 950 and Theorem 8 page 951 explicitly assume psi symmetry",
+            "2018 proof pages 948-949 derives midpoint comparison and equality"
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-21-64.pdf",
+          "material_read": "Publisher full 12-page PDF available, inspected principal theorem statements 4-8, proofs around pages 4-7, and concrete examples pages 8-9; visual page 949.",
+          "method": "Lawful open PDF text, theorem search, page screenshot.",
+          "title": "On the Ptolemy constant of some concrete Banach spaces",
+          "trigger": "Later Ptolemy comparison conditions potentially covering off-midpoint absolute normalized spaces."
+        },
+        {
+          "assessment": "Exactly the same p=2 norm occurs, but James-type and NJ constants are distinct invariants; Ptolemy not treated.",
+          "evidence": [
+            "2016 page 552 norm max{lambda|x_1|,||x||_p}",
+            "2016 page 555 Theorem 3.1 NJ=2-lambda^-2 for p=2, not Ptolemy"
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/jmi-10-43.pdf",
+          "material_read": "Full primary PDF available; read abstract, definitions, Lemma 2.1, Theorem 2.3, Section 3 Theorems 3.1 and 3.2, proof and conclusion.",
+          "method": "Publisher open-access PDF reading, visual page 552 and text searches.",
+          "title": "On the James type constant and von Neumann-Jordan constant for a class of Banaś-Fraczieck type spaces",
+          "trigger": "Same norm family, including present p=2 specialization."
+        },
+        {
+          "assessment": "Ptolemy value lambda only on 1<lambda<=sqrt2; explicitly excludes lambda>sqrt2 and the witness ceases to be extremal there.",
+          "evidence": [
+            "Finding quantifier 1<lambda<=sqrt(2)",
+            "Limitations explicitly state no lambda>sqrt(2) formula"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ptolemy-constant-c-mathrm-pt-lambda-on-the-first-bana-fr-c--4fc49bdb2424/RESULT.md",
+          "material_read": "Entire RESULT.md including hypothesis, branch proof, extremizing triple, relationship to prior work.",
+          "method": "Read-only published GitHub full-text file read.",
+          "title": "Exact Ptolemy constant C_Pt=lambda on the first Banaś--Frączek regime",
+          "trigger": "Published exact same-object same-invariant first-parameter-range result."
+        },
+        {
+          "assessment": "The same second-regime value is for C_Z, whereas C_Pt is a four-point supremum; gives lower bound only, not global Ptolemy upper bound.",
+          "evidence": [
+            "Theorems: C_Z=max branch with second value 2sqrt(1-lambda^-2)",
+            "Definition uses ||x+y||*||x-y||/(||x||^2+||y||^2), not Ptolemy quadruple"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-zb-ganu-phase-diagram-of-the-bana-fr-czek-plane--8cc72396d24e/RESULT.md",
+          "material_read": "Full RESULT.md, including all-parameter theorem, two-vector Zbăganu definition, mixed-branch quadratic proof and extremizers.",
+          "method": "Read-only published GitHub full-text file read; independently compared invariant definitions and inequalities.",
+          "title": "Exact Zbăganu phase diagram of the Banaś--Frączek plane",
+          "trigger": "Same object and algebraic formula for an adjacent normed-space invariant, possible mathematical implication."
+        },
+        {
+          "assessment": "COVERAGE UNDETERMINED: cannot infer full-document noncoverage from the abstract; explicit priority-risk retained, but access restriction alone does not invalidate the otherwise sound best-of-knowledge originality assessment.",
+          "evidence": [
+            "2015 Acta Mathematica Sinica 58(2), pp.337-344, DOI 10.12386/A2015sxxb0033",
+            "Oxford authorized result status no_pdf; no body read, no theorem-comparison claim"
+          ],
+          "identifier_or_url": "https://doi.org/10.12386/A2015sxxb0033",
+          "material_read": "Publisher English/Chinese metadata and abstracts only; publisher PDF not retrieved. Publisher abstract says new sufficient conditions including previous results and concrete new calculations.",
+          "method": "Lawful web search and publisher landing; arXiv/OA search yielded no verified full text; one authorized institutional Oxford retrieval returned no_pdf for this same DOI.",
+          "title": "A Reconsideration on the Ptolemy Constant of Absolute Normalized Norms",
+          "trigger": "Highly relevant intermediate general Ptolemy exactness conditions that could cover the off-midpoint case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact invariant of the classical Banaś--Frączek clipped-disk plane, not an arbitrary parameter slice or renaming. It supplies the missing natural second half of the Ptolemy phase diagram beyond the lambda=sqrt(2) switch, a sharp new mixed-active-branch Hilbert certificate, and a concrete attaining triple. The exact value differs from the first-regime lambda upper envelope and approaches the square-plane constant 2 as lambda grows; this is a reusable benchmark for comparing four-point geometry with Zbaganu, James, and NJ invariants. Its mathematical value does not depend on an unclaimed general p-family extension or a downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned pinned SCOPE2026 RESULT.md/VERIFICATION.md/AUDIT.json/METADATA.json/REVIEW.md/SLOGAN.txt at 3216b56cf13f3458b5353d1e118761f975adbcd9",
+    "Banaś & Frączek (1993), Example 4.1, DML-CZ 118554, https://dml.cz/handle/10338.dmlcz/118554",
+    "Zhanfei Zuo (2012), DOI 10.1186/1029-242X-2012-107, full HTML",
+    "Zhan-Fei Zuo (2018), DOI 10.7153/mia-2018-21-64, full PDF",
+    "Changsen Yang & Xiangzhao Yang (2016), DOI 10.7153/jmi-10-43, full PDF",
+    "Zhan Fei Zuo (2015), DOI 10.12386/A2015sxxb0033, abstract only and no_pdf status",
+    "Resultary published first-regime Ptolemy record 4fc49bdb2424, RESULT.md full",
+    "Resultary published Zbăganu phase-diagram record 8cc72396d24e, RESULT.md full",
+    "Resultary midpoint-symmetric Ptolemy record 66766780aaed, indexed summary (not full text)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claim is real two-dimensional and strictly lambda>sqrt2; not generalized to other p or the endpoint as a new statement.",
+    "No finite computation or verifier status was substituted for the Hilbert-Ptolemy argument.",
+    "Full 2015 Zuo comparison article inaccessible after lawful attempts; priority not an external attestation.",
+    "External formal verification/expert attestation remain not_performed and are preserved."
+  ],
+  "residual_risks": [
+    "Priority originality risk: Zuo (2015) DOI 10.12386/A2015sxxb0033 full text was not lawfully accessible; its new conditions could imply the second branch despite no matching abstract. No claim of whole-document NOT_COVERING.",
+    "A different older normalization or an unindexed general four-point inequality may cover the formula; direct searches and examined primary texts reduce but do not eliminate this risk.",
+    "Some related Resultary records were examined from semantic abstracts only; those abstracts are not used to exclude whole-document coverage, and the strongest closely related exact published results were read in full.",
+    "Result excludes lambda<=sqrt(2) as a new theorem; endpoint matching and lambda to infinity are consistency observations, not extra claims.",
+    "No external formal Lean or expert attestation is present; the proof is an independent human-readable mathematical assessment, not external certification."
+  ],
+  "schema_version": 1
+}
