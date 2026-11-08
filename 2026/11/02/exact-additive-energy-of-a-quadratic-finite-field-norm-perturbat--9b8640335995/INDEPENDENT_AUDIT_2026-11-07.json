@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:42:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-additive-energy-of-a-quadratic-finite-field-norm-perturbat--9b8640335995/RESULT.md",
+        "2026/11/02/exact-additive-energy-of-a-quadratic-finite-field-norm-perturbat--9b8640335995/verify_energy.py"
+      ],
+      "rationale": "For every odd prime power q, K=F_{q²}, k=F_q, F(x)=x^{q+1}+x, choose a nonsquare d and ω²=d. The norm expansion F(a+bω)=(a²+a−db²,b) identifies the image V as the q(q+1)/2 points with u+db²+1/4 a square including zero. Indicator 1_V=(1+χ(z)+δ0(z))/2. Fourier transform for ξ≠0 is half ψ(−ξ/4)[1+G(ξ)] times a nondegenerate quadratic Gauss sum in b. The zero-first-frequency modes vanish except (0,0); G(ξ)=χ(ξ)G(1), |G|²=q and G(1)²=χ(−1)q. Thus |hat{1_V}(ξ,η)|²=q|1+χ(ξ)G(1)|²/4 and the q^-2 Fourier fourth-moment identity gives E(V)=[q²(q+1)^4+q(q−1)((q+1)²+2q(1+χ(−1)))]/16. Norm-extension and Gauss relations hold for all odd prime powers, not only primes. Independently enumerated image and ordered pair-sum counts for q=3,5,7, obtaining (|V|,E)=(6,150),(15,2095),(28,12712), each matching the universal formula. Original verify_energy.py field arithmetic was inspected for nonprime tests; finite checks alone do not prove the all-q result.",
+      "residual_risks": [
+        "Odd prime powers only, no higher additive moments or even-characteristic claim; energy is ordered V^4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bluher and later root classifications determine how many preimages each target has; the checked primary focus is root solving, not fourth additive moments.",
+          "Gaussian/Fourier identities suffice as ingredients to compute image energy after identifying image geometry; method alone is not a published evaluation."
+        ],
+        "reasoning": "More general root classifiers do not automatically imply additive energy without cross-fiber sum correlations. Classical harmonic analysis is acknowledged.",
+        "searches": [
+          "Bluher 2004 FFA 10 285–305; Kim/Choe/Mesnager 2019 arxiv:1912.12648",
+          "General quadratic Gauss sum Fourier identity and finite-field extension theory",
+          "Kelley/Owen arxiv:1510.01758 trinomial root bounds"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 1912c59ab8bec87d141745117c3b877626c1d655, verify_energy.py ee5e04fb18321fefef293e4b228174e7881b0785, metadata and verification read",
+        "Kim/Choe/Mesnager arxiv:1912.12648 primary full text",
+        "Bluher 2004 primary abstract/bibliography only",
+        "Kelley/Owen arxiv:1510.01758; Resultary quartic graph energy and related Fourier table searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The map image condition from quadratic norm is direct, but additive energy requires the fourth power of the Fourier transform; the sign of G(1)^2 controls the lower-order term.",
+          "A theorem counting roots of X^(q+1)+X+a does not by itself count all ordered v1+v2=v3+v4."
+        ],
+        "reasoning": "There is no demonstrated implication from the strongest checked root theorem to the final Fourier energy identity without an additional additive correlation analysis.",
+        "searches": [
+          "Kim/Choe/Mesnager arxiv:1912.12648 paper §§1–main root-count theorem",
+          "Current RESULT.md Fourier proof and q mod4 term",
+          "Bluher root distribution bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Root multiplicity and image cardinality are properties of individual target fibers; energy counts coincidences of sums of two image values.",
+          "The Fourier form is the fourth moment of the indicator of a parabola-thickened square-subset strip, and the χ(-1) split arises from Gauss sum phase."
+        ],
+        "reasoning": "The polynomial can be reparametrized into an anisotropic quadratic square condition; a known formula for a general parabolic-square set could cover the claim. Bounded checked root-count literature does not furnish it.",
+        "searches": [
+          "Resultary query: finite field x^(q+1)+x image additive energy Fourier quadratic parabola square subset",
+          "Kim Choe Mesnager arxiv:1912.12648 full paper solving X^(q+1)+X+a=0",
+          "Bluher 2004 On x^{q+1}+ax+b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact energy tables concern graphs {(t,t^4)} or {(t,t^5)} and different additive groups; their parameters cannot be directly specialized to this norm-perturbation image.",
+          "q=3 gives 150, q=5 gives 2095, q=7 gives 12712; formula includes all odd prime powers."
+        ],
+        "reasoning": "No exact matching database entry located. Numeric agreements are only consistency checks and do not imply originality.",
+        "searches": [
+          "Resultary: Exact additive energy of the finite-field quartic graph (2026/10/4/...235f10989b3f)",
+          "Resultary: fifth-power graph two-sum spectrum (2026/10/11/...f9410cde2e91)",
+          "Sample q=3,5,7 exact energy independent direct enumeration"
+        ]
+      },
+      "rationale": "PASS, qualified. Bluher 2004 and Kim/Choe/Mesnager 2019 analyze preimages and root multiplicities for X^{q+1}+X+a, while the checked full latter manuscript does not state additive energy of the complete image. Prior finite-field Fourier/quadric methods and related graph-energy exact formulas are credited; using the same polynomial does not establish quadruple correlations. No matching exact energy formula found in bounded searches; Bluher complete text was not read and remains priority risk.",
+      "residual_risks": [
+        "Bluher 2004 complete paper not materially read, could contain equivalent parameter-dependent image correlation not visible in abstract.",
+        "General quadratic Gauss-spectrum results for parabolic square-thick strips might immediately cover the formula; the novelty search does not certify absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING root counts/parametrization; NOT_IDENTIFIED as containing whole-image additive energy",
+          "evidence": "Kim, Choe, Mesnager 2019 introduction: exact rational roots and 0/1/2/p^gcd+1 counts",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.12648",
+          "material_read": "Full freely available arxiv PDF title, introduction, root-multiplicity theorems and subject framework, with first page verified visually",
+          "method": "Readable primary PDF and screenshot",
+          "title": "Solving X^{q+1}+X+a=0 over Finite Fields",
+          "trigger": "Same polynomial and potential exact preimage table"
+        },
+        {
+          "assessment": "UNKNOWN whether additive energy implicit; do not certify whole-document noncoverage",
+          "evidence": "Bluher Finite Fields and Their Applications 10 (2004), 285–305",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2003.08.004",
+          "material_read": "Bibliographic record/abstract and same polynomial references; complete 2004 mathematical text unavailable",
+          "method": "Lawful open sources searched; abstract and citing-paper references",
+          "title": "On x^{q+1}+ax+b",
+          "trigger": "Original general polynomial and possible root distribution"
+        },
+        {
+          "assessment": "Different polynomial graph and q mod3 phase; not same image-set invariant",
+          "evidence": "Resultary summary formula for graph (t,t^4)",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f",
+          "material_read": "Published Resultary semantic title, summary and stated q mod3 formula; full proof not obtained",
+          "method": "Resultary semantic search",
+          "title": "Exact additive energy of the finite-field quartic graph",
+          "trigger": "Potential exact-table match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md 1912c59ab8bec87d141745117c3b877626c1d655, verify_energy.py ee5e04fb18321fefef293e4b228174e7881b0785, metadata and verification read",
+        "Kim/Choe/Mesnager arxiv:1912.12648 primary full text",
+        "Bluher 2004 primary abstract/bibliography only",
+        "Kelley/Owen arxiv:1510.01758; Resultary quartic graph energy and related Fourier table searches"
+      ],
+      "rationale": "Additive energy is a standard quantitative invariant of additive representation multiplicities and Fourier fourth moments. The image of the natural finite-field norm-plus-identity polynomial has nonlinear parabolic-square fibers, and its exact energy exhibits an arithmetic split by χ(−1). The invariant is a motivated exact value-set correlation, not just the already-known root count or an arbitrary sampled q; it could be used in additive-combinatorics studies of norm-perturbed polynomials. The derivation is elementary Gauss sums but the output is not a mechanical numerical-table recomputation.",
+      "residual_risks": [
+        "Bluher 2004 complete paper not materially read, could contain equivalent parameter-dependent image correlation not visible in abstract.",
+        "General quadratic Gauss-spectrum results for parabolic square-thick strips might immediately cover the formula; the novelty search does not certify absence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd prime powers only, no higher additive moments or even-characteristic claim; energy is ordered V^4.",
+    "Bluher 2004 complete paper not materially read, could contain equivalent parameter-dependent image correlation not visible in abstract.",
+    "General quadratic Gauss-spectrum results for parabolic square-thick strips might immediately cover the formula; the novelty search does not certify absence."
+  ],
+  "schema_version": 1
+}
