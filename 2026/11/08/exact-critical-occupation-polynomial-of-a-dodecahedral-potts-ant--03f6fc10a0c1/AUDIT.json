@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For the 20-vertex cubic dodecahedron the twelve odd pentagonal faces give the two-state lower bound six; a stated vertex coloring achieves it. Recoloring state 3 increases monochromatic edges by at most one per recolored vertex, so b+k>=6. An explicit 81-state cyclic transfer with weights for exactly the 30 edges and 20 spins is bijective with all 3^20 labelled configurations; exact coefficient extraction at degree six gives the asserted seven integers. An independently coded complete depth-first enumeration matches every coefficient, and a zero-monochromatic-edge transfer gives all proper-coloring sectors. Finally for h=1+x/beta all b+k>=7 contributions are O(e^{-beta+20|x|}), proving locally uniform scaling and the stated occupation moments. Finite testing is a reproducible evaluation of an exact finite recurrence, not a claim to prove an infinite pattern.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi et al. (2026), arXiv:2610.41277v1, Secs. II–V and Appendix B prove subcubic energy threshold and structure; no dodecahedral coefficient table found in text.",
+        "Shrock and Xu (2010) provide a general weighted-field Potts formula, which implicitly includes any finite graph, but do not evaluate this exact critical field graph.",
+        "Chang (2001) provides chromatic polynomial calculations for generalized dodecahedral graph families, concerning proper colorings."
+      ],
+      "reasoning": "The universal energy result strongly covers E0(h), which is treated as acknowledged premise rather than novelty. Generic formulas would imply the count after a substantial graph-specific coefficient evaluation, but do not state the explicit mixed-sector counts or ensuing scaled occupation law. Existing proper-coloring formulas cover at most a boundary sector.",
+      "searches": [
+        "https://arxiv.org/html/2610.41277v1",
+        "https://arxiv.org/html/1009.1182v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.41277v1",
+      "https://arxiv.org/html/1009.1182v1",
+      "https://doi.org/10.1016/S0378-4371(01)00157-1",
+      "https://mathworld.wolfram.com/DodecahedralGraph.html",
+      "https://arxiv.org/abs/1905.05548"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source E0(h)=6 min(h,1) follows from the established subcubic theorem and the graph frustration index.",
+        "The proper-coloring statistics at h=0 follow from earlier chromatic-polynomial frameworks.",
+        "The evaluated coefficients c0..c6 require jointly tracking monochromatic edges and third-state occupation, and are not stated by those energy/chromatic results."
+      ],
+      "reasoning": "A statement fixing only the minimum of b+h k does not determine how many configurations realize each (b,k); many different polynomials share the same lower hull. The generic external-field partition function, however, mathematically determines all of them given a graph, so novelty is strictly in exact explicit evaluation, not algorithmic possibility.",
+      "searches": [
+        "https://arxiv.org/html/2610.41277v1",
+        "https://arxiv.org/html/1009.1182v1",
+        "https://doi.org/10.1016/S0378-4371(01)00157-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shrock and Xu (2010), arXiv:1009.1182v1, Eq. (4) is a spanning-subgraph formula for field-dependent graph partition functions; Eq. (7) treats field-weighted proper colorings.",
+        "The target is the homogeneous total-degree-six component of the full 20-vertex labelled spin polynomial, not its purely proper-coloring component."
+      ],
+      "reasoning": "The generalized-field q=3, one-disfavored-state Potts partition function contains the same spin statistic with a change of fugacity variables. It supplies a generic representation but not the displayed evaluated seven-sector critical coefficient vector on GP(10,2). An unlocated specialized evaluation remains a risk.",
+      "searches": [
+        "https://arxiv.org/html/1009.1182v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld lists the ordinary dodecahedral chromatic polynomial, which gives the already-known proper 3-coloring count of 7200.",
+        "Searches for the exact seven coefficient numbers and occupation generating function did not identify a published evaluation."
+      ],
+      "reasoning": "An ordinary chromatic polynomial has no bond-error grading and cannot by itself identify the six-sector mixture with monochromatic edges. The lack of a returned exact critical table does not prove absence from all databases.",
+      "searches": [
+        "https://mathworld.wolfram.com/DodecahedralGraph.html"
+      ]
+    },
+    "rationale": "The 2026 source proves the universal subcubic ground-energy law and recoloring structure; these are explicitly credited. The 2010 generalized-field Potts graph partition function already encodes all coefficients implicitly, but its evaluated graph families do not include a dodecahedral critical mixed-sector polynomial. The dodecahedron chromatic polynomial and the proper-coloring total are already tabulated, and not claimed new. The newly isolated claim is the exact seven coefficients for fixed b+k=6 and the resulting occupation scaling function; targeted literature, direct primary-full-text, and indexed mathematical-result searches did not find an explicit equivalent. An unindexed table or a stronger graph-specific external-field calculation remains possible; this is best-knowledge, not an independence or priority certificate.",
+    "residual_risks": [
+      "A general magnetic-field graph polynomial necessarily implies the evaluated invariant after explicit specialization; scientific novelty is evaluation, not a new general method.",
+      "An unindexed C20 Potts external-field table may already give the exact seven coefficients.",
+      "Full text for the generalized-dodecahedron chromatic calculation was not verified; its documented scope is only proper-coloring counts.",
+      "No independent expert or publication-priority assessment has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general ground energy and recoloring; no evaluated GP(10,2) critical-sector degeneracy located.",
+        "evidence": "Eq. (1) gives bond-error plus costly third-state Hamiltonian; abstract, Theorem 8 and Appendix B give subcubic energy, not an occupation polynomial.",
+        "identifier_or_url": "https://arxiv.org/html/2610.41277v1",
+        "material_read": "Accessible full text: model and theorem statements, structure sections and appendix, with full-document term checks for dodecahedral exact tables.",
+        "method": "Read sections II–V, discussion and appendices; directly compare minimum-energy theorem with proposed coefficient statement.",
+        "title": "Coordination three heals, coordination four is hard: the antiferromagnetic Potts model with a costly third state",
+        "trigger": "Same Hamiltonian and all-subcubic ground-energy theorem."
+      },
+      {
+        "assessment": "COVERS generic graph partition methodology and proper-coloring polynomial, but not identified exact critical GP(10,2) coefficients.",
+        "evidence": "Equation (4) is a general spanning-subgraph formula; Eq. (7) specializes to weighted proper colorings; studied exact families are paths, complete graphs and p-wheels.",
+        "identifier_or_url": "https://arxiv.org/html/1009.1182v1",
+        "material_read": "Accessible article HTML: general partition expression, weighted chromatic specialization, exact graph families, appendices and conclusions, with full-document checks for dodecahedral and Petersen cases.",
+        "method": "Compare generalized field partition expression and computed graph families with the single dodecahedral graph and its critical homogeneous component.",
+        "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+        "trigger": "Possible broader prior generating-function framework for the entire target."
+      },
+      {
+        "assessment": "COVERS proper-coloring chromatic polynomials; mixed-bond/occupation critical sectors are not specified in available abstract.",
+        "evidence": "Abstract expressly treats zero-temperature chromatic polynomials of generalized dodecahedra; an inaccessible full calculation remains a residual risk.",
+        "identifier_or_url": "https://doi.org/10.1016/S0378-4371(01)00157-1",
+        "material_read": "Bibliographic record and detailed published abstract; full text not verified.",
+        "method": "Inspect scope of graph-family result and identify whether it records bond-energy/third-state bivariate critical sectors.",
+        "title": "Chromatic polynomials for lattice strips with cyclic boundary conditions",
+        "trigger": "Generalized-dodecahedron family and possible preexisting count."
+      },
+      {
+        "assessment": "COVERS graph and unweighted proper-colorings, not field-dependent mixed error sectors.",
+        "evidence": "The page displays the graph identity GP(10,2) and ordinary chromatic polynomial.",
+        "identifier_or_url": "https://mathworld.wolfram.com/DodecahedralGraph.html",
+        "material_read": "Accessible graph reference entry including identification with GP(10,2) and ordinary chromatic polynomial.",
+        "method": "Compare proper-coloring polynomial with target error/occupation sector polynomial.",
+        "title": "Dodecahedral Graph",
+        "trigger": "Exact graph identification and known ordinary chromatic polynomial."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "03f6fc10-a0c1-4d1b-bfca-ad2b2a986593",
+  "value": {
+    "rationale": "The dodecahedron is the canonical smallest fullerene connectivity graph and a natural 20-site frustrated cubic spin cluster. The recent threshold theorem specifies an energy but does not quantify the large mixture of distinct defect-occupation sectors at the threshold. The explicit polynomial gives the finite-size residual entropy log(98770), the full field rounding, and a fixed benchmark for occupation fluctuations and numerical exact partition functions. The seven-sector distribution has nontrivial shape and cannot be recovered from the ground-energy formula or unweighted chromatic count alone. This is a motivated exact finite invariant, not a claim of a macroscopic phase transition or a generic new transfer-matrix method.",
+    "status": "PASS"
+  }
+}
