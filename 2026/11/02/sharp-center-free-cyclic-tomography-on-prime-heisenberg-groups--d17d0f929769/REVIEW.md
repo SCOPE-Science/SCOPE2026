@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each odd prime, the lower bound is checked separately when the center is present or absent. The Fourier criterion is derived from subgroup averaging and the complete irreducible dimensions. Invariant Schrödinger vectors satisfy the generator equations. The involution has exactly one fixed point and its orbit polynomial separates pairs, so the two required square matrices are prime Fourier minors; an explicit cyclotomic proof is included. The integer checker confirms exact full rank for all split designs at primes 3, 5, 7 and one at 11. Its finite scope is not confused with the universal analytic proof.
+## correctness
 
-## Originality — PASS (bounded-source comparison)
-The directly closest Ilmavirta paper studies all geodesic directions and a general Fourier criterion, not a minimum center-free subsystem. The finite Heisenberg irreducibles, mutually unbiased Weyl bases, and Chebotarev Fourier minors are known and explicitly credited. Their combination does not state the explicit two-central-lift partition spanning theorem, its uniform freedom to select every split subset, or the matching group-wide direction lower bound. Semantic comparisons with adjacent Heisenberg representation and convolution literature did not identify a covering coset tomography theorem. The full Pittenger–Rubin preprint was inaccessible; equivalence to an earlier quantum state-tomography design remains possible.
+PASS
 
-## Mathematical value — PASS
-Minimizing the number of complete cyclic-coset acquisition directions is a natural reconstruction-design problem. For a noncommutative family of order \(p^3\), the result gives the sharp minimum \(p+1\) under both unrestricted and center-free acquisition, with a uniform two-lift realization for every odd prime and an explicit count of optimal designs. The failure of a superficially similar single-lift design for primes at least five demonstrates that the central phases encode a substantive obstruction.
+For odd prime p, H_p=F_p³ with (a,b,c)(u,v,w)=(a+u,b+v,c+w+av), Fourier coset averaging is p times projector P_{ρ,L} on each irrep fixed vector. Injectivity iff selected fixed spaces span in every irrep. The p² one-dimensional characters force covering all p+1 projective quotient lines for a center-free design; central subgroup has zero fixed space in each p-dimensional Schrödinger irrep and at least p noncentral directions are then needed, so p+1 is globally minimal. In each Schrödinger rep, fixed vector of finite slope and lift c is v_{s,c}(t)=ζ^(−k(ct+s t(t−1)/2)), and vertical direction gives coordinate δ_{−c}. Pick S of (p+1)/2 slopes at c=0, complement at c=1, any vertical lift. The involution t↦1−t partitions coordinates into even dimension (p+1)/2 and odd (p−1)/2; q(t)=t(t−1)/2 has distinct orbit values. Two square matrices reduce to Chebotarev prime Fourier minors, nonzero for all k, proving complete span and at least p*binom(p,(p+1)/2) labeled designs. All zero lifts fail for p>=5 because p finite vectors are even and one vertical vector cannot span full p. Independent GF2 coset-incidence row rank checked all 3 splits at p=3 and all 10 splits at p=5, each rank p³. GF2 full rank implies complex full rank in these finite cases only; general proof is analytic.
 
-## Source and reproducibility limits
-The proof covers odd primes only and exact complete coset sums. No noise stability, all-design classification, or independent audit is claimed. Related complete quantum-tomography literature is a residual originality risk. See RESULT.md and checker.py.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified for matching p+1 lower bound and explicit complementary two-lift center-free construction for all odd primes, not the Fourier representation classification, general finite group Radon criterion, Chebotarev Fourier-minor theorem or mutually unbiased basis existence. Pittenger–Rubin quantum-tomography full text inaccessible, so plausible equivalent direction design remains a residual risk.
+
+## value
+
+PASS
+
+The minimal number and explicit phase-lift acquisition design solve a natural restricted finite-group Radon/tomography problem, strengthening mere injectivity with all directions. A sparse p+1 construction with explicit noninjective natural alternative is useful for deterministic measurement design and quantum/finite harmonic analysis; no claim of noise stability or all-design classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
