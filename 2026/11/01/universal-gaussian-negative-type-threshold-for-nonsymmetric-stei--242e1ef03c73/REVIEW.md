@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence identity \(MM^{\mathsf T}=(r-1)I+J\) gives a complete orthogonal decomposition of the centered powered-distance quadratic form into a \(b-v\) block-kernel sector, \(v-1\) explicit two-dimensional singular-vector sectors, and one contrast sector. The block-kernel sector changes sign exactly at \(p_*\). At the endpoint, the two-dimensional determinant and a strict contrast bound establish negativity outside the stated nullspace; the exceptional \(k=2\) modes are accounted for explicitly. Li–Weston's theorem supplies strict negative type below the endpoint, while a block-kernel vector witnesses failure above. Five direct example constructions and centered-spectral computations corroborated the formulas, without being substituted for the infinite proof.
+## correctness
 
-## Originality — PASS under bounded review
-The classical correspondence between negative type and universally positive Gaussian kernels, the general strictness interpolation theorem, and Steiner incidence identities are standard and explicitly credited. Sánchez's published finite-metric distance-matrix treatment gives an abstract method and complete-bipartite cases but not the sharp nonsymmetric Steiner-design classification. A previously obtained affine-plane special-case threshold does not imply the uniform result for arbitrary nonsymmetric designs, including non-affine and non-resolvable examples. Targeted literature and mathematical-result searches disclosed no stated equivalent or stronger theorem; this is bounded evidence rather than a guarantee of historical uniqueness. Older specialized generalized-roundness or design literature remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-A natural complete classification over an entire combinatorial design class reduces its sharp Gaussian admissibility to the local block size, independent of the total design and its geometry. The precise endpoint nullity and minimum Euclidean embedding dimension show where universality has a genuine exceptional phase at \(k=2\). These are natural analytic invariants relevant to strict metric-kernel interpolation and embedding design metrics; the theorem is more than a finite numerical instance or a renaming of the affine-plane case.
+Read complete RESULT.md, check_steiner.py and verification. Reconstructed incidence algebra MM^T=(r-1)I+J with r=(v-1)/(k-1)>k and b=vr/k, and the exact distances 1/2/3/4. On ker M the centered powered-distance eigenvalue is a((k-1)a-k), a=2^p, giving sharp upper cutoff p*=log_2(k/(k-1)) because b>v. The v-1 paired mean-zero sectors have explicit 2x2 H_p with strictly negative principal minors at p* for k>=3, and one zero eigenvector each at k=2; constant contrast C_p<0 at p*, with the proof inequality using beta=log_2(3/2). Strict lower negative type follows from Li–Weston and all t>0 strict Gaussian positivity from distinct squared-Euclidean points. Independently constructed complete pair design v=4 and AG(2,3) and verified shortest-path/centered endpoint eigenvalue signatures k=2 nullity 5 and k=3 nullity 3; these examples corroborate, not prove, universal exponent or all endpoint ranks.
 
-## Scope and limitations
-The theorem excludes symmetric designs and asserts nothing about existence for unattained parameters. The finite checker is supportive only. Historic equivalences might use other terminology, and no independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schoenberg negative-type equivalence and Li–Weston strict interpolation are known ingredients. Sánchez treats general finite metric tests and complete bipartite path metrics. Existing affine-plane examples are covered as special cases here, but no inspected theorem on all nonsymmetric Steiner designs was found that forces this exact design-independent threshold with k=2 anomalous nullity.
+
+## value
+
+PASS
+
+A single sharp exponent and Euclidean dimension apply uniformly to arbitrary nonisomorphic Steiner block designs, including affine, projective high-dimensional and nongeometric systems. The exact endpoint null space is a meaningful invariant of incidence graph metrics for Gaussian kernels and embedding geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
