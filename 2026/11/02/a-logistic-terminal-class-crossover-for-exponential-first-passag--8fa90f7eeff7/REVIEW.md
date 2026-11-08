@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the exact \(K_{a,n}\) SI transition generator from independent exponential passage times, realizes infections through independent threshold maxima, uses a uniform empirical bound, and proves that the difference between accumulated exposures at completion of the second part tends to \(\lambda\). The flooding-time rate bound controls the full horizon, and the vanishing post-saturation susceptible-time integral is explicit. The balance identity follows from part-exchange symmetry after the first forced cross-part infection. All 3,468 finite exact checker assertions passed. Finite checks do not establish the infinite result.
+## correctness
 
-## Originality — PASS, with priority risks
-Compared the assertion to the motivating 2023 exponential-FPP complete-graph flooding theorem, a 2017 discrete-time infection takeover model, a 2012 inhomogeneous-graph typical-path theorem, and 2018 sparse-graph flooding bounds. Their graph families, marked observables, generators, or asymptotic precision do not imply the present dense-bipartite last-class logistic window. Public research-record and primary-literature queries found no equivalent statement. Possible older multitype epidemic and marked extreme-value results remain a genuine unexcluded risk. A relevant 2023 finite-birth epidemic paper was not fully inspected owing to limited source access.
+PASS
 
-## Value — PASS
-Knowing which community contains the final infected vertex is a natural property of spatial epidemic completion that cannot be read from the leading scalar flooding time. The theorem identifies the \(n/\log n\) imbalance scale, its entire fixed-parameter crossover, and an exact all-size balance law. The proof also isolates an asymptotic accumulated-exposure displacement that is reusable for studying marked terminal events.
+For K_{a,n} with a=n+floor(lambda*n/log n), the independent exponential threshold construction reproduces infection rates (a-i)j and (n-j)i. The uniform exposure empirical bounds and total hazard lower bound yield completion time O_p(log n/n). The exposure difference H_B-H_A is o_p(1) at log log n and accumulates the imbalance lambda across the terminal log n/n time window, while susceptible-time integrals vanish. Independent Gumbel maxima then give a logistic difference and P(last class A)->e^lambda/(1+e^lambda). For a=n, after the forced first B infection, the (1,1) state enjoys part-swap symmetry, implying exactly 1/2. Independent 121 exact rational finite biclique recursions confirm finite transitions, not the limit.
 
-## Limits and closest literature
-The result is restricted to fixed \(\lambda\), independent rate-one exponential edges, complete bipartite graphs, and one initially infected root. No joint centered flooding-time law or independent historical-priority certification is claimed. Closest material read: van der Hofstad–Lodewijks (arXiv:2311.16088, 2023), Ottino-Löffler–Scott–Strogatz (arXiv:1702.00881, 2017), Kolossváry–Komjáthy (arXiv:1201.3137, 2012), Leskelä–Ngo (arXiv:1806.09568, 2018). The structured scientific comparison and specific risks are in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published complete/long-range-graph flooding and sparse-graph FPP theory concerns total times, not the identity of the terminal part in a deterministic near-balanced biclique. Search in Resultary yielded other logistic crossovers but no covering theorem. Older two-type epidemic race results could still subsume the marked terminal event.
+
+## value
+
+PASS
+
+Which community holds the last infected vertex is a natural competing-extrema statistic separate from the flooding time. The sharp n/log n imbalance scale and full logistic crossover provide a structured, interpretable phase window, with exact finite balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
