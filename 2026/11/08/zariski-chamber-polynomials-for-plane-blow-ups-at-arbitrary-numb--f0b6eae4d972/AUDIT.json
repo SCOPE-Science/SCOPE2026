@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For d>=2, genus and conic Bezout give D^2>=d-2, establishing completeness of negative curves. Exact intersections imply selected (-1)-curves are disjoint, secant edges pairwise intersect, and the conic block is negative definite iff the selected E count is <n-4. Edge families are precisely stars and triangles, yielding both binomial polynomials. -K=H+Q is big, so the Bauer--Schmitz volume dichotomy gives finite vs infinite exactly by conic support. Exact standalone edge-backtracking checks m<=11, geometric support comparisons n=7..10, full rational matrix definiteness at n=7, and total formula through n=19 were replayed with ALL_CHECKS_PASSED. Finite computation does not replace symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "BFN 2009 gives general algorithm and general-position del Pezzo counts (n<=8), but no arbitrary-n conic-point formula.",
+        "Bauer--Schmitz 2012, section 3, mentions points on conics among big-anticanonical families, then computes examples for collinear and infinitely near points, not the conic family.",
+        "Rams--Szemberg 2014 gives a Weyl-versus-Zariski criterion rather than chamber counts.",
+        "Bauer--Schmitz 2012 improved matrix-algorithm paper computes Segre--Schur quartic and general-position del Pezzo chamber tables, not a uniform conic-point enumeration."
+      ],
+      "reasoning": "The general algorithms can in principle compute individual conic configurations once negative curves are known, but none of the antecedent theorems implies a specific uniform formula without the new geometry/combinatorics. The volume finiteness criterion is explicitly credited and used only after the new support classification.",
+      "searches": [
+        "Web: Zariski chambers weak del Pezzo conic points any number chamber count",
+        "arXiv:0912.0958 sections 1 and 3",
+        "arXiv:1205.3817 introduction and sections 1 and 3",
+        "arXiv:1411.4178v1 introduction and section 2",
+        "arXiv:1204.4373 entire sections 1–3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0912.0958 (2009-12-04)",
+      "https://arxiv.org/abs/1205.3817 (2012-05-16)",
+      "https://arxiv.org/html/1411.4178v1 (2014-11-15)",
+      "https://arxiv.org/abs/0901.4277 (collinear centers, source comparison at abstract level)",
+      "https://arxiv.org/abs/1204.4373 (2012-04-19; full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical collinear-point blow-ups have a different negative-curve incidence graph from the conic configuration, so those counts do not apply to the present setup.",
+        "The n=6 smooth-conic configuration has Q²=-2 and is a degree-three weak del Pezzo case; for n>=7 the Q²=4-n and the r<n-4 support inequality vary with n.",
+        "The cited general chamber-count algorithm and volume criterion do not supply a closed all-n conic-point enumerator."
+      ],
+      "reasoning": "Neither general-position del Pezzo counts nor line-point configurations imply the asserted conic-point polynomial. The special n=6 case alone does not determine the n>=7 family, and the proof needs a uniform genus/Bézout exclusion of further negative curves plus the all-n graph enumeration.",
+      "searches": [
+        "arXiv:0912.0958, Sections 1–3 (general algorithm and general-position cases)",
+        "arXiv:1205.3817, Theorems 1–2 (volume criterion and line-point examples)",
+        "Web search: Zariski chamber number seven eight nine points on a conic 8067 31053 111894"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "BFN Proposition 1.1 identifies chambers with negative-definite supports and Proposition 1.5 with principal submatrices; it does not give the conic-point closed polynomials.",
+        "The first returned published-finding corpus hits concerned unrelated conic arrangements and unexpected octics; the closest displayed unrelated record is https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-generic-irreducibility-of-the-minimal-unexpected-octic-for-the-1--0d6208d5a917"
+      ],
+      "reasoning": "Equivalences to chamber count, stable-base-locus support count, and negative-definite principal-submatrix count were checked as statements. The new assertion is the explicit all-n>=7 enumerator for a fixed geometric family; the general equivalence alone does not evaluate it.",
+      "searches": [
+        "published-finding corpus: Zariski chamber counting blow-up of n arbitrary points lying on a smooth conic exact formula for all n, 8067 chambers for seven points, 31053 for eight",
+        "Web: Zariski chambers blowing up n points on a conic exact number support counting formula",
+        "published-finding corpus: zariski chambers conic blow-ups n points star triangle matching generating function for negative supports",
+        "arXiv:0912.0958 Proposition 1.1 and Proposition 1.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "BFN tabulates smooth del Pezzo counts and lists 33,645 for seven general-position points, not 8,067 for seven conic points.",
+        "No matching 8,067/31,053/111,894 conic-point chamber sequence was located in these searches; unmatched results are not proof of absence."
+      ],
+      "reasoning": "The exact computed sequence and its alternative finite/infinite split were compared with visible primary tables and database search results; none was a direct match.",
+      "searches": [
+        "Web: Zariski chambers points lying on conic formula 8067 31053 111894",
+        "published-finding corpus: 8067 Zariski chambers of blowup seven points on smooth conic, 31053 for eight points, 111894 nine points",
+        "Web: exact number Zariski chambers blow-ups points conic arbitrary n finite"
+      ]
+    },
+    "rationale": "Specific original assessed statement: closed support-size polynomials and total/finite/infinite chamber counts uniformly for n>=7 conic-point plane blowups. Bauer--Funke--Neumann provides a general algorithm and the support correspondence, and Bauer--Schmitz supplies the volume criterion, but neither inspected full text has the conic-family enumeration. Restricting the formula to n=6 would not imply the n>=7 classification without the new genus/Bézout negative-curve proof and arbitrary-n star/triangle enumeration. Targeted exact-sequence, title, and equivalent-statement searches did not find an exact counterpart. Historical priority remains a risk.",
+    "residual_risks": [
+      "A specialist thesis or table may implicitly or explicitly tabulate the n>=7 conic-point chamber count despite its absence from the searched results.",
+      "The originality status is a same-model review, not an independent priority certification.",
+      "A published general counting algorithm applies in principle, so novelty is restricted to the closed uniform conic-family enumerator and its derived volume split."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_CONIC_FORMULA",
+        "evidence": "The paper treats arbitrary known negative-curve input algorithmically and gives explicit tabulations for r<=8 in general position; the conic-point family for unbounded n is not a listed calculation.",
+        "identifier_or_url": "https://arxiv.org/abs/0912.0958",
+        "material_read": "Rendered full-text introduction, Propositions 1.1 and 1.5, algorithm section 2, and del Pezzo geometry and enumeration in section 3",
+        "method": "arXiv accessible full-text rendering, comparison of hypotheses, curve classes, and tabulation",
+        "title": "Counting Zariski chambers on Del Pezzo surfaces",
+        "trigger": "Closest general chamber-enumeration paper and exact chamber/support theorem"
+      },
+      {
+        "assessment": "VOLUME_CRITERION_PRIOR_CONIC_CENSUS_NOT_LOCATED",
+        "evidence": "Sections 3.2 and 3.3 calculate blow-ups on a line and infinitely near points; the conic case is mentioned among big-anticanonical surfaces but its chamber polynomial is not calculated.",
+        "identifier_or_url": "https://arxiv.org/abs/1205.3817",
+        "material_read": "Rendered full-text introduction, theorem 1.4, section 3.1 and section 3.2 including the statement listing conic-point big-anticanonical configurations",
+        "method": "arXiv accessible full-text rendering; checked examples and implications",
+        "title": "Volumes of Zariski chambers",
+        "trigger": "General volume dichotomy and possible conic-family coverage"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT",
+        "evidence": "Criterion decides whether Weyl and Zariski chamber interiors agree, not a formula for conic-point blowups.",
+        "identifier_or_url": "https://arxiv.org/html/1411.4178v1",
+        "material_read": "Introduction and theorem 3, proof section 2, cubic-surface example, and beginning of Enriques discussion",
+        "method": "arXiv experimental HTML full text; statement and hypothesis comparison",
+        "title": "When are Zariski chambers numerically determined?",
+        "trigger": "Potentially stronger chamber criterion"
+      },
+      {
+        "assessment": "GENERAL_ALGORITHM_NOT_CONIC_FAMILY",
+        "evidence": "The principal-submatrix algorithm and quartic K3 application concern arbitrary provided intersection matrices; the worked enumerations are general del Pezzo and Segre–Schur quartic, not blowups at arbitrary numbers of points on a conic.",
+        "identifier_or_url": "https://arxiv.org/abs/1204.4373",
+        "material_read": "arXiv full-text introduction, algorithm in section 1, Segre–Schur quartic application in section 2, and efficiency comparison in section 3",
+        "method": "Open-access arXiv full-text statement and hypothesis comparison",
+        "title": "Zariski chambers on surfaces of high Picard number",
+        "trigger": "Potential stronger general enumeration algorithm with high Picard number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0b6eae4-d972-43c9-a5be-7edaa996f8c4",
+  "value": {
+    "rationale": "An exact support-size and volume-finiteness census for every n>=7 within a natural classical geometric family is a natural stable-base-locus invariant, not a chosen arbitrary slice. The persistence of finitely many chambers for unbounded n sharply contrasts with generic n>=9 blowups, and the all-n result requires a nontrivial negative-curve elimination plus Schur-complement and intersecting-edge enumeration. Its finite/infinite support split gives more structure than a lone count or a routine n=7 increment.",
+    "status": "PASS"
+  }
+}
