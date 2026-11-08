@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For any period-p repetition in a three-one word, the repeated primitive length-p block contains exactly one one. Hence every one-containing run corresponds to one of the two adjacent one distances; the flank sums and equal-gap merger give a complete formula. Splitting b=c and b≠c proves the exact rational GF, while the extremal GF and standard coefficient estimates prove the sharp threshold and limiting half-half law. An independent brute least-period interval check passed all 8855 words through length 22, and bivariate coefficient checks passed through length 36. These are checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1406.0263 Theorem “Runs” bounds the maximal number of periodic runs by the word length, with no distribution under fixed weight.",
+        "arxiv:1502.04644 gives an unrestricted binary maximum smaller than 22n/23, but does not imply a constant sharp upper bound of six conditional on exactly three ones.",
+        "arxiv:1301.6568 Theorem 9 and Corollary 10 average total RUN LENGTH over all words, not the run-number probability law given a fixed number of ones."
+      ],
+      "reasoning": "General run bounds and uniform-all-words averages cover a broader input set but provide neither the sharp fixed-weight-three extremal threshold nor the conditional bivariate spectrum. None of these theorems entails the asserted enumeration by restriction or a known simple parameter substitution.",
+      "searches": [
+        "bounds enumeration number of maximal periodic runs low Hamming weight, fixed symbol count binary strings",
+        "\"runs\" \"sparse\" \"maximal periodicities\" combinatorics words",
+        "\"number of runs\" \"fixed number of ones\" maximal repetition periodic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.6568 (full text)",
+      "arxiv:1406.0263 (full text)",
+      "arxiv:1502.04644 (full text)",
+      "arxiv:2602.10005 (abstract; distinct invariant)",
+      "OEIS search results (no matching table)",
+      "Published mathematical-result index (topical similarity search, no matching theorem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Glen–Simpson arxiv:1301.6568 §4 computes the expected total run length over unrestricted alphabets, while the new statistic counts runs, not summed lengths, conditioned on weight three.",
+        "Bannai et al. arxiv:1406.0263 §3 proves a universal inequality; Fischer et al. arxiv:1502.04644 §4 refines its density bound by forbidden local patterns.",
+        "The explicit gap-dependent pair-period lemma and rational bivariate generating function are not obtained by specializing either cited bound."
+      ],
+      "reasoning": "The new statements concern a fixed-composition count of periodicity occurrences and its entire run-count distribution. The cited general results are compatible with this classification but do not determine it. No stronger covering theorem was located in the checked sources.",
+      "searches": [
+        "periodic run intervals in binary weight three words 0^a 1 0^b 1 0^c 1 0^d, count by length, two runs with different periods",
+        "\"binary words\" \"exactly three ones\" \"maximal repetitions\"",
+        "\"number of runs\" \"three ones\" binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1406.0263 §2 Definition 1 defines runs as least-period maximal intervals; the full paper §3 develops Lyndon-root bounds, §4 an algorithm, §5 Lyndon trees; no weight-three spectrum is stated.",
+        "arxiv:1502.04644 §§2–4 studies binary run density and idle Lyndon-root positions, not gap-resolved fixed-Hamming-weight counts.",
+        "arxiv:2602.10005 (abstract only) uses the different statistic of maximal constant-symbol runs and cannot supply a maximal-periodicity result."
+      ],
+      "reasoning": "The key aliases searched were maximal repetitions, maximal periodicities, periodic runs and sparse fixed-Hamming-weight binary words. Some sources use “runs” for homogeneous blocks; those are a distinct invariant. The inspected maximal-periodicity literature neither states the two-neighbor-period gap formula nor its full bivariate counting law. Negative searches alone do not certify novelty.",
+      "searches": [
+        "Complete distribution generating function of the number of maximal periodic runs in binary words with exactly three ones: zero runs and pair-period runs, sharp maximum six and asymptotic half six half five",
+        "periodic run intervals in binary weight three words 0^a 1 0^b 1 0^c 1 0^d, count by length, two runs with different periods",
+        "binary words with exactly three ones \"runs\" maximal repetitions",
+        "runs in binary strings with bounded number of ones fixed weight three one binary word",
+        "\"runs\" \"fixed Hamming weight\" \"maximal repetitions\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned generic runs-theorem papers, ordinary letter-run tables and other unrelated string counts; no table was found for the six-run weight-three sequence or the bivariate periodicity spectrum.",
+        "The directly enumerated six-run values at lengths 12 through 19 are 2, 6, 12, 22, 34, 52, 72, 100; these are presented only as checksum values, not evidence of novelty."
+      ],
+      "reasoning": "A known unrestricted or ordinary-letter-run table does not count maximal periodic intervals at fixed Hamming weight. No exact matching database or table was observed in the actual searches; absence from search results is not proof of priority.",
+      "searches": [
+        "site:oeis.org \"maximal periodicities\" \"three\" \"ones\"",
+        "site:oeis.org \"number of runs\" \"weight three\" periodic",
+        "site:oeis.org \"2, 6, 12, 22, 34, 52, 72, 100\"",
+        "Complete distribution generating function of the number of maximal periodic runs in binary words with exactly three ones: zero runs and pair-period runs, sharp maximum six and asymptotic half six half five"
+      ]
+    },
+    "rationale": "Actual searches of published mathematical records, OEIS-style tables and primary full texts found no fixed-three-one maximal-periodic-run gap classification, complete bivariate run-count spectrum or fair-coin limit. The closest classical theorems concern unconditioned bounds, algorithms or summed run lengths, not this conditional count. Possible unindexed equivalent work remains a priority risk.",
+    "residual_risks": [
+      "Historical priority cannot be guaranteed from search, especially if an equivalent fixed-weight specialization is described only within an unindexed appendix or textbook.",
+      "The word “runs” is ambiguous: ordinary symbol runs and maximal periodicity runs must not be conflated.",
+      "A future broader exact fixed-composition theorem might subsume this result; none was found in accessible sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specific fixed-three-one run-number spectrum, despite a broader alphabet scope",
+        "evidence": [
+          "Definition of run lines 14–29, arxiv PDF page 1; §4 average TRL lines 429–575; initial arXiv posting 2013-01-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.6568",
+        "material_read": "Original accessible PDF: abstract/definitions, selected proof passages on structural bounds and §4 average-total-run-length formula, with first-version metadata checked separately.",
+        "method": "Read accessible arXiv PDF text and first-page image, inspected passages from §§1–4; cross-checked initial public timestamp on arXiv abstract.",
+        "title": "The total run length of a word",
+        "trigger": "Established run statistic and exact expectation baseline; relevant to distinguish number from summed run lengths"
+      },
+      {
+        "assessment": "NOT_COVERING for a sharp six-run weight-three bound or its exact distribution",
+        "evidence": [
+          "arxiv PDF page 3 Definition 1; §§3–5 general Lyndon-root framework and algorithm; initial submission 2014-06-02."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.0263",
+        "material_read": "Original accessible PDF: abstract, introduction, §2 run definition, selected passages on §3 bound, §4 algorithm and references.",
+        "method": "Read accessible arXiv PDF text, first-page image, and corresponding arXiv HTML full-text sections; searched the document for fixed-weight terminology.",
+        "title": "The “Runs” Theorem",
+        "trigger": "Most directly relevant foundational maximal-periodicity theorem and normalization"
+      },
+      {
+        "assessment": "NOT_COVERING: unconditional maximum-density bound, not fixed-weight gap classification",
+        "evidence": [
+          "arxiv PDF pages 1–7, §2 definition and §4 bounding table; initial submission 2015-02-16."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.04644",
+        "material_read": "Original accessible PDF: introduction and run definition, selected §3–4 proof passages, numerical bounding table and references.",
+        "method": "Read accessible arXiv PDF text, first-page image and HTML text for main theorem and definitions; searched for fixed-weight terminology.",
+        "title": "Beyond the Runs Theorem",
+        "trigger": "Sharp binary general upper bound that could dominate an extremal subproblem"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: maximal contiguous constant-symbol blocks, rather than maximal periodicity intervals; therefore not decisive for this claim",
+        "evidence": [
+          "arXiv abstract explicitly starts with enumerations concerning runs of ones and zeros and Hamming weight; original 2023 text defines runs as uninterrupted runs of ones."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.10005",
+        "material_read": "Abstract and available search excerpts describing definition of a run of ones",
+        "method": "Read abstract and accessible description only, not whole full text",
+        "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+        "trigger": "Title mentions fixed Hamming weight and could be mistaken for a covering enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "195f68bb-7ba1-4948-90c2-b3830bde0af1",
+  "value": {
+    "rationale": "A full structural classification of maximal periodicities under a natural sparse-content restriction identifies all possible interacting periods and their sharp six-run boundary. The result supplies an exact all-length bivariate distribution and a nontrivial half-half probabilistic limit. These are natural invariants and infinite-family statements, not a small table increment or mechanical substitution into existing unrestricted run bounds.",
+    "status": "PASS"
+  }
+}
