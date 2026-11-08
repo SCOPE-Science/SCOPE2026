@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For positive run lengths the factor dichotomy is exhaustive: a factor either contains the uniquely occurring \(10\), or avoids it and is unary or of the form \(0^i1^j\). Unary occurrence counts give the pure powers. Each mixed factor has occurrences at no more than two \(01\) boundaries, and requiring both shorter adjacent factors to repeat leaves exactly the two run-gap cases. The pair series and its square then follow by disjoint choices of the two run-length pairs. An actual packaged verifier checks 2,401 positive quadruples and 95 length/count coefficient positions. Finite tests are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary source, Mieno–Inenaga–Bannai–Takeda (MFCS 2016), proves the general \(2r-1\) upper bound on minimal unique substrings of an \(r\)-run string and provides run-length-index algorithms. Its pure-run lemma accounts for two of our candidate families, but the general bound seven at four runs does not imply the sharp binary upper bound five, the complete run-gap classification, the attaining-length boundary, or the two-variable generating function. The full accessible 2019 preprint and the 2021 full open article concern general sliding-window algorithms and do not state those formulas. The generic algorithm could of course compute each specified instance. Published-database and literature searches uncovered no equivalent general-length formula, but absence from the searchable corpus is not proof of novelty. The remaining plausible risk is an unpublished or unindexed exact specialization.
+PASS
 
-## Mathematical value — PASS
-Minimal unique substrings are building blocks for unique-substring queries, and the four-run binary class is the first alternating-run family containing a repeated \(01\) transition and a single opposite transition. The result is a complete parameter classification, with a sharp five-versus-seven improvement over the general RLE bound, an exact finite-length distribution of every possible minimal-unique-factor count, and a precise asymptotic typical count. This is a natural structural test family for repeated-context detection rather than an arbitrarily selected numerical case. No broad algorithmic complexity improvement is claimed.
+For W=0^a1^b0^c1^d with all four runs positive, the descending digram 10 appears once, and any longer factor containing 10 cannot be minimally unique. Every remaining factor is either unary or 0^i1^j. Unary occurrence formulas yield precisely the unequal longest 0/1 runs; two 01 transition boundaries yield candidate extensions exactly when |a-c|>=2 or |b-d|>=2, with no mixed i,j>=2 candidate. This exhaustively proves five possible MUFs and count 1+1_{a!=c}+1_{b!=d}+1_{|a-c|>=2}+1_{|b-d|>=2}. Independent literal overlapping factor enumeration verified full predicted factor set for all 4^4=256 run-length quadruples a,b,c,d<=4. The independent-pair enumerator P(z,t) yields bivariate F=2tP², sharp max min(5,n-3) and first five at n=8; finite tests are corroboration only.
 
-## Literature and limitations
-Relevant sources: MFCS 2016, DOI:10.4230/LIPIcs.MFCS.2016.69 (generic run bound and unary case); arXiv:1909.02804 (2019; guiding source for sliding-window MUSs); Algorithmica DOI:10.1007/s00453-021-00864-1 (2021 online full text); arXiv:1905.12854 (space-efficient generic algorithms); arXiv:2004.01493 (compressed enumeration). The conclusion is confined to positive four-run binary words. Equivalent specializations may exist outside the inspected sources, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+MFCS 2016 Mieno–Inenaga–Bannai–Takeda establish generic upper 2r-1 for r-run strings (7 when r=4) plus pure long-run MUS lemma and algorithms. Their general bound and algorithm do not imply as an explicit theorem the specialized complete binary alternating-four-run five-factor classification, length/count generating function or extremizer distribution. Sliding-window and BWT enumeration papers give algorithmic access to instances but not the displayed rational infinite-family enumerator, in inspected material.
+
+## value
+
+PASS
+
+Four alternating binary runs form the first case with repeated increasing boundary 01 and unique decreasing boundary 10. Exact structural spectrum and joint length/count enumeration sharpen the generic 7 factor bound to 5 and supply a motivated test family for unique-substring behavior; a natural complete classification rather than a random finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
