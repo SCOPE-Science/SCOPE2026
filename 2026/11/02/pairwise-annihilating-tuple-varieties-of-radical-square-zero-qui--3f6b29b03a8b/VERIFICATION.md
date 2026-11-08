@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of pairwise-annihilating quiver tuples
+# Independent mathematical audit
 
-Execute the accompanying standalone Python 3 script from the directory containing it:
+## correctness
 
-```sh
-python checker.py
-```
+PASS
 
-The script uses the original vertex-and-arrow multiplication of the quotient quiver algebra, with all products of two arrows zero, and independently checks every tuple over each finite test field. Seventeen exhaustive cases cover fields of orders two, three and four, loops, parallel and opposing arrows, paths, cycles and arities one through four. The order-four field uses explicit finite-field multiplication via an irreducible polynomial. Every pair of distinct tuple indices is checked in both orders; no individual square-zero equation is imposed.
+Reconstructed path-algebra multiplication e_u e_v=δ_uv e_v, e_s α=α, αe_t=α, αβ=0; ordered pairwise-zero equations force each vertex diagonal m-vector either zero or one nonzero color (including m=1). For arrow α:s→t, if both endpoint diagonal vectors vanish its m arrow coordinates are unconstrained; otherwise equations give exactly one free arrow parameter (also for loops, opposing arrows, different endpoint colors and char2). Thus each labeled stratum is (G_m)^(n-|S|)×A^(h+(m-1)e_Q(S)); summing Fq points yields formula, maximum dimension and count of top-dimensional irreducible closures. The empty subset gives δ>=0, threshold (m-1)ρ>1. At fixed q, N_m=Σ_e q^(me)P_e(m) uniquely recovers exponent e and polynomial coefficients by dominant exponential separation, with max e=h and max polynomial degree n, hence Xi_Q; no graph isomorphism claim. Independently exhaustive F2 counts 4 (isolated vertex,m3),14 (loop,m3),38 (one arrow,m3),48 (parallel arrows,m2), all match formula. F4 implemented in source checker but not independently tested; proof field independent.
 
-The expected output is included as `checker_output.txt`, ending with `ANNIHILATING_QUIVER_TUPLES_OK 17`. The individual reported totals can be compared directly. This is finite corroboration only: the universal formulas, geometric assertions and inverse reconstruction are proved algebraically in `RESULT.md` rather than inferred from testing. The review is not independent validation.
+## originality
+
+PASS
+
+Quiver radical-square-zero algebra and its representation-variety components are well-known (Bleher–Chinburg–Huisgen-Zimmermann), but those moduli classify modules, not arbitrary ordered zero-product tuples of algebra elements. Huang counts mutually annihilating unrestricted square matrices, principally pairs, not arbitrary m in every radical-square-zero quiver algebra. Existing induced-subgraph component polynomial records component count rather than induced-edge count; Xi_Q is not newly named as a graph polynomial. No stronger prior result was identified implying all-arity point count, top-component/density law and fixed-field inverse polynomial recovery.
+
+## value
+
+PASS
+
+A complete exact arithmetic and geometric classification for a natural family of associative algebras: all arities and finite fields, explicit locally closed strata and top-dimensional components, sharp dimension transition via graph density, and reconstruction of an induced-edge polynomial from probability/count sequences. All pieces are motivated by zero-product varieties and graph-algebra structure, not arbitrary tiny instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
