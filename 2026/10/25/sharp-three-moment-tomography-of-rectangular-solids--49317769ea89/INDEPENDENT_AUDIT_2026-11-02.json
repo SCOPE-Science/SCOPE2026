@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:50:41Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": {
+        "method": "Fresh independent Fraction/multinomial implementation, not running repository verifier as opaque code",
+        "output": "EXACT_INVERSION_CASES 729 TWO_MOMENT_AMBIGUITIES 4 HOELDER_SPOTCHECKS 1500 MAX_RATIO 0.6524789220459385",
+        "scope": "729 exact rational positive triples for first three moments and feasible image, 4 exact two-moment counterexamples, 1500 numerical rational-pair stability corroborations. Does not replace analytic proof.",
+        "script": "independent_checks.py"
+      },
+      "rationale": "For squared sides s_i>0, Z=D²=Σ_i s_iW_i with W=(U-V)² and E(W^k)=2/((2k+1)(2k+2)). Direct integration gives κ1(W)=1/6, κ2(W)=7/180, κ3(W)=11/945; hence the displayed S1=6M2,S2=(180/7)(M4−M2²),S3=(945/11)(M6−3M4M2+2M2³) equal Σs_i^j. Newton yields the cubic with all roots positive, even at multiplicities. With r_i=s_i/S1, u=Σr_i²,v=Σr_i³, a real-rooted normalized cubic q(z)=z³−z²+(1−u)z/2−(1−3u+2v)/6 has discriminant nonnegative iff |v−(u−2/9)|≤[2(3u−1)]^{3/2}/36. Positive product v>(3u−1)/2 and positive pair sum with total 1 force all roots positive; for 1/3<u<1/2 the discriminant interval is entirely positive; at u=1/2 zero-edge lower equality is excluded; cube is u=1/3,v=1/9. Volume²=s1s2s3=36M2³(1−3u+2v). Distinct triples (1±2t,1∓t,1∓t) share M2,M4 but differ in M6 by 44t³/315. For δ in (0,1/2), R=(2δ)^{1/3} and Rouché on union of old-root radius-R disks proves equal root counts by components because |q|≥2δ>|q−qtilde| there; each component has length ≤6R and sorted real roots match. Larger δ bound trivial. Near the cube, the ±t triples have normalized sorted-root gap 2t/3 and δ=4t³/9, ruling out any exponent >1/3. All boundaries, quantifiers and degeneracy restrictions checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Philip (2007), Sections 2-6: exact full distance law for arbitrary boxes; hence forward law and full-law identification cannot be claimed new.",
+          "Lellouche-Souris (2019): general forward convolution theory; Abas 2026: exact width laws.",
+          "Resultary published-finding matches are random projection/perimeter or planar chord moments, not first three even interior 3D point-pair moments."
+        ],
+        "reasoning": "Philip dominates the forward distribution, but a general forward law does not logically assert a three-number sufficient statistic, prove its minimality, describe its exact feasible image, or prove a sharp inverse modulus; those are independent finite-data conclusions, albeit based on elementary classical tools. Other broad results change the sampling law or target metric.",
+        "searches": [
+          "Resultary: finite moment tomography of orthotopes projection volumes versus interior pairwise Euclidean distances",
+          "Resultary: Sharp finite moment tomography of orthotopes in every dimension",
+          "Web: Johan Philip 2007 The Probability Distribution of the Distance Between Two Random Points in a Box full text",
+          "Web: Width distributions for rectangular boxes Abas arxiv 2608.03305"
+        ]
+      },
+      "checked_sources": [
+        "Johan Philip, The Probability Distribution of the Distance Between Two Random Points in a Box, TRITA-MAT-2007-MA-10; https://people.kth.se/~johanph/habc.pdf",
+        "Accessible text mirror of Philip full technical report, https://studylib.net/doc/18082345/the-probability-distribution-of-the-distance-between-two-...",
+        "A.M. Mathai, P.G. Moschopoulos, G. Pederzoli (1999), DOI:10.6092/issn.1973-2201/1104, https://rivista-statistica.unibo.it/article/view/1104",
+        "O. Abas (2026), Width distributions for rectangular boxes, arXiv:2608.03305, https://arxiv.org/abs/2608.03305",
+        "S. Lellouche, M. Souris (2019), Distribution of Distances between Elements in a Compact Set, DOI:10.3390/stats3010001, https://www.mdpi.com/2571-905X/3/1/1",
+        "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+        "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-haar-random-planar-projection-perimeter-moments-of-all-orthotope--5f6a2c7bb90c",
+        "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+        "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176",
+        "General classical facts used: Newton power-sum identities; cubic discriminant; Rouché theorem and root-cluster stability; no claim that those methods themselves are new."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Philip (2007) full forward density directly implies existence of all M_{2j}; its eq (27) yields M2 but it does not state a three-moment inverse.",
+          "Abas (2026) reconstructs from sphere-width rather than interior distance moments.",
+          "Classical Newton and cubic discriminant theorems explain inverse algebra and Hölder exponent generically, while the exact normalized image and sharpness witness need the particular sampling normalization."
+        ],
+        "reasoning": "From Philip one CAN derive the three-moment identities using standard integration, so the raw identities and convolution are covered as consequences of the full law. However the complete package minimal cutoff, strict feasibility boundaries including cube and zero-edge transition, and exact sharp inverse modulus are not automatic logical conclusions of the forward distribution without additional parameter-space and root perturbation arguments. The accepted scope is this finite-measurement theorem, not new forward laws or polynomial theory.",
+        "searches": [
+          "Resultary: three even moments of distance between independent uniform interior points rectangular cuboid inverse edge lengths sharp Hölder stable feasibility",
+          "Resultary: finite moment tomography of orthotopes projection volumes versus interior pairwise Euclidean distances",
+          "Resultary: Sharp finite moment tomography of orthotopes in every dimension",
+          "Web: Width distributions for rectangular boxes Abas arxiv 2608.03305"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Philip (2007) eqs (1),(10),(27) establish same squared-coordinate-difference convolution; full 3D distance law is already known.",
+          "Abas arXiv:2608.03305 abstract: w=Σ a_i |U_i| for uniform U∈S², distinct from D²=Σ s_i(U_i-V_i)²."
+        ],
+        "reasoning": "Equivalent form is power sums of squared side lengths recovered from κ1,κ2,κ3 of D²; this is not the sphere-uniform width process. The earlier full distribution is a stronger observable but does not explicitly state the first-three-even-moment sufficiency/optimality theorem or parameter-space modulus.",
+        "searches": [
+          "Resultary: three even moments of distance between independent uniform interior points rectangular cuboid inverse edge lengths sharp Hölder stable feasibility",
+          "Resultary: random point distance moments rectangular parallelepiped inverse determination cumulants",
+          "Web: three moments squared distance uniformly random interior points rectangular box inverse recover lengths cuboid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mathai et al. (1999) and cube line-picking tables supply cube-specific moments M2=1/2,M4=11/30,M6=211/630.",
+          "Philip (2007) supplies the full a,b,c-dependent density and explicit M2, not a catalog of feasible normalized three-moment triples or optimal inverse modulus."
+        ],
+        "reasoning": "The cube moments are a point of the feasible image (u=1/3,v=1/9); no inspected table covers the continuum of unequal-edge three-moment signatures and their exact inverse stability. Failure to locate a table is not a proof that none exists.",
+        "searches": [
+          "Resultary: three even moments of distance between independent uniform interior points rectangular cuboid inverse edge lengths sharp Hölder stable feasibility",
+          "Resultary: random point distance moments rectangular parallelepiped inverse determination cumulants",
+          "Web: three moments squared distance uniformly random interior points rectangular box inverse recover lengths cuboid"
+        ]
+      },
+      "rationale": "A full 2007 primary forward density for varying box sides is important prior coverage and is explicitly credited. Its law gives ALL distance moments and the complete distance distribution; the new finite-observation claim is specifically that three even moments suffice, two do not, with the exact attainable normalized (u,v) domain and optimal global inverse exponent 1/3. Those assertions are not stated in the inspected Philip primary report. Abas 2026 proves three-cumulant inversion for spherical directional widths, not two-point interior distances. Classical cumulants, Newton inversion, cubic discriminant and general root continuity are not claimed as novel by themselves. No direct prior theorem covering the combined finite-statistic distance-moment statement was found in actual primary/source/corpus searches. Because full-law data is stronger, originality is restricted to minimal-data recovery and sharp feasible/stability specification, with a real risk that these are elementary corollaries of established forward formulas.",
+      "residual_risks": [
+        "Johan Philip (2007) already provides a full forward distance law for ALL three-parameter rectangular boxes, with the same independent-coordinate convolution and an explicit second moment; the standalone three-moment cutoff is not explicitly stated there, but its moments can be derived from that stronger forward law using standard algebra. Priority is assigned only to the assembled minimal-data inverse, exact feasible region, and sharp uniform geometric modulus, not to the sampling distribution or cumulant machinery.",
+        "The 1/3 exponent follows generic cubic root coalescence; it is mathematically sharp here but the generic root-perturbation theorem is not new, and equivalent box-specific stability estimates might be unindexed.",
+        "Abas (2026) uses sphere-uniform directional width rather than uniform two-point distance; only arXiv primary abstract and a detailed secondary synopsis were accessible in this run, while PDF/open full text attempts failed and institutional retrieval reported vpn_disconnected. No full-document noncoverage claim is made.",
+        "Mathai et al. (1999) full original 21-page paper was not obtained; public abstract specifically addresses unit cubes, so any hidden unequal-edge theorem remains a priority risk rather than a scientific failure.",
+        "Resultary semantic results are ranked summaries and not full-text novelty certificates; some potentially relevant published mathematics may be unindexed or inaccessible.",
+        "Before any import, potentially public AUDIT.json and METADATA.json still contain scope_run_id, and no complete guarded privacy-neutral replacements were staged; publication is NOT ready."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes forward law for arbitrary sides a,b,c through convolution of squared-coordinate difference densities, with distribution breakpoints (a²,b²,c²,a²+b²,etc.) and M2=(a²+b²+c²)/6. It does not state the minimal first-three-even-moment inverse, two-moment obstruction, complete (u,v) feasible region, or sharp uniform cube-root inverse stability. Full-law identifiability is already covered; no claim of inventing the forward law.",
+          "evidence": [
+            "primary PDF Sections 2 and 5, equations (1), (10), (27), and Section 6 breakpoint list; https://people.kth.se/~johanph/habc.pdf",
+            "HTML mirror https://studylib.net/doc/18082345/the-probability-distribution-of-the-distance-between-two-..."
+          ],
+          "identifier_or_url": "https://people.kth.se/~johanph/habc.pdf (2007 technical report TRITA-MAT-07-MA-10); full text mirrored at https://studylib.net/doc/18082345/the-probability-distribution-of-the-distance-between-two-...",
+          "material_read": "Primary 13-page text, introduction, Sections 2-6, density and breakpoint formulas (1)-(21), Section 7 second-moment formula (27), Section 8 average, and Section 9 conclusions/references. Special-function piecewise formula algebra inspected for scope rather than individually recalculated.",
+          "method": "University-hosted indexed PDF text plus independent accessible full-document HTML text; PDF screenshot request attempted but server returned 404; same primary text available in HTML mirror",
+          "title": "The Probability Distribution of the Distance Between Two Random Points in a Box",
+          "trigger": "Exact same family of 3D rectangular boxes, same independent uniform interior-point Euclidean distance observable, potentially dominating full-distribution statement"
+        },
+        {
+          "assessment": "The abstract explicitly defines width as sum a_i |U_i| for U sphere-uniform, whereas assigned claim uses squared distance between two volume-uniform points; these are different probability laws. The abstract states three cumulants recover a box, which does not by itself imply the corresponding claim for point-pair distances; exact full-text implications not independently exhaustively checked.",
+          "evidence": [
+            "https://arxiv.org/abs/2608.03305",
+            "https://www.themoonlight.io/fr/review/width-distributions-for-rectangular-boxes (secondary synopsis, not substituted for primary)"
+          ],
+          "identifier_or_url": "arXiv:2608.03305 (4 Aug 2026)",
+          "material_read": "Primary arXiv abstract and secondary detailed analysis of moment/cumulant inversion; primary theorem pages were not available to read in this run.",
+          "method": "arXiv abstract, OA/full-text search, institutional full-text attempt (vpn_disconnected; not retried)",
+          "title": "Width distributions for rectangular boxes",
+          "trigger": "Same box parameters, three-cumulant recovery and feasible region but possibly different observable"
+        },
+        {
+          "assessment": "Accessible claims cover a single cube (equal sides) and variants of boundary/interior sampling; those special cases do not determine three unequal side lengths from exactly three moments. Whole-document NOT_COVERING is not claimed.",
+          "evidence": [
+            "https://rivista-statistica.unibo.it/article/view/1104"
+          ],
+          "identifier_or_url": "DOI:10.6092/issn.1973-2201/1104 (1999)",
+          "material_read": "Publisher open bibliographic record and full abstract; original paper PDF not available through inspected journal page.",
+          "method": "Publisher landing-page and public abstract reading",
+          "title": "Distance between random points in a cube",
+          "trigger": "Earlier exact interior-point distance moments in three dimensions"
+        },
+        {
+          "assessment": "General forward distance distribution framework, known specialized rectangle and cube examples. No accessible section supplies a three-even-moment inverse cutoff or sharp feasible/stability classification; inaccessible portions retain uncertainty.",
+          "evidence": [
+            "https://www.mdpi.com/2571-905X/3/1/1"
+          ],
+          "identifier_or_url": "DOI:10.3390/stats3010001 (2019)",
+          "material_read": "Publisher full abstract and accessible section excerpts describing convolution, rectangle/cube applications and conclusions; direct reread returned HTTP 429, so entire article was not checked.",
+          "method": "OA publisher search/indexed text, direct open attempt",
+          "title": "Distribution of Distances between Elements in a Compact Set",
+          "trigger": "Possibly broader all-dimension uniform-point distance/convolution formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Given an unlabeled one-dimensional point-pair distance statistic from a nondegenerate orthogonal box, the natural inverse task is to recover the three side lengths. Determining the exact minimal initial even-moment cutoff is a motivated finite-statistic identifiability question; two moments have a continuum of incompatible boxes, three recover the exact geometry. The complete physically realizable normalized-moment region identifies consistent data and the exact boundary where a dimension collapses; the sharp 1/3 Hölder exponent gives intrinsic ill-conditioning at cubes. These are coherent natural geometric-statistical invariants beyond quoting a cube table, even though elementary cumulants/Newton/root stability are the proof tools and the full forward density is long known. No general downstream paper-size result is required.",
+      "residual_risks": [
+        "Generic cubic root stability is standard; mathematical value attaches to its sharp realization in this specific natural inverse observation, not an original root perturbation technique."
+      ],
+      "sources": [
+        "Philip 2007 full box law and its missing finite-data inverse theorem",
+        "Abas 2026 analogous width-tomography motivation",
+        "Exact root-cluster stability and explicit two-moment indistinguishability witness from source proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Johan Philip, The Probability Distribution of the Distance Between Two Random Points in a Box, TRITA-MAT-2007-MA-10; https://people.kth.se/~johanph/habc.pdf",
+    "Accessible text mirror of Philip full technical report, https://studylib.net/doc/18082345/the-probability-distribution-of-the-distance-between-two-...",
+    "A.M. Mathai, P.G. Moschopoulos, G. Pederzoli (1999), DOI:10.6092/issn.1973-2201/1104, https://rivista-statistica.unibo.it/article/view/1104",
+    "O. Abas (2026), Width distributions for rectangular boxes, arXiv:2608.03305, https://arxiv.org/abs/2608.03305",
+    "S. Lellouche, M. Souris (2019), Distribution of Distances between Elements in a Compact Set, DOI:10.3390/stats3010001, https://www.mdpi.com/2571-905X/3/1/1",
+    "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+    "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-haar-random-planar-projection-perimeter-moments-of-all-orthotope--5f6a2c7bb90c",
+    "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+    "Resultary mathematical-record semantic search: 2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176",
+    "General classical facts used: Newton power-sum identities; cubic discriminant; Rouché theorem and root-cluster stability; no claim that those methods themselves are new."
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate 3D Euclidean orthogonal box with independent volume-uniform X,Y, the first three even distance moments (M2,M4,M6) determine the unordered strictly positive squared edge lengths as the roots of z³−S1z²+(S1²−S2)z/2−(S1³−3S1S2+2S3)/6, where S1=6M2, S2=(180/7)(M4−M2²), S3=(945/11)(M6−3M4M2+2M2³). Two even moments do not suffice. For u=(5/7)(M4/M2²−1),v=(35/88)(M6/M2³−3M4/M2²+2), exact feasibility is the given cusp u=1/3,v=1/9 or 1/3<u<1/2 with u−2/9−H(u)≤v≤u−2/9+H(u) or 1/2≤u<1 with (3u−1)/2<v≤u−2/9+H(u), H(u)=[2(3u−1)]^{3/2}/36. Volume²=36M2³(1−3u+2v). Normalized squared side lengths have globally uniform 1/3 Hölder inverse bound max|r_i−rtilde_i|≤6(2(|u−utilde|+|v−vtilde|))^{1/3}, optimal near cubes.",
+  "limitations": [
+    "Finite independent tests are corroborative only; the unrestricted claim was checked analytically via integral cumulants, discriminant root positivity, and Rouché root matching.",
+    "Historical full density of arbitrary 3D boxes is due at least to Philip (2007), so this audit does not credit its rediscovery.",
+    "Institutional full-text attempt for Abas 2026 returned vpn_disconnected; no bypass or retry.",
+    "No finite-sample statistical error rates, non-orthogonal parallelepipeds, or optimal numerical Hölder constant are claimed.",
+    "Existing source metadata was not privacy-sanitized or replaced; publication withheld, no GitHub writes."
+  ],
+  "residual_risks": [
+    "Johan Philip (2007) already provides a full forward distance law for ALL three-parameter rectangular boxes, with the same independent-coordinate convolution and an explicit second moment; the standalone three-moment cutoff is not explicitly stated there, but its moments can be derived from that stronger forward law using standard algebra. Priority is assigned only to the assembled minimal-data inverse, exact feasible region, and sharp uniform geometric modulus, not to the sampling distribution or cumulant machinery.",
+    "The 1/3 exponent follows generic cubic root coalescence; it is mathematically sharp here but the generic root-perturbation theorem is not new, and equivalent box-specific stability estimates might be unindexed.",
+    "Abas (2026) uses sphere-uniform directional width rather than uniform two-point distance; only arXiv primary abstract and a detailed secondary synopsis were accessible in this run, while PDF/open full text attempts failed and institutional retrieval reported vpn_disconnected. No full-document noncoverage claim is made.",
+    "Mathai et al. (1999) full original 21-page paper was not obtained; public abstract specifically addresses unit cubes, so any hidden unequal-edge theorem remains a priority risk rather than a scientific failure.",
+    "Resultary semantic results are ranked summaries and not full-text novelty certificates; some potentially relevant published mathematics may be unindexed or inaccessible.",
+    "Before any import, potentially public AUDIT.json and METADATA.json still contain scope_run_id, and no complete guarded privacy-neutral replacements were staged; publication is NOT ready."
+  ],
+  "schema_version": 1
+}
