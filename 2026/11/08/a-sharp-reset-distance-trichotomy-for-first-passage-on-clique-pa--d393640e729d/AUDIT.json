@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The non-reset hitting-time Laplace transform follows from exact first-step backward equations on the actual graph. Two Chebyshev-type polynomial recurrences yield a rational formula for every integer clique size and path length; the standard exponential-restart identity yields the mean. For lengths at least three, positive coefficients of both derivatives establish strict increase at every nonnegative reset rate. Lengths one and two reduce to explicit monotone/strictly convex rational functions with exact minimizers. Independent full-generator rational Gaussian elimination agrees on 280 graph/rate combinations, with additional polynomial sign and finite optimizer checks; no infinite claim relies on experimental extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pal and Reuveni, arXiv:1607.06048, prove a general first-passage-under-restart renewal relation; the graph-specific optimization and phase boundary require the additional exact transform and positivity theorem.",
+        "Evans and Majumdar, arXiv:1102.2704, analyze resetting Brownian diffusion on a line, not this finite graph.",
+        "Riascos et al., arXiv:1910.13568, give network-resetting spectral formulas for degree-normalized random walks; Appendix B presents continuous-time dynamics with generator I-P rather than the unit-edge-rate combinatorial graph Laplacian here.",
+        "Förster et al., arXiv:2110.01946, give exact non-reset hitting-time reductions for necklace graph families, including cliques; no reset optimization appears in the relevant article sections."
+      ],
+      "reasoning": "A universal renewal identity subsumes the transformation from an arbitrary hitting-time transform to a restarted mean, but does not by itself state the all-length global optimizer. The new claim includes the transform and an independent polynomial sign argument for strict global monotonicity.",
+      "searches": [
+        "\"clique\" \"path\" \"resetting\" \"optimal\" random walk target",
+        "\"lollipop\" \"reset rate\" \"target\" \"first passage\"",
+        "\"stochastic resetting\" \"lollipop\""
+      ]
+    },
+    "checked_sources": [
+      "Evans and Majumdar (2011), arXiv:1102.2704v1, first public 2011-02-14",
+      "Pal and Reuveni (2016), arXiv:1607.06048",
+      "Riascos, Boyer and Mateos (2021), arXiv:2110.15437",
+      "Zelenkovski et al. (2023), https://pmc.ncbi.nlm.nih.gov/articles/PMC9955709/",
+      "Riascos et al. (2019), arXiv:1910.13568, including continuous-time appendix",
+      "Förster et al. (2021), arXiv:2110.01946, including clique-necklace example"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Evans–Majumdar (2011) and Pal–Reuveni (2016): generic renewal methodology is credited, not counted as a new result.",
+        "Riascos–Boyer–Mateos (2021): degree-normalized discrete-time reset walks on general networks.",
+        "Zelenkovski et al. (2023): lollipop discrete-time model and averaged target statistics, materially different objective and time normalization.",
+        "Riascos et al. (2019/2020), arXiv:1910.13568: general network spectral resetting and an appendix on continuous time driven by the normalized transition kernel; the clique–path all-rate classifier is not in inspected model analyses.",
+        "Förster et al. (2021), arXiv:2110.01946: exact necklace-graph first-passage at zero resetting, not all-rate restarting."
+      ],
+      "reasoning": "The strongest existing statements establish background modeling or universal renewal formulas. They do not appear to assert the strict nonbenefit of positive resetting for every length at least three under unit edge rates, nor the exact threshold and rate at length two. If another source gives an equivalent stronger parameterized formula, it would cover this claim and must take precedence; that remains a residual risk.",
+      "searches": [
+        "\"lollipop graph\" \"resetting\" first passage optimal",
+        "\"clique\" \"path\" \"resetting\" \"optimal\" random walk target",
+        "\"lollipop network\" \"stochastic resetting\" mean first passage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zelenkovski et al. (2023), Random Walks on Networks with Centrality-Based Stochastic Resetting, describes lollipop topologies, but uses normalized discrete-time jumps and graph-averaged hitting times.",
+        "Riascos et al., arXiv:2110.15437, gives general discrete-time network reset models rather than unit-edge-rate continuous-time terminal-target optimization."
+      ],
+      "reasoning": "A common graph name or restart vocabulary does not make the statements equivalent: local holding rates and the fixed target differ, so no direct conversion preserving optimum is given in the inspected material. Exact all-size path-length threshold was not located; this is evidence-limited, not a uniqueness proof.",
+      "searches": [
+        "\"lollipop graph\" \"resetting\" first passage optimal",
+        "\"lollipop network\" \"stochastic resetting\" mean first passage",
+        "\"lollipop\" \"reset\" \"first passage\" network walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 lollipop figure examines a finite example with aggregated network observables, not a table of exact single-target optima for all clique/path sizes.",
+        "No exact matching endpoint-target continuous-time lollipop reset table was found in the inspected search results."
+      ],
+      "reasoning": "A numerical finite-example plot at different normalization does not tabulate or certify the analytic three-regime law. Absence from searched indexes does not establish historical uniqueness.",
+      "searches": [
+        "\"lollipop\" \"resetting\" \"target\" \"rate\" Laplace transform",
+        "\"lollipop\" \"reset\" \"first passage\" network walk"
+      ]
+    },
+    "rationale": "General Poisson-reset renewal is explicitly prior. Full early source on continuous diffusion and the later first-passage restart paper provide the renewal method, not this graph-family global rate classification. The most closely related lollipop-network article studies discrete-time degree-normalized walks and all-target averaged first-passage statistics, rather than unit-rate-per-edge continuous time with a single terminal target. Thus its model-specific numerical results do not directly imply the all-clique-size three-regime phase boundary. Riascos et al. (2019/2020) include a continuous-time appendix with a generator induced from the degree-normalized transition matrix, still different from independent unit edge rates, and study rings, Cayley trees and random networks rather than this lollipop classification. Förster et al. (2021) derive non-reset mean first passage on necklace graphs but not restarted optimization. A further arbitrary-network reference also uses discrete time and supplies no corresponding closed lollipop theorem. Targeted source/alias and mathematical record searches found no direct coverage. Residual risk: an implicit specialization of an unindexed or unsurveyed general result.",
+    "residual_risks": [
+      "An unindexed or incompletely read earlier general theorem might implicitly cover the all-size optimizer for exactly this process.",
+      "Related graph-resetting papers use time normalizations and observables that do not directly translate; an as-yet-unfound transformation could yield equivalent coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_GRAPH_CLASSIFICATION",
+        "evidence": "The object is Brownian diffusion with resetting, not a finite clique–path graph with single-target rate optimization.",
+        "identifier_or_url": "https://arxiv.org/pdf/1102.2704",
+        "material_read": "All four pages: model, resetting law, first-passage discussion and conclusion.",
+        "method": "Open-access PDF full-text and page-image inspection.",
+        "title": "Diffusion with Stochastic Resetting",
+        "trigger": "Earliest foundation for Poisson restart first-passage renewal; archive dating."
+      },
+      {
+        "assessment": "GENERIC_IDENTITY_COVERED_GRAPH_CLASSIFICATION_NOT_FOUND_IN_READ_MATERIAL",
+        "evidence": "Provides generic renewal formulas, which are openly used; no unit-rate-per-edge clique–path global rate trichotomy appears in inspected material.",
+        "identifier_or_url": "https://arxiv.org/pdf/1607.06048",
+        "material_read": "Opening three pages including setup, renewal identities and general optimal-restart framework.",
+        "method": "Open-access PDF text and page-image inspection of the relevant first-passage derivation.",
+        "title": "First Passage Under Restart",
+        "trigger": "Universal renewal identity may imply any claimed reset mean formula."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_DYNAMICS",
+        "evidence": "Focuses on discrete-time random walks and reset probabilities, not the continuous-time rate-one-per-edge gateway/terminal-target theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2110.15437",
+        "material_read": "Initial model and network formulation, relevant calculations and conclusion; targeted full-document search for lollipop.",
+        "method": "Open-access PDF text search and page-image inspection of selected relevant pages.",
+        "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+        "trigger": "Broader graph-resetting optimality analysis could dominate a finite-network result."
+      },
+      {
+        "assessment": "SAME_GRAPH_SHAPE_BUT_DIFFERENT_NORMALIZATION_AND_OBSERVABLE",
+        "evidence": "Discrete-time jump probabilities normalized by vertex degree and graph-averaged mean first passage, including a finite numerical lollipop example; no continuous-time all-length endpoint-target optimizer established in material read.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9955709/",
+        "material_read": "Model and first-passage sections and lollipop network example/discussion.",
+        "method": "Lawful open-access full HTML inspection of relevant sections and example.",
+        "title": "Random Walks on Networks with Centrality-Based Stochastic Resetting",
+        "trigger": "Closest explicit lollipop-graph reset study."
+      },
+      {
+        "assessment": "GENERAL_RESTART_METHOD_BUT_DIFFERENT_RATE_NORMALIZATION_AND_NO_SHARP_CLIQUE_PATH_CLASSIFICATION",
+        "evidence": "The jump matrix uses neighbor probabilities normalized by vertex degree; Appendix B uses the continuous-time generator I-P. The paper studies Cayley trees, rings and complex networks, without a lollipop endpoint optimization threshold.",
+        "identifier_or_url": "https://arxiv.org/pdf/1910.13568",
+        "material_read": "Abstract/model, section on resetting of Cayley trees, appendix B continuous-time generator and conclusion; full-document search for lollipop.",
+        "method": "Open-access PDF text and page-image inspections of pages 1, 6, 12 and 13 plus targeted text search.",
+        "title": "Random walks on networks with stochastic resetting",
+        "trigger": "Potentially broader spectral-network formula including continuous-time and individual-target first passage."
+      },
+      {
+        "assessment": "GENERAL_NO_RESET_NECKLACE_METHOD_DOES_NOT_COVER_RESET_OPTIMIZATION",
+        "evidence": "Section V derives ordinary first-passage times for chains of cliques; the text does not analyze reset-rate optimization or the length-dependent threshold.",
+        "identifier_or_url": "https://arxiv.org/abs/2110.01946",
+        "material_read": "Introduction, section V on clique necklaces and exact no-reset MFPT; full-text search for resetting.",
+        "method": "Open-access HTML full text, section-specific reading and text search.",
+        "title": "Exact and Approximate Mean First Passage Times on Trees and other Necklace Structures: a Local Equilibrium Approach",
+        "trigger": "Possible stronger exact reduction for a clique attached to a path."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d393640e-729d-48ac-9a5c-d5a987ee4afd",
+  "value": {
+    "rationale": "The clique is a natural excursion trap and resetting trades avoidance of that trap against loss of progress along the pendant path. The exact result exposes a sharp, size-independent transition between a useful nontrivial restart optimizer for a two-edge path and strict harm for every path of three or more edges, plus an explicit optimal rate and large-clique saving. It classifies a physically interpretable first-passage design problem throughout an infinite two-parameter network family; it is not only a recurrence evaluation or a small enumeration.",
+    "status": "PASS"
+  }
+}
