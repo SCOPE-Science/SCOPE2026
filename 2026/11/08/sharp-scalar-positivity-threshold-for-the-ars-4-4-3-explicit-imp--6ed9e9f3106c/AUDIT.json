@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "All four implicit stages are solvable for any nonnegative time step because their denominators are 1+t/2. A direct rational recurrence from the independently checked ARS tableau gives the displayed fourth-degree polynomial in x=t/(2+t). Its five exact Bernstein coefficients have nonnegative signs for 0<r<=rho, with rho the unique cubic root in (0,1). For rho<r<1, the stiff-limit coefficient is strictly negative. For all r>=1, a separate exact polynomial H(r)>0 certificate (positive Bernstein coefficients on [1,3/2] and positive shifted monomials above 3/2) proves R(4,r)<0. Thus the iff is proved on the complete parameter domain. Exact SymPy verification replayed all tableau identities, symbolic coefficients, root isolation, H identities and 77 rational checks. The global conclusions do not rely on sampled parameter values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu–Shu 2026, Theorem 3.1, requires positive semidefiniteness of stage matrices for energy decay, a distinct scalar absolute-value property; §4.6 expressly excludes this ARS pair from that sufficient criterion.",
+        "Tan–Cheng–Shu 2022 reports numerical stabilization near 0.54 in energy/norm contexts, not arbitrary-step nonnegative endpoint amplification.",
+        "Hu–Shu–Zhang 2018 imposes positivity through a different BGK discretization, not the unmodified ARS(4,4,3) scalar split."
+      ],
+      "reasoning": "General energy stability does not imply endpoint positivity, as the exact example R(4,1)=-17/243 has modulus below one. SSP sufficient step bounds or positivity after nonlinear limiting do not imply an iff unconditional positivity threshold for this specified unmodified method.",
+      "searches": [
+        "strong stability preserving implicit explicit ARS443 positivity preserving no time restriction, scalar linear diffusion sign reversal",
+        "2026 Wu Shu energy stability EIN3 ARS(4,4,3) positivity inverse maximum principle",
+        "third-order ARS(4,4,3) stabilizer positivity fails as time step increases despite energy stability",
+        "strong stability preserving IMEX Runge Kutta positivity step restriction unconditionally stable scalar decay",
+        "2018 BGK asymptotic positivity preserving IMEX Shu Zhang 10.1137/17M1144362"
+      ]
+    },
+    "checked_sources": [
+      "Wu and Shu (2026), arXiv:2610.34539v1, §§1–4.6",
+      "Tan, Cheng and Shu (2022), DOI:10.1016/j.jcp.2022.111314, relevant PDF sections",
+      "Ascher, Ruuth and Spiteri (1997), DOI:10.1016/S0168-9274(97)00056-1, relevant method/test sections",
+      "Uniform Accuracy of Implicit-Explicit Runge-Kutta Methods (2025), DOI:10.1007/s10915-025-02972-4, Appendix A.2",
+      "Hu, Shu and Zhang (2018), DOI:10.1137/17M1144362, abstract only",
+      "Published exact-positivity records on SSP-SDIRK2(2), Crank–Nicolson, Richardson extrapolation and Padé Markov steps; all different maps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source proves sufficient energy estimates for other schemes and says failure of its ARS criterion does not show ARS energy instability. It contains no exact numerical positivity threshold for this ARS split.",
+        "2022 source addresses norm stability and reports a much smaller stabilizer in tests. Norm contraction |R|≤1 does not force R≥0.",
+        "The exact result here proves positivity for every h at r≤ρ and constructs negative finite-step witnesses for all r>ρ."
+      ],
+      "reasoning": "Neither a sufficient energy inequality, a stable numerical experiment, nor the published ARS tableau implies this iff scalar positive-cone threshold without an additional global sign analysis. The new proof supplies precisely that missing implication and its converse; all broader nonlinear and matrix claims are explicitly excluded.",
+      "searches": [
+        "ARS(4,4,3) implicit explicit null EIN scalar linear diffusion unconditional energy stability sharp stabilizer ratio 1.8652469824 quartic stability threshold",
+        "energy stability failure explicit-implicit-null Wu Shu ARS(4,4,3) stage matrix criterion scalar optimal stabilization",
+        "IMEX Runge Kutta ARS443 scalar negative real axis splitting absolute stability criterion 7r^4+29r^3-126r^2+108r-36",
+        "third-order ARS(4,4,3) stabilizer positivity fails as time step increases despite energy stability",
+        "arXiv:2610.34539v1 §4.6",
+        "DOI:10.1016/j.jcp.2022.111314 ARS443 stabilizer 0.54"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "On the scalar test equation, endpoint nonnegativity is equivalent to nonnegativity of the split amplification function on the whole nonpositive real step axis.",
+        "Wu–Shu arXiv:2610.34539v1 §4.6 supplies a failure of an energy-matrix criterion, not a sign characterization.",
+        "The 1997 and 2025 ARS tableau sources define coefficients, not an exact split-ratio positivity theorem."
+      ],
+      "reasoning": "The sign property, unconditional monotonicity on a scalar positive cone, and one-node Dirichlet heat sign preservation are exactly equivalent here because the entire one-step map is multiplication by the same real scalar R(t,r). This reformulation does not appear as a covered sharp parameter classification in the inspected method sources.",
+      "searches": [
+        "positivity preservation for ARS(4,4,3) on scalar decay, one-node heat, positive amplification, exact stabilizer threshold a0/a > 4.54067",
+        "sharp nonnegative stability function of the implicit explicit null third order ARS(4,4,3), real negative axis, 7r cubed 36r squared minus 90r plus 18",
+        "ARS(4,4,3) EIN scalar positivity preservation threshold stabilizer one node negative amplification 4.540",
+        "IMEX ARS443 amplification Bernstein quartic positivity for any step diffusion exact iff",
+        "\"ARS(4,4,3)\" \"positivity\" \"EIN\" time discretization",
+        "\"ARS443\" \"positivity preservation\" maximum principle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ascher–Ruuth–Spiteri (1997) method tableaux and 2025 JSC Appendix A.2 reproduce the numerical coefficients, not the cubic (7r³+36r²−90r+18) cutoff.",
+        "Published records for SSP-SDIRK2(2), Crank–Nicolson, Richardson-filtered backward Euler and Padé Markov positivity use different rational maps and have different step or dimension parameters."
+      ],
+      "reasoning": "An existing coefficient table is not an exact sign table. The full coefficient data are acknowledged as prior work; the degree-four Bernstein endpoint classification and universal ratio are the claimed mathematical additions.",
+      "searches": [
+        "ARS(4,4,3) EIN scalar positivity preservation threshold stabilizer one node negative amplification 4.540",
+        "IMEX ARS443 amplification Bernstein quartic positivity for any step diffusion exact iff",
+        "pure scalar parabolic positive decay ARS(4,4,3) sharp unconditional monotonicity 0.2202315743059",
+        "ARS 4 4 3 Butcher tableau 11/18 7/4 implicit explicit",
+        "ARS443 scalar negative amplification numerical table stabilizer"
+      ]
+    },
+    "rationale": "The exact iff endpoint sign classification for the unmodified ARS(4,4,3) EIN scalar split and its cubic stabilizer ratio are not implied by the 2026 nonlinear energy-stability result, the 2022 linear/numerical energy stability analysis, the 1997 method coefficients, or inspected SSP positivity results for different schemes. Relevant primary sections and targeted mathematical-result searches produced no directly covering statement. Classical positivity techniques and tableaux are not claimed as original; historical coverage remains uncertain.",
+    "residual_risks": [
+      "The named tableau and classical Bernstein/nonnegative-stability-function theory are prior; an unindexed earlier ARS coefficient-specific positivity calculation could cover the exact cubic despite targeted searches.",
+      "The full 2018 BGK positivity paper and all generic SSP theory sources were not inspected; the covered-method distinction is strong but absolute historical absence is not certified.",
+      "The result is exact for one-dimensional scalar endpoint signs only and does not establish positivity of internal stages or coupled/nonlinear diffusion systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source provides energy stability and expressly describes ARS stage-matrix failure as a failure of sufficient conditions; no scalar completed-step sign or sharp physical/stabilizing ratio.",
+        "evidence": [
+          "§4.6: sufficient stage-matrix condition fails independently of stabilizer, but energy instability does not follow.",
+          "§6 and conclusion: diffusion energy estimates do not assert an admissible state range."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34539",
+        "material_read": "Rendered full-text source sections 1, 2, 3, 4.6 and summary table/conclusion.",
+        "method": "Inspect exact stage setup, energy theorem hypotheses, explicit §4.6 discussion, and the scope of the conclusions.",
+        "title": "Energy stability of explicit–implicit–null time discretizations for nonlinear degenerate parabolic equations with state-dependent coefficients",
+        "trigger": "Same EIN splitting, same third-order ARS(4,4,3) pair, recent primary motivation."
+      },
+      {
+        "assessment": "Gives numerical stability comparisons and an approximately 0.54 stabilization value in its setting, but no if-and-only-if scalar endpoint positivity for all steps.",
+        "evidence": [
+          "Results near Tables 5.3–5.4 discuss loss of numerical stability below 0.54 and increasing error at very large stabilizer.",
+          "A searchable-text scan returned no occurrence of the term “positivity”; this absence alone is not used as a proof of noncoverage."
+        ],
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2022/05/Stability-of-high-order-finite-difference-and-local-discontinuous-Galerkin-schemes.pdf",
+        "material_read": "PDF introduction, numerical stability/stabilization analysis, and displayed tests around pp. 25–37, with a text search for positivity.",
+        "method": "Read relevant PDF pages and search the full searchable 51-page PDF for the scalar sign/positivity statement.",
+        "title": "Stability of high order finite difference and local discontinuous Galerkin schemes with explicit-implicit-null time marching for high-order dissipative and dispersive equations",
+        "trigger": "Prior application of EIN3-ARS and stabilizer coefficient threshold, possible dominating stability statement."
+      },
+      {
+        "assessment": "Specifies IMEX tableau and scalar linear stability analysis; does not by itself state the claimed sharp split positivity frontier.",
+        "evidence": [
+          "Section 3 discusses the scalar test equation and numerical amplification for convection-diffusion, with modulus/absolute stability rather than a completed-step sign classification."
+        ],
+        "identifier_or_url": "https://steveruuth.org/wp-content/uploads/2020/10/ars.pdf",
+        "material_read": "Method tableau and linear convection-diffusion test-equation sections; selected PDF pages, not a claim of exhaustive reading.",
+        "method": "Read original-author PDF method and stability-equation pages and compare the sign property with the stability regions studied.",
+        "title": "Implicit-Explicit Runge-Kutta Methods for Time-Dependent Partial Differential Equations",
+        "trigger": "Original construction of the named ARS(4,4,3) method; check whether standard linear-stability results already give claim."
+      },
+      {
+        "assessment": "Tableaux match exactly; analyses address uniform accuracy/linear relaxation, not exact scalar positivity of the EIN split.",
+        "evidence": [
+          "Appendix A.2 lists the same five-row rational explicit and implicit matrices and globally stiffly accurate weights."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10915-025-02972-4",
+        "material_read": "Published webpage Appendix A.2 ARS(4,4,3) double tableau and relevant discussion of uniform accuracy.",
+        "method": "Compare all explicit and implicit rational coefficients against independent arrays and check stated theorem scope.",
+        "title": "Uniform Accuracy of Implicit-Explicit Runge-Kutta Methods for Linear Hyperbolic Relaxation Systems",
+        "trigger": "Independently verify exact named tableau and check a newer analysis for a dominating guarantee."
+      },
+      {
+        "assessment": "Different positivity-preserving kinetic schemes; uninspected full text leaves background-literature risk rather than a decisive equivalence.",
+        "evidence": [
+          "Title and abstract concern BGK asymptotic and positivity properties, not an explicit universal ARS(4,4,3) EIN scalar ratio."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/17M1144362",
+        "material_read": "Available abstract/bibliographic synopsis only; complete text not inspected.",
+        "method": "Compare stated kinetic BGK method class against the specified scalar EIN-ARS rational amplification, without drawing whole-document absence conclusions from an abstract.",
+        "title": "Asymptotic-preserving and positivity-preserving implicit-explicit schemes for the stiff BGK equation",
+        "trigger": "Plausible broad positivity-preserving IMEX literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ed9e9f3-106c-4048-9966-afd02eb8a9cd",
+  "value": {
+    "rationale": "A scalar nonnegative decay state and its one-node Dirichlet heat discretization are natural minimum positivity tests for an EIN diffusion integrator. This calculation gives the exact unconditional completed-step physical/stabilizer threshold 1/rho = 4.540674983..., distinct from energy stability or error convergence. Negative amplification at a0=a and t=4 has |R|=17/243<1, demonstrating that energy contraction cannot be used as an admissible-state guarantee. The full iff boundary is mathematically motivated and can inform selection or rejection of a third-order integrator without asserting the stronger multi-node/nonlinear property.",
+    "status": "PASS"
+  }
+}
