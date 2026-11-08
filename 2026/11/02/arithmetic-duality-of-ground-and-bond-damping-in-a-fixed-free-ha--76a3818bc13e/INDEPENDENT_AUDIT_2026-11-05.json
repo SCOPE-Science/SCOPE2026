@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:03:52.602942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed-free n-mass identical spring system with n>=2, N=2n+1 odd and strictly positive ground and bond damping, T has simple eigenvectors phi_s(j)=2/sqrt(N)*sin(j(2s-1)pi/N). Ground coupling at p annihilates a mode exactly when N divides p(2s-1), and a bond coupling at b when N divides (2b-1)(2s-1). The latter follows via sine-difference cosine zeros and parity. Positivity of all damping coefficients implies the common kernel is exactly those modes with (N/g)|(2s-1), g=gcd(N,site labels,odd bond labels); there are (g-1)/2 modes with frequencies 2sqrt(k/m)sin(pi*t/(2g)), odd t<g. Invariant stable complement has negative real-part state-space spectrum by mechanical dissipation and absence of imaginary-axis modes, hence exponential convergence. The asymptotic local-kick energy is diagonal protected projection, yielding g/N except j multiple of g. Relative totient pairing gives phi(N)/2 stabilizing placements of each type. Independent examples n=4,7,10,13,19 checked all one-dashpot and selected mixed configurations, sine nulls and energy projectors; all-size theorem is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lecomte 2014 treated transfer zero/pole systems and proposed other rank/location disturbances as extensions.",
+          "General dissipative linear system theorem gives exponential stable complement but not the arithmetic list of surviving modes."
+        ],
+        "reasoning": "No inspected general theorem directly yields all three exact outputs mixed damping frequency, phi(N)/2 placements, and position-wise retention; acknowledged modal framework is prior.",
+        "searches": [
+          "https://arxiv.org/abs/1006.1722",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3928960/",
+          "fixed free harmonic chain multiple ground dashpots bond damping undamped modes gcd positions energy retention"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md 70155520790b7805cbb63d3f692333b2c0592177 and verify_damping.py ba5abad3e66d82f94676bac216f698185bfeedcd",
+        "Giurdanella–Sparavigna 2010 arxiv:1006.1722 full PDF",
+        "Lecomte 2014 DOI 10.1098/rspa.2013.0751 full OA PMC HTML"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-site site damping special cases are covered by Giurdanella–Sparavigna; this part is not claimed novel.",
+          "Adding bond damping changes null vectors to e_b-e_{b-1}, whose exact cosine zero condition is required for arithmetic duality."
+        ],
+        "reasoning": "General dissipation and preexisting single-site modes cannot establish mixed-site and bond result without the new divisibility intersection and exact projector sum.",
+        "searches": [
+          "https://arxiv.org/abs/1006.1722",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3928960/",
+          "fixed free harmonic chain multiple ground dashpots bond damping undamped modes gcd positions energy retention"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Undamped eigenmodes equal path-stiffness eigenvectors orthogonal to every damping vector, a PBH-unobservable-mode equivalent formulation.",
+          "Single site dark modes were studied in 2010 but multi-bond equivalence and energy projection not given."
+        ],
+        "reasoning": "Used modal nullspace/controllability aliases; PBH criterion is a general recipe and the exact odd-index gcd and local energy formulas are nontrivial evaluation for this particular boundary condition.",
+        "searches": [
+          "fixed free harmonic chain multiple ground dashpots bond damping undamped modes gcd positions energy retention",
+          "arxiv:1006.1722 fixed free chain dark modes gcd",
+          "PBH controllability path graph mass spring damping bond dashpot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Our frequency count depends only on gcd of odd site/bond labels and N, exact for all n.",
+          "Resultary nearest hits concerned distinct oscillators; no equivalent chain dark-mode table."
+        ],
+        "reasoning": "Search found earlier single-site numerical frequency examples, not a complete multi-ground/bond table; absence of matching search result not proof of novelty.",
+        "searches": [
+          "fixed free harmonic chain multiple ground dashpots bond damping undamped modes gcd positions energy retention",
+          "fixed free chain dashpot energy survival local kick phi(2n+1) gcd table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original specific final mathematical result after explicitly excluding known foundational subclaims. All four equivalence/coverage/table/implication comparisons use stated primary reading, semantic search and uncertainty; no failure-of-search-as-proof assertion. The original claim is accepted without publication or unearned provenance.",
+      "residual_risks": [
+        "Multi-actuator observability literature may express equivalent odd path index gcd under control-theoretic terminology.",
+        "Exact exponential decay rate and nonhomogeneous/nonlinear chains are not included; present experiments limited n and configurations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: single-ground-damper frequency locking already known; does not give multi-ground/bond gcd classification and local kick energy law in material read.",
+          "evidence": "2010 Giurdanella–Sparavigna site damper computation and oscillation interpretation.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.1722",
+          "material_read": "Full 10-page lawful arXiv PDF, damping setup and selected single-site survivor modes inspected, screenshot checked.",
+          "method": "Lawful full PDF",
+          "title": "Self frequency-locking of a chain of oscillators",
+          "trigger": "Same fixed-free chain with a single site damper"
+        },
+        {
+          "assessment": "Selected low-rank disturbances and pole/zero method; broader multi-position/multi-rank analysis proposed rather than asserted as complete mixed result.",
+          "evidence": "Lecomte 2014 §6 multi-rank and other positions as extensions.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3928960/",
+          "material_read": "Full lawful PMC HTML retrieved and examined abstract and transfer function sections, particularly section 6 on generalization.",
+          "method": "Full OA HTML",
+          "title": "Zero and root loci of disturbed spring–mass systems",
+          "trigger": "Potential general pole/zero theorem for multiple dampers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp joint controllability/damping arithmetic invariant for two physically distinct types of viscous loss, with exact number of undamped modes and local energy retention independent of loss strengths. Mixed ground/bond duality provides a reusable vibration-design criterion, beyond classical single-site frequency locking.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Multi-actuator observability literature may express equivalent odd path index gcd under control-theoretic terminology.",
+    "Exact exponential decay rate and nonhomogeneous/nonlinear chains are not included; present experiments limited n and configurations.",
+    "Publication blocked by unsanitized SCOPE-specific run identifier in public METADATA.json and operational audit provenance; no replacement status files supplied."
+  ],
+  "schema_version": 1
+}
