@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact finite-ring counting formula with explicit quantifiers and a precise unit-distinct condition. The two small characteristics, invertible change to the nondegenerate form, split/nonsplit conic counts, inclusion-exclusion on collision lines, nonsingular rank-two lifting with exactly one free digit, and Chinese remainder factorization were each reconstructed. The support fractions follow by counting character values. The standalone verifier independently enumerates all fibers over 23 moduli, including mixed-prime and prime-power cases; the proof, not the finite tests, supplies the infinite-domain conclusion.
+PASS
 
-## Originality — PASS, qualified
+PASS. Over F_p, p>=5, centered variables a=3x-s,b=3y-s give Q=a^2+ab+b^2=3(3w-s^2)/2. Classical split/nonsplit quadratic-form counts and exclusion of the three collision lines give c_p(s,w). For p=3 only six permutations of (0,1,2) contribute at (0,2); p=2 gives zero. The two-row moment Jacobian [1,1,1;2x,2y,2z] has rank 2 mod p for unit-distinct triples, yielding exactly p lifts per prime-power step; CRT multiplies counts. Positivity in p=5,7,11 and all p>=13 establishes stated support proportions and full-support iff every p|m is >=13 and =1 mod3. Independently enumerated each ordered triple and every target for moduli 3,5,7,9,11,13,15,25,49; all per-target counts agree with the formula.
 
-The most relevant historical source, Hou and Sun (2002), studies restricted one-coordinate finite-field sums; Mockenhaupt and Tao (2002) study parabola Fourier restriction and ordinary convolution bounds. Shparlinski (2013) concerns additive decompositions of multiplicative subgroups. Relevant published-finding corpus results on prime-power parabola fourth moments, exponential spectra, and three-frequency sixth moments describe different invariants and do not state this collision-free two-moment fiber census. Direct and alias/equivalence searches located no broader theorem implying its entire character formula and all-modulus support classification. Classical conic counts and smooth Hensel lifts are proof ingredients; specialized uninspected articles and unavailable full texts pose genuine historical-priority risk. No claim of independently established novelty is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is motivated by restricted additive bases: the graph of the squaring map is a canonical Sidon-type object, and unit-distinctness is precisely the collision-free local condition needed for stable prime-power lifting. The theorem resolves the entire fiber-counting and support problem over every residue ring, detects sharp obstructions at the primes 2, 3, 5, 7 and all primes 2 modulo 3, and gives an exact infinite family of full-covering moduli. This is a natural complete classification rather than an arbitrary finite table or a routine parameter substitution.
+Best-knowledge PASS for full pair-of-moments fiber and local-to-composite support criterion. Classic conic solution counts are acknowledged ingredients. Hou–Sun 2002 Theorem 1.1 gives single-coordinate restricted sums with general avoidance, and Mockenhaupt–Tao 2004 provide paraboloid restriction/convolution estimates, neither the simultaneous two-moment collision-free ring fibers.
 
-## Limitations
+## value
 
-The result is restricted to ordered triples whose pairwise parameter differences are units. General conic character sums and Hensel lifting are established methods; the novel scope assessed is their exact collision-free combination and prime-by-prime support classification. Earlier literature priority is qualified, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A natural complete fiber and support classification for a structured additive triple convolution; small-prime obstructions and the exact coverage threshold for p≡1 mod3 are precise features of mathematical utility. The all-modulus statement is not a recomputation of an already-known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

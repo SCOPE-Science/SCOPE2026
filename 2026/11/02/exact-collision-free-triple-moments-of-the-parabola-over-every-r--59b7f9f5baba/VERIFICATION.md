@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python verify.py` using standard-library Python 3. The checker enumerates every admissible ordered triple and every target pair for each of the 23 explicitly listed moduli. It compares all 86,504 target fibers to the independently implemented prime character formula and checks total triple counts. Its successful final line is `VERIFY_OK full_moduli= 23 target_fibers= 86504`.
+## correctness
 
-The enumerations include the exceptional field cases and higher-power and mixed-prime moduli. They are finite corroboration, not an exhaustive verification of all integers. The universal claims follow from the explicit conic count, rank-two lifting argument, and Chinese remainder theorem in RESULT.md. No external formal or independent validation was performed.
+PASS
+
+PASS. Over F_p, p>=5, centered variables a=3x-s,b=3y-s give Q=a^2+ab+b^2=3(3w-s^2)/2. Classical split/nonsplit quadratic-form counts and exclusion of the three collision lines give c_p(s,w). For p=3 only six permutations of (0,1,2) contribute at (0,2); p=2 gives zero. The two-row moment Jacobian [1,1,1;2x,2y,2z] has rank 2 mod p for unit-distinct triples, yielding exactly p lifts per prime-power step; CRT multiplies counts. Positivity in p=5,7,11 and all p>=13 establishes stated support proportions and full-support iff every p|m is >=13 and =1 mod3. Independently enumerated each ordered triple and every target for moduli 3,5,7,9,11,13,15,25,49; all per-target counts agree with the formula.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for full pair-of-moments fiber and local-to-composite support criterion. Classic conic solution counts are acknowledged ingredients. Hou–Sun 2002 Theorem 1.1 gives single-coordinate restricted sums with general avoidance, and Mockenhaupt–Tao 2004 provide paraboloid restriction/convolution estimates, neither the simultaneous two-moment collision-free ring fibers.
+
+## value
+
+PASS
+
+PASS. A natural complete fiber and support classification for a structured additive triple convolution; small-prime obstructions and the exact coverage threshold for p≡1 mod3 are precise features of mathematical utility. The all-modulus statement is not a recomputation of an already-known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
