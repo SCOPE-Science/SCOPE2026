@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof completely classifies subteams satisfying pairwise bidirectional dependence on every Boolean coordinate: the only nonempty ones are singletons and antipodal pairs. Optimal lax disjunction covering is therefore exactly the count of occupied complement-pairs; the bivariate generating function and the sharp local capacity bounds follow by explicit independent choices and a tight inequality chain. It proves the dimension threshold and equality cases uniformly, with an explicit four-element witness. The attached checker exhaustively corroborates dimensions two and three; it is not an all-d proof.
+
+**Originality — PASS, with material priority risk.** Published sources on team semantics and counting were compared by logical implication, not titles alone. Kontinen–Ciardelli give the related injectivity observation but not the claimed exact minimum-width/counting consequences. Haak et al. study counting complexity rather than this invariant. The closest new source, Barbero–Girlando–Müller–Yang, was accessed only at abstract/metadata level despite full-text attempts; its uninspected body is explicitly an outstanding historical-priority risk. Mathematical record searches found no matching formula or stronger covering theorem, but non-detection does not establish priority. The claim is a combined exact theorem rather than novelty of the injectivity observation.
+
+**Mathematical value — PASS.** Optimal tensor decomposition is a natural semantic resource, and the bivariate enumerator classifies all teams by that resource and cardinality, rather than isolated instances. The sharp dichotomy between two and three variables and complete extremizer criterion explain why local coordinate-fiber capacity can underestimate tensor width. The result is directly usable for finite logical model enumeration and test generation.
+
+**Limits.** Finite Boolean domains, lax splitting and set-valued teams only; no assertion for arbitrary domains or strict splitting. Primary full-text unavailability and unindexed equivalent literature remain risks. The checker supplies finite evidence, not general theorem proof. Independent scientific and historical-priority audits have not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
