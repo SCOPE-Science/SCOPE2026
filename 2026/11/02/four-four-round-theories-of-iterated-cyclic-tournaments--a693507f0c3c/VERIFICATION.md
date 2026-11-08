@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and symbolic verification
+# Independent mathematical audit
 
-`python3 verify/pair_matrix_types.py` enumerates pairwise first-disagreement/direction invariants and the exact sets of one-point-extension types, without orbit sampling. Its asserted root partition is `{1:1,2:2,3:3,4:4,5:4}` and it prints `FOUR_RANK4_CLASSES_AND_PUMPING_BASE_OK`.
+## correctness
 
-`python3 verify/trie_orbits.py 4 5` independently canonicalizes ordered tuples under recursive ternary-child rotations rather than first-difference matrices. The five root class representatives agree and tuple-orbit counts agree at each tuple length. Both scripts and their scientific outputs in this package were executed from these exact paths with no external dependencies.
+PASS
 
-The all-height result is not inferred from scripts: the mathematical lexicographic-product congruence takes the finite equality at heights 4 and 5 to each pair of consecutive later heights. The lemma proving the pair-matrix code is a complete orbit invariant establishes the exhaustiveness of the finite calculations. No independent audit or external validation has been performed.
+Let T_h be the lexicographic h-fold product of C3 with itself. Four-round EF equivalence of G,G' transfers to C3[G],C3[G'] because Duplicator matches each outer block and uses a separate q-round local strategy; equality and arcs hold within blocks and cross-block arcs depend solely on the outer cycle. Complete ordered tuple orbits (length up to four, including repeated vertices) are determined by pair first-difference depths plus directed differences: independent digit rotations at ternary prefix nodes realize every matching record. Thus one representative per record and its set of one-point-extension records gives an exhaustive finite game recursion, with terminal atomic diagrams. An independent implementation computed orbit counts for h=1..5 respectively (1,1,3,9,27), (1,1,5,29,189), (1,1,7,61,631), (1,1,9,105,1497), (1,1,11,161,2931), and root rank-four types [I,II,III,IV,IV]. These are complete finite orbit sets, NOT samples. T4≡4 T5 therefore pumps to every height >=4 by lexicographic congruence; h=1,2,3 have distinct root types. This establishes exactly four theories and sharp largest smallest-in-family representative 3^4=81, with pure arc/equality language and exactly quantifier rank four. No higher-rank or arbitrary-tournament assertion is made.
+
+## originality
+
+PASS
+
+Qualified PASS on the exact four-class rank-four EF spectrum and eventual 81-vertex representative bound. Lexicographic tournament definitions and EF method are old, and a 2006 paper studies the very same directed-three-cycle sums for self-duality; its inspected pages do not contain a logical-theory classification. The original paper was only partly inspected, so hidden implications remain a limited priority risk.
+
+## value
+
+PASS
+
+A sharp finite-model-theoretic cutoff and exact first-order theory spectrum for a canonical family of homogeneous-looking tournaments is a natural structural classification; a nontrivial exhaustive orbit certificate and substitution theorem are both needed. The result can benchmark logical-depth arguments and is not merely renaming a known lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
