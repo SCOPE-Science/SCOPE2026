@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verify_double_sixes.py` in this directory. The verifier requires only Python 3's standard library. It constructs the 27 line classes in the standard blow-up basis, the 36 root-pair representatives, and all 36 double-six incidence columns by integer intersections.
+# Independent mathematical audit
 
-The exact tests check all 36 column sums equal \(4(-K_S)\), each column has 12 entries, each row has 16 entries, and line-pair common-incidence counts are 8 (meeting) and 6 (skew). It verifies a primitive rank-six Picard quotient coordinate system and computes the rank of the reduced 21-by-36 matrix modulo 2 with bit elimination. Integer fraction-free elimination gives the displayed maximal-rank minor determinant \(-65536\). A primitive integer row covector evaluates to \(-4\) on all columns; this certifies order-four torsion modulo the full image. These facts together determine every nonzero Smith invariant factor without reliance on a numerical singular-value or floating-point calculation.
+## correctness
 
-Expected final output line: `VERIFY_OK`.
+PASS
 
-The verification establishes the formal integral incidence statement from the standard cubic-surface configuration. It does not test arbitrary equations of cubic surfaces, their arithmetic descent, the literature's historical completeness, or any external independent audit.
+PASS. Independently regenerated all 27 divisor classes and 36 opposite E6-root pairs, the 27x36 line/double-six incidence and primitive rank-21 quotient coordinates. Exact SymPy Smith normal form independently returned 1^6,2^14,4; direct GF2 rank=6, specified 21x21 minor determinant=-65536 and primitive covector wB=(-4)^36. Hence K is saturated kernel of Pic/Z[-K], index 2^16 and sharp exponent 4. This is torsion of a formal incidence-lattice quotient, NOT torsion of the Picard group; valid for all smooth characteristic-zero cubic surfaces via the standard blow-up incidence classification.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Classical 27 lines/36 double-sixes, root correspondence and rational incidence rank are already known. Alexeev--Donagi--Farkas--Izadi--Ortega §2 gives same E6 incidence geometry but no observed 21x36 integral Smith form or 2^14 x 4 saturation obstruction. Related tritangent triple rational spaces are different columns. An older finite-geometric SNF could nonetheless preempt this.
+
+## value
+
+PASS
+
+PASS. The exact formal lattice quotient, its order-four obstruction and sharp multiplier constitute a natural integral strengthening of a classical rational rank for the 27-line configuration; exact integral reconstruction matters and is not mechanically supplied by the rational eigenspectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

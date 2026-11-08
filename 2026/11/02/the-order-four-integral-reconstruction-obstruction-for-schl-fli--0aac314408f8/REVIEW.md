@@ -1,15 +1,21 @@
-# Review of the double-six reconstruction lattice
+# Independent mathematical audit
 
-## Correctness — PASS
-The exceptional divisor classes \(E_i,L_{ij},C_i\) and the positive \(E_6\)-roots reconstruct the 36 classical double-sixes. The sum of each double-six is \(4(-K_S)\). The primitive kernel of the natural map from the free lattice on lines to \(\operatorname{Pic}(S)/\mathbb Z[-K_S]\) has rank 21. The uniform double-six incidence pairing gives \(AA^{\mathsf T}=10I+2G+6J\), whose rank is exactly 21. A unimodular choice of six line coordinates identifies the primitive kernel with \(\mathbb Z^{21}\). In these coordinates the exact verifier establishes mod-2 rank 6, a \(21\)-minor of determinant \(-65536\), and a primitive row covector taking value \(-4\) on all 36 columns. The three facts force nonzero Smith factors \(1^6,2^{14},4\). The proof is finite, complete, and independent of a chosen particular cubic surface because the line incidence combinatorics is universal in the stated domain.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The core geometry and \(E_6\)-root description are prior work, and the established rational tritangent span is acknowledged. The asserted additional result is **not** the 36 configurations, 21-dimensional rational rank, or the presence of torsion in the Picard group; it is the exact integral quotient of the primitive anticanonical relation lattice by the 36 double-six sums, including a sharp universal reconstruction exponent. The relevant portions of Dolgachev–Kapranov (arXiv:alg-geom/9304005, §0), Alexeev–Donagi–Farkas–Izadi–Ortega (arXiv:1507.05710, §§2.1–2.4), Arap–Varley (arXiv:1206.6517, Lemma 2.5), and Marquand (arXiv:2202.13213, Appendix B.1) were materially inspected, together with exact-phrase and synonym searches and semantic mathematical-record searches. The inspected material does not imply the new integral invariant factors; in particular, the tritangent incidence is a different 45-column module. Non-exhaustive historical literature in finite geometry, design theory, or coding theory remains a genuine priority risk. This is a qualified best-knowledge comparison, not a proof of first discovery.
+PASS
 
-## Mathematical value — PASS
-The 36 double-sixes are a canonical \(W(E_6)\)-orbit on the lines of every smooth cubic surface. Identifying their formal integral span inside the geometrically defined, primitive anticanonical relation lattice gives an exact reconstruction theorem: every such relation has a multiple 4 in the double-six lattice, while a universal multiple 2 cannot work. The large index \(2^{16}\) and non-elementary order-four obstruction are invisible to rational incidence ranks and refine the classical cubic-surface line configuration. This is a substantive lattice invariant of a naturally distinguished orbit, not an arbitrary selected submatrix. It makes no claim about a Cox ring, divisor-class-group torsion, or geometric line bundles.
+PASS. Independently regenerated all 27 divisor classes and 36 opposite E6-root pairs, the 27x36 line/double-six incidence and primitive rank-21 quotient coordinates. Exact SymPy Smith normal form independently returned 1^6,2^14,4; direct GF2 rank=6, specified 21x21 minor determinant=-65536 and primitive covector wB=(-4)^36. Hence K is saturated kernel of Pic/Z[-K], index 2^16 and sharp exponent 4. This is torsion of a formal incidence-lattice quotient, NOT torsion of the Picard group; valid for all smooth characteristic-zero cubic surfaces via the standard blow-up incidence classification.
 
-## Sources and limitations
-Dolgachev–Kapranov (1993) and Alexeev et al. (2015) provide the geometric \(36\) double-sixes and \(E_6\)-correspondence; Arap–Varley (2012) provide a nearby rational tritangent-span theorem; Marquand (2022) covers a related, different lattice setting. Reproducing the exact integer certificates verifies the stated incidence-lattice theorem; it does not establish historical priority or external independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Classical 27 lines/36 double-sixes, root correspondence and rational incidence rank are already known. Alexeev--Donagi--Farkas--Izadi--Ortega §2 gives same E6 incidence geometry but no observed 21x36 integral Smith form or 2^14 x 4 saturation obstruction. Related tritangent triple rational spaces are different columns. An older finite-geometric SNF could nonetheless preempt this.
+
+## value
+
+PASS
+
+PASS. The exact formal lattice quotient, its order-four obstruction and sharp multiplier constitute a natural integral strengthening of a classical rational rank for the 27-line configuration; exact integral reconstruction matters and is not mechanically supplied by the rational eigenspectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
