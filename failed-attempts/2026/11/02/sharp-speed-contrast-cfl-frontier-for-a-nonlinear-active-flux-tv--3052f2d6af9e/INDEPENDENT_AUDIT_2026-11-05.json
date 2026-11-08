@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:49:52.112875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the narrowly stated feasibility equivalence. For s∈(0,1],r∈(0,1],p∈(0,1], the endpoints of Barsukow Eq (118) have positive denominators, and for p<s nonemptiness is equivalent to (s-p)/(1-s/6)≤1 and ≤(1+rs-p)/(1+s/6). The first is s≤6(1+p)/7; crossmultiplication of the second gives (1+r)s²+(7−6r−2p)s−6≤0. The positive quadratic root yields exactly the stated s_max and limiting p↓0 yields uniform s_star, with breakpoint r=1/6. For p≥s the same bounds hold automatically. This is a correct algebraic translation of the published interval; it is NOT a sharp CFL necessity for any solver.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq (133) of the primary paper is exactly 0≤1+rs−s−s(rs+1−2p+s)/6",
+          "After multiplying by 6, Eq (133) gives (1+r)s²+(7−6r−2p)s−6≤0"
+        ],
+        "reasoning": "The prior proof already contains two exact necessary-and-sufficient algebraic feasibility inequalities; solving them with the quadratic formula and p↓0 yields all asserted boundaries. It is stronger coverage than matching an isolated numerical threshold.",
+        "searches": [
+          "arxiv:2610.05920v1 Theorem4 and Proof Eqs(130)-(134)",
+          "Barsukow TVD Active Flux correction interval sharp CFL speed contrast bound 6/7 critical ratio 1/6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.05920v1 primary full text Theorem4 Eq118 and Eq130-134",
+        "Resultary search:Barsukow TVD Active Flux correction interval sharp CFL speed contrast bound 6/7 critical ratio 1/6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barsukow Eq (131): N≤(R+2)/((R+1)(1+γ)), γ=1/6, equivalent to s≤6(1+p)/7",
+          "Barsukow Eq (133) equivalent to Q(s,r,p)≤0 with Q=(1+r)s²+(7−6r−2p)s−6",
+          "Barsukow explicitly notes 6/7 sufficient for one inequality, then uses conservative Eq(134) for a common numeric bound"
+        ],
+        "reasoning": "The earlier published exact constraints jointly determine precisely s_max(r,p), with the new radical expression being their solved positive root. The p↓0 and critical r=1/6 conclusions follow through one-variable algebra. Thus the claimed original frontier is already mathematically implied despite the original paper choosing a weaker convenient displayed uniform CFL constant.",
+        "searches": [
+          "arxiv:2610.05920v1 Eqs(118),(130),(131),(132),(133),(134)",
+          "Barsukow TVD Active Flux correction interval sharp CFL speed contrast bound 6/7 critical ratio 1/6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barsukow Eq (118) equals the quoted interval after s=lambda a_max, r=a_min/a_max, p=1/(R+1)",
+          "Eq (131) gives s≤6(1+p)/7 exactly"
+        ],
+        "reasoning": "The proposed interval and one of its bound formulas are not merely analogous; they are the same objects and inequalities under explicit variable substitution.",
+        "searches": [
+          "arxiv:2610.05920v1 Eq(118), Eq(130)-(133)",
+          "Barsukow TVD Active Flux correction interval sharp CFL speed contrast bound 6/7 critical ratio 1/6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior paper gives a universal conservative 0.712 sufficient constant and exact inequalities for every R and speed pair, not a printed table of new roots"
+        ],
+        "reasoning": "No separate table is required for coverage: all proposed numbers are immediate consequences of the prior exact inequalities. The absence of a printed table does not restore originality.",
+        "searches": [
+          "Barsukow TVD Active Flux correction interval sharp CFL speed contrast bound 6/7 critical ratio 1/6",
+          "arxiv:2610.05920v1 Eqs(131),(133)"
+        ]
+      },
+      "rationale": "FAIL: Barsukow Theorem 4 Eq (118) publishes the identical interval, and its primary proof Eqs (130)-(133) publishes the TWO EXACT EQUIVALENT FEASIBILITY CONDITIONS, not merely the conservative 0.712 bound. Eq (131) reads s≤6(1+p)/7 after p=1/(R+1); Eq (133) is precisely 6+(6r−7+2p)s−(1+r)s²≥0 after r=a_min/a_max. The proposed s_max is simply the quadratic formula applied to that already displayed exact condition, while s_star and r=1/6 are immediate minimization of those published inequalities. This is decisive mathematical implication even though the prior paper does not print the final root/phase-diagram wording. Under implication-based novelty this entire final claim is covered. No repair claimed; original preserved.",
+      "residual_risks": [
+        "Scientific failure is originality/value, not an allegation that the optimized CFL is numerically false.",
+        "Source uniform constant 0.712 is deliberately conservative; the exact inequalities nonetheless already determine the stronger guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage: exact general feasibility inequalities already present; proposed closed-form frontier is a direct algebraic restatement",
+          "evidence": [
+            "Theorem 4; Eqs (118),(130)-(134); 2026-10-05 arxiv:2610.05920"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05920",
+          "material_read": "Full primary arXiv rendered section 5 Theorem4 Eq118, proof Eqs 130-134, remarks after proof",
+          "method": "Read arXiv primary full-text paragraphs and equations, algebraically converted them to s,r,p",
+          "title": "A TVD Active Flux method for scalar conservation laws",
+          "trigger": "Source defining identical correction interval and potential exact prior feasibility classification"
+        },
+        {
+          "assessment": "Background scheme, not needed for decisive Eq131/133 coverage",
+          "evidence": [
+            "Journal of Scientific Computing 86,3 (2021)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10915-020-01381-z",
+          "material_read": "Bibliographic metadata/title only; not full text",
+          "method": "Read bibliographic abstract context only",
+          "title": "The Active Flux Scheme for Nonlinear Problems",
+          "trigger": "Earlier nonlinear Active Flux background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL under the meaningful mathematical-gap bar: practical clarification of a safe CFL number is useful as a presentation of Barsukow’s exact published conditions, but the proposed stand-alone mathematical result performs only substitution, a quadratic formula, and monotonicity of the already supplied feasible interval. It does not add a new stability/algorithm theorem, nonstandard lemma, or previously undetermined natural invariant beyond the explicit conditions in the original paper. The numerical gain over the author’s conservative corollary is real but mechanically extractable from equations (131),(133), so does not establish independent mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only the source’s sufficient correction interval under uniformly positive bounded speeds and monotone increments; it is not a solver-wide sharp CFL stability theorem."
+  ],
+  "schema_version": 1
+}
