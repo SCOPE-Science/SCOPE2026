@@ -1,0 +1,291 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T11:41:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/RESULT.md",
+        "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/VERIFICATION.md",
+        "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/verify.py",
+        "independent_cuboctahedral_check.py",
+        "independent_cuboctahedral_check.log"
+      ],
+      "rationale": "For the exact ordinary 3-cut definition, the 12 cube edges form the 4-regular 24-edge cuboctahedral line graph. Independent exhaustive reconstruction finds 164 disconnected induced triples and 164 complements of size 9, giving nonempty f=(12,66,220,495,792,924,792,489,164), 3954 faces and 23208 Hasse covers. The specified vertex-stage matching has 1968 pairs, 18 critical faces in dimensions 0:1, 7:6, 8:11, and a complete 3954-node topological sort verifies no directed Morse cycles. Independently programmed signed recursive elimination gives exactly the stated 6x11 integer Morse differential, of rational rank 5 with determinant -1 for the asserted 5x5 minor. Therefore coker(d8)=Z and ker(d8)=Z^6 (no torsion), and all other positive cellular groups vanish. The CW 7-skeleton is wedge^6 S7 and all maps S7 -> wedge^6 S7 are classified by Z^6 degree vectors; unimodular changes of basis cancel five unit-degree 7/8 pairs, giving S7 vee six S8. Pure dimension 8 with H7 nonzero contradicts pure shellability. Independent original-face mod-2 ranks (11,55,165,330,462,462,330,158) corroborate but are not used as an integral proof. Exact scope is one graph, not an infinite family.",
+      "residual_risks": [
+        "The independent exhaustive finite computation is for this single 12-vertex graph and does not prove a larger cube-line-graph family.",
+        "Morse signed elimination relies on the acyclic matching and degree classification; these hypotheses were independently checked, not assumed from a VERIFY_OK log.",
+        "No Lean proof or expert attestation is supplied; finite arithmetic plus standard topology establish only the stated natural-object result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al. Theorem 6.1 requires the complete (n-k-2)=7 skeleton; the candidate has exactly 489 rather than C(12,8)=495 eight-vertex faces, so the theorem cannot establish its torsion-freeness or sphere wedge.",
+          "Bayer et al. II Proposition 2.17 gives a conditional Euler-characteristic formula using the missing complements of connected triples and 4-cycles. Here the 56 connected triples and exactly six cycle quadruples yield reduced Euler characteristic 55+6-56=5 if the stated face-lattice criterion is applied; this is not enough to recover the two Betti ranks or the homotopy equivalence.",
+          "Published short-cycle-free results require absence of 4-cycles; L(Q_3) contains six four-cycles, as exact independent enumeration establishes.",
+          "Chandrakar et al. arXiv:2408.07646, Theorems 1.1 and 1.2: rectangular 2xn,3xn grid families, not the 4-regular twelve-vertex line graph L(Q_3)."
+        ],
+        "reasoning": "The general known face-lattice methods may determine combinatorial counts and Euler characteristic, which are credited. The strongest torsion-free theorem has an explicitly false premise; the short-cycle-free wedge theorems exclude this square-containing graph, and grid results concern different graphs. No inspected stronger theorem determines the integral (1,6) adjacent Betti ranks and wedge homotopy.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.13675 (Theorem 6.1 and Sections 5-6 excerpts)",
+          "https://arxiv.org/pdf/2407.08158 (Theorem 2.16, Proposition 2.17 and Sections 3-6)",
+          "https://arxiv.org/pdf/2408.07646 (Theorems 1.1/1.2 and grid definitions)",
+          "Resultary published Three-cut complexes of four-cycle-free graphs with triangles (2026-10-11)",
+          "Resultary published Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters (2026-10-11)"
+        ]
+      },
+      "checked_sources": [
+        "independent_cuboctahedral_check.py",
+        "independent_cuboctahedral_check.log",
+        "https://arxiv.org/pdf/2304.13675",
+        "https://arxiv.org/pdf/2407.08158",
+        "https://arxiv.org/pdf/2408.07646",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-icosahedral-three-cut-complex-is-a-mixed-dimensional-sphere--fb104995d472",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cube result concerns Delta_3(Q_3) on eight vertices with homotopy S^3 vee 4 S^4; no theorem states invariance of cut-complex topology under taking line graphs.",
+          "Icosahedral result concerns a distinct 5-regular 30-edge graph and has different face counts (3906 versus 3954 nonempty simplices).",
+          "Square-free general theorem predicts only top-dimensional spheres when its hypotheses hold; the cuboctahedral graph has six four-cycles and has actual lower H7, proving its hypotheses are inapplicable.",
+          "Bayer II Proposition 2.17 can account for Euler 5 using 56 connected triples and six four-cycles but gives no separate H7/H8 ranks; our integral rank-five primitive Morse differential supplies the new needed information."
+        ],
+        "reasoning": "General combinatorial counts, a graph-substitution relationship, and the same numerical wedge for a different graph do not logically imply the exact integral homotopy of this complex. The candidate is not a corollary of the cited stronger results under their actual hypotheses.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.13675 Theorem 6.1/Proposition 6.2/Corollary 5.5",
+          "https://arxiv.org/pdf/2407.08158 Theorem 2.16/Proposition 2.17",
+          "Resultary published 2026-10-04 The cube is a minimal forbidden graph for 3-cut-complex shellability (full RESULT.md)",
+          "Resultary published 2026-10-11 The icosahedral three-cut complex is a mixed-dimensional sphere wedge (full RESULT.md)",
+          "Resultary published 2026-10-11 Three-cut complexes of four-cycle-free graphs with triangles (full RESULT.md)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same twelve-vertex graph appears under the aliases cuboctahedron, rectified cube, and L(Q_3); it is the 4-regular 24-edge graph on the 12 edges of Q_3.",
+          "The ordinary 3-cut complex has complementary facets of disconnected induced triples, whereas the total 3-cut complex uses independent triples; these differ since L(Q_3) has edges and triangles.",
+          "Bayer et al., arXiv:2304.13675, Definition and Section 6: general k-cut definition, no cuboctahedral exact homotopy case in searched full PDF text.",
+          "Resultary published 2026-10-11 icosahedral 3-cut result: same displayed wedge type but graph is 5-regular with f-vector (12,66,220,495,792,924,792,465,140), unlike cuboctahedral (12,66,220,495,792,924,792,489,164)."
+        ],
+        "reasoning": "Aliases, Alexander duality, ordinary-versus-total conventions, and another twelve-vertex Archimedean graph were compared by mathematical object, not just title. Neither the different icosahedral graph nor the cube itself supplies an equivalence of the underlying 3-cut complexes. Shared numerical wedge type alone is not a proof of prior coverage; no equivalent cuboctahedral classification was established by the actual searches.",
+        "searches": [
+          "Resultary semantic query: cuboctahedral graph three cut complex simplicial homotopy wedge spheres connected induced subgraph cut complex",
+          "web search: \"line graph of the cube\" \"cut complex\"",
+          "web search: \"rectified cube\" \"cut complex\" topology",
+          "web search: cuboctahedral graph line graph cube cut complex Alexander dual homotopy",
+          "https://arxiv.org/pdf/2304.13675",
+          "https://arxiv.org/pdf/2407.08158"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search surfaced the assigned cuboctahedral entry itself, a distinct icosahedral entry, a cube entry, and adjacent but noncovering generalizations, not an independently published cuboctahedral exact homotopy table.",
+          "Bayer et al. Table 1 and the sequel list complete multipartite, cycles, forests, squared paths, disjoint unions, grids and related families; no cuboctahedron-specific row was identified in inspected text.",
+          "The published icosahedral case has 140 nine-vertex facets, whereas the cuboctahedral case has 164 and six distinct missing eight-vertex faces; same wedge ranks do not equal a same-complex database row."
+        ],
+        "reasoning": "Exact numeric homology of another natural twelve-vertex graph is not a database value of L(Q_3). The searched exact-cut-complex tables and published finding corpus give no independently prior cuboctahedral entry. Search incompleteness and possible unindexed tables are residual risks, not asserted proofs of absence.",
+        "searches": [
+          "Resultary semantic query: cuboctahedral graph three cut complex simplicial homotopy wedge spheres connected induced subgraph cut complex",
+          "web search: \"cuboctahedral\" \"3-cut\" homology",
+          "web search: cuboctahedron graph three cut complex homotopy wedge 7 sphere 8 sphere",
+          "https://arxiv.org/pdf/2304.13675 Table 1 and Sections 6-7",
+          "https://arxiv.org/pdf/2407.08158 contents and grid tables",
+          "Resultary record: The icosahedral three-cut complex is a mixed-dimensional sphere wedge"
+        ]
+      },
+      "rationale": "A best-of-knowledge theorem-implication comparison identified only prior coverage of the definition, f/Euler relations and nearby family cases. The strongest general torsion-free criterion of Bayer et al. (Theorem 6.1) fails because f7=489<495. The sequel Proposition 2.17 explains the Euler characteristic 5 but does not give integral H7=Z, H8=Z^6 or an actual wedge. Published all-graph wedge theorems excluding four-cycles cannot cover the six-square cuboctahedron. Published exact icosahedral 3-cut shares the wedge ranks but has a different graph and face vector; graph or homotopy coincidence is not mathematical implication. No prior cuboctahedral exact homotopy statement was established by actual primary and Resultary comparisons. Priority risks remain explicitly stated.",
+      "residual_risks": [
+        "Primary-paper scope and specific results were materially read, but complete page-by-page reading of all 37/29/26-page PDFs was not undertaken; an overlooked appendix remains a priority risk.",
+        "An unindexed independent computation of the cuboctahedral 3-cut complex or an Alexander-dual equivalent could predate this record; unsuccessful search is not proof of novelty.",
+        "The separately published icosahedral example has the same wedge ranks, limiting uniqueness of the numerical phenomenon but not mathematically implying the cuboctahedral instance.",
+        "Bayer II already provides the general face-lattice/Euler framework; only the specific integral homotopy type is assessed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of mixed-dimensional homotopy: 7-skeleton not complete (489<495). Family theorems and general Euler framework do not supply these ranks.",
+          "evidence": "arXiv:2304.13675v2 pp.16-18 (Theorem 6.1); Section 5 Corollaries 5.3-5.5; exact independently verified missing six 8-vertex subsets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Primary PDF title/abstract, Introduction and definition, Section 5 shellability discussion and Section 6 Theorem 6.1 including hypothesis and proof, plus targeted full-text searches for cuboctahedron and line graph.",
+          "method": "Web PDF page extraction with page screenshot; theorem-hypothesis comparison to independently enumerated face vector.",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Defining ordinary k-cut complex paper and strongest general two-degree torsion statement."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING the computable Euler characteristic 5; NOT_COVERING the two integral Betti groups or wedge homotopy of this specific graph.",
+          "evidence": "arXiv:2407.08158v1 pp.5-7, Theorem 2.16 and Proposition 2.17; 56 connected triples, 6 four-cycles; f7=489 and f8=164.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Primary PDF title/contents, Introduction, Theorem 2.16 and Proposition 2.17 with explicit hypotheses and Euler formula, Section 5 family outline.",
+          "method": "Web PDF page extraction with screenshot and exact face-lattice/induced-cycle comparison.",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Closest sequel; includes enlarged face-lattice results allowing missing 4-cycle complements."
+        },
+        {
+          "assessment": "NOT_COVERING the cut complex on the 4-regular cuboctahedral line graph.",
+          "evidence": "arXiv:2408.07646v3 pp.1-2; Theorems 1.1 and 1.2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.07646",
+          "material_read": "Primary PDF title/abstract, Introduction and Theorems 1.1/1.2 on 2xn and 3xn rectangular grids; definition and family scope.",
+          "method": "Web PDF page extraction with screenshot; graph degree and family-premise comparison.",
+          "title": "Topology of total cut and cut complexes of grid graphs",
+          "trigger": "Recent source addressing both ordinary and total cut complexes and potential broad grid theorems."
+        },
+        {
+          "assessment": "NOT_IMPLYING a cuboctahedral classification: icosahedron has degree 5, 30 edges and 140 facets versus degree 4, 24 edges and 164 facets.",
+          "evidence": "Published icosahedral RESULT.md lists (12,66,220,495,792,924,792,465,140) and 3906 nonempty faces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-icosahedral-three-cut-complex-is-a-mixed-dimensional-sphere--fb104995d472",
+          "material_read": "Entire published RESULT.md, including graph definition, face vector, critical-cell proof, references and limitations.",
+          "method": "Read published GitHub source and compare graph, facets and f-vector, not just title/abstract.",
+          "title": "The icosahedral three-cut complex is a mixed-dimensional sphere wedge",
+          "trigger": "Published result has the exact same S7 wedge six S8 homotopy formula for another twelve-vertex Platonic graph."
+        },
+        {
+          "assessment": "NOT_APPLICABLE: six 4-cycles violate the key hypothesis; theorem predicts only top-dimensional spheres on its valid family.",
+          "evidence": "Full RESULT.md no-four-cycle theorem; six exact four-cycle quadruples in the independent enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+          "material_read": "Published RESULT.md theorem, hypotheses, private-edge collapse proof, and substantial relationship-to-prior discussion (first approximately 6500 of 7363 characters); the final tail was not inspected.",
+          "method": "Compare no-four-cycle premise with all four-vertex subsets of L(Q3) enumerated independently.",
+          "title": "Three-cut complexes of four-cycle-free graphs with triangles",
+          "trigger": "A priori stronger all-graph homotopy theorem for three-cut complexes."
+        },
+        {
+          "assessment": "NOT_APPLICABLE since the cuboctahedral graph has many triangles and six four-cycles.",
+          "evidence": "Published RESULT.md theorem in inspected excerpt explicitly requires absence of triangles and 4-cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7",
+          "material_read": "Published RESULT.md theorem, hypotheses, Alexander-dual homotopy proof and beginning of equivariant-character argument (first approximately 6500 of 11442 characters); remaining tail not inspected.",
+          "method": "Hypothesis comparison with L(Q3) graph triangles and squares.",
+          "title": "Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters",
+          "trigger": "Strong no-triangle/no-square full homotopy classification."
+        },
+        {
+          "assessment": "NOT_IMPLYING: cube is an eight-vertex graph with S3 wedge 4 S4 rather than its twelve-vertex line graph; no line-graph invariance.",
+          "evidence": "Published cube RESULT.md f-vector (8,28,56,64,32) and 188 nonempty faces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec",
+          "material_read": "Entire published RESULT.md, including proof and limitations.",
+          "method": "Compare underlying graph and 3-cut construction before attempting any line-graph inference.",
+          "title": "The cube is a minimal forbidden graph for 3-cut-complex shellability",
+          "trigger": "Closest published graph-relative result for Q3 and ordinary 3-cut nonshellability."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/RESULT.md",
+        "https://arxiv.org/pdf/2304.13675",
+        "https://arxiv.org/pdf/2407.08158",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-icosahedral-three-cut-complex-is-a-mixed-dimensional-sphere--fb104995d472",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce"
+      ],
+      "rationale": "The cuboctahedron L(Q3) is a canonical twelve-vertex vertex-transitive Archimedean/polyhedral and line-graph object, and ordinary 3-cut topology is a motivated established invariant. The exact integral mixed-dimensional wedge type is not inferred from the prior Euler count, known cube case or strong full-skeleton theorem (which is obstructed by six square complements). It determines both positive-dimensional integral homology ranks, excludes torsion, and certifies nonshellability in a pure eight-complex; these precise homotopy invariants can be used to compare other polyhedral/line-graph cut complexes and test extensions of the face-lattice theory. The result is a natural finite exact classification with a sharp structural boundary, not a claim of a general theorem.",
+      "residual_risks": [
+        "A single finite graph classification does not imply a uniform formula for all cubical line graphs and makes no equivariant module claim.",
+        "Euler characteristic 5 is accessible from earlier general face-lattice methods; value lies in splitting adjacent integral Betti ranks, torsion elimination and homotopy/non-shellability, not a novel Euler count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/RESULT.md",
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/VERIFICATION.md",
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/verify.py",
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/AUDIT.json",
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/METADATA.json",
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/REVIEW.md",
+    "2026/10/11/the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/SLOGAN.txt",
+    "independent_cuboctahedral_check.py",
+    "independent_cuboctahedral_check.log",
+    "https://arxiv.org/pdf/2304.13675",
+    "https://arxiv.org/pdf/2407.08158",
+    "https://arxiv.org/pdf/2408.07646",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-icosahedral-three-cut-complex-is-a-mixed-dimensional-sphere--fb104995d472",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the 12-vertex cuboctahedral graph C=L(Q3), with ordinary Delta_3(C) generated by complements of disconnected induced triples, Delta_3(C) is homotopy equivalent to S^7 vee 6 S^8. Integral reduced homology is Z at degree 7 and Z^6 at degree 8, and vanishes otherwise. The pure eight-dimensional complex is nonshellable, and its f-vector is (12,66,220,495,792,924,792,489,164).",
+  "limitations": [
+    "Only the ordinary 3-cut complex of the specified 12-vertex graph is proved; no assertion for all line graphs of hypercubes or their symmetry representations.",
+    "The published icosahedral 3-cut complex has the same homotopy formula for a different graph, and prior literature already implies some combinatorial/Euler information; the assessed new fact is this graph-specific integral wedge classification.",
+    "Historical priority search is best of knowledge, with actual inspected sources and possible unindexed literature listed as residual risks.",
+    "Privacy sanitization and complete guarded replacement operations were not supplied; publication_plan not_ready is a release/transport blocker, not a scientific FAIL."
+  ],
+  "residual_risks": [
+    "The independent exhaustive finite computation is for this single 12-vertex graph and does not prove a larger cube-line-graph family.",
+    "Morse signed elimination relies on the acyclic matching and degree classification; these hypotheses were independently checked, not assumed from a VERIFY_OK log.",
+    "No Lean proof or expert attestation is supplied; finite arithmetic plus standard topology establish only the stated natural-object result.",
+    "Primary-paper scope and specific results were materially read, but complete page-by-page reading of all 37/29/26-page PDFs was not undertaken; an overlooked appendix remains a priority risk.",
+    "An unindexed independent computation of the cuboctahedral 3-cut complex or an Alexander-dual equivalent could predate this record; unsuccessful search is not proof of novelty.",
+    "The separately published icosahedral example has the same wedge ranks, limiting uniqueness of the numerical phenomenon but not mathematically implying the cuboctahedral instance.",
+    "Bayer II already provides the general face-lattice/Euler framework; only the specific integral homotopy type is assessed as new.",
+    "A single finite graph classification does not imply a uniform formula for all cubical line graphs and makes no equivariant module claim.",
+    "Euler characteristic 5 is accessible from earlier general face-lattice methods; value lies in splitting adjacent integral Betti ranks, torsion elimination and homotopy/non-shellability, not a novel Euler count."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING of mixed-dimensional homotopy: 7-skeleton not complete (489<495). Family theorems and general Euler framework do not supply these ranks.",
+      "evidence": "arXiv:2304.13675v2 pp.16-18 (Theorem 6.1); Section 5 Corollaries 5.3-5.5; exact independently verified missing six 8-vertex subsets.",
+      "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+      "material_read": "Primary PDF title/abstract, Introduction and definition, Section 5 shellability discussion and Section 6 Theorem 6.1 including hypothesis and proof, plus targeted full-text searches for cuboctahedron and line graph.",
+      "method": "Web PDF page extraction with page screenshot; theorem-hypothesis comparison to independently enumerated face vector.",
+      "title": "Topology of Cut Complexes of Graphs",
+      "trigger": "Defining ordinary k-cut complex paper and strongest general two-degree torsion statement."
+    },
+    {
+      "assessment": "PARTIALLY_COVERING the computable Euler characteristic 5; NOT_COVERING the two integral Betti groups or wedge homotopy of this specific graph.",
+      "evidence": "arXiv:2407.08158v1 pp.5-7, Theorem 2.16 and Proposition 2.17; 56 connected triples, 6 four-cycles; f7=489 and f8=164.",
+      "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+      "material_read": "Primary PDF title/contents, Introduction, Theorem 2.16 and Proposition 2.17 with explicit hypotheses and Euler formula, Section 5 family outline.",
+      "method": "Web PDF page extraction with screenshot and exact face-lattice/induced-cycle comparison.",
+      "title": "Topology of Cut Complexes II",
+      "trigger": "Closest sequel; includes enlarged face-lattice results allowing missing 4-cycle complements."
+    },
+    {
+      "assessment": "NOT_COVERING the cut complex on the 4-regular cuboctahedral line graph.",
+      "evidence": "arXiv:2408.07646v3 pp.1-2; Theorems 1.1 and 1.2.",
+      "identifier_or_url": "https://arxiv.org/pdf/2408.07646",
+      "material_read": "Primary PDF title/abstract, Introduction and Theorems 1.1/1.2 on 2xn and 3xn rectangular grids; definition and family scope.",
+      "method": "Web PDF page extraction with screenshot; graph degree and family-premise comparison.",
+      "title": "Topology of total cut and cut complexes of grid graphs",
+      "trigger": "Recent source addressing both ordinary and total cut complexes and potential broad grid theorems."
+    },
+    {
+      "assessment": "NOT_IMPLYING a cuboctahedral classification: icosahedron has degree 5, 30 edges and 140 facets versus degree 4, 24 edges and 164 facets.",
+      "evidence": "Published icosahedral RESULT.md lists (12,66,220,495,792,924,792,465,140) and 3906 nonempty faces.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-icosahedral-three-cut-complex-is-a-mixed-dimensional-sphere--fb104995d472",
+      "material_read": "Entire published RESULT.md, including graph definition, face vector, critical-cell proof, references and limitations.",
+      "method": "Read published GitHub source and compare graph, facets and f-vector, not just title/abstract.",
+      "title": "The icosahedral three-cut complex is a mixed-dimensional sphere wedge",
+      "trigger": "Published result has the exact same S7 wedge six S8 homotopy formula for another twelve-vertex Platonic graph."
+    },
+    {
+      "assessment": "NOT_APPLICABLE: six 4-cycles violate the key hypothesis; theorem predicts only top-dimensional spheres on its valid family.",
+      "evidence": "Full RESULT.md no-four-cycle theorem; six exact four-cycle quadruples in the independent enumeration.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce",
+      "material_read": "Published RESULT.md theorem, hypotheses, private-edge collapse proof, and substantial relationship-to-prior discussion (first approximately 6500 of 7363 characters); the final tail was not inspected.",
+      "method": "Compare no-four-cycle premise with all four-vertex subsets of L(Q3) enumerated independently.",
+      "title": "Three-cut complexes of four-cycle-free graphs with triangles",
+      "trigger": "A priori stronger all-graph homotopy theorem for three-cut complexes."
+    },
+    {
+      "assessment": "NOT_APPLICABLE since the cuboctahedral graph has many triangles and six four-cycles.",
+      "evidence": "Published RESULT.md theorem in inspected excerpt explicitly requires absence of triangles and 4-cycles.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7",
+      "material_read": "Published RESULT.md theorem, hypotheses, Alexander-dual homotopy proof and beginning of equivariant-character argument (first approximately 6500 of 11442 characters); remaining tail not inspected.",
+      "method": "Hypothesis comparison with L(Q3) graph triangles and squares.",
+      "title": "Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters",
+      "trigger": "Strong no-triangle/no-square full homotopy classification."
+    },
+    {
+      "assessment": "NOT_IMPLYING: cube is an eight-vertex graph with S3 wedge 4 S4 rather than its twelve-vertex line graph; no line-graph invariance.",
+      "evidence": "Published cube RESULT.md f-vector (8,28,56,64,32) and 188 nonempty faces.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec",
+      "material_read": "Entire published RESULT.md, including proof and limitations.",
+      "method": "Compare underlying graph and 3-cut construction before attempting any line-graph inference.",
+      "title": "The cube is a minimal forbidden graph for 3-cut-complex shellability",
+      "trigger": "Closest published graph-relative result for Q3 and ordinary 3-cut nonshellability."
+    }
+  ]
+}
