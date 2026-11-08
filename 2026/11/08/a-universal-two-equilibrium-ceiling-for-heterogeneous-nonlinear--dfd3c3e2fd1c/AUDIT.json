@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the individual payoff increment and its binomial expectation; proved uniform convergence for countable mixtures and strict convexity where appropriate; checked the horizontal-intersection criterion and phase stability; exact standard-library verifier passed the cubic polynomial/factorization/root signs, plus 640 rational finite-mixture convexity checks. Finite tests are explicitly not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peña, Evolution 66 (2012), 623-636, studies general random-size games, including PGGDS; generic averaging alone supplies no bound on the zero count for size-specific returns.",
+        "Peña and Nöldeke, Group size effects in social evolution (2018), study how group size affects rest points under fixed gain-sequence assumptions.",
+        "Llabrés et al. (2026), Appendix A, analyze two interaction orders with size-specific multipliers."
+      ],
+      "reasoning": "The broad stochastic-size setup covers the averaging operation, but not the key shape restriction in the present class; arbitrary nonlinear payoff differences can have many roots. The positive sum of geometric-return terms is strictly convex under the stated condition. No inspected broader primary theorem states or forces the complete all-size strict-convexity and sharp criterion, although a general convex-mixture observation remains a genuine prior-coverage risk.",
+      "searches": [
+        "GROUP-SIZE DIVERSITY IN PUBLIC GOODS GAMES Peña 2012 nonlinear game fixed return multiplier group size distribution",
+        "Group size effects in social evolution Peña Nöldeke 2018 gain sequences two sign changes",
+        "mixed nonlinear public goods random group sizes synergy discounting bistability"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2604.07228",
+      "https://arxiv.org/html/2604.07228",
+      "https://doi.org/10.1111/j.1558-5646.2011.01504.x",
+      "https://doi.org/10.1101/319350"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct two-order source: F=(1-theta)Delta pi(l1)+theta Delta pi(l2); Appendix A proves at most two zeros by monotonicity of a derivative-term ratio.",
+        "Peña uses an arbitrary distribution over group sizes but, for PGGDS worked examples, a common delta per group size; it identifies monotone outcomes in that case.",
+        "The current proof uses summability and positivity to extend convexity and the sharp two-root criterion to countably many independent pairs (size,return multiplier)."
+      ],
+      "reasoning": "Neither a theorem limited to exactly two summands nor a constant-multiplier random-size result states the all-order classification. General convexity of positive sums makes the extension mathematically accessible, which limits claimed novelty and is identified as a residual risk; it does not turn the source’s narrower theorem into an explicit arbitrary-size coverage claim.",
+      "searches": [
+        "arxiv:2604.07228 geometric-return two-order group sizes Appendix A comparison",
+        "Peña 2012 Group-Size Diversity in Public Goods Games PGGDS random size monotonic",
+        "arbitrary countable mixture of convex geometric-return functions replicator two interior roots"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Llabrés et al. arXiv:2604.07228 equations (12)-(13) and Appendix A equations (20)-(25) establish the two-order bound from a two-term derivative ratio.",
+        "Peña (2012), Group-Size Diversity in Public Goods Games, explicitly models random group sizes and derives single-multiplier PGGDS dynamics, not a size-dependent mixed-sign strict-convexity criterion."
+      ],
+      "reasoning": "The new statement permits arbitrarily many and countably many independently nonlinear interaction sizes. The two-order theorem is recovered by restricting to two components; the countable-sum conclusion is not a special case of that theorem. Peña’s random-size formulation is relevant background but its PGGDS analysis has a shared return multiplier, giving monotone dynamics rather than a sharp two-root phase.",
+      "searches": [
+        "nonlinear public goods mixed-order hyperedges group size distribution stationary coexistence threshold saddle-node convexity bistability",
+        "site:arxiv.org/html/2604.07228 Appendix A interior stationary solutions mixed order",
+        "Peña group-size diversity in public goods games arbitrary group size geometric synergy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Appendix A contains a two-order analytical root bound, not a table of arbitrary-size distributions.",
+        "The three-size polynomial is directly derived in verify.py using exact Fraction arithmetic and yields roots 8-2 sqrt(15) and 2/3."
+      ],
+      "reasoning": "This is a universal model-structural theorem and a constructed sharpness witness, not retrieval of an exact database or recomputation of a published finite table. Search result lists did not yield an exact matching all-order table, but absence of a hit is not a novelty certificate.",
+      "searches": [
+        "arxiv 2604.07228 nonlinear higher-order public goods Appendix A two roots",
+        "nonlinear public goods multiple group sizes convex equilibria exact algebraic three-size 2 3 4",
+        "multisize nonlinear public goods game well mixed mixture arbitrary many group sizes discount synergy convex payoff advantage at most two interior equilibrium"
+      ]
+    },
+    "rationale": "Compared the full relevant equations and Appendix A of arXiv:2604.07228, Peña’s random-group-size formulation and PGGDS discussion, related group-size work and actual semantic research-record results. The proposed theorem is the all-finite/countable size-dependent mixed-return ceiling and exact phase criterion, which the inspected two-order and common-multiplier results do not assert. Risk: a broader general convex-mixture theorem may imply it; no database search proves global originality.",
+    "residual_risks": [
+      "General convex-mixture restrictions may be known in unindexed evolutionary-game literature; elementary convexity is not itself claimed new.",
+      "The 2018 group-size paper was accessed as an abstract and selected proposition excerpts, not its complete primary text; an equivalent stronger statement there cannot be ruled out.",
+      "The result assumes fixed participation probabilities, and does not extend to adaptive participation or finite stochastic games."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers two order types and a two-root bound; does not give an arbitrary finite/countable size-distribution ceiling or its exact universal criterion.",
+        "evidence": [
+          "arXiv:2604.07228 HTML Sec. III.2 equation (12) two weights, Appendix A equations (21)-(25), and arXiv submission history v1 2026-04-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.07228",
+        "material_read": "Model equations (1)-(3), Sec. III equations (4)-(19), Appendix A equations (20)-(25), abstract, introduction and reference context; the comparisons concern this relevant mathematical material, not an assertion about unseen pages.",
+        "method": "Accessible arXiv HTML read and equation-by-equation implication comparison; first submission checked at https://arxiv.org/abs/2604.07228",
+        "title": "Emergence of cooperation in nonlinear higher-order public goods games",
+        "trigger": "Closest current model: size-dependent synergy and discounting in a mixed-order game"
+      },
+      {
+        "assessment": "General random sizes and geometric returns but PGGDS comparison uses one common nonlinearity and reports at most one interior equilibrium for that worked setting. It does not establish the mixed-sign, independent per-size all-order criterion.",
+        "evidence": [
+          "Evolution 66 (2012) 623–636, first-public-date metadata 2011-11-04; PGGDS and Appendix 3 sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1558-5646.2011.01504.x",
+        "material_read": "Accessible publisher HTML abstract, model, PGGDS examples, discussion and Appendix 3 text and conclusions; mathematical expressions were partly image-rendered, so the discussion was compared at the statement level.",
+        "method": "Publisher open HTML reading of the relevant model and result discussion; no unsupported whole-PDF not-covering assertion.",
+        "title": "Group-Size Diversity in Public Goods Games",
+        "trigger": "Strong historical random-group-size precedent that might dominate an all-size claim"
+      },
+      {
+        "assessment": "Relevant general size-effects theory; no decisive all-order geometric-return theorem seen in accessible excerpts, with incomplete-material risk explicitly retained.",
+        "evidence": [
+          "Peña and Nöldeke (2018), propositions 2–4 excerpts on group-size effects and two-sign-change gains"
+        ],
+        "identifier_or_url": "https://doi.org/10.1101/319350",
+        "material_read": "Public abstract and visible propositions 2–4 excerpts; complete text was not inspected.",
+        "method": "Targeted public search excerpts only; treated as comparison risk, not a whole-document noncoverage proof.",
+        "title": "Group size effects in social evolution",
+        "trigger": "General results limiting equilibria by gain-sequence sign variation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dfd3c3e2-fd1c-421f-9b22-b94e6c14a1bf",
+  "value": {
+    "rationale": "The two-order source motivates whether more independently nonlinear game sizes can create additional cooperative phases. The theorem rules out any third isolated interior phase across even a countable spectrum, supplies necessary-and-sufficient bistability data and realizes the maximum with three genuinely nonlinear sizes. This is a structural restriction of a natural expanding model class, not just a numerical example or table entry.",
+    "status": "PASS"
+  }
+}
