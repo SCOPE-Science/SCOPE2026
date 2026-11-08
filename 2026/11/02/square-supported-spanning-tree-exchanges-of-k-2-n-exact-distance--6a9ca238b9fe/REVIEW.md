@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The spanning-tree representation and complete square-supported move enumeration establish the exact adjacency rule. A constructive route plus a one-Lipschitz lower-bound potential proves the all-pairs distance formula. The full distance shells and Wiener index follow by counting. An orthogonal Walsh basis splits the Laplacian into explicit rank-one blocks, yielding all eigenvalues, spectral gap, and Kirchhoff product. Two distinct executable checks reconstruct the finite cases; the Python implementation independently builds actual spanning-tree edge sets rather than relying on the wildcard move model. No infinite conclusion rests solely on finite tests.
+## correctness
 
-**Originality — PASS, with residual risk.** Shier (2000) already gives precisely the one-wildcard encoding of the spanning trees of \(K_{2,n}\), so encoding and tree counts are deliberately excluded from the asserted new contribution. General matroid basis exchanges (Maurer, 1973) and leaf-constrained spanning-tree reconfiguration (Bousquet et al., 2020) concern different adjacency rules. Targeted searches under spanning-tree, restricted basis-exchange, hypercube edge, and cubical face-graph formulations identified no source with the exact four-cycle-supported one-edge exchange metric and full spectrum. Inaccessible older and unindexed hypercube edge-graph literature remain a priority risk; this is not an assertion of uniqueness from failed searching.
+PASS
 
-**Value — PASS.** The local restriction is mathematically natural: a basis exchange is permitted only if it acts in a shortest bipartite cycle. The result classifies its global mobility, sharp diameter and distance distribution, plus a uniform spectral gap and exact spanning-tree complexity for every size, all of which are nontrivial refinements of the classical count of spanning trees of \(K_{2,n}\). The findings provide explicit finite benchmarks and an infinite-family model for cycle-constrained spanning-tree exchange.
+Unique degree-two vertex on the n-side gives the wildcard encoding; the three possible one-edge exchanges on each square are exhaustively identified. A constructive path achieves the proposed distance and each allowed move changes its target distance by at most one. Walsh functions on fixed-wildcard slices decompose adjacency into (n−3−2r)I+2J blocks, giving spectrum, multiplicities and connectedness; sphere and Wiener sums follow binomial moments. Independently built wildcard-state BFS n=2..5 and direct spectral computations n=2..4 reproduce the results. The infinite n claim relies on the explicit proof, not sampling.
 
-**Scientific limitations.** The theorem covers only \(K_{2,n}\), with single-edge swaps supported by four-cycles; standard unrestricted exchanges and simultaneous two-edge square switches are different. The originality comparison does not exhaust unindexed literature or prove priority. Independent scholarly review is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shier 2000 already counts spanning trees by one-wildcard binary strings. Maurer 1973 treats unrestricted matroid-basis exchange, which includes other allowed cycles and is not the square-constrained graph. Resultary searches of related polytope/Laplacian graphs did not find the identical exact metric-plus-spectrum; a prior cubical face-graph result might be equivalent.
+
+## value
+
+PASS
+
+The metric and entire spectrum of an infinite naturally defined constrained spanning-tree reconfiguration graph are exact quantitative structural invariants; constant spectral gap and Kirchhoff complexity add meaningful information beyond counting trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

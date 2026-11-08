@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-With Python 3 and SymPy available, run `python3 verify_primary.py`. Compile the independent C++17 check using `g++ -O2 -std=c++17 -o verify_secondary verify_secondary.cpp`, then run `./verify_secondary`.
+## correctness
 
-The Python program directly constructs all spanning trees of \(K_{2,n}\) as edge sets, generates each allowed four-cycle-supported one-edge swap, and exhaustively checks pairwise distances, spheres, diameter, and Wiener index for \(2\le n\le5\). It uses exact SymPy matrices to check every Laplacian eigenvalue and its multiplicity for \(2\le n\le4\), and exact integer Laplacian cofactors for \(n=2,3\).
+PASS
 
-The C++ program independently enumerates wildcard-word configurations, constructs the exchange graph through its proved local rule, and checks all-pairs distances, spheres, and Wiener indices for \(2\le n\le7\). The local rule follows from the square-cycle enumeration in the mathematical proof; the Python program separately checks that rule directly against actual edge subsets.
+Unique degree-two vertex on the n-side gives the wildcard encoding; the three possible one-edge exchanges on each square are exhaustively identified. A constructive path achieves the proposed distance and each allowed move changes its target distance by at most one. Walsh functions on fixed-wildcard slices decompose adjacency into (n−3−2r)I+2J blocks, giving spectrum, multiplicities and connectedness; sphere and Wiener sums follow binomial moments. Independently built wildcard-state BFS n=2..5 and direct spectral computations n=2..4 reproduce the results. The infinite n claim relies on the explicit proof, not sampling.
 
-These finite tests cannot prove infinitely many parameter cases. The all-parameter proof is given in `RESULT.md`, including a sharp distance lower bound, Walsh invariant-subspace decomposition, and application of the matrix-tree theorem. Independent scholarly audit has not been performed.
+## originality
+
+PASS
+
+Shier 2000 already counts spanning trees by one-wildcard binary strings. Maurer 1973 treats unrestricted matroid-basis exchange, which includes other allowed cycles and is not the square-constrained graph. Resultary searches of related polytope/Laplacian graphs did not find the identical exact metric-plus-spectrum; a prior cubical face-graph result might be equivalent.
+
+## value
+
+PASS
+
+The metric and entire spectrum of an infinite naturally defined constrained spanning-tree reconfiguration graph are exact quantitative structural invariants; constant spectral gap and Kirchhoff complexity add meaningful information beyond counting trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

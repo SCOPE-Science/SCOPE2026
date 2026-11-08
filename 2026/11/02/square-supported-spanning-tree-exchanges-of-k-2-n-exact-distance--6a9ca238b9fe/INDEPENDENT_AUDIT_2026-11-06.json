@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:58:18.335298Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unique degree-two vertex on the n-side gives the wildcard encoding; the three possible one-edge exchanges on each square are exhaustively identified. A constructive path achieves the proposed distance and each allowed move changes its target distance by at most one. Walsh functions on fixed-wildcard slices decompose adjacency into (n−3−2r)I+2J blocks, giving spectrum, multiplicities and connectedness; sphere and Wiener sums follow binomial moments. Independently built wildcard-state BFS n=2..5 and direct spectral computations n=2..4 reproduce the results. The infinite n claim relies on the explicit proof, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maurer 1973 basis exchange uses all one-edge basis swaps, not only those with four-cycle fundamental circuits; Bousquet et al 2020 consider distinct leaf conditions or simultaneous square switches."
+        ],
+        "reasoning": "Neither class theorem directly forces exact restricted graph distances because deletion of longer-cycle swaps changes graph metric and spectrum.",
+        "searches": [
+          "Resultary semantic query: K2n spanning trees restricted square fundamental cycle exchange graph Laplacian hypercube edge graph",
+          "Shier, Spanning Trees: Let Me Count the Ways, Mathematics Magazine 73(5), 2000, DOI 10.2307/2690815",
+          "Maurer, Matroid basis graphs I, 1973, DOI 10.1016/0095-8956(73)90005-1",
+          "arXiv:2006.14309"
+        ]
+      },
+      "checked_sources": [
+        "Frozen K2n RESULT.md and verify_primary.py, tree 0441fb79f43955503850a5218b53610bfeabb643",
+        "Independent checker CASE2_OK",
+        "Shier, Mathematics Magazine 73(5), 2000, DOI:10.2307/2690815",
+        "Maurer, Matroid basis graphs. I, 1973",
+        "arXiv:2006.14309"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-wildcard encoding gives number of states immediately, but does not by itself determine L=(3(n−1))I−A and the Walsh invariant blocks without the square-move analysis."
+        ],
+        "reasoning": "The distinguishing restricted adjacency makes claimed distance and spectrum more than a tautological substitution into Shier or Maurer.",
+        "searches": [
+          "Resultary semantic query: K2n spanning trees restricted square fundamental cycle exchange graph Laplacian hypercube edge graph",
+          "Shier, Spanning Trees: Let Me Count the Ways, Mathematics Magazine 73(5), 2000, DOI 10.2307/2690815",
+          "Maurer, Matroid basis graphs I, 1973, DOI 10.1016/0095-8956(73)90005-1",
+          "arXiv:2006.14309"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shier 2000 encoding is equivalent to hypercube edges / one-wildcard words, but does not provide the specified square-supported single-edge exchange adjacency and complete Laplacian spectrum."
+        ],
+        "reasoning": "Checked alternate descriptions as one-wildcard cube faces, edge/face graph of hypercube, and matroid basis graphs, distinguishing adjacency conventions.",
+        "searches": [
+          "Resultary semantic query: K2n spanning trees restricted square fundamental cycle exchange graph Laplacian hypercube edge graph",
+          "Shier, Spanning Trees: Let Me Count the Ways, Mathematics Magazine 73(5), 2000, DOI 10.2307/2690815",
+          "Maurer, Matroid basis graphs I, 1973, DOI 10.1016/0095-8956(73)90005-1",
+          "arXiv:2006.14309"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent checker verified exact n=2..5 spheres and n=2..4 spectrum, matching source expressions; no identical indexed Resultary table returned."
+        ],
+        "reasoning": "Finite tables support source formulas but do not establish novelty for all n; no known exact database covering these restricted configurations identified.",
+        "searches": [
+          "Resultary semantic query: K2n spanning trees restricted square fundamental cycle exchange graph Laplacian hypercube edge graph",
+          "Shier, Spanning Trees: Let Me Count the Ways, Mathematics Magazine 73(5), 2000, DOI 10.2307/2690815",
+          "Maurer, Matroid basis graphs I, 1973, DOI 10.1016/0095-8956(73)90005-1",
+          "arXiv:2006.14309"
+        ]
+      },
+      "rationale": "Shier 2000 already counts spanning trees by one-wildcard binary strings. Maurer 1973 treats unrestricted matroid-basis exchange, which includes other allowed cycles and is not the square-constrained graph. Resultary searches of related polytope/Laplacian graphs did not find the identical exact metric-plus-spectrum; a prior cubical face-graph result might be equivalent.",
+      "residual_risks": [
+        "Shier original complete paper inaccessible; Oxford authorized full-text request encountered vpn_disconnected, without bypass.",
+        "Equivalent hypercube-edge face graph Laplacian formulas may have appeared under other names.",
+        "Finite spectral checks n<=4 supplement but do not prove the all-size Walsh decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Do not claim whole-document noncoverage; Shier may address additional hypercube combinatorics.",
+          "identifier_or_url": "https://doi.org/10.2307/2690815",
+          "material_read": "Bibliographic description and known one-wildcard counting result; complete source not obtained",
+          "method": "web bibliographic and original package citation; authorized Oxford full-text request returned vpn_disconnected",
+          "title": "Spanning Trees: Let Me Count the Ways",
+          "trigger": "Identical K2n spanning-tree encoding"
+        },
+        {
+          "assessment": "DISTINCT_GRAPH_ADJACENCY",
+          "evidence": "Unrestricted fundamental-cycle moves contain the restricted four-cycle moves, but their shortest-path metric need not agree.",
+          "identifier_or_url": "https://doi.org/10.1016/0095-8956(73)90005-1",
+          "material_read": "General matroid basis-exchange abstract/scope and definitions, not full paper",
+          "method": "web abstract and original package comparison",
+          "title": "Matroid basis graphs. I",
+          "trigger": "Potential broader basis-exchange framework"
+        },
+        {
+          "assessment": "DISTINCT_RECONFIGURATION",
+          "evidence": "Does not supply identical one-edge restricted square exchange spectral family in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.14309",
+          "material_read": "Abstract and definition of leaf-constrained reconfiguration; full paper not examined",
+          "method": "web abstract",
+          "title": "Reconfiguration of Spanning Trees with Many or Few Leaves",
+          "trigger": "Similar spanning tree move terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The metric and entire spectrum of an infinite naturally defined constrained spanning-tree reconfiguration graph are exact quantitative structural invariants; constant spectral gap and Kirchhoff complexity add meaningful information beyond counting trees.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen K2n RESULT.md and verify_primary.py, tree 0441fb79f43955503850a5218b53610bfeabb643",
+    "Independent checker CASE2_OK",
+    "Shier, Mathematics Magazine 73(5), 2000, DOI:10.2307/2690815",
+    "Maurer, Matroid basis graphs. I, 1973",
+    "arXiv:2006.14309"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Shier original complete paper inaccessible; Oxford authorized full-text request encountered vpn_disconnected, without bypass.",
+    "Equivalent hypercube-edge face graph Laplacian formulas may have appeared under other names.",
+    "Finite spectral checks n<=4 supplement but do not prove the all-size Walsh decomposition."
+  ],
+  "schema_version": 1
+}
