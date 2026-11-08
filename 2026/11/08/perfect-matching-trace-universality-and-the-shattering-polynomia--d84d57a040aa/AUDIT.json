@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Universal extension: after fixing an internal matching T the residual k-by-k board has a completed forbidden diagonal 1-factor; the other k-1 factors are disjoint and at most k-2 further forbidden edges cannot meet all of them. For |S|=n-1, every matching has one unused row and column: if they coincide the full trace is impossible; if different, withholding the edge on the missing-column row leaves two forced completions, respectively containing that edge and a forbidden diagonal. Heredity excludes larger supports. Inclusion-exclusion counts off-diagonal matchings, verified independently by DP and brute-force traces (197657 tested supports). For random m=O(sqrt(n)), diagonal conditioning costs O(m/n) and the full-board collision probability tends exp(-c^2). Boundary n=2 holds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bucić et al., arXiv:1906.05908, Theorems 1–7: ratios and intersection proportions of perfect matchings, not an all-trace classification.",
+        "Hommelsheim et al., 2021, DOI:10.1137/20M1336229, abstract: robust matching augmentation against edge failures; the edge-deletion lemma is a standard related mechanism."
+      ],
+      "reasoning": "Known perfect-matching preclusion or 1-factorization implies parts of the extension argument but does not by itself assert the sharp shattered-support classification and exact VC polynomial. Possible stronger folklore coverage remains a stated risk.",
+      "searches": [
+        "VC dimension and shattering polynomial of all perfect matchings in a bipartite graph alternating cycle criterion",
+        "Web: perfect matching hypergraph shattering edge sets traces",
+        "Web: crown graph perfect matching preclusion number n-1",
+        "Web: how to secure matchings against edge failures 2021"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1906.05908v1 full accessible arXiv representation and PDF portions",
+      "arXiv:2112.01946v1/v2 accessible arXiv representation and PDF introduction",
+      "DOI:10.1137/20M1336229 abstract and publisher metadata",
+      "Published research-index semantic searches for derangement incidence VC, rook polynomial, crown matching, and random support aliases",
+      "Accessible previously documented mathematical claims inspected for substantive overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bucić et al. 2019, Theorem 1 proves every perfect matching meets at least half of the matchings; this scalar overlap lower bound does not imply arbitrary designated subset traces.",
+        "Johnson–Wickes 2021, Definition 1.2 and Sections 2–4 use order patterns on symbol sets; they do not evaluate Boolean inclusion of off-diagonal entries in a derangement.",
+        "Classical birthday collision counting gives a random matching probability, but neither cited paper identifies it with VC shattering of derangements on the sharp full range."
+      ],
+      "reasoning": "Neither prior object and conclusion simultaneously matches the proposed incidence domain and universal trace-family equality. The result is consistent with known matching statistics and makes a stronger exact assertion; absence from searched records is not proof of historical uniqueness.",
+      "searches": [
+        "arXiv:1906.05908 full article: perfect matchings and derangements on graphs",
+        "arXiv:2112.01946 full article: Shattering k-sets with Permutations",
+        "random graph support of permutation matrix shattering birthday threshold sqrt n",
+        "Web: perfect matchings VC dimension shattered edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nearest unrelated published claims include an extremal theorem for 2-intersecting permutations (September 2026) and a restrained-domination census of crown graphs (October 2026).",
+        "Johnson–Wickes arXiv:2112.01946 Definition 1.2, section 1: all k! relative orders of a chosen k-subset, rather than all 2^m incidence traces on m selected ordered pairs."
+      ],
+      "reasoning": "Permutations may be represented by permutation matrices or perfect matchings. Those translations have been explicitly searched; the closest hits do not claim that every small support has exactly its internal matching complex as traces.",
+      "searches": [
+        "fixed point free permutation graphs VC dimension n-2 derangements shattered matching supports",
+        "derangement class has VC dimension n-2 on position value incidence relation",
+        "Web: VC dimension fixed-point-free permutations derangements as a set system of permutation matrix supports",
+        "Web: shattering by derangements partial matchings one-factor matrices complete bipartite graph VC 2020"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical rook polynomials enumerate nonattacking rook placements on the off-diagonal board, as distinct from shattered support counts.",
+        "No corresponding shattering polynomial was returned; the nearest published crown-graph records concern domination and coloring invariants, not incidence shattering."
+      ],
+      "reasoning": "The coefficient values r_m are classical and not novelty evidence. The new comparison claim is r_m equals shattered support count exactly for m<=n-2, with zero at m>=n-1, and every smaller support has full matching-complex traces.",
+      "searches": [
+        "derangement rook polynomial truncated as shattering polynomial",
+        "crown graph perfect matchings shatter precisely partial matchings of size n-2",
+        "Web: derangement bipartite graph rook polynomial matching number formula diagonal forbidden board",
+        "Web: VC dimension set of all derangements membership graph of permutation"
+      ]
+    },
+    "rationale": "The comparison distinguishes permutation ordering-pattern shattering from Boolean incidence shattering on individual row-column cells, and perfect-matching overlap/permanent statistics from the complete trace complex. Standard factorization and rook-number ingredients are credited. No equivalent all-n trace-identity plus sharp n-2 boundary was found in the actual accessible comparisons; historical priority remains qualified.",
+    "residual_risks": [
+      "No complete worldwide mathematical-priority verification; the sharp formula may exist as a folklore consequence of matching preclusion/rook-board results.",
+      "Matching preclusion primary full text not inspected; available abstract is not a whole-document noncoverage certificate.",
+      "No independent mathematical audit or machine-checked proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not a statement of Boolean edge-incidence trace universality; their theorems concern intersection proportions, ratios, permanents and derangements on graphs",
+        "evidence": [
+          "arXiv:1906.05908, pp. 1–3, Theorems 1–7, and §3 theorem 10; PDF published as 2019 preprint",
+          "Find on accessible full text showed no shatter, VC, or trace occurrences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+        "material_read": "ArXiv accessible full-text representation; introduction, definitions and Theorems 1–10, section map, relevant counting/intersection discussions, plus whole-text term searches for shatter, VC, trace",
+        "method": "Read arXiv full-text and PDF text; visual first PDF page; compare theorem quantifiers and objects",
+        "title": "Perfect matchings and derangements on graphs",
+        "trigger": "Same derangement and perfect-matching object; possible stronger coverage"
+      },
+      {
+        "assessment": "Different notion: all order patterns of k symbols under a family of permutations, rather than Boolean traces of derangement graph subsets on row-column edges",
+        "evidence": [
+          "arXiv:2112.01946 Definition 1.2 and §§1–4",
+          "Theorem/appendix discussion counts ordering patterns, not rook matchings or shattering on ordered pairs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.01946",
+        "material_read": "ArXiv accessible full-text representation, §1 definitions, §2–4 main theorems and constructions, §5 questions and Appendix A excerpts",
+        "method": "Read source theorem statements and Definition 1.2; inspected PDF introduction page; searched within full text for matching and derangement",
+        "title": "Shattering k-sets with Permutations",
+        "trigger": "Title and permutation/shattering overlap; must rule out definitional equivalence"
+      },
+      {
+        "assessment": "Related matching robustness ingredient, but accessible material does not establish the new edge-incidence VC classification",
+        "evidence": [
+          "Published online 2021-09-28; paper concerns adding edges to survive failures",
+          "Full text was not inspected; remaining overlap risk stated"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/20M1336229",
+        "material_read": "Publisher abstract, scientific scope, keywords and publication details; not publisher full text",
+        "method": "Read accessible abstract and compare directed implication to the trace identity",
+        "title": "How to Secure Matchings against Edge Failures",
+        "trigger": "Matching-preclusion robustness could dominate the local extension lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d84d57a0-40aa-46ce-a4b7-a41d900fab47",
+  "value": {
+    "rationale": "Determines the complete natural shattering polynomial for the full class of derangement-incidence concepts for every n; gives a sharp n-2 dimension, a stronger exact local trace matching-complex identity for arbitrary small supports, a nontrivial near-perfect obstruction, and a sharp random-support birthday window. This links model-theoretic shattering to assignment feasibility and exposes worst-case/random capacity separation. Though the rook-number arithmetic is classical, its equality to VC counts over the precise degree range and the local trace identity have an independent structural motivation.",
+    "status": "PASS"
+  }
+}
