@@ -1,15 +1,21 @@
-# Self-review: four-season SEIS invasion arrangement
+# Independent mathematical audit
 
-## Correctness — PASS
-The disease-free linearization of the displayed simplex-preserving SEIS equations is the strictly positive matrix \(M(b)\). The determinant of its monodromy is the product of the four individual determinants. Direct multiplication supplies symmetric traces for one to three seasons and the exact opposite-pair trace term for four seasons. At fixed determinant, the Perron root of a positive two-by-two matrix is strictly increasing in trace. Elementary product differences classify every labelled four-season permutation into the three ordered classes, with each class represented eight times. The two-level example uses exact rational traces, determinant, and characteristic-polynomial signs; the clustered product's trace is less than one. The general mathematical argument does not depend on computation. Exact-rational code replayed 9,963 formula/permutation comparisons and the rational invasion reversal. Boundaries \(0<\gamma,\mu<1\) and \(0<b\le1\) are explicitly stated.
+## correctness
 
-## Originality — PASS within inspected evidence
-Bacaër (2009) establishes the general periodic matrix-population/Floquet framework, not the explicit four-season opposite-pair order in the inspected author-hosted full text. Cushing–Ackleh (2011) treats general periodic matrix reproduction numbers, not a demonstrated result with the present fixed-multiset four-season comparisons. Cao–Zhou (2012/2013) covers periodic discrete SIR/SEIS invasion, the closest model overlap: its accessible abstract did not resolve the present exact permutation comparison; inaccessible technical material is expressly a historical-priority risk. Tanaka–Aihara (2012/2013) studies season-pattern epidemic responses, but its accessible abstract does not settle this exact disease-free comparison. Altenberg (2013) provides related spectral-radius rearrangement bounds for different matrix products, and is not shown to imply the present three-class theorem. Searches of published mathematical research records and comparison with related seasonal-order claims did not find an implication covering this discrete four-distinct-level result. A related six-block continuous-time, two-level SEIR season-order statement is not identical to or an immediate stated corollary of the present discrete-time four-distinct-level classification. This is provisional scientific originality, not historical uniqueness or independent verification.
+PASS
 
-## Value — PASS
-The result answers a precise intervention-timing question for a standard latent–infectious epidemic: identical mean and distribution of seasonal transmission levels need not imply the same invasion verdict. Its sharp minimum horizon of four, exact three-class rearrangement rule, and a rational threshold reversal replace general matrix multiplication by one pairing comparison. This is a structural result on the invasion boundary, not a generic textbook invariance or a claim about realized outbreak sizes.
+For 0<γ,μ<1 and transmission b_i in (0,1], the discrete SEIS disease-free infected linearization is M(b)=[[1−γ,b],[γ,1−μ]], a strictly positive 2x2 matrix. Determinant of period-k monodromy equals ∏(ad−cb_i), permutation-invariant. Direct multiplication shows traces for k=1,2,3 symmetric in b_i; for k=4 trace=a⁴+d⁴+c(a²+ad+d²)∑b_i+c²(b1b3+b2b4). With fixed determinant the Perron root strictly increases with trace, so all 24 orderings of four distinct b values yield exactly 3 classes of 8, ordered by pairing of opposite seasons via rearrangement identities. Direct rational matrix recomputation verified formula for permutations and the specific within-range example γ=μ=1/2, L=1/20, H=1: alternating trace 1861/1600, grouped trace 15/16, common det81/25600 and characteristic polynomial at one −4095/25600 versus +1681/25600. These prove distinct invasion/extinction outcomes and minimal schedule sensitivity horizon four. Conclusions only about local disease-free linearization, not nonlinear epidemics.
 
-## Closest literature and limitations
-The nearest exact-model source is Cao–Zhou's paper on discrete periodic SIR/SEIS. Complete technical text was not available; broad matrix-pencil inequalities might also imply a special case not identified here. Local linearization does not control global nonlinear dynamics, and code samples cannot establish general proofs. Priority and scientific correctness have not been independently assessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original all-permutation four-season 3-class ordering and sharp shortest horizon for the stated discrete SEIS monodromy. Bacaër 2009 gives general periodic growth/reproduction matrix methods and Cushing–Ackleh 2012 general periodic matrix thresholds, but not the polynomial opposite-season pairing law or this exact local invasion reversal. Cao–Zhou 2013 and Tanaka–Aihara 2013 address periodic epidemic thresholds and schedule variation but accessible material did not establish this exact 4-season classification; inaccessible portions remain risk, not automatic failure.
+
+## value
+
+PASS
+
+Season sequencing rather than only seasonal average affects invasion, with a sharp first horizon, strict parameter-independent ordering, and an exact pair of schedules having opposite threshold verdicts. These are natural mechanistic consequences of a simple discrete exposed-infectious stage model, not a generic restatement of spectral radius monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
