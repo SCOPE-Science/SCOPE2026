@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script independently enumerates all candidate images of the two algebra generators for each field and parameter, multiplies basis vectors according to the original presentation, rejects failed defining relations, counts algebra automorphisms and idempotent maps, composes every pair of retractions, and constructs the commuting graph. It compares enumerations with the closed endomorphism counts, idempotent counts, all graph component sizes, vertex degrees and edge counts.
+## correctness
 
-## Completed finite checks
+PASS
 
-- Over \(\mathbb F_2\), tested its sole nonzero parameter (exterior).
-- Over \(\mathbb F_3\), tested both nonzero parameters, ordinary-commutative and exterior.
-- Over \(\mathbb F_4\), used a direct arithmetic implementation with irreducible polynomial \(u^2+u+1\), and tested all three nonzero parameters.
-- Over \(\mathbb F_5\), tested all four nonzero parameters, including the exterior, commutative-nonexterior and genuinely quantum regimes.
+The local algebra basis {1,x,y,xy}, xy=lambda yx and radical J=(x,y) force a unital K-linear map to have generator images specified by P=[[a,d],[b,e]] and ell=(c,h). Expansion of squares and commutator imposes (lambda+1)ab=(lambda+1)de=(lambda^2-1)bd=0, and composing gives (P,ell)(Q,m)=(PQ,ell Q+delta(P)m), delta=ae+lambda^-1 bd. Nonexterior idempotent quotient P has only rank-one E_s,F_t types, q lifts each and universal augmentation/identity; comparing products gives precisely one K_{q,q} and 2q(q-1) isolates. Exterior allows all rank-one complementary projection pairs giving q(q+1)/2 copies K_{q,q}; rank 0 and 2 boundaries included. Sparse-column counts yield all three endo/auto rows, including lambda=1=-1 in char 2. Independent direct algebra multiplication and exhaustive q=3 for both lambda=1,2 confirmed endo, auto, idempotent and commuting-edge counts: (225,72,20,9) and (729,432,38,54). Universal claim follows from algebra, not these two finite tests.
 
-All ten parameter instances returned `CHECK_OK`; the script completed with `VERIFY_OK`. The most computationally intensive case includes \(5^6=15625\) possible pairs of radical generator images.
+## originality
 
-## Verification limits
+PASS
 
-The computation uses finite samples of field orders and is not an exhaustive check across prime powers. It is not an independent mathematical audit. The algebraic proof in the main result establishes all finite-field cases. Publication priority beyond inspected literature is unverified.
+Qualified PASS for nonexterior universal compatibility and full endomorphism strata, explicitly treating exterior case as established background.
+
+## value
+
+PASS
+
+The smallest nontrivial two-generator quantum complete intersection is a natural finite deformation family; simultaneous algebra retractions are an intrinsic structural invariant. The parameter-independent nonexterior compatibility graph, abrupt exterior boundary and three endomorphism-count strata form a complete q,lambda classification, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

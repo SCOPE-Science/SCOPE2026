@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The algebra basis and radical condition give unique endomorphism parameters. Direct expansion of the three quadratic defining relations yields the displayed constraints; the composition law follows by evaluating the two generator images and the central socle. Projector ranks \(0,1,2\) exhaust all idempotents. At nonexterior parameters, column sparsity forces the explicit \(E_s,F_t\) projectors; their lifts, commuting products, and clique counts follow without additional assumptions. At the exterior boundary, all rank-one projectors and central labels recover the existing complement-pair decomposition. Field size \(q=2\) and characteristic-two \(\lambda=1=-1\) are addressed. A separate direct algebra-enumeration checker passed for every nonzero parameter in four small finite fields.
+## correctness
 
-## Originality — PASS relative to examined evidence
-The exterior-case commuting graph and its retraction count were previously obtained; those statements alone are not claimed as new. Jin–Zhang's 2022 primary article introduces and studies bi-Frobenius/Hopf structures on the same quantum complete intersection and includes a parameter-resonance phenomenon, but does not derive the present nonexterior idempotent endomorphism graph, clique profile, or three-way monoid-cardinality stratification. Bergh–Erdmann–Jorgensen's 2019 paper discusses module Jordan types, and Bergh–Erdmann's 2007 paper Hochschild (co)homology, not the endomorphism-commutation question. The actual semantic research database searches for the algebra presentation, aliases, retracts, idempotents, and graph terminology returned no directly covering result; however database nonretrieval is not proof of publication priority. Residual risk is prior equivalent classification under the language of split algebra retractions or quantum-plane projection semigroups.
+PASS
 
-## Mathematical value — PASS
-The four-dimensional quantum complete intersection is the smallest nontrivial two-generator finite quantum complete intersection, with a meaningful deformation parameter and a standard exterior boundary. Complete, characteristic-uniform commuting-retraction graphs give compatibility of algebra splittings, their maximal simultaneous splittings, and all clique numbers. The graph unexpectedly stays constant at every nonexterior value while the full endomorphism monoid has a finer three-way arithmetic transition. This is a natural exact structural invariant across an unrestricted finite-field/parameter family, not an isolated census.
+The local algebra basis {1,x,y,xy}, xy=lambda yx and radical J=(x,y) force a unital K-linear map to have generator images specified by P=[[a,d],[b,e]] and ell=(c,h). Expansion of squares and commutator imposes (lambda+1)ab=(lambda+1)de=(lambda^2-1)bd=0, and composing gives (P,ell)(Q,m)=(PQ,ell Q+delta(P)m), delta=ae+lambda^-1 bd. Nonexterior idempotent quotient P has only rank-one E_s,F_t types, q lifts each and universal augmentation/identity; comparing products gives precisely one K_{q,q} and 2q(q-1) isolates. Exterior allows all rank-one complementary projection pairs giving q(q+1)/2 copies K_{q,q}; rank 0 and 2 boundaries included. Sparse-column counts yield all three endo/auto rows, including lambda=1=-1 in char 2. Independent direct algebra multiplication and exhaustive q=3 for both lambda=1,2 confirmed endo, auto, idempotent and commuting-edge counts: (225,72,20,9) and (729,432,38,54). Universal claim follows from algebra, not these two finite tests.
 
-## Remaining limits
-The theorem concerns only finite fields and unital field-linear algebra endomorphisms. It does not establish publication priority or extend to higher exponents. Finite verification corroborates rather than replaces the unrestricted proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for nonexterior universal compatibility and full endomorphism strata, explicitly treating exterior case as established background.
+
+## value
+
+PASS
+
+The smallest nontrivial two-generator quantum complete intersection is a natural finite deformation family; simultaneous algebra retractions are an intrinsic structural invariant. The parameter-independent nonexterior compatibility graph, abrupt exterior boundary and three endomorphism-count strata form a complete q,lambda classification, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
