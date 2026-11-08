@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sample space, root-aligned moments and conditional expectation recurrences are explicit. A strictly concave logarithmic product yields the sign of the root-versus-average moment discrepancy, and the generation-specific covariance identity follows by conditioning on the attachment choice and propagating the squared moment. Exact recursive-tree enumeration with independent pair-distance evaluation passed 399 rational assertions. The asymptotic regimes follow from stable linear recursions and convergent positive series. At the diffusion threshold, Catalan and harmonic series give the exact constant \(2-\pi^2/6\). Finite experiments are diagnostics, not infinite proofs.
+## correctness
 
-**Originality — PASS, qualified.** Inspected Desmarais–Holmgren–Wagner, arXiv:2110.15050 (first posted 28 October 2021), Kürsten, arXiv:1512.05275, and the relevant parts of Addario-Berry–Devroye–Lugosi–Velona, arXiv:2006.11787. They establish marginal color moments/distributions, walker squared moments, percolation clusters or reconstruction risks. The closest historical result on root degree and *root cluster size* has a different random variable and does not imply the joint root-degree/total-quadratic-spin law. The distinct Hosoya-distance-polynomial interpretation was checked for aliases. Historical priority cannot be guaranteed from limited accessible sources.
+PASS
 
-**Value — PASS.** The square of total displacement is a primary observable of the elephant random walk, and root degree records how often its first memory site is directly selected. The uniform positive covariance of every genuinely late attachment holds surprisingly in both persistent and antipersistent regimes. Sharp finite/local formulas, different negative/positive asymptotic orders, and a nontrivial explicit constant at the established diffusion threshold make the result a motivated structural refinement rather than a re-evaluation of unconditional moments.
+On a uniformly attached random recursive tree with independent edge spin signs of mean theta=2p-1, the conditional step recurrences yield mu_{m+1}=(1+theta/m)mu_m and d_{m+1}=(1+2theta/m)d_m+1 for root-aligned spin sum M_m. For q_m=mu_m-d_m/m the source derives (m+1)q_{m+1}=(m+2theta)q_m+(1-theta+theta/m)mu_m-1. The logarithmic product f_m(theta)=log((1-theta+theta/m)mu_m) is strictly concave, zeros at 0,1, giving q_m the same sign as theta for m>=3. Conditional root attachment j at time j and propagation through affine future squared-moment recurrences then yield Cov(I_j,X_n²)=(2theta/(j-1))q_{j-1} prod_{k=j}^{n-1}(1+2theta/k): zero j=2,3; strictly positive j>=4 for theta!=0, including negative theta. Summing gives c4=theta²(1-theta)/9. Negative-theta stable recursion approaches 1/(1-2theta); positive-theta telescoping with a_n~n^(2theta)/Gamma(1+2theta) gives a positive convergent C(theta); at theta=1/2 Catalan generating functions and sum H_m/[m(m+1)]=pi²/6 prove 2-pi²/6. Independently enumerated all attachment parent arrays at small n and pair-distance spin correlations, matching n4 theta=1/2 covariance 1/72; finite cases are not proofs of limits.
 
-**Limitations and risk.** Uniform recursive attachment, independent stationary binary broadcast, and fixed interior parameter are essential. No claim of full stochastic order or general attachment models is made. A broader older treatment of pair-distance generating polynomials or hidden degree-conditioned elephant-walk moments could reduce historical priority; the available searches do not eliminate this risk. No independent mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kürsten (2015/2016) establishes recursive-tree/elephant-walk coupling and unconditional first-two displacement moments. Broadcast-tree color/count and root-reconstruction theory likewise supplies context. Neither the inspected full original Kü rsten theorem passages nor related published SCOPE root-degree vs leaves/path-length results establish the cross genealogy×squared-total-spin covariance profile, its all-interior positive sign or the critical exact coefficient. A possible older degree-conditioned distance-moment theorem remains a priority risk.
+
+## value
+
+PASS
+
+The total squared spin is the primary variance/magnetization observable of the elephant random walk, and root degree measures direct recalls of the initial state. Exact arrival-by-arrival covariance with surprisingly positive sign in both copy and anticopy regimes, the sign-changing scaling orders and the explicit diffusion-threshold constant are natural structural statistics not obtained from marginal moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

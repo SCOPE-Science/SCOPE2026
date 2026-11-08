@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:45:16.284661Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/late-root-attachments-have-universal-positive-covariance-with-sq--452aa576c29a/RESULT.md at assigned tree 7ddc0f8abb2a6221c4fb6f160ed410e65cf3f46a",
+        "2026/11/02/late-root-attachments-have-universal-positive-covariance-with-sq--452aa576c29a/CHECK.py"
+      ],
+      "rationale": "On a uniformly attached random recursive tree with independent edge spin signs of mean theta=2p-1, the conditional step recurrences yield mu_{m+1}=(1+theta/m)mu_m and d_{m+1}=(1+2theta/m)d_m+1 for root-aligned spin sum M_m. For q_m=mu_m-d_m/m the source derives (m+1)q_{m+1}=(m+2theta)q_m+(1-theta+theta/m)mu_m-1. The logarithmic product f_m(theta)=log((1-theta+theta/m)mu_m) is strictly concave, zeros at 0,1, giving q_m the same sign as theta for m>=3. Conditional root attachment j at time j and propagation through affine future squared-moment recurrences then yield Cov(I_j,X_n²)=(2theta/(j-1))q_{j-1} prod_{k=j}^{n-1}(1+2theta/k): zero j=2,3; strictly positive j>=4 for theta!=0, including negative theta. Summing gives c4=theta²(1-theta)/9. Negative-theta stable recursion approaches 1/(1-2theta); positive-theta telescoping with a_n~n^(2theta)/Gamma(1+2theta) gives a positive convergent C(theta); at theta=1/2 Catalan generating functions and sum H_m/[m(m+1)]=pi²/6 prove 2-pi²/6. Independently enumerated all attachment parent arrays at small n and pair-distance spin correlations, matching n4 theta=1/2 covariance 1/72; finite cases are not proofs of limits.",
+      "residual_risks": [
+        "Asymptotics are for fixed interior theta, not uniform as theta approaches endpoints or zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known works analyze recursive-tree broadcast spin moments, fringe colors, root reconstruction, and distinct root-degree/leaf or root-degree/path-length covariances.",
+          "Different observable L_n or path length is not equivalent to X_n² even though all depend on the genealogy."
+        ],
+        "reasoning": "No inspected broad model supplies the target two-variable covariance; remains possible via uninspected general pair-distance generating function.",
+        "searches": [
+          "Kürsten 2015 random recursive trees elephant random walk",
+          "Desmarais Holmgren Wagner broadcasting recursive tree counts",
+          "Resultary equal-share root degree leaves recursive tree"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py tree 7ddc0f8abb2a6221c4fb6f160ed410e65cf3f46a",
+        "Kürsten arXiv:1512.05275 primary HTML moment sections",
+        "Desmarais–Holmgren–Wagner arXiv:2110.15050",
+        "Addario-Berry et al arXiv:2006.11787 root reconstruction context",
+        "Resultary root-degree/leaves and path-length statements, query: recursive trees broadcast spins root degree squared magnetization covariance elephant random walk"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior unconditional second-moment recursion is d_{m+1}=(1+2theta/m)d_m+1.",
+          "The joint per-arrival covariance requires conditioning on P_j=1 and deriving q_j sign, then summing; this does not follow from E X_n² alone."
+        ],
+        "reasoning": "Established marginal recurrences are credited as premises; novel claim is exact cross-covariance and limits.",
+        "searches": [
+          "Kürsten arxiv:1512.05275 displacement second moment",
+          "Desmarais Holmgren Wagner arxiv:2110.15050 broadcast recursion",
+          "recursive trees broadcast spins root degree squared magnetization covariance elephant random walk"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kürsten’s recursion for unconditional squared displacement matches d_m, an input to the proof.",
+          "Degree vs total squared spin requires joint root-attachment indicators and all-pair distance-weighted spin correlations, not merely a root-percolation-cluster statistic."
+        ],
+        "reasoning": "Compared aliases elephant displacement, magnetization squared and degree-conditioned distance polynomial; cross-covariance is additional joint distribution information.",
+        "searches": [
+          "recursive trees broadcast spins root degree squared magnetization covariance elephant random walk",
+          "Kürsten recursive tree elephant random walk root degree squared displacement covariance",
+          "Hosoya distance polynomial random recursive tree broadcasting spins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact small-tree enumeration confirms algebraic profile, but finite table does not imply the asymptotic constants.",
+          "2-pi²/6 arises from a specific Catalan–harmonic infinite-series evaluation at theta=1/2."
+        ],
+        "reasoning": "No equivalent exact table located; the invariant is a natural global graph/broadcast pair statistic rather than arbitrary small-n enumeration.",
+        "searches": [
+          "recursive trees broadcast spins root degree squared magnetization covariance elephant random walk",
+          "elephant random walk root degree squared magnetization exact 2-pi2/6"
+        ]
+      },
+      "rationale": "Kürsten (2015/2016) establishes recursive-tree/elephant-walk coupling and unconditional first-two displacement moments. Broadcast-tree color/count and root-reconstruction theory likewise supplies context. Neither the inspected full original Kü rsten theorem passages nor related published SCOPE root-degree vs leaves/path-length results establish the cross genealogy×squared-total-spin covariance profile, its all-interior positive sign or the critical exact coefficient. A possible older degree-conditioned distance-moment theorem remains a priority risk.",
+      "residual_risks": [
+        "An older general joint root-degree/Hosoya distance-moment result could imply the precise covariance.",
+        "Asymptotics are for fixed interior theta, not uniform as theta approaches endpoints or zero.",
+        "Proof does not establish stronger stochastic domination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS coupling, marginal moments and threshold; joint root-degree times squared total spin not identified in read portions",
+          "evidence": "Kürsten (2015/2016), recursive-tree moment recurrence.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.05275",
+          "material_read": "Primary accessible full manuscript HTML relevant coupling equations and first/second moment sections, including equation 17 and root cluster discussion",
+          "method": "Primary HTML equations and proposition comparison",
+          "title": "Random Recursive Trees and the Elephant Random Walk",
+          "trigger": "Same random tree/broadcast coupling and elephant-walk moments"
+        },
+        {
+          "assessment": "Studies broadcast colored tree counts/clusters; exact root-degree squared magnetization not proven absent from unread text",
+          "evidence": "Desmarais–Holmgren–Wagner (2021).",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15050",
+          "material_read": "Accessible primary bibliographic/abstract and source comparison, not claimed full article read",
+          "method": "OA abstract and literature characterization",
+          "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+          "trigger": "Same broadcast tree with color counts"
+        },
+        {
+          "assessment": "COVERS root-degree/leaf-count covariance, not squared global broadcast spin",
+          "evidence": "Resultary published record summary, covariance (n-2)/(2(n-1)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "material_read": "Published semantic summary and exact statement returned by Resultary; full record not read",
+          "method": "Resultary semantic search",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Published exact root-degree covariance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py tree 7ddc0f8abb2a6221c4fb6f160ed410e65cf3f46a",
+        "Kürsten arXiv:1512.05275 primary HTML moment sections",
+        "Desmarais–Holmgren–Wagner arXiv:2110.15050",
+        "Addario-Berry et al arXiv:2006.11787 root reconstruction context",
+        "Resultary root-degree/leaves and path-length statements, query: recursive trees broadcast spins root degree squared magnetization covariance elephant random walk"
+      ],
+      "rationale": "The total squared spin is the primary variance/magnetization observable of the elephant random walk, and root degree measures direct recalls of the initial state. Exact arrival-by-arrival covariance with surprisingly positive sign in both copy and anticopy regimes, the sign-changing scaling orders and the explicit diffusion-threshold constant are natural structural statistics not obtained from marginal moments.",
+      "residual_risks": [
+        "An older general joint root-degree/Hosoya distance-moment result could imply the precise covariance.",
+        "Asymptotics are for fixed interior theta, not uniform as theta approaches endpoints or zero.",
+        "Proof does not establish stronger stochastic domination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older general joint root-degree/Hosoya distance-moment result could imply the precise covariance.",
+    "Asymptotics are for fixed interior theta, not uniform as theta approaches endpoints or zero.",
+    "Proof does not establish stronger stochastic domination."
+  ],
+  "schema_version": 1
+}
