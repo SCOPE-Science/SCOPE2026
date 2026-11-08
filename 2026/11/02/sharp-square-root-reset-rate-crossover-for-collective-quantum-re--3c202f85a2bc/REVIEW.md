@@ -1,11 +1,21 @@
-# Scientific review: sharp square-root reset-rate crossover
+# Independent mathematical audit
 
-**Correctness — PASS.** The coherent-overlap formula follows from the source's conditional product wave function and the normalized harmonic coherent-state displacement. Integrating over two independent exponential ages gives the exact Laplace integral; its Fourier series is absolutely convergent. A second construction via a collective coherent oscillator and Poisson Fock populations reconstructs the identical purity. Strict monotonicity is immediate from strictly positive modified-Bessel coefficients. Fixed-rate asymptotics use dominated convergence with the sharp normalized Bessel limit and a summable Fourier multiplier. The three crossover regimes follow respectively from bounded convergence, the cosine inequality, and the uniform Bessel bound. The numerical checker passed 120 comparisons; its finite tests are corroboration, not proof of the asymptotics.
+## correctness
 
-**Originality — PASS, subject to listed residual risk.** The originating paper's common-age mixture, its correlated position observables, and the general stationary quantum-resetting spectral representation are established prior work. The specific mathematical claim compared is the evaluated stationary quantum purity for every reduced particle number, its exact fixed-rate coefficient, and the sharp \(\sqrt N\) crossover with full universal profile. Inspected relevant primary texts on harmonic boson resetting, spin purity under resetting, broader collective quantum resetting, and spectral stationary-state formulae do not state this combined evaluated result. Broad phase-diffusion identities might imply individual formulas, so independent priority verification is still advisable.
+PASS
 
-**Mathematical value — PASS.** The reset-rate scaling that keeps a large quantum gas at nontrivial stationary purity is a natural control question. Its sharp trichotomy separates macroscopic purity collapse, a universal mixedness window, and near-pure reinitialization. The exact coefficient for fixed rates and log-entropy combination quantify the collective effect and distinguish classical common-history correlation from particle-label entanglement. This is not merely a computational variant of an already-tabulated invariant.
+The stationary density is an exponential-age convex mixture of n-fold coherent product states. Squared coherent overlap is exp[−b(1−cos(ω(t−s)))] with b=4a²/σ², and difference of independent exponential reset ages has bilateral Laplace law, giving the exact purity integral P_n=α∫exp(−αu−bn(1−cos u))du. Positive absolutely convergent Bessel Fourier series yields the stated I_k-weighted expression and strict α-monotonicity. Fixed-rate e^(−z)I_k(z)~(2πz)^(−1/2), summably dominated by I_0, gives the coth coefficient and the entropy combination. For α_N/sqrt(bN)→c finite, V~Exp(1) dominated convergence yields F(c)=c sqrt(π/2)exp(c²/2)erfc(c/sqrt2); Bessel upper bound and cosine inequality give endpoints c=0,∞. Independent numerical Laplace-integral/Bessel checks at twelve positive parameter points and three critical scalings matched. The state is separable over particle labels and the entropy combination is not an entanglement measure.
 
-**Closest literature and limits.** Kulkarni–Majumdar–Sabhapandit (arXiv:2407.20342) provides the bosonic protocol and mixture. Kulkarni–Majumdar (arXiv:2307.07485) computes purity in an interacting spin system. Magoni et al. (arXiv:2202.12655) considers other collective quantum-resetting correlations. Rose et al. (arXiv:1806.01298) provides general stationary spectral representations. Neither a claim of new general regeneration theory nor mode-entanglement certification is made. An unidentified general coherent phase-mixture theorem remains a priority risk. The proof is analytic; reproducibility tests are finite.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kulkarni–Majumdar–Sabhapandit establish the simultaneous-reset noninteracting boson model and stationary common-age structure. Rose et al supply a general reset spectral representation, and Magoni et al study broad resetting correlations. The explicit all-n coherent-state purity, full fixed-rate asymptotic and universal sqrt(n) scaling are not established by the inspected source statements, but a highly relevant primary full text was unavailable; historical priority remains a clearly stated material risk.
+
+## value
+
+PASS
+
+Macroscopic purity is a natural measurable spectral invariant of a mixed quantum ensemble; the exact reset-rate scaling required to avoid purity collapse classifies a meaningful many-particle regime and distinguishes collective classical correlations from particle-label entanglement. More than applying a generic regeneration formula, it supplies sharp constants and a universal crossover function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
