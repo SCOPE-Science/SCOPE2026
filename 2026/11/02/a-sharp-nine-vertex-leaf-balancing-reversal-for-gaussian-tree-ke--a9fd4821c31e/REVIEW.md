@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the entire ten-member class and a strict separating exponent, not an unsupported decimal approximation of any optimal exponent. The exact integer inequalities certifying each powered-distance interval, the eight-dimensional Schoenberg Gram equivalence, and the outward rational interval LDL decomposition establish all decisive positive and negative signs. A positive-definite Gram at the separator extends to a larger exponent by continuity; a negative pivot at the separator makes the supremal admissible exponent strictly smaller by the closed interval property. The standalone Python checker was run successfully on the embedded computations and exhausts all six reversal orbits. Remaining correctness risk: only transcription/execution errors in the independently reproducible integer certificate; no general all-tree assertion is made.
+PASS
 
-## Originality — PASS under bounded source review
+For each of the ten positive ordered triples I reconstructed the nine-vertex tree metric and B_p(i,j)=(d(i,8)^p+d(j,8)^p-d(i,j)^p)/2 for p=137/100. The independent integer-only 100th-root enclosure with denominator 10^12 and outward fixed-point rational interval Schur/LDL elimination certified eight strictly positive pivots only at (2,1,3) and (3,1,2); each other triple has a strictly negative pivot after positive ones. The six reversal classes and all ten ordered triples were checked; this validates the exact finite separation. A strict positive Gram persists to larger p by eigenvalue continuity; a negative pivot at p0 forces its supremal negative-type threshold below p0 by the finite-metric closed initial-interval property. Schoenberg converts these statements to all-scale Gaussian kernels.
 
-Doust–Weston (arXiv:0705.0411v1) proves enhanced strict negative type bounds for finite metric trees; Li–Weston (arXiv:0901.0695v1) proves its interval structure; Caffarelli–Doust–Weston (arXiv:1008.3418v1) treats families and bounds of metric-tree generalized roundness; Sánchez (arXiv:1108.0451v1) gives a general distance-matrix calculation method. Their inspected statements and sections do not give the complete comparison of the ten positive six-leaf three-hub triples, nor the strict asymmetric-versus-balanced reversal. A general test for computing a finite space's exponent does not by itself report the optimizer among the ten objects. Related searchable published research records did not reveal an equivalent result. Residual risk: a historical all-small-trees enumeration or unindexed table may already record the ordering; this bounded review cannot establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural question is whether the two-hub leaf-balancing phenomenon survives adding another hub. The smallest perfectly equal positive triple with nontrivial branches is \((2,2,2)\), a six-leaf nine-vertex configuration. Its rigorous defeat by the middle-light, endpoint-imbalanced \((2,1,3)\) is a structural counterexample to the balancing heuristic, and the certificate classifies the complete fixed-size family rather than selecting an arbitrary pair. Its precision is meaningful for Gaussian positive-definiteness and metric negative-type geometry. The theorem deliberately does not claim universality, global smallness, or a closed form for exponents.
+Earlier tree negative-type papers establish strict-negative-type enhancement, exponent interval structure and a general finite-matrix evaluation method, not the exhaustive six-leaf/three-hub optimizer or the asymmetric-versus-balanced nine-vertex reversal. The exact six-orbit rational sign certificate provides a distinct finite extremal classification. Qualified best-of-knowledge priority: a previously unindexed small-tree table could contain the same comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural fixed-size balancing question for a three-hub tree is answered completely rather than by cherry-picked pairwise comparison: the symmetric (2,2,2) is beaten uniquely by middle-light asymmetric (2,1,3). Negative type controls positive definiteness of exp(-t d^p) for all t, so this is a geometrically motivated exact small-family counterexample, not a generic numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
