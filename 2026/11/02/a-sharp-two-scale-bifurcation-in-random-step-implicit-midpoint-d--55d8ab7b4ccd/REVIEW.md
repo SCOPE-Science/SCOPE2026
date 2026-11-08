@@ -1,19 +1,21 @@
-# Review of the binary-step midpoint damping theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an exact global classification on \(h>0\) at each fixed \(a\ge0\) and \(\lambda>0\). The midpoint amplification is derived directly from the implicit update, and independence yields the all-horizon mean-square formula. Hyperbolic addition converts the objective to the rational function \(Q_c(y)=1-2(1+cy)/(y+c)^2\) over \(y\ge1\). Its derivative has at most one admissible zero, giving the unique central optimum, the two asymmetric optima and the explicit value formulas. The critical quartic, square-root split and distinct zero-atom almost-sure extinction are independently derived. A standalone symbolic/numerical verifier passes 6,847 check groups, but numerical checks do not substitute for the proof. No unresolved critical lemma remains within the stated scalar model.
+PASS
 
-## Originality — PASS, with priority risk
+Midpoint update multiplier R(H)=(1−lambda H/2)/(1+lambda H/2)=−tanh((x±a)/2) where x=log(lambda h/2). Independence gives E|u_N|²=|u0|² q_a(x)^N and q_a(x)=1−2(1+cosh(a)cosh(x))/(cosh(a)+cosh(x))². For c=cosh(a), y=cosh(x)>=1, Q_c'(y)=2(cy+2−c²)/(y+c)³. Therefore one optimum x=0 for 1<=c<=2 and two x=±arcosh(c−2/c) for c>2; q minima are (c−1)/(c+1) and (c²−2)/(2(c²−1)). At c=2 expansion is 1/3+x^4/54+O(x^6); arcosh inversion gives x*=sqrt(3sqrt3)*sqrt(a−a_c)+O((a−a_c)^(3/2)). A midpoint atom vanishes only at x=±a, strictly distinct from optimal |x|<a for a>0; hitting that atom has geometric waiting time with p=1/2 and worse mean-square value. Independently verified derivative and quartic symbolic identities and scanned 1400 mean-square/global test points. Per-iteration objective only, not per unit physical time.
 
-Abdulle and Garegnani (arXiv:1801.01340, Sections 2, 6–7 and numerical examples) treat random positive time steps and midpoint geometric conservation, but do not derive mean-square optimal binary-step scale bifurcation or a sharp \(7+4\sqrt3\) ratio. Lie–Stahn–Sullivan (arXiv:2103.16506; published Calcolo 2022) study general strong error bounds, including nonuniform grids, primarily with additive solver randomization. Neither claim implies a classification of geometric two-atom step designs on scalar dissipative modes. A related earlier mathematical result, *Three sharp optimal stage laws for mean-preserving randomized implicit Runge–Kutta damping*, optimizes the **stage parameter law** at fixed scaled step, whereas the present theorem fixes two physical step-length ratios and optimizes their **common scale**; the different feasible sets and update maps preclude an immediate implication. Other accessible midpoint works concern oscillatory dynamics, injected noise or stage coupling. A published scalar Polyak analysis contains the same number \(7+4\sqrt3\), but that numerical coincidence is not a proof of overlap. Relevant specialized older variable-step/multiplicative-process literature has not been exhaustively inspected.
+## originality
 
-## Value — PASS
+PASS
 
-Random-time-step integration and pseudo-time relaxation motivate a natural binary uncertainty model: the two lengths have a fixed geometric ratio and each numerical update has comparable solve cost. The finding completely solves the optimal mean-square damping-per-step design, determines a sharp qualitative transition from one to two global optimizers, and isolates the critical quartic sensitivity and square-root splitting. Its exact contrast with an almost-sure finite-termination design warns that pathwise and mean-square criteria can choose different scales. These are not consequences of standard \(A\)-stability alone. The result is deliberately restricted to the scalar model and does not claim broader solver dominance or fixed-physical-time accuracy.
+Implicit midpoint stability multiplier and A-stability are classical; Abdulle–Garegnani analyze randomized physical time steps for integration accuracy and geometric properties; Lie–Stahn–Sullivan study randomized numerical integration error including additive perturbations. Neither inspected work has the exact fixed-log-spread, cost-per-update scalar mean-square optimization with pitchfork 7+4sqrt3. A published related stage-law optimization varies implicit-stage parameter rather than the physical time-step scales, so matching numeric constants need not indicate equivalent feasible sets. Older stochastic rational recurrence literature remains risk.
 
-## Residual limitations
+## value
 
-Independent validation was not performed. Equal probabilities, independent choices, scalar curvature, exact arithmetic and fixed-iteration-count objective are material. The relationship to niche historical studies of random rational recursions remains a publication-priority uncertainty, not an unresolved mathematical step.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Binary uncertainty in positive time steps is a natural stochastic numerical relaxation design. A complete optimal per-step damping classification, exact symmetry breaking, quartic critical sensitivity, and contrast between expected squared residual and pathwise exact finite stopping provide useful mathematical structure. The model is deliberately scalar and fixed-update-count; it does not claim general numerical accuracy superiority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

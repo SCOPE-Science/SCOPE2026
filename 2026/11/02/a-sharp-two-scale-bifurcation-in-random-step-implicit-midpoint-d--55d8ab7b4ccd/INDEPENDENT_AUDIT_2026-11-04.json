@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:56:32.194823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Midpoint update multiplier R(H)=(1−lambda H/2)/(1+lambda H/2)=−tanh((x±a)/2) where x=log(lambda h/2). Independence gives E|u_N|²=|u0|² q_a(x)^N and q_a(x)=1−2(1+cosh(a)cosh(x))/(cosh(a)+cosh(x))². For c=cosh(a), y=cosh(x)>=1, Q_c'(y)=2(cy+2−c²)/(y+c)³. Therefore one optimum x=0 for 1<=c<=2 and two x=±arcosh(c−2/c) for c>2; q minima are (c−1)/(c+1) and (c²−2)/(2(c²−1)). At c=2 expansion is 1/3+x^4/54+O(x^6); arcosh inversion gives x*=sqrt(3sqrt3)*sqrt(a−a_c)+O((a−a_c)^(3/2)). A midpoint atom vanishes only at x=±a, strictly distinct from optimal |x|<a for a>0; hitting that atom has geometric waiting time with p=1/2 and worse mean-square value. Independently verified derivative and quartic symbolic identities and scanned 1400 mean-square/global test points. Per-iteration objective only, not per unit physical time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lie–Stahn–Sullivan arXiv:2103.16506 full accessible introduction concerns randomized one-step solver error bounds and additive perturbations.",
+          "Hairer–Lubich–Wanner gives the deterministic midpoint rational stability function, not fixed binary log-spread optimization."
+        ],
+        "reasoning": "General random time-grid numerical-analysis results do not by themselves imply the c=2 symmetry-breaking pitchfork or the pathwise-vs-mean-square design dichotomy.",
+        "searches": [
+          "Resultary: random step implicit midpoint damping rate optimal fixed ratio",
+          "Lie Stahn Sullivan randomised one-step time integration deterministic operator differential equations",
+          "Hairer Lubich Wanner implicit midpoint stability function"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 9fb8b6f7fe7b0f05279ea1e2909c6d664accac8b",
+        "Frozen verify.py 7d5137fede3517aacdcb80a909581ecb7bc5349d",
+        "Abdulle/Garegnani arXiv:1801.01340",
+        "Lie/Stahn/Sullivan arXiv:2103.16506",
+        "Resultary: random step implicit midpoint damping rate optimal fixed ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stage-randomization chooses an internal implicit-stage parameter distribution at fixed scaled step; here a is fixed and h controls both physical step lengths.",
+          "The terminal objective is E|u_N|² at fixed iteration N, not expected solution error at deterministic physical time."
+        ],
+        "reasoning": "Different objective and feasible set prevent direct corollary from known stage-law or time-randomized error theorems; a broader stochastic multiplier optimization theorem could still subsume after mapping.",
+        "searches": [
+          "Resultary: random step implicit midpoint damping rate optimal fixed ratio",
+          "stage law random implicit Runge Kutta mean preserving optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abdulle–Garegnani arXiv:1801.01340 develop random time-step geometric integration and error analysis.",
+          "Assigned proof optimizes a geometric-mean step h at fixed two-point log spread a for scalar dissipative mode."
+        ],
+        "reasoning": "Randomized time steps appear in prior methods, but their accuracy/stability frameworks are not an exact global scalar mean-square per-iteration optimizer classification.",
+        "searches": [
+          "Resultary: random step implicit midpoint damping rate optimal fixed ratio",
+          "Abdulle Garegnani random time step implicit midpoint numerical integration 2018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact boundary ratio = exp(2 arcosh2)=7+4sqrt3, derived from rational derivative sign.",
+          "Resultary retrieved other scalar optimizer and PDHG thresholds but no equal-probability physical-step midpoint two-atom matching class."
+        ],
+        "reasoning": "No natural exact table/database of random-step scalar contraction minima identified; numerical coincidence of constant with another algorithmic result does not imply equivalent theorem.",
+        "searches": [
+          "Resultary: random step implicit midpoint damping rate optimal fixed ratio",
+          "7+4sqrt3 two scale random step midpoint optimal damping"
+        ]
+      },
+      "rationale": "Implicit midpoint stability multiplier and A-stability are classical; Abdulle–Garegnani analyze randomized physical time steps for integration accuracy and geometric properties; Lie–Stahn–Sullivan study randomized numerical integration error including additive perturbations. Neither inspected work has the exact fixed-log-spread, cost-per-update scalar mean-square optimization with pitchfork 7+4sqrt3. A published related stage-law optimization varies implicit-stage parameter rather than the physical time-step scales, so matching numeric constants need not indicate equivalent feasible sets. Older stochastic rational recurrence literature remains risk.",
+      "residual_risks": [
+        "Prior scalar rational stability/optimal binary-scale results may be indexed under different terminology.",
+        "Explicit almost-sure zero requires exact arithmetic and exact atom parameter matching, not finite precision.",
+        "No per-physical-time optimality or nonlinear/multispectral generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "random-time-step methodology background, not examined fixed-spread mean-square optimal step scale",
+          "evidence": "Abdulle–Garegnani arXiv:1801.01340",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01340",
+          "material_read": "abstract, introduction and stated accuracy/geometric objectives (not full original proof)",
+          "method": "arXiv available publication overview",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "same randomized time increments and implicit midpoint"
+        },
+        {
+          "assessment": "stochastic error propagation under randomization, not displayed two-atom scale pitchfork",
+          "evidence": "Lie–Stahn–Sullivan arXiv:2103.16506; Calcolo 59 (2022) 13",
+          "identifier_or_url": "https://arxiv.org/abs/2103.16506",
+          "material_read": "accessible full open text introduction, model and primary objectives",
+          "method": "full open primary article and abstract/introduction inspection",
+          "title": "Randomised one-step time integration methods for deterministic operator differential equations",
+          "trigger": "broader randomized solver error theory"
+        },
+        {
+          "assessment": "implicit midpoint stability rational function is background, not claimed novel",
+          "evidence": "Hairer–Lubich–Wanner 2nd ed. 2006",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-30666-8",
+          "material_read": "classic-method bibliographic reference; not newly read in full",
+          "method": "background citation",
+          "title": "Geometric Numerical Integration",
+          "trigger": "classical midpoint stability function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Binary uncertainty in positive time steps is a natural stochastic numerical relaxation design. A complete optimal per-step damping classification, exact symmetry breaking, quartic critical sensitivity, and contrast between expected squared residual and pathwise exact finite stopping provide useful mathematical structure. The model is deliberately scalar and fixed-update-count; it does not claim general numerical accuracy superiority.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 9fb8b6f7fe7b0f05279ea1e2909c6d664accac8b",
+    "Frozen verify.py 7d5137fede3517aacdcb80a909581ecb7bc5349d",
+    "Abdulle/Garegnani arXiv:1801.01340",
+    "Lie/Stahn/Sullivan arXiv:2103.16506",
+    "Resultary: random step implicit midpoint damping rate optimal fixed ratio"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Prior scalar rational stability/optimal binary-scale results may be indexed under different terminology.",
+    "Explicit almost-sure zero requires exact arithmetic and exact atom parameter matching, not finite precision.",
+    "No per-physical-time optimality or nonlinear/multispectral generalization."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Scalar linear decay only, independent equiprobable positive two-step lengths, exact implicit solve, fixed count N of iterations, cost per iteration, no physical-time normalization."
+}
