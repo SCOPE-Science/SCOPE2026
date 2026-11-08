@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:07:51.232037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact rectangular torus T=∏(R/a_i Z) with quotient l_infinity metric, independent Haar-uniform points induce independent U_i uniform on [0,c_i=a_i/2] in each shortest circular coordinate. D has the law max_i U_i, so F(t)=∏_i min(t/c_i,1). The small-t log-log slope recovers d; jumps of tF'/F at the thresholds recover every c_i and multiplicity, including the terminal jump. This is an injective metric-parameter reconstruction only within rectangular max-Finsler tori, not Euclidean quotient tori. On (0,b=max_i c_i), m(t)=tF'/F lies in {1,...,d}; F(t)/t^d is nonincreasing and F(t)/t is nondecreasing. Inverse quantile Q therefore has Q(u)/u^(1/d) nondecreasing and Q(u)/u nonincreasing. For p>q>0 interpolate positive increasing quantile functions A to B with B/A monotone via Z_t=A^(1−t) B^t. Derivative of log(E Z_t^p/(E Z_t^q)^(p/q)) is p times the difference of log(B/A) expectations under p- and q-size biased measures; monotone likelihood ratio makes it of the appropriate strict sign. This gives exact bounds [d/(d+p)]/[d/(d+q)]^(p/q) <= ratio < [1/(1+p)]/[1/(1+q)]^(p/q), lower equality precisely when all side lengths agree; degenerate lengths approaching zero give sharp unattained upper value. The p=2,q=1 bound becomes 1+1/[d(d+2)] <= E[D²]/(ED)² < 4/3. The pinned verify.py's exact piecewise CDF integration is consistent with this derivation; independent rational calculation of 205 sorted length profiles across d=2..6 confirmed samples. Neither finite checks nor citation to star ordering replaces the full quantile proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krieger 1991 stochastic orderings induced by star-shaped utilities (first abstract/introduction and section 2)",
+          "Shaked–Shanthikumar standard stochastic-order framework",
+          "Kochar–Torrado 2015"
+        ],
+        "reasoning": "General star/quantile-ratio stochastic orders are capable of implying relative dispersion once a special quantile comparison is proved, so their coverage must be acknowledged. The inspected largest-order-statistic results compare distinct heterogeneous laws under vector majorization; neither directly supplies the extreme uniform-d and uniform-1 envelopes with inverse rigidity.",
+        "searches": [
+          "Resultary: rectangular flat torus max metric moment bounds inverse rigidity",
+          "Kochar–Torrado, arXiv:1506.03258, full nineteen-page primary PDF",
+          "Krieger 1991 DOI:10.1155/S016117129100087X, publicly accessible 1991 PDF",
+          "Shaked–Shanthikumar, Stochastic Orders (2007), Chapters 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Kochar–Torrado, arXiv:1506.03258 (full preprint)",
+        "Krieger, DOI:10.1155/S016117129100087X (initial PDF sections)",
+        "Shaked–Shanthikumar, Stochastic Orders (2007) standard theory (book bibliographic reference only)",
+        "Resultary published semantic query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinned RESULT.md step 2 log-slope and step 3 interpolation proof",
+          "Kochar–Torrado 2015 theorem hypotheses on scale-vector majorization"
+        ],
+        "reasoning": "Known star-order inequality alone would yield the moment ratio comparison only after proving that this max-of-uniforms quantile Q lies between u^(1/d) and u in the requisite monotone-ratio sense. The elementary CDF log-slope verifies this extra hypothesis; classical inverse-distribution theory does not by itself recover the individual torus side lengths without that exact product CDF.",
+        "searches": [
+          "Resultary: rectangular flat torus max metric moment bounds inverse rigidity",
+          "Kochar–Torrado, arXiv:1506.03258, full nineteen-page primary PDF",
+          "Krieger 1991 DOI:10.1155/S016117129100087X, publicly accessible 1991 PDF",
+          "Shaked–Shanthikumar, Stochastic Orders (2007), Chapters 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kochar–Torrado arXiv:1506.03258 Sections on largest scale order statistics",
+          "Pinned RESULT.md quantile-sandwich proof"
+        ],
+        "reasoning": "Equivalent order-statistic formulation is max of independent heterogeneous uniforms; the moments are quantile moments. Prior scale-model largest-order-statistic comparisons involve general scale majorization but no identified rectangular-torus inverse CDF law or simultaneous full p/q extrema.",
+        "searches": [
+          "Resultary: rectangular flat torus max metric moment bounds inverse rigidity",
+          "Kochar–Torrado, arXiv:1506.03258, full nineteen-page primary PDF",
+          "Krieger 1991 DOI:10.1155/S016117129100087X, publicly accessible 1991 PDF",
+          "Shaked–Shanthikumar, Stochastic Orders (2007), Chapters 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concern flat-torus systolic profiles, parallelogram width moments and Fourier apertures, not max-Finsler Haar distances"
+        ],
+        "reasoning": "No exact rectangular-max-torus law table or all-real exponent dispersion table appears in the inspected literature/Resultary returned records; however the CDF is elementary and a hidden equivalent star-order theorem could indirectly cover the inequalities.",
+        "searches": [
+          "Resultary: rectangular flat torus max metric moment bounds inverse rigidity",
+          "Kochar–Torrado, arXiv:1506.03258, full nineteen-page primary PDF",
+          "Krieger 1991 DOI:10.1155/S016117129100087X, publicly accessible 1991 PDF",
+          "Shaked–Shanthikumar, Stochastic Orders (2007), Chapters 3–4"
+        ]
+      },
+      "rationale": "The inverse distribution formula and inequalities are phrased here as exact invariants of max-Finsler rectangular tori, not new general principles of star or dispersive order. Kochar–Torrado 2015 compare maxima of scale families via likelihood-ratio/reversed-hazard/majorization, rather than explicitly identifying this two-sided all-real-exponents optimum for max-of-uniforms or the length reconstruction. Generic star-order principles are acknowledged and might imply the moment inequalities as a corollary once the particular quantile-ratio sandwich is established. A materially relevant stronger general majorization theorem remains an originality risk, especially because corollary coverage counts even if its parameters differ. The full-law inverse rigidity remains a distinct exact geometric claim.",
+      "residual_risks": [
+        "General star-transform/quantile-ratio orders might contain a theorem whose special-case implication is exactly the moment bounds; complete literature priority remains provisional.",
+        "The log-slope reconstruction is elementary and the mathematical advance is restricted to this specific natural metric family; broader inverse-torus claims are not made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Treats largest order statistic comparison for scale families; no evaluated rectangular max-torus inverse parameter recovery or universal two-sided normalized moment envelope located",
+          "evidence": [
+            "The paper compares largest order statistics of generalized gamma/scale models and reversed-hazard orders, not the full geometric reconstruction law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03258",
+          "material_read": "Full 19-page public preprint, model and theorem sections, visually checked PDF",
+          "method": "arXiv full primary PDF and PDF screenshot",
+          "title": "On stochastic comparisons of largest order statistics in the scale model",
+          "trigger": "Same maximum of heterogeneous scales and likelihood-ratio ordering under majorization"
+        },
+        {
+          "assessment": "Studies stochastic orders induced by star-shaped utility functions; no whole-document claim of absence of a quantile-ratio moment theorem",
+          "evidence": [
+            "Krieger, International Journal of Mathematics and Mathematical Sciences 14 (1991), pp.639–664, abstract and Section 1–2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/S016117129100087X",
+          "material_read": "Public abstract and introduction, opening definitions and Section 2 beginning of 1991 PDF text; complete whole-document coverage not asserted",
+          "method": "Open public primary PDF text (first section; visual screenshot retrieval unavailable)",
+          "title": "Stochastic orderings induced by star-shaped functions",
+          "trigger": "Possible generic order mechanism implying dispersion moment comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The random-distance distribution is a natural inverse geometric observable. Within this explicit rectangular max-norm torus family it determines dimension and every circle length, unlike a finite low-order moment; sharp normalized dispersion envelopes for every p>q quantify the exact extremal isotropy-versus-collapse behavior. This is a self-contained complete inverse classification and sharp all-exponent bound with uniquely characterized extremizers, not merely a recomputed random-sampling table. Its restricted norm and product metric are essential and clearly stated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kochar–Torrado, arXiv:1506.03258 (full preprint)",
+    "Krieger, DOI:10.1155/S016117129100087X (initial PDF sections)",
+    "Shaked–Shanthikumar, Stochastic Orders (2007) standard theory (book bibliographic reference only)",
+    "Resultary published semantic query above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Rectangular product max-Finsler quotient metric with all positive circle lengths, d>=2, exact population Haar law and real p>q>0.",
+    "No skew tori, Euclidean metric, distribution estimation or finite moments recovery asserted; possible stronger star-order corollary priority risk."
+  ],
+  "schema_version": 1
+}
