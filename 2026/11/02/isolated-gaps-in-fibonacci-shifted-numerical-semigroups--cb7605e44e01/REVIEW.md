@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published, exact Zeckendorf Apéry formula, deduces the necessary and sufficient neighboring-membership inequalities in each residue including the terminal residue, and identifies the local maxima of the summand-count function using only the identities \(2F_2=F_3\) and \(2F_2+F_4=F_5\). The forced pair of low indices yields the independent-subset classification. The binomial and Fibonacci counts follow by exact enumeration of independent sets of a path. A separate dynamic-programming implementation tested all gaps for 20 complete parameter values, including boundary cases.
+## correctness
 
-## Originality
-PASS within available evidence. The original shifted-Fibonacci semigroup paper determines Apéry representatives, Frobenius numbers, genus, and Wilf's inequality, but does not state an isolated-gap classification. The 2025 generalization determines pseudo-Frobenius numbers and types, which do not imply the isolated-gap count without a separate neighboring-membership analysis. The 2023/2024 perfect-semigroup paper develops general theory and algorithms for isolated gaps, with no Fibonacci-specific closed result found. No matching prior result appeared in targeted literature searches or semantic mathematical-record searches. Because the result is derived from a known complete Apéry description, an implicit earlier derivation remains a substantive residual risk.
+PASS
 
-## Mathematical value
-PASS. Isolated gaps are the local obstruction underlying perfect numerical semigroups. The theorem gives every isolated gap of a natural, previously studied infinite family, a Fibonacci cardinality law, a binomial grading and a sharp largest-isolated-gap distinction by parity. Those facts are not simply the genus or the pseudo-Frobenius type re-expressed; they describe a finer adjacency structure of the gap set.
+Robles-Pérez--Rosales Theorem4.6 proves Apéry w(r)=m beta(r)+r where beta counts Zeckendorf summands; hence qm+r is in S iff q>=beta(r). If a gap g=qm+r has both adjacent integers in S, comparison of beta(r-1),beta(r+1) forces q=beta(r)-1 and strict local maximum of beta (terminal residue separately). The left rise occurs iff digit index 2 appears; with it, right fall occurs iff digit index 4 also appears, by normalization of 2F2+F4=F5; at terminal r=m-1 parity is handled. Remaining digits are independent sets in positions 6..a-1; distinct residues follow from Zeckendorf uniqueness. Independent dynamic-programming membership and direct gap enumeration for all a=3..16 reproduced full sets, counts, and terminal boundary. Universal proof relies on symbolic digit argument and published Apéry theorem, not finite checking.
 
-## Closest prior work and limitations
-The closest exact object-level source is Robles-Pérez--Rosales, arXiv:2210.00816 (Apéry theorem). The strongest later object-level source is DOI 10.1007/s40065-025-00513-3, Section 10 (pseudo-Frobenius classification). Moreno-Frías--Rosales, arXiv:2305.14967, supplies the definition and general theory of isolated gaps. The new proof depends on the established Apéry theorem; its finite verifier does not replace an infinite proof. Independent assessment of mathematical novelty and proof details remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full Robles-Pérez--Rosales 2023 primary article establishes the SAME semigroup family and exact Apéry and Frobenius formulas; these are prior inputs, not new. Smith 2022 supplies general isolated-gap Apéry criteria for arbitrary semigroups, and Moreno-Frías--Rosales 2024 study perfect numerical semigroups, but the closed all-a Zeckendorf index-{2,4} parametrization, Fibonacci count and quotient profile were not identified as their theorems. General algorithms do not amount to an exact symbolic natural-family classification. Best-of-knowledge PASS subject to implicit specialization risk.
+
+## value
+
+PASS
+
+Isolated gaps are the canonical forbidden-integer pattern underlying perfect semigroups. Exact classification of this natural Fibonacci-shifted family exposes a structural connection with independent sets/Zeckendorf digits, determines the full distribution by quotient level and parity of the Frobenius boundary; this is a meaningful closed invariant, not a trivial table generated from an algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
