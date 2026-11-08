@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:05:08.950338Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-minimum-linear-superstring-length-for-all-binary-five-bit--b1c706b65373/RESULT.md",
+        "independent finite checks /tmp/check_scope08.py: scientific results only (local, private)"
+      ],
+      "rationale": "Exactly 32 distinct ten-bit squares uu with u in {0,1}^5 must appear in a linear word. Choosing ordered occurrences yields an overlap-weighted Hamiltonian path of all required length-10 squares; conversely every such path constructs a superstring by maximal overlaps. The 8 rotation necklaces (two singleton, six length five) entail q>=7 cross-necklace transitions; cross cost at least 6, within cost at least 1, hence L>=41+5q, excluding q>=9 at L<=81. If q=7, one contiguous block for each necklace; direct internal permutation minima by endpoints (<=5! permutations) and a subset DP over eight blocks gives global minimum 82. At q=8, L<=81 requires equality in every cost: all within-orbit edges are directed one-step rotations and each crossing costs 6; exactly one primitive necklace splits into two directed arcs. All 6*5*4=120 splits were exhaustively decided by a nine-block subset reachability DP, none feasible. The given literal 82-bit witness was independently checked to include each distinct ten-bit square. Reimplemented both DPs independently from the supplied VERIFY.py, obtaining q7=82, 120 q8 splits with zero equality cases, witness length 82 and 32 required squares. This is a finite exhaustive proof conditional on faithfully enumerated partitions and transitions, not extrapolated finite sampling.",
+      "residual_risks": [
+        "Au 2015 Algorithm E already produces a length-82 candidate; the claimed novel fact is sharp lower bound, not the witness/upper bound.",
+        "An older specialized exact shortest-superstring table for binary squares of root length five could contain the optimum; full bibliographic priority beyond Au is not established.",
+        "The exact finite lower proof depends on exhaustive correctness of permutation and subset DP; an independent implementation was run but no formal Lean proof is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Au gives an algorithm generating short words for all p-powers, and generic lower bound, rather than a matching exact Hamilton-path distance result for k=2,p=2,n=5."
+        ],
+        "reasoning": "General algorithm and bound leave a numerical gap (72 to 82) that only the eight-necklace DP closes. No broader optimized shortest-superstring theorem in inspected source implies 82 minimality.",
+        "searches": [
+          "Resultary: shortest superstring all squares length 10 5-bit roots minimal 82 generalized de Bruijn powers",
+          "Au 2015 Algorithm E",
+          "arXiv:0904.3997"
+        ]
+      },
+      "checked_sources": [
+        "https://au-gary.github.io/Au15a.pdf",
+        "https://arxiv.org/abs/0904.3997",
+        "Resultary: shortest superstring all squares length 10 5-bit roots minimal 82 generalized de Bruijn powers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 14 gives 72 lower bound for (k,n,p)=(2,5,2); Algorithm E supplies 82 upper candidate.",
+          "The current DP rules out all shorter linear words, which the prior sufficient constructions do not."
+        ],
+        "reasoning": "Au’s statements together imply 72<=minimum<=82, not equality to 82, so the finite exact minimality is a separate mathematical fact. It is naturally useful for code/superstring optimization but not a general all-parameter solution.",
+        "searches": [
+          "Au 2015 Proposition 14 Theorem 15 Algorithm E",
+          "Resultary: shortest superstring all squares length 10 5-bit roots minimal 82 generalized de Bruijn powers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Au studies circular generalized de Bruijn words containing all powers; Proposition 14 applies to any linear word and gives lower bound k^n+(p−1)nC(n,k), here 72.",
+          "Submitted covering word is linear, exactly 32 binary 5-root squares, and proof separately excludes lengths 72..81."
+        ],
+        "reasoning": "Same-object prior is present, and the existing 82 upper word alone does not assert optimality. Circular versus linear definition carefully checked: an exact circular optimum could imply a linear lower bound if sufficiently strong, but no inspected result supplies that bound.",
+        "searches": [
+          "Resultary: shortest superstring all squares length 10 5-bit roots minimal 82 generalized de Bruijn powers",
+          "arXiv:0904.3997",
+          "Au 2015 Section 3 Proposition 14 Algorithm E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Au’s constructive 82 value is already a known upper bound; no inspected exact table lists minimum 82.",
+          "The cited same-parameter lower bound 72 is weaker than exact 82."
+        ],
+        "reasoning": "Do not mistake matching figure 82 for covered theorem: construction versus optimality are different implications. A later exact table is residual risk, but Resultary search found no directly matching published database.",
+        "searches": [
+          "Resultary: shortest superstring all squares length 10 5-bit roots minimal 82 generalized de Bruijn powers",
+          "Au 2015 Proposition 14",
+          "generalized de Bruijn binary five-bit squares"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS solely for proving sharpness 82 of a natural finite superstring covering problem; 82 itself as a construction is prior in Au. Primary same-object literature was inspected in detail and yields a 72 lower bound, not exact 82 minimality.",
+      "residual_risks": [
+        "Au 2015 Algorithm E already produces a length-82 candidate; the claimed novel fact is sharp lower bound, not the witness/upper bound.",
+        "An older specialized exact shortest-superstring table for binary squares of root length five could contain the optimum; full bibliographic priority beyond Au is not established.",
+        "The exact finite lower proof depends on exhaustive correctness of permutation and subset DP; an independent implementation was run but no formal Lean proof is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general power-word short constructions and lower 72, and yields 82 upper at parameter; does not demonstrate minimality 82 in inspected theorems",
+          "evidence": "Section 3 Proposition 14, Algorithm E and adjacent discussion. Warning: 82 upper is known.",
+          "identifier_or_url": "arXiv:0904.3997; https://au-gary.github.io/Au15a.pdf (Discrete Mathematics 338, 2015)",
+          "material_read": "18-page full accessible primary PDF; closely examined Section 3 pp 13-16, Proposition 14, Algorithms D/E, theorems/corollaries and explanation of linear versus circular coverage; relevant pages screenshot visually.",
+          "method": "Web full primary PDF text and screenshots",
+          "title": "Generalized de Bruijn words for Primitive words and Powers",
+          "trigger": "identical power word dictionary and possible dominating bound at (2,5,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-minimum-linear-superstring-length-for-all-binary-five-bit--b1c706b65373/RESULT.md",
+        "https://au-gary.github.io/Au15a.pdf",
+        "https://arxiv.org/abs/0904.3997"
+      ],
+      "rationale": "Finding the exact linear superstring optimum for all 32 natural length-10 squares is a well-motivated finite combinatorial covering invariant, not an arbitrary sample. The gap between existing constructive length 82 and prior lower bound 72 was genuine; the necklace-DP exhaustive proof closes it. An exact finite optimum remains valuable without a formula for other root lengths. Do not advertise the 82-word construction itself as new.",
+      "residual_risks": [
+        "Au 2015 Algorithm E already produces a length-82 candidate; the claimed novel fact is sharp lower bound, not the witness/upper bound.",
+        "An older specialized exact shortest-superstring table for binary squares of root length five could contain the optimum; full bibliographic priority beyond Au is not established.",
+        "The exact finite lower proof depends on exhaustive correctness of permutation and subset DP; an independent implementation was run but no formal Lean proof is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://au-gary.github.io/Au15a.pdf",
+    "https://arxiv.org/abs/0904.3997",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-minimum-linear-superstring-length-for-all-binary-five-bit--b1c706b65373"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Au 2015 Algorithm E already produces a length-82 candidate; the claimed novel fact is sharp lower bound, not the witness/upper bound.",
+    "An older specialized exact shortest-superstring table for binary squares of root length five could contain the optimum; full bibliographic priority beyond Au is not established.",
+    "The exact finite lower proof depends on exhaustive correctness of permutation and subset DP; an independent implementation was run but no formal Lean proof is claimed.",
+    "No GitHub writes, no dispatcher closeout, no claims that finite checks prove infinite theorems, no claimed expert/formal attestation."
+  ],
+  "residual_risks": [
+    "Au 2015 Algorithm E already produces a length-82 candidate; the claimed novel fact is sharp lower bound, not the witness/upper bound.",
+    "An older specialized exact shortest-superstring table for binary squares of root length five could contain the optimum; full bibliographic priority beyond Au is not established.",
+    "The exact finite lower proof depends on exhaustive correctness of permutation and subset DP; an independent implementation was run but no formal Lean proof is claimed."
+  ],
+  "schema_version": 1
+}
