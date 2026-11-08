@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The graph universe is exactly the twenty-eight two-element subsets of an eight-element set. Adjacencies and three Seidel switching sets are fully specified in RESULT.md.
+# Independent mathematical audit
 
-`verify.py` constructs four integer adjacency matrices, checks degree and common-neighbor parameters, enumerates all distinct ordered triples and ordered quadruples for the three rank-four predicates, and canonicalizes each of the 20,475 four-vertex induced subgraphs using the full permutation group on four labels. It also prints explicit witnesses for the two missing-pattern assertions.
+## correctness
 
-`verify_independent.cpp` independently constructs bitset adjacency matrices and uses separately coded extension tests and 24-permutation canonical encoding. It reproduces the same four truth vectors, ordered witness counts (36 for the special triangle in the \(C_3\sqcup C_5\) switch, 48 for the special edge in the matching switch), and eleven-type saturation in each Chang graph. Both programs check \((28,12,6,4)\) directly.
+PASS
 
-The analytically proven three-round Duplicator strategy uses four strictly positive extension counts around every ordered adjacent or nonadjacent pair. Exact exhaustion, rather than a statistical sample, verifies the finite rank-four certificate. Build commands and output are included. These checks have not been independently audited by a separate mathematical reviewer.
+From the explicit T(8) edge-pair model and three exact Seidel-switch sets, all four 28-vertex adjacency matrices have degree 12 and pair codegrees 6 (edge) and 4 (nonedge). For two chosen distinct vertices, the third-vertex pattern cells are (6,5,5,10) or (4,8,8,6), all positive: this is a complete 3-round Duplicator strategy including duplicate pebbles. For rank 4, the existential claw formula and three-existential/one-negated-existential triangle and edge-extension formulas have independently enumerated T counts [0,36,0,0] and E counts [0,0,48,0]; claw witness counts [0,160,128,160], in original, C3+C5, matching, C8 order. Every one of the 20,475 vertex-four subsets per graph was canonically relabelled: shape counts [10,11,11,11]. This is complete finite exhaustion of the four specified graphs; it does not say all existential formulas with branching quantifiers agree.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after primary-text and implication comparison: rank4 Chang–Chang triple-extension distinction not in established SRG/classification facts. Inaccessible relevant sources are recorded as residual priority risks rather than converted to false assertions.
+
+## value
+
+PASS
+
+These are the unique exceptional strongly regular isomorphism classes with parameters (28,12,6,4); exact pairwise FO distinguishing rank 4 is a natural logic/graph invariant beyond the already known classification and claw difference. The four-vertex induced-shape saturation independently explains why three Chang graphs need a negative extension condition instead of simply exhibiting a motif. Finite classification is fully bounded and motivated, not a random small-size table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
