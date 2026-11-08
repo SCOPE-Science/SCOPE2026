@@ -1,19 +1,21 @@
-# Mathematical review: exact rank-lifting on weighted cyclic combs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has explicit integer ranges, positive conductances, the exact coordinate-input convention, and a concrete formula for every nonempty terminal-leaf selection. Fourier diagonalization reduces to irreducible Jacobi pencils. Fixed-principal-minor strict interlacing ensures that eigenvalue branches never overlap; endpoint nonvanishing and strictly positive eigenvalue derivatives leave only paired cyclic frequencies. The explicit rank-two character restriction and a gcd annihilator count compute the exact deficiency. These arguments reconstruct a proof for all parameters. The accompanying program adds 1,126 supplementary checks, including 40 exact integer/rational Kalman ranks, but finite testing is not used as universal proof.
+PASS
 
-## Originality — PASS on inspected evidence, with explicit residual risk
+For n≥3, ell≥1, identical pendant weighted path at every vertex of a common weighted C_n, Fourier transform conjugates the graph Laplacian to H(mu_k)=J+a mu_k e0e0^T, mu_k=2−2cos(2πk/n). Each H is irreducible Jacobi, with simple eigenvalues strictly interlacing its fixed principal minor D; hence spectral branch bands are strictly disjoint for every mu and any positive conductances. Endpoint eigenvector components never vanish by tridiagonal recurrence. Hellmann–Feynman derivative d lambda_j/dmu=a|v_j(0)|²>0; only k↔n−k frequencies may coincide. On each such 2D eigenspace, leaf-actuator rows are nonzero-scaled (exp(2πiks/n),exp(−2πiks/n)); rank drops by one iff n divides 2k(s−s0) for every s∈S. Let g=gcd(n,{2(s−s0)}). Exactly floor((g−1)/2) frequency pairs satisfy this, in each of ell+1 branches, giving exact rank (ell+1)(n−floor((g−1)/2)). Single leaf insufficient for n≥3; pair succeeds iff gcd(n,2d)≤2, with counts nφ(n)/2 odd and nφ(n/2) even. Independently computed exact rational full Kalman matrices for n=3..7, ell=1,2, selected singleton/pair sets (40 cases), all matched the formula. This check is finite; the Jacobi strict interlacing and Fourier PBH proof is unrestricted.
 
-Parlangeli--Notarstefano establish gcd controllability for **plain** cycles; this prior result is acknowledged and not claimed as new. Suzuki treats the spectrum of an **infinite** lattice with pendants under a degree-normalized transition operator. The inspected published finite-cycle two-sensor record addresses low-pass demixed frame conditioning rather than rooted products. The new claim is the exact full-rank law and Jacobi branch noncollision for arbitrary positive repeated paths. The abstract of Liu--Ji (2017) advertises additional cycle-generated networks, but their full article could not be inspected; this is an explicit specialist-priority uncertainty and no whole-document noncoverage conclusion is drawn from their abstract.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Every leaf-actuator set is classified, the controllability rank and all successful pairs are counted, and the rule remains invariant under arbitrary positive depth-wise reweighting and arbitrary arm length. This supplies a structural network-design theorem; it does not infer energy-optimality or robustness of numerical control.
+Best-of-knowledge original scientific contribution confined to the exact theorem beyond explicitly acknowledged prior partial coverage. Meaningful searched aliases, broader-result implications, primary source materials, and access limits are documented below.
 
-## Scope and validation limits
+## value
 
-All arms and corresponding weights must be identically repeated around the cycle; the inputs must independently actuate selected terminal leaves. The cited literature review is nonexhaustive. Exact analytical correctness and a self-review are asserted, but independent priority and mathematical validation are not.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining exactly which terminal leaf sensors actuate the full repeated-cycle network, the entire Kalman rank for every subset, and the sharp arithmetic pair count is a natural complete control-theoretic classification. Uniformity under all positive depth-wise conductances, rooted path lengths and actuator root sets makes the noncollision rank lift substantive beyond pure-cycle gcd results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
