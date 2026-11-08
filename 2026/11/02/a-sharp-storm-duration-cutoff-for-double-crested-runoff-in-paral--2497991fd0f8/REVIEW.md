@@ -1,19 +1,21 @@
-# Scientific review of the finite-storm hydrograph modality theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-Erlang kernel is the standard impulse response of two equal-rate serial linear reservoirs. A single uniform pulse produces an explicit difference of two kernel values in the derivative; all post-pulse zeros lie strictly between the two positive single-kernel modes. A positive odds ratio controls every derivative sign. Its logarithmic derivative has at most two zeros with an exact discriminant; the strict convexity proof for \(\(z/(e^z-1)\)\) yields exactly one duration cutoff when \(r>3+2\sqrt2\). Boundary cases are included. Rational signs at four explicit times prove two strict crests in the example, while one inequality excludes multiple crests after doubling storm duration. The extracted reproducibility script passed 1797 assertions. The analytical proof, not numerical tests, establishes general quantifiers.
+PASS
 
-## Originality — PASS within inspected evidence
+Reconstructed post-pulse derivative of two Erlang(2,rate) kernels. All zeros lie s in (K_r(D),K_1(D)); derivative sign equals R_D(s)-p/(1-p). The log derivative (r-1)-1/(K1-s)-1/(s-Kr) has 0 or exactly 2 critical points according as (r-1)L_r(D)<=4 or >4. This proves full peak and mixing-window classification including tangency endpoints. L_r(D)=g(D)-g(rD)/r strictly decreasing via strict convexity of g(z)=z/(exp(z)-1), from (r-1)/r to zero; unique cutoff iff r>3+2sqrt(2), sharp. Independent bisection checked D_c(8)=1.0305512663045062; exact rational four alternating signs for r=8,D=ln2,p=1/12 certify two maxima, while D=2ln2 is single peaked. No numerical finite grid used as global proof.
 
-Došlá's 2009 Theorem 2 gives a broad pre-existing modality criterion for two-unimodal-density mixtures, and Proposition 6 already contains the instantaneous common-shape gamma-mixture threshold. The novelty claim excludes those general and instantaneous results and instead establishes the **unique positive rectangular-storm duration cutoff** and **complete admissible mixing interval** for a paired Nash-2 pathway model. Hydrologic parallel-cascade and convolution literature supplies the model but did not, in the material inspected, establish this finite-duration classification. The 1978 source was accessible only as a publisher abstract; despite that access limitation, its identified modeling scope is not direct evidence of the precise finite-storm theorem, and historical priority remains provisional. Related published mathematical research records were searched by aliases and implications, rather than by title alone.
+## originality
 
-## Value — PASS
+PASS
 
-One storm rather than two pulses can generate two peaks, and changing only its duration can erase all second crests at an exact, universal network-dependent threshold. This separates structural routing-induced multi-peaking from multiple rainfall events and supplies a precise identifiable parameter regime. A complete, sharp, interpretable boundary for a natural routing model is useful for conceptual model design and diagnostic hydrograph analysis, without implying empirical validity for any particular catchment.
+Best-of-knowledge novel finite rectangular rainfall-duration unique modality cutoff and explicit mixture interval, despite established gamma mixture bimodality literature and Došlá general criterion (Theorem 2/Proposition 6). General mixture results supply method and instantaneous rate-ratio threshold; they do not explicitly give D_c(r) after common rectangular convolution or its strict uniqueness. Diskin et al. 1978 exact parallel-cascades full text remained inaccessible, retained material priority risk.
 
-## Limitations and closest literature
+## value
 
-The instantaneously mixed-gamma result (Došlá 2009), gamma-mixture inflection study (Ahmed, Goria and Hussein 2008), the linear unit-hydrograph convolution (Bárdossy, Mascellani and Franchini 2006), and early parallel-cascade watershed architecture (Diskin, Oben-Nyarko and Ince 1978) are acknowledged. The latter original text was not available in full. Nonlinear routing, nonrectangular rain, delay, different cascade orders, and empirical inference are unproved. Independent historical-priority assessment is not complete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Hydrologically natural finite storm duration threshold for when one rainfall pulse routed through two two-stage pathways can yield two strict discharge crests. Sharp parameter-dependent boundary with exact mixing window and concrete witness, not just a gamma-mixture rederivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
