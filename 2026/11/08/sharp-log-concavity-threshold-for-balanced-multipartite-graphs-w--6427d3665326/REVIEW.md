@@ -1,0 +1,11 @@
+# Review of the five-vertex-part log-concavity threshold
+
+**Correctness: PASS.** The general-position classification is elementary and exhaustive: a set of size at least two is contained in one part, or selects at most one vertex from each part. This yields the previously published coefficient formula, from which the theorem derives exact polynomial identities for all potentially exceptional log-concavity defects. Every coefficient in the shifted positivity polynomials is positive. The exact rational identity checks in `verify.py` succeeded, as did separate graph-geodesic enumeration for two and three parts. The unrestricted conclusion follows from the algebraic identities and binomial log-concavity, not from extrapolated finite tests.
+
+**Originality: PASS, provisional historical priority.** The inspected primary 2026 paper proves the part-size-at-most-four case and gives the five-vertex, two-part counterexample. It expressly leaves the precise balanced part-size/number-of-parts log-concavity classification open. The present result proves the complete next part-size line, determining the previously unreported three-part failure and proving positivity for all numbers of parts at least four. The 2024 foundational article concerns earlier polynomial definitions and selected families, without this threshold. Searches by aliases, explicit coefficient formula and exact graph family in research indexes found closest results for other families or dual/general-position variants rather than a theorem implying this one. Search cannot certify global historical priority.
+
+**Value: PASS.** This is the first missing natural part-size line immediately beyond an explicit published theorem and an explicit proposed classification problem. Its boundary is sharp and non-obvious: the failures for two and three parts occur at distinct coefficient indices, while the full infinite range from four parts onward has strictly positive defects. The result determines a structurally motivated mathematical threshold, not an arbitrary finite lookup or a routine restatement of the coefficient formula.
+
+The scope is limited to equal parts of size five. The algebraic certificate is self-contained but has not undergone an independent mathematical audit; the current source comparison is provisional.
+
+Self-review: passed. Independent audit: not yet performed.
