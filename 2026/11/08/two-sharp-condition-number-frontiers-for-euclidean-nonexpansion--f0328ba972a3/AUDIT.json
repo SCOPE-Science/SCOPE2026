@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The complete-sweep matrix follows from three exact scalar coordinate equations. Its two-column Gram trace is rho^2 S(rho), determinant rho^4(1+2rho^2), and det(I-G)=(rho-1)(6rho^4+2rho^2-rho-1), all established by explicit polynomial multiplication and independently verified coefficient-by-coefficient in the embedded standard-library code. The strictly convex quartic has precisely two roots in the SPD range. On the central interval, determinant G<272/729<1 excludes both Gram eigenvalues exceeding one; outside it, det(I-G)<0 forces one above one. Equality and condition-number transforms are exact. The verifier replay reports 5520 checks. Infinite parameter assertions rely on the exact analytic polynomial argument, never on numerical sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kamri–Hendrickx–Glineur, HTML Sections II and V–VI, considers block-coordinate PEP objective/gradient criteria and specializes numerical results to two blocks.",
+        "Mohlenkamp–Young–Bárány, PDF Section 2, analyzes flat-valley transient dynamics and the three-dimensional singular symmetric valley; after unit diagonal normalization it corresponds to rho=-1/2 at the excluded SPD boundary.",
+        "Published two-coordinate exact Euclidean best-order threshold is a 2x2 minimax over SPD matrices, not the 3x3 Gram phase."
+      ],
+      "reasoning": "Generic full-function worst-case frameworks and SPD energy descent do not imply an explicit Euclidean singular-value threshold or the paired sign-dependent sharp kappas. The two-dimensional minimax statement cannot subsume a three-dimensional complex-spectrum or negative-correlation equicorrelation theorem.",
+      "searches": [
+        "On the Worst-Case Analysis of Cyclic Coordinate-Wise Algorithms on Smooth Convex Functions 2211.17018",
+        "https://arxiv.org/html/2211.17018v1",
+        "https://www.math.ualberta.ca/ijnam/Volume-17-2020/No-4-20/2020-04-06.pdf",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.17018 HTML v1 (complete text, full algorithms and main bounds)",
+      "https://www.math.ualberta.ca/ijnam/Volume-17-2020/No-4-20/2020-04-06.pdf (PDF, key pages and full searchable text)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3 (full public result)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b (full public result)",
+      "Public mathematical-result records on three-block Gauss–Seidel, exact Euclidean transient norms and source-equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known 3-block momentum stability covers a different lifted recurrence; at zero momentum the base sweep is the same, but its published criterion describes asymptotic eigenvalue stability, not Euclidean one-sweep nonexpansion.",
+        "Known two-coordinate Euclidean minimax threshold is approximately 8.35241, while the present three-coordinate sign-dependent thresholds are 5.79285 and 10.05343.",
+        "At condition number 6 the exact rational signs P(5/8)=147/2048 and P(-5/13)=-5376/28561 give opposite outcomes."
+      ],
+      "reasoning": "A prior stronger implication would need a Euclidean operator-norm result for the 3x3 equicorrelation sweep or a general formula implying both exact sign branches; none was located in the inspected full texts. The exact sweep itself and its positive-correlation spectral modulus remain explicitly prior covered.",
+      "searches": [
+        "three block symmetric quadratic Gauss Seidel Euclidean norm sharp nonexpansion condition number positive versus negative correlation",
+        "transient expansion cyclic alternating minimization three block correlated Hessian singular value threshold",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "https://arxiv.org/html/2211.17018v1",
+        "https://www.math.ualberta.ca/ijnam/Volume-17-2020/No-4-20/2020-04-06.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full published symmetric three-block momentum result [momentum] displays the identical G_c sweep matrix and characteristic polynomial for positive c, but its main theorem is Schur–Cohn stability of a lifted momentum iteration.",
+        "The positive-correlation sweep spectrum is therefore already covered. The new Gram determinant, nonexpansion iff P<=0, and negative-correlation branch are distinct statements."
+      ],
+      "reasoning": "The exact sweep and positive-correlation spectrum are equivalent to prior work and explicitly not novel. The sign of det(I-B^TB) is not determined by the eigenvalues of B for a nonnormal matrix, so the prior complex spectral modulus does not imply the full singular-norm phase.",
+      "searches": [
+        "three-dimensional equicorrelation matrix cyclic Gauss Seidel exact spectral radius Euclidean one sweep nonmonotonic norm",
+        "three block symmetric quadratic Gauss Seidel Euclidean norm sharp nonexpansion condition number positive versus negative correlation",
+        "three-coordinate Gauss Seidel equal off diagonal quadratic complex eigenvalues positivity transient",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published three-block exact matrix is present, without a table of the Euclidean singular-norm threshold.",
+        "No exact two-sided quartic threshold was retrieved under the displayed parameter/alias searches."
+      ],
+      "reasoning": "The quartic and two kappas were obtained by exact Gram calculation. Absence from indexed tables is only limited evidence, not a uniqueness guarantee.",
+      "searches": [
+        "Gauss Seidel spectral norm one sweep three by three equicorrelation 6r4 2r2 r",
+        "\"6r^4+2r^2-r-1\" \"Gauss-Seidel\"",
+        "\"equicorrelation\" \"Gauss-Seidel\" \"Euclidean\" contraction",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "rationale": "Preexisting three-block symmetric quadratic work [momentum] explicitly derives the positive-correlation sweep matrix and its complex eigenvalues; these are expressly excluded from the novelty claim. The assessed statement is the complete Euclidean singular-norm/nonexpansion classification on the entire SPD equicorrelation range, with two distinct sign-dependent sharp condition-number thresholds and a fixed-condition-number witness. The 2022 full-text cyclic block study treats other objectives and chiefly two-block PEP comparisons; the 2020 flat-valley study treats a semidefinite boundary configuration. The published two-coordinate Euclidean result does not imply the present three-coordinate Gram criterion. Actual searches did not reveal an equivalent Euclidean-norm theorem; publication-priority risk remains.",
+    "residual_risks": [
+      "Unindexed older matrix-iteration monographs or specialist fixed-family singular-norm calculations might state an equivalent condition.",
+      "The sweep itself and its positive-correlation complex spectrum are established published results and are not counted toward novelty.",
+      "No independent expert validation or publication-priority certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact 3x3 equicorrelation Euclidean singular-norm phase; mostly two-block objective/gradient PEP results",
+        "evidence": "In Section VI the numerical specialization explicitly focuses on two blocks and the performance measures are function gap and gradient norm, not the full-sweep Euclidean error norm.",
+        "identifier_or_url": "arXiv:2211.17018v1, https://arxiv.org/html/2211.17018v1",
+        "material_read": "Complete accessible HTML (Introduction, block algorithms, interpolation, PEP, numerical bounds, conclusions and references), with special attention to Sections II and V–VI and the stated performance criteria",
+        "method": "Rendered arXiv full HTML read and searched by section/criterion",
+        "title": "On the Worst-Case Analysis of Cyclic Coordinate-Wise Algorithms on Smooth Convex Functions",
+        "trigger": "Primary motivating 2022 block-coordinate performance study"
+      },
+      {
+        "assessment": "NO_IDENTIFIED_COVERAGE of the two SPD Euclidean contraction frontiers in inspected relevant portions; contains a nearby singular flat-valley limit, with residual risk from portions not read exhaustively",
+        "evidence": "The symmetric valley model has Hessian with a zero valley eigenvalue and studies asymptotic progress toward the valley. It does not state an iff Euclidean norm phase on -1/2<rho<1.",
+        "identifier_or_url": "DOI 10.4208/ijnam.v17.n4.p557, https://www.math.ualberta.ca/ijnam/Volume-17-2020/No-4-20/2020-04-06.pdf",
+        "material_read": "Retrieved PDF text from the introduction and relevant Section 2 passages including the three-dimensional symmetric-valley discussion around printed page 570; screenshots of printed pages 557, 561, 570 inspected; remaining pages not read exhaustively",
+        "method": "Web PDF parsed text with visual page screenshots for the key portions",
+        "title": "Transient Dynamics of Block Coordinate Descent in a Valley",
+        "trigger": "Closely related transient behavior of three-coordinate block minimization"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: the sweep matrix and complex spectral modulus for rho>0 are covered, but not the claimed Euclidean norm phase and negative branch",
+        "evidence": "It displays G_c with c=(1+m)^-1>0, and studies a two-sweep lifted momentum recurrence P_c(alpha)>0 rather than ||G_c||2<=1.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "material_read": "Complete public RESULT.md, including exact three-block sweep matrix, positive-correlation eigenvalues, proof and relation to prior work",
+        "method": "Public GitHub file read",
+        "title": "Three blocks create a sharp momentum-stability barrier for cyclic alternating minimization",
+        "trigger": "published-finding corpus matched three-block symmetric quadratic family exactly"
+      },
+      {
+        "assessment": "NOT_COVERING three-variable two-sided equicorrelation result: dimension two gives a single nonzero real eigenvalue, different Gram rank and 8.35241 condition-number threshold",
+        "evidence": "The stated theorem explicitly restricts to 2x2 SPD matrices and best-coordinate ordering; it does not assert higher-dimensional optimality.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "material_read": "Complete public RESULT.md, definitions, exact 2x2 matrices, minimax proof, examples and limitations",
+        "method": "Public GitHub file read",
+        "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering",
+        "trigger": "Closest published exact Euclidean one-sweep threshold for Gauss–Seidel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0328ba9-72a3-4bfa-8dc4-3cef6b17ba98",
+  "value": {
+    "rationale": "This is a natural complete phase classification for the canonical dense three-coordinate equicorrelation SPD family, not a free parameter slice. It establishes two distinct, sharp condition-number frontiers for Euclidean error amplification despite the same SPD energy descent and the same spectral condition number. The exact rational condition-six sign reversal shows why conditioning alone is insufficient for choosing a transient-error guarantee. The nonlinear Gram determinant and two-root sign structure are structurally informative in the smallest dimension allowing the complex nonzero cyclic-sweep spectrum. The statement is self-contained and benchmarkable without claiming broader all-SPD minimax results.",
+    "status": "PASS"
+  }
+}

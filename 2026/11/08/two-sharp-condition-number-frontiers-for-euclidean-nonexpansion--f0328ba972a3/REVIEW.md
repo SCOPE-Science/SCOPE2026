@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (C): PASS
+The exact full-sweep matrix follows from three successive scalar minimizers. The Gram polynomial identities and the sign of \((\rho-1)P(\rho)\) prove both nonexpansion boundaries and strict behavior between/outside; \(P''>0\) excludes other crossings. The determinant bound rules out a simultaneous pair of singular values above one. The Hessian eigenvalues prove the two unequal condition-number frontiers. The independent standard-library checker reproduces 5,520 exact-polynomial/rational/numerical assertions. This is an all-parameter analytic proof, not interpolation from computations.
+
+## Originality (O): PASS, with publication-priority limits
+The prior three-block symmetric-quadratic momentum analysis [3] already supplies the same positive-correlation sweep matrix and its complex eigenvalues; these are not claimed novel. The two-coordinate Euclidean minimax calculation [4] supplies a separate dimension-two threshold, not the three-dimensional Gram determinant. The Kamri–Hendrickx–Glineur analysis [1] focuses on performance estimation of objective and gradient criteria; Mohlenkamp–Young–Bárány [2] focuses on narrow/flat valleys including a singular three-dimensional symmetric limit. The new assessed statement is the complete Euclidean full-sweep nonexpansion interval on the strictly positive-definite three-coordinate equicorrelation family, including negative correlations, and the sharp unequal condition-number thresholds. Searches did not reveal an implication-equivalent theorem. Old linear-iteration literature could still have unlocated special cases; lack of a hit alone is not uniqueness proof.
+
+## Value (V): PASS
+Equicorrelation is the canonical dense, permutation-symmetric three-coordinate Hessian and the smallest dimension with a complex nonzero cyclic-sweep spectrum. This complete classification resolves a practical stability-diagnostic distinction: Euclidean startup amplification and energy descent can disagree, and even matching spectral condition numbers do not settle Euclidean nonexpansion without the sign of the couplings. The exact \(\kappa=6\) opposite-sign witness and the two sharp frontiers are structural information beyond a reparameterization of a known spectral radius. The theorem is deliberately family-specific, not a new worst-case bound over all SPD systems.
+
+## Sources and scope
+[1] https://arxiv.org/abs/2211.17018 ; [2] https://doi.org/10.4208/ijnam.v17.n4.p557 ; [3] https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3 ; [4] https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b . The largest residual risk is older specialist Euclidean-norm analysis not indexed under equicorrelation terminology. Independent validation remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
