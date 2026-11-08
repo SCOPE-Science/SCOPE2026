@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Window-shifting lemma reduces each maximum to the two 1-run starts; explicit prefix formulas prove the exact defect for all lengths and positive run lengths. A necessary longest-run start gives the existence equivalence, including ties and periodic powers. Counting the half-turn equivalence on run quadruples gives both rational series. The verifier independently enumerates all phases and factors for 2401 parameter quadruples and 650 seeded larger cases, and checks the series for 32 lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cunha et al. (arXiv:1702.01280) reduce maximum-one windows in run-length encoded finite strings to windows beginning at runs; this provides a general tool analogous to Step 1, not a closed equality obstruction on cyclic four-run configurations.",
+        "An accessible previous general run-sorting assertion says a run-sorted infinite periodic rearrangement dominates maximum-one windows under independent reordering of the runs, giving the sufficiency direction for opposed length order but neither a necessary obstruction for a fixed circle nor a quantitative defect and necklace count."
+      ],
+      "reasoning": "The current theorem refines a more general sufficient sorted-arrangement construction: it proves the strict failure of every cyclic phase in the incorrectly ordered case, computes its deficit and enumerates all successes and failures. Those outcomes are not logical consequences of a non-strict rearrangement upper bound alone.",
+      "searches": [
+        "arXiv:1702.01280 §3",
+        "prefix normal rotation conjugates of binary circular four-run words; cyclic jumbled pattern matching; maximizing prefixes of all lengths",
+        "prefix normal form of periodic binary words with two one-runs and two zero-runs",
+        "binary circular four-run cyclic word prefix normal rotation iff opposite ordering of one-run and zero-run lengths, defect min(shorter one-run, difference zero-run lengths), necklace census"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.09017v1",
+      "arXiv:1811.06273",
+      "arXiv:1702.01280",
+      "arXiv:2003.03222",
+      "OEIS A006918"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General prefix normal form uniqueness already implies uniqueness of the successful rotation if it exists; uniqueness alone is not treated as a new theorem.",
+        "The prior sorted-run extremality gives existence for one arrangement, but without proving strict loss for each incorrectly ordered cyclic arrangement; the witness at window length a+b and its precise gap are new parts of the argument.",
+        "General run-start indexing does not itself imply the rational generating functions after quotienting run quadruples by half-turn."
+      ],
+      "reasoning": "Prior definitions, maximum-window methods, and numerical series are separated from the contributions actually proved here: the necessary and sufficient cyclic order condition, exact worst-window defect for the longer-run phase, and complete success/failure necklace counts. No claim is made that the generic factor-maximization algorithm or the sequence coefficients are newly discovered.",
+      "searches": [
+        "arXiv:1611.09017 §3.2;§4",
+        "arXiv:1811.06273 §5-7",
+        "arXiv:1702.01280 §3",
+        "prefix normal rotation conjugates of binary circular four-run words; cyclic jumbled pattern matching; maximizing prefixes of all lengths",
+        "binary circular four-run cyclic word prefix normal rotation iff opposite ordering of one-run and zero-run lengths, defect min(shorter one-run, difference zero-run lengths), necklace census"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1611.09017 §2 defines factor-maximum prefix-normal form and §3 discusses necklaces/pre-necklaces for finite words, but it does not state a periodic four-run rotation criterion.",
+        "arXiv:1811.06273 studies prefix-normal forms of infinite words; its periodic-word discussion does not give the four-run obstruction or exact census."
+      ],
+      "reasoning": "For a cyclic host, the possible equivalent language is that its binary maximum-one-factor profile is realized by an actual phase. The theorem classifies this equality precisely; finite prefix-normal necklace enumerations have a different property because they do not compare wrapped and multi-period factors.",
+      "searches": [
+        "\"prefix normal\" \"cyclic\" \"runs\"",
+        "\"prefix normal\" \"conjugate\"",
+        "\"prefix normal\" \"four runs\"",
+        "prefix normal rotation conjugates of binary circular four-run words; cyclic jumbled pattern matching; maximizing prefixes of all lengths",
+        "arXiv:1611.09017",
+        "arXiv:1811.06273"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A006918 gives 0,1,2,5,8,14,20,... and its generating function x/((1-x)^2(1-x^2)^2); the successful series is its index shift by three, so these coefficients are not numerically new.",
+        "A006918 lists other combinatorial interpretations, including aperiodic four-black-bead necklaces; it does not list the periodic prefix-normal four-run interpretation or the defect obstruction."
+      ],
+      "reasoning": "The numerical coefficients have prior table coverage and are explicitly credited. The exact new mathematical claim is their realization as a fixed-rotation prefix-normality census together with an if-and-only-if obstruction, a sharp defect identity, and a paired failure series.",
+      "searches": [
+        "OEIS A006918",
+        "https://oeis.org/A006918",
+        "\"prefix normal\" \"four runs\""
+      ]
+    },
+    "rationale": "The searched primary literature defines finite/infinite prefix normal forms and gives general run-start indexing, but no identified theorem establishes the sharp cyclic four-run phase obstruction, quantified defect and success/failure necklace enumeration together. A previously recorded general run-sorting result provides a sufficient arrangement but does not imply strict failure for other cyclic arrangements. OEIS A006918 already contains the numeric success series and is explicitly credited.",
+    "residual_risks": [
+      "An unindexed or implicitly derivable formulation of the exact four-run obstruction might exist.",
+      "The count sequence itself is previously tabulated as OEIS A006918; it is not claimed as a new numeric sequence.",
+      "One lemma is a circular adaptation of a known run-start reduction, and one sufficiency direction follows from prior sorted-run extremality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general finite-word notions and enumerations but not a theorem counting prefix-normal rotations of four-run infinite cyclic words.",
+        "evidence": [
+          "arXiv:1611.09017v1, 28 Nov 2016, §§2-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1611.09017v1",
+        "material_read": "HTML text: abstract, introduction, §2 prefix normal forms and Parikh sets, §3 including pre-necklaces, §4 enumerations, conclusions",
+        "method": "direct lawful HTML full-text reading with targeted relevant sections and title search",
+        "title": "On Prefix Normal Words and Prefix Normal Forms",
+        "trigger": "foundational prefix-normal definitions, pre-necklace connections and enumeration might cover an equivalent classification"
+      },
+      {
+        "assessment": "Develops infinite prefix-normal constructions, but no four-run order obstruction or two-series necklace classification located.",
+        "evidence": [
+          "Cicalese, Lipták, Rossi, arXiv:1811.06273, Sections 5-7"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8219218/",
+        "material_read": "open-access article HTML: abstract and theory through Sections 5-7 on forms and periodic structures",
+        "method": "direct lawful PMC full-text reading and searches for circular/periodic and run terminology",
+        "title": "On Infinite Prefix Normal Words",
+        "trigger": "infinite periodic prefix-normal form equivalence and periodic subsequence examples"
+      },
+      {
+        "assessment": "A general run-start reduction overlaps one lemma, which is credited; does not state the iff or strict defect count for fixed cyclic four-run order.",
+        "evidence": [
+          "Cunha et al., arXiv:1702.01280, Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.01280",
+        "material_read": "accessible full-text HTML version: introduction and complete Section 3 on extrema of runs and windows",
+        "method": "direct primary-text section reading and theorem implication comparison",
+        "title": "Fast and Simple Jumbled Indexing for Binary Run-Length Encoded Strings",
+        "trigger": "more general run-boundary reductions could dominate the result"
+      },
+      {
+        "assessment": "The exact numeric success sequence is known, but the prefix-normal circle interpretation was not present; numeric novelty is disclaimed.",
+        "evidence": [
+          "OEIS A006918, generating function x/((1-x)^2(1-x^2)^2)"
+        ],
+        "identifier_or_url": "https://oeis.org/A006918",
+        "material_read": "sequence data, formula, generating function, selected interpretation comments",
+        "method": "direct database entry reading and coefficient shift comparison",
+        "title": "The On-Line Encyclopedia of Integer Sequences A006918",
+        "trigger": "success counts match a possible established enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c39b60e-f425-4de2-9d34-ae49c6d16d25",
+  "value": {
+    "rationale": "This natural four-run cyclic family is the first alternating two-one-run/two-zero-run model with a nontrivial question whether its canonical infinite prefix-normal form occurs as an actual phase. The exact obstruction, sharp phase defect, and complete cyclic necklace success/failure counts give an all-length structural classification relevant to cyclic jumbled-factor representations; the result is not presented as a generic indexing breakthrough.",
+    "status": "PASS"
+  }
+}
