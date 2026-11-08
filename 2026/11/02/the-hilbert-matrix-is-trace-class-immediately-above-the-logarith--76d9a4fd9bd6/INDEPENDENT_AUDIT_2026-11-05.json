@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:52:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Verified coefficient model v_n=∫0¹tⁿlog(e/(1-t))^αdt ≍ (log(n+3))^α/(n+1). For β=α/2>1, dyadic row/column separation expands the Hilbert kernel as absolutely convergent rank-one sums; for the j=0 upper triangular block, dyadic shells of U_N have trace norm O(N(1+log N)), giving ∑2^{h(1-β)}(1+h)<∞; off-diagonal j≥1, lower and neighboring blocks are summable. Thus S1 for all α>2. Moving-support positive polynomials on n∈[e^L,e^{2L}] are normalized weakly null and have ∥Hf_L∥²≳L^{2-α}, proving unboundedness for α<2 and noncompactness α=2; Norrbo proves boundedness there. Inspected source check_blocks.py’s rational checks as finite sanity, not an infinite certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Norrbo’s general weighted boundedness theorem controls the operator norm and endpoint, but does not supply a Schatten S1 criterion."
+        ],
+        "reasoning": "The sharp boundedness α≥2 is an antecedent, not a broader theorem implying trace-class for all α>2.",
+        "searches": [
+          "Norrbo arXiv:2610.00252v2 Theorem 1.1",
+          "Karapetrović logarithmic Hilbert/Libera mapping"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00252v2",
+        "DOI:10.21136/CMJ.2018.0555-16",
+        "Resultary 2026/10/11/SCOPE-the-sharp-trace-class-endpoint-for-monotone-modulus-rhaly-matric--182bfa9e0a1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded at alpha=2 is already known, and noncompactness follows the explicit weakly null input family; trace-class for α>2 does not follow from that boundedness result."
+        ],
+        "reasoning": "The prior theorem plus compactness cannot yield membership in the much smaller S1 ideal. The proof contributes a convergent sum of rank-one operators.",
+        "searches": [
+          "arXiv:2610.00252v2 boundedness classification",
+          "Karapetrović 2018 operator mapping estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Norrbo’s updated paper identifies boundedness into Bergman spaces at the logarithmic threshold; full-text searches found no Schatten/trace-class characterization.",
+          "Resultary closest log-threshold nuclearity concerns Rhaly triangular matrices, which are not the Hilbert kernel 1/(m+n+1)."
+        ],
+        "reasoning": "Logarithm-weighted Bergman mapping estimates and trace-norm summability are distinct: S1 is strictly stronger than compactness.",
+        "searches": [
+          "Resultary: Hilbert matrix Schatten trace class logarithmically weighted Bergman space alpha 2",
+          "arXiv:2610.00252v2 full text",
+          "Karapetrović DOI:10.21136/CMJ.2018.0555-16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact nuclear threshold alpha=2 table found in matching record; nearby Resultary entries concern different Cesaro and Rhaly operators."
+        ],
+        "reasoning": "A failed database search does not prove originality; the positive comparison rests on the distinction between boundedness and the explicit nuclear dyadic decomposition.",
+        "searches": [
+          "Resultary: Hilbert matrix Schatten trace class logarithmically weighted Bergman space alpha 2",
+          "Norrbo arXiv:2610.00252v2"
+        ]
+      },
+      "rationale": "PASS (qualified): Norrbo (updated October 2026) supplies the sharp boundedness endpoint alpha=2, not the trace-class theorem; prior compactness or general Hilbert operator mapping bounds do not imply nuclearity. The summable dyadic trace-norm decomposition yields a distinct operator-ideal threshold. Possible unindexed singular-value literature remains a risk.",
+      "residual_risks": [
+        "Unindexed classical singular-value estimates for weighted Hilbert matrices may imply this trace-class statement.",
+        "The source references Norrbo under an older v1 title; the revised 2026-10-30 preprint was considered in this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms boundedness threshold; no trace-class classification identified in read material",
+          "evidence": "Theorem 1.1 characterizes boundedness between weighted Bergman spaces at log-exponent gap 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00252",
+          "material_read": "OA full text: abstract, introductory setup, Theorem 1.1 and text searches for Schatten/trace class/nuclear; v2 updated 2026-10-30",
+          "method": "Opened accessible lawful open-access PDF; examined the stated relevant sections and searched extracted text.",
+          "title": "The edge case of the Hilbert matrix operator between weighted Bergman spaces (updated from The Hilbert matrix operator into the Bergman space)",
+          "trigger": "Exact same Hilbert operator and logarithmic Bergman endpoint"
+        },
+        {
+          "assessment": "Mapping estimates not shown to imply S1 on this precise pair of Hilbert spaces",
+          "evidence": "Related Hilbert mapping results are credited; full operator-ideal coverage not established.",
+          "identifier_or_url": "https://doi.org/10.21136/CMJ.2018.0555-16",
+          "material_read": "Bibliographic record, abstract/accessible summary and comparison of stated target spaces",
+          "method": "Reviewed bibliographic metadata and accessible summary only; full text not read.",
+          "title": "Libera and Hilbert matrix operator on logarithmically weighted Bergman, Bloch and Hardy-Bloch spaces",
+          "trigger": "Earlier Hilbert matrix mapping results in weighted analytic spaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Schatten S1 membership is a strong natural operator ideal threshold. The result shows a sharp jump from bounded noncompact at α=2 to trace class at every greater α, and supplies a mechanism for nuclearity from dyadic block sums, not just another mapping estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The sharp Hilbert boundedness endpoint is established prior work and not claimed as new.",
+    "Absolute trace norms, singular-value asymptotics and Schatten p<1 are not determined."
+  ],
+  "schema_version": 1
+}
