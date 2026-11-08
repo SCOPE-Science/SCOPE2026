@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Given known N, weighted multipartite Matrix-Tree identity produces exact P_v(z). Its distinguished root at 1-N has multiplicity r-2, recovering r. For each other root -(N-t-1), dividing multiplicity after removing mandatory z by t-1 recovers the count of all non-observed size-t parts. The remaining other classes are singletons and the observed class is the residual of N; all ranges and edge cases N=2, complete graphs, stars, and repeated sizes follow. 2,892 independent exact Laplacian determinant point checks and 336 exact polynomial inversion replays agree for all multipartite partitions of N=2,...,9. Finite replay is corroboration only; infinite proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rapoport 2023 states general finite-graph joint UST degree PMFs.",
+        "Fita Sanmartín et al. 2024 give general inverse-Laplacian formulas for degree moments and covariance.",
+        "Remmel--Williamson 2002 gives multipartite multivariate generating functions, including exactly the forward generating function needed here."
+      ],
+      "reasoning": "These sources dominate forward probability computation, but general formulas for a known graph do not directly settle whether two distinct unknown multipartite graph types can share a specified rooted marginal, or provide a universal root-based decoder. The new algebraic comparison uses the maximal-magnitude root to identify the number of parts and residual-vertex arithmetic to identify the unobserved root part.",
+      "searches": [
+        "complete multipartite graphs random spanning tree degree covariance degree generating function correlation",
+        "multivariate degree generating polynomial spanning trees complete multipartite graph formula Egecioglu Remmel",
+        "arxiv:2312.14992 full text keyword multipartite",
+        "arxiv:2409.13472v2 full text keyword multipartite",
+        "Remmel--Williamson 2002, Example 3.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2312.14992",
+      "https://arxiv.org/html/2409.13472v2",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+      "https://doi.org/10.1002/jgt.22954",
+      "https://doi.org/10.1088/1751-8113/49/12/125101"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2002 source already covers the weighted generating function and the standard spanning-tree count; these are explicitly attributed.",
+        "The 2024 source gives moments for any known finite host, without the cross-host inverse uniqueness statement.",
+        "The 2023 Rapoport source provides forward joint degree probabilities but no multipartite inverse theorem in searched sections."
+      ],
+      "reasoning": "The assessed final claim is solely an inverse-identifiability theorem plus an explicit zero-multiplicity decoder. The classical weighted enumerator and one-node PGF are not claimed novel. The injectivity comparison requires identification of the number of parts, handling omitted root-class and invisible singleton factors, and proving that no two partitions can yield the same marginal; this is separate from evaluating a known-graph distribution.",
+      "searches": [
+        "one vertex degree distribution uniformly random spanning tree identifies complete multipartite graph part sizes inversion",
+        "complete multipartite graphs random spanning tree degree covariance degree generating function correlation",
+        "multivariate degree generating polynomial spanning trees complete multipartite graph formula Egecioglu Remmel",
+        "Remmel--Williamson 2002 PDF pp. 1--2,14--16",
+        "Fita Sanmartín et al. 2024 Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Remmel--Williamson 2002 provides multivariate forward tree-generating functions; no recovered inverse uniqueness claim in examined example 3.2.",
+        "The closely related co-degree reconstruction result concerns a different deterministic graph statistic and assumes no singleton parts; the present method uses a one-root random spanning-tree degree law and allows singletons."
+      ],
+      "reasoning": "The inverse assertion is equivalent to injectivity of the map from unordered multipartite partitions of a fixed N, with an arbitrarily chosen root class, to one probability-generating polynomial; explicit negative-integer zero multiplicities supply the inverse. Prior forward PGF identities enable this new comparison but do not themselves claim injectivity across unknown host graphs.",
+      "searches": [
+        "one vertex degree distribution uniformly random spanning tree identifies complete multipartite graph part sizes inversion",
+        "complete multipartite graph reconstruction from root spanning tree degree distribution polynomial roots",
+        "spanning tree random degree marginal determines partition class sizes complete multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published records concern the signohedral center-degree law, complete-multipartite spanning-tree overlap corrections, and co-degree reconstruction, not a table or inverse classifier for rooted UST degree laws.",
+        "No exact-match database or classification of this one-vertex reconstruction was found in the inspected literature."
+      ],
+      "reasoning": "The theorem applies to unbounded multipartite orders and gives symbolic reconstruction, not a finite table. Database search absence is not a proof of historical uniqueness.",
+      "searches": [
+        "complete multipartite graph reconstruction from root spanning tree degree distribution polynomial roots",
+        "spanning tree random degree marginal determines partition class sizes complete multipartite"
+      ]
+    },
+    "rationale": "Assessed claim is cross-host rooted-law injectivity and explicit all-size inverse decoding, not the classical multivariate weighted tree enumerator nor general fixed-graph degree PMFs. In literature read, only the forward machinery is established. The required part-count/zero-multiplicity/residual reconstruction comparison is additional. Historical overlap remains possible and is disclosed.",
+    "residual_risks": [
+      "Remmel--Williamson and older multipartite tree function bijections supply a very strong generating-function antecedent. A direct inverse-identification corollary may have appeared elsewhere.",
+      "The full body of Li--Chen--Yan (2023) and Pozrikidis (2016) was not accessible in the views inspected; no claim of whole-paper exclusion is made.",
+      "No independent validation or exhaustive historical priority assessment has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Forward general PMF framework, no claim of complete-multipartite reconstruction observed.",
+        "evidence": [
+          "First posted 2023-12-22 (arXiv abstract).",
+          "Introduction notes edge-transfer and UST joint-degree probability formulas; no text match for multipartite."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.14992",
+        "material_read": "Abstract; introduction; stated general joint-degree results and connected paragraphs; searched the full-text page for multipartite.",
+        "method": "Direct open and on-page find on arXiv full-text rendering.",
+        "title": "Correlations in uniform spanning trees: a fermionic approach",
+        "trigger": "General all-graph UST degree PMFs could subsume a rooted-degree identification claim."
+      },
+      {
+        "assessment": "General forward moment/covariance results, not a reconstructibility theorem; no occurrence of multipartite in searched HTML.",
+        "evidence": [
+          "arXiv first posted 2024-09-20.",
+          "Appendix A uses a two-variable generating polynomial to compute covariance for fixed host."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.13472v2",
+        "material_read": "Full HTML introduction and contributions, notation, main formula discussion and Appendix A covariance (lines 338--360), bibliography; searched full HTML for multipartite.",
+        "method": "Direct HTML open, text read and find.",
+        "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+        "trigger": "General node-degree framework could imply formulas for the host class."
+      },
+      {
+        "assessment": "Provides preexisting multipartite generating-function machinery. No graph-reconstruction-from-one-degree-law assertion observed in inspected sections; strong priority caveat for simple corollaries.",
+        "evidence": [
+          "Journal publication 2002-08-12, section 3.2 concerns multipartite forests.",
+          "The weighted enumerator is explicitly credited as prior mathematics."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/1650",
+        "material_read": "PDF introduction, general result descriptions and Example 3.2, especially pages 14--16; screenshot of page 16; in-document finds for degree and reconstruct.",
+        "method": "Journal OA PDF parsed text and a source-page screenshot.",
+        "title": "Spanning Trees and Function Classes",
+        "trigger": "Classical multipartite multivariate formula is central to the proof and is stronger than a fixed-graph generating result."
+      },
+      {
+        "assessment": "Counts fixed-forest containment for 3- and 4-partite hosts; inverse one-marginal uniqueness not stated in the available abstract; full-text uncertainty retained.",
+        "evidence": [
+          "First publicly posted at publisher 2023-03-30.",
+          "Abstract restricts explicit containment formulas to three and four parts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22954",
+        "material_read": "Publisher abstract, bibliographic history and reference list; full body not accessible as text in the retrieved view.",
+        "method": "Wiley abstract and metadata open.",
+        "title": "Enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+        "trigger": "Direct multipartite tree enumeration with fixed forests may encode rooted degree counts."
+      },
+      {
+        "assessment": "Computes degree probabilities for known networks, with complete networks and lattice examples, not unknown multipartite classification in inspected text.",
+        "evidence": [
+          "2016 publication and abstract, general determinant degree-generating method."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1751-8113/49/12/125101",
+        "material_read": "Abstract and introductory excerpt accessible on ResearchGate; complete source not retrieved.",
+        "method": "Search result and publisher publication metadata.",
+        "title": "Node degree distribution in spanning trees",
+        "trigger": "Specific node-degree distribution paper could have a relevant inverse method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "243c0c6f-a37e-4326-90b9-3337be7aac9d",
+  "value": {
+    "rationale": "The inverse problem asks what global graph structure can be inferred from an exact local random-spanning-tree statistic. One arbitrary rooted vertex-degree law determines an unbounded family of multipartite isomorphism types, including nonregular hosts and singleton classes, via an explicit polynomial root decoder without enumerating spanning trees. The known-order hypothesis is mathematically necessary, illustrated by identical deterministic degree-one laws of star leaves of different orders.",
+    "status": "PASS"
+  }
+}
