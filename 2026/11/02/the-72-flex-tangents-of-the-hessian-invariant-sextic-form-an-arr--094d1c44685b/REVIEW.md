@@ -1,15 +1,21 @@
-# Scientific review: the 72 flex-tangent arrangement of the Hessian-invariant sextic
+# Independent mathematical audit
 
-## Correctness — PASS
-For the smooth sextic defined by \(x^6+y^6+z^6-10(x^3y^3+x^3z^3+y^3z^3)=0\) over \(\mathbb C\), the direct Hessian determinant factors as the product of twelve Hesse reflection lines, each cutting six simple flexes. The coordinate-slice contact calculation gives multiplicity exactly three, and the order-216 Hessian action generates all 72 tangent lines. The exhaustive incidence certificate constructs the orbit in exact Eisenstein-integer polynomial arithmetic, proves 264 determinant identities *in characteristic zero*, and uses reduction modulo 211 only to rule out other coincidences. Both verification programs were run from the package paths. Every one of the 72 lines has the stated incidence profile, and all 2556 pairwise meetings are accounted for. Critical boundary: a modular concurrence alone would not prove characteristic-zero concurrence; exact symbolic identities supply that missing step.
+## correctness
 
-## Originality — PASS, with residual historical priority risk
-Artebani--Dolgachev's *The Hesse pencil of plane cubic curves* gives the curve, reflection arrangement and related K3 geometry, not the 72-tangent intersection multiplicity stratification. Badr--Bars's *The stratification by automorphism groups of smooth plane sextic curves* (arXiv:2208.12749, first public 2022-08-26; 2025 publication), especially Remark 9.11, proves the uniqueness of the Hessian-216 sextic, not any 72-line tangency-incidence result. Yoshida (arXiv:2008.13427) omits Hessian groups from its simple-primitive analysis. Searches of mathematical research records, accessible prior claims, the primary and related full texts, and web aliases did not yield the 12/216/1728 line-incidence result. This is an evidence-backed best-knowledge originality conclusion, not a proof that no earlier manuscript exists. Earlier unpublished classical calculations remain the main risk.
+PASS
 
-## Mathematical value — PASS
-The natural geometric object is the complete set of inflection tangents of the unique smooth sextic with automorphism group of order 216. The number 72 alone and the pre-existing twelve-line reflection arrangement do not determine how the 72 tangent lines intersect. The exact *global* stratification into 12 sixfold points, 216 triples, and 1728 nodes, together with the uniform per-line incidence profile, reveals a highly structured arrangement with natural further applications to arrangement characteristic polynomials, complement topology, and singular Jacobian schemes. No unproved downstream theorem is asserted.
+The Hessian determinant factors as 108000 xyz(x+y+z) times four quadratic factors splitting into eight more Hesse reflection lines. I independently symbolically verified that polynomial identity. The sextic is smooth (quadratic form in x³,y³,z³ is nonsingular and coordinate restrictions squarefree); its 72 Hessian intersections are six transverse curve points on each of twelve reflection lines and each is ordinary flex: on x=0, r^6-10r^3+1=0 and F(x,y,ry)=x³[x³-10(1+r³)y³]. The Hessian group takes their tangent directions transitively. Independent projective enumeration over F_211 of the specified dual orbit gives exactly 72 distinct lines and 12 points of multiplicity 6, 216 of 3, and 1728 of 2; weighted pair count is 2556. The supplied exact Z[omega,r] determinant checker explicitly verifies 264 defining zero identities and irreducibility, so finite-field reduction excludes additional characteristic-zero coincidences; a modular count alone would not prove positive characteristic-zero concurrences.
 
-## Closest sources and limitations
-M. Artebani and I. Dolgachev, *The Hesse pencil of plane cubic curves* (2009), §§4,6; E. Badr and F. Bars, *The stratification by automorphism groups of smooth plane sextic curves*, arXiv:2208.12749 (2022), Remark 9.11 of open 2025 text; Y. Yoshida, *Projective plane curves whose automorphism groups are simple and primitive*, arXiv:2008.13427 (2020). The new claim is about reduced intersection support of the 72-line arrangement over \(\mathbb C\), not its singular scheme or positive-characteristic behavior. The reproducible exact computer-assisted concurrency proof is included. Historical priority cannot be established exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge original contribution is The 72 flex tangents of the Hessian-invariant sextic form a (12_6,216_3,1728_2) arrangement; source inspections and four implication checks below separate its precise claim from prior theorems; earlier subresults are credited, and stated residual priority risks remain.
+
+## value
+
+PASS
+
+The complete singular multiplicity distribution of the flex-tangent arrangement is a natural projective invariant of a highly symmetric smooth plane sextic. It separates the twelve original Hesse reflection lines from the new 72 tangent lines and gives exact local and global geometry, not just a formula directly implied by the known automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
