@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The argument starts with the actual semantics \(oR_G y\iff G\subseteq C(y)\), so a failure profile equals the downward closure of signatures supporting at least one false world. The nonempty-cell hypothesis realizes every order ideal. Maximal signature blocks must contribute a nonempty false subset; strictly lower blocks contribute arbitrary subsets; exterior cells are entirely true, establishing the exact count and Bernoulli probability. The grand-only profile and its threshold follow from disjoint one-coordinate deviation cells and \(\log(1-x)\sim-x\). The restricted-profile count follows because only the two ideals that differ solely in the empty coalition merge. The direct finite semantic enumerator agrees on all 74,832 valuations tested. The general proof, not those tests, supplies the infinite-parametric statement.
+
+## Originality — PASS within inspected evidence
+The motivating 2026 source provides standard intersection-based distributed knowledge and the empty-group global modality, but its examined semantic and theorem sections concern analytic cut/interpolation rather than exact valuation fibers on fixed finite product models. The 2022 group-announcement paper and an open 2024 account of group-knowledge semantics were also consulted; neither inspected portion states these exact profile-count and random-threshold formulas. Distinct neighboring published results concern irredundant value knowledge on arbitrary finite frames, inquisitive frame counts, or antichain enumeration itself; they neither specialize nor imply the claimed joint valuation-fiber and threshold classification. The classical Dedekind numbers and finite product counting are credited, not presented as new basic lemmas. Uninspected older combinatorial and epistemic sources may contain equivalent interpretations, so historical uniqueness is unproved.
+
+## Value — PASS
+All coalition observations are a natural finite epistemic invariant. Knowing exactly which patterns can occur, how many Boolean valuations create each pattern, and the sharp window in which a large group alone acquires knowledge gives an interpretable complete model-classification and nontrivial quantitative phase boundary. The theorem is not a mere restatement of the Dedekind-number count: it supplies parameter-dependent fibers and a probabilistic extreme-pattern law that the antichain count alone does not determine. The fixed complete-product assumption is explicit; applications to incomplete frames or coupled valuations remain open.
+
+## Scope and residual risks
+The proof is for a single atomic proposition at one distinguished state, fixed labelled complete Cartesian \(\mathsf{S5}\) frames, all \(n_i\ge2\), and independent truth probabilities. Broader epistemic structures are not classified. An older or differently named result about failure signatures or monotone Boolean profiles might precede the claim; the inspected record did not resolve all such priority possibilities. Finite checks are supporting evidence only.
+
+Self-review: passed. Independent audit: not yet performed.
