@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(6\\le n\\le20\\) the exact deletion-distance identity characterizes common 2-deletion descendants by distance <=2. s3_cert.json supplies at least one optimal distance-3 code and a positive rational weighted clique cover of the entire length-n ternary simplex. Exhaustively checking the witness gives a lower bound. For any independent code C and any clique K, |C intersect K|<=1, so vertex-cover weights summing to >=1 give |C|<=sum_K weight(K). Exact rational dual costs have floor equal to the exhibited witness cardinalities for all fifteen n. The attached standard-library checker executed without error, including all witness distances, clique distances, exact cover inequalities and exact rational sums. Proof establishes only the explicitly finite interval.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1307.3142: perfect codes in the discrete simplex, including the ternary perfect-case lengths but not optimal codes for all n=6,...,20.",
+        "arXiv:1612.08837, Theorem 15 and Corollary 16: ternary even-error-radius asymptotic \\(S_3(n,2)\\sim n^2/14\\), not a finite equality.",
+        "arXiv:2601.05636, sections 3–6: exact high-deletion regimes, binary optima, and q-ary Sidon syndrome constructions.",
+        "arXiv:2603.18322, sections 3–5: polynomial constructions, exact ball sizes and pair enumerators, and general packing bounds."
+      ],
+      "reasoning": "The known asymptotic ratio cannot imply any single exact finite cardinality. The known upper/lower bounds are not equal to the fifteen certificate-determined optima for all lengths. The perfect-code classification is a special structural theorem for an exceptional parameter, not a table of arbitrary finite maxima.",
+      "searches": [
+        "arXiv:1307.3142",
+        "arXiv:1612.08837",
+        "arXiv:2601.05636",
+        "arXiv:2603.18322",
+        "Perfect codes discrete simplex q=3 two errors small n packing number triangular grid power two"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1307.3142",
+      "https://arxiv.org/abs/1612.08837",
+      "https://arxiv.org/abs/2601.05636",
+      "https://arxiv.org/abs/2603.18322"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1612.08837 Corollary 16: asymptotic \\(n^2/14\\), no exact finite cardinality; in particular it leaves boundary effects unresolved.",
+        "arXiv:2601.05636 cyclic q=3,t=2 construction has seven syndrome classes, whose best size differs from the sharp optimum at thirteen of fifteen lengths (at n=6, size 4 versus 6).",
+        "arXiv:2603.18322 supplies volume bounds rather than an exact matching upper and lower pair for all these n."
+      ],
+      "reasoning": "An explicit cyclic code provides only a lower bound and is demonstrably strictly suboptimal in 13 of the 15 certified instances, so its construction cannot imply the claimed maximum. Sphere-volume bounds and asymptotic statements alone also cannot imply every finite optimum. The exact rational clique covers are an additional finite upper-bound argument not present in the compared sources.",
+      "searches": [
+        "arXiv:1612.08837 Corollary 16 ternary two deletions asymptotic",
+        "arXiv:2601.05636 q=3 t=2 modulo seven Sidon code",
+        "arXiv:2603.18322 packing code upper bound q=3 t=2",
+        "arXiv:1307.3142 ternary perfect simplex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A ternary multiplicity simplex is a triangular lattice patch; min deletion distance >=3 means a 2-packing in its distance-one graph. Kovačević–Tan, arXiv:1612.08837, develops the ambient A2 metric and asymptotics, but not the finite exact interval. Kreindel–Essayag–Zabokritskiy, arXiv:2601.05636, uses the same multiset metric and cyclic construction but does not state the claimed table."
+      ],
+      "reasoning": "Searches compared the identical distance-three independent-set invariant, not merely the term \"multiset deletion\". No inspected full-text theorem or returned closely related result specified the exact finite values; an equivalent finite triangular-grid packing table remains a residual risk.",
+      "searches": [
+        "ternary multiset two deletion codes S_3(n,2) exact maximum triangular lattice squared graph n",
+        "triangular lattice finite triangular patch 2-packing 35 n=20, 32 n=19, 29 n=18",
+        "triangular grid 2-packing maximum triangle",
+        "arXiv:1612.08837",
+        "arXiv:2601.05636"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest retrieved exact finite record treats only the three-survivor regime S_3(n,n-3), which at n=5 overlaps the two-deletion case intentionally excluded here; no inspected record gives the n=6–20 t=2 series.",
+        "ArXiv:2601.05636 provides cyclic code classes and near-extremal cases, not a table resolving each finite optimum in this interval."
+      ],
+      "reasoning": "Searches targeted the numerical sequence, exact code parameter, and equivalent triangular-grid packing metric. Their negative returns do not establish global absence; any subsequently found equivalent tabulation could supersede the priority claim.",
+      "searches": [
+        "Exact ternary multiset two-deletion correcting code size S_3(n,2) for n=2 to 18 1 3 3 4 6 6 8 10 11 12 15 17 19 21 24 26 29",
+        "Exact maximum ternary multiset 2-deletion code sizes n=6,...,20 6,6,8,10,11,12,15,17,19,21,24,26,29,32,35",
+        "\"triangular grid\" \"2-packing\" maximum size triangle of side n",
+        "\"simplex\" \"2-deletion\" \"3\" table optimal code sizes finite"
+      ]
+    },
+    "rationale": "The inspected primary sources give perfect-code conditions, cyclic Sidon constructions, general two-deletion bounds, and asymptotic cardinalities, but no exact sequence of optimal ternary two-deletion sizes for all n=6,...,20. The new statement is the finite fifteen-term sharp maximum sequence with independent primal and exact rational-dual certificates; it is not equivalent to a Sidon lower bound or an average deletion-ball enumerator. Substantive priority risk remains from unindexed triangular-grid 2-packings and unpublished computation.",
+    "residual_risks": [
+      "Finite triangular-grid 2-packings or distance-two graph independence numbers could have been tabulated under another indexing convention.",
+      "A relevant unpublished or unindexed source could contain an equivalent numerical sequence or stronger all-length theorem.",
+      "There has been no independent verification of the manuscript or global priority beyond inspected evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The covered perfect-code case is outside the n=6,...,20 claim; it does not imply fifteen finite maximum sizes.",
+        "evidence": "arXiv:1307.3142, title, submission history, main perfect-code existence result",
+        "identifier_or_url": "https://arxiv.org/abs/1307.3142",
+        "material_read": "Original manuscript introduction and its perfect-code existence theorem for the two-dimensional discrete simplex, with parameters of the ternary exceptional case",
+        "method": "Read accessible arXiv HTML and arXiv abstract/submission history",
+        "title": "Perfect Codes in the Discrete Simplex",
+        "trigger": "First coding-theoretic description and potential domination by perfect-code classification"
+      },
+      {
+        "assessment": "Strongest relevant result there gives leading asymptotic S_3(n,2)~n^2/14, not exact finite optima.",
+        "evidence": "arXiv:1612.08837, Theorem 14, Theorem 15, Corollary 16",
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Original full-text sections on the A-lattice, Sidon construction, fixed-alphabet bounds (Theorem 14), fixed-alphabet asymptotics (Theorem 15 and Corollary 16), and the ternary even-deletion formula",
+        "method": "Read accessible arXiv full-text HTML",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Same metric and possible dominating exact code-size theorem"
+      },
+      {
+        "assessment": "Gives pertinent lower-bound construction and different exact cases but not a finite ternary t=2 size table through length twenty.",
+        "evidence": "arXiv:2601.05636, sections 3, 4, 5, 6 and MSC 94B25",
+        "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+        "material_read": "Original full-text introduction and main-result overview, sections on near-extremal deletion regimes, exact binary codes, ternary single deletion and section 6 on cyclic q-ary Sidon-type construction",
+        "method": "Read accessible arXiv HTML full text (arXiv abstract endpoint contains full rendered article)",
+        "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+        "trigger": "Recent original primary paper on exactly the same channel and cyclic two-deletion construction"
+      },
+      {
+        "assessment": "Its enumerators and bounds do not determine these fifteen finite independent-set maxima.",
+        "evidence": "arXiv:2603.18322, sections 2–5, Theorem 9 and Corollaries 10–11",
+        "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+        "material_read": "Original full-text introduction, exact pair/ball enumeration Theorem 9, ideal-difference-set Corollary 10, q=3 specialization Corollary 11, and section 5 packing-bound setting",
+        "method": "Read accessible arXiv HTML full text",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Closely related new paper with exact finite-n geometry and potential upper coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "056b7526-54a3-4b56-bf43-e2b1d94ceb87",
+  "value": {
+    "rationale": "Two-symbol deletion correction in ternary multisets is a natural low-dimensional coding invariant: the first nontrivial two-dimensional A2 lattice packing distance with alphabet fixed and deletion radius two. The exact \\(6\\le n\\le20\\) finite profile resolves boundary effects unavailable from an \\(n^2/14\\) asymptotic. Thirteen of the fifteen optima improve on the seven-syndrome cyclic construction (including \\(6\\) versus \\(4\\) at n=6); each improvement comes with a complete lower witness and a rigorous finite upper certificate. The finite cutoff is motivated by explicit certificate availability, not asserted as an all-length theorem.",
+    "status": "PASS"
+  }
+}
