@@ -1,0 +1,11 @@
+# Review of the two-ballot core+ classification
+
+**Correctness.** The proof splits into Pareto saturation, a type-private necessary bound from the payment-certificate reserve inequalities, and an explicit two-type payment construction. The strictness argument is essential: it creates room to decrease every active group's reserve below its losing-candidate quota while respecting per-candidate budgets. The two-positive-demand case uses exactly two voter types and the identity \(a+b=kq\). The closed-form boundary witness verifies why Pareto saturation matters. The supplied exact checker covers 80,000 finite parameter instances and is supportive rather than an infinite certificate.
+
+**Originality.** The 2026 core+ paper supplies the general payment-certificate equivalence and unrestricted core+ existence, not the statement that every Pareto-efficient EJR+ committee of this two-type domain is core+. The 2026 EJR+ axiomatics paper formalizes EJR+ and its logical properties. The earlier few-voter-types core paper proves existence, not the claimed committee-level equivalence for core+. Comparisons were made by implications, including the distinction between **existence of some** core+ committee and **classification of all** Pareto-efficient EJR+ committees. Relevant unindexed results and sections not fully examined remain an originality risk.
+
+**Value.** The theorem collapses a fractional coalition-deviation test to two strict rational inequalities on a natural heterogeneously overlapping approval domain, and supplies a direct certificate for every qualifying Pareto-efficient committee. The elementary two-voter counterexample separates the strong fractional core from EJR+ once efficiency is dropped. This is useful for understanding when a simpler representation guarantee already certifies the stronger one, rather than recomputing a known table or repackaging a routine special case.
+
+**Limits.** The Hare quota, positive candidate support, two voter types, and Pareto efficiency are essential to the stated result. Claims about other quotas and larger type counts are unproved. The result has not been externally validated.
+
+Self-review: passed. Independent audit: not yet performed.
