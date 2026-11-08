@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The normalized Funk action is -1/2 on trace-free quadratic harmonics. Fourier orthogonality at five distinct 5th roots makes the Gram diagonal with three stated eigenvalue factors. The minimax proof covers r in (0,1/4], [1/4,3/5], and [3/5,infinity), and the separate lower-bound proof covers t in (0,t*), (t*,1/3), [1/3,1/2], and [1/2,1). At the sole common t* the formulas for both sharp optima and multiplicities follow by substitution. The package checker passed 1353 tests; finite tests are corroboration, not an all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Quellmalz et al. (2023) use infinite trigonometric frame decompositions and regularization rather than finitely optimized scan directions.",
+        "Elahi et al. (2018), Section III, use an optimal-cardinality full-band spin-s grid with multiple rings and a numerical placement heuristic. Their isolated spin-2 five-node situation is not pure scalar degree-two Funk tomography.",
+        "Khalid et al. (2014) sample L^2 full scalar low-pass modes using L rings with 2k+1 nodes; there is no 5-view pure degree-two ring spectral optimum."
+      ],
+      "reasoning": "The broader inversion settings do not imply the sharp closed-form restricted scan tilt, two independent objective optimizations, or exact Gram multiplicities. More general frame identities were explicitly treated as prior ingredients.",
+      "searches": [
+        "spherical Funk Radon transform finite directional sampling quadrupole optimal frame",
+        "A Frame Decomposition of the Funk-Radon Transform Quellmalz Weissinger Hubmer Erchinger 2023 spectral sampling frames finite views",
+        "An Optimal-Dimensionality Sampling for Spin-s Functions on the Sphere Elahi Khalid Kennedy McEwen 2018",
+        "https://www.zubairkhalid.org/papers/J16.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Quellmalz et al., arXiv:2303.05179v1, full PDF",
+      "Elahi et al., arXiv:1809.01321v1, author-hosted full PDF",
+      "Khalid et al., arXiv:1403.4661v2, preprint PDF Sections II–III, Figure 3 and conclusions",
+      "Xu, Polynomial Interpolation on the Unit Sphere, publisher abstract only",
+      "SHTOOLS spherical sampling grid-format documentation",
+      "Indexed public mathematical comparison: sharp scalar-view conditioning for cyclic Radon transforms; half-energy multiplicities for hemispherical spherical Slepian concentration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Funk eigenvalue relation (2023, equation 10) plus standard pointwise harmonics determine a Gram matrix but do not themselves prove its global minimax latitude and independent lower-bound maximizer.",
+        "The 2018 paper's Section III-D numerically selects full-band ring colatitudes; it has neither the target pure degree-two Funk domain nor an exact analytic minimax formula.",
+        "The 2014 scalar paper (Section III-E) optimizes placement of an entire multi-ring low-pass grid numerically and cannot imply one-ring pure-degree-two optimality without a separate analysis."
+      ],
+      "reasoning": "The new conclusion is sharper than the general inversion and sampling tools in its exact algebraic constrained optimum, and is not the specialization of any located statement that already asserts that optimum. An unindexed stronger sampling theorem could change this best-knowledge judgment.",
+      "searches": [
+        "Funk Radon transform five equispaced great-circle scan orientations quadratic spherical harmonics optimal latitude ring conditioning",
+        "A Frame Decomposition of the Funk-Radon Transform Quellmalz Weissinger Hubmer Erchinger 2023 spectral sampling frames finite views",
+        "An Optimal-Dimensionality Sampling for Spin-s Functions on the Sphere Elahi Khalid Kennedy McEwen 2018",
+        "https://arxiv.org/pdf/2303.05179",
+        "https://www.zubairkhalid.org/papers/J16.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact statement can be reformulated as optimal norm-conditioning for five point evaluations of pure degree-two harmonics, since Funk acts as -1/2 on this subspace.",
+        "Five sampled azimuthal DFT nodes diagonalize the operator, but the optimal latitude comes from a nonconstant three-branch minimax; no matching result located in reviewed sources."
+      ],
+      "reasoning": "Compared the Funk measurement statement to its spherical harmonic interpolation equivalent, cyclic pentagon/DFT equivalence, and degree-two frame counterpart. Eq. (10) in the focal source contains the multiplier, but does not state or imply the optimizer without additional branch comparison.",
+      "searches": [
+        "Funk Radon transform five equispaced great-circle scan orientations quadratic spherical harmonics optimal latitude ring conditioning",
+        "regular pentagon quadrupole harmonic sampling smallest singular value exact sqrt21 latitude",
+        "degree-two spherical harmonic equispaced azimuth single latitude five point interpolation condition number",
+        "https://arxiv.org/pdf/2303.05179#page=5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publicly documented spherical harmonic sampling grids specify multi-latitude quadrature rules rather than a five-circle quadrupole table.",
+        "No exact value or table for the pair (five views, single constant tilt, pure quadrupole) was found in queried scientific sources; this is a search result, not a proof of uniqueness."
+      ],
+      "reasoning": "Checked possible tables under Funk Radon, single latitude spherical-harmonic interpolation, and optimal spherical sampling nomenclature. Existing grid recipes concern whole low-pass spaces, with different dimensions and conditions.",
+      "searches": [
+        "regular pentagon quadrupole harmonic sampling smallest singular value exact sqrt21 latitude",
+        "degree-two spherical harmonic equispaced azimuth single latitude five point interpolation condition number",
+        "degree 2 spherical harmonics circle of latitude optimal condition numbers",
+        "https://shtools.github.io/SHTOOLS/grid-formats.html"
+      ]
+    },
+    "rationale": "Read focal 2023 Funk frame paper, the 2018 spin sampling paper, and the relevant sections of the 2014 scalar iso-latitude paper. The first establishes the Funk harmonic multiplier and infinite-dimensional frame reconstruction, not finite optimal five-scan conditioning; the second uses a distinct full-band spin setting and heuristic latitude selection. Compared mathematical claims using topical and equivalent-formulation searches of published research records. No reviewed statement implies the pair of exact restricted single-ring quadratic optima. Publication priority remains provisional due unindexed work and a partially accessible abstract-only sphere interpolation paper.",
+    "residual_risks": [
+      "Unindexed finite-direction optimal spherical scanning literature may contain an equivalent algebraic latitude formula.",
+      "Xu's broader spherical interpolation paper was only inspectable as an abstract; its full text was not needed for the core algebra but is a residual priority risk.",
+      "Optimization is only over equal-azimuth single-latitude rings; no inference about arbitrary five-normal configurations is intended."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_INGREDIENT_NOT_COVERING_RESTRICTED_OPTIMUM",
+        "evidence": "Eq. (10) supplies RY_l^m=P_l(0)Y_l^m. Proposed reconstruction uses a trigonometric frame and regularization, not optimization of five unweighted isolated scan normals for a pure degree-two subspace.",
+        "identifier_or_url": "https://arxiv.org/pdf/2303.05179",
+        "material_read": "Full 13-page arXiv preprint: abstract, definitions, frame decomposition and estimates in Sections 1–3, trigonometric frame construction, numerical experiments, conclusions/references; equations (1) and (10) inspected visually in PDF.",
+        "method": "Full PDF text and page-image inspection (especially page 5).",
+        "title": "A Frame Decomposition of the Funk-Radon Transform",
+        "trigger": "Exact same Funk operator; possibility that frame decomposition gives sharper finite five-scan conclusions."
+      },
+      {
+        "assessment": "DIFFERENT_SCOPE_NOT_AN_IMPLICATION",
+        "evidence": "Sampling theorem covers full-band spin-s harmonics with multiple rings; Section III-D uses a discrete candidate search for condition-number placement of sequential harmonic blocks, not a single-ring pure scalar-degree-two Funk spectrum or simultaneous analytic minimax. Their single-ring five-node spin-2 band is a different function class.",
+        "identifier_or_url": "https://www.zubairkhalid.org/papers/J16.pdf",
+        "material_read": "Full five-page author-posted paper: Sections I–IV, eqs. (4)–(8), and Section III-D ring placement read; page 3 verified visually.",
+        "method": "Authorized author-hosted PDF full-text and screenshot.",
+        "title": "An Optimal-Dimensionality Sampling for Spin-s Functions on the Sphere",
+        "trigger": "Optimal-cardinality sphere sampling using iso-latitude rings and numerical conditioning; strongest plausible broader design theorem."
+      },
+      {
+        "assessment": "BROADER_FULL_BAND_NOT_EXACT_FIVE_VIEW_RING_OPTIMUM",
+        "evidence": "For a scalar band-limit L the scheme samples all L^2 modes on L rings, with 2k+1 measurements on ring k. L=3 requires 9 observations, while pure l=2 has dimension 5. Condition numbers concern sequential matrices P^m, with numerical ring-placement optimization, not a theorem of algebraic five-view Funk conditioning.",
+        "identifier_or_url": "https://arxiv.org/pdf/1403.4661",
+        "material_read": "Sections I–III, including exact full-band sampling dimension, ring cardinality and condition-number minimization; Figure 3 and associated text inspected visually, together with the conclusions and harmonic appendix.",
+        "method": "Full preprint PDF accessible; extracted primary relevant sections and image of page 6.",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "Earlier scalar-sphere iso-latitude sampling work directly invoked by the 2018 spin sampling paper; possible more general 5-view theorem."
+      },
+      {
+        "assessment": "BROAD_PLAUSIBLE_SOURCE_WITH_ACCESS_LIMIT",
+        "evidence": "Available description concerns (n+1)^2 samples for all polynomials through degree n, not the 5-dimensional homogeneous harmonic degree-two space; full-text implications were not determined, so residual historical-priority risk is retained.",
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/S003614290139946X",
+        "material_read": "Bibliographic record and accessible abstract, not full article.",
+        "method": "Publisher abstract search.",
+        "title": "Polynomial Interpolation on the Unit Sphere",
+        "trigger": "Possible full interpolation theorem covering all finite sphere samplers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "85abca5f-8498-49a2-88d9-72e8dbf9cffb",
+  "value": {
+    "rationale": "The first nonconstant observable Funk band is a 5D quadrupole, so five scans are an information-theoretically minimal linear design. Fixed-tilt equal-azimuth acquisition is natural and physically realizable. The theorem supplies all singular modes, every failure latitude, a closed-form optimal scan tilt, a sharp global minimum condition number within that design family, and a separately sharp maximum minimum gain at exactly the same tilt; useful concrete spectral stability benchmark.",
+    "status": "PASS"
+  }
+}
