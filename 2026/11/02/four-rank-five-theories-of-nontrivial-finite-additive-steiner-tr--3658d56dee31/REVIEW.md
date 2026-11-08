@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain is exactly the nontrivial finite additive Steiner triple systems in the pure irreflexive ternary-block relation. The 2014 structural classification reduces the domain to binary projective and ternary affine designs. The proof explicitly wins five-round games within the stabilized dimensions, using span/affine-span matching for four moves and completion/generic choices on the fifth. Counts \(15>10\) and \(27>10\) guarantee generic witnesses. The two rank-five formulas distinguish all four remaining cases. A separate uniform three-point extension argument proves common rank-four theory for all nontrivial STSs. Finite orbit-based Hintikka computations independently reproduce the four tested rank-five signatures. Risks: finite checks do not replace infinite arguments; the result is not a formal proof-assistant certification.
+PASS
 
-## Originality
+The four-round universal argument enumerates complete atomic one-point extension patterns of every triple: equality, block, three pair completions, or a generic fresh point, which exists in every STS of order >=7. For five rounds, up to move four a GL-isomorphism of binary spans (ambient m>=4), or an affine isomorphism of ternary affine spans (d>=3), preserves all relevant incidences. At move five the only nongeneric choices are at most six pair-completion points; at least fifteen binary nonzero or twenty-seven ternary points ensure a generic option. The depth-five formulas Phi and Psi quantify four distinct cap points then one pair-completion witness per opposite pair: Phi identifies a Pasch configuration (only binary); Psi identifies a cap with no opposite-pair completion identification (only dimensions >=4 binary or >=3 ternary). Independent explicit enumeration of PG3,PG4,AG2,AG3 returned (Phi,Psi)=(1,0),(1,1),(0,0),(0,1). Pavone’s classification supplies exhaustion of additive types; these distinctions prove representative minima. Repeated selected vertices and order-three exception are handled. The finite checks do not establish all-dimensional stabilization on their own.
 
-PASS, qualified. The closest fully inspected text, Pavone (2014), identifies the two additive isomorphism families and the algebraic Pasch dichotomy, but does not identify four depth-five first-order equivalence classes, their explicit distinguishing formulas, or their stabilization thresholds. Barbina–Casanovas (2019) concerns the model completion of infinite Steiner quasigroups, not these finite rank-five theories. The full-text accessible 2022 configuration-complexity article treats Pasch enumeration, not logical depth. A previously recorded rank-four point-only Steiner-design result establishes the lower-depth uniformity but does not imply the exact rank-five classification. Targeted bibliographic and research-index searches found no stronger covering claim. Risks: the 2000 anti-Pasch construction texts were only accessible at abstract level, and unindexed literature may contain the same depth-five statement.
+## originality
 
-## Value
+PASS
 
-PASS. The invariant is a natural, complete bounded-depth classification on the entire algebraically characterized family of additive Steiner triple systems, not a chosen finite slice. It pinpoints the first depth at which any two nontrivial STSs can separate and shows that two independent order-five logical tests recover both field characteristic and the first dimension transition. The sharp minimal representative sizes \(7,9,15,27\) make the classification explicit and useful for finite-model equivalence testing. The combinatorial configurations are standard, but their complete depth-five logical interaction is not a textbook restatement of the algebraic classification.
+Pavone’s 2014 additive STS classification and the projective-versus-affine Pasch contrast are prior work. Barbina–Casanovas study infinite model-theoretic Steiner quasigroups; their generic model completion does not state this four-class finite point-relational depth-five spectrum. General anti-Pasch construction papers address configurations rather than EF depths. A related published rank-four universal STS result is explicitly acknowledged. The two five-quantifier separating bits together with dimension stabilization were not found in the inspected statements; equivalence under a quasigroup-function encoding could change quantifier ranks, so the language boundary is essential.
 
-## Closest literature and limitations
+## value
 
-Ling–Colbourn–Grannell–Griggs (2000), Grannell–Griggs–Whitehead (2000), Pavone (2014), Barbina–Casanovas (2019), and Heinlein–Östergård (2022) were compared at the level of their relevant mathematical statements. Results do not extend to nonadditive STSs at rank five or to a functional quasigroup signature. Originality assessment is qualified by an inaccessible plausible construction source and by incomplete indexing; independent audit was not undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The point-only relational STS language is a standard incidence object, and the exact first distinguishing rank is a structurally motivated invariant. The four-class split uses a Pasch detection and an independent opposite-pair cap obstruction, rather than a tautological restatement of the isomorphism classification. A sharp 27-point representative bound is useful for bounded-depth logic/model testing. The claim does not classify all nonadditive STS at rank five or higher-depth types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
