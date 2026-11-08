@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct least-significant-bit multiplication by three has carry states \(0,1,2\). The input/output parity product reduces to one sign per starting carry, giving the exact \(3\times3\) matrix formula; the terminal vector includes every high carry bit. Rational resolvents and the characteristic polynomial give the all-index recurrence and spectral formula. The joint counts follow by an exact sign-indicator identity and a separately evaluated marginal transfer matrix. An algebraic-integer obstruction makes the spectral angle irrational and proves infinitely many positive and negative values with sharp scale. `verify.py` passed complete enumeration of 262143 dyadic-prefix input evaluations through level 17, with all four joint cells. Direct enumeration is a cross-check, not an infinite proof. No unproved hypotheses are invoked.
+PASS
 
-## Originality — PASS within inspected evidence
+For all integers r>=0, digitwise 3b_j+c_j=y_j+2c_(j+1) with c∈{0,1,2} and terminal digit parity tau(c_r) yields C_r=e M^r v, where M=[[1,1,0],[-1,0,-1],[0,1,1]], e=[1,0,0], v=[1,-1,-1]. Exact resolvent is (1-2z+3z²)/((1-z)(1-z+2z²)); eigenvalues 1,(1±i√7)/2 give C_r=1-(2/√7)Im(((1+i√7)/2)^r), correct for r=0,1,2. Marginal N-matrix yields U_r with classical 3^(r/2) scale, and the four joint parity cells (2^r+bU_r+abC_r)/4 for r>=1. Irrationality of eigenangle follows from 1/√2 not an algebraic integer, giving infinite positive/negative subsequences of 2^(r/2). Independent symbolic resolvent and direct bit-popcount enumeration through r=13 agreed. Infinite oscillation follows analytic density not finite sample.
 
-The first principal relevant primary work, Shallit (2023, arXiv:2302.09436), treats the single-coordinate bias \(\tau(3n)\) and Newman-type bounds, not the mixed product \(\tau(n)\tau(3n)\). The full Shallit text was checked in the relevant introduction and main results. Baake–Coons (2022, arXiv:2209.07102), also read in its main definitions and theorems, treats constant-shift correlations, which do not yield an exact dyadic multiplier-index correlation. Charlier–Cisternino–Massuir (2019, arXiv:1910.08543) gives a multiplication automaton and state-complexity results rather than the four sign-cell counts. The accessible full publisher rendering of a 2011 weighted rarefied-sum article concerns one-coordinate sums with position-weighted digits. Searches for equivalences, joint parity, transfer recurrences, and direct named formulas did not produce a covering theorem. Those negative searches are limited evidence; broad published digit-sum methods may imply a short rederivation, and complete bibliographic uniqueness is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Newman bias alone determines the parity of \(3n\), not whether the two digit parities agree; that conditional arithmetic question is natural and distinct from ordinary adjacent-symbol correlations. The exact two-coordinate law exhibits two genuinely different spectral scales and an infinitely sign-changing correction at the smaller scale. It provides complete integer counts rather than just a normality statement or numerical trend. The new contribution is a meaningful exact arithmetic-correlation refinement, not a claim of a new generic automaton method.
+Shallit and classical Newman/Coquet analyze marginal tau(3n) but not mixed tau(n)tau(3n). Baake–Coons study correlations with fixed additive offsets; 3n-n=2n is a varying offset. An accessible 2011 paper on rarefied weighted Thue–Morse studies weights derived from digits of 3n+j, not directly this exact dyadic mixed parity, though an implicit reduction remains a risk.
 
-## Scope and limits
+## value
 
-Only dyadic prefixes and multiplication by three are included. One potentially relevant older weighted-digit article was not obtained as a complete offline file; implicit stronger published formulas remain the principal originality risk. The finite checker is not independent scientific certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact two-coordinate joint sign distribution resolves a natural multiplication-by-three digit-correlation question; its oscillating scale 2^(r/2), distinct from marginal 3^(r/2), is substantive structure beyond simply computing the first few automaton states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

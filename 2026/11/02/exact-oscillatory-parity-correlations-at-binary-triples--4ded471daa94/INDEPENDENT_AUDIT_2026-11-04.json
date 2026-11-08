@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:06:49.072244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers r>=0, digitwise 3b_j+c_j=y_j+2c_(j+1) with c∈{0,1,2} and terminal digit parity tau(c_r) yields C_r=e M^r v, where M=[[1,1,0],[-1,0,-1],[0,1,1]], e=[1,0,0], v=[1,-1,-1]. Exact resolvent is (1-2z+3z²)/((1-z)(1-z+2z²)); eigenvalues 1,(1±i√7)/2 give C_r=1-(2/√7)Im(((1+i√7)/2)^r), correct for r=0,1,2. Marginal N-matrix yields U_r with classical 3^(r/2) scale, and the four joint parity cells (2^r+bU_r+abC_r)/4 for r>=1. Irrationality of eigenangle follows from 1/√2 not an algebraic integer, giving infinite positive/negative subsequences of 2^(r/2). Independent symbolic resolvent and direct bit-popcount enumeration through r=13 agreed. Infinite oscillation follows analytic density not finite sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-offset correlations and recognizability results do not directly specify dyadic finite mixed correlation n↦3n."
+        ],
+        "reasoning": "General automaton theory ensures rationality for a finite transducer but does not supply the stated resolvent, eigenphase irrationality or sign-cell formula without evaluation.",
+        "searches": [
+          "Baake Coons Correlations of the Thue-Morse sequence arXiv:2209.07102",
+          "Charlier Cisternino Massuir multiplication automatic set arXiv:1910.08543"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2302.09436",
+        "https://arxiv.org/abs/2209.07102",
+        "https://doi.org/10.1016/j.disc.2011.04.008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four joint cells require both U_r and new C_r; knowing one marginal cannot determine association."
+        ],
+        "reasoning": "A fixed additive correlation at shift 2n varying in n cannot be specialized to an individual fixed-offset theorem; the 3-state carry transfer is new evaluated information.",
+        "searches": [
+          "Shallit arXiv:2302.09436 original marginal formulas",
+          "Baake Coons arXiv:2209.07102 fixed additive correlations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Newman and Shallit characterize marginal sum τ(3n); weighting by τ(n) is an independent multiplicative cross-correlation."
+        ],
+        "reasoning": "Weighted rarefied sums with positional digits may in principle encode the same quantity; no explicit equal formula identified in inspected portions, residual risk noted.",
+        "searches": [
+          "Resultary: Thue Morse multiplicative correlation t(n)t(3n) finite dyadic interval",
+          "arXiv:2302.09436",
+          "Coquet-type formulas for the rarefied weighted Thue-Morse sequence 2011"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary related 2026/9/20 odd-parts Thue-Morse powers concerns a different invariant. Finite marginal U_r table does not determine C_r."
+        ],
+        "reasoning": "No same exact joint cell table found, without treating failed search as novelty proof.",
+        "searches": [
+          "Shallit Rarefied Thue-Morse sums arXiv:2302.09436",
+          "Resultary: Thue Morse multiplicative correlation t(n)t(3n) finite dyadic interval"
+        ]
+      },
+      "rationale": "Shallit and classical Newman/Coquet analyze marginal tau(3n) but not mixed tau(n)tau(3n). Baake–Coons study correlations with fixed additive offsets; 3n-n=2n is a varying offset. An accessible 2011 paper on rarefied weighted Thue–Morse studies weights derived from digits of 3n+j, not directly this exact dyadic mixed parity, though an implicit reduction remains a risk.",
+      "residual_risks": [
+        "2011 weighted rarefied literature or earlier digit-multiplicative products may implicitly contain the same transfer-matrix exact correlation.",
+        "Only dyadic cutoffs and multiplier three are proved; result does not give arbitrary cutoffs/multipliers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers U_r and classical marginal bias, not the mixed n,3n parity law in the inspected results",
+          "evidence": [
+            "arXiv:2302.09436, marginal τ(3n) formulas"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.09436",
+          "material_read": "Full accessible PDF read, especially the main rarefied-sum statements, automaton setup and bibliography",
+          "method": "Direct PDF text and page image",
+          "title": "Rarefied Thue-Morse Sums Via Automata Theory and Logic",
+          "trigger": "Closest multiplier-three marginal theorem"
+        },
+        {
+          "assessment": "Additive fixed-lag correlation averaging differs from n-dependent multiplier-three correlation",
+          "evidence": [
+            "arXiv:2209.07102 correlation definitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.07102",
+          "material_read": "Full accessible PDF, definitions and main fixed-offset correlation results",
+          "method": "Direct PDF and page image inspection",
+          "title": "Correlations of the Thue–Morse sequence",
+          "trigger": "Possible general dominating correlation theorem"
+        },
+        {
+          "assessment": "Displayed weights concern different digit data of 3n+j; could encode a related identity implicitly, risk retained rather than claiming whole-paper exclusion",
+          "evidence": [
+            "Discrete Mathematics 311 (2011), Theorems 1–6"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2011.04.008",
+          "material_read": "Accessible publisher HTML introduction, theorem statements 1–6 and Section 2; no complete PDF read",
+          "method": "Textual publisher rendering inspection",
+          "title": "Coquet-type formulas for the rarefied weighted Thue–Morse sequence",
+          "trigger": "Highly relevant rarefied weighted function, potential alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two-coordinate joint sign distribution resolves a natural multiplication-by-three digit-correlation question; its oscillating scale 2^(r/2), distinct from marginal 3^(r/2), is substantive structure beyond simply computing the first few automaton states.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2302.09436",
+    "https://arxiv.org/abs/2209.07102",
+    "https://doi.org/10.1016/j.disc.2011.04.008"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2011 weighted rarefied literature or earlier digit-multiplicative products may implicitly contain the same transfer-matrix exact correlation.",
+    "Only dyadic cutoffs and multiplier three are proved; result does not give arbitrary cutoffs/multipliers."
+  ],
+  "schema_version": 1
+}
