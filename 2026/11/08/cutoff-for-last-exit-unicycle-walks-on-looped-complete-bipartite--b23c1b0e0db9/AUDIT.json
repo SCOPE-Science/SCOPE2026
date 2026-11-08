@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The full proof shows rooted unicycle closure, invariance, and positive-transition irreducibility; meeting of underlying walks in O_P(M) steps, two-step hitting bound q=m/((m+1)(M+1))~1/M, and erasure of every arrow give the upper cutoff. A valid adversarial initial unicycle has M^epsilon untouched arrows with high probability before the lower cutoff; stationary symmetry bounds the same target-pointer count by M/m=O(1). The exact finite script confirms 12430 state-transition, two-step and occupancy-variance assertions, but infinity relies on analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2412.13766 explicitly leaves open cutoff beyond complete graphs.",
+        "Anantharam--Tsoucas (1989) abstract establishes the Markov chain tree theorem, not a cutoff statement.",
+        "Miller--Peres (2012) abstract studies lamplighter lamps, not last-exit unicycles."
+      ],
+      "reasoning": "The nearest broad source gives stationary structure and an explicit unresolved question. General random-walk cover-time and lamplighter bounds do not automatically imply mixing of constrained last-exit arrow configurations; no more general theorem directly implying this claim was located.",
+      "searches": [
+        "locally Markov walks stationary distribution graph star bipartite eigenvalues",
+        "Kaiser Levine Sava-Huss locally Markov walks 2412.13766 open problem cutoff examples beyond complete graphs",
+        "lamplighter tree walk random walk coupled arrow environment cover time cutoff complete bipartite",
+        "\"random walk on spanning unicycles\" \"mixing\" bipartite",
+        "\"tree random walk\" cutoff complete bipartite"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2412.13766",
+      "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70045",
+      "https://drum.lib.umd.edu/items/bd202391-1e0f-47e6-b9b6-a49fba8624dd",
+      "https://www.microsoft.com/en-us/research/publication/uniformity-uncovered-set-random-walk-cutoff-lamplighter-chains/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaiser--Levine--Sava-Huss, Theorem 1.2, proves a complete-graph cutoff and their final question asks for other graph sequences.",
+        "The new proof uses a meeting-and-complete-refresh coupling and untouched-pointer concentration, neither supplied by the motivating cutoff statement.",
+        "Tree-theorem and lamplighter analogues concern different conclusions or state spaces."
+      ],
+      "reasoning": "The present bipartite cutoff requires two independent estimates; neither follows as a specialization of the complete-graph result, since a biclique is not complete. The stronger-covering-theorem possibility was checked by targeted searches but remains a residual risk.",
+      "searches": [
+        "arxiv:2412.13766 Sections 3--5",
+        "Kaiser Levine Sava-Huss locally Markov walks 2412.13766 open problem cutoff examples beyond complete graphs",
+        "Anantharam Tsoucas 1989 Markov chain tree theorem random walk spanning trees mixing time cutoff",
+        "Miller Peres 2012: https://www.microsoft.com/en-us/research/publication/uniformity-uncovered-set-random-walk-cutoff-lamplighter-chains/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv 2412.13766 full-text Section 4.1 establishes cutoff only for complete graphs; Section 5 asks whether other graph sequences exhibit it.",
+        "The directed arrow-update formulation is exactly the uniform unicycle total chain; the biclique with loops has non-complete neighbor sets, so its transition kernel is not a complete-graph relabeling."
+      ],
+      "reasoning": "The same state model and alias terms were searched. A looped biclique has degree differing by part and forbids within-part transitions, so complete-graph cutoff is not an identical statement. No located equivalence covers its larger-part timing constant.",
+      "searches": [
+        "uniform unicycle walk locally Markov complete bipartite graph total-chain mixing time cutoff",
+        "random walk with local exit memory cover time complete bipartite mixing cutoff",
+        "cutoff for uniform unicycle walk on looped balanced complete bipartite graphs K_{n,n}, time 2n log n, pointer-memory chain",
+        "\"unicycle walk\" \"bipartite\" mixing",
+        "\"locally Markov\" \"complete bipartite\" cutoff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed results cover a simple random walk on spider graphs, static bipartite hitting domination, and graph-indexed ranges; none has the same rooted-unicycle state space.",
+        "The locally accessible historical claims include other biclique dynamics and permutation shuffles, not the claimed unicycle cutoff."
+      ],
+      "reasoning": "No matching tabulated exact mixing time or indexed cutoff theorem was identified. This check is a priority search and cannot prove uniqueness by absence.",
+      "searches": [
+        "uniform unicycle walk locally Markov complete bipartite graph total-chain mixing time cutoff",
+        "cutoff for uniform unicycle walk on looped balanced complete bipartite graphs K_{n,n}, time 2n log n, pointer-memory chain",
+        "spanning unicycle random walk total chain bipartite graph cutoff at cover-time scale",
+        "arxiv:2412.13766",
+        "2026/9/7/SCOPE002",
+        "2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+        "2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63"
+      ]
+    },
+    "rationale": "The relevant original 2024 preprint gives complete-graph cutoff and explicitly poses finding other graph sequences as an open question; inspected versions do not provide biclique cutoff. Result-index and historical-claim comparisons returned no covering statement. Possible unlocated general memory-chain or tree-walk theorems remain a residual priority risk.",
+    "residual_risks": [
+      "A historical general theorem on tree/unicycle walk mixing might imply the bounded-aspect-ratio family without explicit matching title.",
+      "Anantharam--Tsoucas and Miller--Peres full texts were not read; inspected abstracts are nondecisive for priority.",
+      "Lack of a database hit is not a uniqueness proof; independent priority review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers recurrence, stationary structure and complete-graph cutoff, but not looped complete-bipartite cutoff",
+        "evidence": [
+          "Section 4.1 treats the complete graph with self-loops; Section 5 asks for other graph families."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.13766",
+        "material_read": "Full accessible HTML, especially Sections 2, 3, 4, and 5, including Theorem 1.2 and the related-questions list",
+        "method": "Read article and compared model, graph family, assumptions, and strength of conclusions",
+        "title": "Locally Markov walks on finite graphs",
+        "trigger": "Exact uniform-unicycle model, spectrum and cutoff, explicit related question"
+      },
+      {
+        "assessment": "No direct bipartite cutoff; complete graph and related questions remain",
+        "evidence": [
+          "Theorem 1.2 and Section 5 treat complete graphs and ask for other graph sequences."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70045",
+        "material_read": "Accessible journal HTML, particularly Sections 3--5",
+        "method": "Checked revised theorem/corollary scope against the arXiv source",
+        "title": "Locally Markov Walks on Finite Graphs",
+        "trigger": "Revised full journal version of the motivating preprint"
+      },
+      {
+        "assessment": "No cutoff in accessible abstract, but full text not inspected",
+        "evidence": [
+          "Abstract formulates weighted arborescence stationary-distribution identity."
+        ],
+        "identifier_or_url": "https://drum.lib.umd.edu/items/bd202391-1e0f-47e6-b9b6-a49fba8624dd",
+        "material_read": "Repository metadata and abstract only, not PDF full text",
+        "method": "Compared abstract theorem subject with cutoff statement",
+        "title": "A proof of the Markov chain tree theorem",
+        "trigger": "Source identifies tree random walk as a historical predecessor"
+      },
+      {
+        "assessment": "Classical lamplighter chain has independent binary lamps and is distinct from unicycle pointers",
+        "evidence": [
+          "Abstract focuses on random-walk-range randomized 0/1 lamp markings and torus/expander cutoff."
+        ],
+        "identifier_or_url": "https://www.microsoft.com/en-us/research/publication/uniformity-uncovered-set-random-walk-cutoff-lamplighter-chains/",
+        "material_read": "Accessible full abstract, not paper full text",
+        "method": "Compared state spaces and cutoff inference",
+        "title": "Uniformity of the uncovered set of random walk and cutoff for lamplighter chains",
+        "trigger": "Potential broader memory-chain/cover-time theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b23c1b0e-0db9-4151-a831-c9d4e9c2b262",
+  "value": {
+    "rationale": "The original source explicitly asks whether unicycle cutoff occurs beyond complete graphs. The result answers it for the full natural bounded-aspect-ratio looped biclique family, giving the larger-part normalization 2M log M and separating quick position coalescence from slower erasure of stored arrows. This is a structurally motivated infinite mixing theorem.",
+    "status": "PASS"
+  }
+}
