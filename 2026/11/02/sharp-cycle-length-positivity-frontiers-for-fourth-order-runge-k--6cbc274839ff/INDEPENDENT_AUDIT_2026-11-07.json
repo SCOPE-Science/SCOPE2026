@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:11:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On cyclic Markov Q=P−I, truncating exp gives coefficients c_{p,n,r}=sum_{j<=p,j≡r mod n} h^j E_{p−j}(−h)/j!. All are nonnegative for h∈[0,1]. For n>=p and p>=2, unique coefficient h^(p−1)(1−h)/(p−1)! is negative for every h>1; p=1 similarly. The three short-cycle exceptions have unique algebraic boundaries: (p,n)=(3,2) root 2h³−3h²+3h−3; (4,2) root h³−2h²+3h−3; (4,3) root h⁴−4h²+8h−8. Their other coefficients stay nonnegative and monotonicity excludes later reentry. For an arbitrary two-state Markov Q, projector decomposition gives R4(hQ)=Π+E4(−hλ)(I−Π), with E4(−x)>0; entrywise nonnegativity iff its nonstationary eigenvalue lies in the unit disk. At n=3,h=3/2 the exact coefficient vector (−1,39,90)/128 has negative diagonal but spectral radius 79/128. Independent Fraction arithmetic checked 192 (n,p,h) combinations and exact spectral witness; these supplement the coefficient proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal SSP radius and Markov positivity integrator designs give no n-dependent equality boundary for this RK4 R4.",
+          "Source has distinct positivity-preserving numerical maps."
+        ],
+        "reasoning": "Strong method-level monotonicity on all generators would imply cycle positivity, but its absence does not determine the cycle table; detailed coefficient signs are needed.",
+        "searches": [
+          "Runge Kutta RK4 positivity directed Markov cycle nonnegative polynomial step size n=2 n=3 exact sharp",
+          "arXiv:1403.6519",
+          "arXiv:2102.08242"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.08242",
+        "arXiv:1403.6519",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Runge Kutta RK4 positivity directed Markov cycle nonnegative polynomial step size n=2 n=3 exact sharp",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing RK4 order polynomial and spectral-stability knowledge do imply the base scalar R4 but not sign of every cyclic matrix entry.",
+          "Gauss Padé eight-state pure-birth counterexample does not imply three-state RK4 witness."
+        ],
+        "reasoning": "Individually known RK4 stability and general nonmonotonicity do not imply the sharp exceptional roots or small-dimension spectral-positive separation.",
+        "searches": [
+          "Runge Kutta RK4 positivity directed Markov cycle nonnegative polynomial step size n=2 n=3 exact sharp",
+          "arXiv:2102.08242",
+          "arXiv:1403.6519",
+          "published Gauss Padé 8-state source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem equivalent to nonnegativity of cyclic residues of degree-p polynomial in P_n.",
+          "A scalar RK4 spectral stability polynomial is not itself stochastic matrix positivity."
+        ],
+        "reasoning": "The residue representation supplies exact instance thresholds, not generic SSP absolute-monotonicity results.",
+        "searches": [
+          "Runge Kutta RK4 positivity directed Markov cycle nonnegative polynomial step size n=2 n=3 exact sharp",
+          "arXiv:2102.08242"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other published exact tables involve rational Padé and SSP-SDIRK2 stability functions, not same Taylor polynomial.",
+          "The present table spans all n for p∈{1,2,3,4}, not a precomputed finite n grid."
+        ],
+        "reasoning": "No table with the same map, topology, parameters and all-cycle quantifiers found; related table title similarities do not entail this one.",
+        "searches": [
+          "Runge Kutta RK4 positivity directed Markov cycle nonnegative polynomial step size n=2 n=3 exact sharp",
+          "Resultary published Gauss Padé Markov positivity",
+          "Resultary published SSP-SDIRK2 Markov threshold"
+        ]
+      },
+      "rationale": "Classical RK4 polynomial, scalar stability and the nonnegativity-vs-spectral-stability distinction are established and credited. Blanes–Iserles–Macnamara treat positivity-preserving ODE methods and use RK4 as comparator, not the all-cycle exact table. Gottlieb–Grant–Higgs SSP theory establishes method-wide monotonicity bounds, not the generator-specific positive horizon. Related published SCOPE Gauss–Legendre [2/2] Padé, SSP-SDIRK and Crank–Nicolson have different R(z), so their sharp Markov counterexamples do not imply this one. A specialist circulant RK4 positivity classification remains a residual risk.",
+      "residual_risks": [
+        "Unindexed exact circulant matrix-function literature might already provide the same residue classification.",
+        "Results for method-internal stage positivity are distinct and not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior established generic positivity concerns and techniques, not all n≤4 Taylor-cycle exact table",
+          "evidence": "Uses RK4 as benchmark and designs other positivity-preserving schemes.",
+          "identifier_or_url": "arXiv:2102.08242",
+          "material_read": "Full 30-page primary PDF, graph-Laplacian sections and RK4 comparisons, with page 14 visually inspected",
+          "method": "Primary PDF reading and screenshot",
+          "title": "Positivity-preserving methods for population models / ordinary differential equations",
+          "trigger": "Same Markov generator positivity and classical RK4 comparator"
+        },
+        {
+          "assessment": "SSP coefficients are broad sufficient method-level statements, no explicit directed-cycle 3-state witness",
+          "evidence": "RK4 polynomial known; general nonlinear SSP coefficient constraints different quantifiers.",
+          "identifier_or_url": "arXiv:1403.6519",
+          "material_read": "Public full paper sections on SSP and linear order, numerical method conditions",
+          "method": "Primary research paper review",
+          "title": "Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and Optimal Nonlinear Order",
+          "trigger": "Universal SSP/monotonicity bar potentially stronger"
+        },
+        {
+          "assessment": "Not covering: [2/2] Padé/Gauss–Legendre stability function distinct from RK4 Taylor polynomial",
+          "evidence": "Published R(z)=(12+6z+z²)/(12−6z+z²), different state count and source graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Entire published RESULT.md mathematical theorem and proof, including rational map and eight-state pure-birth witness",
+          "method": "Full source GitHub text reading",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Published SCOPE related Padé spectral/positivity obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete exact positivity horizons on directed cycles are natural Markov integrator diagnostics; the n=3 exception exceeding n=2 and minimal spectrally stable but nonstochastic 3-state witness are meaningful boundaries distinguishing physical transition preservation from purely spectral stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Constant-rate directed cyclic Markov generators only for the table; two-state generality only for the RK4 projection claim.",
+    "Endpoint positivity does not assert RK intermediate-stage nonnegativity or arbitrary nonlinear system monotonicity.",
+    "Specialist historical priority for exact circulant matrices not exhaustively established."
+  ]
+}

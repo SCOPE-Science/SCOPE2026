@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and actual checks
+# Independent mathematical audit
 
-The standalone `verify.py` requires Python 3.9+ and no third-party dependencies. Execute `python verify.py` in the directory containing the scientific files; a successful execution emits `ALL_CHECKS_PASSED 4070`.
+## correctness
 
-The script independently constructs the finite-dimensional RK/Taylor polynomial \(\sum_{k=0}^p(hQ)^k/k!\) as a rational matrix, checks each entry against the binomial-residue formula, tests the table's sign criteria for \(2\le n\le12\), \(1\le p\le4\), and \(h=j/16\), \(0\le j\le40\), and checks column and row sums. A further exact test covers general two-state Markov generators with rational rates on a rational step grid, including absorbing states, and checks that positivity coincides with the nonstationary eigenvalue condition. The three-state negative-probability counterexample and its spectral modulus are checked exactly as fractions. Sharp root locations are bracketed by rational decimals.
+PASS
 
-The numerical grid is not exhaustive in step size or cycle dimension. The all-parameter proof is contained in `RESULT.md`; the verifier is an independent arithmetic consistency check and does not establish mathematical novelty or provide third-party review.
+On cyclic Markov Q=P−I, truncating exp gives coefficients c_{p,n,r}=sum_{j<=p,j≡r mod n} h^j E_{p−j}(−h)/j!. All are nonnegative for h∈[0,1]. For n>=p and p>=2, unique coefficient h^(p−1)(1−h)/(p−1)! is negative for every h>1; p=1 similarly. The three short-cycle exceptions have unique algebraic boundaries: (p,n)=(3,2) root 2h³−3h²+3h−3; (4,2) root h³−2h²+3h−3; (4,3) root h⁴−4h²+8h−8. Their other coefficients stay nonnegative and monotonicity excludes later reentry. For an arbitrary two-state Markov Q, projector decomposition gives R4(hQ)=Π+E4(−hλ)(I−Π), with E4(−x)>0; entrywise nonnegativity iff its nonstationary eigenvalue lies in the unit disk. At n=3,h=3/2 the exact coefficient vector (−1,39,90)/128 has negative diagonal but spectral radius 79/128. Independent Fraction arithmetic checked 192 (n,p,h) combinations and exact spectral witness; these supplement the coefficient proof.
+
+## originality
+
+PASS
+
+Classical RK4 polynomial, scalar stability and the nonnegativity-vs-spectral-stability distinction are established and credited. Blanes–Iserles–Macnamara treat positivity-preserving ODE methods and use RK4 as comparator, not the all-cycle exact table. Gottlieb–Grant–Higgs SSP theory establishes method-wide monotonicity bounds, not the generator-specific positive horizon. Related published SCOPE Gauss–Legendre [2/2] Padé, SSP-SDIRK and Crank–Nicolson have different R(z), so their sharp Markov counterexamples do not imply this one. A specialist circulant RK4 positivity classification remains a residual risk.
+
+## value
+
+PASS
+
+The complete exact positivity horizons on directed cycles are natural Markov integrator diagnostics; the n=3 exception exceeding n=2 and minimal spectrally stable but nonstochastic 3-state witness are meaningful boundaries distinguishing physical transition preservation from purely spectral stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

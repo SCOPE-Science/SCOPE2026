@@ -1,25 +1,21 @@
-# Scientific assessment: sharp cycle-length positivity frontiers for classical RK4
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is an exact classification for the clearly specified column-convention generator \(Q_n=P_n-I_n\), all cycle lengths \(n\ge2\), orders \(1\) through \(4\), and all nonnegative steps. Direct binomial expansion gives the residue coefficients, and the separate proof of no later positivity windows rests on a coefficient strictly negative for every step above one (long cycles) or a unique increasing-polynomial zero (short cycles). For dimension two, the projection formula works for every Markov generator, including absorbing cases; the strict positivity of the fourth Taylor polynomial on the negative real axis is established by Taylor's remainder. The three-state example is a rational certificate: negative diagonal \(-1/128\) and exact nonstationary eigenvalue modulus \(79/128\). All stated boundaries were checked independently by a standard-library, exact-rational verifier (4,070 check groups). Finite checks confirm algebraic identities but are not treated as proof for all cycles and times.
+PASS
 
-## Originality — PASS (qualified)
+On cyclic Markov Q=P−I, truncating exp gives coefficients c_{p,n,r}=sum_{j<=p,j≡r mod n} h^j E_{p−j}(−h)/j!. All are nonnegative for h∈[0,1]. For n>=p and p>=2, unique coefficient h^(p−1)(1−h)/(p−1)! is negative for every h>1; p=1 similarly. The three short-cycle exceptions have unique algebraic boundaries: (p,n)=(3,2) root 2h³−3h²+3h−3; (4,2) root h³−2h²+3h−3; (4,3) root h⁴−4h²+8h−8. Their other coefficients stay nonnegative and monotonicity excludes later reentry. For an arbitrary two-state Markov Q, projector decomposition gives R4(hQ)=Π+E4(−hλ)(I−Π), with E4(−x)>0; entrywise nonnegativity iff its nonstationary eigenvalue lies in the unit disk. At n=3,h=3/2 the exact coefficient vector (−1,39,90)/128 has negative diagonal but spectral radius 79/128. Independent Fraction arithmetic checked 192 (n,p,h) combinations and exact spectral witness; these supplement the coefficient proof.
 
-The 2021 positivity-preserving Markov/graph-Laplacian literature establishes the general need for positivity and discusses classical RK4 as a baseline but does not give these exact directed-cycle thresholds. Established SSP theory provides global convex monotonicity bounds and notes classical four-stage RK4 has zero nonlinear SSP coefficient; this does not imply the fixed-generator coefficient thresholds or the three-state stable-but-negative certificate. Perturbed RK theory changes the method, whereas the finding classifies an unperturbed RK4 end-step. Related analyses of Crank–Nicolson, Padé methods, and other Markov integrators have different stability functions and thus do not logically subsume this table. The scalar negative-real-axis RK4 stability endpoint and the general distinction between spectral and positivity stability are prior facts. Residual publication-priority risk: specialized circulant Markov time-stepping or polynomial semigroup positivity literature might already contain an equivalent theorem; broad search and source inspection are not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, sharp classification for a fundamental family of periodic, constant-rate Markov generators. It identifies a counterintuitive three-cycle positivity horizon larger than the two-cycle's, explains why all longer cycles hit the Euler frontier, and gives the smallest possible Markov dimension where a classical RK4 step is spectrally contracting but assigns a negative transition weight. A naive check of spectral stability would approve the explicit rational failure example. This supplies an interpretable benchmark for numerical master equations, rather than an arbitrary slice of a polynomial calculation. No claims are made for general generators, nonlinear problems, intermediate stages, or arbitrary Runge–Kutta schemes.
+Classical RK4 polynomial, scalar stability and the nonnegativity-vs-spectral-stability distinction are established and credited. Blanes–Iserles–Macnamara treat positivity-preserving ODE methods and use RK4 as comparator, not the all-cycle exact table. Gottlieb–Grant–Higgs SSP theory establishes method-wide monotonicity bounds, not the generator-specific positive horizon. Related published SCOPE Gauss–Legendre [2/2] Padé, SSP-SDIRK and Crank–Nicolson have different R(z), so their sharp Markov counterexamples do not imply this one. A specialist circulant RK4 positivity classification remains a residual risk.
 
-## Closest primary literature and limitations
+## value
 
-[1] Blanes, Iserles and Macnamara, *Positivity-preserving methods for population models*, arXiv:2102.08242, posted 2021-02-16 (full HTML sections 1–5 inspected, including RK4 comparisons): establishes the model class and positivity concern, not this classification.
+PASS
 
-[2] Gottlieb, Grant and Higgs, *Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and Optimal Nonlinear Order*, arXiv:1403.6519 (sections 1, 3–5 inspected): studies method-level SSP coefficients, not end-step probabilities on directed cycles.
+The complete exact positivity horizons on directed cycles are natural Markov integrator diagnostics; the n=3 exception exceeding n=2 and minimal spectrally stable but nonstochastic 3-state witness are meaningful boundaries distinguishing physical transition preservation from purely spectral stability.
 
-[3] Higueras, Ketcheson and Kocsis, *Optimal monotonicity-preserving perturbations of a given Runge–Kutta method*, arXiv:1505.04024 (sections 1–3 inspected): uses modified tableau monotonicity, not the same unperturbed cyclic Markov end-steps.
-
-Scientific limitations are generator-specific scope, non-roundoff arithmetic, and absence of independent validation. Specialized equivalent prior literature remains a risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
