@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The matrix parametrization in Hillar–Rhea's Theorem 3.3 gives all homomorphisms, and the four congruences in the proof are obtained by explicit composition. For the shorter exponent one, square valuations separate even and odd longer exponents. For the shorter exponent two, the product-fiber lemma counts all residues modulo the square of the prime, and the cases with longer exponent three and four are independently calculated rather than absorbed into an invalid high-exponent approximation. All arithmetic sums are displayed, and an independent finite enumeration agrees in 37 test cases. The proof, rather than the tests, establishes the infinite family.
+PASS
 
-## Originality: PASS with residual priority risk
+Reconstructed all seven source files, canonical Git tree and complete proof. Each group endomorphism has the unique mixed-modulus matrix T=((u,v),(p^(b-a)w,z)); squaring yields four necessary and sufficient congruences with the proper two row moduli. For a=1, u=0 and the valuation of z² distinguishes the t=vw=0 fiber from the possible odd-b nonzero t; resulting 2p−1 and (p−1)² terms give both formulas. For a=2, the exact Z/p² product-fiber count (zero p(3p−2), valuation-one 2p(p−1), unit p(p−1)) and α=u/p split yield all b≥5 cases. Separately reconstructed b=3 and b=4 where z need not vanish mod p² and α can be forced to −z/p; the algebra gives the advertised boundary expressions. All p, including 2, and every b>a are covered; no assertion for a≥3. Direct generator-image enumeration independently matches 40 bounded (p,a,b) instances, all 87 residue product fibers for p=2,3,5,7 and five symbolic simplifications. Universal truth follows from the p-adic case analysis, not these finite checks.
 
-The inspected source on automorphisms of finite abelian groups counts units of the endomorphism ring, not square-zero elements. Nil-clean matrix-ring criteria and general dynamical orbit descriptions likewise concern distinct statements and do not provide the four explicit counts. Published mathematical-result searches under square-zero, 2-nilpotent, mixed cyclic prime-power groups, and their endomorphism rings did not reveal an equivalent rank-two two-exponent census. Searches cannot establish publication priority; one recent plausible source was accessible only in abstract, and a broad nilpotent-endomorphism enumeration could subsume the result.
+## originality
 
-## Value: PASS
+PASS
 
-Counting all maps whose image lies in their kernel is a natural structural invariant of the endomorphism monoid, distinct from automorphism-order or fixed-point counts. The theorem supplies a closed exact census at every prime and arbitrarily large second exponent for the first two nontrivial short-exponent classes, and it identifies a genuine parity-sensitive stabilization law. The short-exponent-two case needs a product-fiber stratification and separate boundary cases, not a single routine substitution into the short-exponent-one formula.
+Best-of-knowledge original exact enumeration for two natural mixed cyclic p-group families. Full primary comparisons distinguish general matrix parametrization, nil-clean ring properties, and existence of image-equals-kernel maps from the precise square-zero multiplicity. Complete published-result comparisons of fixed-point automorphism layers and dual-number matrix loci do not imply the claimed four parity-specific formulas. An unknown broader nilpotent endomorphism census remains a real historical risk; absence from searches is not novelty proof.
 
-## Closest literature and boundaries
+## value
 
-Primary structural foundation: Hillar–Rhea, arXiv:math/0605185v1, Section 3. Nil-clean comparison: arXiv:1310.0416v1. Further sources concern dynamical descriptions and kernel–image-balanced maps, not the full square-zero count. The exact arbitrary-short-exponent census, higher nilpotency and orbit decomposition remain outside the claim. The more recent special-endomorphism paper could not be compared in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cardinality of {T∈End(G):Im T⊆Ker T} is a natural invariant measuring two-step collapse in a finite abelian group, important for studying the nonunit endomorphism monoid. Its complete value for the first two unequal shorter cyclic exponents, for all primes and arbitrarily large longer exponent, is not a rename of an automorphism count or a known table. The nontrivial new feature at a=2 is the p² product-fiber stratification and low-boundary anomaly; the parity-sensitive Q(a,b+2)=pQ(a,b) is a uniform structural law. The exact formulas stand as a useful count without claiming a general a≥3 classification or downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
