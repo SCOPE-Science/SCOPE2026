@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python VERIFY.py` from the extracted directory with Python 3, SymPy, NumPy, and SciPy. The script directly builds full weighted graph Laplacians and exact-rational grounded matrix inverses, then compares the hub–periphery performance difference with the separate spectral formula for cliques, cycles, cubes and a triangular prism. It also checks orbit symmetry, the complete-graph transition, numeric cycle threshold equations and predicted two-term finite-size differences. `VERIFY_OUTPUT.txt` records the actual local run.
+## correctness
 
-The experiment comprises 126 exact comparison identities, 210 symmetry comparisons, 16 cycle threshold/bound checks and 16 quadratic-plus-linear comparisons; all passed. Those are finite checks and do not establish the all-size conclusion by themselves. The proof's essential nonstandard ingredients are the joint eigenmode decomposition, vertex-transitive spectral projector diagonals, strict monotonicity, exact cycle resolvent identity, and the nonzero derivative needed for the asymptotic remainder. Originality is assessed from inspected literature with residual historical risk. No independent scientific audit has been performed.
+PASS
+
+Grounded inverse trace equals sum of effective resistances from leader, equivalently trace(L†)+N(L†)vv. Hub-difference and hub/periphery contrast modes have eigenvalue N; peripheral nonconstant eigenmodes r+t lambda_j. Vertex transitivity makes L† diagonal constant in each orbit, yielding exact displayed difference. Phi is strictly decreasing from (m−1)/r to zero, proving exactly one switch and bounds. For cycles, resolvent r sum_{k=0}^{m−1}(r+4t sin²(pi k/m))^{-1}=m sqrt(r)/sqrt(r+4t)coth(m arsinh(sqrt(r)/(2sqrt t))), implicit expansion at t=c m²+d m proves the positive O(m) correction and O(1) remainder. Independent rational grounded matrix inversions for r,m=(1,5),(2,4),(3,5) agree. Finite checks not asymptotic proof.
+
+## originality
+
+PASS
+
+Fitch–Leonard general joint centrality and Patterson–McGlohon–Dyagilev path/cycle leader algorithms give the baseline optimization objective; wheel resistance formulas give ingredients. Inspected primary statements do not establish the scalar unique-crossing classification for every transitive periphery and arbitrary hub clique, or the strictly positive linear cycle asymptotic correction. Graph-join resolvent identities could make portions immediate; the quantified switching law remains the contribution.
+
+## value
+
+PASS
+
+The optimal perfect-grounded leader migrates once from hubs to peripheral orbit as internal conductance increases, across all connected transitive peripheral graphs. This exact switch and cycle-size asymptotic are motivated spectral network-design facts, not a single unmotivated numerical trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
