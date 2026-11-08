@@ -1,12 +1,21 @@
-# Review of the two-deletion descendant distribution
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem covers every integer \(q\ge2\), \(n\ge2\). The leftmost-greedy embedding proof partitions the deleted-position pairs into exhaustive boundary, separated and adjacent cases. It proves exactly \(|D_2(w)|=\binom{S+1}{2}+K-E\), including constant words and two-letter words. Independent increments, alternating binary run compositions and reversal choices in consecutive nonzero increments give the complete integer-coefficient generating polynomial. Conditional Bernoulli indicators and independent reversal flags establish the exact mean and variance. All required covariance identities were checked by expansion of binomial factorial moments and by direct small-dimensional enumeration. Running the included independent checker reproduced all 33 exhaustive histograms covering 281,783 words and 429 further exact-moment cases. Finite tests corroborate, but do not replace, the symbolic proof. The previously known binary variance is explicitly excluded from the novelty claim.
+## correctness
 
-## Originality — PASS with residual priority risk
-The directly relevant complete text of Li–Wang–Fu (arXiv:2601.06493v2) addresses input-by-input subsequence counts and extremal counts at prescribed run numbers. Its individual-string results neither state the ensemble histogram nor imply the enumerator without the new difference-run/reversal counting argument. The 2008 Mercier–Khabbazian–Bhargava work is reported to give formulas for counts for particular strings with at most five deletions, not global histograms; the entire primary text could not be inspected and is a material residual priority risk. The available published-finding corpus result `2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc` already contains the binary variance, which is acknowledged. The fixed-length Levenshtein-ball work arXiv:2204.02201 concerns a different set of outputs and does not imply the two-deletion histogram. No equivalent histogram or stronger encompassing result was identified in actual database and literature searches; absence of matches is not a novelty proof.
+PASS
 
-## Value — PASS
-The complete distribution of a deletion-ball size is a natural quantitative refinement of extremal and average deletion-channel counting. A single exact expression applies across every alphabet and block length and gives all probabilities, tails, and moments; this information is not available from per-string bounds or the previously known binary variance. It is a substantive enumeration by difference-run geometry rather than a small isolated numerical case. The theorem stops at exactly two deletions and uniform word sampling; no wider implication is claimed.
+For every q,n>=2, the earliest greedy embedding makes each distinct deletion descendant correspond to one canonical pair. Writing S=#nonzero adjacent differences, K=#zero-runs, E=#ABA inversions yields B=binom(S+1,2)+K-E, including n=2 constant input. Nonzero increments in each run have q-1 first choices; succeeding nonzero increments have one reversal and q-2 nonreversal choices. Counting alternating runs proves the stated polynomial, with negative powers canceled by B>=1. Independent Bernoulli change indicators and binomial reversal flags yield the exact mean and variance. I independently reconstructed this enumerator and compared it to actual distinct descendants and to the alternate fully equivalent formula in record 0, for 21 exhaustive (q,n) cases, and symbolically verified both given variance formulas agree; these finite checks support the written all-parameter proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge with explicit risks. This package was committed at 2026-11-02T03:34:52Z, earlier than the equivalent record 0 at 03:34:54Z; the other assigned package is covered here and is not a prior independent theorem. The Resultary corpus contains an exact binary variance only, and Li–Wang–Fu provide q-ary per-word extrema, not a full all-source distribution. The 2008 Mercier paper is relevant but inaccessible beyond its abstract; it may have more relevant formulae than can be verified. Checked sources did not establish a full all-q,n distribution predating this result; absence of hits is not proof of priority.
+
+## value
+
+PASS
+
+A full parameterized all-q,n distribution of distinct two-deletion descendants is a natural and independently useful finite-block synchronization channel invariant. It yields every probability, tail and moment, not just fixed-word bounds or pre-known binary variance. The distinct run-and-reversal enumeration provides a meaningful structural derivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

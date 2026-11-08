@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:58:50.233972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every q,n>=2, the earliest greedy embedding makes each distinct deletion descendant correspond to one canonical pair. Writing S=#nonzero adjacent differences, K=#zero-runs, E=#ABA inversions yields B=binom(S+1,2)+K-E, including n=2 constant input. Nonzero increments in each run have q-1 first choices; succeeding nonzero increments have one reversal and q-2 nonreversal choices. Counting alternating runs proves the stated polynomial, with negative powers canceled by B>=1. Independent Bernoulli change indicators and binomial reversal flags yield the exact mean and variance. I independently reconstructed this enumerator and compared it to actual distinct descendants and to the alternate fully equivalent formula in record 0, for 21 exhaustive (q,n) cases, and symbolically verified both given variance formulas agree; these finite checks support the written all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-input algorithmic counts in Mercier 2008 abstract do not explicitly enumerate the distribution over all q^n input words.",
+          "Prior published binary variance is the q=2 second-moment specialization.",
+          "Later record 0 same all-parameter histogram is covered by this earlier result."
+        ],
+        "reasoning": "Knowing the per-input cardinality or maximum does not directly give the closed multi-input generating polynomial without counting overlapping source profiles. Inaccessible primary full text remains an acknowledged risk.",
+        "searches": [
+          "Mercier Khabbazian Bhargava 2008 per word q-ary t deletion",
+          "Li Wang Fu 2026 deletion extrema arXiv:2601.06493",
+          "Resultary binary variance two deletion sphere"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2601.06493v2",
+        "https://doi.org/10.1109/TIT.2008.924730",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-size-distribution-of-two-deletion-balls-over-every-finite--8b747a2d08d5",
+        "arXiv:2204.02201, different fixed-length Levenshtein balls",
+        "Resultary semantic search deletion histogram distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary variance follows by taking the second moment at q=2 and is excluded from the novelty claim.",
+          "Main nonbinary extremal statements concern per-word maxima/minima, not the histogram.",
+          "No inspected older theorem explicitly supplies the composition multiplicities and reversal flags."
+        ],
+        "reasoning": "The candidate implies older binary variance and per-input bounds may be used to compute individual values, but those prior results do not by themselves imply the evaluated histogram in the inspected statements.",
+        "searches": [
+          "Li Wang Fu arxiv:2601.06493v2 main theorem and extremizers",
+          "Mercier 2008 nonbinary subsequence formulas",
+          "previous binary variance Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent later assigned package https://github.com/SCOPE-Science/SCOPE2026/tree/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-size-distribution-of-two-deletion-balls-over-every-finite--8b747a2d08d5: B=1+binom(S,2)+2(S-J)-e+T.",
+          "This package B=binom(S+1,2)+K-E with K=1+S-e-J and E=J-T.",
+          "Li–Wang–Fu considers per-word and run-constrained extrema, not the all-input histogram."
+        ],
+        "reasoning": "The other identical package was recorded two seconds later in the same frozen commit history; count it as a later duplicate, not as evidence this earlier version lacks originality. No earlier identical histogram was located in inspected literature.",
+        "searches": [
+          "Resultary query: exact q-ary double-deletion sphere histogram generating polynomial",
+          "compare alternate all-q,n Git formula across current batch",
+          "arXiv:2601.06493 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc records a binary variance only.",
+          "Search results include other deletion channel objects, no earlier matching all-alphabet coefficient table."
+        ],
+        "reasoning": "The exact natural invariant is an all-q,n polynomial, rather than a recomputation of a specific finite table; this negative retrieval is not conclusive.",
+        "searches": [
+          "Resultary semantic search exact distribution two deletion descendants q-ary words",
+          "Resultary published 2026/10/4 binary two-deletion sphere variance",
+          "q-ary double deletion ball size coefficient table all words"
+        ]
+      },
+      "rationale": "PASS, best of knowledge with explicit risks. This package was committed at 2026-11-02T03:34:52Z, earlier than the equivalent record 0 at 03:34:54Z; the other assigned package is covered here and is not a prior independent theorem. The Resultary corpus contains an exact binary variance only, and Li–Wang–Fu provide q-ary per-word extrema, not a full all-source distribution. The 2008 Mercier paper is relevant but inaccessible beyond its abstract; it may have more relevant formulae than can be verified. Checked sources did not establish a full all-q,n distribution predating this result; absence of hits is not proof of priority.",
+      "residual_risks": [
+        "Mercier et al. 2008 full text inaccessible due authorized VPN disconnected; it could contain an earlier implicit or explicit whole-source distribution.",
+        "Unindexed historical histogram calculations and other source ensembles may overlap.",
+        "Pre-existing binary variance is covered and deliberately excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No ensemble-wide generating polynomial in inspected full statement",
+          "evidence": [
+            "arXiv:2601.06493v2, extremal and fixed-word theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+          "material_read": "Full accessible HTML (definitions, main theorem statements, extremal-run sections, conclusion)",
+          "method": "Read full HTML and compare quantifiers and invariant",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Same q-ary deletion descendants"
+        },
+        {
+          "assessment": "Cannot exclude stronger uninspected full result; priority risk",
+          "evidence": [
+            "DOI:10.1109/TIT.2008.924730, per-input subsequence counting"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+          "material_read": "Bibliographic abstract and secondary reference, not full paper",
+          "method": "arXiv and lawful OA search, Oxford authorized retrieval returned vpn_disconnected",
+          "title": "On the Number of Subsequences When Deleting Symbols From a String",
+          "trigger": "Potential earlier general t<=5 q-ary counts"
+        },
+        {
+          "assessment": "Covers only q=2 variance; not complete q-ary distribution",
+          "evidence": [
+            "Binary variance for n>=2 published in earlier October record"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+          "material_read": "Resultary indexed summary, not full paper",
+          "method": "Semantic database comparison",
+          "title": "Exact variance of binary two-deletion sphere size",
+          "trigger": "Known binary second moment"
+        },
+        {
+          "assessment": "Exact equivalent result committed two seconds later, covered by this earlier record",
+          "evidence": [
+            "Git commit 7baefd51e5dc01305283118346369604a4e7a5d2, 03:34:54Z"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-size-distribution-of-two-deletion-balls-over-every-finite--8b747a2d08d5",
+          "material_read": "Entire later RESULT.md including polynomial and moments",
+          "method": "Compared symbolic per-word identities, full histograms and Git commit order",
+          "title": "Exact size distribution of two-deletion balls over every finite alphabet",
+          "trigger": "Same batch duplicate is a critical comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full parameterized all-q,n distribution of distinct two-deletion descendants is a natural and independently useful finite-block synchronization channel invariant. It yields every probability, tail and moment, not just fixed-word bounds or pre-known binary variance. The distinct run-and-reversal enumeration provides a meaningful structural derivation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2601.06493v2",
+    "https://doi.org/10.1109/TIT.2008.924730",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-size-distribution-of-two-deletion-balls-over-every-finite--8b747a2d08d5",
+    "arXiv:2204.02201, different fixed-length Levenshtein balls",
+    "Resultary semantic search deletion histogram distribution"
+  ],
+  "disposition": "passed",
+  "limitations": "Labeled uniformly random independent q-ary words and exactly 2 deletions (q,n>=2), not t>=3 or nonuniform inputs. Binary variance not original.",
+  "residual_risks": [
+    "Mercier et al. 2008 full text inaccessible due authorized VPN disconnected; it could contain an earlier implicit or explicit whole-source distribution.",
+    "Unindexed historical histogram calculations and other source ensembles may overlap.",
+    "Pre-existing binary variance is covered and deliberately excluded from novelty."
+  ],
+  "schema_version": 1
+}

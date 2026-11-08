@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The complete proof of the unconditional histogram identity and exact moments is in `RESULT.md`; it uses unique leftmost subsequence embeddings and direct enumeration of difference-run patterns. `check.py` is a standalone standard-library Python 3 verifier. Run `python3 check.py` and compare with `check_output.txt`.
+# Independent mathematical audit
 
-The program exhaustively generated each possible labeled word in 33 parameter cases (281,783 words) and compared the independently enumerated distinct deletion outputs to the local formula. It then compared entire histograms, mean and variance, and carried out 429 exact enumerator-derived moment checks for \(2\le q\le12\) and \(2\le n\le40\). All passed on the actual included program. The symbolic proof is required for arbitrary parameters; finite enumeration cannot certify the infinite statement. No third-party full papers, external validation records, or independent mathematical audits are included.
+## correctness
+
+PASS
+
+For every q,n>=2, the earliest greedy embedding makes each distinct deletion descendant correspond to one canonical pair. Writing S=#nonzero adjacent differences, K=#zero-runs, E=#ABA inversions yields B=binom(S+1,2)+K-E, including n=2 constant input. Nonzero increments in each run have q-1 first choices; succeeding nonzero increments have one reversal and q-2 nonreversal choices. Counting alternating runs proves the stated polynomial, with negative powers canceled by B>=1. Independent Bernoulli change indicators and binomial reversal flags yield the exact mean and variance. I independently reconstructed this enumerator and compared it to actual distinct descendants and to the alternate fully equivalent formula in record 0, for 21 exhaustive (q,n) cases, and symbolically verified both given variance formulas agree; these finite checks support the written all-parameter proof.
+
+## originality
+
+PASS
+
+PASS, best of knowledge with explicit risks. This package was committed at 2026-11-02T03:34:52Z, earlier than the equivalent record 0 at 03:34:54Z; the other assigned package is covered here and is not a prior independent theorem. The Resultary corpus contains an exact binary variance only, and Li–Wang–Fu provide q-ary per-word extrema, not a full all-source distribution. The 2008 Mercier paper is relevant but inaccessible beyond its abstract; it may have more relevant formulae than can be verified. Checked sources did not establish a full all-q,n distribution predating this result; absence of hits is not proof of priority.
+
+## value
+
+PASS
+
+A full parameterized all-q,n distribution of distinct two-deletion descendants is a natural and independently useful finite-block synchronization channel invariant. It yields every probability, tail and moment, not just fixed-word bounds or pre-known binary variance. The distinct run-and-reversal enumeration provides a meaningful structural derivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
