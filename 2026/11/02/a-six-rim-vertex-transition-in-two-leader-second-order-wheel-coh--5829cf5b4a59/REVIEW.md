@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is a complete all-integer classification of the two-leader inverse-square grounded-Laplacian objective on unweighted wheels. Symmetry gives all relevant pair classes. The hub–rim eigenvalues are those of a tridiagonal Toeplitz path, while the two-rim orbit has the displayed positive-Schur-complement formula. Exact-fraction inversion covers all 216 labelled pairs on wheels with three through ten rim vertices, with a second block-inverse check on each two-rim class. For every larger wheel, a Rayleigh quotient on the constant follower vector bounds the inverse-square trace below for rim pairs, and an infinite-path Green kernel bounds the hub–rim trace above, with a strict numerical-free separating inequality. The modal Lyapunov calculation gives precisely the stated second-order positional variance normalization. Risks: the proof applies to unit-weight wheels and the stated dynamics only; finite exact enumeration alone is not used for the infinite tail.
+## correctness
 
-**Originality — PASS (provisional scientific judgment).** Published early leader-selection sources arXiv:1302.0450 and arXiv:1412.6595 optimize \(\operatorname{tr}(L_{FF}^{-1})\), not the inverse square on wheels. First-inverse leader-selection classifications do not determine the inverse-square winner: the independently computed opposite strict comparisons at six rim vertices demonstrate the logical distinction. General second-order coherence literature supplies an inverse-square objective but not this exact wheel pair classification. Searches for wheel/pinning/inverse-square aliases and for stronger coverage did not locate an equivalent result. Risks: absence from found sources does not prove absolute novelty; specialized leader-placement literature may remain undiscovered.
+PASS
 
-**Mathematical value — PASS.** The result addresses the natural design choice of which two agents to pin in a second-order network subjected to stochastic acceleration disturbances. It classifies every optimum for an infinite, non-path graph family, proves an exact sharp transition, and exhibits a rigorously quantified reversal against the familiar first-order noise model. The proof combines a nontrivial global kernel bound with a finite exact obstruction calculation. The distinction can matter for leader-placement design and is not a mere normalization change. Its scope is narrow but motivated, and no extension to weighted wheels is asserted.
+The wheel automorphism orbits are hub–rim and two-rim cyclic distances. Hub–rim grounding leaves a tridiagonal path T_(n−1)=3I−A(P), giving the eigenvalue sum. Two-rim grounding gives two path blocks and a central hub Schur complement; the squared inverse Frobenius norm yields an exact rational orbit cost. Direct independent Laplacian-matrix inversion across all labeled leader pairs for 3≤n≤10 recovers winner counts 6,2,5,n and the W6 objective reversal. For n≥11, a follower all-ones Rayleigh test bounds λ_min≤6/(n−1), so two-rim J2≥(n−1)²/36. The infinite-path positive Green kernel bounds the hub–rim inverse squared norm by 3(n−1)/(5sqrt(5)); since 3/(5sqrt5)<27/100<10/36 and n−1≥10 this is strictly smaller. Hence bounded cases plus the uniform tail prove all sizes. The second-order relative-damping modal Lyapunov normalization yields positional variance J2/(2η); it does not cover other damping/noise models.
 
-Closest literature: Lin–Fardad–Jovanović, arXiv:1302.0450 (general first-order inverse objective); Patterson–McGlohon–Dyagilev, arXiv:1412.6595 (paths and rings, first-order objective); Sun–Ding–Zhang–Chen, Chaos 24 (2014) 043112 (second-order ungrounded coherence on tree families). Unresolved risk: specialized treatments of inverse-square grounded-wheel leader placement not captured in the checked sources. The mathematical classification remains subject to independent scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of mathematically equivalent statements and possible stronger coverage, including Resultary semantic search, relevant published repository search, and primary literature readings. The second-order relative-Laplacian damping model gives J2=tr(L_FF^-2) while standard first-order noisy consensus gives J1=tr(L_FF^-1). Although the same grounded spectrum appears, minimizing different spectral powers is not equivalent; W6 supplies an explicit counterexample. General graph leader-selection algorithms and convex relaxations cover many graph families but optimize J1; a generic inverse-square spectral optimization characterization would be relevant, but no full two-leader wheel specialization or dominating theorem was found in examined sources. Residual priority risks are recorded rather than treating negative searches as novelty proofs.
+
+## value
+
+PASS
+
+Exact optimal grounded leader placement for the inverse-square noise model on every unweighted wheel is a naturally motivated spectral graph classification. The sharp rim-size-six transition and explicit conflict with first-inverse design provide substantive mathematical value beyond a small numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
