@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem proof identifies directed-arc compatibility, all reflection orbit types, the precise band-graph fixed triangulation, and a uniform neighborhood-containment collapse. The rank-one integral reflection sign follows from the Euler characteristic of the fixed sphere and the independently established ambient sphere theorem.
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and only the standard library. The program directly enumerates every proposed fixed-orbit subset for \(n=3,\ldots,13\), reconstructs actual multipath legality from indegree/outdegree and directed two-cycle constraints, verifies predicted orbit adjacency and all Euler characteristics, checks 120 symbolic folding instances, and checks the empty boundary cases. The program printed `PASS` with 3,600 verified fold deletion pairs.
+## correctness
 
-Finite enumerations do not constitute a proof for unbounded \(n\), and the independent audit remains unperformed. No claim is made about the full equivariant homotopy type of the ambient multipath complex or about other automorphisms.
+PASS
+
+Read pinned RESULT.md and verify.py. Directed arc faces have exactly the forbidden forward/backward pairs |i-j|<=1; all cycles on an underlying path are two-cycles. Reflection sends p_i to q_{n-1-i}, leaving two tails of admissible two-arc orbits; opposite tail conflict is |i+j-(n-1)|<=1. Equal barycentric coordinates give a PL identification with Ind(B(t)), rather than a naïve vertex-fixed subcomplex. The neighborhood-dominance fold N(L_0)⊆N(L_1), then N(H_0)⊆N(H_1), removes indices one-by-one, isolating an edge and recursing t→t-2; the resulting disjoint-edge independence complex is a cross-polytope boundary. Smith/Caputi--Collari ambient rank-one homology plus integral simplicial Lefschetz trace yields (-1)^{a+b}; explicit modular signs check. Independently computed Euler for all orbit graph faces t=1..6. Finite checks do not substitute for the fold proof.
+
+## originality
+
+PASS
+
+The inspected primary material supplies ambient or more restricted results; the new geometric fixed locus, symmetry representation, quotient homeomorphism, or equivariant deletion claim requires the additional specified proof. Claims are compared by mathematical implication, not matching titles; exact covered subfamilies are credited. Best-of-knowledge originality remains qualified by the named residual risks.
+
+## value
+
+PASS
+
+The natural reversal fixed-point topology and integral orientation sign are missing from the known ambient sphere theorem; a canonical finite PL model and an all-width collapse are useful structural equivariant refinements, independent of arbitrary exact-instance counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
