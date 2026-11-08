@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For a fixed k-cycle, the Laplacian rooted-forest determinant gives k n^(n-k-1) decorations. Deleting a designated non-cycle leaf proves the exact conditional expectation with both boundary cases. The finite difference equals -(k/n)(1-1/n)^(n-k-2), giving strict negative covariance for n>=4. The cycle weights (n)_k/n^k converge after normalization to half-normal density with uniform moment bounds. Telescoping the finite difference yields a -S^2/(2e) limit and the covariance constant -sqrt(2/pi)/(2e). Independent edge-set exhaustive enumeration for n=3..7 and exact rational tests for n=4..74 passed all 2738 assertions; finite tests are not used as proof of asymptotic limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson, Cycles and Unicyclic Components in Random Graphs (2003), Theorems 1–7: cycle and component-size point-process limits near the Erdős–Rényi critical window.",
+        "Kolchin (1999), rooted-forest and unicyclic generating-functions framework; no inspected result combining unique-cycle length and pendant-vertex count."
+      ],
+      "reasoning": "The broader cycle point-process theorems involve an unconditioned sparse graph with many components, whereas this theorem treats one uniformly chosen connected unicyclic graph and its conditional leaf count. Tree-forest counts are general enough to derive the exact conditional mean after an additional deletion argument, but the non-Gaussian order-one regression and square-root covariance constant require the cycle-weight half-normal law and moment-controlled second-order expansion; neither appears as a direct stated specialization in the inspected sources.",
+      "searches": [
+        "unicyclic labelled random graphs bivariate generating function leaves cycle length",
+        "distribution of number of leaves in random unicyclic graphs cycle length conditional forest",
+        "random connected excess zero labeled graph degree one counts cycle size joint asymptotic covariance"
+      ]
+    },
+    "checked_sources": [
+      "Kolchin (1999), Random Graphs, §1.7, ISBN 0-521-44081-5",
+      "Janson (2003), doi:10.1017/S0963548302005412",
+      "Ben-Naim and Krapivsky (2004), arxiv:cond-mat/0403453"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kolchin §1.7 supplies forest count and cycle-length enumeration; the proof here adds a leaf-deletion ratio, strict difference identity and moment-uniform second-order regression.",
+        "Janson (2003) obtains gamma/point-process limits for cycles and component sizes of sparse random graphs; the modeled law differs and cannot directly be substituted.",
+        "Ben-Naim and Krapivsky (2004) use a multigraph evolution and track component sizes, not degree-one vertex counts conditioned on a unique cycle length."
+      ],
+      "reasoning": "The classical forest determinant alone gives enumeration, not the claimed mesoscopic covariance constant. While leaf deletion is a short new computation, the assessed result includes a distinct non-Gaussian regression limit and exact negative sign for the conditionally uniform graph model. None of the inspected prior statements implies that combination without further analysis; implicit general marked-species formulas may still subsume it.",
+      "searches": [
+        "\"random unicyclic\" \"leaf\" \"asymptotic\" \"cycle\"",
+        "uniform random unicyclic graph cycle length and leaf count joint distribution asymptotic second order regression",
+        "unicyclic labelled random graphs bivariate generating function leaves cycle length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kolchin, Random Graphs (1999), section 1.7: generating functions and rooted-forest enumeration for cycles, without an explicit leaf-cycle regression in the inspected relevant section.",
+        "Ben-Naim and Krapivsky, arXiv:cond-mat/0403453, equation (1): distribution of sizes of unicyclic components in a different evolving multigraph model."
+      ],
+      "reasoning": "The same graph can be viewed as a cycle decorated by rooted trees. An equivalent claim would give the conditional expectation of degree-one vertices at each cycle length and the quadratic mesoscopic regression. The closest inspected primary statements enumerate cycle-rooted forests or component sizes, but do not state these conditional leaf moments or their covariance asymptotics. Classical forest counting does supply a proof ingredient, so earlier implicit consequences remain possible.",
+      "searches": [
+        "\"random unicyclic graph\" \"number of leaves\" cycle",
+        "\"unicyclic\" \"leaves\" \"cycle length\" \"random\"",
+        "uniform random labelled connected unicyclic graph exact covariance number of leaves and unique cycle length; conditional leaf expectation forest tree counts quadratic half normal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked relevant unicyclic enumeration covers graph counts or cycle-length classes, rather than the joint table of leaf count and cycle length.",
+        "Independent enumeration through seven labeled vertices matches the new finite formula but is an internal correctness check, not evidence of novelty."
+      ],
+      "reasoning": "No checked indexed exact table or formula records the full conditional leaf regression or the nonzero square-root-scale covariance limit. A negative search is not proof of absence; a hidden enumeration in older degree-marked graph catalogs is a residual risk.",
+      "searches": [
+        "\"unicyclic\" \"leaves\" \"cycle length\" \"random\"",
+        "\"unicyclic\" \"number of leaves\" \"conditional\"",
+        "uniform unicyclic graph leaves versus cycle length exact negative correlation of order square root"
+      ]
+    },
+    "rationale": "A statement-level comparison with the inspected Kolchin, Janson and Ben-Naim–Krapivsky literature and published findings yields no stronger or equivalent explicit all-size leaf regression plus second-order non-Gaussian covariance limit. Earlier rooted-forest enumerations cover prerequisite graph counts, not the assessed conditional perturbation and mesoscopic constant. Priority remains qualified because older bivariate marked-graph enumeration could imply the result.",
+    "residual_risks": [
+      "An older multivariate generating-function theorem marking degree-one vertices and unique-cycle length may subsume the conditional mean or asymptotic statement.",
+      "The relevant parts of Janson were read in extracted text; full visual inspection was unavailable, and remaining sections were not individually read.",
+      "No result-index search establishes global novelty; specialist historical checking is warranted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies cyclic enumeration/forest tools, but inspected relevant statements are about graph and component counts, not conditional leaf moments or quadratic regression.",
+        "evidence": [
+          "Chapter 1 §1.7 states that a fixed cycle of length r is decorated by r rooted trees and uses the forest count r n^(n-r-1).",
+          "Index identifies unicyclic graph counts but no joint leaf-cycle statistic."
+        ],
+        "identifier_or_url": "V. F. Kolchin, Random Graphs, Cambridge University Press (1999), ISBN 0-521-44081-5; https://djvu.online/file/jEjac2n5IHvh4",
+        "material_read": "Section 1.7 passages describing unicyclic graph enumeration by cycle length, rooted-forest count and main limit theorems; relevant table of contents and index.",
+        "method": "Accessible rendered book text; comparison of section 1.7 formulas and subject index.",
+        "title": "Random Graphs, chapter 1 section 1.7",
+        "trigger": "Same core object: labeled unicyclic graphs and rooted forests."
+      },
+      {
+        "assessment": "Studies cycle and component-length point processes near the critical regime, not a uniformly sampled single unicyclic connected graph or conditional pendant-vertex counts.",
+        "evidence": [
+          "Introduction specifies G(n,n/2 ± s) with n^(2/3) << s << n.",
+          "Theorem 1 concerns cycle-length point processes; Theorem 5 concerns total cycle length; Theorem 6 concerns unicyclic component sizes."
+        ],
+        "identifier_or_url": "doi:10.1017/S0963548302005412; https://citeseerx.ist.psu.edu/document?doi=846827569e95ed80293510d7b43397beafe4fdf6&repid=rep1&type=pdf",
+        "material_read": "Abstract, introduction, Theorems 1–7 and discussion of the underlying near-critical random graph ensemble in available extracted paper text; not all 27 pages inspected individually.",
+        "method": "Primary full-document text extraction, theorem comparison, keyword search; visual PDF rendering unavailable for the source.",
+        "title": "Cycles and Unicyclic Components in Random Graphs",
+        "trigger": "Strongest directly relevant published cycle-length paper."
+      },
+      {
+        "assessment": "The paper analyzes unicyclic-component size distribution in an evolving random multigraph with self-links; does not present conditional leaves versus cycle length for uniform simple connected unicyclic graphs.",
+        "evidence": [
+          "Equation (1) gives the average count of unicyclic components of each total size at evolution parameter t.",
+          "The model explicitly allows loops and multiple links; section treats graph component complexity rather than degree-one/cycle-length regression."
+        ],
+        "identifier_or_url": "arxiv:cond-mat/0403453; https://arxiv.org/abs/cond-mat/0403453",
+        "material_read": "Original paper abstract, model definition, distribution formulas and derivation of the component-size generating function; scanned first and third PDF pages and read accessible complete article text.",
+        "method": "Original author-hosted open-access PDF and arXiv primary-text version, with PDF page visual checks.",
+        "title": "Unicyclic Components in Random Graphs",
+        "trigger": "A first-publicly-dated classical paper on the unicyclic component model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0cf5980e-1218-4148-a58f-86a70bd75b90",
+  "value": {
+    "rationale": "This is a motivated structural probability question for the entire canonical uniform connected cycle-rank-one graph model. A cycle of natural size sqrt(n) removes sqrt(n) possible leaves, yet the expected leaf count responds only quadratically at constant order, an unsuspected cancellation derived exactly. The theorem classifies every finite sign and obtains a sharp nonzero square-root covariance constant and limiting non-Gaussian conditional regression, useful for understanding dependence between core geometry and attached forests. It is neither arbitrary parameter slicing nor a routine enumeration increment.",
+    "status": "PASS"
+  }
+}
