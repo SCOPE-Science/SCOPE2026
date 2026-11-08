@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Proved exhaustion: any factor containing >=2 markers has a unique full interior gap; hence no closed factor contains >=3 markers. One-marker closed factors are precisely balanced zero fringes; for two markers the exact necessary/sufficient return condition is b<=g_j, with all boundary indices checked including k=1. Disjoint enumeration yields the formula. From the actual bundled verify.py path, independent brute factor/border enumeration passed 4095 gap vectors and 797251 closed-factor instances, plus ramp identity k=1..15. Finite checks supplement the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2111.00863, Theorem 3 and Proposition 8: maximal number of closed factors is asymptotically n^2/6 across all words",
+        "arXiv:2005.06254, Theorems 1 and 3: aperiodicity/periodicity criteria via complexity",
+        "arXiv:1810.05472, Theorem 1: recurrent Arnoux–Rauzy exact per-length complexity"
+      ],
+      "reasoning": "An unrestricted maximum is an upper bound, not a classification for arbitrary gap vectors. Arnoux–Rauzy words are recurrent with fixed return-word structure; marker words with strictly increasing gaps are not uniformly recurrent. Periodicity criteria likewise do not specify their finite closed factors.",
+      "searches": [
+        "\"Finite and infinite closed-rich words\" arxiv:2111.00863",
+        "\"Open and closed complexity of infinite words\" arxiv:2005.06254",
+        "\"Open and closed factors of Arnoux-Rauzy words\" arxiv:1810.05472"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1305.6395 (preprint full text)",
+      "arXiv:1810.05472 (arXiv HTML)",
+      "arXiv:2005.06254 (preprint full text relevant sections)",
+      "arXiv:2111.00863 (preprint full text relevant sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2111.00863, concluding maximum n^2/6",
+        "arXiv:1305.6395, Theorem 25 and concluding section",
+        "arXiv:2005.06254, Theorem 1"
+      ],
+      "reasoning": "The exact count depends on each g_j via neighboring products, while previous quantitative results concern a global extremum or bounded/unbounded complexity. No implication yields the complete four-class decomposition; the present construction does not challenge those theorems.",
+      "searches": [
+        "\"closed-rich\" exact n^2/6 Parshina Puzynina",
+        "\"On the Number of Closed Factors in a Word\" Badkobeh Fici Lipták",
+        "\"open and closed complexity\" sparse gap words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1305.6395, definition and Theorems 23 and 25: global CR-poor characterization and unrestricted quadratic example, not an increasing-gap class",
+        "arXiv:1810.05472, Theorem 1: formula for Arnoux–Rauzy recurrent words, not sparse increasing-gap markers"
+      ],
+      "reasoning": "Complete first return, periodic-like, and closed factor are equivalent notions under the standard definitions. The new claim is therefore compared under those aliases; neither identified theorem provides its complete finite-gap language.",
+      "searches": [
+        "\"closed factors\" \"increasing gaps\" binary word",
+        "\"complete returns\" \"strictly increasing\" zero runs",
+        "\"closed factors\" \"0^1 1 0^2\"",
+        "arXiv:1305.6395 (closed factors, complete returns)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1305.6395 Table 1 lists unrestricted binary maximum for small word lengths; its Theorem 25 constructs quadratically many closed factors",
+        "direct finite census covers 4095 vectors with gaps from 1 through 13, unlike any inspected published table"
+      ],
+      "reasoning": "Known small unrestricted maxima and finite enumerations cannot imply the exact gap-vector formula or the continuous family of noninteger growth exponents. No direct matching database/table was located; failed search is not a proof of uniqueness.",
+      "searches": [
+        "\"closed factors\" \"strictly increasing\" gaps word",
+        "\"number of closed factors\" \"increasing\" binary strings",
+        "arXiv:1305.6395 Table 1 maximum binary closed factors"
+      ]
+    },
+    "rationale": "The closest inspected primary works prove unrestricted extremal closed-factor bounds, per-length formulas for recurrent Arnoux–Rauzy shifts, and periodicity criteria. Those results neither characterize the four classes for arbitrary strictly increasing gaps nor determine the exact multivariate count. Separate finite and source-equivalence searches found no known table or dominating formula; the risk of unindexed equivalent prior work remains.",
+    "residual_risks": [
+      "An unindexed paper or uncatalogued special-case calculation may already contain the same gap-dependent formula.",
+      "No claim of independent expert review or exhaustive literature coverage; currently identified literature does not logically entail the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: global bounds and bitonic/CR-poor classes, no increasing-gap multivariate census",
+        "evidence": "Theorem 25 constructs quadratically many closed factors via four constant runs; Table 1 lists unrestricted maxima only.",
+        "identifier_or_url": "https://arxiv.org/abs/1305.6395",
+        "material_read": "Full open HTML text including Definition 1, CR-poor characterizations, Theorem 25, Table 1 and conclusions",
+        "method": "Read accessible full text of arXiv preprint mirrored in HTML",
+        "title": "On the Number of Closed Factors in a Word",
+        "trigger": "Foundational closed-factor definitions, extremal theorem and tables"
+      },
+      {
+        "assessment": "Not covering: Arnoux–Rauzy uniformly recurrent class differs from strictly increasing, unbounded-gap markers",
+        "evidence": "Theorem 1 sums first-return data for Arnoux–Rauzy words; the hypotheses do not hold for these marker words.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.05472",
+        "material_read": "Full available HTML article including definitions, Theorem 1, proof via bispecial factors, Sturmian specialization and examples",
+        "method": "Read lawful arXiv full HTML",
+        "title": "Open and closed factors of Arnoux–Rauzy words",
+        "trigger": "Closest exact closed-factor counting theorem"
+      },
+      {
+        "assessment": "Not covering: general asymptotic periodicity characterization, no finite multivariate closed-factor formula",
+        "evidence": "Theorems 1 and 3 characterize aperiodicity/bounded complexity; no gap-specific factor enumeration.",
+        "identifier_or_url": "https://arxiv.org/pdf/2005.06254",
+        "material_read": "Introduction, Theorem 1, Theorem 3, definitions, conclusion and open questions, with relevant PDF pages inspected",
+        "method": "Read public full PDF text and visual first page",
+        "title": "Open and closed complexity of infinite words",
+        "trigger": "Potential stronger all-infinite-word closed-complexity classification"
+      },
+      {
+        "assessment": "Not covering: unrestricted asymptotic maximum is not an exact formula for increasing-gap marker words",
+        "evidence": "Theorems 3 and 3-prime bound the maximum, Proposition 8 constructs de Bruijn cube witnesses; no strictly increasing zero-gap family appears.",
+        "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+        "material_read": "Introduction, preliminaries, extremal construction, Theorem 3/Proposition 8, concluding maximum and related examples; two page images also inspected",
+        "method": "Read lawful open full preprint and its relevant proof passages",
+        "title": "Finite and infinite closed-rich words",
+        "trigger": "Guiding 2021 first-public source and strongest quantitative global bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "134b7695-e707-4198-be9a-cf1b47877347",
+  "value": {
+    "rationale": "This is an exact natural infinite-parameter classification of complete first returns for arbitrarily prescribed strictly increasing gap lengths. Its explicit multivariate formula reveals sensitivity to boundary contexts and quantitatively realizes all closed-factor growth exponents from 3/2 to 2 (including quadratic density), relative to established global closed-rich theory. The contribution is not a trivial finite table, a mere renaming, or an unrestricted extremal claim.",
+    "status": "PASS"
+  }
+}

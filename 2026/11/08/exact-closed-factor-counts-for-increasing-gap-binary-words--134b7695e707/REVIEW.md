@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Every closed factor is proved to have at most two markers: a border with two markers would repeat a unique gap; a border with one marker would necessarily occur at every intervening marker; a zero-only border would repeat inside an increasing internal gap. The remaining zero-, one-, and two-marker classes are exhaustive. The two-marker complete-return criterion is exactly that the trailing zero context does not exceed the internal gap. The disjoint class counts yield the claimed formula, including the \(k=1\) boundary. A direct independently implemented factor-and-border enumerator confirmed \(4095\) finite parameter cases, with \(797251\) closed factors counted in total.
+
+**Originality: PASS, qualified.** Badkobeh–Fici–Lipták (arXiv:1305.6395) treat general extremal numbers and CR-poor words; Parshina–Zamboni (arXiv:1810.05472) provide per-length formulas for Arnoux–Rauzy words; Parshina–Postic (arXiv:2005.06254) characterize aperiodicity via open/closed complexity; Parshina–Puzynina (arXiv:2111.00863) establish extremal quadratic asymptotics and closed-rich classes. The inspected claims concern broader global bounds or structurally different recurrent classes and do not imply the present exact all-parameter classification. An unindexed result or overlooked equivalence remains possible.
+
+**Value: PASS.** Closed factors encode complete first returns, an established invariant in word combinatorics. Rather than computing a small finite example, the result enumerates every closed factor for arbitrary length and arbitrary increasing gap parameters, revealing exactly which boundary zero contexts support a complete return. Its corollaries give the explicit intermediate exponent \(3/2\), a continuous family of other exponents, and positive quadratic closed-factor density. These are meaningful growth regimes below the unrestricted extremal bound, not merely a recomputation of a known table.
+
+**Scientific limitations.** No claim for repeated or unordered gaps, other alphabets, or arbitrary-length maximum closed-factor problems. The proof is mathematical and self-contained; the reproduced computational cases are supplementary and not exhaustive over unbounded parameters. Bibliographic uncertainty is acknowledged.
+
+Self-review: passed. Independent audit: not yet performed.
