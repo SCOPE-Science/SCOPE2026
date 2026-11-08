@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Gaussian derivative Fourier transformation gives an exact two-exponential STFT, and the time variable is eliminated without losing any roots. The real scalar equation has exactly two exterior roots and one or three interior roots except at explicitly identified fold and cusp degeneracies. Its derivative and second/third local expansions establish all boundary multiplicities; the exact Jacobian gives the charge signs. The supplied checker validates the formula against independent numerical quadrature and root cases. Scope is bounded to Gaussian derivatives, nonzero tones, and positive parameters.
+
+**Originality — PASS relative to examined evidence.** The result is the nontrivial two-parameter amplitude asymmetry of deterministic two-tone zeros. The first-derivative equal-amplitude transition is treated as background rather than claimed as a second contribution. The source by Bellourak et al. (arXiv:2610.13531) develops the charge language for stochastic white noise with orthonormal Hermite windows; Poinas–Bardenet (arXiv:2507.13829) treat unequal-amplitude interference with the Gaussian window and find a single line of zeros. Neither inspected full text states the Gaussian-derivative cusp locus, four-zero fold boundary, or sharp amplitude-exponent law. A 2022 Gaussian-window ridge separation theorem is not an equivalent zero classification. Exact earlier priority beyond these inspected sources is not independently certified.
+
+**Value — PASS.** The exact fold curve gives a mathematically motivated and experimentally interpretable threshold for when unequal component strengths suppress the two extra spectrogram zeros. The fold charge cancellation, codimension-two cubic cusp, and universal \(2/3\) asymmetry law give a robust structural benchmark for the signed-zero framework introduced in recent work. They are not a mere new numerical sample of the symmetric transition.
+
+**Residual limitations.** Higher Gaussian derivatives are not orthonormal higher Hermite functions. Experimental zero detection may be unstable near folds. Equivalent catastrophe terminology might occur in specialist interference literature. No external mathematical validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
