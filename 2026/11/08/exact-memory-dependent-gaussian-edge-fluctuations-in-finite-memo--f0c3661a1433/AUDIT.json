@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The M-bit history chain is irreducible and aperiodic with its verified exchangeable invariant law. For fixed M, bounded martingale innovation epsilon_t=Z_t-rho-a sum_(j=1)^M(Z_(t-j)-rho) has variance rho(1-rho)D_M/(1+Mdelta)^2. Its predictable quadratic variation obeys the ergodic theorem; the martingale functional CLT and a pathwise uniform O_M(N) weighted-sum difference prove convergence in D[0,1]. The exact covariance kernel follows by Ito isometry. The independent finite-state rational Poisson-equation checker passed 402 assertions for 12 Markov kernels, M=1..4. No finite evidence is treated as proof of the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General functional CLTs for bounded additive functionals of irreducible finite-state Markov chains yield a Brownian scaling for counts.",
+        "Yu–Alajaji–Gharesifard, arXiv:2603.18452v1, Sections 4.2 and 5: only finite-memory consensus simulations, with its stochastic properties named as an avenue for future work."
+      ],
+      "reasoning": "General Markov FCLTs imply existence of some asymptotic covariance for fixed memory, but a closed covariance for the specific weighted graph-edge statistic requires evaluating the finite-memory conditional variance. The proof obtains v[1+2Mδ+M(M−1)δ²/(1+δ)] without a 2^M-dimensional inverse; no examined broader result supplies that coefficient.",
+      "searches": [
+        "finite memory contagion model Polya urn beta-binomial stationary Markov weighted edge count Donsker theorem",
+        "\"finite memory\" \"Polya\" \"central limit theorem\" \"variance\"",
+        "\"Pólya threshold graph\" \"edges\" \"Gaussian\" \"memory\""
+      ]
+    },
+    "checked_sources": [
+      "Yu, Alajaji, Gharesifard, Pólya Threshold Graphs, arXiv:2603.18452v1, 2026-03-19",
+      "Alajaji and Fuja, A Communication Channel Modeled on Contagion, technical report TR-93-78, 1993, and journal version 1994",
+      "Zhong, Alajaji, Takahara, A Binary Communication Channel with Memory Based on a Finite Queue, 2007",
+      "Diaconis, Holmes and Janson, Threshold Graph Limits and Random Threshold Graphs, 2008 (background reference identified, no claim of full-text inspection)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The explicit invariant-block law in Alajaji–Fuja yields pair covariances at lags less than memory, not the summed infinite-lag edge variance.",
+        "The 2026 graph paper neither states the finite-memory edge-density law nor computes the memory polynomial.",
+        "The 2007 queue channel work discusses autocorrelation as a channel statistic but no graph-edge weighting or limiting Gaussian covariance."
+      ],
+      "reasoning": "The identified published statements do not contain the exact claim. Combined with a generic FCLT, they provide input sufficient to derive it by additional innovation/weighted-sum analysis. The new computation is an exact natural graph invariant and its Gaussian process covariance; it does not rebrand stationarity or ergodicity as original.",
+      "searches": [
+        "\"Pólya threshold graph\" \"central limit\" \"finite memory\" edges",
+        "\"finite-memory contagion channel\" \"asymptotic variance\" \"central limit theorem\"",
+        "\"threshold graph\" \"stationary ergodic\" \"edge count\" \"central limit\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alajaji–Fuja, 1993 technical report, pp. 18–19: explicit stationary block probability and transition law for this finite-memory contagion process.",
+        "Zhong–Alajaji–Takahara, 2007, Section 2.3 and 3.1.1: the same block law is a special case of their queue formulation."
+      ],
+      "reasoning": "These known results imply stationarity and make a finite-state invariance-principle approach available. They do not state the global, age-weighted threshold-graph edge limit with the explicit quadratic-memory factor. This exact statement is narrower than arbitrary functionals, but evaluates a resolvent that is left implicit by a generic theorem.",
+      "searches": [
+        "finite memory Polya urn stationary beta binomial Markov",
+        "finite memory Polya central limit theorem variance",
+        "Weighted sums of finite memory Polya urn Markov sequence integrated Brownian motion graph edge density Gaussian limit sigma^2 quadratic in memory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The model source reports degree laws, Laplacian data, expected centrality and consensus, rather than a table of edge-count CLT variance constants.",
+        "The 1993 contagion technical report tabulates its stationary states and capacity, not age-weighted graph-edge statistics."
+      ],
+      "reasoning": "No located table or exact graph-edge variance expression was found. This is a bounded negative search result, not a proof that no unindexed table exists.",
+      "searches": [
+        "\"Pólya threshold graph\" \"edge density\" \"limit\"",
+        "\"finite memory\" \"Polya threshold\" \"edge\" central limit theorem",
+        "\"finite memory\" \"Polya\" \"asymptotic variance\" M"
+      ]
+    },
+    "rationale": "The exact variance polynomial D_M and age-weighted threshold-graph functional limit were not found in the inspected full model paper or finite-memory contagion sources. Known block stationarity and generic CLT are explicitly acknowledged; the computed graph-specific invariant is the distinguished new content. Old, possibly broader autocorrelation identities remain a disclosed priority risk.",
+    "residual_risks": [
+      "A preexisting full-lag covariance or frequency-domain calculation in historical finite-memory contagion literature could imply the exact coefficient without the graph formulation.",
+      "Generic Markov functional CLTs are much broader than the probabilistic convergence part; the precise polynomial coefficient and graph interpretation, not abstract normality, bear the originality claim.",
+      "The search cannot establish absolute historical uniqueness; independent priority verification remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed edge-count functional CLT; expressly opens finite-memory stochastic properties",
+        "evidence": "Section 4.2.2 gives the length-M predictive rule and finite-memory consensus simulations; Section 5 highlights stochastic properties and dependence on memory size as further research.",
+        "identifier_or_url": "https://arxiv.org/html/2603.18452",
+        "material_read": "Full HTML source accessed; abstract, introduction, definition of creation-string law, Section 4.2.2, conclusion and relevant references",
+        "method": "Read mathematical model and finite-memory formula (45), distinguish consensus simulations from graph-edge limit",
+        "title": "Pólya Threshold Graphs",
+        "trigger": "Same threshold-graph construction and explicitly presented finite-memory extension"
+      },
+      {
+        "assessment": "COVERS the stationary block law and ergodicity, not the threshold-graph edge FCLT or explicit memory coefficient",
+        "evidence": "Printed page 18 gives stationary block weights; page 19 proves irreducibility/aperiodicity and treats channel capacity; page 20 studies the capacity limit as memory grows.",
+        "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/24b9367d-d820-4c7d-978d-7c7cf4b024e0/download",
+        "material_read": "Public 1993 technical report, pages printed 18–20 (PDF pages 20–22), with the finite-memory block law, transition rule, ergodicity and capacity",
+        "method": "Visually examined archived PDF pages containing formulas (10)–(13) and their interpretations",
+        "title": "A Communication Channel Modeled on Contagion",
+        "trigger": "Original finite-memory sliding Pólya sequence could imply the result"
+      },
+      {
+        "assessment": "COVERS stationarity and a channel family containing the Pólya process, but no located graph-edge fluctuations",
+        "evidence": "Section 2.3 gives M-memory urn, and Section 3.1.1 identifies its stationary block weights as the finite-memory contagion model.",
+        "identifier_or_url": "https://mast.queensu.ca/~communications/Papers/it-qbc.pdf",
+        "material_read": "Accessible full-text PDF opened; abstract, Sections 2.3 and 3.1.1–3.1.2, with visual page review of model/queue",
+        "method": "Compared stationary formula and scope of channel autocorrelation with graph-age-weighted CLT",
+        "title": "A Binary Communication Channel with Memory Based on a Finite Queue",
+        "trigger": "General queue model may dominate the fixed-memory contagion covariance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0c3661a-1433-410b-9d48-d932f448fd1c",
+  "value": {
+    "rationale": "The 2026 model paper names finite-memory stochastic properties as an open direction. Edge density is a canonical global threshold-graph invariant. Its exact Gaussian fluctuation coefficient quantifies a quadratic memory penalty and cleanly distinguishes fixed memory from the nonergodic Beta random density under permanent reinforcement; the process-level covariance gives a stronger profile than an isolated scalar calculation.",
+    "status": "PASS"
+  }
+}
