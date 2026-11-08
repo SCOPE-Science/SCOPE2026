@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The supplied `verify.py` is a standalone standard-library numerical diagnostic. To reproduce from the extracted package, run `python3 verify.py` in the directory containing the script. The recorded completed execution passed 1015 deterministic assertions, covering exact symbolic Dirichlet first and second moments in 500 dimensions, three finite-parameter two-dimensional radial quadratures, an explicit planar section-volume integral, and seeded Dirichlet Monte Carlo checks in dimensions 1, 2, 12, 80 and 400. The Gaussian/gamma sampler's fixed seeds and sample counts are in the script.
+## correctness
 
-The analytic proof (in `RESULT.md`) separately establishes the polyhedral critical Hausdorff limit, exact finite-dimensional Dirichlet representation, sharp strict bounds, and \(\sqrt e(1-5/(4n)+O(n^{-2}))\) asymptotic. No finite numerical test verifies those universal quantifiers. The random sampling has finite sampling error; large-dimensional numerical agreement is not a substitute for the moment computation. The original-source smooth-boundary theorem cannot be applied directly to the cube; the facetwise dominated-convergence and compact-containment argument is required.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For fixed dimension n≥2 the radial polar-volume expression at cube facets yields p(1-g_{n,p}(y/p))→Σlogcosh(y_i) via a.e. unique-facet directions; uniform bounded-y domination plus the intersection-volume bound gives compact containment and Hausdorff sublevel convergence. Exact change of variables t_i=logcosh|y_i| produces the Dirichlet(1/2,...,1/2,1) expectation; G(t)=e^{t/2}sqrt(t/sinh t) has 1<G(t)<e^{t/2}. The moment identities ES=2/(n+2) and EΣT_i²=3n/[(n+2)(n+4)] and Taylor logG=t/2−t²/12+O(t⁴) imply correction −(1/n+1/(4n))=−5/(4n). Independently evaluated the exact two-dimensional integral (ratio 1.2680315364) and checked finite-size symbolic moments as diagnostics, not as proof. The limits p→∞ at fixed n and n→∞ of the limiting body are explicitly kept separate.
+
+## originality
+
+PASS
+
+The new direct facet proof applies to a nonsmooth cube excluded by the cited C³ smooth-boundary transition theorem, and the exact fixed-total-energy Dirichlet volume anomaly including coefficient 5/4 is not an evident specialization of proportional-energy Orlicz-volume asymptotics. Closest current covariogram primary source full text was inaccessible; the abstract and accessible related work support a provisional best-of-knowledge PASS with explicit possible priority overlap rather than treating access failure as a false mathematical result.
+
+## value
+
+PASS
+
+The nonsmooth-cube endpoint is a natural missing boundary of a recent smooth critical-transition theorem, and its Orlicz limit carries a surprising nonvanishing √e normalized-volume factor and a sharp finite-size coefficient. This exact invariant is motivated independently by asymptotic convex geometry, not a thin substitution into an already proved theorem. The fixed-energy and proportional-energy regimes answer different geometric questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

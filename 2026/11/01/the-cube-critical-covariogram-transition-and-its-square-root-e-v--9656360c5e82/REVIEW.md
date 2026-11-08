@@ -1,19 +1,21 @@
-# Scientific review: cube critical transition and volume anomaly
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The fixed-dimensional Hausdorff limit follows by the exact radial formula for translated cubes, the unique-facet almost-everywhere reduction, uniform-on-compacts dominated convergence and global containment from the classical cube covariogram. A direct change of variables to the level coordinates of the Orlicz function gives the Dirichlet volume identity; strict bounds follow from the elementary \(t<\sinh t\) inequality. Dirichlet beta moments make the first asymptotic correction \(-5/(4n)\) and bound neglected terms in expectation. The proof treats all \(n\ge2\), boundary ties, and both limiting processes without conflating them. Reproducible numerical diagnostics passed 1015 assertions; they are neither a substitute for proof nor a proof of novelty.
+PASS
 
-## Originality: PASS, qualified by historical-priority risk
+For fixed dimension n≥2 the radial polar-volume expression at cube facets yields p(1-g_{n,p}(y/p))→Σlogcosh(y_i) via a.e. unique-facet directions; uniform bounded-y domination plus the intersection-volume bound gives compact containment and Hausdorff sublevel convergence. Exact change of variables t_i=logcosh|y_i| produces the Dirichlet(1/2,...,1/2,1) expectation; G(t)=e^{t/2}sqrt(t/sinh t) has 1<G(t)<e^{t/2}. The moment identities ES=2/(n+2) and EΣT_i²=3n/[(n+2)(n+4)] and Taylor logG=t/2−t²/12+O(t⁴) imply correction −(1/n+1/(4n))=−5/(4n). Independently evaluated the exact two-dimensional integral (ratio 1.2680315364) and checked finite-size symbolic moments as diagnostics, not as proof. The limits p→∞ at fixed n and n→∞ of the limiting body are explicitly kept separate.
 
-Haddad, Jiménez and Resende, arXiv:2610.11700v1 (2026-10-08), prove a critical \(\log\cosh\) transition for \(C^3\) convex bodies, not nonsmooth cubes, and do not derive the cube's dimension-varying Dirichlet volume or \(\sqrt e\) anomaly. Sadok, arXiv:2610.16904v1 (2026-10-12), investigates exponential intrinsic-volume profiles with energy \(n\rho\) at fixed \(\rho>0\), not fixed energy one with an exact multiplicative correction. Barthe–Wolff (arXiv:2106.01675) and Kabluchko–Prochno (arXiv:2007.05247) likewise study macroscopic Orlicz energies and broad volumetric principles. Nearby public geometric records concern classical cube overlaps or Gardner–Zhang radial mean bodies, not this smooth-covariogram polyhedral critical limit. The examined relevant statements do not imply the combined theorem. Equivalent formulas in older or unindexed literature cannot be ruled out.
+## originality
 
-## Value: PASS
+PASS
 
-The result resolves the concrete benchmark left outside the source's smooth hypotheses, gives an exact finite-dimensional integral rather than a numerical table, and identifies a dimension-uniform, unexpectedly non-unit volume ratio with a sharp \(1/n\) correction. This is a natural stress test for critical Orlicz-transition geometry and a useful calibration for future polyhedral and dimension-dependent comparisons.
+The new direct facet proof applies to a nonsmooth cube excluded by the cited C³ smooth-boundary transition theorem, and the exact fixed-total-energy Dirichlet volume anomaly including coefficient 5/4 is not an evident specialization of proportional-energy Orlicz-volume asymptotics. Closest current covariogram primary source full text was inaccessible; the abstract and accessible related work support a provisional best-of-knowledge PASS with explicit possible priority overlap rather than treating access failure as a false mathematical result.
 
-## Limitations
+## value
 
-The Hausdorff theorem fixes the dimension before the smoothing parameter tends to infinity. The high-dimensional asymptotic pertains to the already-defined limiting bodies. The source comparison is based on available primary full texts and recorded abstracts where full text was unavailable, not an exhaustive historical search. No independent mathematical validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nonsmooth-cube endpoint is a natural missing boundary of a recent smooth critical-transition theorem, and its Orlicz limit carries a surprising nonvanishing √e normalized-volume factor and a sharp finite-size coefficient. This exact invariant is motivated independently by asymptotic convex geometry, not a thin substitution into an already proved theorem. The fixed-energy and proportional-energy regimes answer different geometric questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
