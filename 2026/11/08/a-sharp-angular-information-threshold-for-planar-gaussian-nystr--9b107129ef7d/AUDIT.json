@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every real 2x2 SPD A,K, Cayley–Hamilton reduces the nuclear residual to det(A)*(g^Tg)/(g^TAg). The uniform-circle matrix ratio identity E[uu^T/(u^TCu)]=(C+sqrt(det C)I)^(-1) is proved by a complete integral and two linear identities. An exact 2x2 inverse calculation gives the trace/determinant formula; derivative-sign analysis shows no finite strict interior anisotropy minimum and provides the arctan fourth-root switch. High-r joint asymptotics are uniform in paths with r→∞ and θ→0. Standalone tests passed 712 assertions, supporting rather than replacing the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson–Boullé–Kressner analyze general correlated Gaussian sketches with covariance quality factors but assume a positively oversampled target-rank setup for the relevant expectation bounds.",
+        "Tropp et al. treat the randomized Nyström framework and isotropic Gaussian model."
+      ],
+      "reasoning": "General-dimensional bounds and covariance quality factors do not yield equality for the one-column 2x2 mean trace residual, and do not imply a sharp threshold between isotropic and singular anisotropy under bounded angle uncertainty. This claim is not justified by a mere specialization of those inequalities.",
+      "searches": [
+        "randomized rank-one PSD approximation Gaussian covariance angular misalignment r inverse quarter scaling",
+        "Gaussian Nyström one-column sketch exact risk covariance angular uncertainty eigenvector estimation critical angle fourth root anisotropy isotropic minimax",
+        "arxiv:2404.00960 Theorems 2.1,2.4",
+        "arxiv:1706.05736 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.00960, relevant full-text Sections 1–2 and Remark 2.8",
+      "arXiv:2209.11023, relevant full-text Sections 1–3",
+      "arXiv:1706.05736, relevant full-text Sections 2–4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 source supplies covariance-dependent upper bounds for positively oversampled designs, and explicitly connects Nyström to randomized SVD.",
+        "The 2022 source analyzes function-valued Nyström using iid standard Gaussian sketches.",
+        "The 2017 source develops general Nyström reconstruction and isotropic test-vector error bounds."
+      ],
+      "reasoning": "None of these inspected theorems entails the exact correlated one-vector risk, proves that every finite covariance anisotropy has no strict robust minimum under a bounded angular uncertainty set, or yields the closed angle arctan((a/b)^(1/4)). Isotropic Gaussian integral and range-projector reductions are admitted as known components.",
+      "searches": [
+        "arxiv:2404.00960 Section 2.2.3",
+        "arxiv:2209.11023 Sections 2–3",
+        "arxiv:1706.05736 Sections 2–4",
+        "Gaussian Nyström one-column sketch exact risk covariance angular uncertainty eigenvector estimation critical angle fourth root anisotropy isotropic minimax"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A Nyström trace residual equals the squared Frobenius residual of a range projection applied to A^{1/2}; this is an exact equivalence, not an independent theorem.",
+        "arXiv:2404.00960 Remark 2.8 connects Nyström and randomized SVD but uses expectation bounds.",
+        "The isotropic K=I special case equals sqrt(det A), a two-coordinate Gaussian projection fact."
+      ],
+      "reasoning": "The range-projection equivalence was explicitly compared to published general SVD analyses and accessible prior planar isotropic sketch claims. These do not imply the arbitrary correlated-covariance expected-risk formula or the angular uncertainty minimax switch. The standard isotropic specialization is credited rather than presented as new.",
+      "searches": [
+        "rank-one Gaussian Nyström 2x2 SPD exact expected trace residual square root determinant Rademacher sign sketch orientation threshold",
+        "closed form expected trace norm residual Nystrom two by two covariance trace(AK) determinant",
+        "arxiv:2404.00960 Section 2.2",
+        "arxiv:2209.11023 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or published two-parameter angular risk chart matching the formula and threshold was located among the targeted searches and inspected primary articles."
+      ],
+      "reasoning": "The claim concerns a continuous exact formula and a robust angular optimization law, not a discrete table lookup. The literature search is evidence of limited coverage only, not uniqueness proof.",
+      "searches": [
+        "closed form expected trace norm residual Nystrom two by two covariance trace(AK) determinant",
+        "exact expected Nyström error gaussian 2 x 2 rank one covariance orientation",
+        "arxiv:2404.00960 Section 2.2"
+      ]
+    },
+    "rationale": "Direct inspection of arXiv:2404.00960 Sections 2.1–2.2, arXiv:2209.11023 Sections 2–3, and arXiv:1706.05736 Sections 2–4 identified general correlated Gaussian Nyström bounds, isotropic Gaussian constructions and matrix-function extensions but not the exact rank-one planar covariance dependence or optimal uncertainty-angle phase threshold. Published and prior isotropic two-coordinate Gaussian range-projection results can imply a special case, which is acknowledged and not claimed. Search cannot rule out an unindexed equivalent generic Gaussian-ratio formula; that is a residual precedence risk.",
+    "residual_risks": [
+      "A generic theorem on expectations of ratios of correlated Gaussian quadratic forms may already yield the formula indirectly, although no inspected published Nyström theorem establishes the sharp angular-information minimax conclusion.",
+      "The scope is two-dimensional and one-column; no unique literature precedence is asserted.",
+      "Further specialist manual comparison could reveal an equivalent covariance-optimization result under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Analyzes general-dimensional correlated Gaussian sketches and bounds, while Theorems 2.1/2.4 require oversampling and give estimates rather than the one-column planar exact expected residual, optimal anisotropy switch or uncertainty threshold.",
+        "evidence": [
+          "arXiv:2404.00960, Section 2.2, covariance quality factors in Eq. (4), Theorems 2.1 and 2.4, Remark 2.8."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.00960",
+        "material_read": "Full-text accessible; examined Section 1, Section 2.1, Section 2.2.1, Section 2.2.3 (including Theorems 2.1 and 2.4), Remark 2.8, and the descriptions of the covariance quality factors.",
+        "method": "Compared assumptions, number of sketch columns, conclusion types, dimension and covariance orientation dependence.",
+        "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+        "trigger": "Same exact approximation formula and correlated Gaussian sketch covariance"
+      },
+      {
+        "assessment": "Uses iid standard Gaussian sketch columns and operator monotone functions; no sharp correlated-covariance angular minimax classification follows from the stated results.",
+        "evidence": [
+          "arXiv:2209.11023, Section 2 (Eq. (3)), Section 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+        "material_read": "Full-text accessible; examined Introduction and Sections 2 and 3, including the isotropic Gaussian sampling definition and the error-bound setup.",
+        "method": "Checked the exact sketch definition, Gaussian covariance assumptions and whether its results imply correlated one-column planar risk or optimal angular uncertainty design.",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Earlier Nyström reconstruction and theoretical nuclear-norm bounds"
+      },
+      {
+        "assessment": "Establishes randomized Nyström methodology and general isotropic sketch bounds; neither the correlated Gaussian exact 2D mean trace error nor angular-information threshold is stated there.",
+        "evidence": [
+          "arXiv:1706.05736, Sections 2.1–2.2 and 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.05736",
+        "material_read": "Full-text accessible; examined Sections 2–4, including Eq. (2.5), the isotropic Gaussian model and the statement of expected Schatten-1 bounds.",
+        "method": "Compared matrix sketching model and approximation error metric against the exact covariance-dependent planar risk and minimax decision problem.",
+        "title": "Fixed-Rank Approximation of a Positive-Semidefinite Matrix from Streaming Data",
+        "trigger": "Original Nyström reconstruction and random-sketch optimality background"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b107129-ef7d-467a-901e-61b43d3100fc",
+  "value": {
+    "rationale": "The smallest nontrivial covariance-aware Nyström experiment has a complete sharp solution: one exact risk formula, a robust no-interior-optimum theorem, a condition-number-dependent critical angular information threshold, and a two-scale precision law. This meaningfully quantifies when using an estimated eigendirection improves or harms expected nuclear error, a distinction suggested but not quantified sharply by general covariance-quality bounds. The result is a benchmark, not a claim of practical superiority against complete eigensolvers or multidimensional methods.",
+    "status": "PASS"
+  }
+}
