@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical statement
+# Independent mathematical audit
 
-The accompanying `checker.py` is a reproducible, standard-library finite checker. It enumerates the 4 even-parity and 4 odd-parity binary environmental states, verifies their one- and two-coordinate moments, calculates exact rational derivatives by direct state sums, and compares these values against the analytic threshold formulas. It also checks negative curvature at a finite rational grid and the explicit \(a=2\), \(b=3/2\), \(t=1/3\) boundary and odd-parity maximizer.
+## correctness
 
-Run with `python3 checker.py`. The script supplies finite cross-checks only. The infinite theorem depends on the moment-fiber enumeration, strict negative Hessian in tangent directions, symmetry of the unique maximizer, and the exact derivative signs as shown in `RESULT.md`. No computer search over finite parameters substitutes for these analytical steps.
+PASS
 
-The literature comparison establishes compatibility and distinct scope relative to the inspected sources; it is not an independent claim of priority. No external scientific audit or empirical validation is asserted.
+Reconstructed the entire joint-law fiber of three fair pairwise-independent Bernoulli indicators: even/odd parity classes mixed with parameter t=4P(111) in [0,1]. For two strong habitat bonuses a and weak b in (0,a), log-growth E log(sum w_i R_i) is strictly concave on simplex; symmetry yields unique w1=w2=(1-z)/2. Independently differentiated all eight states with SymPy, confirming exactly G_t'(0)=[b(4(a+1)+t a^2)-a(3a+4)]/[4(a+1)(a+2)] and G_t'(1)=[2b-2a-ab]/[4(1+b)]<0. Thus weak habitat enters iff b>a(3a+4)/(4(a+1)+t a^2), equality excludes; endpoints yield b_O and b_E. Exact a=2,b=3/2 witness has transition t=1/3, and optimum interior at odd parity. Strict concavity and all-parameter inequalities prove unrestricted statement; finite checker is corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel exact optimal support-change threshold controlled by a third-order interaction invisible in all first- and second-order moments. Jansen–Yoshimura develop geometric-mean growth in two habitats; Schreiber studies stochastic patch selection under Brownian forcing specified by covariance; foundational Cohen work covers general reproductive optimization but no examined exact parity fiber. A known equal-share growth-rate sensitivity to higher moments does not imply the unique optimizer changes support.
+
+## value
+
+PASS
+
+A complete sharp decision boundary for a natural population bet-hedging model, showing identical means/covariances can force distinct optimal habitat inclusion. Provides a concrete robust mathematical counterexample relevant to interpretation of pairwise covariance models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

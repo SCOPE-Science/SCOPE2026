@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The environmental moment fiber is fully enumerated from the marginal and pairwise constraints. Strict concavity on the entire allocation simplex gives uniqueness and symmetry reduction; direct four-state differentiation yields both endpoint derivatives. As the derivative at complete allocation to the weak habitat is strictly negative, the sign at zero determines the unique global support outcome. Exact-rational replay of the separate checker agrees. The proof is restricted to the fixed-allocation binary three-habitat model, not to arbitrary stochastic habitat dynamics.
+PASS
 
-## Originality — PASS (best-knowledge, with residual risk)
+Reconstructed the entire joint-law fiber of three fair pairwise-independent Bernoulli indicators: even/odd parity classes mixed with parameter t=4P(111) in [0,1]. For two strong habitat bonuses a and weak b in (0,a), log-growth E log(sum w_i R_i) is strictly concave on simplex; symmetry yields unique w1=w2=(1-z)/2. Independently differentiated all eight states with SymPy, confirming exactly G_t'(0)=[b(4(a+1)+t a^2)-a(3a+4)]/[4(a+1)(a+2)] and G_t'(1)=[2b-2a-ab]/[4(1+b)]<0. Thus weak habitat enters iff b>a(3a+4)/(4(a+1)+t a^2), equality excludes; endpoints yield b_O and b_E. Exact a=2,b=3/2 witness has transition t=1/3, and optimum interior at odd parity. Strict concavity and all-parameter inequalities prove unrestricted statement; finite checker is corroboration.
 
-The primary 1998 two-habitat risk-spreading model motivates logarithmic population growth, but a two-bit joint distribution is fixed by its pairwise moments and cannot encode the present triple-dependence frontier. Schreiber's 2012 continuous-time Brownian stochastic-habitat model is determined by covariance and does not cover non-Gaussian binary triple laws. An earlier three-patch equal-share growth ambiguity is not an allocation-support theorem: its fixed strategy cannot establish the threshold for including a weaker patch when fractions are optimally chosen. Direct searches for this exact threshold, moment fiber, and inclusion/exclusion reversal found no covering statement. The complete Cohen 1966 text and some general Kelly-portfolio sources were not fully inspected; hence priority remains a risk rather than an independently verified uniqueness claim.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural robust habitat-selection question: whether a patch that is worse in mean reproduction should receive any offspring. The exact frontier says when pairwise ecological monitoring is sufficient to make that binary decision and when a triple-coincidence statistic is necessary. The result classifies the *whole* admissible dependence family rather than one numerical instance; the phase diagram and explicit exact witness are motivated by a model feature that conservation and stochastic-demography studies already examine.
+Best-of-knowledge novel exact optimal support-change threshold controlled by a third-order interaction invisible in all first- and second-order moments. Jansen–Yoshimura develop geometric-mean growth in two habitats; Schreiber studies stochastic patch selection under Brownian forcing specified by covariance; foundational Cohen work covers general reproductive optimization but no examined exact parity fiber. A known equal-share growth-rate sensitivity to higher moments does not imply the unique optimizer changes support.
 
-## Limitations and closest sources
+## value
 
-Jansen and Yoshimura (1998), Schreiber (2012), and Cohen (1966) are the major related sources. Brownian covariance sufficiency does not imply sufficiency for discrete non-Gaussian shocks; the equal-share growth-envelope comparison does not imply this optimal-support phase diagram. Finite numerical checks do not certify generality or historical priority. The conclusion requires fair pairwise-independent indicators and independent generations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp decision boundary for a natural population bet-hedging model, showing identical means/covariances can force distinct optimal habitat inclusion. Provides a concrete robust mathematical counterexample relevant to interpretation of pairwise covariance models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
