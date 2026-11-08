@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The point–hyperplane incidence matrix has two singular values, \(k\) on constants and \(q^{(d-1)/2}\) on the orthogonal complement. The four distance categories yield the exact powered-distance spectral branches displayed in RESULT.md. The root comparison reduces to a single inequality for \(2^s\), verified analytically in all field and dimension regimes; no finite-range extrapolation is used. The endpoint eigen-nullities and Gaussian-kernel conclusions follow from the centered Gram theorem and Schoenberg's criterion. The standalone checker independently constructs eight concrete finite-field graphs, verifies all pairwise shortest-path distances and design identities, and checks the spectral eigenvectors and threshold signs.
+## correctness
 
-## Originality — PASS, bounded comparison
-The closest older generalized-roundness works are Sánchez (arXiv:1108.0451) and Murugan (arXiv:1112.5657), which provide general methods but not this closed two-mode phase classification. The closest exact-graph source is Mirafzal (arXiv:2111.05239), which calculates the ordinary (unpowered) projective-incidence distance spectrum, not the sharp real-power threshold. Aalipour et al. (arXiv:1509.01196) address ordinary distance spectra. Previously available projective-plane and crown-graph thresholds concern boundary families and do not imply the binary dimension-five transition. Relevant research-record searches did not return the threshold or the phase law; this absence alone is not a proof of novelty. Residual risk: an equivalent exact calculation may be present in less accessible older incidence-geometry or metric-embedding literature.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies an unexpected arithmetic and geometric phase boundary in a natural infinite family of finite homogeneous spaces. Both the governing eigenspace and the minimal endpoint Euclidean dimension change sharply at \(\mathrm{PG}(5,2)\), and the asymptotic decay shifts from the square-root incidence scale to the full binary-volume scale. This is a complete natural kernel-admissibility classification rather than a small finite enumeration or a restatement of the ordinary distance spectrum.
+For the projective design A A^T=(k-lambda_design)I+lambda_design J and t=sqrt(k-lambda_design). Distance categories are 2 within class, 1 incident, 3 nonincident. Orthogonal block decomposition yields exact branches g_+(p)=-2^p+t(3^p-1), g_-(p)=-2^p-t(3^p-1), each mult v-1, and contrast h(p)=(v-1)2^p-(v-k)3^p-k, mult1. g_-<0; g_+ crosses once. At its root s, algebraic comparison of h(s) reduces to x=2^s versus 1+(q-1)/(q(t-1)); Bernoulli bounds and separate exact binary d=2,3,4,5 cases fix the sign. In q=2,d>=5 the strictly concave contrast divided by 2^p crosses first; in remaining cases singular branch first. Schoenberg and strictly injective Euclidean distance embeddings imply Gaussian kernel positive definite for u>0 and admitted p, endpoint nullity and minimal embedding dimension. Independent 15 parameter cases q=2,3,4; d=2..6 reproduce branch phase, signs and thresholds, including q2 d4 about 0.3358378 and d5 about 0.1403684. Finite cases cannot establish arbitrary prime powers; the design-spectral proof does.
 
-## Scope and limits
-The result is for unweighted point–hyperplane graph distance, all projective dimensions at least two and finite fields, with no claims about other incidence graphs. Literature originality remains subject to external expert review; numerical checks are supporting evidence only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison supports new combined conclusion within the precise scope; not merely lack of search hits. The sharp negative-type exponent of point-hyperplane incidence shortest-path metric of PG(d,q) is the singular-branch root t(3^s-1)=2^s except q=2,d>=5 where it is the smaller contrast-branch root (v-1)2^p-(v-k)3^p-k=0. Historical priority remains qualified.
+
+## value
+
+PASS
+
+The sharp binary-field dimension-five jump in the controlling spectral eigenspace, minimum endpoint Euclidean dimension and asymptotic scale is a nontrivial classification for a natural infinite family of incidence metric spaces, beyond ordinary p=1 distance spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
