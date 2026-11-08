@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:00:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For bounded nonzero T on a complex Hilbert space, min over phases of ||Re(e^{-iθ}T)|| equals the distance d(T) to phase multiples of self-adjoint operators. The centrally symmetrized closed numerical range K has support h equal to these norms, circumradius R and inradius uR=d. The convex-body containments conv(u disk, ±v) ⊂ K ⊂ disk∩{|Re(z conj w)|<=u} yield L(u) <= Q^2/R^2 <= U(u), with L=u^2+[(1-2u^2) arccos u+u sqrt(1-u^2)]/pi and U=1-[arccos u-u sqrt(1-u^2)]/pi. Support uniqueness forces equality bodies; Minkowski interpolation preserves u,R and normal diagonal spectrum realizes every intermediate value. L’(u)=4u asin(u)/pi and the small-u expansion prove the optimal global 4/(3pi) cubic coefficient. Independently evaluated the analytic width and squared-support integrals for six u values with 400000 phase samples and matched <=3e-7; Hilbert-space quantification rests on geometric proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Audeh--Moradi--Sahoo Theorem4",
+          "Published ffd07fee0727 weaker cubic bound",
+          "Published f6644dc86b39 unitary-only spectrum"
+        ],
+        "reasoning": "Coarse R²/2<=Q²<=R² and unitary special cases do not imply sharp conditional envelope and equality bodies for all bounded T.",
+        "searches": [
+          "operator numerical radius integrated L2 Cartesian numerical radius geometric distance to rotated self-adjoint sharp conditional bounds",
+          "Resultary f6644dc86b39 unitaries L2 Cartesian"
+        ]
+      },
+      "checked_sources": [
+        "Audeh, Moradi, Sahoo, The L2-Cartesian Numerical Radius of Hilbert Space Operators, arXiv:2610.04844v1 Theorems 4,12,17",
+        "Resultary published Cubic operator-norm stability for the L2-Cartesian numerical radius, ffd07fee0727, complete RESULT.md",
+        "Resultary published Exact projective spectral-gap formula for unitaries, f6644dc86b39"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous Δ>=d³/(2pi R), no optimal coefficient",
+          "New L(u)-1/2~4u³/(3pi) with equality K_−",
+          "New upper U(u) exact"
+        ],
+        "reasoning": "A lower bound with smaller nonoptimal coefficient cannot yield the sharp coefficient or full two-sided interval; new K_± containment and exact integration are needed.",
+        "searches": [
+          "operator numerical radius integrated L2 Cartesian numerical radius geometric distance to rotated self-adjoint sharp conditional bounds",
+          "prior cubic d^3 coefficient 1/(2pi) Resultary ffd07fee0727"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior full RESULT.md uses identical d(T)=min_phase ||Im(e^{-iφ}T)||",
+          "K convex symmetrized numerical range support equals ||Re(e^{-iθ}T)||"
+        ],
+        "reasoning": "Explicitly reduced the numerical-radius claim to fixed inradius and circumradius squared-support integrals; known prior only supplies weaker one-sided cubic inequality, not exact profile.",
+        "searches": [
+          "operator numerical radius integrated L2 Cartesian numerical radius geometric distance to rotated self-adjoint sharp conditional bounds",
+          "Resultary ffd07fee0727 cubic operator norm stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query retrieved ffd07fee0727 with nonoptimal coefficient",
+          "Audeh--Moradi--Sahoo fixed uniform endpoints only"
+        ],
+        "reasoning": "The same fixed-u arccosine profiles were not found in searched published findings; this is not a proof that older convex support-function tables do not exist.",
+        "searches": [
+          "operator numerical radius integrated L2 Cartesian numerical radius geometric distance to rotated self-adjoint sharp conditional bounds",
+          "convex geometry integral squared support fixed inradius circumradius extremal"
+        ]
+      },
+      "rationale": "Qualified PASS: the original 2026 L2-Cartesian operator radius article proves only unconditional comparison. Prior published quantitative stability theorem uses the exact same d(T) and establishes cubic exponent and smaller nonoptimal coefficient 1/(2pi), expressly leaving best coefficient unknown. The entire sharp L(u),U(u) interval, both extremal bodies and best 4/(3pi) coefficient are additional, not a notation change. A prior convex-geometry support integral extremal theorem with other terminology remains possible.",
+      "residual_risks": [
+        "An older sharp inradius/circumradius integral-geometric inequality could be an equivalent formulation in convex geometry.",
+        "Sharp extremizers at interior u require infinite-dimensional normal spectra; a finite-dimensional attainment claim is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unconditional sharp R/sqrt2<=Q<=R and Cartesian component bounds; no fixed minimum-direction-support interval",
+          "evidence": "Theorem4 gives R²/2<=Q²<=R², without u=d(T)/R.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04844v1",
+          "material_read": "Full primary HTML: definitions and Theorems 4,12,17, relevant proofs",
+          "method": "Primary full-text relevant mathematical sections",
+          "title": "The L2-Cartesian Numerical Radius of Hilbert Space Operators",
+          "trigger": "Same integrated operator invariant"
+        },
+        {
+          "assessment": "Earlier bound Δ>=d³/(2pi R); explicitly does not assert optimal coefficient. Present coefficient 4/(3pi) is stronger and exact interval not present.",
+          "evidence": "Prior proof states coefficient 1/(2pi) nonoptimal and shows cubic exponent via diagonal T_epsilon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+          "material_read": "Complete prior RESULT.md including proof via support functions, diagonal example and limitations",
+          "method": "Published primary research-record source read in full",
+          "title": "Cubic operator-norm stability for the L2-Cartesian numerical radius",
+          "trigger": "Nearly equivalent same distance and cubic exponent"
+        },
+        {
+          "assessment": "Unitaries are a restricted family; do not claim document-wide noncoverage",
+          "evidence": "Published summary gives special-unitary spectrum formula but not arbitrary bounded T.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-projective-spectral-gap-formula-and-optimal-finite-spectra--f6644dc86b39",
+          "material_read": "Published finding title and abstract only, not full text",
+          "method": "Resultary semantic summary",
+          "title": "Exact projective spectral-gap formula for the L2-Cartesian radius of unitaries",
+          "trigger": "Potential spectral specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete sharp conditional range for the new operator numerical radius, including realizations, two geometric rigidity classes and optimal stability constant, is a natural general operator-theoretic classification with interpretation via inradius/circumradius of the symmetrized numerical range.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Audeh, Moradi, Sahoo, The L2-Cartesian Numerical Radius of Hilbert Space Operators, arXiv:2610.04844v1 Theorems 4,12,17",
+    "Resultary published Cubic operator-norm stability for the L2-Cartesian numerical radius, ffd07fee0727, complete RESULT.md",
+    "Resultary published Exact projective spectral-gap formula for unitaries, f6644dc86b39"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older sharp inradius/circumradius integral-geometric inequality could be an equivalent formulation in convex geometry.",
+    "Sharp extremizers at interior u require infinite-dimensional normal spectra; a finite-dimensional attainment claim is not established."
+  ],
+  "residual_risks": [
+    "An older sharp inradius/circumradius integral-geometric inequality could be an equivalent formulation in convex geometry.",
+    "Sharp extremizers at interior u require infinite-dimensional normal spectra; a finite-dimensional attainment claim is not established."
+  ],
+  "schema_version": 1
+}

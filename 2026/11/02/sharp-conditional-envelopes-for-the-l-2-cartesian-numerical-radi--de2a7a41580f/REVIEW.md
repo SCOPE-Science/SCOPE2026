@@ -1,21 +1,21 @@
-# Scientific review: sharp conditional Cartesian-radius envelopes
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim is normalized by the nonzero numerical radius, so division is defined. For each phase, the imaginary-part contraction yields the exact phase-self-adjoint distance. The symmetrized numerical-range support function is the real-part operator norm; this remains valid without finite dimension or norm attainment because the closed convex hull is compact in the complex plane. Support-function containment between an inner disk-plus-diameter convex hull and an outer disk intersected with a strip proves pointwise inequalities. Both support functions are integrated exactly, including endpoints. Equality uses continuity and uniqueness of compact convex bodies from support functions. Minkowski interpolation retains the *exact same* minimum and maximum support values; normal diagonal realization of each compact convex set proves sharpness and interval filling. The derivative of the lower profile yields the optimal cubic coefficient; the upper deficit's Taylor expansion yields its sharp exponent and asymptotic constant.
+PASS
 
-The embedded standalone program passed 235 supplementary checks, including endpoint integrals, width identities, interpolations, and finite spectral examples. Those checks are corroborative only; the infinite-dimensional proof is analytical.
+For bounded nonzero T on a complex Hilbert space, min over phases of ||Re(e^{-iθ}T)|| equals the distance d(T) to phase multiples of self-adjoint operators. The centrally symmetrized closed numerical range K has support h equal to these norms, circumradius R and inradius uR=d. The convex-body containments conv(u disk, ±v) ⊂ K ⊂ disk∩{|Re(z conj w)|<=u} yield L(u) <= Q^2/R^2 <= U(u), with L=u^2+[(1-2u^2) arccos u+u sqrt(1-u^2)]/pi and U=1-[arccos u-u sqrt(1-u^2)]/pi. Support uniqueness forces equality bodies; Minkowski interpolation preserves u,R and normal diagonal spectrum realizes every intermediate value. L’(u)=4u asin(u)/pi and the small-u expansion prove the optimal global 4/(3pi) cubic coefficient. Independently evaluated the analytic width and squared-support integrals for six u values with 400000 phase samples and matched <=3e-7; Hilbert-space quantification rests on geometric proof.
 
-## Originality (O): PASS, best-knowledge assessment
+## originality
 
-The primary full HTML text of Audeh–Moradi–Sahoo (arXiv:2610.04844v1, first public October 4, 2026) was inspected through its definitions, main results, and relevant proofs. It proves the coarse bound \(R^2/2\le Q^2\le R^2\), plus different Cartesian-part estimates, not the fixed-distance profile or extremal bodies. The public full proof *Cubic operator-norm stability for the \(L^2\)-Cartesian numerical radius* (record `ffd07fee0727`) uses exactly the phase-self-adjoint distance and gives a coefficient \(1/(2\pi)\), explicitly not claimed optimal. The present exact lower profile implies the best global coefficient \(4/(3\pi)\), which is strictly stronger, and the sharp upper envelope is additional. The full proof of the public unitary projective-spectral-gap result (record `f6644dc86b39`) treats unitary spectra and not arbitrary bounded operators with prescribed minimum phase norm. Searches for the formula, support-function/inradius aliases, and equivalent sharp convex geometric statements returned no matching published result; non-detection is not itself proof of priority.
+PASS
 
-## Mathematical value (V): PASS
+Qualified PASS: the original 2026 L2-Cartesian operator radius article proves only unconditional comparison. Prior published quantitative stability theorem uses the exact same d(T) and establishes cubic exponent and smaller nonoptimal coefficient 1/(2pi), expressly leaving best coefficient unknown. The entire sharp L(u),U(u) interval, both extremal bodies and best 4/(3pi) coefficient are additional, not a notation change. A prior convex-geometry support integral extremal theorem with other terminology remains possible.
 
-This is a natural inverse quantitative problem for the recently introduced angularly averaged numerical radius: knowing both its maximal directional value and its smallest directional value, what is its entire possible quadratic mean? The two exact envelopes characterize all possible values and identify distinct geometric extremizers. The optimal cubic coefficient completes an explicitly nonoptimal constant in nearby quantitative research, and the sharp \(3/2\)-law diagnoses near-circular numerical-range support. The analysis applies to all bounded Hilbert-space operators, not an arbitrary parameter slice; the finite/infinite realization distinction is explicit.
+## value
 
-## Closest literature and residual limitations
+PASS
 
-The analytical method combines known support-function comparison and convex-hull duality in a new exact conditional operator-radius optimization. Equivalent coverage might occur in older integral convex-geometry literature under a different invariant. No finite-dimensional realization of the extreme nonpolygonal shapes for interior ratios is claimed. Literature-priority assessment is best-knowledge, not an independent certification.
+A complete sharp conditional range for the new operator numerical radius, including realizations, two geometric rigidity classes and optimal stability constant, is a natural general operator-theoretic classification with interpretation via inradius/circumradius of the symmetrized numerical range.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

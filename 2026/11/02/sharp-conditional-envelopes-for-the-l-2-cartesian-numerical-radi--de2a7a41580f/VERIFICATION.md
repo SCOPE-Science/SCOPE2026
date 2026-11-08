@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytical argument is in `RESULT.md`. Its critical checkable steps are: (1) phase-self-adjoint distance equals the minimum real-part norm over phases, by a contractive projection; (2) the symmetrized numerical-range support equals that norm; (3) inner and outer containing bodies have the prescribed support minima and maxima; (4) their two first-quadrant squared-support integrals evaluate to the displayed closed forms; (5) support uniqueness yields rigidity; (6) Minkowski interpolation and a dense-spectrum diagonal operator realize all values; (7) differentiation gives the exact optimal cubic coefficient, and Taylor expansion gives the upper-bound asymptotic.
+## correctness
 
-Execute `python3 verify_cartesian_profiles.py` in the package directory (Python standard library only). The program was executed on the delivered source and reported `PASS: 235 supplementary profile and finite-spectrum assertions`. It compares high-resolution quadrature to the closed forms, checks the exact interval width, evaluates intermediate Minkowski support profiles, tests 160 deterministic finite diagonal spectral examples, and checks the small-ratio cubic asymptotic. Numerical integration errors are bounded by floating-point/grid tolerances used in the script, not by an independently formalized interval certificate. These finite tests cannot prove universal quantifiers; all such quantifiers follow from the written analytic proof.
+PASS
 
-Scientific limits: the extremizers describe *closed symmetrized* numerical ranges; the actual numerical range need not be closed. Realizing extremizers uses bounded normal operators on separable infinite-dimensional spaces. Independent mathematical audit has not been performed.
+For bounded nonzero T on a complex Hilbert space, min over phases of ||Re(e^{-iθ}T)|| equals the distance d(T) to phase multiples of self-adjoint operators. The centrally symmetrized closed numerical range K has support h equal to these norms, circumradius R and inradius uR=d. The convex-body containments conv(u disk, ±v) ⊂ K ⊂ disk∩{|Re(z conj w)|<=u} yield L(u) <= Q^2/R^2 <= U(u), with L=u^2+[(1-2u^2) arccos u+u sqrt(1-u^2)]/pi and U=1-[arccos u-u sqrt(1-u^2)]/pi. Support uniqueness forces equality bodies; Minkowski interpolation preserves u,R and normal diagonal spectrum realizes every intermediate value. L’(u)=4u asin(u)/pi and the small-u expansion prove the optimal global 4/(3pi) cubic coefficient. Independently evaluated the analytic width and squared-support integrals for six u values with 400000 phase samples and matched <=3e-7; Hilbert-space quantification rests on geometric proof.
+
+## originality
+
+PASS
+
+Qualified PASS: the original 2026 L2-Cartesian operator radius article proves only unconditional comparison. Prior published quantitative stability theorem uses the exact same d(T) and establishes cubic exponent and smaller nonoptimal coefficient 1/(2pi), expressly leaving best coefficient unknown. The entire sharp L(u),U(u) interval, both extremal bodies and best 4/(3pi) coefficient are additional, not a notation change. A prior convex-geometry support integral extremal theorem with other terminology remains possible.
+
+## value
+
+PASS
+
+A complete sharp conditional range for the new operator numerical radius, including realizations, two geometric rigidity classes and optimal stability constant, is a natural general operator-theoretic classification with interpretation via inradius/circumradius of the symmetrized numerical range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
