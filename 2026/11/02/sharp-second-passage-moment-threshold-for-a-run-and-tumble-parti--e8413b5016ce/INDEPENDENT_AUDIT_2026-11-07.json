@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:47:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md full generator, integrating-factor and stopped-Dynkin argument; symbolic verify.py source inspected",
+        "Independent S5 algebra for the generator and quartic Foster drift",
+        "Guéneau–Majumdar–Schehr 2024 original Section IV mean law and Appendix B general moment equation"
+      ],
+      "rationale": "The exact two-state generator has Lh_±=(f±v)h_±′+gamma(h_∓-h_±) with f(x)=-1/(1+x). Eliminating the direction difference for finite moments yields A M1″+B M1′=f′-2gamma and A M2″+B M2′=2(f′-2gamma)M1+4f M1′+2, A=v²-f², B=2f(gamma-f′). For x<=a=1/v-1 a uniform uninterrupted negative-run event gives exponential hitting tails. Outside a, the known M1~x²/[2(1-D)] and integrating factor p~Cx^{-1/D} make the M2 source flux ~-const*x^{2-1/D}; for 1/3<=D<1 its integral diverges, contrary to monotonicity M2′>=0 if finite. D>=1 already has infinite mean. For D<1/3 the quartic correctors W_±=x^4±(2v/gamma)x^3 have L W_±~4(3D-1)x²<0, giving a Foster-Dynkin bound M2=O(x^4). The zero flux boundary condition then forces M2(x)/x^4→1/[4(1-D)(1-3D)]. Independent generator-differentiation checks reproduce the key coefficients, not any probabilistic integrability proof.",
+      "residual_risks": [
+        "Symmetric two-state Poisson rate gamma, speed 0<v<1, unit-amplitude logarithmic potential, fixed-v/gamma starting-distance asymptotics.",
+        "The source first-moment theorem and communication/optional-stopping hypotheses are necessary; no full higher-moment or passage-time-tail law is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guéneau–Majumdar–Schehr original Section IV establishes first-moment threshold D<1 for outer starts and explicit mean asymptotic.",
+          "Their Appendix B gives a hierarchy for arbitrary moment order but does not by itself guarantee solutions are finite or determine the second moment threshold."
+        ],
+        "reasoning": "The general moment ODE is prior and is broader formally, but a formal differential equation does not imply existence, nonexistence or the selected boundary behavior. The new flux contradiction and Lyapunov corrector are mathematical additions.",
+        "searches": [
+          "run tumble particle logarithmic potential mean second first passage time variance critical gamma 3v^2/2",
+          "arxiv:2409.16951 higher moment equations",
+          "arxiv:2311.06923 mean first passage run and tumble confined potential"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2409.16951v1",
+        "https://arxiv.org/abs/2311.06923",
+        "https://arxiv.org/abs/1007.4588"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 paper explicitly treats logarithmic potential mean first-passage phase IV and Appendix B higher-moment recursion, with no derived sharp gamma>3v²/2 criterion in inspected relevant material.",
+          "The current existence proof additionally uses a quartic super-solution and integrates asymptotic negative flux."
+        ],
+        "reasoning": "First-moment analysis and formal general-moment recursion are prerequisites, not implications of finite second moments and x^4 normalization. The diffusion comparison does not cover the coupled persistent generator.",
+        "searches": [
+          "https://arxiv.org/html/2409.16951v1#A",
+          "https://arxiv.org/html/2409.16951v1",
+          "arxiv:1007.4588 Bessel-like first passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An effective Brownian Bessel-like process has related logarithmic-drift moment thresholds, but the original model has two coupled velocity orientations and a turning point.",
+          "Original run-and-tumble paper Appendix B supplies general moment backward equations, not the finite solution criteria."
+        ],
+        "reasoning": "A Brownian effective-diffusivity heuristic is not an equivalent proof of the telegraph process boundary. The exact generator and boundary conditions were compared.",
+        "searches": [
+          "run tumble particle logarithmic potential mean second first passage time variance critical gamma 3v^2/2",
+          "telegraph run-and-tumble logarithmic trap first passage time variance divergence diffusion exponent",
+          "arxiv:2409.16951 appendix B higher moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior sources provide mean-passage phase tables, not an explicit telegraph second-moment phase table with x^4 coefficient.",
+          "A diffusion Bessel-like first-passage comparison studies a different Markov generator."
+        ],
+        "reasoning": "No identified exact table of original RTP second-moment finiteness and coefficient covers this result; absence alone is not a priority proof.",
+        "searches": [
+          "run tumble particle logarithmic potential mean second first passage time variance critical gamma 3v^2/2",
+          "run and tumble log potential second moment 1/3 3v^2/2 table",
+          "Brownian Bessel first passage log potential moments"
+        ]
+      },
+      "rationale": "Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.",
+      "residual_risks": [
+        "A general higher-moment theorem in telegraph/Bessel-like first-passage literature might imply the 1/3 threshold and coefficient in a different formulation.",
+        "The mean asymptotic and moment ODE are prior; only the second-moment existence/necessity and x^4 coefficient are assessed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MEAN_AND_MOMENT_EQUATIONS_NOT_SECOND_FINITE_BOUNDARY",
+          "evidence": "The paper studies MFPT, gives the D<1 mean threshold and writes a formal moment recursion, without the reviewed second-moment integrability threshold and exact large-x x^4 coefficient in inspected text.",
+          "identifier_or_url": "https://arxiv.org/html/2409.16951v1",
+          "material_read": "Complete arXiv HTML material with explicit reading of Section IV logarithmic potential, Appendix B higher-order-moment ODE and model definitions; textual full-page document accessed",
+          "method": "arXiv HTML primary full text with targeted section inspection",
+          "title": "Run-and-tumble particle in one-dimensional potentials: mean first-passage time and applications",
+          "trigger": "Identical logarithmic potential and first-passage process"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND_ONLY",
+          "evidence": "Focuses on optimal mean rather than the present exact second-moment spectral transition.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.06923",
+          "material_read": "Title, abstract and scope only; not a full-document review",
+          "method": "arXiv metadata and abstracts",
+          "title": "Optimal mean first-passage time of a run-and-tumble particle in a class of one-dimensional confining potentials",
+          "trigger": "Earlier related run-and-tumble confining-potential work"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS_PARTIAL",
+          "evidence": "Brownian Bessel-like diffusion omits the persistent two-state generator and turning-point dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.4588",
+          "material_read": "Abstract and result-level summary, no full proof inspection",
+          "method": "arXiv targeted search",
+          "title": "First-passage and first-exit times of a Bessel-like stochastic process",
+          "trigger": "Possible Brownian/logarithmic potential stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reviewed final mathematical claim and bounded verification program",
+        "RESULT.md full generator, integrating-factor and stopped-Dynkin argument; symbolic verify.py source inspected",
+        "Independent S5 algebra for the generator and quartic Foster drift",
+        "Guéneau–Majumdar–Schehr 2024 original Section IV mean law and Appendix B general moment equation"
+      ],
+      "rationale": "The sharp finite-mean/infinite-variance window and large-starting-distance coefficient are nontrivial passage-time invariants for a canonical persistent-particle logarithmic trap. The result distinguishes the deterministic turning-point interior from outer stochastic excursions and strengthens an existing first-moment phase diagram.",
+      "residual_risks": [
+        "Symmetric two-state Poisson rate gamma, speed 0<v<1, unit-amplitude logarithmic potential, fixed-v/gamma starting-distance asymptotics.",
+        "The source first-moment theorem and communication/optional-stopping hypotheses are necessary; no full higher-moment or passage-time-tail law is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Symmetric two-state Poisson rate gamma, speed 0<v<1, unit-amplitude logarithmic potential, fixed-v/gamma starting-distance asymptotics.",
+    "The source first-moment theorem and communication/optional-stopping hypotheses are necessary; no full higher-moment or passage-time-tail law is asserted.",
+    "A general higher-moment theorem in telegraph/Bessel-like first-passage literature might imply the 1/3 threshold and coefficient in a different formulation.",
+    "The mean asymptotic and moment ODE are prior; only the second-moment existence/necessity and x^4 coefficient are assessed as new."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review of the logarithmic-trap passage-time threshold
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The generator is explicitly stated, including its flip-rate normalization. The two-state backward equations give the first- and second-moment equations; the latter is independently checked against the deterministic boundary limit, avoiding reliance on a printed higher-moment coefficient. Published first-moment asymptotics identify the exact integrable forcing in the second-moment flux equation. In the region beyond the turning point, monotone path coupling makes negative eventual flux impossible; this proves the threshold's necessary direction, including equality. A quartic orientation corrector has strictly negative generator drift exactly when the effective diffusivity is below one third; combined with the mean-time compensator it bounds the second moment. The same polynomial bound kills the extraneous homogeneous solution and fixes the sharp fourth-power coefficient. In the inner region, a uniform negative-orientation block gives geometric survival tails. The symbolic verifier checks the algebra, not the infinite-domain arguments.
+## correctness
 
-## Originality (O): PASS, subject to priority risk
-Guéneau, Majumdar and Schehr (arXiv:2409.16951v1, September 25, 2024) obtain the complete first-passage *mean* and the mean's critical effective diffusivity equal to one; their displayed higher-moment relation is a starting differential equation, not a finite-moment classification or a fourth-power asymptotic. Their Section IV and Appendix B were read materially. Guéneau et al. (arXiv:2311.06923) address other confining potentials and optimal *mean* passage rates. Martin, Behn and Germano (arXiv:1007.4588) study the diffusion-driven Bessel-like model, which is not equivalent to the two-velocity persistent process with a turning point; its analogous passive threshold is background only. Mathematical-literature searches for the logarithmic RTP, passage-time variance and the three-effective-diffusivity boundary returned no equivalent claim. Previously reported relevant mathematical claims were compared by implication: none treats logarithmic-potential RTP second-passage moments. Semantic search cannot establish priority absolutely; unindexed or inaccessible sources remain a risk.
+PASS
 
-## Mathematical value (V): PASS
-This is a sharp finite-variance threshold for a natural non-Gaussian transport observable in the model of the motivating source. It exhibits a genuine finite-mean/infinite-variance phase and separates it spatially from the one-way region where the entire hitting-time moment spectrum is finite. The exact large-distance fourth-power coefficient makes the answer quantitatively useful and shows how persistence changes long-time fluctuations; these conclusions do not follow simply by inserting an effective diffusion constant in the original RTP generator.
+The exact two-state generator has Lh_±=(f±v)h_±′+gamma(h_∓-h_±) with f(x)=-1/(1+x). Eliminating the direction difference for finite moments yields A M1″+B M1′=f′-2gamma and A M2″+B M2′=2(f′-2gamma)M1+4f M1′+2, A=v²-f², B=2f(gamma-f′). For x<=a=1/v-1 a uniform uninterrupted negative-run event gives exponential hitting tails. Outside a, the known M1~x²/[2(1-D)] and integrating factor p~Cx^{-1/D} make the M2 source flux ~-const*x^{2-1/D}; for 1/3<=D<1 its integral diverges, contrary to monotonicity M2′>=0 if finite. D>=1 already has infinite mean. For D<1/3 the quartic correctors W_±=x^4±(2v/gamma)x^3 have L W_±~4(3D-1)x²<0, giving a Foster-Dynkin bound M2=O(x^4). The zero flux boundary condition then forces M2(x)/x^4→1/[4(1-D)(1-3D)]. Independent generator-differentiation checks reproduce the key coefficients, not any probabilistic integrability proof.
 
-## Scope and limits
-This is an analytic self-review, not an independent certification. The theorem is restricted to the stated symmetric two-state, logarithmic-force, nonthermal model and the second moment. The result does not determine every tail exponent, higher moment, or critical-window crossover. Exact publication priority beyond inspected sources cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.
+
+## value
+
+PASS
+
+The sharp finite-mean/infinite-variance window and large-starting-distance coefficient are nontrivial passage-time invariants for a canonical persistent-particle logarithmic trap. The result distinguishes the deterministic turning-point interior from outer stochastic excursions and strengthens an existing first-moment phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
