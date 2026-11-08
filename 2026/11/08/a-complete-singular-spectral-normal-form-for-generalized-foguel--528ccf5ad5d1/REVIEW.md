@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof begins with the exact identity for \(F^*F\), removes the first isometry by unitary conjugation, and uses the polar decomposition of the arbitrary bounded corner. The explicit continuous matrix \(W(s)\) diagonalizes every positive scalar parameter, including the zero endpoint, so the operator-level functional calculus yields a genuine unitary equivalence, not only setwise equality of spectra. Eigenspace multiplicities follow from the injectivity of the restricted positive modulus; the Fredholm essential spectrum requires a separate factorization at the exceptional value \(1\). Schatten membership and its exact formula follow from a direct-sum singular-value count. Finite complex-matrix checks cover rectangular corners and every possible rank up to size six. Continuous spectral claims rest on the proof, not enumeration.
+
+## Originality — PASS (best-knowledge comparison)
+The initiating 2026 source, Nag–Golla, treats norm/minimum attainment and Fredholm indices but does not assert this unitary normal form or full ideal profile. Garcia's 2009 Foguel theorem supplies reciprocal spectral mapping away from the points \(0\) and \(1\) for a shift-based model; the new statement explicitly credits it. Raghupathi's 2012 theorem gives a Schur-complement proof of that mapping and determines invertibility at the unit point for a one-isometry model; these earlier results make the elementary scalar branch and unit-point criterion alone unoriginal. The new scope concerns simultaneous **unitary classification of the positive modulus including spectral multiplicities, arbitrary pairs of isometries, arbitrary defect dimensions, and exact Schatten perturbation identities**. Relevant primary sections were materially inspected, and targeted semantic searches produced no covering equivalent. Priority remains unverified: an older unstated decomposition may subsume the argument; further specialist checking is appropriate.
+
+## Mathematical value — PASS
+The theorem determines the complete natural singular spectral data for a recently studied operator family and separates information lost in norm and spectral-set formulas. In particular, it distinguishes Fredholm unit gaps from isolated essential unit points, shows why the second isometry is invisible to the entire positive modulus despite controlling the Fredholm index of the original operator, and supplies exact Schatten perturbation costs for every exponent, including quasi-ideals. The uniform structural classification is motivated by the literature rather than an arbitrary finite instance. Claims for general nonnormal spectra are expressly excluded.
+
+## Risks and scope
+Classical spectral mapping identities and the scalar reciprocal functions are prior results, not independent new claims. The diagonalizer uses only standard polar decomposition and continuous functional calculus, making priority against earlier block-operator normal forms the principal residual risk. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
