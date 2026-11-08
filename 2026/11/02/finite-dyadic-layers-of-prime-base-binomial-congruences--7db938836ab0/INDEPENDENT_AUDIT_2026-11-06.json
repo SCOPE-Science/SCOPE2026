@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:42:06.209671Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legendre identity gives v_q binom(qn,n)=s_q((q-1)2^e)/(q-1) exactly. Lucas/Kummer parity gives binom(q^2,q) even for every odd prime q, excluding t=1. When q>2^e, the base-q digits of (q-1)2^e sum to q-1, excluding t>=2; equality q=2^e cannot occur for odd q. CRT reduces remaining finite checks to binomial mod 2^e. Recomputed every possible (q,t) candidate for e<=4 with exact integers and full-modulus checks: 36 and 400 alone survive. The unrestricted finiteness rests on the digit-and-carry argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior tower record explicitly restricts its cofactor prime p>=5; Guedes–Machado n=q^t*p has p prime to the first power."
+        ],
+        "reasoning": "Neither theorem dominates mixed n=2^e q^t with e>1, since their hypotheses exclude these numbers.",
+        "searches": [
+          "Resultary: prime-power towers for prime-base binomial congruence 2026/10/4/a71ec1d0fa28",
+          "Guedes–Machado full seven-page manuscript §§2–7"
+        ]
+      },
+      "checked_sources": [
+        "Guedes–Machado arXiv:2606.30232 full pp.1-7, especially Thm 3.1",
+        "OEIS A080469 and A109760",
+        "Resultary prime-power tower summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Theorem 3.1 covers p=2 only when e=1, while the e>=2 family requires a composite cofactor.",
+          "The q-adic valuation used here is a standard direct consequence of Legendre."
+        ],
+        "reasoning": "The novel implication is from the binary carry obstruction plus the q-adic digit bound to q<2^e and complete low dyadic fibers; neither available stronger theorem makes that deduction across e>=2.",
+        "searches": [
+          "arXiv:2606.30232 Theorem 3.1",
+          "Resultary prime-power tower p>=5",
+          "Web dyadic finite congruence binom(qn,n)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guedes–Machado §3 equivalent q-digit bound for n=q^t*p with p a prime, including p=2 only to the first power.",
+          "This theorem concerns all fixed higher dyadic powers 2^e, e>=2."
+        ],
+        "reasoning": "The source supports the valuation ingredient but does not cover the combination with Lucas carry obstruction and q<2^e for all e.",
+        "searches": [
+          "Resultary: Binomial congruence binom(qn,n) congruent q^n modulo n for n=2^e q^t dyadic fixed valuation odd prime q bound q<2^e",
+          "Guedes–Machado arXiv:2606.30232 Theorem 3.1 pages 2-3",
+          "Web: OEIS A080469 and A109760"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "36 and 400 appear as known terms in OEIS, which is explicitly acknowledged.",
+          "The manuscript Table 1 gives other structured prime-cofactor examples, not a complete fixed dyadic fiber."
+        ],
+        "reasoning": "Finite example lists cannot prove absence of arbitrarily large q,t at fixed e; the uniform impossibility bound and exhaustive low layers are the substantive additional results.",
+        "searches": [
+          "OEIS A080469 base 3",
+          "OEIS A109760 base 5",
+          "Guedes–Machado 2026 Table 1"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.",
+      "residual_risks": [
+        "An older unindexed theorem on q-adic digit bounds for 2-power cofactors might imply the same exclusion.",
+        "Existing numerical examples are not original and are expressly excluded from the novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers prime first-power cofactor and the q-adic digit argument; does not establish the fixed higher dyadic cofactor theorem.",
+          "evidence": "Theorem 3.1 n=q^t p with p a prime; §5 Table 1; Theorem 6.2 squares p^2.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.30232",
+          "material_read": "Complete 7-page open manuscript returned through authorized academic text retrieval, including Theorem 3.1 proof pp.2-3, computations §5 and square result §6.",
+          "method": "Authorized lawful PDF text extraction after arXiv and OA HTML attempts were unavailable",
+          "title": "Structured Solutions of Prime-Base Binomial Congruences",
+          "trigger": "Directly same congruence and overlapping prime-power forms"
+        },
+        {
+          "assessment": "Explicit cofactor p>=5, inapplicable to dyadic prime.",
+          "evidence": "Search summary states distinct primes p>=5 and q, n=p^r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28",
+          "material_read": "Published Resultary searchable theorem statement and restrictions; not full text.",
+          "method": "Resultary semantic index",
+          "title": "Prime-power towers for the prime-base binomial congruence",
+          "trigger": "Related tower classification"
+        },
+        {
+          "assessment": "Numerical examples 36 and 400 pre-exist; not claimed as new.",
+          "evidence": "Source manuscript §6 mentions known 121; assigned source credits 36 and 400.",
+          "identifier_or_url": "https://oeis.org/A080469",
+          "material_read": "Searchable sequence metadata and known examples; not a source of a complete theorem.",
+          "method": "OEIS and literature summaries",
+          "title": "OEIS A080469 / A109760",
+          "trigger": "Known examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform finite-prime obstruction at each fixed 2-adic layer for a natural binomial-congruence problem, with complete initial layers. It goes beyond lookup of two existing examples: the quantified bound makes an infinite two-parameter search finite and illuminates dyadic versus odd cofactor behavior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Guedes–Machado arXiv:2606.30232 full pp.1-7, especially Thm 3.1",
+    "OEIS A080469 and A109760",
+    "Resultary prime-power tower summary"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n=2^e q^t with e,t>=1, q odd prime, the binomial congruence implies 2<=t<=s_q((q-1)2^e)/(q-1) and q<2^e, giving complete e=1..4 fibers empty, {36}, empty, {400}.",
+  "limitations": [
+    "An older unindexed theorem on q-adic digit bounds for 2-power cofactors might imply the same exclusion.",
+    "Existing numerical examples are not original and are expressly excluded from the novelty claim."
+  ],
+  "residual_risks": [
+    "An older unindexed theorem on q-adic digit bounds for 2-power cofactors might imply the same exclusion.",
+    "Existing numerical examples are not original and are expressly excluded from the novelty claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers prime first-power cofactor and the q-adic digit argument; does not establish the fixed higher dyadic cofactor theorem.",
+      "evidence": "Theorem 3.1 n=q^t p with p a prime; §5 Table 1; Theorem 6.2 squares p^2.",
+      "identifier_or_url": "https://arxiv.org/abs/2606.30232",
+      "material_read": "Complete 7-page open manuscript returned through authorized academic text retrieval, including Theorem 3.1 proof pp.2-3, computations §5 and square result §6.",
+      "method": "Authorized lawful PDF text extraction after arXiv and OA HTML attempts were unavailable",
+      "title": "Structured Solutions of Prime-Base Binomial Congruences",
+      "trigger": "Directly same congruence and overlapping prime-power forms"
+    },
+    {
+      "assessment": "Explicit cofactor p>=5, inapplicable to dyadic prime.",
+      "evidence": "Search summary states distinct primes p>=5 and q, n=p^r.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28",
+      "material_read": "Published Resultary searchable theorem statement and restrictions; not full text.",
+      "method": "Resultary semantic index",
+      "title": "Prime-power towers for the prime-base binomial congruence",
+      "trigger": "Related tower classification"
+    },
+    {
+      "assessment": "Numerical examples 36 and 400 pre-exist; not claimed as new.",
+      "evidence": "Source manuscript §6 mentions known 121; assigned source credits 36 and 400.",
+      "identifier_or_url": "https://oeis.org/A080469",
+      "material_read": "Searchable sequence metadata and known examples; not a source of a complete theorem.",
+      "method": "OEIS and literature summaries",
+      "title": "OEIS A080469 / A109760",
+      "trigger": "Known examples"
+    }
+  ]
+}
