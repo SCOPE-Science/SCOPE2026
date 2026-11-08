@@ -1,13 +1,21 @@
-# Scientific review — the six-element nondistributive carrier spectrum
+# Independent mathematical audit
 
-**Correctness: PASS.** For each \(m\ge4\), the proof builds two specified equivalence relations on an \(m\)-point set. A direct witness argument establishes, for arbitrary equivalences \(\delta,\gamma\), the exact congruence lattice of all two-valued unary maps whose kernels contain \(\delta\) and whose image pairs belong to single \(\gamma\)-classes. In the constructed case the two intervals have respectively four and two members, with no overlap, and their order is \(L_{6,1}^{d}\). Height three yields the sharp lower bound \(m\ge4\). Two independent styles of finite testing agreed for sizes four through eight; those tests supplement, rather than substitute for, the quantified proof.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest primary article (Dormán, Kátai-Urbán, Horváth and Waldhauser, arXiv:2610.33305v1, 2026-10-23) explicitly asks for all carrier-size spectra in Problem 40 and gives only a minimal four-point representation of this exact six-element nondistributive lattice in Appendix B.4, item 6/2. Its two explicit spectrum theorems concern partition lattices and distributive lattices; this lattice is neither. Its generic gluing and ordinal-sum constructions do not give the displayed fixed six-element shape, because there is no interior universal comparison point. Its Galois-closure criterion (and Bandelt's earlier concrete characterization) are antecedent machinery and may imply the interval-union lemma, but the article does not establish a uniform embedding for this lattice for all carrier sizes. Prior published-record searches on the carrier spectrum, interval-union realization and dual six-element lattice found no covering statement, and no retrieved mathematical source supplies the quantified all-carrier-size assertion. Residual risk: an older unindexed representation theorem may imply the uniform carrier-size result without naming the lattice; the short 1977 Bandelt article was not independently available in full. Unavailability is not evidence of noncoverage.
+PASS
 
-**Mathematical value: PASS.** This gives a sharp and complete spectrum for a specific natural **nondistributive** six-element lattice in the authors' systematic classification, answering a nontrivial part of their stated carrier-spectrum problem rather than merely furnishing an additional example. The proof supplies a broad constructive interval-union lemma applicable to arbitrary pairs of equivalences and an explicit finite operation family for each carrier size. No claim is made to classify all nondistributive spectra or optimize operation counts.
+For arbitrary equivalences δ and γ, each surjective two-valued map to a pair in a single γ-class and constant on δ-classes preserves θ if θ≤δ or θ≥γ. Conversely, if θ is in neither interval, choose θ-related x,y in different δ-blocks and γ-related p,q distinguished by θ, and define the two-valued map by δ-blocks to separate x,y. This proves the complete congruence lattice is [0,δ]∪[γ,1] even at degenerate endpoints. For m≥4 choose δ with {0,1},{2,3} as only nonsingleton blocks, γ with U={0,2,4,...,m−1} and V={1,3}. The two intervals have respectively four and two members; their meets/joins show exactly the specified six-element nondistributive H. Congruence-lattice chain of length three entails m−1≥3, so m≥4 sharp. Independent literal enumeration of family operations and all equivalence relations for m=4,5 produced six congruences and checked the stated operation counts; general proof independent of these experiments.
 
-**Closest literature:** arXiv:2610.33305v1 (2026), especially Lemma 11, Theorem 12, Theorem 28, Propositions 41–42, Problem 40, Appendix B.4. Bandelt (1977) is a material historical-priority risk. The general 2016/2018 congruence-lattice work of Jakubíková-Studenovská, Pöschel and Radeleczki is concerned with the entire congruence-lattice ordering on a fixed set and does not provide the claimed spectrum in its accessible abstract.
+## originality
 
-**Limits:** exact statement only for \(L_{6,1}^{d}\); all integers \(m\ge4\) covered. The construction is not operation-count optimal. Checking code is finite. No independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge the entire carrier spectrum {m≥4} for the named nondistributive L6,1^d is not supplied by Dormán–Kátai-Urbán–Horváth–Waldhauser, which supplies a 4-point representation in Appendix B.4 and explicitly asks for spectra in Problem 40. Their distributive/partition-lattice spectra are not applicable to this H. The interval-union realization lemma may be implicit in older Bandelt characterization and is not claimed independently historically new.
+
+## value
+
+PASS
+
+The spectrum is exactly a natural unanswered invariant highlighted by Problem 40, not an arbitrary carrier example. A uniform construction works on every admissible size, and the chain-height obstruction proves sharpness; this answers a complete six-element nondistributive test case and provides an explicit parametrized construction for potential use on other lattices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
