@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact integration of held acceleration gives F_r(t). The 2x2 Jury inequalities characterize all individually Schur-stable t by 0<t<min(2,2/r). Symbolic multiplication gives 1-T+D=r(a+b)(a+b-ab)>0 and 2(1+T+D)=S_r(a,b), with 1-D>0. For fixed z=ab, (L-a)(L-b)>0 implies a+b<L+z/L, so S_r(a,b)>S_r(L,z/L); every boundary pair can be approached by interior pairs. The edge quadratic has rigorously evaluated minima on all four parameter regimes, proving both the all-pairs property and actual interior unstable witnesses. At r=1,a=3/4,b=7/4, the exact 1+T+D=-71/512. An independent exact-fraction Jury implementation and symbolic identity script passed 9227 rational cases; computation supplements analytic proof, not substitutes for real-parameter quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berberich et al. arXiv:2011.09221 sections 1--6 derive data-driven and robust MSI sufficient results for general plants, not a precise all-pairs fixed-gain two-period equivalence.",
+        "Wildhagen et al. arXiv:2103.14353 use IQC-based sufficient sampling conditions; no exact two-period double-integrator ratio frontier in inspected body.",
+        "Sevim and Goren-Sumer arXiv:2212.02922 sections 2--4: model F(h)+G(h)K and a common transformed norm criterion sufficient for arbitrary nonuniform sampling; no exact necessary two-period threshold.",
+        "Mustafa et al., IET Control Theory & Applications (2013): general LMI-based sampled-data dynamic output-feedback design; rendered equations were not all available as text."
+      ],
+      "reasoning": "The broad frameworks encompass held-input linear plants as a class, but their displayed sufficient LMIs or common-contraction hypotheses do not imply the necessary-and-sufficient two-period parameter classification. Conversely the present periodic theorem does not improve or replace their arbitrary-switching sufficient guarantees. Detailed uninspected historical control literature remains a possible source of a stronger implication.",
+      "searches": [
+        "arxiv:2011.09221",
+        "arxiv:2103.14353",
+        "arxiv:2212.02922",
+        "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-cta.2012.0355",
+        "\"double integrator\" \"aperiodic sampling\" \"periodic\" state feedback zero order hold instability"
+      ]
+    },
+    "checked_sources": [
+      "Berberich--Wildhagen--Hertneck--Allgower, arXiv:2011.09221 (initial public 2020-11-18)",
+      "Wildhagen--Berberich--Hirche--Allgower, arXiv:2103.14353",
+      "Kotyczka--Lefevre, IFAC World Congress 2020 full accessible relevant sections",
+      "Sevim--Goren-Sumer, arXiv:2212.02922",
+      "Mustafa et al., IET Control Theory & Applications 2013 accessible prose",
+      "Bernuau--Moulay--Coirault, Automatica 2017 abstract/extract only",
+      "Published mathematical-record hits on two-period recurrences, periodic oscillator norms, and sampled control/optimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published two-period scalar recurrence result concerns a bilateral ell2 residual-error constant rather than state-feedback Floquet eigenvalues.",
+        "Published oscillator factor-order result compares whole-line Ulam constants for reordered differential factors, not sampled held-input PD feedback.",
+        "Published PID optimizer result analyzes gradient iteration with hidden momentum, not a continuously evolving second-order plant.",
+        "Sevim--Goren-Sumer common-contraction condition is sufficient for arbitrary switching; its failure does not force a 2-period unstable product."
+      ],
+      "reasoning": "Titles and shared words period/stability are not enough. The objects, matrix transitions, quantified admissible step range, fixed gain ratio, and exact necessary Schur boundary are different. The prior claims do not imply the present two-period classification or polynomial infimum without the new product and optimization arguments. No independence or priority certification is claimed.",
+      "searches": [
+        "2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+        "2026/10/11/SCOPE-isospectral-factor-order-produces-a-square-root-separation-of-op--e73e88d13cc0",
+        "2026/10/4/SCOPE-exact-quadratic-stability-and-hidden-momentum-factorization-of-t--7b863d0a1163",
+        "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+        "arxiv:2212.02922"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact normalized transition F_r(t) and trace/determinant identities are derived directly in RESULT.md.",
+        "Sevim--Goren-Sumer, arXiv:2212.02922 sections 2--4, considers nonuniform sampled double integrators but establishes common-contraction sufficient conditions, not an exact two-period fixed-gain classification.",
+        "Kotyczka--Lefevre, IFAC 2020 sections 2--3, studies symplectic-feedback design rather than products of unchanged PD gains."
+      ],
+      "reasoning": "A common-norm sufficient condition implies stability when it holds, but it cannot yield necessity of the exact parameter thresholds or determine the sharp loss of two-period stability at gains inside the window. The symplectic design alters feedback with discretization, so it does not address the fixed-gain family. Exact matching of plant type alone is not statement implication.",
+      "searches": [
+        "double integrator sampled data zero order hold PD feedback alternating sampling intervals both stable individual destabilizing two-step Schur exact jitter threshold",
+        "two-step periodically sampled double integrator feedback proportional derivative alternating step stability counterexample",
+        "periodic jitter destabilizes individually Schur stable sampled-data double integrator proportional derivative state feedback",
+        "\"double integrator\" \"alternating\" \"sampling\" \"stability\" feedback",
+        "\"sampled-data\" \"double integrator\" \"alternating intervals\" \"stability\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record search returns related but different two-period scalar recurrence and periodic-oscillator norm results, not the exact S_r polynomial or all-pairs ratio threshold.",
+        "The explicit rational witness r=1,a=3/4,b=7/4 and full piecewise continuum infimum are computed here, not sourced from a table."
+      ],
+      "reasoning": "This is an analytic continuum classification, not a finite tabulated constant. No inspected exact database item duplicates the claim; search absence alone is not proof of novelty, and the residual-risk field records remaining search limits.",
+      "searches": [
+        "sampled double integrator two sampling periods Schur",
+        "period two sampling jitter instability under fixed gain double integrator aperiodic control exact Schur-Jury classification",
+        "double integrator sampled data zero order hold PD feedback alternating sampling intervals both stable individual destabilizing two-step Schur exact jitter threshold",
+        "Schur stable one step matrices of a double integrator become unstable under two period alternating intervals with stationary PD gains"
+      ]
+    },
+    "rationale": "Existing inspected primary control literature gives general robust sampling bounds, common-norm sufficient conditions, or feedback redesign for exact discretized double integrators. None of their inspected claims states the fixed-gain two-period exact Jury margin S_r, its piecewise infimum, or the all-pairs if-and-only-if gain-ratio boundary (0,1/2] union [2,infinity). The Schur test, ZOH integration and existence of switching instability are prior art and excluded from the claim. The result differs from closely related published two-period scalar recurrences and oscillator factor-order invariants. A genuine residual specialist precedence risk remains.",
+    "residual_risks": [
+      "Older 2013 nonuniform sampled-data output-feedback article contains equations rendered as images; a specialist worked example may contain a stronger exact two-period consequence not completely excluded.",
+      "2017 homogeneous sampled-data paper has an inaccessible full manuscript, so its double-integrator example cannot be ruled out from snippets.",
+      "A specialist switching-control theorem or exact periodic sampled-PD example outside inspected search scope could predate this classification.",
+      "No exhaustive global mathematical literature or specialist human priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_GUARANTEE_NOT_EXACT_TWO_PERIOD_BOUNDARY",
+        "evidence": "The main results compute robust/data-driven maximum sampling interval lower guarantees, not all-pairs two-period gain-ratio iff threshold.",
+        "identifier_or_url": "https://arxiv.org/html/2011.09221v2",
+        "material_read": "Accessible full arXiv HTML research text, sections 1--6, including problem formulation, sampling-bound theorems, proof themes and scope",
+        "method": "Text reading and mathematical comparison of hypotheses, sampling guarantees, and sufficient vs necessary statements",
+        "title": "Data-driven analysis and control of continuous-time systems under aperiodic sampling",
+        "trigger": "Primary motivating public 2020 source about fixed feedback under arbitrary sampling"
+      },
+      {
+        "assessment": "DIFFERENT_SUFFICIENT_CRITERIA",
+        "evidence": "IQC/delay approach supplies generic conservative sufficient criteria; no stated exact fixed-gain two-period frontier.",
+        "identifier_or_url": "https://arxiv.org/html/2103.14353v2",
+        "material_read": "Accessible arXiv HTML paper, including problem setup, IQC conditions, theorems and applications",
+        "method": "Compared sufficient IQC sampling conditions with strict two-period Schur necessity",
+        "title": "Improved stability conditions for systems under aperiodic sampling: model- and data-based analysis",
+        "trigger": "General stability framework could dominate a specialized periodic theorem"
+      },
+      {
+        "assessment": "SAME_PLANT_DIFFERENT_DESIGN",
+        "evidence": "Analyzes feedback derived from symplectic integration; does not exhibit the constant-gain S_r(a,b) classification in inspected material.",
+        "identifier_or_url": "https://ifatwww.et.uni-magdeburg.de/ifac2020/media/pdfs/1447.pdf",
+        "material_read": "Publisher-hosted PDF text, problem formulation and sections 2--3 with the double-integrator example; one relevant PDF page inspected visually",
+        "method": "Compared exact discretization and controller redesign mechanism against constant-gain alternating Floquet products",
+        "title": "Discrete-Time Control Design Based on Symplectic Integration: Linear Systems",
+        "trigger": "Same double-integrator zero-order-held discretization"
+      },
+      {
+        "assessment": "SAME_COMPONENT_CLASS_DIFFERENT_QUANTIFIERS",
+        "evidence": "Corollary 2 demands one contracting norm for all sampling gaps, which is sufficient for arbitrary gap sequences, whereas this theorem precisely classifies only two alternating individually stable gaps.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.02922",
+        "material_read": "Full arXiv rendered text, including introduction, sections 2--4 and displayed sampled-data stability theorem",
+        "method": "Compared their common transformed contraction sufficient condition for switching with exact two-step fixed-gain Jury criterion",
+        "title": "Consensus of Double Integrator Multiagent Systems under Nonuniform Sampling and Changing Topology",
+        "trigger": "Same ideal double-integrator with nonuniform sampling and state feedback"
+      },
+      {
+        "assessment": "POSSIBLE_BROADER_SOURCE_NOT_FULLY_EXCLUDED",
+        "evidence": "General nonuniform sampling robust dynamic output feedback using LMIs, with missing machine-readable equation details.",
+        "identifier_or_url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-cta.2012.0355",
+        "material_read": "Accessible rendered introduction, problem formulation, stability conditions and design procedure; many equations were image-only",
+        "method": "Compared available article text and general LMI sufficient statements; not a whole-manuscript exhaustive mathematical comparison",
+        "title": "Stabilisation of non-uniformly sampled systems via dynamic output-feedback control",
+        "trigger": "Older aperiodic sampling general fixed-controller stability"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_PRECEDENT",
+        "evidence": "Describes nonlinear homogeneous systems and maximum-step results; inaccessible detailed examples may conceivably overlap and remain a named risk.",
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2017.07.048",
+        "material_read": "Publisher/index abstracts and short accessible extracts only; full HAL manuscript was not accessible",
+        "method": "Limited title, scope, example and abstract comparison; NO full-text noncoverage verdict",
+        "title": "Stability of homogeneous nonlinear systems with sampled-data inputs",
+        "trigger": "Earlier potentially related sampled-data double-integrator examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18a80c1b-cb0a-490f-87c8-1ecb3d1d65a7",
+  "value": {
+    "rationale": "The gain ratio k_p/k_d^2 naturally measures proportional relative to squared derivative feedback strength. The theorem decisively separates ranges where all individually stabilizing sample intervals are safe to alternate from a wide region where periodic jitter alone creates exponential divergence, with a sharp all-real gain frontier and a rational witness. The complete criterion and minimal two-period counterexample complement—not merely rename—single-rate sampled stability or generic conservative robust bounds. The restriction to exact periodic switching is explicit.",
+    "status": "PASS"
+  }
+}
